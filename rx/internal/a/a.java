@@ -5,10 +5,10 @@ import rx.f;
 import rx.j;
 /* loaded from: classes2.dex */
 public class a<T> extends j<T> implements rx.b.a<T> {
-    private final h<T> iEK;
+    private final h<T> iFR;
 
     public a(h<T> hVar) {
-        this.iEK = hVar;
+        this.iFR = hVar;
     }
 
     public static <T> a<T> dF(long j) {
@@ -20,30 +20,30 @@ public class a<T> extends j<T> implements rx.b.a<T> {
 
     @Override // rx.j
     public void onStart() {
-        this.iEK.onStart();
+        this.iFR.onStart();
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.iEK.onCompleted();
+        this.iFR.onCompleted();
     }
 
     @Override // rx.j
     public void setProducer(f fVar) {
-        this.iEK.setProducer(fVar);
+        this.iFR.setProducer(fVar);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.iEK.onError(th);
+        this.iFR.onError(th);
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.iEK.onNext(t);
+        this.iFR.onNext(t);
     }
 
     public String toString() {
-        return this.iEK.toString();
+        return this.iFR.toString();
     }
 }

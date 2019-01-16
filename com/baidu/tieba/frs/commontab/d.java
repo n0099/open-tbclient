@@ -40,8 +40,8 @@ public class d implements j {
                         bbVar.setUserMap(this.userMap);
                         bbVar.a(threadInfo);
                         bbVar.setCurrentPage(3);
-                        bbVar.Aq();
-                        if (bbVar.getType() == bb.atj || bbVar.getType() == bb.ato) {
+                        bbVar.AD();
+                        if (bbVar.getType() == bb.atL || bbVar.getType() == bb.atQ) {
                             this.threadList.add(bbVar);
                         }
                     }

@@ -6,98 +6,98 @@ import com.facebook.imagepipeline.d.h;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class i {
-    private final int ipz;
-    private final boolean iqK;
-    private final boolean iqL;
-    private final com.facebook.common.internal.i<Boolean> iqM;
-    private final q iqN;
-    private final b.a iqO;
-    private final boolean iqP;
-    private final com.facebook.common.g.b iqQ;
-    private final boolean iqR;
-    private final boolean iqS;
+    private final int iqG;
+    private final boolean irR;
+    private final boolean irS;
+    private final com.facebook.common.internal.i<Boolean> irT;
+    private final q irU;
+    private final b.a irV;
+    private final boolean irW;
+    private final com.facebook.common.g.b irX;
+    private final boolean irY;
+    private final boolean irZ;
 
     private i(a aVar, h.a aVar2) {
-        this.ipz = aVar.ipz;
-        this.iqK = aVar.iqK;
-        this.iqL = aVar.iqL;
-        if (aVar.iqM == null) {
-            this.iqM = new com.facebook.common.internal.i<Boolean>() { // from class: com.facebook.imagepipeline.d.i.1
+        this.iqG = aVar.iqG;
+        this.irR = aVar.irR;
+        this.irS = aVar.irS;
+        if (aVar.irT == null) {
+            this.irT = new com.facebook.common.internal.i<Boolean>() { // from class: com.facebook.imagepipeline.d.i.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.facebook.common.internal.i
-                /* renamed from: bXK */
+                /* renamed from: bYs */
                 public Boolean get() {
                     return Boolean.FALSE;
                 }
             };
         } else {
-            this.iqM = aVar.iqM;
+            this.irT = aVar.irT;
         }
-        this.iqN = aVar.iqN;
-        this.iqO = aVar.iqO;
-        this.iqP = aVar.iqP;
-        this.iqQ = aVar.iqQ;
-        this.iqR = aVar.iqR;
-        this.iqS = aVar.iqS;
+        this.irU = aVar.irU;
+        this.irV = aVar.irV;
+        this.irW = aVar.irW;
+        this.irX = aVar.irX;
+        this.irY = aVar.irY;
+        this.irZ = aVar.irZ;
     }
 
-    public boolean bXN() {
-        return this.iqL;
+    public boolean bYv() {
+        return this.irS;
     }
 
-    public int bXO() {
-        return this.ipz;
+    public int bYw() {
+        return this.iqG;
     }
 
-    public boolean bXP() {
-        return this.iqM.get().booleanValue();
+    public boolean bYx() {
+        return this.irT.get().booleanValue();
     }
 
     @Nullable
-    public q bXQ() {
-        return this.iqN;
+    public q bYy() {
+        return this.irU;
     }
 
-    public boolean bXR() {
-        return this.iqS;
+    public boolean bYz() {
+        return this.irZ;
     }
 
-    public boolean bXS() {
-        return this.iqK;
+    public boolean bYA() {
+        return this.irR;
     }
 
-    public boolean bXT() {
-        return this.iqP;
+    public boolean bYB() {
+        return this.irW;
     }
 
-    public b.a bXU() {
-        return this.iqO;
+    public b.a bYC() {
+        return this.irV;
     }
 
-    public com.facebook.common.g.b bXV() {
-        return this.iqQ;
+    public com.facebook.common.g.b bYD() {
+        return this.irX;
     }
 
     /* loaded from: classes2.dex */
     public static class a {
-        private q iqN;
-        private b.a iqO;
-        private com.facebook.common.g.b iqQ;
-        private final h.a iqU;
-        private int ipz = 0;
-        private boolean iqK = false;
-        private boolean iqL = false;
-        private com.facebook.common.internal.i<Boolean> iqM = null;
-        private boolean iqP = false;
-        private boolean iqR = false;
-        private boolean iqS = false;
+        private q irU;
+        private b.a irV;
+        private com.facebook.common.g.b irX;
+        private final h.a isb;
+        private int iqG = 0;
+        private boolean irR = false;
+        private boolean irS = false;
+        private com.facebook.common.internal.i<Boolean> irT = null;
+        private boolean irW = false;
+        private boolean irY = false;
+        private boolean irZ = false;
 
         public a(h.a aVar) {
-            this.iqU = aVar;
+            this.isb = aVar;
         }
 
-        public i bXW() {
-            return new i(this, this.iqU);
+        public i bYE() {
+            return new i(this, this.isb);
         }
     }
 }

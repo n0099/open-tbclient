@@ -15,55 +15,55 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes.dex */
 public class b {
-    private static b gHO = null;
-    private com.baidu.tieba.play.a.a gHN;
-    private InterfaceC0295b gHP = null;
-    private int gHQ = 0;
+    private static b gIS = null;
+    private com.baidu.tieba.play.a.a gIR;
+    private InterfaceC0295b gIT = null;
+    private int gIU = 0;
 
     /* renamed from: com.baidu.tieba.play.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0295b {
-        void cu(String str, String str2);
+        void cv(String str, String str2);
     }
 
     private b() {
     }
 
-    public static b bsR() {
-        if (gHO == null) {
+    public static b btA() {
+        if (gIS == null) {
             synchronized (b.class) {
-                if (gHO == null) {
-                    gHO = new b();
+                if (gIS == null) {
+                    gIS = new b();
                 }
             }
         }
-        return gHO;
+        return gIS;
     }
 
     public void a(InterfaceC0295b interfaceC0295b) {
-        this.gHP = interfaceC0295b;
+        this.gIT = interfaceC0295b;
     }
 
-    public boolean ub(String str) {
+    public boolean ur(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (uc(str) && this.gHN.bsQ().size() > this.gHQ) {
-            if (this.gHP != null) {
-                InterfaceC0295b interfaceC0295b = this.gHP;
-                List<String> bsQ = this.gHN.bsQ();
-                int i = this.gHQ;
-                this.gHQ = i + 1;
-                interfaceC0295b.cu(bsQ.get(i), str);
+        if (us(str) && this.gIR.btz().size() > this.gIU) {
+            if (this.gIT != null) {
+                InterfaceC0295b interfaceC0295b = this.gIT;
+                List<String> btz = this.gIR.btz();
+                int i = this.gIU;
+                this.gIU = i + 1;
+                interfaceC0295b.cv(btz.get(i), str);
             }
             return true;
-        } else if (this.gHN != null && this.gHN.bsQ() != null && this.gHN.bsQ().size() <= this.gHQ) {
-            this.gHQ = 0;
-            this.gHN = null;
+        } else if (this.gIR != null && this.gIR.btz() != null && this.gIR.btz().size() <= this.gIU) {
+            this.gIU = 0;
+            this.gIR = null;
             return false;
         } else {
-            this.gHQ = 0;
-            this.gHN = null;
+            this.gIU = 0;
+            this.gIR = null;
             a aVar = new a();
             aVar.setHost(str);
             aVar.execute(new Void[0]);
@@ -71,8 +71,8 @@ public class b {
         }
     }
 
-    private boolean uc(String str) {
-        return (this.gHN == null || TextUtils.isEmpty(str) || !str.equals(this.gHN.getHost()) || v.I(this.gHN.bsQ()) || this.gHN.df(System.currentTimeMillis()) || this.gHN.bsQ().size() <= this.gHQ) ? false : true;
+    private boolean us(String str) {
+        return (this.gIR == null || TextUtils.isEmpty(str) || !str.equals(this.gIR.getHost()) || v.I(this.gIR.btz()) || this.gIR.df(System.currentTimeMillis()) || this.gIR.btz().size() <= this.gIU) ? false : true;
     }
 
     /* loaded from: classes.dex */
@@ -190,7 +190,7 @@ public class b {
                             }
                             com.baidu.tieba.play.a.a aVar = new com.baidu.tieba.play.a.a();
                             aVar.setStartTime(System.currentTimeMillis());
-                            publishProgress(aVar.ua(stringBuffer.toString()));
+                            publishProgress(aVar.uq(stringBuffer.toString()));
                             if (inputStreamReader != null) {
                                 try {
                                     inputStreamReader.close();
@@ -261,14 +261,14 @@ public class b {
         public void onProgressUpdate(com.baidu.tieba.play.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
             if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.mHost)) {
-                b.this.gHN = aVarArr[0];
-                if (!v.I(aVarArr[0].bsQ()) && b.this.gHP != null) {
-                    b.this.gHP.cu(aVarArr[0].bsQ().get(0), aVarArr[0].getHost());
+                b.this.gIR = aVarArr[0];
+                if (!v.I(aVarArr[0].btz()) && b.this.gIT != null) {
+                    b.this.gIT.cv(aVarArr[0].btz().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.gHP != null) {
-                b.this.gHP.cu(null, null);
+            if (b.this.gIT != null) {
+                b.this.gIT.cv(null, null);
             }
         }
 

@@ -26,12 +26,12 @@ import com.baidu.tieba.e;
 import org.apache.http.HttpStatus;
 /* loaded from: classes6.dex */
 public class b implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
-    private ImageView ebP;
-    private TextView ebQ;
-    private String ebR;
-    private View ebS;
-    private View ebT;
-    private String ebX;
+    private String ecD;
+    private ImageView ecv;
+    private TextView ecw;
+    private String ecx;
+    private View ecy;
+    private View ecz;
     private String forumId;
     private TbPageContext mContext;
     private View rootView;
@@ -42,7 +42,7 @@ public class b implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
         @Override // com.baidu.adp.lib.f.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             if (aVar != null) {
-                aVar.a(b.this.ebP);
+                aVar.a(b.this.ecv);
             }
         }
 
@@ -64,35 +64,35 @@ public class b implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
     public b(TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
         this.rootView = LayoutInflater.from(tbPageContext.getContext()).inflate(e.h.frs_head_image_item, (ViewGroup) null, false);
-        this.ebS = this.rootView.findViewById(e.g.frs_header_title_container);
-        this.ebP = (ImageView) this.rootView.findViewById(e.g.frs_head_image);
+        this.ecy = this.rootView.findViewById(e.g.frs_header_title_container);
+        this.ecv = (ImageView) this.rootView.findViewById(e.g.frs_head_image);
         this.titleText = (TextView) this.rootView.findViewById(e.g.frs_header_title);
-        this.ebQ = (TextView) this.rootView.findViewById(e.g.frs_header_title_lable);
-        this.ebT = this.rootView.findViewById(e.g.frs_image_header_contianer);
-        aGH();
-        this.ebT.getLayoutParams().height = aGG();
-        this.ebT.requestLayout();
-        this.ebQ.setText(tbPageContext.getString(e.j.frs_header_image_lable));
-        this.ebP.setOnClickListener(this);
-        this.ebS.setOnClickListener(this);
-        this.ebT.setOnClickListener(this);
+        this.ecw = (TextView) this.rootView.findViewById(e.g.frs_header_title_lable);
+        this.ecz = this.rootView.findViewById(e.g.frs_image_header_contianer);
+        aHe();
+        this.ecz.getLayoutParams().height = aHd();
+        this.ecz.requestLayout();
+        this.ecw.setText(tbPageContext.getString(e.j.frs_header_image_lable));
+        this.ecv.setOnClickListener(this);
+        this.ecy.setOnClickListener(this);
+        this.ecz.setOnClickListener(this);
     }
 
-    private int aGG() {
+    private int aHd() {
         if (this.screenWidth == 0 || this.screenHeight == 0) {
             return l.h(this.mContext.getPageActivity(), e.C0210e.ds278);
         }
-        if (Float.compare(nl(HttpStatus.SC_REQUESTED_RANGE_NOT_SATISFIABLE), 0.0f) == 0 || Float.compare(nl(1080), 0.0f) == 0) {
+        if (Float.compare(nm(HttpStatus.SC_REQUESTED_RANGE_NOT_SATISFIABLE), 0.0f) == 0 || Float.compare(nm(1080), 0.0f) == 0) {
             return l.h(this.mContext.getPageActivity(), e.C0210e.ds278);
         }
-        return (int) ((nl(HttpStatus.SC_REQUESTED_RANGE_NOT_SATISFIABLE) / nl(1080)) * nl(this.screenWidth));
+        return (int) ((nm(HttpStatus.SC_REQUESTED_RANGE_NOT_SATISFIABLE) / nm(1080)) * nm(this.screenWidth));
     }
 
-    private float nl(int i) {
+    private float nm(int i) {
         return i * 1.0f;
     }
 
-    private void aGH() {
+    private void aHe() {
         if (this.screenWidth == 0 || this.screenHeight == 0) {
             Display defaultDisplay = ((WindowManager) TbadkCoreApplication.getInst().getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay();
             if (Build.VERSION.SDK_INT >= 13) {
@@ -109,11 +109,11 @@ public class b implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void onChangeSkinType(int i) {
-        if (this.ebP != null) {
-            al.e(this.ebP, e.d.cp_bg_line_e, i);
+        if (this.ecv != null) {
+            al.e(this.ecv, e.d.cp_bg_line_e, i);
         }
-        if (this.ebQ != null) {
-            al.c(this.ebQ, e.d.cp_cont_i, i);
+        if (this.ecw != null) {
+            al.c(this.ecw, e.d.cp_cont_i, i);
         }
         if (this.titleText != null) {
             al.c(this.titleText, e.d.cp_cont_i, i);
@@ -122,8 +122,8 @@ public class b implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void hideTitle() {
-        if (this.ebS != null) {
-            this.ebS.setVisibility(8);
+        if (this.ecy != null) {
+            this.ecy.setVisibility(8);
         }
     }
 
@@ -133,48 +133,48 @@ public class b implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
-    public LinearLayout aGI() {
+    public LinearLayout aHf() {
         return null;
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void a(com.baidu.tieba.tbadkCore.l lVar, String str) {
-        if (this.ebP != null && !TextUtils.isEmpty(str)) {
+        if (this.ecv != null && !TextUtils.isEmpty(str)) {
             c.jA().a(str, 10, this.mCallback, 0, 0, null, new Object[0]);
-            if (lVar != null && lVar.bgT() != null && !TextUtils.isEmpty(lVar.bgT().getId()) && lVar.bCj() != null && !TextUtils.isEmpty(lVar.bCj().yk())) {
-                this.forumId = lVar.bgT().getId();
-                this.ebX = lVar.bCj().yk();
+            if (lVar != null && lVar.bhx() != null && !TextUtils.isEmpty(lVar.bhx().getId()) && lVar.bCS() != null && !TextUtils.isEmpty(lVar.bCS().yx())) {
+                this.forumId = lVar.bhx().getId();
+                this.ecD = lVar.bCS().yx();
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void setTitle(String str) {
-        if (this.titleText != null && this.ebQ != null) {
+        if (this.titleText != null && this.ecw != null) {
             if (!TextUtils.isEmpty(str)) {
                 this.titleText.setText(str);
-                this.ebQ.setVisibility(0);
+                this.ecw.setVisibility(0);
                 this.titleText.setVisibility(0);
                 return;
             }
-            this.ebQ.setVisibility(8);
+            this.ecw.setVisibility(8);
             this.titleText.setVisibility(8);
         }
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void setSchemaUrl(String str) {
-        this.ebR = str;
+        this.ecx = str;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!TextUtils.isEmpty(this.ebR) && this.mContext != null) {
-            ay.Ef().a(this.mContext, new String[]{this.ebR}, true);
+        if (!TextUtils.isEmpty(this.ecx) && this.mContext != null) {
+            ay.Es().a(this.mContext, new String[]{this.ecx}, true);
         }
         am amVar = new am("c13330");
-        amVar.aA(ImageViewerConfig.FORUM_ID, this.forumId);
-        amVar.aA(VideoPlayActivityConfig.OBJ_ID, this.ebX);
+        amVar.aB(ImageViewerConfig.FORUM_ID, this.forumId);
+        amVar.aB(VideoPlayActivityConfig.OBJ_ID, this.ecD);
         TiebaStatic.log(amVar);
     }
 }

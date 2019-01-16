@@ -6,31 +6,31 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes2.dex */
 public class a {
-    private static final a ipD = bWU().bXc();
-    public final int ipE;
-    public final boolean ipF;
-    public final boolean ipG;
-    public final boolean ipH;
-    public final boolean ipI;
-    public final Bitmap.Config ipJ;
+    private static final a iqK = bXC().bXK();
+    public final int iqL;
+    public final boolean iqM;
+    public final boolean iqN;
+    public final boolean iqO;
+    public final boolean iqP;
+    public final Bitmap.Config iqQ;
     @Nullable
-    public final com.facebook.imagepipeline.decoder.b ipK;
+    public final com.facebook.imagepipeline.decoder.b iqR;
 
     public a(b bVar) {
-        this.ipE = bVar.bWV();
-        this.ipF = bVar.bWW();
-        this.ipG = bVar.bWX();
-        this.ipH = bVar.bWY();
-        this.ipI = bVar.bXa();
-        this.ipJ = bVar.bXb();
-        this.ipK = bVar.bWZ();
+        this.iqL = bVar.bXD();
+        this.iqM = bVar.bXE();
+        this.iqN = bVar.bXF();
+        this.iqO = bVar.bXG();
+        this.iqP = bVar.bXI();
+        this.iqQ = bVar.bXJ();
+        this.iqR = bVar.bXH();
     }
 
-    public static a bWT() {
-        return ipD;
+    public static a bXB() {
+        return iqK;
     }
 
-    public static b bWU() {
+    public static b bXC() {
         return new b();
     }
 
@@ -42,14 +42,14 @@ public class a {
             return false;
         }
         a aVar = (a) obj;
-        return this.ipF == aVar.ipF && this.ipG == aVar.ipG && this.ipH == aVar.ipH && this.ipI == aVar.ipI && this.ipJ == aVar.ipJ && this.ipK == aVar.ipK;
+        return this.iqM == aVar.iqM && this.iqN == aVar.iqN && this.iqO == aVar.iqO && this.iqP == aVar.iqP && this.iqQ == aVar.iqQ && this.iqR == aVar.iqR;
     }
 
     public int hashCode() {
-        return (((((((this.ipH ? 1 : 0) + (((this.ipG ? 1 : 0) + (((this.ipF ? 1 : 0) + (this.ipE * 31)) * 31)) * 31)) * 31) + (this.ipI ? 1 : 0)) * 31) + this.ipJ.ordinal()) * 31) + (this.ipK != null ? this.ipK.hashCode() : 0);
+        return (((((((this.iqO ? 1 : 0) + (((this.iqN ? 1 : 0) + (((this.iqM ? 1 : 0) + (this.iqL * 31)) * 31)) * 31)) * 31) + (this.iqP ? 1 : 0)) * 31) + this.iqQ.ordinal()) * 31) + (this.iqR != null ? this.iqR.hashCode() : 0);
     }
 
     public String toString() {
-        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.ipE), Boolean.valueOf(this.ipF), Boolean.valueOf(this.ipG), Boolean.valueOf(this.ipH), Boolean.valueOf(this.ipI), this.ipJ.name(), this.ipK);
+        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.iqL), Boolean.valueOf(this.iqM), Boolean.valueOf(this.iqN), Boolean.valueOf(this.iqO), Boolean.valueOf(this.iqP), this.iqQ.name(), this.iqR);
     }
 }

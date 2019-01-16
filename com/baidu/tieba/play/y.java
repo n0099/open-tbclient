@@ -8,47 +8,47 @@ import com.baidu.tbadk.BaseActivity;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class y {
-    private static y gHB = null;
-    private LinkedHashMap<String, Integer> gHC = new LinkedHashMap<>(BaseActivity.SHOW_SOFT_KEYBOARD_DELAY, 0.75f, true);
-    private CustomMessageListener bQy = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.play.y.1
+    private static y gIF = null;
+    private LinkedHashMap<String, Integer> gIG = new LinkedHashMap<>(BaseActivity.SHOW_SOFT_KEYBOARD_DELAY, 0.75f, true);
+    private CustomMessageListener bRj = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.play.y.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                y.this.gHC.clear();
+                y.this.gIG.clear();
             }
         }
     };
 
     private y() {
-        MessageManager.getInstance().registerListener(this.bQy);
+        MessageManager.getInstance().registerListener(this.bRj);
     }
 
-    public static y bsO() {
-        if (gHB == null) {
+    public static y btx() {
+        if (gIF == null) {
             synchronized (y.class) {
-                if (gHB == null) {
-                    gHB = new y();
+                if (gIF == null) {
+                    gIF = new y();
                 }
             }
         }
-        return gHB;
+        return gIF;
     }
 
     public void aO(String str, int i) {
-        if (i != 0 || !this.gHC.containsKey(str)) {
-            this.gHC.put(str, Integer.valueOf(i));
+        if (i != 0 || !this.gIG.containsKey(str)) {
+            this.gIG.put(str, Integer.valueOf(i));
         }
     }
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.gHC.remove(str);
+            this.gIG.remove(str);
         }
     }
 
-    public int tZ(String str) {
-        Integer num = this.gHC.get(str);
+    public int up(String str) {
+        Integer num = this.gIG.get(str);
         if (num != null) {
             return num.intValue();
         }
@@ -56,6 +56,6 @@ public class y {
     }
 
     public void clear() {
-        this.gHC.clear();
+        this.gIG.clear();
     }
 }

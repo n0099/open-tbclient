@@ -13,7 +13,7 @@ public interface a extends com.baidu.tieba.InjectPlugin.a.a<c> {
         void b(c cVar, View view);
     }
 
-    void TK();
+    void Ug();
 
     void a(InterfaceC0181a interfaceC0181a);
 

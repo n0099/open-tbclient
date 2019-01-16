@@ -1,5 +1,6 @@
 package com.sina.weibo.sdk.utils;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -23,8 +24,9 @@ import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import com.sina.weibo.sdk.exception.WeiboException;
-import com.sina.weibo.sdk.net.HttpManager;
-import com.sina.weibo.sdk.net.WeiboParameters;
+import com.sina.weibo.sdk.network.IRequestParam;
+import com.sina.weibo.sdk.network.impl.RequestParam;
+import com.sina.weibo.sdk.network.impl.RequestService;
 import com.tencent.connect.common.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -39,6 +41,7 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
 import java.util.concurrent.locks.ReentrantLock;
 import javax.crypto.Cipher;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -50,6 +53,7 @@ public class AidTask {
     private static final int VERSION = 1;
     public static final int WHAT_LOAD_AID_ERR = 1002;
     public static final int WHAT_LOAD_AID_SUC = 1001;
+    private static String mExtras;
     private static AidTask sInstance;
     private String hash;
     private AidInfo mAidInfo;
@@ -132,7 +136,7 @@ public class AidTask {
                 aidInfo.mAid = jSONObject.optString("aid", "");
                 aidInfo.mSubCookie = jSONObject.optString("sub", "");
                 return aidInfo;
-            } catch (JSONException e) {
+            } catch (Exception e) {
                 LogUtil.d(AidTask.TAG, "loadAidFromNet JSONException Msg : " + e.getMessage());
                 throw new WeiboException("loadAidFromNet has error !!!");
             }
@@ -148,6 +152,10 @@ public class AidTask {
 
     public synchronized void setAppkey(String str) {
         this.mAppKey = str;
+    }
+
+    public synchronized void setExtras(String str) {
+        mExtras = str;
     }
 
     private AidTask(Context context) {
@@ -206,6 +214,7 @@ public class AidTask {
                         return;
                     }
                     AidInfo loadAidInfoFromCache = AidTask.this.loadAidInfoFromCache();
+                    LogUtil.e(AidTask.TAG, "loadAidInfoFromCache" + loadAidInfoFromCache);
                     if (loadAidInfoFromCache != null) {
                         AidTask.this.mAidInfo = loadAidInfoFromCache;
                     } else {
@@ -214,12 +223,15 @@ public class AidTask {
                             i++;
                             try {
                                 String loadAidFromNet = AidTask.this.loadAidFromNet();
-                                AidInfo parseJson = AidInfo.parseJson(loadAidFromNet);
-                                AidTask.this.cacheAidInfo(loadAidFromNet);
-                                AidTask.this.mAidInfo = parseJson;
-                                AidTask.this.notifyListener(AidTask.this.mAidInfo);
-                                break;
-                            } catch (WeiboException e) {
+                                if (!TextUtils.isEmpty(loadAidFromNet)) {
+                                    AidInfo parseJson = AidInfo.parseJson(loadAidFromNet);
+                                    AidTask.this.cacheAidInfo(loadAidFromNet);
+                                    AidTask.this.mAidInfo = parseJson;
+                                    AidTask.this.notifyListener(AidTask.this.mAidInfo);
+                                    break;
+                                }
+                                return;
+                            } catch (Exception e) {
                                 LogUtil.e(AidTask.TAG, "AidTaskInit WeiboException Msg : " + e.getMessage());
                                 if (i >= 3) {
                                 }
@@ -271,14 +283,14 @@ public class AidTask {
                 public void run() {
                     AidTask.this.mTaskLock.lock();
                     AidInfo loadAidInfoFromCache = AidTask.this.loadAidInfoFromCache();
-                    WeiboException e = null;
+                    Exception e = null;
                     if (loadAidInfoFromCache == null) {
                         try {
                             String loadAidFromNet = AidTask.this.loadAidFromNet();
                             loadAidInfoFromCache = AidInfo.parseJson(loadAidFromNet);
                             AidTask.this.cacheAidInfo(loadAidFromNet);
                             AidTask.this.mAidInfo = loadAidInfoFromCache;
-                        } catch (WeiboException e2) {
+                        } catch (Exception e2) {
                             e = e2;
                             LogUtil.e(AidTask.TAG, "AidTaskInit WeiboException Msg : " + e.getMessage());
                         }
@@ -299,7 +311,7 @@ public class AidTask {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [360=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [377=4] */
     protected synchronized AidInfo loadAidInfoFromCache() {
         FileInputStream fileInputStream;
         Throwable th;
@@ -355,27 +367,27 @@ public class AidTask {
         return new File(this.mContext.getFilesDir(), AID_FILE_NAME + i);
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
     public String loadAidFromNet() throws WeiboException {
         String packageName = this.pkg == null ? this.mContext.getPackageName() : this.pkg;
         String sign = this.hash == null ? Utility.getSign(this.mContext, packageName) : this.hash;
         String mfp = getMfp(this.mContext);
-        WeiboParameters weiboParameters = new WeiboParameters(this.mAppKey);
-        weiboParameters.put("appkey", this.mAppKey);
-        weiboParameters.put("mfp", mfp);
-        weiboParameters.put("packagename", packageName);
-        weiboParameters.put("key_hash", sign);
+        RequestParam.Builder builder = new RequestParam.Builder(this.mContext);
+        builder.setRequestType(IRequestParam.RequestType.GET);
+        builder.setShortUrl("https://api.weibo.com/oauth2/getaid.json");
+        builder.addGetParam("appkey", this.mAppKey);
+        builder.addGetParam("mfp", mfp);
+        builder.addGetParam("packagename", packageName);
+        builder.addGetParam("key_hash", sign);
+        builder.setNeedIntercept(false);
         try {
-            String openUrl = HttpManager.openUrl(this.mContext, "https://api.weibo.com/oauth2/getaid.json", "GET", weiboParameters);
-            LogUtil.d(TAG, "loadAidFromNet response : " + openUrl);
-            return openUrl;
-        } catch (WeiboException e) {
-            LogUtil.d(TAG, "loadAidFromNet WeiboException Msg : " + e.getMessage());
-            throw e;
+            return RequestService.getInstance().request(builder.build()).getResponse().toString();
+        } catch (Exception e) {
+            LogUtil.v(TAG, e.toString());
+            return null;
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [430=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [469=4] */
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void cacheAidInfo(String str) {
         FileOutputStream fileOutputStream;
@@ -417,18 +429,15 @@ public class AidTask {
         }
     }
 
-    private static String getMfp(Context context) {
+    public static String getMfp(Context context) {
         String str;
         try {
             str = new String(genMfpString(context).getBytes(), "UTF-8");
         } catch (UnsupportedEncodingException e) {
             str = "";
         }
-        LogUtil.d(TAG, "genMfpString() utf-8 string : " + str);
         try {
-            String encryptRsa = encryptRsa(str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDHHM0Fi2Z6+QYKXqFUX2Cy6AaWq3cPi+GSn9oeAwQbPZR75JB7Netm0HtBVVbtPhzT7UO2p1JhFUKWqrqoYuAjkgMVPmA0sFrQohns5EE44Y86XQopD4ZO+dE5KjUZFE6vrPO3rWW3np2BqlgKpjnYZri6TJApmIpGcQg9/G/3zQIDAQAB");
-            LogUtil.d(TAG, "encryptRsa() string : " + encryptRsa);
-            return encryptRsa;
+            return encryptRsa(str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDHHM0Fi2Z6+QYKXqFUX2Cy6AaWq3cPi+GSn9oeAwQbPZR75JB7Netm0HtBVVbtPhzT7UO2p1JhFUKWqrqoYuAjkgMVPmA0sFrQohns5EE44Y86XQopD4ZO+dE5KjUZFE6vrPO3rWW3np2BqlgKpjnYZri6TJApmIpGcQg9/G/3zQIDAQAB");
         } catch (Exception e2) {
             LogUtil.e(TAG, e2.getMessage());
             return "";
@@ -436,6 +445,7 @@ public class AidTask {
     }
 
     private static String genMfpString(Context context) {
+        JSONArray optJSONArray;
         String generateUAAid;
         JSONObject jSONObject = new JSONObject();
         try {
@@ -506,6 +516,16 @@ public class AidTask {
             }
             if (!TextUtils.isEmpty(generateUAAid)) {
                 jSONObject.put("20", generateUAAid);
+            }
+            if (!TextUtils.isEmpty(mExtras) && (optJSONArray = new JSONObject(mExtras).optJSONArray("extras")) != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                    String string = jSONObject2.getString("extra_key");
+                    String string2 = jSONObject2.getString("extra_value");
+                    if (!TextUtils.isEmpty(string2)) {
+                        jSONObject.put(string, string2);
+                    }
+                }
             }
             return jSONObject.toString();
         } catch (JSONException e2) {
@@ -624,10 +644,24 @@ public class AidTask {
     }
 
     private static String getSerialNo() {
+        if (Build.VERSION.SDK_INT >= 26) {
+            return getSerialNoForO();
+        }
         try {
             Class<?> cls = Class.forName(MeizuConstants.CLS_NAME_SYSTEM_PROPERTIES);
             return (String) cls.getMethod("get", String.class, String.class).invoke(cls, "ro.serialno", "unknown");
         } catch (Exception e) {
+            LogUtil.v("weibosdk ", "getSerialNo" + e.toString());
+            return "";
+        }
+    }
+
+    @TargetApi(26)
+    private static String getSerialNoForO() {
+        try {
+            return Build.getSerial();
+        } catch (Exception e) {
+            e.printStackTrace();
             return "";
         }
     }

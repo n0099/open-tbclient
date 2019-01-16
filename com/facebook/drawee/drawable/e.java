@@ -39,7 +39,7 @@ public class e {
         return i;
     }
 
-    public static int yo(int i) {
+    public static int yq(int i) {
         int i2 = i >>> 24;
         if (i2 == 255) {
             return -1;

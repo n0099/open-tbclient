@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class a extends c<GroupCardActivity> {
-    private ImageView bmS;
-    private GroupCardActivity eVf;
-    private LinearLayout eVk;
-    private LinearLayout eVl;
-    private LinearLayout eVm;
-    private View eVn;
+    private ImageView bnG;
+    private GroupCardActivity eVS;
+    private LinearLayout eVX;
+    private LinearLayout eVY;
+    private LinearLayout eVZ;
+    private View eWa;
     private NavigationBar mNavigationBar;
     private View mParent;
     private ProgressBar progressBar;
@@ -25,52 +25,52 @@ public class a extends c<GroupCardActivity> {
     public a(GroupCardActivity groupCardActivity, View.OnClickListener onClickListener) {
         super(groupCardActivity.getPageContext());
         this.mParent = null;
-        this.eVk = null;
-        this.eVl = null;
-        this.eVm = null;
-        this.eVn = null;
+        this.eVX = null;
+        this.eVY = null;
+        this.eVZ = null;
+        this.eWa = null;
         this.progressBar = null;
         this.mNavigationBar = null;
-        this.bmS = null;
-        this.eVf = groupCardActivity;
+        this.bnG = null;
+        this.eVS = groupCardActivity;
         initUI();
     }
 
     private void initUI() {
-        this.eVf.setContentView(e.h.group_card_activity);
-        this.mParent = this.eVf.findViewById(e.g.parent);
-        this.eVk = (LinearLayout) this.eVf.findViewById(e.g.groud_card_save);
-        this.eVk.setOnClickListener(this.eVf);
-        this.eVl = (LinearLayout) this.eVf.findViewById(e.g.group_card_share);
-        if (com.baidu.tbadk.coreExtra.c.e.bL(this.eVf.getPageContext().getContext())) {
-            this.eVl.setOnClickListener(this.eVf);
+        this.eVS.setContentView(e.h.group_card_activity);
+        this.mParent = this.eVS.findViewById(e.g.parent);
+        this.eVX = (LinearLayout) this.eVS.findViewById(e.g.groud_card_save);
+        this.eVX.setOnClickListener(this.eVS);
+        this.eVY = (LinearLayout) this.eVS.findViewById(e.g.group_card_share);
+        if (com.baidu.tbadk.coreExtra.c.e.bL(this.eVS.getPageContext().getContext())) {
+            this.eVY.setOnClickListener(this.eVS);
         } else {
-            this.eVl.setVisibility(8);
+            this.eVY.setVisibility(8);
         }
-        this.eVm = (LinearLayout) this.eVf.findViewById(e.g.group_card_setting);
-        this.progressBar = (ProgressBar) this.eVf.findViewById(e.g.progress);
-        this.bmS = (ImageView) this.eVf.findViewById(e.g.group_card_inner_image);
-        this.mNavigationBar = (NavigationBar) this.eVf.findViewById(e.g.group_card_topbar);
+        this.eVZ = (LinearLayout) this.eVS.findViewById(e.g.group_card_setting);
+        this.progressBar = (ProgressBar) this.eVS.findViewById(e.g.progress);
+        this.bnG = (ImageView) this.eVS.findViewById(e.g.group_card_inner_image);
+        this.mNavigationBar = (NavigationBar) this.eVS.findViewById(e.g.group_card_topbar);
         this.mNavigationBar.setSystemClickable(false);
-        this.mNavigationBar.setTitleText(this.eVf.getResources().getString(e.j.group_card_name));
-        this.eVn = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.eVn.setOnClickListener(this.eVf);
+        this.mNavigationBar.setTitleText(this.eVS.getResources().getString(e.j.group_card_name));
+        this.eWa = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.eWa.setOnClickListener(this.eVS);
     }
 
     public void g(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
-            aVar.a(this.bmS);
+            aVar.a(this.bnG);
         }
     }
 
-    public void S(int i, String str) {
+    public void U(int i, String str) {
         if (str != null) {
-            l.showToast(this.eVf.getPageContext().getContext(), str);
+            l.showToast(this.eVS.getPageContext().getContext(), str);
             return;
         }
         String errMsg = TbErrInfo.getErrMsg(i);
         if (errMsg != null && errMsg.length() > 0) {
-            l.showToast(this.eVf.getPageContext().getContext(), errMsg);
+            l.showToast(this.eVS.getPageContext().getContext(), errMsg);
         }
     }
 
@@ -78,38 +78,38 @@ public class a extends c<GroupCardActivity> {
         this.progressBar.setVisibility(0);
     }
 
-    public void aHD() {
+    public void aIa() {
         this.progressBar.setVisibility(8);
     }
 
-    public void aSL() {
-        this.bmS.setVisibility(0);
+    public void aTl() {
+        this.bnG.setVisibility(0);
     }
 
-    public View aSM() {
-        return this.eVk;
+    public View aTm() {
+        return this.eVX;
     }
 
-    public View aSN() {
-        return this.eVl;
+    public View aTn() {
+        return this.eVY;
     }
 
-    public View aSO() {
-        return this.eVn;
+    public View aTo() {
+        return this.eWa;
     }
 
-    public View aSP() {
+    public View aTp() {
         return this.mNavigationBar;
     }
 
-    public LinearLayout aSQ() {
-        return this.eVm;
+    public LinearLayout aTq() {
+        return this.eVZ;
     }
 
     public void onChangeSkinType(int i) {
-        this.eVf.getLayoutMode().setNightMode(i == 1);
-        this.eVf.getLayoutMode().onModeChanged(this.mParent);
+        this.eVS.getLayoutMode().setNightMode(i == 1);
+        this.eVS.getLayoutMode().onModeChanged(this.mParent);
         al.e(this.mParent, i);
-        this.mNavigationBar.onChangeSkinType(this.eVf.getPageContext(), i);
+        this.mNavigationBar.onChangeSkinType(this.eVS.getPageContext(), i);
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.x;
 import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 public class a {
-    private static final String fRg = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+    private static final String fSd = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
 
     /* loaded from: classes6.dex */
     public interface b {
@@ -30,10 +30,10 @@ public class a {
     /* loaded from: classes6.dex */
     private static class C0281a extends BdAsyncTask<String, Object, ForbidResultData> {
         private String HS;
-        private String aRR;
-        private String aRV;
-        private String fRh;
-        private WeakReference<b> fRi;
+        private String aSv;
+        private String aSz;
+        private String fSe;
+        private WeakReference<b> fSf;
         private String mForumId;
         private String mForumName;
         private String mPostId;
@@ -45,22 +45,22 @@ public class a {
             this.mForumName = str2;
             this.mThreadId = str3;
             this.mUserName = str4;
-            this.fRh = str6;
-            this.aRV = str8;
-            this.aRR = str9;
+            this.fSe = str6;
+            this.aSz = str8;
+            this.aSv = str9;
             this.HS = str7;
             this.mPostId = str5;
-            this.fRi = new WeakReference<>(bVar);
+            this.fSf = new WeakReference<>(bVar);
             setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: B */
+        /* renamed from: C */
         public ForbidResultData doInBackground(String... strArr) {
-            x xVar = new x(a.fRg);
-            xVar.x("day", this.fRh);
+            x xVar = new x(a.fSd);
+            xVar.x("day", this.fSe);
             xVar.x("un", this.mUserName);
             xVar.x(ImageViewerConfig.FORUM_ID, this.mForumId);
             xVar.x("word", this.mForumName);
@@ -68,13 +68,13 @@ public class a {
             xVar.x(WebSocketAction.PARAM_KEY_REASON, this.HS);
             xVar.x("ntn", "banid");
             xVar.x("post_id", this.mPostId);
-            xVar.x("nick_name", this.aRV);
-            xVar.x(IntentConfig.PORTRAIT, this.aRR);
-            xVar.Dj().Eh().mIsNeedTbs = true;
-            String CL = xVar.CL();
-            if (xVar.Dj().Ei().isRequestSuccess()) {
+            xVar.x("nick_name", this.aSz);
+            xVar.x(IntentConfig.PORTRAIT, this.aSv);
+            xVar.Dw().Eu().mIsNeedTbs = true;
+            String CY = xVar.CY();
+            if (xVar.Dw().Ev().isRequestSuccess()) {
                 try {
-                    return (ForbidResultData) OrmObject.objectWithJsonStr(CL, ForbidResultData.class);
+                    return (ForbidResultData) OrmObject.objectWithJsonStr(CY, ForbidResultData.class);
                 } catch (Exception e) {
                     BdLog.detailException(e);
                     ForbidResultData forbidResultData = new ForbidResultData();
@@ -83,7 +83,7 @@ public class a {
                 }
             }
             ForbidResultData forbidResultData2 = new ForbidResultData();
-            forbidResultData2.error_code = xVar.Dn();
+            forbidResultData2.error_code = xVar.DA();
             forbidResultData2.error_msg = xVar.getErrorString();
             return forbidResultData2;
         }
@@ -94,7 +94,7 @@ public class a {
         /* renamed from: c */
         public void onPostExecute(ForbidResultData forbidResultData) {
             super.onPostExecute(forbidResultData);
-            b bVar = this.fRi.get();
+            b bVar = this.fSf.get();
             if (bVar != null) {
                 if (forbidResultData.error_code == 0 && ao.isEmpty(forbidResultData.error_msg)) {
                     bVar.a(forbidResultData);

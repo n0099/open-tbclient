@@ -7,22 +7,22 @@ import com.baidu.ubs.analytics.d;
 import java.util.Map;
 /* loaded from: classes6.dex */
 public class a {
-    private static boolean ifz = false;
+    private static boolean igG = false;
 
-    public static void yu(String str) {
-        if (ifz) {
-            e.bSH().yu(str);
+    public static void yK(String str) {
+        if (igG) {
+            e.bTp().yK(str);
         }
     }
 
-    public static void yv(String str) {
-        if (ifz) {
-            e.bSH().yv(str);
+    public static void yL(String str) {
+        if (igG) {
+            e.bTp().yL(str);
         }
     }
 
     public static void a(String str, String str2, String str3, Map<String, String> map) {
-        if (ifz && str != null) {
+        if (igG && str != null) {
             j.b(str, str2, str3, map);
         }
     }
@@ -33,11 +33,11 @@ public class a {
         }
     }
 
-    public static SampleResult yw(String str) {
-        return ifz ? d.a.ifH.yx(str) : SampleResult.OTHERE;
+    public static SampleResult yM(String str) {
+        return igG ? d.a.igO.yN(str) : SampleResult.OTHERE;
     }
 
-    public static void oQ(boolean z) {
-        ifz = z;
+    public static void oR(boolean z) {
+        igG = z;
     }
 }

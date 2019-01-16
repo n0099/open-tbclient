@@ -10,50 +10,50 @@ import com.baidu.tieba.channel.data.ChannelInfo;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class ChannelMoreView extends LinearLayout {
-    private View.OnClickListener aTa;
-    private com.baidu.tieba.channel.data.d dct;
-    private TextView dfn;
-    private TextView dfo;
-    private View dfp;
+    private View.OnClickListener aTI;
+    private com.baidu.tieba.channel.data.d ddg;
+    private TextView dfZ;
+    private TextView dga;
+    private View dgb;
     private TextView mCancelView;
     private View.OnClickListener mClickListener;
 
     public ChannelMoreView(Context context, com.baidu.tieba.channel.data.d dVar, View.OnClickListener onClickListener) {
         super(context);
-        this.aTa = new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelMoreView.1
+        this.aTI = new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.ChannelMoreView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 ChannelMoreView.this.mClickListener.onClick(view);
             }
         };
         this.mClickListener = onClickListener;
-        this.dct = dVar;
+        this.ddg = dVar;
         initView();
     }
 
     private void initView() {
         View.inflate(getContext(), e.h.channel_more_view_layout, this);
         this.mCancelView = (TextView) findViewById(e.g.channel_more_cancel);
-        this.dfp = findViewById(e.g.channel_more_layer);
-        this.dfn = (TextView) findViewById(e.g.channel_up_info);
-        this.dfo = (TextView) findViewById(e.g.channel_push_switch);
+        this.dgb = findViewById(e.g.channel_more_layer);
+        this.dfZ = (TextView) findViewById(e.g.channel_up_info);
+        this.dga = (TextView) findViewById(e.g.channel_push_switch);
         this.mCancelView.setOnClickListener(this.mClickListener);
-        this.dfp.setOnClickListener(this.mClickListener);
-        this.dfn.setOnClickListener(this.mClickListener);
-        this.dfo.setOnClickListener(this.mClickListener);
-        if (this.dct != null && this.dct.ard() != null) {
-            ChannelInfo ard = this.dct.ard();
-            if (ard.isSubscribe()) {
-                this.dfo.setVisibility(0);
-                if (ard.isPushOpen()) {
-                    this.dfo.setText(getContext().getResources().getString(e.j.channel_push_switch_close));
+        this.dgb.setOnClickListener(this.mClickListener);
+        this.dfZ.setOnClickListener(this.mClickListener);
+        this.dga.setOnClickListener(this.mClickListener);
+        if (this.ddg != null && this.ddg.arB() != null) {
+            ChannelInfo arB = this.ddg.arB();
+            if (arB.isSubscribe()) {
+                this.dga.setVisibility(0);
+                if (arB.isPushOpen()) {
+                    this.dga.setText(getContext().getResources().getString(e.j.channel_push_switch_close));
                     return;
                 } else {
-                    this.dfo.setText(getContext().getResources().getString(e.j.channel_push_switch_open));
+                    this.dga.setText(getContext().getResources().getString(e.j.channel_push_switch_open));
                     return;
                 }
             }
-            this.dfo.setVisibility(8);
+            this.dga.setVisibility(8);
         }
     }
 
@@ -62,24 +62,24 @@ public class ChannelMoreView extends LinearLayout {
     }
 
     public View getLayerView() {
-        return this.dfp;
+        return this.dgb;
     }
 
     public TextView getUpInfoView() {
-        return this.dfn;
+        return this.dfZ;
     }
 
     public TextView getPushView() {
-        return this.dfo;
+        return this.dga;
     }
 
     public void setBackGround() {
         al.i(this.mCancelView, e.f.pb_more_pop_cancle_selector);
         al.c(this.mCancelView, e.d.channel_pop_cancel_text_color, 1);
-        al.i(this.dfn, e.f.pb_more_pop_cancle_selector);
-        al.c(this.dfn, e.d.channel_pop_text_color, 1);
-        al.i(this.dfo, e.f.pb_more_pop_cancle_selector);
-        al.c(this.dfo, e.d.channel_pop_text_color, 1);
+        al.i(this.dfZ, e.f.pb_more_pop_cancle_selector);
+        al.c(this.dfZ, e.d.channel_pop_text_color, 1);
+        al.i(this.dga, e.f.pb_more_pop_cancle_selector);
+        al.c(this.dga, e.d.channel_pop_text_color, 1);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         View findViewById = findViewById(e.g.channel_devide_line);
         if (skinType == 1) {

@@ -4,41 +4,41 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 /* loaded from: classes2.dex */
 public class a implements e {
-    private final Executor ipX;
-    private final Executor ipY;
-    private final Executor ipZ;
-    private final Executor iqa;
+    private final Executor ire;
+    private final Executor irf;
+    private final Executor irg;
+    private final Executor irh;
 
     public a(int i) {
         k kVar = new k(10);
-        this.ipX = Executors.newFixedThreadPool(2);
-        this.ipY = Executors.newFixedThreadPool(i, kVar);
-        this.ipZ = Executors.newFixedThreadPool(i, kVar);
-        this.iqa = Executors.newFixedThreadPool(1, kVar);
+        this.ire = Executors.newFixedThreadPool(2);
+        this.irf = Executors.newFixedThreadPool(i, kVar);
+        this.irg = Executors.newFixedThreadPool(i, kVar);
+        this.irh = Executors.newFixedThreadPool(1, kVar);
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor bXj() {
-        return this.ipX;
+    public Executor bXR() {
+        return this.ire;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor bXk() {
-        return this.ipX;
+    public Executor bXS() {
+        return this.ire;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor bXl() {
-        return this.ipY;
+    public Executor bXT() {
+        return this.irf;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor bXm() {
-        return this.ipZ;
+    public Executor bXU() {
+        return this.irg;
     }
 
     @Override // com.facebook.imagepipeline.d.e
-    public Executor bXn() {
-        return this.iqa;
+    public Executor bXV() {
+        return this.irh;
     }
 }

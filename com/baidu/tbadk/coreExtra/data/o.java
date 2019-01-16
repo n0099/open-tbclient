@@ -8,8 +8,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class o {
-    private Hashtable<String, String> aOd = new Hashtable<>();
-    private Hashtable<String, String> aOe = new Hashtable<>();
+    private Hashtable<String, String> aOF = new Hashtable<>();
+    private Hashtable<String, String> aOG = new Hashtable<>();
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -17,10 +17,10 @@ public class o {
                 JSONArray optJSONArray = jSONObject.optJSONArray("tdou_cashier_type");
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("pay_cashier_type");
                 BdLog.e("consumepath is:" + jSONObject.toString());
-                a(this.aOd, optJSONArray);
-                a(this.aOe, optJSONArray2);
-                BdLog.e("pay mPayCashierType:" + this.aOd.toString());
-                BdLog.e("pay mPayCashierType:" + this.aOe.toString());
+                a(this.aOF, optJSONArray);
+                a(this.aOG, optJSONArray2);
+                BdLog.e("pay mPayCashierType:" + this.aOF.toString());
+                BdLog.e("pay mPayCashierType:" + this.aOG.toString());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -45,15 +45,15 @@ public class o {
         }
     }
 
-    public boolean j(int i, String str) {
+    public boolean l(int i, String str) {
         if (str == null) {
             return true;
         }
         String str2 = null;
         if (i == 1) {
-            str2 = this.aOe.get(str);
+            str2 = this.aOG.get(str);
         } else if (i == 2) {
-            str2 = this.aOd.get(str);
+            str2 = this.aOF.get(str);
         }
         if (StringUtils.isNull(str2)) {
             return true;

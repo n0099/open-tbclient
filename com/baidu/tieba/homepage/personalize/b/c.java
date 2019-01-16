@@ -19,16 +19,16 @@ public class c extends com.baidu.tieba.card.data.b implements p {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean aqJ() {
+    public boolean arg() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void fy(boolean z) {
+    public void fB(boolean z) {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void fz(boolean z) {
+    public void fC(boolean z) {
         this.showBottomDivider = z;
     }
 }

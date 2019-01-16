@@ -13,15 +13,15 @@ import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class h extends com.baidu.tieba.frs.h<bb, a> {
-    private com.baidu.adp.lib.e.b<ConstrainImageLayout> dPr;
-    private com.baidu.adp.lib.e.b<TbImageView> dPs;
+    private com.baidu.adp.lib.e.b<ConstrainImageLayout> dQa;
+    private com.baidu.adp.lib.e.b<TbImageView> dQb;
 
     public h(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.dPr = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.entelechy.a.h.1
+        this.dQa = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.entelechy.a.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: aDC */
+            /* renamed from: aDZ */
             public ConstrainImageLayout jz() {
                 return new ConstrainImageLayout(h.this.mPageContext.getPageActivity());
             }
@@ -47,10 +47,10 @@ public class h extends com.baidu.tieba.frs.h<bb, a> {
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.dPs = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.frs.entelechy.a.h.2
+        this.dQb = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.frs.entelechy.a.h.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: Fu */
+            /* renamed from: FH */
             public TbImageView jz() {
                 TbImageView tbImageView = new TbImageView(h.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
@@ -92,8 +92,8 @@ public class h extends com.baidu.tieba.frs.h<bb, a> {
     public a onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.frs.entelechy.view.i iVar = new com.baidu.tieba.frs.entelechy.view.i(this.mPageContext, this.mPageId);
         iVar.j(this.mPageContext.getUniqueId());
-        iVar.setConstrainLayoutPool(this.dPr);
-        iVar.setConstrainImagePool(this.dPs);
+        iVar.setConstrainLayoutPool(this.dQa);
+        iVar.setConstrainImagePool(this.dQb);
         iVar.setSingleImageRatio(0.5625d);
         return new a(iVar);
     }
@@ -104,10 +104,10 @@ public class h extends com.baidu.tieba.frs.h<bb, a> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bb bbVar, a aVar) {
         super.onFillViewHolder(i, view, viewGroup, bbVar, aVar);
-        aVar.dTk.d(this.mPageContext, this.mSkinType);
-        aVar.dTk.a(bbVar);
+        aVar.dTQ.d(this.mPageContext, this.mSkinType);
+        aVar.dTQ.a(bbVar);
         if (bbVar != null) {
-            bbVar.AD();
+            bbVar.AQ();
         }
         return aVar.getView();
     }
@@ -115,11 +115,11 @@ public class h extends com.baidu.tieba.frs.h<bb, a> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes3.dex */
     public static class a extends q.a {
-        com.baidu.tieba.frs.entelechy.view.i dTk;
+        com.baidu.tieba.frs.entelechy.view.i dTQ;
 
         public a(com.baidu.tieba.frs.entelechy.view.i iVar) {
             super(iVar.getView());
-            this.dTk = iVar;
+            this.dTQ = iVar;
         }
     }
 }

@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ar;
 /* loaded from: classes.dex */
 public class w extends a {
-    private boolean aEJ;
-    private boolean aEr;
+    private boolean aET;
+    private boolean aFl;
     private int procType;
 
     public w(boolean z, int i) {
@@ -17,12 +17,12 @@ public class w extends a {
     }
 
     public w(boolean z, int i, boolean z2) {
-        this.aEr = true;
+        this.aET = true;
         this.procType = 0;
-        this.aEJ = true;
-        this.aEr = z;
+        this.aFl = true;
+        this.aET = z;
         this.procType = i;
-        this.aEJ = z2;
+        this.aFl = z2;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
@@ -37,21 +37,21 @@ public class w extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.aEr;
+        return this.aET;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Ev() {
+    public boolean EI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Ew() {
+    public boolean EJ() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int Ex() {
+    public int EK() {
         return this.procType;
     }
 
@@ -60,15 +60,15 @@ public class w extends a {
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, com.baidu.adp.lib.f.a aVar, com.baidu.adp.widget.ImageView.a aVar2, Bitmap bitmap, boolean z, com.baidu.tbadk.core.util.a.i iVar, byte[] bArr, Rect rect) {
         if (f(bitmap)) {
             aVar2 = new com.baidu.adp.widget.ImageView.a(bitmap, z, str, rect);
-            if (!iVar.aEh) {
-                com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ar.fL(str2), DiskFileOperate.Action.WRITE);
+            if (!iVar.aEJ) {
+                com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, ar.fY(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.R(true);
                 cVar.setData(bArr);
                 cVar.T(false);
                 cVar.U(true);
                 cVar.W(z);
-                cVar.V(this.aEJ);
+                cVar.V(this.aFl);
                 com.baidu.adp.lib.Disk.d.hB().c(cVar);
                 if (aVar != null) {
                     e eVar = new e();

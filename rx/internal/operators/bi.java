@@ -5,13 +5,13 @@ import rx.d;
 import rx.internal.producers.SingleProducer;
 /* loaded from: classes2.dex */
 public final class bi<T> implements d.b<T, T> {
-    private final T iIB;
-    private final boolean iKX;
+    private final T iJI;
+    private final boolean iMe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final bi<?> iKY = new bi<>();
+        static final bi<?> iMf = new bi<>();
     }
 
     @Override // rx.functions.f
@@ -19,8 +19,8 @@ public final class bi<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> bi<T> ceH() {
-        return (bi<T>) a.iKY;
+    public static <T> bi<T> cfp() {
+        return (bi<T>) a.iMf;
     }
 
     bi() {
@@ -32,12 +32,12 @@ public final class bi<T> implements d.b<T, T> {
     }
 
     private bi(boolean z, T t) {
-        this.iKX = z;
-        this.iIB = t;
+        this.iMe = z;
+        this.iJI = t;
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
-        b bVar = new b(jVar, this.iKX, this.iIB);
+        b bVar = new b(jVar, this.iMe, this.iJI);
         jVar.add(bVar);
         return bVar;
     }
@@ -46,40 +46,40 @@ public final class bi<T> implements d.b<T, T> {
     /* loaded from: classes2.dex */
     public static final class b<T> extends rx.j<T> {
         private final rx.j<? super T> child;
-        private final T iIB;
-        private final boolean iKX;
-        private boolean iKZ;
-        private boolean iLa;
+        private final T iJI;
+        private final boolean iMe;
+        private boolean iMg;
+        private boolean iMh;
         private T value;
 
         b(rx.j<? super T> jVar, boolean z, T t) {
             this.child = jVar;
-            this.iKX = z;
-            this.iIB = t;
+            this.iMe = z;
+            this.iJI = t;
             request(2L);
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            if (!this.iLa) {
-                if (this.iKZ) {
-                    this.iLa = true;
+            if (!this.iMh) {
+                if (this.iMg) {
+                    this.iMh = true;
                     this.child.onError(new IllegalArgumentException("Sequence contains too many elements"));
                     unsubscribe();
                     return;
                 }
                 this.value = t;
-                this.iKZ = true;
+                this.iMg = true;
             }
         }
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.iLa) {
-                if (this.iKZ) {
+            if (!this.iMh) {
+                if (this.iMg) {
                     this.child.setProducer(new SingleProducer(this.child, this.value));
-                } else if (this.iKX) {
-                    this.child.setProducer(new SingleProducer(this.child, this.iIB));
+                } else if (this.iMe) {
+                    this.child.setProducer(new SingleProducer(this.child, this.iJI));
                 } else {
                     this.child.onError(new NoSuchElementException("Sequence contains no elements"));
                 }
@@ -88,7 +88,7 @@ public final class bi<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (this.iLa) {
+            if (this.iMh) {
                 rx.c.c.onError(th);
             } else {
                 this.child.onError(th);

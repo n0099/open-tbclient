@@ -10,9 +10,9 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public final class ShareFromPBView extends LinearLayout {
-    private HeadImageView ekh;
-    private TextView ekx;
-    private ShareFromPBMsgData fdj;
+    private HeadImageView ekN;
+    private TextView eld;
+    private ShareFromPBMsgData fdW;
     private TextView title;
 
     public ShareFromPBView(Context context, AttributeSet attributeSet) {
@@ -29,30 +29,30 @@ public final class ShareFromPBView extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(e.h.share_from_pb_view, this);
         setOrientation(1);
         this.title = (TextView) findViewById(e.g.chat_title);
-        this.ekh = (HeadImageView) findViewById(e.g.chat_group_img);
-        this.ekx = (TextView) findViewById(e.g.chat_group_desc);
+        this.ekN = (HeadImageView) findViewById(e.g.chat_group_img);
+        this.eld = (TextView) findViewById(e.g.chat_group_desc);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
             this.title.setTextColor(getContext().getResources().getColor(e.d.cp_cont_b));
-            this.ekx.setTextColor(getContext().getResources().getColor(e.d.cp_cont_f));
+            this.eld.setTextColor(getContext().getResources().getColor(e.d.cp_cont_f));
             return;
         }
         this.title.setTextColor(getContext().getResources().getColor(e.d.cp_cont_g));
-        this.ekx.setTextColor(getContext().getResources().getColor(e.d.cp_cont_g));
+        this.eld.setTextColor(getContext().getResources().getColor(e.d.cp_cont_g));
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.fdj = shareFromPBMsgData;
+        this.fdW = shareFromPBMsgData;
         updateUI();
     }
 
     private void updateUI() {
-        this.title.setText(this.fdj.getTitle());
-        this.ekh.setDefaultResource(e.f.icon_default_ba_120);
-        this.ekh.setAutoChangeStyle(false);
-        this.ekh.startLoad(this.fdj.getImageUrl(), 10, false);
-        this.ekx.setText(this.fdj.getContent());
+        this.title.setText(this.fdW.getTitle());
+        this.ekN.setDefaultResource(e.f.icon_default_ba_120);
+        this.ekN.setAutoChangeStyle(false);
+        this.ekN.startLoad(this.fdW.getImageUrl(), 10, false);
+        this.eld.setText(this.fdW.getContent());
     }
 }

@@ -3,19 +3,23 @@ package com.baidu.tbadk;
 import com.baidu.tbadk.c.a;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.coreExtra.data.u;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
-public class TbSingleton {
+public final class TbSingleton {
     private static TbSingleton mInstance = null;
     private boolean isRecommendPage;
     private LinkedList<a> mVideoWatchTimeRecord;
-    private long pushDialogLoopTime = ao.aCo;
-    private long pushDialogShowTime = 5 * ao.aCn;
+    private long pushDialogLoopTime = ao.aCQ;
+    private long pushDialogShowTime = 5 * ao.aCP;
     private long lastResumeTime = 0;
     private boolean canShowPermDlg = false;
     private boolean hasShowPermDlg = false;
     private boolean isNewUser = false;
     private boolean mHasAgreeToPlay = false;
+    private u mShakeData = null;
+    private boolean hasDownloadEmotion = false;
+    private String invokeSource = "";
 
     private TbSingleton() {
     }
@@ -145,5 +149,29 @@ public class TbSingleton {
 
     public boolean hasAgreeToPlay() {
         return this.mHasAgreeToPlay;
+    }
+
+    public void setShakeData(u uVar) {
+        this.mShakeData = uVar;
+    }
+
+    public u getShakeData() {
+        return this.mShakeData;
+    }
+
+    public boolean hasDownloadEmotion() {
+        return this.hasDownloadEmotion;
+    }
+
+    public void setHasDownloadEmotion(boolean z) {
+        this.hasDownloadEmotion = z;
+    }
+
+    public String getInvokeSource() {
+        return this.invokeSource;
+    }
+
+    public void setInvokeSource(String str) {
+        this.invokeSource = str;
     }
 }

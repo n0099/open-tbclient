@@ -15,15 +15,15 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private ViewEventCenter dqs;
-    private com.baidu.tieba.enterForum.view.d dqt;
+    private ViewEventCenter dre;
+    private com.baidu.tieba.enterForum.view.d drf;
     private List<com.baidu.tieba.enterForum.data.c> mData = new ArrayList();
     private TbPageContext<?> mPageContext;
 
     public a(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter, RecentlyVisitedForumModel recentlyVisitedForumModel) {
         this.mPageContext = tbPageContext;
-        this.dqs = viewEventCenter;
-        this.dqt = new com.baidu.tieba.enterForum.view.d(this.mPageContext, recentlyVisitedForumModel, viewEventCenter);
+        this.dre = viewEventCenter;
+        this.drf = new com.baidu.tieba.enterForum.view.d(this.mPageContext, recentlyVisitedForumModel, viewEventCenter);
     }
 
     @Override // android.widget.Adapter
@@ -65,14 +65,14 @@ public class a extends BaseAdapter {
                     view = this.mPageContext.getPageActivity().getLayoutInflater().inflate(e.h.enter_forum_list_title_item, (ViewGroup) null);
                     cVar = new c();
                     cVar.mTitle = (TextView) view.findViewById(e.g.title);
-                    cVar.dqv = (ImageView) view.findViewById(e.g.divide_line_enter);
+                    cVar.drh = (ImageView) view.findViewById(e.g.divide_line_enter);
                     view.setTag(cVar);
                 } else {
                     cVar = (c) view.getTag();
                 }
                 if ((this.mData.get(i) instanceof com.baidu.tieba.enterForum.data.d) && (dVar = (com.baidu.tieba.enterForum.data.d) this.mData.get(i)) != null) {
                     cVar.mTitle.setText(dVar.mTitle);
-                    al.j(cVar.dqv, e.d.cp_bg_line_c);
+                    al.j(cVar.drh, e.d.cp_bg_line_c);
                     al.h(cVar.mTitle, e.d.cp_cont_d);
                     return view;
                 }
@@ -80,7 +80,7 @@ public class a extends BaseAdapter {
             case 1:
                 if (view == null || !(view.getTag() instanceof com.baidu.tieba.enterForum.view.b)) {
                     view = this.mPageContext.getPageActivity().getLayoutInflater().inflate(e.h.home_like_two_column_item, (ViewGroup) null);
-                    com.baidu.tieba.enterForum.view.b bVar3 = new com.baidu.tieba.enterForum.view.b(this.mPageContext, view, this.dqs);
+                    com.baidu.tieba.enterForum.view.b bVar3 = new com.baidu.tieba.enterForum.view.b(this.mPageContext, view, this.dre);
                     view.setTag(bVar3);
                     bVar2 = bVar3;
                 } else {
@@ -107,8 +107,8 @@ public class a extends BaseAdapter {
                     c0211a.mContainer.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.a.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view2) {
-                            if (a.this.dqs != null) {
-                                a.this.dqs.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(6, null, null, null));
+                            if (a.this.dre != null) {
+                                a.this.dre.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(6, null, null, null));
                             }
                         }
                     });
@@ -129,8 +129,8 @@ public class a extends BaseAdapter {
                 al.c(bVar.mImage, e.f.img_sign_xingqu);
                 return view;
             case 4:
-                View view2 = this.dqt.getView();
-                this.dqt.awI();
+                View view2 = this.drf.getView();
+                this.drf.axf();
                 return view2;
             default:
                 return view;
@@ -144,7 +144,7 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public final int getViewTypeCount() {
-        return com.baidu.tieba.enterForum.data.c.dqN.length;
+        return com.baidu.tieba.enterForum.data.c.drz.length;
     }
 
     public void setData(List<com.baidu.tieba.enterForum.data.c> list) {
@@ -156,21 +156,21 @@ public class a extends BaseAdapter {
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.dqt != null) {
-            this.dqt.setPageUniqueId(bdUniqueId);
+        if (this.drf != null) {
+            this.drf.setPageUniqueId(bdUniqueId);
         }
     }
 
-    public boolean avB() {
-        if (this.dqt == null) {
+    public boolean avZ() {
+        if (this.drf == null) {
             return false;
         }
-        return this.dqt.avB();
+        return this.drf.avZ();
     }
 
     /* loaded from: classes4.dex */
     private class c {
-        ImageView dqv;
+        ImageView drh;
         TextView mTitle;
 
         private c() {

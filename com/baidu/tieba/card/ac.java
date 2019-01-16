@@ -1,5 +1,5 @@
 package com.baidu.tieba.card;
 /* loaded from: classes6.dex */
 public interface ac {
-    void fx(boolean z);
+    void fA(boolean z);
 }

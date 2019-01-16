@@ -13,5 +13,5 @@ public interface a {
 
     void a(InterfaceC0205a interfaceC0205a);
 
-    void arS();
+    void asq();
 }

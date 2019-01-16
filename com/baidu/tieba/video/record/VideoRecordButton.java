@@ -10,14 +10,14 @@ import android.widget.TextView;
 import com.baidu.tieba.e;
 /* loaded from: classes5.dex */
 public class VideoRecordButton extends FrameLayout {
-    private TextView SZ;
-    private View hNc;
-    private View hNd;
-    private View hNe;
-    private ObjectAnimator hNf;
-    private ObjectAnimator hNg;
-    private ObjectAnimator hNh;
-    private ObjectAnimator hNi;
+    private TextView Ti;
+    private View hOj;
+    private View hOk;
+    private View hOl;
+    private ObjectAnimator hOm;
+    private ObjectAnimator hOn;
+    private ObjectAnimator hOo;
+    private ObjectAnimator hOp;
 
     public VideoRecordButton(Context context) {
         super(context);
@@ -36,84 +36,84 @@ public class VideoRecordButton extends FrameLayout {
 
     private void initView() {
         inflate(getContext(), e.h.layout_record_button, this);
-        this.hNc = findViewById(e.g.record_layer1);
-        this.hNd = findViewById(e.g.record_layer2);
-        this.hNe = findViewById(e.g.record_layer3);
-        this.SZ = (TextView) findViewById(e.g.tv_tip);
-        this.hNe.setScaleX(0.766f);
-        this.hNe.setScaleY(0.766f);
+        this.hOj = findViewById(e.g.record_layer1);
+        this.hOk = findViewById(e.g.record_layer2);
+        this.hOl = findViewById(e.g.record_layer3);
+        this.Ti = (TextView) findViewById(e.g.tv_tip);
+        this.hOl.setScaleX(0.766f);
+        this.hOl.setScaleY(0.766f);
     }
 
     public View getLayer3() {
-        return this.hNe;
+        return this.hOl;
     }
 
     public View getLayer1() {
-        return this.hNc;
+        return this.hOj;
     }
 
     public View getLayer2() {
-        return this.hNd;
+        return this.hOk;
     }
 
     public TextView getTvTip() {
-        return this.SZ;
+        return this.Ti;
     }
 
-    public void bLX() {
-        if (this.hNi != null && this.hNi.isRunning()) {
-            this.hNh.cancel();
+    public void bMG() {
+        if (this.hOp != null && this.hOp.isRunning()) {
+            this.hOo.cancel();
         }
-        if (this.hNh == null) {
-            this.hNh = ObjectAnimator.ofPropertyValuesHolder(this.hNd, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
-            this.hNh.setDuration(200L);
+        if (this.hOo == null) {
+            this.hOo = ObjectAnimator.ofPropertyValuesHolder(this.hOk, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
+            this.hOo.setDuration(200L);
         }
-        this.hNh.start();
+        this.hOo.start();
     }
 
-    public void bLY() {
-        if (this.hNh != null && this.hNh.isRunning()) {
-            this.hNh.cancel();
+    public void bMH() {
+        if (this.hOo != null && this.hOo.isRunning()) {
+            this.hOo.cancel();
         }
-        if (this.hNd.getScaleX() != 1.0f) {
-            if (this.hNi == null) {
-                this.hNi = ObjectAnimator.ofPropertyValuesHolder(this.hNd, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
-                this.hNi.setDuration(200L);
+        if (this.hOk.getScaleX() != 1.0f) {
+            if (this.hOp == null) {
+                this.hOp = ObjectAnimator.ofPropertyValuesHolder(this.hOk, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
+                this.hOp.setDuration(200L);
             }
-            this.hNi.start();
+            this.hOp.start();
         }
     }
 
-    public void oj(boolean z) {
-        if (this.hNg != null && this.hNg.isRunning()) {
-            this.hNg.cancel();
+    public void ok(boolean z) {
+        if (this.hOn != null && this.hOn.isRunning()) {
+            this.hOn.cancel();
         }
-        if (this.hNf == null) {
-            this.hNf = ObjectAnimator.ofPropertyValuesHolder(this.hNe, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
-            this.hNf.setRepeatCount(-1);
-            this.hNf.setRepeatMode(2);
-            this.hNf.setDuration(1000L);
+        if (this.hOm == null) {
+            this.hOm = ObjectAnimator.ofPropertyValuesHolder(this.hOl, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
+            this.hOm.setRepeatCount(-1);
+            this.hOm.setRepeatMode(2);
+            this.hOm.setDuration(1000L);
         }
-        this.hNe.setVisibility(0);
+        this.hOl.setVisibility(0);
         if (z) {
-            this.hNc.setVisibility(8);
+            this.hOj.setVisibility(8);
         } else {
-            this.hNc.setBackgroundResource(e.f.red_square_bg);
+            this.hOj.setBackgroundResource(e.f.red_square_bg);
         }
-        this.SZ.setVisibility(8);
-        this.hNf.start();
+        this.Ti.setVisibility(8);
+        this.hOm.start();
     }
 
-    public void bLM() {
-        if (this.hNf != null && this.hNf.isRunning()) {
-            this.hNf.cancel();
+    public void bMv() {
+        if (this.hOm != null && this.hOm.isRunning()) {
+            this.hOm.cancel();
         }
-        if (this.hNg == null) {
-            this.hNg = ObjectAnimator.ofPropertyValuesHolder(this.hNe, PropertyValuesHolder.ofFloat("scaleX", this.hNe.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.hNe.getScaleY(), 0.766f));
-            this.hNg.setDuration((500.0f * Math.abs(0.766f - this.hNe.getScaleX())) / 0.3f);
+        if (this.hOn == null) {
+            this.hOn = ObjectAnimator.ofPropertyValuesHolder(this.hOl, PropertyValuesHolder.ofFloat("scaleX", this.hOl.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.hOl.getScaleY(), 0.766f));
+            this.hOn.setDuration((500.0f * Math.abs(0.766f - this.hOl.getScaleX())) / 0.3f);
         }
-        this.hNc.setVisibility(0);
-        this.hNc.setBackgroundResource(e.f.red_circle_bg);
-        this.hNg.start();
+        this.hOj.setVisibility(0);
+        this.hOj.setBackgroundResource(e.f.red_circle_bg);
+        this.hOn.start();
     }
 }

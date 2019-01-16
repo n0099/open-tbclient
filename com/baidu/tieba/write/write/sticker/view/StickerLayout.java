@@ -13,9 +13,9 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class StickerLayout extends FrameLayout {
-    private FrameLayout.LayoutParams idA;
-    private int idB;
-    private List<StickerView> idz;
+    private List<StickerView> ieG;
+    private FrameLayout.LayoutParams ieH;
+    private int ieI;
     private Context mContext;
 
     public StickerLayout(Context context) {
@@ -33,22 +33,22 @@ public class StickerLayout extends FrameLayout {
 
     private void init(Context context) {
         this.mContext = context;
-        this.idz = new ArrayList();
-        this.idA = new FrameLayout.LayoutParams(-1, -1);
+        this.ieG = new ArrayList();
+        this.ieH = new FrameLayout.LayoutParams(-1, -1);
     }
 
     public StickerView a(Bitmap bitmap, final c cVar) {
         final StickerView stickerView = new StickerView(this.mContext);
         stickerView.setImageBitmap(bitmap);
-        stickerView.setLayoutParams(this.idA);
+        stickerView.setLayoutParams(this.ieH);
         stickerView.setmOnStickerActionListener(new a() { // from class: com.baidu.tieba.write.write.sticker.view.StickerLayout.1
             @Override // com.baidu.tieba.write.write.sticker.a.a
-            public void bRn() {
+            public void bRV() {
                 StickerLayout.this.removeView(stickerView);
-                StickerLayout.this.idz.remove(stickerView);
-                StickerLayout.this.bfo();
+                StickerLayout.this.ieG.remove(stickerView);
+                StickerLayout.this.bfO();
                 if (cVar != null) {
-                    cVar.bPL();
+                    cVar.bQt();
                 }
             }
 
@@ -69,53 +69,53 @@ public class StickerLayout extends FrameLayout {
             }
         });
         addView(stickerView);
-        this.idz.add(stickerView);
-        bfo();
+        this.ieG.add(stickerView);
+        bfO();
         if (cVar != null) {
-            cVar.bPK();
+            cVar.bQs();
         }
         return stickerView;
     }
 
     public void a(c cVar) {
-        Iterator<StickerView> it = this.idz.iterator();
+        Iterator<StickerView> it = this.ieG.iterator();
         while (it.hasNext()) {
             StickerView next = it.next();
             if (next != null) {
                 removeView(next);
                 it.remove();
-                bfo();
+                bfO();
                 if (cVar != null) {
-                    cVar.bPL();
+                    cVar.bQt();
                 }
             }
         }
     }
 
-    public void bfo() {
-        if (this.idz.size() > 0) {
-            for (StickerView stickerView : this.idz) {
+    public void bfO() {
+        if (this.ieG.size() > 0) {
+            for (StickerView stickerView : this.ieG) {
                 if (stickerView != null) {
-                    stickerView.setRemoveRes(this.idB);
+                    stickerView.setRemoveRes(this.ieI);
                     stickerView.setEdit(false);
                 }
             }
         }
     }
 
-    public Bitmap bRo() {
-        if (v.I(this.idz)) {
+    public Bitmap bRW() {
+        if (v.I(this.ieG)) {
             return null;
         }
-        bfo();
+        bfO();
         return e.ae(this);
     }
 
     public void setRemoveRes(int i) {
-        this.idB = i;
+        this.ieI = i;
     }
 
     public List<StickerView> getStickerViews() {
-        return this.idz;
+        return this.ieG;
     }
 }

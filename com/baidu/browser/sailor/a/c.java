@@ -22,13 +22,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, com.baidu.browser.sailor.feature.b {
-    private MediaRecorder Wa;
-    private File Wb;
-    private File Wc;
-    private MediaPlayer Wd;
-    private String We;
-    private final SparseArray<n> Wf;
-    private boolean Wg;
+    private MediaRecorder Wj;
+    private File Wk;
+    private File Wl;
+    private MediaPlayer Wm;
+    private String Wn;
+    private final SparseArray<n> Wo;
+    private boolean Wp;
     protected Activity mActivity;
     private AudioManager mAudioManager;
     private WebView mWebView;
@@ -39,7 +39,7 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
             for (String str2 : strArr) {
                 String optString = jSONObject.optString(str2);
                 if (!TextUtils.isEmpty(optString)) {
-                    nVar.qL().put(str2, optString);
+                    nVar.qP().put(str2, optString);
                 }
             }
             return true;
@@ -51,10 +51,10 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, INVOKE, CHECK_CAST]}, finally: {[IGET, INVOKE, CHECK_CAST, INVOKE, IGET, INVOKE, IF] complete} */
     /* JADX INFO: Access modifiers changed from: private */
-    public void cx(String str) {
+    public void cy(String str) {
         n nVar;
-        qK();
-        MediaPlayer mediaPlayer = this.Wd;
+        qO();
+        MediaPlayer mediaPlayer = this.Wm;
         if (this.mAudioManager.getStreamVolume(2) != 0) {
             mediaPlayer.setAudioStreamType(2);
             mediaPlayer.setLooping(false);
@@ -66,80 +66,80 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
                         try {
                             mediaPlayer.reset();
                             if (!new File(str).exists()) {
-                                str = com.baidu.browser.sailor.util.c.a(qH(), str);
-                                if (!new File(str).exists() && (nVar = this.Wf.get(4)) != null) {
+                                str = com.baidu.browser.sailor.util.c.a(qL(), str);
+                                if (!new File(str).exists() && (nVar = this.Wo.get(4)) != null) {
                                     nVar.bD(101);
-                                    this.Wf.remove(4);
+                                    this.Wo.remove(4);
                                 }
                             }
                             mediaPlayer.setDataSource(str);
                             mediaPlayer.prepare();
                         } catch (IOException e) {
                             e.printStackTrace();
-                            n nVar2 = this.Wf.get(4);
+                            n nVar2 = this.Wo.get(4);
                             if (nVar2 != null) {
                                 nVar2.bD(1);
-                                this.Wf.remove(4);
+                                this.Wo.remove(4);
                             }
                         }
                     } catch (IllegalArgumentException e2) {
                         e2.printStackTrace();
-                        n nVar3 = this.Wf.get(4);
+                        n nVar3 = this.Wo.get(4);
                         if (nVar3 != null) {
                             nVar3.bD(1);
-                            this.Wf.remove(4);
+                            this.Wo.remove(4);
                         }
                     }
                 } catch (IllegalStateException e3) {
                     e3.printStackTrace();
-                    n nVar4 = this.Wf.get(4);
+                    n nVar4 = this.Wo.get(4);
                     if (nVar4 != null) {
                         nVar4.bD(1);
-                        this.Wf.remove(4);
+                        this.Wo.remove(4);
                     }
                 }
             } catch (SecurityException e4) {
                 e4.printStackTrace();
-                n nVar5 = this.Wf.get(4);
+                n nVar5 = this.Wo.get(4);
                 if (nVar5 != null) {
                     nVar5.bD(1);
-                    this.Wf.remove(4);
+                    this.Wo.remove(4);
                 }
             }
         } catch (Throwable th) {
-            n nVar6 = this.Wf.get(4);
+            n nVar6 = this.Wo.get(4);
             if (nVar6 != null) {
                 nVar6.bD(1);
-                this.Wf.remove(4);
+                this.Wo.remove(4);
             }
             throw th;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qJ() {
-        if (this.Wa != null) {
-            this.Wa.stop();
-            this.Wa.reset();
-            this.Wa.release();
+    public void qN() {
+        if (this.Wj != null) {
+            this.Wj.stop();
+            this.Wj.reset();
+            this.Wj.release();
         }
-        if (this.Wb != null) {
-            this.Wb.delete();
+        if (this.Wk != null) {
+            this.Wk.delete();
         }
-        if (this.Wc != null) {
-            this.Wc.delete();
+        if (this.Wl != null) {
+            this.Wl.delete();
         }
-        this.Wb = null;
-        this.Wc = null;
+        this.Wk = null;
+        this.Wl = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qK() {
-        if (this.mAudioManager == null || this.Wd == null) {
-            this.mAudioManager = (AudioManager) com.baidu.browser.sailor.b.a.qO().getAppContext().getSystemService("audio");
-            this.Wd = new MediaPlayer();
-            this.Wd.setOnCompletionListener(new m(this));
-            this.Wd.setOnErrorListener(new d(this));
+    public void qO() {
+        if (this.mAudioManager == null || this.Wm == null) {
+            this.mAudioManager = (AudioManager) com.baidu.browser.sailor.b.a.qS().getAppContext().getSystemService("audio");
+            this.Wm = new MediaPlayer();
+            this.Wm.setOnCompletionListener(new m(this));
+            this.Wm.setOnErrorListener(new d(this));
         }
     }
 
@@ -155,7 +155,7 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
         try {
             com.baidu.browser.sailor.util.c.a(new j(this, Integer.parseInt(str), nVar));
         } catch (NumberFormatException e) {
-            nVar.cA(e.getMessage());
+            nVar.cB(e.getMessage());
         }
     }
 
@@ -179,7 +179,7 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
         Intent intent;
         n nVar = new n(str2, str3);
         nVar.a(this);
-        if (!a(str, nVar, b.a.VZ)) {
+        if (!a(str, nVar, b.a.Wi)) {
             nVar.bD(2);
             return;
         }
@@ -187,33 +187,33 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
             nVar.bD(101);
             return;
         }
-        String str4 = nVar.qL().get("mediaType");
-        this.We = null;
+        String str4 = nVar.qP().get("mediaType");
+        this.Wn = null;
         if ("lightapp.device.MEDIA_TYPE.IMAGE".equals(str4)) {
             if (Build.VERSION.SDK_INT >= 24) {
                 File a = com.baidu.browser.sailor.feature.a.d.a(str4);
                 Uri a2 = com.baidu.browser.sailor.feature.a.d.a(a);
                 intent = new Intent("android.media.action.IMAGE_CAPTURE");
                 intent.putExtra("output", a2);
-                this.We = a.getPath();
+                this.Wn = a.getPath();
             } else {
                 File a3 = com.baidu.browser.sailor.feature.a.d.a(str4);
                 intent = new Intent("android.media.action.IMAGE_CAPTURE");
                 intent.putExtra("output", Uri.fromFile(a3));
-                this.We = a3.getPath();
+                this.Wn = a3.getPath();
             }
         } else if ("lightapp.device.MEDIA_TYPE.VIDEO".equals(str4)) {
             File a4 = com.baidu.browser.sailor.feature.a.d.a(str4);
             intent = new Intent("android.media.action.VIDEO_CAPTURE");
             intent.putExtra("android.intent.extra.videoQuality", 1);
-            this.We = a4.getPath();
+            this.Wn = a4.getPath();
         } else {
             nVar.bD(2);
             Log.e("BdLightappKernelClient", "error camera type: " + str4);
             intent = null;
         }
         if (intent != null) {
-            this.Wf.put(7, nVar);
+            this.Wo.put(7, nVar);
             intent.putExtra("jsaction_key", 7);
             b(intent, ArBridge.MessageType.MSG_TYPE_LUA_CALL_SDK_FUC);
         }
@@ -222,7 +222,7 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
     public void cloudaLaunchGallery(String str, String str2, String str3) {
         n nVar = new n(str2, str3);
         nVar.a(this);
-        if (!a(str, nVar, b.a.VZ)) {
+        if (!a(str, nVar, b.a.Wi)) {
             nVar.bD(2);
             return;
         }
@@ -230,8 +230,8 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
             nVar.bD(101);
             return;
         }
-        String str4 = nVar.qL().get("mediaType");
-        this.Wf.put(8, nVar);
+        String str4 = nVar.qP().get("mediaType");
+        this.Wo.put(8, nVar);
         Intent intent = new Intent("android.intent.action.PICK");
         if ("lightapp.device.MEDIA_TYPE.IMAGE".equals(str4)) {
             intent.setType("image/*");
@@ -285,7 +285,7 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
     public void invokeThirdApp(String str, String str2, String str3) {
         n nVar = new n(str2, str3);
         nVar.a(this);
-        this.Wf.put(12, nVar);
+        this.Wo.put(12, nVar);
         JSONObject a = com.baidu.browser.sailor.util.e.a(str);
         try {
             String string = a.getString("action");
@@ -313,7 +313,7 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
             intent.putExtra("jsaction_key", 12);
             z(intent);
         } catch (JSONException e) {
-            nVar.cA(e.getMessage());
+            nVar.cB(e.getMessage());
             e.printStackTrace();
         }
     }
@@ -331,19 +331,19 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
     }
 
     public void postFile(String str, String str2, String str3, String str4) {
-        com.baidu.browser.sailor.b.b.a.a(str, str2, str3, str4, this, qH(), this.mWebView != null ? this.mWebView.getSettings().getUserAgentString() : "");
+        com.baidu.browser.sailor.b.b.a.a(str, str2, str3, str4, this, qL(), this.mWebView != null ? this.mWebView.getSettings().getUserAgentString() : "");
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract String qH();
+    public abstract String qL();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void qI() {
-        com.baidu.browser.sailor.feature.a cC = com.baidu.browser.sailor.b.a.qO().cC("LIGHT_APP");
-        if (cC == null || this.mActivity == null) {
+    public void qM() {
+        com.baidu.browser.sailor.feature.a cD = com.baidu.browser.sailor.b.a.qS().cD("LIGHT_APP");
+        if (cD == null || this.mActivity == null) {
             Log.w("BdLightappKernelClient", "lightAppFeature or mActivity null");
         } else {
-            cC.a(this.mActivity.toString(), this);
+            cD.a(this.mActivity.toString(), this);
         }
     }
 
@@ -357,12 +357,12 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
         try {
             float parseFloat = Float.parseFloat(str);
             if (parseFloat < 0.0d || parseFloat > 1.0d) {
-                nVar.cA("Volume out of range, should between [0.0,1.0]");
+                nVar.cB("Volume out of range, should between [0.0,1.0]");
             } else {
                 com.baidu.browser.sailor.util.c.a(new k(this, parseFloat, nVar));
             }
         } catch (Exception e) {
-            nVar.cA(e.getMessage());
+            nVar.cB(e.getMessage());
         }
     }
 
@@ -370,7 +370,7 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
 
     public void startListenBattery(String str, String str2) {
         com.baidu.browser.sailor.b.b.a.c(str, str2, this);
-        this.Wg = true;
+        this.Wp = true;
     }
 
     public abstract void startListenKeyboard(String str, String str2, String str3);
@@ -385,7 +385,7 @@ public abstract class c implements n.a, com.baidu.browser.sailor.feature.a.e, co
 
     public void stopListenBattery(String str, String str2) {
         com.baidu.browser.sailor.b.b.a.d(str, str2, this);
-        this.Wg = false;
+        this.Wp = false;
     }
 
     public abstract void stopListenKeyboard(String str, String str2, String str3);

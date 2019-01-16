@@ -15,7 +15,7 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes6.dex */
 public class aq {
-    public static Intent aw(Context context, String str) {
+    public static Intent au(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return null;
         }
@@ -27,14 +27,14 @@ public class aq {
         return intent;
     }
 
-    public static boolean k(PostData postData) {
-        if (postData == null || postData.bEs() == null) {
+    public static boolean m(PostData postData) {
+        if (postData == null || postData.bFb() == null) {
             return false;
         }
-        com.baidu.tieba.tbadkCore.data.h bEs = postData.bEs();
-        if (bEs.hof) {
-            int bDQ = bEs.bDQ();
-            return bDQ == 2 || bDQ == 1 || bDQ == 3;
+        com.baidu.tieba.tbadkCore.data.h bFb = postData.bFb();
+        if (bFb.hpk) {
+            int bEz = bFb.bEz();
+            return bEz == 2 || bEz == 1 || bEz == 3;
         }
         return false;
     }
@@ -62,8 +62,8 @@ public class aq {
                 }
             });
             aVar.G(inflate);
-            aVar.bf(false);
-            aVar.b(tbPageContext).BF();
+            aVar.bg(false);
+            aVar.b(tbPageContext).BS();
         }
     }
 }

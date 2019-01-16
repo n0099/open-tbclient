@@ -1,7 +1,6 @@
 package com.baidu.adp.lib.a;
 
 import android.content.SharedPreferences;
-import android.location.Address;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
@@ -96,11 +95,6 @@ public class a {
                 statsItem.append("hostip", str2);
                 statsItem.f("issuc", Boolean.valueOf(z));
                 statsItem.f("isuseip", Boolean.valueOf(z2));
-                Address d = com.baidu.adp.lib.d.a.iW().d(false, false);
-                if (d != null) {
-                    statsItem.f("lati", Double.valueOf(d.getLatitude()));
-                    statsItem.f("longi", Double.valueOf(d.getLongitude()));
-                }
                 BdStatisticsManager.getInstance().debug("dnsproxy", statsItem);
                 SharedPreferences config = getConfig();
                 EditorHelper.putLong(config, aK(str), currentTimeMillis);

@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tbadk.util.ab;
+import com.baidu.tbadk.util.ac;
 import com.baidu.tbadk.util.h;
-import com.baidu.tbadk.util.w;
 import com.baidu.tbadk.util.x;
+import com.baidu.tbadk.util.y;
 import com.baidu.tieba.e;
 import com.baidu.tieba.quickWebView.QuickWebView;
 import java.util.ArrayList;
@@ -27,21 +27,21 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
-    private b fxo;
-    private d fxp;
-    private List<String> fxq = new ArrayList();
-    private boolean fxr;
+    private b fyi;
+    private d fyj;
+    private List<String> fyk = new ArrayList();
+    private boolean fyl;
     private TbPageContext mPageContext;
 
     public c(BaseActivity baseActivity, b bVar, d dVar) {
         this.mPageContext = baseActivity.getPageContext();
-        this.fxo = bVar;
-        this.fxp = dVar;
-        baT();
-        baU();
+        this.fyi = bVar;
+        this.fyj = dVar;
+        bbt();
+        bbu();
     }
 
-    private void baT() {
+    private void bbt() {
         BaseWebView.c cVar = new BaseWebView.c() { // from class: com.baidu.tieba.mainentrance.a.c.1
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
             public void onPageFinished(WebView webView, String str) {
@@ -50,7 +50,7 @@ public class c {
         BaseWebView.f fVar = new BaseWebView.f() { // from class: com.baidu.tieba.mainentrance.a.c.2
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
             public void onReceivedError(WebView webView, int i, String str, String str2) {
-                if (webView == c.this.fxp.bbf()) {
+                if (webView == c.this.fyj.bbF()) {
                     c.this.jI(false);
                 }
             }
@@ -58,58 +58,58 @@ public class c {
         BaseWebView.b bVar = new BaseWebView.b() { // from class: com.baidu.tieba.mainentrance.a.c.3
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.b
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-                return c.this.lk(str);
+                return c.this.lA(str);
             }
         };
-        QuickWebView bbf = this.fxp.bbf();
-        if (bbf != null) {
-            bbf.addJsPromptInterface(new a());
-            bbf.setOnPageFinishedListener(cVar);
-            bbf.setOnReceivedErrorListener(fVar);
-            bbf.setOnLoadUrlListener(bVar);
+        QuickWebView bbF = this.fyj.bbF();
+        if (bbF != null) {
+            bbF.addJsPromptInterface(new a());
+            bbF.setOnPageFinishedListener(cVar);
+            bbF.setOnReceivedErrorListener(fVar);
+            bbF.setOnLoadUrlListener(bVar);
         }
     }
 
-    private void baU() {
-        x.a(new w<List<String>>() { // from class: com.baidu.tieba.mainentrance.a.c.4
+    private void bbu() {
+        y.a(new x<List<String>>() { // from class: com.baidu.tieba.mainentrance.a.c.4
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.util.w
+            @Override // com.baidu.tbadk.util.x
             public List<String> doInBackground() {
-                return com.baidu.tieba.tbadkCore.util.a.bEY();
+                return com.baidu.tieba.tbadkCore.util.a.bFH();
             }
         }, new h<List<String>>() { // from class: com.baidu.tieba.mainentrance.a.c.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.h
             public void onReturnDataInUI(List<String> list) {
                 if (!v.I(list)) {
-                    c.this.fxq = list;
+                    c.this.fyk = list;
                 }
             }
         });
     }
 
-    public void baV() {
-        this.fxp.bba();
-        if (this.fxr) {
-            String baW = baW();
-            if (!StringUtils.isNull(baW)) {
-                this.fxp.bbf().loadUrl("javascript:setSearchHistory('" + baW + "')");
+    public void bbv() {
+        this.fyj.bbA();
+        if (this.fyl) {
+            String bbw = bbw();
+            if (!StringUtils.isNull(bbw)) {
+                this.fyj.bbF().loadUrl("javascript:setSearchHistory('" + bbw + "')");
                 return;
             }
             return;
         }
-        this.fxp.bbf().loadUrl("https://tieba.baidu.com/n/apage-runtime/page/search_history");
+        this.fyj.bbF().loadUrl("https://tieba.baidu.com/n/apage-runtime/page/search_history");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String baW() {
-        int H = v.H(this.fxq);
+    public String bbw() {
+        int H = v.H(this.fyk);
         if (H == 0) {
             return "";
         }
         JSONArray jSONArray = new JSONArray();
         for (int i = 0; i < H; i++) {
-            jSONArray.put(this.fxq.get(i));
+            jSONArray.put(this.fyk.get(i));
         }
         return jSONArray.toString();
     }
@@ -118,33 +118,33 @@ public class c {
     public void jI(boolean z) {
         NoDataViewFactory.d eq;
         if (!z) {
-            this.fxp.baK();
+            this.fyj.bbk();
             if (j.kV()) {
                 eq = NoDataViewFactory.d.eq(e.j.text_no_search_record);
             } else {
                 eq = NoDataViewFactory.d.eq(e.j.neterror);
             }
-            this.fxp.a(eq);
+            this.fyj.a(eq);
             return;
         }
-        this.fxp.bba();
+        this.fyj.bbA();
     }
 
-    public void ru(String str) {
-        if (!StringUtils.isNull(str) && this.fxq != null && !this.fxq.contains(str)) {
-            this.fxq.add(0, str);
+    public void rK(String str) {
+        if (!StringUtils.isNull(str) && this.fyk != null && !this.fyk.contains(str)) {
+            this.fyk.add(0, str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean lk(String str) {
+    public boolean lA(String str) {
         if (str.startsWith("http://tieba.baidu.com/mo/q/hotMessage?topic_id=") || str.startsWith("http://tieba.baidu.com/mo/q/newhotmessage?") || str.startsWith("https://tieba.baidu.com/mo/q/hotMessage?topic_id=") || str.startsWith("https://tieba.baidu.com/mo/q/newhotmessage?")) {
-            String aO = ab.aO(str, "topic_id=");
-            String aO2 = ab.aO(str, "topic_name=");
-            if (!com.baidu.tbadk.plugins.b.e(this.mPageContext) && !StringUtils.isNull(aO) && !StringUtils.isNull(aO2, true)) {
-                this.mPageContext.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.mPageContext.getPageActivity()).createNormalConfig(aO, aO2, "4")));
+            String aP = ac.aP(str, "topic_id=");
+            String aP2 = ac.aP(str, "topic_name=");
+            if (!com.baidu.tbadk.plugins.b.e(this.mPageContext) && !StringUtils.isNull(aP) && !StringUtils.isNull(aP2, true)) {
+                this.mPageContext.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(this.mPageContext.getPageActivity()).createNormalConfig(aP, aP2, "4")));
             }
-            TiebaStatic.log(new am("c10363").aA("obj_name", aO2));
+            TiebaStatic.log(new am("c10363").aB("obj_name", aP2));
             return true;
         } else if (str.startsWith("http://tieba.baidu.com/mo/q/hotMessage/list") || str.startsWith(TbConfig.URL_HOST_TOPIC_LIST)) {
             if (com.baidu.tbadk.plugins.b.e(this.mPageContext)) {
@@ -166,19 +166,19 @@ public class c {
         public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
             if ("CommonJSBridge".equals(str)) {
                 if ("getSearchHistory".equals(str2)) {
-                    jsPromptResult.confirm(c.this.baW());
-                    c.this.fxr = true;
+                    jsPromptResult.confirm(c.this.bbw());
+                    c.this.fyl = true;
                     return true;
                 } else if ("deleteSearchHistory".equals(str2)) {
-                    rv(str3);
+                    rL(str3);
                     jsPromptResult.confirm("1");
                     return true;
                 } else if ("deleteAllSearchHistory".equals(str2)) {
-                    aAC();
+                    aAZ();
                     jsPromptResult.confirm("1");
                     return true;
                 } else if ("openSearchPage".equals(str2)) {
-                    rw(str3);
+                    rM(str3);
                     jsPromptResult.confirm("1");
                     return true;
                 } else {
@@ -188,23 +188,23 @@ public class c {
             return false;
         }
 
-        private void rv(String str) {
+        private void rL(String str) {
             try {
                 final String optString = new JSONObject(str).optString("query");
-                x.a(new w<String>() { // from class: com.baidu.tieba.mainentrance.a.c.a.1
+                y.a(new x<String>() { // from class: com.baidu.tieba.mainentrance.a.c.a.1
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.baidu.tbadk.util.w
-                    /* renamed from: aMb */
+                    @Override // com.baidu.tbadk.util.x
+                    /* renamed from: aMB */
                     public String doInBackground() {
-                        com.baidu.tieba.tbadkCore.util.a.vQ(optString);
+                        com.baidu.tieba.tbadkCore.util.a.wg(optString);
                         return optString;
                     }
                 }, new h<String>() { // from class: com.baidu.tieba.mainentrance.a.c.a.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.tbadk.util.h
-                    /* renamed from: pq */
+                    /* renamed from: pG */
                     public void onReturnDataInUI(String str2) {
-                        c.this.fxq.remove(str2);
+                        c.this.fyk.remove(str2);
                     }
                 });
             } catch (Exception e) {
@@ -212,28 +212,28 @@ public class c {
             }
         }
 
-        private void aAC() {
-            x.a(new w() { // from class: com.baidu.tieba.mainentrance.a.c.a.3
-                @Override // com.baidu.tbadk.util.w
+        private void aAZ() {
+            y.a(new x() { // from class: com.baidu.tieba.mainentrance.a.c.a.3
+                @Override // com.baidu.tbadk.util.x
                 public Object doInBackground() {
-                    com.baidu.tieba.tbadkCore.util.a.bFa();
+                    com.baidu.tieba.tbadkCore.util.a.bFJ();
                     return null;
                 }
             }, new h() { // from class: com.baidu.tieba.mainentrance.a.c.a.4
                 @Override // com.baidu.tbadk.util.h
                 public void onReturnDataInUI(Object obj) {
-                    c.this.fxq.clear();
+                    c.this.fyk.clear();
                 }
             });
         }
 
-        private void rw(String str) {
+        private void rM(String str) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 String optString = jSONObject.optString("query");
                 int optInt = jSONObject.optInt("sub_type");
-                if (c.this.fxo != null) {
-                    c.this.fxo.a(optString, true, optInt);
+                if (c.this.fyi != null) {
+                    c.this.fyi.a(optString, true, optInt);
                     TiebaStatic.log(new am("c12034"));
                 }
             } catch (Exception e) {

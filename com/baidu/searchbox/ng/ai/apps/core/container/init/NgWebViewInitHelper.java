@@ -27,7 +27,7 @@ public class NgWebViewInitHelper implements NgWebViewInitListener {
         this.mLock = new ReentrantLock();
         this.mIsLoaded = false;
         this.mListenerAdapter = new InitListenerAdapter(this);
-        a.qn().a(this.mListenerAdapter);
+        a.qr().a(this.mListenerAdapter);
         this.mThreadPoolExecutor = Executors.newSingleThreadExecutor();
         this.mContext = AppRuntime.getAppContext();
     }
@@ -50,10 +50,10 @@ public class NgWebViewInitHelper implements NgWebViewInitListener {
     /* JADX INFO: Access modifiers changed from: private */
     public void doInitBWebKit() {
         if (!isLoaded()) {
-            a.qn().init(this.mContext, null, AiAppsRuntime.getAiAppAccountRuntime().getUid(this.mContext));
-            a.qn().aA(false);
-            a.qn().j(INIT_BWEBKIT_APPID, false);
-            a.qn().qq().aB(true);
+            a.qr().init(this.mContext, null, AiAppsRuntime.getAiAppAccountRuntime().getUid(this.mContext));
+            a.qr().aA(false);
+            a.qr().j(INIT_BWEBKIT_APPID, false);
+            a.qr().qu().aB(true);
         }
     }
 
@@ -96,7 +96,7 @@ public class NgWebViewInitHelper implements NgWebViewInitListener {
             }
             this.mListeners.clear();
             if (this.mListenerAdapter != null) {
-                a.qn().b(this.mListenerAdapter);
+                a.qr().b(this.mListenerAdapter);
                 this.mListenerAdapter = null;
             }
         } finally {
@@ -109,7 +109,7 @@ public class NgWebViewInitHelper implements NgWebViewInitListener {
         try {
             this.mLock.lock();
             if (!this.mIsLoaded) {
-                if (!a.qn().qp()) {
+                if (!a.qr().qt()) {
                     z = false;
                     return z;
                 }

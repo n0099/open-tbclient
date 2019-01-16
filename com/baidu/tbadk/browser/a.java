@@ -28,10 +28,10 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    public static String amD;
+    public static String amX;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String ak(String str, String str2) {
+    public static String al(String str, String str2) {
         String str3;
         if (!str.startsWith("http://") && !str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
             str = "http://".concat(str);
@@ -44,8 +44,8 @@ public class a {
         return str.concat(str3);
     }
 
-    public static void dH(String str) {
-        amD = str;
+    public static void dJ(String str) {
+        amX = str;
     }
 
     public static void ad(Context context, String str) {
@@ -77,7 +77,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        wK();
+        wR();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
@@ -92,7 +92,7 @@ public class a {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7) {
-        wK();
+        wR();
         try {
             if (!StringUtils.isNull(str2)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3, z6);
@@ -105,7 +105,7 @@ public class a {
     }
 
     public static void ae(Context context, String str) {
-        wK();
+        wR();
         try {
             if (!StringUtils.isNull(str)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context, "", appendVersionCode(appendCuidParam(str)), true, true, true, false);
@@ -194,7 +194,7 @@ public class a {
         }
         if (cookieManager != null) {
             cookieManager.setAcceptCookie(true);
-            if (com.baidu.tbadk.core.a.a.xJ().eb(TbadkCoreApplication.getCurrentBduss()) != null) {
+            if (com.baidu.tbadk.core.a.a.xW().ek(TbadkCoreApplication.getCurrentBduss()) != null) {
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(c)) {
@@ -236,7 +236,7 @@ public class a {
         CompatibleUtile.getInstance().WebViewNoDataBase(webSettings);
     }
 
-    private static void wK() {
+    private static void wR() {
         new ag("open_webview", true).start();
     }
 }

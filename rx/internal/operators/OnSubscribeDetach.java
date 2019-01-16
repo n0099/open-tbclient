@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class OnSubscribeDetach<T> implements d.a<T> {
-    final rx.d<T> iEP;
+    final rx.d<T> iFW;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -13,7 +13,7 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
     }
 
     public OnSubscribeDetach(rx.d<T> dVar) {
-        this.iEP = dVar;
+        this.iFW = dVar;
     }
 
     public void call(rx.j<? super T> jVar) {
@@ -21,14 +21,14 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
         a aVar = new a(bVar);
         jVar.add(aVar);
         jVar.setProducer(aVar);
-        this.iEP.unsafeSubscribe(bVar);
+        this.iFW.unsafeSubscribe(bVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b<T> extends rx.j<T> {
         final AtomicReference<rx.j<? super T>> actual;
-        final AtomicReference<rx.f> iFI = new AtomicReference<>();
+        final AtomicReference<rx.f> iGP = new AtomicReference<>();
         final AtomicLong requested = new AtomicLong();
 
         public b(rx.j<? super T> jVar) {
@@ -45,7 +45,7 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iFI.lazySet(TerminatedProducer.INSTANCE);
+            this.iGP.lazySet(TerminatedProducer.INSTANCE);
             rx.j<? super T> andSet = this.actual.getAndSet(null);
             if (andSet != null) {
                 andSet.onError(th);
@@ -56,7 +56,7 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
 
         @Override // rx.e
         public void onCompleted() {
-            this.iFI.lazySet(TerminatedProducer.INSTANCE);
+            this.iGP.lazySet(TerminatedProducer.INSTANCE);
             rx.j<? super T> andSet = this.actual.getAndSet(null);
             if (andSet != null) {
                 andSet.onCompleted();
@@ -67,13 +67,13 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
             if (j < 0) {
                 throw new IllegalArgumentException("n >= 0 required but it was " + j);
             }
-            rx.f fVar = this.iFI.get();
+            rx.f fVar = this.iGP.get();
             if (fVar != null) {
                 fVar.request(j);
                 return;
             }
             rx.internal.operators.a.a(this.requested, j);
-            rx.f fVar2 = this.iFI.get();
+            rx.f fVar2 = this.iGP.get();
             if (fVar2 != null && fVar2 != TerminatedProducer.INSTANCE) {
                 fVar2.request(this.requested.getAndSet(0L));
             }
@@ -81,15 +81,15 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
 
         @Override // rx.j
         public void setProducer(rx.f fVar) {
-            if (this.iFI.compareAndSet(null, fVar)) {
+            if (this.iGP.compareAndSet(null, fVar)) {
                 fVar.request(this.requested.getAndSet(0L));
-            } else if (this.iFI.get() != TerminatedProducer.INSTANCE) {
+            } else if (this.iGP.get() != TerminatedProducer.INSTANCE) {
                 throw new IllegalStateException("Producer already set!");
             }
         }
 
-        void cdY() {
-            this.iFI.lazySet(TerminatedProducer.INSTANCE);
+        void ceG() {
+            this.iGP.lazySet(TerminatedProducer.INSTANCE);
             this.actual.lazySet(null);
             unsubscribe();
         }
@@ -98,25 +98,25 @@ public final class OnSubscribeDetach<T> implements d.a<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> implements rx.f, rx.k {
-        final b<T> iFH;
+        final b<T> iGO;
 
         public a(b<T> bVar) {
-            this.iFH = bVar;
+            this.iGO = bVar;
         }
 
         @Override // rx.f
         public void request(long j) {
-            this.iFH.dJ(j);
+            this.iGO.dJ(j);
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.iFH.isUnsubscribed();
+            return this.iGO.isUnsubscribed();
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.iFH.cdY();
+            this.iGO.ceG();
         }
     }
 

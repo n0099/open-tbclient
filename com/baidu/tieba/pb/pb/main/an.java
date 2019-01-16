@@ -12,11 +12,11 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class an {
-    private PbActivity fXM;
-    private com.baidu.tieba.c.d gev;
+    private PbActivity fYJ;
+    private com.baidu.tieba.c.d gfy;
 
     public an(PbActivity pbActivity) {
-        this.fXM = pbActivity;
+        this.fYJ = pbActivity;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP, TbConfig.SERVER_ADDRESS + TbConfig.SUBMIT_SHOW_PB_TIPS);
         tbHttpMessageTask.setResponsedClass(SubmitPbShowTipHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -25,33 +25,33 @@ public class an {
 
     public void a(View view, String str, String str2, String str3) {
         if (view != null && !StringUtils.isNull(str) && view.getVisibility() == 0 && view.getAlpha() >= 0.4d) {
-            if (this.gev == null) {
-                this.gev = new com.baidu.tieba.c.d(this.fXM.getPageContext(), view);
-                this.gev.lh(e.f.bg_tip_blue_up_left);
-                this.gev.lg(16);
-                this.gev.fI(true);
-                this.gev.lk(57);
-                this.gev.setYOffset(-10);
+            if (this.gfy == null) {
+                this.gfy = new com.baidu.tieba.c.d(this.fYJ.getPageContext(), view);
+                this.gfy.li(e.f.bg_tip_blue_up_left);
+                this.gfy.lh(16);
+                this.gfy.fL(true);
+                this.gfy.ll(57);
+                this.gfy.setYOffset(-10);
             }
-            this.gev.li(UIMsg.m_AppUI.MSG_APP_GPS);
-            this.gev.mU(str);
-            co(str2, str3);
+            this.gfy.lj(UIMsg.m_AppUI.MSG_APP_GPS);
+            this.gfy.nk(str);
+            cp(str2, str3);
             TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12504"));
         }
     }
 
     public void destroy() {
-        if (this.gev != null) {
-            this.gev.asb();
+        if (this.gfy != null) {
+            this.gfy.asz();
         }
     }
 
-    private void co(String str, String str2) {
+    private void cp(String str, String str2) {
         if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP);
             httpMessage.addParam("thread_user_id", str);
             httpMessage.addParam("thread_id", str2);
-            this.fXM.sendMessage(httpMessage);
+            this.fYJ.sendMessage(httpMessage);
         }
     }
 }

@@ -11,8 +11,8 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class k implements SensorEventListener {
     private static Object a = new Object();
-    private static k adS = null;
-    private SensorManager adT;
+    private static k aeb = null;
+    private SensorManager aec;
     private float[] c;
     private int d = 0;
     private List<Float> e = new ArrayList();
@@ -23,10 +23,10 @@ public class k implements SensorEventListener {
     public k() {
         this.h = false;
         try {
-            if (this.adT == null) {
-                this.adT = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
+            if (this.aec == null) {
+                this.aec = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
             }
-            if (this.adT.getDefaultSensor(6) != null) {
+            if (this.aec.getDefaultSensor(6) != null) {
                 this.h = true;
             }
         } catch (Exception e) {
@@ -34,13 +34,13 @@ public class k implements SensorEventListener {
         }
     }
 
-    public static k tk() {
+    public static k tp() {
         k kVar;
         synchronized (a) {
-            if (adS == null) {
-                adS = new k();
+            if (aeb == null) {
+                aeb = new k();
             }
-            kVar = adS;
+            kVar = aeb;
         }
         return kVar;
     }

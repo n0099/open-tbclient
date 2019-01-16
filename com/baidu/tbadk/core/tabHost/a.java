@@ -16,15 +16,15 @@ import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class a {
-    private int azB;
+    private int aAd;
     private final b<com.baidu.adp.widget.ImageView.a> mCallback = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.f.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass1) aVar, str, i);
-            if (a.this.mTabHost == null || aVar == null || !aVar.oq()) {
-                a.this.CA();
+            if (a.this.mTabHost == null || aVar == null || !aVar.ou()) {
+                a.this.CN();
                 return;
             }
             FragmentTabWidget fragmentTabWidget = a.this.mTabHost.getFragmentTabWidget();
@@ -38,16 +38,16 @@ public class a {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) fragmentViewPager.getLayoutParams();
                 layoutParams.bottomMargin = l.h(a.this.mTabHost.getContext(), e.C0210e.tbds100);
                 fragmentViewPager.setLayoutParams(layoutParams);
-                fragmentTabWidget.setBackgroundDrawable(new BitmapDrawable(aVar.op()));
+                fragmentTabWidget.setBackgroundDrawable(new BitmapDrawable(aVar.ot()));
             }
         }
     };
     private FragmentTabHost mTabHost;
 
     public a(FragmentTabHost fragmentTabHost, int i) {
-        this.azB = 0;
+        this.aAd = 0;
         this.mTabHost = fragmentTabHost;
-        this.azB = i;
+        this.aAd = i;
     }
 
     public void a(Pair<String, String> pair) {
@@ -55,16 +55,16 @@ public class a {
             String str = (String) pair.first;
             String str2 = (String) pair.second;
             if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(str2)) {
-                eL(str2);
+                eU(str2);
             } else if (!TextUtils.isEmpty(str)) {
-                eL(str);
+                eU(str);
             } else {
-                CA();
+                CN();
             }
         }
     }
 
-    private void eL(String str) {
+    private void eU(String str) {
         c.jA().a(str, 10, this.mCallback, getBdUniqueId());
     }
 
@@ -77,11 +77,11 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void CA() {
+    public void CN() {
         if (this.mTabHost != null && this.mTabHost.getFragmentTabWidget() != null) {
-            this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.azB);
-            al.j(this.mTabHost.getFragmentTabWidget(), this.azB);
-            al.j(this.mTabHost.getTabWrapper(), this.azB);
+            this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.aAd);
+            al.j(this.mTabHost.getFragmentTabWidget(), this.aAd);
+            al.j(this.mTabHost.getTabWrapper(), this.aAd);
         }
     }
 }

@@ -13,9 +13,9 @@ public class g extends at.a {
     }
 
     @Override // com.xiaomi.push.service.at.a
-    public void a(b.C0394b c0394b) {
-        if (c0394b.k()) {
-            f.a().a(c0394b.j());
+    public void a(b.C0393b c0393b) {
+        if (c0393b.k()) {
+            f.a().a(c0393b.j());
         }
     }
 }

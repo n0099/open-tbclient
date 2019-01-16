@@ -2,17 +2,17 @@ package com.coloros.mcssdk.e;
 /* loaded from: classes3.dex */
 public class e {
     private String content;
-    private String ihB;
+    private String iiI;
 
     public void setContent(String str) {
         this.content = str;
     }
 
     public String toString() {
-        return "subscribeId:" + this.ihB + ",content:" + this.content;
+        return "subscribeId:" + this.iiI + ",content:" + this.content;
     }
 
-    public void yY(String str) {
-        this.ihB = str;
+    public void zo(String str) {
+        this.iiI = str;
     }
 }

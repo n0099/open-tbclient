@@ -8,39 +8,39 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class a {
-    private static a KG;
-    private c KH;
-    private ArrayList<b> KI = new ArrayList<>();
-    private C0022a KJ;
+    private static a KM;
+    private c KN;
+    private ArrayList<b> KO = new ArrayList<>();
+    private C0022a KP;
 
     /* loaded from: classes.dex */
     public interface c {
-        void J(String str, String str2);
+        void K(String str, String str2);
     }
 
     private a() {
     }
 
-    public static a mT() {
-        if (KG == null) {
+    public static a mW() {
+        if (KM == null) {
             synchronized (a.class) {
-                if (KG == null) {
-                    KG = new a();
+                if (KM == null) {
+                    KM = new a();
                 }
             }
         }
-        return KG;
+        return KM;
     }
 
     public void a(ArrayList<b> arrayList, c cVar) {
         boolean z;
         if (arrayList != null && arrayList.size() != 0) {
-            this.KH = cVar;
+            this.KN = cVar;
             Iterator<b> it = arrayList.iterator();
             while (it.hasNext()) {
                 b next = it.next();
                 if (next != null && !TextUtils.isEmpty(next.apkPath) && !TextUtils.isEmpty(next.packageName)) {
-                    Iterator<b> it2 = this.KI.iterator();
+                    Iterator<b> it2 = this.KO.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             z = false;
@@ -51,19 +51,19 @@ public class a {
                         }
                     }
                     if (!z) {
-                        this.KI.add(next);
+                        this.KO.add(next);
                     }
                 }
             }
-            mU();
+            mX();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mU() {
-        if (this.KI.size() != 0 && this.KJ == null) {
-            this.KJ = new C0022a(this.KI.get(0));
-            this.KJ.execute(new String[0]);
+    public void mX() {
+        if (this.KO.size() != 0 && this.KP == null) {
+            this.KP = new C0022a(this.KO.get(0));
+            this.KP.execute(new String[0]);
         }
     }
 
@@ -71,18 +71,18 @@ public class a {
     /* renamed from: com.baidu.adp.plugin.packageManager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public class C0022a extends BdAsyncTask<String, Integer, Boolean> {
-        private b KK;
+        private b KQ;
 
         public C0022a(b bVar) {
-            this.KK = bVar;
+            this.KQ = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            if (this.KK != null) {
-                return Boolean.valueOf(bQ(this.KK.apkPath));
+            if (this.KQ != null) {
+                return Boolean.valueOf(bR(this.KQ.apkPath));
             }
             return false;
         }
@@ -92,27 +92,27 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
             super.onPostExecute((C0022a) bool);
-            a.this.KJ = null;
-            if (a.this.KI.size() > 0) {
-                Iterator it = a.this.KI.iterator();
+            a.this.KP = null;
+            if (a.this.KO.size() > 0) {
+                Iterator it = a.this.KO.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     b bVar = (b) it.next();
-                    if (a.this.a(this.KK, bVar)) {
-                        a.this.KI.remove(bVar);
+                    if (a.this.a(this.KQ, bVar)) {
+                        a.this.KO.remove(bVar);
                         break;
                     }
                 }
             }
-            if (bool != null && bool.booleanValue() && a.this.KH != null) {
-                a.this.KH.J(this.KK.packageName, this.KK.apkPath);
+            if (bool != null && bool.booleanValue() && a.this.KN != null) {
+                a.this.KN.K(this.KQ.packageName, this.KQ.apkPath);
             }
-            a.this.mU();
+            a.this.mX();
         }
 
-        private boolean bQ(String str) {
+        private boolean bR(String str) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }

@@ -26,33 +26,33 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class l extends BaseAdapter {
-    private final MembersActivity eTi;
-    private a eTj;
-    private boolean eTk;
-    private boolean eTm;
-    private final Set<Long> eTn = new HashSet();
-    private final List<UserData> eTo = new ArrayList();
-    private ArrayList<IconData> eTp = null;
-    private boolean eTl = false;
+    private final MembersActivity eTV;
+    private a eTW;
+    private boolean eTX;
+    private boolean eTZ;
+    private final Set<Long> eUa = new HashSet();
+    private final List<UserData> eUb = new ArrayList();
+    private ArrayList<IconData> eUc = null;
+    private boolean eTY = false;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void qh(int i);
+        void qi(int i);
     }
 
     public void a(a aVar) {
-        this.eTj = aVar;
+        this.eTW = aVar;
     }
 
-    public void cG(List<UserData> list) {
-        this.eTo.addAll(list);
+    public void cH(List<UserData> list) {
+        this.eUb.addAll(list);
     }
 
-    public void cH(List<Long> list) {
+    public void cI(List<Long> list) {
         if (list != null && list.size() > 0) {
             for (Long l : list) {
                 long longValue = l.longValue();
-                Iterator<UserData> it = this.eTo.iterator();
+                Iterator<UserData> it = this.eUb.iterator();
                 while (it.hasNext()) {
                     if (it.next().getUserIdLong() == longValue) {
                         it.remove();
@@ -62,65 +62,65 @@ public class l extends BaseAdapter {
         }
     }
 
-    public void aSc() {
-        this.eTn.clear();
+    public void aSC() {
+        this.eUa.clear();
     }
 
-    public Set<Long> aSd() {
-        return this.eTn;
+    public Set<Long> aSD() {
+        return this.eUa;
     }
 
     public void h(Long l) {
         if (com.baidu.adp.lib.util.l.lk()) {
-            if (this.eTn.contains(l)) {
-                this.eTn.remove(l);
+            if (this.eUa.contains(l)) {
+                this.eUa.remove(l);
             } else {
-                this.eTn.add(l);
+                this.eUa.add(l);
             }
             notifyDataSetChanged();
-            if (this.eTj != null) {
-                this.eTj.qh(this.eTn.size());
+            if (this.eTW != null) {
+                this.eTW.qi(this.eUa.size());
             }
         }
     }
 
     public void reset(boolean z) {
         if (z) {
-            this.eTo.clear();
+            this.eUb.clear();
         }
-        this.eTl = false;
-        this.eTk = true;
+        this.eTY = false;
+        this.eTX = true;
     }
 
     public l(MembersActivity membersActivity) {
-        this.eTi = membersActivity;
+        this.eTV = membersActivity;
     }
 
     public void iC(boolean z) {
-        this.eTk = z;
+        this.eTX = z;
     }
 
-    public boolean arf() {
-        return this.eTk;
+    public boolean arD() {
+        return this.eTX;
     }
 
     public void iD(boolean z) {
-        this.eTl = z;
+        this.eTY = z;
     }
 
-    public boolean aPk() {
-        return this.eTm;
+    public boolean aPK() {
+        return this.eTZ;
     }
 
     public void iE(boolean z) {
-        this.eTm = z;
+        this.eTZ = z;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eTo != null) {
-            int size = this.eTo.size();
-            if (this.eTl) {
+        if (this.eUb != null) {
+            int size = this.eUb.size();
+            if (this.eTY) {
                 return size + 1;
             }
             return size;
@@ -130,12 +130,12 @@ public class l extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return v.d(this.eTo, i);
+        return v.d(this.eUb, i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.eTl && i == getCount() - 1) {
+        if (this.eTY && i == getCount() - 1) {
             return -2L;
         }
         return i;
@@ -155,28 +155,28 @@ public class l extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         b bVar;
         View view2;
-        if (this.eTo != null) {
+        if (this.eUb != null) {
             if (view == null) {
                 b bVar2 = new b();
                 if (getItemViewType(i) == 1) {
-                    View inflate = LayoutInflater.from(this.eTi.getPageContext().getPageActivity()).inflate(e.h.im_members_list_foot, viewGroup, false);
-                    bVar2.eTr = (LinearLayout) inflate.findViewById(e.g.list_more);
-                    bVar2.eTs = (TextView) inflate.findViewById(e.g.more_title);
-                    bVar2.eTt = (ProgressBar) inflate.findViewById(e.g.more_progress);
+                    View inflate = LayoutInflater.from(this.eTV.getPageContext().getPageActivity()).inflate(e.h.im_members_list_foot, viewGroup, false);
+                    bVar2.eUe = (LinearLayout) inflate.findViewById(e.g.list_more);
+                    bVar2.eUf = (TextView) inflate.findViewById(e.g.more_title);
+                    bVar2.eUg = (ProgressBar) inflate.findViewById(e.g.more_progress);
                     view2 = inflate;
                 } else {
-                    View inflate2 = LayoutInflater.from(this.eTi.getPageContext().getPageActivity()).inflate(e.h.im_members_list_item, viewGroup, false);
-                    bVar2.eTv = (HeadImageView) inflate2.findViewById(e.g.item_head);
-                    bVar2.eTv.setIsRound(false);
-                    bVar2.eTv.setAutoChangeStyle(true);
-                    bVar2.eSj = (TextView) inflate2.findViewById(e.g.item_name);
-                    bVar2.eTw = (ImageView) inflate2.findViewById(e.g.item_sex);
-                    bVar2.eTx = (TextView) inflate2.findViewById(e.g.item_time);
-                    bVar2.eTy = (TextView) inflate2.findViewById(e.g.item_address);
-                    bVar2.eTu = (ImageView) inflate2.findViewById(e.g.item_check);
-                    bVar2.aKq = (UserIconBox) inflate2.findViewById(e.g.user_tshow_icon_box);
-                    bVar2.eTz = inflate2.findViewById(e.g.list_line);
-                    bVar2.eTA = inflate2.findViewById(e.g.list_bottom_line);
+                    View inflate2 = LayoutInflater.from(this.eTV.getPageContext().getPageActivity()).inflate(e.h.im_members_list_item, viewGroup, false);
+                    bVar2.eUi = (HeadImageView) inflate2.findViewById(e.g.item_head);
+                    bVar2.eUi.setIsRound(false);
+                    bVar2.eUi.setAutoChangeStyle(true);
+                    bVar2.eSW = (TextView) inflate2.findViewById(e.g.item_name);
+                    bVar2.eUj = (ImageView) inflate2.findViewById(e.g.item_sex);
+                    bVar2.eUk = (TextView) inflate2.findViewById(e.g.item_time);
+                    bVar2.eUl = (TextView) inflate2.findViewById(e.g.item_address);
+                    bVar2.eUh = (ImageView) inflate2.findViewById(e.g.item_check);
+                    bVar2.aKS = (UserIconBox) inflate2.findViewById(e.g.user_tshow_icon_box);
+                    bVar2.eUm = inflate2.findViewById(e.g.list_line);
+                    bVar2.eUn = inflate2.findViewById(e.g.list_bottom_line);
                     view2 = inflate2;
                 }
                 view2.setTag(bVar2);
@@ -185,68 +185,68 @@ public class l extends BaseAdapter {
             } else {
                 bVar = (b) view.getTag();
             }
-            bVar.eTz.setVisibility(i < getCount() + (-1) ? 0 : 8);
-            bVar.eTA.setVisibility(i < getCount() + (-1) ? 8 : 0);
+            bVar.eUm.setVisibility(i < getCount() + (-1) ? 0 : 8);
+            bVar.eUn.setVisibility(i < getCount() + (-1) ? 8 : 0);
             if (getItemViewType(i) == 1) {
-                if (this.eTk) {
-                    bVar.eTs.setText(e.j.members_load_more_person);
-                    bVar.eTt.setVisibility(0);
+                if (this.eTX) {
+                    bVar.eUf.setText(e.j.members_load_more_person);
+                    bVar.eUg.setVisibility(0);
                 } else {
-                    bVar.eTs.setText(e.j.members_no_more_person);
-                    bVar.eTt.setVisibility(8);
+                    bVar.eUf.setText(e.j.members_no_more_person);
+                    bVar.eUg.setVisibility(8);
                 }
             } else {
                 UserData userData = (UserData) getItem(i);
                 if (userData != null) {
-                    bVar.eTv.setTag(null);
+                    bVar.eUi.setTag(null);
                     String portrait = userData.getPortrait();
                     if (!ao.isEmpty(portrait)) {
-                        bVar.eTv.startLoad(portrait, 12, false);
+                        bVar.eUi.startLoad(portrait, 12, false);
                     }
-                    bVar.eSj.setText(userData.getName_show());
+                    bVar.eSW.setText(userData.getName_show());
                     switch (userData.getSex()) {
                         case 1:
-                            bVar.eTw.setVisibility(0);
-                            al.c(bVar.eTw, e.f.icon_pop_qz_boy);
+                            bVar.eUj.setVisibility(0);
+                            al.c(bVar.eUj, e.f.icon_pop_qz_boy);
                             break;
                         case 2:
-                            bVar.eTw.setVisibility(0);
-                            al.c(bVar.eTw, e.f.icon_pop_qz_girl);
+                            bVar.eUj.setVisibility(0);
+                            al.c(bVar.eUj, e.f.icon_pop_qz_girl);
                             break;
                         default:
-                            bVar.eTw.setVisibility(8);
+                            bVar.eUj.setVisibility(8);
                             break;
                     }
-                    bVar.eTx.setText(d(userData));
-                    bVar.eTy.setText(userData.getPosition());
-                    this.eTp = userData.getTShowInfo();
-                    if (bVar.aKq != null) {
-                        bVar.aKq.a(this.eTp, 2, this.eTi.getResources().getDimensionPixelSize(e.C0210e.ds38), this.eTi.getResources().getDimensionPixelSize(e.C0210e.ds38), this.eTi.getResources().getDimensionPixelSize(e.C0210e.ds8), true);
+                    bVar.eUk.setText(d(userData));
+                    bVar.eUl.setText(userData.getPosition());
+                    this.eUc = userData.getTShowInfo();
+                    if (bVar.aKS != null) {
+                        bVar.aKS.a(this.eUc, 2, this.eTV.getResources().getDimensionPixelSize(e.C0210e.ds38), this.eTV.getResources().getDimensionPixelSize(e.C0210e.ds38), this.eTV.getResources().getDimensionPixelSize(e.C0210e.ds8), true);
                     }
-                    if (this.eTm) {
-                        bVar.eTu.setVisibility(userData.getPermission().isController() ? 4 : 0);
+                    if (this.eTZ) {
+                        bVar.eUh.setVisibility(userData.getPermission().isController() ? 4 : 0);
                         Long valueOf = Long.valueOf(userData.getUserIdLong());
-                        bVar.eTu.setTag(valueOf);
-                        bVar.eTu.setSelected(this.eTn.contains(valueOf));
-                        bVar.eTu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.l.1
+                        bVar.eUh.setTag(valueOf);
+                        bVar.eUh.setSelected(this.eUa.contains(valueOf));
+                        bVar.eUh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.l.1
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view3) {
                                 view3.setSelected(!view3.isSelected());
                                 if (view3.getTag() instanceof Long) {
                                     Long l = (Long) view3.getTag();
                                     if (view3.isSelected()) {
-                                        l.this.eTn.add(l);
+                                        l.this.eUa.add(l);
                                     } else {
-                                        l.this.eTn.remove(l);
+                                        l.this.eUa.remove(l);
                                     }
-                                    if (l.this.eTj != null) {
-                                        l.this.eTj.qh(l.this.eTn.size());
+                                    if (l.this.eTW != null) {
+                                        l.this.eTW.qi(l.this.eUa.size());
                                     }
                                 }
                             }
                         });
                     } else {
-                        bVar.eTu.setVisibility(8);
+                        bVar.eUh.setVisibility(8);
                     }
                     bb(view);
                 }
@@ -256,14 +256,14 @@ public class l extends BaseAdapter {
     }
 
     private void bb(View view) {
-        this.eTi.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.eTi.getLayoutMode().onModeChanged(view);
+        this.eTV.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.eTV.getLayoutMode().onModeChanged(view);
     }
 
     private String d(UserData userData) {
         long lastReplyTime;
-        MembersModel aRW = this.eTi.aRW();
-        switch (aRW.getOrderType()) {
+        MembersModel aSw = this.eTV.aSw();
+        switch (aSw.getOrderType()) {
             case 0:
                 lastReplyTime = userData.getLoginTime();
                 break;
@@ -278,8 +278,8 @@ public class l extends BaseAdapter {
                 break;
         }
         if (lastReplyTime <= 0) {
-            if (aRW.getOrderType() == 1) {
-                return this.eTi.getPageContext().getString(e.j.members_no_speak);
+            if (aSw.getOrderType() == 1) {
+                return this.eTV.getPageContext().getString(e.j.members_no_speak);
             }
             return "";
         }
@@ -288,18 +288,18 @@ public class l extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     static class b {
-        UserIconBox aKq = null;
-        TextView eSj;
-        View eTA;
-        LinearLayout eTr;
-        TextView eTs;
-        ProgressBar eTt;
-        ImageView eTu;
-        HeadImageView eTv;
-        ImageView eTw;
-        TextView eTx;
-        TextView eTy;
-        View eTz;
+        UserIconBox aKS = null;
+        TextView eSW;
+        LinearLayout eUe;
+        TextView eUf;
+        ProgressBar eUg;
+        ImageView eUh;
+        HeadImageView eUi;
+        ImageView eUj;
+        TextView eUk;
+        TextView eUl;
+        View eUm;
+        View eUn;
 
         b() {
         }

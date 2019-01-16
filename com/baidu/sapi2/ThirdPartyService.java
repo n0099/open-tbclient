@@ -59,7 +59,7 @@ public class ThirdPartyService implements AbstractThirdPartyService {
                 intent = new Intent(context, MeizuSSOLoginActivity.class);
             } else {
                 intent = new Intent(context, SocialLoginActivity.class);
-                intent.putExtra(SocialLoginActivity.EXTRA_SOCIAL_TYPE, socialType);
+                intent.putExtra("social_type", socialType);
             }
             intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, i);
             if (!z) {

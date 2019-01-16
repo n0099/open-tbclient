@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b extends q.a {
-    public TextView gtA;
-    private h gtB;
-    public ImageView gtz;
+    public ImageView guD;
+    public TextView guE;
+    private h guF;
     private View.OnClickListener mClickListener;
     private int mSkinType;
     public View rootView;
@@ -21,17 +21,17 @@ public class b extends q.a {
         super(view);
         this.mSkinType = 3;
         this.rootView = view.findViewById(e.g.add_pic_root);
-        this.gtz = (ImageView) view.findViewById(e.g.add_image_view);
-        this.gtA = (TextView) view.findViewById(e.g.tip_left_count_view);
+        this.guD = (ImageView) view.findViewById(e.g.add_image_view);
+        this.guE = (TextView) view.findViewById(e.g.tip_left_count_view);
     }
 
     public void g(h hVar) {
         if (hVar instanceof com.baidu.tieba.person.data.c) {
-            this.gtB = hVar;
+            this.guF = hVar;
             com.baidu.tieba.person.data.c cVar = (com.baidu.tieba.person.data.c) hVar;
-            al.c(this.gtz, e.f.icon_mine_pic_add);
-            if (cVar.bph() > 0) {
-                this.gtA.setText(String.format(TbadkCoreApplication.getInst().getString(e.j.have_left_some_picture_upload), Integer.valueOf(cVar.bph())));
+            al.c(this.guD, e.f.icon_mine_pic_add);
+            if (cVar.bpQ() > 0) {
+                this.guE.setText(String.format(TbadkCoreApplication.getInst().getString(e.j.have_left_some_picture_upload), Integer.valueOf(cVar.bpQ())));
             }
             getView().setOnClickListener(this.mClickListener);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -40,14 +40,14 @@ public class b extends q.a {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            al.c(this.gtA, e.d.cp_cont_e, 1);
+            al.c(this.guE, e.d.cp_cont_e, 1);
             al.j(getView(), e.d.cp_bg_line_e);
             this.mSkinType = i;
         }
     }
 
-    public h FC() {
-        return this.gtB;
+    public h FP() {
+        return this.guF;
     }
 
     public void w(View.OnClickListener onClickListener) {

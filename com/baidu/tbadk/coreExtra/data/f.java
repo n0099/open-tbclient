@@ -21,7 +21,7 @@ public class f {
         return arrayList;
     }
 
-    public static List<String> GC() {
+    public static List<String> GP() {
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("scheme_white_list", null);
         if (StringUtils.isNull(string)) {
             return null;

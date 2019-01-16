@@ -30,7 +30,7 @@ public class i extends h {
 
     public static final <T> HashSet<T> L(T[] tArr) {
         kotlin.jvm.internal.p.j(tArr, "$receiver");
-        return (HashSet) f.a(tArr, new HashSet(aa.zl(tArr.length)));
+        return (HashSet) f.a(tArr, new HashSet(aa.zn(tArr.length)));
     }
 
     public static final <T> List<T> asList(T[] tArr) {

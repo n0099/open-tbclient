@@ -6,7 +6,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.forumsearch.b.b, com.baidu.tieba.card.a.a<com.baidu.tieba.forumsearch.c.d>> {
-    private View.OnClickListener dJb;
+    private View.OnClickListener dJK;
     private TbPageContext mPageContext;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
@@ -15,7 +15,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.forumsear
     }
 
     public void r(View.OnClickListener onClickListener) {
-        this.dJb = onClickListener;
+        this.dJK = onClickListener;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.forumsear
     /* renamed from: aa */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.forumsearch.c.d> onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.forumsearch.c.d dVar = new com.baidu.tieba.forumsearch.c.d(this.mPageContext);
-        dVar.r(this.dJb);
+        dVar.r(this.dJK);
         return new com.baidu.tieba.card.a.a<>(dVar);
     }
 
@@ -33,7 +33,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.forumsear
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.forumsearch.b.b bVar, com.baidu.tieba.card.a.a<com.baidu.tieba.forumsearch.c.d> aVar) {
-        aVar.aqT().a(bVar);
+        aVar.arr().a(bVar);
         return aVar.getView();
     }
 }

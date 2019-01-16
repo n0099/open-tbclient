@@ -3,24 +3,24 @@ package rx.internal.util;
 import rx.Notification;
 /* loaded from: classes2.dex */
 public final class a<T> implements rx.e<T> {
-    final rx.functions.b<Notification<? super T>> iOV;
+    final rx.functions.b<Notification<? super T>> iQc;
 
     public a(rx.functions.b<Notification<? super T>> bVar) {
-        this.iOV = bVar;
+        this.iQc = bVar;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.iOV.call(Notification.aV(t));
+        this.iQc.call(Notification.aV(t));
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.iOV.call(Notification.H(th));
+        this.iQc.call(Notification.H(th));
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.iOV.call(Notification.cdC());
+        this.iQc.call(Notification.cek());
     }
 }

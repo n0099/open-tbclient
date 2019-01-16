@@ -20,10 +20,10 @@ import com.baidu.tieba.e;
 import tbclient.SmartApp;
 /* loaded from: classes.dex */
 public class AppletsCellView extends LinearLayout implements View.OnClickListener {
-    private HeadImageView aFn;
-    private TextView aFo;
-    private SmartApp avG;
-    private TbImageView axl;
+    private HeadImageView aFP;
+    private TextView aFQ;
+    private SmartApp awi;
+    private TbImageView axN;
     private TextView mContentView;
     private String mForumId;
     private String mFrom;
@@ -50,19 +50,19 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
     private void init(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(e.h.applets_cell_layout, (ViewGroup) this, true);
-        this.aFn = (HeadImageView) findViewById(e.g.applets_app_icon);
-        this.aFo = (TextView) findViewById(e.g.applets_app_name);
+        this.aFP = (HeadImageView) findViewById(e.g.applets_app_icon);
+        this.aFQ = (TextView) findViewById(e.g.applets_app_name);
         this.mContentView = (TextView) findViewById(e.g.applets_app_content);
-        this.axl = (TbImageView) findViewById(e.g.applets_app_img);
-        this.aFn.setIsRound(true);
-        this.aFn.setIsPreDrawBorder(true);
-        this.aFn.setDrawBorder(true);
-        this.aFn.setBorderWidth(com.baidu.adp.lib.util.l.h(context, e.C0210e.tbds1));
-        this.aFn.setDefaultResource(e.d.cp_bg_line_e);
-        this.aFn.setRadius(com.baidu.adp.lib.util.l.h(context, e.C0210e.ds70));
-        ViewGroup.LayoutParams layoutParams = this.axl.getLayoutParams();
+        this.axN = (TbImageView) findViewById(e.g.applets_app_img);
+        this.aFP.setIsRound(true);
+        this.aFP.setIsPreDrawBorder(true);
+        this.aFP.setDrawBorder(true);
+        this.aFP.setBorderWidth(com.baidu.adp.lib.util.l.h(context, e.C0210e.tbds1));
+        this.aFP.setDefaultResource(e.d.cp_bg_line_e);
+        this.aFP.setRadius(com.baidu.adp.lib.util.l.h(context, e.C0210e.ds70));
+        ViewGroup.LayoutParams layoutParams = this.axN.getLayoutParams();
         layoutParams.height = ((com.baidu.adp.lib.util.l.aO(getContext()) - com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.tbds130)) * 9) / 16;
-        this.axl.setLayoutParams(layoutParams);
+        this.axN.setLayoutParams(layoutParams);
         setOnClickListener(this);
         onChangeSkinType();
     }
@@ -81,9 +81,9 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
             return;
         }
         setVisibility(0);
-        this.avG = smartApp;
-        this.aFn.startLoad(smartApp.avatar, 10, false);
-        this.aFo.setText(smartApp.name);
+        this.awi = smartApp;
+        this.aFP.startLoad(smartApp.avatar, 10, false);
+        this.aFQ.setText(smartApp.name);
         if (StringUtils.isNull(smartApp._abstract, true)) {
             this.mContentView.setVisibility(8);
         } else {
@@ -91,36 +91,36 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
             this.mContentView.setText(smartApp._abstract);
         }
         if (StringUtils.isNull(smartApp.pic, true)) {
-            this.axl.setDefaultBgResource(e.f.pic_share_default_applets);
+            this.axN.setDefaultBgResource(e.f.pic_share_default_applets);
             return;
         }
-        this.axl.setEvent(new TbImageView.a() { // from class: com.baidu.tbadk.core.view.AppletsCellView.1
+        this.axN.setEvent(new TbImageView.a() { // from class: com.baidu.tbadk.core.view.AppletsCellView.1
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void s(String str, boolean z) {
                 if (!z) {
-                    AppletsCellView.this.axl.setDefaultBgResource(e.f.pic_share_default_applets);
+                    AppletsCellView.this.axN.setDefaultBgResource(e.f.pic_share_default_applets);
                 }
             }
 
             @Override // com.baidu.tbadk.widget.TbImageView.a
             public void onCancel() {
-                AppletsCellView.this.axl.setDefaultBgResource(e.f.pic_share_default_applets);
+                AppletsCellView.this.axN.setDefaultBgResource(e.f.pic_share_default_applets);
             }
         });
-        this.axl.startLoad(smartApp.pic, 10, false);
+        this.axN.startLoad(smartApp.pic, 10, false);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.avG != null) {
-            if (!com.baidu.tieba.aiapps.a.u(this.avG.id, this.avG.link, "1191003900000000")) {
-                if (!StringUtils.isNull(this.avG.h5_url)) {
-                    com.baidu.tbadk.browser.a.ad(getContext(), this.avG.h5_url);
+        if (this.awi != null) {
+            if (!com.baidu.tieba.aiapps.a.u(this.awi.id, this.awi.link, "1191003900000000")) {
+                if (!StringUtils.isNull(this.awi.h5_url)) {
+                    com.baidu.tbadk.browser.a.ad(getContext(), this.awi.h5_url);
                 } else {
                     return;
                 }
             }
-            TiebaStatic.log(new am("c13274").aA(ImageViewerConfig.FORUM_ID, this.mForumId).aA("uid", TbadkCoreApplication.getCurrentAccount()).aA("obj_name", this.avG.name).aA(VideoPlayActivityConfig.OBJ_ID, this.avG.id).aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mFrom));
+            TiebaStatic.log(new am("c13274").aB(ImageViewerConfig.FORUM_ID, this.mForumId).aB("uid", TbadkCoreApplication.getCurrentAccount()).aB("obj_name", this.awi.name).aB(VideoPlayActivityConfig.OBJ_ID, this.awi.id).aB(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.mFrom));
         }
     }
 
@@ -129,11 +129,11 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
             al.j(this, e.d.cp_bg_line_e);
-            this.aFn.setBorderColor(al.getColor(e.d.cp_bg_line_d));
-            this.aFn.setIsNight(this.mSkinType == 1);
-            al.h(this.aFo, e.d.cp_cont_f);
+            this.aFP.setBorderColor(al.getColor(e.d.cp_bg_line_d));
+            this.aFP.setIsNight(this.mSkinType == 1);
+            al.h(this.aFQ, e.d.cp_cont_f);
             al.h(this.mContentView, e.d.cp_cont_b);
-            this.axl.setIsNight(this.mSkinType == 1);
+            this.axN.setIsNight(this.mSkinType == 1);
         }
     }
 }

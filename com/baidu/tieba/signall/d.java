@@ -7,19 +7,19 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class d implements ae {
     private String avatar;
-    private int bQZ;
-    private int djJ;
+    private int bRK;
+    private int dkv;
     private String errorMsg;
     private int forumId;
     private String forumName;
-    private int heS;
-    private int heT;
-    private int heU;
-    private boolean heV;
-    private boolean heW;
-    private boolean heX;
-    private boolean heY;
-    private int heZ;
+    private int hfW;
+    private int hfX;
+    private int hfY;
+    private boolean hfZ;
+    private boolean hga;
+    private boolean hgb;
+    private boolean hgc;
+    private int hgd;
 
     public int getForumId() {
         return this.forumId;
@@ -33,82 +33,82 @@ public class d implements ae {
         return this.avatar;
     }
 
-    public int bAy() {
-        return this.heS;
+    public int bBh() {
+        return this.hfW;
     }
 
-    public int bAz() {
-        return this.bQZ;
+    public int bBi() {
+        return this.bRK;
     }
 
-    public int bAA() {
-        return this.djJ;
+    public int bBj() {
+        return this.dkv;
     }
 
-    public int bAB() {
-        return this.heT;
+    public int bBk() {
+        return this.hfX;
     }
 
-    public int bAC() {
-        return this.heU;
-    }
-
-    public void vh(int i) {
-        this.heS = i;
-    }
-
-    public void vi(int i) {
-        this.bQZ = i;
-    }
-
-    public void vj(int i) {
-        this.djJ = i;
-    }
-
-    public boolean aaN() {
-        return this.heV;
-    }
-
-    public void ni(boolean z) {
-        this.heV = z;
-        this.heS = 1;
-    }
-
-    public boolean bAD() {
-        return this.heX;
-    }
-
-    public void nj(boolean z) {
-        this.heX = z;
-        this.heS = 0;
-    }
-
-    public boolean bAE() {
-        return this.heY;
-    }
-
-    public void nk(boolean z) {
-        this.heY = z;
-    }
-
-    public int bAF() {
-        return this.heZ;
+    public int bBl() {
+        return this.hfY;
     }
 
     public void vk(int i) {
-        this.heZ = i;
+        this.hfW = i;
+    }
+
+    public void vl(int i) {
+        this.bRK = i;
+    }
+
+    public void vm(int i) {
+        this.dkv = i;
+    }
+
+    public boolean abk() {
+        return this.hfZ;
+    }
+
+    public void nj(boolean z) {
+        this.hfZ = z;
+        this.hfW = 1;
+    }
+
+    public boolean bBm() {
+        return this.hgb;
+    }
+
+    public void nk(boolean z) {
+        this.hgb = z;
+        this.hfW = 0;
+    }
+
+    public boolean bBn() {
+        return this.hgc;
+    }
+
+    public void nl(boolean z) {
+        this.hgc = z;
+    }
+
+    public int bBo() {
+        return this.hgd;
+    }
+
+    public void vn(int i) {
+        this.hgd = i;
     }
 
     public void setErrorMsg(String str) {
         this.errorMsg = str;
     }
 
-    public boolean bAG() {
-        return this.heW;
+    public boolean bBp() {
+        return this.hga;
     }
 
-    public void nl(boolean z) {
-        this.heW = z;
+    public void nm(boolean z) {
+        this.hga = z;
     }
 
     public void parserJson(JSONObject jSONObject) throws Exception {
@@ -116,14 +116,14 @@ public class d implements ae {
             this.forumId = jSONObject.optInt("forum_id");
             this.forumName = jSONObject.optString("forum_name");
             this.avatar = jSONObject.optString("avatar");
-            this.heS = jSONObject.optInt("is_sign_in");
-            this.bQZ = jSONObject.optInt("cont_sign_num");
-            this.djJ = jSONObject.optInt("user_level");
-            this.heT = jSONObject.optInt("user_exp");
-            this.heU = jSONObject.optInt("need_exp");
-            if (this.heS != 0) {
-                this.heV = true;
-                this.heX = false;
+            this.hfW = jSONObject.optInt("is_sign_in");
+            this.bRK = jSONObject.optInt("cont_sign_num");
+            this.dkv = jSONObject.optInt("user_level");
+            this.hfX = jSONObject.optInt("user_exp");
+            this.hfY = jSONObject.optInt("need_exp");
+            if (this.hfW != 0) {
+                this.hfZ = true;
+                this.hgb = false;
             }
         }
     }

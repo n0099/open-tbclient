@@ -16,16 +16,16 @@ import com.baidu.tbadk.core.voice.service.MediaService;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class e implements com.baidu.tieba.tbadkCore.voice.a {
-    com.baidu.adp.lib.voice.f Tf;
+    com.baidu.adp.lib.voice.f To;
     private TbPageContext<?> context;
     private boolean isAddScreenView;
-    private String Tg = null;
-    private g Th = null;
-    Runnable Ti = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.e.3
+    private String Tp = null;
+    private g Tq = null;
+    Runnable Tr = new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.e.3
         @Override // java.lang.Runnable
         public void run() {
-            if (e.this.Tf != null && h.Hb == 2) {
-                e.this.Tf.onStopingRecorder();
+            if (e.this.To != null && h.Hb == 2) {
+                e.this.To.onStopingRecorder();
             }
         }
     };
@@ -35,7 +35,7 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
         h.Hb = 1;
     }
 
-    public static e pO() {
+    public static e pS() {
         return new e();
     }
 
@@ -45,26 +45,26 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
             return false;
         }
         if (ab.bF(this.context.getPageActivity())) {
-            this.Tf = fVar;
+            this.To = fVar;
             if (!l.hA()) {
-                String CH = l.CH();
-                if (CH == null) {
-                    CH = h.getString(e.j.voice_error_sdcard);
+                String CU = l.CU();
+                if (CU == null) {
+                    CU = h.getString(e.j.voice_error_sdcard);
                 }
-                this.Tf.onShowErr(0, CH);
+                this.To.onShowErr(0, CU);
                 return false;
             }
             stopPlay(true);
-            this.Tg = com.baidu.tbadk.core.voice.a.FN();
-            String gv = com.baidu.tbadk.core.voice.a.gv(this.Tg);
-            if (this.Th == null) {
-                this.Th = new a();
+            this.Tp = com.baidu.tbadk.core.voice.a.Ga();
+            String gI = com.baidu.tbadk.core.voice.a.gI(this.Tp);
+            if (this.Tq == null) {
+                this.Tq = new a();
             }
             com.baidu.audiorecorder.lib.voice.a.stop();
             releaseWakeLock();
-            boolean a2 = com.baidu.audiorecorder.lib.voice.a.a(gv, i, this.Th);
+            boolean a2 = com.baidu.audiorecorder.lib.voice.a.a(gI, i, this.Tq);
             if (a2) {
-                this.Tf.onStartedRecorder(true);
+                this.To.onStartedRecorder(true);
                 h.Hb = 2;
                 return a2;
             }
@@ -73,7 +73,7 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
             k kVar = new k();
             kVar.h("voiceType", Integer.valueOf(i));
             TiebaStatic.voiceError(TbErrInfo.ERR_VOI_START, "onTouch-getBtnMsgsendVoice: user click too often", kVar.toString());
-            this.Tf.onStartedRecorder(false);
+            this.To.onStartedRecorder(false);
             return a2;
         }
         return false;
@@ -84,16 +84,16 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
     }
 
     @Override // com.baidu.tieba.tbadkCore.voice.a
-    public void pP() {
+    public void pT() {
         com.baidu.audiorecorder.lib.voice.a.cancel();
     }
 
     @Override // com.baidu.tieba.tbadkCore.voice.a
-    public void ct(final String str) {
+    public void cu(final String str) {
         stopRecord();
         stopPlay(false);
-        if (this.Tf != null) {
-            this.Tf.onDeletedVoice(str);
+        if (this.To != null) {
+            this.To.onDeletedVoice(str);
         }
         if (this.mHandle != null) {
             this.mHandle.postDelayed(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.e.1
@@ -107,7 +107,7 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
     }
 
     @Override // com.baidu.tieba.tbadkCore.voice.a
-    public boolean pQ() {
+    public boolean pU() {
         return h.Hb == 1;
     }
 
@@ -118,14 +118,14 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
             new Thread(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.e.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    final String str2 = com.baidu.tbadk.core.voice.a.b.gx(com.baidu.tbadk.core.voice.a.gw(str)).md5;
+                    final String str2 = com.baidu.tbadk.core.voice.a.b.gK(com.baidu.tbadk.core.voice.a.gJ(str)).md5;
                     if (e.this.mHandle != null) {
-                        e.this.mHandle.removeCallbacks(e.this.Ti);
+                        e.this.mHandle.removeCallbacks(e.this.Tr);
                         if (StringUtils.isNull(str2)) {
                             e.this.mHandle.post(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.e.2.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    e.this.Tf.onShowErr(4, e.this.context.getString(e.j.voice_error_file_md5));
+                                    e.this.To.onShowErr(4, e.this.context.getString(e.j.voice_error_file_md5));
                                     h.Hb = 1;
                                 }
                             });
@@ -134,7 +134,7 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     h.Hb = 1;
-                                    e.this.Tf.onSendVoice(str2, i);
+                                    e.this.To.onSendVoice(str2, i);
                                 }
                             });
                         }
@@ -153,16 +153,16 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
         public void p(String str, int i) {
             e.this.releaseWakeLock();
             h.Hb = 1;
-            if (e.this.Tg == null || str == null) {
+            if (e.this.Tp == null || str == null) {
                 k kVar = new k();
                 kVar.h("file", str);
                 kVar.h("dur", Integer.valueOf(i));
                 TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILE, "RecoreCallback.succ: file is null", kVar.toString());
-            } else if (e.this.Tf != null) {
+            } else if (e.this.To != null) {
                 if (i > 1000) {
-                    if (str.endsWith(e.this.Tg)) {
-                        e.this.u(e.this.Tg, (int) Math.round((i * 1.0d) / 1000.0d));
-                        e.this.Tg = null;
+                    if (str.endsWith(e.this.Tp)) {
+                        e.this.u(e.this.Tp, (int) Math.round((i * 1.0d) / 1000.0d));
+                        e.this.Tp = null;
                         return;
                     }
                     k kVar2 = new k();
@@ -171,7 +171,7 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
                     TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILENAME, "RecoreCallback.succ: filename error", kVar2.toString());
                     return;
                 }
-                e.this.Tf.onShowErr(2, h.getString(e.j.voice_record_short_tip));
+                e.this.To.onShowErr(2, h.getString(e.j.voice_record_short_tip));
                 k kVar3 = new k();
                 kVar3.h("file", str);
                 kVar3.h("dur", Integer.valueOf(i));
@@ -183,13 +183,13 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
         public void error(int i, String str) {
             e.this.releaseWakeLock();
             TiebaStatic.voiceError(i, "RecoreCallback.error: " + str, "");
-            if (e.this.Tf == null) {
+            if (e.this.To == null) {
                 h.Hb = 1;
             } else if (i == 7) {
-                if (e.this.Tg != null) {
-                    e.this.u(e.this.Tg, com.baidu.adp.lib.voice.d.Ha / 1000);
-                    e.this.Tg = null;
-                    e.this.Tf.onShowErr(3, e.this.context.getString(e.j.voice_record_timeout_tip));
+                if (e.this.Tp != null) {
+                    e.this.u(e.this.Tp, com.baidu.adp.lib.voice.d.Ha / 1000);
+                    e.this.Tp = null;
+                    e.this.To.onShowErr(3, e.this.context.getString(e.j.voice_record_timeout_tip));
                     return;
                 }
                 TiebaStatic.voiceError(i, "RecoreCallback.error data err: " + str, "errCode == BdRecordingResult.TIME_OUT");
@@ -198,22 +198,22 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
                 if (i == 8) {
                     i = 2;
                 }
-                e.this.Tf.onShowErr(i, str);
+                e.this.To.onShowErr(i, str);
                 TiebaStatic.voiceError(i, "RecoreCallback.err: " + str, "");
             }
         }
 
         @Override // com.baidu.adp.lib.voice.e
         public void aV(int i) {
-            if (e.this.Tf != null) {
-                e.this.Tf.onShowRecording(i);
+            if (e.this.To != null) {
+                e.this.To.onShowRecording(i);
             }
         }
 
         @Override // com.baidu.adp.lib.voice.g
         public void aW(int i) {
-            if (e.this.Tf != null) {
-                e.this.Tf.onShowRecordTime(i / 1000);
+            if (e.this.To != null) {
+                e.this.To.onShowRecordTime(i / 1000);
             }
         }
 
@@ -230,23 +230,23 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
             MediaService.stopMy(this.context.getPageActivity());
         }
         if (this.mHandle != null) {
-            this.mHandle.removeCallbacks(this.Ti);
+            this.mHandle.removeCallbacks(this.Tr);
         }
         this.context = null;
-        this.Tf = null;
+        this.To = null;
         this.mHandle = null;
     }
 
     @Override // com.baidu.tieba.tbadkCore.voice.a
     public void a(com.baidu.adp.lib.voice.f fVar) {
-        this.Tf = fVar;
+        this.To = fVar;
     }
 
     @Override // com.baidu.tieba.tbadkCore.voice.a
     public void stopRecord() {
         com.baidu.audiorecorder.lib.voice.a.stop();
         if (this.mHandle != null) {
-            this.mHandle.postDelayed(this.Ti, 100L);
+            this.mHandle.postDelayed(this.Tr, 100L);
         }
         releaseWakeLock();
     }

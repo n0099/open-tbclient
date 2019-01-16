@@ -18,6 +18,6 @@ public final class d extends BroadcastReceiver {
         int intExtra3 = intent.getIntExtra("plugged", 0);
         nVar.addField("level", String.valueOf(intExtra2 != 0 ? intExtra / intExtra2 : 0.0f));
         nVar.addField("plugged", String.valueOf(intExtra3 != 0));
-        nVar.qN();
+        nVar.qR();
     }
 }

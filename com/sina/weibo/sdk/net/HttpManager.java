@@ -9,6 +9,7 @@ import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.exception.WeiboException;
 import com.sina.weibo.sdk.exception.WeiboHttpException;
+import com.sina.weibo.sdk.network.IRequestParam;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.Utility;
 import java.io.ByteArrayOutputStream;
@@ -90,8 +91,8 @@ public class HttpManager {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:54:0x002e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x0029 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x0030 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x002b A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -99,6 +100,10 @@ public class HttpManager {
         InputStream inputStream;
         InputStream inputStream2;
         ByteArrayOutputStream byteArrayOutputStream = null;
+        String str = null;
+        byteArrayOutputStream = null;
+        byteArrayOutputStream = null;
+        byteArrayOutputStream = null;
         try {
             byte[] bArr = new byte[8192];
             if (z) {
@@ -108,47 +113,49 @@ public class HttpManager {
             }
             try {
                 ByteArrayOutputStream byteArrayOutputStream2 = new ByteArrayOutputStream();
-                while (true) {
-                    try {
-                        int read = inputStream.read(bArr);
-                        if (read == -1) {
-                            break;
-                        }
-                        byteArrayOutputStream2.write(bArr, 0, read);
-                    } catch (IOException e) {
-                        e = e;
-                        byteArrayOutputStream = byteArrayOutputStream2;
-                        inputStream2 = inputStream;
+                if (inputStream != null) {
+                    while (true) {
                         try {
-                            throw new WeiboException(e);
-                        } catch (Throwable th) {
-                            th = th;
-                            inputStream = inputStream2;
-                            if (inputStream != null) {
-                                try {
-                                    inputStream.close();
-                                } catch (Exception e2) {
+                            int read = inputStream.read(bArr);
+                            if (read == -1) {
+                                break;
+                            }
+                            byteArrayOutputStream2.write(bArr, 0, read);
+                        } catch (IOException e) {
+                            e = e;
+                            byteArrayOutputStream = byteArrayOutputStream2;
+                            inputStream2 = inputStream;
+                            try {
+                                throw new WeiboException(e);
+                            } catch (Throwable th) {
+                                th = th;
+                                inputStream = inputStream2;
+                                if (inputStream != null) {
+                                    try {
+                                        inputStream.close();
+                                    } catch (Exception e2) {
+                                    }
                                 }
+                                if (byteArrayOutputStream != null) {
+                                    try {
+                                        byteArrayOutputStream.close();
+                                    } catch (Exception e3) {
+                                    }
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            byteArrayOutputStream = byteArrayOutputStream2;
+                            if (inputStream != null) {
                             }
                             if (byteArrayOutputStream != null) {
-                                try {
-                                    byteArrayOutputStream.close();
-                                } catch (Exception e3) {
-                                }
                             }
                             throw th;
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        byteArrayOutputStream = byteArrayOutputStream2;
-                        if (inputStream != null) {
-                        }
-                        if (byteArrayOutputStream != null) {
-                        }
-                        throw th;
                     }
+                    str = new String(byteArrayOutputStream2.toByteArray(), "UTF-8");
                 }
-                String str = new String(byteArrayOutputStream2.toByteArray(), "UTF-8");
                 if (inputStream != null) {
                     try {
                         inputStream.close();
@@ -202,6 +209,9 @@ public class HttpManager {
             str = (String) obj3;
         }
         weiboParameters.put("oauth_sign", getOauthSign(context, str3, str, weiboParameters.getAppKey(), timestamp));
+    }
+
+    public static void fillCommonRequestParam(IRequestParam iRequestParam) {
     }
 
     public static String openRedirectUrl4LocationUri(Context context, String str, String str2, WeiboParameters weiboParameters) {
@@ -363,7 +373,7 @@ public class HttpManager {
         return String.valueOf(System.currentTimeMillis() / 1000);
     }
 
-    private static String getOauthSign(Context context, String str, String str2, String str3, String str4) {
+    public static String getOauthSign(Context context, String str, String str2, String str3, String str4) {
         StringBuilder sb = new StringBuilder("");
         if (!TextUtils.isEmpty(str)) {
             sb.append(str);

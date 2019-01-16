@@ -27,25 +27,25 @@ import com.baidu.tieba.recapp.widget.ApkDownloadView;
 /* loaded from: classes3.dex */
 public class AdOperateViewDownloadHolder extends AdOperateBarHolder<AdPost> {
     private static final String TAG = AdOperateViewDownloadHolder.class.getSimpleName();
-    private TextView fFL;
-    protected CustomMessageListener gQw;
-    private String gTx;
-    private TextView gUM;
-    private ImageView gUN;
-    private ApkDownloadView gUO;
+    private TextView fGF;
+    protected CustomMessageListener gRz;
+    private String gUC;
+    private TextView gVR;
+    private ImageView gVS;
+    private ApkDownloadView gVT;
     private a mPermissionJudgePolicy;
     private View mRootView;
     private TextView mTitleTextView;
 
     public AdOperateViewDownloadHolder(TbPageContext tbPageContext, int i, View view) {
         super(tbPageContext, i, view);
-        this.gQw = new CustomMessageListener(2016483) { // from class: com.baidu.tieba.recapp.view.AdOperateViewDownloadHolder.3
+        this.gRz = new CustomMessageListener(2016483) { // from class: com.baidu.tieba.recapp.view.AdOperateViewDownloadHolder.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 DownloadData downloadData;
-                if (customResponsedMessage != null && (downloadData = (DownloadData) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(AdOperateViewDownloadHolder.this.gTx) && AdOperateViewDownloadHolder.this.gTx.equals(downloadData.getId())) {
-                    AdOperateViewDownloadHolder.this.gUO.s(downloadData);
+                if (customResponsedMessage != null && (downloadData = (DownloadData) customResponsedMessage.getData()) != null && !TextUtils.isEmpty(AdOperateViewDownloadHolder.this.gUC) && AdOperateViewDownloadHolder.this.gUC.equals(downloadData.getId())) {
+                    AdOperateViewDownloadHolder.this.gVT.s(downloadData);
                 }
             }
         };
@@ -55,13 +55,13 @@ public class AdOperateViewDownloadHolder extends AdOperateBarHolder<AdPost> {
 
     private void init() {
         this.mTitleTextView = (TextView) this.mRootView.findViewById(e.g.ad_operate_title);
-        this.fFL = (TextView) this.mRootView.findViewById(e.g.ad_operate_content);
-        this.gUM = (TextView) this.mRootView.findViewById(e.g.ad_operate_tag_name);
-        this.gUN = (ImageView) this.mRootView.findViewById(e.g.ad_operate_divider);
-        this.gUO = (ApkDownloadView) this.mRootView.findViewById(e.g.ad_operate_action);
-        this.gUO.p(this.mPageContext.getUniqueId());
-        MessageManager.getInstance().registerListener(this.gQw);
-        this.gQw.setTag(this.mPageContext.getUniqueId());
+        this.fGF = (TextView) this.mRootView.findViewById(e.g.ad_operate_content);
+        this.gVR = (TextView) this.mRootView.findViewById(e.g.ad_operate_tag_name);
+        this.gVS = (ImageView) this.mRootView.findViewById(e.g.ad_operate_divider);
+        this.gVT = (ApkDownloadView) this.mRootView.findViewById(e.g.ad_operate_action);
+        this.gVT.p(this.mPageContext.getUniqueId());
+        MessageManager.getInstance().registerListener(this.gRz);
+        this.gRz.setTag(this.mPageContext.getUniqueId());
         onChangeSkinType();
     }
 
@@ -70,12 +70,12 @@ public class AdOperateViewDownloadHolder extends AdOperateBarHolder<AdPost> {
         super.onChangeSkinType();
         al.j(this.mRootView, e.d.cp_bg_line_e);
         al.c(this.mTitleTextView, e.d.cp_cont_j, 1);
-        al.c(this.fFL, e.d.cp_cont_j, 1);
-        al.c(this.gUM, e.d.cp_cont_f, 1);
-        al.c(this.gUN, e.f.ad_divider);
-        al.c(this.gUO, e.d.cp_link_tip_a, 3);
-        al.i(this.gUO, e.f.btn_focus_border_bg);
-        this.gUO.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        al.c(this.fGF, e.d.cp_cont_j, 1);
+        al.c(this.gVR, e.d.cp_cont_f, 1);
+        al.c(this.gVS, e.f.ad_divider);
+        al.c(this.gVT, e.d.cp_link_tip_a, 3);
+        al.i(this.gVT, e.f.btn_focus_border_bg);
+        this.gVT.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -84,24 +84,24 @@ public class AdOperateViewDownloadHolder extends AdOperateBarHolder<AdPost> {
         super.update((AdOperateViewDownloadHolder) adPost);
         if (adPost != null && isOperateValid(adPost.adData)) {
             PostAdBaseData.a aVar = adPost.adData;
-            this.mTitleTextView.setText(aVar.gPN);
-            if (StringUtils.isNull(aVar.gPO)) {
-                this.fFL.setVisibility(8);
+            this.mTitleTextView.setText(aVar.gQQ);
+            if (StringUtils.isNull(aVar.gQR)) {
+                this.fGF.setVisibility(8);
             } else {
-                this.fFL.setVisibility(0);
-                this.fFL.setText(aVar.gPO);
+                this.fGF.setVisibility(0);
+                this.fGF.setText(aVar.gQR);
             }
-            this.gUM.setText(StringUtils.isNull(aVar.tagName) ? getResources().getString(e.j.advert_label) : aVar.tagName);
+            this.gVR.setText(StringUtils.isNull(aVar.tagName) ? getResources().getString(e.j.advert_label) : aVar.tagName);
             AdClick adClick = new AdClick(adPost);
             this.mRootView.setOnClickListener(adClick);
-            this.gUO.setOnClickListener(adClick);
-            this.gUO.setVisibility(0);
+            this.gVT.setOnClickListener(adClick);
+            this.gVT.setVisibility(0);
             AdvertAppInfo advertAppInfo = adPost.getAdvertAppInfo();
-            if (advertAppInfo != null && advertAppInfo.yd()) {
-                this.gTx = advertAppInfo.apv;
+            if (advertAppInfo != null && advertAppInfo.yq()) {
+                this.gUC = advertAppInfo.apX;
                 DownloadData c = c(adPost.getAdvertAppInfo(), b.l(adPost.getAdvertAppInfo().adPosition, -1));
                 c.setStatus(ApkDownloadView.getStatus(c));
-                this.gUO.setData(c);
+                this.gVT.setData(c);
             }
             onChangeSkinType();
         }
@@ -109,27 +109,27 @@ public class AdOperateViewDownloadHolder extends AdOperateBarHolder<AdPost> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public DownloadData c(AdvertAppInfo advertAppInfo, int i) {
-        DownloadData downloadData = new DownloadData(advertAppInfo.apv);
-        downloadData.setUrl(advertAppInfo.apu);
-        downloadData.setName(advertAppInfo.apr);
+        DownloadData downloadData = new DownloadData(advertAppInfo.apX);
+        downloadData.setUrl(advertAppInfo.apW);
+        downloadData.setName(advertAppInfo.apT);
         downloadData.setPosition(i);
-        downloadData.setNotifyId(b.l(advertAppInfo.apq, 0));
+        downloadData.setNotifyId(b.l(advertAppInfo.apS, 0));
         return downloadData;
     }
 
     protected void a(AdvertAppInfo advertAppInfo, int i, ApkDownloadView apkDownloadView) {
         if (advertAppInfo != null) {
-            if (advertAppInfo.yc() != 0) {
+            if (advertAppInfo.yp() != 0) {
                 l.showToast(this.mPageContext.getPageActivity(), e.j.download_error);
                 return;
             }
             if (this.mPermissionJudgePolicy == null) {
                 this.mPermissionJudgePolicy = new a();
             }
-            this.mPermissionJudgePolicy.Et();
+            this.mPermissionJudgePolicy.EG();
             this.mPermissionJudgePolicy.c(this.mPageContext.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (!this.mPermissionJudgePolicy.A(this.mPageContext.getPageActivity()) && this.fqB != null) {
-                this.fqB.b(advertAppInfo, i);
+            if (!this.mPermissionJudgePolicy.B(this.mPageContext.getPageActivity()) && this.frw != null) {
+                this.frw.b(advertAppInfo, i);
                 if (apkDownloadView != null) {
                     apkDownloadView.p(c(advertAppInfo, i));
                 }
@@ -141,16 +141,16 @@ public class AdOperateViewDownloadHolder extends AdOperateBarHolder<AdPost> {
         if (advertAppInfo != null) {
             if (!j.kK()) {
                 l.showToast(this.mPageContext.getPageActivity(), e.j.neterror);
-            } else if (advertAppInfo.yd()) {
+            } else if (advertAppInfo.yq()) {
                 if (TextUtils.isEmpty(str)) {
                     str = this.mPageContext.getString(e.j.frs_network_tips);
                 }
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-                aVar.eB(str);
+                aVar.eK(str);
                 aVar.a(e.j.alert_yes_button, new a.b() { // from class: com.baidu.tieba.recapp.view.AdOperateViewDownloadHolder.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                        AdOperateViewDownloadHolder.this.a(advertAppInfo, i, AdOperateViewDownloadHolder.this.gUO);
+                        AdOperateViewDownloadHolder.this.a(advertAppInfo, i, AdOperateViewDownloadHolder.this.gVT);
                         aVar2.dismiss();
                     }
                 });
@@ -160,7 +160,7 @@ public class AdOperateViewDownloadHolder extends AdOperateBarHolder<AdPost> {
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(this.mPageContext).BF();
+                aVar.b(this.mPageContext).BS();
             }
         }
     }
@@ -182,7 +182,7 @@ public class AdOperateViewDownloadHolder extends AdOperateBarHolder<AdPost> {
                 default:
                     return;
                 case 3:
-                    s.aG(this.mPageContext.getPageActivity(), advertAppInfo.apv);
+                    s.aE(this.mPageContext.getPageActivity(), advertAppInfo.apX);
                     return;
                 case 6:
                 case 7:
@@ -195,31 +195,31 @@ public class AdOperateViewDownloadHolder extends AdOperateBarHolder<AdPost> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class AdClick implements View.OnClickListener {
-        private AdPost gUQ;
+        private AdPost gVV;
 
         public AdClick(AdPost adPost) {
-            this.gUQ = adPost;
+            this.gVV = adPost;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (!j.kK()) {
                 AdOperateViewDownloadHolder.this.mPageContext.showToast(e.j.neterror);
-            } else if (this.gUQ != null) {
-                AdvertAppInfo advertAppInfo = this.gUQ.getAdvertAppInfo();
-                boolean z = view == AdOperateViewDownloadHolder.this.gUO;
-                if (advertAppInfo != null && advertAppInfo.yd()) {
+            } else if (this.gVV != null) {
+                AdvertAppInfo advertAppInfo = this.gVV.getAdvertAppInfo();
+                boolean z = view == AdOperateViewDownloadHolder.this.gVT;
+                if (advertAppInfo != null && advertAppInfo.yq()) {
                     int l = b.l(advertAppInfo.adPosition, -1);
                     int status = ApkDownloadView.getStatus(AdOperateViewDownloadHolder.this.c(advertAppInfo, l));
                     if ((6 != status && 7 != status) || !j.kV() || j.kW()) {
-                        AdOperateViewDownloadHolder.this.a(advertAppInfo, l, AdOperateViewDownloadHolder.this.gUO, z);
-                        if (AdOperateViewDownloadHolder.this.fqA != null) {
-                            AdOperateViewDownloadHolder.this.fqA.b(3, null);
+                        AdOperateViewDownloadHolder.this.a(advertAppInfo, l, AdOperateViewDownloadHolder.this.gVT, z);
+                        if (AdOperateViewDownloadHolder.this.frv != null) {
+                            AdOperateViewDownloadHolder.this.frv.b(3, null);
                             return;
                         }
                         return;
                     }
-                    AdOperateViewDownloadHolder.this.showDownloadAppDialog(advertAppInfo, l, true, this.gUQ.getAdvertAppInfo().apB.apN);
+                    AdOperateViewDownloadHolder.this.showDownloadAppDialog(advertAppInfo, l, true, this.gVV.getAdvertAppInfo().aqd.aqp);
                 }
             }
         }

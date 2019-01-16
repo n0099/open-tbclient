@@ -4,58 +4,58 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class d {
-    final int iOZ;
-    Object[] iPa;
-    Object[] iPb;
-    int iPc;
+    final int iQg;
+    Object[] iQh;
+    Object[] iQi;
+    int iQj;
     volatile int size;
 
     public d(int i) {
-        this.iOZ = i;
+        this.iQg = i;
     }
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.iPa = new Object[this.iOZ + 1];
-            this.iPb = this.iPa;
-            this.iPa[0] = obj;
-            this.iPc = 1;
+            this.iQh = new Object[this.iQg + 1];
+            this.iQi = this.iQh;
+            this.iQh[0] = obj;
+            this.iQj = 1;
             this.size = 1;
-        } else if (this.iPc == this.iOZ) {
-            Object[] objArr = new Object[this.iOZ + 1];
+        } else if (this.iQj == this.iQg) {
+            Object[] objArr = new Object[this.iQg + 1];
             objArr[0] = obj;
-            this.iPb[this.iOZ] = objArr;
-            this.iPb = objArr;
-            this.iPc = 1;
+            this.iQi[this.iQg] = objArr;
+            this.iQi = objArr;
+            this.iQj = 1;
             this.size++;
         } else {
-            this.iPb[this.iPc] = obj;
-            this.iPc++;
+            this.iQi[this.iQj] = obj;
+            this.iQj++;
             this.size++;
         }
     }
 
-    public Object[] cfc() {
-        return this.iPa;
+    public Object[] cfK() {
+        return this.iQh;
     }
 
     public int size() {
         return this.size;
     }
 
-    List<Object> cfd() {
-        int i = this.iOZ;
+    List<Object> cfL() {
+        int i = this.iQg;
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
-        Object[] cfc = cfc();
+        Object[] cfK = cfK();
         int i4 = 0;
         while (i3 < i2) {
-            arrayList.add(cfc[i4]);
+            arrayList.add(cfK[i4]);
             i3++;
             i4++;
             if (i4 == i) {
-                cfc = (Object[]) cfc[i];
+                cfK = (Object[]) cfK[i];
                 i4 = 0;
             }
         }
@@ -63,6 +63,6 @@ public class d {
     }
 
     public String toString() {
-        return cfd().toString();
+        return cfL().toString();
     }
 }

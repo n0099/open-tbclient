@@ -71,12 +71,12 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         new a(uri, aVar5, headers) { // from class: com.baidu.searchbox.websocket.JavaWebSockeClientImpl$connect$1
             @Override // org.java_websocket.a.a
             public void onOpen(h hVar) {
-                Iterator<String> cdx;
+                Iterator<String> cef;
                 HashMap hashMap = new HashMap();
-                if (hVar != null && (cdx = hVar.cdx()) != null) {
-                    while (cdx.hasNext()) {
-                        String next = cdx.next();
-                        hashMap.put(next, hVar.zP(next));
+                if (hVar != null && (cef = hVar.cef()) != null) {
+                    while (cef.hasNext()) {
+                        String next = cef.next();
+                        hashMap.put(next, hVar.Af(next));
                     }
                 }
                 IWebSocketListener.this.onOpen(hashMap);
@@ -115,7 +115,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         javaWebSockeClientImpl.webSocketClient = javaWebSockeClientImpl$connect$12;
         a aVar6 = this.webSocketClient;
         if (aVar6 == null) {
-            p.zE("webSocketClient");
+            p.zU("webSocketClient");
         }
         aVar6.connect();
     }
@@ -125,7 +125,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         p.j(str, WebSocketAction.PARAM_KEY_REASON);
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            p.zE("webSocketClient");
+            p.zU("webSocketClient");
         }
         aVar.close();
     }
@@ -135,7 +135,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         p.j(str, "message");
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            p.zE("webSocketClient");
+            p.zU("webSocketClient");
         }
         aVar.send(str);
     }
@@ -145,7 +145,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
         p.j(byteBuffer, "data");
         a aVar = this.webSocketClient;
         if (aVar == null) {
-            p.zE("webSocketClient");
+            p.zU("webSocketClient");
         }
         aVar.send(byteBuffer);
     }

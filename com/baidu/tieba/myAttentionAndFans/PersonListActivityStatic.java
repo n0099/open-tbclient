@@ -20,11 +20,11 @@ public class PersonListActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(PersonListActivityConfig.class, PersonListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(MyForbiddenFansActivityConfig.class, MyForbiddenFansActivity.class);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2902120));
-        aBb();
+        aBy();
     }
 
-    public static void aBb() {
-        com.baidu.tbadk.ala.b.vZ().a(5, new e() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
+    public static void aBy() {
+        com.baidu.tbadk.ala.b.wg().a(5, new e() { // from class: com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic.1
             @Override // com.baidu.tbadk.ala.e
             public View createView(Context context) {
                 TextView bq = com.baidu.tbadk.ala.c.bq(context);

@@ -1,7 +1,7 @@
 package com.baidu.tieba.frs.worldcup.videotopic.data;
 /* loaded from: classes3.dex */
 public interface a {
-    void aad();
+    void aaA();
 
     String getForumId();
 

@@ -9,11 +9,11 @@ import com.baidu.webkit.sdk.Log;
 /* loaded from: classes2.dex */
 public class f implements Runnable {
     final /* synthetic */ Intent Kn;
-    final /* synthetic */ c Wh;
+    final /* synthetic */ c Wq;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar, Intent intent) {
-        this.Wh = cVar;
+        this.Wq = cVar;
         this.Kn = intent;
     }
 
@@ -24,15 +24,15 @@ public class f implements Runnable {
         SparseArray sparseArray3;
         SparseArray sparseArray4;
         try {
-            if (this.Wh.mActivity != null) {
-                this.Wh.mActivity.startActivity(this.Kn);
+            if (this.Wq.mActivity != null) {
+                this.Wq.mActivity.startActivity(this.Kn);
                 int intExtra = this.Kn.getIntExtra("jsaction_key", -1);
                 if (12 == intExtra) {
-                    sparseArray3 = this.Wh.Wf;
+                    sparseArray3 = this.Wq.Wo;
                     n nVar = (n) sparseArray3.get(intExtra);
                     if (nVar != null) {
-                        nVar.qN();
-                        sparseArray4 = this.Wh.Wf;
+                        nVar.qR();
+                        sparseArray4 = this.Wq.Wo;
                         sparseArray4.remove(intExtra);
                     }
                 }
@@ -41,13 +41,13 @@ public class f implements Runnable {
             }
         } catch (ActivityNotFoundException e) {
             e.printStackTrace();
-            Toast.makeText(com.baidu.browser.sailor.b.a.qO().getAppContext(), com.baidu.browser.core.b.R("string", "sailor_msg_activity_not_found"), 0).show();
+            Toast.makeText(com.baidu.browser.sailor.b.a.qS().getAppContext(), com.baidu.browser.core.b.S("string", "sailor_msg_activity_not_found"), 0).show();
             int intExtra2 = this.Kn.getIntExtra("jsaction_key", -1);
-            sparseArray = this.Wh.Wf;
+            sparseArray = this.Wq.Wo;
             n nVar2 = (n) sparseArray.get(intExtra2);
             if (nVar2 != null) {
-                nVar2.cA(e.getMessage());
-                sparseArray2 = this.Wh.Wf;
+                nVar2.cB(e.getMessage());
+                sparseArray2 = this.Wq.Wo;
                 sparseArray2.remove(intExtra2);
             }
         }

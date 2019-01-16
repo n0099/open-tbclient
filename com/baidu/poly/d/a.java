@@ -11,7 +11,7 @@ public interface a {
         public void onResult(int i, String str) {
         }
 
-        public void dj(String str) {
+        public void dk(String str) {
         }
     }
 }

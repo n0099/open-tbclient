@@ -18,7 +18,7 @@ public class a {
         }
     }
 
-    public static boolean re(int i) {
+    public static boolean rg(int i) {
         if (i == Integer.MAX_VALUE) {
             return true;
         }

@@ -8,13 +8,13 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 /* loaded from: classes6.dex */
 final class a {
-    private static final a ifS = new a();
+    private static final a igZ = new a();
     private boolean ac;
-    private final Set<InterfaceC0348a> ifT = new LinkedHashSet();
+    private final Set<InterfaceC0347a> iha = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0348a {
+    public interface InterfaceC0347a {
         void T();
 
         void U();
@@ -28,26 +28,26 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a bSC() {
-        return ifS;
+    public static a bTk() {
+        return igZ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0348a> bSD() {
-        return this.ifT;
+    public final Set<InterfaceC0347a> bTl() {
+        return this.iha;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(InterfaceC0348a interfaceC0348a) {
-        synchronized (this.ifT) {
-            this.ifT.add(interfaceC0348a);
+    public final void a(InterfaceC0347a interfaceC0347a) {
+        synchronized (this.iha) {
+            this.iha.add(interfaceC0347a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void S() {
-        synchronized (this.ifT) {
-            this.ifT.clear();
+        synchronized (this.iha) {
+            this.iha.clear();
         }
     }
 
@@ -59,7 +59,7 @@ final class a {
         try {
             ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new h(this));
         } catch (Exception e) {
-            com.baidu.ubs.analytics.d.j.yE("registerActivityLifecycleCallbacks encounter exception");
+            com.baidu.ubs.analytics.d.j.yU("registerActivityLifecycleCallbacks encounter exception");
         }
         this.ac = true;
     }

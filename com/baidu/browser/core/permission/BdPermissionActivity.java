@@ -7,46 +7,46 @@ import com.baidu.e.a.a;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes2.dex */
 public class BdPermissionActivity extends Activity {
-    private int Ve;
-    private String[] Vf;
+    private int Vn;
+    private String[] Vo;
 
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        qj();
+        qn();
     }
 
-    private void qj() {
+    private void qn() {
         Intent intent = getIntent();
-        this.Ve = intent.getIntExtra(IntentConfig.REQUEST_CODE, 0);
-        this.Vf = intent.getStringArrayExtra("permissions");
+        this.Vn = intent.getIntExtra(IntentConfig.REQUEST_CODE, 0);
+        this.Vo = intent.getStringArrayExtra("permissions");
     }
 
     @Override // android.app.Activity
     protected void onResume() {
         super.onResume();
-        qk();
+        qo();
     }
 
-    private void qk() {
-        if (this.Vf != null && this.Vf.length != 0) {
+    private void qo() {
+        if (this.Vo != null && this.Vo.length != 0) {
             boolean z = false;
-            for (String str : this.Vf) {
+            for (String str : this.Vo) {
                 z = z || com.baidu.e.a.a.shouldShowRequestPermissionRationale(this, str);
             }
             if (z) {
-                com.baidu.e.a.a.requestPermissions(this, this.Vf, this.Ve);
-            } else if (b.i(this, this.Ve)) {
-                com.baidu.e.a.a.requestPermissions(this, this.Vf, this.Ve);
+                com.baidu.e.a.a.requestPermissions(this, this.Vo, this.Vn);
+            } else if (b.i(this, this.Vn)) {
+                com.baidu.e.a.a.requestPermissions(this, this.Vo, this.Vn);
             } else {
-                onRequestPermissionsResult(this.Ve, this.Vf, new int[0]);
+                onRequestPermissionsResult(this.Vn, this.Vo, new int[0]);
             }
         }
     }
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-        a.InterfaceC0073a bC = a.ql().bC(this.Ve);
+        a.InterfaceC0073a bC = a.qp().bC(this.Vn);
         if (bC != null) {
             bC.onRequestPermissionsResult(i, strArr, iArr);
         }

@@ -14,7 +14,7 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     public m() {
         this.width = 0;
         this.height = 0;
-        EB();
+        EO();
     }
 
     public m(int i, int i2) {
@@ -25,10 +25,10 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             this.height = i2;
             return;
         }
-        EB();
+        EO();
     }
 
-    private void EB() {
+    private void EO() {
         this.width = com.baidu.adp.lib.util.l.aO(TbadkCoreApplication.getInst());
         this.height = com.baidu.adp.lib.util.l.aQ(TbadkCoreApplication.getInst());
     }
@@ -42,8 +42,8 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(gg(str), com.baidu.tbadk.imageManager.c.Nv().ii(gg(str)), i, i2);
-        if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.op() == null || checkIsValidPicMemoryCache.op().isRecycled()) {
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(gu(str), com.baidu.tbadk.imageManager.c.NM().iw(gu(str)), i, i2);
+        if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.ot() == null || checkIsValidPicMemoryCache.ot().isRecycled()) {
             return null;
         }
         return checkIsValidPicMemoryCache;
@@ -65,7 +65,7 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
             aVar.be(i);
             aVar.bf(i2);
-            com.baidu.tbadk.imageManager.c.Nv().c(gg(str), aVar);
+            com.baidu.tbadk.imageManager.c.NM().c(gu(str), aVar);
         }
     }
 
@@ -100,7 +100,7 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         }
     }
 
-    public String gg(String str) {
+    public String gu(String str) {
         ImageOperation L = com.baidu.tbadk.img.effect.d.L(this.width, this.height);
         StringBuilder sb = new StringBuilder();
         sb.append("image_");

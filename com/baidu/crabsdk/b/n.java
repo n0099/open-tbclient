@@ -9,18 +9,18 @@ import com.baidu.searchbox.ng.ai.apps.network.AiAppNetworkUtils;
 import com.baidu.searchbox.ng.ai.apps.util.AiAppRomUtils;
 /* loaded from: classes6.dex */
 public final class n {
-    private static TelephonyManager Yk;
-    private static ConnectivityManager Yl;
+    private static TelephonyManager Yt;
+    private static ConnectivityManager Yu;
     private static Context mContext;
 
     public static String E() {
         NetworkInfo activeNetworkInfo;
         StringBuilder sb = new StringBuilder();
         try {
-            if (Yl == null) {
-                Yl = (ConnectivityManager) mContext.getSystemService("connectivity");
+            if (Yu == null) {
+                Yu = (ConnectivityManager) mContext.getSystemService("connectivity");
             }
-            activeNetworkInfo = Yl.getActiveNetworkInfo();
+            activeNetworkInfo = Yu.getActiveNetworkInfo();
         } catch (RuntimeException e) {
             com.baidu.crabsdk.c.a.f("getNetworkInfo", e);
         }
@@ -31,10 +31,10 @@ public final class n {
             sb.append("type: ").append(activeNetworkInfo.getTypeName()).append("\n");
             if (activeNetworkInfo.getType() == 0) {
                 sb.append("subType: ").append(activeNetworkInfo.getSubtypeName()).append("\n");
-                if (Yk == null) {
-                    Yk = (TelephonyManager) mContext.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+                if (Yt == null) {
+                    Yt = (TelephonyManager) mContext.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
                 }
-                sb.append("isRoaming: ").append(Yk.isNetworkRoaming() ? "yes" : AiAppNetworkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).append("\n");
+                sb.append("isRoaming: ").append(Yt.isNetworkRoaming() ? "yes" : AiAppNetworkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).append("\n");
             }
         } else {
             sb.append("type: none\n");
@@ -44,10 +44,10 @@ public final class n {
 
     public static String F() {
         try {
-            if (Yl == null) {
-                Yl = (ConnectivityManager) mContext.getSystemService("connectivity");
+            if (Yu == null) {
+                Yu = (ConnectivityManager) mContext.getSystemService("connectivity");
             }
-            NetworkInfo activeNetworkInfo = Yl.getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = Yu.getActiveNetworkInfo();
             return activeNetworkInfo == null ? AiAppRomUtils.UNKNOWN : !activeNetworkInfo.isConnected() ? "NONE" : activeNetworkInfo.getTypeName().toUpperCase();
         } catch (RuntimeException e) {
             return AiAppRomUtils.UNKNOWN;

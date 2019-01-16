@@ -28,53 +28,53 @@ import com.baidu.tieba.play.o;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class e implements AiAppsPlayerContext {
-    private com.baidu.tbadk.ala.d bIW;
-    private d.a bIX;
-    private o bIZ;
-    private FrameLayout bJb;
-    private boolean bJc;
-    private HashMap<Integer, String> bJd;
-    private Activity bJe;
+    private com.baidu.tbadk.ala.d bJJ;
+    private d.a bJK;
+    private o bJM;
+    private FrameLayout bJO;
+    private boolean bJP;
+    private HashMap<Integer, String> bJQ;
+    private Activity bJR;
     private AiAppsNAViewContainer mContainer;
     private boolean mDetached;
     CustomMessageListener mNetworkChangedListener;
     private String mPlayerId;
-    private b bIV = b.YM();
-    private com.baidu.tieba.aiapps.apps.media.b.a.a bIY = new com.baidu.tieba.aiapps.apps.media.b.a.a();
-    private volatile boolean bJa = false;
+    private b bJI = b.Zj();
+    private com.baidu.tieba.aiapps.apps.media.b.a.a bJL = new com.baidu.tieba.aiapps.apps.media.b.a.a();
+    private volatile boolean bJN = false;
 
     public e(Context context, String str) {
         this.mPlayerId = str;
-        this.bJe = (Activity) context;
+        this.bJR = (Activity) context;
         if (!TextUtils.isEmpty(this.mPlayerId)) {
             AiAppsPlayerManager.addPlayerContext(this);
         }
         BdLog.d("AiAppsLivePlayer create: " + this.mPlayerId);
         this.mContainer = new AiAppsNAViewContainer(context);
-        this.bIX = new d.a() { // from class: com.baidu.tieba.aiapps.apps.media.b.e.1
+        this.bJK = new d.a() { // from class: com.baidu.tieba.aiapps.apps.media.b.e.1
             @Override // com.baidu.tbadk.ala.d.a
             public void onFirstFrame(int i, int i2, int i3) {
                 BdLog.d("onFirstFrame " + i2 + " " + i3);
-                e.this.bIY.mVideoWidth = i2;
-                e.this.bIY.mVideoHeight = i3;
+                e.this.bJL.mVideoWidth = i2;
+                e.this.bJL.mVideoHeight = i3;
             }
 
             @Override // com.baidu.tbadk.ala.d.a
             public void a(int i, AlaLivePlayerData alaLivePlayerData) {
-                if (alaLivePlayerData != null && e.this.bIY != null) {
-                    if (alaLivePlayerData.fpsAvg != e.this.bIY.bJi) {
+                if (alaLivePlayerData != null && e.this.bJL != null) {
+                    if (alaLivePlayerData.fpsAvg != e.this.bJL.bJV) {
                         e.this.id(940);
                     }
-                    if (alaLivePlayerData.videoBitrate != e.this.bIY.bJg) {
+                    if (alaLivePlayerData.videoBitrate != e.this.bJL.bJT) {
                         e.this.id(939);
                     }
-                    if (alaLivePlayerData.audioBitrate != e.this.bIY.bJh) {
+                    if (alaLivePlayerData.audioBitrate != e.this.bJL.bJU) {
                         e.this.id(938);
                     }
-                    e.this.bIY.bJj = (int) alaLivePlayerData.bandWidth;
-                    e.this.bIY.bJi = (int) alaLivePlayerData.fpsAvg;
-                    e.this.bIY.bJh = (int) alaLivePlayerData.audioBitrate;
-                    e.this.bIY.bJg = (int) alaLivePlayerData.videoBitrate;
+                    e.this.bJL.bJW = (int) alaLivePlayerData.bandWidth;
+                    e.this.bJL.bJV = (int) alaLivePlayerData.fpsAvg;
+                    e.this.bJL.bJU = (int) alaLivePlayerData.audioBitrate;
+                    e.this.bJL.bJT = (int) alaLivePlayerData.videoBitrate;
                 }
             }
         };
@@ -83,40 +83,40 @@ public class e implements AiAppsPlayerContext {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                    e.this.YP();
+                    e.this.Zm();
                 }
             }
         };
         MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
-        this.bIZ = new o(this.bJe);
-        this.bIZ.start();
-        this.bJe.getWindow().addFlags(128);
+        this.bJM = new o(this.bJR);
+        this.bJM.start();
+        this.bJR.getWindow().addFlags(128);
     }
 
-    public b YN() {
-        return this.bIV;
+    public b Zk() {
+        return this.bJI;
     }
 
     public void a(b bVar) {
-        this.bIV = bVar;
-        if (!this.bIV.hidden && this.bIV.mAutoPlay) {
+        this.bJI = bVar;
+        if (!this.bJI.hidden && this.bJI.mAutoPlay) {
             start();
         }
     }
 
     public void start() {
-        if (this.bIV != null) {
-            if (this.bIV.hidden) {
-                BdLog.d("mPlayerId = " + this.mPlayerId + "can not start(), hide = " + this.bIV.hidden);
+        if (this.bJI != null) {
+            if (this.bJI.hidden) {
+                BdLog.d("mPlayerId = " + this.mPlayerId + "can not start(), hide = " + this.bJI.hidden);
                 return;
             }
             BdLog.d(this.mPlayerId + " start()");
-            if (this.bIW != null) {
+            if (this.bJJ != null) {
                 resetPlayer();
             }
-            YO();
-            c(this.bIV);
-            b(this.bIV.mSrc, "", "", false);
+            Zl();
+            c(this.bJI);
+            b(this.bJI.mSrc, "", "", false);
             prepareAsync();
             this.mDetached = false;
         }
@@ -129,7 +129,7 @@ public class e implements AiAppsPlayerContext {
 
     @Override // com.baidu.searchbox.ng.ai.apps.media.AiAppsPlayerContext
     public String getSlaveId() {
-        return this.bIV.slaveId;
+        return this.bJI.slaveId;
     }
 
     @Override // com.baidu.searchbox.ng.ai.apps.media.AiAppsPlayerContext
@@ -155,11 +155,11 @@ public class e implements AiAppsPlayerContext {
     @Override // com.baidu.searchbox.ng.ai.apps.media.AiAppsPlayerContext
     public boolean onBackPressed() {
         BdLog.d("onBackPressed ");
-        if (this.bIV != null && this.mContainer != null && d(this.bJe, this.mContainer)) {
-            if (this.bJe.getRequestedOrientation() != 1) {
-                this.bIZ.aZx();
+        if (this.bJI != null && this.mContainer != null && d(this.bJR, this.mContainer)) {
+            if (this.bJR.getRequestedOrientation() != 1) {
+                this.bJM.aZX();
             }
-            f(this.bJe, 0);
+            f(this.bJR, 0);
             return true;
         }
         release();
@@ -168,11 +168,11 @@ public class e implements AiAppsPlayerContext {
 
     @Override // com.baidu.searchbox.ng.ai.apps.media.AiAppsPlayerContext
     public void resetPlayer() {
-        if (this.bIW != null) {
-            this.bIW.stop();
-            this.bIW.destroy();
+        if (this.bJJ != null) {
+            this.bJJ.stop();
+            this.bJJ.destroy();
         }
-        this.bIW = null;
+        this.bJJ = null;
     }
 
     @Override // com.baidu.searchbox.ng.ai.apps.media.AiAppsPlayerContext
@@ -183,37 +183,37 @@ public class e implements AiAppsPlayerContext {
 
     public void release() {
         BdLog.d(this.mPlayerId + " release()");
-        this.bJe.getWindow().clearFlags(128);
+        this.bJR.getWindow().clearFlags(128);
         MessageManager.getInstance().unRegisterListener(this.mNetworkChangedListener);
         AiAppsPlayerManager.removePlayerContext(this);
-        this.bIZ.stop();
-        if (this.bIW != null) {
-            this.bIW.stop();
-            this.bIW.destroy();
-            this.bIW = null;
+        this.bJM.stop();
+        if (this.bJJ != null) {
+            this.bJJ.stop();
+            this.bJJ.destroy();
+            this.bJJ = null;
         }
     }
 
-    private void YO() {
-        dD(this.bIV.bIN);
-        ia(this.bIV.bIP);
-        ib(this.bIV.bIQ);
-        if (TextUtils.equals(this.bIV.bIR, "horizontal")) {
+    private void Zl() {
+        dG(this.bJI.bJA);
+        ia(this.bJI.bJC);
+        ib(this.bJI.bJD);
+        if (TextUtils.equals(this.bJI.bJE, "horizontal")) {
             ic(90);
         } else {
             ic(0);
         }
-        if (TextUtils.equals(this.bIV.bIS, "contain")) {
+        if (TextUtils.equals(this.bJI.bJF, "contain")) {
             setVideoScalingMode(2);
         } else {
             setVideoScalingMode(0);
         }
     }
 
-    public void dD(boolean z) {
+    public void dG(boolean z) {
         BdLog.d("mPlayerId + \" mute() isMuted: \" + isMuted");
-        if (this.bIW != null) {
-            this.bIW.setAudioMute(z);
+        if (this.bJJ != null) {
+            this.bJJ.setAudioMute(z);
         }
     }
 
@@ -228,8 +228,8 @@ public class e implements AiAppsPlayerContext {
 
     public void setVideoScalingMode(int i) {
         BdLog.d("setVideoScalingMode scalingMode: " + i);
-        if (this.bIW != null) {
-            this.bIW.setRenderVideoModel(1, i != 2 ? 1 : 2);
+        if (this.bJJ != null) {
+            this.bJJ.setRenderVideoModel(1, i != 2 ? 1 : 2);
             BdLog.d("setVideoScalingMode " + i);
             return;
         }
@@ -256,30 +256,30 @@ public class e implements AiAppsPlayerContext {
         hashMap.put(6, "");
         HashMap<Integer, String> hashMap2 = new HashMap<>(3);
         hashMap2.put(0, str);
-        this.bJd = hashMap2;
+        this.bJQ = hashMap2;
         return true;
     }
 
     private boolean prepareAsync() {
         boolean z;
         CustomResponsedMessage runTask;
-        if (this.bIW == null && (runTask = MessageManager.getInstance().runTask(2921364, com.baidu.tbadk.ala.d.class, this.bJe)) != null && runTask.getData() != null) {
-            this.bIW = (com.baidu.tbadk.ala.d) runTask.getData();
-            this.bIW.a(this.bIX);
+        if (this.bJJ == null && (runTask = MessageManager.getInstance().runTask(2921364, com.baidu.tbadk.ala.d.class, this.bJR)) != null && runTask.getData() != null) {
+            this.bJJ = (com.baidu.tbadk.ala.d) runTask.getData();
+            this.bJJ.a(this.bJK);
         }
-        if (this.bIW == null) {
+        if (this.bJJ == null) {
             return false;
         }
-        if (this.bIW.a(1, this.bIV.mSrc, new LinearLayout.LayoutParams(-1, -1))) {
-            this.bJa = true;
+        if (this.bJJ.a(1, this.bJI.mSrc, new LinearLayout.LayoutParams(-1, -1))) {
+            this.bJN = true;
         }
-        if (this.bJb != null) {
+        if (this.bJO != null) {
             int i = 0;
             while (true) {
-                if (i >= this.bJb.getChildCount()) {
+                if (i >= this.bJO.getChildCount()) {
                     z = false;
                     break;
-                } else if (this.bJb.getChildAt(i) == this.bIW.wa()) {
+                } else if (this.bJO.getChildAt(i) == this.bJJ.wh()) {
                     z = true;
                     break;
                 } else {
@@ -287,8 +287,8 @@ public class e implements AiAppsPlayerContext {
                 }
             }
             if (!z) {
-                this.bJb.addView(this.bIW.wa(), new LinearLayout.LayoutParams(this.bIV.position.getWidth(), this.bIV.position.getHeight()));
-                if (TextUtils.equals(this.bIV.bIS, "contain")) {
+                this.bJO.addView(this.bJJ.wh(), new LinearLayout.LayoutParams(this.bJI.position.getWidth(), this.bJI.position.getHeight()));
+                if (TextUtils.equals(this.bJI.bJF, "contain")) {
                     setVideoScalingMode(2);
                 } else {
                     setVideoScalingMode(0);
@@ -302,18 +302,18 @@ public class e implements AiAppsPlayerContext {
         if (this.mContainer == null) {
             return false;
         }
-        if (this.bJc) {
+        if (this.bJP) {
             this.mContainer.setHidden(bVar.hidden);
             return true;
         }
         AiAppsNaViewModel cloneModel = bVar.cloneModel();
         cloneModel.id = this.mPlayerId;
-        cloneModel.slaveId = this.bIV.slaveId;
+        cloneModel.slaveId = this.bJI.slaveId;
         cloneModel.parentId = bVar.parentId;
         if (NAViewFinder.findNAViewById(cloneModel.slaveId, this.mPlayerId, NAViewUtils.getViewRoot(cloneModel.slaveId)) == null) {
             BdLog.d("insertOrUpdateCoverContainer 00");
-            this.bJb = new FrameLayout(this.bJe);
-            return this.mContainer.insertView(this.bJb, cloneModel);
+            this.bJO = new FrameLayout(this.bJR);
+            return this.mContainer.insertView(this.bJO, cloneModel);
         }
         BdLog.d("insertOrUpdateCoverContainer 01");
         return this.mContainer.updateView(cloneModel);
@@ -325,63 +325,63 @@ public class e implements AiAppsPlayerContext {
     }
 
     private boolean d(b bVar) {
-        if (this.bIV == null) {
+        if (this.bJI == null) {
             return false;
         }
-        return (this.bIV.bIN == bVar.bIN && this.bIV.bIP == bVar.bIP && this.bIV.bIQ == bVar.bIQ && TextUtils.equals(this.bIV.bIR, bVar.bIR) && TextUtils.equals(this.bIV.bIS, bVar.bIS)) ? false : true;
+        return (this.bJI.bJA == bVar.bJA && this.bJI.bJC == bVar.bJC && this.bJI.bJD == bVar.bJD && TextUtils.equals(this.bJI.bJE, bVar.bJE) && TextUtils.equals(this.bJI.bJF, bVar.bJF)) ? false : true;
     }
 
     public void e(@NonNull b bVar) {
         BdLog.d("updatePlayerConfig params: " + bVar.toString());
         if (d(bVar)) {
-            this.bIV = bVar;
-            YO();
+            this.bJI = bVar;
+            Zl();
         }
-        this.bIV = bVar;
-        c(this.bIV);
+        this.bJI = bVar;
+        c(this.bJI);
     }
 
     public boolean isPlaying() {
-        if (this.bIW != null) {
-            return this.bJa;
+        if (this.bJJ != null) {
+            return this.bJN;
         }
         return false;
     }
 
     public void stop() {
-        if (this.bIW != null) {
-            this.bIW.stop();
-            this.bIW.destroy();
-            this.bIW.a(null);
-            this.bIW = null;
-            this.bJa = false;
+        if (this.bJJ != null) {
+            this.bJJ.stop();
+            this.bJJ.destroy();
+            this.bJJ.a(null);
+            this.bJJ = null;
+            this.bJN = false;
         }
     }
 
     public void f(boolean z, int i) {
         BdLog.d("setFullScreen  = " + z + " direction  = " + i);
-        this.bJc = z;
-        int aO = l.aO(this.bJe);
-        int aQ = l.aQ(this.bJe);
+        this.bJP = z;
+        int aO = l.aO(this.bJR);
+        int aQ = l.aQ(this.bJR);
         if (z) {
             if (i == 90 || i == -90) {
-                this.bIZ.aZx();
+                this.bJM.aZX();
                 aO = aQ;
                 aQ = aO;
             }
-        } else if (this.bJe.getRequestedOrientation() != 1) {
-            this.bIZ.aZx();
+        } else if (this.bJR.getRequestedOrientation() != 1) {
+            this.bJM.aZX();
         }
         if (z) {
-            a(this.bJe, i, aO, aQ);
+            a(this.bJR, i, aO, aQ);
         } else {
-            f(this.bJe, i);
+            f(this.bJR, i);
         }
     }
 
     private void a(Activity activity, int i, int i2, int i3) {
         if (activity != null) {
-            this.bJc = true;
+            this.bJP = true;
             if (this.mContainer != null && this.mContainer.getParent() != null) {
                 ((ViewGroup) this.mContainer.getParent()).removeView(this.mContainer);
             }
@@ -390,31 +390,31 @@ public class e implements AiAppsPlayerContext {
                 viewGroup.removeView(this.mContainer);
                 viewGroup.addView(this.mContainer);
             }
-            if (this.bIW != null && this.bIW.wa().getParent() != null) {
-                ((ViewGroup) this.bIW.wa().getParent()).removeView(this.bIW.wa());
+            if (this.bJJ != null && this.bJJ.wh().getParent() != null) {
+                ((ViewGroup) this.bJJ.wh().getParent()).removeView(this.bJJ.wh());
             }
-            this.bJb.addView(this.bIW.wa(), new LinearLayout.LayoutParams(i2, i3));
+            this.bJO.addView(this.bJJ.wh(), new LinearLayout.LayoutParams(i2, i3));
             this.mContainer.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
     public void f(Activity activity, int i) {
-        if (activity == null || this.bIV == null) {
+        if (activity == null || this.bJI == null) {
             BdLog.d("updatePortraitEmbedScreen activity = null or mParams = null");
             return;
         }
-        this.bJc = false;
+        this.bJP = false;
         if (this.mContainer != null && this.mContainer.getParent() != null) {
             ((ViewGroup) this.mContainer.getParent()).removeView(this.mContainer);
         }
-        if (this.bIW != null && this.bIW.wa().getParent() != null) {
-            ((ViewGroup) this.bIW.wa().getParent()).removeView(this.bIW.wa());
+        if (this.bJJ != null && this.bJJ.wh().getParent() != null) {
+            ((ViewGroup) this.bJJ.wh().getParent()).removeView(this.bJJ.wh());
         }
-        int width = this.bIV.position.getWidth();
-        int height = this.bIV.position.getHeight();
-        this.bIV.position.getLeft();
-        this.bIV.position.getTop();
-        this.bJb.addView(this.bIW.wa(), new LinearLayout.LayoutParams(width, height));
+        int width = this.bJI.position.getWidth();
+        int height = this.bJI.position.getHeight();
+        this.bJI.position.getLeft();
+        this.bJI.position.getTop();
+        this.bJO.addView(this.bJJ.wh(), new LinearLayout.LayoutParams(width, height));
         this.mContainer.attach();
     }
 
@@ -424,8 +424,8 @@ public class e implements AiAppsPlayerContext {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void YP() {
-        String jSONString = this.bIY.toJSONString();
+    public void Zm() {
+        String jSONString = this.bJL.toJSONString();
         if (!TextUtils.isEmpty(jSONString)) {
             BdLog.d(this.mPlayerId + " dispatchNetStatusEvent statusData: " + jSONString);
             d.y(getSlaveId(), getPlayerId(), jSONString);

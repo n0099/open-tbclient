@@ -8,18 +8,18 @@ import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes2.dex */
 public class b {
-    private static ApplicationInfo Zl;
-    private static b aaD;
-    private a aaE;
+    private static ApplicationInfo Zu;
+    private static b aaM;
+    private a aaN;
     private Context mAppContext;
 
     public static synchronized b bl(Context context) {
         b bVar;
         synchronized (b.class) {
-            if (aaD == null) {
-                aaD = new b(context);
+            if (aaM == null) {
+                aaM = new b(context);
             }
-            bVar = aaD;
+            bVar = aaM;
         }
         return bVar;
     }
@@ -28,16 +28,16 @@ public class b {
         this.mAppContext = context.getApplicationContext();
     }
 
-    public synchronized a sk() {
+    public synchronized a so() {
         Class<?> cls;
-        if (this.aaE == null && com.baidu.b.a.h.b.isMainProcess()) {
+        if (this.aaN == null && com.baidu.b.a.h.b.isMainProcess()) {
             try {
                 try {
-                    ApplicationInfo sl = sl();
-                    if (sl != null && sl.metaData != null) {
-                        String string = sl.metaData.getString("dynamic.download.callback.statistic");
+                    ApplicationInfo sp = sp();
+                    if (sp != null && sp.metaData != null) {
+                        String string = sp.metaData.getString("dynamic.download.callback.statistic");
                         if (!TextUtils.isEmpty(string) && (cls = Class.forName(string)) != null) {
-                            this.aaE = (a) cls.newInstance();
+                            this.aaN = (a) cls.newInstance();
                         }
                     }
                 } catch (IllegalAccessException e) {
@@ -55,18 +55,18 @@ public class b {
                 }
             }
         }
-        if (this.aaE == null) {
-            this.aaE = new com.baidu.b.a.h.a.a.a();
+        if (this.aaN == null) {
+            this.aaN = new com.baidu.b.a.h.a.a.a();
         }
-        return this.aaE;
+        return this.aaN;
     }
 
-    private static ApplicationInfo sl() {
+    private static ApplicationInfo sp() {
         synchronized (b.class) {
-            if (Zl == null) {
+            if (Zu == null) {
                 try {
                     Application application = AppRuntime.getApplication();
-                    Zl = application.getPackageManager().getApplicationInfo(application.getPackageName(), 128);
+                    Zu = application.getPackageManager().getApplicationInfo(application.getPackageName(), 128);
                 } catch (PackageManager.NameNotFoundException e) {
                     if (com.baidu.b.a.h.b.isDebug()) {
                         e.printStackTrace();
@@ -78,6 +78,6 @@ public class b {
                 }
             }
         }
-        return Zl;
+        return Zu;
     }
 }

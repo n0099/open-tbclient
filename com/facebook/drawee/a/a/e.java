@@ -9,13 +9,13 @@ import java.util.Set;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class e extends AbstractDraweeControllerBuilder<e, ImageRequest, com.facebook.common.references.a<com.facebook.imagepipeline.f.b>, com.facebook.imagepipeline.f.e> {
-    private final com.facebook.imagepipeline.d.g ikJ;
-    private final g iky;
+    private final g ilF;
+    private final com.facebook.imagepipeline.d.g ilQ;
 
     public e(Context context, g gVar, com.facebook.imagepipeline.d.g gVar2, Set<com.facebook.drawee.controller.c> set) {
         super(context, set);
-        this.ikJ = gVar2;
-        this.iky = gVar;
+        this.ilQ = gVar2;
+        this.ilF = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,47 +25,47 @@ public class e extends AbstractDraweeControllerBuilder<e, ImageRequest, com.face
         if (uri == null) {
             return (e) super.aA(null);
         }
-        return (e) super.aA(ImageRequestBuilder.G(uri).a(com.facebook.imagepipeline.common.d.bXe()).caI());
+        return (e) super.aA(ImageRequestBuilder.G(uri).a(com.facebook.imagepipeline.common.d.bXM()).cbq());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.controller.AbstractDraweeControllerBuilder
-    /* renamed from: bUR */
-    public d bUV() {
-        com.facebook.drawee.d.a bVp = bVp();
-        if (bVp instanceof d) {
-            d dVar = (d) bVp;
-            dVar.a(bVt(), bVs(), bUS(), bVk());
+    /* renamed from: bVz */
+    public d bVD() {
+        com.facebook.drawee.d.a bVX = bVX();
+        if (bVX instanceof d) {
+            d dVar = (d) bVX;
+            dVar.a(bWb(), bWa(), bVA(), bVS());
             return dVar;
         }
-        return this.iky.b(bVt(), bVs(), bUS(), bVk());
+        return this.ilF.b(bWb(), bWa(), bVA(), bVS());
     }
 
-    private com.facebook.cache.common.b bUS() {
-        ImageRequest bVl = bVl();
-        com.facebook.imagepipeline.c.f bXq = this.ikJ.bXq();
-        if (bXq == null || bVl == null) {
+    private com.facebook.cache.common.b bVA() {
+        ImageRequest bVT = bVT();
+        com.facebook.imagepipeline.c.f bXY = this.ilQ.bXY();
+        if (bXY == null || bVT == null) {
             return null;
         }
-        if (bVl.caE() != null) {
-            return bXq.b(bVl, bVk());
+        if (bVT.cbm() != null) {
+            return bXY.b(bVT, bVS());
         }
-        return bXq.a(bVl, bVk());
+        return bXY.a(bVT, bVS());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.controller.AbstractDraweeControllerBuilder
     public com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> a(ImageRequest imageRequest, Object obj, AbstractDraweeControllerBuilder.CacheLevel cacheLevel) {
-        return this.ikJ.a(imageRequest, obj, a(cacheLevel));
+        return this.ilQ.a(imageRequest, obj, a(cacheLevel));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.drawee.controller.AbstractDraweeControllerBuilder
-    /* renamed from: bUT */
-    public e bUU() {
+    /* renamed from: bVB */
+    public e bVC() {
         return this;
     }
 

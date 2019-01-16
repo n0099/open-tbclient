@@ -22,7 +22,7 @@ import java.net.URL;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class m extends com.baidu.location.g.e {
-    private static m adW = null;
+    private static m aef = null;
     String a = null;
     String b = null;
     String c = null;
@@ -86,7 +86,7 @@ public class m extends com.baidu.location.g.e {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null && activeNetworkInfo.getType() == 0) {
-                String a = com.baidu.location.e.c.a(com.baidu.location.e.b.tL().e());
+                String a = com.baidu.location.e.c.a(com.baidu.location.e.b.tP().e());
                 if (!a.equals("3G")) {
                     if (a.equals("4G")) {
                     }
@@ -226,11 +226,11 @@ public class m extends com.baidu.location.g.e {
         }
     }
 
-    public static m tm() {
-        if (adW == null) {
-            adW = new m();
+    public static m tr() {
+        if (aef == null) {
+            aef = new m();
         }
-        return adW;
+        return aef;
     }
 
     @Override // com.baidu.location.g.e
@@ -245,12 +245,12 @@ public class m extends com.baidu.location.g.e {
         stringBuffer.append(com.baidu.location.f.getFrameVersion());
         stringBuffer.append("&suit=");
         stringBuffer.append(2);
-        if (com.baidu.location.g.b.tV().b == null) {
+        if (com.baidu.location.g.b.tZ().b == null) {
             stringBuffer.append("&im=");
-            stringBuffer.append(com.baidu.location.g.b.tV().a);
+            stringBuffer.append(com.baidu.location.g.b.tZ().a);
         } else {
             stringBuffer.append("&cu=");
-            stringBuffer.append(com.baidu.location.g.b.tV().b);
+            stringBuffer.append(com.baidu.location.g.b.tZ().b);
         }
         stringBuffer.append("&mb=");
         stringBuffer.append(Build.MODEL);
@@ -315,11 +315,11 @@ public class m extends com.baidu.location.g.e {
             } catch (Exception e) {
             }
         }
-        com.baidu.location.g.c.tW().a(System.currentTimeMillis());
+        com.baidu.location.g.c.ua().a(System.currentTimeMillis());
     }
 
     public void c() {
-        if (System.currentTimeMillis() - com.baidu.location.g.c.tW().b() > 86400000) {
+        if (System.currentTimeMillis() - com.baidu.location.g.c.ua().b() > 86400000) {
             f().postDelayed(new Runnable() { // from class: com.baidu.location.a.m.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -332,7 +332,7 @@ public class m extends com.baidu.location.g.e {
                 @Override // java.lang.Runnable
                 public void run() {
                     if (com.baidu.location.e.f.j()) {
-                        com.baidu.location.d.d.tE().m();
+                        com.baidu.location.d.d.tI().m();
                     }
                 }
             }, 5000L);

@@ -1,7 +1,6 @@
 package com.sina.weibo.sdk.web.client;
 
 import android.graphics.Bitmap;
-import android.support.annotation.RequiresApi;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
@@ -30,7 +29,6 @@ public class DefaultWebViewClient extends BaseWebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
-    @RequiresApi(api = 23)
     public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
         super.onReceivedError(webView, webResourceRequest, webResourceError);
         if (this.requestCallback != null) {

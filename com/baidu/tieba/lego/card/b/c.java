@@ -17,18 +17,18 @@ public class c {
         this.url = str;
     }
 
-    public void aYI() {
+    public void aZi() {
         new BdAsyncTask<String, Void, Void>() { // from class: com.baidu.tieba.lego.card.b.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(String... strArr) {
-                HashMap aYJ = c.this.aYJ();
+                HashMap aZj = c.this.aZj();
                 e eVar = new e();
                 eVar.jp().setUrl(c.this.url);
                 eVar.jp().setMethod(HttpMessageTask.HTTP_METHOD.GET);
-                if (aYJ != null && !aYJ.isEmpty()) {
-                    eVar.jp().l(c.this.aYJ());
+                if (aZj != null && !aZj.isEmpty()) {
+                    eVar.jp().l(c.this.aZj());
                 }
                 new com.baidu.adp.lib.network.http.c(eVar).g(1, 0, 0);
                 eVar.jq();
@@ -38,38 +38,38 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap<String, String> aYJ() {
+    public HashMap<String, String> aZj() {
         String cookie = CookieManager.getInstance().getCookie("*.baidu.com");
         if (TextUtils.isEmpty(cookie) || !cookie.contains("BAIDUID=")) {
-            cookie = com.baidu.tbadk.browser.a.amD;
+            cookie = com.baidu.tbadk.browser.a.amX;
         }
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put(SM.COOKIE, cookie);
         return hashMap;
     }
 
-    public static void rg(String str) {
+    public static void rw(String str) {
         if (!TextUtils.isEmpty(str)) {
-            new c(str).aYI();
+            new c(str).aZi();
         }
     }
 
     public static void a(b bVar) {
         if (bVar != null && bVar.getParallelCharge() != null) {
-            rg(bVar.getParallelCharge().fpF);
-            Iterator<String> it = bVar.getParallelCharge().fpI.iterator();
+            rw(bVar.getParallelCharge().fqz);
+            Iterator<String> it = bVar.getParallelCharge().fqC.iterator();
             while (it.hasNext()) {
-                rg(it.next());
+                rw(it.next());
             }
         }
     }
 
     public static void b(b bVar) {
         if (bVar != null && bVar.getParallelCharge() != null) {
-            rg(bVar.getParallelCharge().fpG);
-            Iterator<String> it = bVar.getParallelCharge().fpH.iterator();
+            rw(bVar.getParallelCharge().fqA);
+            Iterator<String> it = bVar.getParallelCharge().fqB.iterator();
             while (it.hasNext()) {
-                rg(it.next());
+                rw(it.next());
             }
         }
     }

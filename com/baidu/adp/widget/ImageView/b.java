@@ -30,9 +30,9 @@ public class b extends Drawable {
     private final RectF mBorderRect = new RectF();
     private final Matrix mShaderMatrix = new Matrix();
     private float mCornerRadius = 0.0f;
-    private boolean NN = false;
+    private boolean NY = false;
     private float mBorderWidth = 0.0f;
-    private ColorStateList NP = ColorStateList.valueOf(0);
+    private ColorStateList NZ = ColorStateList.valueOf(0);
     private ImageView.ScaleType mScaleType = ImageView.ScaleType.FIT_XY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -49,7 +49,7 @@ public class b extends Drawable {
         this.mBorderPaint = new Paint();
         this.mBorderPaint.setStyle(Paint.Style.STROKE);
         this.mBorderPaint.setAntiAlias(true);
-        this.mBorderPaint.setColor(this.NP.getColorForState(getState(), 0));
+        this.mBorderPaint.setColor(this.NZ.getColorForState(getState(), 0));
         this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
     }
 
@@ -94,12 +94,12 @@ public class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public boolean isStateful() {
-        return this.NP.isStateful();
+        return this.NZ.isStateful();
     }
 
     @Override // android.graphics.drawable.Drawable
     protected boolean onStateChange(int[] iArr) {
-        int colorForState = this.NP.getColorForState(iArr, 0);
+        int colorForState = this.NZ.getColorForState(iArr, 0);
         if (this.mBorderPaint.getColor() != colorForState) {
             this.mBorderPaint.setColor(colorForState);
             return true;
@@ -229,7 +229,7 @@ public class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (this.NN) {
+        if (this.NY) {
             if (this.mBorderWidth > 0.0f) {
                 canvas.drawOval(this.mBorderRect, this.mBorderPaint);
                 canvas.drawOval(this.mDrawableRect, this.mBitmapPaint);
@@ -286,13 +286,13 @@ public class b extends Drawable {
         if (colorStateList == null) {
             colorStateList = ColorStateList.valueOf(0);
         }
-        this.NP = colorStateList;
-        this.mBorderPaint.setColor(this.NP.getColorForState(getState(), 0));
+        this.NZ = colorStateList;
+        this.mBorderPaint.setColor(this.NZ.getColorForState(getState(), 0));
         return this;
     }
 
     public b au(boolean z) {
-        this.NN = z;
+        this.NY = z;
         return this;
     }
 

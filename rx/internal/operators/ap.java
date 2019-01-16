@@ -4,13 +4,13 @@ import rx.d;
 import rx.internal.util.UtilityFunctions;
 /* loaded from: classes2.dex */
 public final class ap<T, U> implements d.b<T, T>, rx.functions.g<U, U, Boolean> {
-    final rx.functions.f<? super T, ? extends U> iGZ;
-    final rx.functions.g<? super U, ? super U, Boolean> iIl;
+    final rx.functions.f<? super T, ? extends U> iIg;
+    final rx.functions.g<? super U, ? super U, Boolean> iJs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final ap<?, ?> iIp = new ap<>(UtilityFunctions.cfm());
+        static final ap<?, ?> iJw = new ap<>(UtilityFunctions.cfU());
     }
 
     @Override // rx.functions.f
@@ -18,18 +18,18 @@ public final class ap<T, U> implements d.b<T, T>, rx.functions.g<U, U, Boolean> 
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> ap<T, T> cek() {
-        return (ap<T, T>) a.iIp;
+    public static <T> ap<T, T> ceS() {
+        return (ap<T, T>) a.iJw;
     }
 
     public ap(rx.functions.f<? super T, ? extends U> fVar) {
-        this.iGZ = fVar;
-        this.iIl = this;
+        this.iIg = fVar;
+        this.iJs = this;
     }
 
     public ap(rx.functions.g<? super U, ? super U, Boolean> gVar) {
-        this.iGZ = UtilityFunctions.cfm();
-        this.iIl = gVar;
+        this.iIg = UtilityFunctions.cfU();
+        this.iJs = gVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,18 +42,18 @@ public final class ap<T, U> implements d.b<T, T>, rx.functions.g<U, U, Boolean> 
     /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: rx.j<T>, rx.j<? super T> */
     public rx.j<? super T> call(final rx.j<? super T> jVar) {
         return (rx.j<T>) new rx.j<T>(jVar) { // from class: rx.internal.operators.ap.1
-            U iIm;
-            boolean iIn;
+            U iJt;
+            boolean iJu;
 
             @Override // rx.e
             public void onNext(T t) {
                 try {
-                    U call = ap.this.iGZ.call(t);
-                    U u = this.iIm;
-                    this.iIm = call;
-                    if (this.iIn) {
+                    U call = ap.this.iIg.call(t);
+                    U u = this.iJt;
+                    this.iJt = call;
+                    if (this.iJu) {
                         try {
-                            if (!ap.this.iIl.j(u, call).booleanValue()) {
+                            if (!ap.this.iJs.j(u, call).booleanValue()) {
                                 jVar.onNext(t);
                                 return;
                             } else {
@@ -65,7 +65,7 @@ public final class ap<T, U> implements d.b<T, T>, rx.functions.g<U, U, Boolean> 
                             return;
                         }
                     }
-                    this.iIn = true;
+                    this.iJu = true;
                     jVar.onNext(t);
                 } catch (Throwable th2) {
                     rx.exceptions.a.a(th2, jVar, t);

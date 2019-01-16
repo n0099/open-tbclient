@@ -17,35 +17,35 @@ import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class ScreenLockHeaderView extends LinearLayout {
-    private TextView cvJ;
-    TextView gXg;
-    View gXh;
-    View gXi;
-    TextView gXj;
-    TextView gXk;
-    TextView gXl;
-    private d gXm;
-    private RelativeLayout gXn;
+    private TextView cwu;
+    TextView gYl;
+    View gYm;
+    View gYn;
+    TextView gYo;
+    TextView gYp;
+    TextView gYq;
+    private d gYr;
+    private RelativeLayout gYs;
     private EditText mEditText;
     View mLine;
 
     public ScreenLockHeaderView(Context context) {
         super(context);
         LayoutInflater.from(getContext()).inflate(e.h.screenlock_show_item_header, (ViewGroup) this, true);
-        this.gXg = (TextView) findViewById(e.g.friend_name_show1);
-        this.gXh = findViewById(e.g.friend_name_layout);
-        this.gXi = findViewById(e.g.msg_content_layout);
-        this.gXj = (TextView) findViewById(e.g.last_msg_time_show1);
-        this.gXk = (TextView) findViewById(e.g.one_msg_content_show1);
-        this.gXl = (TextView) findViewById(e.g.unread_msg_count_show1);
+        this.gYl = (TextView) findViewById(e.g.friend_name_show1);
+        this.gYm = findViewById(e.g.friend_name_layout);
+        this.gYn = findViewById(e.g.msg_content_layout);
+        this.gYo = (TextView) findViewById(e.g.last_msg_time_show1);
+        this.gYp = (TextView) findViewById(e.g.one_msg_content_show1);
+        this.gYq = (TextView) findViewById(e.g.unread_msg_count_show1);
         this.mLine = findViewById(e.g.line);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setBackgroundResource(e.f.screen_notify_item_background);
         setOrientation(1);
-        this.gXn = (RelativeLayout) findViewById(e.g.screenlock_input_layout);
-        this.cvJ = (TextView) findViewById(e.g.screenlock_send_button);
+        this.gYs = (RelativeLayout) findViewById(e.g.screenlock_input_layout);
+        this.cwu = (TextView) findViewById(e.g.screenlock_send_button);
         this.mEditText = (EditText) findViewById(e.g.screenlock_edit_view);
-        this.gXn.setVisibility(8);
+        this.gYs.setVisibility(8);
     }
 
     public ScreenLockHeaderView(Context context, AttributeSet attributeSet) {
@@ -57,20 +57,20 @@ public class ScreenLockHeaderView extends LinearLayout {
     }
 
     public void f(d dVar) {
-        this.gXm = dVar;
-        this.gXg.setText(dVar.groupName);
-        this.gXj.setText(dh(dVar.lastTime));
-        this.gXk.setText(dVar.content);
-        this.gXl.setText(uv(dVar.gXc));
+        this.gYr = dVar;
+        this.gYl.setText(dVar.groupName);
+        this.gYo.setText(dh(dVar.lastTime));
+        this.gYp.setText(dVar.content);
+        this.gYq.setText(uy(dVar.gYh));
     }
 
-    public void mU(boolean z) {
+    public void mV(boolean z) {
         if (z) {
-            this.gXn.setVisibility(0);
+            this.gYs.setVisibility(0);
             this.mLine.setVisibility(8);
             return;
         }
-        this.gXn.setVisibility(8);
+        this.gYs.setVisibility(8);
         this.mLine.setVisibility(0);
     }
 
@@ -78,7 +78,7 @@ public class ScreenLockHeaderView extends LinearLayout {
         return new SimpleDateFormat("HH:mm", Locale.CHINA).format(new Date(j));
     }
 
-    public String uv(int i) {
+    public String uy(int i) {
         return i < 100 ? "" + i : "99+";
     }
 
@@ -94,12 +94,12 @@ public class ScreenLockHeaderView extends LinearLayout {
     }
 
     public d getData() {
-        return this.gXm;
+        return this.gYr;
     }
 
     public void setUIClickListener(View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        this.cvJ.setOnClickListener(onClickListener);
-        this.gXh.setOnClickListener(onClickListener2);
-        this.gXi.setOnClickListener(onClickListener2);
+        this.cwu.setOnClickListener(onClickListener);
+        this.gYm.setOnClickListener(onClickListener2);
+        this.gYn.setOnClickListener(onClickListener2);
     }
 }

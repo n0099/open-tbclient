@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.dialog.b;
 import com.baidu.tbadk.core.message.RequestUpdateMaskMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskMessage;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.util.w;
 import com.baidu.tbadk.util.x;
+import com.baidu.tbadk.util.y;
 import com.baidu.tieba.e;
 import com.baidu.tieba.im.message.ClearChatMsgResponsedMessage;
 import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
@@ -30,13 +30,13 @@ import com.baidu.tieba.im.model.ReportGroupModel;
 import com.baidu.tieba.im.model.UpdateGroupModel;
 /* loaded from: classes3.dex */
 public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> implements BdSwitchView.a, a.b {
-    private UpdateGroupModel eKb;
-    private com.baidu.tbadk.util.h<Boolean> eKd;
+    private UpdateGroupModel eKN;
+    private com.baidu.tbadk.util.h<Boolean> eKP;
     private boolean isAcceptNotify;
-    private b eJZ = null;
-    private GroupSettingModel eKa = null;
-    private ReportGroupModel eKc = null;
-    private com.baidu.adp.framework.listener.c eJR = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.chat.GroupSettingActivity.5
+    private b eKL = null;
+    private GroupSettingModel eKM = null;
+    private ReportGroupModel eKO = null;
+    private com.baidu.adp.framework.listener.c eKD = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.chat.GroupSettingActivity.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -58,7 +58,7 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
                     }
                     GroupSettingActivity.this.hideProgressBar();
                     GroupSettingActivity.this.showToast(e.j.group_add_group_switch_success);
-                    GroupSettingActivity.this.eKa.setFlag(GroupSettingActivity.this.eKb.getFlag());
+                    GroupSettingActivity.this.eKM.setFlag(GroupSettingActivity.this.eKN.getFlag());
                 } else if (socketResponsedMessage.getCmd() == 103104) {
                     GroupSettingActivity.this.hideProgressBar();
                     if (socketResponsedMessage.getError() != 0) {
@@ -75,19 +75,19 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
             }
         }
     };
-    private final b.InterfaceC0158b eKe = new b.InterfaceC0158b() { // from class: com.baidu.tieba.im.chat.GroupSettingActivity.6
+    private final b.InterfaceC0158b eKQ = new b.InterfaceC0158b() { // from class: com.baidu.tieba.im.chat.GroupSettingActivity.6
         @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0158b
         public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
             bVar.dismiss();
-            if (GroupSettingActivity.this.eKc == null) {
-                GroupSettingActivity.this.eKc = new ReportGroupModel(GroupSettingActivity.this);
+            if (GroupSettingActivity.this.eKO == null) {
+                GroupSettingActivity.this.eKO = new ReportGroupModel(GroupSettingActivity.this);
             }
-            GroupSettingActivity.this.eKc.setGroupId(com.baidu.adp.lib.g.b.d(GroupSettingActivity.this.eKa.getGroupId(), 0L));
-            GroupSettingActivity.this.eKc.setReportType(i);
-            GroupSettingActivity.this.eKc.sendMessage();
+            GroupSettingActivity.this.eKO.setGroupId(com.baidu.adp.lib.g.b.d(GroupSettingActivity.this.eKM.getGroupId(), 0L));
+            GroupSettingActivity.this.eKO.setReportType(i);
+            GroupSettingActivity.this.eKO.sendMessage();
         }
     };
-    private com.baidu.adp.framework.listener.c eKf = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.chat.GroupSettingActivity.7
+    private com.baidu.adp.framework.listener.c eKR = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.chat.GroupSettingActivity.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -105,7 +105,7 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
             }
         }
     };
-    private com.baidu.adp.framework.listener.c eKg = new com.baidu.adp.framework.listener.c(104101) { // from class: com.baidu.tieba.im.chat.GroupSettingActivity.8
+    private com.baidu.adp.framework.listener.c eKS = new com.baidu.adp.framework.listener.c(104101) { // from class: com.baidu.tieba.im.chat.GroupSettingActivity.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -125,40 +125,40 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.eJZ = new b(this);
-        this.eKa = new GroupSettingModel(this);
-        this.eKb = new UpdateGroupModel(getPageContext());
-        this.eKa.setUniqueId(getUniqueId());
-        this.eKb.setUniqueId(getUniqueId());
+        this.eKL = new b(this);
+        this.eKM = new GroupSettingModel(this);
+        this.eKN = new UpdateGroupModel(getPageContext());
+        this.eKM.setUniqueId(getUniqueId());
+        this.eKN.setUniqueId(getUniqueId());
         initData();
-        this.eJZ.setGroupName(this.eKa.getGroupName());
-        this.eJZ.a(this.eKe);
-        this.eJZ.ie(pM(this.eKa.getFlag()));
-        this.eJZ.initListener();
-        this.eKd = new com.baidu.tbadk.util.h<Boolean>() { // from class: com.baidu.tieba.im.chat.GroupSettingActivity.1
+        this.eKL.setGroupName(this.eKM.getGroupName());
+        this.eKL.a(this.eKQ);
+        this.eKL.ie(pN(this.eKM.getFlag()));
+        this.eKL.initListener();
+        this.eKP = new com.baidu.tbadk.util.h<Boolean>() { // from class: com.baidu.tieba.im.chat.GroupSettingActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.h
             public void onReturnDataInUI(Boolean bool) {
                 if (bool == null || !bool.equals(true)) {
-                    GroupSettingActivity.this.eJZ.aOT().nS();
+                    GroupSettingActivity.this.eKL.aPt().nW();
                     GroupSettingActivity.this.isAcceptNotify = false;
                     return;
                 }
-                GroupSettingActivity.this.eJZ.aOT().nR();
+                GroupSettingActivity.this.eKL.aPt().nV();
                 GroupSettingActivity.this.isAcceptNotify = true;
             }
         };
-        this.eKa.b(this.eKd);
+        this.eKM.b(this.eKP);
         initListener();
     }
 
     private void initListener() {
-        registerListener(103103, this.eKf);
-        registerListener(103102, this.eJR);
-        registerListener(103112, this.eJR);
-        registerListener(103104, this.eJR);
-        registerListener(2001137, this.eJR);
-        registerListener(this.eKg);
+        registerListener(103103, this.eKR);
+        registerListener(103102, this.eKD);
+        registerListener(103112, this.eKD);
+        registerListener(103104, this.eKD);
+        registerListener(2001137, this.eKD);
+        registerListener(this.eKS);
     }
 
     public void initData() {
@@ -168,17 +168,17 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
             String stringExtra2 = intent.getStringExtra(GroupSettingActivityConfig.INTENT_DATA_GROUP_ID);
             int intExtra = intent.getIntExtra(GroupSettingActivityConfig.INTENT_DATA_GROUP_FLAG, 0);
             if (intent.getBooleanExtra(GroupSettingActivityConfig.INTENT_DATA_IS_GROUP_MASTER, false)) {
-                this.eJZ.aON();
-                this.eJZ.aOR();
-                this.eJZ.id(true);
-                this.eJZ.aOQ();
+                this.eKL.aPn();
+                this.eKL.aPr();
+                this.eKL.id(true);
+                this.eKL.aPq();
             } else {
-                this.eJZ.aOP();
-                this.eJZ.anc();
-                this.eJZ.id(false);
-                this.eJZ.aOO();
+                this.eKL.aPp();
+                this.eKL.anz();
+                this.eKL.id(false);
+                this.eKL.aPo();
             }
-            this.eKa.i(stringExtra2, stringExtra, intExtra);
+            this.eKM.j(stringExtra2, stringExtra, intExtra);
         }
     }
 
@@ -186,7 +186,7 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.eJZ.onChangeSkinType(i);
+        this.eKL.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -200,15 +200,15 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null) {
-            if (view.equals(this.eJZ.aOG())) {
-                sendMessage(new CustomMessage(2002001, new UpdateGroupActivityConfig(getPageContext().getPageActivity(), 1, com.baidu.adp.lib.g.b.d(this.eKa.getGroupId(), 0L), 1, this.eKa.getGroupName())));
-            } else if (view.equals(this.eJZ.aOH())) {
-                this.eJZ.aOL();
-            } else if (view.equals(this.eJZ.aOJ())) {
-                this.eJZ.Fs();
-            } else if (view.equals(this.eJZ.aOF())) {
+            if (view.equals(this.eKL.aPg())) {
+                sendMessage(new CustomMessage(2002001, new UpdateGroupActivityConfig(getPageContext().getPageActivity(), 1, com.baidu.adp.lib.g.b.d(this.eKM.getGroupId(), 0L), 1, this.eKM.getGroupName())));
+            } else if (view.equals(this.eKL.aPh())) {
+                this.eKL.aPl();
+            } else if (view.equals(this.eKL.aPj())) {
+                this.eKL.FF();
+            } else if (view.equals(this.eKL.aPf())) {
                 finish();
-            } else if (view.equals(this.eJZ.aOK())) {
+            } else if (view.equals(this.eKL.aPk())) {
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
                 aVar.db(e.j.alert_clear_cache_group);
                 aVar.a(e.j.alert_yes_button, new a.b() { // from class: com.baidu.tieba.im.chat.GroupSettingActivity.2
@@ -216,13 +216,13 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                         TiebaStatic.log("clear_group_msg_at_gsetting");
                         GroupSettingActivity.this.showLoadingDialog(GroupSettingActivity.this.getPageContext().getString(e.j.deleting));
-                        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(GroupSettingActivity.this.eKa.getGroupId(), 1, null, 1)));
-                        x.b(new w<Boolean>() { // from class: com.baidu.tieba.im.chat.GroupSettingActivity.2.1
+                        MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.a(GroupSettingActivity.this.eKM.getGroupId(), 1, null, 1)));
+                        y.b(new x<Boolean>() { // from class: com.baidu.tieba.im.chat.GroupSettingActivity.2.1
                             /* JADX DEBUG: Method merged with bridge method */
                             /* JADX WARN: Can't rename method to resolve collision */
-                            @Override // com.baidu.tbadk.util.w
+                            @Override // com.baidu.tbadk.util.x
                             public Boolean doInBackground() {
-                                return Boolean.valueOf(com.baidu.tieba.im.db.c.aRc().pR(GroupSettingActivity.this.eKa.getGroupId()));
+                                return Boolean.valueOf(com.baidu.tieba.im.db.c.aRC().qh(GroupSettingActivity.this.eKM.getGroupId()));
                             }
                         }, new com.baidu.tbadk.util.h<Boolean>() { // from class: com.baidu.tieba.im.chat.GroupSettingActivity.2.2
                             /* JADX DEBUG: Method merged with bridge method */
@@ -243,9 +243,9 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
                     }
                 });
                 aVar.b(getPageContext());
-                aVar.BF();
-            } else if (view == this.eJZ.aOI()) {
-                this.eJZ.aOU();
+                aVar.BS();
+            } else if (view == this.eKL.aPi()) {
+                this.eKL.aPu();
             }
         }
     }
@@ -253,7 +253,7 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void finish() {
         Intent intent = new Intent();
-        intent.putExtra(GroupSettingActivityConfig.INTENT_DATA_GROUP_FLAG, this.eKa.getFlag());
+        intent.putExtra(GroupSettingActivityConfig.INTENT_DATA_GROUP_FLAG, this.eKM.getFlag());
         setResult(-1, intent);
         super.finish();
     }
@@ -261,11 +261,11 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.a
     public void a(View view, BdSwitchView.SwitchState switchState) {
         if (view != null) {
-            if (view.equals(this.eJZ.aOJ())) {
-                this.eJZ.Fs();
-            } else if (view.equals(this.eJZ.aOT())) {
+            if (view.equals(this.eKL.aPj())) {
+                this.eKL.FF();
+            } else if (view.equals(this.eKL.aPt())) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
-                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.Ix().Iz() || !com.baidu.tbadk.coreExtra.messageCenter.c.Ix().IN()) {
+                    if (!com.baidu.tbadk.coreExtra.messageCenter.c.IM().IO() || !com.baidu.tbadk.coreExtra.messageCenter.c.IM().Jc()) {
                         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getActivity());
                         aVar.db(e.j.error_open_group_single_alloff);
                         aVar.b(getResources().getString(e.j.signallforum_signnow), new a.b() { // from class: com.baidu.tieba.im.chat.GroupSettingActivity.4
@@ -275,21 +275,21 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
                             }
                         });
                         aVar.b(getPageContext());
-                        aVar.BF();
+                        aVar.BS();
                         I(false, BdSwitchView.SwitchState.ON == switchState);
                         return;
                     }
                     showProgressBar();
-                    this.eKa.ic(BdSwitchView.SwitchState.ON == switchState);
+                    this.eKM.ic(BdSwitchView.SwitchState.ON == switchState);
                     return;
                 }
                 showProgressBar();
-                this.eKa.ic(BdSwitchView.SwitchState.ON == switchState);
-            } else if (view.equals(this.eJZ.aOS())) {
+                this.eKM.ic(BdSwitchView.SwitchState.ON == switchState);
+            } else if (view.equals(this.eKL.aPs())) {
                 if (BdSwitchView.SwitchState.ON == switchState) {
-                    pN(v(this.eKa.getFlag(), true));
+                    pO(v(this.eKM.getFlag(), true));
                 } else {
-                    pN(v(this.eKa.getFlag(), false));
+                    pO(v(this.eKM.getFlag(), false));
                 }
             }
         }
@@ -299,15 +299,15 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
         return z ? i & (-3) : i | 2;
     }
 
-    private boolean pM(int i) {
+    private boolean pN(int i) {
         return ((i & 2) >> 1) != 1;
     }
 
-    private void pN(int i) {
-        if (this.eKb != null) {
-            this.eKb.setGroupId(this.eKa.aOE());
-            this.eKb.setFlag(i);
-            this.eKb.sendMessage(5);
+    private void pO(int i) {
+        if (this.eKN != null) {
+            this.eKN.setGroupId(this.eKM.aPe());
+            this.eKN.setFlag(i);
+            this.eKN.sendMessage(5);
             showProgressBar();
         }
     }
@@ -327,16 +327,16 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        MessageManager.getInstance().unRegisterListener(this.eJR);
-        if (this.eKa != null) {
-            this.eKa.cancelMessage();
+        MessageManager.getInstance().unRegisterListener(this.eKD);
+        if (this.eKM != null) {
+            this.eKM.cancelMessage();
         }
-        if (this.eKc != null) {
-            this.eKc.cancelMessage();
+        if (this.eKO != null) {
+            this.eKO.cancelMessage();
         }
-        MessageManager.getInstance().unRegisterListener(this.eKf);
-        if (this.eJZ != null) {
-            this.eJZ.aOW();
+        MessageManager.getInstance().unRegisterListener(this.eKR);
+        if (this.eKL != null) {
+            this.eKL.aPw();
         }
     }
 
@@ -352,13 +352,13 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
     @Override // com.baidu.tbadk.core.dialog.a.b
     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
         if (aVar != null) {
-            if (aVar == this.eJZ.aOM()) {
+            if (aVar == this.eKL.aPm()) {
                 showProgressBar();
-                this.eKa.cm(Long.parseLong(this.eKa.getGroupId()));
+                this.eKM.cm(Long.parseLong(this.eKM.getGroupId()));
             }
-            if (aVar == this.eJZ.aOV()) {
+            if (aVar == this.eKL.aPv()) {
                 showProgressBar();
-                this.eKa.cn(this.eKa.aOE());
+                this.eKM.cn(this.eKM.aPe());
             }
             aVar.dismiss();
         }
@@ -368,7 +368,7 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
     public void I(boolean z, final boolean z2) {
         if (z) {
             if (z2) {
-                this.eKa.ib(true);
+                this.eKM.ib(true);
                 if (!this.isAcceptNotify) {
                     MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(1));
                     this.isAcceptNotify = true;
@@ -376,7 +376,7 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
                 }
                 return;
             }
-            this.eKa.ib(false);
+            this.eKM.ib(false);
             if (this.isAcceptNotify) {
                 MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(1));
                 this.isAcceptNotify = false;
@@ -384,15 +384,15 @@ public class GroupSettingActivity extends BaseActivity<GroupSettingActivity> imp
             }
             return;
         }
-        final BdSwitchView aOT = this.eJZ.aOT();
-        if (aOT != null) {
+        final BdSwitchView aPt = this.eKL.aPt();
+        if (aPt != null) {
             com.baidu.adp.lib.g.e.jG().postDelayed(new Runnable() { // from class: com.baidu.tieba.im.chat.GroupSettingActivity.9
                 @Override // java.lang.Runnable
                 public void run() {
                     if (z2) {
-                        aOT.nQ();
+                        aPt.nU();
                     } else {
-                        aOT.nP();
+                        aPt.nT();
                     }
                 }
             }, 500L);

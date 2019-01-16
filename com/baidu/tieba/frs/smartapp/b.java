@@ -4,7 +4,7 @@ import tbclient.SmartApp;
 /* loaded from: classes6.dex */
 public class b {
     public String avatar;
-    public String edK;
+    public String eeq;
     public String h5_url;
     public String id;
     public String link;
@@ -14,7 +14,7 @@ public class b {
     public void a(SmartApp smartApp) {
         if (smartApp != null) {
             this.name = smartApp.name;
-            this.edK = smartApp._abstract;
+            this.eeq = smartApp._abstract;
             this.avatar = smartApp.avatar;
             this.h5_url = smartApp.h5_url;
             this.pic = smartApp.pic;

@@ -25,21 +25,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class c {
-    private static com.baidu.poly.a bJH = null;
-    private static volatile c bJI;
+    private static com.baidu.poly.a bKu = null;
+    private static volatile c bKv;
     private Context mContext;
 
     public static synchronized c cl(Context context) {
         c cVar;
         synchronized (c.class) {
-            if (bJI == null) {
+            if (bKv == null) {
                 synchronized (c.class) {
-                    if (bJI == null) {
-                        bJI = new c(context.getApplicationContext());
+                    if (bKv == null) {
+                        bKv = new c(context.getApplicationContext());
                     }
                 }
             }
-            cVar = bJI;
+            cVar = bKv;
         }
         return cVar;
     }
@@ -49,13 +49,13 @@ public final class c {
     }
 
     public void a(Context context, String str, final BaiduPayCallback baiduPayCallback) {
-        if (!com.baidu.tbadk.pay.c.OY().OZ()) {
+        if (!com.baidu.tbadk.pay.c.Pq().Pr()) {
             l.showToast(TbadkCoreApplication.getInst(), e.j.plugin_pay_wallet_not_found);
         } else if (context instanceof Activity) {
             d dVar = new d();
             dVar.mParams.putInt("type", 1);
             dVar.mParams.putString("orderInfo", str);
-            dVar.F((Activity) context);
+            dVar.G((Activity) context);
             dVar.a(new com.baidu.tieba.aiapps.apps.k.a.a() { // from class: com.baidu.tieba.aiapps.apps.k.c.1
                 @Override // com.baidu.tieba.aiapps.apps.k.a.a
                 public void o(Bundle bundle) {
@@ -69,13 +69,13 @@ public final class c {
     }
 
     public void doAliPay(Context context, String str, final AliPayCallback aliPayCallback) {
-        if (!com.baidu.tbadk.pay.c.OY().OZ()) {
+        if (!com.baidu.tbadk.pay.c.Pq().Pr()) {
             l.showToast(TbadkCoreApplication.getInst(), e.j.plugin_pay_wallet_not_found);
         } else if (context instanceof Activity) {
             d dVar = new d();
             dVar.mParams.putInt("type", 2);
             dVar.mParams.putString("orderInfo", str);
-            dVar.F((Activity) context);
+            dVar.G((Activity) context);
             dVar.a(new com.baidu.tieba.aiapps.apps.k.a.a() { // from class: com.baidu.tieba.aiapps.apps.k.c.2
                 @Override // com.baidu.tieba.aiapps.apps.k.a.a
                 public void o(Bundle bundle) {
@@ -163,7 +163,7 @@ public final class c {
                 }
                 bundle.putStringArray("blockedPayChannels", strArr2);
             }
-            E(activity).a(bundle, new a.c() { // from class: com.baidu.tieba.aiapps.apps.k.c.3
+            F(activity).a(bundle, new a.c() { // from class: com.baidu.tieba.aiapps.apps.k.c.3
                 @Override // com.baidu.poly.a.c
                 public void onResult(int i2, String str3) {
                     if (i2 == 0) {
@@ -181,7 +181,7 @@ public final class c {
                 }
 
                 @Override // com.baidu.poly.a.c
-                public void dj(String str3) {
+                public void dk(String str3) {
                 }
 
                 @Override // com.baidu.poly.a.c
@@ -194,16 +194,16 @@ public final class c {
         }
     }
 
-    private static com.baidu.poly.a E(Activity activity) {
-        if (bJH != null) {
-            return bJH;
+    private static com.baidu.poly.a F(Activity activity) {
+        if (bKu != null) {
+            return bKu;
         }
-        bJH = new a.C0110a().a(new com.baidu.poly.d.b.a(activity)).bK(a.b.ONLINE).bn(activity);
-        return bJH;
+        bKu = new a.C0110a().a(new com.baidu.poly.d.b.a(activity)).bK(a.b.ONLINE).bn(activity);
+        return bKu;
     }
 
-    public static com.baidu.poly.a YW() {
-        return bJH;
+    public static com.baidu.poly.a Zt() {
+        return bKu;
     }
 
     public boolean isWxAppInstalledAndSupported(Context context) {

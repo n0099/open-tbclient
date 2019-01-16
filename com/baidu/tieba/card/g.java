@@ -17,18 +17,18 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
-    private LinearLayout cVX;
-    private TextView cVY;
-    private LinearLayout cVZ;
-    private e cWa;
-    private f cWb;
-    private f cWc;
-    private com.baidu.tieba.e.a cWd;
-    private com.baidu.tieba.e.b cWe;
-    private com.baidu.tieba.e.b cWf;
-    private View cWg;
-    private View cWh;
-    private a cWi;
+    private LinearLayout cWI;
+    private TextView cWJ;
+    private LinearLayout cWK;
+    private e cWL;
+    private f cWM;
+    private f cWN;
+    private com.baidu.tieba.e.a cWO;
+    private com.baidu.tieba.e.b cWP;
+    private com.baidu.tieba.e.b cWQ;
+    private View cWR;
+    private View cWS;
+    private a cWT;
     private String mForumId;
 
     /* loaded from: classes3.dex */
@@ -43,62 +43,62 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
     }
 
     private void init(View view) {
-        this.cVX = (LinearLayout) view.findViewById(e.g.card_frs_game_head_line_layout);
-        this.cVY = (TextView) view.findViewById(e.g.frs_game_head_line_title);
-        this.cVZ = (LinearLayout) view.findViewById(e.g.frs_game_head_line_container);
-        this.cWg = view.findViewById(e.g.divider_line_1);
-        this.cWh = view.findViewById(e.g.divider_line_2);
+        this.cWI = (LinearLayout) view.findViewById(e.g.card_frs_game_head_line_layout);
+        this.cWJ = (TextView) view.findViewById(e.g.frs_game_head_line_title);
+        this.cWK = (LinearLayout) view.findViewById(e.g.frs_game_head_line_container);
+        this.cWR = view.findViewById(e.g.divider_line_1);
+        this.cWS = view.findViewById(e.g.divider_line_2);
         int dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(e.C0210e.tbds44);
-        if (this.cWa == null) {
-            this.cWa = new e(this.mTbPageContext, null, null);
+        if (this.cWL == null) {
+            this.cWL = new e(this.mTbPageContext, null, null);
         }
-        this.cWa.m(0, 0, 0, 0);
-        this.cWa.kI(8);
-        this.cWa.kJ(8);
-        if (this.cWa.getView().getParent() != null) {
-            ((ViewGroup) this.cWa.getView().getParent()).removeView(this.cWa.getView());
+        this.cWL.m(0, 0, 0, 0);
+        this.cWL.kI(8);
+        this.cWL.kJ(8);
+        if (this.cWL.getView().getParent() != null) {
+            ((ViewGroup) this.cWL.getView().getParent()).removeView(this.cWL.getView());
         }
-        this.cWa.getView().setOnClickListener(this);
-        this.cWa.getView().setVisibility(8);
-        this.cVZ.addView(this.cWa.getView());
-        if (this.cWb == null) {
-            this.cWb = new f(this.mTbPageContext);
+        this.cWL.getView().setOnClickListener(this);
+        this.cWL.getView().setVisibility(8);
+        this.cWK.addView(this.cWL.getView());
+        if (this.cWM == null) {
+            this.cWM = new f(this.mTbPageContext);
         }
-        this.cWb.kJ(8);
-        this.cWb.n(0, dimensionPixelSize, 0, 0);
-        if (this.cWb.getView().getParent() != null) {
-            ((ViewGroup) this.cWb.getView().getParent()).removeView(this.cWb.getView());
+        this.cWM.kJ(8);
+        this.cWM.n(0, dimensionPixelSize, 0, 0);
+        if (this.cWM.getView().getParent() != null) {
+            ((ViewGroup) this.cWM.getView().getParent()).removeView(this.cWM.getView());
         }
-        this.cWb.getView().setOnClickListener(this);
-        this.cWb.getView().setVisibility(8);
-        this.cVZ.addView(this.cWb.getView());
-        if (this.cWc == null) {
-            this.cWc = new f(this.mTbPageContext);
+        this.cWM.getView().setOnClickListener(this);
+        this.cWM.getView().setVisibility(8);
+        this.cWK.addView(this.cWM.getView());
+        if (this.cWN == null) {
+            this.cWN = new f(this.mTbPageContext);
         }
-        this.cWc.kJ(8);
-        this.cWc.n(0, dimensionPixelSize, 0, 0);
-        if (this.cWc.getView().getParent() != null) {
-            ((ViewGroup) this.cWc.getView().getParent()).removeView(this.cWc.getView());
+        this.cWN.kJ(8);
+        this.cWN.n(0, dimensionPixelSize, 0, 0);
+        if (this.cWN.getView().getParent() != null) {
+            ((ViewGroup) this.cWN.getView().getParent()).removeView(this.cWN.getView());
         }
-        this.cWc.getView().setOnClickListener(this);
-        this.cWc.getView().setVisibility(8);
-        this.cVZ.addView(this.cWc.getView());
+        this.cWN.getView().setOnClickListener(this);
+        this.cWN.getView().setVisibility(8);
+        this.cWK.addView(this.cWN.getView());
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         al.i(getView(), e.d.cp_bg_line_d);
-        al.c(this.cVY, e.d.cp_cont_f, 1);
-        al.i(this.cWg, e.d.cp_bg_line_e);
-        al.i(this.cWh, e.d.cp_bg_line_e);
-        if (this.cWa != null) {
-            this.cWa.d(tbPageContext, i);
+        al.c(this.cWJ, e.d.cp_cont_f, 1);
+        al.i(this.cWR, e.d.cp_bg_line_e);
+        al.i(this.cWS, e.d.cp_bg_line_e);
+        if (this.cWL != null) {
+            this.cWL.d(tbPageContext, i);
         }
-        if (this.cWb != null) {
-            this.cWb.d(tbPageContext, i);
+        if (this.cWM != null) {
+            this.cWM.d(tbPageContext, i);
         }
-        if (this.cWc != null) {
-            this.cWc.d(tbPageContext, i);
+        if (this.cWN != null) {
+            this.cWN.d(tbPageContext, i);
         }
     }
 
@@ -110,69 +110,69 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.e.d> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.e.d dVar) {
-        if (dVar != null && dVar.auz() != null) {
-            if (!TextUtils.isEmpty(dVar.auz().title)) {
-                this.cVY.setText(dVar.auz().title);
+        if (dVar != null && dVar.auX() != null) {
+            if (!TextUtils.isEmpty(dVar.auX().title)) {
+                this.cWJ.setText(dVar.auX().title);
             }
-            List<bb> list = dVar.auz().sub_nodes;
+            List<bb> list = dVar.auX().sub_nodes;
             if (com.baidu.tbadk.core.util.v.H(list) >= 1) {
-                this.cWd = new com.baidu.tieba.e.a();
-                this.cWd.setData(list.get(0));
-                this.cWa.getView().setVisibility(0);
-                this.cWa.a(this.cWd);
+                this.cWO = new com.baidu.tieba.e.a();
+                this.cWO.setData(list.get(0));
+                this.cWL.getView().setVisibility(0);
+                this.cWL.a(this.cWO);
             }
             if (com.baidu.tbadk.core.util.v.H(list) >= 2) {
-                this.cWe = new com.baidu.tieba.e.b();
-                this.cWe.setData(list.get(1));
-                this.cWb.getView().setVisibility(0);
-                this.cWb.a(this.cWe);
-                this.cWb.kK(8);
+                this.cWP = new com.baidu.tieba.e.b();
+                this.cWP.setData(list.get(1));
+                this.cWM.getView().setVisibility(0);
+                this.cWM.a(this.cWP);
+                this.cWM.kK(8);
             }
             if (com.baidu.tbadk.core.util.v.H(list) >= 3) {
-                this.cWf = new com.baidu.tieba.e.b();
-                this.cWf.setData(list.get(2));
-                this.cWc.getView().setVisibility(0);
-                this.cWc.a(this.cWf);
-                this.cWc.kK(8);
+                this.cWQ = new com.baidu.tieba.e.b();
+                this.cWQ.setData(list.get(2));
+                this.cWN.getView().setVisibility(0);
+                this.cWN.a(this.cWQ);
+                this.cWN.kK(8);
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        TiebaStatic.log(new am("c13047").x("obj_locate", 6).aA(ImageViewerConfig.FORUM_ID, this.mForumId));
-        if (view == this.cWa.getView()) {
-            if (this.cWd != null) {
-                if (this.cWi != null) {
-                    this.cWi.b(view, this.cWd);
+        TiebaStatic.log(new am("c13047").y("obj_locate", 6).aB(ImageViewerConfig.FORUM_ID, this.mForumId));
+        if (view == this.cWL.getView()) {
+            if (this.cWO != null) {
+                if (this.cWT != null) {
+                    this.cWT.b(view, this.cWO);
                 }
-                K(this.cWd.ZT());
+                K(this.cWO.aaq());
             }
-        } else if (view == this.cWb.getView()) {
-            if (this.cWe != null) {
-                if (this.cWi != null) {
-                    this.cWi.b(view, this.cWe);
+        } else if (view == this.cWM.getView()) {
+            if (this.cWP != null) {
+                if (this.cWT != null) {
+                    this.cWT.b(view, this.cWP);
                 }
-                K(this.cWe.ZT());
+                K(this.cWP.aaq());
             }
-        } else if (view == this.cWc.getView() && this.cWf != null) {
-            if (this.cWi != null) {
-                this.cWi.b(view, this.cWf);
+        } else if (view == this.cWN.getView() && this.cWQ != null) {
+            if (this.cWT != null) {
+                this.cWT.b(view, this.cWQ);
             }
-            K(this.cWf.ZT());
+            K(this.cWQ.aaq());
         }
     }
 
     private void K(bb bbVar) {
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(getTbPageContext().getPageActivity()).createFromThreadCfg(bbVar, null, o.zu(), 18003, true, false, false);
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(getTbPageContext().getPageActivity()).createFromThreadCfg(bbVar, null, o.zH(), 18003, true, false, false);
         createFromThreadCfg.setForumId(String.valueOf(bbVar.getFid()));
-        createFromThreadCfg.setForumName(bbVar.zM());
+        createFromThreadCfg.setForumName(bbVar.zZ());
         createFromThreadCfg.setStartFrom(0);
-        o.mG(bbVar.getTid());
+        o.mW(bbVar.getTid());
         getTbPageContext().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
     }
 
     public void a(a aVar) {
-        this.cWi = aVar;
+        this.cWT = aVar;
     }
 }

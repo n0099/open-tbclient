@@ -23,7 +23,7 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class g {
     private static final double[] b = {45.0d, 135.0d, 225.0d, 315.0d};
-    private final d aeH;
+    private final d aeQ;
     private final int c;
     private final SQLiteDatabase d;
     private int e = -1;
@@ -309,7 +309,7 @@ public final class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(d dVar, SQLiteDatabase sQLiteDatabase, int i) {
-        this.aeH = dVar;
+        this.aeQ = dVar;
         this.d = sQLiteDatabase;
         this.c = i;
         if (this.d == null || !this.d.isOpen()) {
@@ -471,7 +471,7 @@ public final class g {
     public boolean a() {
         Cursor cursor;
         Cursor cursor2 = null;
-        if (this.aeH.tH().l() && this.f == -1 && this.e == -1 && this.d != null && this.d.isOpen()) {
+        if (this.aeQ.tL().l() && this.f == -1 && this.e == -1 && this.d != null && this.d.isOpen()) {
             try {
                 cursor = this.d.rawQuery("SELECT COUNT(*) FROM RGCSITE;", null);
             } catch (Exception e) {
@@ -549,8 +549,8 @@ public final class g {
                 JSONArray jSONArray2 = new JSONArray();
                 JSONArray jSONArray3 = new JSONArray();
                 JSONArray jSONArray4 = new JSONArray();
-                cursor2 = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 0, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.aeH.tH().p())), null);
-                cursor = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 1, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.aeH.tH().q())), null);
+                cursor2 = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 0, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.aeQ.tL().p())), null);
+                cursor = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 1, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.aeQ.tL().q())), null);
                 if (cursor2.moveToFirst()) {
                     HashSet hashSet = new HashSet();
                     while (!cursor2.isAfterLast()) {

@@ -6,6 +6,6 @@ import android.content.res.Resources;
 public class BdRootActivity extends Activity {
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        return a.qd().getResources();
+        return a.qh().getResources();
     }
 }

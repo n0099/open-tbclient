@@ -9,53 +9,53 @@ import java.io.IOException;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class g implements Runnable {
-    final /* synthetic */ c Wh;
-    final /* synthetic */ String Wi;
-    final /* synthetic */ String Wj;
-    final /* synthetic */ String Wk;
+    final /* synthetic */ c Wq;
+    final /* synthetic */ String Wr;
+    final /* synthetic */ String Ws;
+    final /* synthetic */ String Wt;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(c cVar, String str, String str2, String str3) {
-        this.Wh = cVar;
-        this.Wi = str;
-        this.Wj = str2;
-        this.Wk = str3;
+        this.Wq = cVar;
+        this.Wr = str;
+        this.Ws = str2;
+        this.Wt = str3;
     }
 
     @Override // java.lang.Runnable
     @SuppressLint({"InlinedApi"})
     public void run() {
         MediaRecorder mediaRecorder;
-        n nVar = new n(this.Wi, this.Wj);
-        nVar.a(this.Wh);
-        mediaRecorder = this.Wh.Wa;
+        n nVar = new n(this.Wr, this.Ws);
+        nVar.a(this.Wq);
+        mediaRecorder = this.Wq.Wj;
         if (mediaRecorder != null) {
-            nVar.cA("Already in Recording , Please stop recording before start ");
+            nVar.cB("Already in Recording , Please stop recording before start ");
             return;
         }
-        this.Wh.qJ();
+        this.Wq.qN();
         MediaRecorder mediaRecorder2 = new MediaRecorder();
         mediaRecorder2.setAudioSource(1);
         if (Build.VERSION.SDK_INT >= 11) {
             mediaRecorder2.setOutputFormat(3);
         }
         mediaRecorder2.setAudioEncoder(1);
-        File c = TextUtils.isEmpty(this.Wk) ? com.baidu.browser.sailor.feature.a.d.c(com.baidu.browser.sailor.b.a.qO().getAppContext().getCacheDir(), String.valueOf(System.currentTimeMillis()) + ".amr") : new File(com.baidu.browser.sailor.util.c.a(this.Wh.qH(), this.Wk));
+        File c = TextUtils.isEmpty(this.Wt) ? com.baidu.browser.sailor.feature.a.d.c(com.baidu.browser.sailor.b.a.qS().getAppContext().getCacheDir(), String.valueOf(System.currentTimeMillis()) + ".amr") : new File(com.baidu.browser.sailor.util.c.a(this.Wq.qL(), this.Wt));
         mediaRecorder2.setOutputFile(c.getAbsolutePath());
-        this.Wh.Wc = c;
+        this.Wq.Wl = c;
         try {
             mediaRecorder2.prepare();
             mediaRecorder2.start();
-            this.Wh.Wa = mediaRecorder2;
-            nVar.qN();
+            this.Wq.Wj = mediaRecorder2;
+            nVar.qR();
         } catch (IOException e) {
             e.printStackTrace();
-            nVar.cA(e.getMessage());
-            this.Wh.qJ();
+            nVar.cB(e.getMessage());
+            this.Wq.qN();
         } catch (IllegalStateException e2) {
             e2.printStackTrace();
-            nVar.cA(e2.getMessage());
-            this.Wh.qJ();
+            nVar.cB(e2.getMessage());
+            this.Wq.qN();
         }
     }
 }

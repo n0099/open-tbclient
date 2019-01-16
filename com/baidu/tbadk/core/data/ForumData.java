@@ -45,6 +45,7 @@ public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tba
     private q l;
     private String level_name;
     private int levelup_score;
+    public int locate;
     public AcrossForumIcon mAcrossForumIcon;
     private final ArrayList<h> mBadgeData;
     private final BannerListData mBannerListData;

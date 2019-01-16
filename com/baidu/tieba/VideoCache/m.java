@@ -7,14 +7,14 @@ import java.io.File;
 public class m {
     private static final String TAG = m.class.getSimpleName();
 
-    public static long jx(String str) {
+    public static long jN(String str) {
         long j;
         long j2 = 0;
-        long jy = jy(str);
+        long jO = jO(str);
         if (str == null || str.isEmpty()) {
             j = 0;
         } else {
-            File file = new File(i.bzX + str);
+            File file = new File(i.bAK + str);
             if (file == null || !file.exists() || !file.isDirectory()) {
                 return 0L;
             }
@@ -25,15 +25,15 @@ public class m {
                 j2 = file3.length();
             }
         }
-        return j + j2 + jy;
+        return j + j2 + jO;
     }
 
-    public static long jy(String str) {
+    public static long jO(String str) {
         File file;
         File file2;
         File[] listFiles;
         long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(i.bzX + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+        if (str != null && !str.isEmpty() && (file = new File(i.bAK + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
             for (File file3 : listFiles) {
                 if (file3 != null && file3.exists()) {
                     j += file3.length();
@@ -43,7 +43,7 @@ public class m {
         return j;
     }
 
-    public static long Vw() {
+    public static long VS() {
         StatFs statFs = new StatFs(TbadkCoreApplication.getInst().getCacheDir().getPath());
         return statFs.getAvailableBlocks() * statFs.getBlockSize();
     }
@@ -61,7 +61,7 @@ public class m {
         return j;
     }
 
-    public static void F(File file) {
+    public static void G(File file) {
         if (file != null) {
             if (file.isFile()) {
                 file.delete();
@@ -72,14 +72,14 @@ public class m {
                     return;
                 }
                 for (File file2 : listFiles) {
-                    F(file2);
+                    G(file2);
                 }
                 file.delete();
             }
         }
     }
 
-    public static String jz(String str) {
+    public static String jP(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }

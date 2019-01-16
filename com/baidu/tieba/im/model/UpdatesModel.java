@@ -4,8 +4,8 @@ import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.util.h;
-import com.baidu.tbadk.util.w;
 import com.baidu.tbadk.util.x;
+import com.baidu.tbadk.util.y;
 import com.baidu.tieba.im.data.UpdatesItemData;
 import com.baidu.tieba.im.db.d;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
@@ -24,12 +24,12 @@ public class UpdatesModel {
             for (UpdatesItemData updatesItemData : updatesItemDataArr) {
                 linkedList.add(updatesItemData.toGroupNewsPojo());
             }
-            x.b(new w<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.1
+            y.b(new x<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.w
+                @Override // com.baidu.tbadk.util.x
                 public Boolean doInBackground() {
-                    return d.aRd().p(linkedList);
+                    return d.aRD().p(linkedList);
                 }
             }, hVar);
         }
@@ -37,24 +37,24 @@ public class UpdatesModel {
 
     public static void deleteUpdatesData(final UpdatesItemData updatesItemData, h<Boolean> hVar) {
         if (updatesItemData != null) {
-            x.b(new w<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.2
+            y.b(new x<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tbadk.util.w
+                @Override // com.baidu.tbadk.util.x
                 public Boolean doInBackground() {
-                    return Boolean.valueOf(d.aRd().pX(UpdatesItemData.this.getNotice_id()));
+                    return Boolean.valueOf(d.aRD().qn(UpdatesItemData.this.getNotice_id()));
                 }
             }, hVar);
         }
     }
 
     public void deleteDatas(h<Boolean> hVar) {
-        x.b(new w<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.3
+        y.b(new x<Boolean>() { // from class: com.baidu.tieba.im.model.UpdatesModel.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tbadk.util.w
+            @Override // com.baidu.tbadk.util.x
             public Boolean doInBackground() {
-                return Boolean.valueOf(d.aRd().cA(UpdatesModel.this.dataToDelete));
+                return Boolean.valueOf(d.aRD().cB(UpdatesModel.this.dataToDelete));
             }
         }, hVar);
     }
@@ -108,11 +108,11 @@ public class UpdatesModel {
     }
 
     public static void requestUpdatesDataFromDB(h<LinkedList<GroupNewsPojo>> hVar) {
-        x.b(new w<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
+        y.b(new x<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tbadk.util.w
+            @Override // com.baidu.tbadk.util.x
             public LinkedList<GroupNewsPojo> doInBackground() {
-                return d.aRd().a(0L, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
+                return d.aRD().a(0L, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change");
             }
         }, hVar);
     }

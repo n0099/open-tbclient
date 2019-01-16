@@ -4,23 +4,23 @@ import java.util.NoSuchElementException;
 import kotlin.collections.ag;
 /* loaded from: classes2.dex */
 final class k extends ag {
-    private final short[] iBy;
+    private final short[] iCF;
     private int index;
 
     public k(short[] sArr) {
         p.j(sArr, com.baidu.fsg.base.statistics.b.j);
-        this.iBy = sArr;
+        this.iCF = sArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.iBy.length;
+        return this.index < this.iCF.length;
     }
 
     @Override // kotlin.collections.ag
     public short nextShort() {
         try {
-            short[] sArr = this.iBy;
+            short[] sArr = this.iCF;
             int i = this.index;
             this.index = i + 1;
             return sArr[i];

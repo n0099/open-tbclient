@@ -3,7 +3,6 @@ package com.sina.weibo.sdk.net;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import com.baidu.webkit.internal.ETAG;
-import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -120,7 +119,6 @@ public class WeiboParameters {
                         e.printStackTrace();
                     }
                 }
-                LogUtil.i("encodeUrl", sb.toString());
             }
             z2 = z;
         }

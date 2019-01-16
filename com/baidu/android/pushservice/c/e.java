@@ -344,7 +344,7 @@ public class e extends b {
 
     private static boolean i(Context context) {
         try {
-            return com.coloros.mcssdk.a.m23do(context);
+            return com.coloros.mcssdk.a.m25do(context);
         } catch (Exception e2) {
             return false;
         }

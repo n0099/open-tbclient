@@ -8,46 +8,46 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 class t {
-    private boolean ifx = false;
+    private boolean igE = false;
     private JSONArray mDataArray = new JSONArray();
-    private SparseArray<Integer> ifu = new SparseArray<>();
-    private ArrayList<String> ifv = new ArrayList<>();
-    private long ifw = 0;
-    private long dip = 0;
-    private String ieX = "0";
+    private SparseArray<Integer> igB = new SparseArray<>();
+    private ArrayList<String> igC = new ArrayList<>();
+    private long igD = 0;
+    private long djb = 0;
+    private String ige = "0";
 
     public final void aA(JSONObject jSONObject) {
         this.mDataArray.put(jSONObject);
     }
 
-    public final SparseArray<Integer> bSn() {
-        return this.ifu;
+    public final SparseArray<Integer> bSV() {
+        return this.igB;
     }
 
     public final void cd(int i, int i2) {
-        this.ifu.put(i, Integer.valueOf(i2));
+        this.igB.put(i, Integer.valueOf(i2));
     }
 
-    public final ArrayList bSo() {
-        return this.ifv;
+    public final ArrayList bSW() {
+        return this.igC;
     }
 
-    public final void yq(String str) {
-        if (!this.ifv.contains(str)) {
-            this.ifv.add(str);
+    public final void yG(String str) {
+        if (!this.igC.contains(str)) {
+            this.igC.add(str);
         }
     }
 
     public final void n(long j, long j2) {
-        if ((j < this.ifw || this.ifw == 0) && j != 0) {
-            this.ifw = j;
+        if ((j < this.igD || this.igD == 0) && j != 0) {
+            this.igD = j;
         }
-        if (j2 > this.dip) {
-            this.dip = j2;
+        if (j2 > this.djb) {
+            this.djb = j2;
         }
     }
 
-    public boolean xV(int i) {
+    public boolean xX(int i) {
         return this.mDataArray.toString().getBytes().length >= i;
     }
 
@@ -55,58 +55,58 @@ class t {
         return this.mDataArray.length() == 0;
     }
 
-    public JSONObject bSp() {
+    public JSONObject bSX() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
             jSONObject.put("data", this.mDataArray);
-            if (this.ifw == 0 || this.dip == 0) {
-                this.ifw = this.dip;
+            if (this.igD == 0 || this.djb == 0) {
+                this.igD = this.djb;
             }
-            jSONObject2.put("mintime", Long.toString(this.ifw));
-            jSONObject2.put("maxtime", Long.toString(this.dip));
+            jSONObject2.put("mintime", Long.toString(this.igD));
+            jSONObject2.put("maxtime", Long.toString(this.djb));
             jSONObject2.put("createtime", Long.toString(System.currentTimeMillis()));
             jSONObject2.put("uploadtime", Long.toString(System.currentTimeMillis()));
             jSONObject2.put(ARResourceKey.HTTP_AR_MD5, com.baidu.g.c.toMd5(this.mDataArray.toString().getBytes(), true));
             jSONObject.put("metadata", jSONObject2);
-            jSONObject.put("isAbtest", this.ieX);
-            jSONObject.put("isreal", this.ifx ? "1" : "0");
+            jSONObject.put("isAbtest", this.ige);
+            jSONObject.put("isreal", this.igE ? "1" : "0");
         } catch (JSONException e) {
         }
         return jSONObject;
     }
 
     public void clearData() {
-        this.ifu.clear();
-        this.ifv.clear();
+        this.igB.clear();
+        this.igC.clear();
         this.mDataArray = null;
     }
 
-    public void yr(String str) {
-        this.ieX = str;
+    public void yH(String str) {
+        this.ige = str;
     }
 
-    public String bSq() {
-        return this.ieX;
+    public String bSY() {
+        return this.ige;
     }
 
-    public long bSr() {
-        return this.ifw;
+    public long bSZ() {
+        return this.igD;
     }
 
-    public long bSs() {
-        return this.dip;
+    public long bTa() {
+        return this.djb;
     }
 
-    public JSONArray bSt() {
+    public JSONArray bTb() {
         return this.mDataArray;
     }
 
-    public boolean bSu() {
-        return this.ifx;
+    public boolean bTc() {
+        return this.igE;
     }
 
-    public void oP(boolean z) {
-        this.ifx = z;
+    public void oQ(boolean z) {
+        this.igE = z;
     }
 }

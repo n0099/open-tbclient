@@ -8,7 +8,7 @@ import android.os.Message;
 /* loaded from: classes6.dex */
 public class q {
     private static Object a = new Object();
-    private static q aeh = null;
+    private static q aeq = null;
     private HandlerThread c;
     private Handler d;
     private boolean e = false;
@@ -16,13 +16,13 @@ public class q {
     q() {
     }
 
-    public static q ts() {
+    public static q tw() {
         q qVar;
         synchronized (a) {
-            if (aeh == null) {
-                aeh = new q();
+            if (aeq == null) {
+                aeq = new q();
             }
-            qVar = aeh;
+            qVar = aeq;
         }
         return qVar;
     }
@@ -100,7 +100,7 @@ public class q {
                                 Location location = (Location) data.getParcelable("loc");
                                 data.getInt("satnum");
                                 if (location != null) {
-                                    e.tf().a(location);
+                                    e.tj().a(location);
                                     return;
                                 }
                                 return;
@@ -109,26 +109,26 @@ public class q {
                                 return;
                             }
                         case 2:
-                            p.a(n.tn(), com.baidu.location.e.f.tQ().tS(), n.tp(), n.a());
+                            p.a(n.ts(), com.baidu.location.e.f.tU().tW(), n.tt(), n.a());
                             return;
                         case 3:
-                            p.a(n.tn(), null, n.tp(), a.tb().c());
+                            p.a(n.ts(), null, n.tt(), a.tf().c());
                             return;
                         case 4:
                             boolean j = com.baidu.location.e.f.j();
                             if (!j) {
                                 z = j;
-                            } else if (g.tg().d() == 1) {
+                            } else if (g.tk().d() == 1) {
                                 z = false;
                             }
                             if (z) {
-                                if (com.baidu.location.b.c.tv().e()) {
-                                    com.baidu.location.d.d.tE().m();
-                                    com.baidu.location.d.d.tE().i();
+                                if (com.baidu.location.b.c.tz().e()) {
+                                    com.baidu.location.d.d.tI().m();
+                                    com.baidu.location.d.d.tI().i();
                                 }
-                                com.baidu.location.b.f.ty().c();
-                                if (com.baidu.location.b.c.tv().e()) {
-                                    p.tr().c();
+                                com.baidu.location.b.f.tC().c();
+                                if (com.baidu.location.b.c.tz().e()) {
+                                    p.tv().c();
                                 }
                             }
                             try {
@@ -142,14 +142,14 @@ public class q {
                                 return;
                             }
                         case 5:
-                            com.baidu.location.b.f.ty().b();
+                            com.baidu.location.b.f.tC().b();
                             return;
                         case 6:
                         default:
                             return;
                         case 7:
-                            p.tr().c();
-                            com.baidu.location.b.f.ty().c();
+                            p.tv().c();
+                            com.baidu.location.b.f.tC().c();
                             return;
                         case 8:
                             message.getData();
@@ -176,7 +176,7 @@ public class q {
 
     public void f() {
         if (this.e) {
-            e.tf().b();
+            e.tj().b();
             try {
                 if (this.d != null) {
                     this.d.removeCallbacksAndMessages(null);

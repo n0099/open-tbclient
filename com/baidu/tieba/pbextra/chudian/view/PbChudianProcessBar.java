@@ -19,28 +19,28 @@ import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
 public class PbChudianProcessBar extends RelativeLayout {
-    private int bBT;
-    private MediaController.MediaPlayerControl bBU;
-    private Formatter eIn;
-    private TextView gpZ;
-    private TextView gqa;
-    private SeekBar gqb;
-    private StringBuilder gqc;
+    private int bCG;
+    private MediaController.MediaPlayerControl bCH;
+    private Formatter eIZ;
+    private TextView grd;
+    private TextView gre;
+    private SeekBar grf;
+    private StringBuilder grg;
     private Handler mHandler;
     private View mRootView;
     private boolean mShowing;
 
     public PbChudianProcessBar(Context context) {
         super(context);
-        this.bBT = 50;
+        this.bCG = 50;
         this.mShowing = true;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.pbextra.chudian.view.PbChudianProcessBar.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (PbChudianProcessBar.this.mShowing && PbChudianProcessBar.this.bBU != null) {
-                            sendMessageDelayed(obtainMessage(1), PbChudianProcessBar.this.bBT - (PbChudianProcessBar.this.Wn() % PbChudianProcessBar.this.bBT));
+                        if (PbChudianProcessBar.this.mShowing && PbChudianProcessBar.this.bCH != null) {
+                            sendMessageDelayed(obtainMessage(1), PbChudianProcessBar.this.bCG - (PbChudianProcessBar.this.WK() % PbChudianProcessBar.this.bCG));
                             return;
                         }
                         return;
@@ -54,15 +54,15 @@ public class PbChudianProcessBar extends RelativeLayout {
 
     public PbChudianProcessBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bBT = 50;
+        this.bCG = 50;
         this.mShowing = true;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.pbextra.chudian.view.PbChudianProcessBar.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (PbChudianProcessBar.this.mShowing && PbChudianProcessBar.this.bBU != null) {
-                            sendMessageDelayed(obtainMessage(1), PbChudianProcessBar.this.bBT - (PbChudianProcessBar.this.Wn() % PbChudianProcessBar.this.bBT));
+                        if (PbChudianProcessBar.this.mShowing && PbChudianProcessBar.this.bCH != null) {
+                            sendMessageDelayed(obtainMessage(1), PbChudianProcessBar.this.bCG - (PbChudianProcessBar.this.WK() % PbChudianProcessBar.this.bCG));
                             return;
                         }
                         return;
@@ -76,15 +76,15 @@ public class PbChudianProcessBar extends RelativeLayout {
 
     public PbChudianProcessBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bBT = 50;
+        this.bCG = 50;
         this.mShowing = true;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.pbextra.chudian.view.PbChudianProcessBar.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (PbChudianProcessBar.this.mShowing && PbChudianProcessBar.this.bBU != null) {
-                            sendMessageDelayed(obtainMessage(1), PbChudianProcessBar.this.bBT - (PbChudianProcessBar.this.Wn() % PbChudianProcessBar.this.bBT));
+                        if (PbChudianProcessBar.this.mShowing && PbChudianProcessBar.this.bCH != null) {
+                            sendMessageDelayed(obtainMessage(1), PbChudianProcessBar.this.bCG - (PbChudianProcessBar.this.WK() % PbChudianProcessBar.this.bCG));
                             return;
                         }
                         return;
@@ -98,69 +98,69 @@ public class PbChudianProcessBar extends RelativeLayout {
 
     private void init(Context context) {
         this.mRootView = LayoutInflater.from(context).inflate(e.h.chudian_process_bar, (ViewGroup) this, true);
-        this.gpZ = (TextView) this.mRootView.findViewById(e.g.textview_cur_time);
-        this.gqa = (TextView) this.mRootView.findViewById(e.g.textview_duration);
-        this.gqb = (SeekBar) this.mRootView.findViewById(e.g.chudian_seek_bar);
-        this.gqb.setEnabled(false);
-        this.gqb.setThumb(null);
-        this.gqc = new StringBuilder();
-        this.eIn = new Formatter(this.gqc, Locale.getDefault());
+        this.grd = (TextView) this.mRootView.findViewById(e.g.textview_cur_time);
+        this.gre = (TextView) this.mRootView.findViewById(e.g.textview_duration);
+        this.grf = (SeekBar) this.mRootView.findViewById(e.g.chudian_seek_bar);
+        this.grf.setEnabled(false);
+        this.grf.setThumb(null);
+        this.grg = new StringBuilder();
+        this.eIZ = new Formatter(this.grg, Locale.getDefault());
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.bBU = mediaPlayerControl;
+        this.bCH = mediaPlayerControl;
     }
 
     public void m(long j, long j2) {
         this.mShowing = false;
         this.mHandler.removeMessages(1);
-        this.gqb.setProgress(0);
-        this.gpZ.setText(cZ(j));
-        this.gqa.setText(cZ(j2));
+        this.grf.setProgress(0);
+        this.grd.setText(cZ(j));
+        this.gre.setText(cZ(j2));
     }
 
-    public void bor() {
-        if (this.bBU != null) {
-            this.bBT = ((this.bBU.getDuration() / 200) / 50) * 50;
-            if (this.bBT < 50) {
-                this.bBT = 50;
+    public void bpa() {
+        if (this.bCH != null) {
+            this.bCG = ((this.bCH.getDuration() / 200) / 50) * 50;
+            if (this.bCG < 50) {
+                this.bCG = 50;
             }
             this.mShowing = true;
             this.mHandler.removeMessages(1);
-            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.bBT - (this.bBU.getCurrentPosition() % this.bBT));
+            this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.bCG - (this.bCH.getCurrentPosition() % this.bCG));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int Wn() {
-        if (this.bBU == null) {
+    public int WK() {
+        if (this.bCH == null) {
             return 0;
         }
-        int currentPosition = this.bBU.getCurrentPosition();
-        int duration = this.bBU.getDuration();
-        if (this.gqb != null) {
+        int currentPosition = this.bCH.getCurrentPosition();
+        int duration = this.bCH.getDuration();
+        if (this.grf != null) {
             if (duration > 0) {
-                this.gqb.setProgress((int) ((ErrDef.Feature.WEIGHT * currentPosition) / duration));
+                this.grf.setProgress((int) ((ErrDef.Feature.WEIGHT * currentPosition) / duration));
             }
-            this.bBU.getBufferPercentage();
+            this.bCH.getBufferPercentage();
         }
-        if (this.gpZ != null && duration > 0) {
-            this.gpZ.setText(cZ(currentPosition));
+        if (this.grd != null && duration > 0) {
+            this.grd.setText(cZ(currentPosition));
         }
-        if (this.gqa != null) {
-            this.gqa.setText(cZ(duration));
+        if (this.gre != null) {
+            this.gre.setText(cZ(duration));
             return currentPosition;
         }
         return currentPosition;
     }
 
     private String cZ(long j) {
-        this.gqc.setLength(0);
+        this.grg.setLength(0);
         long seconds = TimeUnit.MILLISECONDS.toSeconds(j);
         long seconds2 = seconds % TimeUnit.MINUTES.toSeconds(1L);
         long seconds3 = (seconds / TimeUnit.MINUTES.toSeconds(1L)) % TimeUnit.HOURS.toMinutes(1L);
         long seconds4 = seconds / TimeUnit.HOURS.toSeconds(1L);
-        return seconds4 > 0 ? this.eIn.format("%d:%02d:%02d", Long.valueOf(seconds4), Long.valueOf(seconds3), Long.valueOf(seconds2)).toString() : this.eIn.format("%02d:%02d", Long.valueOf(seconds3), Long.valueOf(seconds2)).toString();
+        return seconds4 > 0 ? this.eIZ.format("%d:%02d:%02d", Long.valueOf(seconds4), Long.valueOf(seconds3), Long.valueOf(seconds2)).toString() : this.eIZ.format("%02d:%02d", Long.valueOf(seconds3), Long.valueOf(seconds2)).toString();
     }
 
     public void destroy() {

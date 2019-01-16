@@ -12,7 +12,7 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 /* loaded from: classes3.dex */
 public class SpannableClickTextView extends TextView {
-    private boolean eaj;
+    private boolean eaP;
 
     public SpannableClickTextView(Context context) {
         super(context);
@@ -28,7 +28,7 @@ public class SpannableClickTextView extends TextView {
 
     @Override // android.view.View
     public boolean performClick() {
-        if (this.eaj) {
+        if (this.eaP) {
             return true;
         }
         return super.performClick();
@@ -36,17 +36,17 @@ public class SpannableClickTextView extends TextView {
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.eaj = false;
+        this.eaP = false;
         return super.onTouchEvent(motionEvent);
     }
 
     public void setCustomMovementMethod() {
-        setMovementMethod(a.aIT());
+        setMovementMethod(a.aJr());
     }
 
     /* loaded from: classes3.dex */
     private static class a extends LinkMovementMethod {
-        private static a ekY;
+        private static a elE;
 
         private a() {
         }
@@ -69,7 +69,7 @@ public class SpannableClickTextView extends TextView {
                         Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
                     }
                     if (textView instanceof SpannableClickTextView) {
-                        ((SpannableClickTextView) textView).eaj = true;
+                        ((SpannableClickTextView) textView).eaP = true;
                     }
                     return true;
                 }
@@ -80,11 +80,11 @@ public class SpannableClickTextView extends TextView {
             return Touch.onTouchEvent(textView, spannable, motionEvent);
         }
 
-        public static a aIT() {
-            if (ekY == null) {
-                ekY = new a();
+        public static a aJr() {
+            if (elE == null) {
+                elE = new a();
             }
-            return ekY;
+            return elE;
         }
     }
 }

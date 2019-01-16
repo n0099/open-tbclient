@@ -18,8 +18,8 @@ import java.util.List;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public final class f {
-    private HttpURLConnection WJ;
-    PrintWriter WK;
+    private HttpURLConnection WS;
+    PrintWriter WT;
     final String a = "===" + System.currentTimeMillis() + "===";
     String b;
     private OutputStream e;
@@ -27,31 +27,31 @@ public final class f {
     /* JADX INFO: Access modifiers changed from: protected */
     public f(String str, String str2, String str3) throws IOException {
         this.b = str2;
-        this.WJ = (HttpURLConnection) new URL(str).openConnection();
-        this.WJ.setUseCaches(false);
-        this.WJ.setDoOutput(true);
-        this.WJ.setDoInput(true);
-        this.WJ.setRequestProperty("Content-Type", "multipart/form-data; mBoundary=" + this.a);
-        this.WJ.setRequestProperty(HTTP.USER_AGENT, str3);
-        this.e = this.WJ.getOutputStream();
-        this.WK = new PrintWriter((Writer) new OutputStreamWriter(this.e, str2), true);
+        this.WS = (HttpURLConnection) new URL(str).openConnection();
+        this.WS.setUseCaches(false);
+        this.WS.setDoOutput(true);
+        this.WS.setDoInput(true);
+        this.WS.setRequestProperty("Content-Type", "multipart/form-data; mBoundary=" + this.a);
+        this.WS.setRequestProperty(HTTP.USER_AGENT, str3);
+        this.e = this.WS.getOutputStream();
+        this.WT = new PrintWriter((Writer) new OutputStreamWriter(this.e, str2), true);
     }
 
     public final List<String> a() throws IOException {
         ArrayList arrayList = new ArrayList();
-        this.WK.append((CharSequence) SystemInfoUtil.LINE_END).flush();
-        this.WK.append((CharSequence) ("--" + this.a + "--")).append((CharSequence) SystemInfoUtil.LINE_END);
-        this.WK.close();
-        int responseCode = this.WJ.getResponseCode();
+        this.WT.append((CharSequence) SystemInfoUtil.LINE_END).flush();
+        this.WT.append((CharSequence) ("--" + this.a + "--")).append((CharSequence) SystemInfoUtil.LINE_END);
+        this.WT.close();
+        int responseCode = this.WS.getResponseCode();
         if (responseCode != 200) {
             throw new IOException("Server returned non-OK status: " + responseCode);
         }
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.WJ.getInputStream()));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.WS.getInputStream()));
         while (true) {
             String readLine = bufferedReader.readLine();
             if (readLine == null) {
                 bufferedReader.close();
-                this.WJ.disconnect();
+                this.WS.disconnect();
                 return arrayList;
             }
             arrayList.add(readLine);
@@ -60,12 +60,12 @@ public final class f {
 
     public final void a(String str, File file) throws IOException {
         String name = file.getName();
-        this.WK.append((CharSequence) ("--" + this.a)).append((CharSequence) SystemInfoUtil.LINE_END);
-        this.WK.append((CharSequence) ("Content-Disposition: form-data; name=\"" + str + "\"; filename=\"" + name + "\"")).append((CharSequence) SystemInfoUtil.LINE_END);
-        this.WK.append((CharSequence) ("Content-Type: " + URLConnection.guessContentTypeFromName(name))).append((CharSequence) SystemInfoUtil.LINE_END);
-        this.WK.append((CharSequence) "Content-Transfer-Encoding: binary").append((CharSequence) SystemInfoUtil.LINE_END);
-        this.WK.append((CharSequence) SystemInfoUtil.LINE_END);
-        this.WK.flush();
+        this.WT.append((CharSequence) ("--" + this.a)).append((CharSequence) SystemInfoUtil.LINE_END);
+        this.WT.append((CharSequence) ("Content-Disposition: form-data; name=\"" + str + "\"; filename=\"" + name + "\"")).append((CharSequence) SystemInfoUtil.LINE_END);
+        this.WT.append((CharSequence) ("Content-Type: " + URLConnection.guessContentTypeFromName(name))).append((CharSequence) SystemInfoUtil.LINE_END);
+        this.WT.append((CharSequence) "Content-Transfer-Encoding: binary").append((CharSequence) SystemInfoUtil.LINE_END);
+        this.WT.append((CharSequence) SystemInfoUtil.LINE_END);
+        this.WT.flush();
         FileInputStream fileInputStream = new FileInputStream(file);
         byte[] bArr = new byte[4096];
         while (true) {
@@ -73,8 +73,8 @@ public final class f {
             if (read == -1) {
                 this.e.flush();
                 fileInputStream.close();
-                this.WK.append((CharSequence) SystemInfoUtil.LINE_END);
-                this.WK.flush();
+                this.WT.append((CharSequence) SystemInfoUtil.LINE_END);
+                this.WT.flush();
                 return;
             }
             this.e.write(bArr, 0, read);

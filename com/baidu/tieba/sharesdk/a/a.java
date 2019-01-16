@@ -45,40 +45,40 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void vc(String str) {
+    public void vs(String str) {
         aU(str, e.f.icon_toast_game_error);
     }
 
-    protected void vd(String str) {
+    protected void vt(String str) {
         aU(str, e.f.icon_toast_game_ok);
     }
 
     protected void aU(String str, int i) {
-        BdToast.b(getAppContext(), str, i).BN();
+        BdToast.b(getAppContext(), str, i).Ca();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void uR(int i) {
-        ah(i, null);
+    public void uU(int i) {
+        aj(i, null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ah(int i, String str) {
+    public void aj(int i, String str) {
         if (i == 1) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(e.j.share_success, new Object[0]);
             }
-            vd(str);
+            vt(str);
         } else if (i == 3) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(e.j.share_cancel, new Object[0]);
             }
-            vc(str);
+            vs(str);
         } else if (i == 2) {
             if (TextUtils.isEmpty(str)) {
                 str = getString(e.j.share_failed, new Object[0]);
             }
-            vc(str);
+            vs(str);
         }
     }
 
@@ -93,12 +93,12 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap bzu() {
+    public Bitmap bAd() {
         return BitmapHelper.getCashBitmap(e.f.icon);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Bitmap ve(String str) {
+    public Bitmap vu(String str) {
         return BitmapHelper.loadBitmap(str);
     }
 
@@ -120,6 +120,15 @@ public abstract class a implements com.baidu.tieba.sharesdk.b.a {
         } catch (URISyntaxException e2) {
             return false;
         }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public boolean hr(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return false;
+        }
+        File file = new File(str);
+        return file.isFile() && file.exists();
     }
 
     public Bitmap d(Bitmap bitmap, int i) {

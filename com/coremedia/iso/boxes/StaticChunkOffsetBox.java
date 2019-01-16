@@ -10,8 +10,8 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class StaticChunkOffsetBox extends ChunkOffsetBox {
     public static final String TYPE = "stco";
-    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0401a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0401a ajc$tjp_1 = null;
     private long[] chunkOffsets;
 
     static {

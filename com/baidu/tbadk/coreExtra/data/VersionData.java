@@ -52,7 +52,7 @@ public class VersionData implements Serializable {
                 this.apkMD5RSA = jSONObject.optString("apk_MD5_RSA", null);
                 this.asApkMD5RSA = jSONObject.optString("as_apk_MD5_RSA", null);
                 this.isOfficialVersion = jSONObject.optInt("android_is_official_version", 0) == 1;
-                if (GY()) {
+                if (Hm()) {
                     this.hasNewVer = 1;
                     this.newFile = "tieba_" + this.newVer + ".apk";
                 }
@@ -62,7 +62,7 @@ public class VersionData implements Serializable {
         }
     }
 
-    private boolean GY() {
+    private boolean Hm() {
         return (this.newVersionRemind != 1 || this.url == null || !URLUtil.isNetworkUrl(this.url) || TextUtils.isEmpty(this.apkMD5RSA) || this.newVer == null || TbConfig.getVersion().equalsIgnoreCase(this.newVer)) ? false : true;
     }
 

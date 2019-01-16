@@ -15,7 +15,7 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
 public final class c {
-    private final d aeH;
+    private final d aeQ;
     private final SQLiteDatabase b;
     private boolean u = true;
     private long v = 8000;
@@ -35,12 +35,12 @@ public final class c {
     private int n = 30;
     private double o = 0.0d;
     private double p = 0.0d;
-    private double adZ = 0.0d;
-    private double ade = 0.0d;
+    private double aei = 0.0d;
+    private double adn = 0.0d;
     private double s = 0.0d;
     private int t = 8;
     private String[] i = new String[0];
-    private final a afc = new a();
+    private final a afl = new a();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
@@ -57,7 +57,7 @@ public final class c {
             this.c = -1L;
             this.d = -1L;
             this.k = new HashMap();
-            this.f = Jni.encodeOfflineLocationUpdateRequest(String.format(Locale.US, "&ver=%s&cuid=%s&prod=%s:%s&sdk=%.2f&mb=%s&os=A%s", "1", com.baidu.location.g.b.tV().b, com.baidu.location.g.b.e, com.baidu.location.g.b.d, Float.valueOf(7.8f), Build.MODEL, Build.VERSION.SDK));
+            this.f = Jni.encodeOfflineLocationUpdateRequest(String.format(Locale.US, "&ver=%s&cuid=%s&prod=%s:%s&sdk=%.2f&mb=%s&os=A%s", "1", com.baidu.location.g.b.tZ().b, com.baidu.location.g.b.e, com.baidu.location.g.b.d, Float.valueOf(7.8f), Build.MODEL, Build.VERSION.SDK));
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -67,7 +67,7 @@ public final class c {
             }
             boolean z = false;
             try {
-                File file = new File(c.this.aeH.c(), "ofl.config");
+                File file = new File(c.this.aeQ.c(), "ofl.config");
                 if (this.d == -1 && file.exists()) {
                     Scanner scanner = new Scanner(file);
                     String next = scanner.next();
@@ -106,10 +106,10 @@ public final class c {
                             c.this.p = jSONObject2.getDouble("1");
                         }
                         if (jSONObject2.has("2")) {
-                            c.this.adZ = jSONObject2.getDouble("2");
+                            c.this.aei = jSONObject2.getDouble("2");
                         }
                         if (jSONObject2.has("3")) {
-                            c.this.ade = jSONObject2.getDouble("3");
+                            c.this.adn = jSONObject2.getDouble("3");
                         }
                         if (jSONObject2.has("4")) {
                             c.this.s = jSONObject2.getDouble("4");
@@ -146,7 +146,7 @@ public final class c {
                 }
             } catch (Exception e) {
             }
-            if ((this.d == -1 || z) && c() && com.baidu.location.g.g.a(c.this.aeH.b())) {
+            if ((this.d == -1 || z) && c() && com.baidu.location.g.g.a(c.this.aeQ.b())) {
                 this.e = true;
                 b("https://ofloc.map.baidu.com/offline_loc");
             }
@@ -234,10 +234,10 @@ public final class c {
                                 c.this.p = jSONObject4.getDouble("1");
                             }
                             if (jSONObject4.has("2")) {
-                                c.this.adZ = jSONObject4.getDouble("2");
+                                c.this.aei = jSONObject4.getDouble("2");
                             }
                             if (jSONObject4.has("3")) {
-                                c.this.ade = jSONObject4.getDouble("3");
+                                c.this.adn = jSONObject4.getDouble("3");
                             }
                             if (jSONObject4.has("4")) {
                                 c.this.s = jSONObject4.getDouble("4");
@@ -279,8 +279,8 @@ public final class c {
                     JSONObject jSONObject6 = new JSONObject();
                     jSONObject6.put("0", c.this.o);
                     jSONObject6.put("1", c.this.p);
-                    jSONObject6.put("2", c.this.adZ);
-                    jSONObject6.put("3", c.this.ade);
+                    jSONObject6.put("2", c.this.aei);
+                    jSONObject6.put("3", c.this.adn);
                     jSONObject6.put("4", c.this.s);
                     jSONObject2.put("oflp", jSONObject6);
                     JSONObject jSONObject7 = new JSONObject();
@@ -293,7 +293,7 @@ public final class c {
                     jSONObject2.put("addrup", c.this.n);
                     jSONObject2.put("poiup", c.this.m);
                     jSONObject2.put("minapn", c.this.t);
-                    File file = new File(c.this.aeH.c(), "ofl.config");
+                    File file = new File(c.this.aeQ.c(), "ofl.config");
                     if (!file.exists()) {
                         file.createNewFile();
                     }
@@ -311,7 +311,7 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(d dVar, SQLiteDatabase sQLiteDatabase) {
-        this.aeH = dVar;
+        this.aeQ = dVar;
         this.b = sQLiteDatabase;
         if (this.b != null && this.b.isOpen()) {
             try {
@@ -408,7 +408,7 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public double bN() {
-        return this.adZ;
+        return this.aei;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -418,7 +418,7 @@ public final class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void g() {
-        this.afc.b();
+        this.afl.b();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -467,17 +467,17 @@ public final class c {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public double tB() {
-        return this.ade;
+    public double tF() {
+        return this.adn;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public double tC() {
+    public double tG() {
         return this.s;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String[] tD() {
+    public String[] tH() {
         return this.i;
     }
 }

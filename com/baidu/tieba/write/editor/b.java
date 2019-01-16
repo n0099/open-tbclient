@@ -6,33 +6,33 @@ import com.baidu.tbadk.editortools.k;
 public class b extends k {
     public b(Context context, String str) {
         super(context, (String) null, 15);
-        this.aZc = false;
-        this.aZb = 3;
-        this.aYl = new EditorInfoContainer(context, str);
-        this.aZd = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54};
+        this.aZM = false;
+        this.aZL = 3;
+        this.aYV = new EditorInfoContainer(context, str);
+        this.aZN = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54};
     }
 
     public void setFrom(String str) {
-        if (this.aYl instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.aYl).setFrom(str);
+        if (this.aYV instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.aYV).setFrom(str);
         }
     }
 
     public void ba(String str, int i) {
-        if (this.aYl instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.aYl).ba(str, i);
+        if (this.aYV instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.aYV).ba(str, i);
         }
     }
 
-    public void blO() {
-        if (this.aYl instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.aYl).blO();
+    public void bmw() {
+        if (this.aYV instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.aYV).bmw();
         }
     }
 
-    public void bOT() {
-        if (this.aYl instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.aYl).bOT();
+    public void bPB() {
+        if (this.aYV instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.aYV).bPB();
         }
     }
 }

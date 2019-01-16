@@ -6,7 +6,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.util.ao;
 /* loaded from: classes3.dex */
 public class d {
-    public static String qR(String str) {
+    public static String rh(String str) {
         int lastIndexOf;
         int indexOf;
         String by = ao.by(str);
@@ -19,7 +19,7 @@ public class d {
         return by;
     }
 
-    public static boolean qS(String str) {
+    public static boolean ri(String str) {
         if (StringUtils.isNull(str)) {
             return false;
         }
@@ -27,7 +27,7 @@ public class d {
         return !StringUtils.isNull(by) && by.contains("?t=");
     }
 
-    public static boolean qT(String str) {
+    public static boolean rj(String str) {
         return (TextUtils.isEmpty(str) || str.startsWith("http://") || str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) ? false : true;
     }
 }

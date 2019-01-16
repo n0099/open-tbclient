@@ -11,7 +11,7 @@ import com.tencent.connect.common.Constants;
 import java.util.Locale;
 /* loaded from: classes6.dex */
 public class b {
-    private static b afK = null;
+    private static b afT = null;
     public static String d = null;
     public static String e = null;
     public static String f = null;
@@ -28,11 +28,11 @@ public class b {
         }
     }
 
-    public static b tV() {
-        if (afK == null) {
-            afK = new b();
+    public static b tZ() {
+        if (afT == null) {
+            afT = new b();
         }
-        return afK;
+        return afT;
     }
 
     public String a(boolean z) {
@@ -103,7 +103,7 @@ public class b {
             stringBuffer.append("&laip=");
             stringBuffer.append(b);
         }
-        float b2 = k.tk().b();
+        float b2 = k.tp().b();
         if (b2 != 0.0f) {
             stringBuffer.append("&altv=");
             stringBuffer.append(String.format(Locale.US, "%.5f", Float.valueOf(b2)));

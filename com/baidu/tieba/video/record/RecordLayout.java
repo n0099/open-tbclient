@@ -9,7 +9,7 @@ import android.widget.RelativeLayout;
 import com.baidu.tieba.e;
 /* loaded from: classes5.dex */
 public class RecordLayout extends RelativeLayout {
-    private a hKO;
+    private a hLV;
     private float mDownX;
     private int mFlingDistance;
     private int mMaximumVelocity;
@@ -18,9 +18,9 @@ public class RecordLayout extends RelativeLayout {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void bLm();
+        void bLV();
 
-        void bLn();
+        void bLW();
     }
 
     public RecordLayout(Context context) {
@@ -56,21 +56,21 @@ public class RecordLayout extends RelativeLayout {
                 break;
             case 1:
             case 3:
-                if (this.hKO != null) {
+                if (this.hLV != null) {
                     this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
                     float xVelocity = this.mVelocityTracker.getXVelocity();
                     int rawX = (int) (motionEvent.getRawX() - this.mDownX);
                     if (Math.abs(xVelocity) > this.mMinimumVelocity && Math.abs(rawX) > this.mFlingDistance) {
                         if (rawX > 0) {
-                            this.hKO.bLn();
+                            this.hLV.bLW();
                         } else {
-                            this.hKO.bLm();
+                            this.hLV.bLV();
                         }
                     } else if (Math.abs(rawX) > 0.5d * com.baidu.adp.lib.util.l.aO(getContext())) {
                         if (rawX > 0) {
-                            this.hKO.bLn();
+                            this.hLV.bLW();
                         } else {
-                            this.hKO.bLn();
+                            this.hLV.bLW();
                         }
                     }
                     this.mVelocityTracker.clear();
@@ -84,6 +84,6 @@ public class RecordLayout extends RelativeLayout {
     }
 
     public void setListener(a aVar) {
-        this.hKO = aVar;
+        this.hLV = aVar;
     }
 }

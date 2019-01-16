@@ -14,30 +14,30 @@ public final class b {
     public static final class C0114b {
         public static final int channel_checked = 2130839323;
         public static final int channel_close = 2130839324;
-        public static final int loading = 2130842117;
-        public static final int pay_view_bg = 2130842338;
-        public static final int popup_view_bg = 2130842583;
-        public static final int tip_view_bg = 2130843082;
+        public static final int loading = 2130842126;
+        public static final int pay_view_bg = 2130842347;
+        public static final int popup_view_bg = 2130842592;
+        public static final int tip_view_bg = 2130843091;
     }
 
     /* loaded from: classes.dex */
     public static final class c {
-        public static final int bg_view = 2131696380;
-        public static final int channel_desc_view = 2131696389;
-        public static final int channel_icon_view = 2131696387;
-        public static final int channel_list_container = 2131696383;
-        public static final int channel_list_scroll_view = 2131696384;
-        public static final int channel_list_view = 2131696385;
-        public static final int channel_name_view = 2131696388;
-        public static final int channel_select_view = 2131696390;
-        public static final int close_button = 2131696382;
-        public static final int pay_button = 2131696386;
-        public static final int popup_view = 2131696381;
+        public static final int bg_view = 2131696383;
+        public static final int channel_desc_view = 2131696392;
+        public static final int channel_icon_view = 2131696390;
+        public static final int channel_list_container = 2131696386;
+        public static final int channel_list_scroll_view = 2131696387;
+        public static final int channel_list_view = 2131696388;
+        public static final int channel_name_view = 2131696391;
+        public static final int channel_select_view = 2131696393;
+        public static final int close_button = 2131696385;
+        public static final int pay_button = 2131696389;
+        public static final int popup_view = 2131696384;
         public static final int progress_bar = 2131689625;
-        public static final int text_view = 2131690974;
-        public static final int tip_loading_view = 2131696409;
-        public static final int tip_text_view = 2131696410;
-        public static final int tip_view = 2131692933;
+        public static final int text_view = 2131690975;
+        public static final int tip_loading_view = 2131696412;
+        public static final int tip_text_view = 2131696413;
+        public static final int tip_view = 2131692935;
     }
 
     /* loaded from: classes.dex */

@@ -10,7 +10,7 @@ public class ab {
     public static boolean bB(Context context) {
         boolean z;
         boolean z2;
-        if (com.baidu.e.a.uo()) {
+        if (com.baidu.e.a.us()) {
             if (context == null) {
                 return false;
             }
@@ -35,7 +35,7 @@ public class ab {
     }
 
     public static boolean bC(Context context) {
-        if (com.baidu.e.a.uo()) {
+        if (com.baidu.e.a.us()) {
             if (context != null) {
                 try {
                     if (!com.baidu.e.a.a.checkPermissionGranted(context, "android.permission.ACCESS_FINE_LOCATION")) {
@@ -55,7 +55,7 @@ public class ab {
     }
 
     public static boolean aX(Context context) {
-        if (!com.baidu.e.a.uo()) {
+        if (!com.baidu.e.a.us()) {
             return true;
         }
         if (context != null) {
@@ -70,7 +70,7 @@ public class ab {
     }
 
     public static boolean bD(Context context) {
-        if (!com.baidu.e.a.uo()) {
+        if (!com.baidu.e.a.us()) {
             return true;
         }
         if (context != null) {
@@ -85,7 +85,7 @@ public class ab {
     }
 
     public static boolean bE(Context context) {
-        if (!com.baidu.e.a.uo()) {
+        if (!com.baidu.e.a.us()) {
             return true;
         }
         if (context != null) {
@@ -100,7 +100,7 @@ public class ab {
     }
 
     public static boolean bF(Context context) {
-        if (!com.baidu.e.a.uo()) {
+        if (!com.baidu.e.a.us()) {
             return true;
         }
         if (context != null) {
@@ -153,7 +153,7 @@ public class ab {
     }
 
     public static boolean ah(Context context, String str) {
-        if (!com.baidu.e.a.uo()) {
+        if (!com.baidu.e.a.us()) {
             return true;
         }
         if (context != null) {

@@ -14,9 +14,9 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.homepage.HomePageStatic;
 /* loaded from: classes6.dex */
 public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickListener {
-    private TextView euA;
-    private ImageView euy;
-    private TextView euz;
+    private ImageView eve;
+    private TextView evf;
+    private TextView evg;
     private Context mContext;
 
     public ConcernNotLoginLayout(Context context) {
@@ -37,24 +37,24 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(e.h.concern_not_login_layout, (ViewGroup) this, true);
         this.mContext = context;
-        this.euy = (ImageView) inflate.findViewById(e.g.iv_concern_not_login_emotion_pic);
-        this.euz = (TextView) inflate.findViewById(e.g.tv_concern_you_not_login);
-        this.euA = (TextView) inflate.findViewById(e.g.tv_concern_login_and_see_more);
-        this.euA.setOnClickListener(this);
+        this.eve = (ImageView) inflate.findViewById(e.g.iv_concern_not_login_emotion_pic);
+        this.evf = (TextView) inflate.findViewById(e.g.tv_concern_you_not_login);
+        this.evg = (TextView) inflate.findViewById(e.g.tv_concern_login_and_see_more);
+        this.evg.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == e.g.tv_concern_login_and_see_more) {
             ba.bJ(this.mContext);
-            HomePageStatic.esH = true;
+            HomePageStatic.eto = true;
         }
     }
 
     public void onChangeSkinType(int i) {
-        al.c(this.euy, e.f.pic_jinba_login);
-        al.h(this.euz, e.d.cp_cont_b);
-        al.h(this.euA, e.d.cp_cont_i);
-        al.i(this.euA, e.f.btn_all_blue);
+        al.c(this.eve, e.f.pic_jinba_login);
+        al.h(this.evf, e.d.cp_cont_b);
+        al.h(this.evg, e.d.cp_cont_i);
+        al.i(this.evg, e.f.btn_all_blue);
     }
 }

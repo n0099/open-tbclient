@@ -9,6 +9,6 @@ public class h extends d {
 
     public h(g gVar) {
         super(Framedata.Opcode.PONG);
-        t(gVar.cdq());
+        t(gVar.cdY());
     }
 }

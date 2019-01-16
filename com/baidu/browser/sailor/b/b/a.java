@@ -37,9 +37,9 @@ public final class a {
         File externalStorageDirectory;
         n nVar = new n(str, str2);
         nVar.a(aVar);
-        nVar.cy("device_info");
+        nVar.cz("device_info");
         final com.baidu.browser.sailor.util.d dVar = new com.baidu.browser.sailor.util.d();
-        Context appContext = com.baidu.browser.sailor.b.a.qO().getAppContext();
+        Context appContext = com.baidu.browser.sailor.b.a.qS().getAppContext();
         final c cVar = new c(nVar);
         final Context applicationContext = appContext.getApplicationContext();
         final JSONObject jSONObject = new JSONObject();
@@ -110,7 +110,7 @@ public final class a {
         String str3;
         n nVar = new n(str, str2);
         nVar.a(aVar);
-        ConnectivityManager connectivityManager = (ConnectivityManager) com.baidu.browser.sailor.b.a.qO().getAppContext().getSystemService("connectivity");
+        ConnectivityManager connectivityManager = (ConnectivityManager) com.baidu.browser.sailor.b.a.qS().getAppContext().getSystemService("connectivity");
         if (connectivityManager == null) {
             nVar.c("net_result", "lightapp.device.CONNECT_UNKNOWN", false);
             return;
@@ -144,31 +144,31 @@ public final class a {
         if (a == null) {
             a = new d();
         }
-        com.baidu.browser.sailor.b.a.qO().getAppContext().registerReceiver(a, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+        com.baidu.browser.sailor.b.a.qS().getAppContext().registerReceiver(a, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
     }
 
     public static void d(String str, String str2, n.a aVar) {
         n nVar = new n(str, str2);
         nVar.a(aVar);
         if (b.get(10) == null) {
-            nVar.cA("not start yet");
+            nVar.cB("not start yet");
             return;
         }
         b.remove(10);
         if (a == null) {
-            nVar.cA("not start yet");
+            nVar.cB("not start yet");
             return;
         }
-        com.baidu.browser.sailor.b.a.qO().getAppContext().unregisterReceiver(a);
+        com.baidu.browser.sailor.b.a.qS().getAppContext().unregisterReceiver(a);
         a = null;
-        nVar.qN();
+        nVar.qR();
     }
 
     public static void e(String str, String str2, n.a aVar) {
         n nVar = new n(str, str2);
         nVar.a(aVar);
         final com.baidu.browser.sailor.util.d dVar = new com.baidu.browser.sailor.util.d();
-        Context appContext = com.baidu.browser.sailor.b.a.qO().getAppContext();
+        Context appContext = com.baidu.browser.sailor.b.a.qS().getAppContext();
         final e eVar = new e(nVar);
         final Context applicationContext = appContext.getApplicationContext();
         applicationContext.registerReceiver(new BroadcastReceiver() { // from class: com.baidu.browser.sailor.util.BdDeviceInfo$2

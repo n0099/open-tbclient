@@ -8,20 +8,20 @@ import java.util.ArrayList;
 import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes3.dex */
 public class e implements ae, d {
-    private ArrayList<PreLoadImageInfo> gmA;
-    public String gmB;
+    private ArrayList<PreLoadImageInfo> gnD;
+    public String gnE;
     private int height;
     private String src;
     private int width;
 
     public e(ExcContent excContent) {
         if (excContent != null && excContent.type != null && excContent.type.equals(3L)) {
-            this.gmA = new ArrayList<>(1);
+            this.gnD = new ArrayList<>(1);
             this.src = excContent.src;
-            this.gmB = excContent.bsize;
-            if (this.gmB != null) {
+            this.gnE = excContent.bsize;
+            if (this.gnE != null) {
                 try {
-                    String[] split = this.gmB.split(",");
+                    String[] split = this.gnE.split(",");
                     this.width = com.baidu.adp.lib.g.b.l(split[0], 0);
                     this.height = com.baidu.adp.lib.g.b.l(split[1], 0);
                 } catch (Exception e) {
@@ -44,15 +44,15 @@ public class e implements ae, d {
             } else {
                 preLoadImageInfo.imgUrl = str;
             }
-            this.gmA.add(preLoadImageInfo);
+            this.gnD.add(preLoadImageInfo);
         }
     }
 
-    public String Su() {
+    public String SQ() {
         return this.src;
     }
 
-    public int sW(int i) {
+    public int ta(int i) {
         if (i <= 0) {
             return 0;
         }
@@ -66,6 +66,6 @@ public class e implements ae, d {
 
     @Override // com.baidu.tbadk.core.util.ae
     public ArrayList<PreLoadImageInfo> getImages() {
-        return this.gmA;
+        return this.gnD;
     }
 }

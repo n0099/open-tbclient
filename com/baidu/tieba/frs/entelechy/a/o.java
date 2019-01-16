@@ -7,22 +7,22 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class o extends q.a {
-    public TextView bSB;
-    public ImageView dTF;
-    public TextView dTG;
-    public ImageView dTH;
-    public View dTI;
-    public View dTJ;
+    public TextView bTm;
+    public ImageView dUl;
+    public TextView dUm;
+    public ImageView dUn;
+    public View dUo;
+    public View dUp;
 
     public o(View view) {
         super(view);
         if (view != null) {
-            this.bSB = (TextView) view.findViewById(e.g.video_activity_item_title);
-            this.dTF = (ImageView) view.findViewById(e.g.video_activity_item_tip);
-            this.dTG = (TextView) view.findViewById(e.g.video_activity_item_type);
-            this.dTH = (ImageView) view.findViewById(e.g.video_activity_item_more);
-            this.dTI = view.findViewById(e.g.top_divider_line);
-            this.dTJ = view.findViewById(e.g.bottom_divider_line);
+            this.bTm = (TextView) view.findViewById(e.g.video_activity_item_title);
+            this.dUl = (ImageView) view.findViewById(e.g.video_activity_item_tip);
+            this.dUm = (TextView) view.findViewById(e.g.video_activity_item_type);
+            this.dUn = (ImageView) view.findViewById(e.g.video_activity_item_more);
+            this.dUo = view.findViewById(e.g.top_divider_line);
+            this.dUp = view.findViewById(e.g.bottom_divider_line);
         }
     }
 }

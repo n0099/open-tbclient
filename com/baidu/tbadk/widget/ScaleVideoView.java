@@ -7,14 +7,14 @@ import android.view.View;
 import android.widget.VideoView;
 /* loaded from: classes.dex */
 public class ScaleVideoView extends VideoView {
-    private MediaPlayer Wd;
-    MediaPlayer.OnVideoSizeChangedListener bke;
+    private MediaPlayer Wm;
+    MediaPlayer.OnVideoSizeChangedListener bkS;
     private int mVideoHeight;
     private int mVideoWidth;
 
     public ScaleVideoView(Context context) {
         super(context);
-        this.bke = new MediaPlayer.OnVideoSizeChangedListener() { // from class: com.baidu.tbadk.widget.ScaleVideoView.1
+        this.bkS = new MediaPlayer.OnVideoSizeChangedListener() { // from class: com.baidu.tbadk.widget.ScaleVideoView.1
             @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
             public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
                 ScaleVideoView.this.mVideoWidth = mediaPlayer.getVideoWidth();
@@ -30,7 +30,7 @@ public class ScaleVideoView extends VideoView {
 
     public ScaleVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bke = new MediaPlayer.OnVideoSizeChangedListener() { // from class: com.baidu.tbadk.widget.ScaleVideoView.1
+        this.bkS = new MediaPlayer.OnVideoSizeChangedListener() { // from class: com.baidu.tbadk.widget.ScaleVideoView.1
             @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
             public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
                 ScaleVideoView.this.mVideoWidth = mediaPlayer.getVideoWidth();
@@ -46,7 +46,7 @@ public class ScaleVideoView extends VideoView {
 
     public ScaleVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bke = new MediaPlayer.OnVideoSizeChangedListener() { // from class: com.baidu.tbadk.widget.ScaleVideoView.1
+        this.bkS = new MediaPlayer.OnVideoSizeChangedListener() { // from class: com.baidu.tbadk.widget.ScaleVideoView.1
             @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
             public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i2, int i22) {
                 ScaleVideoView.this.mVideoWidth = mediaPlayer.getVideoWidth();
@@ -106,10 +106,10 @@ public class ScaleVideoView extends VideoView {
 
     public void setMediaPlayer(MediaPlayer mediaPlayer) {
         if (mediaPlayer != null) {
-            this.Wd = mediaPlayer;
+            this.Wm = mediaPlayer;
             this.mVideoWidth = mediaPlayer.getVideoWidth();
             this.mVideoHeight = mediaPlayer.getVideoHeight();
-            this.Wd.setOnVideoSizeChangedListener(this.bke);
+            this.Wm.setOnVideoSizeChangedListener(this.bkS);
         }
     }
 }

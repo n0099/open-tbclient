@@ -47,12 +47,12 @@ public final class AiAppExecutorUtils {
         if (IO_EXECUTOR == null) {
             synchronized (AiAppExecutorUtils.class) {
                 if (IO_EXECUTOR == null) {
-                    IO_EXECUTOR = new RxExecutor(PublishSubject.cfZ());
+                    IO_EXECUTOR = new RxExecutor(PublishSubject.cgH());
                     IO_EXECUTOR.onBackpressureBuffer().flatMap(new f<Pair<Runnable, String>, d<?>>() { // from class: com.baidu.searchbox.ng.ai.apps.util.AiAppExecutorUtils.2
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // rx.functions.f
                         public d<?> call(Pair<Runnable, String> pair) {
-                            return h.aW(pair).a(Schedulers.io()).b(AiAppExecutorUtils.EXECUTE_ACTION).cdJ();
+                            return h.aW(pair).a(Schedulers.io()).b(AiAppExecutorUtils.EXECUTE_ACTION).cer();
                         }
                     }).retry().subscribe();
                 }
@@ -65,12 +65,12 @@ public final class AiAppExecutorUtils {
         if (COMPUTATION_EXECUTOR == null) {
             synchronized (AiAppExecutorUtils.class) {
                 if (COMPUTATION_EXECUTOR == null) {
-                    COMPUTATION_EXECUTOR = new RxExecutor(PublishSubject.cfZ());
+                    COMPUTATION_EXECUTOR = new RxExecutor(PublishSubject.cgH());
                     COMPUTATION_EXECUTOR.onBackpressureBuffer().flatMap(new f<Pair<Runnable, String>, d<?>>() { // from class: com.baidu.searchbox.ng.ai.apps.util.AiAppExecutorUtils.3
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // rx.functions.f
                         public d<?> call(Pair<Runnable, String> pair) {
-                            return h.aW(pair).a(Schedulers.computation()).b(AiAppExecutorUtils.EXECUTE_ACTION).cdJ();
+                            return h.aW(pair).a(Schedulers.computation()).b(AiAppExecutorUtils.EXECUTE_ACTION).cer();
                         }
                     }).retry().subscribe();
                 }
@@ -83,7 +83,7 @@ public final class AiAppExecutorUtils {
         if (SERIAL_EXECUTOR == null) {
             synchronized (AiAppExecutorUtils.class) {
                 if (SERIAL_EXECUTOR == null) {
-                    SERIAL_EXECUTOR = new RxExecutor(PublishSubject.cfZ());
+                    SERIAL_EXECUTOR = new RxExecutor(PublishSubject.cgH());
                     SERIAL_EXECUTOR.onBackpressureBuffer().observeOn(Schedulers.io()).doOnNext(EXECUTE_ACTION).retry().subscribe();
                 }
             }

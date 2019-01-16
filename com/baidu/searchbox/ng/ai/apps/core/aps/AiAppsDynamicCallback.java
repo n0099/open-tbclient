@@ -125,8 +125,8 @@ public class AiAppsDynamicCallback extends AiAppsBaseApsCallback {
     @Override // com.baidu.b.a.b.a.a
     public void onItemFiltered(a aVar) {
         com.baidu.b.a.b.b.a aVar2 = null;
-        if (aVar != null && aVar.KC != 1102) {
-            aVar2 = aVar.KC == 1104 ? buildAppVersionUnMatchErrorInfo() : new com.baidu.b.a.b.b.a(aVar.KC, TextUtils.isEmpty(aVar.errMsg) ? "" : aVar.errMsg, TextUtils.isEmpty(aVar.Zm) ? "" : aVar.Zm);
+        if (aVar != null && aVar.KI != 1102) {
+            aVar2 = aVar.KI == 1104 ? buildAppVersionUnMatchErrorInfo() : new com.baidu.b.a.b.b.a(aVar.KI, TextUtils.isEmpty(aVar.errMsg) ? "" : aVar.errMsg, TextUtils.isEmpty(aVar.Zv) ? "" : aVar.Zv);
         }
         onApsCheckFinish(false, aVar, aVar2);
     }
@@ -233,7 +233,7 @@ public class AiAppsDynamicCallback extends AiAppsBaseApsCallback {
         }
         ErrCode errCode = null;
         if (aVar2 != null) {
-            errCode = new ErrCode().feature(2L).error(aVar2.code).desc(aVar2.Zm).detail(aVar2.errorMsg);
+            errCode = new ErrCode().feature(2L).error(aVar2.code).desc(aVar2.Zv).detail(aVar2.errorMsg);
             if (aVar != null) {
                 errCode.detail(aVar.toJSONString());
             }
@@ -241,7 +241,7 @@ public class AiAppsDynamicCallback extends AiAppsBaseApsCallback {
         }
         if (z && APSFlowControlFlag.apsInfoGetThenDownloadIcon(this.mFlowControlFlag)) {
             if (aVar != null) {
-                this.mAiAppsIconUrl = parseString(aVar.Zr).optString(AiAppsApsUtils.ICON_URL);
+                this.mAiAppsIconUrl = parseString(aVar.ZA).optString(AiAppsApsUtils.ICON_URL);
             }
             initAiAppsInfoLatch();
             this.mFlowEventList.add(new UbcFlowEvent(AiAppsAPSPerformanceUBC.APS_START_ICON));
@@ -268,7 +268,7 @@ public class AiAppsDynamicCallback extends AiAppsBaseApsCallback {
     private void onApsErrorInfo(@Nullable com.baidu.b.a.b.b.a aVar) {
         ErrCode errCode = null;
         if (aVar != null) {
-            errCode = new ErrCode().feature(2L).error(aVar.code).desc(aVar.Zm).detail(aVar.errorMsg);
+            errCode = new ErrCode().feature(2L).error(aVar.code).desc(aVar.Zv).detail(aVar.errorMsg);
             Tracer.get().record(errCode);
         }
         onApsErrorCode(errCode);

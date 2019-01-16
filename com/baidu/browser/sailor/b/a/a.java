@@ -8,14 +8,14 @@ import org.json.JSONObject;
 public final class a {
     public static int a = 12323;
     public static int b = 12324;
-    private JSONObject WG;
+    private JSONObject WP;
     public JSONObject d;
     public boolean e = false;
 
     public final void a() {
-        if (this.WG != null) {
-            SessionMonitorEngine.getInstance().recordImmediately("t7_init", this.WG.toString());
-            this.WG = null;
+        if (this.WP != null) {
+            SessionMonitorEngine.getInstance().recordImmediately("t7_init", this.WP.toString());
+            this.WP = null;
         }
     }
 
@@ -36,14 +36,14 @@ public final class a {
 
     public final void b(String str, String str2) {
         try {
-            if (this.WG == null) {
-                this.WG = new JSONObject();
-                this.WG.put("type", b);
+            if (this.WP == null) {
+                this.WP = new JSONObject();
+                this.WP.put("type", b);
             }
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
                 return;
             }
-            this.WG.put(str, str2);
+            this.WP.put(str, str2);
         } catch (Exception e) {
             Log.e("mWebkitDownloadStatics JSON error");
         }

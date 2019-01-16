@@ -5,40 +5,40 @@ import android.text.TextUtils;
 import com.baidu.tieba.face.SearchEmotionModel;
 /* loaded from: classes6.dex */
 public class b {
-    private SearchEmotionModel.a dtM;
-    private SearchEmotionModel giZ;
-    private String gja;
-    private Runnable gjb = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
+    private SearchEmotionModel.a duv;
+    private SearchEmotionModel gkc;
+    private String gkd;
+    private Runnable gke = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
         @Override // java.lang.Runnable
         public void run() {
-            if (!TextUtils.isEmpty(b.this.gja) && b.this.dtM != null) {
-                if (b.this.giZ == null) {
-                    b.this.giZ = new SearchEmotionModel();
+            if (!TextUtils.isEmpty(b.this.gkd) && b.this.duv != null) {
+                if (b.this.gkc == null) {
+                    b.this.gkc = new SearchEmotionModel();
                 }
-                b.this.giZ.a(b.this.gja, 0, 30, b.this.dtM);
+                b.this.gkc.a(b.this.gkd, 0, 30, b.this.duv);
             }
         }
     };
     private Handler mHandler = new Handler();
 
-    public void to(String str) {
+    public void tE(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.gja = "";
+            this.gkd = "";
             return;
         }
-        this.mHandler.removeCallbacks(this.gjb);
-        this.mHandler.postDelayed(this.gjb, 300L);
-        this.gja = str;
+        this.mHandler.removeCallbacks(this.gke);
+        this.mHandler.postDelayed(this.gke, 300L);
+        this.gkd = str;
     }
 
     public void a(SearchEmotionModel.a aVar) {
-        this.dtM = aVar;
+        this.duv = aVar;
     }
 
-    public void aDS() {
-        if (this.giZ != null) {
-            this.giZ.cancelLoadData();
+    public void aEp() {
+        if (this.gkc != null) {
+            this.gkc.cancelLoadData();
         }
-        this.mHandler.removeCallbacks(this.gjb);
+        this.mHandler.removeCallbacks(this.gke);
     }
 }

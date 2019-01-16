@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a {
-    private com.baidu.tieba.video.editvideo.data.a hEV;
-    private b hEW;
-    b.a hEX;
+    private com.baidu.tieba.video.editvideo.data.a hGc;
+    private b hGd;
+    b.a hGe;
     private Context mContext;
 
     public a(Context context) {
@@ -20,45 +20,45 @@ public class a {
     }
 
     public void a(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.hEV = aVar;
+        this.hGc = aVar;
     }
 
-    public boolean bJk() {
-        return (this.hEV == null || "normal".equalsIgnoreCase(this.hEV.value)) ? false : true;
+    public boolean bJT() {
+        return (this.hGc == null || "normal".equalsIgnoreCase(this.hGc.value)) ? false : true;
     }
 
-    public void wJ(String str) {
-        if ((this.hEW == null || !this.hEW.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            String bJn = bJn();
+    public void wZ(String str) {
+        if ((this.hGd == null || !this.hGd.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            String bJW = bJW();
             String str2 = "normal";
-            if (this.hEV != null) {
-                str2 = this.hEV.value;
+            if (this.hGc != null) {
+                str2 = this.hGc.value;
             }
-            this.hEW = new b(this.mContext, str, bJn, str2);
-            if (this.hEX != null) {
-                this.hEW.a(this.hEX);
+            this.hGd = new b(this.mContext, str, bJW, str2);
+            if (this.hGe != null) {
+                this.hGd.a(this.hGe);
             }
-            this.hEW.bJo();
+            this.hGd.bJX();
         }
     }
 
-    public boolean bJl() {
-        if (this.hEW != null) {
-            return this.hEW.isRunning();
+    public boolean bJU() {
+        if (this.hGd != null) {
+            return this.hGd.isRunning();
         }
         return false;
     }
 
-    public void bJm() {
-        if (this.hEW != null) {
-            this.hEW.bJp();
+    public void bJV() {
+        if (this.hGd != null) {
+            this.hGd.bJY();
         }
     }
 
     public void a(b.a aVar) {
-        this.hEX = aVar;
-        if (this.hEW != null) {
-            this.hEW.a(this.hEX);
+        this.hGe = aVar;
+        if (this.hGd != null) {
+            this.hGd.a(this.hGe);
         }
     }
 
@@ -94,7 +94,7 @@ public class a {
         }
     }
 
-    private static String bJn() {
-        return com.baidu.tieba.video.c.hCT + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String bJW() {
+        return com.baidu.tieba.video.c.hEa + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

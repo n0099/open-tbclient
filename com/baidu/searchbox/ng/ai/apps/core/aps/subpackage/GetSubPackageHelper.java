@@ -70,7 +70,7 @@ public class GetSubPackageHelper {
 
     public static void downloadSubPackageSuccess(SubPackageAPSInfo subPackageAPSInfo, com.baidu.b.a.c.a.a aVar) {
         if (subPackageAPSInfo != null && aVar != null) {
-            if (!AiAppSignChecker.checkZipSign(new File(aVar.filePath), AiAppJSONUtils.parseString(aVar.Zr).optString("sign"))) {
+            if (!AiAppSignChecker.checkZipSign(new File(aVar.filePath), AiAppJSONUtils.parseString(aVar.ZA).optString("sign"))) {
                 callbackDownloadError(subPackageAPSInfo, 2104);
             } else if (renameSubPackageZip(subPackageAPSInfo, aVar) && unZipSubPackage(subPackageAPSInfo)) {
                 SubPackageInfoHelper.getInstance().downloadSubPackageSuccess(subPackageAPSInfo.mAppId, subPackageAPSInfo.mAppVersion, subPackageAPSInfo.mSubPackageName);

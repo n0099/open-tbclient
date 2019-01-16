@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    public static String T(List<String> list) {
+    public static String U(List<String> list) {
         if (v.H(list) <= 0) {
             return null;
         }

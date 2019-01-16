@@ -17,11 +17,11 @@ public final class SequencesKt___SequencesKt$filterIsInstance$1 extends Lambda i
     }
 
     /* JADX DEBUG: Return type fixed from 'boolean' to match base method */
-    /* JADX WARN: Type inference failed for: r0v1, types: [boolean, java.lang.Boolean] */
+    /* JADX WARN: Type inference failed for: r0v1, types: [java.lang.Boolean, boolean] */
     @Override // kotlin.jvm.a.b
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final Boolean invoke2(Object obj) {
-        p.as(3, "R");
+        p.au(3, "R");
         return obj instanceof Object;
     }
 }

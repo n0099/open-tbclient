@@ -3,15 +3,15 @@ package com.facebook.imagepipeline.memory;
 public interface s {
     void a(BasePool basePool);
 
-    void bZn();
+    void bZV();
 
-    void bZo();
-
-    void yS(int i);
-
-    void yT(int i);
+    void bZW();
 
     void yU(int i);
 
     void yV(int i);
+
+    void yW(int i);
+
+    void yX(int i);
 }

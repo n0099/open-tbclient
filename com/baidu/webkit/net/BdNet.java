@@ -25,7 +25,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 /* loaded from: classes2.dex */
-public class BdNet implements INoProGuard, b.InterfaceC0352b {
+public class BdNet implements INoProGuard, b.InterfaceC0351b {
     public static final int CORE_POOL_SIZE = 2;
     protected static final boolean DEBUG = false;
     protected static final String LOG_TAG = "BdNet";
@@ -270,7 +270,7 @@ public class BdNet implements INoProGuard, b.InterfaceC0352b {
         return BdNetTask.obtain(this, str);
     }
 
-    @Override // com.baidu.webkit.net.b.InterfaceC0352b
+    @Override // com.baidu.webkit.net.b.InterfaceC0351b
     public BdNetTask onNetDownloadComplete(b bVar, BdNetTask bdNetTask, boolean z) {
         if (z && this.mListener != null) {
             this.mListener.onNetTaskComplete(this, bdNetTask);
@@ -280,35 +280,35 @@ public class BdNet implements INoProGuard, b.InterfaceC0352b {
         return startNext;
     }
 
-    @Override // com.baidu.webkit.net.b.InterfaceC0352b
+    @Override // com.baidu.webkit.net.b.InterfaceC0351b
     public void onNetDownloadError(b bVar, BdNetTask bdNetTask, NetError netError, int i) {
         if (this.mListener != null) {
             this.mListener.onNetDownloadError(this, bdNetTask, netError, i);
         }
     }
 
-    @Override // com.baidu.webkit.net.b.InterfaceC0352b
+    @Override // com.baidu.webkit.net.b.InterfaceC0351b
     public void onNetDownloadStart(b bVar, BdNetTask bdNetTask) {
         if (this.mListener != null) {
             this.mListener.onNetTaskStart(this, bdNetTask);
         }
     }
 
-    @Override // com.baidu.webkit.net.b.InterfaceC0352b
+    @Override // com.baidu.webkit.net.b.InterfaceC0351b
     public void onNetReceiveData(b bVar, BdNetTask bdNetTask, byte[] bArr, int i) {
         if (this.mListener != null) {
             this.mListener.onNetReceiveData(this, bdNetTask, bArr, i);
         }
     }
 
-    @Override // com.baidu.webkit.net.b.InterfaceC0352b
+    @Override // com.baidu.webkit.net.b.InterfaceC0351b
     public void onNetReceiveHeaders(b bVar, BdNetTask bdNetTask) {
         if (this.mListener != null) {
             this.mListener.onNetReceiveHeaders(this, bdNetTask);
         }
     }
 
-    @Override // com.baidu.webkit.net.b.InterfaceC0352b
+    @Override // com.baidu.webkit.net.b.InterfaceC0351b
     public boolean onNetRedirect(b bVar, BdNetTask bdNetTask, int i) {
         if (this.mListener != null) {
             return this.mListener.onNetRedirect(this, bdNetTask, i);
@@ -316,28 +316,28 @@ public class BdNet implements INoProGuard, b.InterfaceC0352b {
         return true;
     }
 
-    @Override // com.baidu.webkit.net.b.InterfaceC0352b
+    @Override // com.baidu.webkit.net.b.InterfaceC0351b
     public void onNetResponseCode(b bVar, BdNetTask bdNetTask, int i) {
         if (this.mListener != null) {
             this.mListener.onNetResponseCode(this, bdNetTask, i);
         }
     }
 
-    @Override // com.baidu.webkit.net.b.InterfaceC0352b
+    @Override // com.baidu.webkit.net.b.InterfaceC0351b
     public void onNetStateChanged(b bVar, BdNetTask bdNetTask, NetState netState, int i) {
         if (this.mListener != null) {
             this.mListener.onNetStateChanged(this, bdNetTask, netState, i);
         }
     }
 
-    @Override // com.baidu.webkit.net.b.InterfaceC0352b
+    @Override // com.baidu.webkit.net.b.InterfaceC0351b
     public void onNetUploadComplete(b bVar, BdNetTask bdNetTask) {
         if (this.mListener != null) {
             this.mListener.onNetUploadComplete(this, bdNetTask);
         }
     }
 
-    @Override // com.baidu.webkit.net.b.InterfaceC0352b
+    @Override // com.baidu.webkit.net.b.InterfaceC0351b
     public void onNetUploadData(b bVar, BdNetTask bdNetTask, int i, int i2) {
         if (this.mListener != null) {
             this.mListener.onNetUploadData(this, bdNetTask, i, i2);

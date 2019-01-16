@@ -25,29 +25,29 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class e {
-    private static e bGS;
-    private com.google.gson.d bGT = new com.google.gson.d();
+    private static e bHF;
+    private com.google.gson.d bHG = new com.google.gson.d();
 
     private e() {
     }
 
-    public static e Yz() {
-        if (bGS == null) {
+    public static e YW() {
+        if (bHF == null) {
             synchronized (e.class) {
-                if (bGS == null) {
-                    bGS = new e();
+                if (bHF == null) {
+                    bHF = new e();
                 }
             }
         }
-        return bGS;
+        return bHF;
     }
 
     public void a(InvoiceInfo invoiceInfo, final d.a aVar) {
         if (invoiceInfo != null) {
-            String Yt = com.baidu.tieba.aiapps.apps.d.c.Yt();
+            String YQ = com.baidu.tieba.aiapps.apps.d.c.YQ();
             HashMap hashMap = new HashMap();
-            hashMap.put("data", this.bGT.toJson(invoiceInfo));
-            a(Yt, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.c<InvoiceInfo>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.1
+            hashMap.put("data", this.bHG.toJson(invoiceInfo));
+            a(YQ, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.c<InvoiceInfo>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 /* renamed from: b */
@@ -56,7 +56,7 @@ public class e {
                         return null;
                     }
                     return (com.baidu.tieba.aiapps.apps.invoice.model.c) e.this.c(response.body().string(), new com.google.gson.b.a<com.baidu.tieba.aiapps.apps.invoice.model.c<InvoiceInfo>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.1.1
-                    }.cbK());
+                    }.ccs());
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -64,8 +64,8 @@ public class e {
                 /* renamed from: a */
                 public void onSuccess(com.baidu.tieba.aiapps.apps.invoice.model.c<InvoiceInfo> cVar, int i) {
                     if (aVar != null) {
-                        if (!TextUtils.equals(cVar.bHn, "0") || cVar.mData == null) {
-                            e.this.a(cVar.bHn, cVar.bHo, aVar);
+                        if (!TextUtils.equals(cVar.bIa, "0") || cVar.mData == null) {
+                            e.this.a(cVar.bIa, cVar.bIb, aVar);
                         } else {
                             aVar.a(cVar.mData);
                         }
@@ -75,7 +75,7 @@ public class e {
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 public void onFail(Exception exc) {
                     if (aVar != null) {
-                        aVar.aX(AiAppsAudioPlayer.ERROR_UNKNOWN, exc.getMessage());
+                        aVar.aY(AiAppsAudioPlayer.ERROR_UNKNOWN, exc.getMessage());
                     }
                 }
             });
@@ -85,7 +85,7 @@ public class e {
     public void a(Context context, final String str, final String str2, final d.c cVar) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             if (cVar != null) {
-                cVar.aX(AiAppsAudioPlayer.ERROR_UNKNOWN, "");
+                cVar.aY(AiAppsAudioPlayer.ERROR_UNKNOWN, "");
                 return;
             }
             return;
@@ -108,16 +108,16 @@ public class e {
                     }
                     HashMap hashMap = new HashMap();
                     hashMap.put("data", jSONObject.toString());
-                    e.this.a(com.baidu.tieba.aiapps.apps.d.c.Ys(), hashMap, cVar);
+                    e.this.a(com.baidu.tieba.aiapps.apps.d.c.YP(), hashMap, cVar);
                 } else if (cVar != null) {
-                    cVar.aX(AiAppsAudioPlayer.ERROR_UNKNOWN, "");
+                    cVar.aY(AiAppsAudioPlayer.ERROR_UNKNOWN, "");
                 }
             }
         }, OAuthDef.TPL);
     }
 
     public void a(d.c cVar) {
-        a(com.baidu.tieba.aiapps.apps.d.c.Yr(), (Map<String, String>) null, cVar);
+        a(com.baidu.tieba.aiapps.apps.d.c.YO(), (Map<String, String>) null, cVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -131,7 +131,7 @@ public class e {
                     return null;
                 }
                 return (com.baidu.tieba.aiapps.apps.invoice.model.c) e.this.c(response.body().string(), new com.google.gson.b.a<com.baidu.tieba.aiapps.apps.invoice.model.c<com.baidu.tieba.aiapps.apps.invoice.model.a>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.3.1
-                }.cbK());
+                }.ccs());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -139,10 +139,10 @@ public class e {
             /* renamed from: a */
             public void onSuccess(com.baidu.tieba.aiapps.apps.invoice.model.c<com.baidu.tieba.aiapps.apps.invoice.model.a> cVar2, int i) {
                 if (cVar != null) {
-                    if (!TextUtils.equals(cVar2.bHn, "0") || cVar2.mData == null) {
-                        e.this.a(cVar2.bHn, cVar2.bHo, cVar);
+                    if (!TextUtils.equals(cVar2.bIa, "0") || cVar2.mData == null) {
+                        e.this.a(cVar2.bIa, cVar2.bIb, cVar);
                     } else {
-                        cVar.ar(cVar2.mData.bHh);
+                        cVar.as(cVar2.mData.bHU);
                     }
                 }
             }
@@ -150,17 +150,17 @@ public class e {
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
                 if (cVar != null) {
-                    cVar.aX(AiAppsAudioPlayer.ERROR_UNKNOWN, exc.getMessage());
+                    cVar.aY(AiAppsAudioPlayer.ERROR_UNKNOWN, exc.getMessage());
                 }
             }
         });
     }
 
     public void a(InvoiceInfo invoiceInfo, final d.e eVar) {
-        String Yo = com.baidu.tieba.aiapps.apps.d.c.Yo();
+        String YL = com.baidu.tieba.aiapps.apps.d.c.YL();
         HashMap hashMap = new HashMap();
-        hashMap.put("data", this.bGT.toJson(invoiceInfo));
-        a(Yo, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.c<InvoiceInfo>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.4
+        hashMap.put("data", this.bHG.toJson(invoiceInfo));
+        a(YL, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.c<InvoiceInfo>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: b */
@@ -169,7 +169,7 @@ public class e {
                     return null;
                 }
                 return (com.baidu.tieba.aiapps.apps.invoice.model.c) e.this.c(response.body().string(), new com.google.gson.b.a<com.baidu.tieba.aiapps.apps.invoice.model.c<InvoiceInfo>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.4.1
-                }.cbK());
+                }.ccs());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -177,8 +177,8 @@ public class e {
             /* renamed from: a */
             public void onSuccess(com.baidu.tieba.aiapps.apps.invoice.model.c<InvoiceInfo> cVar, int i) {
                 if (eVar != null) {
-                    if (!TextUtils.equals(cVar.bHn, "0") || cVar.mData == null) {
-                        e.this.a(cVar.bHn, cVar.bHo, eVar);
+                    if (!TextUtils.equals(cVar.bIa, "0") || cVar.mData == null) {
+                        e.this.a(cVar.bIa, cVar.bIb, eVar);
                     } else {
                         eVar.b(cVar.mData);
                     }
@@ -188,18 +188,18 @@ public class e {
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
                 if (eVar != null) {
-                    eVar.aX(AiAppsAudioPlayer.ERROR_UNKNOWN, exc.getMessage());
+                    eVar.aY(AiAppsAudioPlayer.ERROR_UNKNOWN, exc.getMessage());
                 }
             }
         });
     }
 
     public void a(final long j, final d.InterfaceC0198d interfaceC0198d) {
-        String Yp = com.baidu.tieba.aiapps.apps.d.c.Yp();
+        String YM = com.baidu.tieba.aiapps.apps.d.c.YM();
         com.baidu.tieba.aiapps.apps.invoice.model.b bVar = new com.baidu.tieba.aiapps.apps.invoice.model.b(j);
         HashMap hashMap = new HashMap();
-        hashMap.put("data", this.bGT.toJson(bVar));
-        a(Yp, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.c>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.5
+        hashMap.put("data", this.bHG.toJson(bVar));
+        a(YM, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.c>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: b */
@@ -208,7 +208,7 @@ public class e {
                     return null;
                 }
                 return (com.baidu.tieba.aiapps.apps.invoice.model.c) e.this.c(response.body().string(), new com.google.gson.b.a<com.baidu.tieba.aiapps.apps.invoice.model.c>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.5.1
-                }.cbK());
+                }.ccs());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -216,8 +216,8 @@ public class e {
             /* renamed from: a */
             public void onSuccess(com.baidu.tieba.aiapps.apps.invoice.model.c cVar, int i) {
                 if (interfaceC0198d != null) {
-                    if (!TextUtils.equals(cVar.bHn, "0")) {
-                        e.this.a(cVar.bHn, cVar.bHo, interfaceC0198d);
+                    if (!TextUtils.equals(cVar.bIa, "0")) {
+                        e.this.a(cVar.bIa, cVar.bIb, interfaceC0198d);
                     } else {
                         interfaceC0198d.be(j);
                     }
@@ -227,18 +227,18 @@ public class e {
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
                 if (interfaceC0198d != null) {
-                    interfaceC0198d.aX(AiAppsAudioPlayer.ERROR_UNKNOWN, exc.getMessage());
+                    interfaceC0198d.aY(AiAppsAudioPlayer.ERROR_UNKNOWN, exc.getMessage());
                 }
             }
         });
     }
 
     public void a(long j, final d.b bVar) {
-        String Yq = com.baidu.tieba.aiapps.apps.d.c.Yq();
+        String YN = com.baidu.tieba.aiapps.apps.d.c.YN();
         com.baidu.tieba.aiapps.apps.invoice.model.b bVar2 = new com.baidu.tieba.aiapps.apps.invoice.model.b(j);
         HashMap hashMap = new HashMap();
-        hashMap.put("data", this.bGT.toJson(bVar2));
-        a(Yq, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.c<com.baidu.tieba.aiapps.apps.invoice.model.b>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.6
+        hashMap.put("data", this.bHG.toJson(bVar2));
+        a(YN, hashMap, new ResponseCallback<com.baidu.tieba.aiapps.apps.invoice.model.c<com.baidu.tieba.aiapps.apps.invoice.model.b>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.6
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             /* renamed from: b */
@@ -247,7 +247,7 @@ public class e {
                     return null;
                 }
                 return (com.baidu.tieba.aiapps.apps.invoice.model.c) e.this.c(response.body().string(), new com.google.gson.b.a<com.baidu.tieba.aiapps.apps.invoice.model.c<com.baidu.tieba.aiapps.apps.invoice.model.b>>() { // from class: com.baidu.tieba.aiapps.apps.invoice.e.6.1
-                }.cbK());
+                }.ccs());
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -255,8 +255,8 @@ public class e {
             /* renamed from: a */
             public void onSuccess(com.baidu.tieba.aiapps.apps.invoice.model.c<com.baidu.tieba.aiapps.apps.invoice.model.b> cVar, int i) {
                 if (bVar != null) {
-                    if (!TextUtils.equals(cVar.bHn, "0") || cVar.mData == null) {
-                        e.this.a(cVar.bHn, cVar.bHo, bVar);
+                    if (!TextUtils.equals(cVar.bIa, "0") || cVar.mData == null) {
+                        e.this.a(cVar.bIa, cVar.bIb, bVar);
                     } else {
                         bVar.bd(cVar.mData.mId);
                     }
@@ -266,7 +266,7 @@ public class e {
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public void onFail(Exception exc) {
                 if (bVar != null) {
-                    bVar.aX(AiAppsAudioPlayer.ERROR_UNKNOWN, exc.getMessage());
+                    bVar.aY(AiAppsAudioPlayer.ERROR_UNKNOWN, exc.getMessage());
                 }
             }
         });
@@ -276,9 +276,9 @@ public class e {
     public void a(String str, String str2, d dVar) {
         if (dVar != null) {
             if (TextUtils.equals(str, "401")) {
-                dVar.kA(str2);
+                dVar.kQ(str2);
             } else {
-                dVar.aX(str, str2);
+                dVar.aY(str, str2);
             }
         }
     }
@@ -289,7 +289,7 @@ public class e {
             return null;
         }
         try {
-            return (T) this.bGT.d(str, type);
+            return (T) this.bHG.d(str, type);
         } catch (Exception e) {
             return null;
         }
@@ -297,7 +297,7 @@ public class e {
 
     private void a(String str, Map<String, String> map, ResponseCallback responseCallback) {
         if (!TextUtils.isEmpty(str)) {
-            PostFormRequest.PostFormRequestBuilder postFormRequestBuilder = (PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.tieba.aiapps.apps.d.c.kx(str))).cookieManager(AiAppsRuntime.getConfigRuntime().getCookieManager(false, false));
+            PostFormRequest.PostFormRequestBuilder postFormRequestBuilder = (PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(com.baidu.tieba.aiapps.apps.d.c.kN(str))).cookieManager(AiAppsRuntime.getConfigRuntime().getCookieManager(false, false));
             if (map != null) {
                 postFormRequestBuilder.params(map);
             }

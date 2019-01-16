@@ -10,20 +10,20 @@ import com.baidu.tbadk.editortools.l;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class SendView extends TextView implements l {
-    private EditorTools Ta;
-    private int Tb;
-    private int aLH;
-    private boolean[] bas;
-    private int[] bat;
+    private EditorTools Tj;
+    private int Tk;
+    private int aMj;
+    private boolean[] bbc;
+    private int[] bbd;
     private int mType;
-    public static int bau = 1;
+    public static int bbe = 1;
     public static int ALL = 0;
 
     public SendView(Context context) {
         super(context);
-        this.bas = new boolean[]{false, false, false, false, false};
-        this.bat = new int[]{0, 0};
-        this.aLH = 0;
+        this.bbc = new boolean[]{false, false, false, false, false};
+        this.bbd = new int[]{0, 0};
+        this.aMj = 0;
         this.mType = ALL;
         setPadding(context.getResources().getDimensionPixelSize(e.C0210e.ds17), context.getResources().getDimensionPixelSize(e.C0210e.ds28), context.getResources().getDimensionPixelSize(e.C0210e.ds10), context.getResources().getDimensionPixelSize(e.C0210e.ds28));
         setGravity(17);
@@ -46,64 +46,64 @@ public class SendView extends TextView implements l {
             switch (aVar.code) {
                 case 4:
                     if (aVar.data == null || ((aVar.data instanceof String) && StringUtils.isNull((String) aVar.data))) {
-                        this.bas[0] = false;
+                        this.bbc[0] = false;
                         break;
                     } else {
-                        this.bas[0] = true;
+                        this.bbc[0] = true;
                         break;
                     }
                     break;
                 case 9:
-                    this.bas[0] = false;
-                    this.bas[1] = false;
-                    this.bas[2] = false;
-                    this.bas[3] = false;
-                    this.bas[4] = false;
-                    this.bat[0] = 0;
-                    this.bat[1] = 0;
+                    this.bbc[0] = false;
+                    this.bbc[1] = false;
+                    this.bbc[2] = false;
+                    this.bbc[3] = false;
+                    this.bbc[4] = false;
+                    this.bbd[0] = 0;
+                    this.bbd[1] = 0;
                     break;
                 case 10:
-                    this.bas[2] = true;
+                    this.bbc[2] = true;
                     break;
                 case 11:
-                    this.bas[2] = false;
+                    this.bbc[2] = false;
                     break;
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.aZk != null) {
-                            if (aVar2.aZk.getChosedFiles() != null) {
-                                this.bat[0] = aVar2.aZk.getChosedFiles().size();
+                        if (aVar2.aZU != null) {
+                            if (aVar2.aZU.getChosedFiles() != null) {
+                                this.bbd[0] = aVar2.aZU.getChosedFiles().size();
                             } else {
-                                this.bat[0] = 0;
+                                this.bbd[0] = 0;
                             }
                         }
-                        if (this.bat[0] > 0) {
-                            this.bas[1] = true;
+                        if (this.bbd[0] > 0) {
+                            this.bbc[1] = true;
                             break;
                         } else {
-                            this.bas[1] = false;
+                            this.bbc[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.bat;
+                    int[] iArr = this.bbd;
                     iArr[0] = iArr[0] - 1;
-                    if (this.bat[0] > 0) {
-                        this.bas[1] = true;
+                    if (this.bbd[0] > 0) {
+                        this.bbc[1] = true;
                         break;
                     } else {
-                        this.bas[1] = false;
+                        this.bbc[1] = false;
                         break;
                     }
                 case 28:
                 case 39:
-                    this.bas[3] = true;
+                    this.bbc[3] = true;
                     break;
                 case 29:
-                    this.bas[3] = false;
+                    this.bbc[3] = false;
                     break;
             }
             fT(this.mType);
@@ -112,24 +112,24 @@ public class SendView extends TextView implements l {
 
     @Override // com.baidu.tbadk.editortools.l
     public void setEditorTools(EditorTools editorTools) {
-        this.Ta = editorTools;
+        this.Tj = editorTools;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.Ta != null) {
-            this.Ta.b(aVar);
+        if (this.Tj != null) {
+            this.Tj.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void setToolId(int i) {
-        this.Tb = i;
+        this.Tk = i;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public int getToolId() {
-        return this.Tb;
+        return this.Tk;
     }
 
     @Override // com.baidu.tbadk.editortools.l
@@ -138,7 +138,7 @@ public class SendView extends TextView implements l {
     }
 
     @Override // com.baidu.tbadk.editortools.l
-    public void pN() {
+    public void pR() {
         setVisibility(0);
     }
 
@@ -149,7 +149,7 @@ public class SendView extends TextView implements l {
 
     @Override // com.baidu.tbadk.editortools.l
     public void onChangeSkinType(int i) {
-        this.aLH = i;
+        this.aMj = i;
         if (isEnabled()) {
             al.b(this, e.d.cp_link_tip_a, 1, i);
         } else {
@@ -163,17 +163,17 @@ public class SendView extends TextView implements l {
 
     public void fT(int i) {
         if (i == ALL) {
-            if (this.bas[0] || this.bas[1] || this.bas[2] || this.bas[3] || this.bas[4]) {
+            if (this.bbc[0] || this.bbc[1] || this.bbc[2] || this.bbc[3] || this.bbc[4]) {
                 setEnabled(true);
-                al.b(this, e.d.cp_link_tip_a, 1, this.aLH);
+                al.b(this, e.d.cp_link_tip_a, 1, this.aMj);
                 return;
             }
             setEnabled(false);
             al.c(this, e.d.cp_cont_e, 1);
-        } else if (i == bau) {
-            if (this.bas[1]) {
+        } else if (i == bbe) {
+            if (this.bbc[1]) {
                 setEnabled(true);
-                al.b(this, e.d.cp_link_tip_a, 1, this.aLH);
+                al.b(this, e.d.cp_link_tip_a, 1, this.aMj);
                 return;
             }
             setEnabled(false);

@@ -103,7 +103,7 @@ public class AiAppsPreDownloadAPSCallback extends AiAppsBaseApsCallback {
     @Override // com.baidu.b.a.b.a.a
     public void onFileDownloaded(com.baidu.b.a.b.b.a aVar, a aVar2) {
         this.mFlowEventList.add(new UbcFlowEvent(AiAppsAPSPerformanceUBC.APS_END_DOWNLOAD));
-        String optString = AiAppJSONUtils.parseString(aVar2.Zr).optString(AiAppsApsUtils.ICON_URL);
+        String optString = AiAppJSONUtils.parseString(aVar2.ZA).optString(AiAppsApsUtils.ICON_URL);
         if (LaunchAiApps.checkZipSign(aVar2, this.mAppsLaunchParams) == null && LaunchAiApps.renameAiAppsZip(aVar2) == null && LaunchAiApps.unZipAiAppBundle(aVar2, this.mAppsLaunchParams) == null) {
             downloadAiAppIcon(optString, aVar2);
             List<UbcFlowEvent> generateUBCEventFormLaunchParams = LaunchAiApps.generateUBCEventFormLaunchParams(this.mAppsLaunchParams);

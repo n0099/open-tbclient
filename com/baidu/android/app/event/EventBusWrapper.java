@@ -80,7 +80,7 @@ public final class EventBusWrapper {
             };
             d<T> register = RxBus.get().register(obj, cls);
             if (i == 0) {
-                register.observeOn(a.cdO()).doOnNext(bVar).doOnError(bVar2).retry().subscribe();
+                register.observeOn(a.cew()).doOnNext(bVar).doOnError(bVar2).retry().subscribe();
             } else if (i == 1) {
                 register.observeOn(Schedulers.computation()).doOnNext(bVar).doOnError(bVar2).retry().subscribe();
             } else if (i == 2) {
@@ -128,7 +128,7 @@ public final class EventBusWrapper {
         }
         d register = register(obj, cls);
         if (register != null) {
-            return register.observeOn(a.cdO());
+            return register.observeOn(a.cew());
         }
         return null;
     }

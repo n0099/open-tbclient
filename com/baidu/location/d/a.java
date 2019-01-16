@@ -22,7 +22,7 @@ import java.util.Locale;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class a {
-    private static a aeE = null;
+    private static a aeN = null;
     private static final String l = Environment.getExternalStorageDirectory().getPath() + "/baidu/tempdata/";
     private static final String m = Environment.getExternalStorageDirectory().getPath() + "/baidu/tempdata/ls.db";
     private String c = null;
@@ -31,10 +31,10 @@ public final class a {
     private double f = 0.0d;
     private double g = 0.0d;
     private double h = 0.0d;
-    private double ado = 0.0d;
+    private double adx = 0.0d;
     private double j = 0.0d;
     private volatile boolean k = false;
-    private Handler aeF = null;
+    private Handler aeO = null;
     public boolean a = false;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -275,7 +275,7 @@ public final class a {
         double d;
         boolean z = false;
         double d2 = 0.0d;
-        if (!aVar.b() || !j.ti().h()) {
+        if (!aVar.b() || !j.tm().h()) {
             return;
         }
         System.currentTimeMillis();
@@ -482,7 +482,7 @@ public final class a {
                     }
                     if (i3 > 0) {
                         this.e = true;
-                        this.ado = d3 / i3;
+                        this.adx = d3 / i3;
                         this.j = d4 / i3;
                     }
                 }
@@ -524,7 +524,7 @@ public final class a {
         double d2;
         double d3 = 0.0d;
         if (this.e) {
-            d2 = this.ado;
+            d2 = this.adx;
             d = this.j;
             d3 = 246.4d;
             z2 = true;
@@ -574,13 +574,13 @@ public final class a {
         }
     }
 
-    public static synchronized a tz() {
+    public static synchronized a tD() {
         a aVar;
         synchronized (a.class) {
-            if (aeE == null) {
-                aeE = new a();
+            if (aeN == null) {
+                aeN = new a();
             }
-            aVar = aeE;
+            aVar = aeN;
         }
         return aVar;
     }
@@ -610,7 +610,7 @@ public final class a {
 
     public void a(String str, com.baidu.location.e.a aVar, com.baidu.location.e.e eVar, BDLocation bDLocation) {
         if (this.a) {
-            boolean z = (aVar.b() && j.ti().h()) ? false : true;
+            boolean z = (aVar.b() && j.tm().h()) ? false : true;
             boolean z2 = bDLocation == null || bDLocation.getLocType() != 161 || (!"wf".equals(bDLocation.getNetworkLocationType()) && bDLocation.getRadius() >= 300.0f);
             if (eVar.a == null) {
                 z2 = true;
@@ -625,26 +625,26 @@ public final class a {
 
     public BDLocation aM(boolean z) {
         if (this.a) {
-            com.baidu.location.e.a tM = com.baidu.location.e.b.tL().tM();
-            String g = (tM == null || !tM.e()) ? null : tM.g();
-            com.baidu.location.e.e tS = com.baidu.location.e.f.tQ().tS();
-            BDLocation a = tS != null ? a(g, tS.a, true) : null;
+            com.baidu.location.e.a tQ = com.baidu.location.e.b.tP().tQ();
+            String g = (tQ == null || !tQ.e()) ? null : tQ.g();
+            com.baidu.location.e.e tW = com.baidu.location.e.f.tU().tW();
+            BDLocation a = tW != null ? a(g, tW.a, true) : null;
             if (a == null || a.getLocType() != 66) {
                 return a;
             }
             StringBuffer stringBuffer = new StringBuffer(1024);
             stringBuffer.append(String.format(Locale.CHINA, "&ofl=%f|%f|%f", Double.valueOf(a.getLatitude()), Double.valueOf(a.getLongitude()), Float.valueOf(a.getRadius())));
-            if (tS != null && tS.a() > 0) {
+            if (tW != null && tW.a() > 0) {
                 stringBuffer.append("&wf=");
-                stringBuffer.append(tS.c(15));
+                stringBuffer.append(tW.c(15));
             }
-            if (tM != null) {
-                stringBuffer.append(tM.h());
+            if (tQ != null) {
+                stringBuffer.append(tQ.h());
             }
             stringBuffer.append("&uptype=oldoff");
             stringBuffer.append(com.baidu.location.g.g.e(com.baidu.location.f.getServiceContext()));
-            stringBuffer.append(com.baidu.location.g.b.tV().a(false));
-            stringBuffer.append(com.baidu.location.a.a.tb().c());
+            stringBuffer.append(com.baidu.location.g.b.tZ().a(false));
+            stringBuffer.append(com.baidu.location.a.a.tf().c());
             stringBuffer.toString();
             return a;
         }
@@ -675,10 +675,10 @@ public final class a {
     }
 
     public void c() {
-        if (this.aeF == null) {
-            this.aeF = new Handler();
+        if (this.aeO == null) {
+            this.aeO = new Handler();
         }
-        this.aeF.postDelayed(new Runnable() { // from class: com.baidu.location.d.a.1
+        this.aeO.postDelayed(new Runnable() { // from class: com.baidu.location.d.a.1
             @Override // java.lang.Runnable
             public void run() {
                 if (com.baidu.location.f.isServing) {

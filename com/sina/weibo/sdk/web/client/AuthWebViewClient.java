@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
@@ -48,11 +47,14 @@ public class AuthWebViewClient extends BaseWebViewClient {
 
     private boolean needOverLoad(String str) {
         if (str.startsWith("sms:")) {
-            Intent intent = new Intent("android.intent.action.VIEW");
-            intent.putExtra(OpenLocationModel.ADDRESS, str.replace("sms:", ""));
-            intent.setType("vnd.android-dir/mms-sms");
-            this.context.startActivity(intent);
-            return true;
+            try {
+                Intent intent = new Intent("android.intent.action.VIEW");
+                intent.putExtra(OpenLocationModel.ADDRESS, str.replace("sms:", ""));
+                intent.setType("vnd.android-dir/mms-sms");
+                this.context.startActivity(intent);
+                return true;
+            } catch (Exception e) {
+            }
         } else if (str.startsWith(WeiboSdkWebActivity.BROWSER_CLOSE_SCHEME)) {
             if (this.param.getBaseData() == null || TextUtils.isEmpty(this.param.getBaseData().getCallback())) {
                 return true;
@@ -64,9 +66,8 @@ public class AuthWebViewClient extends BaseWebViewClient {
             }
             weiboCallbackManager.removeWeiboAuthListener(callback);
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     @Override // android.webkit.WebViewClient
@@ -96,7 +97,6 @@ public class AuthWebViewClient extends BaseWebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
-    @RequiresApi(api = 23)
     public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
         super.onReceivedError(webView, webResourceRequest, webResourceError);
         if (this.requestCallback != null) {

@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
-    private AlphaAnimation gog;
+    private AlphaAnimation gpk;
 
     public PbFirstFloorUserLikeButton(Context context) {
         super(context);
@@ -34,17 +34,17 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
-    public void bK(boolean z) {
-        this.aLk = z;
+    public void bL(boolean z) {
+        this.aLM = z;
         if (z) {
             setVisibility(8);
             setClickable(false);
-            setText(this.aLi);
+            setText(this.aLK);
             setPadding(0, 0, 0, 0);
         } else {
             setVisibility(0);
             setClickable(true);
-            setText(this.aLj);
+            setText(this.aLL);
             setPadding(getResources().getDimensionPixelSize(e.C0210e.tbds18), 0, getResources().getDimensionPixelSize(e.C0210e.tbds12), 0);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -52,20 +52,20 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void d(boolean z, int i) {
-        bK(z);
+        bL(z);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void a(boolean z, int i, boolean z2) {
         if (z2) {
-            this.aLk = z;
+            this.aLM = z;
             if (getVisibility() != 8) {
                 if (z) {
-                    if (this.gog == null) {
-                        this.gog = new AlphaAnimation(1.0f, 0.0f);
-                        this.gog.setDuration(500L);
-                        this.gog.setFillAfter(true);
-                        this.gog.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton.1
+                    if (this.gpk == null) {
+                        this.gpk = new AlphaAnimation(1.0f, 0.0f);
+                        this.gpk.setDuration(500L);
+                        this.gpk.setFillAfter(true);
+                        this.gpk.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton.1
                             @Override // android.view.animation.Animation.AnimationListener
                             public void onAnimationStart(Animation animation) {
                             }
@@ -81,10 +81,10 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
                             }
                         });
                     } else {
-                        this.gog.cancel();
+                        this.gpk.cancel();
                     }
                     if (isShown()) {
-                        startAnimation(this.gog);
+                        startAnimation(this.gpk);
                         return;
                     } else {
                         setVisibility(8);
@@ -93,20 +93,20 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
                 }
                 setVisibility(0);
                 setClickable(true);
-                setText(this.aLj);
+                setText(this.aLL);
                 setPadding(getResources().getDimensionPixelSize(e.C0210e.tbds18), 0, getResources().getDimensionPixelSize(e.C0210e.tbds12), 0);
                 onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
                 return;
             }
             return;
         }
-        bK(z);
+        bL(z);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
         al.c(this, e.d.cp_cont_g, 1);
-        if (this.aLk) {
+        if (this.aLM) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             setBackgroundDrawable(null);
             return;

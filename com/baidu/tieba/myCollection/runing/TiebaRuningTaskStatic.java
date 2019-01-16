@@ -14,11 +14,11 @@ public class TiebaRuningTaskStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        a.beB().destroy();
+                        a.bfb().destroy();
                     } else if (TbadkCoreApplication.isLogin()) {
-                        a.beB().start();
+                        a.bfb().start();
                     } else {
-                        a.beB().destroy();
+                        a.bfb().destroy();
                     }
                 }
             }
@@ -28,9 +28,9 @@ public class TiebaRuningTaskStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin()) {
-                    a.beB().restart();
+                    a.bfb().restart();
                 } else {
-                    a.beB().destroy();
+                    a.bfb().destroy();
                 }
             }
         });

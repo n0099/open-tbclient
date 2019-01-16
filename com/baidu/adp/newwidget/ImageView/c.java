@@ -12,7 +12,7 @@ public class c {
     }
 
     public boolean mj() {
-        return this.IT != null && this.IT.oq();
+        return this.IT != null && this.IT.ou();
     }
 
     public boolean isAvailable() {

@@ -4,23 +4,23 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes3.dex */
 public class a {
-    private l<byte[]> bPU;
+    private l<byte[]> bQF;
 
     public a() {
-        aAa();
+        aAx();
     }
 
-    private void aAa() {
-        if (this.bPU == null) {
-            this.bPU = com.baidu.tbadk.core.c.a.BB().ex("tb.god_square");
+    private void aAx() {
+        if (this.bQF == null) {
+            this.bQF = com.baidu.tbadk.core.c.a.BO().eG("tb.god_square");
         }
     }
 
-    public byte[] nQ(String str) {
+    public byte[] oh(String str) {
         l.b<byte[]> bVar;
         if (str != null) {
-            aAa();
-            bVar = this.bPU.aF(str);
+            aAx();
+            bVar = this.bQF.aF(str);
         } else {
             bVar = null;
         }
@@ -32,8 +32,8 @@ public class a {
 
     public void k(String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            aAa();
-            this.bPU.a(str, bArr, 604800000L);
+            aAx();
+            this.bQF.a(str, bArr, 604800000L);
         }
     }
 }

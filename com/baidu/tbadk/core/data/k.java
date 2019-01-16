@@ -8,43 +8,43 @@ import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class k {
-    private boolean aqr;
-    private int aqs;
-    private int aqt;
-    private int aqu = 25;
-    private int aqv = 25;
-    private int aqw = 10;
+    private boolean aqT;
+    private int aqU;
+    private int aqV;
+    private int aqW = 25;
+    private int aqX = 25;
+    private int aqY = 10;
     private int time;
 
     public int getSuccRank() {
-        return this.aqu;
+        return this.aqW;
     }
 
     public int getErrRank() {
-        return this.aqv;
+        return this.aqX;
     }
 
     public int getSlowRank() {
-        return this.aqw;
+        return this.aqY;
     }
 
     public boolean ismSwitch() {
-        return this.aqr;
+        return this.aqT;
     }
 
     public void setmSwitch(boolean z) {
-        if (this.aqr != z) {
+        if (this.aqT != z) {
             com.baidu.adp.lib.stats.a jB = com.baidu.tbadk.core.util.s.jB();
             jB.append(SocialConstants.PARAM_ACT, "fallback");
             jB.append("result", z ? "1" : "0");
             jB.append("type", "switch");
             BdStatisticsManager.getInstance().debug(SocialConstants.PARAM_IMG_URL, jB);
         }
-        this.aqr = z;
+        this.aqT = z;
     }
 
     public int getSlowNumber() {
-        return this.aqs;
+        return this.aqU;
     }
 
     public int getTime() {
@@ -52,7 +52,7 @@ public class k {
     }
 
     public int getErrNumber() {
-        return this.aqt;
+        return this.aqV;
     }
 
     public void parseJson(String str) {
@@ -61,7 +61,7 @@ public class k {
                 parseJson(new JSONObject(str));
             }
         } catch (Exception e) {
-            this.aqr = false;
+            this.aqT = false;
             BdLog.e(e.getMessage());
         }
     }
@@ -70,30 +70,30 @@ public class k {
         if (jSONObject != null) {
             try {
                 if (jSONObject.optInt("switch") == 1) {
-                    this.aqr = true;
+                    this.aqT = true;
                 } else {
-                    this.aqr = false;
+                    this.aqT = false;
                 }
                 JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
                 if (optJSONObject != null) {
-                    this.aqt = optJSONObject.optInt("num");
+                    this.aqV = optJSONObject.optInt("num");
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
                 if (optJSONObject2 != null) {
                     this.time = optJSONObject2.optInt("time");
-                    this.aqs = optJSONObject2.optInt("num");
+                    this.aqU = optJSONObject2.optInt("num");
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("rank");
                 if (optJSONObject3 != null) {
-                    this.aqu = optJSONObject3.optInt("succ");
-                    this.aqv = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                    this.aqw = optJSONObject3.optInt("slow");
+                    this.aqW = optJSONObject3.optInt("succ");
+                    this.aqX = optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
+                    this.aqY = optJSONObject3.optInt("slow");
                 }
-                if (this.time <= 0 || this.aqs <= 0 || this.aqt <= 0) {
-                    this.aqr = false;
+                if (this.time <= 0 || this.aqU <= 0 || this.aqV <= 0) {
+                    this.aqT = false;
                 }
             } catch (Exception e) {
-                this.aqr = false;
+                this.aqT = false;
                 BdLog.e(e.getMessage());
             }
         }

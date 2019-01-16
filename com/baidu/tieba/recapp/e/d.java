@@ -18,7 +18,7 @@ public class d {
 
     public e a(AdCard.f fVar, e eVar) {
         if (fVar != null && fVar.style != null) {
-            if (eVar == null || !cB(fVar.style, eVar.gUt)) {
+            if (eVar == null || !cC(fVar.style, eVar.gVy)) {
                 if (this.container == null) {
                     return null;
                 }
@@ -39,7 +39,7 @@ public class d {
         return eVar;
     }
 
-    private boolean cB(String str, String str2) {
+    private boolean cC(String str, String str2) {
         if ("apk_download".equals(str)) {
             return "apk_download".equals(str2);
         }

@@ -8,11 +8,11 @@ public interface a {
 
     boolean a(f fVar, int i);
 
-    void ct(String str);
+    void cu(String str);
 
-    void pP();
+    void pT();
 
-    boolean pQ();
+    boolean pU();
 
     void release();
 

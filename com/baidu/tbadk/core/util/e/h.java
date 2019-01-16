@@ -6,39 +6,39 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private static h aER;
-    private HashMap<String, f> aES = new HashMap<>();
-    private LinkedList<String> aET = new LinkedList<>();
+    private static h aFt;
+    private HashMap<String, f> aFu = new HashMap<>();
+    private LinkedList<String> aFv = new LinkedList<>();
 
     private h() {
     }
 
-    public static h EE() {
-        if (aER == null) {
+    public static h ER() {
+        if (aFt == null) {
             synchronized (h.class) {
-                if (aER == null) {
-                    aER = new h();
+                if (aFt == null) {
+                    aFt = new h();
                 }
             }
         }
-        return aER;
+        return aFt;
     }
 
-    public void J(List<String> list) {
-        if (this.aET != null) {
-            this.aET.clear();
+    public void K(List<String> list) {
+        if (this.aFv != null) {
+            this.aFv.clear();
         }
         for (String str : list) {
             if (!TextUtils.isEmpty(str)) {
-                if (this.aES.get(str) == null) {
-                    if (this.aES.size() < e.EC().ED()) {
+                if (this.aFu.get(str) == null) {
+                    if (this.aFu.size() < e.EP().EQ()) {
                         g.log("put loadingQueue  url: " + str);
-                        f gk = gk(str);
-                        this.aES.put(str, gk);
-                        gk.load();
+                        f gy = gy(str);
+                        this.aFu.put(str, gy);
+                        gy.load();
                     } else {
                         g.log("put waitingQueue  url: " + str);
-                        this.aET.push(str);
+                        this.aFv.push(str);
                     }
                 } else {
                     g.log("has loading  : " + str);
@@ -48,40 +48,40 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gj(String str) {
-        f remove = this.aES.remove(str);
+    public void gx(String str) {
+        f remove = this.aFu.remove(str);
         g.log("processCallback remove loadingQueue  url: " + str);
         if (remove != null) {
             remove.release();
         }
-        if (this.aET != null && this.aET.size() > 0) {
-            String pop = this.aET.pop();
-            f gk = gk(pop);
-            this.aES.put(pop, gk);
+        if (this.aFv != null && this.aFv.size() > 0) {
+            String pop = this.aFv.pop();
+            f gy = gy(pop);
+            this.aFu.put(pop, gy);
             g.log("processCallback put loadingQueue  url: " + pop);
-            gk.load();
+            gy.load();
         }
-        g.log("processCallback  mWaitingQueue.size() =  " + this.aET.size() + " mLoadingQueue.size()  " + this.aES.size());
+        g.log("processCallback  mWaitingQueue.size() =  " + this.aFv.size() + " mLoadingQueue.size()  " + this.aFu.size());
     }
 
-    private f gk(String str) {
+    private f gy(String str) {
         return new f(str, new b() { // from class: com.baidu.tbadk.core.util.e.h.1
             @Override // com.baidu.tbadk.core.util.e.b
             public void onSuccess(String str2) {
                 g.log("onSuccess  url = " + str2);
-                h.this.gj(str2);
+                h.this.gx(str2);
             }
 
             @Override // com.baidu.tbadk.core.util.e.b
-            public void aC(String str2, String str3) {
+            public void aD(String str2, String str3) {
                 g.log("onFail  url = " + str2);
-                h.this.gj(str2);
+                h.this.gx(str2);
             }
 
             @Override // com.baidu.tbadk.core.util.e.b
-            public void gh(String str2) {
+            public void gv(String str2) {
                 g.log("onCancle  url = " + str2);
-                h.this.gj(str2);
+                h.this.gx(str2);
             }
         });
     }

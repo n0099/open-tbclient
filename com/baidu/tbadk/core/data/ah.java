@@ -4,10 +4,10 @@ import android.util.SparseArray;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class ah {
-    public SparseArray<String> asc = null;
-    public SparseArray<String> asd = null;
-    public int ase;
-    public JSONArray asf;
+    public SparseArray<String> asE = null;
+    public SparseArray<String> asF = null;
+    public int asG;
+    public JSONArray asH;
     private String fid;
     private String tid;
     private String type;
@@ -40,27 +40,27 @@ public class ah {
         this.type = str;
     }
 
-    public SparseArray<String> yF() {
-        return this.asc;
+    public SparseArray<String> yS() {
+        return this.asE;
     }
 
     public void a(SparseArray<String> sparseArray) {
-        this.asc = sparseArray;
+        this.asE = sparseArray;
     }
 
     public void cE(int i) {
-        this.ase = i;
+        this.asG = i;
     }
 
-    public int yG() {
-        return this.ase;
+    public int yT() {
+        return this.asG;
     }
 
     public void h(JSONArray jSONArray) {
-        this.asf = jSONArray;
+        this.asH = jSONArray;
     }
 
-    public JSONArray yH() {
-        return this.asf;
+    public JSONArray yU() {
+        return this.asH;
     }
 }

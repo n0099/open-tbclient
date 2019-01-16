@@ -16,7 +16,7 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class a {
-    private C0164a aQA;
+    private C0164a aRe;
     private com.baidu.adp.base.d mLoadDataCallBack;
     private TbPageContext mPageContext;
 
@@ -33,18 +33,18 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.aQA == null) {
-            this.aQA = new C0164a();
-            this.aQA.setPriority(2);
-            this.aQA.cd(z);
-            this.aQA.setPortrait(str);
-            this.aQA.setToUid(str2);
-            this.aQA.setIsGod(z2);
-            this.aQA.setFrom(str3);
-            this.aQA.setPageId(bdUniqueId);
-            this.aQA.setForumId(str4);
-            this.aQA.setInLive(str5);
-            this.aQA.execute(new Integer[0]);
+        if (this.aRe == null) {
+            this.aRe = new C0164a();
+            this.aRe.setPriority(2);
+            this.aRe.ce(z);
+            this.aRe.setPortrait(str);
+            this.aRe.setToUid(str2);
+            this.aRe.setIsGod(z2);
+            this.aRe.setFrom(str3);
+            this.aRe.setPageId(bdUniqueId);
+            this.aRe.setForumId(str4);
+            this.aRe.setInLive(str5);
+            this.aRe.execute(new Integer[0]);
         }
     }
 
@@ -82,7 +82,7 @@ public class a {
             this.toUid = str;
         }
 
-        public void cd(boolean z) {
+        public void ce(boolean z) {
             this.isAttention = z;
         }
 
@@ -118,7 +118,7 @@ public class a {
                     this.mNetwork = new x();
                     if (this.isAttention) {
                         this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.FOLLOW_ADDRESS);
-                        this.mNetwork.bs(true);
+                        this.mNetwork.bt(true);
                     } else {
                         this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.UNFOLLOW_ADDRESS);
                     }
@@ -131,10 +131,10 @@ public class a {
                     }
                     this.mNetwork.x("in_live", this.inLive);
                     this.mNetwork.x("authsid", this.authSid);
-                    this.mNetwork.Dj().Eh().mIsNeedTbs = true;
-                    String CL = this.mNetwork.CL();
-                    this.tokenData = AuthTokenData.parse(CL);
-                    return CL;
+                    this.mNetwork.Dw().Eu().mIsNeedTbs = true;
+                    String CY = this.mNetwork.CY();
+                    this.tokenData = AuthTokenData.parse(CY);
+                    return CY;
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -147,19 +147,19 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((C0164a) str);
-            a.this.aQA = null;
+            a.this.aRe = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-                aVar.Jr = this.mNetwork.Dj().Ei().isRequestSuccess();
+                aVar.Jr = this.mNetwork.Dw().Ev().isRequestSuccess();
                 aVar.errorString = this.mNetwork.getErrorString();
                 aVar.isAttention = this.isAttention;
                 aVar.toUid = this.toUid;
                 aVar.isGod = this.isGod;
                 aVar.t(str, this.showToastAfterAttentionSuc);
-                if (this.mNetwork.Dj().Ei().isRequestSuccess()) {
-                    aVar.aPt = null;
+                if (this.mNetwork.Dw().Ev().isRequestSuccess()) {
+                    aVar.aPX = null;
                 }
-                if (!AntiHelper.e(a.this.getContext(), this.mNetwork.Dn(), aVar.aPs)) {
+                if (!AntiHelper.e(a.this.getContext(), this.mNetwork.DA(), aVar.aPW)) {
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                     updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
                     MessageManager.getInstance().dispatchResponsedMessageToUI(updateAttentionMessage);
@@ -174,9 +174,9 @@ public class a {
                 this.mNetwork.jg();
                 this.mNetwork = null;
             }
-            if (a.this.aQA != null) {
-                a.this.aQA.cancel();
-                a.this.aQA = null;
+            if (a.this.aRe != null) {
+                a.this.aRe.cancel();
+                a.this.aRe = null;
             }
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.m(false);
@@ -192,8 +192,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.aQA != null) {
-            this.aQA.cancel();
+        if (this.aRe != null) {
+            this.aRe.cancel();
         }
     }
 }

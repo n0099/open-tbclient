@@ -7,23 +7,23 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e implements b {
-    private int bpo;
-    private int bpp;
-    private double bpq;
-    private boolean bpr;
+    private int bqc;
+    private int bqd;
+    private double bqe;
+    private boolean bqf;
 
     public e() {
-        this.bpo = 3;
-        this.bpp = this.bpo;
-        this.bpr = true;
+        this.bqc = 3;
+        this.bqd = this.bqc;
+        this.bqf = true;
     }
 
     public e(int i) {
-        this.bpo = 3;
-        this.bpp = this.bpo;
-        this.bpr = true;
+        this.bqc = 3;
+        this.bqd = this.bqc;
+        this.bqf = true;
         if (i > 0) {
-            this.bpp = i;
+            this.bqd = i;
         }
     }
 
@@ -44,22 +44,22 @@ public class e implements b {
         }
         int H = v.H(list);
         if (H >= 2) {
-            constrainImageLayout.setImageMaxChildCount(this.bpo);
+            constrainImageLayout.setImageMaxChildCount(this.bqc);
             constrainImageLayout.setCanCenterStart(false);
         } else {
             constrainImageLayout.setImageMaxChildCount(-1);
             constrainImageLayout.setCanCenterStart(true);
         }
-        int i3 = H - this.bpp;
+        int i3 = H - this.bqd;
         if (i3 > 0) {
-            int i4 = this.bpp + i;
+            int i4 = this.bqd + i;
             List<MediaData> b = v.b(list, i, i4);
             String string = TbadkCoreApplication.getInst().getString(e.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i3)});
-            if (!this.bpr) {
+            if (!this.bqf) {
                 string = null;
             }
             constrainImageLayout.setExtraCenterText(string);
-            constrainImageLayout.setUrls(b, i, true, this.bpr);
+            constrainImageLayout.setUrls(b, i, true, this.bqf);
             i2 = i4;
         } else {
             constrainImageLayout.setUrls(v.b(list, i, H), i);
@@ -75,17 +75,17 @@ public class e implements b {
         if (i == 1) {
             return 0.5625d;
         }
-        if (this.bpq > 0.0d) {
-            return this.bpq;
+        if (this.bqe > 0.0d) {
+            return this.bqe;
         }
         return 0.6666666666666666d;
     }
 
     public void g(double d) {
-        this.bpq = d;
+        this.bqe = d;
     }
 
-    public void cX(boolean z) {
-        this.bpr = z;
+    public void da(boolean z) {
+        this.bqf = z;
     }
 }

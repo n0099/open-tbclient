@@ -7,7 +7,7 @@ import java.util.Vector;
 /* loaded from: classes2.dex */
 public class b implements a {
     private Object lock = new Object();
-    private Vector<a> aat = new Vector<>();
+    private Vector<a> aaC = new Vector<>();
 
     public b(a aVar) {
         e(aVar);
@@ -16,7 +16,7 @@ public class b implements a {
     public void e(a aVar) {
         if (aVar != null) {
             synchronized (this.lock) {
-                this.aat.add(aVar);
+                this.aaC.add(aVar);
             }
         }
     }
@@ -24,8 +24,8 @@ public class b implements a {
     public void f(a aVar) {
         if (aVar != null) {
             synchronized (this.lock) {
-                if (!this.aat.remove(aVar)) {
-                    this.aat.remove(this.aat.indexOf(aVar));
+                if (!this.aaC.remove(aVar)) {
+                    this.aaC.remove(this.aaC.indexOf(aVar));
                 }
             }
         }
@@ -35,7 +35,7 @@ public class b implements a {
     public void a(f fVar) {
         try {
             synchronized (this.lock) {
-                Iterator<a> it = this.aat.iterator();
+                Iterator<a> it = this.aaC.iterator();
                 while (it.hasNext()) {
                     it.next().a(fVar);
                 }
@@ -52,7 +52,7 @@ public class b implements a {
         Vector vector = new Vector();
         try {
             synchronized (this.lock) {
-                Iterator<a> it = this.aat.iterator();
+                Iterator<a> it = this.aaC.iterator();
                 while (it.hasNext()) {
                     vector.add(it.next());
                 }

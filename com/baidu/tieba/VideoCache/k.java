@@ -6,9 +6,9 @@ import android.os.Message;
 import java.io.InputStream;
 /* loaded from: classes6.dex */
 public class k {
-    private static k bAa;
-    private g bAb;
-    private b bAc;
+    private static k bAN;
+    private g bAO;
+    private b bAP;
     private Handler mHandler;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.VideoCache.k.1
         @Override // android.os.Handler.Callback
@@ -23,19 +23,19 @@ public class k {
                 }
             } else if (message.what == 2) {
                 if (message.obj instanceof String) {
-                    k.this.bAb.setVideoUrl((String) message.obj);
-                    k.this.bAb.run();
+                    k.this.bAO.setVideoUrl((String) message.obj);
+                    k.this.bAO.run();
                 }
             } else if (message.what == 3) {
-                if (k.this.bAc != null) {
-                    k.this.bAc.Vf();
+                if (k.this.bAP != null) {
+                    k.this.bAP.VB();
                 }
             } else if (message.what == 4) {
                 if (message.obj instanceof String) {
-                    k.this.bAc.jl((String) message.obj);
+                    k.this.bAP.jB((String) message.obj);
                 }
-            } else if (message.what == 5 && k.this.bAc != null) {
-                k.this.bAc.clearCache();
+            } else if (message.what == 5 && k.this.bAP != null) {
+                k.this.bAP.clearCache();
             }
             return true;
         }
@@ -45,19 +45,19 @@ public class k {
         HandlerThread handlerThread = new HandlerThread("video_cache_handler");
         handlerThread.start();
         this.mHandler = new Handler(handlerThread.getLooper(), this.mHandlerCallback);
-        this.bAb = new g();
-        this.bAc = new b();
+        this.bAO = new g();
+        this.bAP = new b();
     }
 
-    public static k Vu() {
-        if (bAa == null) {
+    public static k VQ() {
+        if (bAN == null) {
             synchronized (k.class) {
-                if (bAa == null) {
-                    bAa = new k();
+                if (bAN == null) {
+                    bAN = new k();
                 }
             }
         }
-        return bAa;
+        return bAN;
     }
 
     public void m(InputStream inputStream) {
@@ -66,18 +66,18 @@ public class k {
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void jw(String str) {
+    public void jM(String str) {
         this.mHandler.removeMessages(2);
         Message obtainMessage = this.mHandler.obtainMessage(2);
         obtainMessage.obj = str;
         this.mHandler.sendMessageDelayed(obtainMessage, 1000L);
     }
 
-    public void Vf() {
+    public void VB() {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
     }
 
-    public void jl(String str) {
+    public void jB(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(4);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);

@@ -20,12 +20,12 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.view.ScrollItemView;
 /* loaded from: classes3.dex */
 public class a {
-    private TextView aJg;
-    private TextView emr;
-    private ImageView ems;
-    private ScrollItemView emt;
-    private ImageView emu;
-    private com.baidu.tieba.frs.worldcup.talkball.a.a emv;
+    private TextView aJI;
+    private TextView emX;
+    private ImageView emY;
+    private ScrollItemView emZ;
+    private ImageView ena;
+    private com.baidu.tieba.frs.worldcup.talkball.a.a enb;
     private View mRootView;
     private TbPageContext mTbPageContext;
     private String mUrl;
@@ -35,7 +35,7 @@ public class a {
         public void onClick(View view) {
             if (!ao.isEmpty(a.this.mUrl)) {
                 TiebaStatic.log(new am("c13082"));
-                ay.Ef().c(a.this.mTbPageContext, new String[]{a.this.mUrl});
+                ay.Es().c(a.this.mTbPageContext, new String[]{a.this.mUrl});
             }
         }
     };
@@ -48,10 +48,10 @@ public class a {
     private void aI(ViewGroup viewGroup) {
         this.mRootView = this.mTbPageContext.getPageActivity().getLayoutInflater().inflate(e.h.guess_competition_layout, viewGroup, false);
         this.mRootView.findViewById(e.g.container).setOnClickListener(this.mClickListener);
-        this.emr = (TextView) this.mRootView.findViewById(e.g.competition_text);
-        this.ems = (ImageView) this.mRootView.findViewById(e.g.prise_icon);
-        this.emt = (ScrollItemView) this.mRootView.findViewById(e.g.prise_text);
-        this.emt.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.frs.worldcup.talkball.view.a.2
+        this.emX = (TextView) this.mRootView.findViewById(e.g.competition_text);
+        this.emY = (ImageView) this.mRootView.findViewById(e.g.prise_icon);
+        this.emZ = (ScrollItemView) this.mRootView.findViewById(e.g.prise_text);
+        this.emZ.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.frs.worldcup.talkball.view.a.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (a.this.mClickListener != null) {
@@ -59,12 +59,12 @@ public class a {
                 }
             }
         });
-        this.aJg = (TextView) this.mRootView.findViewById(e.g.more);
-        this.emu = (ImageView) this.mRootView.findViewById(e.g.right_arrow);
+        this.aJI = (TextView) this.mRootView.findViewById(e.g.more);
+        this.ena = (ImageView) this.mRootView.findViewById(e.g.right_arrow);
         RecyclerView recyclerView = (RecyclerView) this.mRootView.findViewById(e.g.recycler_view);
-        this.emv = new com.baidu.tieba.frs.worldcup.talkball.a.a(this.mTbPageContext);
-        this.emv.setOnClickListener(this.mClickListener);
-        recyclerView.setAdapter(this.emv);
+        this.enb = new com.baidu.tieba.frs.worldcup.talkball.a.a(this.mTbPageContext);
+        this.enb.setOnClickListener(this.mClickListener);
+        recyclerView.setAdapter(this.enb);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.mTbPageContext.getPageActivity(), 0, false));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
@@ -75,48 +75,48 @@ public class a {
 
     public void b(com.baidu.tieba.frs.worldcup.talkball.b.e eVar) {
         if (eVar != null) {
-            this.mUrl = eVar.aJh();
+            this.mUrl = eVar.aJF();
             c(eVar);
-            this.emv.setData(eVar.aJg());
-            this.emv.notifyDataSetChanged();
+            this.enb.setData(eVar.aJE());
+            this.enb.notifyDataSetChanged();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     private void c(com.baidu.tieba.frs.worldcup.talkball.b.e eVar) {
-        this.emt.setData(eVar.aJi());
-        if (v.I(eVar.aJi())) {
-            this.ems.setVisibility(8);
+        this.emZ.setData(eVar.aJG());
+        if (v.I(eVar.aJG())) {
+            this.emY.setVisibility(8);
         } else {
-            this.ems.setVisibility(0);
+            this.emY.setVisibility(0);
         }
     }
 
-    public void gx(boolean z) {
-        if (this.emt != null) {
+    public void gA(boolean z) {
+        if (this.emZ != null) {
             if (z) {
-                this.emt.aIQ();
+                this.emZ.aJo();
             } else {
-                this.emt.stopScroll();
+                this.emZ.stopScroll();
             }
         }
     }
 
     public void onDestroy() {
-        if (this.emt != null) {
-            this.emt.onDestroy();
+        if (this.emZ != null) {
+            this.emZ.onDestroy();
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            al.h(this.emr, e.d.cp_cont_f);
-            al.h(this.aJg, e.d.cp_cont_j);
-            al.c(this.ems, e.f.icon_front_worldcup_jiang_n);
-            al.c(this.emu, e.f.icon_arrow_gray_right_n);
-            if (this.emv != null) {
-                this.emv.notifyDataSetChanged();
+            al.h(this.emX, e.d.cp_cont_f);
+            al.h(this.aJI, e.d.cp_cont_j);
+            al.c(this.emY, e.f.icon_front_worldcup_jiang_n);
+            al.c(this.ena, e.f.icon_arrow_gray_right_n);
+            if (this.enb != null) {
+                this.enb.notifyDataSetChanged();
             }
         }
     }

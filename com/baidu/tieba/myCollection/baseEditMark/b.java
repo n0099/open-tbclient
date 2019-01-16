@@ -6,55 +6,55 @@ import com.baidu.tbadk.baseEditMark.a;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tbadk.baseEditMark.a {
-    private MarkModel fKC;
+    private MarkModel fLw;
 
     public b(BaseActivity baseActivity) {
-        this.fKC = null;
-        this.fKC = new MarkModel(baseActivity);
+        this.fLw = null;
+        this.fLw = new MarkModel(baseActivity);
     }
 
     public b(BaseFragmentActivity baseFragmentActivity) {
-        this.fKC = null;
-        this.fKC = new MarkModel(baseFragmentActivity);
+        this.fLw = null;
+        this.fLw = new MarkModel(baseFragmentActivity);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void aP(boolean z) {
-        this.fKC.aP(z);
+    public void aQ(boolean z) {
+        this.fLw.aQ(z);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public String wp() {
-        return this.fKC.wp();
+    public String ww() {
+        return this.fLw.ww();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(a.InterfaceC0154a interfaceC0154a) {
-        this.fKC.a(interfaceC0154a);
+        this.fLw.a(interfaceC0154a);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void wr() {
-        this.fKC.wr();
+    public void wy() {
+        this.fLw.wy();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public void ws() {
-        this.fKC.ws();
+    public void wz() {
+        this.fLw.wz();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public MarkData wt() {
-        return this.fKC.wt();
+    public MarkData wA() {
+        return this.fLw.wA();
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
     public void a(MarkData markData) {
-        this.fKC.a(markData);
+        this.fLw.a(markData);
     }
 
     @Override // com.baidu.tbadk.baseEditMark.a
-    public boolean wq() {
-        return this.fKC.wq();
+    public boolean wx() {
+        return this.fLw.wx();
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.ubc;
 /* loaded from: classes2.dex */
 public interface l {
-    m Ze();
+    m ZB();
 
-    String Zf();
+    String ZC();
 
-    boolean Zg();
+    boolean ZD();
 
-    boolean kI(String str);
+    boolean kY(String str);
 }

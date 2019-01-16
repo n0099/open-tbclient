@@ -7,38 +7,38 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private AntiData aNN;
-    private final ArrayList<bb> dJS;
-    private boolean dJT;
-    private b dJU;
+    private AntiData aOp;
+    private final ArrayList<bb> dKB;
+    private boolean dKC;
+    private b dKD;
     private String forumId;
 
     /* loaded from: classes.dex */
     public interface b {
-        void aAP();
+        void aBm();
 
-        void mf(int i);
+        void mg(int i);
 
         void y(boolean z, boolean z2);
     }
 
     private a() {
-        this.dJT = false;
-        this.dJS = new ArrayList<>();
+        this.dKC = false;
+        this.dKB = new ArrayList<>();
     }
 
-    public static a aAJ() {
-        return C0218a.dJV;
+    public static a aBg() {
+        return C0218a.dKE;
     }
 
-    public boolean aAK() {
-        return this.dJT;
+    public boolean aBh() {
+        return this.dKC;
     }
 
     public void x(boolean z, boolean z2) {
-        this.dJT = z;
-        if (this.dJU != null) {
-            this.dJU.y(this.dJT, z2);
+        this.dKC = z;
+        if (this.dKD != null) {
+            this.dKD.y(this.dKC, z2);
         }
     }
 
@@ -46,42 +46,42 @@ public class a {
         if (bbVar == null) {
             return false;
         }
-        if (this.dJS.size() > 29) {
-            if (this.dJU != null) {
-                this.dJU.aAP();
+        if (this.dKB.size() > 29) {
+            if (this.dKD != null) {
+                this.dKD.aBm();
                 return false;
             }
             return false;
         }
-        this.dJS.add(bbVar);
-        if (this.dJU != null) {
-            this.dJU.mf(this.dJS.size());
+        this.dKB.add(bbVar);
+        if (this.dKD != null) {
+            this.dKD.mg(this.dKB.size());
         }
         return true;
     }
 
-    public List<bb> aAL() {
-        return this.dJS;
+    public List<bb> aBi() {
+        return this.dKB;
     }
 
     public void W(bb bbVar) {
-        this.dJS.remove(bbVar);
-        if (this.dJU != null) {
-            this.dJU.mf(this.dJS.size());
+        this.dKB.remove(bbVar);
+        if (this.dKD != null) {
+            this.dKD.mg(this.dKB.size());
         }
     }
 
     public void clearData() {
-        Iterator<bb> it = this.dJS.iterator();
+        Iterator<bb> it = this.dKB.iterator();
         while (it.hasNext()) {
             bb next = it.next();
             if (next != null) {
-                next.bd(false);
+                next.be(false);
             }
         }
-        this.dJS.clear();
-        if (this.dJU != null) {
-            this.dJU.mf(0);
+        this.dKB.clear();
+        if (this.dKD != null) {
+            this.dKD.mg(0);
         }
     }
 
@@ -91,22 +91,22 @@ public class a {
     }
 
     public void a(b bVar) {
-        this.dJU = bVar;
+        this.dKD = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0218a {
-        private static a dJV = new a();
+        private static a dKE = new a();
     }
 
-    public AntiData aAM() {
-        return this.aNN;
+    public AntiData aBj() {
+        return this.aOp;
     }
 
     public void b(AntiData antiData) {
-        this.aNN = antiData;
+        this.aOp = antiData;
     }
 
     public String getForumId() {
@@ -117,9 +117,9 @@ public class a {
         this.forumId = str;
     }
 
-    public void bC(List<String> list) {
-        if (!com.baidu.tbadk.core.util.v.I(list) && !com.baidu.tbadk.core.util.v.I(this.dJS)) {
-            Iterator<bb> it = this.dJS.iterator();
+    public void bD(List<String> list) {
+        if (!com.baidu.tbadk.core.util.v.I(list) && !com.baidu.tbadk.core.util.v.I(this.dKB)) {
+            Iterator<bb> it = this.dKB.iterator();
             while (it.hasNext()) {
                 bb next = it.next();
                 int i = 0;
@@ -135,13 +135,13 @@ public class a {
                     }
                 }
             }
-            if (this.dJU != null) {
-                this.dJU.mf(this.dJS.size());
+            if (this.dKD != null) {
+                this.dKD.mg(this.dKB.size());
             }
         }
     }
 
-    public boolean aAN() {
-        return this.aNN != null && this.aNN.isMultiDeleteEnable();
+    public boolean aBk() {
+        return this.aOp != null && this.aOp.isMultiDeleteEnable();
     }
 }

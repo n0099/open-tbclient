@@ -4,15 +4,15 @@ import android.media.MediaPlayer;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class k implements Runnable {
-    final /* synthetic */ c Wh;
-    final /* synthetic */ n Wl;
-    final /* synthetic */ float Wo;
+    final /* synthetic */ c Wq;
+    final /* synthetic */ n Wu;
+    final /* synthetic */ float Wx;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(c cVar, float f, n nVar) {
-        this.Wh = cVar;
-        this.Wo = f;
-        this.Wl = nVar;
+        this.Wq = cVar;
+        this.Wx = f;
+        this.Wu = nVar;
     }
 
     @Override // java.lang.Runnable
@@ -20,22 +20,22 @@ public class k implements Runnable {
         MediaPlayer mediaPlayer;
         MediaPlayer mediaPlayer2;
         MediaPlayer mediaPlayer3;
-        mediaPlayer = this.Wh.Wd;
+        mediaPlayer = this.Wq.Wm;
         if (mediaPlayer == null) {
-            this.Wl.cA("setVolume Not palying Audio");
+            this.Wu.cB("setVolume Not palying Audio");
             return;
         }
         try {
-            mediaPlayer2 = this.Wh.Wd;
+            mediaPlayer2 = this.Wq.Wm;
             if (mediaPlayer2.isPlaying()) {
-                mediaPlayer3 = this.Wh.Wd;
-                mediaPlayer3.setVolume(this.Wo, this.Wo);
-                this.Wl.c("setVolume", "true", true);
+                mediaPlayer3 = this.Wq.Wm;
+                mediaPlayer3.setVolume(this.Wx, this.Wx);
+                this.Wu.c("setVolume", "true", true);
             } else {
-                this.Wl.cA(" setVolume Not palying Audio");
+                this.Wu.cB(" setVolume Not palying Audio");
             }
         } catch (IllegalStateException e) {
-            this.Wl.cA(e.getMessage());
+            this.Wu.cB(e.getMessage());
         }
     }
 }

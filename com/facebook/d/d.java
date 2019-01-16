@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 class d {
-    private static final Class<?> ihJ = d.class;
+    private static final Class<?> iiQ = d.class;
 
     d() {
     }
 
-    public static int zc(int i) {
+    public static int ze(int i) {
         switch (i) {
             case 0:
             case 1:
@@ -19,7 +19,7 @@ class d {
             case 5:
             case 7:
             default:
-                com.facebook.common.c.a.e(ihJ, "Unsupported orientation");
+                com.facebook.common.c.a.e(iiQ, "Unsupported orientation");
                 return 0;
             case 3:
                 return 180;
@@ -33,20 +33,20 @@ class d {
     public static int g(InputStream inputStream, int i) throws IOException {
         a aVar = new a();
         int a2 = a(inputStream, i, aVar);
-        int i2 = aVar.ive - 8;
+        int i2 = aVar.iwl - 8;
         if (a2 == 0 || i2 > a2) {
             return 0;
         }
         inputStream.skip(i2);
-        return b(inputStream, a(inputStream, a2 - i2, aVar.ivc, 274), aVar.ivc);
+        return b(inputStream, a(inputStream, a2 - i2, aVar.iwj, 274), aVar.iwj);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        boolean ivc;
-        int ivd;
-        int ive;
+        boolean iwj;
+        int iwk;
+        int iwl;
 
         private a() {
         }
@@ -56,17 +56,17 @@ class d {
         if (i <= 8) {
             return 0;
         }
-        aVar.ivd = c.a(inputStream, 4, false);
+        aVar.iwk = c.a(inputStream, 4, false);
         int i2 = i - 4;
-        if (aVar.ivd != 1229531648 && aVar.ivd != 1296891946) {
-            com.facebook.common.c.a.g(ihJ, "Invalid TIFF header");
+        if (aVar.iwk != 1229531648 && aVar.iwk != 1296891946) {
+            com.facebook.common.c.a.g(iiQ, "Invalid TIFF header");
             return 0;
         }
-        aVar.ivc = aVar.ivd == 1229531648;
-        aVar.ive = c.a(inputStream, 4, aVar.ivc);
+        aVar.iwj = aVar.iwk == 1229531648;
+        aVar.iwl = c.a(inputStream, 4, aVar.iwj);
         int i3 = i2 - 4;
-        if (aVar.ive < 8 || aVar.ive - 8 > i3) {
-            com.facebook.common.c.a.g(ihJ, "Invalid offset");
+        if (aVar.iwl < 8 || aVar.iwl - 8 > i3) {
+            com.facebook.common.c.a.g(iiQ, "Invalid offset");
             return 0;
         }
         return i3;

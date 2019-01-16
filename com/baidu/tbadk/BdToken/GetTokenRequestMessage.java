@@ -19,7 +19,7 @@ public class GetTokenRequestMessage extends NetMessage {
         builder.token = this.mToken;
         builder.shoubaicuid = this.mBaiduCuid;
         if (z) {
-            com.baidu.tbadk.util.p.bindCommonParamsToProtobufData(builder, true);
+            com.baidu.tbadk.util.q.bindCommonParamsToProtobufData(builder, true);
         }
         GetTokenReqIdl.Builder builder2 = new GetTokenReqIdl.Builder();
         builder2.data = builder.build(false);

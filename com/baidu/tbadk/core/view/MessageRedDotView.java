@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class MessageRedDotView extends View {
-    private Paint aFR;
-    private Rect aHA;
-    private Drawable aHv;
-    private int aHw;
-    private boolean aHx;
-    private String aHy;
-    private int aHz;
+    private Paint aGt;
+    private Drawable aHX;
+    private int aHY;
+    private boolean aHZ;
+    private String aIa;
+    private int aIb;
+    private Rect aIc;
     private Drawable mBackgroundDrawable;
     private int mType;
 
@@ -67,8 +67,8 @@ public class MessageRedDotView extends View {
         if (this.mBackgroundDrawable != null) {
             this.mBackgroundDrawable.setBounds(0, 0, this.mBackgroundDrawable.getIntrinsicWidth(), this.mBackgroundDrawable.getIntrinsicHeight());
             this.mBackgroundDrawable.draw(canvas);
-            if (!ao.isEmpty(this.aHy)) {
-                if (this.aHy.equals("...")) {
+            if (!ao.isEmpty(this.aIa)) {
+                if (this.aIa.equals("...")) {
                     h(canvas);
                 } else {
                     i(canvas);
@@ -78,7 +78,7 @@ public class MessageRedDotView extends View {
     }
 
     private void h(Canvas canvas) {
-        if (this.aHv != null && this.mBackgroundDrawable != null) {
+        if (this.aHX != null && this.mBackgroundDrawable != null) {
             int intrinsicWidth = this.mBackgroundDrawable.getIntrinsicWidth() / 2;
             int intrinsicHeight = this.mBackgroundDrawable.getIntrinsicHeight() / 2;
             int h = com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.tbds6);
@@ -87,36 +87,36 @@ public class MessageRedDotView extends View {
             int i2 = intrinsicHeight - (h / 2);
             int i3 = intrinsicWidth + (h / 2);
             int i4 = intrinsicHeight + (h / 2);
-            this.aHv.setBounds(i, i2, i3, i4);
-            this.aHv.draw(canvas);
-            this.aHv.setBounds((i - h2) - h, i2, i - h2, i4);
-            this.aHv.draw(canvas);
-            this.aHv.setBounds(i3 + h2, i2, i3 + h2 + h, i4);
-            this.aHv.draw(canvas);
+            this.aHX.setBounds(i, i2, i3, i4);
+            this.aHX.draw(canvas);
+            this.aHX.setBounds((i - h2) - h, i2, i - h2, i4);
+            this.aHX.draw(canvas);
+            this.aHX.setBounds(i3 + h2, i2, i3 + h2 + h, i4);
+            this.aHX.draw(canvas);
         }
     }
 
     private void i(Canvas canvas) {
-        if (!ao.isEmpty(this.aHy) && this.mBackgroundDrawable != null) {
-            this.aFR.getTextBounds(this.aHy, 0, this.aHy.length(), this.aHA);
-            canvas.drawText(this.aHy, this.mBackgroundDrawable.getIntrinsicWidth() / 2, ((this.mBackgroundDrawable.getIntrinsicHeight() + this.aHA.height()) / 2) - this.aHz, this.aFR);
+        if (!ao.isEmpty(this.aIa) && this.mBackgroundDrawable != null) {
+            this.aGt.getTextBounds(this.aIa, 0, this.aIa.length(), this.aIc);
+            canvas.drawText(this.aIa, this.mBackgroundDrawable.getIntrinsicWidth() / 2, ((this.mBackgroundDrawable.getIntrinsicHeight() + this.aIc.height()) / 2) - this.aIb, this.aGt);
         }
     }
 
     private void initView() {
-        ET();
-        this.aFR = new Paint(1);
-        this.aFR.setColor(al.getColor(e.d.cp_cont_i));
-        this.aFR.setTextSize(com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.tbfontsize26));
-        this.aFR.setTextAlign(Paint.Align.CENTER);
-        this.aFR.setTypeface(Typeface.MONOSPACE);
-        this.aHA = new Rect();
+        Fg();
+        this.aGt = new Paint(1);
+        this.aGt.setColor(al.getColor(e.d.cp_cont_i));
+        this.aGt.setTextSize(com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.tbfontsize26));
+        this.aGt.setTextAlign(Paint.Align.CENTER);
+        this.aGt.setTypeface(Typeface.MONOSPACE);
+        this.aIc = new Rect();
     }
 
-    private void ET() {
+    private void Fg() {
         String str = Build.MODEL;
         if (str.contains("vivo") && str.contains("X20")) {
-            this.aHz = com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.tbds2);
+            this.aIb = com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.tbds2);
         }
     }
 
@@ -124,28 +124,28 @@ public class MessageRedDotView extends View {
         int i2;
         if (i <= 0) {
             i2 = e.f.icon_news_red_dot;
-            this.aHy = null;
+            this.aIa = null;
         } else if (i < 10) {
-            this.aHy = String.valueOf(i);
+            this.aIa = String.valueOf(i);
             i2 = e.f.icon_news_red_dot_one_number;
         } else if (i < 100) {
-            this.aHy = String.valueOf(i);
+            this.aIa = String.valueOf(i);
             i2 = e.f.icon_news_red_dot_two_number;
         } else if (this.mType == 1) {
-            this.aHy = "...";
+            this.aIa = "...";
             i2 = e.f.icon_news_red_dot_two_number;
         } else if (this.mType == 2) {
-            this.aHy = "99+";
+            this.aIa = "99+";
             i2 = e.f.icon_news_red_dot_three_number;
         } else {
             i2 = 0;
         }
-        if (i2 != this.aHw) {
-            this.aHx = true;
+        if (i2 != this.aHY) {
+            this.aHZ = true;
         } else {
-            this.aHx = false;
+            this.aHZ = false;
         }
-        this.aHw = i2;
+        this.aHY = i2;
         onChangeSkinType();
     }
 
@@ -154,13 +154,13 @@ public class MessageRedDotView extends View {
     }
 
     public void onChangeSkinType() {
-        this.mBackgroundDrawable = al.getDrawable(this.aHw);
-        this.aHv = al.getDrawable(e.f.icon_news_white_dot);
-        if (this.aFR != null) {
-            this.aFR.setColor(al.getColor(e.d.cp_cont_i));
+        this.mBackgroundDrawable = al.getDrawable(this.aHY);
+        this.aHX = al.getDrawable(e.f.icon_news_white_dot);
+        if (this.aGt != null) {
+            this.aGt.setColor(al.getColor(e.d.cp_cont_i));
         }
-        if (this.aHx) {
-            this.aHx = false;
+        if (this.aHZ) {
+            this.aHZ = false;
             requestLayout();
             return;
         }

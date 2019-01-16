@@ -46,7 +46,7 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
                 this.needCache = frsRequestData.isNeedCache();
                 this.mCategoryId = frsRequestData.getCategoryId();
                 this.hasNetworkError = hasError();
-                this.mSortType = frsRequestData.acb();
+                this.mSortType = frsRequestData.acy();
                 this.mIsGood = frsRequestData.getIsGood();
                 this.mLoadType = frsRequestData.getLoadType();
             }
@@ -61,7 +61,7 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         if (M != null && M.error != null) {
             if (M.error.errorno != null) {
                 setError(M.error.errorno.intValue());
-                this.responseData.dRQ = M.error.errorno.intValue();
+                this.responseData.dSz = M.error.errorno.intValue();
             }
             setErrorString(M.error.usermsg);
         }
@@ -74,7 +74,7 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         int l;
         CustomResponsedMessage runTask;
         super.beforeDispatchInBackGround(i, (int) bArr);
-        if (this.responseData.bCz() != null && !StringUtils.isNull(this.responseData.bCz().yl(), true) && !this.responseData.bCz().yl().equals("0") && this.responseData.bCz().ym() == 3 && (l = com.baidu.adp.lib.g.b.l(this.responseData.bCz().yl(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(l))) != null) {
+        if (this.responseData.bDi() != null && !StringUtils.isNull(this.responseData.bDi().yy(), true) && !this.responseData.bDi().yy().equals("0") && this.responseData.bDi().yz() == 3 && (l = com.baidu.adp.lib.g.b.l(this.responseData.bDi().yy(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(l))) != null) {
             this.responseData.q(Integer.valueOf(((Integer) runTask.getData()).intValue()));
         }
     }
@@ -82,13 +82,13 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        if (!hasError() && this.responseData != null && this.needCache && this.responseData.bgT() != null) {
-            int acb = this.responseData.acb();
-            String d = c.bBU().d(this.responseData.bgT().getName(), acb, this.mIsGood, this.mCategoryId);
-            if (acb == 3) {
-                c.bBU().o(d, bArr);
+        if (!hasError() && this.responseData != null && this.needCache && this.responseData.bhx() != null) {
+            int acy = this.responseData.acy();
+            String d = c.bCD().d(this.responseData.bhx().getName(), acy, this.mIsGood, this.mCategoryId);
+            if (acy == 3) {
+                c.bCD().o(d, bArr);
             } else {
-                c.bBU().c(d, bArr, true);
+                c.bCD().c(d, bArr, true);
             }
         }
     }

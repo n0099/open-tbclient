@@ -12,7 +12,7 @@ import java.io.FileReader;
 import java.io.IOException;
 /* loaded from: classes6.dex */
 public final class l {
-    private static ActivityManager Yg;
+    private static ActivityManager Yp;
     private static Context mContext;
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x007a */
@@ -163,14 +163,14 @@ public final class l {
     public static String B() {
         Debug.MemoryInfo memoryInfo;
         StringBuilder sb = new StringBuilder();
-        if (Yg == null) {
+        if (Yp == null) {
             return sb.toString();
         }
         try {
             ActivityManager.MemoryInfo memoryInfo2 = new ActivityManager.MemoryInfo();
-            Yg.getMemoryInfo(memoryInfo2);
+            Yp.getMemoryInfo(memoryInfo2);
             sb.append("isLowMem: ").append(memoryInfo2.lowMemory ? "yes" : AiAppNetworkUtils.NETWORK_TYPE_CELL_UN_CONNECTED).append("\navailMem: ").append(com.baidu.crabsdk.c.c.k(memoryInfo2.availMem)).append("\nthreshold: ").append(com.baidu.crabsdk.c.c.k(memoryInfo2.threshold)).append("\n");
-            if (com.baidu.crabsdk.c.c.rr() >= 5 && (memoryInfo = Yg.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
+            if (com.baidu.crabsdk.c.c.rv() >= 5 && (memoryInfo = Yp.getProcessMemoryInfo(new int[]{Process.myPid()})[0]) != null) {
                 sb.append("totalPrivateDirty: ").append(com.baidu.crabsdk.c.c.k(memoryInfo.getTotalPrivateDirty() * 1024)).append("\ntotalPss: ").append(com.baidu.crabsdk.c.c.k(memoryInfo.getTotalPss() * 1024)).append("\ntotalSharedDirty: ").append(com.baidu.crabsdk.c.c.k(memoryInfo.getTotalSharedDirty() * 1024)).append("\n");
             }
         } catch (Exception e) {
@@ -182,7 +182,7 @@ public final class l {
     public static void d(Context context) {
         if (mContext == null) {
             mContext = context;
-            Yg = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+            Yp = (ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         }
     }
 }

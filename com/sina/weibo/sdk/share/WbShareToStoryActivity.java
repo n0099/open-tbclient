@@ -3,7 +3,6 @@ package com.sina.weibo.sdk.share;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -14,7 +13,6 @@ import com.sina.weibo.sdk.WbSdk;
 import com.sina.weibo.sdk.api.StoryMessage;
 import com.sina.weibo.sdk.api.StoryObject;
 import com.sina.weibo.sdk.constant.WBConstants;
-import com.sina.weibo.sdk.utils.ImageUtils;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.web.view.WbSdkProgressBar;
 /* loaded from: classes2.dex */
@@ -91,7 +89,27 @@ public class WbShareToStoryActivity extends Activity {
         if (this.saveFileTask != null) {
             this.saveFileTask.cancel(true);
         }
-        this.saveFileTask = new SaveFileTask();
+        this.saveFileTask = new SaveFileTask(this, new TransResourceCallback() { // from class: com.sina.weibo.sdk.share.WbShareToStoryActivity.1
+            @Override // com.sina.weibo.sdk.share.TransResourceCallback
+            public void onTransFinish(TransResourceResult transResourceResult) {
+            }
+
+            @Override // com.sina.weibo.sdk.share.TransResourceCallback
+            public void onTransFinish(StoryObject storyObject) {
+                if (storyObject == null) {
+                    WbShareToStoryActivity.this.setCallbackActivity(2);
+                    return;
+                }
+                try {
+                    Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("sinaweibo://story/publish?forceedit=1&finish=true"));
+                    intent.setPackage(intent.getStringExtra(WBConstants.SHARE_START_PACKAGE));
+                    intent.putExtra("storyData", storyObject);
+                    WbShareToStoryActivity.this.startActivity(intent);
+                } catch (Exception e) {
+                    WbShareToStoryActivity.this.setCallbackActivity(2);
+                }
+            }
+        });
         this.saveFileTask.execute(storyMessage);
     }
 
@@ -108,49 +126,6 @@ public class WbShareToStoryActivity extends Activity {
             setCallbackActivity(1);
         } else {
             setCallbackActivity(0);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
-    public class SaveFileTask extends AsyncTask<StoryMessage, Object, StoryObject> {
-        private SaveFileTask() {
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public StoryObject doInBackground(StoryMessage... storyMessageArr) {
-            StoryMessage storyMessage = storyMessageArr[0];
-            int i = storyMessage.getVideoUri() == null ? 1 : 0;
-            String copyFileToWeiboTem = ImageUtils.copyFileToWeiboTem(WbShareToStoryActivity.this, i == 1 ? storyMessage.getImageUri() : storyMessage.getVideoUri(), i);
-            if (TextUtils.isEmpty(copyFileToWeiboTem)) {
-                return null;
-            }
-            StoryObject storyObject = new StoryObject();
-            storyObject.sourcePath = copyFileToWeiboTem;
-            storyObject.sourceType = i;
-            storyObject.appId = WbSdk.getAuthInfo().getAppKey();
-            storyObject.appPackage = WbShareToStoryActivity.this.getPackageName();
-            return storyObject;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public void onPostExecute(StoryObject storyObject) {
-            super.onPostExecute((SaveFileTask) storyObject);
-            if (storyObject == null) {
-                WbShareToStoryActivity.this.setCallbackActivity(2);
-                return;
-            }
-            try {
-                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("sinaweibo://story/publish?forceedit=1&finish=true"));
-                intent.putExtra("storyData", storyObject);
-                WbShareToStoryActivity.this.startActivity(intent);
-            } catch (Exception e) {
-                WbShareToStoryActivity.this.setCallbackActivity(2);
-            }
         }
     }
 
@@ -183,9 +158,7 @@ public class WbShareToStoryActivity extends Activity {
         try {
             Intent intent = new Intent();
             intent.putExtra(WBConstants.Response.ERRCODE, i);
-            intent.setFlags(131072);
-            intent.setClassName(this, this.callbackActivity);
-            startActivity(intent);
+            setResult(-1, intent);
         } catch (Exception e) {
             LogUtil.v("weibo sdk", e.toString());
         }

@@ -29,31 +29,31 @@ import java.util.Locale;
 /* loaded from: classes6.dex */
 public class d {
     String a;
-    private WifiManager acU;
-    private LocationClientOption acW;
-    private b acX;
+    private WifiManager ade;
+    private LocationClientOption adg;
+    private b adh;
     String b;
     private Context e;
     private TelephonyManager kx;
     private String p;
-    private static Method acS = null;
+    private static Method adb = null;
     private static Method i = null;
     private static Method j = null;
     private static Method k = null;
     private static Method l = null;
-    private static Class<?> acT = null;
-    private Address acQ = null;
-    private a acR = new a();
-    private C0083d acV = null;
+    private static Class<?> adc = null;
+    private Address acZ = null;
+    private a ada = new a();
+    private C0083d adf = null;
     private String s = null;
-    c acY = new c();
+    c adi = new c();
     private long t = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public class a {
         public int a;
-        public char acZ;
+        public char adj;
         public int b;
         public int c;
         public int d;
@@ -67,7 +67,7 @@ public class d {
             this.d = -1;
             this.e = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
             this.f = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-            this.acZ = (char) 0;
+            this.adj = (char) 0;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -79,7 +79,7 @@ public class d {
             if (b()) {
                 StringBuffer stringBuffer = new StringBuffer(128);
                 stringBuffer.append("&nw=");
-                stringBuffer.append(this.acZ);
+                stringBuffer.append(this.adj);
                 stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.a), Integer.valueOf(this.b)));
                 if (this.e < Integer.MAX_VALUE && this.f < Integer.MAX_VALUE) {
                     stringBuffer.append(String.format(Locale.CHINA, "&cdmall=%.6f|%.6f", Double.valueOf(this.f / 14400.0d), Double.valueOf(this.e / 14400.0d)));
@@ -108,7 +108,7 @@ public class d {
         private void b() {
             BDLocation bDLocation = new BDLocation();
             bDLocation.setLocType(63);
-            d.this.acX.onReceiveFixLocation(bDLocation);
+            d.this.adh.onReceiveFixLocation(bDLocation);
         }
 
         @Override // com.baidu.location.g.e
@@ -145,14 +145,14 @@ public class d {
                     if (bDLocation == null || bDLocation.getLocType() != 161) {
                         b();
                     } else {
-                        bDLocation.setCoorType(d.this.acW.coorType);
+                        bDLocation.setCoorType(d.this.adg.coorType);
                         bDLocation.setLocationID(Jni.en1(d.this.a + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + d.this.b + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + bDLocation.getTime()));
                         if (d.b(bDLocation.getAddress()) == 1) {
                             d.this.a(bDLocation.getAddress());
-                            d.this.acX.onReceiveFixLocation(bDLocation);
+                            d.this.adh.onReceiveFixLocation(bDLocation);
                         } else {
                             bDLocation.setAddr(new Address.Builder().build());
-                            d.this.acX.onReceiveFixLocation(bDLocation);
+                            d.this.adh.onReceiveFixLocation(bDLocation);
                         }
                     }
                 } catch (Exception e2) {
@@ -190,7 +190,7 @@ public class d {
         }
 
         private String c() {
-            WifiInfo connectionInfo = d.this.acU.getConnectionInfo();
+            WifiInfo connectionInfo = d.this.ade.getConnectionInfo();
             if (connectionInfo == null) {
                 return null;
             }
@@ -293,21 +293,21 @@ public class d {
         String str;
         this.e = null;
         this.kx = null;
-        this.acU = null;
+        this.ade = null;
         this.p = null;
         this.a = null;
         this.b = null;
         this.e = context.getApplicationContext();
-        this.acW = locationClientOption;
-        this.acX = bVar;
+        this.adg = locationClientOption;
+        this.adh = bVar;
         this.a = this.e.getPackageName();
         this.b = null;
         try {
             this.kx = (TelephonyManager) this.e.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
-            this.acU = (WifiManager) this.e.getApplicationContext().getSystemService("wifi");
+            this.ade = (WifiManager) this.e.getApplicationContext().getSystemService("wifi");
             str = this.kx.getDeviceId();
         } catch (Exception e) {
-            this.acU = null;
+            this.ade = null;
             this.kx = null;
             str = null;
         }
@@ -317,9 +317,9 @@ public class d {
             this.b = null;
         }
         if (this.b != null) {
-            this.p = "&prod=" + this.acW.prodName + ":" + this.a + "|&cu=" + this.b + "&coor=" + locationClientOption.getCoorType();
+            this.p = "&prod=" + this.adg.prodName + ":" + this.a + "|&cu=" + this.b + "&coor=" + locationClientOption.getCoorType();
         } else {
-            this.p = "&prod=" + this.acW.prodName + ":" + this.a + "|&im=" + str + "&coor=" + locationClientOption.getCoorType();
+            this.p = "&prod=" + this.adg.prodName + ":" + this.a + "|&im=" + str + "&coor=" + locationClientOption.getCoorType();
         }
         StringBuffer stringBuffer = new StringBuffer(256);
         stringBuffer.append("&fw=");
@@ -353,14 +353,14 @@ public class d {
         }
         try {
             a(this.kx.getCellLocation());
-            str = this.acR.a();
+            str = this.ada.a();
         } catch (Throwable th) {
             str = null;
         }
         try {
-            this.acV = null;
-            this.acV = new C0083d(this.acU.getScanResults());
-            str2 = this.acV.a(i2);
+            this.adf = null;
+            this.adf = new C0083d(this.ade.getScanResults());
+            str2 = this.adf.a(i2);
         } catch (Exception e) {
             str2 = null;
         }
@@ -392,7 +392,7 @@ public class d {
             try {
                 if (networkOperator.length() >= 3) {
                     i2 = Integer.valueOf(networkOperator.substring(0, 3)).intValue();
-                    aVar.c = i2 < 0 ? this.acR.c : i2;
+                    aVar.c = i2 < 0 ? this.ada.c : i2;
                 }
                 String substring = networkOperator.substring(3);
                 if (substring != null) {
@@ -404,7 +404,7 @@ public class d {
                     i2 = Integer.valueOf(substring.substring(0, i3)).intValue();
                 }
                 if (i2 < 0) {
-                    i2 = this.acR.d;
+                    i2 = this.ada.d;
                 }
                 aVar.d = i2;
             } catch (Exception e) {
@@ -413,30 +413,30 @@ public class d {
         if (cellLocation instanceof GsmCellLocation) {
             aVar.a = ((GsmCellLocation) cellLocation).getLac();
             aVar.b = ((GsmCellLocation) cellLocation).getCid();
-            aVar.acZ = 'g';
+            aVar.adj = 'g';
         } else if (cellLocation instanceof CdmaCellLocation) {
-            aVar.acZ = 'c';
-            if (acT == null) {
+            aVar.adj = 'c';
+            if (adc == null) {
                 try {
-                    acT = Class.forName("android.telephony.cdma.CdmaCellLocation");
-                    acS = acT.getMethod("getBaseStationId", new Class[0]);
-                    i = acT.getMethod("getNetworkId", new Class[0]);
-                    j = acT.getMethod("getSystemId", new Class[0]);
-                    k = acT.getMethod("getBaseStationLatitude", new Class[0]);
-                    l = acT.getMethod("getBaseStationLongitude", new Class[0]);
+                    adc = Class.forName("android.telephony.cdma.CdmaCellLocation");
+                    adb = adc.getMethod("getBaseStationId", new Class[0]);
+                    i = adc.getMethod("getNetworkId", new Class[0]);
+                    j = adc.getMethod("getSystemId", new Class[0]);
+                    k = adc.getMethod("getBaseStationLatitude", new Class[0]);
+                    l = adc.getMethod("getBaseStationLongitude", new Class[0]);
                 } catch (Exception e2) {
-                    acT = null;
+                    adc = null;
                     return;
                 }
             }
-            if (acT != null && acT.isInstance(cellLocation)) {
+            if (adc != null && adc.isInstance(cellLocation)) {
                 try {
                     int intValue = ((Integer) j.invoke(cellLocation, new Object[0])).intValue();
                     if (intValue < 0) {
-                        intValue = this.acR.d;
+                        intValue = this.ada.d;
                     }
                     aVar.d = intValue;
-                    aVar.b = ((Integer) acS.invoke(cellLocation, new Object[0])).intValue();
+                    aVar.b = ((Integer) adb.invoke(cellLocation, new Object[0])).intValue();
                     aVar.a = ((Integer) i.invoke(cellLocation, new Object[0])).intValue();
                     Object invoke = k.invoke(cellLocation, new Object[0]);
                     if (((Integer) invoke).intValue() < Integer.MAX_VALUE) {
@@ -452,9 +452,9 @@ public class d {
             }
         }
         if (aVar.b()) {
-            this.acR = aVar;
+            this.ada = aVar;
         } else {
-            this.acR = null;
+            this.ada = null;
         }
     }
 
@@ -489,18 +489,18 @@ public class d {
         if (this.s == null) {
             return;
         }
-        this.acY.a(this.s);
+        this.adi.a(this.s);
     }
 
     public void a(Address address) {
         if (b(address) == 1) {
-            this.acQ = new Address.Builder().country(address.country).countryCode(address.countryCode).province(address.province).city(address.city).cityCode(address.cityCode).district(address.district).street(address.street).adcode(address.adcode).streetNumber(address.streetNumber).build();
+            this.acZ = new Address.Builder().country(address.country).countryCode(address.countryCode).province(address.province).city(address.city).cityCode(address.cityCode).district(address.district).street(address.street).adcode(address.adcode).streetNumber(address.streetNumber).build();
             this.t = System.currentTimeMillis();
         }
     }
 
-    public Address te() {
-        Address address = this.acQ;
+    public Address ti() {
+        Address address = this.acZ;
         if (address == null) {
             address = new Address.Builder().build();
         }

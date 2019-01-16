@@ -5,7 +5,7 @@ import UserPost.UserPostReqIdl;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.g.b;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.p;
+import com.baidu.tbadk.util.q;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.squareup.wire.Message;
 /* loaded from: classes3.dex */
@@ -134,7 +134,7 @@ public class UserPostPageRequestMessage extends NetMessage {
         builder.subtype = Integer.valueOf(this.sub_type);
         builder.is_view_card = Integer.valueOf(this.is_view_card);
         if (z) {
-            p.bindCommonParamsToProtobufData(builder, true);
+            q.bindCommonParamsToProtobufData(builder, true);
         }
         UserPostReqIdl.Builder builder2 = new UserPostReqIdl.Builder();
         builder2.data = builder.build(false);

@@ -11,12 +11,12 @@ import java.util.Locale;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class d {
-    private static d aes = null;
+    private static d aeB = null;
     private static final String k = com.baidu.location.g.f.a + "/conlts.dat";
     private static int l = -1;
     private static int m = -1;
     private static int n = 0;
-    private a aet = null;
+    private a aeC = null;
     public boolean a = true;
     public boolean b = true;
     public boolean c = false;
@@ -124,15 +124,15 @@ public class d {
                 if (bArr.length < 640) {
                     g.x = false;
                     g.u = g.s + 0.025d;
-                    g.t = g.ade - 0.025d;
+                    g.t = g.adn - 0.025d;
                     i = 1;
                 } else {
                     g.x = true;
                     g.t = Double.longBitsToDouble(((bArr[7] & 255) << 56) | ((bArr[6] & 255) << 48) | ((bArr[5] & 255) << 40) | ((bArr[4] & 255) << 32) | ((bArr[3] & 255) << 24) | ((bArr[2] & 255) << 16) | ((bArr[1] & 255) << 8) | (bArr[0] & 255));
                     g.u = Double.longBitsToDouble(((bArr[15] & 255) << 56) | ((bArr[14] & 255) << 48) | ((bArr[13] & 255) << 40) | ((bArr[12] & 255) << 32) | ((bArr[11] & 255) << 24) | ((bArr[10] & 255) << 16) | ((bArr[9] & 255) << 8) | (bArr[8] & 255));
-                    g.agd = new byte[625];
+                    g.agn = new byte[625];
                     while (i < 625) {
-                        g.agd[i] = bArr[i + 16];
+                        g.agn[i] = bArr[i + 16];
                         i++;
                     }
                     i = 1;
@@ -167,10 +167,10 @@ public class d {
                                 g.z = Float.parseFloat(split[0]);
                             }
                             if (split[1] != null && !split[1].equals("")) {
-                                g.agf = Float.parseFloat(split[1]);
+                                g.ago = Float.parseFloat(split[1]);
                             }
                             if (split[2] != null && !split[2].equals("")) {
-                                g.agg = Float.parseFloat(split[2]);
+                                g.agp = Float.parseFloat(split[2]);
                             }
                             if (split[3] != null && !split[3].equals("")) {
                                 g.C = Float.parseFloat(split[3]);
@@ -205,13 +205,13 @@ public class d {
                                 g.K = Float.parseFloat(split2[0]);
                             }
                             if (split2[1] != null && !split2[1].equals("")) {
-                                g.agh = Float.parseFloat(split2[1]);
+                                g.agq = Float.parseFloat(split2[1]);
                             }
                             if (split2[2] != null && !split2[2].equals("")) {
-                                g.agi = Float.parseFloat(split2[2]);
+                                g.agr = Float.parseFloat(split2[2]);
                             }
                             if (split2[3] != null && !split2[3].equals("")) {
-                                g.agj = Float.parseFloat(split2[3]);
+                                g.ags = Float.parseFloat(split2[3]);
                             }
                         }
                     }
@@ -222,13 +222,13 @@ public class d {
                                 g.O = Integer.parseInt(split3[0]);
                             }
                             if (split3[1] != null && !split3[1].equals("")) {
-                                g.agk = Float.parseFloat(split3[1]);
+                                g.agt = Float.parseFloat(split3[1]);
                             }
                             if (split3[2] != null && !split3[2].equals("")) {
                                 g.Q = Integer.parseInt(split3[2]);
                             }
                             if (split3[3] != null && !split3[3].equals("")) {
-                                g.agl = Float.parseFloat(split3[3]);
+                                g.agu = Float.parseFloat(split3[3]);
                             }
                         }
                     }
@@ -236,10 +236,10 @@ public class d {
                         String[] split4 = jSONObject.getString("ab").split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
                         if (split4.length > 3) {
                             if (split4[0] != null && !split4[0].equals("")) {
-                                g.agm = Float.parseFloat(split4[0]);
+                                g.agv = Float.parseFloat(split4[0]);
                             }
                             if (split4[1] != null && !split4[1].equals("")) {
-                                g.agn = Float.parseFloat(split4[1]);
+                                g.agw = Float.parseFloat(split4[1]);
                             }
                             if (split4[2] != null && !split4[2].equals("")) {
                                 g.U = Integer.parseInt(split4[2]);
@@ -253,10 +253,10 @@ public class d {
                         String[] split5 = jSONObject.getString("zxd").split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
                         if (split5.length > 4) {
                             if (split5[0] != null && !split5[0].equals("")) {
-                                g.agt = Float.parseFloat(split5[0]);
+                                g.agC = Float.parseFloat(split5[0]);
                             }
                             if (split5[1] != null && !split5[1].equals("")) {
-                                g.agu = Float.parseFloat(split5[1]);
+                                g.agD = Float.parseFloat(split5[1]);
                             }
                             if (split5[2] != null && !split5[2].equals("")) {
                                 g.at = Integer.parseInt(split5[2]);
@@ -296,8 +296,8 @@ public class d {
                                 int parseInt2 = Integer.parseInt(split6[4]);
                                 if (parseInt2 > 0) {
                                     g.ak = parseInt2;
-                                    g.agp = g.ak * 1000 * 60;
-                                    g.al = g.agp >> 2;
+                                    g.agy = g.ak * 1000 * 60;
+                                    g.al = g.agy >> 2;
                                 } else {
                                     g.p = false;
                                 }
@@ -317,7 +317,7 @@ public class d {
                                 g.ap = Integer.parseInt(split7[1]);
                             }
                             if (split7[2] != null && !split7[2].equals("")) {
-                                g.ags = Float.parseFloat(split7[2]);
+                                g.agB = Float.parseFloat(split7[2]);
                             }
                         }
                     }
@@ -393,16 +393,16 @@ public class d {
     }
 
     private void e() {
-        String str = "&ver=" + g.y + "&usr=" + com.baidu.location.g.b.tV().b() + "&app=" + com.baidu.location.g.b.d + "&prod=" + com.baidu.location.g.b.e;
-        if (this.aet == null) {
-            this.aet = new a();
+        String str = "&ver=" + g.y + "&usr=" + com.baidu.location.g.b.tZ().b() + "&app=" + com.baidu.location.g.b.d + "&prod=" + com.baidu.location.g.b.e;
+        if (this.aeC == null) {
+            this.aeC = new a();
         }
-        this.aet.a(str, false);
+        this.aeC.a(str, false);
     }
 
     private void f() {
         String str = com.baidu.location.g.f.a + "/config.dat";
-        byte[] bytes = String.format(Locale.CHINA, "{\"ver\":\"%d\",\"gps\":\"%.1f|%.1f|%.1f|%.1f|%d|%d|%d|%d|%d|%d|%d\",\"up\":\"%.1f|%.1f|%.1f|%.1f\",\"wf\":\"%d|%.1f|%d|%.1f\",\"ab\":\"%.2f|%.2f|%d|%d\",\"gpc\":\"%d|%d|%d|%d|%d|%d\",\"zxd\":\"%.1f|%.1f|%d|%d|%d\",\"shak\":\"%d|%d|%.1f\",\"dmx\":%d}", Integer.valueOf(g.y), Float.valueOf(g.z), Float.valueOf(g.agf), Float.valueOf(g.agg), Float.valueOf(g.C), Integer.valueOf(g.D), Integer.valueOf(g.E), Integer.valueOf(g.F), Integer.valueOf(g.G), Integer.valueOf(g.H), Integer.valueOf(g.I), Integer.valueOf(g.J), Float.valueOf(g.K), Float.valueOf(g.agh), Float.valueOf(g.agi), Float.valueOf(g.agj), Integer.valueOf(g.O), Float.valueOf(g.agk), Integer.valueOf(g.Q), Float.valueOf(g.agl), Float.valueOf(g.agm), Float.valueOf(g.agn), Integer.valueOf(g.U), Integer.valueOf(g.V), Integer.valueOf(g.aa ? 1 : 0), Integer.valueOf(g.ab ? 1 : 0), Integer.valueOf(g.ac), Integer.valueOf(g.ae), Long.valueOf(g.ak), Integer.valueOf(g.an), Float.valueOf(g.agt), Float.valueOf(g.agu), Integer.valueOf(g.at), Integer.valueOf(g.au), Integer.valueOf(g.av), Integer.valueOf(g.ao), Integer.valueOf(g.ap), Float.valueOf(g.ags), Integer.valueOf(g.am)).getBytes();
+        byte[] bytes = String.format(Locale.CHINA, "{\"ver\":\"%d\",\"gps\":\"%.1f|%.1f|%.1f|%.1f|%d|%d|%d|%d|%d|%d|%d\",\"up\":\"%.1f|%.1f|%.1f|%.1f\",\"wf\":\"%d|%.1f|%d|%.1f\",\"ab\":\"%.2f|%.2f|%d|%d\",\"gpc\":\"%d|%d|%d|%d|%d|%d\",\"zxd\":\"%.1f|%.1f|%d|%d|%d\",\"shak\":\"%d|%d|%.1f\",\"dmx\":%d}", Integer.valueOf(g.y), Float.valueOf(g.z), Float.valueOf(g.ago), Float.valueOf(g.agp), Float.valueOf(g.C), Integer.valueOf(g.D), Integer.valueOf(g.E), Integer.valueOf(g.F), Integer.valueOf(g.G), Integer.valueOf(g.H), Integer.valueOf(g.I), Integer.valueOf(g.J), Float.valueOf(g.K), Float.valueOf(g.agq), Float.valueOf(g.agr), Float.valueOf(g.ags), Integer.valueOf(g.O), Float.valueOf(g.agt), Integer.valueOf(g.Q), Float.valueOf(g.agu), Float.valueOf(g.agv), Float.valueOf(g.agw), Integer.valueOf(g.U), Integer.valueOf(g.V), Integer.valueOf(g.aa ? 1 : 0), Integer.valueOf(g.ab ? 1 : 0), Integer.valueOf(g.ac), Integer.valueOf(g.ae), Long.valueOf(g.ak), Integer.valueOf(g.an), Float.valueOf(g.agC), Float.valueOf(g.agD), Integer.valueOf(g.at), Integer.valueOf(g.au), Integer.valueOf(g.av), Integer.valueOf(g.ao), Integer.valueOf(g.ap), Float.valueOf(g.agB), Integer.valueOf(g.am)).getBytes();
         try {
             File file = new File(str);
             if (!file.exists()) {
@@ -454,8 +454,8 @@ public class d {
             randomAccessFile2.writeDouble(g.t);
             randomAccessFile2.writeDouble(g.u);
             randomAccessFile2.writeBoolean(g.x);
-            if (g.x && g.agd != null) {
-                randomAccessFile2.write(g.agd);
+            if (g.x && g.agn != null) {
+                randomAccessFile2.write(g.agn);
             }
             randomAccessFile2.close();
         } catch (Exception e) {
@@ -481,8 +481,8 @@ public class d {
                     g.u = randomAccessFile.readDouble();
                     g.x = randomAccessFile.readBoolean();
                     if (g.x) {
-                        g.agd = new byte[625];
-                        randomAccessFile.read(g.agd, 0, 625);
+                        g.agn = new byte[625];
+                        randomAccessFile.read(g.agn, 0, 625);
                     }
                 }
                 randomAccessFile.close();
@@ -543,7 +543,7 @@ public class d {
                         randomAccessFile.read(bArr, 0, readInt3);
                         if (bArr[readInt3 - 1] == 0) {
                             String str = new String(bArr, 0, readInt3 - 1);
-                            com.baidu.location.g.b.tV();
+                            com.baidu.location.g.b.tZ();
                             if (str.equals(com.baidu.location.g.b.d)) {
                                 l = randomAccessFile.readInt();
                                 n = i;
@@ -564,11 +564,11 @@ public class d {
         }
     }
 
-    public static d tw() {
-        if (aes == null) {
-            aes = new d();
+    public static d tA() {
+        if (aeB == null) {
+            aeB = new d();
         }
-        return aes;
+        return aeB;
     }
 
     public void b() {
@@ -579,8 +579,8 @@ public class d {
     }
 
     public void d() {
-        if (System.currentTimeMillis() - com.baidu.location.g.c.tW().d() > 604800000) {
-            com.baidu.location.g.c.tW().c(System.currentTimeMillis());
+        if (System.currentTimeMillis() - com.baidu.location.g.c.ua().d() > 604800000) {
+            com.baidu.location.g.c.ua().c(System.currentTimeMillis());
             e();
         }
     }

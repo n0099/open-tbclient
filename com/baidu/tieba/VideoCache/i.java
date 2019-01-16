@@ -3,12 +3,12 @@ package com.baidu.tieba.VideoCache;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes6.dex */
 public class i {
-    public static final String bzT = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
-    public static final String bzU = bzT + "/.tieba_video_cache";
-    public static final String yP = bzU + "/v2";
-    public static final String bzV = yP + "/";
-    public static final String bzW = yP + "/files";
-    public static final String bzX = bzW + "/";
-    public static final String bzY = bzV + "server_port";
-    public static final int bzZ = "?segment_postion=".length();
+    public static final String bAG = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
+    public static final String bAH = bAG + "/.tieba_video_cache";
+    public static final String yP = bAH + "/v2";
+    public static final String bAI = yP + "/";
+    public static final String bAJ = yP + "/files";
+    public static final String bAK = bAJ + "/";
+    public static final String bAL = bAI + "server_port";
+    public static final int bAM = "?segment_postion=".length();
 }

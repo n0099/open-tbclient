@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.d.m;
 /* loaded from: classes.dex */
 public class a implements c {
-    public static final String bps = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-    private m bpt;
-    private boolean bpu = false;
+    public static final String bqg = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
+    private m bqh;
+    private boolean bqi = false;
     private String mPath;
 
     @Override // com.airbnb.lottie.c
@@ -23,15 +23,15 @@ public class a implements c {
         String str = this.mPath + gVar.cX().replace("/", "") + "/" + gVar.getFileName();
         com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.f.c.jA().a(str, 36, new Object[0]);
         if (aVar == null && getFristLoadInternal()) {
-            if (this.bpt == null) {
-                this.bpt = new m();
+            if (this.bqh == null) {
+                this.bqh = new m();
             }
-            aVar = this.bpt.o(str, 0, 0);
+            aVar = this.bqh.o(str, 0, 0);
         }
-        if (aVar != null && aVar.op() != null) {
-            Bitmap op = aVar.op();
+        if (aVar != null && aVar.ot() != null) {
+            Bitmap ot = aVar.ot();
             try {
-                return op.copy(op.getConfig(), false);
+                return ot.copy(ot.getConfig(), false);
             } catch (OutOfMemoryError e) {
                 TbadkCoreApplication.getInst().onAppMemoryLow();
                 BdLog.e(e);
@@ -46,14 +46,14 @@ public class a implements c {
     }
 
     public static String getAnimationPath() {
-        return bps + "/" + TbConfig.getTempDirName() + "/animation/";
+        return bqg + "/" + TbConfig.getTempDirName() + "/animation/";
     }
 
     public void setFirstLoadInternal(boolean z) {
-        this.bpu = z;
+        this.bqi = z;
     }
 
     public boolean getFristLoadInternal() {
-        return this.bpu;
+        return this.bqi;
     }
 }

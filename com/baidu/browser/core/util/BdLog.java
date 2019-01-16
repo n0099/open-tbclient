@@ -7,13 +7,13 @@ import java.io.File;
 import java.io.FileOutputStream;
 /* loaded from: classes2.dex */
 public final class BdLog {
-    private static FileOutputStream Vi;
+    private static FileOutputStream Vr;
     private static boolean sDebug = true;
-    private static boolean Vj = false;
+    private static boolean Vs = false;
     private static String mFolderName = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
-    private static String Vk = mFolderName + "baiduliulanqi_log.txt";
-    private static String Vl = mFolderName + "baiduliulanqi_lasttime_log.txt";
-    private static boolean Vm = false;
+    private static String Vt = mFolderName + "baiduliulanqi_log.txt";
+    private static String Vu = mFolderName + "baiduliulanqi_lasttime_log.txt";
+    private static boolean Vv = false;
 
     /* loaded from: classes2.dex */
     private enum LogLevel {
@@ -84,23 +84,23 @@ public final class BdLog {
                     break;
                 }
         }
-        if (Vj) {
-            T(str, str2);
+        if (Vs) {
+            U(str, str2);
         }
     }
 
-    private static void T(String str, String str2) {
+    private static void U(String str, String str2) {
         if (Environment.getExternalStorageState().equals("mounted")) {
             try {
                 File file = new File(mFolderName);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                if (Vi == null) {
-                    Vi = new FileOutputStream(Vk);
+                if (Vr == null) {
+                    Vr = new FileOutputStream(Vt);
                 }
-                Vi.write((str + " : " + str2).getBytes("UTF-8"));
-                Vi.write("\n".getBytes());
+                Vr.write((str + " : " + str2).getBytes("UTF-8"));
+                Vr.write("\n".getBytes());
             } catch (Exception e) {
                 e.printStackTrace();
             }

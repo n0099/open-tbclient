@@ -7,13 +7,13 @@ public interface c {
 
     /* loaded from: classes.dex */
     public interface a {
-        public static final String fGQ = File.separator;
-        public static final String bzT = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
-        public static final String fGR = bzT + fGQ + ".tieba_video_monitor";
-        public static final String fGS = fGR + fGQ + "v1";
-        public static final String fGT = fGS + fGQ;
-        public static final String fGU = bzT + fGQ + ".tieba_video_monitor_log";
-        public static final String fGV = fGU + fGQ + "v1";
-        public static final String fGW = fGV + fGQ;
+        public static final String fHK = File.separator;
+        public static final String bAG = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
+        public static final String fHL = bAG + fHK + ".tieba_video_monitor";
+        public static final String fHM = fHL + fHK + "v1";
+        public static final String fHN = fHM + fHK;
+        public static final String fHO = bAG + fHK + ".tieba_video_monitor_log";
+        public static final String fHP = fHO + fHK + "v1";
+        public static final String fHQ = fHP + fHK;
     }
 }

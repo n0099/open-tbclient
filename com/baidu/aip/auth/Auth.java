@@ -10,19 +10,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class Auth {
-    private static Throwable Sm;
-    private String So;
-    private String Sp;
+    private static Throwable Sv;
+    private String Sx;
+    private String Sy;
     private long mExpiresTime;
-    private int Sn = 1;
+    private int Sw = 1;
     private String mToken = null;
 
     static {
         try {
             System.loadLibrary("aip-native-auth");
-            Sm = null;
+            Sv = null;
         } catch (Throwable th) {
-            Sm = new AuthException(283506, AuthException.a);
+            Sv = new AuthException(283506, AuthException.a);
         }
     }
 
@@ -60,7 +60,7 @@ public class Auth {
         }
     }
 
-    private boolean pC() {
+    private boolean pG() {
         return System.currentTimeMillis() > this.mExpiresTime;
     }
 
@@ -88,14 +88,14 @@ public class Auth {
     public String getToken(Context context) {
         String str;
         String str2 = null;
-        if (pC() || this.mToken == null) {
-            if (this.Sn == 0) {
+        if (pG() || this.mToken == null) {
+            if (this.Sw == 0) {
                 str2 = "https://verify.baidubce.com/verify/1.0/token/sk?channel=ar";
-                str = g(context, this.So, this.Sp);
+                str = g(context, this.Sx, this.Sy);
             } else {
                 str = null;
             }
-            if (this.Sn == 1) {
+            if (this.Sw == 1) {
                 str2 = "https://verify.baidubce.com/verify/1.0/token/bin?channel=ar";
                 str = aU(context);
             }

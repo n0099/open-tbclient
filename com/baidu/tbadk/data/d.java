@@ -3,10 +3,10 @@ package com.baidu.tbadk.data;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class d extends TbConfig {
-    public static final Long aWQ = 86400000L;
-    private static int aWR = 300;
+    public static final Long aXy = 86400000L;
+    private static int aXz = 300;
 
-    public static int Lx() {
-        return aWR;
+    public static int LM() {
+        return aXz;
     }
 }

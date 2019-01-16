@@ -3,27 +3,27 @@ package rx.internal.util.a;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class y<E> extends aa<E> {
-    private static final long iPJ;
-    private static final int iPK;
-    private static final long iPM;
-    private static final long iPN;
-    static final int iPz = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
-    private static final Object iPF = new Object();
+    static final int iQG = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
+    private static final Object iQM = new Object();
+    private static final long iQQ;
+    private static final int iQR;
+    private static final long iQT;
+    private static final long iQU;
 
     static {
-        int arrayIndexScale = ae.iPT.arrayIndexScale(Object[].class);
+        int arrayIndexScale = ae.iRa.arrayIndexScale(Object[].class);
         if (4 == arrayIndexScale) {
-            iPK = 2;
+            iQR = 2;
         } else if (8 == arrayIndexScale) {
-            iPK = 3;
+            iQR = 3;
         } else {
             throw new IllegalStateException("Unknown pointer size");
         }
-        iPJ = ae.iPT.arrayBaseOffset(Object[].class);
+        iQQ = ae.iRa.arrayBaseOffset(Object[].class);
         try {
-            iPN = ae.iPT.objectFieldOffset(ad.class.getDeclaredField("producerIndex"));
+            iQU = ae.iRa.objectFieldOffset(ad.class.getDeclaredField("producerIndex"));
             try {
-                iPM = ae.iPT.objectFieldOffset(aa.class.getDeclaredField("consumerIndex"));
+                iQT = ae.iRa.objectFieldOffset(aa.class.getDeclaredField("consumerIndex"));
             } catch (NoSuchFieldException e) {
                 InternalError internalError = new InternalError();
                 internalError.initCause(e);
@@ -37,15 +37,15 @@ public class y<E> extends aa<E> {
     }
 
     public y(int i) {
-        int zG = h.zG(i);
-        long j = zG - 1;
-        E[] eArr = (E[]) new Object[zG + 1];
-        this.iPS = eArr;
-        this.iPR = j;
-        zE(zG);
-        this.iPQ = eArr;
-        this.iPP = j;
-        this.iPx = j - 1;
+        int zI = h.zI(i);
+        long j = zI - 1;
+        E[] eArr = (E[]) new Object[zI + 1];
+        this.iQZ = eArr;
+        this.iQY = j;
+        zG(zI);
+        this.iQX = eArr;
+        this.iQW = j;
+        this.iQE = j - 1;
         dT(0L);
     }
 
@@ -59,16 +59,16 @@ public class y<E> extends aa<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.iPS;
+        E[] eArr = this.iQZ;
         long j = this.producerIndex;
-        long j2 = this.iPR;
+        long j2 = this.iQY;
         long v = v(j, j2);
-        if (j < this.iPx) {
+        if (j < this.iQE) {
             return a(eArr, e, j, v);
         }
-        int i = this.iPA;
+        int i = this.iQH;
         if (b(eArr, v(i + j, j2)) == null) {
-            this.iPx = (i + j) - 1;
+            this.iQE = (i + j) - 1;
             return a(eArr, e, j, v);
         } else if (b(eArr, v(1 + j, j2)) != null) {
             return a(eArr, e, j, v);
@@ -86,11 +86,11 @@ public class y<E> extends aa<E> {
 
     private void a(E[] eArr, long j, long j2, E e, long j3) {
         E[] eArr2 = (E[]) new Object[eArr.length];
-        this.iPS = eArr2;
-        this.iPx = (j + j3) - 1;
+        this.iQZ = eArr2;
+        this.iQE = (j + j3) - 1;
         b(eArr2, j2, e);
         b(eArr, eArr2);
-        b(eArr, j2, iPF);
+        b(eArr, j2, iQM);
         dT(j + 1);
     }
 
@@ -104,12 +104,12 @@ public class y<E> extends aa<E> {
 
     @Override // java.util.Queue
     public final E poll() {
-        E[] eArr = this.iPQ;
+        E[] eArr = this.iQX;
         long j = this.consumerIndex;
-        long j2 = this.iPP;
+        long j2 = this.iQW;
         long v = v(j, j2);
         E e = (E) b(eArr, v);
-        boolean z = e == iPF;
+        boolean z = e == iQM;
         if (e != null && !z) {
             b(eArr, v, (Object) null);
             dU(j + 1);
@@ -122,7 +122,7 @@ public class y<E> extends aa<E> {
     }
 
     private E a(E[] eArr, long j, long j2) {
-        this.iPQ = eArr;
+        this.iQX = eArr;
         long v = v(j, j2);
         E e = (E) b(eArr, v);
         if (e == null) {
@@ -135,52 +135,52 @@ public class y<E> extends aa<E> {
 
     @Override // java.util.Queue
     public final E peek() {
-        E[] eArr = this.iPQ;
+        E[] eArr = this.iQX;
         long j = this.consumerIndex;
-        long j2 = this.iPP;
+        long j2 = this.iQW;
         E e = (E) b(eArr, v(j, j2));
-        if (e == iPF) {
+        if (e == iQM) {
             return b(N(eArr), j, j2);
         }
         return e;
     }
 
     private E b(E[] eArr, long j, long j2) {
-        this.iPQ = eArr;
+        this.iQX = eArr;
         return (E) b(eArr, v(j, j2));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public final int size() {
-        long cfr = cfr();
+        long cfZ = cfZ();
         while (true) {
-            long cfs = cfs();
-            long cfr2 = cfr();
-            if (cfr == cfr2) {
-                return (int) (cfs - cfr2);
+            long cga = cga();
+            long cfZ2 = cfZ();
+            if (cfZ == cfZ2) {
+                return (int) (cga - cfZ2);
             }
-            cfr = cfr2;
+            cfZ = cfZ2;
         }
     }
 
-    private void zE(int i) {
-        this.iPA = Math.min(i / 4, iPz);
+    private void zG(int i) {
+        this.iQH = Math.min(i / 4, iQG);
     }
 
-    private long cfs() {
-        return ae.iPT.getLongVolatile(this, iPN);
+    private long cga() {
+        return ae.iRa.getLongVolatile(this, iQU);
     }
 
-    private long cfr() {
-        return ae.iPT.getLongVolatile(this, iPM);
+    private long cfZ() {
+        return ae.iRa.getLongVolatile(this, iQT);
     }
 
     private void dT(long j) {
-        ae.iPT.putOrderedLong(this, iPN, j);
+        ae.iRa.putOrderedLong(this, iQU, j);
     }
 
     private void dU(long j) {
-        ae.iPT.putOrderedLong(this, iPM, j);
+        ae.iRa.putOrderedLong(this, iQT, j);
     }
 
     private static long v(long j, long j2) {
@@ -188,14 +188,14 @@ public class y<E> extends aa<E> {
     }
 
     private static long dZ(long j) {
-        return iPJ + (j << iPK);
+        return iQQ + (j << iQR);
     }
 
     private static void b(Object[] objArr, long j, Object obj) {
-        ae.iPT.putOrderedObject(objArr, j, obj);
+        ae.iRa.putOrderedObject(objArr, j, obj);
     }
 
     private static <E> Object b(E[] eArr, long j) {
-        return ae.iPT.getObjectVolatile(eArr, j);
+        return ae.iRa.getObjectVolatile(eArr, j);
     }
 }

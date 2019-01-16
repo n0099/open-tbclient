@@ -51,7 +51,7 @@ public class AiAppBusinessUbc {
                 AiAppExecutorUtils.postOnIO(new Runnable() { // from class: com.baidu.searchbox.ng.ai.apps.statistic.AiAppBusinessUbc.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        o.i(AiAppBusinessUbc.UBC_AI_APP_BUSINESS_ID, jSONObject);
+                        o.j(AiAppBusinessUbc.UBC_AI_APP_BUSINESS_ID, jSONObject);
                     }
                 }, "AiAppsBusinessUbcRunnable");
             } catch (JSONException e) {

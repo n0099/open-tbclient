@@ -6,134 +6,134 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private static b amt = null;
-    private static a amu = null;
-    private static boolean amv = false;
-    private static String amw = "";
-    private static transient List<String> amx = new ArrayList(5);
+    private static b amN = null;
+    private static a amO = null;
+    private static boolean amP = false;
+    private static String amQ = "";
+    private static transient List<String> amR = new ArrayList(5);
 
     private a() {
     }
 
     public static a b(BaseFragmentActivity baseFragmentActivity) {
-        if (amu == null) {
+        if (amO == null) {
             synchronized (a.class) {
-                if (amu == null) {
-                    amu = new a();
-                    amt = b.c(baseFragmentActivity);
+                if (amO == null) {
+                    amO = new a();
+                    amN = b.c(baseFragmentActivity);
                 }
             }
-        } else if (amt != null) {
-            amt.setContext(baseFragmentActivity.getPageContext());
+        } else if (amN != null) {
+            amN.setContext(baseFragmentActivity.getPageContext());
         }
-        if (amv && amt != null) {
-            amt.wD();
-            amt.wE();
-            amv = false;
+        if (amP && amN != null) {
+            amN.wK();
+            amN.wL();
+            amP = false;
         }
-        return amu;
+        return amO;
     }
 
     public void a(boolean z, boolean z2, boolean z3, b.a aVar) {
-        wz();
+        wG();
         if (z) {
-            wu();
+            wB();
         }
         if (z2) {
-            wv();
+            wC();
         }
-        aQ(z3);
+        aR(z3);
         a(aVar);
     }
 
-    public void wu() {
-        wz();
-        if (amt != null) {
-            amt.wD();
-            amv = false;
+    public void wB() {
+        wG();
+        if (amN != null) {
+            amN.wK();
+            amP = false;
         }
     }
 
-    public void wv() {
-        wz();
-        if (amt != null) {
-            amt.wE();
-            amv = false;
+    public void wC() {
+        wG();
+        if (amN != null) {
+            amN.wL();
+            amP = false;
         }
     }
 
-    public void aQ(boolean z) {
-        wz();
-        if (amt != null) {
-            amt.aQ(z);
+    public void aR(boolean z) {
+        wG();
+        if (amN != null) {
+            amN.aR(z);
         }
     }
 
     public void a(b.a aVar) {
-        wz();
-        if (amt != null) {
-            amt.c(aVar);
+        wG();
+        if (amN != null) {
+            amN.c(aVar);
         }
     }
 
     public void b(b.a aVar) {
-        wz();
-        if (amt != null) {
-            if (amt.wA()) {
-                amt.c(aVar);
+        wG();
+        if (amN != null) {
+            if (amN.wH()) {
+                amN.c(aVar);
             }
-            amt.wC();
+            amN.wJ();
         }
     }
 
     public void a(int i, b.a aVar) {
-        wz();
-        if (amt != null) {
-            if (amt.wA()) {
-                amt.c(aVar);
+        wG();
+        if (amN != null) {
+            if (amN.wH()) {
+                amN.c(aVar);
             }
-            amt.ca(i);
+            amN.ca(i);
         }
     }
 
-    public void ww() {
-        wz();
-        if (amt != null) {
-            amt.ww();
-            amv = true;
+    public void wD() {
+        wG();
+        if (amN != null) {
+            amN.wD();
+            amP = true;
         }
     }
 
-    public void wx() {
-        wz();
-        if (amt != null) {
-            amt.wx();
+    public void wE() {
+        wG();
+        if (amN != null) {
+            amN.wE();
         }
     }
 
-    public void wy() {
-        wz();
-        wx();
-        ww();
+    public void wF() {
+        wG();
+        wE();
+        wD();
     }
 
-    private void wz() {
-        if (amt == null) {
+    private void wG() {
+        if (amN == null) {
         }
     }
 
     public static void resetAll() {
         try {
-            if (amt != null) {
-                if (amu != null) {
-                    amu.wy();
+            if (amN != null) {
+                if (amO != null) {
+                    amO.wF();
                 }
-                amt.wB();
-                amt.wF();
-                amt = null;
+                amN.wI();
+                amN.wM();
+                amN = null;
             }
-            if (amu != null) {
-                amu = null;
+            if (amO != null) {
+                amO = null;
             }
         } catch (Throwable th) {
             th.printStackTrace();

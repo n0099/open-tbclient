@@ -121,15 +121,15 @@ public class e {
                 Random random = new Random();
                 StringBuffer stringBuffer2 = new StringBuffer(512);
                 ArrayList<Long> arrayList = new ArrayList();
-                WifiInfo tR = f.tQ().tR();
-                if (tR == null || tR.getBSSID() == null) {
+                WifiInfo tV = f.tU().tV();
+                if (tV == null || tV.getBSSID() == null) {
                     i2 = -1;
                     str = null;
                     str2 = null;
                 } else {
-                    String replace = tR.getBSSID().replace(":", "");
-                    int rssi = tR.getRssi();
-                    String n = f.tQ().n();
+                    String replace = tV.getBSSID().replace(":", "");
+                    int rssi = tV.getRssi();
+                    String n = f.tU().n();
                     if (rssi < 0) {
                         i2 = -rssi;
                         str = n;
@@ -532,7 +532,7 @@ public class e {
     }
 
     public boolean e() {
-        return a(g.ago);
+        return a(g.agx);
     }
 
     @SuppressLint({"NewApi"})

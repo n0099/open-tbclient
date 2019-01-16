@@ -5,6 +5,7 @@ import com.baidu.adp.R;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 /* loaded from: classes.dex */
@@ -19,63 +20,135 @@ public class c {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET]}, finally: {[INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [171=7, 172=4, 173=4, 174=4, 175=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [199=15, 200=8, 201=8, 202=8, 203=8, 205=6] */
     public boolean a(String str, h hVar, int i, int i2, int i3, int i4, boolean z, boolean z2) {
+        boolean z3;
         int hr = i3 <= 0 ? com.baidu.adp.framework.c.b.hn().hq().hr() : i3;
         if (i <= 0) {
             i = com.baidu.adp.framework.c.b.hn().getRetryCount();
         }
         int hr2 = i4 <= 0 ? com.baidu.adp.framework.c.b.hn().ho().hr() : i4;
+        boolean z4 = false;
         this.CD = new b(this.wc);
-        for (int i5 = 0; i5 < i; i5++) {
+        int i5 = 0;
+        while (i5 < i) {
             d dVar = new d();
             try {
-                try {
-                    dVar.CI = i5 + 1;
-                    this.CE = i5;
-                    aB(i5);
-                    boolean a = this.CD.a(str, hVar, hr, hr2, z, dVar, z2);
-                    com.baidu.adp.lib.a.a.iF().a(this.wc.jp().getUrl(), this.wc.jp().aQ("Host"), TextUtils.isEmpty(dVar.CL), dVar.CP != null);
-                    this.wc.a(dVar);
-                    a iZ = a.iZ();
-                    if (iZ != null) {
-                        iZ.a(this.wc);
-                    }
-                    return a;
-                } catch (Exception e) {
-                    this.wc.jq().responseCode = -10;
-                    dVar.CL = String.valueOf(this.wc.jq().responseCode) + "|retryCount:" + i5 + "|" + e.getClass() + "|" + e.getMessage();
-                    this.wc.a(dVar);
-                    com.baidu.adp.lib.a.a.iF().a(this.wc.jp().getUrl(), this.wc.jp().aQ("Host"), TextUtils.isEmpty(dVar.CL), dVar.CP != null);
-                    this.wc.a(dVar);
-                    a iZ2 = a.iZ();
-                    if (iZ2 != null) {
-                        iZ2.a(this.wc);
+                dVar.CI = i5 + 1;
+                this.CE = i5;
+                aB(i5);
+                z3 = this.CD.a(str, hVar, hr, hr2, z, dVar, z2);
+                if (!z3) {
+                    try {
+                        if (this.wc.jq().Dd) {
+                            this.wc.jq().De = -14;
+                        }
+                    } catch (FileNotFoundException e) {
+                        e = e;
+                        dVar.CL = "responseCode:" + String.valueOf(this.wc.jq().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                        this.wc.jq().De = -100;
+                        com.baidu.adp.lib.a.a.iF().a(this.wc.jp().getUrl(), this.wc.jp().aQ("Host"), TextUtils.isEmpty(dVar.CL), dVar.CP != null);
+                        this.wc.a(dVar);
+                        a iZ = a.iZ();
+                        if (iZ != null) {
+                            iZ.a(this.wc);
+                        }
+                        i5++;
+                        z4 = z3;
+                    } catch (IllegalStateException e2) {
+                        e = e2;
+                        dVar.CL = "responseCode:" + String.valueOf(this.wc.jq().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage() + "|getcontent_illegal_error";
+                        this.wc.jq().De = -19;
+                        com.baidu.adp.lib.a.a.iF().a(this.wc.jp().getUrl(), this.wc.jp().aQ("Host"), TextUtils.isEmpty(dVar.CL), dVar.CP != null);
+                        this.wc.a(dVar);
+                        a iZ2 = a.iZ();
+                        if (iZ2 != null) {
+                            iZ2.a(this.wc);
+                        }
+                        i5++;
+                        z4 = z3;
+                    } catch (SocketException e3) {
+                        e = e3;
+                        dVar.CL = "responseCode:" + String.valueOf(this.wc.jq().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                        this.wc.jq().De = -12;
+                        com.baidu.adp.lib.a.a.iF().a(this.wc.jp().getUrl(), this.wc.jp().aQ("Host"), TextUtils.isEmpty(dVar.CL), dVar.CP != null);
+                        this.wc.a(dVar);
+                        a iZ3 = a.iZ();
+                        if (iZ3 != null) {
+                            iZ3.a(this.wc);
+                        }
+                        i5++;
+                        z4 = z3;
+                    } catch (SocketTimeoutException e4) {
+                        e = e4;
+                        dVar.CL = "responseCode:" + String.valueOf(this.wc.jq().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                        this.wc.jq().De = -13;
+                        com.baidu.adp.lib.a.a.iF().a(this.wc.jp().getUrl(), this.wc.jp().aQ("Host"), TextUtils.isEmpty(dVar.CL), dVar.CP != null);
+                        this.wc.a(dVar);
+                        a iZ4 = a.iZ();
+                        if (iZ4 != null) {
+                            iZ4.a(this.wc);
+                        }
+                        i5++;
+                        z4 = z3;
+                    } catch (IOException e5) {
+                        e = e5;
+                        dVar.CL = "errorCode:" + String.valueOf(this.wc.jq().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                        this.wc.jq().De = -19;
+                        com.baidu.adp.lib.a.a.iF().a(this.wc.jp().getUrl(), this.wc.jp().aQ("Host"), TextUtils.isEmpty(dVar.CL), dVar.CP != null);
+                        this.wc.a(dVar);
+                        a iZ5 = a.iZ();
+                        if (iZ5 != null) {
+                            iZ5.a(this.wc);
+                        }
+                        i5++;
+                        z4 = z3;
+                    } catch (Exception e6) {
+                        e = e6;
+                        try {
+                            dVar.CL = "errorCode:" + String.valueOf(this.wc.jq().responseCode) + "|retryCount:" + i5 + "|" + e.getClass().getName() + "|" + e.getMessage();
+                            this.wc.jq().De = -10;
+                            BdLog.e(e.getMessage());
+                            com.baidu.adp.lib.a.a.iF().a(this.wc.jp().getUrl(), this.wc.jp().aQ("Host"), TextUtils.isEmpty(dVar.CL), dVar.CP != null);
+                            this.wc.a(dVar);
+                            a iZ6 = a.iZ();
+                            if (iZ6 != null) {
+                                iZ6.a(this.wc);
+                            }
+                            i5++;
+                            z4 = z3;
+                        } finally {
+                            com.baidu.adp.lib.a.a.iF().a(this.wc.jp().getUrl(), this.wc.jp().aQ("Host"), TextUtils.isEmpty(dVar.CL), dVar.CP != null);
+                            this.wc.a(dVar);
+                            a iZ7 = a.iZ();
+                            if (iZ7 != null) {
+                                iZ7.a(this.wc);
+                            }
+                        }
                     }
                 }
-            } catch (FileNotFoundException e2) {
-                try {
-                    this.wc.jq().responseCode = -100;
-                    dVar.CL = String.valueOf(this.wc.jq().responseCode) + "|retryCount:" + i5 + "|" + e2.getClass() + "|" + e2.getMessage();
-                    this.wc.a(dVar);
-                    com.baidu.adp.lib.a.a.iF().a(this.wc.jp().getUrl(), this.wc.jp().aQ("Host"), TextUtils.isEmpty(dVar.CL), dVar.CP != null);
-                    this.wc.a(dVar);
-                    a iZ3 = a.iZ();
-                    if (iZ3 != null) {
-                        iZ3.a(this.wc);
-                    }
-                } catch (Throwable th) {
-                    com.baidu.adp.lib.a.a.iF().a(this.wc.jp().getUrl(), this.wc.jp().aQ("Host"), TextUtils.isEmpty(dVar.CL), dVar.CP != null);
-                    this.wc.a(dVar);
-                    a iZ4 = a.iZ();
-                    if (iZ4 != null) {
-                        iZ4.a(this.wc);
-                    }
-                    throw th;
-                }
+                return z3;
+            } catch (FileNotFoundException e7) {
+                e = e7;
+                z3 = z4;
+            } catch (IllegalStateException e8) {
+                e = e8;
+                z3 = z4;
+            } catch (SocketException e9) {
+                e = e9;
+                z3 = z4;
+            } catch (SocketTimeoutException e10) {
+                e = e10;
+                z3 = z4;
+            } catch (IOException e11) {
+                e = e11;
+                z3 = z4;
+            } catch (Exception e12) {
+                e = e12;
+                z3 = z4;
             }
         }
-        return false;
+        return z4;
     }
 
     public boolean a(String str, h hVar, int i, int i2, int i3, boolean z) {
@@ -83,7 +156,7 @@ public class c {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, CONST, CMP_L]}, finally: {[IGET, CONST, CMP_L, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF, INVOKE, ARITH, IPUT, INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IGET, INVOKE, IPUT, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF, INVOKE, ARITH, IPUT, INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IF, IGET, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF, INVOKE, ARITH, IPUT, INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IF] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [269=7, 270=7, 272=7, 273=14, 274=7, 275=7, 276=7, 277=7] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [297=7, 298=7, 300=7, 301=14, 302=7, 303=7, 304=7, 305=7] */
     public void e(int i, int i2, int i3) {
         if (i2 <= 0) {
             i2 = com.baidu.adp.framework.c.b.hn().hq().hr();
@@ -214,7 +287,7 @@ public class c {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, CONST, CMP_L]}, finally: {[IGET, CONST, CMP_L, IGET, INVOKE, IF, IGET, INVOKE, IF, IGET, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, IGET, INVOKE, IF, IGET, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF, INVOKE, ARITH, IPUT, INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IGET, INVOKE, IPUT, IGET, INVOKE, IF, IGET, INVOKE, IF, IGET, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, IGET, INVOKE, IF, IGET, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF, INVOKE, ARITH, IPUT, INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IF, IGET, IGET, INVOKE, IF, IGET, INVOKE, IF, IGET, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, IGET, INVOKE, IF, IGET, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF, INVOKE, ARITH, IPUT, INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IF] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [349=7, 350=7, 352=7, 353=14, 354=7, 355=7, 356=7, 357=7, 359=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [384=7, 385=7, 387=5, 377=7, 378=7, 380=7, 381=14, 382=7, 383=7] */
     private void f(int i, int i2, int i3) {
         boolean z;
         a iZ;
@@ -349,7 +422,7 @@ public class c {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET, CONST, CMP_L]}, finally: {[IGET, CONST, CMP_L, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF, INVOKE, ARITH, IPUT, INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IGET, INVOKE, IPUT, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF, INVOKE, ARITH, IPUT, INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IF, IGET, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IGET, INVOKE, IF, INVOKE, IGET, INVOKE, INVOKE, CONST, IF, INVOKE, ARITH, IPUT, INVOKE, IGET, INVOKE, INVOKE, IGET, INVOKE, CONST_STR, INVOKE, IGET, INVOKE, IGET, IF] complete} */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [471=7, 472=7, 474=7, 475=14, 476=7, 477=7, 478=7, 479=7, 481=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [499=7, 500=7, 502=7, 503=14, 504=7, 505=7, 506=7, 507=7, 509=5] */
     private void h(int i, int i2, int i3) {
         boolean z;
         if (i2 <= 0) {

@@ -11,7 +11,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class a {
-    private com.baidu.poly.b.a.a.a ahW;
+    private com.baidu.poly.b.a.a.a aif;
 
     public a(Context context) {
         File ac = ac(context, "bitmap");
@@ -19,19 +19,19 @@ public class a {
             ac.mkdirs();
         }
         try {
-            this.ahW = com.baidu.poly.b.a.a.a.a(ac, 1, 1, 10485760L);
+            this.aif = com.baidu.poly.b.a.a.a.a(ac, 1, 1, 10485760L);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public Bitmap l(String str, int i, int i2) throws IOException {
-        if (this.ahW == null) {
+        if (this.aif == null) {
             return null;
         }
-        a.c m12do = this.ahW.m12do(com.baidu.poly.b.b.b.dq(str));
-        if (m12do != null) {
-            FileInputStream fileInputStream = (FileInputStream) m12do.bO(0);
+        a.c dp = this.aif.dp(com.baidu.poly.b.b.b.dr(str));
+        if (dp != null) {
+            FileInputStream fileInputStream = (FileInputStream) dp.bO(0);
             if (i <= 0 || i2 <= 0) {
                 return BitmapFactory.decodeFileDescriptor(fileInputStream.getFD());
             }
@@ -40,17 +40,17 @@ public class a {
         return null;
     }
 
-    public void dl(String str) {
-        if (this.ahW != null) {
+    public void dm(String str) {
+        if (this.aif != null) {
             try {
-                a.C0112a dp = this.ahW.dp(com.baidu.poly.b.b.b.dq(str));
-                if (dp != null) {
-                    if (d.a(str, dp.bL(0))) {
-                        dp.commit();
+                a.C0112a dq = this.aif.dq(com.baidu.poly.b.b.b.dr(str));
+                if (dq != null) {
+                    if (d.a(str, dq.bL(0))) {
+                        dq.commit();
                     } else {
-                        dp.abort();
+                        dq.abort();
                     }
-                    this.ahW.flush();
+                    this.aif.flush();
                 }
             } catch (IOException e) {
                 e.printStackTrace();

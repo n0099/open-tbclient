@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
-import com.baidu.sapi2.activity.social.SocialLoginActivity;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.utils.enums.SocialType;
 import java.util.ArrayList;
@@ -102,11 +101,11 @@ public class SapiStatUtil {
         HashMap hashMap = new HashMap();
         hashMap.put("clientip", SapiUtils.getLocalIpAddress());
         hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
-        hashMap.put(SocialLoginActivity.EXTRA_SOCIAL_TYPE, socialType.getType() + "");
+        hashMap.put("social_type", socialType.getType() + "");
         if (SocialType.SINA_WEIBO_SSO == socialType) {
             hashMap.put("is_sso", "1");
         }
-        hashMap.put(SocialLoginActivity.EXTRA_SOCIAL_TYPE, socialType.getType() + "");
+        hashMap.put("social_type", socialType.getType() + "");
         StatService.onEvent("thirdlogin_enter", hashMap, false);
     }
 }

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    public static void V(List<a> list) {
+    public static void W(List<a> list) {
         if (list != null) {
             StringBuilder sb = new StringBuilder();
             HashMap hashMap = new HashMap();
@@ -25,7 +25,7 @@ public class d {
         }
     }
 
-    public static String[] PO() {
+    public static String[] Qg() {
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
         if (StringUtils.isNull(string)) {
             return new String[0];
@@ -34,9 +34,9 @@ public class d {
         if (split != null && split.length > 0) {
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
-                a iA = a.iA(str);
-                if (iA != null && !StringUtils.isNull(iA.forumName)) {
-                    arrayList.add(iA.forumName);
+                a iO = a.iO(str);
+                if (iO != null && !StringUtils.isNull(iO.forumName)) {
+                    arrayList.add(iO.forumName);
                 }
             }
             return (String[]) arrayList.toArray(new String[arrayList.size()]);
@@ -64,7 +64,7 @@ public class d {
             return this.forumName + "#" + this.level;
         }
 
-        public static a iA(String str) {
+        public static a iO(String str) {
             if (StringUtils.isNull(str)) {
                 return null;
             }

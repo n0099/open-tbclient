@@ -20,15 +20,15 @@ public class InvoiceInfo implements Parcelable {
         }
     };
     @com.google.gson.a.c("tax_number")
-    public String bHi;
+    public String bHV;
     @com.google.gson.a.c("company_address")
-    public String bHj;
+    public String bHW;
     @com.google.gson.a.c("telephone")
-    public String bHk;
+    public String bHX;
     @com.google.gson.a.c("bank_name")
-    public String bHl;
+    public String bHY;
     @com.google.gson.a.c("bank_account")
-    public String bHm;
+    public String bHZ;
     @com.google.gson.a.c("id")
     public long mId;
     @com.google.gson.a.c("is_default")
@@ -44,28 +44,28 @@ public class InvoiceInfo implements Parcelable {
     public InvoiceInfo(int i, String str, String str2, String str3, String str4, String str5, String str6) {
         this.mType = i;
         this.mTitle = str;
-        this.bHi = str2;
-        this.bHj = str3;
-        this.bHk = str4;
-        this.bHl = str5;
-        this.bHm = str6;
+        this.bHV = str2;
+        this.bHW = str3;
+        this.bHX = str4;
+        this.bHY = str5;
+        this.bHZ = str6;
     }
 
     public InvoiceInfo(int i, String str, String str2) {
         this.mType = i;
         this.mTitle = str;
-        this.bHk = str2;
+        this.bHX = str2;
     }
 
     private InvoiceInfo(Parcel parcel) {
         this.mId = parcel.readLong();
         this.mType = parcel.readInt();
         this.mTitle = parcel.readString();
-        this.bHi = parcel.readString();
-        this.bHj = parcel.readString();
-        this.bHk = parcel.readString();
-        this.bHl = parcel.readString();
-        this.bHm = parcel.readString();
+        this.bHV = parcel.readString();
+        this.bHW = parcel.readString();
+        this.bHX = parcel.readString();
+        this.bHY = parcel.readString();
+        this.bHZ = parcel.readString();
         this.mIsDefault = parcel.readInt();
     }
 
@@ -79,11 +79,11 @@ public class InvoiceInfo implements Parcelable {
         parcel.writeLong(this.mId);
         parcel.writeInt(this.mType);
         parcel.writeString(this.mTitle);
-        parcel.writeString(this.bHi);
-        parcel.writeString(this.bHj);
-        parcel.writeString(this.bHk);
-        parcel.writeString(this.bHl);
-        parcel.writeString(this.bHm);
+        parcel.writeString(this.bHV);
+        parcel.writeString(this.bHW);
+        parcel.writeString(this.bHX);
+        parcel.writeString(this.bHY);
+        parcel.writeString(this.bHZ);
         parcel.writeInt(this.mIsDefault);
     }
 

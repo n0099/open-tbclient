@@ -11,30 +11,30 @@ import com.baidu.tieba.e;
 public class DialogUtil {
     public static com.baidu.tbadk.core.dialog.a removeMemberDialog(Activity activity, a.b bVar, a.b bVar2) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
-        aVar.eB(TbadkApplication.getInst().getString(e.j.members_dialog_remove_one_message));
+        aVar.eK(TbadkApplication.getInst().getString(e.j.members_dialog_remove_one_message));
         aVar.a(TbadkApplication.getInst().getString(e.j.alert_yes_button), bVar);
         aVar.b(TbadkApplication.getInst().getString(e.j.cancel), bVar2);
         aVar.b(i.aK(activity));
-        aVar.BF();
+        aVar.BS();
         return aVar;
     }
 
     public static com.baidu.tbadk.core.dialog.b orderMembers(Activity activity, b.InterfaceC0158b interfaceC0158b) {
         com.baidu.tbadk.core.dialog.b bVar = new com.baidu.tbadk.core.dialog.b(activity);
-        bVar.eC(TbadkApplication.getInst().getString(e.j.members_order));
+        bVar.eL(TbadkApplication.getInst().getString(e.j.members_order));
         bVar.a(activity.getResources().getStringArray(e.b.members_order_by), interfaceC0158b);
         bVar.d(i.aK(activity));
-        bVar.BI();
+        bVar.BV();
         return bVar;
     }
 
     public static com.baidu.tbadk.core.dialog.a removeMembersDialog(Activity activity, a.b bVar, a.b bVar2) {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
-        aVar.eB(TbadkApplication.getInst().getString(e.j.members_dialog_remove_more_message));
+        aVar.eK(TbadkApplication.getInst().getString(e.j.members_dialog_remove_more_message));
         aVar.a(TbadkApplication.getInst().getString(e.j.alert_yes_button), bVar);
         aVar.b(TbadkApplication.getInst().getString(e.j.cancel), bVar2);
         aVar.b(i.aK(activity));
-        aVar.BF();
+        aVar.BS();
         return aVar;
     }
 
@@ -43,7 +43,7 @@ public class DialogUtil {
             return null;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a((Activity) context);
-        aVar.eB(TbadkApplication.getInst().getString(e.j.group_activity_delete_tip));
+        aVar.eK(TbadkApplication.getInst().getString(e.j.group_activity_delete_tip));
         aVar.a(TbadkApplication.getInst().getString(e.j.confirm), bVar);
         aVar.b(TbadkApplication.getInst().getString(e.j.cancel), new a.b() { // from class: com.baidu.tieba.im.util.DialogUtil.1
             @Override // com.baidu.tbadk.core.dialog.a.b
@@ -52,7 +52,7 @@ public class DialogUtil {
             }
         });
         aVar.b(i.aK(context));
-        aVar.BF();
+        aVar.BS();
         return aVar;
     }
 
@@ -67,11 +67,11 @@ public class DialogUtil {
             return null;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a((Activity) context);
-        aVar.eB(TbadkApplication.getInst().getString(i));
+        aVar.eK(TbadkApplication.getInst().getString(i));
         aVar.a(TbadkApplication.getInst().getString(e.j.confirm), bVar);
         aVar.b(TbadkApplication.getInst().getString(e.j.cancel), bVar2);
         aVar.b(i.aK(context));
-        aVar.BF();
+        aVar.BS();
         return aVar;
     }
 }

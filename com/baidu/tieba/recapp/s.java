@@ -28,9 +28,9 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.apr;
-        if (StringUtils.isNull(str) && advertAppInfo.apB != null) {
-            str = advertAppInfo.apB.userName;
+        String str = advertAppInfo.apT;
+        if (StringUtils.isNull(str) && advertAppInfo.aqd != null) {
+            str = advertAppInfo.aqd.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -46,29 +46,29 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.LL().b(advertAppInfo);
-        String str2 = advertAppInfo.apr;
+        com.baidu.tbadk.distribute.a.Mc().b(advertAppInfo);
+        String str2 = advertAppInfo.apT;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.d.bvr().a(advertAppInfo.apv, advertAppInfo.apu, str2, i, com.baidu.tieba.recapp.download.d.uC(advertAppInfo.apv).intValue(), null, true, false, true, advertAppInfo.apB.userPortrait, downloadStaticsData, advertAppInfo.apB.userName);
+        com.baidu.tieba.recapp.download.d.bwa().a(advertAppInfo.apX, advertAppInfo.apW, str2, i, com.baidu.tieba.recapp.download.d.uS(advertAppInfo.apX).intValue(), null, true, false, true, advertAppInfo.aqd.userPortrait, downloadStaticsData, advertAppInfo.aqd.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.d.bvr().j(advertAppInfo.apu, advertAppInfo.apv, true);
+        com.baidu.tieba.recapp.download.d.bwa().j(advertAppInfo.apW, advertAppInfo.apX, true);
     }
 
-    public static final void aG(Context context, String str) {
+    public static final void aE(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             com.baidu.adp.lib.util.l.showToast(context, e.j.download_error);
             return;
         }
-        File eU = com.baidu.tbadk.core.util.l.eU(str.replace(".", BaseRequestAction.SPLITE) + ".apk");
-        if (eU != null) {
+        File fd = com.baidu.tbadk.core.util.l.fd(str.replace(".", BaseRequestAction.SPLITE) + ".apk");
+        if (fd != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(eU, intent, context), AiAppFileClassifyHelper.MIME_TYPE_APK);
+            intent.setDataAndType(UtilHelper.getUriFromFile(fd, intent, context), AiAppFileClassifyHelper.MIME_TYPE_APK);
             intent.addFlags(268435456);
             context.startActivity(intent);
         }
@@ -99,7 +99,7 @@ public class s {
         return false;
     }
 
-    public static boolean R(Activity activity) {
+    public static boolean O(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
@@ -168,11 +168,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.bvk().sendFRS(z, str, str2, str3, list, str4);
+        r.bvT().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.bvk().a(z, str, str2, str3, str4, list, str5);
+        r.bvT().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int e(TbPageContext tbPageContext, String str) {
@@ -191,41 +191,41 @@ public class s {
 
     private static boolean f(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        h bvh = r.bvk().bvh();
-        if (bvh == null) {
+        h bvQ = r.bvT().bvQ();
+        if (bvQ == null) {
             return false;
         }
-        if (bvh.jP(str)) {
-            bvh.a(tbPageContext.getPageActivity(), strArr, true);
+        if (bvQ.kf(str)) {
+            bvQ.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return bvh.d(tbPageContext.getPageActivity(), strArr);
+        return bvQ.d(tbPageContext.getPageActivity(), strArr);
     }
 
-    public static int aH(Context context, String str) {
+    public static int aF(Context context, String str) {
         if (context == null || TextUtils.isEmpty(str)) {
             return 0;
         }
         if (!str.startsWith("tieba://deeplink?")) {
-            return aI(context, str) ? 3 : 0;
+            return aG(context, str) ? 3 : 0;
         }
         Uri parse = Uri.parse(str);
         if (c(context, Uri.parse(parse.getQueryParameter("jump")))) {
             return 1;
         }
-        return aI(context, parse.getQueryParameter("wap")) ? 2 : 0;
+        return aG(context, parse.getQueryParameter("wap")) ? 2 : 0;
     }
 
-    private static boolean aI(Context context, String str) {
+    private static boolean aG(Context context, String str) {
         String[] strArr = {str};
-        h bvh = r.bvk().bvh();
-        if (bvh == null) {
+        h bvQ = r.bvT().bvQ();
+        if (bvQ == null) {
             return false;
         }
-        if (bvh.jP(str)) {
-            bvh.a(context, strArr, true);
+        if (bvQ.kf(str)) {
+            bvQ.a(context, strArr, true);
             return true;
         }
-        return bvh.d(context, strArr);
+        return bvQ.d(context, strArr);
     }
 }

@@ -32,7 +32,7 @@ public final class i {
         return new j(jArr);
     }
 
-    public static final w f(float[] fArr) {
+    public static final w g(float[] fArr) {
         p.j(fArr, com.baidu.fsg.base.statistics.b.j);
         return new e(fArr);
     }

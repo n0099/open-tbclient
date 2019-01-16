@@ -12,86 +12,86 @@ import com.baidu.tieba.frs.as;
 import com.baidu.tieba.frs.k;
 /* loaded from: classes6.dex */
 public class b {
-    private as bPI;
-    private TextView dWV;
-    private int dwK;
-    private final FrsFragment ecG;
-    private boolean eeb;
-    private int eec = -1;
+    private as bQt;
+    private TextView dXB;
+    private int dxt;
+    private final FrsFragment edm;
+    private boolean eeH;
+    private int eeI = -1;
 
     public b(FrsFragment frsFragment) {
-        this.dwK = 0;
+        this.dxt = 0;
         if (frsFragment == null) {
             throw new NullPointerException("FrsFragment is null");
         }
-        this.ecG = frsFragment;
+        this.edm = frsFragment;
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.dwK = UtilHelper.getStatusBarHeight();
+            this.dxt = UtilHelper.getStatusBarHeight();
         }
     }
 
-    public void aHx() {
-        if (this.eeb && this.eec >= 0) {
-            nr(this.eec);
+    public void aHU() {
+        if (this.eeH && this.eeI >= 0) {
+            ns(this.eeI);
         }
-        this.eeb = false;
+        this.eeH = false;
     }
 
-    public void nq(int i) {
+    public void nr(int i) {
         if (i >= 0) {
-            hq(true);
-            ns(i);
+            ht(true);
+            nt(i);
             return;
         }
-        hq(false);
-        ns(i);
+        ht(false);
+        nt(i);
     }
 
-    private void nr(int i) {
+    private void ns(int i) {
         FrameLayout frameLayout;
         String string;
-        k aBx = this.ecG.aBx();
-        if (aBx != null && aBx.getListView() != null && (frameLayout = (FrameLayout) aBx.aCG()) != null) {
-            if (this.dWV == null && this.ecG.getPageContext() != null) {
-                this.dWV = new TextView(this.ecG.getPageContext().getPageActivity());
-                this.dWV.setTextSize(0, this.ecG.getResources().getDimensionPixelSize(e.C0210e.fontsize28));
-                this.dWV.setGravity(17);
+        k aBU = this.edm.aBU();
+        if (aBU != null && aBU.getListView() != null && (frameLayout = (FrameLayout) aBU.aDd()) != null) {
+            if (this.dXB == null && this.edm.getPageContext() != null) {
+                this.dXB = new TextView(this.edm.getPageContext().getPageActivity());
+                this.dXB.setTextSize(0, this.edm.getResources().getDimensionPixelSize(e.C0210e.fontsize28));
+                this.dXB.setGravity(17);
             }
-            if (this.dWV != null) {
+            if (this.dXB != null) {
                 if (i > 0) {
                     string = String.format(TbadkCoreApplication.getInst().getString(e.j.recommend_frs_refresh_return), Integer.valueOf(i));
                 } else {
                     string = TbadkCoreApplication.getInst().getString(e.j.smart_frs_refresh_nodata);
                 }
-                this.dWV.setText(string);
+                this.dXB.setText(string);
             }
-            al.i(this.dWV, e.d.common_color_10260);
-            al.h(this.dWV, e.d.cp_cont_g);
+            al.i(this.dXB, e.d.common_color_10260);
+            al.h(this.dXB, e.d.cp_cont_g);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, l.h(TbadkCoreApplication.getInst(), e.C0210e.ds56));
-            if (aBx.aCl() != null && aBx.aCl().getLayoutParams() != null) {
-                layoutParams.topMargin = aBx.aCl().getLayoutParams().height;
+            if (aBU.aCI() != null && aBU.aCI().getLayoutParams() != null) {
+                layoutParams.topMargin = aBU.aCI().getLayoutParams().height;
             } else {
                 layoutParams.topMargin = 0;
             }
-            if (this.bPI == null) {
-                this.bPI = new as();
+            if (this.bQt == null) {
+                this.bQt = new as();
             }
-            this.bPI.a(this.dWV, frameLayout, layoutParams, 2000);
-            this.eec = -1;
+            this.bQt.a(this.dXB, frameLayout, layoutParams, 2000);
+            this.eeI = -1;
         }
     }
 
-    public void hq(boolean z) {
-        this.eeb = z;
+    public void ht(boolean z) {
+        this.eeH = z;
     }
 
-    public void ns(int i) {
-        this.eec = i;
+    public void nt(int i) {
+        this.eeI = i;
     }
 
     public void onDestroy() {
-        if (this.bPI != null) {
-            this.bPI.onDestroy();
+        if (this.bQt != null) {
+            this.bQt.onDestroy();
         }
     }
 }

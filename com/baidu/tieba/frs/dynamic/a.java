@@ -21,7 +21,7 @@ public class a implements c {
     public boolean hasMore;
     public ArrayList<h> threadList = new ArrayList<>();
     public HashMap<String, MetaData> userMap = new HashMap<>();
-    public int dRQ = 0;
+    public int dSz = 0;
 
     public StarTrendsResIdl J(byte[] bArr) {
         if (bArr == null) {
@@ -61,8 +61,8 @@ public class a implements c {
                         bbVar.setUserMap(this.userMap);
                         bbVar.a(threadInfo);
                         bbVar.setCurrentPage(3);
-                        bbVar.Aq();
-                        if (bbVar.getType() == bb.atg || bbVar.getType() == bb.ati || bbVar.getType() == bb.atn || bbVar.getType() == bb.atj || bbVar.getType() == bb.ato || bbVar.getType() == bb.atp) {
+                        bbVar.AD();
+                        if (bbVar.getType() == bb.atI || bbVar.getType() == bb.atK || bbVar.getType() == bb.atP || bbVar.getType() == bb.atL || bbVar.getType() == bb.atQ || bbVar.getType() == bb.atR) {
                             this.threadList.add(bbVar);
                         }
                     }
@@ -73,7 +73,7 @@ public class a implements c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] NY() {
+    public byte[] Op() {
         return null;
     }
 

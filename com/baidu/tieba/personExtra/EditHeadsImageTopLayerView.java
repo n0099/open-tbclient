@@ -7,70 +7,70 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes3.dex */
 public class EditHeadsImageTopLayerView extends View {
-    private Paint gwA;
-    private Paint gwB;
-    private int gwC;
-    private int gwD;
-    private float gwE;
-    private float gwF;
+    private Paint gxE;
+    private Paint gxF;
+    private int gxG;
+    private int gxH;
+    private float gxI;
+    private float gxJ;
     private int mLineWidth;
 
     public EditHeadsImageTopLayerView(Context context) {
         super(context);
-        this.gwA = null;
-        this.gwB = null;
-        this.gwC = 0;
-        this.gwD = 0;
-        this.gwE = 0.42857143f;
-        this.gwF = 1.0f;
+        this.gxE = null;
+        this.gxF = null;
+        this.gxG = 0;
+        this.gxH = 0;
+        this.gxI = 0.42857143f;
+        this.gxJ = 1.0f;
         this.mLineWidth = 1;
         init();
     }
 
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gwA = null;
-        this.gwB = null;
-        this.gwC = 0;
-        this.gwD = 0;
-        this.gwE = 0.42857143f;
-        this.gwF = 1.0f;
+        this.gxE = null;
+        this.gxF = null;
+        this.gxG = 0;
+        this.gxH = 0;
+        this.gxI = 0.42857143f;
+        this.gxJ = 1.0f;
         this.mLineWidth = 1;
         init();
     }
 
     public EditHeadsImageTopLayerView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gwA = null;
-        this.gwB = null;
-        this.gwC = 0;
-        this.gwD = 0;
-        this.gwE = 0.42857143f;
-        this.gwF = 1.0f;
+        this.gxE = null;
+        this.gxF = null;
+        this.gxG = 0;
+        this.gxH = 0;
+        this.gxI = 0.42857143f;
+        this.gxJ = 1.0f;
         this.mLineWidth = 1;
         init();
     }
 
     private void init() {
-        this.gwA = new Paint();
-        this.gwA.setColor(-16777216);
-        this.gwA.setAlpha(153);
-        this.gwB = new Paint();
-        this.gwB.setStyle(Paint.Style.STROKE);
-        this.gwB.setColor(-1);
+        this.gxE = new Paint();
+        this.gxE.setColor(-16777216);
+        this.gxE.setAlpha(153);
+        this.gxF = new Paint();
+        this.gxF.setStyle(Paint.Style.STROKE);
+        this.gxF.setColor(-1);
     }
 
     public void setLinePaintColor(int i) {
-        if (this.gwB != null) {
-            this.gwB.setColor(i);
+        if (this.gxF != null) {
+            this.gxF.setColor(i);
         }
         invalidate();
     }
 
     public void setLineWidth(int i) {
         this.mLineWidth = i;
-        if (this.gwB != null) {
-            this.gwB.setStrokeWidth(i);
+        if (this.gxF != null) {
+            this.gxF.setStrokeWidth(i);
         }
         invalidate();
     }
@@ -80,19 +80,19 @@ public class EditHeadsImageTopLayerView extends View {
         canvas.save();
         super.onDraw(canvas);
         canvas.restore();
-        canvas.drawRect(0.0f, 0.0f, getWidth(), this.gwC, this.gwA);
-        canvas.drawRect(0.0f, getHeight() - this.gwD, getWidth(), getHeight(), this.gwA);
-        canvas.drawRect(1.0f, this.gwC, getWidth() - 1, getHeight() - this.gwD, this.gwB);
+        canvas.drawRect(0.0f, 0.0f, getWidth(), this.gxG, this.gxE);
+        canvas.drawRect(0.0f, getHeight() - this.gxH, getWidth(), getHeight(), this.gxE);
+        canvas.drawRect(1.0f, this.gxG, getWidth() - 1, getHeight() - this.gxH, this.gxF);
     }
 
     @Override // android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
-        float width = this.gwF * getWidth();
+        float width = this.gxJ * getWidth();
         if (width > getHeight()) {
             width = getHeight();
         }
-        this.gwC = (int) (((i4 - i2) - width) * this.gwE);
-        this.gwD = (int) (((i4 - i2) - width) * (1.0f - this.gwE));
+        this.gxG = (int) (((i4 - i2) - width) * this.gxI);
+        this.gxH = (int) (((i4 - i2) - width) * (1.0f - this.gxI));
     }
 }

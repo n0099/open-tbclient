@@ -14,12 +14,12 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class g {
     private static Object c = new Object();
-    private static g adu = null;
+    private static g adD = null;
     private static final String e = com.baidu.location.g.g.h() + "/hst.db";
-    private SQLiteDatabase adv = null;
+    private SQLiteDatabase adE = null;
     private boolean g = false;
-    a adw = null;
-    a adx = null;
+    a adF = null;
+    a adG = null;
     private String h = null;
     private int i = -2;
 
@@ -70,9 +70,9 @@ public class g {
                                 contentValues.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
                                 contentValues.put("hst", Integer.valueOf(i));
                                 try {
-                                    if (g.this.adv.update("hstdata", contentValues, "id = \"" + valueOf + "\"", null) <= 0) {
+                                    if (g.this.adE.update("hstdata", contentValues, "id = \"" + valueOf + "\"", null) <= 0) {
                                         contentValues.put("id", valueOf);
-                                        g.this.adv.insert("hstdata", null, contentValues);
+                                        g.this.adE.insert("hstdata", null, contentValues);
                                     }
                                 } catch (Exception e) {
                                 }
@@ -96,28 +96,28 @@ public class g {
     }
 
     private String a(boolean z) {
-        com.baidu.location.e.a tM = com.baidu.location.e.b.tL().tM();
-        com.baidu.location.e.e tT = com.baidu.location.e.f.tQ().tT();
+        com.baidu.location.e.a tQ = com.baidu.location.e.b.tP().tQ();
+        com.baidu.location.e.e tX = com.baidu.location.e.f.tU().tX();
         StringBuffer stringBuffer = new StringBuffer(1024);
-        if (tM != null && tM.b()) {
-            stringBuffer.append(tM.h());
+        if (tQ != null && tQ.b()) {
+            stringBuffer.append(tQ.h());
         }
-        if (tT != null && tT.a() > 1) {
-            stringBuffer.append(tT.a(15));
-        } else if (com.baidu.location.e.f.tQ().m() != null) {
-            stringBuffer.append(com.baidu.location.e.f.tQ().m());
+        if (tX != null && tX.a() > 1) {
+            stringBuffer.append(tX.a(15));
+        } else if (com.baidu.location.e.f.tU().m() != null) {
+            stringBuffer.append(com.baidu.location.e.f.tU().m());
         }
         if (z) {
             stringBuffer.append("&imo=1");
         }
-        stringBuffer.append(com.baidu.location.g.b.tV().a(false));
-        stringBuffer.append(com.baidu.location.a.a.tb().c());
+        stringBuffer.append(com.baidu.location.g.b.tZ().a(false));
+        stringBuffer.append(com.baidu.location.a.a.tf().c());
         return stringBuffer.toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Bundle bundle) {
-        com.baidu.location.a.a.tb().a(bundle, 406);
+        com.baidu.location.a.a.tf().a(bundle, 406);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -127,13 +127,13 @@ public class g {
         a(bundle);
     }
 
-    public static g tg() {
+    public static g tk() {
         g gVar;
         synchronized (c) {
-            if (adu == null) {
-                adu = new g();
+            if (adD == null) {
+                adD = new g();
             }
-            gVar = adu;
+            gVar = adD;
         }
         return gVar;
     }
@@ -154,9 +154,9 @@ public class g {
             contentValues.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
             contentValues.put("hst", Integer.valueOf(i));
             try {
-                if (this.adv.update("hstdata", contentValues, "id = \"" + valueOf + "\"", null) <= 0) {
+                if (this.adE.update("hstdata", contentValues, "id = \"" + valueOf + "\"", null) <= 0) {
                     contentValues.put("id", valueOf);
-                    this.adv.insert("hstdata", null, contentValues);
+                    this.adE.insert("hstdata", null, contentValues);
                 }
             } catch (Exception e2) {
             }
@@ -171,40 +171,40 @@ public class g {
                 file.createNewFile();
             }
             if (file.exists()) {
-                this.adv = SQLiteDatabase.openOrCreateDatabase(file, (SQLiteDatabase.CursorFactory) null);
-                this.adv.execSQL("CREATE TABLE IF NOT EXISTS hstdata(id Long PRIMARY KEY,hst INT,tt INT);");
-                this.adv.setVersion(1);
+                this.adE = SQLiteDatabase.openOrCreateDatabase(file, (SQLiteDatabase.CursorFactory) null);
+                this.adE.execSQL("CREATE TABLE IF NOT EXISTS hstdata(id Long PRIMARY KEY,hst INT,tt INT);");
+                this.adE.setVersion(1);
             }
         } catch (Exception e2) {
-            this.adv = null;
+            this.adE = null;
         }
     }
 
     public void c() {
-        if (this.adv != null) {
+        if (this.adE != null) {
             try {
-                this.adv.close();
+                this.adE.close();
             } catch (Exception e2) {
             } finally {
-                this.adv = null;
+                this.adE = null;
             }
         }
     }
 
     public synchronized int d() {
         int i;
-        WifiInfo tR;
+        WifiInfo tV;
         Cursor cursor = null;
         synchronized (this) {
             i = -3;
             if (!this.g) {
                 try {
-                    if (com.baidu.location.e.f.j() && this.adv != null && (tR = com.baidu.location.e.f.tQ().tR()) != null && tR.getBSSID() != null) {
-                        String replace = tR.getBSSID().replace(":", "");
+                    if (com.baidu.location.e.f.j() && this.adE != null && (tV = com.baidu.location.e.f.tU().tV()) != null && tV.getBSSID() != null) {
+                        String replace = tV.getBSSID().replace(":", "");
                         Long encode3 = Jni.encode3(replace);
                         if (this.h == null || !replace.equals(this.h) || this.i <= -2) {
                             try {
-                                cursor = this.adv.rawQuery("select * from hstdata where id = \"" + encode3 + "\";", null);
+                                cursor = this.adE.rawQuery("select * from hstdata where id = \"" + encode3 + "\";", null);
                                 if (cursor == null || !cursor.moveToFirst()) {
                                     i = -2;
                                 } else {
@@ -265,19 +265,19 @@ public class g {
             return;
         }
         try {
-            if (!com.baidu.location.e.f.j() || this.adv == null) {
+            if (!com.baidu.location.e.f.j() || this.adE == null) {
                 f();
                 return;
             }
-            WifiInfo tR = com.baidu.location.e.f.tQ().tR();
-            if (tR == null || tR.getBSSID() == null) {
+            WifiInfo tV = com.baidu.location.e.f.tU().tV();
+            if (tV == null || tV.getBSSID() == null) {
                 f();
                 return;
             }
-            String replace = tR.getBSSID().replace(":", "");
+            String replace = tV.getBSSID().replace(":", "");
             boolean z2 = false;
             try {
-                rawQuery = this.adv.rawQuery("select * from hstdata where id = \"" + Jni.encode3(replace) + "\";", null);
+                rawQuery = this.adE.rawQuery("select * from hstdata where id = \"" + Jni.encode3(replace) + "\";", null);
             } catch (Exception e2) {
                 cursor = null;
             }
@@ -311,11 +311,11 @@ public class g {
                         }
                     }
                     if (z2) {
-                        if (this.adw == null) {
-                            this.adw = new a();
+                        if (this.adF == null) {
+                            this.adF = new a();
                         }
-                        if (this.adw != null) {
-                            this.adw.a(replace, a(true));
+                        if (this.adF != null) {
+                            this.adF.a(replace, a(true));
                             return;
                         }
                         return;

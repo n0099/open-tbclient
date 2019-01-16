@@ -5,8 +5,8 @@ import android.content.ContextWrapper;
 import android.util.Log;
 /* loaded from: classes2.dex */
 public class a extends ContextWrapper {
-    private static a UE;
-    private c UF;
+    private static a UN;
+    private c UO;
 
     public a() {
         super(null);
@@ -14,14 +14,14 @@ public class a extends ContextWrapper {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.content.ContextWrapper, android.content.Context
-    /* renamed from: qc */
+    /* renamed from: qg */
     public c getResources() {
-        if (this.UF == null) {
+        if (this.UO == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            this.UF = new c(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
+            this.UO = new c(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
             Log.e("hejunwei", "new resources cost " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
         }
-        return this.UF;
+        return this.UO;
     }
 
     @Override // android.content.ContextWrapper
@@ -29,13 +29,13 @@ public class a extends ContextWrapper {
         super.attachBaseContext(context);
     }
 
-    public static synchronized a qd() {
+    public static synchronized a qh() {
         a aVar;
         synchronized (a.class) {
-            if (UE == null) {
-                UE = new a();
+            if (UN == null) {
+                UN = new a();
             }
-            aVar = UE;
+            aVar = UN;
         }
         return aVar;
     }

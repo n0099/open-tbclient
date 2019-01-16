@@ -1,7 +1,7 @@
 package kotlin.text;
 /* loaded from: classes2.dex */
 public interface h {
-    kotlin.b.c ccP();
+    kotlin.b.c cdx();
 
-    h ccQ();
+    h cdy();
 }

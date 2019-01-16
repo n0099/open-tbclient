@@ -16,7 +16,7 @@ public class SocialLoginActivity extends BaseSSOLoginActivity {
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.socialType = (SocialType) getIntent().getSerializableExtra(EXTRA_SOCIAL_TYPE);
+        this.socialType = (SocialType) getIntent().getSerializableExtra("social_type");
         if (this.socialType == null) {
             if (this.businessFrom == 2001) {
                 Intent intent = new Intent();

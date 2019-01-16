@@ -21,86 +21,86 @@ import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c {
-    private PostSearchActivity gJK;
-    private View gJT;
-    private BdListView gJU;
-    private com.baidu.tbadk.core.dialog.a gJW;
+    private PostSearchActivity gKO;
+    private View gKX;
+    private BdListView gKY;
+    private com.baidu.tbadk.core.dialog.a gLa;
     private NoDataView mNoDataView;
     private View mRootView;
-    private com.baidu.tieba.mainentrance.d gJV = null;
-    private View def = null;
-    private boolean gJX = false;
+    private com.baidu.tieba.mainentrance.d gKZ = null;
+    private View deS = null;
+    private boolean gLb = false;
 
     public c(PostSearchActivity postSearchActivity, View view) {
-        this.gJK = postSearchActivity;
+        this.gKO = postSearchActivity;
         this.mRootView = view;
         initView();
     }
 
     private void initView() {
-        this.gJT = this.gJK.findViewById(e.g.history_frame);
-        this.gJU = (BdListView) this.mRootView.findViewById(e.g.history_list);
-        BdListViewHelper.a(this.gJK.getActivity(), this.gJU, BdListViewHelper.HeadType.DEFAULT);
-        this.gJV = new com.baidu.tieba.mainentrance.d(this.gJK.getPageContext().getPageActivity(), null);
-        this.gJV.jE(false);
-        this.gJU.setAdapter((ListAdapter) this.gJV);
-        this.def = LayoutInflater.from(this.gJK.getPageContext().getPageActivity()).inflate(e.h.home_dialog_search_footer, (ViewGroup) null);
-        this.gJU.addFooterView(this.def);
-        this.def.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.c.1
+        this.gKX = this.gKO.findViewById(e.g.history_frame);
+        this.gKY = (BdListView) this.mRootView.findViewById(e.g.history_list);
+        BdListViewHelper.a(this.gKO.getActivity(), this.gKY, BdListViewHelper.HeadType.DEFAULT);
+        this.gKZ = new com.baidu.tieba.mainentrance.d(this.gKO.getPageContext().getPageActivity(), null);
+        this.gKZ.jE(false);
+        this.gKY.setAdapter((ListAdapter) this.gKZ);
+        this.deS = LayoutInflater.from(this.gKO.getPageContext().getPageActivity()).inflate(e.h.home_dialog_search_footer, (ViewGroup) null);
+        this.gKY.addFooterView(this.deS);
+        this.deS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.aRK();
+                c.this.aSk();
             }
         });
-        this.gJU.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.postsearch.c.2
+        this.gKY.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.postsearch.c.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                TiebaStatic.log(new am("c12403").aA(ImageViewerConfig.FORUM_ID, c.this.gJK.mForumId).aA("uid", TbadkCoreApplication.getCurrentAccount()).aA(ImageViewerConfig.FORUM_NAME, c.this.gJK.mForumName));
-                String str = (String) c.this.gJU.getItemAtPosition(i + 1);
-                c.this.gJK.uj(str);
-                c.this.gJK.startSearch(str);
-                PostSearchActivity unused = c.this.gJK;
-                TiebaStatic.log(new am("c12842").aA("obj_name", str).aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "3").aA("obj_type", "2").aA(ImageViewerConfig.FORUM_ID, c.this.gJK.mForumId));
+                TiebaStatic.log(new am("c12403").aB(ImageViewerConfig.FORUM_ID, c.this.gKO.mForumId).aB("uid", TbadkCoreApplication.getCurrentAccount()).aB(ImageViewerConfig.FORUM_NAME, c.this.gKO.mForumName));
+                String str = (String) c.this.gKY.getItemAtPosition(i + 1);
+                c.this.gKO.uz(str);
+                c.this.gKO.startSearch(str);
+                PostSearchActivity unused = c.this.gKO;
+                TiebaStatic.log(new am("c12842").aB("obj_name", str).aB(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "3").aB("obj_type", "2").aB(ImageViewerConfig.FORUM_ID, c.this.gKO.mForumId));
             }
         });
-        this.gJU.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.postsearch.c.3
+        this.gKY.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.postsearch.c.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                c.this.gJK.btC();
+                c.this.gKO.bul();
                 return false;
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aRK() {
-        if (this.gJW == null) {
-            this.gJW = new com.baidu.tbadk.core.dialog.a(this.gJK.getPageContext().getPageActivity()).eB(this.gJK.getPageContext().getString(e.j.alert_clean_history)).a(this.gJK.getPageContext().getString(e.j.clear_all_text), new a.b() { // from class: com.baidu.tieba.postsearch.c.5
+    public void aSk() {
+        if (this.gLa == null) {
+            this.gLa = new com.baidu.tbadk.core.dialog.a(this.gKO.getPageContext().getPageActivity()).eK(this.gKO.getPageContext().getString(e.j.alert_clean_history)).a(this.gKO.getPageContext().getString(e.j.clear_all_text), new a.b() { // from class: com.baidu.tieba.postsearch.c.5
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
-                    c.this.gJK.btI().btV();
-                    c.this.gJU.setVisibility(8);
+                    c.this.gKO.bur().buE();
+                    c.this.gKY.setVisibility(8);
                     c.this.showNoDataView();
                 }
-            }).b(this.gJK.getPageContext().getString(e.j.cancel), new a.b() { // from class: com.baidu.tieba.postsearch.c.4
+            }).b(this.gKO.getPageContext().getString(e.j.cancel), new a.b() { // from class: com.baidu.tieba.postsearch.c.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                     aVar.dismiss();
                 }
-            }).b(this.gJK.getPageContext());
+            }).b(this.gKO.getPageContext());
         }
-        this.gJW.BF();
+        this.gLa.BS();
     }
 
     private void kf(int i) {
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.gJK.getPageContext().getPageActivity(), this.gJT, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(this.gJK.getActivity(), e.C0210e.ds320)), NoDataViewFactory.d.eq(e.j.text_no_search_record), null);
-            this.mNoDataView.onChangeSkinType(this.gJK.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            this.mNoDataView = NoDataViewFactory.a(this.gKO.getPageContext().getPageActivity(), this.gKX, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, l.h(this.gKO.getActivity(), e.C0210e.ds320)), NoDataViewFactory.d.eq(e.j.text_no_search_record), null);
+            this.mNoDataView.onChangeSkinType(this.gKO.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.mNoDataView.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.postsearch.c.6
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
-                    c.this.gJK.btC();
+                    c.this.gKO.bul();
                     return false;
                 }
             });
@@ -114,8 +114,8 @@ public class c {
         kf(e.j.text_no_search_record);
     }
 
-    public void btN() {
-        this.gJU.setVisibility(8);
+    public void buw() {
+        this.gKY.setVisibility(8);
         kf(e.j.text_no_search_result);
     }
 
@@ -126,42 +126,42 @@ public class c {
     }
 
     public void showLoadingView() {
-        this.gJX = true;
-        this.gJK.showLoadingView(this.gJT, false, this.gJK.getResources().getDimensionPixelSize(e.C0210e.ds386));
+        this.gLb = true;
+        this.gKO.showLoadingView(this.gKX, false, this.gKO.getResources().getDimensionPixelSize(e.C0210e.ds386));
     }
 
     public void hideLoadingView() {
-        this.gJX = false;
-        this.gJK.hideLoadingView(this.gJT);
+        this.gLb = false;
+        this.gKO.hideLoadingView(this.gKX);
     }
 
     public void at(ArrayList<String> arrayList) {
-        this.gJT.setVisibility(0);
+        this.gKX.setVisibility(0);
         hideLoadingView();
         if (arrayList == null || arrayList.size() == 0) {
-            this.gJU.setVisibility(8);
+            this.gKY.setVisibility(8);
             showNoDataView();
             return;
         }
         hideNoDataView();
-        this.gJU.setVisibility(0);
-        this.gJV.setData(arrayList);
-        this.gJV.notifyDataSetChanged();
+        this.gKY.setVisibility(0);
+        this.gKZ.setData(arrayList);
+        this.gKZ.notifyDataSetChanged();
     }
 
-    public void btO() {
-        this.gJT.setVisibility(8);
+    public void bux() {
+        this.gKX.setVisibility(8);
     }
 
-    public boolean btP() {
-        return this.gJT.getVisibility() == 0 && !this.gJX && (this.mNoDataView == null || 8 == this.mNoDataView.getVisibility());
+    public boolean buy() {
+        return this.gKX.getVisibility() == 0 && !this.gLb && (this.mNoDataView == null || 8 == this.mNoDataView.getVisibility());
     }
 
     public void onChangeSkinType(int i) {
-        com.baidu.tbadk.o.a.a(this.gJK.getPageContext(), this.def);
-        this.gJV.notifyDataSetChanged();
+        com.baidu.tbadk.o.a.a(this.gKO.getPageContext(), this.deS);
+        this.gKZ.notifyDataSetChanged();
         if (this.mNoDataView != null) {
-            this.mNoDataView.onChangeSkinType(this.gJK.getPageContext(), i);
+            this.mNoDataView.onChangeSkinType(this.gKO.getPageContext(), i);
         }
     }
 }

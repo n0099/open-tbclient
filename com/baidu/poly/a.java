@@ -7,13 +7,13 @@ import com.baidu.poly.a.e;
 import com.baidu.poly.widget.ChannelListView;
 /* loaded from: classes2.dex */
 public class a {
-    private ChannelListView ahq;
+    private ChannelListView ahz;
     private Context context;
 
     /* loaded from: classes2.dex */
     public static class b {
         public static int ONLINE = 1;
-        public static int ahw = 2;
+        public static int ahF = 2;
         public static int PREVIEW = 3;
     }
 
@@ -33,13 +33,13 @@ public class a {
         if (bundle == null) {
             throw new NullPointerException("arguments can not be null");
         }
-        if (this.ahq == null || !this.ahq.uJ()) {
-            this.ahq = new ChannelListView(this.context).j(i(bundle)).a(cVar).a(new ChannelListView.a() { // from class: com.baidu.poly.a.1
+        if (this.ahz == null || !this.ahz.uN()) {
+            this.ahz = new ChannelListView(this.context).j(i(bundle)).a(cVar).a(new ChannelListView.a() { // from class: com.baidu.poly.a.1
                 @Override // com.baidu.poly.widget.ChannelListView.a
                 public void onClose() {
-                    a.this.ahq = null;
+                    a.this.ahz = null;
                 }
-            }).uI();
+            }).uM();
         }
     }
 
@@ -50,9 +50,9 @@ public class a {
     }
 
     public boolean finish() {
-        if (this.ahq != null) {
-            this.ahq.detach();
-            this.ahq = null;
+        if (this.ahz != null) {
+            this.ahz.detach();
+            this.ahz = null;
             return true;
         }
         return false;
@@ -63,7 +63,7 @@ public class a {
         public void onResult(int i, String str) {
         }
 
-        public void dj(String str) {
+        public void dk(String str) {
         }
 
         public void onCancel(String str) {
@@ -73,23 +73,23 @@ public class a {
     /* renamed from: com.baidu.poly.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0110a {
-        private d ahs;
-        private com.baidu.poly.b.c aht;
-        private com.baidu.poly.d.a ahu;
-        private int ahv = b.ONLINE;
+        private d ahB;
+        private com.baidu.poly.b.c ahC;
+        private com.baidu.poly.d.a ahD;
+        private int ahE = b.ONLINE;
 
         public C0110a a(com.baidu.poly.d.a aVar) {
-            this.ahu = aVar;
+            this.ahD = aVar;
             return this;
         }
 
         public C0110a bK(int i) {
-            this.ahv = i;
+            this.ahE = i;
             return this;
         }
 
         public a bn(Context context) {
-            return new a(context, this.ahs, this.aht, this.ahu, this.ahv);
+            return new a(context, this.ahB, this.ahC, this.ahD, this.ahE);
         }
     }
 }

@@ -6,31 +6,31 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.util.h;
-import com.baidu.tbadk.util.w;
 import com.baidu.tbadk.util.x;
+import com.baidu.tbadk.util.y;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class e extends a {
-    private static e fbW = new e();
+    private static e fcJ = new e();
 
     private e() {
     }
 
-    public static e aUY() {
-        return fbW;
+    public static e aVy() {
+        return fcJ;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.settingcache.a
-    /* renamed from: bV */
-    public PersonalSettingItemData bR(String str, String str2) {
+    /* renamed from: bW */
+    public PersonalSettingItemData bS(String str, String str2) {
         PersonalSettingItemData personalSettingItemData;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.fbM) {
-            ChatSetting chatSetting = this.fbM.get(str3);
+        synchronized (this.fcz) {
+            ChatSetting chatSetting = this.fcz.get(str3);
             personalSettingItemData = (chatSetting == null || !(chatSetting instanceof PersonalSettingItemData)) ? null : (PersonalSettingItemData) chatSetting;
         }
         if (personalSettingItemData == null) {
@@ -43,22 +43,22 @@ public class e extends a {
         return personalSettingItemData;
     }
 
-    public void aRb() {
+    public void aRB() {
         super.p(PersonalSettingItemData.class);
     }
 
     public void a(String str, String str2, UserData userData) {
-        PersonalSettingItemData bR;
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (bR = bR(str, str2)) != null) {
-            bR.setToPortrait(userData.getPortrait());
-            bR.setToName(userData.getUserName());
-            a(bR);
+        PersonalSettingItemData bS;
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && userData != null && (bS = bS(str, str2)) != null) {
+            bS.setToPortrait(userData.getPortrait());
+            bS.setToName(userData.getUserName());
+            a(bS);
         }
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> aUU() {
-        return com.baidu.tbadk.core.c.a.BB().ey("tb.im_personal_chat_setting");
+    protected l<String> aVu() {
+        return com.baidu.tbadk.core.c.a.BO().eH("tb.im_personal_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -73,13 +73,13 @@ public class e extends a {
                 }
                 return;
             }
-            l<String> aUU = aUU();
+            l<String> aVu = aVu();
             String str = myUid + "@" + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(personalSettingItemData);
-            synchronized (this.fbM) {
-                this.fbM.put(str, personalSettingItemData);
+            synchronized (this.fcz) {
+                this.fcz.put(str, personalSettingItemData);
             }
-            aUU.e(str, jsonStrWithObject);
+            aVu.e(str, jsonStrWithObject);
         }
     }
 
@@ -96,15 +96,15 @@ public class e extends a {
                 return;
             }
             final String str = myUid + "@" + toUid;
-            synchronized (this.fbM) {
-                this.fbM.put(str, personalSettingItemData);
+            synchronized (this.fcz) {
+                this.fcz.put(str, personalSettingItemData);
             }
-            x.b(new w<Void>() { // from class: com.baidu.tieba.im.settingcache.e.1
+            y.b(new x<Void>() { // from class: com.baidu.tieba.im.settingcache.e.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tbadk.util.w
-                /* renamed from: Wy */
+                @Override // com.baidu.tbadk.util.x
+                /* renamed from: WV */
                 public Void doInBackground() {
-                    e.this.aUU().e(str, OrmObject.jsonStrWithObject(personalSettingItemData));
+                    e.this.aVu().e(str, OrmObject.jsonStrWithObject(personalSettingItemData));
                     return null;
                 }
             }, hVar);

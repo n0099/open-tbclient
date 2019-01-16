@@ -5,13 +5,13 @@ import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
 /* loaded from: classes2.dex */
 public final class c {
-    private boolean Vw = false;
-    private boolean Vx = true;
-    private boolean Vy = false;
-    private boolean Vz = true;
-    private boolean VA = true;
-    private boolean VB = true;
-    private boolean VC = true;
+    private boolean VF = false;
+    private boolean VG = true;
+    private boolean VH = false;
+    private boolean VI = true;
+    private boolean VJ = true;
+    private boolean VK = true;
+    private boolean VL = true;
 
     private void k(String str, boolean z) {
         try {
@@ -30,13 +30,13 @@ public final class c {
     }
 
     public final void aC(boolean z) {
-        int networkType = com.baidu.browser.sailor.b.a.qO().getNetworkType();
+        int networkType = com.baidu.browser.sailor.b.a.qS().getNetworkType();
         if (networkType == 1 || -1 == networkType) {
-            this.Vz = false;
+            this.VI = false;
             k(WebViewFactoryProvider.SETTING_SAVE_FLOW, false);
             return;
         }
-        this.Vz = z;
+        this.VI = z;
         k(WebViewFactoryProvider.SETTING_SAVE_FLOW, z);
     }
 }

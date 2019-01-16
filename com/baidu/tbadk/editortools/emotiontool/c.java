@@ -3,14 +3,14 @@ package com.baidu.tbadk.editortools.emotiontool;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes.dex */
 public abstract class c {
-    private com.baidu.adp.widget.ImageView.a aZi;
-    private com.baidu.adp.widget.ImageView.a aZj;
+    private com.baidu.adp.widget.ImageView.a aZS;
+    private com.baidu.adp.widget.ImageView.a aZT;
     private int cols;
     private int rows;
 
-    public abstract boolean Mm();
+    public abstract boolean MD();
 
-    public abstract EmotionGroupType Mn();
+    public abstract EmotionGroupType ME();
 
     public abstract String fO(int i);
 
@@ -24,35 +24,35 @@ public abstract class c {
 
     public abstract int getWidth();
 
-    public abstract boolean hH(String str);
+    public abstract boolean hV(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a hI(String str);
+    public abstract com.baidu.adp.widget.ImageView.a hW(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a hJ(String str);
+    public abstract com.baidu.adp.widget.ImageView.a hX(String str);
 
-    public com.baidu.adp.widget.ImageView.a Mo() {
-        return this.aZi;
+    public com.baidu.adp.widget.ImageView.a MF() {
+        return this.aZS;
     }
 
     public void c(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
-            aVar.op();
+            aVar.ot();
         }
-        this.aZi = aVar;
+        this.aZS = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.a Mp() {
-        return this.aZj;
+    public com.baidu.adp.widget.ImageView.a MG() {
+        return this.aZT;
     }
 
     public void d(com.baidu.adp.widget.ImageView.a aVar) {
         if (aVar != null) {
-            aVar.op();
+            aVar.ot();
         }
-        this.aZj = aVar;
+        this.aZT = aVar;
     }
 
-    public int Mq() {
+    public int MH() {
         return this.cols;
     }
 
@@ -61,7 +61,7 @@ public abstract class c {
         this.cols = i;
     }
 
-    public int Mr() {
+    public int MI() {
         return this.rows;
     }
 

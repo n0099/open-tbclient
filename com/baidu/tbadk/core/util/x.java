@@ -18,136 +18,136 @@ import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class x {
-    private boolean aAT;
-    private com.baidu.tbadk.core.util.a.a aAQ = null;
-    private q aAR = null;
-    private x aAS = null;
-    private aa.a aAU = null;
-    private int aAV = 0;
+    private boolean aBv;
+    private com.baidu.tbadk.core.util.a.a aBs = null;
+    private q aBt = null;
+    private x aBu = null;
+    private aa.a aBw = null;
+    private int aBx = 0;
 
-    private void Di() {
-        this.aAQ = new com.baidu.tbadk.core.util.a.a();
-        this.aAR = z.Dt().a(this.aAQ);
-        this.aAS = null;
-        this.aAQ.Eh().Ek().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
+    private void Dv() {
+        this.aBs = new com.baidu.tbadk.core.util.a.a();
+        this.aBt = z.DG().a(this.aBs);
+        this.aBu = null;
+        this.aBs.Eu().Ex().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
         com.baidu.adp.lib.network.a.a.setCuid(TbadkCoreApplication.getInst().getCuid());
         com.baidu.adp.lib.network.a.a.aS(TbadkCoreApplication.getInst().getCuidGalaxy2());
         com.baidu.adp.lib.network.a.a.aT(TbadkCoreApplication.getInst().getCuidGid());
     }
 
-    public com.baidu.tbadk.core.util.a.a Dj() {
-        return this.aAQ;
+    public com.baidu.tbadk.core.util.a.a Dw() {
+        return this.aBs;
     }
 
     public x() {
-        Di();
+        Dv();
     }
 
     public x(String str) {
-        Di();
-        this.aAQ.Eh().Ek().mUrl = str;
+        Dv();
+        this.aBs.Eu().Ex().mUrl = str;
     }
 
     public void setUrl(String str) {
-        this.aAQ.Eh().Ek().mUrl = str;
+        this.aBs.Eu().Ex().mUrl = str;
     }
 
     public void p(ArrayList<BasicNameValuePair> arrayList) {
-        this.aAR.p(arrayList);
+        this.aBt.p(arrayList);
     }
 
     public void x(String str, String str2) {
-        this.aAR.x(str, str2);
+        this.aBt.x(str, str2);
     }
 
     public void a(BasicNameValuePair basicNameValuePair) {
-        this.aAR.a(basicNameValuePair);
+        this.aBt.a(basicNameValuePair);
     }
 
     public void d(String str, byte[] bArr) {
-        this.aAR.d(str, bArr);
+        this.aBt.d(str, bArr);
     }
 
-    private void Dk() {
+    private void Dx() {
         String currentBduss = TbadkCoreApplication.getCurrentBduss();
         BasicNameValuePair basicNameValuePair = new BasicNameValuePair("BDUSS", currentBduss);
         BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair("tbs", TbadkCoreApplication.getInst().getTbs());
         if (currentBduss != null) {
-            ArrayList<BasicNameValuePair> CK = this.aAR.CK();
-            int size = CK.size();
+            ArrayList<BasicNameValuePair> CX = this.aBt.CX();
+            int size = CX.size();
             for (int i = 0; i < size; i++) {
-                BasicNameValuePair basicNameValuePair3 = CK.get(i);
+                BasicNameValuePair basicNameValuePair3 = CX.get(i);
                 if (basicNameValuePair3.getName().equals("BDUSS")) {
-                    CK.set(i, basicNameValuePair);
+                    CX.set(i, basicNameValuePair);
                 } else if (basicNameValuePair3.getName().equals("tbs")) {
-                    CK.set(i, basicNameValuePair2);
+                    CX.set(i, basicNameValuePair2);
                 }
             }
         }
     }
 
-    private void Dl() {
-        if (this.aAU == null) {
-            this.aAU = aa.Du();
+    private void Dy() {
+        if (this.aBw == null) {
+            this.aBw = aa.DH();
         }
-        if (this.aAU != null) {
-            this.aAR.x("stTime", String.valueOf(this.aAU.mTime));
-            this.aAR.x("stSize", String.valueOf(this.aAU.mSize));
-            this.aAR.x("stTimesNum", String.valueOf(this.aAU.aBl));
-            this.aAR.x("stMode", String.valueOf(this.aAU.mMode));
-            this.aAR.x("stMethod", String.valueOf(this.aAU.aBk));
+        if (this.aBw != null) {
+            this.aBt.x("stTime", String.valueOf(this.aBw.mTime));
+            this.aBt.x("stSize", String.valueOf(this.aBw.mSize));
+            this.aBt.x("stTimesNum", String.valueOf(this.aBw.aBN));
+            this.aBt.x("stMode", String.valueOf(this.aBw.mMode));
+            this.aBt.x("stMethod", String.valueOf(this.aBw.aBM));
         }
-        this.aAV = aa.dE(0);
-        if (this.aAV == 0 && this.aAU != null) {
-            this.aAV = this.aAU.aBl;
+        this.aBx = aa.dE(0);
+        if (this.aBx == 0 && this.aBw != null) {
+            this.aBx = this.aBw.aBN;
         }
-        this.aAR.x("stErrorNums", String.valueOf(this.aAV));
+        this.aBt.x("stErrorNums", String.valueOf(this.aBx));
     }
 
-    public boolean Dm() {
-        return this.aAQ.Ei().Dm();
+    public boolean Dz() {
+        return this.aBs.Ev().Dz();
     }
 
-    public int Dn() {
-        return this.aAQ.Ei().aDu;
+    public int DA() {
+        return this.aBs.Ev().aDW;
     }
 
-    public int Do() {
-        return this.aAQ.Ei().De;
+    public int DB() {
+        return this.aBs.Ev().De;
     }
 
-    public String Dp() {
-        return this.aAQ.Ei().aDv;
+    public String DC() {
+        return this.aBs.Ev().aDX;
     }
 
     public String getErrorString() {
-        return this.aAQ.Ei().mErrorString;
+        return this.aBs.Ev().mErrorString;
     }
 
     public void jg() {
-        if (this.aAR != null) {
-            this.aAR.jg();
+        if (this.aBt != null) {
+            this.aBt.jg();
         }
-        if (this.aAS != null) {
-            this.aAS.jg();
+        if (this.aBu != null) {
+            this.aBu.jg();
         }
     }
 
     public void jj() {
-        if (this.aAR != null) {
-            this.aAR.jj();
+        if (this.aBt != null) {
+            this.aBt.jj();
         }
-        if (this.aAS != null) {
-            this.aAS.jj();
+        if (this.aBu != null) {
+            this.aBu.jj();
         }
     }
 
-    public void bs(boolean z) {
-        this.aAT = z;
+    public void bt(boolean z) {
+        this.aBv = z;
     }
 
     private com.baidu.tbadk.core.data.ae f(String str, String str2, boolean z) {
-        String CL;
+        String CY;
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return null;
         }
@@ -155,30 +155,30 @@ public class x {
             TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
             StringBuilder sb = new StringBuilder(32);
             sb.append(TbConfig.LOGIN_FULL_ADDRESS);
-            if (this.aAS == null) {
-                this.aAS = new x(sb.toString());
+            if (this.aBu == null) {
+                this.aBu = new x(sb.toString());
             } else {
-                this.aAS.jg();
+                this.aBu.jg();
             }
-            this.aAS.Dj().Eh().mIsNeedAddCommenParam = false;
-            this.aAS.Dj().Eh().mIsUseCurrentBDUSS = false;
-            this.aAS.Dj().Eh().aDr = false;
-            this.aAS.x("un", str);
-            this.aAS.x("passwd", str2);
-            this.aAS.x("isphone", "0");
-            this.aAS.x("channel_id", TbadkCoreApplication.getInst().getPushChannelId());
-            this.aAS.x("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
-            this.aAS.Dj().Eh().Ek().aDS = true;
-            CL = this.aAS.CL();
+            this.aBu.Dw().Eu().mIsNeedAddCommenParam = false;
+            this.aBu.Dw().Eu().mIsUseCurrentBDUSS = false;
+            this.aBu.Dw().Eu().aDT = false;
+            this.aBu.x("un", str);
+            this.aBu.x("passwd", str2);
+            this.aBu.x("isphone", "0");
+            this.aBu.x("channel_id", TbadkCoreApplication.getInst().getPushChannelId());
+            this.aBu.x("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
+            this.aBu.Dw().Eu().Ex().aEu = true;
+            CY = this.aBu.CY();
         } catch (Exception e) {
             BdLog.detailException(e);
         }
-        if (this.aAS.Dj().Ei().isRequestSuccess() && CL != null) {
+        if (this.aBu.Dw().Ev().isRequestSuccess() && CY != null) {
             com.baidu.tbadk.core.data.ae aeVar = new com.baidu.tbadk.core.data.ae();
-            aeVar.parserJson(CL);
+            aeVar.parserJson(CY);
             String userId = aeVar.getUser().getUserId();
             if (userId == null || userId.length() <= 0) {
-                this.aAQ.Ei().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(e.j.neterror);
+                this.aBs.Ev().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(e.j.neterror);
                 return null;
             }
             AccountData accountData = new AccountData();
@@ -192,16 +192,16 @@ public class x {
             accountData.setBDUSS(aeVar.getUser().getBDUSS());
             accountData.setPortrait(aeVar.getUser().getPortrait());
             accountData.setIsActive(1);
-            if (aeVar.yE() != null) {
-                accountData.setTbs(aeVar.yE().getTbs());
+            if (aeVar.yR() != null) {
+                accountData.setTbs(aeVar.yR().getTbs());
             }
             com.baidu.tbadk.core.a.b.b(accountData);
             TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
             TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
             return aeVar;
         }
-        if (this.aAS.Dm()) {
-            switch (this.aAS.Dn()) {
+        if (this.aBu.Dz()) {
+            switch (this.aBu.DA()) {
                 case 1:
                 case 2:
                 case 5:
@@ -216,18 +216,18 @@ public class x {
         return null;
     }
 
-    public byte[] CM() {
-        if (!this.aAQ.Eh().mIsFromCDN) {
-            this.aAQ.Eh().b(this.aAR);
+    public byte[] CZ() {
+        if (!this.aBs.Eu().mIsFromCDN) {
+            this.aBs.Eu().b(this.aBt);
         }
-        return this.aAR.CM();
+        return this.aBt.CZ();
     }
 
-    private void Dq() {
+    private void DD() {
         StringBuffer stringBuffer = new StringBuffer(1024);
-        ArrayList<BasicNameValuePair> CK = this.aAR.CK();
-        for (int i = 0; CK != null && i < CK.size(); i++) {
-            BasicNameValuePair basicNameValuePair = CK.get(i);
+        ArrayList<BasicNameValuePair> CX = this.aBt.CX();
+        for (int i = 0; CX != null && i < CX.size(); i++) {
+            BasicNameValuePair basicNameValuePair = CX.get(i);
             if (basicNameValuePair != null) {
                 String name = basicNameValuePair.getName();
                 String value = basicNameValuePair.getValue();
@@ -236,152 +236,152 @@ public class x {
             }
         }
         stringBuffer.append("tiebaclient!!!");
-        this.aAR.x("sign", com.baidu.adp.lib.util.s.bC(stringBuffer.toString()));
-        if (this.aAQ.Eh().aAT) {
-            this.aAR.x("sig", StringU.jj(stringBuffer.toString()));
+        this.aBt.x("sign", com.baidu.adp.lib.util.s.bC(stringBuffer.toString()));
+        if (this.aBs.Eu().aBv) {
+            this.aBt.x("sig", StringU.jz(stringBuffer.toString()));
         }
     }
 
     private String dB(int i) {
-        String CO;
-        this.aAQ.Eh().aAT = this.aAT && com.baidu.tbadk.p.s.jJ();
+        String Db;
+        this.aBs.Eu().aBv = this.aBv && com.baidu.tbadk.p.s.jJ();
         switch (i) {
             case 1:
-                if (Dj().Eh().mIsNeedAddCommenParam) {
-                    this.aAQ.Eh().b(this.aAR);
+                if (Dw().Eu().mIsNeedAddCommenParam) {
+                    this.aBs.Eu().b(this.aBt);
                 }
-                Dl();
-                CO = this.aAR.CN();
+                Dy();
+                Db = this.aBt.Da();
                 break;
             case 2:
-                if (Dj().Eh().mIsUseCurrentBDUSS) {
-                    Dj().Eh().a(this.aAR);
+                if (Dw().Eu().mIsUseCurrentBDUSS) {
+                    Dw().Eu().a(this.aBt);
                 }
-                if (Dj().Eh().mIsNeedAddCommenParam) {
-                    this.aAQ.Eh().b(this.aAR);
+                if (Dw().Eu().mIsNeedAddCommenParam) {
+                    this.aBs.Eu().b(this.aBt);
                 }
-                Dl();
-                CO = this.aAR.CL();
+                Dy();
+                Db = this.aBt.CY();
                 break;
             case 3:
-                if (Dj().Eh().mIsUseCurrentBDUSS) {
-                    Dj().Eh().a(this.aAR);
+                if (Dw().Eu().mIsUseCurrentBDUSS) {
+                    Dw().Eu().a(this.aBt);
                 }
-                if (Dj().Eh().mIsNeedAddCommenParam) {
-                    this.aAQ.Eh().b(this.aAR);
+                if (Dw().Eu().mIsNeedAddCommenParam) {
+                    this.aBs.Eu().b(this.aBt);
                 }
-                Dq();
-                CO = this.aAR.CO();
+                DD();
+                Db = this.aBt.Db();
                 break;
             default:
                 return null;
         }
-        if (!this.aAQ.Ei().Dm()) {
-            aa.a(this.aAU);
-            aa.dF(this.aAV);
-            return CO;
-        } else if (!this.aAQ.Ei().isRequestSuccess()) {
-            if (this.aAQ.Ei().aDu == 1 && this.aAQ.Eh().aDr) {
-                String str = this.aAQ.Ei().mErrorString;
-                this.aAQ.Ei().mErrorString = "";
+        if (!this.aBs.Ev().Dz()) {
+            aa.a(this.aBw);
+            aa.dF(this.aBx);
+            return Db;
+        } else if (!this.aBs.Ev().isRequestSuccess()) {
+            if (this.aBs.Ev().aDW == 1 && this.aBs.Eu().aDT) {
+                String str = this.aBs.Ev().mErrorString;
+                this.aBs.Ev().mErrorString = "";
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (currentAccountObj == null) {
-                    currentAccountObj = com.baidu.tbadk.core.a.b.xN();
+                    currentAccountObj = com.baidu.tbadk.core.a.b.ya();
                 }
                 if (currentAccountObj == null || (TextUtils.isEmpty(currentAccountObj.getAccount()) && TextUtils.isEmpty(currentAccountObj.getAccountNameShow()))) {
-                    Dr();
+                    DE();
                     return null;
                 }
-                com.baidu.tbadk.core.a.b.ed(currentAccountObj.getID());
-                if (ReloginManager.Ct().Cw()) {
+                com.baidu.tbadk.core.a.b.em(currentAccountObj.getID());
+                if (ReloginManager.CG().CJ()) {
                     f(currentAccountObj);
-                    ReloginManager.Ct().e(null);
+                    ReloginManager.CG().e(null);
                     return null;
                 }
                 com.baidu.tbadk.core.data.ae f = f(currentAccountObj.getAccount(), currentAccountObj.getPassword(), true);
                 f(currentAccountObj);
                 if (f == null) {
-                    if (this.aAS != null) {
-                        this.aAQ.Ei().mErrorString = this.aAS.getErrorString();
+                    if (this.aBu != null) {
+                        this.aBs.Ev().mErrorString = this.aBu.getErrorString();
                         return null;
                     }
-                    this.aAQ.Ei().mErrorString = str;
-                    return CO;
+                    this.aBs.Ev().mErrorString = str;
+                    return Db;
                 }
-                CO = dC(i);
+                Db = dC(i);
             }
             com.baidu.tieba.i.a.a(this);
-            return CO;
+            return Db;
         } else {
-            return CO;
+            return Db;
         }
     }
 
     private void f(AccountData accountData) {
-        com.baidu.tbadk.coreExtra.a.c Ga;
-        if (!TextUtils.isEmpty(accountData.getID()) && (Ga = com.baidu.tbadk.coreExtra.a.a.Ga()) != null) {
-            Ga.f(accountData);
+        com.baidu.tbadk.coreExtra.a.c Gn;
+        if (!TextUtils.isEmpty(accountData.getID()) && (Gn = com.baidu.tbadk.coreExtra.a.a.Gn()) != null) {
+            Gn.f(accountData);
         }
     }
 
     private String dC(int i) {
-        String CO;
-        Dk();
+        String Db;
+        Dx();
         switch (i) {
             case 1:
-                CO = this.aAR.CN();
+                Db = this.aBt.Da();
                 break;
             case 2:
-                CO = this.aAR.CL();
+                Db = this.aBt.CY();
                 break;
             case 3:
-                CO = this.aAR.CO();
+                Db = this.aBt.Db();
                 break;
             default:
                 return null;
         }
-        if (this.aAQ.Ei().Dm()) {
-            switch (this.aAQ.Ei().aDu) {
+        if (this.aBs.Ev().Dz()) {
+            switch (this.aBs.Ev().aDW) {
                 case 1:
                 case 2:
                 case 5:
-                    Dr();
-                    this.aAQ.Ei().mErrorString = "";
+                    DE();
+                    this.aBs.Ev().mErrorString = "";
                     return null;
                 case 3:
                 case 4:
                 default:
-                    return CO;
+                    return Db;
             }
         }
-        return CO;
+        return Db;
     }
 
-    private void Dr() {
+    private void DE() {
         Handler handler = TbadkCoreApplication.getInst().handler;
         handler.sendMessage(handler.obtainMessage(1));
     }
 
-    public String CL() {
+    public String CY() {
         return dB(2);
     }
 
-    public String CN() {
+    public String Da() {
         return dB(1);
     }
 
-    public String CO() {
+    public String Db() {
         return dB(3);
     }
 
-    public String fz(String str) throws IOException {
+    public String fM(String str) throws IOException {
         byte[] bArr;
         try {
-            InputStream fk = l.fk(str);
+            InputStream fu = l.fu(str);
             byte[] bArr2 = new byte[5120];
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(5120);
             while (true) {
-                int read = fk.read(bArr2);
+                int read = fu.read(bArr2);
                 if (read == -1) {
                     break;
                 }
@@ -395,7 +395,7 @@ public class x {
             return null;
         }
         d("pic", bArr);
-        return CO();
+        return Db();
     }
 
     public boolean a(String str, Handler handler, int i) {
@@ -407,7 +407,7 @@ public class x {
     }
 
     public boolean a(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        Dj().Eh().a(this.aAR);
-        return this.aAR.a(str, handler, i, i2, i3, z);
+        Dw().Eu().a(this.aBt);
+        return this.aBt.a(str, handler, i, i2, i3, z);
     }
 }

@@ -8,12 +8,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b extends c {
-    public static final String ihu = null;
+    public static final String iiB = null;
     private String appKey;
     private String content;
-    private String ihv;
-    private String ihw;
-    private String ihx;
+    private String iiC;
+    private String iiD;
+    private String iiE;
     private String params;
     private int responseCode = -2;
     private int xH;
@@ -32,7 +32,7 @@ public class b extends c {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     e eVar = new e();
                     eVar.setContent(jSONObject.getString(str4));
-                    eVar.yY(jSONObject.getString(str3));
+                    eVar.zo(jSONObject.getString(str3));
                     arrayList.add(eVar);
                 } catch (JSONException e2) {
                     e = e2;
@@ -79,14 +79,14 @@ public class b extends c {
     }
 
     public String toString() {
-        return "type:4105,messageID:" + this.ihy + ",taskID:" + this.ihz + ",appPackage:" + this.appPackage + ",appKey:" + this.appKey + ",appSecret:" + this.ihv + ",registerID:" + this.ihw + ",sdkVersion:" + this.ihx + ",command:" + this.xH + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
+        return "type:4105,messageID:" + this.iiF + ",taskID:" + this.iiG + ",appPackage:" + this.appPackage + ",appKey:" + this.appKey + ",appSecret:" + this.iiC + ",registerID:" + this.iiD + ",sdkVersion:" + this.iiE + ",command:" + this.xH + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
     }
 
-    public void yU(String str) {
-        this.ihv = str;
-    }
-
-    public void yc(int i) {
+    public void ye(int i) {
         this.xH = i;
+    }
+
+    public void zk(String str) {
+        this.iiC = str;
     }
 }

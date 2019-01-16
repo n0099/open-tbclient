@@ -3,11 +3,11 @@ package kotlin.b;
 /* loaded from: classes2.dex */
 public class f extends e {
     public static final a cn(int i, int i2) {
-        return a.iBH.ai(i, i2, -1);
+        return a.iCO.ai(i, i2, -1);
     }
 
     public static final c co(int i, int i2) {
-        return i2 <= Integer.MIN_VALUE ? c.iBL.ccN() : new c(i, i2 - 1);
+        return i2 <= Integer.MIN_VALUE ? c.iCS.cdv() : new c(i, i2 - 1);
     }
 
     public static final int cp(int i, int i2) {

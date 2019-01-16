@@ -15,12 +15,12 @@ public final class f {
     private static final String d = String.format(Locale.US, "DELETE FROM LOG WHERE timestamp NOT IN (SELECT timestamp FROM LOG ORDER BY timestamp DESC LIMIT %d);", 3000);
     private static final String e = String.format(Locale.US, "SELECT * FROM LOG ORDER BY timestamp DESC LIMIT %d;", 3);
     private String a = null;
-    private final a afm = new a(this);
+    private final a afv = new a(this);
     private final SQLiteDatabase b;
 
     /* loaded from: classes6.dex */
     private class a extends com.baidu.location.g.e {
-        private f afn;
+        private f afw;
         private int b;
         private long c;
         private String d = null;
@@ -28,7 +28,7 @@ public final class f {
         private boolean f = false;
 
         a(f fVar) {
-            this.afn = fVar;
+            this.afw = fVar;
             this.k = new HashMap();
             this.b = 0;
             this.c = -1L;
@@ -39,7 +39,7 @@ public final class f {
             if (this.e) {
                 return;
             }
-            this.d = this.afn.b();
+            this.d = this.afw.b();
             if (this.c != -1 && this.c + 86400000 <= System.currentTimeMillis()) {
                 this.b = 0;
                 this.c = -1L;
@@ -75,7 +75,7 @@ public final class f {
                 this.b++;
                 this.c = System.currentTimeMillis();
             }
-            this.afn.a(this.f);
+            this.afw.a(this.f);
             this.e = false;
         }
     }
@@ -171,7 +171,7 @@ public final class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        this.afm.b();
+        this.afv.b();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -124,7 +124,7 @@ public class c {
         this.JW = null;
         this.JV = new ArrayList<>();
         this.JW = new BroadcastReceiver() { // from class: com.baidu.adp.plugin.install.c.1
-            /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [128=5, 129=5, 130=5, 131=5, 132=5, 133=5, 135=6, 124=6, 125=5, 126=5, 127=5] */
+            /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [128=5, 129=5, 130=5, 131=5, 132=5, 133=5, 134=5, 135=5, 136=5, 138=6, 127=6] */
             @Override // android.content.BroadcastReceiver
             public void onReceive(Context context, Intent intent) {
                 String str;
@@ -172,15 +172,16 @@ public class c {
                             String action = intent.getAction();
                             if ("com.baidu.adp.plugin.installed".equals(action)) {
                                 c.this.h(str, z);
-                                com.baidu.adp.plugin.packageManager.status.a.nJ().cn(str);
+                                com.baidu.adp.plugin.packageManager.status.a.nN().co(str);
                             } else if ("com.baidu.adp.plugin.installfail".equals(action)) {
                                 if (z) {
                                     c.this.Ka = false;
                                 }
                                 c.this.h(str, z);
-                                com.baidu.adp.plugin.packageManager.status.a.nJ().h(str, intent.getStringExtra("fail_reason"), intent.getStringExtra("install_comment"));
+                                com.baidu.adp.plugin.packageManager.status.a.nN().h(str, intent.getStringExtra("fail_reason"), intent.getStringExtra("install_comment"));
                             } else if ("com.baidu.adp.plugin.installcancel".equals(action)) {
                                 c.this.h(str, z);
+                            } else if ("com.baidu.adp.plugin.installrepeat".equals(action)) {
                             }
                             if (c.this.Kd != null && TextUtils.equals(str, c.this.Kd.Js)) {
                                 c.this.mx();
@@ -276,7 +277,7 @@ public class c {
         return false;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [250=5, 251=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [253=5, 254=4] */
     /* JADX INFO: Access modifiers changed from: private */
     public boolean U(Context context, String str) {
         FileInputStream fileInputStream;
@@ -289,9 +290,9 @@ public class c {
             return false;
         }
         String substring = str.substring(lastIndexOf + 1, lastIndexOf2);
-        PluginSetting bT = PluginPackageManager.na().bT(substring);
-        if (substring != null && substring.length() > 0 && bT != null && bT.apkPath != null) {
-            File file = new File(bT.apkPath);
+        PluginSetting bU = PluginPackageManager.nd().bU(substring);
+        if (substring != null && substring.length() > 0 && bU != null && bU.apkPath != null) {
+            File file = new File(bU.apkPath);
             boolean exists = file.exists();
             boolean isFile = file.isFile();
             long length = file.length();
@@ -321,8 +322,8 @@ public class c {
                             com.baidu.adp.lib.g.a.h(fileInputStream);
                             com.baidu.adp.lib.g.a.h(inputStream);
                             d(context, "assets://" + str, false);
-                            com.baidu.adp.plugin.b.a.mN().e("plugin_install", substring, bT);
-                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2000993, com.baidu.adp.plugin.packageManager.status.a.nJ().co(substring)));
+                            com.baidu.adp.plugin.b.a.mN().e("plugin_install", substring, bU);
+                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2000993, com.baidu.adp.plugin.packageManager.status.a.nN().cp(substring)));
                             return true;
                         }
                     } catch (Throwable th) {
@@ -346,8 +347,8 @@ public class c {
             }
         }
         d(context, "assets://" + str, false);
-        com.baidu.adp.plugin.b.a.mN().e("plugin_install", substring, bT);
-        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2000993, com.baidu.adp.plugin.packageManager.status.a.nJ().co(substring)));
+        com.baidu.adp.plugin.b.a.mN().e("plugin_install", substring, bU);
+        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2000993, com.baidu.adp.plugin.packageManager.status.a.nN().cp(substring)));
         return true;
     }
 
@@ -403,8 +404,22 @@ public class c {
         if (pluginInstallTask == null) {
             return false;
         }
-        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.nC().findPluginSetting(pluginInstallTask.Js);
+        PluginSetting findPluginSetting = com.baidu.adp.plugin.packageManager.pluginSettings.c.nG().findPluginSetting(pluginInstallTask.Js);
         boolean z = pluginInstallTask.apkFilePath != null && pluginInstallTask.apkFilePath.startsWith("assets://");
+        if (pluginInstallTask.apkFilePath != null && pluginInstallTask.apkFilePath.startsWith("file://")) {
+            if (findPluginSetting != null && findPluginSetting.installStatus == 0 && findPluginSetting.tempVersionCode == 0) {
+                com.baidu.adp.plugin.b.a.mN().f("plugin_install", "start_service_install_status_error", pluginInstallTask.Js, "apkFilePath_" + pluginInstallTask.apkFilePath);
+                return false;
+            }
+            String substring = pluginInstallTask.apkFilePath.substring("file://".length());
+            try {
+                if (!new File(substring).exists()) {
+                    com.baidu.adp.plugin.b.a.mN().f("plugin_install", "start_service_file_not_find", pluginInstallTask.Js, "apkFilePath_" + substring);
+                    return false;
+                }
+            } catch (Exception e) {
+            }
+        }
         com.baidu.adp.plugin.b.a.mN().f("plugin_install", "start_install_service", pluginInstallTask.Js, pluginInstallTask.apkFilePath);
         final Intent intent = new Intent(PluginInstallerService.ACTION_INSTALL);
         intent.putExtra("install_src_file", pluginInstallTask.apkFilePath);
@@ -413,7 +428,7 @@ public class c {
         if (findPluginSetting != null) {
             intent.putExtra("plugin_setting", findPluginSetting);
         }
-        intent.putExtra("is_debug_plugin", PluginPackageManager.na().nb());
+        intent.putExtra("is_debug_plugin", PluginPackageManager.nd().ne());
         if (pluginInstallTask.JS) {
             intent.setClass(context, PluginInstallerRetryService.class);
             try {
@@ -462,11 +477,11 @@ public class c {
     }
 
     public static File bM(String str) {
-        PluginSetting bT = PluginPackageManager.na().bT(str);
-        if (bT == null || bT.apkPath == null || bT.apkPath.length() <= 0) {
+        PluginSetting bU = PluginPackageManager.nd().bU(str);
+        if (bU == null || bU.apkPath == null || bU.apkPath.length() <= 0) {
             return null;
         }
-        return new File(bT.apkPath);
+        return new File(bU.apkPath);
     }
 
     private void mw() {
@@ -477,6 +492,7 @@ public class c {
                 intentFilter.addAction("com.baidu.adp.plugin.installed");
                 intentFilter.addAction("com.baidu.adp.plugin.installfail");
                 intentFilter.addAction("com.baidu.adp.plugin.installcancel");
+                intentFilter.addAction("com.baidu.adp.plugin.installrepeat");
                 applicationContext.registerReceiver(this.JW, intentFilter);
                 this.JU = true;
             } catch (Exception e) {
@@ -631,7 +647,7 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void mE() {
         if (this.Kd != null) {
-            com.baidu.adp.plugin.packageManager.status.a.nJ().h(this.Kd.Js, "plugin_install_timeout", null);
+            com.baidu.adp.plugin.packageManager.status.a.nN().h(this.Kd.Js, "plugin_install_timeout", null);
         }
         PluginInstallTask pluginInstallTask = this.Kd;
         if (!mH()) {
@@ -649,7 +665,7 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void mF() {
         if (this.Kf != null) {
-            com.baidu.adp.plugin.packageManager.status.a.nJ().h(this.Kf.Js, "plugin_install_retry_timeout", null);
+            com.baidu.adp.plugin.packageManager.status.a.nN().h(this.Kf.Js, "plugin_install_retry_timeout", null);
         }
         com.baidu.adp.plugin.b.a.mN().f("plugin_install", AiAppsBluetoothConstants.KEY_TIME_OUT, this.Kf == null ? "" : this.Kf.Js, "timeout-" + (this.Kf == null ? "" : Long.valueOf(this.Kf.mu())) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Ke.size() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.Kg.size());
         my();

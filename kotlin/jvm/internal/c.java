@@ -3,23 +3,23 @@ package kotlin.jvm.internal;
 import java.util.NoSuchElementException;
 /* loaded from: classes2.dex */
 final class c extends kotlin.collections.m {
-    private final char[] iBt;
+    private final char[] iCA;
     private int index;
 
     public c(char[] cArr) {
         p.j(cArr, com.baidu.fsg.base.statistics.b.j);
-        this.iBt = cArr;
+        this.iCA = cArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.iBt.length;
+        return this.index < this.iCA.length;
     }
 
     @Override // kotlin.collections.m
-    public char ccv() {
+    public char cdd() {
         try {
-            char[] cArr = this.iBt;
+            char[] cArr = this.iCA;
             int i = this.index;
             this.index = i + 1;
             return cArr[i];

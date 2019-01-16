@@ -37,8 +37,10 @@ import java.io.Reader;
 import java.security.cert.CertificateEncodingException;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
@@ -52,11 +54,12 @@ import org.xml.sax.InputSource;
 /* loaded from: classes.dex */
 public class d {
     private static boolean Kr = false;
-    private static boolean Ks = false;
+    private static Map<String, Boolean> Ks = new HashMap();
     private static boolean Kt = false;
     private static boolean Ku = false;
     private static boolean Kv = false;
-    private static Signature[] Kw = null;
+    private static boolean Kw = false;
+    private static Signature[] Kx = null;
 
     public static void onHandleIntent(Intent intent) {
         PluginSetting pluginSetting;
@@ -109,7 +112,7 @@ public class d {
         try {
             inputStream = BdBaseApplication.getInst().getAssets().open(substring);
             if (!Util.t(inputStream.available())) {
-                e(str, str2, "rom_size", String.valueOf(Util.nO()));
+                e(str, str2, "rom_size", String.valueOf(Util.nS()));
             } else {
                 a(inputStream, str, str2, pluginSetting);
                 com.baidu.adp.lib.g.a.h(inputStream);
@@ -123,10 +126,11 @@ public class d {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [297=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [335=5] */
     private static void c(String str, String str2, PluginSetting pluginSetting) {
         FileInputStream fileInputStream;
         int i;
+        int i2;
         if (TextUtils.isEmpty(str)) {
             e(str, str2, "do_install", "");
             com.baidu.adp.plugin.b.a.mN().g("plugin_install", "pkgname_null", str2);
@@ -134,68 +138,89 @@ public class d {
         }
         String substring = str.substring("file://".length());
         File file = new File(substring);
-        FileInputStream fileInputStream2 = null;
-        try {
+        String str3 = str2 + str;
+        if (Ks.containsKey(str3) && !file.exists() && Ks.get(str3).booleanValue()) {
+            com.baidu.adp.plugin.b.a.mN().f("plugin_install", "plugin_has_installed", str2, "pkgName_" + str2 + "-srcFile_" + str);
+            Intent intent = new Intent("com.baidu.adp.plugin.installrepeat");
+            intent.setPackage(BdBaseApplication.getInst().getPackageName());
+            intent.putExtra(ETAG.KEY_PACKAGE_NAME, str2);
+            intent.putExtra("install_src_file", str);
+            BdBaseApplication.getInst().sendBroadcast(intent);
+        } else if (!file.exists()) {
+            e(str, str2, "open_apk", "file_not_exists-apkFilePath_" + substring);
+        } else {
+            int i3 = 0;
+            FileInputStream fileInputStream2 = null;
             try {
-                int lastIndexOf = substring.lastIndexOf(BaseRequestAction.SPLITE);
-                int l = lastIndexOf > 0 ? com.baidu.adp.lib.g.b.l(substring.substring(lastIndexOf + 1), -1) : -1;
-                if (l > 0) {
-                    if (l < PluginPackageManager.mZ()) {
-                        com.baidu.adp.plugin.b.a.mN().f("plugin_install", "low_version_code", str2, " vc=" + String.valueOf(l) + " tiebaVC=" + PluginPackageManager.mZ());
-                        Intent intent = new Intent("com.baidu.adp.plugin.deleted");
-                        intent.setPackage(BdBaseApplication.getInst().getPackageName());
-                        intent.putExtra(ETAG.KEY_PACKAGE_NAME, str2);
-                        intent.putExtra("install_src_file", str);
-                        intent.putExtra("fail_reason", "low_version_code");
-                        intent.putExtra("version_code", l);
-                        BdBaseApplication.getInst().sendBroadcast(intent);
-                        com.baidu.adp.lib.g.a.h((InputStream) null);
-                        return;
-                    } else if (pluginSetting != null && l == (i = pluginSetting.versionCode)) {
-                        com.baidu.adp.plugin.b.a.mN().f("plugin_install", "versionCode_is_equals", pluginSetting.packageName, i + " to " + l + "-instapkpath-" + pluginSetting.apkPath + "-md5-" + pluginSetting.md5 + "-size-" + pluginSetting.size + "-newapkfile-" + file + "-size-" + file.length() + "-srcpath-" + str);
-                        Intent intent2 = new Intent("com.baidu.adp.plugin.installcancel");
-                        intent2.setPackage(BdBaseApplication.getInst().getPackageName());
-                        intent2.putExtra(ETAG.KEY_PACKAGE_NAME, str2);
-                        intent2.putExtra("install_src_file", str);
-                        intent2.putExtra("install_dest_file", str);
-                        intent2.putExtra("version_code", l);
-                        BdStatisticsManager.getInstance().save();
-                        BdBaseApplication.getInst().sendBroadcast(intent2);
-                        com.baidu.adp.lib.g.a.h((InputStream) null);
-                        return;
+                try {
+                    int lastIndexOf = substring.lastIndexOf(BaseRequestAction.SPLITE);
+                    int l = lastIndexOf > 0 ? com.baidu.adp.lib.g.b.l(substring.substring(lastIndexOf + 1), -1) : -1;
+                    if (l > 0) {
+                        if (l < PluginPackageManager.nc()) {
+                            com.baidu.adp.plugin.b.a.mN().f("plugin_install", "low_version_code", str2, " vc=" + String.valueOf(l) + " tiebaVC=" + PluginPackageManager.nc());
+                            Intent intent2 = new Intent("com.baidu.adp.plugin.deleted");
+                            intent2.setPackage(BdBaseApplication.getInst().getPackageName());
+                            intent2.putExtra(ETAG.KEY_PACKAGE_NAME, str2);
+                            intent2.putExtra("install_src_file", str);
+                            intent2.putExtra("fail_reason", "low_version_code");
+                            intent2.putExtra("version_code", l);
+                            BdBaseApplication.getInst().sendBroadcast(intent2);
+                            com.baidu.adp.lib.g.a.h((InputStream) null);
+                            return;
+                        } else if (pluginSetting != null && l == (i2 = pluginSetting.versionCode)) {
+                            com.baidu.adp.plugin.b.a.mN().f("plugin_install", "versionCode_is_equals", pluginSetting.packageName, i2 + " to " + l + "-instapkpath-" + pluginSetting.apkPath + "-md5-" + pluginSetting.md5 + "-size-" + pluginSetting.size + "-newapkfile-" + file + "-size-" + file.length() + "-srcpath-" + str);
+                            Intent intent3 = new Intent("com.baidu.adp.plugin.installcancel");
+                            intent3.setPackage(BdBaseApplication.getInst().getPackageName());
+                            intent3.putExtra(ETAG.KEY_PACKAGE_NAME, str2);
+                            intent3.putExtra("install_src_file", str);
+                            intent3.putExtra("install_dest_file", str);
+                            intent3.putExtra("version_code", l);
+                            BdStatisticsManager.getInstance().save();
+                            BdBaseApplication.getInst().sendBroadcast(intent3);
+                            com.baidu.adp.lib.g.a.h((InputStream) null);
+                            return;
+                        }
                     }
+                    try {
+                        fileInputStream = new FileInputStream(file);
+                        i = 2;
+                    } catch (Exception e) {
+                        e = e;
+                        i3 = 1;
+                    }
+                } catch (Throwable th) {
+                    th = th;
                 }
-                fileInputStream = new FileInputStream(file);
-            } catch (Exception e) {
-                e = e;
+            } catch (Exception e2) {
+                e = e2;
             }
-        } catch (Throwable th) {
-            th = th;
-        }
-        try {
-            if (Util.t(fileInputStream.available())) {
-                a(fileInputStream, str, str2, pluginSetting);
-                com.baidu.adp.lib.g.a.h(fileInputStream);
-            } else {
-                e(str, str2, "rom_size", String.valueOf(Util.nO()));
-                com.baidu.adp.lib.g.a.h(fileInputStream);
+            try {
+                if (Util.t(fileInputStream.available())) {
+                    i = 3;
+                    a(fileInputStream, str, str2, pluginSetting);
+                    com.baidu.adp.lib.g.a.h(fileInputStream);
+                } else {
+                    e(str, str2, "rom_size", String.valueOf(Util.nS()));
+                    com.baidu.adp.lib.g.a.h(fileInputStream);
+                }
+            } catch (Exception e3) {
+                e = e3;
+                i3 = i;
+                fileInputStream2 = fileInputStream;
+                BdLog.e(e);
+                e(str, str2, "open_apk", e.getMessage());
+                com.baidu.adp.plugin.b.a.mN().g("plugin_install", "open_files_failed", str2, e.getMessage() + "---" + e.getClass().getName() + "---step_" + i3);
+                com.baidu.adp.lib.g.a.h(fileInputStream2);
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                com.baidu.adp.lib.g.a.h(fileInputStream2);
+                throw th;
             }
-        } catch (Exception e2) {
-            e = e2;
-            fileInputStream2 = fileInputStream;
-            BdLog.e(e);
-            e(str, str2, "open_apk", e.getMessage());
-            com.baidu.adp.plugin.b.a.mN().g("plugin_install", "open_files_failed", str2, e.getMessage() + "---" + e.getClass().getName());
-            com.baidu.adp.lib.g.a.h(fileInputStream2);
-        } catch (Throwable th2) {
-            th = th2;
-            fileInputStream2 = fileInputStream;
-            com.baidu.adp.lib.g.a.h(fileInputStream2);
-            throw th;
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [614=4, 501=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [539=4, 652=4] */
     /* JADX WARN: Removed duplicated region for block: B:100:0x02a8  */
     /* JADX WARN: Removed duplicated region for block: B:130:0x03ac  */
     /* JADX WARN: Removed duplicated region for block: B:280:0x010b A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -237,7 +262,7 @@ public class d {
             return null;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        File file = new File(Util.nN(), String.valueOf(System.currentTimeMillis()));
+        File file = new File(Util.nR(), String.valueOf(System.currentTimeMillis()));
         String b = Util.b(inputStream, file);
         if (!TextUtils.isEmpty(b)) {
             try {
@@ -278,7 +303,7 @@ public class d {
                 } catch (Exception e3) {
                     BdLog.e(e3);
                 }
-                e(str, str2, "assetsmanifestnull", "avirom-" + Util.nO() + "-filesize-" + length + "-exp-" + ((String) null));
+                e(str, str2, "assetsmanifestnull", "avirom-" + Util.nS() + "-filesize-" + length + "-exp-" + ((String) null));
                 return null;
             }
             Element documentElement = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new InputSource(zipFile.getInputStream(entry))).getDocumentElement();
@@ -375,7 +400,7 @@ public class d {
                 } catch (Exception e9) {
                     BdLog.e(e9);
                 }
-                e(str, str2, "getpackageinfo_fail", "avirom-" + Util.nO() + "-filesize-" + length + "-exp-" + str7);
+                e(str, str2, "getpackageinfo_fail", "avirom-" + Util.nS() + "-filesize-" + length + "-exp-" + str7);
                 return null;
             }
             com.baidu.adp.plugin.b.a.mN().I("plugin_xml_parse", str6);
@@ -494,7 +519,7 @@ public class d {
                 }
             }
             String str12 = str6 + BaseRequestAction.SPLITE + System.currentTimeMillis() + BaseRequestAction.SPLITE + i;
-            File file3 = new File(Util.nN(), str12 + ".apk");
+            File file3 = new File(Util.nR(), str12 + ".apk");
             if (!file.equals(file3)) {
                 if (file.getParent().equals(file3.getParent())) {
                     try {
@@ -555,7 +580,7 @@ public class d {
                     }
                 }
             }
-            File file4 = new File(Util.nN(), str12);
+            File file4 = new File(Util.nR(), str12);
             try {
                 file4.mkdir();
             } catch (Exception e17) {
@@ -573,6 +598,7 @@ public class d {
             long currentTimeMillis3 = System.currentTimeMillis();
             a(file3.getAbsolutePath(), str6, file4);
             com.baidu.adp.plugin.b.a.mN().a("plugin_extract_dex", System.currentTimeMillis() - currentTimeMillis3, str6);
+            Ks.put(str2 + str, true);
             Intent intent3 = new Intent("com.baidu.adp.plugin.installed");
             intent3.setPackage(BdBaseApplication.getInst().getPackageName());
             intent3.putExtra(ETAG.KEY_PACKAGE_NAME, str6);
@@ -590,7 +616,7 @@ public class d {
             BdStatisticsManager.getInstance().save();
             BdBaseApplication.getInst().sendBroadcast(intent3);
             try {
-                File[] listFiles = Util.nN().listFiles();
+                File[] listFiles = Util.nR().listFiles();
                 if (listFiles != null) {
                     for (File file6 : listFiles) {
                         if (file6 != null && file6.isDirectory()) {
@@ -741,7 +767,7 @@ public class d {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [896=5, 897=5, 877=4, 892=6, 893=5, 895=5] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [919=4, 934=6, 935=5, 937=5, 938=5, 939=5] */
     private static final boolean a(ZipFile zipFile, File file, File file2, String str) {
         ZipOutputStream zipOutputStream;
         OutputStream outputStream;
@@ -980,10 +1006,10 @@ public class d {
 
     public static boolean mL() {
         String str;
-        if (Kt) {
-            return Ks;
+        if (Ku) {
+            return Kt;
         }
-        Kt = true;
+        Ku = true;
         String lowerCase = Build.CPU_ABI.toLowerCase();
         if (Build.VERSION.SDK_INT <= 7) {
             str = "none";
@@ -998,24 +1024,24 @@ public class d {
             }
         }
         if (lowerCase.contains(h.b) || str.contains(h.b) || mM()) {
-            Ks = true;
+            Kt = true;
         } else if (lowerCase.contains(h.a) || str.contains(h.a)) {
-            Ks = true;
+            Kt = true;
         }
-        return Ks;
+        return Kt;
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1070=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1112=4] */
     public static boolean mM() {
         BufferedReader bufferedReader;
         InputStreamReader inputStreamReader;
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         InputStreamReader inputStreamReader2 = null;
-        if (Kv) {
-            return Ku;
+        if (Kw) {
+            return Kv;
         }
-        Kv = true;
+        Kw = true;
         try {
             fileInputStream = new FileInputStream("/proc/cpuinfo");
             try {
@@ -1058,7 +1084,7 @@ public class d {
                                 }
                             }
                         }
-                        Ku = ((Integer) objArr[1]).intValue() == 7;
+                        Kv = ((Integer) objArr[1]).intValue() == 7;
                         n.b((Reader) bufferedReader);
                         n.b((Reader) inputStreamReader);
                         n.h(fileInputStream);
@@ -1071,7 +1097,7 @@ public class d {
                             n.b((Reader) bufferedReader);
                             n.b((Reader) inputStreamReader2);
                             n.h(fileInputStream2);
-                            return Ku;
+                            return Kv;
                         } catch (Throwable th) {
                             th = th;
                             fileInputStream = fileInputStream2;
@@ -1116,7 +1142,7 @@ public class d {
             inputStreamReader = null;
             fileInputStream = null;
         }
-        return Ku;
+        return Kv;
     }
 
     private static void a(String str, String str2, File file) {
@@ -1152,11 +1178,11 @@ public class d {
 
     private static String d(String str, String str2, PluginSetting pluginSetting) {
         Signature[] signatureArr;
-        Signature[] cp;
+        Signature[] cq;
         File file;
-        if (Kw == null) {
+        if (Kx == null) {
             try {
-                Kw = BdBaseApplication.getInst().getPackageManager().getPackageInfo(BdBaseApplication.getInst().getPackageName(), 64).signatures;
+                Kx = BdBaseApplication.getInst().getPackageManager().getPackageInfo(BdBaseApplication.getInst().getPackageName(), 64).signatures;
             } catch (Throwable th) {
                 com.baidu.adp.plugin.b.a.mN().f("plugin_install", "getmainsign_frompm_fail", str, th.getMessage());
             }
@@ -1169,7 +1195,7 @@ public class d {
         }
         if (signatureArr == null) {
             try {
-                cp = e.cp(str2);
+                cq = e.cq(str2);
             } catch (IOException e) {
                 return e.getMessage();
             } catch (CertificateEncodingException e2) {
@@ -1178,16 +1204,16 @@ public class d {
                 return th3.getMessage();
             }
         } else {
-            cp = signatureArr;
+            cq = signatureArr;
         }
-        if (cp == null) {
+        if (cq == null) {
             return "get_newsignatures_null_" + str2;
         }
-        Signature[] signatureArr2 = Kw;
+        Signature[] signatureArr2 = Kx;
         if (signatureArr2 == null && (file = new File(BdBaseApplication.getInst().getPackageCodePath())) != null && file.exists()) {
             try {
-                signatureArr2 = e.cp(file.getAbsolutePath());
-                Kw = signatureArr2;
+                signatureArr2 = e.cq(file.getAbsolutePath());
+                Kx = signatureArr2;
             } catch (IOException e3) {
                 return e3.getMessage();
             } catch (CertificateEncodingException e4) {
@@ -1196,7 +1222,7 @@ public class d {
                 return th4.getMessage();
             }
         }
-        int b = Util.b(signatureArr2, cp);
+        int b = Util.b(signatureArr2, cq);
         if (b == 0) {
             return null;
         }
@@ -1215,9 +1241,9 @@ public class d {
             }
         }
         sb.append("_pluginsign");
-        if (cp != null) {
+        if (cq != null) {
             try {
-                for (Signature signature2 : cp) {
+                for (Signature signature2 : cq) {
                     if (signature2 != null) {
                         sb.append(BaseRequestAction.SPLITE);
                         sb.append(signature2.toCharsString());

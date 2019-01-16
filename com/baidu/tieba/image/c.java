@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes3.dex */
 public class c {
-    private AdvertAppInfo fjs;
+    private AdvertAppInfo fkh;
     private Context mContext;
     private String mForumId;
     private String mPostId;
@@ -19,27 +19,27 @@ public class c {
     }
 
     public void d(AdvertAppInfo advertAppInfo) {
-        this.fjs = advertAppInfo;
+        this.fkh = advertAppInfo;
     }
 
-    public void aXg() {
-        qQ(AiAppsUBCStatistic.TYPE_CLICK);
-        com.baidu.tieba.recapp.report.c.bwf().a(com.baidu.tieba.recapp.report.f.c(this.fjs, 2, 0));
+    public void aXG() {
+        rg(AiAppsUBCStatistic.TYPE_CLICK);
+        com.baidu.tieba.recapp.report.c.bwO().a(com.baidu.tieba.recapp.report.f.c(this.fkh, 2, 0));
     }
 
-    public void aXh() {
-        qQ("show");
-        com.baidu.tieba.recapp.report.c.bwf().a(com.baidu.tieba.recapp.report.f.c(this.fjs, 3, 0));
+    public void aXH() {
+        rg("show");
+        com.baidu.tieba.recapp.report.c.bwO().a(com.baidu.tieba.recapp.report.f.c(this.fkh, 3, 0));
     }
 
-    public void aXi() {
+    public void aXI() {
     }
 
-    public void qP(String str) {
+    public void rf(String str) {
         TiebaStatic.eventStat(this.mContext, "pb_dl_app", null, 1, AiAppsApsUtils.APP_NAME, str);
     }
 
-    public void qQ(String str) {
-        com.baidu.tbadk.distribute.a.LL().a(this.fjs, this.mForumId, com.baidu.adp.lib.g.b.d(this.mPostId, 0L), "PB", str, 1);
+    public void rg(String str) {
+        com.baidu.tbadk.distribute.a.Mc().a(this.fkh, this.mForumId, com.baidu.adp.lib.g.b.d(this.mPostId, 0L), "PB", str, 1);
     }
 }

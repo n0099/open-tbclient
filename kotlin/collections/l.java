@@ -12,7 +12,7 @@ public abstract class l implements Iterator<Byte> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: cct */
+    /* renamed from: cdb */
     public final Byte next() {
         return Byte.valueOf(nextByte());
     }

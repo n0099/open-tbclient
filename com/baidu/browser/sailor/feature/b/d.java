@@ -6,17 +6,17 @@ import com.baidu.e.a.a;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class d implements a.InterfaceC0073a {
-    final /* synthetic */ b VY;
+    final /* synthetic */ b Wh;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.VY = bVar;
+        this.Wh = bVar;
     }
 
     @Override // com.baidu.e.a.a.InterfaceC0073a
     public final void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Activity activity;
-        Intent qE;
+        Intent qI;
         if (i == 4099) {
             boolean z = iArr.length != 0;
             for (int i2 : iArr) {
@@ -25,12 +25,12 @@ public final class d implements a.InterfaceC0073a {
                 }
             }
             if (z) {
-                this.VY.VX = true;
-                activity = this.VY.mActivity;
-                qE = this.VY.qE();
-                activity.startActivityForResult(qE, 11);
+                this.Wh.Wg = true;
+                activity = this.Wh.mActivity;
+                qI = this.Wh.qI();
+                activity.startActivityForResult(qI, 11);
             }
-            com.baidu.browser.core.permission.a.ql().bB(4099);
+            com.baidu.browser.core.permission.a.qp().bB(4099);
         }
     }
 }

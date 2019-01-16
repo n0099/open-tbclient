@@ -13,14 +13,14 @@ public class PluginStatus extends OrmObject {
     public static final int STATUS_LOAD_UNKNOWN = 100;
     public static final int STATUS_SUCCESS = 0;
     String Js;
-    PluginPackageManager.PluginStatus LW;
-    String LX;
-    boolean LY;
+    PluginPackageManager.PluginStatus Mf;
+    String Mg;
+    boolean Mh;
     int errorCode;
     String errorMsg;
     int priority;
 
-    public String nH() {
+    public String nL() {
         return this.Js;
     }
 
@@ -36,7 +36,7 @@ public class PluginStatus extends OrmObject {
         return this.errorMsg;
     }
 
-    public String nI() {
-        return this.LX;
+    public String nM() {
+        return this.Mg;
     }
 }

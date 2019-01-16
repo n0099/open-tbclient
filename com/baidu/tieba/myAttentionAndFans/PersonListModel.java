@@ -25,14 +25,14 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public static final int CACHETIME = 604800000;
     public static final int TYPE_ALL = 0;
     public static final int TYPE_EACH = 1;
-    private int cJk;
+    private int cJV;
     public CustomMessageListener customListener;
-    private a fJg;
-    private PersonListActivity fJn;
-    private com.baidu.tbadk.coreExtra.model.a fJo;
-    private int fJp;
-    private int fJq;
-    private String fJr;
+    private a fKa;
+    private PersonListActivity fKh;
+    private com.baidu.tbadk.coreExtra.model.a fKi;
+    private int fKj;
+    private int fKk;
+    private String fKl;
     public HttpMessageListener httpListener;
     private String mId;
     private boolean mIsFollow;
@@ -43,15 +43,15 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes3.dex */
     public interface a {
-        void S(String str, boolean z);
+        void R(String str, boolean z);
 
         aq e(aq aqVar, boolean z);
     }
 
     public PersonListModel(PersonListActivity personListActivity, a aVar) {
         super(personListActivity.getPageContext());
-        this.cJk = 0;
-        this.fJp = 0;
+        this.cJV = 0;
+        this.fKj = 0;
         this.httpListener = new HttpMessageListener(CmdConfigHttp.PIC_PERSONAL_LIST) { // from class: com.baidu.tieba.myAttentionAndFans.PersonListModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -62,28 +62,28 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                         int statusCode = httpResponsedMessage.getStatusCode();
                         int error = httpResponsedMessage.getError();
                         if (statusCode != 200 || error != 0) {
-                            if (PersonListModel.this.fJg != null) {
+                            if (PersonListModel.this.fKa != null) {
                                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                                    errorString = PersonListModel.this.fJn.getResources().getString(e.j.neterror);
+                                    errorString = PersonListModel.this.fKh.getResources().getString(e.j.neterror);
                                 } else {
                                     errorString = httpResponsedMessage.getErrorString();
                                 }
-                                PersonListModel.this.fJg.S(errorString, false);
+                                PersonListModel.this.fKa.R(errorString, false);
                                 return;
                             }
                             return;
                         }
                         aq data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
                         if (data != null) {
-                            if (!StringUtils.isNull(data.asE)) {
-                                PersonListModel.this.fJr = data.asE;
-                                PersonListModel.this.fJq = data.type;
+                            if (!StringUtils.isNull(data.atg)) {
+                                PersonListModel.this.fKl = data.atg;
+                                PersonListModel.this.fKk = data.type;
                             }
-                            data.type = PersonListModel.this.fJq;
-                            data.asE = PersonListModel.this.fJr;
+                            data.type = PersonListModel.this.fKk;
+                            data.atg = PersonListModel.this.fKl;
                         }
-                        if (PersonListModel.this.fJg != null) {
-                            PersonListModel.this.fJg.e(data, false);
+                        if (PersonListModel.this.fKa != null) {
+                            PersonListModel.this.fKa.e(data, false);
                         }
                     }
                 }
@@ -96,38 +96,38 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
                     aq data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
                     if (data2 == null) {
-                        if (PersonListModel.this.fJg != null) {
-                            PersonListModel.this.fJg.S("", true);
+                        if (PersonListModel.this.fKa != null) {
+                            PersonListModel.this.fKa.R("", true);
                             return;
                         }
                         return;
                     }
-                    if (!StringUtils.isNull(data2.asE)) {
-                        PersonListModel.this.fJr = data2.asE;
-                        PersonListModel.this.fJq = data2.type;
+                    if (!StringUtils.isNull(data2.atg)) {
+                        PersonListModel.this.fKl = data2.atg;
+                        PersonListModel.this.fKk = data2.type;
                     }
-                    data2.type = PersonListModel.this.fJq;
-                    data2.asE = PersonListModel.this.fJr;
-                    if (PersonListModel.this.fJg != null) {
-                        PersonListModel.this.fJg.e(data2, true);
+                    data2.type = PersonListModel.this.fKk;
+                    data2.atg = PersonListModel.this.fKl;
+                    if (PersonListModel.this.fKa != null) {
+                        PersonListModel.this.fKa.e(data2, true);
                     }
                 }
             }
         };
-        this.fJn = personListActivity;
-        this.fJo = new com.baidu.tbadk.coreExtra.model.a(this.fJn.getPageContext());
-        this.fJo.setLoadDataCallBack(this.mLoadDataCallBack);
+        this.fKh = personListActivity;
+        this.fKi = new com.baidu.tbadk.coreExtra.model.a(this.fKh.getPageContext());
+        this.fKi.setLoadDataCallBack(this.mLoadDataCallBack);
         this.mIsFollow = true;
         this.mId = null;
-        this.fJg = aVar;
+        this.fKa = aVar;
     }
 
     public int getPage() {
-        return this.cJk;
+        return this.cJV;
     }
 
     public void setPage(int i) {
-        this.cJk = i;
+        this.cJV = i;
     }
 
     public void setId(String str) {
@@ -150,11 +150,11 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         this.mIsFollow = z;
     }
 
-    public boolean bdT() {
+    public boolean bet() {
         return this.mIsFollow;
     }
 
-    public void aab() {
+    public void aay() {
         String str;
         MessageManager messageManager = MessageManager.getInstance();
         if (this.mIsFollow) {
@@ -169,16 +169,16 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     }
 
     public void is(int i) {
-        this.fJp = i;
-        this.cJk = 0;
-        bdU();
+        this.fKj = i;
+        this.cJV = 0;
+        beu();
     }
 
     public int getLoadType() {
-        return this.fJp;
+        return this.fKj;
     }
 
-    public void bdU() {
+    public void beu() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PIC_PERSONAL_LIST);
         HashMap hashMap = new HashMap();
         if (this.mIsFollow) {
@@ -190,12 +190,12 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
             httpMessage.addParam("uid", this.mId);
         }
         hashMap.put("id", String.valueOf(this.mId));
-        if (this.cJk != 0) {
-            this.cJk++;
-            httpMessage.addParam(Config.PACKAGE_NAME, String.valueOf(this.cJk));
+        if (this.cJV != 0) {
+            this.cJV++;
+            httpMessage.addParam(Config.PACKAGE_NAME, String.valueOf(this.cJV));
         }
-        httpMessage.addParam("tab", this.fJp);
-        hashMap.put(SystemScreenshotManager.PAGE, String.valueOf(this.cJk));
+        httpMessage.addParam("tab", this.fKj);
+        hashMap.put(SystemScreenshotManager.PAGE, String.valueOf(this.cJV));
         hashMap.put("pageid", String.valueOf(getUniqueId().getId()));
         httpMessage.setExtra(hashMap);
         sendMessage(httpMessage);

@@ -9,7 +9,7 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class i implements LBSAuthManagerListener {
     private static Object a = new Object();
-    private static i adD = null;
+    private static i adM = null;
     private int c = 0;
     private Context d = null;
     private long e = 0;
@@ -23,13 +23,13 @@ public class i implements LBSAuthManagerListener {
         return null;
     }
 
-    public static i th() {
+    public static i tl() {
         i iVar;
         synchronized (a) {
-            if (adD == null) {
-                adD = new i();
+            if (adM == null) {
+                adM = new i();
             }
-            iVar = adD;
+            iVar = adM;
         }
         return iVar;
     }

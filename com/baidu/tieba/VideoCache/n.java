@@ -12,61 +12,61 @@ import java.net.Socket;
 /* loaded from: classes6.dex */
 public class n {
     private static final String TAG = n.class.getSimpleName();
-    private ServerSocket bAg;
+    private ServerSocket bAT;
     private Context mContext;
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.VideoCache.n.1
         @Override // java.lang.Runnable
         public void run() {
             long j;
             j.log(n.TAG, "run ...");
-            n.this.Vx();
+            n.this.VT();
             int i = MsgField.MSG_STAT_FIRST_LOAD_START_FILE_MANAGE;
-            while (n.this.bAg == null && i < 10000) {
+            while (n.this.bAT == null && i < 10000) {
                 try {
-                    n.this.bAg = new ServerSocket(i);
+                    n.this.bAT = new ServerSocket(i);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    n.this.bAg = null;
+                    n.this.bAT = null;
                     i++;
                 }
             }
             j.log(n.TAG, "service port " + i);
             n.this.hz(i);
-            e.Vl();
-            k.Vu();
-            while (!n.this.bAg.isClosed()) {
+            e.VH();
+            k.VQ();
+            while (!n.this.bAT.isClosed()) {
                 try {
                     j.log(n.TAG, "accept start");
-                    Socket accept = n.this.bAg.accept();
+                    Socket accept = n.this.bAT.accept();
                     j.log(n.TAG, "accept end");
                     if (accept != null) {
                         j.log(n.TAG, "连接视频服务的client:" + accept);
                         h b = f.b(accept);
-                        String Vp = b.Vp();
-                        if (Vp != null && Vp.contains("?file_access=1")) {
+                        String VL = b.VL();
+                        if (VL != null && VL.contains("?file_access=1")) {
                             n.this.c(b, accept);
-                        } else if (Vp != null && Vp.contains("?stop_cache=1")) {
+                        } else if (VL != null && VL.contains("?stop_cache=1")) {
                             n.this.a(b, accept);
-                        } else if (Vp != null && Vp.contains("delete_expired_files")) {
+                        } else if (VL != null && VL.contains("delete_expired_files")) {
                             n.this.d(b, accept);
-                        } else if (Vp != null && Vp.contains("clear_cache")) {
+                        } else if (VL != null && VL.contains("clear_cache")) {
                             n.this.e(b, accept);
-                        } else if (Vp != null && Vp.contains("?segment_postion=")) {
+                        } else if (VL != null && VL.contains("?segment_postion=")) {
                             try {
-                                int indexOf = Vp.indexOf("?segment_postion=", 0);
-                                b.jv(Vp.substring(0, indexOf));
-                                j = com.baidu.adp.lib.g.b.d(Vp.substring(indexOf + i.bzZ), 0L);
+                                int indexOf = VL.indexOf("?segment_postion=", 0);
+                                b.jL(VL.substring(0, indexOf));
+                                j = com.baidu.adp.lib.g.b.d(VL.substring(indexOf + i.bAM), 0L);
                             } catch (Exception e2) {
                                 j = 0;
                             }
                             b.aV(j);
                             n.this.b(b, accept);
                         } else {
-                            j.log(n.TAG, "HandleSocketRunnable new request b=" + b.Vr() + " e=" + b.Vs());
+                            j.log(n.TAG, "HandleSocketRunnable new request b=" + b.VN() + " e=" + b.VO());
                             f fVar = new f(n.this.mContext);
                             fVar.setSocket(accept);
                             fVar.a(b);
-                            l.Vv().f(fVar);
+                            l.VR().f(fVar);
                         }
                     }
                 } catch (Exception e3) {
@@ -81,16 +81,16 @@ public class n {
 
     public n(Context context) {
         this.mContext = context;
-        l.Vv().f(this.mRunnable);
+        l.VR().f(this.mRunnable);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Vx() {
-        File file = new File(i.bzT);
+    public void VT() {
+        File file = new File(i.bAG);
         if (!file.exists()) {
             file.mkdir();
         }
-        File file2 = new File(i.bzU);
+        File file2 = new File(i.bAH);
         if (!file2.exists()) {
             file2.mkdir();
         }
@@ -106,7 +106,7 @@ public class n {
         if (!file4.exists()) {
             file4.mkdir();
         }
-        File file5 = new File(i.bzW);
+        File file5 = new File(i.bAJ);
         if (!file5.exists()) {
             file5.mkdir();
         }
@@ -129,7 +129,7 @@ public class n {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void hz(int i) {
-        BufferedWriter bufferedWriter = i.bzY;
+        BufferedWriter bufferedWriter = i.bAL;
         try {
             try {
                 bufferedWriter = new BufferedWriter(new FileWriter(new File((String) bufferedWriter)));
@@ -179,8 +179,8 @@ public class n {
 
     public void destroy() {
         try {
-            if (this.bAg != null) {
-                this.bAg.close();
+            if (this.bAT != null) {
+                this.bAT.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -190,11 +190,11 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(h hVar, Socket socket) {
         j.log(TAG, "handleStopCache in");
-        String Vp = hVar.Vp();
-        if (Vp != null) {
-            Vp = Vp.replace("?stop_cache=1", "");
+        String VL = hVar.VL();
+        if (VL != null) {
+            VL = VL.replace("?stop_cache=1", "");
         }
-        e.Vl().jr(Vp);
+        e.VH().jH(VL);
         d(socket);
         j.log(TAG, "handleStopCache out");
     }
@@ -202,9 +202,9 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(h hVar, Socket socket) {
         j.log(TAG, "handleNotifyDownLoadNextSegment in");
-        String Vp = hVar.Vp();
-        if (Vp != null) {
-            e.Vl().l(Vp, hVar.Vt());
+        String VL = hVar.VL();
+        if (VL != null) {
+            e.VH().l(VL, hVar.VP());
         }
         d(socket);
         j.log(TAG, "handleNotifyDownLoadNextSegment out");
@@ -213,11 +213,11 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     public void c(h hVar, Socket socket) {
         j.log(TAG, "handleFileAccess in");
-        String Vp = hVar.Vp();
-        if (Vp != null) {
-            Vp = Vp.replace("?file_access=1", "");
+        String VL = hVar.VL();
+        if (VL != null) {
+            VL = VL.replace("?file_access=1", "");
         }
-        k.Vu().jl(Vp);
+        k.VQ().jB(VL);
         d(socket);
         j.log(TAG, "handleFileAccess out");
     }
@@ -225,7 +225,7 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     public void d(h hVar, Socket socket) {
         j.log(TAG, "handleDeleteExpiredFiles in");
-        k.Vu().Vf();
+        k.VQ().VB();
         d(socket);
         j.log(TAG, "handleDeleteExpiredFiles out");
     }
@@ -233,7 +233,7 @@ public class n {
     /* JADX INFO: Access modifiers changed from: private */
     public void e(h hVar, Socket socket) {
         j.log(TAG, "handleClearCache in");
-        k.Vu().clearCache();
+        k.VQ().clearCache();
         d(socket);
         j.log(TAG, "handleClearCache out");
     }

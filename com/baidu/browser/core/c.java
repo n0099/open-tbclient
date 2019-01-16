@@ -21,18 +21,18 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class c extends Resources {
-    private Map<String, String> UN;
-    private Resources UO;
-    private Resources UQ;
+    private Map<String, String> UX;
+    private Resources UY;
+    private Resources UZ;
     private String mPackageName;
-    private static final String UM = Environment.getRootDirectory().toString() + File.separator + "baidu/flyflow/plugin_asset";
+    private static final String UW = Environment.getRootDirectory().toString() + File.separator + "baidu/flyflow/plugin_asset";
     private static final String TAG = c.class.getSimpleName();
-    private static HashMap<String, com.baidu.browser.core.util.c<String, Integer>> UL = new HashMap<>();
+    private static HashMap<String, com.baidu.browser.core.util.c<String, Integer>> UV = new HashMap<>();
 
     public c(Resources resources, AssetManager assetManager, DisplayMetrics displayMetrics, Configuration configuration) {
         super(assetManager, displayMetrics, configuration);
-        this.UQ = resources;
-        this.UN = new HashMap();
+        this.UZ = resources;
+        this.UX = new HashMap();
     }
 
     public int bA(int i) {
@@ -41,19 +41,19 @@ public class c extends Resources {
             return 0;
         }
         try {
-            String resourceEntryName = this.UQ.getResourceEntryName(i);
-            String resourceTypeName = this.UQ.getResourceTypeName(i);
-            com.baidu.browser.core.util.c<String, Integer> cVar2 = UL.get(resourceTypeName);
+            String resourceEntryName = this.UZ.getResourceEntryName(i);
+            String resourceTypeName = this.UZ.getResourceTypeName(i);
+            com.baidu.browser.core.util.c<String, Integer> cVar2 = UV.get(resourceTypeName);
             if (cVar2 == null) {
                 com.baidu.browser.core.util.c<String, Integer> cVar3 = new com.baidu.browser.core.util.c<>(100);
-                UL.put(resourceTypeName, cVar3);
+                UV.put(resourceTypeName, cVar3);
                 cVar = cVar3;
             } else {
                 cVar = cVar2;
             }
             Integer num = cVar.get(resourceEntryName);
             if (num == null) {
-                num = Integer.valueOf(this.UO.getIdentifier(resourceEntryName, resourceTypeName, this.mPackageName));
+                num = Integer.valueOf(this.UY.getIdentifier(resourceEntryName, resourceTypeName, this.mPackageName));
                 if (num.intValue() != 0) {
                     cVar.put(resourceEntryName, num);
                 }
@@ -67,156 +67,156 @@ public class c extends Resources {
 
     @Override // android.content.res.Resources
     public Configuration getConfiguration() {
-        return this.UQ.getConfiguration();
+        return this.UZ.getConfiguration();
     }
 
     @Override // android.content.res.Resources
     public XmlResourceParser getAnimation(int i) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getAnimation(bA) : this.UQ.getAnimation(i);
+        return bA != 0 ? this.UY.getAnimation(bA) : this.UZ.getAnimation(i);
     }
 
     @Override // android.content.res.Resources
     public int getColor(int i) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getColor(bA) : this.UQ.getColor(i);
+        return bA != 0 ? this.UY.getColor(bA) : this.UZ.getColor(i);
     }
 
     @Override // android.content.res.Resources
     public ColorStateList getColorStateList(int i) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getColorStateList(bA) : this.UQ.getColorStateList(i);
+        return bA != 0 ? this.UY.getColorStateList(bA) : this.UZ.getColorStateList(i);
     }
 
     @Override // android.content.res.Resources
     public float getDimension(int i) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getDimension(bA) : this.UQ.getDimension(i);
+        return bA != 0 ? this.UY.getDimension(bA) : this.UZ.getDimension(i);
     }
 
     @Override // android.content.res.Resources
     public int getDimensionPixelOffset(int i) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getDimensionPixelOffset(bA) : this.UQ.getDimensionPixelOffset(i);
+        return bA != 0 ? this.UY.getDimensionPixelOffset(bA) : this.UZ.getDimensionPixelOffset(i);
     }
 
     @Override // android.content.res.Resources
     public int getDimensionPixelSize(int i) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getDimensionPixelSize(bA) : this.UQ.getDimensionPixelSize(i);
+        return bA != 0 ? this.UY.getDimensionPixelSize(bA) : this.UZ.getDimensionPixelSize(i);
     }
 
     @Override // android.content.res.Resources
     public Drawable getDrawable(int i) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getDrawable(bA) : this.UQ.getDrawable(i);
+        return bA != 0 ? this.UY.getDrawable(bA) : this.UZ.getDrawable(i);
     }
 
     @Override // android.content.res.Resources
     @TargetApi(21)
     public Drawable getDrawable(int i, Resources.Theme theme) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getDrawable(bA, null) : this.UQ.getDrawable(i, theme);
+        return bA != 0 ? this.UY.getDrawable(bA, null) : this.UZ.getDrawable(i, theme);
     }
 
     @Override // android.content.res.Resources
     @TargetApi(15)
     public Drawable getDrawableForDensity(int i, int i2) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getDrawableForDensity(bA, i2) : this.UQ.getDrawableForDensity(i, i2);
+        return bA != 0 ? this.UY.getDrawableForDensity(bA, i2) : this.UZ.getDrawableForDensity(i, i2);
     }
 
     @Override // android.content.res.Resources
     public float getFraction(int i, int i2, int i3) {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getFraction(bA, i2, i3) : this.UQ.getFraction(i, i2, i3);
+        return bA != 0 ? this.UY.getFraction(bA, i2, i3) : this.UZ.getFraction(i, i2, i3);
     }
 
     @Override // android.content.res.Resources
     public int[] getIntArray(int i) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getIntArray(bA) : this.UQ.getIntArray(i);
+        return bA != 0 ? this.UY.getIntArray(bA) : this.UZ.getIntArray(i);
     }
 
     @Override // android.content.res.Resources
     public int getInteger(int i) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getInteger(bA) : this.UQ.getInteger(i);
+        return bA != 0 ? this.UY.getInteger(bA) : this.UZ.getInteger(i);
     }
 
     @Override // android.content.res.Resources
     public XmlResourceParser getLayout(int i) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getLayout(bA) : this.UQ.getLayout(i);
+        return bA != 0 ? this.UY.getLayout(bA) : this.UZ.getLayout(i);
     }
 
     @Override // android.content.res.Resources
     public Movie getMovie(int i) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getMovie(bA) : this.UQ.getMovie(i);
+        return bA != 0 ? this.UY.getMovie(bA) : this.UZ.getMovie(i);
     }
 
     @Override // android.content.res.Resources
     public CharSequence getQuantityText(int i, int i2) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getQuantityText(bA, i2) : this.UQ.getQuantityText(i, i2);
+        return bA != 0 ? this.UY.getQuantityText(bA, i2) : this.UZ.getQuantityText(i, i2);
     }
 
     @Override // android.content.res.Resources
     public String getQuantityString(int i, int i2) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getQuantityString(bA, i2) : this.UQ.getQuantityString(i, i2);
+        return bA != 0 ? this.UY.getQuantityString(bA, i2) : this.UZ.getQuantityString(i, i2);
     }
 
     @Override // android.content.res.Resources
     public String getQuantityString(int i, int i2, Object... objArr) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getQuantityString(bA, i2, objArr) : this.UQ.getQuantityString(i, i2, objArr);
+        return bA != 0 ? this.UY.getQuantityString(bA, i2, objArr) : this.UZ.getQuantityString(i, i2, objArr);
     }
 
     @Override // android.content.res.Resources
     public String getString(int i) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getString(bA) : this.UQ.getString(i);
+        return bA != 0 ? this.UY.getString(bA) : this.UZ.getString(i);
     }
 
     @Override // android.content.res.Resources
     public String getString(int i, Object... objArr) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getString(bA, objArr) : this.UQ.getString(i, objArr);
+        return bA != 0 ? this.UY.getString(bA, objArr) : this.UZ.getString(i, objArr);
     }
 
     @Override // android.content.res.Resources
     public String[] getStringArray(int i) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getStringArray(bA) : this.UQ.getStringArray(i);
+        return bA != 0 ? this.UY.getStringArray(bA) : this.UZ.getStringArray(i);
     }
 
     @Override // android.content.res.Resources
     public CharSequence getText(int i) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getText(bA) : this.UQ.getText(i);
+        return bA != 0 ? this.UY.getText(bA) : this.UZ.getText(i);
     }
 
     @Override // android.content.res.Resources
     public CharSequence getText(int i, CharSequence charSequence) {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getText(bA, charSequence) : this.UQ.getText(i, charSequence);
+        return bA != 0 ? this.UY.getText(bA, charSequence) : this.UZ.getText(i, charSequence);
     }
 
     @Override // android.content.res.Resources
     public CharSequence[] getTextArray(int i) throws Resources.NotFoundException {
         int bA = bA(i);
-        return bA != 0 ? this.UO.getTextArray(bA) : this.UQ.getTextArray(i);
+        return bA != 0 ? this.UY.getTextArray(bA) : this.UZ.getTextArray(i);
     }
 
     @Override // android.content.res.Resources
     public void getValue(int i, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
         int bA = bA(i);
         if (bA != 0) {
-            this.UO.getValue(bA, typedValue, z);
+            this.UY.getValue(bA, typedValue, z);
         } else {
-            this.UQ.getValue(i, typedValue, z);
+            this.UZ.getValue(i, typedValue, z);
         }
     }
 
@@ -225,63 +225,63 @@ public class c extends Resources {
     public void getValueForDensity(int i, int i2, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
         int bA = bA(i);
         if (bA != 0) {
-            this.UO.getValueForDensity(bA, i2, typedValue, z);
+            this.UY.getValueForDensity(bA, i2, typedValue, z);
         } else {
-            this.UQ.getValueForDensity(i, i2, typedValue, z);
+            this.UZ.getValueForDensity(i, i2, typedValue, z);
         }
     }
 
     @Override // android.content.res.Resources
     public TypedArray obtainTypedArray(int i) throws Resources.NotFoundException {
-        return this.UQ.obtainTypedArray(i);
+        return this.UZ.obtainTypedArray(i);
     }
 
     @Override // android.content.res.Resources
     public boolean getBoolean(int i) throws Resources.NotFoundException {
-        return this.UQ.getBoolean(i);
+        return this.UZ.getBoolean(i);
     }
 
     @Override // android.content.res.Resources
     public XmlResourceParser getXml(int i) throws Resources.NotFoundException {
-        return this.UQ.getXml(i);
+        return this.UZ.getXml(i);
     }
 
     @Override // android.content.res.Resources
     public void getValue(String str, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
-        this.UQ.getValue(str, typedValue, z);
+        this.UZ.getValue(str, typedValue, z);
     }
 
     @Override // android.content.res.Resources
     public TypedArray obtainAttributes(AttributeSet attributeSet, int[] iArr) {
-        return this.UQ.obtainAttributes(attributeSet, iArr);
+        return this.UZ.obtainAttributes(attributeSet, iArr);
     }
 
     @Override // android.content.res.Resources
     public String getResourceName(int i) throws Resources.NotFoundException {
-        return this.UQ.getResourceName(i);
+        return this.UZ.getResourceName(i);
     }
 
     @Override // android.content.res.Resources
     public String getResourcePackageName(int i) throws Resources.NotFoundException {
-        return this.UQ.getResourcePackageName(i);
+        return this.UZ.getResourcePackageName(i);
     }
 
     @Override // android.content.res.Resources
     public String getResourceTypeName(int i) throws Resources.NotFoundException {
-        return this.UQ.getResourceTypeName(i);
+        return this.UZ.getResourceTypeName(i);
     }
 
     @Override // android.content.res.Resources
     public String getResourceEntryName(int i) throws Resources.NotFoundException {
-        return this.UQ.getResourceEntryName(i);
+        return this.UZ.getResourceEntryName(i);
     }
 
     @Override // android.content.res.Resources
     public InputStream openRawResource(int i) throws Resources.NotFoundException {
         int bA = bA(i);
-        if (bA != 0 && this.UO != null) {
+        if (bA != 0 && this.UY != null) {
             try {
-                InputStream openRawResource = this.UO.openRawResource(bA);
+                InputStream openRawResource = this.UY.openRawResource(bA);
                 if (openRawResource != null) {
                     return openRawResource;
                 }
@@ -289,15 +289,15 @@ public class c extends Resources {
                 e.printStackTrace();
             }
         }
-        return this.UQ.openRawResource(i);
+        return this.UZ.openRawResource(i);
     }
 
     @Override // android.content.res.Resources
     public InputStream openRawResource(int i, TypedValue typedValue) throws Resources.NotFoundException {
         int bA = bA(i);
-        if (bA != 0 && this.UO != null) {
+        if (bA != 0 && this.UY != null) {
             try {
-                InputStream openRawResource = this.UO.openRawResource(bA, typedValue);
+                InputStream openRawResource = this.UY.openRawResource(bA, typedValue);
                 if (openRawResource != null) {
                     return openRawResource;
                 }
@@ -305,15 +305,15 @@ public class c extends Resources {
                 e.printStackTrace();
             }
         }
-        return this.UQ.openRawResource(i, typedValue);
+        return this.UZ.openRawResource(i, typedValue);
     }
 
     @Override // android.content.res.Resources
     public AssetFileDescriptor openRawResourceFd(int i) throws Resources.NotFoundException {
         int bA = bA(i);
-        if (bA != 0 && this.UO != null) {
+        if (bA != 0 && this.UY != null) {
             try {
-                AssetFileDescriptor openRawResourceFd = this.UO.openRawResourceFd(bA);
+                AssetFileDescriptor openRawResourceFd = this.UY.openRawResourceFd(bA);
                 if (openRawResourceFd != null) {
                     return openRawResourceFd;
                 }
@@ -321,6 +321,6 @@ public class c extends Resources {
                 e.printStackTrace();
             }
         }
-        return this.UQ.openRawResourceFd(i);
+        return this.UZ.openRawResourceFd(i);
     }
 }

@@ -14,8 +14,8 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class FontTableBox extends AbstractBox {
     public static final String TYPE = "ftab";
-    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0401a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0401a ajc$tjp_1 = null;
     List<FontRecord> entries;
 
     static {

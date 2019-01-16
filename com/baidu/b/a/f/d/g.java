@@ -5,16 +5,16 @@ import com.baidu.b.a.a;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class g {
-    private static g aad;
-    private k aae = new k();
+    private static g aam;
+    private k aan = new k();
 
-    public static g rR() {
+    public static g rV() {
         synchronized (g.class) {
-            if (aad == null) {
-                aad = new g();
+            if (aam == null) {
+                aam = new g();
             }
         }
-        return aad;
+        return aam;
     }
 
     private g() {
@@ -39,7 +39,7 @@ public class g {
                         if (com.baidu.b.a.h.b.isDebug()) {
                             e.printStackTrace();
                         }
-                        bVar2.onDownloadError(new com.baidu.b.a.b.b.a(aVar.packageName, 2204, "download : path not available", a.C0056a.C0057a.YU));
+                        bVar2.onDownloadError(new com.baidu.b.a.b.b.a(aVar.packageName, 2204, "download : path not available", a.C0056a.C0057a.Zd));
                     }
                 }
                 f fVar = new f(aVar, bVar2);
@@ -55,12 +55,12 @@ public class g {
 
     public synchronized boolean a(f fVar, b bVar) {
         boolean z;
-        if (this.aae.b(fVar, bVar)) {
-            com.baidu.b.a.c.a.a rL = fVar.rL();
-            rL.KC = 2212;
-            rL.errMsg = "duplicated download task";
-            rL.Zm = a.C0056a.C0057a.Zc;
-            fVar.rM().onDownloading(new com.baidu.b.a.b.b.a(fVar.getPackageName(), rL.KC, rL.errMsg, rL.Zm));
+        if (this.aan.b(fVar, bVar)) {
+            com.baidu.b.a.c.a.a rP = fVar.rP();
+            rP.KI = 2212;
+            rP.errMsg = "duplicated download task";
+            rP.Zv = a.C0056a.C0057a.Zl;
+            fVar.rQ().onDownloading(new com.baidu.b.a.b.b.a(fVar.getPackageName(), rP.KI, rP.errMsg, rP.Zv));
             z = true;
         } else {
             z = false;
@@ -70,24 +70,24 @@ public class g {
 
     public synchronized void e(f fVar) {
         fVar.aH(false);
-        this.aae.h(fVar);
+        this.aan.h(fVar);
     }
 
     public synchronized void f(f fVar) {
-        boolean k = this.aae.k(fVar);
-        this.aae.j(fVar);
+        boolean k = this.aan.k(fVar);
+        this.aan.j(fVar);
         fVar.bH(12);
-        com.baidu.b.a.b.b.a aVar = new com.baidu.b.a.b.b.a(fVar.getPackageName(), 2211, "download : customer cancel download", a.C0056a.C0057a.Zb);
+        com.baidu.b.a.b.b.a aVar = new com.baidu.b.a.b.b.a(fVar.getPackageName(), 2211, "download : customer cancel download", a.C0056a.C0057a.Zk);
         if (!k) {
-            fVar.rM().onFileCancel(aVar);
+            fVar.rQ().onFileCancel(aVar);
         }
     }
 
     public synchronized void a(com.baidu.b.a.f.d.a.a aVar) {
-        this.aae.c(aVar);
+        this.aan.c(aVar);
     }
 
     public synchronized void b(com.baidu.b.a.f.d.a.a aVar) {
-        this.aae.d(aVar);
+        this.aan.d(aVar);
     }
 }

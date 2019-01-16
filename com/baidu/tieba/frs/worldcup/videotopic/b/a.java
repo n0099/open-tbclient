@@ -20,14 +20,14 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.frs.worldcup.talkball.b.f;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tieba.card.a<f> {
-    private TextView aJg;
-    private View byS;
-    private ForbidParentSwipeBackLinearLayout emQ;
-    private LinearLayout emR;
-    private TextView emS;
-    private ImageView emT;
-    private c emU;
-    private f emV;
+    private TextView aJI;
+    private View bzG;
+    private ImageView enA;
+    private c enB;
+    private f enC;
+    private ForbidParentSwipeBackLinearLayout enx;
+    private LinearLayout eny;
+    private TextView enz;
     private String mForumId;
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -36,15 +36,15 @@ public class a extends com.baidu.tieba.card.a<f> {
         this.currentPageType = 3;
         this.mTbPageContext = tbPageContext;
         View view = getView();
-        this.emQ = (ForbidParentSwipeBackLinearLayout) view.findViewById(e.g.video_topic_root);
+        this.enx = (ForbidParentSwipeBackLinearLayout) view.findViewById(e.g.video_topic_root);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(e.g.list);
-        this.emS = (TextView) view.findViewById(e.g.video_topic);
-        this.emR = (LinearLayout) view.findViewById(e.g.top_view);
-        this.aJg = (TextView) view.findViewById(e.g.more);
-        this.byS = view.findViewById(e.g.divider_line);
-        this.emT = (ImageView) view.findViewById(e.g.image_go);
-        this.emU = new c(this.mTbPageContext);
-        recyclerView.setAdapter(this.emU);
+        this.enz = (TextView) view.findViewById(e.g.video_topic);
+        this.eny = (LinearLayout) view.findViewById(e.g.top_view);
+        this.aJI = (TextView) view.findViewById(e.g.more);
+        this.bzG = view.findViewById(e.g.divider_line);
+        this.enA = (ImageView) view.findViewById(e.g.image_go);
+        this.enB = new c(this.mTbPageContext);
+        recyclerView.setAdapter(this.enB);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.mTbPageContext.getPageActivity(), 0, false));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
@@ -53,18 +53,18 @@ public class a extends com.baidu.tieba.card.a<f> {
     @Override // com.baidu.tieba.card.a
     public void a(f fVar) {
         if (fVar != null) {
-            this.emV = fVar;
+            this.enC = fVar;
             if (ao.isEmpty(fVar.getTopicName())) {
-                this.emS.setText(e.j.frs_video_topic);
+                this.enz.setText(e.j.frs_video_topic);
             } else {
-                this.emS.setText(fVar.getTopicName());
-                this.emU.setTopicName(fVar.getTopicName());
+                this.enz.setText(fVar.getTopicName());
+                this.enB.setTopicName(fVar.getTopicName());
             }
-            if (fVar.aJl() != null) {
-                this.emU.setData(fVar.aJl());
-                this.emU.notifyDataSetChanged();
+            if (fVar.aJJ() != null) {
+                this.enB.setData(fVar.aJJ());
+                this.enB.notifyDataSetChanged();
             }
-            this.emQ.setOnClickListener(this);
+            this.enx.setOnClickListener(this);
             d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -72,12 +72,12 @@ public class a extends com.baidu.tieba.card.a<f> {
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            al.i(this.emQ, e.f.addresslist_item_bg);
-            al.i(this.emR, e.f.addresslist_item_bg);
-            al.i(this.emT, e.f.icon_arrow12_gray60_right);
-            al.h(this.emS, e.d.cp_cont_f);
-            al.h(this.aJg, e.d.cp_cont_f);
-            al.j(this.byS, e.d.cp_bg_line_e);
+            al.i(this.enx, e.f.addresslist_item_bg);
+            al.i(this.eny, e.f.addresslist_item_bg);
+            al.i(this.enA, e.f.icon_arrow12_gray60_right);
+            al.h(this.enz, e.d.cp_cont_f);
+            al.h(this.aJI, e.d.cp_cont_f);
+            al.j(this.bzG, e.d.cp_bg_line_e);
         }
         this.mSkinType = i;
     }
@@ -89,13 +89,13 @@ public class a extends com.baidu.tieba.card.a<f> {
 
     public void setForumId(String str) {
         this.mForumId = str;
-        this.emU.setForumId(str);
+        this.enB.setForumId(str);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.emV != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003021, new VideoTopicActivityConfig(this.mContext).createNormalCfg(this.emV.aJk().intValue(), this.emV.getTopicName(), this.mForumId)));
+        if (this.enC != null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003021, new VideoTopicActivityConfig(this.mContext).createNormalCfg(this.enC.aJI().intValue(), this.enC.getTopicName(), this.mForumId)));
         }
     }
 }

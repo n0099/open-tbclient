@@ -39,7 +39,7 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
             if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
                 jVar = j.a(pbFloorResIdl.data, context);
                 if (jVar != null) {
-                    jVar.fTL = pbFloorResIdl.error;
+                    jVar.fUI = pbFloorResIdl.error;
                 } else if (pbFloorResIdl.error != null) {
                     if (pbFloorResIdl.error.errorno != null) {
                         setError(pbFloorResIdl.error.errorno.intValue());

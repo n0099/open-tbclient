@@ -12,37 +12,37 @@ import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class FrsAllThreadFragment extends BaseFragment implements aj {
     private static final String TAG = FrsAllThreadFragment.class.getSimpleName();
-    private BdSwipeRefreshLayout bRo;
-    private View dKi;
-    private RecyclerView dKj;
+    private BdSwipeRefreshLayout bRZ;
+    private View dKR;
+    private RecyclerView dKS;
 
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.dKi != null && this.dKi.getParent() != null) {
-            ((ViewGroup) this.dKi.getParent()).removeView(this.dKi);
+        if (this.dKR != null && this.dKR.getParent() != null) {
+            ((ViewGroup) this.dKR.getParent()).removeView(this.dKR);
         }
-        return this.dKi;
+        return this.dKR;
     }
 
     public void setView(View view) {
-        this.dKi = view;
-        this.dKj = (RecyclerView) this.dKi.findViewById(e.g.frs_lv_thread);
-        this.bRo = (BdSwipeRefreshLayout) this.dKi.findViewById(e.g.frs_pull_refresh_layout);
+        this.dKR = view;
+        this.dKS = (RecyclerView) this.dKR.findViewById(e.g.frs_lv_thread);
+        this.bRZ = (BdSwipeRefreshLayout) this.dKR.findViewById(e.g.frs_pull_refresh_layout);
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void aBh() {
-        if (this.dKj != null) {
-            this.dKj.scrollToPosition(0);
+    public void aBE() {
+        if (this.dKS != null) {
+            this.dKS.scrollToPosition(0);
         }
     }
 
     @Override // com.baidu.tieba.frs.aj
-    public void aaY() {
-        if (this.bRo != null) {
-            aBh();
-            this.bRo.setRefreshing(true);
+    public void abv() {
+        if (this.bRZ != null) {
+            aBE();
+            this.bRZ.setRefreshing(true);
         }
     }
 }

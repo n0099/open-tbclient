@@ -8,7 +8,7 @@ import com.baidu.tieba.aiapps.apps.p.f;
 import com.baidu.ubc.o;
 /* loaded from: classes4.dex */
 public class b {
-    public static void Xy() {
+    public static void XV() {
         AiAppsRuntimeInit.setAiAppConfigImpl(new com.baidu.tieba.aiapps.apps.d.a());
         AiAppsRuntimeInit.setAiAppsSocialShareImpl(new com.baidu.tieba.aiapps.apps.share.b());
         AiAppsRuntimeInit.setAiAppAbTestImpl(new a());

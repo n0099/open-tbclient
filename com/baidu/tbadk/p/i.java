@@ -21,7 +21,7 @@ public class i extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int iH() {
-        return 0;
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a

@@ -15,25 +15,25 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.frs.worldcup.talkball.b.g;
 /* loaded from: classes3.dex */
 public class b {
-    private TextView boO;
-    private TbImageView boP;
-    private ImageView boQ;
-    private LinearLayout emW;
-    private LinearLayout emX;
+    private TextView bpC;
+    private TbImageView bpD;
+    private ImageView bpE;
+    private LinearLayout enD;
+    private LinearLayout enE;
     private int mSkinType = 0;
     private TextView mTitle;
     private View v;
 
     public b(TbPageContext<?> tbPageContext) {
         this.v = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(e.h.video_topic_card_item, (ViewGroup) null, false);
-        this.emX = (LinearLayout) this.v.findViewById(e.g.layout_root);
-        this.emW = (LinearLayout) this.v.findViewById(e.g.layout_title);
+        this.enE = (LinearLayout) this.v.findViewById(e.g.layout_root);
+        this.enD = (LinearLayout) this.v.findViewById(e.g.layout_title);
         this.mTitle = (TextView) this.v.findViewById(e.g.text_title);
-        this.boP = (TbImageView) this.v.findViewById(e.g.image_video);
-        this.boP.setDefaultResource(e.f.video_play_count_bg);
-        this.boP.setGifIconSupport(false);
-        this.boQ = (ImageView) this.v.findViewById(e.g.image_video_play);
-        this.boO = (TextView) this.v.findViewById(e.g.text_video_duration);
+        this.bpD = (TbImageView) this.v.findViewById(e.g.image_video);
+        this.bpD.setDefaultResource(e.f.video_play_count_bg);
+        this.bpD.setGifIconSupport(false);
+        this.bpE = (ImageView) this.v.findViewById(e.g.image_video_play);
+        this.bpC = (TextView) this.v.findViewById(e.g.text_video_duration);
     }
 
     public View getView() {
@@ -45,9 +45,9 @@ public class b {
             if (gVar.getTitle() != null) {
                 this.mTitle.setText(gVar.getTitle());
             }
-            this.boO.setText(ao.dV(com.baidu.adp.lib.g.b.l(gVar.aJn(), 1) * 1000));
-            if (gVar.aJm() != null) {
-                this.boP.startLoad(gVar.aJm(), 10, false);
+            this.bpC.setText(ao.dV(com.baidu.adp.lib.g.b.l(gVar.aJL(), 1) * 1000));
+            if (gVar.aJK() != null) {
+                this.bpD.startLoad(gVar.aJK(), 10, false);
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -55,16 +55,16 @@ public class b {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            this.emX.setBackgroundColor(al.getColor(this.mSkinType, e.d.cp_bg_line_d));
-            al.i(this.emW, e.f.addresslist_item_bg);
-            al.i(this.emX, e.f.addresslist_item_bg);
-            al.c(this.boQ, e.f.btn_icon_play_video_n);
+            this.enE.setBackgroundColor(al.getColor(this.mSkinType, e.d.cp_bg_line_d));
+            al.i(this.enD, e.f.addresslist_item_bg);
+            al.i(this.enE, e.f.addresslist_item_bg);
+            al.c(this.bpE, e.f.btn_icon_play_video_n);
             al.h(this.mTitle, e.d.cp_cont_f);
             this.mSkinType = i;
         }
     }
 
     public LinearLayout getRootView() {
-        return this.emX;
+        return this.enE;
     }
 }

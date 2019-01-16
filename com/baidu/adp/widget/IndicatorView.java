@@ -14,9 +14,9 @@ import com.baidu.adp.R;
 import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 /* loaded from: classes.dex */
 public class IndicatorView extends View {
-    private boolean NT;
-    private float NU;
-    private final f NV;
+    private boolean Oc;
+    private float Od;
+    private final f Oe;
     private int mCount;
     private Drawable mDrawable;
     private float mPosition;
@@ -33,7 +33,7 @@ public class IndicatorView extends View {
 
     public IndicatorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.NV = new a();
+        this.Oe = new a();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.IndicatorView);
         this.mSpacing = obtainStyledAttributes.getDimensionPixelSize(R.styleable.IndicatorView_spacing, (int) ((getResources().getDisplayMetrics().density * 5.0f) + 0.5f));
         this.mCount = obtainStyledAttributes.getInteger(R.styleable.IndicatorView_count, 0);
@@ -45,21 +45,21 @@ public class IndicatorView extends View {
         if (this.mSelector != null) {
             this.mSelector.setBounds(0, 0, this.mSelector.getIntrinsicWidth(), this.mSelector.getIntrinsicHeight());
         }
-        this.NT = obtainStyledAttributes.getBoolean(R.styleable.IndicatorView_autoHide, false);
+        this.Oc = obtainStyledAttributes.getBoolean(R.styleable.IndicatorView_autoHide, false);
     }
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        this.NV.measure(i, i2);
+        this.Oe.measure(i, i2);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        this.NV.draw(canvas);
+        this.Oe.draw(canvas);
     }
 
     public void setAutoHide(boolean z) {
-        this.NT = z;
+        this.Oc = z;
     }
 
     public void setDrawable(Drawable drawable) {
@@ -114,16 +114,16 @@ public class IndicatorView extends View {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a implements f {
-        private final int NW;
-        private long NX;
-        private long NY;
-        private int NZ;
-        private float Oa;
-        private boolean Ob;
-        private final HandlerC0027a Oc = new HandlerC0027a();
+        private final int Of;
+        private long Og;
+        private long Oh;
+        private int Oi;
+        private float Oj;
+        private boolean Ok;
+        private final HandlerC0027a Ol = new HandlerC0027a();
 
         a() {
-            this.NW = (int) ((IndicatorView.this.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
+            this.Of = (int) ((IndicatorView.this.getResources().getDisplayMetrics().density * 1.0f) + 0.5f);
         }
 
         @Override // com.baidu.adp.widget.f
@@ -217,44 +217,44 @@ public class IndicatorView extends View {
 
         @Override // com.baidu.adp.widget.f
         public void bh(int i) {
-            if (IndicatorView.this.NU <= IndicatorView.this.mPosition) {
-                if (IndicatorView.this.NU < IndicatorView.this.mPosition) {
-                    this.NZ = -this.NW;
+            if (IndicatorView.this.Od <= IndicatorView.this.mPosition) {
+                if (IndicatorView.this.Od < IndicatorView.this.mPosition) {
+                    this.Oi = -this.Of;
                 } else {
                     return;
                 }
             } else {
-                this.NZ = this.NW;
+                this.Oi = this.Of;
             }
-            this.Oa = IndicatorView.this.mPosition;
-            this.NX = SystemClock.uptimeMillis();
-            this.NY = this.NX + 16;
-            this.Oc.removeMessages(1000);
-            this.Oc.sendEmptyMessageAtTime(1000, this.NY);
+            this.Oj = IndicatorView.this.mPosition;
+            this.Og = SystemClock.uptimeMillis();
+            this.Oh = this.Og + 16;
+            this.Ol.removeMessages(1000);
+            this.Ol.sendEmptyMessageAtTime(1000, this.Oh);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         public void compute() {
             long uptimeMillis = SystemClock.uptimeMillis();
-            this.Oa = ((((float) (uptimeMillis - this.NX)) / 1000.0f) * this.NZ) + this.Oa;
-            this.NX = uptimeMillis;
-            this.NY = this.NX + 16;
-            if (this.NZ < 0) {
-                if (this.Oa < IndicatorView.this.NU) {
-                    IndicatorView.this.mPosition = IndicatorView.this.NU;
-                    this.Ob = false;
+            this.Oj = ((((float) (uptimeMillis - this.Og)) / 1000.0f) * this.Oi) + this.Oj;
+            this.Og = uptimeMillis;
+            this.Oh = this.Og + 16;
+            if (this.Oi < 0) {
+                if (this.Oj < IndicatorView.this.Od) {
+                    IndicatorView.this.mPosition = IndicatorView.this.Od;
+                    this.Ok = false;
                 } else {
-                    IndicatorView.this.mPosition = this.Oa;
-                    this.Oc.removeMessages(1000);
-                    this.Oc.sendEmptyMessageAtTime(1000, this.NY);
+                    IndicatorView.this.mPosition = this.Oj;
+                    this.Ol.removeMessages(1000);
+                    this.Ol.sendEmptyMessageAtTime(1000, this.Oh);
                 }
-            } else if (this.Oa > IndicatorView.this.NU) {
-                IndicatorView.this.mPosition = IndicatorView.this.NU;
-                this.Ob = false;
+            } else if (this.Oj > IndicatorView.this.Od) {
+                IndicatorView.this.mPosition = IndicatorView.this.Od;
+                this.Ok = false;
             } else {
-                IndicatorView.this.mPosition = this.Oa;
-                this.Oc.removeMessages(1000);
-                this.Oc.sendEmptyMessageAtTime(1000, this.NY);
+                IndicatorView.this.mPosition = this.Oj;
+                this.Ol.removeMessages(1000);
+                this.Ol.sendEmptyMessageAtTime(1000, this.Oh);
             }
             IndicatorView.this.invalidate();
         }

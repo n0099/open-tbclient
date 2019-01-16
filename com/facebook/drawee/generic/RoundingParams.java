@@ -5,13 +5,13 @@ import com.facebook.common.internal.g;
 import java.util.Arrays;
 /* loaded from: classes2.dex */
 public class RoundingParams {
-    private RoundingMethod inA = RoundingMethod.BITMAP_ONLY;
-    private boolean inB = false;
-    private float[] inC = null;
-    private int imN = 0;
+    private RoundingMethod ioH = RoundingMethod.BITMAP_ONLY;
+    private boolean ioI = false;
+    private float[] ioJ = null;
+    private int inV = 0;
     private float mBorderWidth = 0.0f;
     private int mBorderColor = 0;
-    private float imG = 0.0f;
+    private float inO = 0.0f;
 
     /* loaded from: classes2.dex */
     public enum RoundingMethod {
@@ -19,51 +19,51 @@ public class RoundingParams {
         BITMAP_ONLY
     }
 
-    public RoundingParams oZ(boolean z) {
-        this.inB = z;
+    public RoundingParams pa(boolean z) {
+        this.ioI = z;
         return this;
     }
 
-    public boolean bWe() {
-        return this.inB;
+    public boolean bWM() {
+        return this.ioI;
     }
 
     public RoundingParams k(float f, float f2, float f3, float f4) {
-        float[] bWi = bWi();
-        bWi[1] = f;
-        bWi[0] = f;
-        bWi[3] = f2;
-        bWi[2] = f2;
-        bWi[5] = f3;
-        bWi[4] = f3;
-        bWi[7] = f4;
-        bWi[6] = f4;
+        float[] bWQ = bWQ();
+        bWQ[1] = f;
+        bWQ[0] = f;
+        bWQ[3] = f2;
+        bWQ[2] = f2;
+        bWQ[5] = f3;
+        bWQ[4] = f3;
+        bWQ[7] = f4;
+        bWQ[6] = f4;
         return this;
     }
 
-    public float[] bWf() {
-        return this.inC;
+    public float[] bWN() {
+        return this.ioJ;
     }
 
-    public RoundingMethod bWg() {
-        return this.inA;
+    public RoundingMethod bWO() {
+        return this.ioH;
     }
 
-    public RoundingParams yv(@ColorInt int i) {
-        this.imN = i;
-        this.inA = RoundingMethod.OVERLAY_COLOR;
+    public RoundingParams yx(@ColorInt int i) {
+        this.inV = i;
+        this.ioH = RoundingMethod.OVERLAY_COLOR;
         return this;
     }
 
-    public int bWh() {
-        return this.imN;
+    public int bWP() {
+        return this.inV;
     }
 
-    private float[] bWi() {
-        if (this.inC == null) {
-            this.inC = new float[8];
+    private float[] bWQ() {
+        if (this.ioJ == null) {
+            this.ioJ = new float[8];
         }
-        return this.inC;
+        return this.ioJ;
     }
 
     public RoundingParams aK(float f) {
@@ -72,11 +72,11 @@ public class RoundingParams {
         return this;
     }
 
-    public float bWj() {
+    public float bWR() {
         return this.mBorderWidth;
     }
 
-    public RoundingParams yw(@ColorInt int i) {
+    public RoundingParams yy(@ColorInt int i) {
         this.mBorderColor = i;
         return this;
     }
@@ -87,12 +87,12 @@ public class RoundingParams {
 
     public RoundingParams aL(float f) {
         g.checkArgument(f >= 0.0f, "the padding cannot be < 0");
-        this.imG = f;
+        this.inO = f;
         return this;
     }
 
-    public float bWk() {
-        return this.imG;
+    public float bWS() {
+        return this.inO;
     }
 
     public boolean equals(Object obj) {
@@ -103,13 +103,13 @@ public class RoundingParams {
             return false;
         }
         RoundingParams roundingParams = (RoundingParams) obj;
-        if (this.inB == roundingParams.inB && this.imN == roundingParams.imN && Float.compare(roundingParams.mBorderWidth, this.mBorderWidth) == 0 && this.mBorderColor == roundingParams.mBorderColor && Float.compare(roundingParams.imG, this.imG) == 0 && this.inA == roundingParams.inA) {
-            return Arrays.equals(this.inC, roundingParams.inC);
+        if (this.ioI == roundingParams.ioI && this.inV == roundingParams.inV && Float.compare(roundingParams.mBorderWidth, this.mBorderWidth) == 0 && this.mBorderColor == roundingParams.mBorderColor && Float.compare(roundingParams.inO, this.inO) == 0 && this.ioH == roundingParams.ioH) {
+            return Arrays.equals(this.ioJ, roundingParams.ioJ);
         }
         return false;
     }
 
     public int hashCode() {
-        return (((((this.mBorderWidth != 0.0f ? Float.floatToIntBits(this.mBorderWidth) : 0) + (((((this.inC != null ? Arrays.hashCode(this.inC) : 0) + (((this.inB ? 1 : 0) + ((this.inA != null ? this.inA.hashCode() : 0) * 31)) * 31)) * 31) + this.imN) * 31)) * 31) + this.mBorderColor) * 31) + (this.imG != 0.0f ? Float.floatToIntBits(this.imG) : 0);
+        return (((((this.mBorderWidth != 0.0f ? Float.floatToIntBits(this.mBorderWidth) : 0) + (((((this.ioJ != null ? Arrays.hashCode(this.ioJ) : 0) + (((this.ioI ? 1 : 0) + ((this.ioH != null ? this.ioH.hashCode() : 0) * 31)) * 31)) * 31) + this.inV) * 31)) * 31) + this.mBorderColor) * 31) + (this.inO != 0.0f ? Float.floatToIntBits(this.inO) : 0);
     }
 }

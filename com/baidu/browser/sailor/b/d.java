@@ -14,14 +14,14 @@ public final class d implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {
         a aVar;
-        aVar = a.Wu;
-        if (aVar == null || a.qP() == null) {
+        aVar = a.WD;
+        if (aVar == null || a.qT() == null) {
             return;
         }
-        com.baidu.browser.sailor.b.a.a qP = a.qP();
-        if (qP.d != null) {
-            SessionMonitorEngine.getInstance().recordImmediately("t7_init", qP.d.toString());
-            qP.d = null;
+        com.baidu.browser.sailor.b.a.a qT = a.qT();
+        if (qT.d != null) {
+            SessionMonitorEngine.getInstance().recordImmediately("t7_init", qT.d.toString());
+            qT.d = null;
         }
     }
 }

@@ -10,11 +10,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes6.dex */
 public final class c {
-    private static SimpleDateFormat Yt;
-    private static PackageManager Yu;
+    private static SimpleDateFormat YC;
+    private static PackageManager YD;
 
     public static void a(SharedPreferences.Editor editor, boolean z) {
-        if (rr() < 9 || z) {
+        if (rv() < 9 || z) {
             editor.commit();
         } else {
             editor.apply();
@@ -22,15 +22,15 @@ public final class c {
     }
 
     public static String e(Date date) {
-        if (Yt == null) {
-            Yt = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (YC == null) {
+            YC = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return Yt.format(date);
+        return YC.format(date);
     }
 
     public static String g(Throwable th) {
         if (th == null) {
-            a.cJ("getErrorLine thr is null.");
+            a.cK("getErrorLine thr is null.");
             return "";
         }
         StackTraceElement[] stackTrace = th.getStackTrace();
@@ -38,11 +38,11 @@ public final class c {
     }
 
     public static boolean g(Context context, String str) {
-        if (Yu == null) {
-            Yu = context.getPackageManager();
+        if (YD == null) {
+            YD = context.getPackageManager();
         }
         try {
-            return Yu.checkPermission(str, context.getPackageName()) == 0;
+            return YD.checkPermission(str, context.getPackageName()) == 0;
         } catch (RuntimeException e) {
             return false;
         }
@@ -50,7 +50,7 @@ public final class c {
 
     public static String h(Throwable th) {
         if (th == null) {
-            a.cJ("getErrorOriginalLine thr is null.");
+            a.cK("getErrorOriginalLine thr is null.");
             return "";
         }
         while (th.getCause() != null) {
@@ -70,7 +70,7 @@ public final class c {
         return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / 1000000 > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
     }
 
-    public static int rr() {
+    public static int rv() {
         try {
             return Build.VERSION.class.getField("SDK_INT").getInt(null);
         } catch (Exception e) {
@@ -78,7 +78,7 @@ public final class c {
         }
     }
 
-    public static String rs() {
+    public static String rw() {
         return new SimpleDateFormat(AiAppDateTimeUtil.DAY_FORMAT).format(new Date(System.currentTimeMillis()));
     }
 }

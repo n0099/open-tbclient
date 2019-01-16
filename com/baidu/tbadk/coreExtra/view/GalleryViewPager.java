@@ -9,8 +9,8 @@ import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class GalleryViewPager extends BaseViewPager {
-    private PointF aTn;
-    private DragImageView aTo;
+    private PointF aTV;
+    private DragImageView aTW;
 
     public GalleryViewPager(Context context) {
         super(context);
@@ -21,11 +21,11 @@ public class GalleryViewPager extends BaseViewPager {
     }
 
     public void setCurrentView(DragImageView dragImageView) {
-        this.aTo = dragImageView;
+        this.aTW = dragImageView;
     }
 
     public DragImageView getCurrentView() {
-        return this.aTo;
+        return this.aTW;
     }
 
     private float[] s(MotionEvent motionEvent) {
@@ -33,9 +33,9 @@ public class GalleryViewPager extends BaseViewPager {
             case 1:
             case 2:
                 PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
-                return new float[]{pointF.x - this.aTn.x, pointF.y - this.aTn.y};
+                return new float[]{pointF.x - this.aTV.x, pointF.y - this.aTV.y};
             case 0:
-                this.aTn = new PointF(motionEvent.getX(), motionEvent.getY());
+                this.aTV = new PointF(motionEvent.getX(), motionEvent.getY());
                 break;
         }
         return null;
@@ -45,25 +45,25 @@ public class GalleryViewPager extends BaseViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onTouchEvent(motionEvent);
-            if (this.aTo != null) {
-                this.aTo.Qr();
+            if (this.aTW != null) {
+                this.aTW.QM();
             }
         }
-        if (this.aTo == null) {
+        if (this.aTW == null) {
             return super.onTouchEvent(motionEvent);
         }
         float[] s = s(motionEvent);
-        if (this.aTo.Qs()) {
+        if (this.aTW.QN()) {
             return super.onTouchEvent(motionEvent);
         }
-        if (s != null && this.aTo.Qy() && s[0] < 0.0f) {
+        if (s != null && this.aTW.QT() && s[0] < 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (s != null && this.aTo.Qz() && s[0] > 0.0f) {
+        if (s != null && this.aTW.QU() && s[0] > 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
         if (s == null) {
-            if (this.aTo.Qz() || this.aTo.Qy()) {
+            if (this.aTW.QU() || this.aTW.QT()) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -77,20 +77,20 @@ public class GalleryViewPager extends BaseViewPager {
             super.onInterceptTouchEvent(motionEvent);
         }
         float[] s = s(motionEvent);
-        if (this.aTo == null) {
+        if (this.aTW == null) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (this.aTo.Qs()) {
+        if (this.aTW.QN()) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (s != null && this.aTo.Qy() && s[0] < 0.0f) {
+        if (s != null && this.aTW.QT() && s[0] < 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (s != null && this.aTo.Qz() && s[0] > 0.0f) {
+        if (s != null && this.aTW.QU() && s[0] > 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
         if (s == null) {
-            if (this.aTo.Qz() || this.aTo.Qy()) {
+            if (this.aTW.QU() || this.aTW.QT()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;

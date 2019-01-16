@@ -7,13 +7,13 @@ import java.io.FileReader;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public final class c {
-    private static c aaA = null;
+    private static c aaJ = null;
     public String processor = "";
     public String features = "";
 
-    public static c sd() {
-        if (aaA != null) {
-            return aaA;
+    public static c sh() {
+        if (aaJ != null) {
+            return aaJ;
         }
         c cVar = new c();
         try {
@@ -47,7 +47,7 @@ public final class c {
         if (Build.CPU_ABI.equalsIgnoreCase(com.baidu.fsg.face.base.d.h.c)) {
             cVar.processor = com.baidu.fsg.face.base.d.h.c;
         }
-        aaA = cVar;
+        aaJ = cVar;
         return cVar;
     }
 }

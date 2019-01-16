@@ -16,8 +16,8 @@ public class TalkBallFragmentStatic {
                     Object data = customResponsedMessage.getData();
                     if (data instanceof ad) {
                         a aVar = new a();
-                        aVar.NQ().type = 12;
-                        aVar.NQ().aFs = e.j.frs_tab_talkball;
+                        aVar.Oh().type = 12;
+                        aVar.Oh().aFU = e.j.frs_tab_talkball;
                         aVar.a((ad) data);
                     }
                 }

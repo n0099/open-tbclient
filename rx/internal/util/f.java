@@ -1,7 +1,7 @@
 package rx.internal.util;
 /* loaded from: classes2.dex */
 public final class f<T> {
-    T[] iPe;
+    T[] iQl;
     final float loadFactor;
     int mask;
     int maxSize;
@@ -13,31 +13,31 @@ public final class f<T> {
 
     public f(int i, float f) {
         this.loadFactor = f;
-        int zG = rx.internal.util.a.h.zG(i);
-        this.mask = zG - 1;
-        this.maxSize = (int) (zG * f);
-        this.iPe = (T[]) new Object[zG];
+        int zI = rx.internal.util.a.h.zI(i);
+        this.mask = zI - 1;
+        this.maxSize = (int) (zI * f);
+        this.iQl = (T[]) new Object[zI];
     }
 
     public boolean add(T t) {
         T t2;
-        T[] tArr = this.iPe;
+        T[] tArr = this.iQl;
         int i = this.mask;
-        int zC = zC(t.hashCode()) & i;
-        T t3 = tArr[zC];
+        int zE = zE(t.hashCode()) & i;
+        T t3 = tArr[zE];
         if (t3 != null) {
             if (t3.equals(t)) {
                 return false;
             }
             do {
-                zC = (zC + 1) & i;
-                t2 = tArr[zC];
+                zE = (zE + 1) & i;
+                t2 = tArr[zE];
                 if (t2 == null) {
                 }
             } while (!t2.equals(t));
             return false;
         }
-        tArr[zC] = t;
+        tArr[zE] = t;
         int i2 = this.size + 1;
         this.size = i2;
         if (i2 >= this.maxSize) {
@@ -48,24 +48,24 @@ public final class f<T> {
 
     public boolean remove(T t) {
         T t2;
-        T[] tArr = this.iPe;
+        T[] tArr = this.iQl;
         int i = this.mask;
-        int zC = zC(t.hashCode()) & i;
-        T t3 = tArr[zC];
+        int zE = zE(t.hashCode()) & i;
+        T t3 = tArr[zE];
         if (t3 == null) {
             return false;
         }
         if (t3.equals(t)) {
-            return b(zC, tArr, i);
+            return b(zE, tArr, i);
         }
         do {
-            zC = (zC + 1) & i;
-            t2 = tArr[zC];
+            zE = (zE + 1) & i;
+            t2 = tArr[zE];
             if (t2 == null) {
                 return false;
             }
         } while (!t2.equals(t));
-        return b(zC, tArr, i);
+        return b(zE, tArr, i);
     }
 
     boolean b(int i, T[] tArr, int i2) {
@@ -81,13 +81,13 @@ public final class f<T> {
                     tArr[i] = null;
                     return true;
                 }
-                int zC = zC(t.hashCode()) & i2;
+                int zE = zE(t.hashCode()) & i2;
                 if (i > i3) {
-                    if (i >= zC && zC > i3) {
+                    if (i >= zE && zE > i3) {
                         break;
                     }
                     i4 = i3 + 1;
-                } else if (i < zC && zC <= i3) {
+                } else if (i < zE && zE <= i3) {
                     i4 = i3 + 1;
                 }
             }
@@ -98,11 +98,11 @@ public final class f<T> {
 
     public void terminate() {
         this.size = 0;
-        this.iPe = (T[]) new Object[0];
+        this.iQl = (T[]) new Object[0];
     }
 
     void rehash() {
-        T[] tArr = this.iPe;
+        T[] tArr = this.iQl;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
@@ -115,24 +115,24 @@ public final class f<T> {
                 do {
                     i3--;
                 } while (tArr[i3] == null);
-                int zC = zC(tArr[i3].hashCode()) & i2;
-                if (tArr2[zC] != null) {
+                int zE = zE(tArr[i3].hashCode()) & i2;
+                if (tArr2[zE] != null) {
                     do {
-                        zC = (zC + 1) & i2;
-                    } while (tArr2[zC] != null);
+                        zE = (zE + 1) & i2;
+                    } while (tArr2[zE] != null);
                 }
-                tArr2[zC] = tArr[i3];
+                tArr2[zE] = tArr[i3];
                 i4 = i5;
             } else {
                 this.mask = i2;
                 this.maxSize = (int) (i * this.loadFactor);
-                this.iPe = tArr2;
+                this.iQl = tArr2;
                 return;
             }
         }
     }
 
-    static int zC(int i) {
+    static int zE(int i) {
         int i2 = (-1640531527) * i;
         return i2 ^ (i2 >>> 16);
     }
@@ -141,7 +141,7 @@ public final class f<T> {
         return this.size == 0;
     }
 
-    public T[] cfe() {
-        return this.iPe;
+    public T[] cfM() {
+        return this.iQl;
     }
 }

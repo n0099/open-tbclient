@@ -56,7 +56,7 @@ public class b implements IAiAppPolymerPay {
         String str2;
         String str3;
         String str4;
-        if (!com.baidu.tbadk.pay.c.OY().OZ()) {
+        if (!com.baidu.tbadk.pay.c.Pq().Pr()) {
             l.showToast(TbadkCoreApplication.getInst(), e.j.plugin_pay_wallet_not_found);
         } else if (context instanceof Activity) {
             d dVar = new d();
@@ -83,7 +83,7 @@ public class b implements IAiAppPolymerPay {
             if (StringUtils.isNull(str3) && !StringUtils.isNull(str4)) {
                 dVar.mParams.putSerializable("params", (HashMap) new com.google.gson.d().fromJson(str3, HashMap.class));
                 dVar.mParams.putString("orderInfo", str4);
-                dVar.F((Activity) context);
+                dVar.G((Activity) context);
                 dVar.a(new com.baidu.tieba.aiapps.apps.k.a.a() { // from class: com.baidu.tieba.aiapps.apps.k.b.3
                     @Override // com.baidu.tieba.aiapps.apps.k.a.a
                     public void o(Bundle bundle) {

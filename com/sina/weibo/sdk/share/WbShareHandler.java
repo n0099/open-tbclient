@@ -3,6 +3,7 @@ package com.sina.weibo.sdk.share;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.sina.weibo.sdk.WbSdk;
@@ -12,6 +13,7 @@ import com.sina.weibo.sdk.api.WeiboMultiMessage;
 import com.sina.weibo.sdk.auth.AccessTokenKeeper;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.constant.WBConstants;
+import com.sina.weibo.sdk.utils.FileUtils;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.MD5;
 import com.sina.weibo.sdk.utils.Utility;
@@ -20,6 +22,7 @@ import com.sina.weibo.sdk.web.WebRequestType;
 import com.sina.weibo.sdk.web.param.ShareWebViewRequestParam;
 /* loaded from: classes2.dex */
 public class WbShareHandler {
+    public static final int WB_SHARE_REQUEST = 1;
     private Activity context;
     private boolean hasRegister = false;
     private int progressColor = -1;
@@ -68,13 +71,20 @@ public class WbShareHandler {
     }
 
     public void shareToStory(StoryMessage storyMessage) {
-        Intent intent = new Intent();
-        intent.putExtra(WBConstants.Msg.STORY, storyMessage);
-        intent.putExtra(WBConstants.SHARE_START_ACTIVITY, this.context.getClass().getName());
-        intent.putExtra(WBConstants.TRANS_PROGRESS_COLOR, this.progressColor);
-        intent.putExtra(WBConstants.TRANS_PROGRESS_ID, this.progressId);
-        intent.setClass(this.context, WbShareToStoryActivity.class);
-        this.context.startActivity(intent);
+        Uri imageUri = storyMessage.getImageUri();
+        Uri videoUri = storyMessage.getVideoUri();
+        if ((imageUri != null && FileUtils.isImageFile(this.context, imageUri)) || (videoUri != null && FileUtils.isVideoFile(this.context, videoUri))) {
+            Intent intent = new Intent();
+            intent.putExtra(WBConstants.Msg.STORY, storyMessage);
+            intent.putExtra(WBConstants.SHARE_START_ACTIVITY, this.context.getClass().getName());
+            intent.putExtra(WBConstants.SHARE_START_PACKAGE, WeiboAppManager.getInstance(this.context).getWbAppInfo().getPackageName());
+            intent.putExtra(WBConstants.TRANS_PROGRESS_COLOR, this.progressColor);
+            intent.putExtra(WBConstants.TRANS_PROGRESS_ID, this.progressId);
+            intent.setClass(this.context, WbShareToStoryActivity.class);
+            this.context.startActivityForResult(intent, 1);
+            return;
+        }
+        throw new IllegalStateException("File only can be Image or Video. ");
     }
 
     private void startClientShare(WeiboMultiMessage weiboMultiMessage) {
@@ -85,8 +95,6 @@ public class WbShareHandler {
         bundle.putAll(weiboMultiMessage.toBundle(bundle));
         Intent intent = new Intent();
         intent.setClass(this.context, WbShareTransActivity.class);
-        intent.putExtra(WBConstants.SHARE_START_PACKAGE, WeiboAppManager.getInstance(this.context).getWbAppInfo().getPackageName());
-        intent.putExtra(WBConstants.SHARE_START_ACTION, WBConstants.ACTIVITY_WEIBO);
         intent.putExtra(WBConstants.SHARE_START_FLAG, 0);
         intent.putExtra(WBConstants.SHARE_START_ACTIVITY, this.context.getClass().getName());
         intent.putExtra(WBConstants.TRANS_PROGRESS_COLOR, this.progressColor);
@@ -95,7 +103,7 @@ public class WbShareHandler {
             intent.putExtras(bundle);
         }
         try {
-            this.context.startActivity(intent);
+            this.context.startActivityForResult(intent, 1);
         } catch (Exception e) {
             LogUtil.v("weibo sdk error ", e.toString());
         }
@@ -120,7 +128,7 @@ public class WbShareHandler {
         intent.putExtra(WBConstants.SHARE_START_ACTIVITY, this.context.getClass().getName());
         intent.putExtra(WBConstants.SHARE_START_ACTION, WBConstants.ACTIVITY_WEIBO);
         intent.putExtra(WBConstants.SHARE_START_GOTO_ACTIVITY, "com.sina.weibo.sdk.web.WeiboSdkWebActivity");
-        this.context.startActivity(intent);
+        this.context.startActivityForResult(intent, 1);
     }
 
     @Deprecated
@@ -130,7 +138,7 @@ public class WbShareHandler {
 
     public void doResultIntent(Intent intent, WbShareCallback wbShareCallback) {
         Bundle extras;
-        if (wbShareCallback != null && (extras = intent.getExtras()) != null) {
+        if (wbShareCallback != null && intent != null && (extras = intent.getExtras()) != null) {
             switch (extras.getInt(WBConstants.Response.ERRCODE, -1)) {
                 case 0:
                     wbShareCallback.onWbShareSuccess();

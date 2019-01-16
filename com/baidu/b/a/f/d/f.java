@@ -22,20 +22,20 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 /* loaded from: classes2.dex */
 public class f implements Runnable {
-    private b aaa;
-    private File aab;
+    private b aaj;
+    private File aak;
     private com.baidu.b.a.c.a.a mDynamicFile;
-    private AtomicBoolean aac = new AtomicBoolean(false);
+    private AtomicBoolean aal = new AtomicBoolean(false);
     private int mRetryCount = 0;
 
     public f(com.baidu.b.a.c.a.a aVar, b bVar) {
         this.mDynamicFile = aVar;
-        this.aaa = bVar;
+        this.aaj = bVar;
     }
 
     public void aH(boolean z) {
-        if (this.aac.get() != z) {
-            this.aac.set(z);
+        if (this.aal.get() != z) {
+            this.aal.set(z);
         }
     }
 
@@ -47,16 +47,16 @@ public class f implements Runnable {
         return this.mDynamicFile.c(aVar);
     }
 
-    public com.baidu.b.a.c.a.a rL() {
+    public com.baidu.b.a.c.a.a rP() {
         return this.mDynamicFile;
     }
 
-    public com.baidu.b.a.b.c.b rM() {
-        return this.aaa;
+    public com.baidu.b.a.b.c.b rQ() {
+        return this.aaj;
     }
 
     public void a(b bVar) {
-        this.aaa.a(bVar);
+        this.aaj.a(bVar);
     }
 
     public String getPackageName() {
@@ -80,20 +80,20 @@ public class f implements Runnable {
     }
 
     public String toString() {
-        return "downloadUrl:" + this.mDynamicFile.downloadUrl + ", version:" + this.mDynamicFile.Zn + ",md5:" + this.mDynamicFile.md5 + ",packageName:" + this.mDynamicFile.packageName;
+        return "downloadUrl:" + this.mDynamicFile.downloadUrl + ", version:" + this.mDynamicFile.Zw + ",md5:" + this.mDynamicFile.md5 + ",packageName:" + this.mDynamicFile.packageName;
     }
 
-    private boolean rN() {
+    private boolean rR() {
         try {
-            this.aab = new File(this.mDynamicFile.filePath);
-            if (!this.aab.exists()) {
+            this.aak = new File(this.mDynamicFile.filePath);
+            if (!this.aak.exists()) {
                 try {
-                    this.aab.createNewFile();
+                    this.aak.createNewFile();
                 } catch (IOException e) {
                     if (com.baidu.b.a.h.b.isDebug()) {
                         Log.e("ThunderInfoTask", "create local file failed:" + e.toString());
                     }
-                    this.aab = null;
+                    this.aak = null;
                     return false;
                 }
             }
@@ -102,14 +102,14 @@ public class f implements Runnable {
             if (com.baidu.b.a.h.b.isDebug()) {
                 Log.e("ThunderInfoTask", "RandomAccessFile error:" + e2.getMessage());
             }
-            this.aab = null;
+            this.aak = null;
             return false;
         }
     }
 
     private boolean v(long j) {
         boolean z = false;
-        String downloadPath = this.aaa.getDownloadPath();
+        String downloadPath = this.aaj.getDownloadPath();
         if (downloadPath != null) {
             try {
                 StatFs statFs = new StatFs(downloadPath);
@@ -127,24 +127,24 @@ public class f implements Runnable {
         return z;
     }
 
-    public boolean rO() {
+    public boolean rS() {
         if (TextUtils.isEmpty(this.mDynamicFile.downloadUrl) || TextUtils.isEmpty(this.mDynamicFile.downloadUrl.trim())) {
-            this.mDynamicFile.KC = 2214;
+            this.mDynamicFile.KI = 2214;
             this.mDynamicFile.errMsg = String.format("download : param error:%s", "downloadUrl");
-            this.mDynamicFile.Zm = String.format(a.C0056a.C0057a.Ze, "downloadUrl");
-            this.aaa.onDownloadError(new com.baidu.b.a.b.b.a(getPackageName(), this.mDynamicFile.KC, this.mDynamicFile.errMsg, this.mDynamicFile.Zm));
+            this.mDynamicFile.Zv = String.format(a.C0056a.C0057a.Zn, "downloadUrl");
+            this.aaj.onDownloadError(new com.baidu.b.a.b.b.a(getPackageName(), this.mDynamicFile.KI, this.mDynamicFile.errMsg, this.mDynamicFile.Zv));
             return true;
         } else if (TextUtils.isEmpty(this.mDynamicFile.md5) || TextUtils.isEmpty(this.mDynamicFile.md5.trim())) {
-            this.mDynamicFile.KC = 2214;
+            this.mDynamicFile.KI = 2214;
             this.mDynamicFile.errMsg = String.format("download : param error:%s", ARResourceKey.HTTP_AR_MD5);
-            this.mDynamicFile.Zm = String.format(a.C0056a.C0057a.Ze, ARResourceKey.HTTP_AR_MD5);
-            this.aaa.onDownloadError(new com.baidu.b.a.b.b.a(getPackageName(), this.mDynamicFile.KC, this.mDynamicFile.errMsg, this.mDynamicFile.Zm));
+            this.mDynamicFile.Zv = String.format(a.C0056a.C0057a.Zn, ARResourceKey.HTTP_AR_MD5);
+            this.aaj.onDownloadError(new com.baidu.b.a.b.b.a(getPackageName(), this.mDynamicFile.KI, this.mDynamicFile.errMsg, this.mDynamicFile.Zv));
             return true;
         } else if (TextUtils.isEmpty(this.mDynamicFile.packageName) || TextUtils.isEmpty(this.mDynamicFile.packageName.trim())) {
-            this.mDynamicFile.KC = 2214;
+            this.mDynamicFile.KI = 2214;
             this.mDynamicFile.errMsg = String.format("download : param error:%s", "packageName");
-            this.mDynamicFile.Zm = String.format(a.C0056a.C0057a.Ze, "packageName");
-            this.aaa.onDownloadError(new com.baidu.b.a.b.b.a(getPackageName(), this.mDynamicFile.KC, this.mDynamicFile.errMsg, this.mDynamicFile.Zm));
+            this.mDynamicFile.Zv = String.format(a.C0056a.C0057a.Zn, "packageName");
+            this.aaj.onDownloadError(new com.baidu.b.a.b.b.a(getPackageName(), this.mDynamicFile.KI, this.mDynamicFile.errMsg, this.mDynamicFile.Zv));
             return true;
         } else {
             return false;
@@ -157,53 +157,53 @@ public class f implements Runnable {
         if (com.baidu.b.a.h.b.isDebug()) {
             Log.d("ThunderInfoTask", "running:" + this.mDynamicFile.downloadUrl);
         }
-        while (this.mDynamicFile.KC != 2200) {
+        while (this.mDynamicFile.KI != 2200) {
             try {
-                rP();
-                switch (this.mDynamicFile.KC) {
+                rT();
+                switch (this.mDynamicFile.KI) {
                     case 2200:
                         if (com.baidu.b.a.h.b.isDebug()) {
                             Log.d("ThunderInfoTask", "download:" + this.mDynamicFile.downloadUrl + " [success]!");
                         }
-                        this.aaa.onFileDownloaded(new com.baidu.b.a.b.b.a(getPackageName(), this.mDynamicFile.KC, this.mDynamicFile.errMsg, this.mDynamicFile.Zm), this.mDynamicFile);
+                        this.aaj.onFileDownloaded(new com.baidu.b.a.b.b.a(getPackageName(), this.mDynamicFile.KI, this.mDynamicFile.errMsg, this.mDynamicFile.Zv), this.mDynamicFile);
                         onSuccess();
                         return;
                     case 2209:
-                        this.aaa.onFilePause(new com.baidu.b.a.b.b.a(getPackageName(), this.mDynamicFile.KC, this.mDynamicFile.errMsg, this.mDynamicFile.Zm));
+                        this.aaj.onFilePause(new com.baidu.b.a.b.b.a(getPackageName(), this.mDynamicFile.KI, this.mDynamicFile.errMsg, this.mDynamicFile.Zv));
                         return;
                     case 2211:
-                        this.aaa.onFileCancel(new com.baidu.b.a.b.b.a(getPackageName(), this.mDynamicFile.KC, this.mDynamicFile.errMsg, this.mDynamicFile.Zm));
+                        this.aaj.onFileCancel(new com.baidu.b.a.b.b.a(getPackageName(), this.mDynamicFile.KI, this.mDynamicFile.errMsg, this.mDynamicFile.Zv));
                         return;
                     default:
                         if (com.baidu.b.a.h.b.isDebug()) {
                             Log.d("ThunderInfoTask", "download:" + this.mDynamicFile.downloadUrl + " [error]:" + this.mDynamicFile.errMsg);
                         }
-                        this.aaa.mRetryCount++;
+                        this.aaj.mRetryCount++;
                         int i = this.mRetryCount + 1;
                         this.mRetryCount = i;
                         if (i >= 3) {
                             bH(3);
-                            this.aaa.onDownloadError(new com.baidu.b.a.b.b.a(getPackageName(), this.mDynamicFile.KC, this.mDynamicFile.errMsg, this.mDynamicFile.Zm));
+                            this.aaj.onDownloadError(new com.baidu.b.a.b.b.a(getPackageName(), this.mDynamicFile.KI, this.mDynamicFile.errMsg, this.mDynamicFile.Zv));
                             onFail();
                             return;
                         }
                         if (com.baidu.b.a.h.b.isDebug()) {
                             Log.d("ThunderInfoTask", "download fail Sleep seconds:" + (this.mRetryCount * 1000));
                         }
-                        if (!this.aac.get()) {
+                        if (!this.aal.get()) {
                             try {
                                 Thread.sleep(this.mRetryCount * 1000);
-                                if (this.aaa.getDownloadOptions() == 1 && !com.baidu.b.a.h.e.isWifiNetworkConnected(AppRuntime.getAppContext())) {
-                                    this.mDynamicFile.KC = 2207;
+                                if (this.aaj.getDownloadOptions() == 1 && !com.baidu.b.a.h.e.isWifiNetworkConnected(AppRuntime.getAppContext())) {
+                                    this.mDynamicFile.KI = 2207;
                                     this.mDynamicFile.errMsg = "download : network state has changed";
-                                    this.mDynamicFile.Zm = a.C0056a.C0057a.YX;
+                                    this.mDynamicFile.Zv = a.C0056a.C0057a.Zg;
                                 }
                             } catch (InterruptedException e) {
                                 if (com.baidu.b.a.h.b.isDebug()) {
                                     Log.d("ThunderInfoTask", "download:" + this.mDynamicFile.downloadUrl + " fail. Sleep err:" + e.toString());
                                 }
                             }
-                            com.baidu.b.a.h.g.sj().a(2215, "download : retry", this.mDynamicFile.channelId, this.mDynamicFile.packageName, this.mDynamicFile.Zn, this.mDynamicFile.downloadUrl, "", 0, this.mRetryCount);
+                            com.baidu.b.a.h.g.sn().a(2215, "download : retry", this.mDynamicFile.channelId, this.mDynamicFile.packageName, this.mDynamicFile.Zw, this.mDynamicFile.downloadUrl, "", 0, this.mRetryCount);
                         }
                         break;
                 }
@@ -214,42 +214,42 @@ public class f implements Runnable {
                 }
                 return;
             } finally {
-                d.f(rL());
+                d.f(rP());
             }
         }
     }
 
-    private void rP() {
-        if (this.aac.get()) {
+    private void rT() {
+        if (this.aal.get()) {
             bH(12);
             if (com.baidu.b.a.h.b.isDebug()) {
                 Log.d("ThunderInfoTask", "stopped:" + this.mDynamicFile.downloadUrl);
             }
-            this.mDynamicFile.KC = 2211;
+            this.mDynamicFile.KI = 2211;
             this.mDynamicFile.errMsg = "download : customer cancel download";
-            this.mDynamicFile.Zm = a.C0056a.C0057a.Zb;
-        } else if (d.a(rM(), rL()) && (!rN() || this.aab == null)) {
+            this.mDynamicFile.Zv = a.C0056a.C0057a.Zk;
+        } else if (d.a(rQ(), rP()) && (!rR() || this.aak == null)) {
             bH(3);
-            this.mDynamicFile.KC = 2205;
+            this.mDynamicFile.KI = 2205;
             this.mDynamicFile.errMsg = "download : path not writable";
-            this.mDynamicFile.Zm = a.C0056a.C0057a.YV;
+            this.mDynamicFile.Zv = a.C0056a.C0057a.Ze;
         } else {
             GetRequest.GetRequestBuilder url = HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url(this.mDynamicFile.downloadUrl);
             bH(1);
             if (this.mRetryCount == 0) {
-                this.aaa.onDownloadStart(this.mDynamicFile.packageName);
+                this.aaj.onDownloadStart(this.mDynamicFile.packageName);
             }
             if (!com.baidu.b.a.h.e.isNetworkConnected(AppRuntime.getAppContext())) {
-                this.mDynamicFile.KC = 2201;
+                this.mDynamicFile.KI = 2201;
                 this.mDynamicFile.errMsg = "download : network error";
-                this.mDynamicFile.Zm = a.C0056a.C0057a.YS;
+                this.mDynamicFile.Zv = a.C0056a.C0057a.Zb;
                 return;
             }
-            if (this.aaa.getDownloadOptions() == 1) {
+            if (this.aaj.getDownloadOptions() == 1) {
                 if (!com.baidu.b.a.h.e.isWifiNetworkConnected(AppRuntime.getAppContext())) {
-                    this.mDynamicFile.KC = 2213;
+                    this.mDynamicFile.KI = 2213;
                     this.mDynamicFile.errMsg = "download : network limited error";
-                    this.mDynamicFile.Zm = a.C0056a.C0057a.Zd;
+                    this.mDynamicFile.Zv = a.C0056a.C0057a.Zm;
                     return;
                 }
                 url.wifiOnly(true);
@@ -260,13 +260,13 @@ public class f implements Runnable {
                     response = url.build().executeSync();
                     int code = response.code();
                     int a = a(response, code);
-                    if (this.mDynamicFile.KC != a) {
+                    if (this.mDynamicFile.KI != a) {
                         if (com.baidu.b.a.h.b.isDebug()) {
-                            Log.w("ThunderInfoTask", "mismatch errorCode:" + a + "!=" + this.mDynamicFile.KC + " HTTP-Code:" + code);
+                            Log.w("ThunderInfoTask", "mismatch errorCode:" + a + "!=" + this.mDynamicFile.KI + " HTTP-Code:" + code);
                         }
-                        this.mDynamicFile.KC = 2201;
+                        this.mDynamicFile.KI = 2201;
                         this.mDynamicFile.errMsg = "download : network error";
-                        this.mDynamicFile.Zm = a.C0056a.C0057a.YS;
+                        this.mDynamicFile.Zv = a.C0056a.C0057a.Zb;
                     }
                     if (response != null) {
                         try {
@@ -282,9 +282,9 @@ public class f implements Runnable {
                         Log.e("ThunderInfoTask", e2.toString());
                         e2.printStackTrace();
                     }
-                    this.mDynamicFile.KC = 2201;
+                    this.mDynamicFile.KI = 2201;
                     this.mDynamicFile.errMsg = "download : network error";
-                    this.mDynamicFile.Zm = a.C0056a.C0057a.YS;
+                    this.mDynamicFile.Zv = a.C0056a.C0057a.Zb;
                     if (response != null) {
                         try {
                             response.close();
@@ -314,9 +314,9 @@ public class f implements Runnable {
         FileOutputStream byteArrayOutputStream;
         boolean a;
         if (i < 200 || i > 300) {
-            this.mDynamicFile.KC = 2105;
+            this.mDynamicFile.KI = 2105;
             this.mDynamicFile.errMsg = "metadata : network error. http code=";
-            this.mDynamicFile.Zm = a.C0056a.C0057a.YO;
+            this.mDynamicFile.Zv = a.C0056a.C0057a.YX;
             return 2105;
         }
         if (com.baidu.b.a.h.b.isDebug()) {
@@ -325,13 +325,13 @@ public class f implements Runnable {
         ResponseBody body = response.body();
         if (body != null && body.contentLength() > 0) {
             long contentLength = body.contentLength();
-            this.mDynamicFile.Zw = contentLength;
-            boolean a2 = d.a(rM(), rL());
+            this.mDynamicFile.ZF = contentLength;
+            boolean a2 = d.a(rQ(), rP());
             if (a2 && !v(contentLength)) {
                 bH(3);
-                this.mDynamicFile.KC = 2206;
+                this.mDynamicFile.KI = 2206;
                 this.mDynamicFile.errMsg = "download : no space error";
-                this.mDynamicFile.Zm = a.C0056a.C0057a.YW;
+                this.mDynamicFile.Zv = a.C0056a.C0057a.Zf;
                 return 2206;
             }
             InputStream inputStream = null;
@@ -339,48 +339,48 @@ public class f implements Runnable {
             try {
                 InputStream byteStream = body.byteStream();
                 if (a2) {
-                    byteArrayOutputStream = new FileOutputStream(this.aab);
+                    byteArrayOutputStream = new FileOutputStream(this.aak);
                 } else {
                     byteArrayOutputStream = new ByteArrayOutputStream();
                 }
                 if (a(byteStream, byteArrayOutputStream, contentLength)) {
                     if (a2) {
-                        a = a(this.aab.getAbsolutePath(), this.mDynamicFile);
+                        a = a(this.aak.getAbsolutePath(), this.mDynamicFile);
                     } else {
                         this.mDynamicFile.fileData = com.baidu.b.a.h.e.d(byteArrayOutputStream);
                         a = a(this.mDynamicFile.fileData, this.mDynamicFile);
                     }
                     if (a) {
                         if (a2) {
-                            File rQ = rQ();
-                            if (this.aab.renameTo(rQ)) {
-                                this.mDynamicFile.filePath = rQ.getAbsolutePath();
+                            File rU = rU();
+                            if (this.aak.renameTo(rU)) {
+                                this.mDynamicFile.filePath = rU.getAbsolutePath();
                                 e.g(this.mDynamicFile);
                             }
                         }
                         bH(10);
-                        this.mDynamicFile.KC = 2200;
+                        this.mDynamicFile.KI = 2200;
                         this.mDynamicFile.errMsg = "download : package download success";
-                        this.mDynamicFile.Zm = a.C0056a.C0057a.YR;
+                        this.mDynamicFile.Zv = a.C0056a.C0057a.Za;
                         return 2200;
                     }
                     return PushConstants.DELAY_NOTIFICATION;
-                } else if (this.aac.get()) {
+                } else if (this.aal.get()) {
                     if (this.mDynamicFile.type == 2) {
-                        this.mDynamicFile.KC = 2209;
+                        this.mDynamicFile.KI = 2209;
                         this.mDynamicFile.errMsg = "download : customer stop download";
-                        this.mDynamicFile.Zm = a.C0056a.C0057a.YZ;
+                        this.mDynamicFile.Zv = a.C0056a.C0057a.Zi;
                         return 2209;
                     } else if (this.mDynamicFile.type == 12) {
-                        this.mDynamicFile.KC = 2211;
+                        this.mDynamicFile.KI = 2211;
                         this.mDynamicFile.errMsg = "download : customer cancel download";
-                        this.mDynamicFile.Zm = a.C0056a.C0057a.Zb;
+                        this.mDynamicFile.Zv = a.C0056a.C0057a.Zk;
                         return 2211;
                     } else {
-                        String str = "can't read full data from InputStream., readed-length:" + this.mDynamicFile.Zx + " of content-length:" + this.mDynamicFile.Zw;
-                        this.mDynamicFile.KC = 2208;
+                        String str = "can't read full data from InputStream., readed-length:" + this.mDynamicFile.ZG + " of content-length:" + this.mDynamicFile.ZF;
+                        this.mDynamicFile.KI = 2208;
                         this.mDynamicFile.errMsg = "download : disk write error" + com.baidu.b.a.h.e.n(com.baidu.fsg.base.statistics.b.k, str);
-                        this.mDynamicFile.Zm = a.C0056a.C0057a.YY;
+                        this.mDynamicFile.Zv = a.C0056a.C0057a.Zh;
                         return 2208;
                     }
                 }
@@ -403,15 +403,15 @@ public class f implements Runnable {
                         }
                     }
                 }
-                this.mDynamicFile.KC = 2208;
+                this.mDynamicFile.KI = 2208;
                 this.mDynamicFile.errMsg = "download : disk write error" + com.baidu.b.a.h.e.n(com.baidu.fsg.base.statistics.b.k, e.getLocalizedMessage());
-                this.mDynamicFile.Zm = a.C0056a.C0057a.YY;
+                this.mDynamicFile.Zv = a.C0056a.C0057a.Zh;
                 return 2208;
             }
         }
-        this.mDynamicFile.KC = 2201;
+        this.mDynamicFile.KI = 2201;
         this.mDynamicFile.errMsg = "download : network error";
-        this.mDynamicFile.Zm = a.C0056a.C0057a.YS;
+        this.mDynamicFile.Zv = a.C0056a.C0057a.Zb;
         return 2201;
     }
 
@@ -435,7 +435,7 @@ public class f implements Runnable {
         int i2 = 0;
         long j3 = 0;
         long j4 = 0;
-        while (!this.aac.get() && i2 != -1) {
+        while (!this.aal.get() && i2 != -1) {
             if (j > 0) {
                 if (j3 >= j) {
                     break;
@@ -445,7 +445,7 @@ public class f implements Runnable {
                     if (read <= 0) {
                         outputStream.write(bArr, 0, read);
                         j3 += read;
-                        this.mDynamicFile.Zx = j3;
+                        this.mDynamicFile.ZG = j3;
                         if (j3 - j2 > 2097152) {
                             e.a(this.mDynamicFile, j3);
                             j2 = j3;
@@ -453,7 +453,7 @@ public class f implements Runnable {
                             j2 = j2;
                         }
                         try {
-                            this.aaa.onFileProgress(this.mDynamicFile.packageName, j3, j);
+                            this.aaj.onFileProgress(this.mDynamicFile.packageName, j3, j);
                             j4 = j2;
                             i2 = read;
                             length = i;
@@ -489,11 +489,11 @@ public class f implements Runnable {
         return false;
     }
 
-    private File rQ() {
-        File file = new File(this.aaa.getDownloadPath(), this.mDynamicFile.packageName);
+    private File rU() {
+        File file = new File(this.aaj.getDownloadPath(), this.mDynamicFile.packageName);
         int i = 1;
         while (file.exists()) {
-            file = new File(this.aaa.getDownloadPath(), this.mDynamicFile.packageName + BaseRequestAction.SPLITE + i);
+            file = new File(this.aaj.getDownloadPath(), this.mDynamicFile.packageName + BaseRequestAction.SPLITE + i);
             i++;
         }
         return file;
@@ -503,18 +503,18 @@ public class f implements Runnable {
         String str2 = aVar.md5 != null ? aVar.md5 : null;
         String md5 = str != null ? com.baidu.b.a.h.i.toMd5(new File(str), true) : null;
         if (str2 == null || md5 == null) {
-            aVar.KC = PushConstants.DELAY_NOTIFICATION;
+            aVar.KI = PushConstants.DELAY_NOTIFICATION;
             aVar.errMsg = "download : package MD5 verify failed." + com.baidu.b.a.h.e.n("server:", str2, ",local", md5);
-            aVar.Zm = a.C0056a.C0057a.YT;
+            aVar.Zv = a.C0056a.C0057a.Zc;
             return false;
         }
         String upperCase = str2.toUpperCase();
         if (upperCase.equals(md5)) {
             return true;
         }
-        aVar.KC = PushConstants.DELAY_NOTIFICATION;
+        aVar.KI = PushConstants.DELAY_NOTIFICATION;
         aVar.errMsg = "download : package MD5 verify failed." + com.baidu.b.a.h.e.n("server:", upperCase, ",local", md5);
-        aVar.Zm = a.C0056a.C0057a.YT;
+        aVar.Zv = a.C0056a.C0057a.Zc;
         return false;
     }
 
@@ -522,18 +522,18 @@ public class f implements Runnable {
         String str = aVar.md5 != null ? aVar.md5 : null;
         String md5 = bArr != null ? com.baidu.b.a.h.i.toMd5(bArr, true) : null;
         if (str == null || md5 == null) {
-            aVar.KC = PushConstants.DELAY_NOTIFICATION;
+            aVar.KI = PushConstants.DELAY_NOTIFICATION;
             aVar.errMsg = "download : package MD5 verify failed." + com.baidu.b.a.h.e.n("server:", str, ",local", md5);
-            aVar.Zm = a.C0056a.C0057a.YT;
+            aVar.Zv = a.C0056a.C0057a.Zc;
             return false;
         }
         String upperCase = str.toUpperCase();
         if (upperCase.equals(md5)) {
             return true;
         }
-        aVar.KC = PushConstants.DELAY_NOTIFICATION;
+        aVar.KI = PushConstants.DELAY_NOTIFICATION;
         aVar.errMsg = "download : package MD5 verify failed." + com.baidu.b.a.h.e.n("server:", upperCase, ",local", md5);
-        aVar.Zm = a.C0056a.C0057a.YT;
+        aVar.Zv = a.C0056a.C0057a.Zc;
         return false;
     }
 }

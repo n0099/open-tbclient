@@ -7,39 +7,39 @@ import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class d {
-    private static volatile d Lt;
-    private PluginNetConfigInfos Lu = new PluginNetConfigInfos();
-    private b Lv;
+    private static volatile d LC;
+    private PluginNetConfigInfos LD = new PluginNetConfigInfos();
+    private b LE;
 
-    public static d nw() {
-        if (Lt == null) {
+    public static d nA() {
+        if (LC == null) {
             synchronized (d.class) {
-                if (Lt == null) {
-                    Lt = new d();
+                if (LC == null) {
+                    LC = new d();
                 }
             }
         }
-        return Lt;
+        return LC;
     }
 
     public void a(PluginSettings pluginSettings, boolean z, final a aVar) {
-        c c = c(pluginSettings);
-        if (this.Lv != null) {
-            this.Lv.a(z, c, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
+        c b = b(pluginSettings);
+        if (this.LE != null) {
+            this.LE.a(z, b, new a() { // from class: com.baidu.adp.plugin.packageManager.pluginServerConfig.d.1
                 @Override // com.baidu.adp.plugin.packageManager.pluginServerConfig.a
                 public void a(boolean z2, c cVar, PluginNetConfigInfos pluginNetConfigInfos) {
                     if (z2) {
-                        d.this.Lu = pluginNetConfigInfos;
+                        d.this.LD = pluginNetConfigInfos;
                     }
                     if (aVar != null) {
-                        aVar.a(z2, cVar, d.this.Lu);
+                        aVar.a(z2, cVar, d.this.LD);
                     }
                 }
             });
         }
     }
 
-    public c c(PluginSettings pluginSettings) {
+    public c b(PluginSettings pluginSettings) {
         c cVar = new c();
         ArrayList arrayList = new ArrayList();
         if (pluginSettings.getPlugins() != null) {
@@ -54,11 +54,11 @@ public class d {
         return cVar;
     }
 
-    public PluginNetConfigInfos nx() {
-        return this.Lu;
+    public PluginNetConfigInfos nB() {
+        return this.LD;
     }
 
     public void a(b bVar) {
-        this.Lv = bVar;
+        this.LE = bVar;
     }
 }

@@ -47,10 +47,10 @@ public final class AiAppsAPSPerformanceUBC {
 
     public static void onDownloadMainStatistics(String str, String str2, List<UbcFlowEvent> list) {
         if (!TextUtils.isEmpty(str) && list != null && list.size() > 0) {
-            Flow yo = o.yo(ID);
+            Flow yE = o.yE(ID);
             for (UbcFlowEvent ubcFlowEvent : list) {
                 if (ubcFlowEvent != null) {
-                    yo.e(ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.time());
+                    yE.e(ubcFlowEvent.id, ubcFlowEvent.value(), ubcFlowEvent.time());
                 }
             }
             JSONObject jSONObject = new JSONObject();
@@ -65,8 +65,8 @@ public final class AiAppsAPSPerformanceUBC {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            yo.yj(jSONObject.toString());
-            yo.end();
+            yE.yz(jSONObject.toString());
+            yE.end();
             printCostLogForDebug(str, list, mCostReportList);
         }
     }

@@ -12,17 +12,17 @@ public final class k {
         c.a(new d() { // from class: com.baidu.ubs.analytics.d.k.1
             @Override // com.baidu.ubs.analytics.d.d
             public final void a() {
-                if (g.yI(a.igv)) {
-                    for (File file : k.yM(a.igv)) {
+                if (g.yY(a.ihC)) {
+                    for (File file : k.zc(a.ihC)) {
                         if (com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.a(file, "http://absample.baidu.com/appabapp/appapi/sdkerrorlog"), (b.a) null)) {
-                            g.yJ(file.getPath());
+                            g.yZ(file.getPath());
                         }
                     }
                 }
-                if (g.yI(a.igw)) {
-                    for (File file2 : k.yM(a.igw)) {
-                        if (!file2.getName().equals(b.bSS()) && com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), (b.a) null)) {
-                            g.yJ(file2.getPath());
+                if (g.yY(a.ihD)) {
+                    for (File file2 : k.zc(a.ihD)) {
+                        if (!file2.getName().equals(b.bTA()) && com.baidu.ubs.analytics.b.b.a(com.baidu.ubs.analytics.b.b.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), (b.a) null)) {
+                            g.yZ(file2.getPath());
                         }
                     }
                 }
@@ -30,7 +30,7 @@ public final class k {
         });
     }
 
-    static /* synthetic */ List yM(String str) {
+    static /* synthetic */ List zc(String str) {
         ArrayList arrayList = new ArrayList();
         File[] listFiles = new File(str).listFiles();
         if (listFiles != null) {

@@ -52,17 +52,17 @@ public final class f {
         deflaterOutputStream2 = null;
         FileOutputStream fileOutputStream2 = null;
         synchronized (f.class) {
-            com.baidu.crabsdk.c.a.cG("writeFile: " + str);
+            com.baidu.crabsdk.c.a.cH("writeFile: " + str);
             e.i(str);
             if (com.baidu.crabsdk.a.G) {
                 String c = com.baidu.crabsdk.c.d.c(com.baidu.crabsdk.a.d, str);
                 try {
-                    str2 = com.baidu.crabsdk.c.d.Y(str2, c);
+                    str2 = com.baidu.crabsdk.c.d.Z(str2, c);
                 } catch (Exception e) {
                     com.baidu.crabsdk.c.a.f("crash content AES failed!", e);
                 }
                 try {
-                    e.b("key_" + str, com.baidu.crabsdk.c.e.cO(c));
+                    e.b("key_" + str, com.baidu.crabsdk.c.e.cP(c));
                 } catch (Exception e2) {
                     e.b("key_" + str, "NoEncrypt_" + c);
                     e2.printStackTrace();
@@ -232,7 +232,7 @@ public final class f {
         }
     }
 
-    public static byte[] cQ(String str) {
+    public static byte[] cR(String str) {
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
         Throwable th;
@@ -321,19 +321,19 @@ public final class f {
         return bArr;
     }
 
-    public static String cR(String str) {
+    public static String cS(String str) {
         if (str == null) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
         try {
-            com.baidu.crabsdk.c.a.cH("开始遍历..." + str);
+            com.baidu.crabsdk.c.a.cI("开始遍历..." + str);
             File[] listFiles = new File(str).listFiles();
             if (listFiles != null && listFiles.length > 0) {
                 for (File file : listFiles) {
                     sb.append(file.getName()).append("$");
                 }
-                com.baidu.crabsdk.c.a.cH(sb.toString());
+                com.baidu.crabsdk.c.a.cI(sb.toString());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -353,7 +353,7 @@ public final class f {
         if (map == null) {
             return "";
         }
-        if (map.containsKey("screenshot") && map.get("screenshot") != null && com.baidu.crabsdk.c.c.rr() > 7) {
+        if (map.containsKey("screenshot") && map.get("screenshot") != null && com.baidu.crabsdk.c.c.rv() > 7) {
             map.put("screenshot", Base64.encodeToString((byte[]) map.get("screenshot"), 0));
         }
         JSONObject jSONObject = new JSONObject();

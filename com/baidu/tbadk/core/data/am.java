@@ -5,8 +5,8 @@ import tbclient.PbPresent;
 import tbclient.PbPresentList;
 /* loaded from: classes.dex */
 public class am {
-    private int asm;
-    private ArrayList<a> asn;
+    private int asO;
+    private ArrayList<a> asP;
 
     /* loaded from: classes.dex */
     public static class a {
@@ -18,9 +18,9 @@ public class am {
 
     public void a(PbPresent pbPresent) {
         if (pbPresent != null) {
-            this.asm = pbPresent.total.intValue();
+            this.asO = pbPresent.total.intValue();
             if (pbPresent.list != null && pbPresent.list.size() > 0) {
-                this.asn = new ArrayList<>();
+                this.asP = new ArrayList<>();
                 for (PbPresentList pbPresentList : pbPresent.list) {
                     if (pbPresentList != null) {
                         a aVar = new a();
@@ -28,7 +28,7 @@ public class am {
                         aVar.giftName = pbPresentList.gift_name;
                         aVar.thumbnailUrl = pbPresentList.thumbnail_url;
                         aVar.num = pbPresentList.num.intValue();
-                        this.asn.add(aVar);
+                        this.asP.add(aVar);
                     }
                 }
             }
@@ -36,18 +36,18 @@ public class am {
     }
 
     public int getTotal() {
-        return this.asm;
+        return this.asO;
     }
 
     public void setTotal(int i) {
-        this.asm = i;
+        this.asO = i;
     }
 
-    public ArrayList<a> yR() {
-        return this.asn;
+    public ArrayList<a> ze() {
+        return this.asP;
     }
 
     public void k(ArrayList<a> arrayList) {
-        this.asn = arrayList;
+        this.asP = arrayList;
     }
 }

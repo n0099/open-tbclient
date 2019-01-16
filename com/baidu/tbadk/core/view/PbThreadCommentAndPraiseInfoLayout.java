@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseInfoLayout {
-    private View.OnClickListener aIx;
+    private View.OnClickListener aIZ;
 
     public PbThreadCommentAndPraiseInfoLayout(Context context) {
         super(context);
@@ -29,21 +29,21 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         setNeedAddPraiseIcon(true);
         setNeedAddReplyIcon(true);
         setShareVisible(true);
-        this.aFe.setDisPraiseFrom(7);
-        this.aFf.setDisPraiseFrom(7);
+        this.aFG.setDisPraiseFrom(7);
+        this.aFH.setDisPraiseFrom(7);
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     protected void N(View view) {
-        if (this.aIx != null) {
-            this.aIx.onClick(view);
+        if (this.aIZ != null) {
+            this.aIZ.onClick(view);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     protected void O(View view) {
-        if (this.aIx != null) {
-            this.aIx.onClick(view);
+        if (this.aIZ != null) {
+            this.aIZ.onClick(view);
         }
     }
 
@@ -52,8 +52,8 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         if (ba.bJ(getContext())) {
             if (!com.baidu.adp.lib.util.l.ll()) {
                 com.baidu.adp.lib.util.l.showToast(getContext(), e.j.no_network_guide);
-            } else if (this.aFe != null) {
-                this.aFe.L(view);
+            } else if (this.aFG != null) {
+                this.aFG.L(view);
             }
         }
     }
@@ -63,28 +63,28 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         if (ba.bJ(getContext())) {
             if (!com.baidu.adp.lib.util.l.ll()) {
                 com.baidu.adp.lib.util.l.showToast(getContext(), e.j.no_network_guide);
-            } else if (this.aFf != null) {
-                this.aFf.L(view);
+            } else if (this.aFH != null) {
+                this.aFH.L(view);
             }
         }
     }
 
-    public void gr(String str) {
-        if (this.aFg != null && !TextUtils.isEmpty(str) && str.equals(this.aFg.getTid())) {
-            P(this.aFe);
+    public void gF(String str) {
+        if (this.aFI != null && !TextUtils.isEmpty(str) && str.equals(this.aFI.getTid())) {
+            P(this.aFG);
         }
     }
 
     public void setPostId(String str) {
-        if (this.aFe != null) {
-            this.aFe.setPostId(str);
+        if (this.aFG != null) {
+            this.aFG.setPostId(str);
         }
-        if (this.aFf != null) {
-            this.aFf.setPostId(str);
+        if (this.aFH != null) {
+            this.aFH.setPostId(str);
         }
     }
 
     public void setOnClickOutListener(View.OnClickListener onClickListener) {
-        this.aIx = onClickListener;
+        this.aIZ = onClickListener;
     }
 }

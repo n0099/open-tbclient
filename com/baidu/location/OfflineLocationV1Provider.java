@@ -32,10 +32,10 @@ public final class OfflineLocationV1Provider extends ContentProvider {
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         String nameForUid = getContext().getPackageManager().getNameForUid(Binder.getCallingUid());
         d.a(getContext());
-        if (d.tE().b(nameForUid)) {
+        if (d.tI().b(nameForUid)) {
             return null;
         }
-        return d.tE().p(strArr);
+        return d.tI().p(strArr);
     }
 
     @Override // android.content.ContentProvider

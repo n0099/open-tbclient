@@ -13,34 +13,34 @@ import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import com.baidu.tieba.pb.data.ContriInfo;
 /* loaded from: classes.dex */
 public class h extends com.baidu.tbadk.core.dialog.a {
-    public static long axi = 0;
-    private TextView axj;
-    private TextView axk;
-    private TbImageView axl;
-    private int axm;
-    private Runnable axn;
-    private a axo;
+    public static long axK = 0;
+    private TextView axL;
+    private TextView axM;
+    private TbImageView axN;
+    private int axO;
+    private Runnable axP;
+    private a axQ;
 
     /* loaded from: classes.dex */
     public interface a {
-        void bn(boolean z);
+        void bo(boolean z);
     }
 
     public h(com.baidu.adp.base.e<?> eVar) {
         super(eVar.getPageActivity());
-        this.axm = 3;
-        this.axn = new Runnable() { // from class: com.baidu.tbadk.core.dialog.h.1
+        this.axO = 3;
+        this.axP = new Runnable() { // from class: com.baidu.tbadk.core.dialog.h.1
             @Override // java.lang.Runnable
             public void run() {
                 h.this.dismiss();
             }
         };
-        G(oD());
+        G(oH());
         b(eVar);
     }
 
     public void a(a aVar) {
-        this.axo = aVar;
+        this.axQ = aVar;
     }
 
     public void a(ContriInfo contriInfo, long j) {
@@ -50,37 +50,37 @@ public class h extends com.baidu.tbadk.core.dialog.a {
                 j = 3000;
             }
             String colorMsg = contriInfo.getColorMsg();
-            if (BO() && !StringUtils.isNull(contriInfo.getPreColorMsg()) && !StringUtils.isNull(contriInfo.getToastBackImage()) && colorMsg != null) {
+            if (Cb() && !StringUtils.isNull(contriInfo.getPreColorMsg()) && !StringUtils.isNull(contriInfo.getToastBackImage()) && colorMsg != null) {
                 colorMsg = contriInfo.getPreColorMsg() + colorMsg;
-                this.axl.startLoad(contriInfo.getToastBackImage(), 10, false);
+                this.axN.startLoad(contriInfo.getToastBackImage(), 10, false);
                 z = true;
             } else {
-                this.axl.startLoad(null, 10, false);
-                this.axl.invalidate();
+                this.axN.startLoad(null, 10, false);
+                this.axN.invalidate();
                 z = false;
             }
-            this.axj.setText(colorMsg);
-            this.axk.setText(contriInfo.getAfterMsg());
-            com.baidu.adp.lib.g.e.jG().postDelayed(this.axn, j);
-            BG().setBackgroundResource(0);
-            BF();
-            if (this.axo != null) {
-                this.axo.bn(z);
+            this.axL.setText(colorMsg);
+            this.axM.setText(contriInfo.getAfterMsg());
+            com.baidu.adp.lib.g.e.jG().postDelayed(this.axP, j);
+            BT().setBackgroundResource(0);
+            BS();
+            if (this.axQ != null) {
+                this.axQ.bo(z);
             }
         }
     }
 
     public void onDestroy() {
-        com.baidu.adp.lib.g.e.jG().removeCallbacks(this.axn);
+        com.baidu.adp.lib.g.e.jG().removeCallbacks(this.axP);
     }
 
-    private View oD() {
+    private View oH() {
         View inflate = LayoutInflater.from(this.mActivity).inflate(e.h.star_idol_layout, (ViewGroup) null);
-        this.axl = (TbImageView) inflate.findViewById(e.g.image);
-        this.axl.setDefaultBgResource(e.d.transparent);
-        this.axl.setDefaultResource(e.f.pic_frs_idol_mission_tost);
-        this.axj = (TextView) inflate.findViewById(e.g.toast_text);
-        this.axk = (TextView) inflate.findViewById(e.g.describe_text);
+        this.axN = (TbImageView) inflate.findViewById(e.g.image);
+        this.axN.setDefaultBgResource(e.d.transparent);
+        this.axN.setDefaultResource(e.f.pic_frs_idol_mission_tost);
+        this.axL = (TextView) inflate.findViewById(e.g.toast_text);
+        this.axM = (TextView) inflate.findViewById(e.g.describe_text);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.h.2
             @Override // android.view.View.OnClickListener
@@ -94,27 +94,27 @@ public class h extends com.baidu.tbadk.core.dialog.a {
     @Override // com.baidu.tbadk.core.dialog.a
     public void dismiss() {
         super.dismiss();
-        com.baidu.adp.lib.g.e.jG().removeCallbacks(this.axn);
+        com.baidu.adp.lib.g.e.jG().removeCallbacks(this.axP);
     }
 
     @Override // com.baidu.tbadk.core.dialog.a
     public void hide() {
         super.hide();
-        com.baidu.adp.lib.g.e.jG().removeCallbacks(this.axn);
+        com.baidu.adp.lib.g.e.jG().removeCallbacks(this.axP);
     }
 
     public void onChangeSkinType(int i) {
-        if (i != this.axm) {
-            this.axm = i;
-            if (this.axl != null) {
-                this.axl.invalidate();
+        if (i != this.axO) {
+            this.axO = i;
+            if (this.axN != null) {
+                this.axN.invalidate();
             }
-            al.h(this.axj, e.d.common_color_10327);
-            al.h(this.axk, e.d.cp_cont_i);
+            al.h(this.axL, e.d.common_color_10327);
+            al.h(this.axM, e.d.cp_cont_i);
         }
     }
 
-    private boolean BO() {
-        return System.currentTimeMillis() - axi <= KeepJobService.JOB_CHECK_PERIODIC;
+    private boolean Cb() {
+        return System.currentTimeMillis() - axK <= KeepJobService.JOB_CHECK_PERIODIC;
     }
 }

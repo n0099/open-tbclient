@@ -80,7 +80,7 @@ public class LaunchAiApps {
     public static ErrCode checkZipSign(a aVar, AiAppsLaunchParams aiAppsLaunchParams) {
         ErrCode errCode;
         try {
-            JSONObject jSONObject = new JSONObject(aVar.Zr);
+            JSONObject jSONObject = new JSONObject(aVar.ZA);
             String optString = jSONObject.optString("sign");
             String optString2 = jSONObject.optString(AiAppsApsUtils.APP_KEY);
             if (!aiAppsLaunchParams.mAppId.contains(optString2)) {
@@ -108,7 +108,7 @@ public class LaunchAiApps {
             ErrCode detail = new ErrCode().feature(3L).error(6L).detail("parse extraServer with JSONException: " + e.getMessage());
             detail.detail(aVar.toJSONString());
             Tracer.get().record(detail);
-            AiAppsPerformanceUBC.onEvent(new AiAppsPerformanceUBC.Event(AiAppsPerformanceUBC.ID_STABILITY).from("swan").type(String.valueOf(detail.code())).launchParams(aiAppsLaunchParams).infoAdd("detail", detail.details().toString()).infoAdd("data", aVar.Zr));
+            AiAppsPerformanceUBC.onEvent(new AiAppsPerformanceUBC.Event(AiAppsPerformanceUBC.ID_STABILITY).from("swan").type(String.valueOf(detail.code())).launchParams(aiAppsLaunchParams).infoAdd("detail", detail.details().toString()).infoAdd("data", aVar.ZA));
             detail.markRecorded();
             return detail;
         }
@@ -148,7 +148,7 @@ public class LaunchAiApps {
             Tracer.get().record(detail);
             return detail;
         }
-        File unzipFolder = AiAppsBundleHelper.ReleaseBundleHelper.getUnzipFolder(aVar.packageName, String.valueOf(aVar.Zn));
+        File unzipFolder = AiAppsBundleHelper.ReleaseBundleHelper.getUnzipFolder(aVar.packageName, String.valueOf(aVar.Zw));
         if (unzipFolder.exists()) {
             ErrCode detail2 = new ErrCode().feature(4L).error(7L).detail("解压失败：解压文件夹已存在");
             Tracer.get().record(detail2);
@@ -219,7 +219,7 @@ public class LaunchAiApps {
                 int i = LaunchAiApps.haveAiAppZip(aVar.packageName) ? 0 : 1;
                 AiAppsDbInfo parseApsInfo = LaunchAiApps.parseApsInfo(aiAppsDbControl.queryAiAppsItem(str), str, aVar, bitmap, i, str2);
                 aiAppsDbControl.insertOrUpdateAiAppsDataBase(parseApsInfo);
-                LaunchAiApps.updateSubPackageDbInfo(str, String.valueOf(aVar.Zn));
+                LaunchAiApps.updateSubPackageDbInfo(str, String.valueOf(aVar.Zw));
                 if (updateDbListener != null) {
                     updateDbListener.dbUpdate(parseApsInfo);
                 }
@@ -304,10 +304,10 @@ public class LaunchAiApps {
     public static AiAppsDbInfo parseApsInfo(@Nullable AiAppsDbInfo aiAppsDbInfo, @NonNull String str, @Nullable a aVar, Bitmap bitmap, int i, String str2) {
         AiAppsDbInfo aiAppsDbInfo2 = (aiAppsDbInfo == null || !TextUtils.equals(str, aiAppsDbInfo.appId)) ? new AiAppsDbInfo() : aiAppsDbInfo;
         if (aVar != null) {
-            aiAppsDbInfo2.version = String.valueOf(aVar.Zn);
-            aiAppsDbInfo2.mAppZipSize = aVar.Zw;
+            aiAppsDbInfo2.version = String.valueOf(aVar.Zw);
+            aiAppsDbInfo2.mAppZipSize = aVar.ZF;
             try {
-                JSONObject jSONObject = new JSONObject(aVar.Zr);
+                JSONObject jSONObject = new JSONObject(aVar.ZA);
                 aiAppsDbInfo2.appId = str;
                 aiAppsDbInfo2.name = aVar.name;
                 aiAppsDbInfo2.description = jSONObject.optString("description");
@@ -325,7 +325,7 @@ public class LaunchAiApps {
                 aiAppsDbInfo2.icon = AiAppImageUtils.encodeBitmapAsString(bitmap);
                 aiAppsDbInfo2.iconUrl = str2;
                 aiAppsDbInfo2.isHaveZip = i;
-                aiAppsDbInfo2.version = String.valueOf(aVar.Zn);
+                aiAppsDbInfo2.version = String.valueOf(aVar.Zw);
                 aiAppsDbInfo2.targetSwanVersion = jSONObject.optString(AiAppsApsUtils.TARGET_SWAN_VERSION);
                 aiAppsDbInfo2.versionCode = jSONObject.optString("version_code");
                 JSONObject optJSONObject = jSONObject.optJSONObject(AiAppsApsUtils.SWAN_CONF);
@@ -451,7 +451,7 @@ public class LaunchAiApps {
             downloadAiAppsIconListener.getIcon(null);
             return;
         }
-        c.bUN().e(ImageRequestBuilder.G(uri).caI(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.searchbox.ng.ai.apps.core.aps.LaunchAiApps.3
+        c.bVv().e(ImageRequestBuilder.G(uri).cbq(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.searchbox.ng.ai.apps.core.aps.LaunchAiApps.3
             @Override // com.facebook.imagepipeline.e.b
             protected void onNewResultImpl(Bitmap bitmap) {
                 Bitmap copy;
@@ -488,7 +488,7 @@ public class LaunchAiApps {
                 AiAppsPerformanceUBC.onEvent(new AiAppsPerformanceUBC.Event(AiAppsPerformanceUBC.ID_STABILITY).from("swan").type(String.valueOf(detail2.code())).launchParams(aiAppsLaunchParams).infoAdd("detail", detail2.details().toString()));
                 DownloadAiAppsIconListener.this.getIcon(null);
             }
-        }, f.bTQ());
+        }, f.bUy());
     }
 
     private static void launchUpdateInfoPage(Context context, String str, ErrCode errCode) {

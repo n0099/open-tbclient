@@ -10,32 +10,32 @@ import com.baidu.tieba.tbadkCore.location.c;
 import tbclient.AppPosInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static a gTD;
+    private static a gUI;
     private long AJ;
-    private String gTB;
-    private String gTC = b.getInstance().getString("asp_shown_info", "");
+    private String gUG;
+    private String gUH = b.getInstance().getString("asp_shown_info", "");
     private String latitude;
     private String longitude;
 
     private a() {
     }
 
-    public static a bwa() {
-        if (gTD == null) {
+    public static a bwJ() {
+        if (gUI == null) {
             synchronized (c.class) {
-                if (gTD == null) {
-                    gTD = new a();
+                if (gUI == null) {
+                    gUI = new a();
                 }
             }
         }
-        return gTD;
+        return gUI;
     }
 
-    public void pH(String str) {
+    public void pX(String str) {
         this.longitude = str;
     }
 
-    public void pI(String str) {
+    public void pY(String str) {
         this.latitude = str;
     }
 
@@ -43,39 +43,39 @@ public class a {
         this.AJ = j;
     }
 
-    private String bwb() {
-        if (TextUtils.isEmpty(this.gTB)) {
+    private String bwK() {
+        if (TextUtils.isEmpty(this.gUG)) {
             WifiInfo connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo();
             if (connectionInfo != null) {
-                this.gTB = connectionInfo.getBSSID();
+                this.gUG = connectionInfo.getBSSID();
             } else {
-                this.gTB = "";
+                this.gUG = "";
             }
         }
-        return this.gTB;
+        return this.gUG;
     }
 
-    public void uM(String str) {
-        this.gTB = str;
+    public void vc(String str) {
+        this.gUG = str;
     }
 
-    public void uN(String str) {
-        this.gTC = str;
+    public void vd(String str) {
+        this.gUH = str;
     }
 
-    public void bwc() {
-        b.getInstance().putString("asp_shown_info", this.gTC);
+    public void bwL() {
+        b.getInstance().putString("asp_shown_info", this.gUH);
     }
 
-    public AppPosInfo bwd() {
+    public AppPosInfo bwM() {
         AppPosInfo.Builder builder = new AppPosInfo.Builder();
-        builder.ap_mac = bwb();
+        builder.ap_mac = bwK();
         builder.ap_connected = Boolean.valueOf(j.kW());
         builder.latitude = this.latitude;
         builder.longitude = this.longitude;
         builder.addr_timestamp = Long.valueOf(this.AJ);
         builder.coordinate_type = "bd09ll";
-        builder.asp_shown_info = this.gTC;
+        builder.asp_shown_info = this.gUH;
         return builder.build(false);
     }
 }

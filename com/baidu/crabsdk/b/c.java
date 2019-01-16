@@ -19,9 +19,9 @@ import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 public final class c {
     private static Context mContext;
-    private static String XR = "data/anr/traces.txt";
+    private static String Ya = "data/anr/traces.txt";
     private static int aU = 5;
-    private static Thread XS = null;
+    private static Thread Yb = null;
 
     private static void a(Map<String, Object> map) {
         int indexOf;
@@ -93,23 +93,23 @@ public final class c {
     }
 
     public static void d(Context context) {
-        com.baidu.crabsdk.c.a.cG("init AnrCollector");
-        com.baidu.crabsdk.c.a.cG("===Anr init!===");
+        com.baidu.crabsdk.c.a.cH("init AnrCollector");
+        com.baidu.crabsdk.c.a.cH("===Anr init!===");
         mContext = context;
-        if (com.baidu.crabsdk.sender.e.rz()) {
-            com.baidu.crabsdk.c.a.cG("===Anr watchThread start!===");
+        if (com.baidu.crabsdk.sender.e.rD()) {
+            com.baidu.crabsdk.c.a.cH("===Anr watchThread start!===");
             try {
                 com.baidu.crabsdk.sender.a aVar = new com.baidu.crabsdk.sender.a(context);
-                XS = aVar;
+                Yb = aVar;
                 aVar.start();
             } catch (Exception e) {
-                com.baidu.crabsdk.c.a.cJ("Anr watchThread start failed !!");
+                com.baidu.crabsdk.c.a.cK("Anr watchThread start failed !!");
             }
         }
     }
 
-    public static Thread rn() {
-        return XS;
+    public static Thread rr() {
+        return Yb;
     }
 
     public static Map<String, Object> t() {
@@ -122,7 +122,7 @@ public final class c {
         ArrayList arrayList2 = new ArrayList();
         int i = 0;
         try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(XR)));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Ya)));
             String readLine = bufferedReader.readLine();
             String G = o.G();
             while (true) {

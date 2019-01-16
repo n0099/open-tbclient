@@ -11,42 +11,42 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    private static volatile c bGf;
-    private List<d> bGc = new ArrayList();
-    private Map<d, List<d>> bGd = new HashMap();
-    private Map<d, List<d>> bGe = new HashMap();
+    private static volatile c bGS;
+    private List<d> bGP = new ArrayList();
+    private Map<d, List<d>> bGQ = new HashMap();
+    private Map<d, List<d>> bGR = new HashMap();
     private boolean isInited;
 
-    public static c XT() {
-        if (bGf == null) {
+    public static c Yq() {
+        if (bGS == null) {
             synchronized (c.class) {
-                if (bGf == null) {
-                    bGf = new c();
+                if (bGS == null) {
+                    bGS = new c();
                 }
             }
         }
-        return bGf;
+        return bGS;
     }
 
     public void initData() {
-        n(XY());
+        n(Yv());
         this.isInited = true;
     }
 
-    public boolean XU() {
+    public boolean Yr() {
         return this.isInited;
     }
 
-    public List<d> XV() {
-        return this.bGc;
+    public List<d> Ys() {
+        return this.bGP;
     }
 
-    public Map<d, List<d>> XW() {
-        return this.bGd;
+    public Map<d, List<d>> Yt() {
+        return this.bGQ;
     }
 
-    public Map<d, List<d>> XX() {
-        return this.bGe;
+    public Map<d, List<d>> Yu() {
+        return this.bGR;
     }
 
     private void n(JSONArray jSONArray) {
@@ -58,12 +58,12 @@ public class c {
                 if (i2 < jSONArray.length()) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     if (optJSONObject != null && (L = d.L(optJSONObject)) != null) {
-                        this.bGc.add(L);
-                        if (L.Yc()) {
-                            this.bGd.put(L, L.acq);
-                            for (d dVar : L.acq) {
-                                if (dVar.Yc()) {
-                                    this.bGe.put(dVar, dVar.acq);
+                        this.bGP.add(L);
+                        if (L.Yz()) {
+                            this.bGQ.put(L, L.acA);
+                            for (d dVar : L.acA) {
+                                if (dVar.Yz()) {
+                                    this.bGR.put(dVar, dVar.acA);
                                 }
                             }
                         }
@@ -76,7 +76,7 @@ public class c {
         }
     }
 
-    private JSONArray XY() {
+    private JSONArray Yv() {
         try {
             InputStream open = AppRuntime.getAppContext().getAssets().open("aiapps/pickerRegion.js");
             byte[] bArr = new byte[open.available()];

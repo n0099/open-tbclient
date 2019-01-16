@@ -17,7 +17,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 /* loaded from: classes6.dex */
 public class e implements Thread.UncaughtExceptionHandler {
-    private static e aev = null;
+    private static e aeE = null;
     private int b = 0;
 
     private e() {
@@ -94,11 +94,11 @@ public class e implements Thread.UncaughtExceptionHandler {
         return false;
     }
 
-    public static e tx() {
-        if (aev == null) {
-            aev = new e();
+    public static e tB() {
+        if (aeE == null) {
+            aeE = new e();
         }
-        return aev;
+        return aeE;
     }
 
     public void b() {
@@ -156,13 +156,13 @@ public class e implements Thread.UncaughtExceptionHandler {
             return;
         }
         if (System.currentTimeMillis() - com.baidu.location.f.a.a() < ErrDef.Feature.WEIGHT && 7.8f > com.baidu.location.f.getFrameVersion()) {
-            if (System.currentTimeMillis() - com.baidu.location.g.c.tW().c() < 40000) {
+            if (System.currentTimeMillis() - com.baidu.location.g.c.ua().c() < 40000) {
                 File file = new File(g.h() + File.separator + com.baidu.location.f.getJarFileName());
                 if (file.exists()) {
                     file.delete();
                 }
             } else {
-                com.baidu.location.g.c.tW().b(System.currentTimeMillis());
+                com.baidu.location.g.c.ua().b(System.currentTimeMillis());
             }
         }
         try {
@@ -183,7 +183,7 @@ public class e implements Thread.UncaughtExceptionHandler {
             }
             if (str2.contains("com.baidu.location")) {
                 z2 = true;
-                String str4 = com.baidu.location.g.b.tV().a(false) + com.baidu.location.a.a.tb().c();
+                String str4 = com.baidu.location.g.b.tZ().a(false) + com.baidu.location.a.a.tf().c();
                 boolean z3 = z2;
                 str3 = str4 == null ? Jni.encode(str4) : null;
                 z = z3;
@@ -212,7 +212,7 @@ public class e implements Thread.UncaughtExceptionHandler {
             }
         }
         z2 = false;
-        String str42 = com.baidu.location.g.b.tV().a(false) + com.baidu.location.a.a.tb().c();
+        String str42 = com.baidu.location.g.b.tZ().a(false) + com.baidu.location.a.a.tf().c();
         boolean z32 = z2;
         str3 = str42 == null ? Jni.encode(str42) : null;
         z = z32;

@@ -7,19 +7,19 @@ import com.baidu.c.a.b.c;
 import com.baidu.c.a.b.d;
 /* loaded from: classes3.dex */
 public class a {
-    private static boolean aaF;
-    private static boolean aaG;
+    private static boolean aaO;
+    private static boolean aaP;
 
     public static void init(Context context) {
-        aaF = h.kI().n("criusbase", 2);
-        aaG = h.kI().n("crius", 2);
+        aaO = h.kI().n("criusbase", 2);
+        aaP = h.kI().n("crius", 2);
     }
 
     public static void a(b bVar) {
-        com.baidu.c.a.b.a.sm().b(bVar);
+        com.baidu.c.a.b.a.sq().b(bVar);
     }
 
     public static void a(c cVar) {
-        d.sn().b(cVar);
+        d.sr().b(cVar);
     }
 }

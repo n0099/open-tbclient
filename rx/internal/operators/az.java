@@ -9,14 +9,14 @@ import rx.exceptions.MissingBackpressureException;
 import rx.internal.util.BackpressureDrainManager;
 /* loaded from: classes2.dex */
 public class az<T> implements d.b<T, T> {
-    private final Long iJv;
-    private final rx.functions.a iJw;
-    private final a.d iJx;
+    private final Long iKC;
+    private final rx.functions.a iKD;
+    private final a.d iKE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b {
-        static final az<?> iJC = new az<>();
+        static final az<?> iKJ = new az<>();
     }
 
     @Override // rx.functions.f
@@ -24,22 +24,22 @@ public class az<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> az<T> cey() {
-        return (az<T>) b.iJC;
+    public static <T> az<T> cfg() {
+        return (az<T>) b.iKJ;
     }
 
     az() {
-        this.iJv = null;
-        this.iJw = null;
-        this.iJx = rx.a.iDM;
+        this.iKC = null;
+        this.iKD = null;
+        this.iKE = rx.a.iET;
     }
 
     public az(long j) {
-        this(j, null, rx.a.iDM);
+        this(j, null, rx.a.iET);
     }
 
     public az(long j, rx.functions.a aVar) {
-        this(j, aVar, rx.a.iDM);
+        this(j, aVar, rx.a.iET);
     }
 
     public az(long j, rx.functions.a aVar, a.d dVar) {
@@ -49,15 +49,15 @@ public class az<T> implements d.b<T, T> {
         if (dVar == null) {
             throw new NullPointerException("The BackpressureOverflow strategy must not be null");
         }
-        this.iJv = Long.valueOf(j);
-        this.iJw = aVar;
-        this.iJx = dVar;
+        this.iKC = Long.valueOf(j);
+        this.iKD = aVar;
+        this.iKE = dVar;
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
-        a aVar = new a(jVar, this.iJv, this.iJw, this.iJx);
+        a aVar = new a(jVar, this.iKC, this.iKD, this.iKE);
         jVar.add(aVar);
-        jVar.setProducer(aVar.ceA());
+        jVar.setProducer(aVar.cfi());
         return aVar;
     }
 
@@ -65,19 +65,19 @@ public class az<T> implements d.b<T, T> {
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.j<T> implements BackpressureDrainManager.a {
         private final rx.j<? super T> child;
-        private final BackpressureDrainManager iJB;
-        private final rx.functions.a iJw;
-        private final a.d iJx;
-        private final AtomicLong iJz;
-        private final ConcurrentLinkedQueue<Object> iJy = new ConcurrentLinkedQueue<>();
-        private final AtomicBoolean iJA = new AtomicBoolean(false);
+        private final rx.functions.a iKD;
+        private final a.d iKE;
+        private final AtomicLong iKG;
+        private final BackpressureDrainManager iKI;
+        private final ConcurrentLinkedQueue<Object> iKF = new ConcurrentLinkedQueue<>();
+        private final AtomicBoolean iKH = new AtomicBoolean(false);
 
         public a(rx.j<? super T> jVar, Long l, rx.functions.a aVar, a.d dVar) {
             this.child = jVar;
-            this.iJz = l != null ? new AtomicLong(l.longValue()) : null;
-            this.iJw = aVar;
-            this.iJB = new BackpressureDrainManager(this);
-            this.iJx = dVar;
+            this.iKG = l != null ? new AtomicLong(l.longValue()) : null;
+            this.iKD = aVar;
+            this.iKI = new BackpressureDrainManager(this);
+            this.iKE = dVar;
         }
 
         @Override // rx.j
@@ -87,23 +87,23 @@ public class az<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.iJA.get()) {
-                this.iJB.terminateAndDrain();
+            if (!this.iKH.get()) {
+                this.iKI.terminateAndDrain();
             }
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (!this.iJA.get()) {
-                this.iJB.terminateAndDrain(th);
+            if (!this.iKH.get()) {
+                this.iKI.terminateAndDrain(th);
             }
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            if (cez()) {
-                this.iJy.offer(NotificationLite.aY(t));
-                this.iJB.drain();
+            if (cfh()) {
+                this.iKF.offer(NotificationLite.aY(t));
+                this.iKI.drain();
             }
         }
 
@@ -123,42 +123,42 @@ public class az<T> implements d.b<T, T> {
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object peek() {
-            return this.iJy.peek();
+            return this.iKF.peek();
         }
 
         @Override // rx.internal.util.BackpressureDrainManager.a
         public Object poll() {
-            Object poll = this.iJy.poll();
-            if (this.iJz != null && poll != null) {
-                this.iJz.incrementAndGet();
+            Object poll = this.iKF.poll();
+            if (this.iKG != null && poll != null) {
+                this.iKG.incrementAndGet();
             }
             return poll;
         }
 
-        private boolean cez() {
+        private boolean cfh() {
             long j;
             boolean z;
-            if (this.iJz == null) {
+            if (this.iKG == null) {
                 return true;
             }
             do {
-                j = this.iJz.get();
+                j = this.iKG.get();
                 if (j <= 0) {
                     try {
-                        z = this.iJx.cdB() && poll() != null;
+                        z = this.iKE.cej() && poll() != null;
                     } catch (MissingBackpressureException e) {
-                        if (this.iJA.compareAndSet(false, true)) {
+                        if (this.iKH.compareAndSet(false, true)) {
                             unsubscribe();
                             this.child.onError(e);
                         }
                         z = false;
                     }
-                    if (this.iJw != null) {
+                    if (this.iKD != null) {
                         try {
-                            this.iJw.call();
+                            this.iKD.call();
                         } catch (Throwable th) {
                             rx.exceptions.a.J(th);
-                            this.iJB.terminateAndDrain(th);
+                            this.iKI.terminateAndDrain(th);
                             return false;
                         }
                     }
@@ -166,12 +166,12 @@ public class az<T> implements d.b<T, T> {
                         return false;
                     }
                 }
-            } while (!this.iJz.compareAndSet(j, j - 1));
+            } while (!this.iKG.compareAndSet(j, j - 1));
             return true;
         }
 
-        protected rx.f ceA() {
-            return this.iJB;
+        protected rx.f cfi() {
+            return this.iKI;
         }
     }
 }

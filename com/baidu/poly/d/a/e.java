@@ -8,20 +8,20 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class e extends c {
     private static final String TAG = e.class.getSimpleName();
-    private static e aiv;
+    private static e aiE;
 
     private e() {
     }
 
-    public static e uE() {
-        if (aiv == null) {
+    public static e uI() {
+        if (aiE == null) {
             synchronized (e.class) {
-                if (aiv == null) {
-                    aiv = new e();
+                if (aiE == null) {
+                    aiE = new e();
                 }
             }
         }
-        return aiv;
+        return aiE;
     }
 
     @Override // com.baidu.poly.d.a.c, com.baidu.poly.d.a.d

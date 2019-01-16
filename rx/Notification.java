@@ -1,9 +1,9 @@
 package rx;
 /* loaded from: classes2.dex */
 public final class Notification<T> {
-    private static final Notification<Void> iEc = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind iEa;
-    private final Throwable iEb;
+    private static final Notification<Void> iFj = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind iFh;
+    private final Throwable iFi;
     private final T value;
 
     /* loaded from: classes2.dex */
@@ -21,18 +21,18 @@ public final class Notification<T> {
         return new Notification<>(Kind.OnError, null, th);
     }
 
-    public static <T> Notification<T> cdC() {
-        return (Notification<T>) iEc;
+    public static <T> Notification<T> cek() {
+        return (Notification<T>) iFj;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.iEb = th;
-        this.iEa = kind;
+        this.iFi = th;
+        this.iFh = kind;
     }
 
-    public Throwable cdD() {
-        return this.iEb;
+    public Throwable cel() {
+        return this.iFi;
     }
 
     public T getValue() {
@@ -40,48 +40,48 @@ public final class Notification<T> {
     }
 
     public boolean hasValue() {
-        return cdI() && this.value != null;
+        return ceq() && this.value != null;
     }
 
-    public boolean cdE() {
-        return cdG() && this.iEb != null;
+    public boolean cem() {
+        return ceo() && this.iFi != null;
     }
 
-    public Kind cdF() {
-        return this.iEa;
+    public Kind cen() {
+        return this.iFh;
     }
 
-    public boolean cdG() {
-        return cdF() == Kind.OnError;
+    public boolean ceo() {
+        return cen() == Kind.OnError;
     }
 
-    public boolean cdH() {
-        return cdF() == Kind.OnCompleted;
+    public boolean cep() {
+        return cen() == Kind.OnCompleted;
     }
 
-    public boolean cdI() {
-        return cdF() == Kind.OnNext;
+    public boolean ceq() {
+        return cen() == Kind.OnNext;
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(cdF());
+        StringBuilder append = new StringBuilder(64).append('[').append(super.toString()).append(' ').append(cen());
         if (hasValue()) {
             append.append(' ').append(getValue());
         }
-        if (cdE()) {
-            append.append(' ').append(cdD().getMessage());
+        if (cem()) {
+            append.append(' ').append(cel().getMessage());
         }
         append.append(']');
         return append.toString();
     }
 
     public int hashCode() {
-        int hashCode = cdF().hashCode();
+        int hashCode = cen().hashCode();
         if (hasValue()) {
             hashCode = (hashCode * 31) + getValue().hashCode();
         }
-        if (cdE()) {
-            return (hashCode * 31) + cdD().hashCode();
+        if (cem()) {
+            return (hashCode * 31) + cel().hashCode();
         }
         return hashCode;
     }
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.cdF() != cdF() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.iEb != notification.iEb && (this.iEb == null || !this.iEb.equals(notification.iEb))))) {
+            if (notification.cen() != cen() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.iFi != notification.iFi && (this.iFi == null || !this.iFi.equals(notification.iFi))))) {
                 z = false;
             }
             return z;

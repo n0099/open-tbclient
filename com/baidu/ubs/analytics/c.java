@@ -7,11 +7,11 @@ import com.sina.weibo.sdk.statistic.StatisticConfig;
 /* loaded from: classes6.dex */
 public final class c {
     private long e;
-    private boolean ifA;
-    private long ifB;
-    private long ifC;
-    private boolean ifD;
-    private int ifE;
+    private boolean igH;
+    private long igI;
+    private long igJ;
+    private boolean igK;
+    private int igL;
     private Context mContext;
 
     /* synthetic */ c(a aVar, byte b) {
@@ -20,12 +20,12 @@ public final class c {
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
-        this.ifA = aVar.ifA;
-        this.e = aVar.ifF;
-        this.ifB = aVar.ifB;
-        this.ifD = aVar.ifD;
-        this.ifC = aVar.ifC;
-        this.ifE = aVar.ifE;
+        this.igH = aVar.igH;
+        this.e = aVar.igM;
+        this.igI = aVar.igI;
+        this.igK = aVar.igK;
+        this.igJ = aVar.igJ;
+        this.igL = aVar.igL;
     }
 
     public final Context b() {
@@ -33,7 +33,7 @@ public final class c {
     }
 
     public final boolean c() {
-        return this.ifA;
+        return this.igH;
     }
 
     public final long d() {
@@ -41,70 +41,70 @@ public final class c {
     }
 
     public final long e() {
-        return this.ifB;
+        return this.igI;
     }
 
     public final long f() {
-        return this.ifC;
+        return this.igJ;
     }
 
     public final boolean g() {
-        return this.ifD;
+        return this.igK;
     }
 
     public final int h() {
-        return this.ifE;
+        return this.igL;
     }
 
     /* loaded from: classes6.dex */
     public static class a {
         private Context mContext;
-        private boolean ifA = true;
-        private long ifF = StatisticConfig.MIN_UPLOAD_INTERVAL;
-        private long ifB = 60000;
-        private long ifC = ErrDef.Feature.WEIGHT;
-        private boolean ifD = false;
-        private int ifE = 1000;
+        private boolean igH = true;
+        private long igM = StatisticConfig.MIN_UPLOAD_INTERVAL;
+        private long igI = 60000;
+        private long igJ = ErrDef.Feature.WEIGHT;
+        private boolean igK = false;
+        private int igL = 1000;
 
         public a dn(Context context) {
             this.mContext = context;
             return this;
         }
 
-        public a oR(boolean z) {
-            this.ifA = z;
+        public a oS(boolean z) {
+            this.igH = z;
             return this;
         }
 
         public a dt(long j) {
-            this.ifF = 1000 * j;
+            this.igM = 1000 * j;
             return this;
         }
 
-        public a xW(int i) {
-            this.ifB = i * 60 * 1000;
+        public a xY(int i) {
+            this.igI = i * 60 * 1000;
             return this;
         }
 
         public a du(long j) {
-            this.ifC = 1000 * j;
+            this.igJ = 1000 * j;
             return this;
         }
 
-        public a oS(boolean z) {
-            this.ifD = z;
+        public a oT(boolean z) {
+            this.igK = z;
             return this;
         }
 
-        public a xX(int i) {
+        public a xZ(int i) {
             int i2 = i <= 0 ? 0 : i;
-            this.ifE = i2 < 1000 ? i2 : 1000;
+            this.igL = i2 < 1000 ? i2 : 1000;
             return this;
         }
 
-        public c bSx() {
+        public c bTf() {
             if (this.mContext == null) {
-                j.yE("Context must be not empty!");
+                j.yU("Context must be not empty!");
                 return null;
             }
             return new c(this, (byte) 0);

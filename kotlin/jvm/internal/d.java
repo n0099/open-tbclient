@@ -4,23 +4,23 @@ import java.util.NoSuchElementException;
 import kotlin.collections.u;
 /* loaded from: classes2.dex */
 final class d extends u {
-    private final double[] iBu;
+    private final double[] iCB;
     private int index;
 
     public d(double[] dArr) {
         p.j(dArr, com.baidu.fsg.base.statistics.b.j);
-        this.iBu = dArr;
+        this.iCB = dArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.iBu.length;
+        return this.index < this.iCB.length;
     }
 
     @Override // kotlin.collections.u
     public double nextDouble() {
         try {
-            double[] dArr = this.iBu;
+            double[] dArr = this.iCB;
             int i = this.index;
             this.index = i + 1;
             return dArr[i];

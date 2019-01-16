@@ -22,159 +22,159 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.adp.base.c<ChannelAddVideoActivity> {
-    private BdListView OF;
-    private NoNetworkView bOA;
-    private ChannelAddVideoActivity dcG;
-    private TextView ded;
-    private View dee;
-    private View def;
-    private com.baidu.tieba.channel.a.a deg;
-    private TextView deh;
-    private ViewStub dei;
-    private TextView dej;
-    private int dek;
-    private View.OnClickListener del;
-    private AdapterView.OnItemClickListener dem;
+    private BdListView OQ;
+    private NoNetworkView bPl;
+    private ChannelAddVideoActivity dds;
+    private TextView deQ;
+    private View deR;
+    private View deS;
+    private com.baidu.tieba.channel.a.a deT;
+    private TextView deU;
+    private ViewStub deV;
+    private TextView deW;
+    private int deX;
+    private View.OnClickListener deY;
+    private AdapterView.OnItemClickListener deZ;
     private NavigationBar mNavigationBar;
     private ProgressBar mProgressBar;
     private RelativeLayout mRootView;
 
     static /* synthetic */ int d(a aVar) {
-        int i = aVar.dek;
-        aVar.dek = i + 1;
+        int i = aVar.deX;
+        aVar.deX = i + 1;
         return i;
     }
 
     static /* synthetic */ int e(a aVar) {
-        int i = aVar.dek;
-        aVar.dek = i - 1;
+        int i = aVar.deX;
+        aVar.deX = i - 1;
         return i;
     }
 
     public a(ChannelAddVideoActivity channelAddVideoActivity) {
         super(channelAddVideoActivity.getPageContext());
-        this.dek = 0;
-        this.del = new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.a.1
+        this.deX = 0;
+        this.deY = new View.OnClickListener() { // from class: com.baidu.tieba.channel.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.dek > 20 || a.this.dek <= 0) {
-                    a.this.dcG.showToast(e.j.hundred_once_at_most);
+                if (a.this.deX > 20 || a.this.deX <= 0) {
+                    a.this.dds.showToast(e.j.hundred_once_at_most);
                     return;
                 }
-                List<com.baidu.tieba.channel.data.b> data = a.this.deg.getData();
+                List<com.baidu.tieba.channel.data.b> data = a.this.deT.getData();
                 ArrayList arrayList = new ArrayList();
                 for (com.baidu.tieba.channel.data.b bVar : data) {
-                    if (bVar.ara()) {
+                    if (bVar.ary()) {
                         arrayList.add(Long.valueOf(bVar.getThreadId()));
                     }
                 }
-                TiebaStatic.log(new am("c11937").i(VideoPlayActivityConfig.OBJ_ID, a.this.dcG.getChannelId()).x("obj_locate", 5));
-                a.this.dcG.bb(arrayList);
+                TiebaStatic.log(new am("c11937").i(VideoPlayActivityConfig.OBJ_ID, a.this.dds.getChannelId()).y("obj_locate", 5));
+                a.this.dds.bc(arrayList);
             }
         };
-        this.dem = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.channel.view.a.2
+        this.deZ = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.channel.view.a.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-                com.baidu.tieba.channel.data.b item = a.this.deg.getItem(i);
+                com.baidu.tieba.channel.data.b item = a.this.deT.getItem(i);
                 if (item != null) {
-                    item.fA(!item.ara());
-                    a.this.deg.notifyDataSetChanged();
-                    if (item.ara()) {
+                    item.fD(!item.ary());
+                    a.this.deT.notifyDataSetChanged();
+                    if (item.ary()) {
                         a.d(a.this);
                     } else {
                         a.e(a.this);
                     }
-                    if (a.this.dek > 0) {
-                        a.this.deh.setTextColor(a.this.dcG.getResources().getColor(e.d.cp_link_tip_a));
-                        a.this.deh.setEnabled(true);
+                    if (a.this.deX > 0) {
+                        a.this.deU.setTextColor(a.this.dds.getResources().getColor(e.d.cp_link_tip_a));
+                        a.this.deU.setEnabled(true);
                         return;
                     }
-                    a.this.deh.setTextColor(a.this.dcG.getResources().getColor(e.d.cp_cont_d));
-                    a.this.deh.setEnabled(false);
+                    a.this.deU.setTextColor(a.this.dds.getResources().getColor(e.d.cp_cont_d));
+                    a.this.deU.setEnabled(false);
                 }
             }
         };
-        this.dcG = channelAddVideoActivity;
-        this.dcG.setIsAddSwipeBackLayout(true);
-        this.dcG.setSwipeBackEnabled(true);
-        this.dcG.setUseStyleImmersiveSticky(true);
+        this.dds = channelAddVideoActivity;
+        this.dds.setIsAddSwipeBackLayout(true);
+        this.dds.setSwipeBackEnabled(true);
+        this.dds.setUseStyleImmersiveSticky(true);
         initViews();
     }
 
     private void initViews() {
-        this.dcG.setContentView(e.h.channel_add_video_layout);
-        this.mRootView = (RelativeLayout) this.dcG.findViewById(e.g.parent);
-        this.bOA = (NoNetworkView) this.mRootView.findViewById(e.g.no_network_view);
+        this.dds.setContentView(e.h.channel_add_video_layout);
+        this.mRootView = (RelativeLayout) this.dds.findViewById(e.g.parent);
+        this.bPl = (NoNetworkView) this.mRootView.findViewById(e.g.no_network_view);
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(e.g.navigation_bar);
-        this.dei = (ViewStub) this.mRootView.findViewById(e.g.no_data_viewstub);
+        this.deV = (ViewStub) this.mRootView.findViewById(e.g.no_data_viewstub);
         this.mNavigationBar.showBottomLine(false);
-        this.mNavigationBar.setCenterTextTitle(this.dcG.getResources().getString(e.j.add_video_title));
+        this.mNavigationBar.setCenterTextTitle(this.dds.getResources().getString(e.j.add_video_title));
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.deh = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(e.j.add_video), this.del);
-        this.deh.setTextColor(this.dcG.getResources().getColor(e.d.cp_cont_d));
-        this.deh.setEnabled(false);
-        this.OF = (BdListView) this.mRootView.findViewById(e.g.listview);
-        this.deg = new com.baidu.tieba.channel.a.a(this.dcG);
-        this.OF.setOnItemClickListener(this.dem);
-        this.OF.setAdapter((ListAdapter) this.deg);
-        this.dee = LayoutInflater.from(this.dcG.getPageContext().getPageActivity()).inflate(e.h.channel_add_video_toast_layout, (ViewGroup) null, false);
-        this.OF.addHeaderView(this.dee);
-        this.def = LayoutInflater.from(this.dcG.getPageContext().getPageActivity()).inflate(e.h.channel_list_footer, (ViewGroup) null, false);
-        this.mProgressBar = (ProgressBar) this.def.findViewById(e.g.list_more_progress);
-        this.ded = (TextView) this.def.findViewById(e.g.list_more_title);
-        this.OF.addFooterView(this.def);
+        this.deU = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(e.j.add_video), this.deY);
+        this.deU.setTextColor(this.dds.getResources().getColor(e.d.cp_cont_d));
+        this.deU.setEnabled(false);
+        this.OQ = (BdListView) this.mRootView.findViewById(e.g.listview);
+        this.deT = new com.baidu.tieba.channel.a.a(this.dds);
+        this.OQ.setOnItemClickListener(this.deZ);
+        this.OQ.setAdapter((ListAdapter) this.deT);
+        this.deR = LayoutInflater.from(this.dds.getPageContext().getPageActivity()).inflate(e.h.channel_add_video_toast_layout, (ViewGroup) null, false);
+        this.OQ.addHeaderView(this.deR);
+        this.deS = LayoutInflater.from(this.dds.getPageContext().getPageActivity()).inflate(e.h.channel_list_footer, (ViewGroup) null, false);
+        this.mProgressBar = (ProgressBar) this.deS.findViewById(e.g.list_more_progress);
+        this.deQ = (TextView) this.deS.findViewById(e.g.list_more_title);
+        this.OQ.addFooterView(this.deS);
     }
 
     public void onDestroy() {
-        if (this.deg != null) {
-            this.deg = null;
+        if (this.deT != null) {
+            this.deT = null;
         }
     }
 
     public void c(NoNetworkView.a aVar) {
-        this.bOA.a(aVar);
+        this.bPl.a(aVar);
     }
 
     public void a(com.baidu.tieba.channel.data.a aVar) {
         if (aVar == null || aVar.getItems() == null || aVar.getItems().size() <= 0) {
-            this.deg.setData(null);
-            this.OF.setVisibility(8);
-            this.dei.setVisibility(0);
-            this.dej = (TextView) this.mRootView.findViewById(e.g.no_data_tip);
-            this.dej.setText(this.dcG.getResources().getString(e.j.add_video_no_data));
+            this.deT.setData(null);
+            this.OQ.setVisibility(8);
+            this.deV.setVisibility(0);
+            this.deW = (TextView) this.mRootView.findViewById(e.g.no_data_tip);
+            this.deW.setText(this.dds.getResources().getString(e.j.add_video_no_data));
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             return;
         }
-        fD(aVar.hasMore());
-        this.deg.setData(aVar.getItems());
-        this.deg.notifyDataSetChanged();
-        this.OF.setVisibility(0);
+        fG(aVar.hasMore());
+        this.deT.setData(aVar.getItems());
+        this.deT.notifyDataSetChanged();
+        this.OQ.setVisibility(0);
     }
 
-    public void fD(boolean z) {
-        this.def.setVisibility(0);
+    public void fG(boolean z) {
+        this.deS.setVisibility(0);
         if (z) {
             this.mProgressBar.setVisibility(0);
-            this.ded.setText(getPageContext().getString(e.j.subcribe_channel_list_hasmore));
+            this.deQ.setText(getPageContext().getString(e.j.subcribe_channel_list_hasmore));
             return;
         }
         this.mProgressBar.setVisibility(8);
-        this.ded.setText(getPageContext().getString(e.j.channel_subscribe_list_no_more));
+        this.deQ.setText(getPageContext().getString(e.j.channel_subscribe_list_no_more));
     }
 
     public void onChangeSkinType(int i) {
-        this.dcG.getLayoutMode().setNightMode(i == 1);
-        this.dcG.getLayoutMode().onModeChanged(this.mRootView);
-        this.dcG.getLayoutMode().onModeChanged(this.def);
-        this.dcG.getLayoutMode().onModeChanged(this.dee);
+        this.dds.getLayoutMode().setNightMode(i == 1);
+        this.dds.getLayoutMode().onModeChanged(this.mRootView);
+        this.dds.getLayoutMode().onModeChanged(this.deS);
+        this.dds.getLayoutMode().onModeChanged(this.deR);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.bOA.onChangeSkinType(getPageContext(), i);
-        if (this.deg != null) {
-            this.deg.notifyDataSetChanged();
+        this.bPl.onChangeSkinType(getPageContext(), i);
+        if (this.deT != null) {
+            this.deT.notifyDataSetChanged();
         }
     }
 
     public void a(BdListView.e eVar) {
-        this.OF.setOnSrollToBottomListener(eVar);
+        this.OQ.setOnSrollToBottomListener(eVar);
     }
 }

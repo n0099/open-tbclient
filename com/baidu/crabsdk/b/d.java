@@ -13,15 +13,15 @@ import java.util.Date;
 import java.util.List;
 /* loaded from: classes6.dex */
 public final class d {
-    private static com.baidu.crabsdk.c.b<List> XT = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
-    private static float XU = 0.0f;
-    private static float XV = 0.0f;
-    private static float XW = 0.0f;
-    private static float XX = 0.0f;
-    private static String XY = "";
-    private static long XZ = 0;
-    private static long Ya = 0;
-    private static Rect Yb = null;
+    private static com.baidu.crabsdk.c.b<List> Yc = new com.baidu.crabsdk.c.b<>(com.baidu.crabsdk.a.f);
+    private static float Yd = 0.0f;
+    private static float Ye = 0.0f;
+    private static float Yf = 0.0f;
+    private static float Yg = 0.0f;
+    private static String Yh = "";
+    private static long Yi = 0;
+    private static long Yj = 0;
+    private static Rect Yk = null;
 
     private static List<View> D(View view) {
         ArrayList arrayList = new ArrayList();
@@ -30,19 +30,19 @@ public final class d {
             for (int i = 0; i < viewGroup.getChildCount(); i++) {
                 View childAt = viewGroup.getChildAt(i);
                 if (childAt.getVisibility() == 0) {
-                    int i2 = (int) XU;
-                    int i3 = (int) XV;
-                    if (Yb == null) {
-                        Yb = new Rect();
+                    int i2 = (int) Yd;
+                    int i3 = (int) Ye;
+                    if (Yk == null) {
+                        Yk = new Rect();
                     }
-                    childAt.getDrawingRect(Yb);
+                    childAt.getDrawingRect(Yk);
                     int[] iArr = new int[2];
                     childAt.getLocationOnScreen(iArr);
-                    Yb.left = iArr[0];
-                    Yb.top = iArr[1];
-                    Yb.right += iArr[0];
-                    Yb.bottom = iArr[1] + Yb.bottom;
-                    if (Yb.contains(i2, i3)) {
+                    Yk.left = iArr[0];
+                    Yk.top = iArr[1];
+                    Yk.right += iArr[0];
+                    Yk.bottom = iArr[1] + Yk.bottom;
+                    if (Yk.contains(i2, i3)) {
                         arrayList.add(childAt);
                         arrayList.addAll(D(childAt));
                     }
@@ -69,51 +69,51 @@ public final class d {
         switch (i) {
             case 1:
                 arrayList.add(AiAppsUBCStatistic.TYPE_CLICK);
-                arrayList.add("(" + XU + ", " + XV + ")");
+                arrayList.add("(" + Yd + ", " + Ye + ")");
                 break;
             case 2:
                 arrayList.add("doubleClick");
-                arrayList.add("(" + XU + ", " + XV + ")");
+                arrayList.add("(" + Yd + ", " + Ye + ")");
                 break;
             case 3:
                 arrayList.add("longPressed");
-                arrayList.add("(" + XU + ", " + XV + ")");
+                arrayList.add("(" + Yd + ", " + Ye + ")");
                 break;
             case 4:
                 arrayList.add("scroll");
-                arrayList.add("from:(" + XU + ", " + XV + ") to:(" + XW + ", " + XX + ")");
+                arrayList.add("from:(" + Yd + ", " + Ye + ") to:(" + Yf + ", " + Yg + ")");
                 break;
             case 5:
                 arrayList.add("fling");
-                arrayList.add("from:(" + XU + ", " + XV + ") to:(" + XW + ", " + XX + ")");
+                arrayList.add("from:(" + Yd + ", " + Ye + ") to:(" + Yf + ", " + Yg + ")");
                 break;
         }
-        arrayList.add(XY);
-        XT.add(arrayList);
+        arrayList.add(Yh);
+        Yc.add(arrayList);
     }
 
     public static void dispatchTouchEvent(MotionEvent motionEvent, Activity activity) {
         if (activity == null) {
             return;
         }
-        XY = activity.getClass().getName();
+        Yh = activity.getClass().getName();
         switch (motionEvent.getAction()) {
             case 0:
-                XU = motionEvent.getX();
-                XV = motionEvent.getY();
-                XZ = System.currentTimeMillis();
+                Yd = motionEvent.getX();
+                Ye = motionEvent.getY();
+                Yi = System.currentTimeMillis();
                 return;
             case 1:
-                XW = motionEvent.getX();
-                XX = motionEvent.getY();
-                Ya = System.currentTimeMillis();
-                if (Math.abs(XX - XV) > 30.0f) {
+                Yf = motionEvent.getX();
+                Yg = motionEvent.getY();
+                Yj = System.currentTimeMillis();
+                if (Math.abs(Yg - Ye) > 30.0f) {
                     a(4, activity);
                     return;
-                } else if (Math.abs(XW - XU) > 30.0f && Math.abs(XX - XV) < 30.0f) {
+                } else if (Math.abs(Yf - Yd) > 30.0f && Math.abs(Yg - Ye) < 30.0f) {
                     a(5, activity);
                     return;
-                } else if (Ya - XZ > 300) {
+                } else if (Yj - Yi > 300) {
                     a(3, activity);
                     return;
                 } else {
@@ -128,15 +128,15 @@ public final class d {
 
     public static String u() {
         StringBuilder sb = new StringBuilder();
-        int size = XT.size();
+        int size = Yc.size();
         for (int i = 0; i < size; i++) {
-            List list = XT.get(i);
+            List list = Yc.get(i);
             if (list == null || list.size() <= 0) {
                 return sb.toString();
             }
             sb.append("STEP" + (i + 1) + "\nTime: " + list.get(0) + "; Activity: " + list.get(4) + "; Component: " + list.get(1) + "; Operation: " + list.get(2) + "; Location: " + list.get(3) + "\n");
         }
-        com.baidu.crabsdk.c.a.cI("Behavior Steps --> " + sb.toString());
+        com.baidu.crabsdk.c.a.cJ("Behavior Steps --> " + sb.toString());
         return sb.toString();
     }
 }

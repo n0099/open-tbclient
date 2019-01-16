@@ -12,8 +12,8 @@ import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickListener {
-    private int dOS;
-    private int dOV;
+    private int dPB;
+    private int dPE;
     private Context mContext;
     private int mWidth;
 
@@ -38,9 +38,9 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
     private void init(Context context) {
         setOrientation(1);
         this.mContext = context;
-        this.dOV = l.h(this.mContext, e.C0210e.ds8);
+        this.dPE = l.h(this.mContext, e.C0210e.ds8);
         this.mWidth = l.aO(this.mContext);
-        this.dOS = l.aO(this.mContext) / 2;
+        this.dPB = l.aO(this.mContext) / 2;
     }
 
     public void setData(ArrayList<String> arrayList) {
@@ -54,7 +54,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
             int i = 0;
             while (i < H) {
                 if (i % 2 == 0) {
-                    linearLayout = bmP();
+                    linearLayout = bnx();
                 } else {
                     if (linearLayout2 != null) {
                         b(linearLayout2, (String) v.d(arrayList, i - 1));
@@ -66,7 +66,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
                 linearLayout2 = linearLayout;
             }
             if (linearLayout2 != null && linearLayout2.getChildCount() == 0) {
-                this.dOS = this.mWidth;
+                this.dPB = this.mWidth;
                 b(linearLayout2, (String) v.d(arrayList, H - 1));
             }
         }
@@ -82,15 +82,15 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         textView.setTypeface(null, 1);
         textView.setMinLines(1);
         textView.setMaxLines(1);
-        textView.setWidth(this.dOS);
+        textView.setWidth(this.dPB);
         textView.setOnClickListener(this);
         linearLayout.addView(textView);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-        layoutParams.leftMargin = this.dOV;
-        layoutParams.rightMargin = this.dOV;
+        layoutParams.leftMargin = this.dPE;
+        layoutParams.rightMargin = this.dPE;
     }
 
-    private LinearLayout bmP() {
+    private LinearLayout bnx() {
         LinearLayout linearLayout = new LinearLayout(this.mContext);
         al.j(linearLayout, e.d.transparent);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(this.mWidth, -2));

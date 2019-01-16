@@ -16,15 +16,15 @@ public class ak {
         try {
             if (!l.hA()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(l.CH());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(l.CU());
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(l.CH());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(l.CU());
                 }
             } else {
-                File fa = l.fa("camera.jpg");
-                if (fa != null) {
+                File fj = l.fj("camera.jpg");
+                if (fj != null) {
                     Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-                    intent.putExtra("output", UtilHelper.getUriFromFile(fa, intent, tbPageContext.getPageActivity()));
+                    intent.putExtra("output", UtilHelper.getUriFromFile(fj, intent, tbPageContext.getPageActivity()));
                     tbPageContext.getPageActivity().startActivityForResult(intent, 12001);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
                     ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(e.j.error_sd_error));
@@ -41,10 +41,10 @@ public class ak {
         try {
             if (!l.hA()) {
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(l.CH());
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(l.CU());
                     return;
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(l.CH());
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(l.CU());
                     return;
                 } else {
                     return;
@@ -52,7 +52,7 @@ public class ak {
             }
             String str2 = l.FL + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR;
             boolean z = false;
-            if (l.eR(str2)) {
+            if (l.fa(str2)) {
                 File file = new File(str2 + "/" + str);
                 if (!file.exists()) {
                     z = file.createNewFile();
@@ -77,11 +77,11 @@ public class ak {
         }
     }
 
-    public static void w(Activity activity) {
-        x(activity);
+    public static void x(Activity activity) {
+        y(activity);
     }
 
-    public static void x(Activity activity) {
+    public static void y(Activity activity) {
         try {
             Intent intent = new Intent();
             intent.setType("image/*");

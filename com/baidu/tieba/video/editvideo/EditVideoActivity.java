@@ -41,21 +41,21 @@ import java.util.List;
 /* loaded from: classes5.dex */
 public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVideoView.b {
     private boolean Dd;
-    private d dCS;
-    private String daG;
-    private String ehA;
-    private com.baidu.tieba.video.editvideo.view.a hEA;
-    private SelectCoverModel hEB;
-    private SelectMusicModel hEC;
-    private String hED;
-    private String hEE;
-    private boolean hEF;
-    private com.baidu.tieba.video.editvideo.b.a hEG;
-    private HttpMessageListener hEH;
-    private CustomMessageListener hEI;
-    private String hEy;
-    private List<VideoTitleData> hEz;
-    private h hpD;
+    private d dDB;
+    private String dbr;
+    private String eig;
+    private String hFF;
+    private List<VideoTitleData> hFG;
+    private com.baidu.tieba.video.editvideo.view.a hFH;
+    private SelectCoverModel hFI;
+    private SelectMusicModel hFJ;
+    private String hFK;
+    private String hFL;
+    private boolean hFM;
+    private com.baidu.tieba.video.editvideo.b.a hFN;
+    private HttpMessageListener hFO;
+    private CustomMessageListener hFP;
+    private h hqL;
     private String mForumName;
     private String mFromType;
     private VideoInfo mVideoInfo;
@@ -66,9 +66,9 @@ public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVi
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, l.class);
         l lVar = runTask != null ? (l) runTask.getData() : null;
         if (lVar != null) {
-            this.hpD = lVar.bdz();
+            this.hqL = lVar.bdZ();
         }
-        this.hEH = new HttpMessageListener(CmdConfigHttp.CMD_GET_VIDEO_ACTIVITY) { // from class: com.baidu.tieba.video.editvideo.EditVideoActivity.1
+        this.hFO = new HttpMessageListener(CmdConfigHttp.CMD_GET_VIDEO_ACTIVITY) { // from class: com.baidu.tieba.video.editvideo.EditVideoActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -76,12 +76,12 @@ public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVi
                     ResponseGetVideoActivityMessage responseGetVideoActivityMessage = (ResponseGetVideoActivityMessage) httpResponsedMessage;
                     if (httpResponsedMessage.getError() == 0) {
                         EditVideoActivity.this.mVideoTitleData = responseGetVideoActivityMessage.getVideoTitleData();
-                        EditVideoActivity.this.hEz = responseGetVideoActivityMessage.getAllVideoTitleList();
+                        EditVideoActivity.this.hFG = responseGetVideoActivityMessage.getAllVideoTitleList();
                     }
                 }
             }
         };
-        this.hEI = new CustomMessageListener(2001374) { // from class: com.baidu.tieba.video.editvideo.EditVideoActivity.2
+        this.hFP = new CustomMessageListener(2001374) { // from class: com.baidu.tieba.video.editvideo.EditVideoActivity.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -98,10 +98,10 @@ public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVi
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
         setContentView(e.h.activity_edit_video);
-        this.daG = getIntent().getStringExtra("forum_id");
+        this.dbr = getIntent().getStringExtra("forum_id");
         this.mForumName = getIntent().getStringExtra("forum_name");
-        this.hEy = getIntent().getStringExtra("video_title");
-        this.ehA = getIntent().getStringExtra("KEY_CALL_FROM");
+        this.hFF = getIntent().getStringExtra("video_title");
+        this.eig = getIntent().getStringExtra("KEY_CALL_FROM");
         this.mFromType = getIntent().getStringExtra("from_type");
         Serializable serializableExtra = getIntent().getSerializableExtra(WriteVideoActivityConfig.VIDEO_INFO);
         if (serializableExtra instanceof VideoInfo) {
@@ -111,43 +111,43 @@ public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVi
         if (!TextUtils.isEmpty(this.mVideoPath) && !new File(this.mVideoPath).exists()) {
             finishPage();
         }
-        new File(c.hCU).mkdirs();
-        this.hEB = new SelectCoverModel(getPageContext(), this, this.hpD);
-        this.hEC = new SelectMusicModel(getPageContext(), this);
-        this.hEG = new com.baidu.tieba.video.editvideo.b.a(this);
-        this.hEG.a(this);
-        this.hEA = new com.baidu.tieba.video.editvideo.view.a(getPageContext(), this, findViewById(e.g.root_layout), this.hpD);
-        this.hEA.setData(this.mVideoPath);
-        this.hEA.ae(getIntent());
-        this.hEA.a(this.hEG);
-        this.hEA.setGenMaskCoverListener(this);
-        this.hEB.bJG();
-        this.hEC.bJH();
-        this.dCS = new d(getPageContext());
-        this.dCS.ec(e.j.mixing);
-        registerListener(this.hEI);
-        bJc();
-        registerListener(this.hEH);
-        bJb();
+        new File(c.hEb).mkdirs();
+        this.hFI = new SelectCoverModel(getPageContext(), this, this.hqL);
+        this.hFJ = new SelectMusicModel(getPageContext(), this);
+        this.hFN = new com.baidu.tieba.video.editvideo.b.a(this);
+        this.hFN.a(this);
+        this.hFH = new com.baidu.tieba.video.editvideo.view.a(getPageContext(), this, findViewById(e.g.root_layout), this.hqL);
+        this.hFH.setData(this.mVideoPath);
+        this.hFH.ae(getIntent());
+        this.hFH.a(this.hFN);
+        this.hFH.setGenMaskCoverListener(this);
+        this.hFI.bKp();
+        this.hFJ.bKq();
+        this.dDB = new d(getPageContext());
+        this.dDB.ec(e.j.mixing);
+        registerListener(this.hFP);
+        bJL();
+        registerListener(this.hFO);
+        bJK();
         TiebaStatic.log("c12303");
     }
 
-    private void bJa() {
+    private void bJJ() {
         this.Dd = true;
-        this.hEE = null;
-        this.hED = null;
-        aHD();
+        this.hFL = null;
+        this.hFK = null;
+        aIa();
     }
 
-    public void bJb() {
+    public void bJK() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_VIDEO_ACTIVITY);
-        if (!StringUtils.isNull(this.daG)) {
-            httpMessage.addParam("forum_id", this.daG);
+        if (!StringUtils.isNull(this.dbr)) {
+            httpMessage.addParam("forum_id", this.dbr);
         }
         sendMessage(httpMessage);
     }
 
-    private void bJc() {
+    private void bJL() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_VIDEO_ACTIVITY, TbConfig.SERVER_ADDRESS + TbConfig.GET_VIDEO_ACTIVITY);
         tbHttpMessageTask.setResponsedClass(ResponseGetVideoActivityMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -157,9 +157,9 @@ public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVi
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         getLayoutMode().setNightMode(i == 1);
-        getLayoutMode().onModeChanged(this.hEA.getRootView());
-        if (this.hEA != null) {
-            this.hEA.onChangeSkinType(getPageContext(), i);
+        getLayoutMode().onModeChanged(this.hFH.getRootView());
+        if (this.hFH != null) {
+            this.hFH.onChangeSkinType(getPageContext(), i);
         }
     }
 
@@ -167,200 +167,200 @@ public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVi
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        if (this.hEA != null) {
-            this.hEA.onPause();
+        if (this.hFH != null) {
+            this.hFH.onPause();
         }
-        if (this.hEG.bJl()) {
-            this.hEG.bJm();
+        if (this.hFN.bJU()) {
+            this.hFN.bJV();
         }
-        this.hEF = false;
+        this.hFM = false;
         this.Dd = true;
-        bJa();
+        bJJ();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.hEA != null) {
-            this.hEA.onResume();
+        if (this.hFH != null) {
+            this.hFH.onResume();
         }
     }
 
     @Override // android.app.Activity
     protected void onRestart() {
         super.onRestart();
-        com.baidu.tieba.video.editvideo.model.a.bJB().bJC();
-        com.baidu.tieba.video.editvideo.model.b.bJE().bJF();
+        com.baidu.tieba.video.editvideo.model.a.bKk().bKl();
+        com.baidu.tieba.video.editvideo.model.b.bKn().bKo();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.hEA != null) {
-            this.hEA.release();
+        if (this.hFH != null) {
+            this.hFH.release();
         }
-        if (this.hEB != null) {
-            this.hEB.cancelLoadData();
+        if (this.hFI != null) {
+            this.hFI.cancelLoadData();
         }
-        if (this.hEC != null) {
-            this.hEC.cancelLoadData();
+        if (this.hFJ != null) {
+            this.hFJ.cancelLoadData();
         }
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_VIDEO_ACTIVITY);
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        if (this.hEA != null) {
-            this.hEA.showDialog();
+        if (this.hFH != null) {
+            this.hFH.showDialog();
         }
     }
 
     @Override // com.baidu.tieba.video.editvideo.a
     public void finishPage() {
-        aHD();
-        this.hEF = false;
-        if (this.hEA != null && this.hEA.bJT() != null) {
-            this.hEA.bJT().pause();
-            this.hEA.bJT().releaseSource();
+        aIa();
+        this.hFM = false;
+        if (this.hFH != null && this.hFH.bKC() != null) {
+            this.hFH.bKC().pause();
+            this.hFH.bKC().releaseSource();
         }
         setResult(-1);
         finish();
     }
 
     @Override // com.baidu.tieba.video.editvideo.a
-    public void bJd() {
-        if (this.hEA == null || this.hEB == null || this.hEC == null) {
-            aHD();
-            this.hEF = false;
+    public void bJM() {
+        if (this.hFH == null || this.hFI == null || this.hFJ == null) {
+            aIa();
+            this.hFM = false;
         } else if (!j.kV()) {
             getPageContext().showToast(e.j.no_network);
-        } else if (!this.hEF) {
-            this.hEF = true;
+        } else if (!this.hFM) {
+            this.hFM = true;
             this.Dd = false;
-            this.hEE = null;
-            this.hED = null;
-            this.hEA.onPause();
-            this.dCS.bA(true);
-            bJf();
+            this.hFL = null;
+            this.hFK = null;
+            this.hFH.onPause();
+            this.dDB.bB(true);
+            bJO();
         }
     }
 
-    private void aHD() {
-        if (this.dCS != null) {
-            this.dCS.bA(false);
+    private void aIa() {
+        if (this.dDB != null) {
+            this.dDB.bB(false);
         }
     }
 
-    private void bJe() {
+    private void bJN() {
         if (this.Dd) {
             this.Dd = false;
-        } else if (this.hEA.bKa()) {
-            this.hEC.d(this.mVideoPath, this.hEA.bJY(), c.hCT + "video_" + System.currentTimeMillis() + ".mp4", this.hEA.isMute() ? false : true);
-        } else if (this.hEA.isMute()) {
-            this.hEC.d(this.mVideoPath, null, c.hCT + "video_" + System.currentTimeMillis() + ".mp4", this.hEA.isMute() ? false : true);
+        } else if (this.hFH.bKJ()) {
+            this.hFJ.d(this.mVideoPath, this.hFH.bKH(), c.hEa + "video_" + System.currentTimeMillis() + ".mp4", this.hFH.isMute() ? false : true);
+        } else if (this.hFH.isMute()) {
+            this.hFJ.d(this.mVideoPath, null, c.hEa + "video_" + System.currentTimeMillis() + ".mp4", this.hFH.isMute() ? false : true);
         } else {
             m(this.mVideoPath, -4399, "");
         }
     }
 
-    private void bJf() {
+    private void bJO() {
         if (this.Dd) {
             this.Dd = false;
             return;
         }
-        String text = this.hEA.getText();
+        String text = this.hFH.getText();
         if (TextUtils.isEmpty(text)) {
-            this.hEB.aX(this.mVideoPath, this.hEA.getCurrentPosition());
+            this.hFI.aX(this.mVideoPath, this.hFH.getCurrentPosition());
         } else {
-            this.hEB.tz(text);
+            this.hFI.tP(text);
         }
     }
 
     @Override // com.baidu.tieba.video.editvideo.a
-    public void bJg() {
+    public void bJP() {
         File file;
         this.Dd = false;
-        if (this.hEA.bKa() || this.hEA.isMute()) {
-            this.hEF = false;
-            this.dCS.bA(true);
-            this.hEA.onPause();
-            if (this.hEE != null) {
-                m(this.hEE, -4399, "");
+        if (this.hFH.bKJ() || this.hFH.isMute()) {
+            this.hFM = false;
+            this.dDB.bB(true);
+            this.hFH.onPause();
+            if (this.hFL != null) {
+                m(this.hFL, -4399, "");
             } else {
-                bJe();
+                bJN();
             }
-        } else if (this.hEG.bJk()) {
-            this.hEF = false;
-            this.hEA.onPause();
-            this.dCS.bA(true);
-            wF(this.mVideoPath);
+        } else if (this.hFN.bJT()) {
+            this.hFM = false;
+            this.hFH.onPause();
+            this.dDB.bB(true);
+            wV(this.mVideoPath);
         } else {
             if (this.mVideoInfo.getVideoType() == 1 || (this.mVideoInfo.getVideoType() == 2 && this.mVideoInfo.isCompressedVideo())) {
-                com.baidu.tbadk.core.util.l.copyFile(new File(this.mVideoPath).getAbsolutePath(), c.hCU + file.getName());
-                wH(c.hCU + file.getName());
+                com.baidu.tbadk.core.util.l.copyFile(new File(this.mVideoPath).getAbsolutePath(), c.hEb + file.getName());
+                wX(c.hEb + file.getName());
             }
             finishPage();
         }
     }
 
     @Override // com.baidu.tieba.video.editvideo.a
-    public void boz() {
-        if (this.hEA == null || this.hEB == null) {
-            aHD();
-            this.hEF = false;
+    public void bpi() {
+        if (this.hFH == null || this.hFI == null) {
+            aIa();
+            this.hFM = false;
         } else if (this.Dd) {
             this.Dd = false;
         } else {
-            this.hEB.aX(this.mVideoPath, this.hEA.getCurrentPosition());
+            this.hFI.aX(this.mVideoPath, this.hFH.getCurrentPosition());
         }
     }
 
     @Override // com.baidu.tieba.video.editvideo.a
-    public void tx(String str) {
+    public void tN(String str) {
         if (this.Dd) {
             this.Dd = false;
-        } else if (this.hEF) {
+        } else if (this.hFM) {
             showToast(str);
-            aHD();
-            this.hEF = false;
+            aIa();
+            this.hFM = false;
         }
     }
 
     @Override // com.baidu.tieba.video.editvideo.a
     public void y(Bitmap bitmap) {
-        this.hEA.bJT().C(bitmap);
+        this.hFH.bKC().C(bitmap);
     }
 
     @Override // com.baidu.tieba.video.editvideo.a
-    public void wD(String str) {
+    public void wT(String str) {
         if (this.Dd) {
             this.Dd = false;
             return;
         }
-        this.hED = str;
-        bJe();
+        this.hFK = str;
+        bJN();
     }
 
-    private void bJh() {
+    private void bJQ() {
         if (this.Dd) {
             this.Dd = false;
-        } else if (!TextUtils.isEmpty(this.hED) && !TextUtils.isEmpty(this.hEE)) {
-            this.mVideoInfo.setVideoPath(this.hEE);
-            this.mVideoInfo.setThumbPath(this.hED);
-            if (this.hEA.bKa() && !TextUtils.isEmpty(this.hEA.bJZ())) {
+        } else if (!TextUtils.isEmpty(this.hFK) && !TextUtils.isEmpty(this.hFL)) {
+            this.mVideoInfo.setVideoPath(this.hFL);
+            this.mVideoInfo.setThumbPath(this.hFK);
+            if (this.hFH.bKJ() && !TextUtils.isEmpty(this.hFH.bKI())) {
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(this.hEA.bJZ());
+                arrayList.add(this.hFH.bKI());
                 this.mVideoInfo.setMusicListInfo(arrayList);
             }
-            WriteVideoActivityConfig writeVideoActivityConfig = new WriteVideoActivityConfig(getPageContext().getPageActivity(), this.ehA, this.daG, this.mForumName, this.hEy, 13003, this.mVideoInfo, this.mVideoTitleData, this.hEz);
+            WriteVideoActivityConfig writeVideoActivityConfig = new WriteVideoActivityConfig(getPageContext().getPageActivity(), this.eig, this.dbr, this.mForumName, this.hFF, 13003, this.mVideoInfo, this.mVideoTitleData, this.hFG);
             if (!StringUtils.isNull(this.mFromType)) {
                 writeVideoActivityConfig.addFromType(this.mFromType);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, writeVideoActivityConfig));
-            aHD();
-            this.hEF = false;
+            aIa();
+            this.hFM = false;
         }
     }
 
@@ -371,7 +371,7 @@ public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVi
         }
         list.add(0, new MusicData("-100", 1, getPageContext().getString(e.j.music_normal)));
         list.add(1, new MusicData("-200", 2, getPageContext().getString(e.j.music_cloud)));
-        this.hEA.setMusicData(list);
+        this.hFH.setMusicData(list);
     }
 
     @Override // com.baidu.tieba.video.editvideo.b
@@ -380,27 +380,27 @@ public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVi
             this.Dd = false;
         } else if (TextUtils.isEmpty(str)) {
             showToast(e.j.mixing_fail);
-            aHD();
-            this.hEA.onResume();
-            this.hEF = false;
-            if (this.hpD != null) {
-                this.hpD.aa(i, str2);
+            aIa();
+            this.hFH.onResume();
+            this.hFM = false;
+            if (this.hqL != null) {
+                this.hqL.ac(i, str2);
             }
-        } else if (this.hEG.bJk()) {
-            wF(str);
+        } else if (this.hFN.bJT()) {
+            wV(str);
         } else {
-            wG(str);
+            wW(str);
         }
     }
 
     @Override // com.baidu.tieba.video.editvideo.a
-    public void bJi() {
-        this.hEE = null;
+    public void bJR() {
+        this.hFL = null;
     }
 
     @Override // com.baidu.tieba.video.editvideo.a
-    public void dY(List<PendantData> list) {
-        this.hEA.dY(list);
+    public void dZ(List<PendantData> list) {
+        this.hFH.dZ(list);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -410,30 +410,30 @@ public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVi
             String stringExtra = intent.getStringExtra("music_resource");
             String stringExtra2 = intent.getStringExtra("music_id");
             if (!TextUtils.isEmpty(stringExtra) && !TextUtils.isEmpty(stringExtra2)) {
-                String wK = com.baidu.tieba.video.editvideo.model.a.bJB().wK(stringExtra);
-                if (this.hEA != null && !TextUtils.isEmpty(wK)) {
-                    this.hEA.cS(wK, stringExtra2);
+                String xa = com.baidu.tieba.video.editvideo.model.a.bKk().xa(stringExtra);
+                if (this.hFH != null && !TextUtils.isEmpty(xa)) {
+                    this.hFH.cU(xa, stringExtra2);
                 }
             }
         }
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
-    public void wE(String str) {
-        wG(str);
+    public void wU(String str) {
+        wW(str);
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
-    public void an(int i, String str) {
-        if (this.hpD != null) {
-            this.hpD.aa(i, str);
+    public void ap(int i, String str) {
+        if (this.hqL != null) {
+            this.hqL.ac(i, str);
         }
     }
 
     @Override // com.baidu.tieba.video.editvideo.b.b.a
-    public void ao(int i, String str) {
-        if (this.hpD != null) {
-            this.hpD.aa(i, str);
+    public void aq(int i, String str) {
+        if (this.hqL != null) {
+            this.hqL.ac(i, str);
         }
     }
 
@@ -442,49 +442,49 @@ public class EditVideoActivity extends BaseActivity implements a, b, b.a, MaskVi
         z(bitmap);
     }
 
-    private void wF(String str) {
-        this.hEA.bJW();
-        this.hEA.bJX();
-        this.hEA.bJT().releaseSource();
-        this.hEG.wJ(str);
+    private void wV(String str) {
+        this.hFH.bKF();
+        this.hFH.bKG();
+        this.hFH.bKC().releaseSource();
+        this.hFN.wZ(str);
     }
 
-    private void wG(String str) {
+    private void wW(String str) {
         File file;
-        this.hEE = str;
-        if (this.hEF) {
-            bJh();
+        this.hFL = str;
+        if (this.hFM) {
+            bJQ();
             return;
         }
-        String str2 = c.hCU + file.getName();
-        com.baidu.tbadk.core.util.l.copyFile(new File(this.hEE).getAbsolutePath(), str2);
-        wH(str2);
-        aHD();
+        String str2 = c.hEb + file.getName();
+        com.baidu.tbadk.core.util.l.copyFile(new File(this.hFL).getAbsolutePath(), str2);
+        wX(str2);
+        aIa();
         finishPage();
     }
 
-    private void wH(String str) {
+    private void wX(String str) {
         try {
-            new w(this).fy(str);
-            com.baidu.tieba.video.editvideo.b.c.aL(this, str);
+            new w(this).fL(str);
+            com.baidu.tieba.video.editvideo.b.c.aJ(this, str);
         } catch (Exception e) {
-            aHD();
-            this.hEF = false;
+            aIa();
+            this.hFM = false;
         }
     }
 
     private void z(Bitmap bitmap) {
-        if (this.hEA == null || this.hEB == null) {
-            aHD();
-            this.hEF = false;
+        if (this.hFH == null || this.hFI == null) {
+            aIa();
+            this.hFM = false;
         } else if (this.Dd) {
             this.Dd = false;
         } else {
-            if (!TextUtils.isEmpty(this.hEA.getText())) {
-                bitmap = this.hEA.s(bitmap);
+            if (!TextUtils.isEmpty(this.hFH.getText())) {
+                bitmap = this.hFH.s(bitmap);
             }
             if (bitmap != null) {
-                this.hEB.b(bitmap, c.hCS);
+                this.hFI.b(bitmap, c.hDZ);
             }
         }
     }

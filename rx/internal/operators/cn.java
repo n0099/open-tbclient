@@ -4,8 +4,8 @@ import java.util.Iterator;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class cn<T1, T2, R> implements d.b<R, T1> {
-    final Iterable<? extends T2> iNo;
-    final rx.functions.g<? super T1, ? super T2, ? extends R> iNp;
+    final Iterable<? extends T2> iOv;
+    final rx.functions.g<? super T1, ? super T2, ? extends R> iOw;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -13,17 +13,17 @@ public final class cn<T1, T2, R> implements d.b<R, T1> {
     }
 
     public cn(Iterable<? extends T2> iterable, rx.functions.g<? super T1, ? super T2, ? extends R> gVar) {
-        this.iNo = iterable;
-        this.iNp = gVar;
+        this.iOv = iterable;
+        this.iOw = gVar;
     }
 
     /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: rx.j<T1>, rx.j<? super T1> */
     public rx.j<? super T1> call(final rx.j<? super R> jVar) {
-        final Iterator<? extends T2> it = this.iNo.iterator();
+        final Iterator<? extends T2> it = this.iOv.iterator();
         try {
             if (!it.hasNext()) {
                 jVar.onCompleted();
-                return rx.b.g.cfD();
+                return rx.b.g.cgl();
             }
             return (rx.j<T1>) new rx.j<T1>(jVar) { // from class: rx.internal.operators.cn.1
                 boolean done;
@@ -50,7 +50,7 @@ public final class cn<T1, T2, R> implements d.b<R, T1> {
                 public void onNext(T1 t1) {
                     if (!this.done) {
                         try {
-                            jVar.onNext(cn.this.iNp.j(t1, (Object) it.next()));
+                            jVar.onNext(cn.this.iOw.j(t1, (Object) it.next()));
                             if (!it.hasNext()) {
                                 onCompleted();
                             }
@@ -62,7 +62,7 @@ public final class cn<T1, T2, R> implements d.b<R, T1> {
             };
         } catch (Throwable th) {
             rx.exceptions.a.a(th, jVar);
-            return rx.b.g.cfD();
+            return rx.b.g.cgl();
         }
     }
 }

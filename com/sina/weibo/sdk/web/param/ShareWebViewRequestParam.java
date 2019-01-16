@@ -9,10 +9,12 @@ import com.sina.weibo.sdk.api.TextObject;
 import com.sina.weibo.sdk.api.WebpageObject;
 import com.sina.weibo.sdk.api.WeiboMultiMessage;
 import com.sina.weibo.sdk.auth.AuthInfo;
-import com.sina.weibo.sdk.exception.WeiboException;
-import com.sina.weibo.sdk.net.AsyncWeiboRunner;
-import com.sina.weibo.sdk.net.RequestListener;
+import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.net.WeiboParameters;
+import com.sina.weibo.sdk.network.IRequestService;
+import com.sina.weibo.sdk.network.impl.RequestParam;
+import com.sina.weibo.sdk.network.impl.RequestService;
+import com.sina.weibo.sdk.network.target.SimpleTarget;
 import com.sina.weibo.sdk.utils.Base64;
 import com.sina.weibo.sdk.utils.Utility;
 import com.sina.weibo.sdk.utils.WbSdkVersion;
@@ -61,25 +63,30 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
     @Override // com.sina.weibo.sdk.web.param.BaseWebViewRequestParam
     public void doExtraTask(final BaseWebViewRequestParam.ExtraTaskCallback extraTaskCallback) {
         super.doExtraTask(extraTaskCallback);
-        WeiboParameters weiboParameters = new WeiboParameters(getBaseData().getAuthInfo().getAppKey());
-        weiboParameters.put(SocialConstants.PARAM_IMG_URL, new String(this.mBase64ImgData));
-        new AsyncWeiboRunner(this.context).requestAsync(UPLOAD_PIC_URL, weiboParameters, "POST", new RequestListener() { // from class: com.sina.weibo.sdk.web.param.ShareWebViewRequestParam.1
-            @Override // com.sina.weibo.sdk.net.RequestListener
-            public void onWeiboException(WeiboException weiboException) {
-                if (extraTaskCallback != null) {
-                    extraTaskCallback.onException("upload pic fail");
-                }
-            }
-
-            @Override // com.sina.weibo.sdk.net.RequestListener
-            public void onComplete(String str) {
-                WebPicUploadResult parse = WebPicUploadResult.parse(str);
+        new WeiboParameters(getBaseData().getAuthInfo().getAppKey());
+        String str = new String(this.mBase64ImgData);
+        IRequestService requestService = RequestService.getInstance();
+        RequestParam.Builder builder = new RequestParam.Builder(this.context);
+        builder.setShortUrl(UPLOAD_PIC_URL);
+        builder.addPostParam(SocialConstants.PARAM_IMG_URL, str);
+        builder.addPostParam(WBConstants.SSO_APP_KEY, getBaseData().getAuthInfo().getAppKey());
+        requestService.asyncRequest(builder.build(), new SimpleTarget() { // from class: com.sina.weibo.sdk.web.param.ShareWebViewRequestParam.1
+            @Override // com.sina.weibo.sdk.network.target.SimpleTarget
+            public void onSuccess(String str2) {
+                WebPicUploadResult parse = WebPicUploadResult.parse(str2);
                 if (parse != null && parse.getCode() == 1 && !TextUtils.isEmpty(parse.getPicId())) {
                     ShareWebViewRequestParam.this.picId = parse.getPicId();
                     if (extraTaskCallback != null) {
                         extraTaskCallback.onComplete(ShareWebViewRequestParam.this.picId);
                     }
                 } else if (extraTaskCallback != null) {
+                    extraTaskCallback.onException("upload pic fail");
+                }
+            }
+
+            @Override // com.sina.weibo.sdk.network.target.Target
+            public void onFailure(Exception exc) {
+                if (extraTaskCallback != null) {
                     extraTaskCallback.onException("upload pic fail");
                 }
             }

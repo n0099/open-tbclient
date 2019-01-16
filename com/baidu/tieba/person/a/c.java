@@ -5,11 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.data.k;
+import com.baidu.tbadk.data.m;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
-public class c extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.person.b.c> {
-    private View.OnClickListener dhd;
+public class c extends com.baidu.adp.widget.ListView.a<m, com.baidu.tieba.person.b.c> {
+    private View.OnClickListener dhP;
     private TbPageContext mTbPageContext;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -29,16 +29,16 @@ public class c extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.person
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, k kVar, com.baidu.tieba.person.b.c cVar) {
-        if (cVar == null || kVar == null) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, m mVar, com.baidu.tieba.person.b.c cVar) {
+        if (cVar == null || mVar == null) {
             return null;
         }
-        cVar.w(this.dhd);
-        cVar.g(kVar);
+        cVar.w(this.dhP);
+        cVar.g(mVar);
         return cVar.getView();
     }
 
     public void w(View.OnClickListener onClickListener) {
-        this.dhd = onClickListener;
+        this.dhP = onClickListener;
     }
 }
