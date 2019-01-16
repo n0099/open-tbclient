@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 public class Static {
-    public static final String[] bhF = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
+    public static final String[] biq = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2001011) { // from class: com.baidu.tbadk.plugins.Static.1
@@ -34,7 +34,7 @@ public class Static {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData)) {
                     boolean z = true;
                     ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-                    String[] strArr = Static.bhF;
+                    String[] strArr = Static.biq;
                     int length = strArr.length;
                     int i = 0;
                     while (true) {
@@ -53,7 +53,7 @@ public class Static {
                     }
                     if (exceptionData.mExcep != null && exceptionData.mExcep.getCause() != null && exceptionData.mExcep.getCause().getStackTrace() != null && z && exceptionData != null && exceptionData.info != null) {
                         try {
-                            List<PluginSetting> pluginSettingsSortLoadPriorty = c.nC().nz().getPluginSettingsSortLoadPriorty();
+                            List<PluginSetting> pluginSettingsSortLoadPriorty = c.nG().nD().getPluginSettingsSortLoadPriorty();
                             if (pluginSettingsSortLoadPriorty != null && !pluginSettingsSortLoadPriorty.isEmpty() && (stackTrace = exceptionData.mExcep.getCause().getStackTrace()) != null && stackTrace.length != 0) {
                                 for (PluginSetting pluginSetting : pluginSettingsSortLoadPriorty) {
                                     if (pluginSetting.isPatch && pluginSetting.enable && (plugin2 = PluginCenter.getInstance().getPlugin(pluginSetting.packageName)) != null && plugin2.getDexClassLoader() != null) {

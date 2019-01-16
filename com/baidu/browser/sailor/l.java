@@ -9,11 +9,11 @@ import com.baidu.webkit.sdk.WebChromeClient;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class l implements Runnable {
-    final /* synthetic */ BdSailorWebView VM;
+    final /* synthetic */ BdSailorWebView VV;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public l(BdSailorWebView bdSailorWebView) {
-        this.VM = bdSailorWebView;
+        this.VV = bdSailorWebView;
     }
 
     @Override // java.lang.Runnable
@@ -26,30 +26,30 @@ public final class l implements Runnable {
         WebChromeClient.CustomViewCallback customViewCallback2;
         FrameLayout frameLayout3;
         try {
-            Context context = this.VM.getContext();
+            Context context = this.VV.getContext();
             Activity activity = context instanceof Activity ? (Activity) context : null;
             if (activity != null) {
-                if (this.VM.getCurrentWebView() != null) {
-                    this.VM.getCurrentWebView().setVisibility(0);
+                if (this.VV.getCurrentWebView() != null) {
+                    this.VV.getCurrentWebView().setVisibility(0);
                 }
-                this.VM.setFullscreen(activity, false);
+                this.VV.setFullscreen(activity, false);
                 Window window = activity.getWindow();
                 if (window == null || (frameLayout = (FrameLayout) window.getDecorView()) == null) {
                     return;
                 }
-                frameLayout2 = this.VM.mFullscreenContainer;
+                frameLayout2 = this.VV.mFullscreenContainer;
                 if (frameLayout2 != null) {
-                    frameLayout3 = this.VM.mFullscreenContainer;
+                    frameLayout3 = this.VV.mFullscreenContainer;
                     frameLayout.removeView(frameLayout3);
-                    this.VM.mFullscreenContainer = null;
+                    this.VV.mFullscreenContainer = null;
                 }
-                this.VM.mCustomView = null;
-                customViewCallback = this.VM.mCustomViewCallback;
+                this.VV.mCustomView = null;
+                customViewCallback = this.VV.mCustomViewCallback;
                 if (customViewCallback != null) {
-                    customViewCallback2 = this.VM.mCustomViewCallback;
+                    customViewCallback2 = this.VV.mCustomViewCallback;
                     customViewCallback2.onCustomViewHidden();
                 }
-                i = this.VM.mOriginalOrientation;
+                i = this.VV.mOriginalOrientation;
                 activity.setRequestedOrientation(i);
             }
         } catch (Exception e) {

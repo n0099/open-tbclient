@@ -30,17 +30,17 @@ public class FRSExtraStatic {
         TbadkCoreApplication.getInst().RegisterIntent(VideoMiddlePageActivityConfig.class, VideoMiddlePageActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(FrsGameCommentActivityConfig.class, FrsGameCommentActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(FrsGameSubPbActivityConfig.class, FrsGameSubPbActivity.class);
-        bb.atr.set(true);
-        c.dJY.set(new aq());
+        bb.atT.set(true);
+        c.dKH.set(new aq());
         MessageManager.getInstance().registerListener(new CustomMessageListener(2003008) { // from class: com.baidu.tieba.frs.FRSExtraStatic.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                     AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                    absDelegateAdapterList.add(new r(null, com.baidu.tbadk.core.data.at.asH, null));
-                    absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.a(null, com.baidu.tieba.card.data.n.dbi, true));
-                    absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.b(null, com.baidu.tieba.tbadkCore.v.hnE, null));
+                    absDelegateAdapterList.add(new r(null, com.baidu.tbadk.core.data.at.atj, null));
+                    absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.a(null, com.baidu.tieba.card.data.n.dbU, true));
+                    absDelegateAdapterList.add(new com.baidu.tieba.frs.a.a.b(null, com.baidu.tieba.tbadkCore.v.hoJ, null));
                 }
             }
         });
@@ -50,52 +50,52 @@ public class FRSExtraStatic {
                 return null;
             }
         }));
-        ay.Ef().a(new ay.a() { // from class: com.baidu.tieba.frs.FRSExtraStatic.3
+        ay.Es().a(new ay.a() { // from class: com.baidu.tieba.frs.FRSExtraStatic.3
             @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
-                Map<String, String> fO;
+                Map<String, String> gb;
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
                     return 3;
                 }
                 String str = strArr[0];
-                if (!str.contains("tieba.baidu.com/videoMiddlePage") || (fO = ay.fO(ay.fP(str))) == null) {
+                if (!str.contains("tieba.baidu.com/videoMiddlePage") || (gb = ay.gb(ay.gc(str))) == null) {
                     return 3;
                 }
-                String str2 = fO.get("userName");
+                String str2 = gb.get("userName");
                 String decode = !com.baidu.tbadk.core.util.ao.isEmpty(str2) ? URLDecoder.decode(str2) : str2;
-                String str3 = fO.get(IntentConfig.PORTRAIT);
+                String str3 = gb.get(IntentConfig.PORTRAIT);
                 String decode2 = !com.baidu.tbadk.core.util.ao.isEmpty(str3) ? URLDecoder.decode(str3) : str3;
-                String str4 = fO.get("videoUrl");
+                String str4 = gb.get("videoUrl");
                 String decode3 = !com.baidu.tbadk.core.util.ao.isEmpty(str4) ? URLDecoder.decode(str4) : str4;
-                String str5 = fO.get("thumbnailUrl");
+                String str5 = gb.get("thumbnailUrl");
                 String decode4 = !com.baidu.tbadk.core.util.ao.isEmpty(str5) ? URLDecoder.decode(str5) : str5;
-                String str6 = fO.get("title");
+                String str6 = gb.get("title");
                 String decode5 = !com.baidu.tbadk.core.util.ao.isEmpty(str6) ? URLDecoder.decode(str6) : str6;
                 VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
                 videoSerializeVideoThreadInfo.author = new VideoSerializeVideoThreadInfo.VideoAggregationAuthorData();
-                videoSerializeVideoThreadInfo.author.userId = fO.get("userId");
+                videoSerializeVideoThreadInfo.author.userId = gb.get("userId");
                 videoSerializeVideoThreadInfo.author.userName = decode;
                 videoSerializeVideoThreadInfo.author.portrait = decode2;
-                videoSerializeVideoThreadInfo.author.hasFocus = "1".equals(fO.get("hasFocus"));
-                videoSerializeVideoThreadInfo.author.isGod = "1".equals(fO.get("isGod"));
+                videoSerializeVideoThreadInfo.author.hasFocus = "1".equals(gb.get("hasFocus"));
+                videoSerializeVideoThreadInfo.author.isGod = "1".equals(gb.get("isGod"));
                 videoSerializeVideoThreadInfo.video = new VideoSerializeVideoThreadInfo.VideoAggregationVideoData();
-                videoSerializeVideoThreadInfo.video.videoMd5 = fO.get("videoMd5");
+                videoSerializeVideoThreadInfo.video.videoMd5 = gb.get("videoMd5");
                 videoSerializeVideoThreadInfo.video.videoUrl = decode3;
-                videoSerializeVideoThreadInfo.video.videoWidth = fO.get("videoWidth");
-                videoSerializeVideoThreadInfo.video.videoHeight = fO.get("videoHeight");
+                videoSerializeVideoThreadInfo.video.videoWidth = gb.get("videoWidth");
+                videoSerializeVideoThreadInfo.video.videoHeight = gb.get("videoHeight");
                 videoSerializeVideoThreadInfo.video.thumbnailUrl = decode4;
-                videoSerializeVideoThreadInfo.forumId = fO.get(TbTitleActivityConfig.FORUM_ID);
-                videoSerializeVideoThreadInfo.threadId = fO.get("threadId");
-                videoSerializeVideoThreadInfo.hasAgree = "1".equals(fO.get("hasAgree"));
+                videoSerializeVideoThreadInfo.forumId = gb.get(TbTitleActivityConfig.FORUM_ID);
+                videoSerializeVideoThreadInfo.threadId = gb.get("threadId");
+                videoSerializeVideoThreadInfo.hasAgree = "1".equals(gb.get("hasAgree"));
                 videoSerializeVideoThreadInfo.title = decode5;
-                videoSerializeVideoThreadInfo.video.videoDuration = com.baidu.adp.lib.g.b.l(fO.get(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), 0);
-                videoSerializeVideoThreadInfo.postNum = com.baidu.adp.lib.g.b.l(fO.get("postNum"), 0);
-                videoSerializeVideoThreadInfo.agreeNum = com.baidu.adp.lib.g.b.l(fO.get("agreeNum"), 0);
-                videoSerializeVideoThreadInfo.disAgreeNum = com.baidu.adp.lib.g.b.l(fO.get("disagreeNum"), 0);
-                videoSerializeVideoThreadInfo.agreeType = com.baidu.adp.lib.g.b.l(fO.get("agreeType"), 0);
-                videoSerializeVideoThreadInfo.shareNum = com.baidu.adp.lib.g.b.l(fO.get("shareNum"), 0);
+                videoSerializeVideoThreadInfo.video.videoDuration = com.baidu.adp.lib.g.b.l(gb.get(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION), 0);
+                videoSerializeVideoThreadInfo.postNum = com.baidu.adp.lib.g.b.l(gb.get("postNum"), 0);
+                videoSerializeVideoThreadInfo.agreeNum = com.baidu.adp.lib.g.b.l(gb.get("agreeNum"), 0);
+                videoSerializeVideoThreadInfo.disAgreeNum = com.baidu.adp.lib.g.b.l(gb.get("disagreeNum"), 0);
+                videoSerializeVideoThreadInfo.agreeType = com.baidu.adp.lib.g.b.l(gb.get("agreeType"), 0);
+                videoSerializeVideoThreadInfo.shareNum = com.baidu.adp.lib.g.b.l(gb.get("shareNum"), 0);
                 videoSerializeVideoThreadInfo.mVideoCardViewInfo = new VideoSerializeVideoThreadInfo.VideoCardViewInfo();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoMiddlePageActivityConfig(tbPageContext.getContext(), fO.get("from"), videoSerializeVideoThreadInfo.threadId, "", "", videoSerializeVideoThreadInfo)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoMiddlePageActivityConfig(tbPageContext.getContext(), gb.get("from"), videoSerializeVideoThreadInfo.threadId, "", "", videoSerializeVideoThreadInfo)));
                 return 1;
             }
         });

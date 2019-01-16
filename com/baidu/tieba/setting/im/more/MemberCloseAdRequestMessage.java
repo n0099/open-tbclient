@@ -1,7 +1,7 @@
 package com.baidu.tieba.setting.im.more;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.util.p;
+import com.baidu.tbadk.util.q;
 import tbclient.CloseAd.CloseAdReqIdl;
 import tbclient.CloseAd.DataReq;
 /* loaded from: classes3.dex */
@@ -21,7 +21,7 @@ public class MemberCloseAdRequestMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.vip_close = Integer.valueOf(this.mVipClose);
         if (z) {
-            p.bindCommonParamsToProtobufData(builder, true);
+            q.bindCommonParamsToProtobufData(builder, true);
         }
         CloseAdReqIdl.Builder builder2 = new CloseAdReqIdl.Builder();
         builder2.data = builder.build(false);

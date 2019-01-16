@@ -8,31 +8,31 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
 public class k {
-    private f aal;
-    private AtomicBoolean aam = new AtomicBoolean(false);
-    private com.baidu.b.a.f.d.a.a aan = new com.baidu.b.a.f.d.a.a() { // from class: com.baidu.b.a.f.d.k.1
+    private f aau;
+    private AtomicBoolean aav = new AtomicBoolean(false);
+    private com.baidu.b.a.f.d.a.a aaw = new com.baidu.b.a.f.d.a.a() { // from class: com.baidu.b.a.f.d.k.1
         @Override // com.baidu.b.a.f.d.a.a
         public void a(f fVar) {
-            k.this.aal = fVar;
+            k.this.aau = fVar;
         }
 
         @Override // com.baidu.b.a.f.d.a.a
         public void b(f fVar) {
-            if (k.this.aal == fVar) {
-                k.this.aal = null;
+            if (k.this.aau == fVar) {
+                k.this.aau = null;
             }
         }
     };
-    private com.baidu.b.a.f.d.a.b aao = new com.baidu.b.a.f.d.a.b(this.aan);
-    private b aap = new b() { // from class: com.baidu.b.a.f.d.k.2
+    private com.baidu.b.a.f.d.a.b aax = new com.baidu.b.a.f.d.a.b(this.aaw);
+    private b aay = new b() { // from class: com.baidu.b.a.f.d.k.2
         @Override // com.baidu.b.a.f.d.k.b
         public Runnable aK(boolean z) {
             return k.this.aJ(z);
         }
     };
-    private h<f> aai = new h<>();
-    private BlockingQueue<Runnable> aaj = new LinkedBlockingQueue();
-    private ThreadPoolExecutor aak = new ThreadPoolExecutor(1, 1, 1, TimeUnit.SECONDS, this.aaj);
+    private h<f> aar = new h<>();
+    private BlockingQueue<Runnable> aas = new LinkedBlockingQueue();
+    private ThreadPoolExecutor aat = new ThreadPoolExecutor(1, 1, 1, TimeUnit.SECONDS, this.aas);
 
     /* loaded from: classes2.dex */
     public interface b {
@@ -40,29 +40,29 @@ public class k {
     }
 
     public void c(com.baidu.b.a.f.d.a.a aVar) {
-        this.aao.e(aVar);
+        this.aax.e(aVar);
     }
 
     public void d(com.baidu.b.a.f.d.a.a aVar) {
-        this.aao.f(aVar);
+        this.aax.f(aVar);
     }
 
     /* loaded from: classes2.dex */
     public static class a implements Runnable {
-        private AtomicBoolean aam;
-        private com.baidu.b.a.f.d.a.a aar;
-        private b aas;
+        private com.baidu.b.a.f.d.a.a aaA;
+        private b aaB;
+        private AtomicBoolean aav;
 
         public a(AtomicBoolean atomicBoolean, com.baidu.b.a.f.d.a.a aVar, b bVar) {
-            this.aam = atomicBoolean;
-            this.aar = aVar;
-            this.aas = bVar;
+            this.aav = atomicBoolean;
+            this.aaA = aVar;
+            this.aaB = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Runnable aK;
-            while (!this.aam.get() && (aK = this.aas.aK(true)) != null && (aK instanceof f)) {
+            while (!this.aav.get() && (aK = this.aaB.aK(true)) != null && (aK instanceof f)) {
                 try {
                     l((f) aK);
                 } catch (Throwable th) {
@@ -74,7 +74,7 @@ public class k {
         }
 
         private void l(f fVar) {
-            this.aar.a(fVar);
+            this.aaA.a(fVar);
             try {
                 fVar.run();
             } catch (Exception e) {
@@ -82,7 +82,7 @@ public class k {
                     Log.e("ThreadQueue", "run task error:" + e.toString());
                 }
             } finally {
-                this.aar.b(fVar);
+                this.aaA.b(fVar);
             }
         }
     }
@@ -93,22 +93,22 @@ public class k {
     }
 
     public synchronized void i(f fVar) {
-        this.aai.E(fVar);
+        this.aar.E(fVar);
     }
 
     public synchronized void start() {
-        if (this.aaj.size() < 1) {
-            this.aak.execute(new a(this.aam, this.aao, this.aap));
+        if (this.aas.size() < 1) {
+            this.aat.execute(new a(this.aav, this.aax, this.aay));
         }
     }
 
     public synchronized Runnable aJ(boolean z) {
         f fVar;
-        if (this.aai != null) {
+        if (this.aar != null) {
             if (z) {
-                fVar = this.aai.rS();
+                fVar = this.aar.rW();
             } else {
-                fVar = this.aai.get();
+                fVar = this.aar.get();
             }
         } else {
             fVar = null;
@@ -118,11 +118,11 @@ public class k {
 
     public synchronized boolean b(f fVar, com.baidu.b.a.f.d.b bVar) {
         boolean z;
-        if (this.aal != null && this.aal.d(fVar)) {
-            this.aal.a(bVar);
+        if (this.aau != null && this.aau.d(fVar)) {
+            this.aau.a(bVar);
             z = true;
         } else {
-            f F = this.aai.F(fVar);
+            f F = this.aar.F(fVar);
             if (F != null) {
                 if (com.baidu.b.a.h.b.isDebug()) {
                     Log.w("ThreadQueue", "found duplicated task in mWaitingQueue:" + fVar.toString());
@@ -140,14 +140,14 @@ public class k {
         int i;
         boolean z;
         synchronized (this) {
-            if (this.aal == null || !this.aal.d(fVar)) {
+            if (this.aau == null || !this.aau.d(fVar)) {
                 i = 0;
             } else {
-                this.aal.aH(true);
+                this.aau.aH(true);
                 i = 1;
             }
-            if (this.aai.contains(fVar)) {
-                this.aai.remove(fVar);
+            if (this.aar.contains(fVar)) {
+                this.aar.remove(fVar);
                 i++;
             }
             z = i > 0;
@@ -157,7 +157,7 @@ public class k {
 
     public synchronized boolean k(f fVar) {
         f fVar2;
-        fVar2 = this.aal;
+        fVar2 = this.aau;
         return (fVar2 == null || fVar == null) ? false : fVar2.d(fVar);
     }
 }

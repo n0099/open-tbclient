@@ -29,7 +29,7 @@ public class k extends a {
         if (cVar.mi()) {
             this.Jn = new BitmapShader(cVar.IS.getBitmap(), Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         } else {
-            this.Jn = cVar.IT.ov();
+            this.Jn = cVar.IT.oz();
         }
         if (this.Jn != null) {
             this.Jn.setLocalMatrix(this.mShaderMatrix);

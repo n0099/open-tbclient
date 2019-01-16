@@ -49,32 +49,32 @@ public class c extends RecyclerView.Adapter<b> {
     /* renamed from: a */
     public void onBindViewHolder(b bVar, int i) {
         g gVar;
-        if (bVar != null && bVar.aJA() != null && this.mData != null && (gVar = this.mData.get(i)) != null) {
+        if (bVar != null && bVar.aJY() != null && this.mData != null && (gVar = this.mData.get(i)) != null) {
             int i2 = i + 1;
-            bVar.aJA().a(gVar);
-            bVar.aJA().getRootView().setOnClickListener(new a(gVar, i2));
-            TiebaStatic.log(new am("c13087").x("obj_locate", i2).aA("obj_name", this.mTopicName).aA(ImageViewerConfig.FORUM_ID, this.mForumId).aA("obj_param1", gVar.aJo()));
+            bVar.aJY().a(gVar);
+            bVar.aJY().getRootView().setOnClickListener(new a(gVar, i2));
+            TiebaStatic.log(new am("c13087").y("obj_locate", i2).aB("obj_name", this.mTopicName).aB(ImageViewerConfig.FORUM_ID, this.mForumId).aB("obj_param1", gVar.aJM()));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
-        private int daz;
-        private g emY;
+        private int dbk;
+        private g enF;
 
         public a(g gVar, int i) {
-            this.emY = gVar;
-            this.daz = i;
+            this.enF = gVar;
+            this.dbk = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.emY != null) {
+            if (this.enF != null) {
                 PbActivityConfig pbActivityConfig = new PbActivityConfig(c.this.mPageContext.getPageActivity());
-                pbActivityConfig.createNormalCfg(this.emY.getThreadId(), this.emY.aJo(), "frs_page");
+                pbActivityConfig.createNormalCfg(this.enF.getThreadId(), this.enF.aJM(), "frs_page");
                 c.this.mPageContext.sendMessage(new CustomMessage(2004001, pbActivityConfig));
-                TiebaStatic.log(new am("c13088").x("obj_locate", this.daz).aA("obj_name", c.this.mTopicName).aA(ImageViewerConfig.FORUM_ID, c.this.mForumId).aA("obj_param1", this.emY.aJo()));
+                TiebaStatic.log(new am("c13088").y("obj_locate", this.dbk).aB("obj_name", c.this.mTopicName).aB(ImageViewerConfig.FORUM_ID, c.this.mForumId).aB("obj_param1", this.enF.aJM()));
             }
         }
     }
@@ -91,15 +91,15 @@ public class c extends RecyclerView.Adapter<b> {
 
     /* loaded from: classes3.dex */
     public static class b extends RecyclerView.ViewHolder {
-        private com.baidu.tieba.frs.worldcup.videotopic.b.b ena;
+        private com.baidu.tieba.frs.worldcup.videotopic.b.b enH;
 
         public b(com.baidu.tieba.frs.worldcup.videotopic.b.b bVar) {
             super(bVar.getView());
-            this.ena = bVar;
+            this.enH = bVar;
         }
 
-        public com.baidu.tieba.frs.worldcup.videotopic.b.b aJA() {
-            return this.ena;
+        public com.baidu.tieba.frs.worldcup.videotopic.b.b aJY() {
+            return this.enH;
         }
     }
 }

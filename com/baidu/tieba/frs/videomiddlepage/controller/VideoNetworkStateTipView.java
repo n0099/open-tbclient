@@ -15,9 +15,9 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.video.g;
 /* loaded from: classes3.dex */
 public class VideoNetworkStateTipView extends RelativeLayout {
-    private TextView ein;
-    private TextView eio;
-    private TextView eip;
+    private TextView eiT;
+    private TextView eiU;
+    private TextView eiV;
     private Runnable mHideRunnable;
     private int mSkinType;
 
@@ -59,34 +59,34 @@ public class VideoNetworkStateTipView extends RelativeLayout {
 
     private void init() {
         inflate(getContext(), e.h.video_network_state_tip, this);
-        this.ein = (TextView) findViewById(e.g.play);
-        this.eio = (TextView) findViewById(e.g.free_flow);
-        this.eio.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.videomiddlepage.controller.VideoNetworkStateTipView.2
+        this.eiT = (TextView) findViewById(e.g.play);
+        this.eiU = (TextView) findViewById(e.g.free_flow);
+        this.eiU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.videomiddlepage.controller.VideoNetworkStateTipView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 com.baidu.tbadk.browser.a.a(true, VideoNetworkStateTipView.this.getContext(), VideoNetworkStateTipView.this.getResources().getString(e.j.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
             }
         });
-        this.eip = (TextView) findViewById(e.g.play_tips);
+        this.eiV = (TextView) findViewById(e.g.play_tips);
         onChangeSkinType(TbadkApplication.getInst().getSkinType());
     }
 
-    public boolean aID() {
-        return (hasAgreeToPlay() || g.bIG().bIH() || TbadkCoreApplication.getInst().getVideoAutoPlay() == 2 || !j.kX()) ? false : true;
+    public boolean aJb() {
+        return (hasAgreeToPlay() || g.bJp().bJq() || TbadkCoreApplication.getInst().getVideoAutoPlay() == 2 || !j.kX()) ? false : true;
     }
 
-    public void aIE() {
+    public void aJc() {
         setVisibility(0);
-        this.ein.setVisibility(0);
-        this.eio.setVisibility(0);
-        this.eip.setVisibility(8);
+        this.eiT.setVisibility(0);
+        this.eiU.setVisibility(0);
+        this.eiV.setVisibility(8);
     }
 
-    public void aIF() {
+    public void aJd() {
         setVisibility(0);
-        this.ein.setVisibility(8);
-        this.eio.setVisibility(8);
-        this.eip.setVisibility(0);
+        this.eiT.setVisibility(8);
+        this.eiU.setVisibility(8);
+        this.eiV.setVisibility(0);
         com.baidu.adp.lib.g.e.jG().removeCallbacks(this.mHideRunnable);
         com.baidu.adp.lib.g.e.jG().postDelayed(this.mHideRunnable, 3000L);
     }
@@ -104,18 +104,18 @@ public class VideoNetworkStateTipView extends RelativeLayout {
     }
 
     public void setPlayViewOnClickListener(View.OnClickListener onClickListener) {
-        this.ein.setOnClickListener(onClickListener);
+        this.eiT.setOnClickListener(onClickListener);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            al.h(this.ein, e.d.cp_cont_i);
-            al.i(this.ein, e.f.rectangle_background_alpha80);
-            al.h(this.eio, e.d.cp_cont_i);
-            al.i(this.eio, e.f.blue_rectangle_background);
-            al.h(this.eip, e.d.cp_cont_i);
-            al.i(this.eip, e.f.rectangle_background_alpha80);
+            al.h(this.eiT, e.d.cp_cont_i);
+            al.i(this.eiT, e.f.rectangle_background_alpha80);
+            al.h(this.eiU, e.d.cp_cont_i);
+            al.i(this.eiU, e.f.blue_rectangle_background);
+            al.h(this.eiV, e.d.cp_cont_i);
+            al.i(this.eiV, e.f.rectangle_background_alpha80);
         }
     }
 }

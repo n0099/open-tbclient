@@ -4,128 +4,128 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import tbclient.SimpleUser;
 /* loaded from: classes.dex */
 public class a {
-    private int aXi;
-    private int aXl;
-    private int gXA;
-    private boolean gXB;
-    private int gXC;
-    private SimpleUser gXD;
-    private int gXE;
-    private int gXz;
+    private int aXQ;
+    private int aXT;
+    private int gYE;
+    private int gYF;
+    private boolean gYG;
+    private int gYH;
+    private SimpleUser gYI;
+    private int gYJ;
 
-    public boolean bwS() {
+    public boolean bxB() {
         com.baidu.tbadk.core.sharedPref.b bVar = com.baidu.tbadk.core.sharedPref.b.getInstance();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        this.gXz = bVar.getInt("post" + currentAccount, 0);
-        this.gXA = bVar.getInt("like" + currentAccount, 0);
-        this.aXi = bVar.getInt("group" + currentAccount, 0);
-        this.aXl = bVar.getInt("live" + currentAccount, 0);
-        this.gXC = bVar.getInt("reply" + currentAccount, 1);
-        this.gXB = TbadkCoreApplication.getInst().getLocationShared();
-        return (this.gXz == 0 && this.gXA == 0 && this.aXi == 0 && this.aXl == 0 && this.gXC == 1) ? false : true;
+        this.gYE = bVar.getInt("post" + currentAccount, 0);
+        this.gYF = bVar.getInt("like" + currentAccount, 0);
+        this.aXQ = bVar.getInt("group" + currentAccount, 0);
+        this.aXT = bVar.getInt("live" + currentAccount, 0);
+        this.gYH = bVar.getInt("reply" + currentAccount, 1);
+        this.gYG = TbadkCoreApplication.getInst().getLocationShared();
+        return (this.gYE == 0 && this.gYF == 0 && this.aXQ == 0 && this.aXT == 0 && this.gYH == 1) ? false : true;
     }
 
     public void b(a aVar) {
         if (aVar != null) {
-            this.gXz = aVar.gXz;
-            this.gXA = aVar.gXA;
-            this.aXi = aVar.aXi;
-            this.gXB = aVar.gXB;
-            this.aXl = aVar.aXl;
-            this.gXE = aVar.gXE;
-            this.gXC = aVar.gXC;
+            this.gYE = aVar.gYE;
+            this.gYF = aVar.gYF;
+            this.aXQ = aVar.aXQ;
+            this.gYG = aVar.gYG;
+            this.aXT = aVar.aXT;
+            this.gYJ = aVar.gYJ;
+            this.gYH = aVar.gYH;
         }
     }
 
-    public int bwT() {
-        return this.gXz;
+    public int bxC() {
+        return this.gYE;
     }
 
     public void aR(String str, int i) {
         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(str + TbadkCoreApplication.getCurrentAccount(), i);
     }
 
-    public void bwU() {
+    public void bxD() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         com.baidu.tbadk.core.sharedPref.b bVar = com.baidu.tbadk.core.sharedPref.b.getInstance();
-        bVar.putInt("post" + currentAccount, this.gXz);
-        bVar.putInt("like" + currentAccount, this.gXA);
-        bVar.putInt("group" + currentAccount, this.aXi);
-        bVar.putInt("live" + currentAccount, this.aXl);
-        bVar.putInt("reply" + currentAccount, this.gXC);
-        TbadkCoreApplication.getInst().setLocationShared(this.gXB);
-    }
-
-    public void uw(int i) {
-        this.gXz = i;
-    }
-
-    public int bwV() {
-        return this.gXA;
-    }
-
-    public void ux(int i) {
-        if (i <= 3 && i >= 1) {
-            this.gXA = i;
-        }
-    }
-
-    public int LC() {
-        return this.aXl;
-    }
-
-    public void uy(int i) {
-        if (i <= 3 && i >= 1) {
-            this.aXl = i;
-        }
-    }
-
-    public int bwW() {
-        return this.aXi;
+        bVar.putInt("post" + currentAccount, this.gYE);
+        bVar.putInt("like" + currentAccount, this.gYF);
+        bVar.putInt("group" + currentAccount, this.aXQ);
+        bVar.putInt("live" + currentAccount, this.aXT);
+        bVar.putInt("reply" + currentAccount, this.gYH);
+        TbadkCoreApplication.getInst().setLocationShared(this.gYG);
     }
 
     public void uz(int i) {
-        if (i <= 3 && i >= 1) {
-            this.aXi = i;
-        }
+        this.gYE = i;
     }
 
-    public boolean bwX() {
-        return this.gXB;
+    public int bxE() {
+        return this.gYF;
     }
 
     public void uA(int i) {
-        switch (i) {
-            case 1:
-                this.gXB = true;
-                return;
-            default:
-                this.gXB = false;
-                return;
+        if (i <= 3 && i >= 1) {
+            this.gYF = i;
         }
     }
 
-    public SimpleUser Wg() {
-        return this.gXD;
-    }
-
-    public void b(SimpleUser simpleUser) {
-        this.gXD = simpleUser;
+    public int LR() {
+        return this.aXT;
     }
 
     public void uB(int i) {
-        this.gXE = i;
-    }
-
-    public void uC(int i) {
-        if (i == 0) {
-            this.gXC = 1;
-        } else {
-            this.gXC = i;
+        if (i <= 3 && i >= 1) {
+            this.aXT = i;
         }
     }
 
-    public int bwY() {
-        return this.gXC;
+    public int bxF() {
+        return this.aXQ;
+    }
+
+    public void uC(int i) {
+        if (i <= 3 && i >= 1) {
+            this.aXQ = i;
+        }
+    }
+
+    public boolean bxG() {
+        return this.gYG;
+    }
+
+    public void uD(int i) {
+        switch (i) {
+            case 1:
+                this.gYG = true;
+                return;
+            default:
+                this.gYG = false;
+                return;
+        }
+    }
+
+    public SimpleUser WC() {
+        return this.gYI;
+    }
+
+    public void b(SimpleUser simpleUser) {
+        this.gYI = simpleUser;
+    }
+
+    public void uE(int i) {
+        this.gYJ = i;
+    }
+
+    public void uF(int i) {
+        if (i == 0) {
+            this.gYH = 1;
+        } else {
+            this.gYH = i;
+        }
+    }
+
+    public int bxH() {
+        return this.gYH;
     }
 }

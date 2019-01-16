@@ -33,7 +33,7 @@ public class ShowStatisticUploadRequest extends HttpMessage {
             addParam(ETAG.KEY_NET_TYPE, netType);
         }
         d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-        task.setUrl((adAdSense == null || adAdSense.Gt()) ? "https://als.baidu.com/flog/logFeed" : "http://als.baidu.com/flog/logFeed");
+        task.setUrl((adAdSense == null || adAdSense.GG()) ? "https://als.baidu.com/flog/logFeed" : "http://als.baidu.com/flog/logFeed");
     }
 
     ShowStatisticUploadRequest init(int i, String str, String str2, String str3) {
@@ -53,8 +53,8 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                 if (bVar != null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("tid", bVar.biz);
-                        jSONObject.put("locate", bVar.daz);
+                        jSONObject.put("tid", bVar.bjm);
+                        jSONObject.put("locate", bVar.dbk);
                         jSONArray.put(jSONObject);
                     } catch (JSONException e) {
                         BdLog.e(e);
@@ -77,7 +77,7 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                     try {
                         jSONObject.put(Info.kBaiduPIDKey, bVar.mPid);
                         jSONObject.put("tid", str4);
-                        jSONObject.put("locate", bVar.daz);
+                        jSONObject.put("locate", bVar.dbk);
                         jSONArray.put(jSONObject);
                     } catch (JSONException e) {
                         BdLog.e(e);

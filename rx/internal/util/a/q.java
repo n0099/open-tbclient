@@ -10,7 +10,7 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.iBh;
+        E[] eArr = this.iCo;
         long j = this.producerIndex;
         long dV = dV(j);
         if (b(eArr, dV) != null) {
@@ -25,7 +25,7 @@ public final class q<E> extends v<E> {
     public E poll() {
         long j = this.consumerIndex;
         long dV = dV(j);
-        E[] eArr = this.iBh;
+        E[] eArr = this.iCo;
         E b = b(eArr, dV);
         if (b == null) {
             return null;
@@ -42,35 +42,35 @@ public final class q<E> extends v<E> {
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long cfr = cfr();
+        long cfZ = cfZ();
         while (true) {
-            long cfs = cfs();
-            long cfr2 = cfr();
-            if (cfr == cfr2) {
-                return (int) (cfs - cfr2);
+            long cga = cga();
+            long cfZ2 = cfZ();
+            if (cfZ == cfZ2) {
+                return (int) (cga - cfZ2);
             }
-            cfr = cfr2;
+            cfZ = cfZ2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return cfs() == cfr();
+        return cga() == cfZ();
     }
 
     private void dT(long j) {
-        ae.iPT.putOrderedLong(this, iPN, j);
+        ae.iRa.putOrderedLong(this, iQU, j);
     }
 
     private void dU(long j) {
-        ae.iPT.putOrderedLong(this, iPM, j);
+        ae.iRa.putOrderedLong(this, iQT, j);
     }
 
-    private long cfs() {
-        return ae.iPT.getLongVolatile(this, iPN);
+    private long cga() {
+        return ae.iRa.getLongVolatile(this, iQU);
     }
 
-    private long cfr() {
-        return ae.iPT.getLongVolatile(this, iPM);
+    private long cfZ() {
+        return ae.iRa.getLongVolatile(this, iQT);
     }
 }

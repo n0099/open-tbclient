@@ -28,8 +28,8 @@ public class ae extends k<com.baidu.tieba.pb.data.g, com.baidu.tieba.pb.pb.a.c> 
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.g gVar, com.baidu.tieba.pb.pb.a.c cVar) {
         super.onFillViewHolder(i, view, viewGroup, gVar, cVar);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.fXM.getLayoutMode().setNightMode(this.mSkinType == 1);
-        this.fXM.getLayoutMode().onModeChanged(view);
+        this.fYJ.getLayoutMode().setNightMode(this.mSkinType == 1);
+        this.fYJ.getLayoutMode().onModeChanged(view);
         return view;
     }
 }

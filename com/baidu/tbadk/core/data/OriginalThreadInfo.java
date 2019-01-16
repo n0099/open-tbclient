@@ -38,7 +38,7 @@ public class OriginalThreadInfo extends OrmObject implements Serializable {
 
     public void parser(OriginThreadInfo originThreadInfo) {
         if (originThreadInfo == null) {
-            yJ();
+            yW();
             return;
         }
         this.forumName = originThreadInfo.fname;
@@ -82,7 +82,7 @@ public class OriginalThreadInfo extends OrmObject implements Serializable {
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
-            yJ();
+            yW();
             return;
         }
         try {
@@ -134,11 +134,11 @@ public class OriginalThreadInfo extends OrmObject implements Serializable {
         if (bbVar == null) {
             return null;
         }
-        if (bbVar.avt != null) {
-            return bbVar.avt;
+        if (bbVar.avV != null) {
+            return bbVar.avV;
         }
         OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
-        originalThreadInfo.forumName = bbVar.zM();
+        originalThreadInfo.forumName = bbVar.zZ();
         originalThreadInfo.forumId = bbVar.getFid();
         originalThreadInfo.threadId = bbVar.getTid();
         originalThreadInfo.title = bbVar.getTitle();
@@ -152,24 +152,24 @@ public class OriginalThreadInfo extends OrmObject implements Serializable {
         MediaData mediaData = new MediaData();
         arrayList2.add(mediaData);
         originalThreadInfo.mediaList = arrayList2;
-        if (bbVar.isLinkThread() && bbVar.AY() != null) {
-            ad AY = bbVar.AY();
-            originalThreadInfo.title = AY.yz();
-            abstractData.text = AY.yA();
-            mediaData.setPic(AY.yB());
-        } else if (bbVar.Ax() && bbVar.zn() != null) {
-            mediaData.setPic(bbVar.zn().getThreadImgUrl());
-        } else if (com.baidu.tbadk.core.util.v.H(bbVar.zR()) > 0) {
-            originalThreadInfo.mediaList = bbVar.zR();
-        } else if (bbVar.zY() != null && !StringUtils.isNull(bbVar.zY().thumbnail_url)) {
-            mediaData.setPic(bbVar.zY().thumbnail_url);
+        if (bbVar.isLinkThread() && bbVar.Bl() != null) {
+            ad Bl = bbVar.Bl();
+            originalThreadInfo.title = Bl.yM();
+            abstractData.text = Bl.yN();
+            mediaData.setPic(Bl.yO());
+        } else if (bbVar.AK() && bbVar.zA() != null) {
+            mediaData.setPic(bbVar.zA().getThreadImgUrl());
+        } else if (com.baidu.tbadk.core.util.v.H(bbVar.Ae()) > 0) {
+            originalThreadInfo.mediaList = bbVar.Ae();
+        } else if (bbVar.Al() != null && !StringUtils.isNull(bbVar.Al().thumbnail_url)) {
+            mediaData.setPic(bbVar.Al().thumbnail_url);
         }
-        originalThreadInfo.alaInfoData = bbVar.Aa();
+        originalThreadInfo.alaInfoData = bbVar.An();
         originalThreadInfo.setShowData();
         return originalThreadInfo;
     }
 
-    private void yJ() {
+    private void yW() {
         this.showType = 0;
         this.showText = TbadkCoreApplication.getInst().getString(e.j.original_thread_default_txt);
         this.showPicUrl = null;

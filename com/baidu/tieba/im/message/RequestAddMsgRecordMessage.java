@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.p;
+import com.baidu.tbadk.util.q;
 import java.util.List;
 import tbclient.AddMsgRecord.AddMsgRecordReqIdl;
 import tbclient.AddMsgRecord.DataReq;
@@ -40,7 +40,7 @@ public class RequestAddMsgRecordMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.records = this.msgRecords;
         if (z) {
-            p.bindCommonParamsToProtobufData(builder, true);
+            q.bindCommonParamsToProtobufData(builder, true);
         }
         AddMsgRecordReqIdl.Builder builder2 = new AddMsgRecordReqIdl.Builder();
         builder2.data = builder.build(false);

@@ -8,10 +8,10 @@ import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
-    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0401a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0401a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0401a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0401a ajc$tjp_3 = null;
     int intLength;
     long value;
 
@@ -39,7 +39,7 @@ public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
     }
 
     public void setIntLength(int i) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.zr(i)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.zt(i)));
         this.intLength = i;
     }
 

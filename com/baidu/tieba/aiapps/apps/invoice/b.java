@@ -8,7 +8,7 @@ import com.baidu.searchbox.ng.ai.apps.res.widget.toast.UniversalToast;
 import com.baidu.tieba.e;
 /* loaded from: classes4.dex */
 public class b {
-    public static void j(Context context, String str, String str2) {
+    public static void l(Context context, String str, String str2) {
         if (context != null) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = context.getResources().getString(e.j.invoice_error_operation_failed);

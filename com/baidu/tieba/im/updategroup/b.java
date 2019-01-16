@@ -5,44 +5,44 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b extends d {
-    protected TextView fck;
+    protected TextView fcX;
 
     public b(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
-        this.fck = null;
+        this.fcX = null;
         setContentView(e.h.update_group_info_activity);
-        qH(e.j.group_update_info);
-        this.fck = (TextView) this.fcl.findViewById(e.g.edit_count);
+        qI(e.j.group_update_info);
+        this.fcX = (TextView) this.fcY.findViewById(e.g.edit_count);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public void aVh() {
+    public void aVH() {
         String obj;
         if (this.mEditText.getText() != null && (obj = this.mEditText.getText().toString()) != null) {
             int length = obj.length();
             v(length, length, 15, 300);
             int i = 300 - length;
-            this.fck.setText(String.valueOf(i));
+            this.fcX.setText(String.valueOf(i));
             if (i <= 50) {
-                this.fck.setVisibility(0);
+                this.fcX.setVisibility(0);
             } else {
-                this.fck.setVisibility(8);
+                this.fcX.setVisibility(8);
             }
             if (i == 0) {
-                this.fck.setTextColor(this.fcl.getResources().getColor(e.d.common_color_10170));
+                this.fcX.setTextColor(this.fcY.getResources().getColor(e.d.common_color_10170));
             } else {
-                aPQ();
+                aQq();
             }
         }
     }
 
-    private void aPQ() {
-        this.fcl.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.fcl.getLayoutMode().onModeChanged(this.fck);
+    private void aQq() {
+        this.fcY.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.fcY.getLayoutMode().onModeChanged(this.fcX);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
-    public int aVi() {
+    public int aVI() {
         return e.j.group_step_info_error;
     }
 }

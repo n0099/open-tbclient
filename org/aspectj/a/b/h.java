@@ -3,64 +3,64 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes5.dex */
 class h {
-    static h iCM = new h();
-    static h iCN;
-    static h iCO;
-    boolean iCD = true;
-    boolean iCE = true;
-    boolean iCF = false;
-    boolean iCG = false;
-    boolean iCH = false;
-    boolean iCI = true;
-    boolean iCJ = true;
-    boolean iCK = true;
-    int iCL;
+    static h iDT = new h();
+    static h iDU;
+    static h iDV;
+    boolean iDK = true;
+    boolean iDL = true;
+    boolean iDM = false;
+    boolean iDN = false;
+    boolean iDO = false;
+    boolean iDP = true;
+    boolean iDQ = true;
+    boolean iDR = true;
+    int iDS;
 
     h() {
     }
 
     static {
-        iCM.iCD = true;
-        iCM.iCE = false;
-        iCM.iCF = false;
-        iCM.iCG = false;
-        iCM.iCH = true;
-        iCM.iCI = false;
-        iCM.iCJ = false;
-        iCM.iCL = 0;
-        iCN = new h();
-        iCN.iCD = true;
-        iCN.iCE = true;
-        iCN.iCF = false;
-        iCN.iCG = false;
-        iCN.iCH = false;
-        iCM.iCL = 1;
-        iCO = new h();
-        iCO.iCD = false;
-        iCO.iCE = true;
-        iCO.iCF = false;
-        iCO.iCG = true;
-        iCO.iCH = false;
-        iCO.iCK = false;
-        iCO.iCL = 2;
+        iDT.iDK = true;
+        iDT.iDL = false;
+        iDT.iDM = false;
+        iDT.iDN = false;
+        iDT.iDO = true;
+        iDT.iDP = false;
+        iDT.iDQ = false;
+        iDT.iDS = 0;
+        iDU = new h();
+        iDU.iDK = true;
+        iDU.iDL = true;
+        iDU.iDM = false;
+        iDU.iDN = false;
+        iDU.iDO = false;
+        iDT.iDS = 1;
+        iDV = new h();
+        iDV.iDK = false;
+        iDV.iDL = true;
+        iDV.iDM = false;
+        iDV.iDN = true;
+        iDV.iDO = false;
+        iDV.iDR = false;
+        iDV.iDS = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String zI(String str) {
+    public String zY(String str) {
         int lastIndexOf = str.lastIndexOf(45);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String zx(int i) {
-        if (this.iCG) {
+    public String zz(int i) {
+        if (this.iDN) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
         return "";
     }
 
-    String zJ(String str) {
+    String zZ(String str) {
         int lastIndexOf = str.lastIndexOf(46);
         return lastIndexOf == -1 ? str : str.substring(lastIndexOf + 1);
     }
@@ -73,18 +73,18 @@ class h {
             Class<?> componentType = cls.getComponentType();
             return new StringBuffer().append(b(componentType, componentType.getName(), z)).append("[]").toString();
         } else if (z) {
-            return zJ(str).replace('$', '.');
+            return zZ(str).replace('$', '.');
         } else {
             return str.replace('$', '.');
         }
     }
 
     public String E(Class cls) {
-        return b(cls, cls.getName(), this.iCD);
+        return b(cls, cls.getName(), this.iDK);
     }
 
     public String i(Class cls, String str) {
-        return b(cls, str, this.iCH);
+        return b(cls, str, this.iDO);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.iCE) {
+            if (!this.iDL) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.iCF && clsArr != null && clsArr.length != 0) {
+        if (this.iDM && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

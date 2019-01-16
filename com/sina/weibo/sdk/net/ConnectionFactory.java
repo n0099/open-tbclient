@@ -13,16 +13,13 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.Proxy;
 import java.net.URL;
-import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLSession;
 import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class ConnectionFactory {
     public static HttpURLConnection createConnect(String str, Context context) {
         HttpURLConnection httpURLConnection;
-        HttpsURLConnection httpsURLConnection;
         if (TextUtils.isEmpty(str) || (!str.startsWith("http://") && !str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
             throw new RuntimeException("非法url请求");
         }
@@ -36,31 +33,20 @@ public class ConnectionFactory {
                 } else {
                     httpURLConnection = (HttpURLConnection) url.openConnection(proxy);
                 }
+            } else if (proxy == null) {
+                httpURLConnection = (HttpsURLConnection) url.openConnection();
             } else {
-                if (proxy == null) {
-                    httpsURLConnection = (HttpsURLConnection) url.openConnection();
-                } else {
-                    httpsURLConnection = (HttpsURLConnection) url.openConnection(proxy);
-                }
-                try {
-                    httpsURLConnection.setHostnameVerifier(new MyHostnameVerifier(url.getHost()));
-                    httpsURLConnection.setSSLSocketFactory(HttpsHelper.getSSL(context));
-                    httpURLConnection = httpsURLConnection;
-                } catch (MalformedURLException e) {
-                    httpURLConnection = httpsURLConnection;
-                } catch (IOException e2) {
-                    httpURLConnection = httpsURLConnection;
-                }
+                httpURLConnection = (HttpsURLConnection) url.openConnection(proxy);
             }
-        } catch (MalformedURLException e3) {
+        } catch (MalformedURLException e) {
             httpURLConnection = null;
-        } catch (IOException e4) {
+        } catch (IOException e2) {
             httpURLConnection = null;
         }
         httpURLConnection.setUseCaches(false);
         try {
             httpURLConnection.setRequestMethod("POST");
-        } catch (ProtocolException e5) {
+        } catch (ProtocolException e3) {
         }
         httpURLConnection.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
         httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
@@ -68,19 +54,5 @@ public class ConnectionFactory {
         httpURLConnection.setReadTimeout(HttpConstants.HTTP_CONNECT_TIMEOUT);
         httpURLConnection.setConnectTimeout(BdNetTask.TIMEOUT_READ);
         return httpURLConnection;
-    }
-
-    /* loaded from: classes2.dex */
-    private static class MyHostnameVerifier implements HostnameVerifier {
-        private String host;
-
-        public MyHostnameVerifier(String str) {
-            this.host = str;
-        }
-
-        @Override // javax.net.ssl.HostnameVerifier
-        public boolean verify(String str, SSLSession sSLSession) {
-            return HttpsURLConnection.getDefaultHostnameVerifier().verify(this.host, sSLSession);
-        }
     }
 }

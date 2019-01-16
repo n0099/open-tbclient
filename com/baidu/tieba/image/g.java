@@ -6,7 +6,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 /* loaded from: classes3.dex */
 public class g {
-    public static void aA(Context context, String str) {
+    public static void ay(Context context, String str) {
         String format;
         if (!TextUtils.isEmpty(str)) {
             try {

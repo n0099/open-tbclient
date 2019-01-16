@@ -2,10 +2,13 @@ package com.sina.weibo.sdk.auth;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.exception.WeiboException;
-import com.sina.weibo.sdk.net.AsyncWeiboRunner;
 import com.sina.weibo.sdk.net.RequestListener;
-import com.sina.weibo.sdk.net.WeiboParameters;
+import com.sina.weibo.sdk.network.IRequestService;
+import com.sina.weibo.sdk.network.impl.RequestParam;
+import com.sina.weibo.sdk.network.impl.RequestService;
+import com.sina.weibo.sdk.network.target.SimpleTarget;
 /* loaded from: classes2.dex */
 public class AccessTokenKeeper {
     private static final String KEY_ACCESS_TOKEN = "access_token";
@@ -49,23 +52,26 @@ public class AccessTokenKeeper {
     public static void refreshToken(String str, final Context context, final RequestListener requestListener) {
         Oauth2AccessToken readAccessToken = readAccessToken(context);
         if (readAccessToken != null) {
-            WeiboParameters weiboParameters = new WeiboParameters(str);
-            weiboParameters.put("client_id", str);
-            weiboParameters.put("grant_type", "refresh_token");
-            weiboParameters.put("refresh_token", readAccessToken.getRefreshToken());
-            new AsyncWeiboRunner(context).requestAsync("https://api.weibo.com/oauth2/access_token", weiboParameters, "POST", new RequestListener() { // from class: com.sina.weibo.sdk.auth.AccessTokenKeeper.1
-                @Override // com.sina.weibo.sdk.net.RequestListener
-                public void onComplete(String str2) {
+            IRequestService requestService = RequestService.getInstance();
+            RequestParam.Builder builder = new RequestParam.Builder(context);
+            builder.setShortUrl("https://api.weibo.com/oauth2/access_token");
+            builder.addPostParam("client_id", str);
+            builder.addPostParam(WBConstants.SSO_APP_KEY, str);
+            builder.addPostParam("grant_type", "refresh_token");
+            builder.addPostParam("refresh_token", readAccessToken.getRefreshToken());
+            requestService.asyncRequest(builder.build(), new SimpleTarget() { // from class: com.sina.weibo.sdk.auth.AccessTokenKeeper.1
+                @Override // com.sina.weibo.sdk.network.target.SimpleTarget
+                public void onSuccess(String str2) {
                     AccessTokenKeeper.writeAccessToken(context, Oauth2AccessToken.parseAccessToken(str2));
                     if (requestListener != null) {
                         requestListener.onComplete(str2);
                     }
                 }
 
-                @Override // com.sina.weibo.sdk.net.RequestListener
-                public void onWeiboException(WeiboException weiboException) {
+                @Override // com.sina.weibo.sdk.network.target.Target
+                public void onFailure(Exception exc) {
                     if (requestListener != null) {
-                        requestListener.onWeiboException(weiboException);
+                        requestListener.onWeiboException(new WeiboException(exc));
                     }
                 }
             });

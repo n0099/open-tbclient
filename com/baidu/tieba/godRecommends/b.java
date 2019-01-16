@@ -24,9 +24,9 @@ import java.util.List;
 import tbclient.MFollow.MFollowResult;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.tbadk.i.b {
-    private GodRecommendModel eqR;
-    private MultiAttentionModel eqS;
-    private d eqT;
+    private d erA;
+    private GodRecommendModel ery;
+    private MultiAttentionModel erz;
     private TbPageContext<?> mPageContext;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.godRecommends.b.1
         @Override // android.view.View.OnClickListener
@@ -35,39 +35,39 @@ public class b implements com.baidu.tbadk.i.b {
             if (view.getId() == e.g.attention_btn && (view.getTag() instanceof MetaData) && (metaData = (MetaData) view.getTag()) != null) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(metaData.getPortrait());
-                TiebaStatic.log(new am("c12525").aA(VideoPlayActivityConfig.OBJ_ID, metaData.getUserId()).aA("obj_locate", "2"));
-                b.this.eqS.k(arrayList, false);
+                TiebaStatic.log(new am("c12525").aB(VideoPlayActivityConfig.OBJ_ID, metaData.getUserId()).aB("obj_locate", "2"));
+                b.this.erz.k(arrayList, false);
             }
         }
     };
     private AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.godRecommends.b.2
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-            MetaData ou = b.this.eqT.ou(i);
-            if (ou != null) {
-                PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(b.this.mPageContext.getPageActivity(), String.valueOf(ou.getUserId()), ou.getUserName());
-                TiebaStatic.log(new am("c12525").aA(VideoPlayActivityConfig.OBJ_ID, ou.getUserId()).aA("obj_locate", "1"));
+            MetaData ov = b.this.erA.ov(i);
+            if (ov != null) {
+                PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(b.this.mPageContext.getPageActivity(), String.valueOf(ov.getUserId()), ov.getUserName());
+                TiebaStatic.log(new am("c12525").aB(VideoPlayActivityConfig.OBJ_ID, ov.getUserId()).aB("obj_locate", "1"));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
             }
-            b.this.eqT.Td();
+            b.this.erA.Tz();
         }
     };
-    private d.a eqU = new d.a() { // from class: com.baidu.tieba.godRecommends.b.3
+    private d.a erB = new d.a() { // from class: com.baidu.tieba.godRecommends.b.3
         @Override // com.baidu.tieba.godRecommends.d.a
-        public void cd(List<MetaData> list) {
+        public void ce(List<MetaData> list) {
             ArrayList arrayList = new ArrayList();
             for (MetaData metaData : list) {
                 arrayList.add(metaData.getPortrait());
-                TiebaStatic.log(new am("c12525").aA(VideoPlayActivityConfig.OBJ_ID, metaData.getUserId()).aA("obj_locate", "2"));
+                TiebaStatic.log(new am("c12525").aB(VideoPlayActivityConfig.OBJ_ID, metaData.getUserId()).aB("obj_locate", "2"));
             }
-            b.this.eqS.k(arrayList, true);
+            b.this.erz.k(arrayList, true);
         }
     };
-    private com.baidu.adp.framework.listener.a eqV = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_GOD_RECOMMEND, 309471) { // from class: com.baidu.tieba.godRecommends.b.4
+    private com.baidu.adp.framework.listener.a erC = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_GOD_RECOMMEND, 309471) { // from class: com.baidu.tieba.godRecommends.b.4
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if ((responsedMessage instanceof GodRecommendHttpResponseMessage) || (responsedMessage instanceof GodRecommendSocketMessage)) {
-                b.this.eqR.aKm();
+                b.this.ery.aKK();
                 if (responsedMessage.getError() == 0) {
                     c cVar = null;
                     if (responsedMessage instanceof GodRecommendHttpResponseMessage) {
@@ -75,18 +75,18 @@ public class b implements com.baidu.tbadk.i.b {
                     } else if (responsedMessage instanceof GodRecommendSocketMessage) {
                         cVar = ((GodRecommendSocketMessage) responsedMessage).getGodRecommendData();
                     }
-                    b.this.eqT.a(cVar);
+                    b.this.erA.a(cVar);
                 }
             }
         }
     };
-    private com.baidu.adp.framework.listener.a eqW = new com.baidu.adp.framework.listener.a(CmdConfigHttp.MULTI_ATTENTION_HTTP_CMD, 309388) { // from class: com.baidu.tieba.godRecommends.b.5
+    private com.baidu.adp.framework.listener.a erD = new com.baidu.adp.framework.listener.a(CmdConfigHttp.MULTI_ATTENTION_HTTP_CMD, 309388) { // from class: com.baidu.tieba.godRecommends.b.5
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             List<MFollowResult> followResults;
             boolean isAttentionAll;
             if ((responsedMessage instanceof MultiAttentionHttpResponseMessage) || (responsedMessage instanceof MultiAttentionSocketResponseMessage)) {
-                b.this.eqS.aKm();
+                b.this.erz.aKK();
                 if (responsedMessage.getError() != 0) {
                     l.showToast(b.this.mPageContext.getPageActivity(), responsedMessage.getErrorString());
                     return;
@@ -100,27 +100,27 @@ public class b implements com.baidu.tbadk.i.b {
                     followResults = multiAttentionSocketResponseMessage.getFollowResults();
                     isAttentionAll = multiAttentionSocketResponseMessage.isAttentionAll();
                 }
-                b.this.eqT.l(followResults, isAttentionAll);
+                b.this.erA.l(followResults, isAttentionAll);
             }
         }
     };
 
     public b(TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.eqR = new GodRecommendModel(tbPageContext);
-        this.eqS = new MultiAttentionModel(tbPageContext);
-        this.eqT = new d(tbPageContext);
-        this.eqT.a(this.eqU);
-        this.eqT.setOnClickListener(this.mOnClickListener);
-        this.eqT.setOnItemClickListener(this.mOnItemClickListener);
-        aoU();
+        this.ery = new GodRecommendModel(tbPageContext);
+        this.erz = new MultiAttentionModel(tbPageContext);
+        this.erA = new d(tbPageContext);
+        this.erA.a(this.erB);
+        this.erA.setOnClickListener(this.mOnClickListener);
+        this.erA.setOnItemClickListener(this.mOnItemClickListener);
+        aps();
     }
 
-    private void aoU() {
-        this.mPageContext.registerListener(this.eqV);
-        this.mPageContext.registerListener(this.eqW);
-        a(this.eqV.getHttpMessageListener(), this.eqV.getSocketMessageListener());
-        a(this.eqW.getHttpMessageListener(), this.eqW.getSocketMessageListener());
+    private void aps() {
+        this.mPageContext.registerListener(this.erC);
+        this.mPageContext.registerListener(this.erD);
+        a(this.erC.getHttpMessageListener(), this.erC.getSocketMessageListener());
+        a(this.erD.getHttpMessageListener(), this.erD.getSocketMessageListener());
     }
 
     private void a(HttpMessageListener httpMessageListener, com.baidu.adp.framework.listener.c cVar) {
@@ -133,20 +133,20 @@ public class b implements com.baidu.tbadk.i.b {
     }
 
     @Override // com.baidu.tbadk.i.b
-    public void ia(String str) {
-        this.eqR.pf(str);
+    public void ip(String str) {
+        this.ery.pv(str);
     }
 
     @Override // com.baidu.tbadk.i.b
     public void destory() {
-        if (this.eqR != null) {
-            this.eqR.destory();
+        if (this.ery != null) {
+            this.ery.destory();
         }
-        if (this.eqS != null) {
-            this.eqS.destory();
+        if (this.erz != null) {
+            this.erz.destory();
         }
-        if (this.eqT != null) {
-            this.eqT.Td();
+        if (this.erA != null) {
+            this.erA.Tz();
         }
     }
 }

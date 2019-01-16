@@ -3,6 +3,7 @@ package com.baidu.tieba.aiapps.apps.abtest;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Build;
+import android.util.Log;
 import android.widget.PopupWindow;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -35,10 +36,10 @@ import com.baidu.ubc.q;
 import com.baidu.webkit.sdk.WebViewFactory;
 /* loaded from: classes4.dex */
 public class AiAppAbTestStatic {
-    public static int bFe = 0;
+    public static int bFR = 0;
 
     static {
-        Xx();
+        XU();
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.aiapps.apps.abtest.AiAppAbTestStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(final CustomMessage<String> customMessage) {
@@ -50,41 +51,41 @@ public class AiAppAbTestStatic {
                     Activity fX = com.baidu.adp.base.a.fW().fX();
                     if (fX != null) {
                         com.baidu.tbadk.core.util.b.a aVar = new com.baidu.tbadk.core.util.b.a();
-                        aVar.Et();
+                        aVar.EG();
                         aVar.c(fX, "android.permission.WRITE_EXTERNAL_STORAGE");
                         aVar.a(new a.InterfaceC0160a() { // from class: com.baidu.tieba.aiapps.apps.abtest.AiAppAbTestStatic.1.1
                             @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0160a
-                            public void Eu() {
-                                if (AiAppAbTestStatic.bFe == 0) {
+                            public void EH() {
+                                if (AiAppAbTestStatic.bFR == 0) {
                                     try {
                                         BdSailorWebView bdSailorWebView = new BdSailorWebView(TbadkCoreApplication.getInst());
-                                        AiAppAbTestStatic.bFe = 1;
+                                        AiAppAbTestStatic.bFR = 1;
                                         bdSailorWebView.destroy();
                                     } catch (Exception e) {
-                                        AiAppAbTestStatic.bFe = -1;
+                                        AiAppAbTestStatic.bFR = -1;
                                         return;
                                     }
                                 }
-                                if (AiAppAbTestStatic.bFe < 0) {
+                                if (AiAppAbTestStatic.bFR < 0) {
                                     l.showToast(TbadkCoreApplication.getInst(), e.j.ai_apps_not_support);
                                     return;
                                 }
                                 SchemeRouter.invokeSchemeForInner(TbadkCoreApplication.getInst(), Uri.parse((String) customMessage.getData()));
                             }
                         });
-                        aVar.A(fX);
+                        aVar.B(fX);
                         return null;
                     }
-                    if (AiAppAbTestStatic.bFe == 0) {
+                    if (AiAppAbTestStatic.bFR == 0) {
                         try {
                             BdSailorWebView bdSailorWebView = new BdSailorWebView(TbadkCoreApplication.getInst());
-                            AiAppAbTestStatic.bFe = 1;
+                            AiAppAbTestStatic.bFR = 1;
                             bdSailorWebView.destroy();
                         } catch (Exception e) {
-                            AiAppAbTestStatic.bFe = -1;
+                            AiAppAbTestStatic.bFR = -1;
                         }
                     }
-                    if (AiAppAbTestStatic.bFe < 0) {
+                    if (AiAppAbTestStatic.bFR < 0) {
                         l.showToast(TbadkCoreApplication.getInst(), e.j.ai_apps_not_support);
                         return null;
                     }
@@ -105,17 +106,27 @@ public class AiAppAbTestStatic {
 
             /* renamed from: onMessage  reason: avoid collision after fix types in other method */
             public void onMessage2(CustomResponsedMessage customResponsedMessage) {
-                PopupWindow a;
-                Activity fX;
-                if ((customResponsedMessage.getData() instanceof g) && (a = com.baidu.tieba.aiapps.apps.b.a((g) customResponsedMessage.getData())) != null && (fX = com.baidu.adp.base.a.fW().fX()) != null && fX.getWindow() != null) {
-                    try {
-                        a.showAtLocation(fX.getWindow().getDecorView(), 17, 0, 0);
-                    } catch (Exception e) {
+                if (customResponsedMessage.getData() instanceof g) {
+                    g gVar = (g) customResponsedMessage.getData();
+                    Log.e("jiaxinghua", "start dialog and data is valid \turlType:" + gVar.vO() + "\turl:" + gVar.getUrl() + "\turl:" + gVar.getUrl() + "\ttitle:" + gVar.getTitle() + "\t");
+                    PopupWindow a = com.baidu.tieba.aiapps.apps.b.a(gVar);
+                    if (a != null) {
+                        Activity fX = com.baidu.adp.base.a.fW().fX();
+                        if (fX == null || fX.getWindow() == null) {
+                            Log.e("jiaxinghua", "start dialog and activity is null or getWindow is null" + fX.toString());
+                            return;
+                        }
+                        try {
+                            a.showAtLocation(fX.getWindow().getDecorView(), 17, 0, 0);
+                            Log.e("jiaxinghua", "start dialog success" + a.toString());
+                        } catch (Exception e) {
+                            Log.e("jiaxinghua", "exception:" + e.toString());
+                        }
                     }
                 }
             }
         });
-        ay.Ef().a(new ay.a() { // from class: com.baidu.tieba.aiapps.apps.abtest.AiAppAbTestStatic.3
+        ay.Es().a(new ay.a() { // from class: com.baidu.tieba.aiapps.apps.abtest.AiAppAbTestStatic.3
             @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 String str;
@@ -140,7 +151,7 @@ public class AiAppAbTestStatic {
                             } catch (Exception e2) {
                                 e = e2;
                                 e.printStackTrace();
-                                TiebaStatic.log(new am("c13274").aA("uid", TbadkCoreApplication.getCurrentAccount()).aA(VideoPlayActivityConfig.OBJ_ID, str).aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "web_search").aA("obj_name", str3));
+                                TiebaStatic.log(new am("c13274").aB("uid", TbadkCoreApplication.getCurrentAccount()).aB(VideoPlayActivityConfig.OBJ_ID, str).aB(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "web_search").aB("obj_name", str3));
                                 return 0;
                             }
                         }
@@ -148,21 +159,21 @@ public class AiAppAbTestStatic {
                         str = "";
                         e = e3;
                     }
-                    TiebaStatic.log(new am("c13274").aA("uid", TbadkCoreApplication.getCurrentAccount()).aA(VideoPlayActivityConfig.OBJ_ID, str).aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "web_search").aA("obj_name", str3));
+                    TiebaStatic.log(new am("c13274").aB("uid", TbadkCoreApplication.getCurrentAccount()).aB(VideoPlayActivityConfig.OBJ_ID, str).aB(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "web_search").aB("obj_name", str3));
                 }
                 return 0;
             }
         });
     }
 
-    private static void Xx() {
+    private static void XU() {
         AppRuntimeInit.onApplicationattachBaseContext(TbadkCoreApplication.getInst());
         f.onApplicationattachBaseContext(TbadkCoreApplication.getInst());
         if (Build.VERSION.SDK_INT > 21 && !TbadkCoreApplication.getInst().isRemoteProcess()) {
-            b.Xy();
+            b.XV();
             f.a(new d());
-            if (com.baidu.pyramid.runtime.multiprocess.a.uL()) {
-                q.bSk();
+            if (com.baidu.pyramid.runtime.multiprocess.a.uP()) {
+                q.bSS();
             }
             WebViewFactory.initOnAppStart(TbadkCoreApplication.getInst(), true, false);
             NgWebViewInitHelper.getInstance().initBWebkit();

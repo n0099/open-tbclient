@@ -1,56 +1,76 @@
 package com.baidu.tbadk.util;
 
-import android.os.Environment;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
+import android.net.wifi.WifiManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
-public final class r {
-    public static boolean isEMUI() {
-        return s("ro.build.version.emui", "ro.build.hw_emui_api_level");
-    }
+public class r {
+    private static final byte[] bjs = new byte[1];
+    private static r bjt = null;
+    private CustomMessageListener mNetworkChangedListener;
 
-    private static boolean s(String... strArr) {
-        if (strArr == null || strArr.length == 0) {
-            return false;
-        }
-        try {
-            a Qb = a.Qb();
-            for (String str : strArr) {
-                if (Qb.getProperty(str) != null) {
-                    return true;
+    public static r Qt() {
+        if (bjt == null) {
+            synchronized (bjs) {
+                if (bjt == null) {
+                    bjt = new r();
                 }
             }
-            return false;
-        } catch (IOException e) {
-            return false;
         }
+        return bjt;
+    }
+
+    private r() {
+        com.baidu.adp.lib.util.j.init();
+    }
+
+    public void wt() {
+        try {
+            if (this.mNetworkChangedListener == null) {
+                this.mNetworkChangedListener = Qu();
+                MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
+            }
+        } catch (Exception e) {
+            this.mNetworkChangedListener = null;
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    private CustomMessageListener Qu() {
+        return new CustomMessageListener(2000994) { // from class: com.baidu.tbadk.util.r.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
+                    r.this.Qv();
+                }
+            }
+        };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static final class a {
-        private static a biI;
-        private final Properties biJ = new Properties();
-
-        private a() throws IOException {
-            this.biJ.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
-        }
-
-        public static a Qb() throws IOException {
-            if (biI == null) {
-                synchronized (a.class) {
-                    if (biI == null) {
-                        biI = new a();
-                    }
+    public void Qv() {
+        try {
+            boolean kV = com.baidu.adp.lib.util.j.kV();
+            if (kV) {
+                if (com.baidu.adp.lib.util.j.kW()) {
+                    aq.Ee().bw(true);
+                    com.baidu.tieba.recapp.d.a.bwJ().vc(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
+                } else if (com.baidu.adp.lib.util.j.kX()) {
+                    aq.Ee().bw(false);
                 }
             }
-            return biI;
-        }
-
-        public String getProperty(String str) {
-            return this.biJ.getProperty(str);
+            NoNetworkView.setIsHasNetwork(kV);
+            CompatibleUtile.dealWebView(null);
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
         }
     }
 }

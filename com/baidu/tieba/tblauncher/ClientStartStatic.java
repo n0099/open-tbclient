@@ -32,7 +32,7 @@ public class ClientStartStatic {
                         if (SystemClock.elapsedRealtime() - this.mTimeStamp > StatisticConfig.MIN_UPLOAD_INTERVAL) {
                             new a().execute(new Void[0]);
                         }
-                        TiebaStatic.log(new am("c11894").x("obj_param1", 1));
+                        TiebaStatic.log(new am("c11894").y("obj_param1", 1));
                     }
                 }
             });
@@ -49,9 +49,11 @@ public class ClientStartStatic {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Void doInBackground(Void... voidArr) {
-            x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
-            xVar.x("type", "1");
-            xVar.CL();
+            if (!TbadkCoreApplication.getInst().checkInterrupt()) {
+                x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
+                xVar.x("type", "1");
+                xVar.CY();
+            }
             return null;
         }
     }

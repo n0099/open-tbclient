@@ -64,7 +64,7 @@ public class d {
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     GifView.this.setVisibility(0);
-                    GifView.this.Nq();
+                    GifView.this.NH();
                 }
             });
             imageView.startAnimation(scaleAnimation);

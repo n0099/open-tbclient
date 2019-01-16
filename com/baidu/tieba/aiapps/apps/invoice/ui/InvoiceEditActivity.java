@@ -18,14 +18,14 @@ import com.baidu.tieba.aiapps.apps.invoice.model.InvoiceInfo;
 import com.baidu.tieba.e;
 /* loaded from: classes4.dex */
 public class InvoiceEditActivity extends TbAiAppsBaseActivity {
-    private ScrollView bHx;
-    private InvoiceInfoEditView bHy;
-    private InvoiceInfo bHz;
+    private ScrollView bIk;
+    private InvoiceInfoEditView bIl;
+    private InvoiceInfo bIm;
     private int mType = 1;
-    private View.OnClickListener bHA = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.2
+    private View.OnClickListener bIn = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (InvoiceEditActivity.this.bHy != null && InvoiceEditActivity.this.bHy.YB()) {
+            if (InvoiceEditActivity.this.bIl != null && InvoiceEditActivity.this.bIl.YY()) {
                 new AiAppAlertDialog.Builder(InvoiceEditActivity.this).setTitle(InvoiceEditActivity.this.getString(e.j.invoice_dialog_exit_title)).setMessage(InvoiceEditActivity.this.getString(e.j.invoice_dialog_exit_message)).setPositiveButton(e.j.invoice_dialog_exit_pos_btn, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.2.1
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -37,12 +37,12 @@ public class InvoiceEditActivity extends TbAiAppsBaseActivity {
             }
         }
     };
-    private View.OnClickListener bHB = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.3
+    private View.OnClickListener bIo = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             InvoiceInfo invoiceInfo;
-            if (InvoiceEditActivity.this.bHy != null) {
-                invoiceInfo = InvoiceEditActivity.this.bHy.getInvoiceInfo();
+            if (InvoiceEditActivity.this.bIl != null) {
+                invoiceInfo = InvoiceEditActivity.this.bIl.getInvoiceInfo();
             } else {
                 invoiceInfo = null;
             }
@@ -53,7 +53,7 @@ public class InvoiceEditActivity extends TbAiAppsBaseActivity {
                 }
                 return;
             }
-            InvoiceEditActivity.this.e(invoiceInfo.c(InvoiceEditActivity.this.bHz));
+            InvoiceEditActivity.this.e(invoiceInfo.c(InvoiceEditActivity.this.bIm));
         }
     };
 
@@ -69,77 +69,77 @@ public class InvoiceEditActivity extends TbAiAppsBaseActivity {
 
     private void E(Intent intent) {
         this.mType = intent.getIntExtra("type", 1);
-        AiAppsBdActionBar Xw = Xw();
-        if (Xw != null) {
-            Xw.setLeftFirstViewVisibility(false);
-            Xw.setLeftSecondViewVisibility(0);
-            Xw.setLeftSecondViewText(getString(e.j.invoice_action_bar_cancel));
-            Xw.setLeftSecondViewTextSize(14);
-            Xw.setLeftSecondViewClickListener(this.bHA);
-            Xw.setRightTxtZone1Visibility(0);
-            Xw.setRightTxtZone1Text(getString(e.j.invoice_action_bar_save));
-            Xw.setRightTxtZone1Clickable(false);
-            Xw.setRightTxtZone1OnClickListener(this.bHB);
-            Xw.setRightTxtZone1TextSelector(getResources().getColorStateList(e.d.aiapps_invoice_action_bar_txt_color_selector));
+        AiAppsBdActionBar XT = XT();
+        if (XT != null) {
+            XT.setLeftFirstViewVisibility(false);
+            XT.setLeftSecondViewVisibility(0);
+            XT.setLeftSecondViewText(getString(e.j.invoice_action_bar_cancel));
+            XT.setLeftSecondViewTextSize(14);
+            XT.setLeftSecondViewClickListener(this.bIn);
+            XT.setRightTxtZone1Visibility(0);
+            XT.setRightTxtZone1Text(getString(e.j.invoice_action_bar_save));
+            XT.setRightTxtZone1Clickable(false);
+            XT.setRightTxtZone1OnClickListener(this.bIo);
+            XT.setRightTxtZone1TextSelector(getResources().getColorStateList(e.d.aiapps_invoice_action_bar_txt_color_selector));
             if (this.mType == 0) {
-                Xw.setTitle(getString(e.j.invoice_action_bar_title_edit));
+                XT.setTitle(getString(e.j.invoice_action_bar_title_edit));
             } else {
-                Xw.setTitle(getString(e.j.invoice_action_bar_title_create));
+                XT.setTitle(getString(e.j.invoice_action_bar_title_create));
             }
         }
     }
 
     private void initView() {
-        this.bHx = (ScrollView) findViewById(e.g.scroll_view);
-        this.bHy = (InvoiceInfoEditView) findViewById(e.g.invoice_info_view);
-        this.bHx.setBackgroundDrawable(getResources().getDrawable(e.d.edit_activity_bg));
-        YC();
-        this.bHy.setInputStatusListener(new c() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.1
+        this.bIk = (ScrollView) findViewById(e.g.scroll_view);
+        this.bIl = (InvoiceInfoEditView) findViewById(e.g.invoice_info_view);
+        this.bIk.setBackgroundDrawable(getResources().getDrawable(e.d.edit_activity_bg));
+        YZ();
+        this.bIl.setInputStatusListener(new c() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.1
             @Override // com.baidu.tieba.aiapps.apps.invoice.c
-            public void Yw() {
-                InvoiceEditActivity.this.dx(true);
+            public void YT() {
+                InvoiceEditActivity.this.dA(true);
             }
 
             @Override // com.baidu.tieba.aiapps.apps.invoice.c
-            public void Yx() {
-                InvoiceEditActivity.this.dx(false);
+            public void YU() {
+                InvoiceEditActivity.this.dA(false);
             }
 
             @Override // com.baidu.tieba.aiapps.apps.invoice.c
-            public void Yy() {
-                InvoiceEditActivity.this.YC();
+            public void YV() {
+                InvoiceEditActivity.this.YZ();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void YC() {
-        if (this.bHy.YA()) {
-            dx(true);
+    public void YZ() {
+        if (this.bIl.YX()) {
+            dA(true);
         } else {
-            dx(false);
+            dA(false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dx(boolean z) {
-        if (Xw() != null) {
+    public void dA(boolean z) {
+        if (XT() != null) {
             if (z) {
-                Xw().setRightTxtZone1Clickable(true);
-                Xw().setRightTxtZone1TextSelector(getResources().getColorStateList(e.d.aiapps_invoice_action_bar_activate_txt_color_selector));
+                XT().setRightTxtZone1Clickable(true);
+                XT().setRightTxtZone1TextSelector(getResources().getColorStateList(e.d.aiapps_invoice_action_bar_activate_txt_color_selector));
                 return;
             }
-            Xw().setRightTxtZone1Clickable(false);
-            Xw().setRightTxtZone1TextSelector(getResources().getColorStateList(e.d.aiapps_invoice_action_bar_txt_color_selector));
+            XT().setRightTxtZone1Clickable(false);
+            XT().setRightTxtZone1TextSelector(getResources().getColorStateList(e.d.aiapps_invoice_action_bar_txt_color_selector));
         }
     }
 
     private void F(Intent intent) {
         if (intent != null && this.mType == 0) {
             InvoiceInfo invoiceInfo = (InvoiceInfo) intent.getParcelableExtra("invoice");
-            this.bHz = invoiceInfo;
+            this.bIm = invoiceInfo;
             if (invoiceInfo != null) {
-                this.bHy.d(this.bHz);
+                this.bIl.d(this.bIm);
             }
         }
     }
@@ -148,7 +148,7 @@ public class InvoiceEditActivity extends TbAiAppsBaseActivity {
     public void e(InvoiceInfo invoiceInfo) {
         if (invoiceInfo != null) {
             showLoadingView();
-            com.baidu.tieba.aiapps.apps.invoice.e.Yz().a(invoiceInfo, new d.e() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.4
+            com.baidu.tieba.aiapps.apps.invoice.e.YW().a(invoiceInfo, new d.e() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.4
                 @Override // com.baidu.tieba.aiapps.apps.invoice.d.e
                 public void b(InvoiceInfo invoiceInfo2) {
                     AiAppsLog.i(ChooseInvoiceAction.MODULE_TAG, "修改发票成功");
@@ -160,14 +160,14 @@ public class InvoiceEditActivity extends TbAiAppsBaseActivity {
                 }
 
                 @Override // com.baidu.tieba.aiapps.apps.invoice.d
-                public void kA(String str) {
-                    InvoiceEditActivity.this.kB(str);
+                public void kQ(String str) {
+                    InvoiceEditActivity.this.kR(str);
                 }
 
                 @Override // com.baidu.tieba.aiapps.apps.invoice.d
-                public void aX(String str, String str2) {
+                public void aY(String str, String str2) {
                     AiAppsLog.i(ChooseInvoiceAction.MODULE_TAG, "修改发票失败");
-                    InvoiceEditActivity.this.aY(str, str2);
+                    InvoiceEditActivity.this.aZ(str, str2);
                 }
             });
         }
@@ -177,7 +177,7 @@ public class InvoiceEditActivity extends TbAiAppsBaseActivity {
     public void f(InvoiceInfo invoiceInfo) {
         if (invoiceInfo != null) {
             showLoadingView();
-            com.baidu.tieba.aiapps.apps.invoice.e.Yz().a(invoiceInfo, new d.a() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.5
+            com.baidu.tieba.aiapps.apps.invoice.e.YW().a(invoiceInfo, new d.a() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceEditActivity.5
                 @Override // com.baidu.tieba.aiapps.apps.invoice.d.a
                 public void a(InvoiceInfo invoiceInfo2) {
                     AiAppsLog.i(ChooseInvoiceAction.MODULE_TAG, "创建发票成功");
@@ -189,37 +189,37 @@ public class InvoiceEditActivity extends TbAiAppsBaseActivity {
                 }
 
                 @Override // com.baidu.tieba.aiapps.apps.invoice.d
-                public void kA(String str) {
-                    InvoiceEditActivity.this.kB(str);
+                public void kQ(String str) {
+                    InvoiceEditActivity.this.kR(str);
                 }
 
                 @Override // com.baidu.tieba.aiapps.apps.invoice.d
-                public void aX(String str, String str2) {
+                public void aY(String str, String str2) {
                     AiAppsLog.i(ChooseInvoiceAction.MODULE_TAG, "创建发票失败");
-                    InvoiceEditActivity.this.aY(str, str2);
+                    InvoiceEditActivity.this.aZ(str, str2);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void kB(String str) {
+    public void kR(String str) {
         removeLoadingView();
         b.cj(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aY(String str, String str2) {
+    public void aZ(String str, String str2) {
         removeLoadingView();
-        b.j(this, str, str2);
+        b.l(this, str, str2);
     }
 
     private void showLoadingView() {
-        LoadingViewHelper.showLoadingView(this, this.bHy);
+        LoadingViewHelper.showLoadingView(this, this.bIl);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void removeLoadingView() {
-        LoadingViewHelper.removeLoadingView(this.bHy);
+        LoadingViewHelper.removeLoadingView(this.bIl);
     }
 }

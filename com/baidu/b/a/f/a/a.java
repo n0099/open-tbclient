@@ -10,9 +10,9 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
     private static final boolean DEBUG = b.isDebug();
-    private String ZM;
-    private JSONObject ZN;
-    private JSONObject ZO;
+    private String ZV;
+    private JSONObject ZW;
+    private JSONObject ZX;
     private int mErrorCode;
     private String mErrorMessage;
     private long mTimestamp;
@@ -24,20 +24,20 @@ public class a {
     public a(int i, JSONObject jSONObject, JSONObject jSONObject2) {
         this.mErrorCode = -1;
         this.mErrorCode = i;
-        this.ZN = jSONObject;
-        this.ZO = jSONObject2;
+        this.ZW = jSONObject;
+        this.ZX = jSONObject2;
     }
 
     public int getErrorCode() {
         return this.mErrorCode;
     }
 
-    public JSONObject rG() {
-        return this.ZN;
+    public JSONObject rK() {
+        return this.ZW;
     }
 
-    public JSONObject rH() {
-        return this.ZO;
+    public JSONObject rL() {
+        return this.ZX;
     }
 
     public void setTimestamp(long j) {
@@ -53,10 +53,10 @@ public class a {
     }
 
     public void setRequestId(String str) {
-        this.ZM = str;
+        this.ZV = str;
     }
 
-    public static a cU(String str) {
+    public static a cV(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

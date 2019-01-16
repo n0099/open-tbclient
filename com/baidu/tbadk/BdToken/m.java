@@ -7,26 +7,26 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
-    private long alk;
-    private long alm;
-    private ArrayList<o> aln;
+    private long alv;
+    private long alw;
+    private ArrayList<p> alx;
     private String mUrl;
 
     public void parseJson(String str) {
         if (!ao.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.alk = jSONObject.optLong("start_date", 0L) * 1000;
-                this.alm = jSONObject.optLong("end_date", 0L) * 1000;
+                this.alv = jSONObject.optLong("start_date", 0L) * 1000;
+                this.alw = jSONObject.optLong("end_date", 0L) * 1000;
                 this.mUrl = jSONObject.optString("ahead_url", "");
-                this.aln = new ArrayList<>();
+                this.alx = new ArrayList<>();
                 JSONArray optJSONArray = jSONObject.optJSONArray("time");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONArray optJSONArray2 = optJSONArray.optJSONArray(i);
-                        o oVar = new o();
-                        oVar.parseJson(optJSONArray2);
-                        this.aln.add(oVar);
+                        p pVar = new p();
+                        pVar.parseJson(optJSONArray2);
+                        this.alx.add(pVar);
                     }
                 }
             } catch (Exception e) {
@@ -35,19 +35,19 @@ public class m {
         }
     }
 
-    public long vQ() {
-        return this.alk;
+    public long vU() {
+        return this.alv;
     }
 
-    public long vR() {
-        return this.alm;
+    public long vV() {
+        return this.alw;
     }
 
     public String getUrl() {
         return this.mUrl;
     }
 
-    public ArrayList<o> vS() {
-        return this.aln;
+    public ArrayList<p> vW() {
+        return this.alx;
     }
 }

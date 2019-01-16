@@ -56,11 +56,11 @@ public class SimpleDraweeView extends GenericDraweeView {
             g.checkNotNull(sDraweeControllerBuilderSupplier, "SimpleDraweeView was not initialized!");
             this.mSimpleDraweeControllerBuilder = sDraweeControllerBuilderSupplier.get();
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.C0359a.SimpleDraweeView);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.C0358a.SimpleDraweeView);
                 try {
-                    if (obtainStyledAttributes.hasValue(a.C0359a.SimpleDraweeView_actualImageUri)) {
-                        setImageURI(Uri.parse(obtainStyledAttributes.getString(a.C0359a.SimpleDraweeView_actualImageUri)), (Object) null);
-                    } else if (obtainStyledAttributes.hasValue(a.C0359a.SimpleDraweeView_actualImageResource) && (resourceId = obtainStyledAttributes.getResourceId(a.C0359a.SimpleDraweeView_actualImageResource, -1)) != -1) {
+                    if (obtainStyledAttributes.hasValue(a.C0358a.SimpleDraweeView_actualImageUri)) {
+                        setImageURI(Uri.parse(obtainStyledAttributes.getString(a.C0358a.SimpleDraweeView_actualImageUri)), (Object) null);
+                    } else if (obtainStyledAttributes.hasValue(a.C0358a.SimpleDraweeView_actualImageResource) && (resourceId = obtainStyledAttributes.getResourceId(a.C0358a.SimpleDraweeView_actualImageResource, -1)) != -1) {
                         setActualImageResource(resourceId);
                     }
                 } finally {
@@ -84,7 +84,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     public void setImageURI(Uri uri, @Nullable Object obj) {
-        setController(this.mSimpleDraweeControllerBuilder.aC(obj).u(uri).b(getController()).bVu());
+        setController(this.mSimpleDraweeControllerBuilder.aC(obj).u(uri).b(getController()).bWc());
     }
 
     public void setImageURI(@Nullable String str, @Nullable Object obj) {
@@ -96,7 +96,7 @@ public class SimpleDraweeView extends GenericDraweeView {
     }
 
     public void setActualImageResource(@DrawableRes int i, @Nullable Object obj) {
-        setImageURI(com.facebook.common.util.d.yi(i), obj);
+        setImageURI(com.facebook.common.util.d.yk(i), obj);
     }
 
     @Override // com.facebook.drawee.view.DraweeView, android.widget.ImageView

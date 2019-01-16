@@ -17,7 +17,7 @@ public interface d {
 
     /* loaded from: classes4.dex */
     public interface c extends d {
-        void ar(List<InvoiceInfo> list);
+        void as(List<InvoiceInfo> list);
     }
 
     /* renamed from: com.baidu.tieba.aiapps.apps.invoice.d$d  reason: collision with other inner class name */
@@ -31,7 +31,7 @@ public interface d {
         void b(InvoiceInfo invoiceInfo);
     }
 
-    void aX(String str, String str2);
+    void aY(String str, String str2);
 
-    void kA(String str);
+    void kQ(String str);
 }

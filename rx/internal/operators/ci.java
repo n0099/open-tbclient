@@ -7,8 +7,8 @@ import rx.d;
 import rx.subjects.UnicastSubject;
 /* loaded from: classes2.dex */
 public final class ci<T, U> implements d.b<rx.d<T>, T> {
-    static final Object iMB = new Object();
-    final rx.functions.e<? extends rx.d<? extends U>> iMG;
+    static final Object iNI = new Object();
+    final rx.functions.e<? extends rx.d<? extends U>> iNN;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -16,13 +16,13 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
     }
 
     public ci(rx.functions.e<? extends rx.d<? extends U>> eVar) {
-        this.iMG = eVar;
+        this.iNN = eVar;
     }
 
     public rx.j<? super T> call(rx.j<? super rx.d<T>> jVar) {
-        b bVar = new b(jVar, this.iMG);
+        b bVar = new b(jVar, this.iNN);
         jVar.add(bVar);
-        bVar.ceN();
+        bVar.cfv();
         return bVar;
     }
 
@@ -31,16 +31,16 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
     public static final class b<T, U> extends rx.j<T> {
         final rx.j<? super rx.d<T>> child;
         boolean emitting;
-        rx.e<T> iMD;
-        rx.d<T> iME;
-        List<Object> iMF;
-        final rx.functions.e<? extends rx.d<? extends U>> iMG;
+        rx.e<T> iNK;
+        rx.d<T> iNL;
+        List<Object> iNM;
+        final rx.functions.e<? extends rx.d<? extends U>> iNN;
         final Object guard = new Object();
         final rx.subscriptions.d serial = new rx.subscriptions.d();
 
         public b(rx.j<? super rx.d<T>> jVar, rx.functions.e<? extends rx.d<? extends U>> eVar) {
             this.child = new rx.b.f(jVar);
-            this.iMG = eVar;
+            this.iNN = eVar;
             add(this.serial);
         }
 
@@ -55,20 +55,20 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
             boolean z2 = false;
             synchronized (this.guard) {
                 if (this.emitting) {
-                    if (this.iMF == null) {
-                        this.iMF = new ArrayList();
+                    if (this.iNM == null) {
+                        this.iNM = new ArrayList();
                     }
-                    this.iMF.add(t);
+                    this.iNM.add(t);
                     return;
                 }
-                List<Object> list = this.iMF;
-                this.iMF = null;
+                List<Object> list = this.iNM;
+                this.iNM = null;
                 this.emitting = true;
                 List<Object> list2 = list;
                 boolean z3 = true;
                 do {
                     try {
-                        eD(list2);
+                        eE(list2);
                         if (z3) {
                             bl(t);
                             z3 = false;
@@ -76,8 +76,8 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
                         try {
                             synchronized (this.guard) {
                                 try {
-                                    list2 = this.iMF;
-                                    this.iMF = null;
+                                    list2 = this.iNM;
+                                    this.iNM = null;
                                     if (list2 == null) {
                                         this.emitting = false;
                                         return;
@@ -114,11 +114,11 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: rx.internal.operators.ci$b<T, U> */
         /* JADX WARN: Multi-variable type inference failed */
-        void eD(List<Object> list) {
+        void eE(List<Object> list) {
             if (list != null) {
                 for (Object obj : list) {
-                    if (obj == ci.iMB) {
-                        ceL();
+                    if (obj == ci.iNI) {
+                        cft();
                     } else if (NotificationLite.ba(obj)) {
                         error(NotificationLite.bc(obj));
                         return;
@@ -132,21 +132,21 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
             }
         }
 
-        void ceL() {
-            rx.e<T> eVar = this.iMD;
+        void cft() {
+            rx.e<T> eVar = this.iNK;
             if (eVar != null) {
                 eVar.onCompleted();
             }
-            ceM();
-            this.child.onNext(this.iME);
+            cfu();
+            this.child.onNext(this.iNL);
         }
 
-        void ceM() {
-            UnicastSubject cgc = UnicastSubject.cgc();
-            this.iMD = cgc;
-            this.iME = cgc;
+        void cfu() {
+            UnicastSubject cgK = UnicastSubject.cgK();
+            this.iNK = cgK;
+            this.iNL = cgK;
             try {
-                rx.d<? extends U> call = this.iMG.call();
+                rx.d<? extends U> call = this.iNN.call();
                 a aVar = new a(this);
                 this.serial.g(aVar);
                 call.unsafeSubscribe(aVar);
@@ -157,7 +157,7 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
         }
 
         void bl(T t) {
-            rx.e<T> eVar = this.iMD;
+            rx.e<T> eVar = this.iNK;
             if (eVar != null) {
                 eVar.onNext(t);
             }
@@ -167,10 +167,10 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
         public void onError(Throwable th) {
             synchronized (this.guard) {
                 if (this.emitting) {
-                    this.iMF = Collections.singletonList(NotificationLite.M(th));
+                    this.iNM = Collections.singletonList(NotificationLite.M(th));
                     return;
                 }
-                this.iMF = null;
+                this.iNM = null;
                 this.emitting = true;
                 error(th);
             }
@@ -180,17 +180,17 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
         public void onCompleted() {
             synchronized (this.guard) {
                 if (this.emitting) {
-                    if (this.iMF == null) {
-                        this.iMF = new ArrayList();
+                    if (this.iNM == null) {
+                        this.iNM = new ArrayList();
                     }
-                    this.iMF.add(NotificationLite.cdX());
+                    this.iNM.add(NotificationLite.ceF());
                     return;
                 }
-                List<Object> list = this.iMF;
-                this.iMF = null;
+                List<Object> list = this.iNM;
+                this.iNM = null;
                 this.emitting = true;
                 try {
-                    eD(list);
+                    eE(list);
                     complete();
                 } catch (Throwable th) {
                     error(th);
@@ -198,34 +198,34 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
             }
         }
 
-        void ceN() {
+        void cfv() {
             boolean z = true;
             boolean z2 = false;
             synchronized (this.guard) {
                 if (this.emitting) {
-                    if (this.iMF == null) {
-                        this.iMF = new ArrayList();
+                    if (this.iNM == null) {
+                        this.iNM = new ArrayList();
                     }
-                    this.iMF.add(ci.iMB);
+                    this.iNM.add(ci.iNI);
                     return;
                 }
-                List<Object> list = this.iMF;
-                this.iMF = null;
+                List<Object> list = this.iNM;
+                this.iNM = null;
                 this.emitting = true;
                 List<Object> list2 = list;
                 boolean z3 = true;
                 do {
                     try {
-                        eD(list2);
+                        eE(list2);
                         if (z3) {
-                            ceL();
+                            cft();
                             z3 = false;
                         }
                         try {
                             synchronized (this.guard) {
                                 try {
-                                    list2 = this.iMF;
-                                    this.iMF = null;
+                                    list2 = this.iNM;
+                                    this.iNM = null;
                                     if (list2 == null) {
                                         this.emitting = false;
                                         return;
@@ -261,9 +261,9 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
         }
 
         void complete() {
-            rx.e<T> eVar = this.iMD;
-            this.iMD = null;
-            this.iME = null;
+            rx.e<T> eVar = this.iNK;
+            this.iNK = null;
+            this.iNL = null;
             if (eVar != null) {
                 eVar.onCompleted();
             }
@@ -272,9 +272,9 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
         }
 
         void error(Throwable th) {
-            rx.e<T> eVar = this.iMD;
-            this.iMD = null;
-            this.iME = null;
+            rx.e<T> eVar = this.iNK;
+            this.iNK = null;
+            this.iNL = null;
             if (eVar != null) {
                 eVar.onError(th);
             }
@@ -287,10 +287,10 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
     /* loaded from: classes2.dex */
     public static final class a<T, U> extends rx.j<U> {
         boolean done;
-        final b<T, U> iMH;
+        final b<T, U> iNO;
 
         public a(b<T, U> bVar) {
-            this.iMH = bVar;
+            this.iNO = bVar;
         }
 
         @Override // rx.j
@@ -302,20 +302,20 @@ public final class ci<T, U> implements d.b<rx.d<T>, T> {
         public void onNext(U u) {
             if (!this.done) {
                 this.done = true;
-                this.iMH.ceN();
+                this.iNO.cfv();
             }
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iMH.onError(th);
+            this.iNO.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
             if (!this.done) {
                 this.done = true;
-                this.iMH.onCompleted();
+                this.iNO.onCompleted();
             }
         }
     }

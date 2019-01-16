@@ -12,7 +12,7 @@ public class b {
     public static void a(BaseActivity baseActivity, final h hVar, final int i, final com.baidu.tieba.channel.view.b bVar) {
         String string;
         if (hVar != null) {
-            if (hVar.Ah()) {
+            if (hVar.Au()) {
                 string = baseActivity.getResources().getString(e.j.channel_cancle_set_top);
             } else {
                 string = baseActivity.getResources().getString(e.j.channel_set_top_and_cancle_another);
@@ -25,7 +25,7 @@ public class b {
                     switch (i2) {
                         case 0:
                             if (com.baidu.tieba.channel.view.b.this != null) {
-                                com.baidu.tieba.channel.view.b.this.a(hVar.Ah() ? 13 : 14, view, hVar, i);
+                                com.baidu.tieba.channel.view.b.this.a(hVar.Au() ? 13 : 14, view, hVar, i);
                                 break;
                             }
                             break;
@@ -40,7 +40,7 @@ public class b {
                 }
             });
             bVar2.d(baseActivity.getPageContext());
-            bVar2.BI();
+            bVar2.BV();
         }
     }
 
@@ -85,6 +85,6 @@ public class b {
             });
         }
         aVar.b(baseActivity.getPageContext());
-        aVar.BF();
+        aVar.BS();
     }
 }

@@ -6,49 +6,49 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class g {
-    private f dUF;
-    private h dUG;
+    private f dVl;
+    private h dVm;
     private TbPageContext<?> pageContext;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        this.dUF = new f(tbPageContext, bdUniqueId);
-        this.dUG = new h(tbPageContext, bdUniqueId);
+        this.dVl = new f(tbPageContext, bdUniqueId);
+        this.dVm = new h(tbPageContext, bdUniqueId);
         this.pageContext = tbPageContext;
         show(-1);
     }
 
-    public View aEZ() {
-        if (this.dUF == null || this.dUG == null) {
+    public View aFw() {
+        if (this.dVl == null || this.dVm == null) {
             return null;
         }
         FrameLayout frameLayout = new FrameLayout(this.pageContext.getPageActivity());
-        frameLayout.addView(this.dUF.getView());
-        frameLayout.addView(this.dUG.getView());
+        frameLayout.addView(this.dVl.getView());
+        frameLayout.addView(this.dVm.getView());
         return frameLayout;
     }
 
-    public f aFa() {
-        return this.dUF;
+    public f aFx() {
+        return this.dVl;
     }
 
-    public h aFb() {
-        return this.dUG;
+    public h aFy() {
+        return this.dVm;
     }
 
     public void show(int i) {
-        if (this.dUF != null && this.dUG != null) {
+        if (this.dVl != null && this.dVm != null) {
             switch (i) {
                 case 1:
-                    this.dUF.setVisibility(0);
-                    this.dUG.setVisibility(8);
+                    this.dVl.setVisibility(0);
+                    this.dVm.setVisibility(8);
                     return;
                 case 2:
-                    this.dUF.setVisibility(8);
-                    this.dUG.setVisibility(0);
+                    this.dVl.setVisibility(8);
+                    this.dVm.setVisibility(0);
                     return;
                 default:
-                    this.dUF.setVisibility(8);
-                    this.dUG.setVisibility(8);
+                    this.dVl.setVisibility(8);
+                    this.dVm.setVisibility(8);
                     return;
             }
         }

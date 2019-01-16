@@ -10,12 +10,12 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public final class BitRateBox extends AbstractBox {
     public static final String TYPE = "btrt";
-    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC0401a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0401a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0401a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC0401a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC0401a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC0401a ajc$tjp_5 = null;
     private long avgBitrate;
     private long bufferSizeDb;
     private long maxBitrate;

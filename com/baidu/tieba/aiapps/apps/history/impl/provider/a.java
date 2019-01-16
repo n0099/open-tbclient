@@ -10,16 +10,16 @@ import android.support.annotation.Nullable;
 import com.baidu.tieba.aiapps.apps.history.impl.a.b;
 /* loaded from: classes4.dex */
 public class a extends SQLiteOpenHelper {
-    private b bGO;
+    private b bHB;
 
     public a(Context context) {
         super(context, "aiapps_history_db", (SQLiteDatabase.CursorFactory) null, 1);
-        this.bGO = new b();
+        this.bHB = new b();
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        this.bGO.onCreate(sQLiteDatabase);
+        this.bHB.onCreate(sQLiteDatabase);
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
@@ -27,11 +27,11 @@ public class a extends SQLiteOpenHelper {
     }
 
     public Cursor a(@Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        return this.bGO.a(getReadableDatabase(), strArr, str, strArr2, str2);
+        return this.bHB.a(getReadableDatabase(), strArr, str, strArr2, str2);
     }
 
     public Uri insert(Uri uri, ContentValues contentValues) {
-        return this.bGO.a(uri, getWritableDatabase(), contentValues);
+        return this.bHB.a(uri, getWritableDatabase(), contentValues);
     }
 
     public String getType() {
@@ -39,10 +39,10 @@ public class a extends SQLiteOpenHelper {
     }
 
     public int b(String str, String[] strArr) {
-        return this.bGO.a(getWritableDatabase(), str, strArr);
+        return this.bHB.a(getWritableDatabase(), str, strArr);
     }
 
     public int a(ContentValues contentValues, String str, String[] strArr) {
-        return this.bGO.a(getWritableDatabase(), contentValues, str, strArr);
+        return this.bHB.a(getWritableDatabase(), contentValues, str, strArr);
     }
 }

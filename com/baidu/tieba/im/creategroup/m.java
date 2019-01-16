@@ -6,27 +6,27 @@ import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes3.dex */
 public class m extends BaseAdapter {
-    private GroupAddressLocateActivity ePL;
-    private String[] ePz;
+    private String[] eQl;
+    private GroupAddressLocateActivity eQx;
 
     public m(GroupAddressLocateActivity groupAddressLocateActivity, String[] strArr) {
-        this.ePz = null;
-        this.ePL = null;
-        this.ePL = groupAddressLocateActivity;
-        this.ePz = strArr;
+        this.eQl = null;
+        this.eQx = null;
+        this.eQx = groupAddressLocateActivity;
+        this.eQl = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.ePz != null) {
-            return this.ePz.length;
+        if (this.eQl != null) {
+            return this.eQl.length;
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return (this.ePz == null || i <= -1 || i >= this.ePz.length) ? "" : this.ePz[i];
+        return (this.eQl == null || i <= -1 || i >= this.eQl.length) ? "" : this.eQl[i];
     }
 
     @Override // android.widget.Adapter
@@ -38,20 +38,20 @@ public class m extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            aVar = new a(this.ePL);
-            view = aVar.anC();
+            aVar = new a(this.eQx);
+            view = aVar.anZ();
         } else {
             aVar = (a) view.getTag();
         }
-        if (aVar.aPB() != null) {
+        if (aVar.aQb() != null) {
             if (i + 1 == getCount()) {
-                aVar.aPB().setVisibility(8);
+                aVar.aQb().setVisibility(8);
             } else {
-                aVar.aPB().setVisibility(0);
+                aVar.aQb().setVisibility(0);
             }
         }
-        aVar.pG(getItem(i).toString());
-        if (this.ePL.getSelectedPosition() == i) {
+        aVar.pW(getItem(i).toString());
+        if (this.eQx.getSelectedPosition() == i) {
             aVar.ip(true);
         } else {
             aVar.ip(false);
@@ -61,7 +61,7 @@ public class m extends BaseAdapter {
     }
 
     private void bb(View view) {
-        this.ePL.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.ePL.getLayoutMode().onModeChanged(view);
+        this.eQx.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.eQx.getLayoutMode().onModeChanged(view);
     }
 }

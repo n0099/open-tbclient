@@ -23,12 +23,12 @@ public class DiscoverDelegateStatic extends b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c NQ;
+                c Oh;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     DiscoverDelegateStatic discoverDelegateStatic = new DiscoverDelegateStatic();
                     ((d) customResponsedMessage.getData()).a(discoverDelegateStatic);
-                    if (((d) customResponsedMessage.getData()).getContext() != null && (NQ = discoverDelegateStatic.NQ()) != null) {
-                        NQ.bdN.setArguments(new Bundle());
+                    if (((d) customResponsedMessage.getData()).getContext() != null && (Oh = discoverDelegateStatic.Oh()) != null) {
+                        Oh.bez.setArguments(new Bundle());
                     }
                 }
             }
@@ -44,28 +44,28 @@ public class DiscoverDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c NP() {
+    public c Og() {
         c cVar = new c();
-        cVar.bdN = new DiscoverFragment();
+        cVar.bez = new DiscoverFragment();
         cVar.type = 10;
-        cVar.aFs = e.j.home_discover;
-        cVar.aFt = e.f.s_icon_tabbar_discover;
+        cVar.aFU = e.j.home_discover;
+        cVar.aFV = e.f.s_icon_tabbar_discover;
         return cVar;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator bR(Context context) {
-        this.bdz = (FragmentTabIndicator) LayoutInflater.from(context).inflate(e.h.fragmenttabindicator, (ViewGroup) null);
+        this.bek = (FragmentTabIndicator) LayoutInflater.from(context).inflate(e.h.fragmenttabindicator, (ViewGroup) null);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.bei = this.bdz;
+        aVar.beT = this.bek;
         aVar.Cd = l.dip2px(context, 3.0f);
-        aVar.bef = e.f.icon_news_down_bar_one;
-        this.bdz.a("emotion", aVar);
-        return this.bdz;
+        aVar.beR = e.f.icon_news_down_bar_one;
+        this.bek.a("emotion", aVar);
+        return this.bek;
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public void NO() {
+    public void Of() {
         isAdded = true;
     }
 

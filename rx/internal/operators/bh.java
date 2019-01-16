@@ -7,7 +7,7 @@ public final class bh<T> implements d.b<T, T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final bh<Object> iKW = new bh<>();
+        static final bh<Object> iMd = new bh<>();
     }
 
     @Override // rx.functions.f
@@ -15,8 +15,8 @@ public final class bh<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> bh<T> ceG() {
-        return (bh<T>) a.iKW;
+    public static <T> bh<T> cfo() {
+        return (bh<T>) a.iMd;
     }
 
     bh() {

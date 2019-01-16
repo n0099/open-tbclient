@@ -5,36 +5,36 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    protected volatile int aEL;
-    protected volatile HashMap<Long, Integer> hre = new HashMap<>();
+    protected volatile int aFn;
+    protected volatile HashMap<Long, Integer> hsm = new HashMap<>();
     private volatile int mWeight = 0;
 
     public d(int i) {
-        this.aEL = i;
+        this.aFn = i;
     }
 
-    public void vT(String str) {
+    public void wj(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.hre.size() >= this.aEL) {
-                    bFf();
+                if (this.hsm.size() >= this.aFn) {
+                    bFO();
                 }
                 this.mWeight++;
-                this.hre.put(valueOf, Integer.valueOf(this.mWeight));
+                this.hsm.put(valueOf, Integer.valueOf(this.mWeight));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public void bFf() {
+    public void bFO() {
         int i;
         Long l;
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.hre.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.hsm.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -47,19 +47,19 @@ public class d {
                 l2 = l;
             }
             if (l2 != null) {
-                this.hre.remove(l2);
+                this.hsm.remove(l2);
             } else {
-                this.hre.clear();
+                this.hsm.clear();
             }
         }
     }
 
-    public boolean vU(String str) {
+    public boolean wk(String str) {
         boolean z;
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.hre.get(valueOf) != null;
+                z = this.hsm.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -68,18 +68,18 @@ public class d {
         }
     }
 
-    public boolean vV(String str) {
+    public boolean wl(String str) {
         try {
-            return this.hre.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.hsm.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
         }
     }
 
-    public void bFe() {
+    public void bFN() {
         synchronized (this) {
-            this.hre.clear();
+            this.hsm.clear();
         }
     }
 }

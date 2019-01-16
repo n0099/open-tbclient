@@ -7,9 +7,9 @@ import com.facebook.imagepipeline.d.j;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class c {
-    private static f ikA;
-    private static final Class<?> ihJ = c.class;
-    private static volatile boolean ikB = false;
+    private static f ilH;
+    private static final Class<?> iiQ = c.class;
+    private static volatile boolean ilI = false;
 
     private c() {
     }
@@ -19,10 +19,10 @@ public class c {
     }
 
     public static void a(Context context, @Nullable h hVar, @Nullable b bVar) {
-        if (ikB) {
-            com.facebook.common.c.a.f(ihJ, "Fresco has already been initialized! `Fresco.initialize(...)` should only be called 1 single time to avoid memory leaks!");
+        if (ilI) {
+            com.facebook.common.c.a.f(iiQ, "Fresco has already been initialized! `Fresco.initialize(...)` should only be called 1 single time to avoid memory leaks!");
         } else {
-            ikB = true;
+            ilI = true;
         }
         Context applicationContext = context.getApplicationContext();
         if (hVar == null) {
@@ -34,19 +34,19 @@ public class c {
     }
 
     private static void a(Context context, @Nullable b bVar) {
-        ikA = new f(context, bVar);
-        SimpleDraweeView.initialize(ikA);
+        ilH = new f(context, bVar);
+        SimpleDraweeView.initialize(ilH);
     }
 
-    public static e bUL() {
-        return ikA.get();
+    public static e bVt() {
+        return ilH.get();
     }
 
-    public static j bUM() {
-        return j.bXX();
+    public static j bVu() {
+        return j.bYF();
     }
 
-    public static com.facebook.imagepipeline.d.g bUN() {
-        return bUM().bUN();
+    public static com.facebook.imagepipeline.d.g bVv() {
+        return bVu().bVv();
     }
 }

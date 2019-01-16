@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static final HashMap<Class<?>, Class<?>> Mh = new HashMap<>();
+    private static final HashMap<Class<?>, Class<?>> Mq = new HashMap<>();
 
     /* loaded from: classes.dex */
     public static class a<T> {
@@ -18,22 +18,22 @@ public class d {
     }
 
     static {
-        Mh.put(Boolean.class, Boolean.TYPE);
-        Mh.put(Byte.class, Byte.TYPE);
-        Mh.put(Character.class, Character.TYPE);
-        Mh.put(Short.class, Short.TYPE);
-        Mh.put(Integer.class, Integer.TYPE);
-        Mh.put(Float.class, Float.TYPE);
-        Mh.put(Long.class, Long.TYPE);
-        Mh.put(Double.class, Double.TYPE);
-        Mh.put(Boolean.TYPE, Boolean.TYPE);
-        Mh.put(Byte.TYPE, Byte.TYPE);
-        Mh.put(Character.TYPE, Character.TYPE);
-        Mh.put(Short.TYPE, Short.TYPE);
-        Mh.put(Integer.TYPE, Integer.TYPE);
-        Mh.put(Float.TYPE, Float.TYPE);
-        Mh.put(Long.TYPE, Long.TYPE);
-        Mh.put(Double.TYPE, Double.TYPE);
+        Mq.put(Boolean.class, Boolean.TYPE);
+        Mq.put(Byte.class, Byte.TYPE);
+        Mq.put(Character.class, Character.TYPE);
+        Mq.put(Short.class, Short.TYPE);
+        Mq.put(Integer.class, Integer.TYPE);
+        Mq.put(Float.class, Float.TYPE);
+        Mq.put(Long.class, Long.TYPE);
+        Mq.put(Double.class, Double.TYPE);
+        Mq.put(Boolean.TYPE, Boolean.TYPE);
+        Mq.put(Byte.TYPE, Byte.TYPE);
+        Mq.put(Character.TYPE, Character.TYPE);
+        Mq.put(Short.TYPE, Short.TYPE);
+        Mq.put(Integer.TYPE, Integer.TYPE);
+        Mq.put(Float.TYPE, Float.TYPE);
+        Mq.put(Long.TYPE, Long.TYPE);
+        Mq.put(Double.TYPE, Double.TYPE);
     }
 
     public static <T> T c(Object obj, String str, Object[] objArr) throws SecurityException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
@@ -84,7 +84,7 @@ public class d {
                 if (clsArr[i].isAssignableFrom(clsArr2[i])) {
                     return true;
                 }
-                if (Mh.containsKey(clsArr[i]) && Mh.get(clsArr[i]).equals(Mh.get(clsArr2[i]))) {
+                if (Mq.containsKey(clsArr[i]) && Mq.get(clsArr[i]).equals(Mq.get(clsArr2[i]))) {
                     return true;
                 }
             }

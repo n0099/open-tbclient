@@ -10,7 +10,7 @@ public class TiebaMainApplication extends TbadkApplication {
     public void attachBaseContext(Context context) {
         long currentTimeMillis = System.currentTimeMillis();
         super.attachBaseContext(context);
-        n.Pr().at(currentTimeMillis);
+        n.PJ().at(currentTimeMillis);
     }
 
     @Override // com.baidu.tbadk.TbadkApplication, com.baidu.tbadk.core.TbadkCoreApplication, android.app.Application
@@ -20,6 +20,6 @@ public class TiebaMainApplication extends TbadkApplication {
         if (getSplash() != null) {
             getSplash().hide();
         }
-        n.Pr().au(System.currentTimeMillis());
+        n.PJ().au(System.currentTimeMillis());
     }
 }

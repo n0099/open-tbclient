@@ -7,23 +7,23 @@ import com.baidu.searchbox.ng.ai.apps.network.WebSocketAction;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes3.dex */
 public class d {
-    private static volatile d dnK = null;
+    private static volatile d dox = null;
 
-    public static final d auJ() {
-        if (dnK == null) {
+    public static final d avh() {
+        if (dox == null) {
             synchronized (d.class) {
-                if (dnK == null) {
-                    dnK = new d();
+                if (dox == null) {
+                    dox = new d();
                 }
             }
         }
-        return dnK;
+        return dox;
     }
 
     private d() {
     }
 
-    public void aX(String str, String str2) {
+    public void aY(String str, String str2) {
         if (!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_error");

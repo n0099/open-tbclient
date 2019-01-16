@@ -10,13 +10,13 @@ import com.baidu.tieba.frs.h;
 import com.baidu.tieba.frs.worldcup.c;
 /* loaded from: classes3.dex */
 public class b extends h<bb, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.worldcup.videotopic.d.a>> {
-    private ad<bb> emD;
+    private ad<bb> enk;
     private String mForumId;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
         this.mForumId = "";
-        this.emD = new ad<bb>() { // from class: com.baidu.tieba.frs.worldcup.videotopic.a.b.1
+        this.enk = new ad<bb>() { // from class: com.baidu.tieba.frs.worldcup.videotopic.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             public void a(View view, bb bbVar) {
@@ -34,7 +34,7 @@ public class b extends h<bb, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.worldc
     /* renamed from: aa */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.frs.worldcup.videotopic.d.a> onCreateViewHolder(ViewGroup viewGroup) {
         com.baidu.tieba.frs.worldcup.videotopic.d.a aVar = new com.baidu.tieba.frs.worldcup.videotopic.d.a(this.mPageContext, this.mPageId);
-        aVar.b(this.emD);
+        aVar.b(this.enk);
         aVar.j(this.mPageId);
         return new com.baidu.tieba.card.a.a<>(aVar);
     }
@@ -44,14 +44,14 @@ public class b extends h<bb, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.worldc
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bb bbVar, com.baidu.tieba.card.a.a<com.baidu.tieba.frs.worldcup.videotopic.d.a> aVar) {
-        if (aVar == null || aVar.aqT() == null) {
+        if (aVar == null || aVar.arr() == null) {
             return null;
         }
         super.onFillViewHolder(i, view, viewGroup, bbVar, aVar);
-        aVar.aqT().b(this.emD);
-        aVar.aqT().a(bbVar);
+        aVar.arr().b(this.enk);
+        aVar.arr().a(bbVar);
         if (bbVar != null) {
-            bbVar.AD();
+            bbVar.AQ();
         }
         return aVar.getView();
     }

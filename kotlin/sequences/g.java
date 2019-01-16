@@ -4,12 +4,12 @@ import java.util.Iterator;
 import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public final class g<T, R> implements c<R> {
-    private final c<T> iBM;
-    private final kotlin.jvm.a.b<T, R> iBZ;
+    private final c<T> iCT;
+    private final kotlin.jvm.a.b<T, R> iDg;
 
     /* loaded from: classes2.dex */
     public static final class a implements Iterator<R> {
-        private final Iterator<T> iBP;
+        private final Iterator<T> iCW;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -18,17 +18,17 @@ public final class g<T, R> implements c<R> {
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         a() {
-            this.iBP = g.this.iBM.iterator();
+            this.iCW = g.this.iCT.iterator();
         }
 
         @Override // java.util.Iterator
         public R next() {
-            return (R) g.this.iBZ.invoke(this.iBP.next());
+            return (R) g.this.iDg.invoke(this.iCW.next());
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            return this.iBP.hasNext();
+            return this.iCW.hasNext();
         }
     }
 
@@ -38,8 +38,8 @@ public final class g<T, R> implements c<R> {
     public g(c<? extends T> cVar, kotlin.jvm.a.b<? super T, ? extends R> bVar) {
         p.j(cVar, "sequence");
         p.j(bVar, "transformer");
-        this.iBM = cVar;
-        this.iBZ = bVar;
+        this.iCT = cVar;
+        this.iDg = bVar;
     }
 
     @Override // kotlin.sequences.c

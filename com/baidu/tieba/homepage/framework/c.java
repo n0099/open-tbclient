@@ -8,45 +8,45 @@ import com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes6.dex */
 public class c {
-    private a esF;
-    private final TbPageContext<BaseFragmentActivity> evW;
-    private RecPersonalizePageModel evX;
-    private ConcernNetModel evY;
-    private RecPersonalizePageModel.a evZ = new RecPersonalizePageModel.a() { // from class: com.baidu.tieba.homepage.framework.c.1
+    private a etm;
+    private final TbPageContext<BaseFragmentActivity> ewG;
+    private RecPersonalizePageModel ewH;
+    private ConcernNetModel ewI;
+    private RecPersonalizePageModel.a ewJ = new RecPersonalizePageModel.a() { // from class: com.baidu.tieba.homepage.framework.c.1
         @Override // com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.a
         public void b(DataRes dataRes, boolean z, boolean z2) {
-            if (c.this.esF != null) {
-                c.this.esF.a(dataRes, z, z2);
+            if (c.this.etm != null) {
+                c.this.etm.a(dataRes, z, z2);
             }
         }
 
         @Override // com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.a
-        public void r(int i, String str) {
-            if (c.this.esF != null) {
-                c.this.esF.a("", str, i, false, 1);
+        public void t(int i, String str) {
+            if (c.this.etm != null) {
+                c.this.etm.a("", str, i, false, 1);
             }
         }
     };
-    private ConcernNetModel.b ewa = new ConcernNetModel.b() { // from class: com.baidu.tieba.homepage.framework.c.2
+    private ConcernNetModel.b ewK = new ConcernNetModel.b() { // from class: com.baidu.tieba.homepage.framework.c.2
         @Override // com.baidu.tieba.homepage.concern.message.ConcernNetModel.b
         public void b(tbclient.Userlike.DataRes dataRes, boolean z) {
-            if (c.this.esF != null) {
-                c.this.esF.c(dataRes, z);
+            if (c.this.etm != null) {
+                c.this.etm.c(dataRes, z);
             }
         }
 
         @Override // com.baidu.tieba.homepage.concern.message.ConcernNetModel.b
-        public void r(int i, String str) {
-            if (c.this.esF != null) {
-                c.this.esF.a("", str, i, false, 0);
+        public void t(int i, String str) {
+            if (c.this.etm != null) {
+                c.this.etm.a("", str, i, false, 0);
             }
         }
     };
-    private ConcernNetModel.a ewb = new ConcernNetModel.a() { // from class: com.baidu.tieba.homepage.framework.c.3
+    private ConcernNetModel.a ewL = new ConcernNetModel.a() { // from class: com.baidu.tieba.homepage.framework.c.3
         @Override // com.baidu.tieba.homepage.concern.message.ConcernNetModel.a
         public void hO(boolean z) {
-            if (c.this.esF != null) {
-                c.this.esF.hQ(z);
+            if (c.this.etm != null) {
+                c.this.etm.hQ(z);
             }
         }
     };
@@ -66,30 +66,30 @@ public class c {
     }
 
     public c(TbPageContext<BaseFragmentActivity> tbPageContext, BdUniqueId bdUniqueId) {
-        this.evW = tbPageContext;
+        this.ewG = tbPageContext;
         this.uniqueId = bdUniqueId;
-        this.evX = new RecPersonalizePageModel(tbPageContext, bdUniqueId);
-        this.evX.a(this.evZ);
-        this.evY = new ConcernNetModel(tbPageContext, bdUniqueId);
-        this.evY.a(this.ewa);
-        this.evY.a(this.ewb);
+        this.ewH = new RecPersonalizePageModel(tbPageContext, bdUniqueId);
+        this.ewH.a(this.ewJ);
+        this.ewI = new ConcernNetModel(tbPageContext, bdUniqueId);
+        this.ewI.a(this.ewK);
+        this.ewI.a(this.ewL);
     }
 
     public void c(int i, int i2, int i3, int i4, int i5) {
-        if (this.evX != null) {
-            this.evX.c(i, i2, i3, i4, i5);
+        if (this.ewH != null) {
+            this.ewH.c(i, i2, i3, i4, i5);
         }
     }
 
-    public void pk(String str) {
-        if (this.evY != null) {
-            this.evY.pk(str);
+    public void pA(String str) {
+        if (this.ewI != null) {
+            this.ewI.pA(str);
         }
     }
 
     public void hN(boolean z) {
-        if (this.evY != null) {
-            this.evY.hN(z);
+        if (this.ewI != null) {
+            this.ewI.hN(z);
         }
     }
 
@@ -97,22 +97,22 @@ public class c {
         return this.uniqueId;
     }
 
-    public TbPageContext<BaseFragmentActivity> aLs() {
-        return this.evW;
+    public TbPageContext<BaseFragmentActivity> aLR() {
+        return this.ewG;
     }
 
     public void a(com.baidu.tieba.lego.model.a aVar) {
     }
 
-    public com.baidu.tieba.lego.model.a aLt() {
+    public com.baidu.tieba.lego.model.a aLS() {
         return null;
     }
 
     public void a(a aVar) {
-        this.esF = aVar;
+        this.etm = aVar;
     }
 
-    public a aLu() {
-        return this.esF;
+    public a aLT() {
+        return this.etm;
     }
 }

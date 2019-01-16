@@ -4,21 +4,21 @@ import android.text.TextUtils;
 /* loaded from: classes3.dex */
 public class a extends c {
     String content;
-    long ihn;
-    long iho;
-    int ihp;
-    String ihr;
+    long iiu;
+    long iiv;
+    int iiw;
+    String iiy;
     String title;
-    String ihq = "08:00-22:00";
-    int ihs = 0;
-    int iht = 0;
+    String iix = "08:00-22:00";
+    int iiz = 0;
+    int iiA = 0;
 
     public void dv(long j) {
-        this.ihn = j;
+        this.iiu = j;
     }
 
     public void dw(long j) {
-        this.iho = j;
+        this.iiv = j;
     }
 
     @Override // com.coloros.mcssdk.e.c
@@ -36,42 +36,42 @@ public class a extends c {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("messageID:" + this.ihy);
-        sb.append(",taskID:" + this.ihz);
+        sb.append("messageID:" + this.iiF);
+        sb.append(",taskID:" + this.iiG);
         sb.append(",appPackage:" + this.appPackage);
         sb.append(",title:" + this.title);
-        sb.append(",rule:" + this.ihr);
+        sb.append(",rule:" + this.iiy);
         sb.append(",content:" + this.content);
-        sb.append(",balanceTime:" + this.ihp);
-        sb.append(",startTime:" + this.ihn);
-        sb.append(",endTime:" + this.iho);
-        sb.append(",balanceTime:" + this.ihp);
-        sb.append(",timeRanges:" + this.ihq);
-        sb.append(",forcedDelivery:" + this.ihs);
-        sb.append(",distinctBycontent:" + this.iht);
+        sb.append(",balanceTime:" + this.iiw);
+        sb.append(",startTime:" + this.iiu);
+        sb.append(",endTime:" + this.iiv);
+        sb.append(",balanceTime:" + this.iiw);
+        sb.append(",timeRanges:" + this.iix);
+        sb.append(",forcedDelivery:" + this.iiz);
+        sb.append(",distinctBycontent:" + this.iiA);
         return sb.toString();
     }
 
-    public void xZ(int i) {
-        this.ihp = i;
+    public void yb(int i) {
+        this.iiw = i;
     }
 
-    public void yS(String str) {
+    public void yc(int i) {
+        this.iiz = i;
+    }
+
+    public void yd(int i) {
+        this.iiA = i;
+    }
+
+    public void zi(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.ihq = str;
+        this.iix = str;
     }
 
-    public void yT(String str) {
-        this.ihr = str;
-    }
-
-    public void ya(int i) {
-        this.ihs = i;
-    }
-
-    public void yb(int i) {
-        this.iht = i;
+    public void zj(String str) {
+        this.iiy = str;
     }
 }

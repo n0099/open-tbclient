@@ -21,7 +21,7 @@ public class b extends d {
             this.code = 1005;
             this.reason = "";
         }
-        cdp();
+        cdX();
     }
 
     public void setReason(String str) {
@@ -29,7 +29,7 @@ public class b extends d {
             str = "";
         }
         this.reason = str;
-        cdp();
+        cdX();
     }
 
     public int getCloseCode() {
@@ -46,8 +46,8 @@ public class b extends d {
     }
 
     @Override // org.java_websocket.framing.d, org.java_websocket.framing.f
-    public void cdo() throws InvalidDataException {
-        super.cdo();
+    public void cdW() throws InvalidDataException {
+        super.cdW();
         if (this.code == 1007 && this.reason == null) {
             throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
         }
@@ -96,20 +96,20 @@ public class b extends d {
         }
     }
 
-    private void cdp() {
-        byte[] zS = org.java_websocket.e.c.zS(this.reason);
+    private void cdX() {
+        byte[] Ai = org.java_websocket.e.c.Ai(this.reason);
         ByteBuffer allocate = ByteBuffer.allocate(4);
         allocate.putInt(this.code);
         allocate.position(2);
-        ByteBuffer allocate2 = ByteBuffer.allocate(zS.length + 2);
+        ByteBuffer allocate2 = ByteBuffer.allocate(Ai.length + 2);
         allocate2.put(allocate);
-        allocate2.put(zS);
+        allocate2.put(Ai);
         allocate2.rewind();
         super.t(allocate2);
     }
 
     @Override // org.java_websocket.framing.f, org.java_websocket.framing.Framedata
-    public ByteBuffer cdq() {
-        return this.code == 1005 ? org.java_websocket.e.b.cdA() : super.cdq();
+    public ByteBuffer cdY() {
+        return this.code == 1005 ? org.java_websocket.e.b.cei() : super.cdY();
     }
 }

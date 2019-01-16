@@ -15,68 +15,76 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d {
-    public static final String aSw = l.FL + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
-    public String aSh;
-    public String aSl;
-    public String aSm;
-    public int aSp;
-    public String aSq;
-    private Bundle aSs;
-    public int avL;
+    public static final String aTe = l.FL + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
+    public String aSL;
+    public String aSQ;
+    public String aSR;
+    public int aSU;
+    public String aSV;
+    public String aSW;
+    public String aSX;
+    private Bundle aSZ;
+    public int awn;
     public String fid;
     public OriginalThreadInfo originalThreadInfo;
     public String tid;
     public String topic;
     public String uid;
-    public boolean aRY = false;
-    public boolean aRZ = false;
-    public boolean aSa = false;
-    public boolean aSb = false;
-    public boolean aSc = false;
-    public boolean aSd = false;
-    public boolean aSe = false;
-    public boolean aSf = false;
-    public String aSg = "";
-    public int aSn = 0;
-    public int aSo = 3;
+    public boolean aSC = false;
+    public boolean aSD = false;
+    public boolean aSE = false;
+    public boolean aSF = false;
+    public boolean aSG = false;
+    public boolean aSH = false;
+    public boolean aSI = false;
+    public boolean aSJ = false;
+    public String aSK = "";
+    public int aSS = 0;
+    public int aST = 3;
     public int shareType = 0;
-    public boolean aSt = true;
-    public boolean aSu = true;
-    public boolean aSv = true;
+    public boolean aTa = true;
+    public boolean aTb = true;
+    public boolean aTc = true;
+    public int aTd = 0;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
-    public String aSi = null;
+    public String aSM = null;
     public Uri imageUri = null;
-    public Location aSj = null;
-    private WeakReference<Bitmap> aSr = null;
-    public String aSk = null;
+    public Location aSO = null;
+    private WeakReference<Bitmap> aSY = null;
+    public String aSP = null;
     public String extData = null;
+    public String aSN = null;
 
-    public Bundle Kh() {
-        return this.aSs;
+    public Bundle Kw() {
+        return this.aSZ;
     }
 
     public void k(Bundle bundle) {
-        this.aSs = bundle;
+        this.aSZ = bundle;
     }
 
-    public Bitmap Ki() {
+    public void hq(String str) {
+        this.aSN = str;
+    }
+
+    public Bitmap Kx() {
         Bitmap bitmap;
-        if (this.aSr == null || (bitmap = this.aSr.get()) == null || bitmap.isRecycled()) {
+        if (this.aSY == null || (bitmap = this.aSY.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
     public void g(Bitmap bitmap) {
-        this.aSr = new WeakReference<>(bitmap);
+        this.aSY = new WeakReference<>(bitmap);
     }
 
-    public byte[] Kj() {
+    public byte[] Ky() {
         Bitmap bitmap;
         byte[] bArr;
-        if (this.aSr == null || (bitmap = this.aSr.get()) == null || bitmap.isRecycled()) {
+        if (this.aSY == null || (bitmap = this.aSY.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -93,17 +101,17 @@ public class d {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [202=4, 203=4, 205=4, 206=4] */
-    public void Kk() {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [216=4, 217=4, 219=4, 220=4] */
+    public void Kz() {
         FileOutputStream fileOutputStream = null;
-        if (this.aSr == null) {
+        if (this.aSY == null) {
             return;
         }
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
                 if (l.hA()) {
-                    File file = new File(aSw);
+                    File file = new File(aTe);
                     if (file.exists()) {
                         file.delete();
                     }
@@ -111,14 +119,14 @@ public class d {
                     if (parentFile != null && !parentFile.exists()) {
                         parentFile.mkdirs();
                     }
-                    byte[] Kj = Kj();
-                    if (Kj != null) {
+                    byte[] Ky = Ky();
+                    if (Ky != null) {
                         FileOutputStream fileOutputStream3 = new FileOutputStream(file);
                         try {
-                            fileOutputStream3.write(Kj);
+                            fileOutputStream3.write(Ky);
                             fileOutputStream3.close();
                             this.imageUri = Uri.fromFile(file);
-                            this.aSr = null;
+                            this.aSY = null;
                             if (fileOutputStream3 != null) {
                                 try {
                                     fileOutputStream3.close();

@@ -15,7 +15,7 @@ import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ShareSuccessReplyToServerModel extends BdBaseModel {
-    private HttpMessageListener aQG = new HttpMessageListener(CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER) { // from class: com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.1
+    private HttpMessageListener aRk = new HttpMessageListener(CmdConfigHttp.CMD_SHARE_SUCCESS_REPLY_SERVER) { // from class: com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -24,7 +24,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
                 if (((ShareSuccessReplySeverResponseMessage) httpResponsedMessage).getActivityDialogData() != null) {
                     aVar.a(((ShareSuccessReplySeverResponseMessage) httpResponsedMessage).getActivityDialogData());
                 } else {
-                    aVar.IZ();
+                    aVar.Jo();
                 }
             }
         }
@@ -32,7 +32,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
 
     /* loaded from: classes.dex */
     public interface a {
-        void IZ();
+        void Jo();
 
         void a(CustomDialogData customDialogData);
     }
@@ -40,9 +40,9 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
     public ShareSuccessReplyToServerModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.aQG.setTag(getUniqueId());
-        this.aQG.setSelfListener(true);
-        registerListener(this.aQG);
+        this.aRk.setTag(getUniqueId());
+        this.aRk.setSelfListener(true);
+        registerListener(this.aRk);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -110,7 +110,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.aQG);
+        MessageManager.getInstance().unRegisterListener(this.aRk);
         return false;
     }
 }

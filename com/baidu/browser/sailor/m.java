@@ -2,17 +2,17 @@ package com.baidu.browser.sailor;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class m implements Runnable {
-    final /* synthetic */ BdSailorWebView VM;
-    final /* synthetic */ BdSailorWebViewClientExt VN;
+    final /* synthetic */ BdSailorWebView VV;
+    final /* synthetic */ BdSailorWebViewClientExt VW;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(BdSailorWebViewClientExt bdSailorWebViewClientExt, BdSailorWebView bdSailorWebView) {
-        this.VN = bdSailorWebViewClientExt;
-        this.VM = bdSailorWebView;
+        this.VW = bdSailorWebViewClientExt;
+        this.VV = bdSailorWebView;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        this.VM.showEmbeddedTitleBar(false);
+        this.VV.showEmbeddedTitleBar(false);
     }
 }

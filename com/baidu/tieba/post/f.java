@@ -11,9 +11,9 @@ public class f {
                 gVar = new com.baidu.tbadk.k.g(context, onClickListener);
             }
             gVar.ge(context.getResources().getDimensionPixelSize(e.C0210e.ds280));
-            gVar.io(str);
+            gVar.iC(str);
             gVar.attachView(view, z);
-            gVar.NM();
+            gVar.Od();
             gVar.onChangeSkinType();
         }
     }

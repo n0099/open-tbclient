@@ -55,7 +55,7 @@ public class c {
             this.pluginRes = this.contextRes;
             int attributeCount = attributeSet.getAttributeCount();
             b bVar = new b();
-            bVar.dZ(str);
+            bVar.ei(str);
             for (int i = 0; i < attributeCount; i++) {
                 String attributeName = attributeSet.getAttributeName(i);
                 String attributeValue = attributeSet.getAttributeValue(i);
@@ -130,7 +130,7 @@ public class c {
                     z = true;
                 }
                 if (z && TbConfig.getDebugSwitch() && (l = com.baidu.adp.lib.g.b.l(attributeValue.substring(1), 0)) != 0) {
-                    bVar.dY(attributeName + ETAG.EQUAL + this.contextRes.getResourceName(l));
+                    bVar.eh(attributeName + ETAG.EQUAL + this.contextRes.getResourceName(l));
                 }
             }
             if (z) {
@@ -210,10 +210,10 @@ public class c {
         if (this.viewModeInfos != null && this.viewModeInfos.containsKey(str)) {
             b bVar = this.viewModeInfos.get(str);
             if (viewGroup instanceof AdapterView) {
-                if ((viewGroup instanceof ListView) && bVar.xn() != 0) {
+                if ((viewGroup instanceof ListView) && bVar.xA() != 0) {
                     ListView listView = (ListView) viewGroup;
                     int dividerHeight = listView.getDividerHeight();
-                    listView.setDivider(getDrawable(this.isNightMode, bVar.xm(), bVar.xn()));
+                    listView.setDivider(getDrawable(this.isNightMode, bVar.xz(), bVar.xA()));
                     listView.setDividerHeight(dividerHeight);
                 }
                 Adapter adapter = ((AdapterView) viewGroup).getAdapter();
@@ -221,16 +221,16 @@ public class c {
                     ((BaseAdapter) adapter).notifyDataSetChanged();
                 }
             }
-            if (bVar.xr() != 0) {
+            if (bVar.xE() != 0) {
                 int paddingLeft = viewGroup.getPaddingLeft();
                 int paddingTop = viewGroup.getPaddingTop();
                 int paddingRight = viewGroup.getPaddingRight();
                 int paddingBottom = viewGroup.getPaddingBottom();
-                String resourceTypeName = this.contextRes.getResourceTypeName(bVar.xq());
+                String resourceTypeName = this.contextRes.getResourceTypeName(bVar.xD());
                 if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                    viewGroup.setBackgroundColor(getColor(this.isNightMode, bVar.xq(), bVar.xr()));
+                    viewGroup.setBackgroundColor(getColor(this.isNightMode, bVar.xD(), bVar.xE()));
                 } else {
-                    viewGroup.setBackgroundDrawable(getDrawable(this.isNightMode, bVar.xq(), bVar.xr()));
+                    viewGroup.setBackgroundDrawable(getDrawable(this.isNightMode, bVar.xD(), bVar.xE()));
                 }
                 viewGroup.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }
@@ -241,57 +241,57 @@ public class c {
         Drawable drawable;
         Drawable drawable2;
         Drawable drawable3;
-        int xz;
+        int xM;
         String str = "@" + view.getId();
         if (this.viewModeInfos != null && this.viewModeInfos.containsKey(str)) {
             b bVar = this.viewModeInfos.get(str);
             if (view instanceof TextView) {
-                if (bVar.xv() != 0) {
-                    ((TextView) view).setTextColor(getColorList(this.isNightMode, bVar.xu(), bVar.xv()));
+                if (bVar.xI() != 0) {
+                    ((TextView) view).setTextColor(getColorList(this.isNightMode, bVar.xH(), bVar.xI()));
                 }
-                if (bVar.xt() != 0) {
-                    ((TextView) view).setHintTextColor(getColorList(this.isNightMode, bVar.xs(), bVar.xt()));
+                if (bVar.xG() != 0) {
+                    ((TextView) view).setHintTextColor(getColorList(this.isNightMode, bVar.xF(), bVar.xG()));
                 }
-                if (bVar.xy() != 0) {
+                if (bVar.xL() != 0) {
                     TextView textView = (TextView) view;
                     Context context = view.getContext();
                     if (this.isNightMode) {
-                        xz = bVar.xy();
+                        xM = bVar.xL();
                     } else {
-                        xz = bVar.xz();
+                        xM = bVar.xM();
                     }
-                    textView.setTextAppearance(context, xz);
+                    textView.setTextAppearance(context, xM);
                 }
-                if (bVar.xl() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, getDrawable(this.isNightMode, bVar.xk(), bVar.xl()), (Drawable) null, (Drawable) null);
+                if (bVar.xy() != 0) {
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, getDrawable(this.isNightMode, bVar.xx(), bVar.xy()), (Drawable) null, (Drawable) null);
                 }
-                if (bVar.xj() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds(getDrawable(this.isNightMode, bVar.xi(), bVar.xj()), (Drawable) null, (Drawable) null, (Drawable) null);
+                if (bVar.xw() != 0) {
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds(getDrawable(this.isNightMode, bVar.xv(), bVar.xw()), (Drawable) null, (Drawable) null, (Drawable) null);
                 }
-                if (bVar.xp() != 0) {
-                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, getDrawable(this.isNightMode, bVar.xo(), bVar.xp()), (Drawable) null);
+                if (bVar.xC() != 0) {
+                    ((TextView) view).setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, getDrawable(this.isNightMode, bVar.xB(), bVar.xC()), (Drawable) null);
                 }
             } else if (view instanceof ImageButton) {
-                if (bVar.xw() != 0 && (drawable3 = getDrawable(this.isNightMode, bVar.xx(), bVar.xw())) != null) {
+                if (bVar.xJ() != 0 && (drawable3 = getDrawable(this.isNightMode, bVar.xK(), bVar.xJ())) != null) {
                     ((ImageView) view).setImageDrawable(drawable3);
                 }
             } else if (view instanceof ImageView) {
-                if (bVar.xw() != 0 && (drawable2 = getDrawable(this.isNightMode, bVar.xx(), bVar.xw())) != null) {
+                if (bVar.xJ() != 0 && (drawable2 = getDrawable(this.isNightMode, bVar.xK(), bVar.xJ())) != null) {
                     ((ImageView) view).setImageDrawable(drawable2);
                 }
-            } else if ((view instanceof ProgressBar) && bVar.xB() != 0 && (drawable = getDrawable(this.isNightMode, bVar.xA(), bVar.xB())) != null) {
+            } else if ((view instanceof ProgressBar) && bVar.xO() != 0 && (drawable = getDrawable(this.isNightMode, bVar.xN(), bVar.xO())) != null) {
                 ((ProgressBar) view).setProgressDrawable(drawable);
             }
-            if (bVar.xr() != 0) {
+            if (bVar.xE() != 0) {
                 int paddingLeft = view.getPaddingLeft();
                 int paddingTop = view.getPaddingTop();
                 int paddingRight = view.getPaddingRight();
                 int paddingBottom = view.getPaddingBottom();
-                String resourceTypeName = this.contextRes.getResourceTypeName(bVar.xq());
+                String resourceTypeName = this.contextRes.getResourceTypeName(bVar.xD());
                 if (resourceTypeName != null && resourceTypeName.equals("color")) {
-                    view.setBackgroundColor(getColor(this.isNightMode, bVar.xq(), bVar.xr()));
+                    view.setBackgroundColor(getColor(this.isNightMode, bVar.xD(), bVar.xE()));
                 } else {
-                    view.setBackgroundDrawable(getDrawable(this.isNightMode, bVar.xq(), bVar.xr()));
+                    view.setBackgroundDrawable(getDrawable(this.isNightMode, bVar.xD(), bVar.xE()));
                 }
                 view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }

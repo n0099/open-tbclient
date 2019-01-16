@@ -1,17 +1,17 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes6.dex */
 public interface ah {
-    void Fj();
+    void Fw();
 
-    void aaC();
+    void aaZ();
 
-    void aaD();
+    void aba();
 
-    void aaE();
+    void abb();
 
     void setHeaderViewHeight(int i);
 
-    void setRecommendFrsNavigationAnimDispatcher(com.baidu.tbadk.util.u uVar);
+    void setRecommendFrsNavigationAnimDispatcher(com.baidu.tbadk.util.v vVar);
 
     void setVideoThreadId(String str);
 

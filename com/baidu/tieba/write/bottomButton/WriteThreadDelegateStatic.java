@@ -21,14 +21,14 @@ public class WriteThreadDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c NP() {
+    public c Og() {
         c cVar = new c();
-        cVar.bdN = new WriteThreadFragment();
+        cVar.bez = new WriteThreadFragment();
         cVar.type = 9;
-        cVar.aFs = e.j.send;
-        cVar.aFt = e.f.icon_tabbar_add_n;
-        cVar.bdO = e.f.icon_tabbar_chaticon_n;
-        cVar.bdT = c.bdP;
+        cVar.aFU = e.j.send;
+        cVar.aFV = e.f.icon_tabbar_add_n;
+        cVar.beA = e.f.icon_tabbar_chaticon_n;
+        cVar.beF = c.beB;
         return cVar;
     }
 
@@ -37,12 +37,12 @@ public class WriteThreadDelegateStatic extends b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c NQ;
+                c Oh;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     WriteThreadDelegateStatic writeThreadDelegateStatic = new WriteThreadDelegateStatic();
                     ((d) customResponsedMessage.getData()).a(writeThreadDelegateStatic);
-                    if (((d) customResponsedMessage.getData()).getContext() != null && (NQ = writeThreadDelegateStatic.NQ()) != null) {
-                        NQ.bdN.setArguments(new Bundle());
+                    if (((d) customResponsedMessage.getData()).getContext() != null && (Oh = writeThreadDelegateStatic.Oh()) != null) {
+                        Oh.bez.setArguments(new Bundle());
                     }
                 }
             }
@@ -53,7 +53,7 @@ public class WriteThreadDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator bR(Context context) {
-        this.bdz = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(e.h.maintab_bottom_indicator, (ViewGroup) null);
-        return this.bdz;
+        this.bek = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(e.h.maintab_bottom_indicator, (ViewGroup) null);
+        return this.bek;
     }
 }

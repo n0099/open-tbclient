@@ -11,8 +11,8 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     private Context mContext;
     private View mView = null;
     private boolean mEnable = true;
-    private int Ox = 0;
-    private int Oy = 0;
+    private int OG = 0;
+    private int OH = 0;
 
     public abstract void av(boolean z);
 
@@ -20,9 +20,9 @@ public abstract class c implements BdSwipeRefreshLayout.b {
 
     public abstract void ax(boolean z);
 
-    public abstract View oD();
+    public abstract View oH();
 
-    public abstract void oE();
+    public abstract void oI();
 
     public abstract void refreshing();
 
@@ -43,13 +43,13 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
     public final View getView() {
         if (this.mView == null) {
-            this.mView = oD();
+            this.mView = oH();
             if (this.mView == null) {
                 throw new IllegalStateException("BdIListPullView getView is null");
             }
             A(this.mView);
-            this.Ox = this.mView.getMeasuredHeight();
-            this.Oy = this.mView.getMeasuredWidth();
+            this.OG = this.mView.getMeasuredHeight();
+            this.OH = this.mView.getMeasuredWidth();
         }
         return this.mView;
     }
@@ -84,8 +84,8 @@ public abstract class c implements BdSwipeRefreshLayout.b {
         view.measure(childMeasureSpec, makeMeasureSpec);
     }
 
-    public int oF() {
-        return this.Ox;
+    public int oJ() {
+        return this.OG;
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
@@ -105,8 +105,8 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public void oG() {
-        oE();
+    public void oK() {
+        oI();
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
@@ -119,7 +119,7 @@ public abstract class c implements BdSwipeRefreshLayout.b {
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
-    public long oH() {
+    public long oL() {
         return 0L;
     }
 }

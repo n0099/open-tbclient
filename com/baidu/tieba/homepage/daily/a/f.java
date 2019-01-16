@@ -13,31 +13,31 @@ import com.baidu.tieba.card.o;
 import com.baidu.tieba.card.v;
 /* loaded from: classes6.dex */
 public class f extends com.baidu.adp.widget.ListView.a<bb, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c>> {
-    private ad<bb> caA;
-    private com.baidu.tieba.homepage.daily.view.c euW;
+    private ad<bb> cbl;
+    private com.baidu.tieba.homepage.daily.view.c evC;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.caA = new ad<bb>() { // from class: com.baidu.tieba.homepage.daily.a.f.1
+        this.cbl = new ad<bb>() { // from class: com.baidu.tieba.homepage.daily.a.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             public void a(View view, bb bbVar) {
                 int i = 2;
-                if (view != null && bbVar != null && f.this.euW != null && f.this.euW.getView() != null) {
+                if (view != null && bbVar != null && f.this.evC != null && f.this.evC.getView() != null) {
                     am amVar = new am("c13175");
-                    amVar.x("obj_type", 2);
-                    amVar.aA("tid", bbVar.getTid());
+                    amVar.y("obj_type", 2);
+                    amVar.aB("tid", bbVar.getTid());
                     amVar.i(ImageViewerConfig.FORUM_ID, bbVar.getFid());
-                    if (view.getId() != f.this.euW.aLn() && view.getId() != f.this.euW.aLo()) {
-                        if (view.getId() == f.this.euW.aLp()) {
+                    if (view.getId() != f.this.evC.aLL() && view.getId() != f.this.evC.aLM()) {
+                        if (view.getId() == f.this.evC.aLN()) {
                             i = 3;
                         }
                     } else {
                         i = 1;
                     }
-                    amVar.x("obj_locate", i);
+                    amVar.y("obj_locate", i);
                     TiebaStatic.log(amVar);
                 }
             }
@@ -50,13 +50,13 @@ public class f extends com.baidu.adp.widget.ListView.a<bb, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aa */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c> onCreateViewHolder(ViewGroup viewGroup) {
-        this.euW = new com.baidu.tieba.homepage.daily.view.c(this.mPageContext);
-        this.euW.setTag(this.mPageId);
-        this.euW.setShareReportFrom(7);
-        this.euW.oA(11);
-        this.euW.setStType(o.zu());
-        this.euW.currentPageType = 16;
-        return new com.baidu.tieba.card.a.a<>(this.euW);
+        this.evC = new com.baidu.tieba.homepage.daily.view.c(this.mPageContext);
+        this.evC.setTag(this.mPageId);
+        this.evC.setShareReportFrom(7);
+        this.evC.oB(11);
+        this.evC.setStType(o.zH());
+        this.evC.currentPageType = 16;
+        return new com.baidu.tieba.card.a.a<>(this.evC);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -64,16 +64,16 @@ public class f extends com.baidu.adp.widget.ListView.a<bb, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bb bbVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c> aVar) {
-        if (bbVar == null || aVar == null || aVar.aqT() == null) {
+        if (bbVar == null || aVar == null || aVar.arr() == null) {
             return null;
         }
         am amVar = new am("c13176");
-        amVar.x("obj_type", 2);
-        amVar.aA("tid", bbVar.getTid());
+        amVar.y("obj_type", 2);
+        amVar.aB("tid", bbVar.getTid());
         amVar.i(ImageViewerConfig.FORUM_ID, bbVar.getFid());
-        v.aqs().a(amVar);
-        aVar.aqT().b(this.caA);
-        aVar.aqT().a(bbVar);
+        v.aqP().a(amVar);
+        aVar.arr().b(this.cbl);
+        aVar.arr().a(bbVar);
         return aVar.getView();
     }
 }

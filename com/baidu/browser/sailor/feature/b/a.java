@@ -9,11 +9,11 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.browser.sailor.feature.a {
-    protected Map<Activity, b> VS;
+    protected Map<Activity, b> Wb;
 
     public a(Context context) {
         super(context);
-        this.VS = new HashMap();
+        this.Wb = new HashMap();
     }
 
     public boolean a(Activity activity, ValueCallback<Uri> valueCallback) {
@@ -60,17 +60,17 @@ public class a extends com.baidu.browser.sailor.feature.a {
     }
 
     public b u(Activity activity) {
-        if (this.VS == null || this.VS.size() <= 0) {
+        if (this.Wb == null || this.Wb.size() <= 0) {
             return null;
         }
-        return this.VS.get(activity);
+        return this.Wb.get(activity);
     }
 
     protected b v(Activity activity) {
         b u = u(activity);
         if (u == null) {
             b bVar = new b(activity);
-            this.VS.put(activity, bVar);
+            this.Wb.put(activity, bVar);
             return bVar;
         }
         return u;

@@ -7,9 +7,11 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.l;
 import com.baidu.searchbox.ng.ai.apps.core.container.init.NgWebViewInitHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.imageManager.c;
 import com.baidu.tieba.e;
+import java.util.HashSet;
 /* loaded from: classes.dex */
 public class TbConfig {
     public static final int ABSTRACT_AUTO = 0;
@@ -703,7 +705,7 @@ public class TbConfig {
             i = 30;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.Nv().fY(i);
+            c.NM().fY(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }
@@ -896,5 +898,45 @@ public class TbConfig {
 
     public static final String getBroadcastActionChangeSkin() {
         return BROADCAST_CHANGESKIN;
+    }
+
+    /* loaded from: classes.dex */
+    public static class DownFlowCmd {
+        public static HashSet<Integer> sInterruptCMDs = new HashSet<>();
+
+        static {
+            collectHttpCmd();
+            collectSocketCmd();
+        }
+
+        private static void collectSocketCmd() {
+            sInterruptCMDs.add(309541);
+            sInterruptCMDs.add(303024);
+            sInterruptCMDs.add(309609);
+            sInterruptCMDs.add(309476);
+            sInterruptCMDs.add(309618);
+            sInterruptCMDs.add(303005);
+            sInterruptCMDs.add(309615);
+            sInterruptCMDs.add(309485);
+            sInterruptCMDs.add(309117);
+            sInterruptCMDs.add(202101);
+            sInterruptCMDs.add(303017);
+        }
+
+        private static void collectHttpCmd() {
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.PB_PLAY_STATISTICS_CMD));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.WEBVIEW_CACHE_INFO));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_UEG_CANCEL));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_BIGDAY_INFO));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_RN_SYNC));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_VR_LOGO));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CDN_IPLIST_CMD));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_STORE_REMIND_TIME));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_CONCERN_UNREAD_TIP));
+            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_USER_INFO));
+        }
     }
 }

@@ -4,9 +4,6 @@ import com.baidu.ar.util.IoUtils;
 import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.mapapi.UIMsg;
 import com.baidu.searchbox.ng.ai.apps.network.NetworkDef;
-import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.am;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,20 +19,97 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes6.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a bAi;
+    private static a bAV;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
     private boolean mNeedFinish = false;
     private byte[] mBuffer = new byte[1024];
-    private Runnable bdp = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
+    private Runnable bdZ = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
+        /* JADX WARN: Code restructure failed: missing block: B:100:0x02d4, code lost:
+            r3.printStackTrace();
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:130:0x031f, code lost:
+            r3 = e;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:63:0x021d, code lost:
+            com.baidu.tieba.VideoCacheClient.d.log(com.baidu.tieba.VideoCacheClient.a.TAG, "client preload check2: " + r14);
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:64:0x023c, code lost:
+            if (r15.exists() != false) goto L79;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:66:0x0242, code lost:
+            if (r15.getParentFile() == null) goto L78;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:68:0x024c, code lost:
+            if (r15.getParentFile().exists() != false) goto L78;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:69:0x024e, code lost:
+            r15.getParentFile().mkdirs();
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:70:0x0255, code lost:
+            r15.createNewFile();
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:71:0x0258, code lost:
+            r9.close();
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:77:0x0272, code lost:
+            r3 = move-exception;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:78:0x0273, code lost:
+            r3.printStackTrace();
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:87:0x028d, code lost:
+            com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12027").aB("errormsg", "预加载文件失败").aB(com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, r3.getMessage()).aB("url", r14));
+            r3.printStackTrace();
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:88:0x02b7, code lost:
+            r9.close();
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:89:0x02ba, code lost:
+            r8.close();
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:90:0x02bd, code lost:
+            r7.close();
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:91:0x02c0, code lost:
+            r6.close();
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:93:0x02c4, code lost:
+            r3 = move-exception;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:94:0x02c5, code lost:
+            r3.printStackTrace();
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:95:0x02c9, code lost:
+            r3 = move-exception;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:96:0x02ca, code lost:
+            r3.printStackTrace();
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:97:0x02ce, code lost:
+            r3 = move-exception;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:98:0x02cf, code lost:
+            r3.printStackTrace();
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:99:0x02d3, code lost:
+            r3 = move-exception;
+         */
         @Override // java.lang.Runnable
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
         public void run() {
+            long j;
+            int i;
+            int i2;
+            InputStream inputStream;
             Socket socket;
             OutputStreamWriter outputStreamWriter;
             Exception e;
             BufferedReader bufferedReader;
-            int i;
-            long j;
+            int i3;
+            long j2;
             String readLine;
             while (!a.this.mNeedFinish) {
                 synchronized (a.this.mLock) {
@@ -46,33 +120,33 @@ public class a {
                     }
                 }
                 if (!a.this.mNeedFinish) {
-                    String Vz = a.this.Vz();
-                    if (Vz != null && !Vz.isEmpty()) {
-                        File file = new File(c.bzX + b.jz(Vz) + "/header_downloaded");
+                    String VV = a.this.VV();
+                    if (VV != null && !VV.isEmpty()) {
+                        File file = new File(c.bAK + b.jP(VV) + "/header_downloaded");
                         if (file.exists()) {
-                            d.log(a.TAG, "header exists " + Vz);
+                            d.log(a.TAG, "header exists " + VV);
                         } else {
-                            d.log(a.TAG, "client preload start: " + Vz);
-                            long j2 = 0;
-                            int i2 = 0;
-                            int i3 = 0;
-                            while (i3 < 2) {
+                            d.log(a.TAG, "client preload start: " + VV);
+                            j = 0;
+                            i = 0;
+                            i2 = 0;
+                            while (i2 < 2) {
                                 long j3 = 0;
-                                if (i3 == 1) {
-                                    long j4 = j2 - i2;
+                                if (i2 == 1) {
+                                    long j4 = j - i;
                                     if (j4 == 0) {
                                         break;
                                     } else if (j4 > 0 && j4 < 512000) {
-                                        j3 = i2;
+                                        j3 = i;
                                     } else {
-                                        j3 = j2 - 512000;
+                                        j3 = j - 512000;
                                     }
                                 }
                                 BufferedReader bufferedReader2 = null;
-                                InputStream inputStream = null;
+                                inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(Vz);
-                                    int port = b.VA().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(VV);
+                                    int port = b.VW().getPort();
                                     socket = new Socket();
                                     try {
                                         socket.connect(new InetSocketAddress(NetworkDef.IP_LOOPBACK, port), UIMsg.m_AppUI.MSG_APP_GPS);
@@ -81,24 +155,23 @@ public class a {
                                         try {
                                             outputStreamWriter.write("GET " + str + " HTTP/1.1\r\n");
                                             outputStreamWriter.write("Host: " + NetworkDef.IP_LOOPBACK + SystemInfoUtil.LINE_END);
-                                            if (i3 == 1) {
+                                            if (i2 == 1) {
                                                 outputStreamWriter.write("Range: bytes=" + j3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + SystemInfoUtil.LINE_END);
                                             }
                                             outputStreamWriter.write(SystemInfoUtil.LINE_END);
                                             outputStreamWriter.flush();
                                             bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                                            j = j2;
+                                            j2 = j;
                                             do {
                                                 try {
                                                     try {
                                                         readLine = bufferedReader.readLine();
-                                                        if (i3 == 0 && readLine != null && readLine.startsWith(HTTP.CONTENT_LEN)) {
+                                                        if (i2 == 0 && readLine != null && readLine.startsWith(HTTP.CONTENT_LEN)) {
                                                             String[] split = readLine.split(":");
                                                             if (split.length > 1) {
-                                                                j = Long.parseLong(split[1].trim());
+                                                                j2 = Long.parseLong(split[1].trim());
                                                             }
                                                         }
-                                                        System.out.print(readLine);
                                                     } catch (Throwable th) {
                                                         th = th;
                                                         bufferedReader2 = bufferedReader;
@@ -126,150 +199,122 @@ public class a {
                                                     }
                                                 } catch (Exception e7) {
                                                     e = e7;
-                                                    i = i2;
+                                                    i3 = i;
                                                 }
                                             } while (!"".equals(readLine));
                                             inputStream = socket.getInputStream();
-                                            d.log(a.TAG, "client preload check1: " + Vz);
-                                            int i4 = i2;
+                                            d.log(a.TAG, "client preload check1: " + VV);
+                                            int i4 = i;
                                             while (true) {
                                                 try {
                                                     int read = inputStream.read(a.this.mBuffer);
                                                     if (read == -1) {
-                                                        i = i4;
+                                                        i3 = i4;
                                                         break;
                                                     }
-                                                    i = read + i4;
-                                                    if (i3 != 0 || i < 512000) {
-                                                        i4 = i;
+                                                    i3 = read + i4;
+                                                    if (i2 != 0 || i3 < 512000) {
+                                                        i4 = i3;
                                                     }
                                                 } catch (Exception e8) {
-                                                    i = i4;
+                                                    i3 = i4;
                                                     e = e8;
                                                 }
                                             }
-                                            try {
-                                                d.log(a.TAG, "client preload check2: " + Vz);
-                                                if (!file.exists()) {
-                                                    if (file.getParentFile() != null && !file.getParentFile().exists()) {
-                                                        file.getParentFile().mkdirs();
-                                                    }
-                                                    file.createNewFile();
-                                                }
-                                                try {
-                                                    outputStreamWriter.close();
-                                                } catch (Exception e9) {
-                                                    e9.printStackTrace();
-                                                }
-                                                try {
-                                                    bufferedReader.close();
-                                                } catch (Exception e10) {
-                                                    e10.printStackTrace();
-                                                }
-                                                try {
-                                                    inputStream.close();
-                                                } catch (Exception e11) {
-                                                    e11.printStackTrace();
-                                                }
-                                                try {
-                                                    socket.close();
-                                                } catch (Exception e12) {
-                                                    e12.printStackTrace();
-                                                }
-                                            } catch (Exception e13) {
-                                                e = e13;
-                                                TiebaStatic.log(new am("c12027").aA("errormsg", "预加载文件失败").aA(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, e.getMessage()).aA("url", Vz));
-                                                e.printStackTrace();
-                                                try {
-                                                    outputStreamWriter.close();
-                                                } catch (Exception e14) {
-                                                    e14.printStackTrace();
-                                                }
-                                                try {
-                                                    bufferedReader.close();
-                                                } catch (Exception e15) {
-                                                    e15.printStackTrace();
-                                                }
-                                                try {
-                                                    inputStream.close();
-                                                } catch (Exception e16) {
-                                                    e16.printStackTrace();
-                                                }
-                                                try {
-                                                    socket.close();
-                                                } catch (Exception e17) {
-                                                    e17.printStackTrace();
-                                                }
-                                                i3++;
-                                                i2 = i;
-                                                j2 = j;
-                                            }
-                                        } catch (Exception e18) {
-                                            e = e18;
+                                        } catch (Exception e9) {
+                                            e = e9;
                                             bufferedReader = null;
-                                            i = i2;
-                                            j = j2;
+                                            i3 = i;
+                                            j2 = j;
                                         } catch (Throwable th2) {
                                             th = th2;
                                         }
-                                    } catch (Exception e19) {
-                                        e = e19;
+                                    } catch (Exception e10) {
+                                        e = e10;
                                         outputStreamWriter = null;
                                         bufferedReader = null;
-                                        i = i2;
-                                        j = j2;
+                                        i3 = i;
+                                        j2 = j;
                                     } catch (Throwable th3) {
                                         th = th3;
                                         outputStreamWriter = null;
                                     }
-                                } catch (Exception e20) {
-                                    e = e20;
+                                } catch (Exception e11) {
+                                    e = e11;
                                     socket = null;
                                     outputStreamWriter = null;
                                     bufferedReader = null;
-                                    i = i2;
-                                    j = j2;
+                                    i3 = i;
+                                    j2 = j;
                                 } catch (Throwable th4) {
                                     th = th4;
                                     socket = null;
                                     outputStreamWriter = null;
                                 }
-                                i3++;
-                                i2 = i;
-                                j2 = j;
+                                i2++;
+                                i = i3;
+                                j = j2;
                             }
-                            d.log(a.TAG, "client preload end: " + Vz);
+                            d.log(a.TAG, "client preload end: " + VV);
                         }
                     }
                 } else {
                     return;
                 }
             }
+            return;
+            try {
+                socket.close();
+            } catch (Exception e12) {
+                e12.printStackTrace();
+            }
+            i2++;
+            i = i3;
+            j = j2;
+            try {
+                bufferedReader.close();
+            } catch (Exception e13) {
+                e13.printStackTrace();
+            }
+            try {
+                inputStream.close();
+            } catch (Exception e14) {
+                e14.printStackTrace();
+            }
+            socket.close();
+            i2++;
+            i = i3;
+            j = j2;
+            inputStream.close();
+            socket.close();
+            i2++;
+            i = i3;
+            j = j2;
         }
     };
-    private Thread mThread = new Thread(this.bdp);
+    private Thread mThread = new Thread(this.bdZ);
 
     private a() {
         this.mThread.start();
     }
 
-    public static a Vy() {
-        if (bAi == null) {
+    public static a VU() {
+        if (bAV == null) {
             synchronized (a.class) {
-                if (bAi == null) {
-                    bAi = new a();
+                if (bAV == null) {
+                    bAV = new a();
                 }
             }
         }
-        return bAi;
+        return bAV;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String Vz() {
+    public synchronized String VV() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void jA(String str) {
+    public synchronized void jQ(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

@@ -18,27 +18,27 @@ public class VideoTopicNetModelImpl<T> extends NetAutoModel<VideoTopicRequestDat
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int Ot() {
+    protected int OL() {
         return CmdConfigHttp.CMD_FRS_VIDEO_TOPIC;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected int Ou() {
+    protected int OM() {
         return 309607;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    protected String Ov() {
+    protected String ON() {
         return TbConfig.FRS_VIDEO_TOPIC;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcProtobufHttpResponsedMessage> Or() {
+    protected Class<? extends MvcProtobufHttpResponsedMessage> OJ() {
         return VideoTopicHttpResponseMessage.class;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetAutoModel, com.baidu.tbadk.mvc.model.NetModel
-    protected Class<? extends MvcSocketResponsedMessage> Os() {
+    protected Class<? extends MvcSocketResponsedMessage> OK() {
         return VideoTopicSocketResponseMessage.class;
     }
 }

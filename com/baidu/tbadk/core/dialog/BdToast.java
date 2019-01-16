@@ -14,8 +14,8 @@ import java.util.HashMap;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
 public class BdToast {
-    private static SoftReference<Toast> awW;
-    private static HashMap<DefaultIcon, Integer> awX = new HashMap<>(2);
+    private static SoftReference<Toast> axy;
+    private static HashMap<DefaultIcon, Integer> axz = new HashMap<>(2);
     private Toast Gv;
     private final Context mContext;
     private final ImageView mIconView;
@@ -37,9 +37,9 @@ public class BdToast {
     }
 
     static {
-        awX.put(DefaultIcon.SUCCESS, Integer.valueOf(e.f.icon_unite_pass));
-        awX.put(DefaultIcon.FAILURE, Integer.valueOf(e.f.icon_unite_lose));
-        awX.put(DefaultIcon.NOT, 0);
+        axz.put(DefaultIcon.SUCCESS, Integer.valueOf(e.f.icon_unite_pass));
+        axz.put(DefaultIcon.FAILURE, Integer.valueOf(e.f.icon_unite_lose));
+        axz.put(DefaultIcon.NOT, 0);
     }
 
     private BdToast(Context context) {
@@ -83,9 +83,9 @@ public class BdToast {
         this.mTextView.setLineSpacing(0.0f, f);
     }
 
-    public BdToast BL() {
+    public BdToast BY() {
         this.Gv = new Toast(this.mContext);
-        BM();
+        BZ();
         if (this.mIconResId != -1) {
             al.c(this.mIconView, this.mIconResId);
             this.mIconView.setVisibility(0);
@@ -101,11 +101,11 @@ public class BdToast {
         return this;
     }
 
-    private void BM() {
-        if (awW != null && awW.get() != null) {
-            awW.get().cancel();
+    private void BZ() {
+        if (axy != null && axy.get() != null) {
+            axy.get().cancel();
         }
-        awW = new SoftReference<>(this.Gv);
+        axy = new SoftReference<>(this.Gv);
     }
 
     private void dp(int i) {
@@ -114,7 +114,7 @@ public class BdToast {
         }
     }
 
-    public BdToast BN() {
+    public BdToast Ca() {
         this.mTextView.setText(this.mText);
         this.Gv.setGravity(this.mGravity, this.Cd, this.Ce);
         this.Gv.setDuration(this.mDuration);
@@ -123,26 +123,26 @@ public class BdToast {
     }
 
     public static BdToast a(Context context, CharSequence charSequence) {
-        return new BdToast(context).d(charSequence).BL();
+        return new BdToast(context).d(charSequence).BY();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i) {
-        return new BdToast(context).d(charSequence).m16do(i).BL();
+        return new BdToast(context).d(charSequence).m16do(i).BY();
     }
 
     public static BdToast b(Context context, CharSequence charSequence, int i) {
-        return new BdToast(context).d(charSequence).dm(i).BL();
+        return new BdToast(context).d(charSequence).dm(i).BY();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, int i, int i2) {
-        return new BdToast(context).d(charSequence).dm(i).m16do(i2).BL();
+        return new BdToast(context).d(charSequence).dm(i).m16do(i2).BY();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon) {
-        return new BdToast(context).d(charSequence).dm(awX.get(defaultIcon).intValue()).BL();
+        return new BdToast(context).d(charSequence).dm(axz.get(defaultIcon).intValue()).BY();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon, int i) {
-        return new BdToast(context).d(charSequence).dm(awX.get(defaultIcon).intValue()).m16do(i).BL();
+        return new BdToast(context).d(charSequence).dm(axz.get(defaultIcon).intValue()).m16do(i).BY();
     }
 }

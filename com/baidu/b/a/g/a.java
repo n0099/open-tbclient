@@ -1,9 +1,9 @@
 package com.baidu.b.a.g;
 /* loaded from: classes2.dex */
 public class a {
-    static c aaz;
+    static c aaI;
 
-    public static c sa() {
-        return aaz;
+    public static c se() {
+        return aaI;
     }
 }

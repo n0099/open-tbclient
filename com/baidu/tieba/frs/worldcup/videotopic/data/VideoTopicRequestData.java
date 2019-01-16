@@ -3,28 +3,28 @@ package com.baidu.tieba.frs.worldcup.videotopic.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.mvc.b.e;
 import com.baidu.tbadk.mvc.b.h;
-import com.baidu.tbadk.util.p;
+import com.baidu.tbadk.util.q;
 import java.util.HashMap;
 import tbclient.VideoTopicList.DataReq;
 import tbclient.VideoTopicList.VideoTopicListReqIdl;
 /* loaded from: classes3.dex */
 public class VideoTopicRequestData extends OrmObject implements e, h {
-    private Integer emK;
-    private Integer emL;
-    private String emM;
-    private String emN;
-    private Integer emO;
-    private Integer emP;
+    private Integer enr;
+    private Integer ens;
+    private String ent;
+    private String enu;
+    private Integer env;
+    private Integer enw;
     private Long pn;
     private Integer rn = 10;
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String NZ() {
+    public String Oq() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Oa() {
+    public boolean Or() {
         return false;
     }
 
@@ -39,44 +39,49 @@ public class VideoTopicRequestData extends OrmObject implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> Oc() {
+    public HashMap<String, Object> Ot() {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.g
+    public HashMap<String, String> Ou() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object cD(boolean z) {
+    public Object cG(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.topic_id = this.emO;
+        builder.topic_id = this.env;
         builder.pn = this.pn;
         builder.rn = this.rn;
-        builder.q_type = this.emN;
-        builder.scr_dip = this.emM;
-        builder.scr_h = this.emL;
-        builder.scr_w = this.emK;
-        p.bindCommonParamsToProtobufData(builder, true, false, true);
+        builder.q_type = this.enu;
+        builder.scr_dip = this.ent;
+        builder.scr_h = this.ens;
+        builder.scr_w = this.enr;
+        q.bindCommonParamsToProtobufData(builder, true, false, true);
         VideoTopicListReqIdl.Builder builder2 = new VideoTopicListReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);
     }
 
     public void setScrW(Integer num) {
-        this.emK = num;
+        this.enr = num;
     }
 
     public void setScrH(Integer num) {
-        this.emL = num;
+        this.ens = num;
     }
 
-    public void oV(String str) {
-        this.emM = str;
+    public void pl(String str) {
+        this.ent = str;
     }
 
-    public void oW(String str) {
-        this.emN = str;
+    public void pm(String str) {
+        this.enu = str;
     }
 
     public void l(Integer num) {
-        this.emO = num;
+        this.env = num;
     }
 
     public void ce(long j) {
@@ -88,10 +93,10 @@ public class VideoTopicRequestData extends OrmObject implements e, h {
     }
 
     public int getRequestType() {
-        return this.emP.intValue();
+        return this.enw.intValue();
     }
 
     public void m(Integer num) {
-        this.emP = num;
+        this.enw = num;
     }
 }

@@ -7,13 +7,13 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class k {
-    private long Sx;
-    private int ieF;
-    private JSONArray ieH;
-    private JSONObject ifc;
-    private int ifd;
-    private String ife;
-    private boolean iff = false;
+    private long SG;
+    private int ifM;
+    private JSONArray ifO;
+    private JSONObject igj;
+    private int igk;
+    private String igl;
+    private boolean igm = false;
     private String mCategory;
     private String mContent;
     private long mEndTime;
@@ -25,9 +25,9 @@ public class k {
 
     public k(String str, int i, String str2, int i2) {
         this.mId = str;
-        this.ieF = i;
+        this.ifM = i;
         this.mContent = str2;
-        this.ifd = i2;
+        this.igk = i2;
     }
 
     public String getId() {
@@ -38,12 +38,12 @@ public class k {
         this.mId = str;
     }
 
-    public int bRT() {
-        return this.ieF;
+    public int bSB() {
+        return this.ifM;
     }
 
-    public void xT(int i) {
-        this.ieF = i;
+    public void xV(int i) {
+        this.ifM = i;
     }
 
     public String getContent() {
@@ -54,16 +54,16 @@ public class k {
         this.mContent = str;
     }
 
-    public JSONObject bRW() {
-        return this.ifc;
+    public JSONObject bSE() {
+        return this.igj;
     }
 
-    public long bRZ() {
-        return this.Sx;
+    public long bSH() {
+        return this.SG;
     }
 
     public void ds(long j) {
-        this.Sx = j;
+        this.SG = j;
     }
 
     public long getEndTime() {
@@ -78,16 +78,16 @@ public class k {
         return this.mState;
     }
 
-    public void yl(String str) {
+    public void yB(String str) {
         this.mState = str;
     }
 
-    public int bRU() {
-        return this.ifd;
+    public int bSC() {
+        return this.igk;
     }
 
-    public String bRV() {
-        return this.ife;
+    public String bSD() {
+        return this.igl;
     }
 
     public String getCategory() {
@@ -98,35 +98,35 @@ public class k {
         this.mCategory = str;
     }
 
-    public boolean bRQ() {
-        return this.iff;
+    public boolean bSy() {
+        return this.igm;
     }
 
-    public void oN(boolean z) {
-        this.iff = z;
+    public void oO(boolean z) {
+        this.igm = z;
     }
 
-    public void ym(String str) {
-        this.ife = str;
+    public void yC(String str) {
+        this.igl = str;
     }
 
-    public void bRX() {
-        if (e.bRG().yc(this.mId)) {
-            this.ife = o.bSi().Zf();
+    public void bSF() {
+        if (e.bSo().ys(this.mId)) {
+            this.igl = o.bSQ().ZC();
         }
     }
 
-    public void yn(String str) {
+    public void yD(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.ieH = new JSONArray(str);
+                this.ifO = new JSONArray(str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public JSONArray bSa() {
-        return this.ieH;
+    public JSONArray bSI() {
+        return this.ifO;
     }
 }

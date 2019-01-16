@@ -5,29 +5,29 @@ import org.json.JSONObject;
 import tbclient.FrsPage.Yule;
 /* loaded from: classes.dex */
 public class bj {
-    private int awa = 0;
-    private bi awb = new bi();
+    private int awC = 0;
+    private bi awD = new bi();
 
-    public boolean Bx() {
-        return this.awa != 0;
+    public boolean BK() {
+        return this.awC != 0;
     }
 
-    public bi By() {
-        return this.awb;
+    public bi BL() {
+        return this.awD;
     }
 
     public void a(Yule yule) {
         if (yule != null) {
-            this.awa = yule.activity_show.intValue();
-            this.awb.a(yule.yule_activity);
+            this.awC = yule.activity_show.intValue();
+            this.awD.a(yule.yule_activity);
         }
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.awa = jSONObject.optInt("activity_show");
-                this.awb.parserJson(jSONObject.optJSONObject("yule_activity"));
+                this.awC = jSONObject.optInt("activity_show");
+                this.awD.parserJson(jSONObject.optJSONObject("yule_activity"));
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

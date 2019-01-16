@@ -26,7 +26,7 @@ public class a extends com.baidu.pyramid.runtime.multiprocess.components.a {
     @Override // com.baidu.pyramid.runtime.multiprocess.components.a
     public Cursor a(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         if (i == 1) {
-            return new d(c.a.uO());
+            return new d(c.a.uS());
         }
         return null;
     }
@@ -67,7 +67,7 @@ public class a extends com.baidu.pyramid.runtime.multiprocess.components.a {
     @Override // com.baidu.pyramid.runtime.multiprocess.components.a
     public Bundle call(String str, String str2, Bundle bundle) {
         if ("_get_service_handler".equals(str)) {
-            return c.a.uO();
+            return c.a.uS();
         }
         return null;
     }

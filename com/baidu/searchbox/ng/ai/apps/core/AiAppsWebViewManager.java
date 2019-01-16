@@ -207,7 +207,7 @@ public abstract class AiAppsWebViewManager implements NgWebView.OnCommonEventHan
         if (AiAppsRuntime.getConfigRuntime().disableJsPromptS()) {
             this.mNgWebView.getSettings().aE(false);
         }
-        if (this.mConfig.isBgTransparentMode && a.qU()) {
+        if (this.mConfig.isBgTransparentMode && a.qY()) {
             this.mNgWebView.setBackgroundColor(0);
         }
         this.mNgWebView.setScrollBarStyle(0);
@@ -364,7 +364,7 @@ public abstract class AiAppsWebViewManager implements NgWebView.OnCommonEventHan
     private void initSettings() {
         g settings = this.mNgWebView.getSettings();
         j settingsExt = this.mNgWebView.getSettingsExt();
-        settings.cv(getFrameName());
+        settings.cw(getFrameName());
         settings.setLightTouchEnabled(false);
         settings.setNeedInitialFocus(false);
         settings.setJavaScriptEnabled(true);
@@ -378,9 +378,9 @@ public abstract class AiAppsWebViewManager implements NgWebView.OnCommonEventHan
         settings.setMediaPlaybackRequiresUserGesture(false);
         settings.setTextZoom(100);
         settingsExt.aF(false);
-        com.baidu.browser.sailor.a.qn().enableFeature("GEO");
-        com.baidu.browser.sailor.a.qn().enableFeature("ADBLOCK");
-        com.baidu.browser.sailor.a.qn().disableFeature("SSL");
+        com.baidu.browser.sailor.a.qr().enableFeature("GEO");
+        com.baidu.browser.sailor.a.qr().enableFeature("ADBLOCK");
+        com.baidu.browser.sailor.a.qr().disableFeature("SSL");
         settings.setDatabaseEnabled(true);
         settings.setDomStorageEnabled(true);
         settings.setAppCacheEnabled(true);

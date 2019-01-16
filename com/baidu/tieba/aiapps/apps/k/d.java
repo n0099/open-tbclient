@@ -10,12 +10,12 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class d {
-    private com.baidu.tieba.aiapps.apps.k.a.a bJM;
+    private com.baidu.tieba.aiapps.apps.k.a.a bKz;
     private Activity mActivity;
     private BdUniqueId mPageId = BdUniqueId.gen();
     public final Bundle mParams = new Bundle();
     public final Bundle mResult = new Bundle();
-    private CustomMessageListener bJN = new CustomMessageListener(2921381) { // from class: com.baidu.tieba.aiapps.apps.k.d.1
+    private CustomMessageListener bKA = new CustomMessageListener(2921381) { // from class: com.baidu.tieba.aiapps.apps.k.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -26,7 +26,7 @@ public class d {
                     if (getTag() == dVar.tag) {
                         d.this.mResult.putInt("result_code", dVar.type);
                         d.this.mResult.putString("result_msg", dVar.message);
-                        d.this.bJM.o(d.this.mResult);
+                        d.this.bKz.o(d.this.mResult);
                         d.this.finish();
                     }
                 }
@@ -34,17 +34,17 @@ public class d {
         }
     };
 
-    public void F(Activity activity) {
+    public void G(Activity activity) {
         this.mActivity = activity;
     }
 
     public void a(com.baidu.tieba.aiapps.apps.k.a.a aVar) {
-        this.bJM = aVar;
+        this.bKz = aVar;
     }
 
     public boolean onExec() {
-        this.bJN.setTag(this.mPageId);
-        MessageManager.getInstance().registerListener(this.bJN);
+        this.bKA.setTag(this.mPageId);
+        MessageManager.getInstance().registerListener(this.bKA);
         int i = this.mParams.getInt("type");
         String string = this.mParams.getString("orderInfo");
         com.baidu.tbadk.pay.d dVar = new com.baidu.tbadk.pay.d();
@@ -63,7 +63,7 @@ public class d {
 
     protected void finish() {
         this.mActivity = null;
-        this.bJM = null;
-        MessageManager.getInstance().unRegisterListener(this.bJN);
+        this.bKz = null;
+        MessageManager.getInstance().unRegisterListener(this.bKA);
     }
 }

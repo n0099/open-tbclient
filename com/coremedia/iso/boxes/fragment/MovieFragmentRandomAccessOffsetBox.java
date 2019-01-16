@@ -10,8 +10,8 @@ import org.aspectj.lang.a;
 /* loaded from: classes5.dex */
 public class MovieFragmentRandomAccessOffsetBox extends AbstractFullBox {
     public static final String TYPE = "mfro";
-    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC0402a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC0401a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC0401a ajc$tjp_1 = null;
     private long mfraSize;
 
     static {

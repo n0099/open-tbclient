@@ -4,12 +4,12 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes2.dex */
 public class e implements d {
-    private Handler ahx = new Handler(Looper.getMainLooper());
+    private Handler ahG = new Handler(Looper.getMainLooper());
 
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.baidu.poly.a.e.1.run():void] */
     static /* synthetic */ Handler a(e eVar) {
-        return eVar.ahx;
+        return eVar.ahG;
     }
 
     @Override // com.baidu.poly.a.d
@@ -36,7 +36,7 @@ public class e implements d {
                     java.net.URLConnection r0 = r0.openConnection()     // Catch: java.lang.Throwable -> L3a
                     java.net.HttpURLConnection r0 = (java.net.HttpURLConnection) r0     // Catch: java.lang.Throwable -> L3a
                     com.baidu.poly.a.b r1 = r3     // Catch: java.lang.Throwable -> L3a
-                    java.util.Map r1 = r1.up()     // Catch: java.lang.Throwable -> L3a
+                    java.util.Map r1 = r1.ut()     // Catch: java.lang.Throwable -> L3a
                     java.util.Set r1 = r1.entrySet()     // Catch: java.lang.Throwable -> L3a
                     java.util.Iterator r4 = r1.iterator()     // Catch: java.lang.Throwable -> L3a
                 L1e:

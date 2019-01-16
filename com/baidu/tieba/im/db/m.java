@@ -9,19 +9,19 @@ import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 /* loaded from: classes.dex */
 public class m extends a {
     public static String HEAD = "tb_private_msg_";
-    private static a eQF;
+    private static a eRr;
 
     private m() {
         super("tb_private_msg_", PersonalChatMessage.class);
     }
 
-    public static synchronized m aRu() {
+    public static synchronized m aRU() {
         m mVar;
         synchronized (m.class) {
-            if (eQF == null) {
-                eQF = new m();
+            if (eRr == null) {
+                eRr = new m();
             }
-            mVar = (m) eQF;
+            mVar = (m) eRr;
         }
         return mVar;
     }
@@ -50,7 +50,7 @@ public class m extends a {
             ?? r2 = HEAD;
             try {
                 try {
-                    cursor = h.aRj().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
+                    cursor = h.aRJ().rawQuery("select * from " + sb.append(r2).append(str).toString() + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
                     try {
                         CommonMsgPojo commonMsgPojo2 = new CommonMsgPojo();
                         if (cursor == null || !cursor.moveToNext()) {
@@ -80,7 +80,7 @@ public class m extends a {
                         e = e;
                         TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
                         e.printStackTrace();
-                        pT(str);
+                        qj(str);
                         com.baidu.adp.lib.util.n.e(cursor);
                         r2 = cursor;
                         return commonMsgPojo;

@@ -7,7 +7,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 public class b {
     private static Context sAppContext = AppRuntime.getAppContext();
     private static boolean sIsMainProcess = true;
-    private static ApplicationInfo Zl = null;
+    private static ApplicationInfo Zu = null;
 
     public static synchronized void init(Context context, boolean z) {
         synchronized (b.class) {

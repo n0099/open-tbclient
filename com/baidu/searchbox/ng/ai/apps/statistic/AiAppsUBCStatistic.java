@@ -49,7 +49,7 @@ public final class AiAppsUBCStatistic {
 
     public void startFlow() {
         if (this.mFlow == null) {
-            this.mFlow = o.yo(UBC_AIAPPS_DURATION_ID);
+            this.mFlow = o.yE(UBC_AIAPPS_DURATION_ID);
         }
     }
 
@@ -60,7 +60,7 @@ public final class AiAppsUBCStatistic {
                 @Override // java.lang.Runnable
                 public void run() {
                     aiAppsUBCEvent.mergeExtInfo(AiAppsUBCStatistic.verifyTokenForChannelRefining());
-                    flow.yj(aiAppsUBCEvent.toJSONObject().toString());
+                    flow.yz(aiAppsUBCEvent.toJSONObject().toString());
                     flow.end();
                 }
             }, "AiAppsUBCEndFlow");
@@ -74,7 +74,7 @@ public final class AiAppsUBCStatistic {
                 @Override // java.lang.Runnable
                 public void run() {
                     AiAppsUBCEvent.this.mergeExtInfo(AiAppsUBCStatistic.verifyTokenForChannelRefining());
-                    o.i(AiAppsUBCStatistic.UBC_AIAPPS_EVENT_ID, AiAppsUBCEvent.this.toJSONObject());
+                    o.j(AiAppsUBCStatistic.UBC_AIAPPS_EVENT_ID, AiAppsUBCEvent.this.toJSONObject());
                 }
             }, "AiAppsUBCOnEvent");
         }
@@ -89,7 +89,7 @@ public final class AiAppsUBCStatistic {
         AiAppExecutorUtils.postOnComputation(new Runnable() { // from class: com.baidu.searchbox.ng.ai.apps.statistic.AiAppsUBCStatistic.3
             @Override // java.lang.Runnable
             public void run() {
-                o.i(AiAppsUBCStatistic.UBC_AIAPPS_LOGIN_ID, AiAppsUBCEvent.this.toJSONObject());
+                o.j(AiAppsUBCStatistic.UBC_AIAPPS_LOGIN_ID, AiAppsUBCEvent.this.toJSONObject());
             }
         }, "AiAppsUBCOnLogin");
     }
@@ -128,7 +128,7 @@ public final class AiAppsUBCStatistic {
             @Override // java.lang.Runnable
             public void run() {
                 AiAppsUBCEvent.this.mergeExtInfo(AiAppsUBCStatistic.verifyTokenForChannelRefining());
-                o.i(AiAppsUBCStatistic.UBC_AIAPPS_PAGESTO_ID, AiAppsUBCEvent.this.toJSONObject());
+                o.j(AiAppsUBCStatistic.UBC_AIAPPS_PAGESTO_ID, AiAppsUBCEvent.this.toJSONObject());
             }
         }, "AiAppsUBCOnPagesRoute");
     }

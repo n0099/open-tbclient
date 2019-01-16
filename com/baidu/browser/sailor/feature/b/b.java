@@ -19,11 +19,11 @@ import com.baidu.webkit.sdk.WebChromeClient;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class b {
-    private String VT;
-    private ValueCallback<Uri[]> VU;
-    private WebChromeClient.FileChooserParams VV;
-    private boolean VW;
-    private boolean VX = false;
+    private String Wc;
+    private ValueCallback<Uri[]> Wd;
+    private WebChromeClient.FileChooserParams We;
+    private boolean Wf;
+    private boolean Wg = false;
     private Activity mActivity;
     private ValueCallback<Uri> mUploadMessage;
 
@@ -34,23 +34,23 @@ public class b {
     private Intent a(Intent... intentArr) {
         Intent intent = new Intent("android.intent.action.CHOOSER");
         intent.putExtra("android.intent.extra.INITIAL_INTENTS", intentArr);
-        intent.putExtra("android.intent.extra.TITLE", this.mActivity.getResources().getString(com.baidu.browser.core.b.R("string", "sailor_choose_upload")));
+        intent.putExtra("android.intent.extra.TITLE", this.mActivity.getResources().getString(com.baidu.browser.core.b.S("string", "sailor_choose_upload")));
         return intent;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @SuppressLint({"NewApi"})
-    public Intent qC() {
+    public Intent qG() {
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getAbsolutePath() + File.separator + "browser-photos");
         file.mkdirs();
-        this.VT = file.getAbsolutePath() + File.separator + System.currentTimeMillis() + ".jpg";
+        this.Wc = file.getAbsolutePath() + File.separator + System.currentTimeMillis() + ".jpg";
         if (Build.VERSION.SDK_INT >= 24) {
             ContentValues contentValues = new ContentValues(1);
-            contentValues.put("_data", this.VT);
-            intent.putExtra("output", com.baidu.browser.sailor.a.qn().getAppContext().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues));
+            contentValues.put("_data", this.Wc);
+            intent.putExtra("output", com.baidu.browser.sailor.a.qr().getAppContext().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues));
         } else {
-            intent.putExtra("output", Uri.fromFile(new File(this.VT)));
+            intent.putExtra("output", Uri.fromFile(new File(this.Wc)));
         }
         if (Build.VERSION.SDK_INT >= 19) {
             intent.setFlags(3);
@@ -59,43 +59,43 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Intent qE() {
+    public Intent qI() {
         if (com.baidu.browser.core.permission.b.aX(this.mActivity)) {
             return new Intent("android.media.action.VIDEO_CAPTURE");
         }
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
         intent.putExtra(IntentConfig.REQUEST_CODE, 4099);
         intent.putExtra("permissions", new String[]{"android.permission.CAMERA"});
-        com.baidu.browser.core.permission.a.ql().a(4099, new d(this));
+        com.baidu.browser.core.permission.a.qp().a(4099, new d(this));
         return intent;
     }
 
-    private Intent qF() {
+    private Intent qJ() {
         return new Intent("android.provider.MediaStore.RECORD_SOUND");
     }
 
-    protected boolean U(String str, String str2) {
+    protected boolean V(String str, String str2) {
         if (str == null || str2 == null) {
             return false;
         }
-        this.VT = null;
+        this.Wc = null;
         if (str2.equals("image/*")) {
             if (str.equals("camera")) {
                 try {
-                    return a(qD(), 11);
+                    return a(qH(), 11);
                 } catch (Exception e) {
                     Log.printStackTrace(e);
                 }
             } else if (str.equals("filesystem")) {
                 try {
-                    return a(cw("image/*"), 11);
+                    return a(cx("image/*"), 11);
                 } catch (Exception e2) {
                     Log.printStackTrace(e2);
                 }
             } else {
                 try {
-                    Intent a = a(qD());
-                    a.putExtra("android.intent.extra.INTENT", cw("image/*"));
+                    Intent a = a(qH());
+                    a.putExtra("android.intent.extra.INTENT", cx("image/*"));
                     return a(a, 11);
                 } catch (Exception e3) {
                     Log.printStackTrace(e3);
@@ -104,20 +104,20 @@ public class b {
         } else if (str2.equals("video/*")) {
             if (str.equals("camcorder")) {
                 try {
-                    return a(qE(), 11);
+                    return a(qI(), 11);
                 } catch (Exception e4) {
                     Log.printStackTrace(e4);
                 }
             } else if (str.equals("filesystem")) {
                 try {
-                    return a(cw("video/*"), 11);
+                    return a(cx("video/*"), 11);
                 } catch (Exception e5) {
                     Log.printStackTrace(e5);
                 }
             } else {
                 try {
-                    Intent a2 = a(qE());
-                    a2.putExtra("android.intent.extra.INTENT", cw("video/*"));
+                    Intent a2 = a(qI());
+                    a2.putExtra("android.intent.extra.INTENT", cx("video/*"));
                     return a(a2, 11);
                 } catch (Exception e6) {
                     Log.printStackTrace(e6);
@@ -126,20 +126,20 @@ public class b {
         } else if (str2.equals("audio/*")) {
             if (str.equals("microphone")) {
                 try {
-                    return a(qF(), 11);
+                    return a(qJ(), 11);
                 } catch (Exception e7) {
                     Log.printStackTrace(e7);
                 }
             } else if (str.equals("filesystem")) {
                 try {
-                    return a(cw("audio/*"), 11);
+                    return a(cx("audio/*"), 11);
                 } catch (Exception e8) {
                     Log.printStackTrace(e8);
                 }
             } else {
                 try {
-                    Intent a3 = a(qF());
-                    a3.putExtra("android.intent.extra.INTENT", cw("audio/*"));
+                    Intent a3 = a(qJ());
+                    a3.putExtra("android.intent.extra.INTENT", cx("audio/*"));
                     return a(a3, 11);
                 } catch (Exception e9) {
                     Log.printStackTrace(e9);
@@ -147,7 +147,7 @@ public class b {
             }
         }
         try {
-            return a(qB(), 11);
+            return a(qF(), 11);
         } catch (Exception e10) {
             Log.printStackTrace(e10);
             return false;
@@ -160,12 +160,12 @@ public class b {
             return true;
         } catch (ActivityNotFoundException e) {
             try {
-                this.VW = true;
-                this.mActivity.startActivityForResult(qB(), i);
+                this.Wf = true;
+                this.mActivity.startActivityForResult(qF(), i);
                 return true;
             } catch (ActivityNotFoundException e2) {
                 Log.printStackTrace(e);
-                qG();
+                qK();
                 return false;
             }
         }
@@ -173,20 +173,20 @@ public class b {
 
     public boolean a(ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
         Intent intent;
-        this.VU = valueCallback;
-        this.VV = fileChooserParams;
+        this.Wd = valueCallback;
+        this.We = fileChooserParams;
         String str = "*/*";
-        String[] acceptTypes = this.VV.getAcceptTypes();
+        String[] acceptTypes = this.We.getAcceptTypes();
         if (acceptTypes != null && acceptTypes.length > 0) {
             str = acceptTypes[0];
         }
         Intent[] intentArr = null;
         if (str.equals("image/*")) {
-            intentArr = new Intent[]{qD()};
+            intentArr = new Intent[]{qH()};
         } else if (str.equals("video/*")) {
-            intentArr = new Intent[]{qE()};
+            intentArr = new Intent[]{qI()};
         } else if (str.equals("audio/*")) {
-            intentArr = new Intent[]{qF()};
+            intentArr = new Intent[]{qJ()};
         }
         if (intentArr != null && intentArr.length > 0) {
             if (fileChooserParams.isCaptureEnabled() && intentArr.length == 1) {
@@ -207,7 +207,7 @@ public class b {
             }
         }
         try {
-            return a(qB(), 11);
+            return a(qF(), 11);
         } catch (Exception e2) {
             Log.printStackTrace(e2);
             return false;
@@ -225,7 +225,7 @@ public class b {
                 str2 = split2[1];
             }
         }
-        return U(str2, str3);
+        return V(str2, str3);
     }
 
     public boolean a(ValueCallback<Uri> valueCallback, String str, String str2) {
@@ -241,10 +241,10 @@ public class b {
                 }
             }
         }
-        return U(str4, str3);
+        return V(str4, str3);
     }
 
-    public Intent cw(String str) {
+    public Intent cx(String str) {
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType(str);
@@ -252,35 +252,35 @@ public class b {
     }
 
     @SuppressLint({"NewApi"})
-    public Intent qB() {
+    public Intent qF() {
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("*/*");
-        Intent a = a(qD(), qE(), qF());
+        Intent a = a(qH(), qI(), qJ());
         a.putExtra("android.intent.extra.INTENT", intent);
-        if (Build.VERSION.SDK_INT >= 21 && this.VV != null) {
-            a.putExtra("android.intent.extra.INTENT", this.VV.createIntent());
+        if (Build.VERSION.SDK_INT >= 21 && this.We != null) {
+            a.putExtra("android.intent.extra.INTENT", this.We.createIntent());
         }
         return a;
     }
 
-    public Intent qD() {
+    public Intent qH() {
         if (com.baidu.browser.core.permission.b.aX(this.mActivity)) {
-            return qC();
+            return qG();
         }
         Intent intent = new Intent(this.mActivity.getApplicationContext(), BdPermissionActivity.class);
         intent.putExtra(IntentConfig.REQUEST_CODE, 4099);
         intent.putExtra("permissions", new String[]{"android.permission.CAMERA"});
-        com.baidu.browser.core.permission.a.ql().a(4099, new c(this));
+        com.baidu.browser.core.permission.a.qp().a(4099, new c(this));
         return intent;
     }
 
-    public void qG() {
+    public void qK() {
         if (this.mUploadMessage != null) {
             this.mUploadMessage.onReceiveValue(null);
         }
-        if (this.VU != null) {
-            this.VU.onReceiveValue(null);
+        if (this.Wd != null) {
+            this.Wd.onReceiveValue(null);
         }
     }
 }

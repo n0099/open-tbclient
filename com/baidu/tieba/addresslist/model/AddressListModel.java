@@ -9,53 +9,53 @@ import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
-    private a bEe;
+    private a bER;
 
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.bEe = a.Wv();
+        this.bER = a.WS();
     }
 
     public void a(a.InterfaceC0188a interfaceC0188a) {
-        this.bEe.a(interfaceC0188a);
+        this.bER.a(interfaceC0188a);
     }
 
     public void b(a.InterfaceC0188a interfaceC0188a) {
-        this.bEe.b(interfaceC0188a);
+        this.bER.b(interfaceC0188a);
     }
 
-    public List<com.baidu.tbadk.coreExtra.relationship.a> WM() {
-        return this.bEe.Ww();
+    public List<com.baidu.tbadk.coreExtra.relationship.a> Xj() {
+        return this.bER.WT();
     }
 
-    public void WN() {
+    public void Xk() {
         sendMessage(new CustomMessage(2001178));
     }
 
-    public void WI() {
+    public void Xf() {
         super.sendMessage(new RequestGetAddressListMessage(304001));
     }
 
-    public void ai(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.bEe.af(list);
+    public void aj(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
+        this.bER.ag(list);
     }
 
     public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
-        this.bEe.a(aVar);
+        this.bER.a(aVar);
     }
 
     public void aX(long j) {
-        this.bEe.aX(j);
+        this.bER.aX(j);
     }
 
-    public int kh(String str) {
+    public int kx(String str) {
         int i;
-        if (c.hc(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.a> Ww = this.bEe.Ww();
-            if (Ww != null) {
-                for (com.baidu.tbadk.coreExtra.relationship.a aVar : Ww) {
-                    if (str.equals(aVar.Kd())) {
-                        i = Ww.indexOf(aVar);
+        if (c.hp(str)) {
+            List<com.baidu.tbadk.coreExtra.relationship.a> WT = this.bER.WT();
+            if (WT != null) {
+                for (com.baidu.tbadk.coreExtra.relationship.a aVar : WT) {
+                    if (str.equals(aVar.Ks())) {
+                        i = WT.indexOf(aVar);
                         break;
                     }
                 }

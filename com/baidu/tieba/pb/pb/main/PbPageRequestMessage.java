@@ -19,6 +19,7 @@ public class PbPageRequestMessage extends NetMessage {
     private Integer fromSmartFrs;
     private boolean isFromMark;
     private boolean isJumpFloor;
+    private Integer isReqAd;
     private boolean isSubPostDataReverse;
     private int jumpFloorNum;
     private long kz;
@@ -61,6 +62,7 @@ public class PbPageRequestMessage extends NetMessage {
         this.objParam1 = "";
         this.obj_source = "";
         this.fromSmartFrs = 0;
+        this.isReqAd = 0;
     }
 
     public void setRefreshCount(int i) {
@@ -323,6 +325,14 @@ public class PbPageRequestMessage extends NetMessage {
         this.needRepostRecommendForum = Integer.valueOf(z ? 1 : 0);
     }
 
+    public Integer getIsReqAd() {
+        return this.isReqAd;
+    }
+
+    public void setIsReqAd(int i) {
+        this.isReqAd = Integer.valueOf(i);
+    }
+
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         try {
@@ -365,14 +375,15 @@ public class PbPageRequestMessage extends NetMessage {
             builder.obj_param1 = this.objParam1;
             builder.obj_source = this.obj_source;
             builder.from_smart_frs = this.fromSmartFrs;
-            builder.app_pos = com.baidu.tieba.recapp.d.a.bwa().bwd();
+            builder.app_pos = com.baidu.tieba.recapp.d.a.bwJ().bwM();
             builder.forum_id = this.forumId;
             builder.need_repost_recommend_forum = this.needRepostRecommendForum;
             AdParam.Builder builder2 = new AdParam.Builder();
             builder2.refresh_count = Integer.valueOf(this.refreshCount);
             builder2.load_count = Integer.valueOf(this.loadCount);
+            builder2.is_req_ad = this.isReqAd;
             builder.ad_param = builder2.build(false);
-            com.baidu.tbadk.util.p.bindCommonParamsToProtobufData(builder, true, false, true);
+            com.baidu.tbadk.util.q.bindCommonParamsToProtobufData(builder, true, false, true);
             PbPageReqIdl.Builder builder3 = new PbPageReqIdl.Builder();
             builder3.data = builder.build(false);
             return builder3.build(false);

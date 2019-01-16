@@ -7,27 +7,27 @@ import android.widget.ImageView;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class h implements Runnable {
-    private ImageView ahQ;
-    private Handler ahT;
-    private int ahU;
-    private int ahV;
+    private ImageView ahZ;
+    private Handler aic;
+    private int aid;
+    private int aie;
     private Context context;
     private String url;
 
     public h(Context context, Handler handler, String str, ImageView imageView, int i, int i2) {
         this.context = context.getApplicationContext();
-        this.ahT = handler;
+        this.aic = handler;
         this.url = str;
-        this.ahQ = imageView;
-        this.ahU = i;
-        this.ahV = i2;
+        this.ahZ = imageView;
+        this.aid = i;
+        this.aie = i2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Bitmap k = k(this.url, this.ahU, this.ahV);
-        if (this.ahT != null) {
-            this.ahT.obtainMessage(1, new f(this.ahQ, this.url, k)).sendToTarget();
+        Bitmap k = k(this.url, this.aid, this.aie);
+        if (this.aic != null) {
+            this.aic.obtainMessage(1, new f(this.ahZ, this.url, k)).sendToTarget();
         }
     }
 
@@ -55,13 +55,13 @@ public class h implements Runnable {
             e = e2;
         }
         if (l != null) {
-            a.us().b(str, l);
+            a.uw().b(str, l);
             return l;
         }
-        a.bp(this.context).dl(str);
+        a.bp(this.context).dm(str);
         bitmap = a.bp(this.context).l(str, i, i2);
         if (bitmap != null) {
-            return d.dk(str);
+            return d.dl(str);
         }
         return bitmap;
     }

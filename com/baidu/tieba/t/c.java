@@ -32,7 +32,7 @@ public class c {
         }
     }
 
-    public static byte[] dW(List<String> list) {
+    public static byte[] dX(List<String> list) {
         if (list == null) {
             return null;
         }

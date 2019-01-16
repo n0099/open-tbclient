@@ -10,10 +10,10 @@ import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
 public class ForumSearchStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(ForumSearchActivityConfig.class, ForumSearchActivity.class);
-        aab();
+        aay();
     }
 
-    private static void aab() {
+    private static void aay() {
         com.baidu.tieba.tbadkCore.a.a.c(309466, SearchPostForumSocketResponseMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.a(309466, CmdConfigHttp.CMD_SEARCH_POST_FORUM, TbConfig.SEARCH_POST_FORUM, SearchPostForumHttpResponseMessage.class, false, false, true, false);
     }

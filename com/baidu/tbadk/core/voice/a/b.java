@@ -5,22 +5,22 @@ import com.baidu.tbadk.core.util.l;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    public static a gx(String str) {
+    public static a gK(String str) {
         a aVar = new a();
         if (str == null) {
             aVar.error_code = 6;
             aVar.error_msg = a.eO(aVar.error_code);
-        } else if (!l.eR(l.getCacheDir() + "voice")) {
+        } else if (!l.fa(l.getCacheDir() + "voice")) {
             aVar.error_code = 7;
             aVar.error_msg = a.eO(aVar.error_code);
         } else {
-            String i = s.i(l.fl(str));
+            String i = s.i(l.fv(str));
             if (i == null) {
                 aVar.error_code = 5;
                 aVar.error_msg = a.eO(aVar.error_code);
             } else {
                 String b = l.b(i, 1, true);
-                if (l.az(str, b)) {
+                if (l.aA(str, b)) {
                     aVar.path = b;
                     aVar.md5 = i;
                 } else {
@@ -33,10 +33,10 @@ public class b {
     }
 
     public static boolean renameFile(String str, String str2) {
-        return l.az(str, l.b(str2, 1, true));
+        return l.aA(str, l.b(str2, 1, true));
     }
 
-    public static synchronized void FO() {
+    public static synchronized void Gb() {
         synchronized (b.class) {
             File file = new File(l.getCacheDir() + "voice");
             if (file.exists() && file.isDirectory()) {

@@ -16,36 +16,36 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private Map<BdUniqueId, ArrayList<am>> hkM;
+    private Map<BdUniqueId, ArrayList<am>> hlQ;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b() {
-        if (this.hkM == null) {
-            this.hkM = new LinkedHashMap();
+        if (this.hlQ == null) {
+            this.hlQ = new LinkedHashMap();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void r(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.hkM.put(bdUniqueId, null);
+            this.hlQ.put(bdUniqueId, null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void s(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.hkM.remove(bdUniqueId);
+            this.hlQ.remove(bdUniqueId);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, am amVar) {
         if (amVar != null && bdUniqueId != null) {
-            ArrayList<am> arrayList = this.hkM.get(bdUniqueId);
+            ArrayList<am> arrayList = this.hlQ.get(bdUniqueId);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.hkM.put(bdUniqueId, arrayList);
+                this.hlQ.put(bdUniqueId, arrayList);
             }
             arrayList.add(amVar);
         }
@@ -53,13 +53,13 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean t(BdUniqueId bdUniqueId) {
-        return this.hkM.containsKey(bdUniqueId);
+        return this.hlQ.containsKey(bdUniqueId);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bBS() {
-        if (this.hkM.size() != 0) {
-            for (Map.Entry<BdUniqueId, ArrayList<am>> entry : this.hkM.entrySet()) {
+    public void bCB() {
+        if (this.hlQ.size() != 0) {
+            for (Map.Entry<BdUniqueId, ArrayList<am>> entry : this.hlQ.entrySet()) {
                 ArrayList<am> value = entry.getValue();
                 if (value != null) {
                     value.clear();
@@ -71,7 +71,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, boolean z) {
         if (bdUniqueId != null) {
-            ArrayList<am> arrayList = this.hkM.get(bdUniqueId);
+            ArrayList<am> arrayList = this.hlQ.get(bdUniqueId);
             if (v.H(arrayList) != 0) {
                 ax(arrayList);
                 arrayList.clear();
@@ -102,6 +102,7 @@ public class b {
                     }
                     i = i2 + 1;
                 }
+                boolean z = false;
                 for (Map.Entry entry : hashMap.entrySet()) {
                     List list = (List) entry.getValue();
                     if (v.H(list) != 0) {
@@ -113,13 +114,10 @@ public class b {
                         StringBuilder sb5 = new StringBuilder();
                         StringBuilder sb6 = new StringBuilder();
                         StringBuilder sb7 = new StringBuilder();
+                        StringBuilder sb8 = new StringBuilder();
                         int i3 = 0;
-                        while (true) {
-                            int i4 = i3;
-                            if (i4 >= list.size()) {
-                                break;
-                            }
-                            List<Object> params = ((am) list.get(i4)).getParams();
+                        while (i3 < list.size()) {
+                            List<Object> params = ((am) list.get(i3)).getParams();
                             sb.append(k(params, "obj_floor"));
                             sb.append("|");
                             sb2.append(k(params, "obj_isad"));
@@ -134,7 +132,12 @@ public class b {
                             sb6.append("|");
                             sb7.append(k(params, ImageViewerConfig.FORUM_ID));
                             sb7.append("|");
-                            i3 = i4 + 1;
+                            String k = k(params, "post_type");
+                            boolean z2 = !StringUtils.isNull(k) ? true : z;
+                            sb8.append(k);
+                            sb8.append("|");
+                            i3++;
+                            z = z2;
                         }
                         if (sb.length() > 0) {
                             sb.deleteCharAt(sb.length() - 1);
@@ -157,6 +160,9 @@ public class b {
                         if (sb7.length() > 0) {
                             sb7.deleteCharAt(sb7.length() - 1);
                         }
+                        if (sb8.length() > 0) {
+                            sb8.deleteCharAt(sb8.length() - 1);
+                        }
                         amVar2.delete("obj_floor");
                         amVar2.delete("obj_isad");
                         amVar2.delete(VideoPlayActivityConfig.OBJ_ID);
@@ -164,13 +170,17 @@ public class b {
                         amVar2.delete(Info.kBaiduPIDKey);
                         amVar2.delete("thread_type");
                         amVar2.delete(ImageViewerConfig.FORUM_ID);
-                        amVar2.aA("obj_floors", sb.toString());
-                        amVar2.aA("obj_isads", sb2.toString());
-                        amVar2.aA("obj_ids", sb3.toString());
-                        amVar2.aA("tids", sb4.toString());
-                        amVar2.aA("pids", sb5.toString());
-                        amVar2.aA("thread_types", sb6.toString());
-                        amVar2.aA("fids", sb7.toString());
+                        amVar2.delete("post_type");
+                        amVar2.aB("obj_floors", sb.toString());
+                        amVar2.aB("obj_isads", sb2.toString());
+                        amVar2.aB("obj_ids", sb3.toString());
+                        amVar2.aB("tids", sb4.toString());
+                        amVar2.aB("pids", sb5.toString());
+                        amVar2.aB("thread_types", sb6.toString());
+                        amVar2.aB("fids", sb7.toString());
+                        if (z) {
+                            amVar2.aB("post_types", sb8.toString());
+                        }
                         TiebaStatic.log(amVar2);
                     }
                 }

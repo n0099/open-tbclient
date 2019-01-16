@@ -7,92 +7,92 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private int akb;
-    private int akc;
-    private String akd;
-    private int ake;
-    private String akf;
-    private long akg;
-    private int akh;
-    private long akj;
-    private long akk;
-    private String akl;
+    private long akA;
+    private int akk;
+    private int akl;
     private String akm;
-    private long akn;
-    private int[] ako;
-    private long akr;
+    private int akn;
+    private String ako;
+    private long akp;
+    private int akq;
+    private long aks;
+    private long akt;
+    private String aku;
+    private String akv;
+    private long akw;
+    private int[] akx;
     private long mFid;
     private int mTaskType;
     private int mThreadNum;
     public static String ACTIVITY_ID = "activityid";
-    public static String ajw = "missionid";
-    public static String ajx = "activitysource";
-    public static String ajy = "calltype";
-    public static String ajz = "tasktype";
-    public static String ajA = "browsetimepage";
-    public static String ajB = "browsetime";
-    public static String ajC = "threadnum";
-    public static String ajD = "forumnum";
-    public static String ajE = "cleartype";
-    public static String ajF = "cleartime";
+    public static String ajF = "missionid";
+    public static String ajG = "activitysource";
+    public static String ajH = "calltype";
+    public static String ajI = "tasktype";
+    public static String ajJ = "browsetimepage";
+    public static String ajK = "browsetime";
+    public static String ajL = "threadnum";
+    public static String ajM = "forumnum";
+    public static String ajN = "cleartype";
+    public static String ajO = "cleartime";
     public static String TID = "tid";
-    public static String ajG = ImageViewerConfig.FORUM_ID;
-    public static String ajH = "threadtext";
-    public static String ajI = "threadimg";
-    public static String ajJ = "threadforum";
-    public static int ajK = 1;
-    public static int ajL = 2;
-    public static int ajM = 3;
-    public static int ajN = 4;
-    public static int ajO = 1;
-    public static int ajP = 2;
-    public static int ajQ = 3;
-    public static int ajR = 4;
-    public static int ajS = 5;
-    public static int ajT = 6;
-    public static int ajU = 7;
-    public static int ajV = 8;
-    public static int ajW = -1;
-    public static int ajX = 0;
-    public static int ajY = 1;
-    public static int ajZ = 2;
-    public static int aka = 3;
-    private int aki = ajW;
-    private volatile int akp = 0;
-    private volatile int akq = 0;
+    public static String ajP = ImageViewerConfig.FORUM_ID;
+    public static String ajQ = "threadtext";
+    public static String ajR = "threadimg";
+    public static String ajS = "threadforum";
+    public static int ajT = 1;
+    public static int ajU = 2;
+    public static int ajV = 3;
+    public static int ajW = 4;
+    public static int ajX = 1;
+    public static int ajY = 2;
+    public static int ajZ = 3;
+    public static int aka = 4;
+    public static int akb = 5;
+    public static int akc = 6;
+    public static int akd = 7;
+    public static int ake = 8;
+    public static int akf = -1;
+    public static int akg = 0;
+    public static int akh = 1;
+    public static int aki = 2;
+    public static int akj = 3;
+    private int akr = akf;
+    private volatile int aky = 0;
+    private volatile int akz = 0;
 
     public b() {
     }
 
     public b(String str) {
-        du(str);
+        dv(str);
     }
 
-    public boolean du(String str) {
+    public boolean dv(String str) {
         if (ao.isEmpty(str)) {
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject != null) {
-                this.akb = jSONObject.optInt(ACTIVITY_ID);
-                this.akc = jSONObject.optInt(ajw);
-                this.akd = jSONObject.optString(ajx);
-                this.ake = jSONObject.optInt(ajy);
-                this.mTaskType = jSONObject.optInt(ajz);
-                this.akf = jSONObject.optString(ajA);
-                this.ako = dv(this.akf);
-                this.akg = jSONObject.optLong(ajB);
-                this.mThreadNum = jSONObject.optInt(ajC);
-                this.akh = jSONObject.optInt(ajD);
-                this.aki = jSONObject.optInt(ajE);
-                this.akj = jSONObject.optLong(ajF);
-                this.akr = vf();
-                this.akk = jSONObject.optLong(TID);
-                this.mFid = jSONObject.optLong(ajG);
-                this.akl = jSONObject.optString(ajH);
-                this.akm = jSONObject.optString(ajI);
-                this.akn = jSONObject.optLong(ajJ);
+                this.akk = jSONObject.optInt(ACTIVITY_ID);
+                this.akl = jSONObject.optInt(ajF);
+                this.akm = jSONObject.optString(ajG);
+                this.akn = jSONObject.optInt(ajH);
+                this.mTaskType = jSONObject.optInt(ajI);
+                this.ako = jSONObject.optString(ajJ);
+                this.akx = dw(this.ako);
+                this.akp = jSONObject.optLong(ajK);
+                this.mThreadNum = jSONObject.optInt(ajL);
+                this.akq = jSONObject.optInt(ajM);
+                this.akr = jSONObject.optInt(ajN);
+                this.aks = jSONObject.optLong(ajO);
+                this.akA = vj();
+                this.akt = jSONObject.optLong(TID);
+                this.mFid = jSONObject.optLong(ajP);
+                this.aku = jSONObject.optString(ajQ);
+                this.akv = jSONObject.optString(ajR);
+                this.akw = jSONObject.optLong(ajS);
                 return true;
             }
             return false;
@@ -102,21 +102,21 @@ public class b {
         }
     }
 
-    public synchronized int vd() {
+    public synchronized int vh() {
         int i;
-        i = this.akq + 1;
-        this.akq = i;
+        i = this.akz + 1;
+        this.akz = i;
         return i;
     }
 
-    public synchronized int ve() {
+    public synchronized int vi() {
         int i;
-        i = this.akp + 1;
-        this.akp = i;
+        i = this.aky + 1;
+        this.aky = i;
         return i;
     }
 
-    private int[] dv(String str) {
+    private int[] dw(String str) {
         if (str == null) {
             return null;
         }
@@ -128,30 +128,30 @@ public class b {
         return iArr;
     }
 
-    private long vf() {
-        if (this.aki == ajW) {
+    private long vj() {
+        if (this.akr == akf) {
             return 0L;
         }
-        if (this.aki == ajX) {
-            return (System.currentTimeMillis() / 1000) + this.akj;
+        if (this.akr == akg) {
+            return (System.currentTimeMillis() / 1000) + this.aks;
         }
-        if (this.aki == ajY) {
-            long vg = (vg() / 1000) + this.akj;
-            if (System.currentTimeMillis() > vg) {
-                return vg + 86400;
+        if (this.akr == akh) {
+            long vk = (vk() / 1000) + this.aks;
+            if (System.currentTimeMillis() > vk) {
+                return vk + 86400;
             }
-            return vg;
-        } else if (this.aki == ajZ) {
-            return e((int) this.akj, bR(4)) / 1000;
+            return vk;
+        } else if (this.akr == aki) {
+            return e((int) this.aks, bR(4)) / 1000;
         } else {
-            if (this.aki == aka) {
-                return this.akj / 1000;
+            if (this.akr == akj) {
+                return this.aks / 1000;
             }
             return 0L;
         }
     }
 
-    private long vg() {
+    private long vk() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(11, 0);
         calendar.set(12, 0);
@@ -161,13 +161,13 @@ public class b {
     }
 
     private long bR(int i) {
-        long vg = vg();
+        long vk = vk();
         Calendar calendar = Calendar.getInstance();
         calendar.set(11, i);
         calendar.set(12, 0);
         calendar.set(13, 0);
         calendar.set(14, 0);
-        return calendar.getTimeInMillis() - vg;
+        return calendar.getTimeInMillis() - vk;
     }
 
     private long e(int i, long j) {
@@ -210,35 +210,35 @@ public class b {
     }
 
     public int getActivityId() {
-        return this.akb;
+        return this.akk;
     }
 
     public void setActivityId(int i) {
-        this.akb = i;
+        this.akk = i;
     }
 
-    public int vh() {
-        return this.akc;
+    public int vl() {
+        return this.akl;
     }
 
     public void bS(int i) {
-        this.akc = i;
+        this.akl = i;
     }
 
-    public String vi() {
-        return this.akd;
+    public String vm() {
+        return this.akm;
     }
 
-    public void dw(String str) {
-        this.akd = str;
+    public void dx(String str) {
+        this.akm = str;
     }
 
-    public int vj() {
-        return this.ake;
+    public int vn() {
+        return this.akn;
     }
 
     public void bT(int i) {
-        this.ake = i;
+        this.akn = i;
     }
 
     public int getTaskType() {
@@ -249,25 +249,25 @@ public class b {
         this.mTaskType = i;
     }
 
-    public String vk() {
-        return this.akf;
-    }
-
-    public void dx(String str) {
-        this.akf = str;
-        this.ako = dv(str);
-    }
-
-    public int[] vl() {
+    public String vo() {
         return this.ako;
     }
 
-    public long vm() {
-        return this.akg;
+    public void dy(String str) {
+        this.ako = str;
+        this.akx = dw(str);
+    }
+
+    public int[] vp() {
+        return this.akx;
+    }
+
+    public long vq() {
+        return this.akp;
     }
 
     public void w(long j) {
-        this.akg = j;
+        this.akp = j;
     }
 
     public int getThreadNum() {
@@ -278,44 +278,44 @@ public class b {
         this.mThreadNum = i;
     }
 
-    public int vn() {
-        return this.akh;
+    public int vr() {
+        return this.akq;
     }
 
     public void bV(int i) {
-        this.akh = i;
+        this.akq = i;
     }
 
-    public int vo() {
-        return this.aki;
-    }
-
-    public void bW(int i) {
-        this.aki = i;
-    }
-
-    public long vp() {
-        return this.akj;
-    }
-
-    public void x(long j) {
-        this.akj = j;
-    }
-
-    public long vq() {
+    public int vs() {
         return this.akr;
     }
 
+    public void bW(int i) {
+        this.akr = i;
+    }
+
+    public long vt() {
+        return this.aks;
+    }
+
+    public void x(long j) {
+        this.aks = j;
+    }
+
+    public long vu() {
+        return this.akA;
+    }
+
     public void y(long j) {
-        this.akr = j;
+        this.akA = j;
     }
 
     public long getTid() {
-        return this.akk;
+        return this.akt;
     }
 
     public void setTid(long j) {
-        this.akk = j;
+        this.akt = j;
     }
 
     public long getFid() {
@@ -326,27 +326,27 @@ public class b {
         this.mFid = j;
     }
 
-    public String vr() {
-        return this.akl;
-    }
-
-    public void dy(String str) {
-        this.akl = str;
-    }
-
-    public String vs() {
-        return this.akm;
+    public String vv() {
+        return this.aku;
     }
 
     public void dz(String str) {
-        this.akm = str;
+        this.aku = str;
     }
 
-    public long vt() {
-        return this.akn;
+    public String vw() {
+        return this.akv;
+    }
+
+    public void dA(String str) {
+        this.akv = str;
+    }
+
+    public long vx() {
+        return this.akw;
     }
 
     public void z(long j) {
-        this.akn = j;
+        this.akw = j;
     }
 }

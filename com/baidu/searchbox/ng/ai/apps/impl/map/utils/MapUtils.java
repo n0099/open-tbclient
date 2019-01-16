@@ -116,7 +116,7 @@ public class MapUtils {
     }
 
     public static void loadImg(Uri uri, final ImgLoadCallBack imgLoadCallBack, int i, int i2) {
-        c.bUN().e(ImageRequestBuilder.G(uri).caI(), AppRuntime.getAppContext()).a(new b() { // from class: com.baidu.searchbox.ng.ai.apps.impl.map.utils.MapUtils.1
+        c.bVv().e(ImageRequestBuilder.G(uri).cbq(), AppRuntime.getAppContext()).a(new b() { // from class: com.baidu.searchbox.ng.ai.apps.impl.map.utils.MapUtils.1
             @Override // com.facebook.imagepipeline.e.b
             protected void onNewResultImpl(Bitmap bitmap) {
                 ImgLoadCallBack.this.onLoaded(Bitmap.createBitmap(bitmap));
@@ -126,7 +126,7 @@ public class MapUtils {
             protected void onFailureImpl(com.facebook.datasource.b<a<com.facebook.imagepipeline.f.b>> bVar) {
                 ImgLoadCallBack.this.onLoaded(null);
             }
-        }, f.bTQ());
+        }, f.bUy());
     }
 
     public static Bitmap loadBitmapFromSDCard(String str) {

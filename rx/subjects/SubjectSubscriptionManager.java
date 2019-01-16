@@ -23,11 +23,11 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     }
 
     public SubjectSubscriptionManager() {
-        super(a.iRD);
+        super(a.iSK);
         this.active = true;
-        this.onStart = Actions.cdR();
-        this.onAdded = Actions.cdR();
-        this.onTerminated = Actions.cdR();
+        this.onStart = Actions.cez();
+        this.onAdded = Actions.cez();
+        this.onTerminated = Actions.cez();
     }
 
     public void call(j<? super T> jVar) {
@@ -60,7 +60,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b<T>[] observers() {
-        return get().iRA;
+        return get().iSH;
     }
 
     boolean add(b<T> bVar) {
@@ -90,34 +90,34 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     /* JADX INFO: Access modifiers changed from: package-private */
     public b<T>[] next(Object obj) {
         setLatest(obj);
-        return get().iRA;
+        return get().iSH;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b<T>[] terminate(Object obj) {
         setLatest(obj);
         this.active = false;
-        return get().terminated ? a.iRB : getAndSet(a.iRC).iRA;
+        return get().terminated ? a.iSI : getAndSet(a.iSJ).iSH;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes2.dex */
     public static final class a<T> {
-        static final b[] iRB = new b[0];
-        static final a iRC = new a(true, iRB);
-        static final a iRD = new a(false, iRB);
-        final b[] iRA;
+        static final b[] iSI = new b[0];
+        static final a iSJ = new a(true, iSI);
+        static final a iSK = new a(false, iSI);
+        final b[] iSH;
         final boolean terminated;
 
         public a(boolean z, b[] bVarArr) {
             this.terminated = z;
-            this.iRA = bVarArr;
+            this.iSH = bVarArr;
         }
 
         public a b(b bVar) {
-            int length = this.iRA.length;
+            int length = this.iSH.length;
             b[] bVarArr = new b[length + 1];
-            System.arraycopy(this.iRA, 0, bVarArr, 0, length);
+            System.arraycopy(this.iSH, 0, bVarArr, 0, length);
             bVarArr[length] = bVar;
             return new a(this.terminated, bVarArr);
         }
@@ -125,10 +125,10 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         public a c(b bVar) {
             b[] bVarArr;
             int i;
-            b[] bVarArr2 = this.iRA;
+            b[] bVarArr2 = this.iSH;
             int length = bVarArr2.length;
             if (length == 1 && bVarArr2[0] == bVar) {
-                return iRD;
+                return iSK;
             }
             if (length != 0) {
                 b[] bVarArr3 = new b[length - 1];
@@ -148,7 +148,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
                     i3 = i;
                 }
                 if (i3 == 0) {
-                    return iRD;
+                    return iSK;
                 }
                 if (i3 < length - 1) {
                     bVarArr = new b[i3];
@@ -167,9 +167,9 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     public static final class b<T> implements rx.e<T> {
         final j<? super T> actual;
         boolean emitting;
-        List<Object> iMF;
-        boolean iRE = true;
-        boolean iRF;
+        List<Object> iNM;
+        boolean iSL = true;
+        boolean iSM;
 
         public b(j<? super T> jVar) {
             this.actual = jVar;
@@ -192,17 +192,17 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void bu(Object obj) {
-            if (!this.iRF) {
+            if (!this.iSM) {
                 synchronized (this) {
-                    this.iRE = false;
+                    this.iSL = false;
                     if (this.emitting) {
-                        if (this.iMF == null) {
-                            this.iMF = new ArrayList();
+                        if (this.iNM == null) {
+                            this.iNM = new ArrayList();
                         }
-                        this.iMF.add(obj);
+                        this.iNM.add(obj);
                         return;
                     }
-                    this.iRF = true;
+                    this.iSM = true;
                 }
             }
             NotificationLite.a(this.actual, obj);
@@ -211,8 +211,8 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         /* JADX INFO: Access modifiers changed from: package-private */
         public void bv(Object obj) {
             synchronized (this) {
-                if (this.iRE && !this.emitting) {
-                    this.iRE = false;
+                if (this.iSL && !this.emitting) {
+                    this.iSL = false;
                     this.emitting = obj != null;
                     if (obj != null) {
                         c(null, obj);
@@ -252,8 +252,8 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
                 try {
                     synchronized (this) {
                         try {
-                            list = this.iMF;
-                            this.iMF = null;
+                            list = this.iNM;
+                            this.iNM = null;
                             if (list == null) {
                                 this.emitting = false;
                                 return;

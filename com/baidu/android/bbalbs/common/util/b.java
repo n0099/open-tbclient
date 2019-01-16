@@ -2,9 +2,8 @@ package com.baidu.android.bbalbs.common.util;
 
 import com.baidu.android.bbalbs.common.util.DeviceId;
 import java.util.Comparator;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
-public class b implements Comparator<DeviceId.a> {
+class b implements Comparator<DeviceId.a> {
     final /* synthetic */ DeviceId a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

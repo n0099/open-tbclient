@@ -6,14 +6,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class c {
-    public static void CC() {
+    public static void CP() {
         com.baidu.adp.base.a.b mainDBDatabaseManager;
         if (TbadkCoreApplication.getCurrentAccount() != null && (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) != null) {
             mainDBDatabaseManager.f("delete from chunk_upload_data where strftime('%s','now') - time > 48 * 3600 and account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
         }
     }
 
-    public static void eO(String str) {
+    public static void eX(String str) {
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             if (str != null && mainDBDatabaseManager != null) {
@@ -31,11 +31,11 @@ public class c {
         if (kVar == null || mainDBDatabaseManager == null) {
             return false;
         }
-        mainDBDatabaseManager.f("delete from chunk_upload_data where md5=? and account=?", new String[]{kVar.GH(), TbadkCoreApplication.getCurrentAccount()});
-        return mainDBDatabaseManager.f("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{kVar.GH(), Long.valueOf(kVar.getTotalLength()), Integer.valueOf(kVar.GI()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
+        mainDBDatabaseManager.f("delete from chunk_upload_data where md5=? and account=?", new String[]{kVar.GU(), TbadkCoreApplication.getCurrentAccount()});
+        return mainDBDatabaseManager.f("Insert into chunk_upload_data(md5,total_length,chunk_no,account,time) values(?,?,?,?,?)", new Object[]{kVar.GU(), Long.valueOf(kVar.getTotalLength()), Integer.valueOf(kVar.GV()), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
     }
 
-    public static com.baidu.tbadk.coreExtra.data.k eP(String str) {
+    public static com.baidu.tbadk.coreExtra.data.k eY(String str) {
         Cursor cursor;
         Exception e;
         com.baidu.tbadk.coreExtra.data.k kVar;
@@ -50,7 +50,7 @@ public class c {
                     if (cursor.moveToFirst()) {
                         kVar = new com.baidu.tbadk.coreExtra.data.k();
                         try {
-                            kVar.gD(str);
+                            kVar.gQ(str);
                             kVar.eR(cursor.getInt(3));
                             kVar.am(cursor.getLong(2));
                         } catch (Exception e2) {

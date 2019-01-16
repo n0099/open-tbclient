@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.i> {
-    private ImageView bCU;
-    private TextView etJ;
-    private String gCh;
+    private ImageView bDH;
+    private TextView eup;
+    private String gDl;
     private View mRootView;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -21,16 +21,16 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
 
     private void init(View view) {
         this.mRootView = view.findViewById(e.g.card_null_polymeric_rootview);
-        this.bCU = (ImageView) view.findViewById(e.g.card_null_polymeric_icon);
-        this.etJ = (TextView) view.findViewById(e.g.card_null_polymeric_txt);
+        this.bDH = (ImageView) view.findViewById(e.g.card_null_polymeric_icon);
+        this.eup = (TextView) view.findViewById(e.g.card_null_polymeric_txt);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             al.i(this.mRootView, e.d.cp_bg_line_d);
-            al.c(this.bCU, e.f.emotion07);
-            al.c(this.etJ, e.d.cp_cont_c, 1);
+            al.c(this.bDH, e.f.emotion07);
+            al.c(this.eup, e.d.cp_cont_c, 1);
         }
         this.mSkinType = i;
     }
@@ -51,8 +51,8 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        if (StringUtils.isNull(this.gCh)) {
-            TextView textView = this.etJ;
+        if (StringUtils.isNull(this.gDl)) {
+            TextView textView = this.eup;
             String string2 = this.mContext.getString(e.j.person_polymeric_null_data);
             Object[] objArr = new Object[1];
             if (iVar.isHost) {
@@ -66,7 +66,7 @@ public class g extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             textView.setText(String.format(string2, objArr));
             return;
         }
-        this.etJ.setText(this.gCh);
+        this.eup.setText(this.gDl);
     }
 
     @Override // android.view.View.OnClickListener

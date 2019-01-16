@@ -14,7 +14,7 @@ import java.io.OutputStream;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class e {
-    private static int aaB = -1;
+    private static int aaK = -1;
 
     public static boolean isNetworkConnected(Context context) {
         NetworkInfo activeNetworkInfo = getActiveNetworkInfo(context);
@@ -34,7 +34,7 @@ public class e {
         return activeNetworkInfo != null && activeNetworkInfo.isAvailable() && activeNetworkInfo.getType() == 1;
     }
 
-    public static String se() {
+    public static String si() {
         Application application = AppRuntime.getApplication();
         try {
             return application.getPackageManager().getPackageInfo(application.getPackageName(), 64).versionName;
@@ -44,7 +44,7 @@ public class e {
         }
     }
 
-    public static String ae(String str, String str2) {
+    public static String af(String str, String str2) {
         return l(str, str2, File.separator);
     }
 
@@ -72,7 +72,7 @@ public class e {
         return file.exists() && file.length() == j;
     }
 
-    public static boolean af(String str, String str2) {
+    public static boolean ag(String str, String str2) {
         if (str2 == null) {
             return false;
         }
@@ -90,20 +90,20 @@ public class e {
         return ((ByteArrayOutputStream) outputStream).toByteArray();
     }
 
-    public static String sf() {
-        return c.sd().processor;
+    public static String sj() {
+        return c.sh().processor;
     }
 
-    public static String sg() {
-        return c.sd().features;
+    public static String sk() {
+        return c.sh().features;
     }
 
-    public static String sh() {
+    public static String sl() {
         long availableInternalMemorySize = (j.getAvailableInternalMemorySize() / 1024) * 1024;
         return availableInternalMemorySize < 0 ? String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED) : String.valueOf(availableInternalMemorySize);
     }
 
-    public static String si() {
+    public static String sm() {
         long totalInternalMemorySize = (j.getTotalInternalMemorySize() / 1024) * 1024;
         return totalInternalMemorySize < 0 ? String.valueOf((int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED) : String.valueOf(totalInternalMemorySize);
     }

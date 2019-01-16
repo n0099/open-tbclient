@@ -79,7 +79,7 @@ public class p implements com.baidu.c.a.b.b {
         if ("time".equalsIgnoreCase(str)) {
             TextView textView = (TextView) view;
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                textView.setTextColor(aVar.aaI);
+                textView.setTextColor(aVar.aaR);
             } else {
                 textView.setTextColor(aVar.color);
             }

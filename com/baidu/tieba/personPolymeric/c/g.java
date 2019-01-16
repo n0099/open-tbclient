@@ -9,11 +9,11 @@ import tbclient.GiftInfo;
 import tbclient.User;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId gAZ = BdUniqueId.gen();
+    public static final BdUniqueId gCd = BdUniqueId.gen();
     public String Ek;
-    public boolean gBa;
-    public String gBb;
-    public List<com.baidu.adp.widget.ListView.h> gBc;
+    public boolean gCe;
+    public String gCf;
+    public List<com.baidu.adp.widget.ListView.h> gCg;
     public int giftNum = 0;
     public boolean mIsHost;
     public int mSex;
@@ -23,7 +23,7 @@ public class g extends com.baidu.tieba.card.data.b {
         if (user != null && !v.I(user.gift_list)) {
             this.mUid = String.valueOf(user.id);
             this.Ek = user.name;
-            this.gBb = user.name_show;
+            this.gCf = user.name_show;
             this.mSex = user.sex.intValue();
             if (this.mUid != null && this.mUid.equals(TbadkCoreApplication.getCurrentAccount())) {
                 this.mIsHost = true;
@@ -31,28 +31,28 @@ public class g extends com.baidu.tieba.card.data.b {
                 this.mIsHost = false;
             }
             if (user.sex.intValue() == 2) {
-                this.gBa = false;
+                this.gCe = false;
             } else {
-                this.gBa = true;
+                this.gCe = true;
             }
             this.giftNum = user.gift_num != null ? user.gift_num.intValue() : 0;
-            this.gBc = new ArrayList();
+            this.gCg = new ArrayList();
             for (GiftInfo giftInfo : user.gift_list) {
                 if (giftInfo != null) {
                     o oVar = new o();
                     oVar.a(giftInfo);
-                    this.gBc.add(oVar);
+                    this.gCg.add(oVar);
                 }
             }
         }
     }
 
     public boolean isValid() {
-        return !v.I(this.gBc);
+        return !v.I(this.gCg);
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return gAZ;
+        return gCd;
     }
 }

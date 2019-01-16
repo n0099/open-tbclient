@@ -1,7 +1,7 @@
 package com.baidu.b.a.b.b;
 /* loaded from: classes2.dex */
 public class a {
-    public String Zm;
+    public String Zv;
     public int code;
     public String errorMsg;
     public String packageName;
@@ -14,10 +14,10 @@ public class a {
         this.code = i;
         this.packageName = str;
         this.errorMsg = str2;
-        this.Zm = str3;
+        this.Zv = str3;
     }
 
     public String toString() {
-        return "package=" + this.packageName + ",code=" + this.code + ",errMsg=" + this.errorMsg + ",tipMsg" + this.Zm;
+        return "package=" + this.packageName + ",code=" + this.code + ",errMsg=" + this.errorMsg + ",tipMsg" + this.Zv;
     }
 }

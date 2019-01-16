@@ -10,21 +10,21 @@ import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
-    protected boolean bed;
+    protected boolean beP;
 
     public TbFragmentTabIndicator(Context context) {
         super(context);
-        this.bed = false;
+        this.beP = false;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bed = false;
+        this.beP = false;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bed = false;
+        this.beP = false;
     }
 
     public void eD(int i) {
@@ -33,7 +33,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setCheckDescriptionText(boolean z) {
     }
 
-    public void cC(boolean z) {
+    public void cF(boolean z) {
     }
 
     public View getContentTv() {
@@ -49,7 +49,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void b(String str, a aVar) {
     }
 
-    public a ip(String str) {
+    public a iD(String str) {
         return null;
     }
 
@@ -86,35 +86,35 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setTextColorResId(int i) {
     }
 
-    public void aL(String str, String str2) {
+    public void aM(String str, String str2) {
     }
 
-    public void NR() {
+    public void Oi() {
     }
 
     public void setAnimationResId(int i) {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.bed = z;
+        this.beP = z;
     }
 
     /* loaded from: classes.dex */
     public static class a {
         public int Cd;
-        public int bef;
-        public TbFragmentTabIndicator bei;
+        public int beR;
+        public TbFragmentTabIndicator beT;
         public View view;
-        public boolean bee = true;
-        public int beh = e.d.common_color_10225;
+        public boolean beQ = true;
+        public int beS = e.d.common_color_10225;
 
         public void eD(int i) {
-            if (this.bef != 0) {
-                al.i(this.view, this.bef);
+            if (this.beR != 0) {
+                al.i(this.view, this.beR);
             }
             if (this.view instanceof TextView) {
-                if (this.beh != 0) {
-                    al.c(this.view, this.beh, 1);
+                if (this.beS != 0) {
+                    al.c(this.view, this.beS, 1);
                 }
                 int a = a((TextView) this.view);
                 if (a > 0 && a < 10) {

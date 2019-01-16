@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.worldcup.talkball.model;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.mvc.b.e;
 import com.baidu.tbadk.mvc.b.h;
-import com.baidu.tbadk.util.p;
+import com.baidu.tbadk.util.q;
 import java.util.HashMap;
 import tbclient.TalkBall.DataReq;
 import tbclient.TalkBall.TalkBallReqIdl;
@@ -20,7 +20,7 @@ public class TalkBallRequestData extends OrmObject implements e, h {
     private Integer scr_w;
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object cD(boolean z) {
+    public Object cG(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.scr_w = this.scr_w;
         builder.scr_h = this.scr_h;
@@ -30,7 +30,7 @@ public class TalkBallRequestData extends OrmObject implements e, h {
         builder.last_thread_id = this.last_thread_id;
         builder.rn = this.rn;
         builder.pn = this.pn;
-        p.bindCommonParamsToProtobufData(builder, true, false, true);
+        q.bindCommonParamsToProtobufData(builder, true, false, true);
         TalkBallReqIdl.Builder builder2 = new TalkBallReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);
@@ -52,7 +52,7 @@ public class TalkBallRequestData extends OrmObject implements e, h {
         this.q_type = num;
     }
 
-    public void em(String str) {
+    public void ev(String str) {
         this.forum_name = str;
     }
 
@@ -72,12 +72,12 @@ public class TalkBallRequestData extends OrmObject implements e, h {
         return this.requestType;
     }
 
-    public void of(int i) {
+    public void og(int i) {
         this.requestType = i;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Oa() {
+    public boolean Or() {
         return false;
     }
 
@@ -92,12 +92,17 @@ public class TalkBallRequestData extends OrmObject implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String NZ() {
+    public String Oq() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> Oc() {
+    public HashMap<String, Object> Ot() {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.g
+    public HashMap<String, String> Ou() {
         return null;
     }
 }

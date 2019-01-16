@@ -3,7 +3,7 @@ package rx.internal.operators;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class bn<T> implements d.b<T, T> {
-    final rx.functions.g<? super T, Integer, Boolean> iKy;
+    final rx.functions.g<? super T, Integer, Boolean> iLF;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -11,27 +11,27 @@ public final class bn<T> implements d.b<T, T> {
     }
 
     public bn(rx.functions.g<? super T, Integer, Boolean> gVar) {
-        this.iKy = gVar;
+        this.iLF = gVar;
     }
 
     /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: rx.j<T>, rx.j<? super T> */
     public rx.j<? super T> call(final rx.j<? super T> jVar) {
         return (rx.j<T>) new rx.j<T>(jVar) { // from class: rx.internal.operators.bn.1
-            boolean iLl = true;
+            boolean iMs = true;
             int index;
 
             @Override // rx.e
             public void onNext(T t) {
-                if (!this.iLl) {
+                if (!this.iMs) {
                     jVar.onNext(t);
                     return;
                 }
                 try {
-                    rx.functions.g<? super T, Integer, Boolean> gVar = bn.this.iKy;
+                    rx.functions.g<? super T, Integer, Boolean> gVar = bn.this.iLF;
                     int i = this.index;
                     this.index = i + 1;
                     if (!gVar.j(t, Integer.valueOf(i)).booleanValue()) {
-                        this.iLl = false;
+                        this.iMs = false;
                         jVar.onNext(t);
                         return;
                     }

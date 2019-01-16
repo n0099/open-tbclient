@@ -10,22 +10,22 @@ import org.json.JSONObject;
 public class q {
     private static final String TAG = q.class.getSimpleName();
 
-    public static void bSk() {
+    public static void bSS() {
         IPCServiceManager.addService("remote_ubc_service", new IRemoteUBCService.Stub() { // from class: com.baidu.ubc.UBCIPCManager$1
             @Override // com.baidu.ubc.IRemoteUBCService
             public void ubcOnEvent(String str, String str2, int i) throws RemoteException {
-                o.o(str, str2, i);
+                o.p(str, str2, i);
             }
 
             @Override // com.baidu.ubc.IRemoteUBCService
             public Flow ubcBeginFlow(String str, String str2, int i) throws RemoteException {
-                return o.n(str, str2, i);
+                return o.o(str, str2, i);
             }
 
             @Override // com.baidu.ubc.IRemoteUBCService
             public void flowAddEvent(Flow flow, String str, String str2) throws RemoteException {
                 if (flow != null) {
-                    flow.cZ(str, str2);
+                    flow.db(str, str2);
                 }
             }
 
@@ -46,7 +46,7 @@ public class q {
             @Override // com.baidu.ubc.IRemoteUBCService
             public void flowSetValueWithDuration(Flow flow, String str) throws RemoteException {
                 if (flow != null) {
-                    flow.yj(str);
+                    flow.yz(str);
                 }
             }
 
@@ -54,11 +54,11 @@ public class q {
             public void flowStartSlot(Flow flow, String str, String str2) throws RemoteException {
                 if (flow != null) {
                     if (TextUtils.isEmpty(str2)) {
-                        flow.h(str, null);
+                        flow.i(str, null);
                         return;
                     }
                     try {
-                        flow.h(str, new JSONObject(str2));
+                        flow.i(str, new JSONObject(str2));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -68,7 +68,7 @@ public class q {
             @Override // com.baidu.ubc.IRemoteUBCService
             public void flowEndSlot(Flow flow, String str) throws RemoteException {
                 if (flow != null) {
-                    flow.yk(str);
+                    flow.yA(str);
                 }
             }
 

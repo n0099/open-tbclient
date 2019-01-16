@@ -34,21 +34,21 @@ public class a implements IAiAppVideoIoc {
             AiAppsPlayerManager.addPlayerContext(aVar);
             M = aVar;
         }
-        b a = b.a(optParamsAsJo, M.YQ());
+        b a = b.a(optParamsAsJo, M.Zn());
         a(context, M, a);
-        b YQ = M.YQ();
+        b Zn = M.Zn();
         M.a(a);
         if (a.isAutoPlay()) {
-            if (!TextUtils.equals(YQ.mSrc, a.mSrc)) {
-                if (M.brH()) {
+            if (!TextUtils.equals(Zn.mSrc, a.mSrc)) {
+                if (M.bsq()) {
                     M.stopPlay();
-                    M.brx();
+                    M.bsg();
                 }
             } else if (M.hasStart()) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 return true;
             }
-            M.aZ(a.mSrc, null);
+            M.ba(a.mSrc, null);
         } else {
             M.setVideoUrl(a.mSrc, null);
         }
@@ -70,14 +70,14 @@ public class a implements IAiAppVideoIoc {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        b a = b.a(optParamsAsJo, M.YQ());
-        b YQ = M.YQ();
+        b a = b.a(optParamsAsJo, M.Zn());
+        b Zn = M.Zn();
         M.a(a);
-        if (!TextUtils.equals(YQ.mSrc, a.mSrc)) {
-            if (M.brH()) {
+        if (!TextUtils.equals(Zn.mSrc, a.mSrc)) {
+            if (M.bsq()) {
                 M.stopPlay();
             }
-            M.aZ(a.mSrc, null);
+            M.ba(a.mSrc, null);
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
@@ -97,14 +97,14 @@ public class a implements IAiAppVideoIoc {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        b a = b.a(optParamsAsJo, M.YQ());
-        b YQ = M.YQ();
-        if (M.hasStart() && TextUtils.equals(a.mSrc, YQ.mSrc)) {
+        b a = b.a(optParamsAsJo, M.Zn());
+        b Zn = M.Zn();
+        if (M.hasStart() && TextUtils.equals(a.mSrc, Zn.mSrc)) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
         M.a(a);
-        M.aZ(a.mSrc, null);
+        M.ba(a.mSrc, null);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }
@@ -142,7 +142,7 @@ public class a implements IAiAppVideoIoc {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        M.getVideoView().seekTo(b.a(optParamsAsJo, M.YQ()).mPos);
+        M.getVideoView().seekTo(b.a(optParamsAsJo, M.Zn()).mPos);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }
@@ -160,7 +160,7 @@ public class a implements IAiAppVideoIoc {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        M.dF(optParamsAsJo.optBoolean("fullScreen", false));
+        M.dI(optParamsAsJo.optBoolean("fullScreen", false));
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }
@@ -177,14 +177,14 @@ public class a implements IAiAppVideoIoc {
 
     private void a(Context context, com.baidu.tieba.aiapps.apps.media.video.view.a aVar, b bVar) {
         AiAppsNAViewContainer aiAppsNAViewContainer;
-        if (aVar != null && aVar.brT() != null) {
+        if (aVar != null && aVar.bsC() != null) {
             AiAppsNAViewContainer findNAViewById = NAViewFinder.findNAViewById(bVar.slaveId, bVar.id, AiAppsUtils.getCurrentNAViewRoot(bVar.slaveId));
-            if (aVar.brT().getParent() != null) {
-                ((ViewGroup) aVar.brT().getParent()).removeView(aVar.brT());
+            if (aVar.bsC().getParent() != null) {
+                ((ViewGroup) aVar.bsC().getParent()).removeView(aVar.bsC());
             }
             if (findNAViewById == null) {
                 aiAppsNAViewContainer = new AiAppsNAViewContainer(context);
-                aiAppsNAViewContainer.insertView(aVar.brT(), bVar);
+                aiAppsNAViewContainer.insertView(aVar.bsC(), bVar);
             } else {
                 AiAppsNaViewModel cloneModel = bVar.cloneModel();
                 findNAViewById.removeView();
@@ -193,7 +193,7 @@ public class a implements IAiAppVideoIoc {
                 cloneModel.id = findNAViewById.getViewId();
                 cloneModel.position.setTop(cloneModel.position.getTop());
                 cloneModel.position.setHeight(cloneModel.position.getHeight());
-                findNAViewById.insertView(aVar.brT(), cloneModel);
+                findNAViewById.insertView(aVar.bsC(), cloneModel);
                 aiAppsNAViewContainer = findNAViewById;
             }
             aVar.a(aiAppsNAViewContainer);

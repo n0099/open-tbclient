@@ -6,8 +6,8 @@ public class c {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public static Bundle uO() {
-            return IPCServiceManager.uO();
+        public static Bundle uS() {
+            return IPCServiceManager.uS();
         }
     }
 }

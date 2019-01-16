@@ -321,7 +321,7 @@ public class Purger implements AiAppAccountStatusChangedListener {
     /* JADX INFO: Access modifiers changed from: private */
     public void deleteApsItem(String str) {
         if (!TextUtils.isEmpty(str)) {
-            a.ad("21", str);
+            a.ae("21", str);
             deleteSubPackageApsItem(str);
         }
     }
@@ -331,7 +331,7 @@ public class Purger implements AiAppAccountStatusChangedListener {
         if (!TextUtils.isEmpty(str) && (subPackageApsPackageName = getSubPackageApsPackageName(str)) != null && subPackageApsPackageName.size() > 0) {
             for (String str2 : subPackageApsPackageName) {
                 if (!TextUtils.isEmpty(str2)) {
-                    a.ad("21", str2);
+                    a.ae("21", str2);
                 }
             }
         }

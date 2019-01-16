@@ -17,7 +17,7 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("CommonJSBridge".equals(str)) {
             if ("callNativeSMS".equals(str2)) {
-                dU(str3);
+                ed(str3);
                 jsPromptResult.confirm("1");
                 return true;
             } else if ("copyToClipboard".equals(str2)) {
@@ -25,7 +25,7 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
                 jsPromptResult.confirm("1");
                 return true;
             } else if ("setBlockPopInfo".equals(str2)) {
-                dV(str3);
+                ee(str3);
                 jsPromptResult.confirm("1");
                 return true;
             } else {
@@ -35,7 +35,7 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
         return false;
     }
 
-    private void dU(String str) {
+    private void ed(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             UtilHelper.smsTo(this.mTbPageContext.getPageActivity(), jSONObject.optString("phoneNumber"), jSONObject.optString("content"));
@@ -52,7 +52,7 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
         }
     }
 
-    private void dV(String str) {
+    private void ee(String str) {
         try {
             BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
             JSONObject jSONObject = new JSONObject(str);

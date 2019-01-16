@@ -12,14 +12,14 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class g {
-    private ValueAnimator dOJ;
-    private TextView dWV;
+    private ValueAnimator dPs;
+    private TextView dXB;
     private Context mContext;
     private Runnable mHideRunnable = new Runnable() { // from class: com.baidu.tieba.frs.game.strategy.view.g.3
         @Override // java.lang.Runnable
         public void run() {
-            if (g.this.dWV != null && g.this.dWV.getParent() != null && g.this.dOJ != null) {
-                g.this.dOJ.start();
+            if (g.this.dXB != null && g.this.dXB.getParent() != null && g.this.dPs != null) {
+                g.this.dPs.start();
             }
         }
     };
@@ -27,36 +27,36 @@ public class g {
 
     public g(Context context) {
         this.mContext = context;
-        aFx();
+        aFU();
     }
 
-    private void aFx() {
-        this.dWV = new TextView(this.mContext);
-        this.dWV.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(e.C0210e.fontsize24));
-        al.i(this.dWV, e.d.common_color_10260);
-        al.h(this.dWV, e.d.cp_cont_i);
-        this.dWV.setGravity(17);
-        this.dWV.setVisibility(0);
-        this.dOJ = new ValueAnimator();
-        this.dOJ.setFloatValues(1.0f, 0.0f);
-        this.dOJ.setDuration(400L);
-        this.dOJ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.game.strategy.view.g.1
+    private void aFU() {
+        this.dXB = new TextView(this.mContext);
+        this.dXB.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(e.C0210e.fontsize24));
+        al.i(this.dXB, e.d.common_color_10260);
+        al.h(this.dXB, e.d.cp_cont_i);
+        this.dXB.setGravity(17);
+        this.dXB.setVisibility(0);
+        this.dPs = new ValueAnimator();
+        this.dPs.setFloatValues(1.0f, 0.0f);
+        this.dPs.setDuration(400L);
+        this.dPs.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.game.strategy.view.g.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (g.this.dWV != null && valueAnimator != null) {
-                    g.this.dWV.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (g.this.dXB != null && valueAnimator != null) {
+                    g.this.dXB.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.dOJ.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.game.strategy.view.g.2
+        this.dPs.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.game.strategy.view.g.2
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (g.this.dWV != null) {
-                    g.this.aDu();
+                if (g.this.dXB != null) {
+                    g.this.aDR();
                 }
             }
 
@@ -70,32 +70,32 @@ public class g {
         });
     }
 
-    public void aDu() {
+    public void aDR() {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.dOJ != null) {
-            this.dOJ.cancel();
+        if (this.dPs != null) {
+            this.dPs.cancel();
         }
-        if (this.dWV != null) {
-            ViewParent parent = this.dWV.getParent();
+        if (this.dXB != null) {
+            ViewParent parent = this.dXB.getParent();
             if (parent != null && (parent instanceof ViewGroup)) {
-                ((ViewGroup) parent).removeView(this.dWV);
+                ((ViewGroup) parent).removeView(this.dXB);
             }
-            this.dWV.setVisibility(8);
-            this.dWV = null;
+            this.dXB.setVisibility(8);
+            this.dXB = null;
         }
     }
 
     public boolean isShowing() {
-        return this.dWV != null && this.dWV.getVisibility() == 0;
+        return this.dXB != null && this.dXB.getVisibility() == 0;
     }
 
-    public TextView aFy() {
-        return this.dWV;
+    public TextView aFV() {
+        return this.dXB;
     }
 
-    public void aFz() {
+    public void aFW() {
         this.mHandler.removeCallbacks(this.mHideRunnable);
         this.mHandler.postDelayed(this.mHideRunnable, SystemScreenshotManager.DELAY_TIME);
     }

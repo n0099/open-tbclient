@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class h<T> {
-    private boolean aaf;
+    private boolean aao;
     private final List<T> mQueue = new ArrayList();
 
     public synchronized void E(T t) {
@@ -12,9 +12,9 @@ public class h<T> {
         notifyAll();
     }
 
-    public synchronized T rS() {
+    public synchronized T rW() {
         T t;
-        if (this.mQueue.isEmpty() && this.aaf) {
+        if (this.mQueue.isEmpty() && this.aao) {
             try {
                 wait();
             } catch (InterruptedException e) {

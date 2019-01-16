@@ -9,29 +9,29 @@ import java.util.HashMap;
 @SuppressLint({"NewApi"})
 /* loaded from: classes2.dex */
 public final class b {
-    private static b UJ;
-    private LongSparseArray<WeakReference<Bitmap>> UK = new LongSparseArray<>();
+    private static b UT;
+    private LongSparseArray<WeakReference<Bitmap>> UU = new LongSparseArray<>();
     private Context mContext;
     private static final String LOG_TAG = b.class.getSimpleName();
-    private static HashMap<String, com.baidu.browser.core.util.c<String, Integer>> UL = new HashMap<>();
+    private static HashMap<String, com.baidu.browser.core.util.c<String, Integer>> UV = new HashMap<>();
 
     private b() {
     }
 
-    public static synchronized b qf() {
+    public static synchronized b qj() {
         b bVar;
         synchronized (b.class) {
-            if (UJ == null) {
-                UJ = new b();
+            if (UT == null) {
+                UT = new b();
             }
-            bVar = UJ;
+            bVar = UT;
         }
         return bVar;
     }
 
     private Context getContext() {
         if (this.mContext == null) {
-            this.mContext = BdCore.qe().getContext();
+            this.mContext = BdCore.qi().getContext();
         }
         if (this.mContext == null) {
             throw new RuntimeException("context is null!");
@@ -40,13 +40,13 @@ public final class b {
     }
 
     @Deprecated
-    public static int R(String str, String str2) {
+    public static int S(String str, String str2) {
         com.baidu.browser.core.util.c<String, Integer> cVar;
-        S(str2, str);
-        com.baidu.browser.core.util.c<String, Integer> cVar2 = UL.get(str);
+        T(str2, str);
+        com.baidu.browser.core.util.c<String, Integer> cVar2 = UV.get(str);
         if (cVar2 == null) {
             com.baidu.browser.core.util.c<String, Integer> cVar3 = new com.baidu.browser.core.util.c<>(100);
-            UL.put(str, cVar3);
+            UV.put(str, cVar3);
             cVar = cVar3;
         } else {
             cVar = cVar2;
@@ -54,7 +54,7 @@ public final class b {
         Integer num = cVar.get(str2);
         if (num == null) {
             try {
-                int identifier = qf().getContext().getResources().getIdentifier(str2, str, qf().getContext().getPackageName());
+                int identifier = qj().getContext().getResources().getIdentifier(str2, str, qj().getContext().getPackageName());
                 cVar.put(str2, Integer.valueOf(identifier));
                 return identifier;
             } catch (Error e) {
@@ -68,7 +68,7 @@ public final class b {
         return num.intValue();
     }
 
-    public static void S(String str, String str2) {
+    public static void T(String str, String str2) {
         String[] strArr = {"com.baidu.browser.sailor", "com.baidu.browser.blink"};
         boolean z = false;
         for (StackTraceElement stackTraceElement : new Throwable().getStackTrace()) {

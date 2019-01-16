@@ -10,24 +10,24 @@ import org.apache.commons.logging.LogFactory;
 @Immutable
 /* loaded from: classes2.dex */
 public class ImageRequest {
-    private final com.facebook.imagepipeline.common.a ioA;
     @Nullable
-    private final com.facebook.imagepipeline.common.c ioy;
-    private final com.facebook.imagepipeline.common.d ioz;
-    private final boolean iqJ;
+    private final com.facebook.imagepipeline.common.c ipF;
+    private final com.facebook.imagepipeline.common.d ipG;
+    private final com.facebook.imagepipeline.common.a ipH;
+    private final boolean irQ;
     @Nullable
-    private final com.facebook.imagepipeline.g.b iqe;
-    private final RequestLevel isT;
-    private final CacheChoice iuP;
-    private final Uri iuQ;
-    private final int iuR;
+    private final com.facebook.imagepipeline.g.b irl;
+    private final RequestLevel iua;
+    private final CacheChoice ivW;
+    private final Uri ivX;
+    private final int ivY;
     @Nullable
-    private final a iuS;
-    private File iuT;
-    private final boolean iuU;
-    private final Priority iuV;
-    private final boolean iuW;
-    private final b iuk;
+    private final a ivZ;
+    private final b ivr;
+    private File iwa;
+    private final boolean iwb;
+    private final Priority iwc;
+    private final boolean iwd;
 
     /* loaded from: classes2.dex */
     public enum CacheChoice {
@@ -39,122 +39,122 @@ public class ImageRequest {
         if (uri == null) {
             return null;
         }
-        return ImageRequestBuilder.G(uri).caI();
+        return ImageRequestBuilder.G(uri).cbq();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ImageRequest(ImageRequestBuilder imageRequestBuilder) {
-        this.iuP = imageRequestBuilder.cat();
-        this.iuQ = imageRequestBuilder.cau();
-        this.iuR = F(this.iuQ);
-        this.iuS = imageRequestBuilder.caw();
-        this.iqJ = imageRequestBuilder.bXM();
-        this.iuU = imageRequestBuilder.caG();
-        this.ioA = imageRequestBuilder.caz();
-        this.ioy = imageRequestBuilder.cax();
-        this.ioz = imageRequestBuilder.cay() == null ? com.facebook.imagepipeline.common.d.bXd() : imageRequestBuilder.cay();
-        this.iuV = imageRequestBuilder.caH();
-        this.isT = imageRequestBuilder.bZJ();
-        this.iuW = imageRequestBuilder.caC();
-        this.iuk = imageRequestBuilder.caE();
-        this.iqe = imageRequestBuilder.caF();
+        this.ivW = imageRequestBuilder.cbb();
+        this.ivX = imageRequestBuilder.cbc();
+        this.ivY = F(this.ivX);
+        this.ivZ = imageRequestBuilder.cbe();
+        this.irQ = imageRequestBuilder.bYu();
+        this.iwb = imageRequestBuilder.cbo();
+        this.ipH = imageRequestBuilder.cbh();
+        this.ipF = imageRequestBuilder.cbf();
+        this.ipG = imageRequestBuilder.cbg() == null ? com.facebook.imagepipeline.common.d.bXL() : imageRequestBuilder.cbg();
+        this.iwc = imageRequestBuilder.cbp();
+        this.iua = imageRequestBuilder.car();
+        this.iwd = imageRequestBuilder.cbk();
+        this.ivr = imageRequestBuilder.cbm();
+        this.irl = imageRequestBuilder.cbn();
     }
 
-    public CacheChoice cat() {
-        return this.iuP;
+    public CacheChoice cbb() {
+        return this.ivW;
     }
 
-    public Uri cau() {
-        return this.iuQ;
+    public Uri cbc() {
+        return this.ivX;
     }
 
-    public int cav() {
-        return this.iuR;
+    public int cbd() {
+        return this.ivY;
     }
 
     @Nullable
-    public a caw() {
-        return this.iuS;
+    public a cbe() {
+        return this.ivZ;
     }
 
     public int getPreferredWidth() {
-        if (this.ioy != null) {
-            return this.ioy.width;
+        if (this.ipF != null) {
+            return this.ipF.width;
         }
         return 2048;
     }
 
     public int getPreferredHeight() {
-        if (this.ioy != null) {
-            return this.ioy.height;
+        if (this.ipF != null) {
+            return this.ipF.height;
         }
         return 2048;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.c cax() {
-        return this.ioy;
+    public com.facebook.imagepipeline.common.c cbf() {
+        return this.ipF;
     }
 
-    public com.facebook.imagepipeline.common.d cay() {
-        return this.ioz;
+    public com.facebook.imagepipeline.common.d cbg() {
+        return this.ipG;
     }
 
-    public com.facebook.imagepipeline.common.a caz() {
-        return this.ioA;
+    public com.facebook.imagepipeline.common.a cbh() {
+        return this.ipH;
     }
 
-    public boolean caA() {
-        return this.iqJ;
+    public boolean cbi() {
+        return this.irQ;
     }
 
-    public boolean caB() {
-        return this.iuU;
+    public boolean cbj() {
+        return this.iwb;
     }
 
-    public Priority bZL() {
-        return this.iuV;
+    public Priority cat() {
+        return this.iwc;
     }
 
-    public RequestLevel bZJ() {
-        return this.isT;
+    public RequestLevel car() {
+        return this.iua;
     }
 
-    public boolean caC() {
-        return this.iuW;
+    public boolean cbk() {
+        return this.iwd;
     }
 
-    public synchronized File caD() {
-        if (this.iuT == null) {
-            this.iuT = new File(this.iuQ.getPath());
+    public synchronized File cbl() {
+        if (this.iwa == null) {
+            this.iwa = new File(this.ivX.getPath());
         }
-        return this.iuT;
+        return this.iwa;
     }
 
     @Nullable
-    public b caE() {
-        return this.iuk;
+    public b cbm() {
+        return this.ivr;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.g.b caF() {
-        return this.iqe;
+    public com.facebook.imagepipeline.g.b cbn() {
+        return this.irl;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof ImageRequest) {
             ImageRequest imageRequest = (ImageRequest) obj;
-            return f.equal(this.iuQ, imageRequest.iuQ) && f.equal(this.iuP, imageRequest.iuP) && f.equal(this.iuS, imageRequest.iuS) && f.equal(this.iuT, imageRequest.iuT);
+            return f.equal(this.ivX, imageRequest.ivX) && f.equal(this.ivW, imageRequest.ivW) && f.equal(this.ivZ, imageRequest.ivZ) && f.equal(this.iwa, imageRequest.iwa);
         }
         return false;
     }
 
     public int hashCode() {
-        return f.hashCode(this.iuP, this.iuQ, this.iuS, this.iuT);
+        return f.hashCode(this.ivW, this.ivX, this.ivZ, this.iwa);
     }
 
     public String toString() {
-        return f.ao(this).n("uri", this.iuQ).n("cacheChoice", this.iuP).n("decodeOptions", this.ioA).n("postprocessor", this.iuk).n(LogFactory.PRIORITY_KEY, this.iuV).n("resizeOptions", this.ioy).n("rotationOptions", this.ioz).n("mediaVariations", this.iuS).toString();
+        return f.ao(this).n("uri", this.ivX).n("cacheChoice", this.ivW).n("decodeOptions", this.ipH).n("postprocessor", this.ivr).n(LogFactory.PRIORITY_KEY, this.iwc).n("resizeOptions", this.ipF).n("rotationOptions", this.ipG).n("mediaVariations", this.ivZ).toString();
     }
 
     /* loaded from: classes2.dex */
@@ -187,7 +187,7 @@ public class ImageRequest {
             return 0;
         }
         if (com.facebook.common.util.d.l(uri)) {
-            if (com.facebook.common.d.a.zg(com.facebook.common.d.a.zh(uri.getPath()))) {
+            if (com.facebook.common.d.a.zw(com.facebook.common.d.a.zx(uri.getPath()))) {
                 return 2;
             }
             return 3;

@@ -1,15 +1,15 @@
 package com.baidu.tbadk.BdToken.completeTask;
 /* loaded from: classes.dex */
 public class a {
-    public static int alu = 1;
-    public static int alv = 2;
-    public static int alw = 1;
-    public static int alx = 2;
+    public static int alO = 1;
+    public static int alP = 2;
+    public static int alQ = 1;
+    public static int alR = 2;
     public int activityId;
-    public String alb;
-    public String alc;
-    public int aly;
-    public int alz;
+    public int alS;
+    public int alT;
+    public String alm;
+    public String aln;
     public String btnText;
     public int duration;
     public String imgUrl;

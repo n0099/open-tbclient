@@ -7,35 +7,35 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Random;
 /* loaded from: classes3.dex */
 public class a {
-    private static final String[] dnD = {"119.75.222.62", "119.75.222.63"};
-    private static final String[] dnE = {"111.13.100.247", "117.185.16.61"};
-    private static final String[] dnF = {"111.206.37.190"};
-    private static final String[] dnG = {"115.239.211.146", "180.97.33.196"};
+    private static final String[] doq = {"119.75.222.62", "119.75.222.63"};
+    private static final String[] dor = {"111.13.100.247", "117.185.16.61"};
+    private static final String[] dos = {"111.206.37.190"};
+    private static final String[] dot = {"115.239.211.146", "180.97.33.196"};
     private volatile String imsi;
     private volatile int operator;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String auG() {
-        auH();
+    public String ave() {
+        avf();
         if (j.kW()) {
-            return dnG[new Random().nextInt(dnG.length)];
+            return dot[new Random().nextInt(dot.length)];
         }
         if (j.kX()) {
             if (this.operator == 1) {
-                return dnD[new Random().nextInt(dnD.length)];
+                return doq[new Random().nextInt(doq.length)];
             }
             if (this.operator == 2) {
-                return dnE[new Random().nextInt(dnE.length)];
+                return dor[new Random().nextInt(dor.length)];
             }
             if (this.operator == 3) {
-                return dnF[new Random().nextInt(dnF.length)];
+                return dos[new Random().nextInt(dos.length)];
             }
             return "119.75.222.62";
         }
         return "119.75.222.62";
     }
 
-    protected void auH() {
+    protected void avf() {
         this.imsi = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSubscriberId();
         this.operator = 0;
         if (this.imsi != null) {

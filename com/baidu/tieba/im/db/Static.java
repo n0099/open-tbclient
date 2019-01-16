@@ -3,8 +3,8 @@ package com.baidu.tieba.im.db;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.util.w;
 import com.baidu.tbadk.util.x;
+import com.baidu.tbadk.util.y;
 /* loaded from: classes.dex */
 public class Static {
     static {
@@ -13,13 +13,13 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(final CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2008015 && customResponsedMessage.getData() != null) {
-                    x.b(new w<Void>() { // from class: com.baidu.tieba.im.db.Static.1.1
+                    y.b(new x<Void>() { // from class: com.baidu.tieba.im.db.Static.1.1
                         /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.tbadk.util.w
-                        /* renamed from: Wy */
+                        @Override // com.baidu.tbadk.util.x
+                        /* renamed from: WV */
                         public Void doInBackground() {
                             if (customResponsedMessage.getData() instanceof String) {
-                                g.qb((String) customResponsedMessage.getData());
+                                g.qr((String) customResponsedMessage.getData());
                                 return null;
                             }
                             return null;

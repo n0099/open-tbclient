@@ -3,6 +3,7 @@ package com.baidu.tieba.aiapps.apps;
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +15,13 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.BdToken.f;
 import com.baidu.tbadk.BdToken.g;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
@@ -26,6 +29,7 @@ import java.lang.reflect.Field;
 /* loaded from: classes4.dex */
 public final class b {
     public static PopupWindow a(final g gVar) {
+        View.OnClickListener onClickListener;
         Activity fX = com.baidu.adp.base.a.fW().fX();
         if (fX == null || gVar == null) {
             return null;
@@ -43,35 +47,75 @@ public final class b {
         tbImageView.setDefaultResource(e.f.toastpic);
         tbImageView.setAutoChangeStyle(false);
         final PopupWindow popupWindow = new PopupWindow(fX);
-        View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.b.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (view.getId() == e.g.go_to_aiapps_go) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, url));
-                    TiebaStatic.log(new am("c13274").aA("uid", TbadkCoreApplication.getCurrentAccount()).aA(VideoPlayActivityConfig.OBJ_ID, gVar.appId).aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "tb_password").aA("obj_name", gVar.appName));
-                    try {
-                        popupWindow.dismiss();
-                    } catch (Throwable th) {
-                        BdLog.e(th);
+        switch (gVar.vO()) {
+            case 3:
+                tbImageView.setImageResource(e.f.toastpic_scheme);
+                onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.b.1
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        if (view.getId() == e.g.go_to_aiapps_go) {
+                            if (com.baidu.adp.base.a.fW().fX() != null && !StringUtils.isNull(g.this.getUrl())) {
+                                Uri parse = Uri.parse(g.this.getUrl());
+                                if (parse != null && parse.getQueryParameters("obj_type") != null && parse.getQueryParameters(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE) != null) {
+                                    TiebaStatic.log(new am("c13391").aB("obj_type", parse.getQueryParameter("obj_type")).aB(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, parse.getQueryParameter(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE)));
+                                }
+                                if (g.this.getUrl().startsWith(f.SCHEME)) {
+                                    Uri.Builder buildUpon = Uri.parse(g.this.getUrl()).buildUpon();
+                                    buildUpon.appendQueryParameter(f.ale, f.alh);
+                                    parse = buildUpon.build();
+                                }
+                                UtilHelper.dealOneScheme(com.baidu.adp.base.a.fW().fX(), parse.toString());
+                            }
+                            try {
+                                popupWindow.dismiss();
+                            } catch (Throwable th) {
+                                BdLog.e(th);
+                            }
+                        } else if (view.getId() == e.g.go_to_aiapps_cancel) {
+                            try {
+                                popupWindow.dismiss();
+                            } catch (Throwable th2) {
+                                BdLog.e(th2);
+                            }
+                        }
                     }
-                } else if (view.getId() == e.g.go_to_aiapps_cancel) {
-                    try {
-                        popupWindow.dismiss();
-                    } catch (Throwable th2) {
-                        BdLog.e(th2);
+                };
+                break;
+            default:
+                View.OnClickListener onClickListener2 = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.b.2
+                    @Override // android.view.View.OnClickListener
+                    public void onClick(View view) {
+                        if (view.getId() == e.g.go_to_aiapps_go) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, url));
+                            TiebaStatic.log(new am("c13274").aB("uid", TbadkCoreApplication.getCurrentAccount()).aB(VideoPlayActivityConfig.OBJ_ID, gVar.appId).aB(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "tb_password").aB("obj_name", gVar.appName));
+                            try {
+                                popupWindow.dismiss();
+                            } catch (Throwable th) {
+                                BdLog.e(th);
+                            }
+                        } else if (view.getId() == e.g.go_to_aiapps_cancel) {
+                            try {
+                                popupWindow.dismiss();
+                            } catch (Throwable th2) {
+                                BdLog.e(th2);
+                            }
+                        }
                     }
+                };
+                if (!StringUtils.isNull(gVar.vL())) {
+                    tbImageView.startLoad(gVar.vL(), 10, false);
+                    onClickListener = onClickListener2;
+                    break;
+                } else {
+                    tbImageView.setImageResource(e.f.toastpic);
+                    onClickListener = onClickListener2;
+                    break;
                 }
-            }
-        };
+        }
         textView.setOnClickListener(onClickListener);
         textView2.setOnClickListener(onClickListener);
-        if (!StringUtils.isNull(gVar.vH())) {
-            tbImageView.startLoad(gVar.vH(), 10, false);
-        } else {
-            tbImageView.setImageResource(e.f.toastpic);
-        }
-        textView.setText(gVar.vI());
-        textView2.setText(gVar.vJ());
+        textView.setText(gVar.vM());
+        textView2.setText(gVar.vN());
         textView3.setText(gVar.getTitle());
         textView4.setText(gVar.getTips());
         ColorDrawable colorDrawable = new ColorDrawable();

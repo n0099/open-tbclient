@@ -8,11 +8,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
-    private final ArrayList<MetaData> hWQ = new ArrayList<>();
+    private final ArrayList<MetaData> hXX = new ArrayList<>();
 
     public void a(JSONObject jSONObject, b bVar) {
         String str;
-        HashMap<String, String> bOR = bVar.bOR();
+        HashMap<String, String> bPz = bVar.bPz();
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
             int i = 0;
@@ -22,10 +22,10 @@ public class c {
                     MetaData metaData = new MetaData();
                     metaData.parserJson(optJSONArray.getJSONObject(i2));
                     metaData.setName_show(metaData.getUserName());
-                    if (bOR != null && (str = bOR.get(metaData.getUserName())) != null) {
+                    if (bPz != null && (str = bPz.get(metaData.getUserName())) != null) {
                         metaData.setPortrait(str);
                     }
-                    this.hWQ.add(metaData);
+                    this.hXX.add(metaData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -49,8 +49,8 @@ public class c {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.hWQ.size()) {
-                    MetaData metaData = this.hWQ.get(i2);
+                if (i2 < this.hXX.size()) {
+                    MetaData metaData = this.hXX.get(i2);
                     metaData.setPortrait(hashMap.get(metaData.getUserName()));
                     i = i2 + 1;
                 } else {
@@ -60,7 +60,7 @@ public class c {
         }
     }
 
-    public ArrayList<MetaData> bOS() {
-        return this.hWQ;
+    public ArrayList<MetaData> bPA() {
+        return this.hXX;
     }
 }

@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
 public class d {
-    private static d dos = null;
+    private static d dpe = null;
     private BroadcastReceiver receiver = new BroadcastReceiver() { // from class: com.baidu.tieba.dnsproxy.a.d.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
@@ -35,20 +35,20 @@ public class d {
             }
         }
     };
-    private Object dot = new Object();
-    private Map<String, a> dou = null;
-    private a dov = null;
-    private boolean dow = false;
+    private Object dpf = new Object();
+    private Map<String, a> dpg = null;
+    private a dph = null;
+    private boolean dpi = false;
 
-    public static final d auX() {
-        if (dos == null) {
+    public static final d avv() {
+        if (dpe == null) {
             synchronized (d.class) {
-                if (dos == null) {
-                    dos = new d();
+                if (dpe == null) {
+                    dpe = new d();
                 }
             }
         }
-        return dos;
+        return dpe;
     }
 
     private d() {
@@ -62,13 +62,13 @@ public class d {
             TbadkCoreApplication.getInst().unregisterReceiver(this.receiver);
             TbadkCoreApplication.getInst().registerReceiver(this.receiver, new IntentFilter("action_main_process_ip_data_change"));
         }
-        if (!this.dow) {
-            c.auT().a(new h<WriteHistroyDataReqIdl>() { // from class: com.baidu.tieba.dnsproxy.a.d.2
+        if (!this.dpi) {
+            c.avr().a(new h<WriteHistroyDataReqIdl>() { // from class: com.baidu.tieba.dnsproxy.a.d.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.h
                 /* renamed from: a */
                 public void onReturnDataInUI(final WriteHistroyDataReqIdl writeHistroyDataReqIdl) {
-                    e.auK().h(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.2.1
+                    e.avi().h(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.2.1
                         @Override // java.lang.Runnable
                         public void run() {
                             HashMap hashMap = new HashMap();
@@ -80,24 +80,24 @@ public class d {
                                     }
                                 }
                             }
-                            synchronized (d.this.dot) {
-                                if (d.this.dou == null) {
-                                    d.this.dou = new ConcurrentHashMap();
+                            synchronized (d.this.dpf) {
+                                if (d.this.dpg == null) {
+                                    d.this.dpg = new ConcurrentHashMap();
                                 }
-                                d.this.dou.clear();
-                                d.this.dou.putAll(hashMap);
+                                d.this.dpg.clear();
+                                d.this.dpg.putAll(hashMap);
                             }
-                            d.this.dow = true;
-                            d.this.auZ();
+                            d.this.dpi = true;
+                            d.this.avx();
                             ArrayList<a> arrayList = new ArrayList();
-                            for (Map.Entry entry : d.this.dou.entrySet()) {
-                                if (d.this.dov != entry.getValue() && System.currentTimeMillis() - ((a) entry.getValue()).dog > 604800000) {
+                            for (Map.Entry entry : d.this.dpg.entrySet()) {
+                                if (d.this.dph != entry.getValue() && System.currentTimeMillis() - ((a) entry.getValue()).doS > 604800000) {
                                     arrayList.add(entry.getValue());
-                                    com.baidu.tieba.dnsproxy.d.auJ().G("conpoint_remove", "out_time", (String) entry.getKey());
+                                    com.baidu.tieba.dnsproxy.d.avh().G("conpoint_remove", "out_time", (String) entry.getKey());
                                 }
                             }
                             for (a aVar : arrayList) {
-                                d.this.dou.remove(aVar.name);
+                                d.this.dpg.remove(aVar.name);
                             }
                         }
                     });
@@ -110,52 +110,52 @@ public class d {
         TbadkCoreApplication.getInst().unregisterReceiver(this.receiver);
     }
 
-    public void auY() {
-        auZ();
+    public void avw() {
+        avx();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void auZ() {
-        if (this.dow) {
-            String auS = a.auS();
-            if (!TextUtils.isEmpty(auS)) {
-                if (!this.dou.containsKey(auS)) {
-                    e.auK().fW(false);
+    public void avx() {
+        if (this.dpi) {
+            String avq = a.avq();
+            if (!TextUtils.isEmpty(avq)) {
+                if (!this.dpg.containsKey(avq)) {
+                    e.avi().fZ(false);
                     return;
                 }
-                this.dov = this.dou.get(auS);
-                if (this.dov == null) {
-                    e.auK().fW(false);
+                this.dph = this.dpg.get(avq);
+                if (this.dph == null) {
+                    e.avi().fZ(false);
                     return;
                 }
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.dov.doh > 3600000 && currentTimeMillis - this.dov.dog < 3600000) {
-                    e.auK().fW(false);
+                if (currentTimeMillis - this.dph.doT > 3600000 && currentTimeMillis - this.dph.doS < 3600000) {
+                    e.avi().fZ(false);
                 }
             }
         }
     }
 
-    public float bq(String str, String str2) {
-        if (!this.dow || this.dov == null) {
+    public float br(String str, String str2) {
+        if (!this.dpi || this.dph == null) {
             return 0.0f;
         }
-        b bVar = this.dov.doe.get(str2);
+        b bVar = this.dph.doQ.get(str2);
         if (bVar == null) {
             return 0.0f;
         }
-        return bVar.doi;
+        return bVar.doU;
     }
 
-    public float br(String str, String str2) {
-        if (!this.dow || this.dov == null) {
+    public float bs(String str, String str2) {
+        if (!this.dpi || this.dph == null) {
             return 10000.0f;
         }
-        b bVar = this.dov.dof.get(str2);
+        b bVar = this.dph.doR.get(str2);
         if (bVar == null) {
             return 10000.0f;
         }
-        return bVar.doi;
+        return bVar.doU;
     }
 
     public void H(String str, boolean z) {
@@ -164,23 +164,23 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(final String str, final boolean z, final boolean z2) {
-        if (this.dow && !TextUtils.isEmpty(str)) {
-            e.auK().h(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.3
+        if (this.dpi && !TextUtils.isEmpty(str)) {
+            e.avi().h(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.3
                 @Override // java.lang.Runnable
                 public void run() {
                     HashMap hashMap;
-                    if (d.this.dov != null) {
-                        b bVar = d.this.dov.doe.get(str);
+                    if (d.this.dph != null) {
+                        b bVar = d.this.dph.doQ.get(str);
                         if (bVar == null) {
                             bVar = new b();
                             bVar.address = str;
-                            d.this.dov.doe.put(str, bVar);
+                            d.this.dph.doQ.put(str, bVar);
                         }
-                        bVar.lp(z ? 1 : 0);
-                        synchronized (d.this.dot) {
-                            hashMap = new HashMap(d.this.dou);
+                        bVar.lq(z ? 1 : 0);
+                        synchronized (d.this.dpf) {
+                            hashMap = new HashMap(d.this.dpg);
                         }
-                        c.auT().t(hashMap);
+                        c.avr().t(hashMap);
                     }
                     if (z2) {
                         Intent intent = new Intent(TbadkCoreApplication.getInst().isMainProcess(false) ? "action_main_process_ip_data_change" : "action_sub_process_ip_data_change");
@@ -200,41 +200,41 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final String str, final int i, final boolean z, final boolean z2) {
-        if (this.dow && !TextUtils.isEmpty(str)) {
-            e.auK().h(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.4
+        if (this.dpi && !TextUtils.isEmpty(str)) {
+            e.avi().h(new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.d.4
                 @Override // java.lang.Runnable
                 public void run() {
                     HashMap hashMap;
-                    if (d.this.dov == null) {
-                        String auS = a.auS();
-                        if (!TextUtils.isEmpty(auS)) {
+                    if (d.this.dph == null) {
+                        String avq = a.avq();
+                        if (!TextUtils.isEmpty(avq)) {
                             a aVar = new a();
-                            aVar.name = auS;
-                            d.this.dov = aVar;
-                            d.this.dou.put(auS, aVar);
+                            aVar.name = avq;
+                            d.this.dph = aVar;
+                            d.this.dpg.put(avq, aVar);
                         }
                     }
-                    if (d.this.dov != null) {
-                        b bVar = d.this.dov.doe.get(str);
+                    if (d.this.dph != null) {
+                        b bVar = d.this.dph.doQ.get(str);
                         if (bVar == null) {
                             bVar = new b();
                             bVar.address = str;
-                            d.this.dov.doe.put(str, bVar);
+                            d.this.dph.doQ.put(str, bVar);
                         }
-                        bVar.lp(z ? 1 : 0);
+                        bVar.lq(z ? 1 : 0);
                         if (z) {
-                            b bVar2 = d.this.dov.dof.get(str);
+                            b bVar2 = d.this.dph.doR.get(str);
                             if (bVar2 == null) {
                                 bVar2 = new b();
                                 bVar2.address = str;
-                                d.this.dov.dof.put(str, bVar2);
+                                d.this.dph.doR.put(str, bVar2);
                             }
-                            bVar2.lp(i);
+                            bVar2.lq(i);
                         }
-                        synchronized (d.this.dot) {
-                            hashMap = new HashMap(d.this.dou);
+                        synchronized (d.this.dpf) {
+                            hashMap = new HashMap(d.this.dpg);
                         }
-                        c.auT().t(hashMap);
+                        c.avr().t(hashMap);
                     }
                     if (z2) {
                         Intent intent = new Intent(TbadkCoreApplication.getInst().isMainProcess(false) ? "action_main_process_ip_data_change" : "action_sub_process_ip_data_change");

@@ -64,13 +64,13 @@ public class a extends Service implements LLSInterface {
                         aVar.c(message);
                         break;
                     case 22:
-                        j.ti().b(message);
+                        j.tm().b(message);
                         break;
                     case 28:
-                        j.ti().a(true, true);
+                        j.tm().a(true, true);
                         break;
                     case 41:
-                        j.ti().i();
+                        j.tm().i();
                         break;
                     case 401:
                         try {
@@ -87,7 +87,7 @@ public class a extends Service implements LLSInterface {
                         }
                         break;
                     case 406:
-                        g.tg().e();
+                        g.tk().e();
                         break;
                 }
             }
@@ -108,50 +108,50 @@ public class a extends Service implements LLSInterface {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Message message) {
         Log.d("baidu_location_service", "baidu location service register ...");
-        com.baidu.location.a.a.tb().a(message);
-        d.tE();
-        com.baidu.location.b.d.tw().d();
-        m.tm().c();
+        com.baidu.location.a.a.tf().a(message);
+        d.tI();
+        com.baidu.location.b.d.tA().d();
+        m.tr().c();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        i.th().a(f.getServiceContext());
-        b.tV();
-        q.ts().e();
-        g.tg().b();
-        com.baidu.location.e.d.tO().b();
-        com.baidu.location.e.b.tL().b();
-        j.ti().d();
-        com.baidu.location.d.a.tz().c();
-        c.tv().b();
-        com.baidu.location.b.d.tw().b();
-        e.tx().b();
-        com.baidu.location.b.a.tt().b();
-        com.baidu.location.e.f.tQ().c();
+        i.tl().a(f.getServiceContext());
+        b.tZ();
+        q.tw().e();
+        g.tk().b();
+        com.baidu.location.e.d.tS().b();
+        com.baidu.location.e.b.tP().b();
+        j.tm().d();
+        com.baidu.location.d.a.tD().c();
+        c.tz().b();
+        com.baidu.location.b.d.tA().b();
+        e.tB().b();
+        com.baidu.location.b.a.tx().b();
+        com.baidu.location.e.f.tU().c();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Message message) {
-        com.baidu.location.a.a.tb().b(message);
+        com.baidu.location.a.a.tf().b(message);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        com.baidu.location.e.f.tQ().e();
-        d.tE().n();
-        com.baidu.location.e.d.tO().e();
-        q.ts().f();
-        com.baidu.location.b.d.tw().c();
-        c.tv().c();
-        com.baidu.location.b.b.tu().c();
-        com.baidu.location.b.a.tt().c();
-        com.baidu.location.a.b.tc().b();
-        com.baidu.location.e.b.tL().c();
-        j.ti().e();
-        g.tg().c();
+        com.baidu.location.e.f.tU().e();
+        d.tI().n();
+        com.baidu.location.e.d.tS().e();
+        q.tw().f();
+        com.baidu.location.b.d.tA().c();
+        c.tz().c();
+        com.baidu.location.b.b.ty().c();
+        com.baidu.location.b.a.tx().c();
+        com.baidu.location.a.b.tg().b();
+        com.baidu.location.e.b.tP().c();
+        j.tm().e();
+        g.tk().c();
         p.d();
-        com.baidu.location.a.a.tb().b();
+        com.baidu.location.a.a.tf().b();
         Log.d("baidu_location_service", "baidu location service has stoped ...");
         if (this.e) {
             return;
@@ -161,7 +161,7 @@ public class a extends Service implements LLSInterface {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(Message message) {
-        com.baidu.location.a.a.tb().k(message);
+        com.baidu.location.a.a.tf().k(message);
     }
 
     @Override // com.baidu.location.LLSInterface
@@ -187,7 +187,7 @@ public class a extends Service implements LLSInterface {
     @Override // com.baidu.location.LLSInterface
     public void onCreate(Context context) {
         f = System.currentTimeMillis();
-        this.d = o.tq();
+        this.d = o.tu();
         this.c = this.d.getLooper();
         if (this.c == null) {
             a = new HandlerC0088a(Looper.getMainLooper(), this);

@@ -4,8 +4,8 @@ import rx.d;
 import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes2.dex */
 public final class aw<T, U, R> implements d.b<rx.d<? extends R>, T> {
-    final rx.functions.g<? super T, ? super U, ? extends R> iFY;
-    final rx.functions.f<? super T, ? extends rx.d<? extends U>> iIV;
+    final rx.functions.g<? super T, ? super U, ? extends R> iHf;
+    final rx.functions.f<? super T, ? extends rx.d<? extends U>> iKc;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -24,12 +24,12 @@ public final class aw<T, U, R> implements d.b<rx.d<? extends R>, T> {
     }
 
     public aw(rx.functions.f<? super T, ? extends rx.d<? extends U>> fVar, rx.functions.g<? super T, ? super U, ? extends R> gVar) {
-        this.iIV = fVar;
-        this.iFY = gVar;
+        this.iKc = fVar;
+        this.iHf = gVar;
     }
 
     public rx.j<? super T> call(rx.j<? super rx.d<? extends R>> jVar) {
-        a aVar = new a(jVar, this.iIV, this.iFY);
+        a aVar = new a(jVar, this.iKc, this.iHf);
         jVar.add(aVar);
         return aVar;
     }
@@ -39,19 +39,19 @@ public final class aw<T, U, R> implements d.b<rx.d<? extends R>, T> {
     public static final class a<T, U, R> extends rx.j<T> {
         final rx.j<? super rx.d<? extends R>> actual;
         boolean done;
-        final rx.functions.g<? super T, ? super U, ? extends R> iFY;
-        final rx.functions.f<? super T, ? extends rx.d<? extends U>> iIV;
+        final rx.functions.g<? super T, ? super U, ? extends R> iHf;
+        final rx.functions.f<? super T, ? extends rx.d<? extends U>> iKc;
 
         public a(rx.j<? super rx.d<? extends R>> jVar, rx.functions.f<? super T, ? extends rx.d<? extends U>> fVar, rx.functions.g<? super T, ? super U, ? extends R> gVar) {
             this.actual = jVar;
-            this.iIV = fVar;
-            this.iFY = gVar;
+            this.iKc = fVar;
+            this.iHf = gVar;
         }
 
         @Override // rx.e
         public void onNext(T t) {
             try {
-                this.actual.onNext(this.iIV.call(t).map(new b(t, this.iFY)));
+                this.actual.onNext(this.iKc.call(t).map(new b(t, this.iHf)));
             } catch (Throwable th) {
                 rx.exceptions.a.J(th);
                 unsubscribe();
@@ -84,18 +84,18 @@ public final class aw<T, U, R> implements d.b<rx.d<? extends R>, T> {
 
     /* loaded from: classes2.dex */
     static final class b<T, U, R> implements rx.functions.f<U, R> {
-        final rx.functions.g<? super T, ? super U, ? extends R> iFY;
-        final T iIX;
+        final rx.functions.g<? super T, ? super U, ? extends R> iHf;
+        final T iKe;
 
         public b(T t, rx.functions.g<? super T, ? super U, ? extends R> gVar) {
-            this.iIX = t;
-            this.iFY = gVar;
+            this.iKe = t;
+            this.iHf = gVar;
         }
 
         /* JADX DEBUG: Type inference failed for r1v0. Raw type applied. Possible types: T, ? super T */
         @Override // rx.functions.f
         public R call(U u) {
-            return this.iFY.j((T) this.iIX, u);
+            return this.iHf.j((T) this.iKe, u);
         }
     }
 }

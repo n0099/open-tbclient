@@ -29,12 +29,12 @@ import com.baidu.tieba.im.util.b;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivity> implements TextWatcher, CompoundButton.OnCheckedChangeListener, b.a {
-    AddGroupModel eOS;
-    j eOR = null;
+    AddGroupModel ePE;
+    j ePD = null;
     private int sourceFrom = 1014;
-    private final GroupAddressInfoData eOT = new GroupAddressInfoData();
-    private int eOU = 0;
-    private final com.baidu.adp.framework.listener.c eOV = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.creategroup.CreateGroupStepActivity.1
+    private final GroupAddressInfoData ePF = new GroupAddressInfoData();
+    private int ePG = 0;
+    private final com.baidu.adp.framework.listener.c ePH = new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.creategroup.CreateGroupStepActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -68,8 +68,8 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     public void onCreate(Bundle bundle) {
         int i = 3;
         super.onCreate(bundle);
-        this.eOS = new AddGroupModel(this);
-        this.eOS.setUniqueId(getUniqueId());
+        this.ePE = new AddGroupModel(this);
+        this.ePE.setUniqueId(getUniqueId());
         Intent intent = getIntent();
         int intExtra = intent.getIntExtra(CreateGroupStepActivityConfig.GROUP_TYPE, 3);
         int intExtra2 = intent.getIntExtra("forumid", 0);
@@ -79,15 +79,15 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
         } else if (intExtra == 3) {
             i = 2;
         }
-        this.eOR = new j(this, i, intent.getIntExtra("num_create_group_private", 0), intent.getIntExtra("num_create_group_normal", 0), intent.getIntExtra("num_create_group_offical", 0));
-        this.eOR.setData(intExtra, intExtra2);
+        this.ePD = new j(this, i, intent.getIntExtra("num_create_group_private", 0), intent.getIntExtra("num_create_group_normal", 0), intent.getIntExtra("num_create_group_offical", 0));
+        this.ePD.setData(intExtra, intExtra2);
         adjustResizeForSoftInput();
         initListener();
         TiebaStatic.eventStat(getPageContext().getContext(), "create_g_pv", "pv", 1, new Object[0]);
     }
 
     private void initListener() {
-        registerListener(103101, this.eOV);
+        registerListener(103101, this.ePH);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -103,7 +103,7 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.eOR.onChangeSkinType(i);
+        this.ePD.onChangeSkinType(i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -111,26 +111,26 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 22001) {
-            this.eOR.aPF();
-            this.eOR.aQv();
+            this.ePD.aQf();
+            this.ePD.aQV();
         } else if (i2 == -1) {
             switch (i) {
                 case 12001:
                     sendMessage(new CustomMessage(2002001, new EditHeadActivityConfig(getPageContext().getPageActivity(), 12001, (int) IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_LOGIN_PROXY_RESULT, (Uri) null, TbadkApplication.getCurrentAccountObj(), 1, 1.0f)));
                     return;
                 case IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_CHECK /* 12002 */:
-                    this.eOR.R(intent);
+                    this.ePD.R(intent);
                     return;
                 case IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_DYNAMIC_PWD /* 12009 */:
                 case IEventCenterService.EventId.EventMode.SAPIACCOUNT_GET_LOGIN_PROXY_RESULT /* 12010 */:
-                    this.eOR.setPortrait(intent.getStringExtra(EditHeadActivityConfig.PHOTO_RESOURCE));
-                    this.eOR.aQu();
-                    this.eOR.aQt();
+                    this.ePD.setPortrait(intent.getStringExtra(EditHeadActivityConfig.PHOTO_RESOURCE));
+                    this.ePD.aQU();
+                    this.ePD.aQT();
                     return;
                 case 21001:
-                    this.eOR.setBusiness(intent.getStringExtra("Selected_Business"));
-                    this.eOR.ir(intent.getBooleanExtra("Hidden_Address_Flag", false));
-                    this.eOU = this.eOT.getAddressList().indexOf(this.eOR.getBusiness());
+                    this.ePD.setBusiness(intent.getStringExtra("Selected_Business"));
+                    this.ePD.ir(intent.getBooleanExtra("Hidden_Address_Flag", false));
+                    this.ePG = this.ePF.getAddressList().indexOf(this.ePD.getBusiness());
                     return;
                 default:
                     return;
@@ -157,73 +157,73 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setIsLoading(boolean z) {
-        this.eOR.aQg().setEnabled(!z);
-        this.eOR.setIsLoading(z);
+        this.ePD.aQG().setEnabled(!z);
+        this.ePD.setIsLoading(z);
     }
 
     private void back() {
-        if (this.eOR.aQf() == 1) {
+        if (this.ePD.aQF() == 1) {
             finish();
         } else {
-            this.eOR.aQz();
+            this.ePD.aQZ();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.eOR.aQe()) {
+        if (view == this.ePD.aQE()) {
             back();
-        } else if (view == this.eOR.aQg()) {
+        } else if (view == this.ePD.aQG()) {
             int dip2px = com.baidu.adp.lib.util.l.dip2px(TbadkApplication.getInst().getApp(), 0.0f);
-            if (!this.eOR.aQx()) {
-                String errMsg = this.eOR.getErrMsg();
+            if (!this.ePD.aQX()) {
+                String errMsg = this.ePD.getErrMsg();
                 if (!TextUtils.isEmpty(errMsg)) {
                     showToast(errMsg, dip2px);
                 }
-            } else if (this.eOR.aQs()) {
-                if (!this.eOR.aQk()) {
+            } else if (this.ePD.aQS()) {
+                if (!this.ePD.aQK()) {
                     setIsLoading(true);
-                    this.eOS.setForumId(this.eOR.getForumId());
-                    this.eOS.setName(this.eOR.getName());
-                    this.eOS.setIntro(this.eOR.getIntro());
-                    this.eOS.setGroupType(this.eOR.getGroupType());
-                    this.eOS.setPortrait(this.eOR.getPortrait());
-                    this.eOS.setPosition(this.eOR.getAddressName());
-                    this.eOS.setBusiness(this.eOR.getBusiness());
-                    this.eOS.setLng(this.eOR.aQc());
-                    this.eOS.setLat(this.eOR.aQd());
-                    this.eOS.setSourceFrom(this.sourceFrom);
-                    this.eOS.setFlag(this.eOR.aQl() ? 1 : 0);
-                    this.eOS.sendMessage();
+                    this.ePE.setForumId(this.ePD.getForumId());
+                    this.ePE.setName(this.ePD.getName());
+                    this.ePE.setIntro(this.ePD.getIntro());
+                    this.ePE.setGroupType(this.ePD.getGroupType());
+                    this.ePE.setPortrait(this.ePD.getPortrait());
+                    this.ePE.setPosition(this.ePD.getAddressName());
+                    this.ePE.setBusiness(this.ePD.getBusiness());
+                    this.ePE.setLng(this.ePD.aQC());
+                    this.ePE.setLat(this.ePD.aQD());
+                    this.ePE.setSourceFrom(this.sourceFrom);
+                    this.ePE.setFlag(this.ePD.aQL() ? 1 : 0);
+                    this.ePE.sendMessage();
                 }
             } else {
-                this.eOR.aQA();
+                this.ePD.aRa();
             }
-        } else if (this.eOR.aQh() == view) {
-            this.eOR.aQA();
-        } else if (view == this.eOR.aQi() || view == this.eOR.aQj()) {
-            this.eOR.aQC();
-        } else if (view == this.eOR.aQm()) {
+        } else if (this.ePD.aQH() == view) {
+            this.ePD.aRa();
+        } else if (view == this.ePD.aQI() || view == this.ePD.aQJ()) {
+            this.ePD.aRc();
+        } else if (view == this.ePD.aQM()) {
             TiebaStatic.log("edit_place_at_creatgroup");
-            switch (this.eOR.aPE()) {
+            switch (this.ePD.aQe()) {
                 case 0:
-                    sendMessage(new CustomMessage(2002001, new GroupAddressEditActivityConfig(getPageContext().getPageActivity(), 21001, this.eOT.getAddressList(), this.eOU, this.eOR.aQl())));
+                    sendMessage(new CustomMessage(2002001, new GroupAddressEditActivityConfig(getPageContext().getPageActivity(), 21001, this.ePF.getAddressList(), this.ePG, this.ePD.aQL())));
                     return;
                 case 1:
                     startActivityForResult(new Intent("android.settings.LOCATION_SOURCE_SETTINGS"), 22001);
                     return;
                 case 2:
-                    this.eOR.aPF();
-                    this.eOR.aQv();
+                    this.ePD.aQf();
+                    this.ePD.aQV();
                     return;
                 case 3:
                 case 4:
                 default:
                     return;
             }
-        } else if (view == this.eOR.aQn()) {
-            this.eOR.clearText();
+        } else if (view == this.ePD.aQN()) {
+            this.ePD.clearText();
         }
     }
 
@@ -233,7 +233,7 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
 
     @Override // android.text.TextWatcher
     public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        this.eOR.aQF();
+        this.ePD.aRf();
     }
 
     @Override // android.text.TextWatcher
@@ -248,32 +248,32 @@ public class CreateGroupStepActivity extends BaseActivity<CreateGroupStepActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.eOS.cancelMessage();
-        this.eOR.aQw();
+        this.ePE.cancelMessage();
+        this.ePD.aQW();
     }
 
     @Override // com.baidu.tieba.im.util.b.a
     public void a(String str, List<String> list, double d, double d2) {
-        this.eOR.pI(String.valueOf(d));
-        this.eOR.pH(String.valueOf(d2));
-        this.eOR.pJ(str);
+        this.ePD.pY(String.valueOf(d));
+        this.ePD.pX(String.valueOf(d2));
+        this.ePD.pZ(str);
         if (list != null && list.size() > 0) {
             for (String str2 : list) {
-                this.eOT.addAddress(str2);
+                this.ePF.addAddress(str2);
             }
-            this.eOR.setBusiness(list.get(0));
+            this.ePD.setBusiness(list.get(0));
             return;
         }
-        this.eOR.pK(str);
+        this.ePD.qa(str);
     }
 
     @Override // com.baidu.tieba.im.util.b.a
-    public void aQa() {
-        this.eOR.aPH();
+    public void aQA() {
+        this.ePD.aQh();
     }
 
     @Override // com.baidu.tieba.im.util.b.a
-    public void aQb() {
-        this.eOR.aPG();
+    public void aQB() {
+        this.ePD.aQg();
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.tbadk.browser.TbWebViewActivity;
 import com.baidu.tbadk.core.atomData.GodFansCallWebViewActivityConfig;
 /* loaded from: classes6.dex */
 public class GodFansCallWebViewActivity extends TbWebViewActivity {
-    private boolean bvS = false;
+    private boolean bwG = false;
 
     @Override // com.baidu.tbadk.browser.TbWebViewActivity, com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
@@ -17,7 +17,7 @@ public class GodFansCallWebViewActivity extends TbWebViewActivity {
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 if ("FansCallJSBridge".equals(str) && "callfans".equals(str2)) {
                     try {
-                        GodFansCallWebViewActivity.this.bvS = true;
+                        GodFansCallWebViewActivity.this.bwG = true;
                         jsPromptResult.confirm();
                         return true;
                     } catch (Exception e) {
@@ -33,14 +33,14 @@ public class GodFansCallWebViewActivity extends TbWebViewActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         if (this.mView != null) {
-            this.mView.wX();
+            this.mView.xk();
         }
     }
 
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity, com.baidu.tbadk.BaseActivity, android.app.Activity
     public void finish() {
         Intent intent = new Intent();
-        intent.putExtra(GodFansCallWebViewActivityConfig.IS_REFRESH, this.bvS);
+        intent.putExtra(GodFansCallWebViewActivityConfig.IS_REFRESH, this.bwG);
         super.finish(-1, intent);
     }
 

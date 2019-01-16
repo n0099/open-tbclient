@@ -15,16 +15,16 @@ import com.baidu.tieba.e;
 import java.io.File;
 /* loaded from: classes.dex */
 public class u {
-    public static final void aG(Context context, String str) {
+    public static final void aE(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             com.baidu.adp.lib.util.l.showToast(context, e.j.download_error);
             return;
         }
-        File eU = com.baidu.tbadk.core.util.l.eU(str.replace(".", BaseRequestAction.SPLITE) + ".apk");
-        if (eU != null) {
+        File fd = com.baidu.tbadk.core.util.l.fd(str.replace(".", BaseRequestAction.SPLITE) + ".apk");
+        if (fd != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(eU, intent, context), AiAppFileClassifyHelper.MIME_TYPE_APK);
+            intent.setDataAndType(UtilHelper.getUriFromFile(fd, intent, context), AiAppFileClassifyHelper.MIME_TYPE_APK);
             intent.addFlags(268435456);
             context.startActivity(intent);
         }
@@ -38,7 +38,7 @@ public class u {
         }
     }
 
-    public static boolean R(Activity activity) {
+    public static boolean O(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }

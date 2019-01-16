@@ -27,14 +27,14 @@ public class a implements IAiAppHistoryIoc {
             d.just("").subscribeOn(Schedulers.io()).map(new f<String, List<com.baidu.tieba.aiapps.apps.history.impl.a.a>>() { // from class: com.baidu.tieba.aiapps.apps.history.a.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.f
-                /* renamed from: kz */
+                /* renamed from: kP */
                 public List<com.baidu.tieba.aiapps.apps.history.impl.a.a> call(String str) {
-                    return a.this.ky(str);
+                    return a.this.kO(str);
                 }
-            }).observeOn(rx.a.b.a.cdO()).subscribe(new b<List<com.baidu.tieba.aiapps.apps.history.impl.a.a>>() { // from class: com.baidu.tieba.aiapps.apps.history.a.1
+            }).observeOn(rx.a.b.a.cew()).subscribe(new b<List<com.baidu.tieba.aiapps.apps.history.impl.a.a>>() { // from class: com.baidu.tieba.aiapps.apps.history.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
-                /* renamed from: aq */
+                /* renamed from: ar */
                 public void call(List<com.baidu.tieba.aiapps.apps.history.impl.a.a> list) {
                     if (list == null || list.size() == 0) {
                         onSwanHistoryListener.onFinish(null);
@@ -48,13 +48,13 @@ public class a implements IAiAppHistoryIoc {
                                 if (!TextUtils.isEmpty(aVar.appId)) {
                                     jSONObject.put("appid", aVar.appId);
                                 }
-                                jSONObject.put("type", aVar.bGM);
+                                jSONObject.put("type", aVar.bHz);
                                 jSONObject.put(GetSwanHistoryAction.KEY_SCHEME, GetSwanHistoryAction.SCHEME_CONSTANT_START + aVar.appId + GetSwanHistoryAction.SCHEME_CONSTANT_CONNECT + AiAppsLaunchType.LAUNCH_FROM_HISTORY);
-                                if (aVar.bGN > 0) {
-                                    jSONObject.put(GetSwanHistoryAction.KEY_DATA_STAMP, aVar.bGN);
+                                if (aVar.bHA > 0) {
+                                    jSONObject.put(GetSwanHistoryAction.KEY_DATA_STAMP, aVar.bHA);
                                 }
-                                if (!TextUtils.isEmpty(aVar.bGL)) {
-                                    jSONObject.put(GetSwanHistoryAction.KEY_ICON_URL, aVar.bGL);
+                                if (!TextUtils.isEmpty(aVar.bHy)) {
+                                    jSONObject.put(GetSwanHistoryAction.KEY_ICON_URL, aVar.bHy);
                                 }
                                 if (!TextUtils.isEmpty(aVar.appTitle)) {
                                     jSONObject.put("title", aVar.appTitle);
@@ -78,14 +78,14 @@ public class a implements IAiAppHistoryIoc {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public List<com.baidu.tieba.aiapps.apps.history.impl.a.a> ky(String str) {
+    public List<com.baidu.tieba.aiapps.apps.history.impl.a.a> kO(String str) {
         Cursor cursor;
         Cursor cursor2 = null;
         String str2 = "%" + str + "%";
         StringBuilder append = new StringBuilder().append("app_access_time desc ");
         try {
             try {
-                cursor = AiAppsRuntime.getAppContext().getContentResolver().query(AiAppsHistoryProvider.bGP, null, "app_title LIKE ?", new String[]{str2}, append.append(" LIMIT 400").toString());
+                cursor = AiAppsRuntime.getAppContext().getContentResolver().query(AiAppsHistoryProvider.bHC, null, "app_title LIKE ?", new String[]{str2}, append.append(" LIMIT 400").toString());
                 try {
                     List<com.baidu.tieba.aiapps.apps.history.impl.a.a> j = com.baidu.tieba.aiapps.apps.history.impl.a.a.j(cursor);
                     com.baidu.b.a.h.d.h(cursor);
@@ -115,7 +115,7 @@ public class a implements IAiAppHistoryIoc {
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppHistoryIoc
     public boolean removeSwanHistory(String str, boolean z) {
         Purger purger;
-        int delete = AiAppsRuntime.getAppContext().getContentResolver().delete(AiAppsHistoryProvider.bGP, "app_id= ?", new String[]{str});
+        int delete = AiAppsRuntime.getAppContext().getContentResolver().delete(AiAppsHistoryProvider.bHC, "app_id= ?", new String[]{str});
         if (delete > 0 && z && (purger = AiAppEnv.get().getPurger()) != null) {
             purger.deleteAiApp(str);
         }
@@ -125,7 +125,7 @@ public class a implements IAiAppHistoryIoc {
     @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppHistoryIoc
     public void saveAiAppInHistory(Context context, AiApp aiApp) {
         if (aiApp != null && aiApp.getLaunchInfo() != null && !TextUtils.equals(aiApp.getLaunchInfo().mNotInHistory, "1")) {
-            context.getContentResolver().insert(AiAppsHistoryProvider.bGP, com.baidu.tieba.aiapps.apps.history.impl.a.a.a(com.baidu.tieba.aiapps.apps.history.impl.a.a.a(aiApp)));
+            context.getContentResolver().insert(AiAppsHistoryProvider.bHC, com.baidu.tieba.aiapps.apps.history.impl.a.a.a(com.baidu.tieba.aiapps.apps.history.impl.a.a.a(aiApp)));
         }
     }
 }

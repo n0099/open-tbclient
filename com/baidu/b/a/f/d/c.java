@@ -3,28 +3,28 @@ package com.baidu.b.a.f.d;
 import android.util.SparseArray;
 /* loaded from: classes2.dex */
 public class c {
-    private static c ZY;
+    private static c aah;
     private SparseArray<Class<?>> mStateArray = new SparseArray<>();
 
-    public static synchronized c rK() {
+    public static synchronized c rO() {
         c cVar;
         synchronized (c.class) {
-            if (ZY == null) {
-                ZY = new c();
+            if (aah == null) {
+                aah = new c();
             }
-            cVar = ZY;
+            cVar = aah;
         }
         return cVar;
     }
 
     private c() {
-        this.mStateArray.put(com.baidu.b.a.f.d.b.h.aau, com.baidu.b.a.f.d.b.h.class);
-        this.mStateArray.put(com.baidu.b.a.f.d.b.b.aau, com.baidu.b.a.f.d.b.b.class);
-        this.mStateArray.put(com.baidu.b.a.f.d.b.e.aau, com.baidu.b.a.f.d.b.e.class);
-        this.mStateArray.put(com.baidu.b.a.f.d.b.c.aau, com.baidu.b.a.f.d.b.c.class);
-        this.mStateArray.put(com.baidu.b.a.f.d.b.a.aau, com.baidu.b.a.f.d.b.a.class);
-        this.mStateArray.put(com.baidu.b.a.f.d.b.g.aau, com.baidu.b.a.f.d.b.g.class);
-        this.mStateArray.put(com.baidu.b.a.f.d.b.d.aau, com.baidu.b.a.f.d.b.d.class);
+        this.mStateArray.put(com.baidu.b.a.f.d.b.h.aaD, com.baidu.b.a.f.d.b.h.class);
+        this.mStateArray.put(com.baidu.b.a.f.d.b.b.aaD, com.baidu.b.a.f.d.b.b.class);
+        this.mStateArray.put(com.baidu.b.a.f.d.b.e.aaD, com.baidu.b.a.f.d.b.e.class);
+        this.mStateArray.put(com.baidu.b.a.f.d.b.c.aaD, com.baidu.b.a.f.d.b.c.class);
+        this.mStateArray.put(com.baidu.b.a.f.d.b.a.aaD, com.baidu.b.a.f.d.b.a.class);
+        this.mStateArray.put(com.baidu.b.a.f.d.b.g.aaD, com.baidu.b.a.f.d.b.g.class);
+        this.mStateArray.put(com.baidu.b.a.f.d.b.d.aaD, com.baidu.b.a.f.d.b.d.class);
     }
 
     private synchronized com.baidu.b.a.f.d.b.f bG(int i) {
@@ -58,15 +58,15 @@ public class c {
     }
 
     public boolean c(f fVar) {
-        com.baidu.b.a.f.d.b.f bG = bG(fVar.rL().type);
+        com.baidu.b.a.f.d.b.f bG = bG(fVar.rP().type);
         boolean z = true;
         while (bG != null) {
             bG.m(fVar);
-            z = bG.rU();
+            z = bG.rY();
             if (z) {
-                bG = bG(bG.rV());
+                bG = bG(bG.rZ());
             } else {
-                bG = bG(bG.rW());
+                bG = bG(bG.sa());
             }
         }
         return z;

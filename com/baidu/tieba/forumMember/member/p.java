@@ -4,59 +4,59 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes3.dex */
 public class p implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId dIj = BdUniqueId.gen();
-    private String dIm;
-    private String dIn;
-    private int dIk = -1;
-    private int dIl = -1;
-    private int dIo = -1;
+    public static final BdUniqueId dIS = BdUniqueId.gen();
+    private String dIV;
+    private String dIW;
+    private int dIT = -1;
+    private int dIU = -1;
+    private int dIX = -1;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dIj;
+        return dIS;
     }
 
-    public int aAk() {
-        return this.dIk;
-    }
-
-    public void lZ(int i) {
-        this.dIk = i;
-    }
-
-    public int aAl() {
-        return this.dIo;
+    public int aAH() {
+        return this.dIT;
     }
 
     public void ma(int i) {
-        this.dIo = i;
+        this.dIT = i;
     }
 
-    public int aAm() {
-        return this.dIl;
+    public int aAI() {
+        return this.dIX;
     }
 
     public void mb(int i) {
-        this.dIl = i;
+        this.dIX = i;
     }
 
-    public String aAn() {
-        return this.dIm;
+    public int aAJ() {
+        return this.dIU;
     }
 
-    public void nU(String str) {
-        this.dIm = str;
+    public void mc(int i) {
+        this.dIU = i;
     }
 
-    public String aAo() {
-        return this.dIn;
+    public String aAK() {
+        return this.dIV;
     }
 
-    public void nV(String str) {
-        this.dIn = str;
+    public void ol(String str) {
+        this.dIV = str;
+    }
+
+    public String aAL() {
+        return this.dIW;
+    }
+
+    public void om(String str) {
+        this.dIW = str;
     }
 
     public boolean isEmpty() {
-        return StringUtils.isNull(this.dIm) || StringUtils.isNull(this.dIn) || this.dIk < 0 || this.dIl < 0;
+        return StringUtils.isNull(this.dIV) || StringUtils.isNull(this.dIW) || this.dIT < 0 || this.dIU < 0;
     }
 }

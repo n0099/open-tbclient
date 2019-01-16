@@ -12,11 +12,11 @@ public class PersonPostActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(PersonPostActivityConfig.class, PersonPostActivity.class);
         m.init();
-        aNg();
+        aNG();
     }
 
-    private static void aNg() {
-        ay.Ef().a(new ay.a() { // from class: com.baidu.tieba.post.PersonPostActivityStatic.1
+    private static void aNG() {
+        ay.Es().a(new ay.a() { // from class: com.baidu.tieba.post.PersonPostActivityStatic.1
             @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 AccountData currentAccountObj;

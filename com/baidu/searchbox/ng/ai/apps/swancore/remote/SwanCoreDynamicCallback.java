@@ -139,7 +139,7 @@ public class SwanCoreDynamicCallback extends a {
             }
             try {
                 SwanCoreInfo swanCoreInfo = new SwanCoreInfo();
-                JSONObject jSONObject = new JSONObject(aVar.Zr);
+                JSONObject jSONObject = new JSONObject(aVar.ZA);
                 swanCoreInfo.version = jSONObject.optString("version_code");
                 swanCoreInfo.sign = jSONObject.optString("sign");
                 swanCoreInfo.bundleFilePath = aVar.filePath;

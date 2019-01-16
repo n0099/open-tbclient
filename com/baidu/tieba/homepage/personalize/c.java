@@ -6,10 +6,10 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 /* loaded from: classes6.dex */
 public class c {
-    private static int exq = 0;
-    private static int exr = 0;
+    private static int eyb = 0;
+    private static int eyc = 0;
 
-    public static boolean O(Activity activity) {
+    public static boolean L(Activity activity) {
         if (activity != null) {
             try {
                 if (activity.isInMultiWindowMode()) {
@@ -26,17 +26,17 @@ public class c {
             int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
             View childAt = bdTypeRecyclerView.getChildAt(0);
             int top = childAt != null ? childAt.getTop() : 0;
-            exq = firstVisiblePosition;
-            exr = top;
+            eyb = firstVisiblePosition;
+            eyc = top;
         }
     }
 
     public static void e(BdTypeRecyclerView bdTypeRecyclerView) {
-        if (bdTypeRecyclerView != null && (bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager) && exq <= bdTypeRecyclerView.getCount() - 1) {
+        if (bdTypeRecyclerView != null && (bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager) && eyb <= bdTypeRecyclerView.getCount() - 1) {
             bdTypeRecyclerView.requestFocusFromTouch();
-            ((LinearLayoutManager) bdTypeRecyclerView.getLayoutManager()).scrollToPositionWithOffset(exq, exr);
-            exq = 0;
-            exr = 0;
+            ((LinearLayoutManager) bdTypeRecyclerView.getLayoutManager()).scrollToPositionWithOffset(eyb, eyc);
+            eyb = 0;
+            eyc = 0;
         }
     }
 }

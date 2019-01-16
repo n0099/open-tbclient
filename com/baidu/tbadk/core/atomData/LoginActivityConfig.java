@@ -7,8 +7,11 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class LoginActivityConfig extends IntentConfig {
+    public static final String ACTIVITY_ID = "activity_id";
+    public static final String CUSTOM_LOGIN_CSS_URL = "custom_login_css_url";
     public static final String JUMP_AFTER_DESTROY = "jump_after_destroy";
     public static final int JUMP_TO_MAINTAB = 1;
+    public static final String SOCIAL_TYPE = "social_type";
     public static final String URL = "url";
     public static final String USER_INFO_CHANGED = "user_info_changed";
     public static long lastStartActivityTime = 0;
@@ -35,14 +38,26 @@ public class LoginActivityConfig extends IntentConfig {
         getIntent().putExtra("close", z);
     }
 
-    public LoginActivityConfig(Context context, boolean z, String str) {
+    public LoginActivityConfig(Context context, boolean z, String str, String str2) {
         super(context);
         getIntent().putExtra("close", z);
         getIntent().putExtra("url", str);
+        getIntent().putExtra(CUSTOM_LOGIN_CSS_URL, str2);
     }
 
     public void setJumpToAfterDestroy(int i) {
         getIntent().putExtra(JUMP_AFTER_DESTROY, i);
+    }
+
+    public void setUrl(String str) {
+        getIntent().putExtra("url", str);
+    }
+
+    public void setThirdPartyLoginForResult(int i, String str) {
+        getIntent().putExtra("social_type", i);
+        getIntent().putExtra("activity_id", str);
+        setRequestCode(11043);
+        setIntentAction(IntentAction.ActivityForResult);
     }
 
     public static boolean canStartActivity() {

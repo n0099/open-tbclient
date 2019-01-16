@@ -22,21 +22,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f extends BaseAdapter {
-    private l aZC;
-    private com.baidu.tbadk.img.b aZs;
-    private a icl;
+    private com.baidu.tbadk.img.b bac;
+    private l bam;
+    private a idv;
     private Context mContext;
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mDataList = new ArrayList();
-    private boolean hVz = false;
+    private boolean hWG = false;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void bQK();
+        void bRs();
 
-        void xC(int i);
+        void xE(int i);
 
-        void xJ(int i);
+        void xL(int i);
     }
 
     private String getString(int i) {
@@ -44,11 +44,11 @@ public class f extends BaseAdapter {
     }
 
     public f(Context context, com.baidu.tbadk.img.b bVar, l lVar, a aVar) {
-        this.aZC = lVar;
+        this.bam = lVar;
         this.mContext = context;
         this.mLayoutInflater = LayoutInflater.from(this.mContext);
-        this.aZs = bVar;
-        this.icl = aVar;
+        this.bac = bVar;
+        this.idv = aVar;
     }
 
     public void a(WriteImagesInfo writeImagesInfo) {
@@ -57,7 +57,7 @@ public class f extends BaseAdapter {
         if (writeImagesInfo != null && H > 0) {
             this.mDataList.addAll(writeImagesInfo.getChosedFiles());
         }
-        if (H < 10 && this.hVz) {
+        if (H < 10 && this.hWG) {
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setFilePath("FLAG_ADD_ICON");
             this.mDataList.add(imageFileInfo);
@@ -110,8 +110,8 @@ public class f extends BaseAdapter {
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.f.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (f.this.icl != null) {
-                        f.this.icl.bQK();
+                    if (f.this.idv != null) {
+                        f.this.idv.bRs();
                     }
                 }
             });
@@ -136,7 +136,7 @@ public class f extends BaseAdapter {
             imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.L(aO, aO));
             frameLayout.setForeground(al.getDrawable(e.f.new_frame_add_photo_foreground_selector));
             tbImageView.setTag(imageFileInfo.toCachedKey(true));
-            if (this.aZs.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.write.f.2
+            if (this.bac.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.write.f.2
                 @Override // com.baidu.tbadk.imageManager.b
                 public void a(com.baidu.adp.widget.ImageView.a aVar, String str, boolean z) {
                     TbImageView tbImageView2 = (TbImageView) viewGroup.findViewWithTag(str);
@@ -163,11 +163,11 @@ public class f extends BaseAdapter {
                         com.baidu.adp.lib.util.l.g(f.this.mContext, e.j.editor_mutiiamge_image_error);
                         return;
                     }
-                    if (f.this.aZC != null) {
-                        f.this.aZC.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(i)));
+                    if (f.this.bam != null) {
+                        f.this.bam.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(i)));
                     }
-                    if (f.this.icl != null) {
-                        f.this.icl.xJ(i);
+                    if (f.this.idv != null) {
+                        f.this.idv.xL(i);
                     }
                 }
             }
@@ -175,15 +175,15 @@ public class f extends BaseAdapter {
         linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.f.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (f.this.icl != null) {
-                    f.this.icl.xC(i);
+                if (f.this.idv != null) {
+                    f.this.idv.xE(i);
                 }
             }
         });
         return view;
     }
 
-    public void oB(boolean z) {
-        this.hVz = z;
+    public void oC(boolean z) {
+        this.hWG = z;
     }
 }

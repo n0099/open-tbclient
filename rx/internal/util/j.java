@@ -8,35 +8,35 @@ import java.util.List;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class j implements k {
-    private volatile boolean iEx;
-    private List<k> iPs;
+    private volatile boolean iFE;
+    private List<k> iQz;
 
     public j() {
     }
 
     public j(k... kVarArr) {
-        this.iPs = new LinkedList(Arrays.asList(kVarArr));
+        this.iQz = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public j(k kVar) {
-        this.iPs = new LinkedList();
-        this.iPs.add(kVar);
+        this.iQz = new LinkedList();
+        this.iQz.add(kVar);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.iEx;
+        return this.iFE;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.iEx) {
+            if (!this.iFE) {
                 synchronized (this) {
-                    if (!this.iEx) {
-                        List list = this.iPs;
+                    if (!this.iFE) {
+                        List list = this.iQz;
                         if (list == null) {
                             list = new LinkedList();
-                            this.iPs = list;
+                            this.iQz = list;
                         }
                         list.add(kVar);
                         return;
@@ -48,10 +48,10 @@ public final class j implements k {
     }
 
     public void b(k kVar) {
-        if (!this.iEx) {
+        if (!this.iFE) {
             synchronized (this) {
-                List<k> list = this.iPs;
-                if (!this.iEx && list != null) {
+                List<k> list = this.iQz;
+                if (!this.iFE && list != null) {
                     boolean remove = list.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
@@ -63,12 +63,12 @@ public final class j implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.iEx) {
+        if (!this.iFE) {
             synchronized (this) {
-                if (!this.iEx) {
-                    this.iEx = true;
-                    List<k> list = this.iPs;
-                    this.iPs = null;
+                if (!this.iFE) {
+                    this.iFE = true;
+                    List<k> list = this.iQz;
+                    this.iQz = null;
                     n(list);
                 }
             }
@@ -87,7 +87,7 @@ public final class j implements k {
                     arrayList = arrayList2;
                 }
             }
-            rx.exceptions.a.eA(arrayList);
+            rx.exceptions.a.eB(arrayList);
         }
     }
 }

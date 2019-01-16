@@ -36,7 +36,7 @@ public class g extends j {
             cVar.IT.a(canvas, this.Ji, this.mBounds, this.mPaint);
         } else if (cVar.mj()) {
             if (this.Jm) {
-                a(canvas, cVar.IT.op());
+                a(canvas, cVar.IT.ot());
                 return;
             }
             this.Ji.set(0, 0, cVar.getWidth(), cVar.getHeight());

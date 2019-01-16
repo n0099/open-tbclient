@@ -147,7 +147,7 @@ public class AiAppsPreloadMapLibAPSCallback extends a {
             }
             try {
                 BdMapLibInfo bdMapLibInfo = new BdMapLibInfo();
-                bdMapLibInfo.version = new JSONObject(aVar.Zr).optString("version_code");
+                bdMapLibInfo.version = new JSONObject(aVar.ZA).optString("version_code");
                 return bdMapLibInfo;
             } catch (JSONException e) {
                 AiAppsLog.e(AiAppsPreloadMapLibAPSCallback.MODULE_TAG, e.toString());

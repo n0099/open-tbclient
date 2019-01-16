@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class h extends a<com.baidu.tieba.e.e> {
-    private View cWg;
-    private View cWh;
-    private TextView cWj;
-    private TextView cWk;
-    private TextView cWl;
-    private TextView cWm;
-    private TextView cWn;
+    private View cWR;
+    private View cWS;
+    private TextView cWU;
+    private TextView cWV;
+    private TextView cWW;
+    private TextView cWX;
+    private TextView cWY;
     private String mForumId;
 
     public h(TbPageContext<?> tbPageContext) {
@@ -27,17 +27,17 @@ public class h extends a<com.baidu.tieba.e.e> {
     }
 
     private void init(View view) {
-        this.cWj = (TextView) view.findViewById(e.g.card_frs_game_hot_title);
-        this.cWk = (TextView) view.findViewById(e.g.card_frs_game_hot_topic_1);
-        this.cWl = (TextView) view.findViewById(e.g.card_frs_game_hot_topic_2);
-        this.cWm = (TextView) view.findViewById(e.g.card_frs_game_hot_topic_3);
-        this.cWn = (TextView) view.findViewById(e.g.card_frs_game_hot_topic_4);
-        this.cWk.setOnClickListener(this);
-        this.cWl.setOnClickListener(this);
-        this.cWm.setOnClickListener(this);
-        this.cWn.setOnClickListener(this);
-        this.cWg = view.findViewById(e.g.divider_line_1);
-        this.cWh = view.findViewById(e.g.divider_line_2);
+        this.cWU = (TextView) view.findViewById(e.g.card_frs_game_hot_title);
+        this.cWV = (TextView) view.findViewById(e.g.card_frs_game_hot_topic_1);
+        this.cWW = (TextView) view.findViewById(e.g.card_frs_game_hot_topic_2);
+        this.cWX = (TextView) view.findViewById(e.g.card_frs_game_hot_topic_3);
+        this.cWY = (TextView) view.findViewById(e.g.card_frs_game_hot_topic_4);
+        this.cWV.setOnClickListener(this);
+        this.cWW.setOnClickListener(this);
+        this.cWX.setOnClickListener(this);
+        this.cWY.setOnClickListener(this);
+        this.cWR = view.findViewById(e.g.divider_line_1);
+        this.cWS = view.findViewById(e.g.divider_line_2);
     }
 
     public void setForumId(String str) {
@@ -47,13 +47,13 @@ public class h extends a<com.baidu.tieba.e.e> {
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         al.i(getView(), e.d.cp_bg_line_d);
-        al.i(this.cWg, e.d.cp_bg_line_e);
-        al.i(this.cWh, e.d.cp_bg_line_e);
-        al.c(this.cWj, e.d.cp_cont_f, 1);
-        al.c(this.cWk, e.d.cp_cont_b, 1);
-        al.c(this.cWl, e.d.cp_cont_b, 1);
-        al.c(this.cWm, e.d.cp_cont_b, 1);
-        al.c(this.cWn, e.d.cp_cont_b, 1);
+        al.i(this.cWR, e.d.cp_bg_line_e);
+        al.i(this.cWS, e.d.cp_bg_line_e);
+        al.c(this.cWU, e.d.cp_cont_f, 1);
+        al.c(this.cWV, e.d.cp_cont_b, 1);
+        al.c(this.cWW, e.d.cp_cont_b, 1);
+        al.c(this.cWX, e.d.cp_cont_b, 1);
+        al.c(this.cWY, e.d.cp_cont_b, 1);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -64,42 +64,42 @@ public class h extends a<com.baidu.tieba.e.e> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.e.e eVar) {
-        if (eVar != null && eVar.auA() != null) {
-            if (!TextUtils.isEmpty(eVar.auA().title)) {
-                this.cWj.setText(eVar.auA().title);
+        if (eVar != null && eVar.auY() != null) {
+            if (!TextUtils.isEmpty(eVar.auY().title)) {
+                this.cWU.setText(eVar.auY().title);
             }
-            this.cWk.setVisibility(8);
-            this.cWl.setVisibility(8);
-            this.cWm.setVisibility(8);
-            this.cWn.setVisibility(8);
-            if (eVar.auA().sub_nodes.size() >= 1) {
-                this.cWk.setVisibility(0);
-                this.cWk.setTag(eVar.auA().sub_nodes.get(0).url);
-                this.cWk.setText(eVar.auA().sub_nodes.get(0).title);
+            this.cWV.setVisibility(8);
+            this.cWW.setVisibility(8);
+            this.cWX.setVisibility(8);
+            this.cWY.setVisibility(8);
+            if (eVar.auY().sub_nodes.size() >= 1) {
+                this.cWV.setVisibility(0);
+                this.cWV.setTag(eVar.auY().sub_nodes.get(0).url);
+                this.cWV.setText(eVar.auY().sub_nodes.get(0).title);
             }
-            if (eVar.auA().sub_nodes.size() >= 2) {
-                this.cWl.setVisibility(0);
-                this.cWl.setTag(eVar.auA().sub_nodes.get(1).url);
-                this.cWl.setText(eVar.auA().sub_nodes.get(1).title);
+            if (eVar.auY().sub_nodes.size() >= 2) {
+                this.cWW.setVisibility(0);
+                this.cWW.setTag(eVar.auY().sub_nodes.get(1).url);
+                this.cWW.setText(eVar.auY().sub_nodes.get(1).title);
             }
-            if (eVar.auA().sub_nodes.size() >= 3) {
-                this.cWm.setVisibility(0);
-                this.cWm.setTag(eVar.auA().sub_nodes.get(2).url);
-                this.cWm.setText(eVar.auA().sub_nodes.get(2).title);
+            if (eVar.auY().sub_nodes.size() >= 3) {
+                this.cWX.setVisibility(0);
+                this.cWX.setTag(eVar.auY().sub_nodes.get(2).url);
+                this.cWX.setText(eVar.auY().sub_nodes.get(2).title);
             }
-            if (eVar.auA().sub_nodes.size() >= 4) {
-                this.cWn.setVisibility(0);
-                this.cWn.setTag(eVar.auA().sub_nodes.get(3).url);
-                this.cWn.setText(eVar.auA().sub_nodes.get(3).title);
+            if (eVar.auY().sub_nodes.size() >= 4) {
+                this.cWY.setVisibility(0);
+                this.cWY.setTag(eVar.auY().sub_nodes.get(3).url);
+                this.cWY.setText(eVar.auY().sub_nodes.get(3).title);
             }
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.cWk || view == this.cWl || view == this.cWm || view == this.cWn) {
-            TiebaStatic.log(new am("c13047").x("obj_locate", 8).aA(ImageViewerConfig.FORUM_ID, this.mForumId));
-            ay.Ef().a((TbPageContext) com.baidu.adp.base.i.aK(this.mTbPageContext.getPageActivity()), new String[]{(String) view.getTag()}, true);
+        if (view == this.cWV || view == this.cWW || view == this.cWX || view == this.cWY) {
+            TiebaStatic.log(new am("c13047").y("obj_locate", 8).aB(ImageViewerConfig.FORUM_ID, this.mForumId));
+            ay.Es().a((TbPageContext) com.baidu.adp.base.i.aK(this.mTbPageContext.getPageActivity()), new String[]{(String) view.getTag()}, true);
         }
     }
 }

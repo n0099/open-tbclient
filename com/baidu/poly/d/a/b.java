@@ -7,20 +7,20 @@ import com.baidu.searchbox.ng.ai.apps.pay.callback.BaiduPayCallback;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class b extends c {
-    private static b ais;
+    private static b aiB;
 
     private b() {
     }
 
-    public static b uD() {
-        if (ais == null) {
+    public static b uH() {
+        if (aiB == null) {
             synchronized (b.class) {
-                if (ais == null) {
-                    ais = new b();
+                if (aiB == null) {
+                    aiB = new b();
                 }
             }
         }
-        return ais;
+        return aiB;
     }
 
     @Override // com.baidu.poly.d.a.c, com.baidu.poly.d.a.d

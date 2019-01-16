@@ -9,7 +9,7 @@ public class b {
     public static void a(i iVar, final long j) {
         if (iVar != null) {
             iVar.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.b.1
-                private long gHU = 0;
+                private long gIY = 0;
 
                 @Override // com.baidu.tieba.j.b
                 public void ao(JSONObject jSONObject) throws JSONException {
@@ -17,14 +17,14 @@ public class b {
 
                 @Override // com.baidu.tieba.j.b
                 public void ap(JSONObject jSONObject) throws JSONException {
-                    this.gHU = jSONObject.optLong("loadingTime");
+                    this.gIY = jSONObject.optLong("loadingTime");
                 }
 
                 @Override // com.baidu.tieba.j.b
                 public void aq(JSONObject jSONObject) throws JSONException {
-                    if (this.gHU != 0 && j != 0 && this.gHU <= 86400000 && j <= 86400000) {
+                    if (this.gIY != 0 && j != 0 && this.gIY <= 86400000 && j <= 86400000) {
                         jSONObject.put("pbLoadingTime", j);
-                        jSONObject.put("pbVideoPreview", this.gHU + j);
+                        jSONObject.put("pbVideoPreview", this.gIY + j);
                     }
                 }
             });

@@ -2,7 +2,7 @@ package com.baidu.tieba.enterForum.home;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.p;
+import com.baidu.tbadk.util.q;
 import tbclient.ForumRecommend.DataReq;
 import tbclient.ForumRecommend.ForumRecommendReqIdl;
 /* loaded from: classes4.dex */
@@ -47,7 +47,7 @@ public class forumRecommendRequestMessage extends NetMessage {
             builder.topic = get_topic();
             builder.recommend = get_recommend();
             if (z) {
-                p.bindCommonParamsToProtobufData(builder, true);
+                q.bindCommonParamsToProtobufData(builder, true);
             }
             ForumRecommendReqIdl.Builder builder2 = new ForumRecommendReqIdl.Builder();
             builder2.data = builder.build(false);

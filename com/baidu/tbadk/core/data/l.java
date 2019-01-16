@@ -27,7 +27,7 @@ public class l {
         return this.text;
     }
 
-    public String yf() {
+    public String ys() {
         return this.headline_cover;
     }
 
@@ -35,7 +35,7 @@ public class l {
         return this.url;
     }
 
-    public String yg() {
+    public String yt() {
         return this.obj_id;
     }
 }

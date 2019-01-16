@@ -7,33 +7,33 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class d extends com.baidu.tbadk.editortools.emotiontool.a {
-    private static d dqi = new d();
-    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> dqj;
+    private static d dqU = new d();
+    private LinkedList<com.baidu.tbadk.editortools.emotiontool.c> dqV;
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public int getIndex() {
         return 1;
     }
 
-    public static synchronized d avw() {
+    public static synchronized d avU() {
         d dVar;
         synchronized (d.class) {
-            dVar = dqi;
+            dVar = dqU;
         }
         return dVar;
     }
 
     public List<com.baidu.tbadk.editortools.emotiontool.c> getGroups() {
-        return this.dqj;
+        return this.dqV;
     }
 
     @Override // com.baidu.tbadk.editortools.emotiontool.a
     public void a(a.InterfaceC0168a interfaceC0168a) {
-        if (this.dqj == null || this.dqj.isEmpty()) {
-            this.dqj = new LinkedList<>();
-            if (TbFaceManager.Nu().Ml() > 0) {
+        if (this.dqV == null || this.dqV.isEmpty()) {
+            this.dqV = new LinkedList<>();
+            if (TbFaceManager.NL().MC() > 0) {
                 c cVar = new c();
-                this.dqj.add(cVar);
+                this.dqV.add(cVar);
                 if (interfaceC0168a != null) {
                     interfaceC0168a.a(cVar);
                     return;
@@ -42,7 +42,7 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
             }
             return;
         }
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.dqj.iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.dqV.iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
             if (interfaceC0168a != null) {
@@ -56,6 +56,6 @@ public class d extends com.baidu.tbadk.editortools.emotiontool.a {
     }
 
     public boolean isEmpty() {
-        return this.dqj == null || this.dqj.size() == 0;
+        return this.dqV == null || this.dqV.size() == 0;
     }
 }

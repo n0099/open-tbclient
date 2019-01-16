@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.util.y;
+import com.baidu.tbadk.util.z;
 import com.baidu.tieba.e;
 import com.baidu.tieba.frs.h;
 /* loaded from: classes3.dex */
@@ -51,21 +51,21 @@ public class d extends h<e, f> {
         if (eVar != null && fVar != null) {
             if (fVar.mSkinType != this.mSkinType) {
                 al.i(fVar.getView(), e.f.frs_member_manito_bg);
-                al.c(fVar.bPk, e.d.cp_cont_b, 1);
-                al.c(fVar.dcL, e.d.cp_cont_c, 1);
+                al.c(fVar.bPV, e.d.cp_cont_b, 1);
+                al.c(fVar.ddy, e.d.cp_cont_c, 1);
                 al.j(fVar.dividerLine, e.d.cp_bg_line_c);
-                al.c(fVar.dHm, e.d.cp_cont_c, 1);
+                al.c(fVar.dHV, e.d.cp_cont_c, 1);
             }
-            fVar.dHl.startLoad(eVar.aAf(), 12, false);
-            fVar.bPk.setText(y.J(eVar.getNameShow(), 16));
+            fVar.dHU.startLoad(eVar.aAC(), 12, false);
+            fVar.bPV.setText(z.J(eVar.getNameShow(), 16));
             if (StringUtils.isNull(eVar.getIntro())) {
-                fVar.dcL.setText(e.j.god_intro_default);
+                fVar.ddy.setText(e.j.god_intro_default);
             } else {
-                fVar.dcL.setText(y.J(eVar.getIntro(), 30));
+                fVar.ddy.setText(z.J(eVar.getIntro(), 30));
             }
             int color = al.getColor(e.d.cp_cont_h);
             String Q = ao.Q(eVar.getFansNum());
-            fVar.dHm.setText(a(String.format(this.mContext.getResources().getString(e.j.fans_count), Q), new String[]{Q}, new int[]{color}));
+            fVar.dHV.setText(a(String.format(this.mContext.getResources().getString(e.j.fans_count), Q), new String[]{Q}, new int[]{color}));
             fVar.getView().setTag(eVar);
             fVar.getView().setOnClickListener(this.mOnItemClickListener);
             fVar.mSkinType = this.mSkinType;

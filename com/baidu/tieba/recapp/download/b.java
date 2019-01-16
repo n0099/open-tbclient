@@ -5,27 +5,27 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.q;
 /* loaded from: classes3.dex */
 public class b {
-    private q aAR = null;
-    private com.baidu.tbadk.core.util.a.a aAQ = null;
+    private q aBt = null;
+    private com.baidu.tbadk.core.util.a.a aBs = null;
 
     public b() {
-        Di();
+        Dv();
     }
 
     public void jj() {
-        if (this.aAR != null) {
-            this.aAR.jj();
+        if (this.aBt != null) {
+            this.aBt.jj();
         }
     }
 
     public void setUrl(String str) {
-        this.aAQ.Eh().Ek().mUrl = str;
+        this.aBs.Eu().Ex().mUrl = str;
     }
 
-    private void Di() {
-        this.aAQ = new com.baidu.tbadk.core.util.a.a();
-        this.aAR = new c(this.aAQ);
-        this.aAQ.Eh().Ek().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
+    private void Dv() {
+        this.aBs = new com.baidu.tbadk.core.util.a.a();
+        this.aBt = new c(this.aBs);
+        this.aBs.Eu().Ex().mNetType = com.baidu.tbadk.core.util.a.h.getNetType();
         com.baidu.adp.lib.network.a.a.setCuid(TbadkCoreApplication.getInst().getCuid());
         com.baidu.adp.lib.network.a.a.aS(TbadkCoreApplication.getInst().getCuidGalaxy2());
         com.baidu.adp.lib.network.a.a.aT(TbadkCoreApplication.getInst().getCuidGid());
@@ -36,11 +36,11 @@ public class b {
     }
 
     public boolean a(String str, Handler handler, int i, int i2, int i3, boolean z) {
-        Dj().Eh().a(this.aAR);
-        return this.aAR.a(str, handler, i, i2, i3, z);
+        Dw().Eu().a(this.aBt);
+        return this.aBt.a(str, handler, i, i2, i3, z);
     }
 
-    public com.baidu.tbadk.core.util.a.a Dj() {
-        return this.aAQ;
+    public com.baidu.tbadk.core.util.a.a Dw() {
+        return this.aBs;
     }
 }

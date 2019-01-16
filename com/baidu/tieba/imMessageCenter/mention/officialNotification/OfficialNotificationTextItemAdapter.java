@@ -31,10 +31,10 @@ public class OfficialNotificationTextItemAdapter extends e<a> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<a> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        a aPb = aVar.aPb();
-        aPb.onChangeSkinType();
-        if (aPb != null) {
-            aPb.setData(chatMessage);
+        a aPB = aVar.aPB();
+        aPB.onChangeSkinType();
+        if (aPB != null) {
+            aPB.setData(chatMessage);
         }
         return view;
     }

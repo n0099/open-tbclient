@@ -2,8 +2,6 @@ package com.sina.weibo.sdk.share;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -14,23 +12,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.sina.weibo.sdk.WbSdk;
-import com.sina.weibo.sdk.WeiboAppManager;
+import com.sina.weibo.sdk.api.StoryObject;
 import com.sina.weibo.sdk.api.WeiboMultiMessage;
 import com.sina.weibo.sdk.constant.WBConstants;
-import com.sina.weibo.sdk.utils.ImageUtils;
 import com.sina.weibo.sdk.utils.MD5;
 import com.sina.weibo.sdk.utils.Utility;
 import com.sina.weibo.sdk.utils.WbSdkVersion;
 import com.sina.weibo.sdk.web.view.WbSdkProgressBar;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class WbShareTransActivity extends Activity {
     private CopyResourceTask copyResourceTask;
     private View progressBar;
     private FrameLayout rootLayout;
-    private String startActivityName;
     boolean flag = false;
     private int progressColor = -1;
     private int progressId = -1;
@@ -46,20 +39,7 @@ public class WbShareTransActivity extends Activity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initView();
-        try {
-            this.startActivityName = getIntent().getStringExtra(WBConstants.SHARE_START_ACTIVITY);
-            if (bundle != null) {
-                this.startActivityName = bundle.getString(WBConstants.SHARE_START_ACTIVITY);
-                this.flag = bundle.getBoolean(WBConstants.SHARE_START_RESULT_FLAG, false);
-                return;
-            }
-        } catch (Exception e) {
-        }
-        if (TextUtils.isEmpty(this.startActivityName)) {
-            finish();
-        } else {
-            checkSource();
-        }
+        checkSource();
     }
 
     private void checkSource() {
@@ -109,8 +89,6 @@ public class WbShareTransActivity extends Activity {
         try {
             intent.putExtra(WBConstants.SHARE_START_FLAG, -1);
             Intent intent2 = new Intent(WBConstants.ACTIVITY_WEIBO);
-            intent2.setPackage(intent.getStringExtra(WBConstants.SHARE_START_PACKAGE));
-            intent2.setAction(intent.getStringExtra(WBConstants.SHARE_START_ACTION));
             Bundle extras = intent.getExtras();
             weiboMultiMessage.toBundle(extras);
             intent2.putExtras(extras);
@@ -120,8 +98,9 @@ public class WbShareTransActivity extends Activity {
             intent2.putExtra(WBConstants.Base.APP_KEY, WbSdk.getAuthInfo().getAppKey());
             intent2.putExtra(WBConstants.SDK.FLAG, WBConstants.WEIBO_FLAG_SDK);
             intent2.putExtra(WBConstants.SIGN, MD5.hexdigest(Utility.getSign(this, packageName)));
-            if (!TextUtils.isEmpty(intent.getStringExtra(WBConstants.SHARE_START_GOTO_ACTIVITY))) {
-                intent2.setClassName(this, intent.getStringExtra(WBConstants.SHARE_START_GOTO_ACTIVITY));
+            String stringExtra = intent.getStringExtra(WBConstants.SHARE_START_GOTO_ACTIVITY);
+            if (!TextUtils.isEmpty(stringExtra) && "com.sina.weibo.sdk.web.WeiboSdkWebActivity".equals(stringExtra)) {
+                intent2.setClassName(this, "com.sina.weibo.sdk.web.WeiboSdkWebActivity");
                 startActivity(intent2);
             } else if (WbSdk.isWbInstall(this)) {
                 startActivityForResult(intent2, WBConstants.SDK_ACTIVITY_FOR_RESULT_CODE);
@@ -140,7 +119,21 @@ public class WbShareTransActivity extends Activity {
             if (this.copyResourceTask != null) {
                 this.copyResourceTask.cancel(true);
             }
-            this.copyResourceTask = new CopyResourceTask();
+            this.copyResourceTask = new CopyResourceTask(this, new TransResourceCallback() { // from class: com.sina.weibo.sdk.share.WbShareTransActivity.2
+                @Override // com.sina.weibo.sdk.share.TransResourceCallback
+                public void onTransFinish(TransResourceResult transResourceResult) {
+                    WbShareTransActivity.this.rootLayout.setVisibility(4);
+                    if (!transResourceResult.transDone) {
+                        WbShareTransActivity.this.sendCallback(2);
+                    } else {
+                        WbShareTransActivity.this.gotoWeiboComposer(transResourceResult.message);
+                    }
+                }
+
+                @Override // com.sina.weibo.sdk.share.TransResourceCallback
+                public void onTransFinish(StoryObject storyObject) {
+                }
+            });
             this.copyResourceTask.execute(weiboMultiMessage);
             return;
         }
@@ -165,114 +158,19 @@ public class WbShareTransActivity extends Activity {
 
     @Override // android.app.Activity
     protected void onNewIntent(Intent intent) {
-        int i = -1;
         super.onNewIntent(intent);
-        try {
-            i = intent.getIntExtra(WBConstants.SHARE_START_FLAG, -1);
-        } catch (Exception e) {
-        }
-        if (i != 0) {
+        if (this.handler != null) {
             this.handler.removeMessages(0);
             this.handler = null;
-            try {
-                Bundle extras = intent.getExtras();
-                Intent intent2 = new Intent();
-                intent2.putExtras(extras);
-                intent2.setFlags(131072);
-                intent2.setClassName(this, this.startActivityName);
-                startActivity(intent2);
-            } catch (Exception e2) {
-            }
-            finish();
         }
+        setResult(-1, intent);
+        finish();
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.remove(WBConstants.SHARE_START_FLAG);
-        bundle.putBoolean(WBConstants.SHARE_START_RESULT_FLAG, true);
-        bundle.putString(WBConstants.SHARE_START_ACTIVITY, this.startActivityName);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
-    public class CopyResourceTask extends AsyncTask<WeiboMultiMessage, Object, TransResourceResult> {
-        private CopyResourceTask() {
-        }
-
-        @Override // android.os.AsyncTask
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public TransResourceResult doInBackground(WeiboMultiMessage... weiboMultiMessageArr) {
-            WeiboMultiMessage weiboMultiMessage = weiboMultiMessageArr[0];
-            TransResourceResult transResourceResult = new TransResourceResult();
-            try {
-                if (WbSdk.isWbInstall(WbShareTransActivity.this)) {
-                    if (WeiboAppManager.queryWbInfoInternal(WbShareTransActivity.this).getSupportVersion() >= 10772) {
-                        if (weiboMultiMessage.imageObject != null && weiboMultiMessage.multiImageObject != null) {
-                            weiboMultiMessage.imageObject = null;
-                        }
-                        if (weiboMultiMessage.videoSourceObject != null && (weiboMultiMessage.multiImageObject != null || weiboMultiMessage.imageObject != null)) {
-                            weiboMultiMessage.multiImageObject = null;
-                            weiboMultiMessage.imageObject = null;
-                        }
-                    } else {
-                        weiboMultiMessage.multiImageObject = null;
-                        weiboMultiMessage.videoSourceObject = null;
-                    }
-                    if (weiboMultiMessage.multiImageObject != null) {
-                        ArrayList<Uri> arrayList = new ArrayList<>();
-                        Iterator<Uri> it = weiboMultiMessage.multiImageObject.getImageList().iterator();
-                        while (it.hasNext()) {
-                            String copyFileToWeiboTem = ImageUtils.copyFileToWeiboTem(WbShareTransActivity.this, it.next(), 1);
-                            if (!TextUtils.isEmpty(copyFileToWeiboTem)) {
-                                arrayList.add(Uri.fromFile(new File(copyFileToWeiboTem)));
-                            }
-                        }
-                        weiboMultiMessage.multiImageObject.setImageList(arrayList);
-                    }
-                    if (weiboMultiMessage.videoSourceObject != null) {
-                        String copyFileToWeiboTem2 = ImageUtils.copyFileToWeiboTem(WbShareTransActivity.this, weiboMultiMessage.videoSourceObject.videoPath, 0);
-                        weiboMultiMessage.videoSourceObject.videoPath = Uri.fromFile(new File(copyFileToWeiboTem2));
-                        weiboMultiMessage.videoSourceObject.during = ImageUtils.getVideoDuring(copyFileToWeiboTem2);
-                    }
-                }
-                transResourceResult.message = weiboMultiMessage;
-                transResourceResult.transDone = true;
-            } catch (Exception e) {
-                transResourceResult.transDone = false;
-            }
-            return transResourceResult;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // android.os.AsyncTask
-        public void onPostExecute(TransResourceResult transResourceResult) {
-            super.onPostExecute((CopyResourceTask) transResourceResult);
-            WbShareTransActivity.this.rootLayout.setVisibility(4);
-            if (!transResourceResult.transDone) {
-                WbShareTransActivity.this.sendCallback(2);
-            } else {
-                WbShareTransActivity.this.gotoWeiboComposer(transResourceResult.message);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes2.dex */
-    public class TransResourceResult {
-        WeiboMultiMessage message;
-        boolean transDone;
-
-        private TransResourceResult() {
-        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -282,16 +180,14 @@ public class WbShareTransActivity extends Activity {
         }
         try {
             Intent intent = new Intent();
-            Bundle bundle = new Bundle();
-            bundle.putInt(WBConstants.Response.ERRCODE, i);
-            intent.putExtras(bundle);
-            intent.setFlags(131072);
-            intent.setClassName(this, this.startActivityName);
-            startActivity(intent);
+            new Bundle().putInt(WBConstants.Response.ERRCODE, i);
+            setResult(-1, intent);
         } catch (Exception e) {
         }
-        this.handler.removeMessages(0);
-        this.handler = null;
+        if (this.handler != null) {
+            this.handler.removeMessages(0);
+            this.handler = null;
+        }
         finish();
     }
 }

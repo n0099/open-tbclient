@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class c extends ClickableSpan {
-    private String brx;
-    private int bry;
+    private String bsl;
+    private int bsm;
     private int mType;
     private String mUrl;
     private int color = -1;
@@ -44,7 +44,7 @@ public class c extends ClickableSpan {
     }
 
     public void gW(int i) {
-        this.bry = i;
+        this.bsm = i;
     }
 
     public void setColor(int i) {
@@ -59,8 +59,8 @@ public class c extends ClickableSpan {
         this.urlType = i;
     }
 
-    public void ja(String str) {
-        this.brx = str;
+    public void jq(String str) {
+        this.bsl = str;
     }
 
     public String getLink() {
@@ -79,13 +79,13 @@ public class c extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.bry == 1 && (this.mType == 18 || this.mType == 2)) {
+        } else if (this.bsm == 1 && (this.mType == 18 || this.mType == 2)) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textPaint.bgColor = al.getColor(e.d.cp_bg_line_c);
             } else {
                 textPaint.bgColor = al.getColor(e.d.cp_bg_line_z);
             }
-        } else if (this.bry == 2) {
+        } else if (this.bsm == 2) {
             textPaint.bgColor = al.getColor(e.d.transparent);
         }
     }
@@ -94,7 +94,7 @@ public class c extends ClickableSpan {
     public void onClick(View view) {
         int i = 2;
         int i2 = 1;
-        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.brx));
+        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001332, new a(this.mType, this.mUrl, this.bsl));
         if (this.mType == 2) {
             if (this.urlType != 1) {
                 if (this.urlType == 2) {
@@ -104,7 +104,7 @@ public class c extends ClickableSpan {
                     i = 1;
                 }
             }
-            TiebaStatic.log(new am("c11972").x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2).x("obj_type", i));
+            TiebaStatic.log(new am("c11972").y(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2).y("obj_type", i));
         }
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
     }
@@ -116,25 +116,25 @@ public class c extends ClickableSpan {
                     eVar.e(context, str, false);
                     return;
                 case 16:
-                    eVar.an(context, str);
+                    eVar.al(context, str);
                     return;
                 case 18:
                     eVar.e(context, str, true);
                     return;
                 case 32:
-                    eVar.ao(context, str);
+                    eVar.am(context, str);
                     return;
                 case 64:
-                    eVar.ap(context, str);
+                    eVar.an(context, str);
                     return;
                 case 128:
-                    eVar.aq(context, str);
+                    eVar.ao(context, str);
                     return;
                 case 256:
-                    eVar.i(context, str, str2);
+                    eVar.k(context, str, str2);
                     return;
                 case 1024:
-                    eVar.ar(context, str);
+                    eVar.ap(context, str);
                     return;
                 default:
                     return;

@@ -12,7 +12,7 @@ public abstract class k implements Iterator<Boolean> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: ccs */
+    /* renamed from: cda */
     public final Boolean next() {
         return Boolean.valueOf(nextBoolean());
     }

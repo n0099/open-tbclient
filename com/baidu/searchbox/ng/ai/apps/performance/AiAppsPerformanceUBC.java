@@ -91,7 +91,7 @@ public final class AiAppsPerformanceUBC {
     }
 
     public static void onEvent(Event event) {
-        o.i(event.eventId, event.toJSONObject());
+        o.j(event.eventId, event.toJSONObject());
     }
 
     public static synchronized HybridUbcFlow requireSession() {

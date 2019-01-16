@@ -15,9 +15,9 @@ public interface a {
 
     void a(AdidasAdvert adidasAdvert);
 
-    void aal();
+    void aaI();
 
-    void bV(List<com.baidu.tieba.frs.worldcup.talkball.b.a> list);
+    void bW(List<com.baidu.tieba.frs.worldcup.talkball.b.a> list);
 
     void c(m mVar);
 

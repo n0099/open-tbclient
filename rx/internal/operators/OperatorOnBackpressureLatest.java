@@ -9,7 +9,7 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final OperatorOnBackpressureLatest<Object> iJH = new OperatorOnBackpressureLatest<>();
+        static final OperatorOnBackpressureLatest<Object> iKO = new OperatorOnBackpressureLatest<>();
     }
 
     @Override // rx.functions.f
@@ -17,8 +17,8 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> OperatorOnBackpressureLatest<T> ceC() {
-        return (OperatorOnBackpressureLatest<T>) a.iJH;
+    public static <T> OperatorOnBackpressureLatest<T> cfk() {
+        return (OperatorOnBackpressureLatest<T>) a.iKO;
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
@@ -202,10 +202,10 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b<T> extends rx.j<T> {
-        private final LatestEmitter<T> iJI;
+        private final LatestEmitter<T> iKP;
 
         b(LatestEmitter<T> latestEmitter) {
-            this.iJI = latestEmitter;
+            this.iKP = latestEmitter;
         }
 
         @Override // rx.j
@@ -215,17 +215,17 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            this.iJI.onNext(t);
+            this.iKP.onNext(t);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iJI.onError(th);
+            this.iKP.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.iJI.onCompleted();
+            this.iKP.onCompleted();
         }
 
         void dH(long j) {

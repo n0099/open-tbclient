@@ -25,7 +25,7 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class a {
-    private static final int eir = l.h(TbadkCoreApplication.getInst(), e.C0210e.tbds33);
+    private static final int eiX = l.h(TbadkCoreApplication.getInst(), e.C0210e.tbds33);
 
     public static void a(Context context, TextView textView, String str, final String str2, final String str3) {
         int h;
@@ -54,7 +54,7 @@ public class a {
                 public void onClick(View view) {
                     if (!StringUtils.isNull(str2)) {
                         am amVar = new am("c13313");
-                        amVar.aA("tid", str3);
+                        amVar.aB("tid", str3);
                         TiebaStatic.log(amVar);
                         com.baidu.tbadk.browser.a.b(TbadkCoreApplication.getInst().getApplicationContext(), false, str2);
                     }
@@ -62,13 +62,13 @@ public class a {
             }, 0, 1, 17);
             spannableString.setSpan(new BackgroundColorSpan(0), 0, 1, 17);
             SpannableString spannableString2 = new SpannableString(" 广告");
-            spannableString2.setSpan(new b(eir, color), 0, " 广告".length(), 17);
+            spannableString2.setSpan(new b(eiX, color), 0, " 广告".length(), 17);
             spannableStringBuilder.append((CharSequence) spannableString).append((CharSequence) spannableString2);
             textView.setHighlightColor(0);
             textView.setText(spannableStringBuilder);
             textView.setMovementMethod(LinkMovementMethod.getInstance());
             am amVar = new am("c13312");
-            amVar.aA("tid", str3);
+            amVar.aB("tid", str3);
             TiebaStatic.log(amVar);
         }
     }
@@ -83,12 +83,12 @@ public class a {
 
     /* loaded from: classes6.dex */
     private static class b extends ReplacementSpan {
-        private int eiu;
-        private int eiv;
+        private int eja;
+        private int ejb;
 
         public b(int i, int i2) {
-            this.eiu = i;
-            this.eiv = i2;
+            this.eja = i;
+            this.ejb = i2;
         }
 
         @Override // android.text.style.ReplacementSpan
@@ -106,8 +106,8 @@ public class a {
 
         private TextPaint a(Paint paint) {
             TextPaint textPaint = new TextPaint(paint);
-            textPaint.setTextSize(this.eiu);
-            textPaint.setColor(this.eiv);
+            textPaint.setTextSize(this.eja);
+            textPaint.setColor(this.ejb);
             return textPaint;
         }
     }

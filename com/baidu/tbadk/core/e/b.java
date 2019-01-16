@@ -3,54 +3,54 @@ package com.baidu.tbadk.core.e;
 import android.content.Context;
 /* loaded from: classes.dex */
 public class b {
-    private static a ayO = null;
+    private static a azq = null;
 
     public static void k(Context context, int i) {
-        if (ayO != null) {
-            ayO.k(context, i);
+        if (azq != null) {
+            azq.k(context, i);
         }
     }
 
     public static void c(Context context, int i, boolean z) {
-        if (ayO != null) {
-            ayO.c(context, i, z);
+        if (azq != null) {
+            azq.c(context, i, z);
         }
     }
 
     public static void by(Context context) {
-        if (ayO != null) {
-            ayO.by(context);
+        if (azq != null) {
+            azq.by(context);
         }
     }
 
     public static void d(Context context, int i, boolean z) {
-        if (ayO != null) {
-            ayO.d(context, i, z);
+        if (azq != null) {
+            azq.d(context, i, z);
         }
     }
 
-    public static Class<?> Cr() {
-        if (ayO == null) {
+    public static Class<?> CE() {
+        if (azq == null) {
             return null;
         }
-        return ayO.Cr();
+        return azq.CE();
     }
 
-    public static String Cs() {
-        if (ayO == null) {
+    public static String CF() {
+        if (azq == null) {
             return null;
         }
-        return ayO.Cs();
+        return azq.CF();
     }
 
     public static void a(a aVar) {
-        ayO = aVar;
+        azq = aVar;
     }
 
     public static int getCurrentTabType() {
-        if (ayO == null) {
+        if (azq == null) {
             return -1;
         }
-        return ayO.getCurrentTabType();
+        return azq.getCurrentTabType();
     }
 }

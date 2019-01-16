@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public class a {
-    private ConcurrentHashMap<String, ImMessageCenterPojo> eXF = new ConcurrentHashMap<>();
+    private ConcurrentHashMap<String, ImMessageCenterPojo> eYs = new ConcurrentHashMap<>();
 
     /* renamed from: com.baidu.tieba.im.memorycache.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -15,27 +15,27 @@ public class a {
     }
 
     public void a(InterfaceC0250a interfaceC0250a) {
-        interfaceC0250a.b(this.eXF.values().iterator());
+        interfaceC0250a.b(this.eYs.values().iterator());
     }
 
-    public void aTz() {
-        this.eXF.clear();
+    public void aTZ() {
+        this.eYs.clear();
     }
 
     public void g(ImMessageCenterPojo imMessageCenterPojo) {
         if (imMessageCenterPojo != null) {
-            this.eXF.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
+            this.eYs.put(imMessageCenterPojo.getGid(), imMessageCenterPojo);
         }
     }
 
-    public ImMessageCenterPojo qt(String str) {
+    public ImMessageCenterPojo qJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.eXF.get(str);
+        return this.eYs.get(str);
     }
 
-    public boolean qu(String str) {
-        return (TextUtils.isEmpty(str) || this.eXF.remove(str) == null) ? false : true;
+    public boolean qK(String str) {
+        return (TextUtils.isEmpty(str) || this.eYs.remove(str) == null) ? false : true;
     }
 }

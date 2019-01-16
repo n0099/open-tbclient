@@ -13,26 +13,26 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.f.a;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.tieba.f.b cwP;
+    private com.baidu.tieba.f.b cxA;
     private Context mContext;
     private boolean mIsEnable;
     private BdUniqueId mPageId;
     private VelocityTracker mVelocityTracker;
-    private boolean biN = false;
-    private a.InterfaceC0214a cwQ = new a.InterfaceC0214a() { // from class: com.baidu.tieba.frs.gametab.b.1
-        final int cIa = (int) TbadkCoreApplication.getInst().getResources().getDimension(e.C0210e.ds98);
+    private boolean bjA = false;
+    private a.InterfaceC0214a cxB = new a.InterfaceC0214a() { // from class: com.baidu.tieba.frs.gametab.b.1
+        final int cIL = (int) TbadkCoreApplication.getInst().getResources().getDimension(e.C0210e.ds98);
 
         @Override // com.baidu.tieba.f.a.InterfaceC0214a
         public void ar(int i, int i2) {
             if (Math.abs(i) <= Math.abs(i2) && ag(i2)) {
-                b.this.gQ(false);
+                b.this.gT(false);
             }
         }
 
         @Override // com.baidu.tieba.f.a.InterfaceC0214a
         public void as(int i, int i2) {
             if (Math.abs(i) <= Math.abs(i2) && ag(i2)) {
-                b.this.gQ(true);
+                b.this.gT(true);
             }
         }
 
@@ -50,8 +50,8 @@ public class b {
         this.mPageId = bdUniqueId;
         this.mIsEnable = z;
         if (this.mIsEnable) {
-            this.cwP = new com.baidu.tieba.f.b(context);
-            this.cwP.a(this.cwQ);
+            this.cxA = new com.baidu.tieba.f.b(context);
+            this.cxA.a(this.cxB);
         }
     }
 
@@ -75,8 +75,8 @@ public class b {
                     break;
                 }
         }
-        if (this.mIsEnable && this.cwP != null) {
-            this.cwP.onTouchEvent(motionEvent);
+        if (this.mIsEnable && this.cxA != null) {
+            this.cxA.onTouchEvent(motionEvent);
         }
     }
 
@@ -89,10 +89,10 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gQ(boolean z) {
-        this.biN = z;
+    public void gT(boolean z) {
+        this.bjA = z;
         if (this.mIsEnable) {
-            o(!this.biN, true);
+            o(!this.bjA, true);
         }
     }
 

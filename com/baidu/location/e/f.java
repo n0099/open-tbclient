@@ -25,11 +25,11 @@ import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class f {
-    private static f afG = null;
+    private static f afP = null;
     public static long a = 0;
     private WifiManager kr = null;
-    private a afH = null;
-    private e afI = null;
+    private a afQ = null;
+    private e afR = null;
     private long f = 0;
     private long g = 0;
     private boolean h = false;
@@ -60,9 +60,9 @@ public class f {
                     @Override // java.lang.Runnable
                     public void run() {
                         f.this.s();
-                        j.ti().i();
+                        j.tm().i();
                         if (System.currentTimeMillis() - n.b() <= 5000) {
-                            q.ts().c();
+                            q.tw().c();
                         }
                     }
                 });
@@ -170,21 +170,21 @@ public class f {
             List<ScanResult> scanResults = this.kr.getScanResults();
             if (scanResults != null) {
                 e eVar = new e(scanResults, System.currentTimeMillis());
-                if (this.afI == null || !eVar.a(this.afI)) {
-                    this.afI = eVar;
+                if (this.afR == null || !eVar.a(this.afR)) {
+                    this.afR = eVar;
                 }
             }
         } catch (Exception e) {
         }
     }
 
-    public static synchronized f tQ() {
+    public static synchronized f tU() {
         f fVar;
         synchronized (f.class) {
-            if (afG == null) {
-                afG = new f();
+            if (afP == null) {
+                afP = new f();
             }
-            fVar = afG;
+            fVar = afP;
         }
         return fVar;
     }
@@ -196,9 +196,9 @@ public class f {
     public synchronized void c() {
         if (!this.h && com.baidu.location.f.isServing) {
             this.kr = (WifiManager) com.baidu.location.f.getServiceContext().getApplicationContext().getSystemService("wifi");
-            this.afH = new a();
+            this.afQ = new a();
             try {
-                com.baidu.location.f.getServiceContext().registerReceiver(this.afH, new IntentFilter("android.net.wifi.SCAN_RESULTS"));
+                com.baidu.location.f.getServiceContext().registerReceiver(this.afQ, new IntentFilter("android.net.wifi.SCAN_RESULTS"));
             } catch (Exception e) {
             }
             this.h = true;
@@ -220,11 +220,11 @@ public class f {
     public synchronized void e() {
         if (this.h) {
             try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.afH);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.afQ);
                 a = 0L;
             } catch (Exception e) {
             }
-            this.afH = null;
+            this.afQ = null;
             this.kr = null;
             this.h = false;
         }
@@ -316,13 +316,13 @@ public class f {
 
     public String m() {
         StringBuffer stringBuffer = new StringBuffer();
-        WifiInfo tR = tQ().tR();
-        if (tR == null || tR.getBSSID() == null) {
+        WifiInfo tV = tU().tV();
+        if (tV == null || tV.getBSSID() == null) {
             return null;
         }
-        String replace = tR.getBSSID().replace(":", "");
-        int rssi = tR.getRssi();
-        String n = tQ().n();
+        String replace = tV.getBSSID().replace(":", "");
+        int rssi = tV.getRssi();
+        String n = tU().n();
         if (rssi < 0) {
             rssi = -rssi;
         }
@@ -333,7 +333,7 @@ public class f {
         stringBuffer.append(replace);
         stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
         stringBuffer.append("" + rssi + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-        String ssid = tR.getSSID();
+        String ssid = tV.getSSID();
         if (ssid != null && (ssid.contains(ETAG.ITEM_SEPARATOR) || ssid.contains(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR))) {
             ssid = ssid.replace(ETAG.ITEM_SEPARATOR, BaseRequestAction.SPLITE);
         }
@@ -368,7 +368,7 @@ public class f {
         }
     }
 
-    public WifiInfo tR() {
+    public WifiInfo tV() {
         if (this.kr == null) {
             return null;
         }
@@ -395,15 +395,15 @@ public class f {
         }
     }
 
-    public e tS() {
-        return (this.afI == null || !this.afI.j()) ? tU() : this.afI;
+    public e tW() {
+        return (this.afR == null || !this.afR.j()) ? tY() : this.afR;
     }
 
-    public e tT() {
-        return (this.afI == null || !this.afI.k()) ? tU() : this.afI;
+    public e tX() {
+        return (this.afR == null || !this.afR.k()) ? tY() : this.afR;
     }
 
-    public e tU() {
+    public e tY() {
         if (this.kr != null) {
             try {
                 return new e(this.kr.getScanResults(), this.f);

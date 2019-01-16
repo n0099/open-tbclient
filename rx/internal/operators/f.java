@@ -3,7 +3,7 @@ package rx.internal.operators;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class f<T> implements d.a<T> {
-    final rx.functions.e<? extends rx.d<? extends T>> iFx;
+    final rx.functions.e<? extends rx.d<? extends T>> iGE;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -11,12 +11,12 @@ public final class f<T> implements d.a<T> {
     }
 
     public f(rx.functions.e<? extends rx.d<? extends T>> eVar) {
-        this.iFx = eVar;
+        this.iGE = eVar;
     }
 
     public void call(rx.j<? super T> jVar) {
         try {
-            this.iFx.call().unsafeSubscribe(rx.b.g.b(jVar));
+            this.iGE.call().unsafeSubscribe(rx.b.g.b(jVar));
         } catch (Throwable th) {
             rx.exceptions.a.a(th, jVar);
         }

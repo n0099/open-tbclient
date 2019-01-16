@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ReplyLinearLayout extends LinearLayout {
-    private static ViewGroup.LayoutParams gEl;
-    private List<TextView> gEk;
+    private static ViewGroup.LayoutParams gFp;
+    private List<TextView> gFo;
     private boolean mIsHost;
     private View.OnClickListener mOnItemClickListener;
 
@@ -33,7 +33,7 @@ public class ReplyLinearLayout extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String[] strArr = (String[]) view.getTag();
-                TiebaStatic.log(new am("c12043").x("obj_type", ReplyLinearLayout.this.mIsHost ? 1 : 2));
+                TiebaStatic.log(new am("c12043").y("obj_type", ReplyLinearLayout.this.mIsHost ? 1 : 2));
                 if (strArr != null) {
                     Context context2 = ReplyLinearLayout.this.getContext();
                     if ("0".equals(strArr[3])) {
@@ -48,24 +48,24 @@ public class ReplyLinearLayout extends LinearLayout {
                 }
             }
         };
-        this.gEk = new ArrayList();
+        this.gFo = new ArrayList();
     }
 
     public void setContent(ArrayList<String[]> arrayList) {
         int i;
-        if (gEl == null) {
-            gEl = new LinearLayout.LayoutParams(-1, -2);
+        if (gFp == null) {
+            gFp = new LinearLayout.LayoutParams(-1, -2);
         }
         ViewGroup.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 1);
         int size = ((arrayList.size() - 1) * 3) + 1;
-        int size2 = size - this.gEk.size();
+        int size2 = size - this.gFo.size();
         for (int i2 = 0; i2 < size2; i2++) {
             TextView textView = new TextView(getContext());
-            this.gEk.add(textView);
+            this.gFo.add(textView);
             addView(textView);
         }
-        for (int i3 = 0; i3 < this.gEk.size(); i3++) {
-            TextView textView2 = this.gEk.get(i3);
+        for (int i3 = 0; i3 < this.gFo.size(); i3++) {
+            TextView textView2 = this.gFo.get(i3);
             if (i3 < size) {
                 if (i3 == 0 || i3 == 1) {
                     i = 0;
@@ -86,7 +86,7 @@ public class ReplyLinearLayout extends LinearLayout {
                 if (i3 == 0) {
                     textView2.setTextSize(17.0f);
                     textView2.setMaxLines(3);
-                    textView2.setLayoutParams(gEl);
+                    textView2.setLayoutParams(gFp);
                     al.c(textView2, e.d.cp_cont_b, 1);
                 } else if (i3 == 1 || i3 % 3 == 1) {
                     textView2.setLayoutParams(layoutParams);
@@ -94,11 +94,11 @@ public class ReplyLinearLayout extends LinearLayout {
                 } else if (i3 % 3 == 2) {
                     textView2.setTextSize(15.0f);
                     textView2.setMaxLines(2);
-                    textView2.setLayoutParams(gEl);
+                    textView2.setLayoutParams(gFp);
                     al.c(textView2, e.d.cp_cont_f, 1);
                 } else if (i3 % 3 == 0) {
                     textView2.setTextSize(10.0f);
-                    textView2.setLayoutParams(gEl);
+                    textView2.setLayoutParams(gFp);
                     al.c(textView2, e.d.cp_cont_d, 1);
                 }
                 textView2.setVisibility(0);

@@ -14,7 +14,7 @@ public interface a {
 
     void show();
 
-    void wa(int i);
+    void wd(int i);
 
-    void wb(int i);
+    void we(int i);
 }

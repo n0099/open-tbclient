@@ -110,8 +110,8 @@ public abstract class a {
         if (this.mArgs.Ja != null) {
             canvas.concat(this.mArgs.Ja);
         }
-        if (cVar.IT != null && cVar.IT.ow()) {
-            if ((cVar.IT.op().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || cVar.IT.op().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.IK != null) {
+        if (cVar.IT != null && cVar.IT.oA()) {
+            if ((cVar.IT.ot().getWidth() + paddingLeft + paddingRight > imageView.getWidth() || cVar.IT.ot().getHeight() + paddingTop + paddingBottom > imageView.getHeight()) && this.IK != null) {
                 canvas.concat(this.IK);
             }
             this.IO.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());

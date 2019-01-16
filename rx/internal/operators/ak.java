@@ -5,7 +5,7 @@ import rx.d;
 import rx.g;
 /* loaded from: classes2.dex */
 public final class ak<T> implements d.b<T, T> {
-    final long ayy;
+    final long aza;
     final rx.g scheduler;
     final TimeUnit unit;
 
@@ -15,7 +15,7 @@ public final class ak<T> implements d.b<T, T> {
     }
 
     public ak(long j, TimeUnit timeUnit, rx.g gVar) {
-        this.ayy = j;
+        this.aza = j;
         this.unit = timeUnit;
         this.scheduler = gVar;
     }
@@ -33,20 +33,20 @@ public final class ak<T> implements d.b<T, T> {
     /* renamed from: rx.internal.operators.ak$1  reason: invalid class name */
     /* loaded from: classes2.dex */
     public class AnonymousClass1 extends rx.j<T> {
-        final /* synthetic */ rx.subscriptions.d iFD;
-        final /* synthetic */ g.a iGB;
-        final a<T> iHO;
-        final rx.j<?> iHP;
-        final /* synthetic */ rx.b.f iHQ;
+        final /* synthetic */ rx.subscriptions.d iGK;
+        final /* synthetic */ g.a iHI;
+        final a<T> iIV;
+        final rx.j<?> iIW;
+        final /* synthetic */ rx.b.f iIX;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         AnonymousClass1(rx.j jVar, rx.subscriptions.d dVar, g.a aVar, rx.b.f fVar) {
             super(jVar);
-            this.iFD = dVar;
-            this.iGB = aVar;
-            this.iHQ = fVar;
-            this.iHO = new a<>();
-            this.iHP = this;
+            this.iGK = dVar;
+            this.iHI = aVar;
+            this.iIX = fVar;
+            this.iIV = new a<>();
+            this.iIW = this;
         }
 
         @Override // rx.j
@@ -56,25 +56,25 @@ public final class ak<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            final int bg = this.iHO.bg(t);
-            this.iFD.g(this.iGB.a(new rx.functions.a() { // from class: rx.internal.operators.ak.1.1
+            final int bg = this.iIV.bg(t);
+            this.iGK.g(this.iHI.a(new rx.functions.a() { // from class: rx.internal.operators.ak.1.1
                 @Override // rx.functions.a
                 public void call() {
-                    AnonymousClass1.this.iHO.a(bg, AnonymousClass1.this.iHQ, AnonymousClass1.this.iHP);
+                    AnonymousClass1.this.iIV.a(bg, AnonymousClass1.this.iIX, AnonymousClass1.this.iIW);
                 }
-            }, ak.this.ayy, ak.this.unit));
+            }, ak.this.aza, ak.this.unit));
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iHQ.onError(th);
+            this.iIX.onError(th);
             unsubscribe();
-            this.iHO.clear();
+            this.iIV.clear();
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.iHO.a(this.iHQ, this);
+            this.iIV.a(this.iIX, this);
         }
     }
 
@@ -83,7 +83,7 @@ public final class ak<T> implements d.b<T, T> {
     public static final class a<T> {
         boolean emitting;
         boolean hasValue;
-        boolean iHV;
+        boolean iJc;
         int index;
         T value;
 
@@ -106,7 +106,7 @@ public final class ak<T> implements d.b<T, T> {
                     try {
                         jVar.onNext(t);
                         synchronized (this) {
-                            if (!this.iHV) {
+                            if (!this.iJc) {
                                 this.emitting = false;
                             } else {
                                 jVar.onCompleted();
@@ -122,7 +122,7 @@ public final class ak<T> implements d.b<T, T> {
         public void a(rx.j<T> jVar, rx.j<?> jVar2) {
             synchronized (this) {
                 if (this.emitting) {
-                    this.iHV = true;
+                    this.iJc = true;
                     return;
                 }
                 T t = this.value;

@@ -11,25 +11,25 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 /* loaded from: classes4.dex */
 public class a {
-    private static a drU;
-    private WindowManager.LayoutParams drR;
-    private ImageView drS;
-    private boolean drT;
+    private static a dsD;
+    private WindowManager.LayoutParams dsA;
+    private ImageView dsB;
+    private boolean dsC;
     private boolean mHasInited;
     private int mHeight;
     private int mStatusBarHeight;
     private int mWidth;
     private WindowManager mWindowManager;
 
-    public static a awi() {
-        if (drU == null) {
+    public static a awF() {
+        if (dsD == null) {
             synchronized (a.class) {
-                if (drU == null) {
-                    drU = new a();
+                if (dsD == null) {
+                    dsD = new a();
                 }
             }
         }
-        return drU;
+        return dsD;
     }
 
     private a() {
@@ -46,17 +46,17 @@ public class a {
 
     public void destroy() {
         this.mHasInited = false;
-        drU = null;
+        dsD = null;
     }
 
     public boolean isDragging() {
-        return this.drT;
+        return this.dsC;
     }
 
     public void a(Context context, View view, int i, int i2) {
         Bitmap createBitmap;
         if (view != null) {
-            this.drT = true;
+            this.dsC = true;
             view.setPressed(true);
             view.setDrawingCacheEnabled(true);
             Bitmap drawingCache = view.getDrawingCache();
@@ -71,31 +71,31 @@ public class a {
     }
 
     public void aH(int i, int i2) {
-        awj();
+        awG();
         aI(i, i2);
         if (this.mWindowManager != null) {
-            this.mWindowManager.updateViewLayout(this.drS, this.drR);
+            this.mWindowManager.updateViewLayout(this.dsB, this.dsA);
         }
     }
 
-    private void awj() {
+    private void awG() {
         if (!this.mHasInited) {
             BdLog.e("should do init first!");
         }
     }
 
     private void a(Context context, Bitmap bitmap, int i, int i2) {
-        awj();
+        awG();
         if (bitmap != null) {
             aI(i, i2);
-            this.drS = new ImageView(context);
-            this.drS.setImageBitmap(bitmap);
+            this.dsB = new ImageView(context);
+            this.dsB.setImageBitmap(bitmap);
             if (context instanceof Activity) {
                 Activity activity = (Activity) context;
                 if (!activity.isFinishing() && activity.getWindow() != null && z(activity.getWindow().getDecorView())) {
                     try {
                         if (this.mWindowManager != null) {
-                            this.mWindowManager.addView(this.drS, this.drR);
+                            this.mWindowManager.addView(this.dsB, this.dsA);
                         }
                     } catch (Exception e) {
                     }
@@ -119,31 +119,31 @@ public class a {
         return false;
     }
 
-    private void awk() {
-        this.drR = new WindowManager.LayoutParams();
-        this.drR.format = -3;
-        this.drR.gravity = 51;
-        this.drR.alpha = 1.0f;
-        this.drR.width = -2;
-        this.drR.height = -2;
-        this.drR.flags = 24;
+    private void awH() {
+        this.dsA = new WindowManager.LayoutParams();
+        this.dsA.format = -3;
+        this.dsA.gravity = 51;
+        this.dsA.alpha = 1.0f;
+        this.dsA.width = -2;
+        this.dsA.height = -2;
+        this.dsA.flags = 24;
     }
 
     private void aI(int i, int i2) {
-        if (this.drR == null) {
-            awk();
+        if (this.dsA == null) {
+            awH();
         }
-        this.drR.x = i - (this.mWidth / 2);
-        this.drR.y = (i2 - (this.mHeight / 2)) - this.mStatusBarHeight;
+        this.dsA.x = i - (this.mWidth / 2);
+        this.dsA.y = (i2 - (this.mHeight / 2)) - this.mStatusBarHeight;
     }
 
-    public void awl() {
-        if (this.drS != null) {
+    public void awI() {
+        if (this.dsB != null) {
             if (this.mWindowManager != null) {
-                this.mWindowManager.removeView(this.drS);
+                this.mWindowManager.removeView(this.dsB);
             }
-            this.drS = null;
+            this.dsB = null;
         }
-        this.drT = false;
+        this.dsC = false;
     }
 }

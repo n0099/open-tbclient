@@ -21,11 +21,11 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class f {
     private static Object a = new Object();
-    private static f aew = null;
+    private static f aeF = null;
     private Handler c = null;
     private String d = null;
     private int e = 24;
-    private a aex = null;
+    private a aeG = null;
     private long g = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,7 +54,7 @@ public class f {
             }
             this.k.put("cltr[0]", "" + Jni.encodeOfflineLocationUpdateRequest(jSONObject.toString()));
             this.k.put("cfg", 1);
-            this.k.put("info", Jni.encode(com.baidu.location.g.b.tV().c()));
+            this.k.put("info", Jni.encode(com.baidu.location.g.b.tZ().c()));
             this.k.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
         }
 
@@ -149,10 +149,10 @@ public class f {
     }
 
     private void a(boolean z, JSONArray jSONArray, JSONArray jSONArray2) {
-        if (this.aex == null) {
-            this.aex = new a();
+        if (this.aeG == null) {
+            this.aeG = new a();
         }
-        this.aex.a(z, jSONArray, jSONArray2);
+        this.aeG.a(z, jSONArray, jSONArray2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -277,7 +277,7 @@ public class f {
                 return;
             }
             JSONArray jSONArray4 = null;
-            List<b> a2 = a(com.baidu.location.e.f.tQ().d());
+            List<b> a2 = a(com.baidu.location.e.f.tU().d());
             if (currentTimeMillis == 0) {
                 if (a2 != null && a2.size() > 0) {
                     jSONArray4 = new JSONArray();
@@ -338,13 +338,13 @@ public class f {
         }
     }
 
-    public static f ty() {
+    public static f tC() {
         f fVar;
         synchronized (a) {
-            if (aew == null) {
-                aew = new f();
+            if (aeF == null) {
+                aeF = new f();
             }
-            fVar = aew;
+            fVar = aeF;
         }
         return fVar;
     }

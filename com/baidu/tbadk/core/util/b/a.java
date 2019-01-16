@@ -14,45 +14,45 @@ import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<String> aEk = new ArrayList<>();
-    private b aEl;
-    private InterfaceC0160a aEm;
+    private ArrayList<String> aEM = new ArrayList<>();
+    private b aEN;
+    private InterfaceC0160a aEO;
 
     /* renamed from: com.baidu.tbadk.core.util.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0160a {
-        void Eu();
+        void EH();
     }
 
     /* loaded from: classes.dex */
     public interface b {
-        void fZ(String str);
+        void gm(String str);
 
-        void ga(String str);
+        void gn(String str);
     }
 
     public void a(b bVar) {
-        this.aEl = bVar;
+        this.aEN = bVar;
     }
 
-    public void Et() {
-        if (this.aEk != null) {
-            this.aEk.clear();
+    public void EG() {
+        if (this.aEM != null) {
+            this.aEM.clear();
         }
     }
 
     public void c(Activity activity, String str) {
         if (!TextUtils.isEmpty(str) && !d(activity, str)) {
-            this.aEk.add(str);
+            this.aEM.add(str);
         }
     }
 
-    public boolean A(Activity activity) {
-        if (!com.baidu.e.a.uo()) {
-            Eu();
+    public boolean B(Activity activity) {
+        if (!com.baidu.e.a.us()) {
+            EH();
             return false;
-        } else if (v.I(this.aEk)) {
-            Eu();
+        } else if (v.I(this.aEM)) {
+            EH();
             return false;
         } else {
             if (activity instanceof BaseFragmentActivity) {
@@ -60,7 +60,7 @@ public class a {
             } else if (activity instanceof BaseActivity) {
                 ((BaseActivity) activity).setCurrentPermissionJudgePolicy(this);
             }
-            B(activity);
+            C(activity);
             return true;
         }
     }
@@ -77,9 +77,9 @@ public class a {
             return true;
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
-        aVar.bg(false);
+        aVar.bh(false);
         aVar.da(e.j.request_permission_default_title);
-        aVar.db(fY(str));
+        aVar.db(gl(str));
         aVar.a(e.j.isopen, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -89,34 +89,34 @@ public class a {
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                 intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
                 activity.startActivity(intent);
-                if (a.this.aEl != null) {
-                    a.this.aEl.ga(str);
+                if (a.this.aEN != null) {
+                    a.this.aEN.gn(str);
                 }
             }
         }).b(e.j.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (a.this.aEl != null) {
-                    a.this.aEl.fZ(str);
+                if (a.this.aEN != null) {
+                    a.this.aEN.gm(str);
                 }
             }
         }).b(i.aK(activity));
-        aVar.BF();
+        aVar.BS();
         return false;
     }
 
-    private void B(Activity activity) {
+    private void C(Activity activity) {
         if (activity != null) {
             try {
-                com.baidu.e.a.a.requestPermissions(activity, (String[]) this.aEk.toArray(new String[this.aEk.size()]), 25040);
+                com.baidu.e.a.a.requestPermissions(activity, (String[]) this.aEM.toArray(new String[this.aEM.size()]), 25040);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
         }
     }
 
-    private int fY(String str) {
+    private int gl(String str) {
         if (TextUtils.isEmpty(str)) {
             return e.j.request_permission_default_text;
         }
@@ -145,12 +145,12 @@ public class a {
     }
 
     public void a(InterfaceC0160a interfaceC0160a) {
-        this.aEm = interfaceC0160a;
+        this.aEO = interfaceC0160a;
     }
 
-    public void Eu() {
-        if (this.aEm != null) {
-            this.aEm.Eu();
+    public void EH() {
+        if (this.aEO != null) {
+            this.aEO.EH();
         }
     }
 }

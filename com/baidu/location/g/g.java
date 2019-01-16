@@ -37,14 +37,14 @@ public class g {
     public static boolean b = false;
     public static boolean c = false;
     public static int d = 0;
-    private static String afW = "http://loc.map.baidu.com/sdk.php";
+    private static String agg = "http://loc.map.baidu.com/sdk.php";
     public static String e = "http://loc.map.baidu.com/sdk_ep.php";
-    private static String afX = "http://loc.map.baidu.com/user_err.php";
-    private static String afY = "http://loc.map.baidu.com/oqur.php";
-    private static String afZ = "http://loc.map.baidu.com/tcu.php";
-    private static String aga = "http://loc.map.baidu.com/rtbu.php";
-    private static String agb = "http://loc.map.baidu.com/iofd.php";
-    private static String agc = "http://loc.map.baidu.com/wloc";
+    private static String agh = "http://loc.map.baidu.com/user_err.php";
+    private static String agi = "http://loc.map.baidu.com/oqur.php";
+    private static String agj = "http://loc.map.baidu.com/tcu.php";
+    private static String agk = "http://loc.map.baidu.com/rtbu.php";
+    private static String agl = "http://loc.map.baidu.com/iofd.php";
+    private static String agm = "http://loc.map.baidu.com/wloc";
     public static String f = "https://loc.map.baidu.com/sdk.php";
     public static String g = AiAppNetworkUtils.NETWORK_TYPE_CELL_UN_CONNECTED;
     public static boolean h = false;
@@ -57,17 +57,17 @@ public class g {
     public static String o = "";
     public static boolean p = true;
     public static int q = 3;
-    public static double ade = 0.0d;
+    public static double adn = 0.0d;
     public static double s = 0.0d;
     public static double t = 0.0d;
     public static double u = 0.0d;
     public static int v = 0;
-    public static byte[] agd = null;
+    public static byte[] agn = null;
     public static boolean x = false;
     public static int y = 0;
     public static float z = 1.1f;
-    public static float agf = 2.2f;
-    public static float agg = 2.3f;
+    public static float ago = 2.2f;
+    public static float agp = 2.3f;
     public static float C = 3.8f;
     public static int D = 3;
     public static int E = 10;
@@ -77,15 +77,15 @@ public class g {
     public static int I = 70;
     public static int J = 120;
     public static float K = 2.0f;
-    public static float agh = 10.0f;
-    public static float agi = 50.0f;
-    public static float agj = 200.0f;
+    public static float agq = 10.0f;
+    public static float agr = 50.0f;
+    public static float ags = 200.0f;
     public static int O = 16;
-    public static float agk = 0.9f;
+    public static float agt = 0.9f;
     public static int Q = 10000;
-    public static float agl = 0.5f;
-    public static float agm = 0.0f;
-    public static float agn = 0.1f;
+    public static float agu = 0.5f;
+    public static float agv = 0.0f;
+    public static float agw = 0.1f;
     public static int U = 30;
     public static int V = 100;
     public static int W = 0;
@@ -97,10 +97,10 @@ public class g {
     public static int ac = 20;
     public static int ad = 300;
     public static int ae = 1000;
-    public static int ago = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    public static long agp = 900000;
-    public static long agq = 420000;
-    public static long agr = 180000;
+    public static int agx = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    public static long agy = 900000;
+    public static long agz = 420000;
+    public static long agA = 180000;
     public static long aj = 0;
     public static long ak = 15;
     public static long al = ReportUserInfoModel.TIME_INTERVAL;
@@ -108,9 +108,9 @@ public class g {
     public static int an = 0;
     public static int ao = 30000;
     public static int ap = 30000;
-    public static float ags = 10.0f;
-    public static float agt = 6.0f;
-    public static float agu = 10.0f;
+    public static float agB = 10.0f;
+    public static float agC = 6.0f;
+    public static float agD = 10.0f;
     public static int at = 60;
     public static int au = 70;
     public static int av = 6;
@@ -139,7 +139,7 @@ public class g {
         String f2;
         String g2;
         StringBuffer stringBuffer = new StringBuffer(1024);
-        if (aVar != null && (g2 = com.baidu.location.e.b.tL().g(aVar)) != null) {
+        if (aVar != null && (g2 = com.baidu.location.e.b.tP().g(aVar)) != null) {
             stringBuffer.append(g2);
         }
         if (eVar != null) {
@@ -154,18 +154,18 @@ public class g {
                 stringBuffer.append(h2);
             }
         }
-        String a2 = b.tV().a(i2 == 0);
+        String a2 = b.tZ().a(i2 == 0);
         if (a2 != null) {
             stringBuffer.append(a2);
         }
         if (str != null) {
             stringBuffer.append(str);
         }
-        String d2 = com.baidu.location.b.c.tv().d();
+        String d2 = com.baidu.location.b.c.tz().d();
         if (!TextUtils.isEmpty(d2)) {
             stringBuffer.append("&bc=").append(d2);
         }
-        if (aVar != null && (f2 = com.baidu.location.e.b.tL().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
+        if (aVar != null && (f2 = com.baidu.location.e.b.tP().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
             stringBuffer.append(f2);
         }
         String stringBuffer2 = stringBuffer.toString();
@@ -178,9 +178,9 @@ public class g {
                 int h3 = eVar.h();
                 int a3 = eVar.a();
                 boolean i4 = eVar.i();
-                if (speed < agt && ((i3 == 1 || i3 == 0) && (h3 < at || i4))) {
+                if (speed < agC && ((i3 == 1 || i3 == 0) && (h3 < at || i4))) {
                     q = 1;
-                } else if (speed >= agu || (!(i3 == 1 || i3 == 0 || i3 == 3) || (h3 >= au && a3 <= av))) {
+                } else if (speed >= agD || (!(i3 == 1 || i3 == 0 || i3 == 3) || (h3 >= au && a3 <= av))) {
                     q = 3;
                 } else {
                     q = 2;
@@ -284,11 +284,11 @@ public class g {
     }
 
     public static String c() {
-        return afW;
+        return agg;
     }
 
     public static String d() {
-        return afZ;
+        return agj;
     }
 
     public static String d(Context context) {

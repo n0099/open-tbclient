@@ -3,91 +3,91 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class aq {
-    private static aq aCG = null;
-    private boolean aCH = false;
-    private boolean aCI = false;
-    private int aCJ = TbConfig.POST_IMAGE_SMALL;
-    private String aCK = String.valueOf(45);
+    private static aq aDi = null;
+    private boolean aDj = false;
+    private boolean aDk = false;
+    private int aDl = TbConfig.POST_IMAGE_SMALL;
+    private String aDm = String.valueOf(45);
 
-    public static aq DR() {
-        if (aCG == null) {
+    public static aq Ee() {
+        if (aDi == null) {
             synchronized (aq.class) {
-                aCG = new aq();
+                aDi = new aq();
             }
         }
-        return aCG;
+        return aDi;
     }
 
     public aq() {
-        DU();
-        DS();
+        Eh();
+        Ef();
     }
 
-    private void DS() {
-        DZ();
-        Ea();
-        Eb();
-    }
-
-    public void bu(boolean z) {
-        this.aCI = z;
-    }
-
-    public boolean DT() {
-        return this.aCI;
+    private void Ef() {
+        Em();
+        En();
+        Eo();
     }
 
     public void bv(boolean z) {
-        this.aCH = z;
-        DS();
+        this.aDk = z;
     }
 
-    private void DU() {
-        this.aCH = com.baidu.adp.lib.util.j.kW();
+    public boolean Eg() {
+        return this.aDk;
     }
 
-    public boolean DV() {
-        return this.aCH;
+    public void bw(boolean z) {
+        this.aDj = z;
+        Ef();
     }
 
-    public String DW() {
-        return this.aCK;
+    private void Eh() {
+        this.aDj = com.baidu.adp.lib.util.j.kW();
     }
 
-    public int DX() {
-        Eb();
-        return this.aCJ;
+    public boolean Ei() {
+        return this.aDj;
     }
 
-    public int DY() {
+    public String Ej() {
+        return this.aDm;
+    }
+
+    public int Ek() {
+        Eo();
+        return this.aDl;
+    }
+
+    public int El() {
         return TbConfig.POST_IMAGE_HIGHT_LIMIT;
     }
 
-    public void DZ() {
+    public void Em() {
         boolean z = true;
-        if (com.baidu.tbadk.core.i.xE().getViewImageQuality() != 0 ? com.baidu.tbadk.core.i.xE().getViewImageQuality() != 1 : !this.aCH) {
+        if (com.baidu.tbadk.core.i.xR().getViewImageQuality() != 0 ? com.baidu.tbadk.core.i.xR().getViewImageQuality() != 1 : !this.aDj) {
             z = false;
         }
-        bu(z);
+        bv(z);
     }
 
-    public void Ea() {
+    public void En() {
         String valueOf = String.valueOf(45);
-        if (com.baidu.tbadk.core.i.xE().getViewImageQuality() == 0) {
-            if (DV()) {
+        if (com.baidu.tbadk.core.i.xR().getViewImageQuality() == 0) {
+            if (Ei()) {
                 valueOf = String.valueOf(80);
             }
-        } else if (com.baidu.tbadk.core.i.xE().getViewImageQuality() == 1) {
+        } else if (com.baidu.tbadk.core.i.xR().getViewImageQuality() == 1) {
             valueOf = String.valueOf(80);
         }
-        this.aCK = valueOf;
+        this.aDm = valueOf;
     }
 
-    public void Eb() {
+    public void Eo() {
         int i = 2000;
-        switch (com.baidu.tbadk.core.i.xE().xF()) {
+        switch (com.baidu.tbadk.core.i.xR().xS()) {
             case 0:
-                if (!DV()) {
+                if (!Ei()) {
                     i = 1500;
                     break;
                 }
@@ -104,10 +104,10 @@ public class aq {
                 i = 1800;
                 break;
         }
-        this.aCJ = i;
+        this.aDl = i;
     }
 
-    public static boolean Ec() {
+    public static boolean Ep() {
         return l.hA() && com.baidu.adp.gif.c.hz();
     }
 }

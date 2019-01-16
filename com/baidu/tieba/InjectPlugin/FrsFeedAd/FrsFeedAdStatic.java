@@ -17,15 +17,15 @@ public class FrsFeedAdStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static List<c> X(List<h> list) {
+    public static List<c> Y(List<h> list) {
         ArrayList arrayList = new ArrayList();
         for (h hVar : list) {
             c cVar = new c();
             if (hVar instanceof bb) {
                 bb bbVar = (bb) hVar;
-                if (bbVar.zB() == 1) {
+                if (bbVar.zO() == 1) {
                     cVar.setThreadType(1);
-                } else if (bbVar.zB() == 0) {
+                } else if (bbVar.zO() == 0) {
                     cVar.setThreadType(2);
                 } else {
                     cVar.setThreadType(4);
@@ -33,8 +33,8 @@ public class FrsFeedAdStatic {
                 cVar.P(hVar);
             } else if (hVar instanceof b) {
                 cVar.setThreadType(3);
-                cVar.hs(((b) hVar).TM());
-                cVar.P(((b) hVar).TL());
+                cVar.hs(((b) hVar).Ui());
+                cVar.P(((b) hVar).Uh());
             } else {
                 cVar.setThreadType(4);
                 cVar.P(hVar);
@@ -45,7 +45,7 @@ public class FrsFeedAdStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static List<h> Y(List<c> list) {
+    public static List<h> Z(List<c> list) {
         if (list == null || list.isEmpty()) {
             return null;
         }
@@ -53,11 +53,11 @@ public class FrsFeedAdStatic {
         for (c cVar : list) {
             if (cVar.getThreadType() == 3) {
                 b bVar = new b();
-                bVar.P(cVar.TL());
-                bVar.hs(cVar.TM());
+                bVar.P(cVar.Uh());
+                bVar.hs(cVar.Ui());
                 arrayList.add(bVar);
-            } else if (cVar.TL() instanceof h) {
-                arrayList.add((h) cVar.TL());
+            } else if (cVar.Uh() instanceof h) {
+                arrayList.add((h) cVar.Uh());
             }
         }
         return arrayList;
@@ -73,15 +73,15 @@ public class FrsFeedAdStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             com.baidu.tieba.InjectPlugin.b.b bVar;
-            com.baidu.tieba.InjectPlugin.a.b TS;
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.InjectPlugin.b.b) && (TS = (bVar = (com.baidu.tieba.InjectPlugin.b.b) customResponsedMessage.getData()).TS()) != null && (TS instanceof n)) {
-                n nVar = (n) TS;
-                com.baidu.tieba.InjectPlugin.a.a ht = TS.ht(1);
+            com.baidu.tieba.InjectPlugin.a.b Uo;
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.InjectPlugin.b.b) && (Uo = (bVar = (com.baidu.tieba.InjectPlugin.b.b) customResponsedMessage.getData()).Uo()) != null && (Uo instanceof n)) {
+                n nVar = (n) Uo;
+                com.baidu.tieba.InjectPlugin.a.a ht = Uo.ht(1);
                 if (ht == null) {
-                    com.baidu.tieba.InjectPlugin.a.d hu = e.TR().hu(1);
+                    com.baidu.tieba.InjectPlugin.a.d hu = e.Un().hu(1);
                     if (hu != null) {
-                        ht = hu.TQ();
-                        TS.a(1, ht);
+                        ht = hu.Um();
+                        Uo.a(1, ht);
                         ht.init(new com.baidu.tieba.InjectPlugin.a.c(nVar));
                     } else {
                         return;
@@ -90,30 +90,30 @@ public class FrsFeedAdStatic {
                 com.baidu.tieba.InjectPlugin.a.a aVar = ht;
                 if (aVar instanceof d) {
                     d dVar = (d) aVar;
-                    if (bVar.TT() == 1) {
-                        List list = (List) bVar.TW();
-                        b.W(dVar.TO());
-                        for (BdUniqueId bdUniqueId : b.TN()) {
+                    if (bVar.Up() == 1) {
+                        List list = (List) bVar.Us();
+                        b.X(dVar.Uk());
+                        for (BdUniqueId bdUniqueId : b.Uj()) {
                             com.baidu.tieba.InjectPlugin.FrsFeedAd.a aVar2 = new com.baidu.tieba.InjectPlugin.FrsFeedAd.a(nVar, bdUniqueId);
                             aVar2.setPageContext(nVar.getTbPageContext());
                             list.add(aVar2);
                         }
-                    } else if (bVar.TT() == 2) {
-                        dVar.Z(bVar.TX());
-                    } else if (bVar.TT() == 3) {
+                    } else if (bVar.Up() == 2) {
+                        dVar.aa(bVar.Ut());
+                    } else if (bVar.Up() == 3) {
                         List<h> threadList = bVar.getThreadList();
-                        List<c> X = FrsFeedAdStatic.X(threadList);
-                        if (bVar.TZ()) {
-                            dVar.a(X, FrsFeedAdStatic.X(bVar.TY()), bVar.isRefresh(), bVar.Ua());
+                        List<c> Y = FrsFeedAdStatic.Y(threadList);
+                        if (bVar.Uv()) {
+                            dVar.a(Y, FrsFeedAdStatic.Y(bVar.Uu()), bVar.isRefresh(), bVar.Uw());
                         } else {
-                            dVar.g(X, bVar.Ua());
+                            dVar.g(Y, bVar.Uw());
                         }
                         threadList.clear();
-                        threadList.addAll(FrsFeedAdStatic.Y(X));
-                    } else if (bVar.TT() == 4) {
+                        threadList.addAll(FrsFeedAdStatic.Z(Y));
+                    } else if (bVar.Up() == 4) {
                         dVar.changeSkinType(bVar.getSkinType());
-                    } else if (bVar.TT() == 5) {
-                        dVar.a(FrsFeedAdStatic.X(bVar.getThreadList()), bVar.getForumId(), bVar.Uc(), bVar.Ud(), bVar.Ue(), bVar.Ub(), bVar.getPageNum());
+                    } else if (bVar.Up() == 5) {
+                        dVar.a(FrsFeedAdStatic.Y(bVar.getThreadList()), bVar.getForumId(), bVar.Uy(), bVar.Uz(), bVar.UA(), bVar.Ux(), bVar.getPageNum());
                     }
                 }
             }

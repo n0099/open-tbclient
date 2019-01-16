@@ -4,23 +4,23 @@ import java.util.NoSuchElementException;
 import kotlin.collections.z;
 /* loaded from: classes2.dex */
 final class j extends z {
-    private final long[] iBx;
+    private final long[] iCE;
     private int index;
 
     public j(long[] jArr) {
         p.j(jArr, com.baidu.fsg.base.statistics.b.j);
-        this.iBx = jArr;
+        this.iCE = jArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.iBx.length;
+        return this.index < this.iCE.length;
     }
 
     @Override // kotlin.collections.z
     public long nextLong() {
         try {
-            long[] jArr = this.iBx;
+            long[] jArr = this.iCE;
             int i = this.index;
             this.index = i + 1;
             return jArr[i];

@@ -16,7 +16,7 @@ public class b extends j {
             return null;
         }
         if (socketResponsedMessage.getError() == 2260104) {
-            com.baidu.tbadk.util.j.PT();
+            com.baidu.tbadk.util.j.Ql();
             return socketResponsedMessage;
         }
         return socketResponsedMessage;

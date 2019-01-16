@@ -7,13 +7,13 @@ import kotlin.jvm.internal.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class b<T> implements c<T> {
-    private final kotlin.jvm.a.a<T> iBS;
-    private final kotlin.jvm.a.b<T, T> iBT;
+    private final kotlin.jvm.a.a<T> iCZ;
+    private final kotlin.jvm.a.b<T, T> iDa;
 
     /* loaded from: classes2.dex */
     public static final class a implements Iterator<T> {
         private T GE;
-        private int iBQ = -2;
+        private int iCX = -2;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -24,44 +24,44 @@ public final class b<T> implements c<T> {
         a() {
         }
 
-        private final void ccO() {
+        private final void cdw() {
             T t;
-            if (this.iBQ == -2) {
-                t = (T) b.this.iBS.invoke();
+            if (this.iCX == -2) {
+                t = (T) b.this.iCZ.invoke();
             } else {
-                kotlin.jvm.a.b bVar = b.this.iBT;
+                kotlin.jvm.a.b bVar = b.this.iDa;
                 T t2 = this.GE;
                 if (t2 == null) {
-                    p.ccE();
+                    p.cdm();
                 }
                 t = (T) bVar.invoke(t2);
             }
             this.GE = t;
-            this.iBQ = this.GE == null ? 0 : 1;
+            this.iCX = this.GE == null ? 0 : 1;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.iBQ < 0) {
-                ccO();
+            if (this.iCX < 0) {
+                cdw();
             }
-            if (this.iBQ == 0) {
+            if (this.iCX == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.GE;
             if (t == null) {
                 throw new TypeCastException("null cannot be cast to non-null type T");
             }
-            this.iBQ = -1;
+            this.iCX = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.iBQ < 0) {
-                ccO();
+            if (this.iCX < 0) {
+                cdw();
             }
-            return this.iBQ == 1;
+            return this.iCX == 1;
         }
     }
 
@@ -71,8 +71,8 @@ public final class b<T> implements c<T> {
     public b(kotlin.jvm.a.a<? extends T> aVar, kotlin.jvm.a.b<? super T, ? extends T> bVar) {
         p.j(aVar, "getInitialValue");
         p.j(bVar, "getNextValue");
-        this.iBS = aVar;
-        this.iBT = bVar;
+        this.iCZ = aVar;
+        this.iDa = bVar;
     }
 
     @Override // kotlin.sequences.c

@@ -9,7 +9,6 @@ import com.baidu.ar.task.HttpResponseListener;
 import com.baidu.ar.util.ARSDKInfo;
 import com.baidu.ar.util.MD5Utils;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.tbadk.core.atomData.GroupActivityActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -46,7 +45,7 @@ public class a {
 
     private String b() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put(GroupActivityActivityConfig.ACTIVITY_ID, this.e);
+        jSONObject.put("activity_id", this.e);
         jSONObject.put(HttpConstants.TIMESTAMP, System.currentTimeMillis());
         JSONObject jSONObject2 = new JSONObject();
         jSONObject2.put("extra_data", this.f);

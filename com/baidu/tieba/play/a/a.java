@@ -7,31 +7,31 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private List<String> gHL;
-    private long gHM;
+    private List<String> gIP;
+    private long gIQ;
     private String mHost;
     private long mStartTime = System.currentTimeMillis();
 
-    public a ua(String str) {
+    public a uq(String str) {
         JSONArray optJSONArray;
         if (TextUtils.isEmpty(str)) {
             return null;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.gHM = jSONObject.optLong("ttl");
+            this.gIQ = jSONObject.optLong("ttl");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
                 this.mHost = optJSONObject.keys().next();
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.mHost);
             if (optJSONObject2 != null && (optJSONArray = optJSONObject2.optJSONArray("ip")) != null && optJSONArray.length() > 0) {
-                this.gHL = new ArrayList();
+                this.gIP = new ArrayList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < optJSONArray.length()) {
-                        this.gHL.add((String) optJSONArray.get(i2));
+                        this.gIP.add((String) optJSONArray.get(i2));
                         i = i2 + 1;
                     } else {
                         return this;
@@ -51,8 +51,8 @@ public class a {
         this.mStartTime = j;
     }
 
-    public List<String> bsQ() {
-        return this.gHL;
+    public List<String> btz() {
+        return this.gIP;
     }
 
     public String getHost() {
@@ -60,6 +60,6 @@ public class a {
     }
 
     public boolean df(long j) {
-        return j - this.mStartTime > this.gHM * 1000;
+        return j - this.mStartTime > this.gIQ * 1000;
     }
 }

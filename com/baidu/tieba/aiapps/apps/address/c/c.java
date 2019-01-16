@@ -8,7 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    public static List<b> kw(String str) {
+    public static List<b> kM(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -24,7 +24,7 @@ public class c {
         }
     }
 
-    public static JSONArray am(List<b> list) {
+    public static JSONArray an(List<b> list) {
         JSONArray jSONArray = new JSONArray();
         if (list != null) {
             int i = 0;

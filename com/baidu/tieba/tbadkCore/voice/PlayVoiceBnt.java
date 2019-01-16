@@ -26,12 +26,12 @@ import com.baidu.tbadk.widget.richText.TbRichTextVoiceInfo;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener, VoiceManager.b {
-    private View.OnClickListener aFa;
-    private AnimationDrawable beb;
-    private VoiceManager dKQ;
-    private ImageView fdk;
-    private VoiceData.VoiceModel fdo;
-    private TextView hrO;
+    private View.OnClickListener aFC;
+    private AnimationDrawable beN;
+    private VoiceManager dLz;
+    private ImageView fdX;
+    private VoiceData.VoiceModel feb;
+    private TextView hsW;
     private Context mContext;
     private ProgressBar mProgress;
     private int play_type;
@@ -91,97 +91,97 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
 
     public void aW(Context context) {
         LayoutInflater.from(context).inflate(e.h.play_voice_bnt, (ViewGroup) this, true);
-        this.fdk = (ImageView) findViewById(e.g.playingImg);
-        this.hrO = (TextView) findViewById(e.g.playTime);
+        this.fdX = (ImageView) findViewById(e.g.playingImg);
+        this.hsW = (TextView) findViewById(e.g.playTime);
         this.mProgress = (ProgressBar) findViewById(e.g.progress);
         if (this.mProgress != null) {
             this.mProgress.setVisibility(4);
         }
         this.mContext = context;
-        bFp();
+        bFY();
         setContentDescription(TbadkCoreApplication.getInst().getString(e.j.msglist_voice));
     }
 
-    private void bFp() {
+    private void bFY() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.play_type == 0) {
             int i = skinType != 1 ? -13553101 : -6574132;
             al.i(this, e.f.but_thread_voice_selector);
-            if (this.hrO != null) {
-                this.hrO.setTextSize(0, this.mContext.getResources().getDimension(e.C0210e.ds36));
-                this.hrO.setTextColor(i);
+            if (this.hsW != null) {
+                this.hsW.setTextSize(0, this.mContext.getResources().getDimension(e.C0210e.ds36));
+                this.hsW.setTextColor(i);
             }
-            if (this.fdk != null) {
-                al.c(this.fdk, e.a.voice_btn_play_anim);
+            if (this.fdX != null) {
+                al.c(this.fdX, e.a.voice_btn_play_anim);
             }
-            this.fdk.setPadding(l.dip2px(getContext(), 12.0f), 0, 0, 0);
+            this.fdX.setPadding(l.dip2px(getContext(), 12.0f), 0, 0, 0);
         } else {
             int i2 = skinType != 1 ? -16777216 : -8682095;
             al.i(this, e.f.but_thread_voice_reply_selector);
-            if (this.hrO != null) {
-                this.hrO.setTextSize(0, this.mContext.getResources().getDimension(e.C0210e.ds28));
-                this.hrO.setTextColor(i2);
+            if (this.hsW != null) {
+                this.hsW.setTextSize(0, this.mContext.getResources().getDimension(e.C0210e.ds28));
+                this.hsW.setTextColor(i2);
             }
-            if (this.fdk != null) {
-                al.c(this.fdk, e.a.voice_btn_play_anim);
+            if (this.fdX != null) {
+                al.c(this.fdX, e.a.voice_btn_play_anim);
             }
-            this.fdk.setPadding(l.dip2px(getContext(), 8.0f), 0, 0, 0);
+            this.fdX.setPadding(l.dip2px(getContext(), 8.0f), 0, 0, 0);
         }
-        ((AnimationDrawable) this.fdk.getDrawable()).stop();
+        ((AnimationDrawable) this.fdX.getDrawable()).stop();
     }
 
     public void setVoiceModel(VoiceData.VoiceModel voiceModel) {
         requestLayout();
-        this.fdo = voiceModel;
-        if (this.fdo != null) {
+        this.feb = voiceModel;
+        if (this.feb != null) {
             VoiceManager voiceManager = getVoiceManager();
             if (voiceManager != null && voiceManager.isPlayDoing(voiceModel)) {
                 voiceManager.resetPlayView(this);
-                qI(this.fdo.elapse);
+                qJ(this.feb.elapse);
                 return;
             }
-            qJ(this.fdo.voice_status.intValue());
-            this.hrO.setText(VoiceManager.formatVoiceTime(voiceModel.duration));
-        }
-    }
-
-    public void qI(int i) {
-        String formatVoiceTime;
-        if (this.fdo != null && this.hrO != null) {
-            int i2 = i / 1000;
-            if (i2 > 0 && i2 < this.fdo.duration) {
-                formatVoiceTime = VoiceManager.formatVoiceTime(this.fdo.duration - i2);
-            } else {
-                formatVoiceTime = VoiceManager.formatVoiceTime(this.fdo.duration);
-            }
-            String a = k.a(this.hrO.getText(), null);
-            if (a == null || !a.equals(formatVoiceTime)) {
-                this.hrO.setText(formatVoiceTime);
-            }
+            qK(this.feb.voice_status.intValue());
+            this.hsW.setText(VoiceManager.formatVoiceTime(voiceModel.duration));
         }
     }
 
     public void qJ(int i) {
+        String formatVoiceTime;
+        if (this.feb != null && this.hsW != null) {
+            int i2 = i / 1000;
+            if (i2 > 0 && i2 < this.feb.duration) {
+                formatVoiceTime = VoiceManager.formatVoiceTime(this.feb.duration - i2);
+            } else {
+                formatVoiceTime = VoiceManager.formatVoiceTime(this.feb.duration);
+            }
+            String a = k.a(this.hsW.getText(), null);
+            if (a == null || !a.equals(formatVoiceTime)) {
+                this.hsW.setText(formatVoiceTime);
+            }
+        }
+    }
+
+    public void qK(int i) {
         if (i == 3) {
-            if (this.fdk != null) {
-                this.fdk.setVisibility(0);
+            if (this.fdX != null) {
+                this.fdX.setVisibility(0);
             }
             this.mProgress.setVisibility(4);
-            aVs();
+            aVS();
             return;
         }
-        aVt();
+        aVT();
         if (i == 1) {
-            if (this.fdk != null) {
-                this.fdk.setVisibility(0);
+            if (this.fdX != null) {
+                this.fdX.setVisibility(0);
             }
-            if (this.fdo != null) {
-                this.hrO.setText(VoiceManager.formatVoiceTime(this.fdo.duration));
+            if (this.feb != null) {
+                this.hsW.setText(VoiceManager.formatVoiceTime(this.feb.duration));
             }
             this.mProgress.setVisibility(4);
         } else if (i == 2) {
-            if (this.fdo != null) {
-                this.hrO.setText(VoiceManager.formatVoiceTime(this.fdo.duration));
+            if (this.feb != null) {
+                this.hsW.setText(VoiceManager.formatVoiceTime(this.feb.duration));
             }
             this.mProgress.setVisibility(0);
         }
@@ -189,20 +189,20 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.fdo != null) {
+        if (this.feb != null) {
             VoiceManager voiceManager = getVoiceManager();
             if (voiceManager != null) {
                 voiceManager.setAllowChangeVoiceMode(true);
                 voiceManager.startPlay(this);
             }
-            if (this.aFa != null) {
-                this.aFa.onClick(view);
+            if (this.aFC != null) {
+                this.aFC.onClick(view);
             }
-            TiebaStatic.log(this.fdo.from);
+            TiebaStatic.log(this.feb.from);
         }
     }
 
-    private void bFq() {
+    private void bFZ() {
         int i;
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.play_type == 0) {
@@ -210,45 +210,45 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
         } else {
             i = skinType != 1 ? e.a.voice_btn_play_anim : e.a.voice_btn_play_anim_1;
         }
-        if (this.fdk != null) {
-            this.fdk.setImageResource(i);
+        if (this.fdX != null) {
+            this.fdX.setImageResource(i);
         }
     }
 
     private void stopAnimation() {
         TbadkCoreApplication.getInst().getSkinType();
-        if (this.fdk != null) {
+        if (this.fdX != null) {
             if (this.play_type == 0) {
-                al.c(this.fdk, e.f.icon_thread_voice_reply_curve_three);
+                al.c(this.fdX, e.f.icon_thread_voice_reply_curve_three);
             } else {
-                al.c(this.fdk, e.f.icon_thread_voice_reply_curve_three);
+                al.c(this.fdX, e.f.icon_thread_voice_reply_curve_three);
             }
         }
     }
 
-    private void aVs() {
-        if (this.beb != null) {
-            this.beb.stop();
+    private void aVS() {
+        if (this.beN != null) {
+            this.beN.stop();
         }
-        bFq();
-        this.beb = (AnimationDrawable) this.fdk.getDrawable();
-        this.beb.start();
+        bFZ();
+        this.beN = (AnimationDrawable) this.fdX.getDrawable();
+        this.beN.start();
     }
 
-    public void aVt() {
-        Drawable drawable = this.fdk.getDrawable();
+    public void aVT() {
+        Drawable drawable = this.fdX.getDrawable();
         if (drawable instanceof AnimationDrawable) {
-            this.beb = (AnimationDrawable) drawable;
+            this.beN = (AnimationDrawable) drawable;
         }
-        if (this.beb != null) {
-            this.beb.stop();
+        if (this.beN != null) {
+            this.beN.stop();
         }
-        this.beb = null;
+        this.beN = null;
         stopAnimation();
     }
 
     public void setVoiceManager(VoiceManager voiceManager) {
-        this.dKQ = voiceManager;
+        this.dLz = voiceManager;
     }
 
     public VoiceManager getVoiceManager() {
@@ -260,28 +260,28 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
         if ((i.aK(getContext()) instanceof com.baidu.adp.base.e) && (tbPageContext = (TbPageContext) i.aK(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.c)) {
             return ((VoiceManager.c) tbPageContext.getOrignalPage()).getVoiceManager();
         }
-        return this.dKQ;
+        return this.dLz;
     }
 
     @Override // android.view.View
     public void setTag(Object obj) {
         if (obj != null && (obj instanceof TbRichTextVoiceInfo)) {
             TbRichTextVoiceInfo tbRichTextVoiceInfo = (TbRichTextVoiceInfo) obj;
-            VoiceData.VoiceModel voiceModel = (VoiceData.VoiceModel) tbRichTextVoiceInfo.SY();
+            VoiceData.VoiceModel voiceModel = (VoiceData.VoiceModel) tbRichTextVoiceInfo.Tu();
             if (voiceModel == null) {
                 voiceModel = new VoiceData.VoiceModel();
-                if (tbRichTextVoiceInfo.SX() == 0) {
+                if (tbRichTextVoiceInfo.Tt() == 0) {
                     voiceModel.from = "pb_voice_play";
                 } else {
                     voiceModel.from = "floor_voice_play";
                 }
-                voiceModel.voiceId = tbRichTextVoiceInfo.GH();
+                voiceModel.voiceId = tbRichTextVoiceInfo.GU();
                 voiceModel.duration = tbRichTextVoiceInfo.getDuration();
                 tbRichTextVoiceInfo.M(voiceModel);
             }
-            this.play_type = tbRichTextVoiceInfo.SX();
+            this.play_type = tbRichTextVoiceInfo.Tt();
             setVoiceModel(voiceModel);
-            bFp();
+            bFY();
             obj = voiceModel;
         }
         super.setTag(obj);
@@ -290,35 +290,35 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public void b(VoiceData.VoiceModel voiceModel) {
         if (voiceModel != null) {
-            if (this.fdo != voiceModel) {
-                qJ(1);
+            if (this.feb != voiceModel) {
+                qK(1);
             } else {
-                qJ(voiceModel.voice_status.intValue());
+                qK(voiceModel.voice_status.intValue());
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public void bz(int i) {
-        if (!bFr()) {
-            qJ(1);
+        if (!bGa()) {
+            qK(1);
             return;
         }
-        if (this.beb == null) {
-            qJ(this.fdo.voice_status.intValue());
+        if (this.beN == null) {
+            qK(this.feb.voice_status.intValue());
         }
-        qI(i);
-        if (this.fdo != null) {
-            this.fdo.elapse = i;
+        qJ(i);
+        if (this.feb != null) {
+            this.feb.elapse = i;
         }
     }
 
-    private boolean bFr() {
-        if (this.fdo == null) {
+    private boolean bGa() {
+        if (this.feb == null) {
             return false;
         }
         VoiceManager voiceManager = getVoiceManager();
-        return voiceManager == null || voiceManager.isPlayDoing(this.fdo);
+        return voiceManager == null || voiceManager.isPlayDoing(this.feb);
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
@@ -328,7 +328,7 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
     public VoiceData.VoiceModel getVoiceModel() {
-        return this.fdo;
+        return this.feb;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
@@ -336,22 +336,22 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
         TbPageContext tbPageContext;
         Context context = getContext();
         if (context instanceof VoiceManager.c) {
-            return ((VoiceManager.c) context).c(this.fdo);
+            return ((VoiceManager.c) context).c(this.feb);
         }
         if ((i.aK(getContext()) instanceof com.baidu.adp.base.e) && (tbPageContext = (TbPageContext) i.aK(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.c)) {
-            return ((VoiceManager.c) tbPageContext.getOrignalPage()).c(this.fdo);
+            return ((VoiceManager.c) tbPageContext.getOrignalPage()).c(this.feb);
         }
         return this;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.b
-    public void pZ() {
+    public void qd() {
     }
 
     public void reset() {
-        this.fdo = null;
+        this.feb = null;
         setTag(null);
-        qJ(1);
+        qK(1);
     }
 
     private int getBtnWidth() {
@@ -377,6 +377,6 @@ public class PlayVoiceBnt extends RelativeLayout implements View.OnClickListener
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.aFa = onClickListener;
+        this.aFC = onClickListener;
     }
 }

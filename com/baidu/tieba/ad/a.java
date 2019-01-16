@@ -15,17 +15,17 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public final class a implements h {
-    private static final Pattern aDb = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a bBq = new a();
+    private static final Pattern aDD = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private static a bCd = new a();
     private final List<h.a> mListeners = new LinkedList();
-    private final ConcurrentHashMap<String, h.b> aCZ = new ConcurrentHashMap<>();
-    private h.c bBr = null;
+    private final ConcurrentHashMap<String, h.b> aDB = new ConcurrentHashMap<>();
+    private h.c bCe = null;
 
     private a() {
     }
 
-    public static a Wi() {
-        return bBq;
+    public static a WE() {
+        return bCd;
     }
 
     public void a(final h.a aVar) {
@@ -49,7 +49,7 @@ public final class a implements h {
     }
 
     public void a(h.c cVar) {
-        this.bBr = cVar;
+        this.bCe = cVar;
     }
 
     public boolean a(Context context, String[] strArr, boolean z, h.d dVar, boolean z2) {
@@ -76,9 +76,9 @@ public final class a implements h {
             return false;
         }
         String str2 = strArr[0];
-        h.b bVar = this.aCZ.get(fS(str2));
+        h.b bVar = this.aDB.get(gf(str2));
         if (bVar != null) {
-            bVar.d(context, fR(jO(str2)));
+            bVar.d(context, ge(ke(str2)));
             return true;
         }
         Iterator<h.a> it = this.mListeners.iterator();
@@ -93,7 +93,7 @@ public final class a implements h {
                 break;
             }
         }
-        if (!z3 && this.bBr != null) {
+        if (!z3 && this.bCe != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -104,7 +104,7 @@ public final class a implements h {
         return z4;
     }
 
-    private String jO(String str) {
+    private String ke(String str) {
         int lastIndexOf;
         if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
@@ -112,7 +112,7 @@ public final class a implements h {
         return null;
     }
 
-    private Map<String, String> fR(String str) {
+    private Map<String, String> ge(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -131,7 +131,7 @@ public final class a implements h {
         return hashMap;
     }
 
-    private String fS(String str) {
+    private String gf(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -152,13 +152,13 @@ public final class a implements h {
     }
 
     private void a(Context context, String str, String str2, boolean z, h.d dVar, boolean z2) {
-        if (aDb.matcher(str2).find()) {
-            this.bBr.b(context, str, str2, z, dVar, z2);
+        if (aDD.matcher(str2).find()) {
+            this.bCe.b(context, str, str2, z, dVar, z2);
         }
     }
 
     @Override // com.baidu.tieba.recapp.h
-    public boolean jP(String str) {
-        return aDb.matcher(str).find();
+    public boolean kf(String str) {
+        return aDD.matcher(str).find();
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.pyramid.runtime.multiprocess;
 /* loaded from: classes2.dex */
 public interface e {
-    void ds(String str);
+    void dt(String str);
 }

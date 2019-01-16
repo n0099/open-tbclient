@@ -367,11 +367,11 @@ public final class LocationClient implements c.a, d.b {
                     this.D.a(this.k.getAddress());
                     z = true;
                 } else if (b2 == 2) {
-                    Address te = this.D.te();
-                    if (te == null || te.city == null || te.cityCode == null) {
+                    Address ti = this.D.ti();
+                    if (ti == null || ti.city == null || ti.cityCode == null) {
                         z = false;
                     } else {
-                        this.k.setAddr(te);
+                        this.k.setAddr(ti);
                         z = true;
                     }
                 }

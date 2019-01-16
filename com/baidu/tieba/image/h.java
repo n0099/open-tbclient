@@ -14,17 +14,17 @@ import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes3.dex */
 public class h {
-    private LinkedList<f> fkd;
+    private LinkedList<f> fkY;
     private String fid = null;
-    private int fkc = 0;
-    private AdvertAppInfo fke = null;
+    private int fkX = 0;
+    private AdvertAppInfo fkZ = null;
 
     public h() {
-        this.fkd = null;
-        this.fkd = new LinkedList<>();
+        this.fkY = null;
+        this.fkY = new LinkedList<>();
     }
 
-    public void Q(String str, boolean z) {
+    public void P(String str, boolean z) {
         try {
             a(new JSONObject(str), Boolean.valueOf(z));
         } catch (Exception e) {
@@ -32,12 +32,12 @@ public class h {
         }
     }
 
-    public LinkedList<f> aXr() {
-        return this.fkd;
+    public LinkedList<f> aXR() {
+        return this.fkY;
     }
 
     public int getImageNum() {
-        return this.fkc;
+        return this.fkX;
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
@@ -47,7 +47,7 @@ public class h {
                 if (optJSONObject != null) {
                     this.fid = optJSONObject.optString("id");
                 }
-                this.fkc = jSONObject.optInt("pic_amount", 0);
+                this.fkX = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
                     if (bool.booleanValue()) {
@@ -55,8 +55,8 @@ public class h {
                             f fVar = new f();
                             fVar.paserJson(optJSONArray.optJSONObject(i));
                             int index = fVar.getIndex();
-                            if (index >= 1 && index <= this.fkc) {
-                                this.fkd.addLast(fVar);
+                            if (index >= 1 && index <= this.fkX) {
+                                this.fkY.addLast(fVar);
                             }
                         }
                     } else {
@@ -64,8 +64,8 @@ public class h {
                             f fVar2 = new f();
                             fVar2.paserJson(optJSONArray.getJSONObject(length));
                             int index2 = fVar2.getIndex();
-                            if (index2 >= 1 && index2 <= this.fkc) {
-                                this.fkd.addFirst(fVar2);
+                            if (index2 >= 1 && index2 <= this.fkX) {
+                                this.fkY.addFirst(fVar2);
                             }
                         }
                     }
@@ -120,10 +120,10 @@ public class h {
             }
             builder.loc_code = optJSONObject.optString("loc_code");
             App build = builder.build(true);
-            this.fke = new AdvertAppInfo();
-            this.fke.a(build);
-            this.fke.adPosition = "c0111";
-            this.fke.apG = this.fid;
+            this.fkZ = new AdvertAppInfo();
+            this.fkZ.a(build);
+            this.fkZ.adPosition = "c0111";
+            this.fkZ.aqi = this.fid;
         }
     }
 
@@ -156,7 +156,7 @@ public class h {
         return builder.build(true);
     }
 
-    public AdvertAppInfo aXs() {
-        return this.fke;
+    public AdvertAppInfo aXS() {
+        return this.fkZ;
     }
 }

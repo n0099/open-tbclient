@@ -7,10 +7,10 @@ import android.content.IntentFilter;
 import com.tencent.connect.common.Constants;
 /* loaded from: classes6.dex */
 public class c {
-    private static c aer = null;
+    private static c aeA = null;
     private boolean a = false;
     private String b = null;
-    private a aeq = null;
+    private a aez = null;
     private int e = -1;
 
     /* loaded from: classes6.dex */
@@ -66,33 +66,33 @@ public class c {
     private c() {
     }
 
-    public static synchronized c tv() {
+    public static synchronized c tz() {
         c cVar;
         synchronized (c.class) {
-            if (aer == null) {
-                aer = new c();
+            if (aeA == null) {
+                aeA = new c();
             }
-            cVar = aer;
+            cVar = aeA;
         }
         return cVar;
     }
 
     public void b() {
-        this.aeq = new a();
+        this.aez = new a();
         try {
-            com.baidu.location.f.getServiceContext().registerReceiver(this.aeq, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            com.baidu.location.f.getServiceContext().registerReceiver(this.aez, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         } catch (Exception e) {
         }
     }
 
     public void c() {
-        if (this.aeq != null) {
+        if (this.aez != null) {
             try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.aeq);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.aez);
             } catch (Exception e) {
             }
         }
-        this.aeq = null;
+        this.aez = null;
     }
 
     public String d() {

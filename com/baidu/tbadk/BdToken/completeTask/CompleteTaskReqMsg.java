@@ -4,7 +4,7 @@ import android.util.Base64;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.p;
+import com.baidu.tbadk.util.q;
 import tbclient.CompleteTask.CompleteTaskReqIdl;
 import tbclient.CompleteTask.DataReq;
 /* loaded from: classes.dex */
@@ -25,7 +25,7 @@ public class CompleteTaskReqMsg extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.shoubaicuid = TbadkCoreApplication.getInst().getCuidGalaxy2();
             builder.compelete_id = Base64.encodeToString(this.completeId.getBytes(), 2);
-            p.bindCommonParamsToProtobufData(builder, true, true, false);
+            q.bindCommonParamsToProtobufData(builder, true, true, false);
             CompleteTaskReqIdl.Builder builder2 = new CompleteTaskReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

@@ -18,77 +18,77 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class a {
-    private PostSearchActivity gJK;
-    private View gJL;
+    private PostSearchActivity gKO;
+    private View gKP;
     private NavigationBar mNavigationBar;
     private View mRootView;
-    private EditText dud = null;
-    private ImageView dJr = null;
-    private Runnable gJM = null;
+    private EditText duM = null;
+    private ImageView dKa = null;
+    private Runnable gKQ = null;
 
     public a(PostSearchActivity postSearchActivity, View view) {
         this.mRootView = view;
-        this.gJK = postSearchActivity;
-        azu();
+        this.gKO = postSearchActivity;
+        azR();
     }
 
-    private void azu() {
+    private void azR() {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(e.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.dud.hasFocus()) {
-                    l.b(a.this.gJK.getPageContext().getPageActivity(), a.this.dud);
+                if (a.this.duM.hasFocus()) {
+                    l.b(a.this.gKO.getPageContext().getPageActivity(), a.this.duM);
                 }
-                a.this.gJK.finish();
+                a.this.gKO.finish();
             }
         });
-        this.gJL = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, e.h.post_search_navigation_view, (View.OnClickListener) null);
-        this.dud = (EditText) this.gJL.findViewById(e.g.search_text);
-        this.dJr = (ImageView) this.gJL.findViewById(e.g.search_del);
-        this.dJr.setVisibility(8);
-        this.dud.requestFocus();
-        this.dud.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.postsearch.a.2
+        this.gKP = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, e.h.post_search_navigation_view, (View.OnClickListener) null);
+        this.duM = (EditText) this.gKP.findViewById(e.g.search_text);
+        this.dKa = (ImageView) this.gKP.findViewById(e.g.search_del);
+        this.dKa.setVisibility(8);
+        this.duM.requestFocus();
+        this.duM.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.postsearch.a.2
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (!z) {
-                    l.b(a.this.gJK.getPageContext().getPageActivity(), view);
+                    l.b(a.this.gKO.getPageContext().getPageActivity(), view);
                     return;
                 }
-                a.this.btF();
-                a.this.btE();
+                a.this.buo();
+                a.this.bun();
             }
         });
-        this.dud.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.a.3
+        this.duM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.btF();
-                a.this.btE();
+                a.this.buo();
+                a.this.bun();
             }
         });
-        this.dud.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.postsearch.a.4
+        this.duM.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.tieba.postsearch.a.4
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 2 || i == 6 || i == 4 || i == 3) {
                     String charSequence = textView.getText().toString();
                     if (!StringUtils.isNull(charSequence)) {
-                        a.this.gJK.startSearch(charSequence);
-                        PostSearchActivity unused = a.this.gJK;
-                        TiebaStatic.log(new am("c12842").aA("obj_name", charSequence).aA(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1").aA("obj_type", "2").aA(ImageViewerConfig.FORUM_ID, a.this.gJK.mForumId));
+                        a.this.gKO.startSearch(charSequence);
+                        PostSearchActivity unused = a.this.gKO;
+                        TiebaStatic.log(new am("c12842").aB("obj_name", charSequence).aB(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1").aB("obj_type", "2").aB(ImageViewerConfig.FORUM_ID, a.this.gKO.mForumId));
                     }
                     return true;
                 }
                 return false;
             }
         });
-        this.dJr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.a.5
+        this.dKa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.a.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.dud.setText("");
-                a.this.btF();
+                a.this.duM.setText("");
+                a.this.buo();
             }
         });
-        this.dud.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.postsearch.a.6
+        this.duM.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.postsearch.a.6
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -100,69 +100,69 @@ public class a {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 String obj = editable.toString();
-                a.this.gJK.dJh = obj;
+                a.this.gKO.dJQ = obj;
                 if (obj.trim().length() == 0) {
-                    a.this.btF();
-                    a.this.dJr.setVisibility(8);
+                    a.this.buo();
+                    a.this.dKa.setVisibility(8);
                     return;
                 }
-                a.this.dJr.setVisibility(0);
+                a.this.dKa.setVisibility(0);
             }
         });
-        this.gJM = new Runnable() { // from class: com.baidu.tieba.postsearch.a.7
+        this.gKQ = new Runnable() { // from class: com.baidu.tieba.postsearch.a.7
             @Override // java.lang.Runnable
             public void run() {
-                l.c(a.this.gJK.getPageContext().getPageActivity(), a.this.dud);
+                l.c(a.this.gKO.getPageContext().getPageActivity(), a.this.duM);
             }
         };
-        com.baidu.adp.lib.g.e.jG().postDelayed(this.gJM, 500L);
+        com.baidu.adp.lib.g.e.jG().postDelayed(this.gKQ, 500L);
     }
 
-    public void uj(String str) {
-        this.dud.setText(str);
+    public void uz(String str) {
+        this.duM.setText(str);
     }
 
-    public void aIN() {
+    public void aJl() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();
     }
 
-    public void btC() {
-        l.b(this.gJK.getPageContext().getPageActivity(), this.dud);
+    public void bul() {
+        l.b(this.gKO.getPageContext().getPageActivity(), this.duM);
     }
 
-    public void btD() {
-        this.dJr.setVisibility(8);
+    public void bum() {
+        this.dKa.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btE() {
-        if (!StringUtils.isNull(this.dud.getText().toString())) {
-            this.dJr.setVisibility(0);
+    public void bun() {
+        if (!StringUtils.isNull(this.duM.getText().toString())) {
+            this.dKa.setVisibility(0);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btF() {
-        if (!this.gJK.btH()) {
-            this.gJK.btG();
-            if (!this.dud.hasFocus()) {
-                this.dud.requestFocus();
-                l.c(this.gJK.getPageContext().getPageActivity(), this.dud);
+    public void buo() {
+        if (!this.gKO.buq()) {
+            this.gKO.bup();
+            if (!this.duM.hasFocus()) {
+                this.duM.requestFocus();
+                l.c(this.gKO.getPageContext().getPageActivity(), this.duM);
             }
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(this.gJK.getPageContext(), i);
-        com.baidu.tbadk.o.a.a(this.gJK.getPageContext(), this.gJL);
-        al.a(this.dJr, e.f.search_del_btn_s, e.f.search_del_btn);
+        this.mNavigationBar.onChangeSkinType(this.gKO.getPageContext(), i);
+        com.baidu.tbadk.o.a.a(this.gKO.getPageContext(), this.gKP);
+        al.a(this.dKa, e.f.search_del_btn_s, e.f.search_del_btn);
     }
 
     public void onDestroy() {
-        if (this.gJM != null) {
-            com.baidu.adp.lib.g.e.jG().removeCallbacks(this.gJM);
+        if (this.gKQ != null) {
+            com.baidu.adp.lib.g.e.jG().removeCallbacks(this.gKQ);
         }
     }
 }

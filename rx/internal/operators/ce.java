@@ -11,7 +11,7 @@ public final class ce<T> implements d.b<List<T>, T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final ce<Object> iMt = new ce<>();
+        static final ce<Object> iNA = new ce<>();
     }
 
     @Override // rx.functions.f
@@ -19,8 +19,8 @@ public final class ce<T> implements d.b<List<T>, T> {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> ce<T> ceK() {
-        return (ce<T>) a.iMt;
+    public static <T> ce<T> cfs() {
+        return (ce<T>) a.iNA;
     }
 
     ce() {

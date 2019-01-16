@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes6.dex */
 public class f {
-    private static f ads = null;
+    private static f adB = null;
     private static String b = "Temp_in.dat";
     private static File c = new File(com.baidu.location.g.f.a, b);
-    private static StringBuffer adt = null;
+    private static StringBuffer adC = null;
     private static boolean e = true;
     private static int f = 0;
     private static int g = 0;
@@ -71,7 +71,7 @@ public class f {
 
     private static void b() {
         e = true;
-        adt = null;
+        adC = null;
         f = 0;
         g = 0;
         h = 0L;

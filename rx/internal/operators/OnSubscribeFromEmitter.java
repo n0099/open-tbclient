@@ -10,8 +10,8 @@ import rx.exceptions.MissingBackpressureException;
 import rx.internal.subscriptions.CancellableSubscription;
 /* loaded from: classes2.dex */
 public final class OnSubscribeFromEmitter<T> implements d.a<T> {
-    final rx.functions.b<Emitter<T>> iFQ;
-    final Emitter.BackpressureMode iFR;
+    final rx.functions.b<Emitter<T>> iGX;
+    final Emitter.BackpressureMode iGY;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -19,13 +19,13 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
     }
 
     public OnSubscribeFromEmitter(rx.functions.b<Emitter<T>> bVar, Emitter.BackpressureMode backpressureMode) {
-        this.iFQ = bVar;
-        this.iFR = backpressureMode;
+        this.iGX = bVar;
+        this.iGY = backpressureMode;
     }
 
     public void call(rx.j<? super T> jVar) {
         BaseEmitter latestEmitter;
-        switch (this.iFR) {
+        switch (this.iGY) {
             case NONE:
                 latestEmitter = new NoneEmitter(jVar);
                 break;
@@ -44,7 +44,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
         }
         jVar.add(latestEmitter);
         jVar.setProducer(latestEmitter);
-        this.iFQ.call(latestEmitter);
+        this.iGX.call(latestEmitter);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -230,7 +230,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
 
         public BufferEmitter(rx.j<? super T> jVar, int i) {
             super(jVar);
-            this.queue = rx.internal.util.a.ae.cfw() ? new rx.internal.util.a.y<>(i) : new rx.internal.util.atomic.f<>(i);
+            this.queue = rx.internal.util.a.ae.cge() ? new rx.internal.util.a.y<>(i) : new rx.internal.util.atomic.f<>(i);
             this.wip = new AtomicInteger();
         }
 

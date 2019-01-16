@@ -5,24 +5,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class h {
-    private static e ajj;
+    private static e ajs;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(e eVar) {
-        ajj = eVar;
+        ajs = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void i(Exception exc) {
-        if (ajj != null) {
-            ajj.ds(l(exc).toString());
+        if (ajs != null) {
+            ajs.dt(l(exc).toString());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void ds(String str) {
-        if (ajj != null) {
-            ajj.ds(str);
+    public static void dt(String str) {
+        if (ajs != null) {
+            ajs.dt(str);
         }
     }
 
@@ -32,7 +32,7 @@ public class h {
         try {
             jSONObject.put("process_name", a.getProcessName());
             jSONObject.put("stack_trace", Log.getStackTraceString(th));
-            jSONObject.put("process_info", a.uM());
+            jSONObject.put("process_info", a.uQ());
             jSONObject.put("report_time", System.currentTimeMillis());
         } catch (JSONException e) {
         }

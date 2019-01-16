@@ -12,12 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class p extends RecyclerView.Adapter<q.a> implements l<h> {
-    private SparseArray<a<h, q.a>> Ph;
+    private SparseArray<a<h, q.a>> Pq;
     @SuppressLint({"UseSparseArrays"})
-    private SparseArray<Integer> Pi = new SparseArray<>();
-    private List<h> Pj = new ArrayList();
+    private SparseArray<Integer> Pr = new SparseArray<>();
+    private List<h> Ps = new ArrayList();
     private RecyclerView mRecyclerView = null;
-    private int Pk = -1;
+    private int Pt = -1;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -28,8 +28,8 @@ public class p extends RecyclerView.Adapter<q.a> implements l<h> {
         if (this.mRecyclerView == null) {
             this.mRecyclerView = (RecyclerView) viewGroup;
         }
-        h item = getItem(this.Pk);
-        if (this.Ph == null || (aVar = this.Ph.get(i)) == null) {
+        h item = getItem(this.Pt);
+        if (this.Pq == null || (aVar = this.Pq.get(i)) == null) {
             return null;
         }
         try {
@@ -49,9 +49,9 @@ public class p extends RecyclerView.Adapter<q.a> implements l<h> {
     public void onBindViewHolder(q.a aVar, int i) {
         a<h, q.a> aVar2;
         h item;
-        if (aVar != null && this.Ph != null && this.Pj != null) {
+        if (aVar != null && this.Pq != null && this.Ps != null) {
             int itemCount = getItemCount();
-            if (i >= 0 && i < itemCount && (aVar2 = this.Ph.get(getItemViewType(i))) != null && (item = getItem(i)) != null && (item instanceof h)) {
+            if (i >= 0 && i < itemCount && (aVar2 = this.Pq.get(getItemViewType(i))) != null && (item = getItem(i)) != null && (item instanceof h)) {
                 try {
                     aVar2.onFillViewHolder(i, this.mRecyclerView, aVar, item);
                 } catch (Exception e) {
@@ -66,8 +66,8 @@ public class p extends RecyclerView.Adapter<q.a> implements l<h> {
         h item;
         BdUniqueId type;
         Integer num;
-        this.Pk = i;
-        if (this.Ph == null || this.Ph.size() == 0 || (item = getItem(i)) == null || (type = item.getType()) == null || (num = this.Pi.get(type.getId())) == null) {
+        this.Pt = i;
+        if (this.Pq == null || this.Pq.size() == 0 || (item = getItem(i)) == null || (type = item.getType()) == null || (num = this.Pr.get(type.getId())) == null) {
             return -1;
         }
         return num.intValue();
@@ -80,8 +80,8 @@ public class p extends RecyclerView.Adapter<q.a> implements l<h> {
 
     @Override // android.support.v7.widget.RecyclerView.Adapter
     public int getItemCount() {
-        if (this.Pj != null) {
-            return this.Pj.size();
+        if (this.Ps != null) {
+            return this.Ps.size();
         }
         return 0;
     }
@@ -94,70 +94,70 @@ public class p extends RecyclerView.Adapter<q.a> implements l<h> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.widget.ListView.i
     public h getItem(int i) {
-        if (this.Pj != null) {
-            int size = this.Pj.size();
+        if (this.Ps != null) {
+            int size = this.Ps.size();
             if (i >= 0 && i < size) {
-                return this.Pj.get(i);
+                return this.Ps.get(i);
             }
         }
         return null;
     }
 
     public void removeItem(int i) {
-        if (i < this.Pj.size()) {
-            this.Pj.remove(i);
+        if (i < this.Ps.size()) {
+            this.Ps.remove(i);
             notifyItemRemoved(i);
         }
     }
 
     public void addAdapter(a<h, q.a> aVar) {
         if (aVar != null && aVar.getType() != null) {
-            if (this.Ph == null) {
-                this.Ph = new SparseArray<>();
+            if (this.Pq == null) {
+                this.Pq = new SparseArray<>();
             }
             if (aVar.getType() != null) {
                 aVar.setAdapter(this);
                 int id = aVar.getType().getId();
-                int size = this.Ph.size();
-                this.Ph.put(size, aVar);
-                this.Pi.put(id, Integer.valueOf(size));
+                int size = this.Pq.size();
+                this.Pq.put(size, aVar);
+                this.Pr.put(id, Integer.valueOf(size));
             }
         }
     }
 
     public void setData(List<? extends h> list) {
-        if (this.Pj == null) {
-            this.Pj = new ArrayList();
+        if (this.Ps == null) {
+            this.Ps = new ArrayList();
         } else {
-            this.Pj.clear();
+            this.Ps.clear();
         }
-        this.Pj.addAll(list);
+        this.Ps.addAll(list);
         notifyDataSetChanged();
     }
 
     public void a(List<? extends h> list, int i, int i2) {
-        if (this.Pj == null) {
-            this.Pj = new ArrayList();
+        if (this.Ps == null) {
+            this.Ps = new ArrayList();
         } else {
-            this.Pj.clear();
+            this.Ps.clear();
         }
-        this.Pj.addAll(list);
+        this.Ps.addAll(list);
         notifyItemRangeChanged(i, i2);
     }
 
     public List<h> getData() {
-        return this.Pj;
+        return this.Ps;
     }
 
     public void a(ViewGroup viewGroup, View view, int i, long j) {
         a<h, q.a> aVar;
-        if (this.Ph != null) {
+        if (this.Pq != null) {
             h item = getItem(i);
             int itemViewType = getItemViewType(i);
             if (itemViewType < 0) {
                 aVar = null;
             } else {
-                aVar = this.Ph.valueAt(itemViewType);
+                aVar = this.Pq.valueAt(itemViewType);
             }
             if (aVar != null && aVar.getOnAdapterItemClickListener() != null) {
                 aVar.getOnAdapterItemClickListener().a(view, item, aVar.getType(), viewGroup, i, j);
@@ -167,7 +167,7 @@ public class p extends RecyclerView.Adapter<q.a> implements l<h> {
 
     public boolean b(ViewGroup viewGroup, View view, int i, long j) {
         a<h, q.a> aVar;
-        if (this.Ph == null) {
+        if (this.Pq == null) {
             return false;
         }
         h item = getItem(i);
@@ -175,7 +175,7 @@ public class p extends RecyclerView.Adapter<q.a> implements l<h> {
         if (itemViewType < 0) {
             aVar = null;
         } else {
-            aVar = this.Ph.valueAt(itemViewType);
+            aVar = this.Pq.valueAt(itemViewType);
         }
         if (aVar == null || aVar.getOnAdapterItemLongClickListener() == null) {
             return false;
@@ -186,19 +186,19 @@ public class p extends RecyclerView.Adapter<q.a> implements l<h> {
     @Override // com.baidu.adp.widget.ListView.l
     public int s(int i, int i2) {
         int i3;
-        if (this.Pj == null || this.Pj.size() == 0) {
+        if (this.Ps == null || this.Ps.size() == 0) {
             return -1;
         }
-        int size = this.Pj.size();
+        int size = this.Ps.size();
         int i4 = 0;
         int i5 = -1;
         while (i4 < size) {
-            if (this.Pj.get(i4) == null) {
+            if (this.Ps.get(i4) == null) {
                 i3 = i5;
-            } else if (this.Pj.get(i4).getType() == null) {
+            } else if (this.Ps.get(i4).getType() == null) {
                 i3 = i5;
             } else {
-                i3 = i2 == this.Pj.get(i4).getType().getId() ? i5 + 1 : i5;
+                i3 = i2 == this.Ps.get(i4).getType().getId() ? i5 + 1 : i5;
                 if (i4 == i) {
                     return i3;
                 }

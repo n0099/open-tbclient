@@ -5,35 +5,35 @@ import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 abstract class b<E> extends AbstractQueue<E> {
-    private final AtomicReference<LinkedQueueNode<E>> iPu = new AtomicReference<>();
-    private final AtomicReference<LinkedQueueNode<E>> iPv = new AtomicReference<>();
+    private final AtomicReference<LinkedQueueNode<E>> iQB = new AtomicReference<>();
+    private final AtomicReference<LinkedQueueNode<E>> iQC = new AtomicReference<>();
 
-    protected final LinkedQueueNode<E> cfn() {
-        return this.iPu.get();
+    protected final LinkedQueueNode<E> cfV() {
+        return this.iQB.get();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final LinkedQueueNode<E> cfo() {
-        return this.iPu.get();
+    public final LinkedQueueNode<E> cfW() {
+        return this.iQB.get();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(LinkedQueueNode<E> linkedQueueNode) {
-        this.iPu.lazySet(linkedQueueNode);
+        this.iQB.lazySet(linkedQueueNode);
     }
 
-    protected final LinkedQueueNode<E> cfp() {
-        return this.iPv.get();
+    protected final LinkedQueueNode<E> cfX() {
+        return this.iQC.get();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final LinkedQueueNode<E> cfq() {
-        return this.iPv.get();
+    public final LinkedQueueNode<E> cfY() {
+        return this.iQC.get();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b(LinkedQueueNode<E> linkedQueueNode) {
-        this.iPv.lazySet(linkedQueueNode);
+        this.iQC.lazySet(linkedQueueNode);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
@@ -44,21 +44,21 @@ abstract class b<E> extends AbstractQueue<E> {
     @Override // java.util.AbstractCollection, java.util.Collection
     public final int size() {
         LinkedQueueNode<E> lvNext;
-        LinkedQueueNode<E> cfp = cfp();
-        LinkedQueueNode<E> cfn = cfn();
+        LinkedQueueNode<E> cfX = cfX();
+        LinkedQueueNode<E> cfV = cfV();
         int i = 0;
-        while (cfp != cfn && i < Integer.MAX_VALUE) {
+        while (cfX != cfV && i < Integer.MAX_VALUE) {
             do {
-                lvNext = cfp.lvNext();
+                lvNext = cfX.lvNext();
             } while (lvNext == null);
             i++;
-            cfp = lvNext;
+            cfX = lvNext;
         }
         return i;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public final boolean isEmpty() {
-        return cfp() == cfn();
+        return cfX() == cfV();
     }
 }

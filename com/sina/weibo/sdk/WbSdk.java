@@ -6,6 +6,7 @@ import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.auth.WbAppInfo;
+import com.sina.weibo.sdk.network.intercept.CommonParamInterception;
 import com.sina.weibo.sdk.utils.AidTask;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -19,6 +20,8 @@ public class WbSdk {
                 throw new RuntimeException("please set right app info (appKey,redirect");
             }
             authInfo = authInfo2;
+            CommonParamInterception.setAppKey(authInfo2.getAppKey());
+            AidTask.getInstance(context).setAppkey(authInfo2.getAppKey());
             AidTask.getInstance(context).aidTaskInit(authInfo.getAppKey());
             init = true;
         }

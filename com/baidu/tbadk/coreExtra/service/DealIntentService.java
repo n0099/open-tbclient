@@ -124,17 +124,17 @@ public class DealIntentService extends BdBaseService {
             }
             if (i2 == 9) {
                 am amVar = new am("c13253");
-                amVar.aA("uid", TbadkCoreApplication.getCurrentAccount());
+                amVar.aB("uid", TbadkCoreApplication.getCurrentAccount());
                 TiebaStatic.log(amVar);
             }
-            am aA = new am("c11703").aA("obj_to", stringExtra).i("task_id", j).aA("app_version", TbConfig.getVersion());
+            am aB = new am("c11703").aB("obj_to", stringExtra).i("task_id", j).aB("app_version", TbConfig.getVersion());
             int i3 = this.intent.getExtras().getInt("is_live", -1);
             int i4 = this.intent.getExtras().getInt("is_live_lcs", -1);
             if (i3 >= 0) {
-                aA.x("is_live", i3);
+                aB.y("is_live", i3);
             }
             if (i4 >= 0) {
-                aA.x("is_live_lcs", i4);
+                aB.y("is_live_lcs", i4);
             }
             switch (this.intent.getExtras().getInt("KeyOfNotiId", -1)) {
                 case 16:
@@ -161,8 +161,8 @@ public class DealIntentService extends BdBaseService {
                     i = 1;
                     break;
             }
-            aA.x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i);
-            TiebaStatic.log(aA);
+            aB.y(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i);
+            TiebaStatic.log(aB);
             if (this.intent.getExtras().getBoolean("is_notify", false)) {
                 fp(i2);
             }
@@ -172,7 +172,7 @@ public class DealIntentService extends BdBaseService {
             }
             if (com.baidu.adp.base.a.fW().fX() != null) {
                 if (5 == this.intent.getIntExtra("class", -1)) {
-                    if (com.baidu.adp.base.a.fW().fX().getClass().getName().equalsIgnoreCase(b.Cs())) {
+                    if (com.baidu.adp.base.a.fW().fX().getClass().getName().equalsIgnoreCase(b.CF())) {
                         this.intent.putExtra("class", 5);
                     } else {
                         this.intent.putExtra("class", 21);

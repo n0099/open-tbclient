@@ -17,8 +17,8 @@ import java.util.Iterator;
 public class b extends RecyclerView.Adapter<a> {
     private ArrayList<com.baidu.tieba.forbidden.fans.a> fansList;
     private Context mContext;
-    private View.OnClickListener dGh = null;
-    private View.OnClickListener cIO = null;
+    private View.OnClickListener dGQ = null;
+    private View.OnClickListener cJz = null;
 
     public b(Context context) {
         this.mContext = context;
@@ -35,14 +35,14 @@ public class b extends RecyclerView.Adapter<a> {
     @Override // android.support.v7.widget.RecyclerView.Adapter
     /* renamed from: a */
     public void onBindViewHolder(a aVar, int i) {
-        com.baidu.tieba.forbidden.fans.a lV;
-        if (aVar != null && (lV = lV(i)) != null) {
-            aVar.dGj.startLoad(lV.portrait, 12, false);
-            aVar.dGk.setText(lV.nameShow);
-            aVar.dGl.setOnClickListener(this.dGh);
-            aVar.dGl.setTag(lV);
-            aVar.dGi.setOnClickListener(this.cIO);
-            aVar.dGi.setTag(lV);
+        com.baidu.tieba.forbidden.fans.a lW;
+        if (aVar != null && (lW = lW(i)) != null) {
+            aVar.dGS.startLoad(lW.portrait, 12, false);
+            aVar.dGT.setText(lW.nameShow);
+            aVar.dGU.setOnClickListener(this.dGQ);
+            aVar.dGU.setTag(lW);
+            aVar.dGR.setOnClickListener(this.cJz);
+            aVar.dGR.setTag(lW);
             a(aVar);
         }
     }
@@ -52,7 +52,7 @@ public class b extends RecyclerView.Adapter<a> {
         return v.H(this.fansList);
     }
 
-    private com.baidu.tieba.forbidden.fans.a lV(int i) {
+    private com.baidu.tieba.forbidden.fans.a lW(int i) {
         return (com.baidu.tieba.forbidden.fans.a) v.d(this.fansList, i);
     }
 
@@ -79,43 +79,43 @@ public class b extends RecyclerView.Adapter<a> {
         return false;
     }
 
-    public boolean azT() {
+    public boolean aAq() {
         return v.I(this.fansList);
     }
 
     /* loaded from: classes3.dex */
     public static class a extends RecyclerView.ViewHolder {
-        public View dGi;
-        public ClickableHeaderImageView dGj;
-        public TextView dGk;
-        public TextView dGl;
+        public View dGR;
+        public ClickableHeaderImageView dGS;
+        public TextView dGT;
+        public TextView dGU;
         public View dividerLine;
 
         public a(View view) {
             super(view);
-            this.dGi = view.findViewById(e.g.container_forbidden_item);
-            this.dGj = (ClickableHeaderImageView) view.findViewById(e.g.view_fans_photo);
-            this.dGj.setRadius(l.h(view.getContext(), e.C0210e.ds90));
-            this.dGj.setAutoChangeStyle(true);
-            this.dGj.setClickable(false);
-            this.dGk = (TextView) view.findViewById(e.g.view_fans_name);
-            this.dGl = (TextView) view.findViewById(e.g.view_fans_remove);
+            this.dGR = view.findViewById(e.g.container_forbidden_item);
+            this.dGS = (ClickableHeaderImageView) view.findViewById(e.g.view_fans_photo);
+            this.dGS.setRadius(l.h(view.getContext(), e.C0210e.ds90));
+            this.dGS.setAutoChangeStyle(true);
+            this.dGS.setClickable(false);
+            this.dGT = (TextView) view.findViewById(e.g.view_fans_name);
+            this.dGU = (TextView) view.findViewById(e.g.view_fans_remove);
             this.dividerLine = view.findViewById(e.g.line_divider);
         }
     }
 
     private void a(a aVar) {
-        al.h(aVar.dGk, e.d.cp_cont_b);
+        al.h(aVar.dGT, e.d.cp_cont_b);
         al.j(aVar.dividerLine, e.d.cp_bg_line_b);
-        al.h(aVar.dGl, e.d.btn_color_remove);
-        al.i(aVar.dGl, e.f.btn_transparent_focus_border_bg);
+        al.h(aVar.dGU, e.d.btn_color_remove);
+        al.i(aVar.dGU, e.f.btn_transparent_focus_border_bg);
     }
 
     public void q(View.OnClickListener onClickListener) {
-        this.dGh = onClickListener;
+        this.dGQ = onClickListener;
     }
 
     public void j(View.OnClickListener onClickListener) {
-        this.cIO = onClickListener;
+        this.cJz = onClickListener;
     }
 }

@@ -1,39 +1,39 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class b implements Runnable {
-    private int bNd;
-    private boolean dMO;
-    private m dMW;
-    private int dMj;
-    private boolean fqV = false;
+    private int bNP;
+    private int dMS;
+    private m dNF;
+    private boolean dNx;
+    private boolean frQ = false;
 
     public b(m mVar) {
-        this.dMW = mVar;
+        this.dNF = mVar;
     }
 
-    public void gH(boolean z) {
-        this.dMO = z;
+    public void gK(boolean z) {
+        this.dNx = z;
     }
 
-    public void rh(int i) {
-        this.dMj = i;
+    public void rj(int i) {
+        this.dMS = i;
     }
 
-    public void ri(int i) {
-        this.bNd = i;
+    public void rk(int i) {
+        this.bNP = i;
     }
 
     public void jA(boolean z) {
-        this.fqV = z;
+        this.frQ = z;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.dMW != null) {
-            if (!this.fqV) {
-                this.dMW.a(this.dMj, this.bNd, this.dMO, 2);
+        if (this.dNF != null) {
+            if (!this.frQ) {
+                this.dNF.a(this.dMS, this.bNP, this.dNx, 2);
             } else {
-                this.dMW.a(this.dMj, this.bNd, this.dMO, 1);
+                this.dNF.a(this.dMS, this.bNP, this.dNx, 1);
             }
         }
     }

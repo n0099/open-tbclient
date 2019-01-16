@@ -310,63 +310,63 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class drawable {
-        public static final int rim_base_actionbar_back_arrow = 0x7f021429;
-        public static final int rim_base_actionbar_back_arrow_press = 0x7f02142a;
-        public static final int rim_base_actionbar_back_selector = 0x7f02142b;
-        public static final int rim_base_actionbar_close_selector = 0x7f02142c;
-        public static final int rim_base_ation_bar_icon_safe = 0x7f02142d;
-        public static final int rim_base_clear_normal = 0x7f02142e;
-        public static final int rim_base_clear_pressed = 0x7f02142f;
-        public static final int rim_base_dialog_common_loading_frame = 0x7f021430;
-        public static final int rim_base_dialog_common_loading_pic = 0x7f021431;
-        public static final int rim_base_safekeyboard_close_default = 0x7f021432;
-        public static final int rim_base_safekeyboard_delete_icon = 0x7f021433;
-        public static final int rim_base_safekeyboard_delete_icon_mini = 0x7f021434;
-        public static final int rim_base_safekeyboard_delkey_selector = 0x7f021435;
-        public static final int rim_base_safekeyboard_hide = 0x7f021436;
-        public static final int rim_base_safekeyboard_hide_mini = 0x7f021437;
-        public static final int rim_base_safekeyboard_lock = 0x7f021438;
-        public static final int rim_base_safekeyboard_logo = 0x7f021439;
-        public static final int rim_base_safekeyboard_numkey_selector = 0x7f02143a;
-        public static final int rim_base_toast_bg = 0x7f02143b;
+        public static final int rim_base_actionbar_back_arrow = 0x7f021432;
+        public static final int rim_base_actionbar_back_arrow_press = 0x7f021433;
+        public static final int rim_base_actionbar_back_selector = 0x7f021434;
+        public static final int rim_base_actionbar_close_selector = 0x7f021435;
+        public static final int rim_base_ation_bar_icon_safe = 0x7f021436;
+        public static final int rim_base_clear_normal = 0x7f021437;
+        public static final int rim_base_clear_pressed = 0x7f021438;
+        public static final int rim_base_dialog_common_loading_frame = 0x7f021439;
+        public static final int rim_base_dialog_common_loading_pic = 0x7f02143a;
+        public static final int rim_base_safekeyboard_close_default = 0x7f02143b;
+        public static final int rim_base_safekeyboard_delete_icon = 0x7f02143c;
+        public static final int rim_base_safekeyboard_delete_icon_mini = 0x7f02143d;
+        public static final int rim_base_safekeyboard_delkey_selector = 0x7f02143e;
+        public static final int rim_base_safekeyboard_hide = 0x7f02143f;
+        public static final int rim_base_safekeyboard_hide_mini = 0x7f021440;
+        public static final int rim_base_safekeyboard_lock = 0x7f021441;
+        public static final int rim_base_safekeyboard_logo = 0x7f021442;
+        public static final int rim_base_safekeyboard_numkey_selector = 0x7f021443;
+        public static final int rim_base_toast_bg = 0x7f021444;
     }
 
     /* loaded from: classes.dex */
     public static final class id {
-        public static final int btn0 = 0x7f0f1881;
-        public static final int btn1 = 0x7f0f1877;
-        public static final int btn2 = 0x7f0f1878;
-        public static final int btn3 = 0x7f0f1879;
-        public static final int btn4 = 0x7f0f187a;
-        public static final int btn5 = 0x7f0f187b;
-        public static final int btn6 = 0x7f0f187c;
-        public static final int btn7 = 0x7f0f187d;
-        public static final int btn8 = 0x7f0f187e;
-        public static final int btn9 = 0x7f0f187f;
-        public static final int btn_del = 0x7f0f1882;
-        public static final int btn_x = 0x7f0f1880;
-        public static final int rim_base_dialog_common_loading_view = 0x7f0f1876;
-        public static final int rim_base_toast_icon = 0x7f0f1883;
-        public static final int rim_base_toast_message = 0x7f0f1884;
-        public static final int rim_titlebar_left_imgzone2_close = 0x7f0f1868;
-        public static final int safe_icon = 0x7f0f186c;
-        public static final int title = 0x7f0f0101;
-        public static final int title_bottom_seperator = 0x7f0f1875;
-        public static final int title_center_safe_layout = 0x7f0f186b;
-        public static final int title_center_safe_tip = 0x7f0f186d;
-        public static final int title_center_text = 0x7f0f186a;
-        public static final int title_center_zone = 0x7f0f1869;
-        public static final int title_close = 0x7f0f1867;
-        public static final int title_left_imgzone2 = 0x7f0f1864;
-        public static final int title_left_imgzone2_img = 0x7f0f1865;
-        public static final int title_left_imgzone2_notify = 0x7f0f1866;
-        public static final int title_right_imgzone1 = 0x7f0f186e;
-        public static final int title_right_imgzone2 = 0x7f0f1871;
-        public static final int title_right_imgzone2_dot = 0x7f0f1873;
-        public static final int title_right_imgzone2_dot1 = 0x7f0f1870;
-        public static final int title_right_imgzone2_img = 0x7f0f1872;
-        public static final int title_right_imgzone2_img1 = 0x7f0f186f;
-        public static final int title_right_imgzone2_notify = 0x7f0f1874;
+        public static final int btn0 = 0x7f0f1884;
+        public static final int btn1 = 0x7f0f187a;
+        public static final int btn2 = 0x7f0f187b;
+        public static final int btn3 = 0x7f0f187c;
+        public static final int btn4 = 0x7f0f187d;
+        public static final int btn5 = 0x7f0f187e;
+        public static final int btn6 = 0x7f0f187f;
+        public static final int btn7 = 0x7f0f1880;
+        public static final int btn8 = 0x7f0f1881;
+        public static final int btn9 = 0x7f0f1882;
+        public static final int btn_del = 0x7f0f1885;
+        public static final int btn_x = 0x7f0f1883;
+        public static final int rim_base_dialog_common_loading_view = 0x7f0f1879;
+        public static final int rim_base_toast_icon = 0x7f0f1886;
+        public static final int rim_base_toast_message = 0x7f0f1887;
+        public static final int rim_titlebar_left_imgzone2_close = 0x7f0f186b;
+        public static final int safe_icon = 0x7f0f186f;
+        public static final int title = 0x7f0f0102;
+        public static final int title_bottom_seperator = 0x7f0f1878;
+        public static final int title_center_safe_layout = 0x7f0f186e;
+        public static final int title_center_safe_tip = 0x7f0f1870;
+        public static final int title_center_text = 0x7f0f186d;
+        public static final int title_center_zone = 0x7f0f186c;
+        public static final int title_close = 0x7f0f186a;
+        public static final int title_left_imgzone2 = 0x7f0f1867;
+        public static final int title_left_imgzone2_img = 0x7f0f1868;
+        public static final int title_left_imgzone2_notify = 0x7f0f1869;
+        public static final int title_right_imgzone1 = 0x7f0f1871;
+        public static final int title_right_imgzone2 = 0x7f0f1874;
+        public static final int title_right_imgzone2_dot = 0x7f0f1876;
+        public static final int title_right_imgzone2_dot1 = 0x7f0f1873;
+        public static final int title_right_imgzone2_img = 0x7f0f1875;
+        public static final int title_right_imgzone2_img1 = 0x7f0f1872;
+        public static final int title_right_imgzone2_notify = 0x7f0f1877;
     }
 
     /* loaded from: classes.dex */
@@ -387,37 +387,37 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class string {
-        public static final int error_msg_checksign = 0x7f080821;
-        public static final int error_msg_common = 0x7f080822;
-        public static final int error_msg_spno_invalidate = 0x7f080832;
-        public static final int multi_window_tips = 0x7f080bd4;
-        public static final int multi_window_tips_close = 0x7f080bd5;
-        public static final int rim_base__no_network = 0x7f080e69;
-        public static final int rim_base_action_bar_text_close = 0x7f080e6a;
-        public static final int rim_base_action_bar_text_refresh = 0x7f080e6b;
-        public static final int rim_base_action_bar_text_return = 0x7f080e6c;
-        public static final int rim_base_asdasdasd_assdadsads = 0x7f080e6d;
-        public static final int rim_base_dialog_common_loading_text = 0x7f080e6e;
-        public static final int rim_base_get_data_fail = 0x7f080e6f;
-        public static final int rim_base_multi_window_close = 0x7f080e70;
-        public static final int rim_base_multi_window_tips = 0x7f080e71;
-        public static final int rim_base_safekeyboard_key_0 = 0x7f080e72;
-        public static final int rim_base_safekeyboard_key_1 = 0x7f080e73;
-        public static final int rim_base_safekeyboard_key_2 = 0x7f080e74;
-        public static final int rim_base_safekeyboard_key_3 = 0x7f080e75;
-        public static final int rim_base_safekeyboard_key_4 = 0x7f080e76;
-        public static final int rim_base_safekeyboard_key_5 = 0x7f080e77;
-        public static final int rim_base_safekeyboard_key_6 = 0x7f080e78;
-        public static final int rim_base_safekeyboard_key_7 = 0x7f080e79;
-        public static final int rim_base_safekeyboard_key_8 = 0x7f080e7a;
-        public static final int rim_base_safekeyboard_key_9 = 0x7f080e7b;
-        public static final int rim_base_safekeyboard_key_X = 0x7f080e7c;
-        public static final int rim_base_safekeyboard_title = 0x7f080e7d;
-        public static final int rim_no_network = 0x7f080e8e;
-        public static final int rim_resolve_error = 0x7f080e8f;
-        public static final int rim_ssl = 0x7f080e90;
-        public static final int rim_timeout_error = 0x7f080e91;
-        public static final int status_sys_err = 0x7f08105e;
+        public static final int error_msg_checksign = 0x7f080822;
+        public static final int error_msg_common = 0x7f080823;
+        public static final int error_msg_spno_invalidate = 0x7f080833;
+        public static final int multi_window_tips = 0x7f080bd5;
+        public static final int multi_window_tips_close = 0x7f080bd6;
+        public static final int rim_base__no_network = 0x7f080e6a;
+        public static final int rim_base_action_bar_text_close = 0x7f080e6b;
+        public static final int rim_base_action_bar_text_refresh = 0x7f080e6c;
+        public static final int rim_base_action_bar_text_return = 0x7f080e6d;
+        public static final int rim_base_asdasdasd_assdadsads = 0x7f080e6e;
+        public static final int rim_base_dialog_common_loading_text = 0x7f080e6f;
+        public static final int rim_base_get_data_fail = 0x7f080e70;
+        public static final int rim_base_multi_window_close = 0x7f080e71;
+        public static final int rim_base_multi_window_tips = 0x7f080e72;
+        public static final int rim_base_safekeyboard_key_0 = 0x7f080e73;
+        public static final int rim_base_safekeyboard_key_1 = 0x7f080e74;
+        public static final int rim_base_safekeyboard_key_2 = 0x7f080e75;
+        public static final int rim_base_safekeyboard_key_3 = 0x7f080e76;
+        public static final int rim_base_safekeyboard_key_4 = 0x7f080e77;
+        public static final int rim_base_safekeyboard_key_5 = 0x7f080e78;
+        public static final int rim_base_safekeyboard_key_6 = 0x7f080e79;
+        public static final int rim_base_safekeyboard_key_7 = 0x7f080e7a;
+        public static final int rim_base_safekeyboard_key_8 = 0x7f080e7b;
+        public static final int rim_base_safekeyboard_key_9 = 0x7f080e7c;
+        public static final int rim_base_safekeyboard_key_X = 0x7f080e7d;
+        public static final int rim_base_safekeyboard_title = 0x7f080e7e;
+        public static final int rim_no_network = 0x7f080e8f;
+        public static final int rim_resolve_error = 0x7f080e90;
+        public static final int rim_ssl = 0x7f080e91;
+        public static final int rim_timeout_error = 0x7f080e92;
+        public static final int status_sys_err = 0x7f08105f;
     }
 
     /* loaded from: classes.dex */

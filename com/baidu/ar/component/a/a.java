@@ -14,7 +14,6 @@ import com.baidu.ar.util.Res;
 import com.baidu.ar.util.UiThreadUtil;
 import com.baidu.ar.util.UiUtils;
 import com.baidu.baiduarsdk.util.MsgParamsUtil;
-import com.baidu.tbadk.core.atomData.GroupActivityActivityConfig;
 import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -133,7 +132,7 @@ public class a {
                     });
                     return;
                 case 10401:
-                    a((String) hashMap.get("url"), (String) hashMap.get(GroupActivityActivityConfig.ACTIVITY_ID), new JSONObject((HashMap) hashMap.get("extra_data")));
+                    a((String) hashMap.get("url"), (String) hashMap.get("activity_id"), new JSONObject((HashMap) hashMap.get("extra_data")));
                     return;
                 default:
                     return;

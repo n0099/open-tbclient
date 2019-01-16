@@ -3,7 +3,7 @@ package rx.b;
 import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes2.dex */
 public final class b {
-    private static final rx.e<Object> iQo = new rx.e<Object>() { // from class: rx.b.b.1
+    private static final rx.e<Object> iRv = new rx.e<Object>() { // from class: rx.b.b.1
         @Override // rx.e
         public final void onCompleted() {
         }
@@ -18,7 +18,7 @@ public final class b {
         }
     };
 
-    public static <T> rx.e<T> cfC() {
-        return (rx.e<T>) iQo;
+    public static <T> rx.e<T> cgk() {
+        return (rx.e<T>) iRv;
     }
 }

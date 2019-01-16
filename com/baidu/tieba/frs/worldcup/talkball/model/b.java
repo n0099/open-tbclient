@@ -23,18 +23,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b implements a {
-    private com.baidu.tieba.frs.worldcup.talkball.c.a elu;
-    private h emb;
-    private TalkBallNetModelImpl emc;
-    private TalkBallRequestData emd;
+    private h emH;
+    private TalkBallNetModelImpl emI;
+    private TalkBallRequestData emJ;
+    private com.baidu.tieba.frs.worldcup.talkball.c.a ema;
     private String mForumId;
     private String mForumName;
     private TbPageContext mPageContext;
     private ArrayList<h> mThreadList;
-    private long eme = 0;
+    private long emK = 0;
     private int mPn = 1;
     private boolean hasMore = false;
-    private NetModel.b emf = new NetModel.b() { // from class: com.baidu.tieba.frs.worldcup.talkball.model.b.1
+    private NetModel.b emL = new NetModel.b() { // from class: com.baidu.tieba.frs.worldcup.talkball.model.b.1
         @Override // com.baidu.tbadk.mvc.model.NetModel.c
         public void a(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
             d.a f = b.this.f(mvcHttpResponsedMessage);
@@ -60,59 +60,59 @@ public class b implements a {
 
     public b(TbPageContext tbPageContext, com.baidu.tieba.frs.worldcup.talkball.c.a aVar, Bundle bundle) {
         this.mPageContext = tbPageContext;
-        this.elu = aVar;
+        this.ema = aVar;
         if (bundle != null) {
             this.mForumName = bundle.getString(ImageViewerConfig.FORUM_NAME, "");
             this.mForumId = bundle.getString(ImageViewerConfig.FORUM_ID, "");
         }
-        aJp();
+        aJN();
         fc();
     }
 
-    private void aJp() {
+    private void aJN() {
         this.mThreadList = new ArrayList<>();
-        this.emb = new m();
-        this.mThreadList.add(this.emb);
+        this.emH = new m();
+        this.mThreadList.add(this.emH);
     }
 
     private void fc() {
-        this.emd = new TalkBallRequestData();
+        this.emJ = new TalkBallRequestData();
         int aO = l.aO(TbadkCoreApplication.getInst());
         int aQ = l.aQ(TbadkCoreApplication.getInst());
         float aR = l.aR(TbadkCoreApplication.getInst());
-        int i = aq.DR().DT() ? 2 : 1;
-        this.emd.h(Integer.valueOf(aO));
-        this.emd.i(Integer.valueOf(aQ));
-        this.emd.a(Double.valueOf(aR));
-        this.emd.j(Integer.valueOf(i));
-        this.emd.em(this.mForumName);
-        this.emd.setRn(10);
-        this.emc = new TalkBallNetModelImpl(this.mPageContext, this.emd);
-        this.emc.a(this.emf);
+        int i = aq.Ee().Eg() ? 2 : 1;
+        this.emJ.h(Integer.valueOf(aO));
+        this.emJ.i(Integer.valueOf(aQ));
+        this.emJ.a(Double.valueOf(aR));
+        this.emJ.j(Integer.valueOf(i));
+        this.emJ.ev(this.mForumName);
+        this.emJ.setRn(10);
+        this.emI = new TalkBallNetModelImpl(this.mPageContext, this.emJ);
+        this.emI.a(this.emL);
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.model.a
     public void refresh() {
-        if (!this.emc.Fi()) {
+        if (!this.emI.Fv()) {
             this.mPn = 1;
-            this.eme = 0L;
-            this.emd.f(Long.valueOf(this.eme));
-            this.emd.k(Integer.valueOf(this.mPn));
-            this.emd.of(1);
-            this.emc.Ox();
+            this.emK = 0L;
+            this.emJ.f(Long.valueOf(this.emK));
+            this.emJ.k(Integer.valueOf(this.mPn));
+            this.emJ.og(1);
+            this.emI.OP();
         }
     }
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.model.a
-    public void aad() {
-        if (!this.emc.Fi() && hasMore()) {
-            this.emd.f(Long.valueOf(this.eme));
-            TalkBallRequestData talkBallRequestData = this.emd;
+    public void aaA() {
+        if (!this.emI.Fv() && hasMore()) {
+            this.emJ.f(Long.valueOf(this.emK));
+            TalkBallRequestData talkBallRequestData = this.emJ;
             int i = this.mPn;
             this.mPn = i + 1;
             talkBallRequestData.k(Integer.valueOf(i));
-            this.emd.of(2);
-            this.emc.Ox();
+            this.emJ.og(2);
+            this.emI.OP();
         }
     }
 
@@ -123,8 +123,8 @@ public class b implements a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(d.a aVar, ArrayList<h> arrayList, c cVar) {
-        if (this.elu != null) {
-            this.elu.a(aVar, arrayList, cVar);
+        if (this.ema != null) {
+            this.ema.a(aVar, arrayList, cVar);
         }
     }
 
@@ -142,11 +142,11 @@ public class b implements a {
     public d.a f(ResponsedMessage responsedMessage) {
         d.a aVar = new d.a();
         if (responsedMessage != null) {
-            aVar.hlc = j.kV() && (responsedMessage.getError() < -13 || responsedMessage.getError() > -10);
+            aVar.hmg = j.kV() && (responsedMessage.getError() < -13 || responsedMessage.getError() > -10);
             aVar.isSuccess = responsedMessage.getError() == 0;
             aVar.errorCode = responsedMessage.getError();
             aVar.errorMsg = responsedMessage.getErrorString();
-            aVar.hld = responsedMessage.getDownSize();
+            aVar.hmh = responsedMessage.getDownSize();
         }
         return aVar;
     }
@@ -165,7 +165,7 @@ public class b implements a {
         if (cVar != null) {
             ArrayList<h> a = a(cVar);
             if (!v.I(a)) {
-                this.mThreadList.remove(this.emb);
+                this.mThreadList.remove(this.emH);
                 if (i == 1) {
                     this.mThreadList.clear();
                     this.mThreadList.addAll(0, a);
@@ -183,12 +183,12 @@ public class b implements a {
             return arrayList;
         }
         for (com.baidu.tieba.frs.worldcup.talkball.b.b bVar : threadList) {
-            if (bVar.aJc()) {
-                arrayList.add(bVar.aJb());
+            if (bVar.aJA()) {
+                arrayList.add(bVar.aJz());
             } else {
-                bb ZT = bVar.ZT();
-                if (ZT != null) {
-                    arrayList.add(ZT);
+                bb aaq = bVar.aaq();
+                if (aaq != null) {
+                    arrayList.add(aaq);
                 }
             }
         }
@@ -197,13 +197,13 @@ public class b implements a {
 
     private void b(c cVar) {
         if (cVar != null) {
-            this.hasMore = cVar.awJ() == 1;
+            this.hasMore = cVar.axg() == 1;
         }
     }
 
     private void c(c cVar) {
         if (cVar != null) {
-            this.eme = cVar.aJr();
+            this.emK = cVar.aJP();
         }
     }
 
@@ -213,8 +213,8 @@ public class b implements a {
 
     @Override // com.baidu.tieba.frs.worldcup.talkball.model.a
     public void onDestroy() {
-        if (this.emc != null) {
-            this.emc.cancelLoadData();
+        if (this.emI != null) {
+            this.emI.cancelLoadData();
         }
     }
 }

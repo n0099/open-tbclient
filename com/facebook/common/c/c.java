@@ -3,7 +3,7 @@ package com.facebook.common.c;
 public interface c {
     void d(String str, String str2);
 
-    void da(String str, String str2);
+    void dc(String str, String str2);
 
     void e(String str, String str2);
 

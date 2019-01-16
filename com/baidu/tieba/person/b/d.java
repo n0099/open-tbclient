@@ -17,32 +17,32 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends q.a {
-    public int aLH;
-    public TextView amN;
-    public View dgt;
-    public HTypeListView gtD;
-    public e gtE;
+    public int aMj;
+    public TextView anp;
+    public View dhf;
+    public HTypeListView guH;
+    public e guI;
     public TbPageContext mPageContext;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
         super(view);
-        this.aLH = 3;
+        this.aMj = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.dgt = view.findViewById(e.g.divider_view_under_photo_album);
-        this.amN = (TextView) view.findViewById(e.g.text_view_photo_album);
-        this.gtD = (HTypeListView) view.findViewById(e.g.listview_photo_album);
-        this.gtE = new com.baidu.tieba.person.a.e(this.mPageContext, this.gtD);
+        this.dhf = view.findViewById(e.g.divider_view_under_photo_album);
+        this.anp = (TextView) view.findViewById(e.g.text_view_photo_album);
+        this.guH = (HTypeListView) view.findViewById(e.g.listview_photo_album);
+        this.guI = new com.baidu.tieba.person.a.e(this.mPageContext, this.guH);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.gtE.setDatas(ds(fVar.getPhotoAlbum()));
+            this.guI.setDatas(dt(fVar.getPhotoAlbum()));
         }
     }
 
-    private List<h> ds(List<h> list) {
+    private List<h> dt(List<h> list) {
         if (v.H(list) > 0) {
             ArrayList arrayList = new ArrayList(list);
             com.baidu.tieba.person.d dVar = new com.baidu.tieba.person.d(l.h(this.mPageContext.getPageActivity(), e.C0210e.ds32), l.h(this.mPageContext.getPageActivity(), e.C0210e.ds120));
@@ -53,13 +53,13 @@ public class d extends q.a {
         return list;
     }
 
-    public void Nt() {
-        if (this.aLH != TbadkCoreApplication.getInst().getSkinType()) {
-            this.aLH = TbadkCoreApplication.getInst().getSkinType();
+    public void NK() {
+        if (this.aMj != TbadkCoreApplication.getInst().getSkinType()) {
+            this.aMj = TbadkCoreApplication.getInst().getSkinType();
             al.j(this.rootView, e.d.cp_bg_line_d);
-            al.j(this.dgt, e.d.cp_bg_line_c);
-            al.c(this.amN, e.d.cp_cont_d, 1);
-            this.gtE.notifyDataSetChanged();
+            al.j(this.dhf, e.d.cp_bg_line_c);
+            al.c(this.anp, e.d.cp_cont_d, 1);
+            this.guI.notifyDataSetChanged();
         }
     }
 }

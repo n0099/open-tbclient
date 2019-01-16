@@ -8,7 +8,7 @@ import java.util.zip.ZipException;
 /* loaded from: classes.dex */
 final class d {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long K(File file) throws IOException {
+    public static long L(File file) throws IOException {
         RandomAccessFile randomAccessFile = new RandomAccessFile(file, "r");
         try {
             return a(randomAccessFile, b(randomAccessFile));

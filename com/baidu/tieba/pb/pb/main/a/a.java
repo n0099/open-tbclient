@@ -16,14 +16,14 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
 public class a extends k<i, C0286a> {
-    private View.OnClickListener aIx;
-    private b ghL;
-    private final LinkedList<C0286a> ghM;
+    private View.OnClickListener aIZ;
+    private b giP;
+    private final LinkedList<C0286a> giQ;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
-        this.ghM = new LinkedList<>();
-        this.ghL = new b(this.fXM);
+        this.giQ = new LinkedList<>();
+        this.giP = new b(this.fYJ);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,7 +31,7 @@ public class a extends k<i, C0286a> {
     /* renamed from: bs */
     public C0286a onCreateViewHolder(ViewGroup viewGroup) {
         C0286a c0286a = new C0286a(LayoutInflater.from(this.mContext).inflate(e.h.layout_pb_thread_praise_item, viewGroup, false));
-        this.ghM.add(c0286a);
+        this.giQ.add(c0286a);
         return c0286a;
     }
 
@@ -41,87 +41,87 @@ public class a extends k<i, C0286a> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, i iVar, C0286a c0286a) {
         super.onFillViewHolder(i, view, viewGroup, iVar, c0286a);
         if (iVar != null && c0286a != null) {
-            c0286a.ghN.setOnClickOutListener(this.aIx);
-            c0286a.ghN.setPostId(getPostId());
-            c0286a.ghN.setForumId(getForumId());
+            c0286a.giR.setOnClickOutListener(this.aIZ);
+            c0286a.giR.setPostId(getPostId());
+            c0286a.giR.setForumId(getForumId());
             c0286a.a(iVar);
         }
         return view;
     }
 
     public void onDestroy() {
-        bmD();
-        if (this.ghL != null) {
-            this.ghL.onDestroy();
+        bnl();
+        if (this.giP != null) {
+            this.giP.onDestroy();
         }
     }
 
-    private void bmD() {
-        Iterator<C0286a> it = this.ghM.iterator();
+    private void bnl() {
+        Iterator<C0286a> it = this.giQ.iterator();
         while (it.hasNext()) {
             C0286a next = it.next();
-            if (next != null && next.ghN != null) {
-                next.ghN.onDestroy();
+            if (next != null && next.giR != null) {
+                next.giR.onDestroy();
             }
         }
     }
 
-    public void gr(String str) {
-        Iterator<C0286a> it = this.ghM.iterator();
+    public void gF(String str) {
+        Iterator<C0286a> it = this.giQ.iterator();
         while (it.hasNext()) {
             C0286a next = it.next();
-            if (next != null && next.ghN != null) {
-                next.ghN.gr(str);
+            if (next != null && next.giR != null) {
+                next.giR.gF(str);
             }
         }
     }
 
     private String getPostId() {
-        bb bmE = bmE();
-        return bmE != null ? bmE.zX() : "";
+        bb bnm = bnm();
+        return bnm != null ? bnm.Ak() : "";
     }
 
     private String getForumId() {
-        return this.fXM.bhZ() != null ? this.fXM.bhZ().getForumId() : "";
+        return this.fYJ.biD() != null ? this.fYJ.biD().getForumId() : "";
     }
 
-    private bb bmE() {
-        if (this.fXM.bhZ() == null || this.fXM.bhZ().getPbData() == null) {
+    private bb bnm() {
+        if (this.fYJ.biD() == null || this.fYJ.biD().getPbData() == null) {
             return null;
         }
-        return this.fXM.bhZ().getPbData().bgV();
+        return this.fYJ.biD().getPbData().bhz();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.aIx = onClickListener;
+        this.aIZ = onClickListener;
     }
 
     /* renamed from: com.baidu.tieba.pb.pb.main.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public static class C0286a extends q.a {
-        public View ezU;
-        public PbThreadCommentAndPraiseInfoLayout ghN;
+        public View eAF;
+        public PbThreadCommentAndPraiseInfoLayout giR;
 
         public C0286a(View view) {
             super(view);
             if (view != null) {
-                this.ghN = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(e.g.card_bottom_func_layout);
-                this.ezU = view.findViewById(e.g.bottom_divider_line);
-                this.ezU.setVisibility(0);
+                this.giR = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(e.g.card_bottom_func_layout);
+                this.eAF = view.findViewById(e.g.bottom_divider_line);
+                this.eAF.setVisibility(0);
             }
         }
 
         public void a(i iVar) {
-            if (iVar != null && iVar.bNy != null) {
-                this.ghN.setData(iVar.bNy);
-                this.ezU.setVisibility(iVar.bhA() ? 0 : 8);
+            if (iVar != null && iVar.bOk != null) {
+                this.giR.setData(iVar.bOk);
+                this.eAF.setVisibility(iVar.bie() ? 0 : 8);
             }
             onChangeSkinType();
         }
 
         public void onChangeSkinType() {
-            al.j(this.ezU, e.d.cp_bg_line_e);
-            this.ghN.onChangeSkinType();
+            al.j(this.eAF, e.d.cp_bg_line_e);
+            this.giR.onChangeSkinType();
         }
     }
 }

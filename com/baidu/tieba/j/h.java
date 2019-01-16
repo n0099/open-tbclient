@@ -1,25 +1,25 @@
 package com.baidu.tieba.j;
 /* loaded from: classes.dex */
 public interface h {
-    void Y(int i, String str);
-
-    void Z(int i, String str);
-
     void aa(int i, String str);
 
     void ab(int i, String str);
 
-    void bdd();
+    void ac(int i, String str);
 
-    void bde();
+    void ad(int i, String str);
 
-    void bdf();
+    void bdD();
 
-    void bdg();
+    void bdE();
+
+    void bdF();
+
+    void bdG();
 
     void e(int i, int i2, String str);
 
-    void sd(String str);
+    void su(String str);
 
-    void se(String str);
+    void sv(String str);
 }

@@ -12,7 +12,7 @@ public abstract class a<T> implements d<T> {
             onNewResultImpl(bVar);
         } finally {
             if (isFinished) {
-                bVar.bUy();
+                bVar.bVg();
             }
         }
     }
@@ -22,7 +22,7 @@ public abstract class a<T> implements d<T> {
         try {
             onFailureImpl(bVar);
         } finally {
-            bVar.bUy();
+            bVar.bVg();
         }
     }
 

@@ -20,7 +20,7 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
-    private int gpa;
+    private int gqe;
     private TbPageContext pageContext;
 
     public PbTopicContainer(Context context) {
@@ -29,7 +29,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
 
     public PbTopicContainer(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gpa = 3;
+        this.gqe = 3;
         setOrientation(0);
     }
 
@@ -38,10 +38,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         int i3 = 0;
         int size = (View.MeasureSpec.getSize(i) - getPaddingRight()) - getPaddingLeft();
         int childCount = getChildCount();
-        if (childCount > this.gpa) {
+        if (childCount > this.gqe) {
             while (true) {
                 childCount--;
-                if (childCount <= this.gpa) {
+                if (childCount <= this.gqe) {
                     break;
                 }
                 removeViewAt(childCount);
@@ -94,7 +94,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             int h = l.h(context, e.C0210e.tbds22);
             layoutParams.rightMargin = h;
             textView.setTag(aVar);
-            textView.setText(com.baidu.tbadk.plugins.b.iu(aVar.getTopicName()));
+            textView.setText(com.baidu.tbadk.plugins.b.iI(aVar.getTopicName()));
             addView(textView, layoutParams);
             textView.setTextSize(0, l.h(context, e.C0210e.tbds33));
             textView.setGravity(17);
@@ -110,19 +110,19 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     }
 
     public void setMaxChildCount(int i) {
-        this.gpa = i;
+        this.gqe = i;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getTag() instanceof au.a) {
-            TiebaStatic.log(new am("c11455").aA("obj_locate", "pb_bottom"));
+            TiebaStatic.log(new am("c11455").aB("obj_locate", "pb_bottom"));
             au.a aVar = (au.a) view.getTag();
             if (this.pageContext != null && !com.baidu.tbadk.plugins.b.a(this.pageContext, false, true)) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(getContext()).createNormalConfig(aVar.za() + "", aVar.getTopicName(), "2")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(getContext()).createNormalConfig(aVar.zn() + "", aVar.getTopicName(), "2")));
                 return;
             }
-            com.baidu.tbadk.browser.a.ad(getContext(), "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + aVar.za() + "&topic_name=" + aVar.getTopicName());
+            com.baidu.tbadk.browser.a.ad(getContext(), "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + aVar.zn() + "&topic_name=" + aVar.getTopicName());
         }
     }
 }

@@ -12,29 +12,29 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c {
-    private al dGm;
-    private ArrayList<com.baidu.tieba.forbidden.fans.a> dGn;
-    private a dGo;
-    private HttpMessageListener dGp = new HttpMessageListener(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.c.1
+    private al dGV;
+    private ArrayList<com.baidu.tieba.forbidden.fans.a> dGW;
+    private a dGX;
+    private HttpMessageListener dGY = new HttpMessageListener(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof GetForbiddenFansResponse) {
                 GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
-                c.this.dGm = getForbiddenFansResponse.getPageData();
-                if (c.this.dGn == null) {
-                    c.this.dGn = new ArrayList();
+                c.this.dGV = getForbiddenFansResponse.getPageData();
+                if (c.this.dGW == null) {
+                    c.this.dGW = new ArrayList();
                 }
-                if (c.this.dGm != null) {
-                    if (c.this.dGm.yN() == 1) {
-                        c.this.dGn.clear();
+                if (c.this.dGV != null) {
+                    if (c.this.dGV.za() == 1) {
+                        c.this.dGW.clear();
                     }
                     if (getForbiddenFansResponse.getFansList() != null) {
-                        c.this.dGn.addAll(getForbiddenFansResponse.getFansList());
+                        c.this.dGW.addAll(getForbiddenFansResponse.getFansList());
                     }
                 }
-                if (c.this.dGo != null) {
-                    c.this.dGo.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), c.this.dGn);
+                if (c.this.dGX != null) {
+                    c.this.dGX.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), c.this.dGW);
                 }
             }
         }
@@ -52,35 +52,35 @@ public class c {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.dGp);
+        MessageManager.getInstance().registerListener(this.dGY);
     }
 
-    public void azU() {
+    public void aAr() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
         httpMessage.addParam("rn", 20);
         httpMessage.addParam(Config.PACKAGE_NAME, 1);
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public void azV() {
-        if (this.dGm == null || this.dGm.yP() == 1) {
-            int yN = this.dGm != null ? this.dGm.yN() + 1 : 1;
+    public void aAs() {
+        if (this.dGV == null || this.dGV.zc() == 1) {
+            int za = this.dGV != null ? this.dGV.za() + 1 : 1;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
             httpMessage.addParam("rn", 20);
-            httpMessage.addParam(Config.PACKAGE_NAME, yN);
+            httpMessage.addParam(Config.PACKAGE_NAME, za);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
     public boolean hasMore() {
-        return this.dGm != null && this.dGm.yP() == 1;
+        return this.dGV != null && this.dGV.zc() == 1;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dGp);
+        MessageManager.getInstance().unRegisterListener(this.dGY);
     }
 
     public void a(a aVar) {
-        this.dGo = aVar;
+        this.dGX = aVar;
     }
 }

@@ -11,8 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class EditAddressView extends LinearLayout {
-    private b bGA;
-    private ListView bGz;
+    private ListView bHm;
+    private b bHn;
 
     public EditAddressView(Context context, com.baidu.tieba.aiapps.apps.address.c.b bVar) {
         super(context);
@@ -21,40 +21,40 @@ public class EditAddressView extends LinearLayout {
 
     private void a(Context context, com.baidu.tieba.aiapps.apps.address.c.b bVar) {
         setBackgroundColor(0);
-        this.bGz = new ListView(context);
-        this.bGz.setDividerHeight(0);
+        this.bHm = new ListView(context);
+        this.bHm.setDividerHeight(0);
         onNightModeChanged(AiAppNightModeHelper.getNightModeSwitcherState());
-        this.bGA = new b(context);
+        this.bHn = new b(context);
         g(bVar);
-        this.bGz.setAdapter((ListAdapter) this.bGA);
-        addView(this.bGz, new LinearLayout.LayoutParams(-1, -1));
+        this.bHm.setAdapter((ListAdapter) this.bHn);
+        addView(this.bHm, new LinearLayout.LayoutParams(-1, -1));
     }
 
     public void onNightModeChanged(boolean z) {
         if (z) {
-            this.bGz.setBackgroundColor(Color.parseColor("#161616"));
+            this.bHm.setBackgroundColor(Color.parseColor("#161616"));
         } else {
-            this.bGz.setBackgroundColor(Color.parseColor("#0D000000"));
+            this.bHm.setBackgroundColor(Color.parseColor("#0D000000"));
         }
     }
 
     public Map<String, Object> getDeliveryEditData() {
-        return this.bGA.getDeliveryEditData();
+        return this.bHn.getDeliveryEditData();
     }
 
     public b getEditAdapter() {
-        return this.bGA;
+        return this.bHn;
     }
 
     public void g(com.baidu.tieba.aiapps.apps.address.c.b bVar) {
         if (bVar != null) {
-            this.bGA.setData(com.baidu.tieba.aiapps.apps.address.c.b.e(bVar));
-            this.bGA.o(com.baidu.tieba.aiapps.apps.address.c.b.b(bVar));
-            this.bGA.p(new HashMap(4));
+            this.bHn.setData(com.baidu.tieba.aiapps.apps.address.c.b.e(bVar));
+            this.bHn.o(com.baidu.tieba.aiapps.apps.address.c.b.b(bVar));
+            this.bHn.p(new HashMap(4));
         }
     }
 
     public void setDeliveryEditChangedListener(b.a aVar) {
-        this.bGA.setDeliveryEditChangedListener(aVar);
+        this.bHn.setDeliveryEditChangedListener(aVar);
     }
 }

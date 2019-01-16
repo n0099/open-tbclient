@@ -14,43 +14,43 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class EntelechyPullUpRefreshView extends LinearLayout {
-    private Animation dAk;
-    private View dUo;
-    private TbImageView dUp;
-    private boolean dUq;
+    private Animation dAT;
+    private View dUU;
+    private TbImageView dUV;
+    private boolean dUW;
     private int mIconId;
     private int mSkinType;
 
     public EntelechyPullUpRefreshView(Context context) {
         super(context);
         this.mSkinType = 3;
-        this.dAk = null;
+        this.dAT = null;
         this.mIconId = e.f.icon_frs_reload;
-        this.dUq = false;
+        this.dUW = false;
         e(context, null);
     }
 
     public EntelechyPullUpRefreshView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mSkinType = 3;
-        this.dAk = null;
+        this.dAT = null;
         this.mIconId = e.f.icon_frs_reload;
-        this.dUq = false;
+        this.dUW = false;
         e(context, attributeSet);
     }
 
     public EntelechyPullUpRefreshView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.dAk = null;
+        this.dAT = null;
         this.mIconId = e.f.icon_frs_reload;
-        this.dUq = false;
+        this.dUW = false;
         e(context, attributeSet);
     }
 
     public void setIconResource(int i) {
         this.mIconId = i;
-        al.c(this.dUp, this.mIconId);
+        al.c(this.dUV, this.mIconId);
     }
 
     public void e(Context context, AttributeSet attributeSet) {
@@ -58,51 +58,51 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
             if (attributeSet != null) {
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, e.l.EntelechyPullUpRefreshView);
                 this.mIconId = obtainStyledAttributes.getResourceId(e.l.EntelechyPullUpRefreshView_tb_pull_up_icon, e.f.icon_frs_reload);
-                this.dUq = obtainStyledAttributes.getBoolean(e.l.EntelechyPullUpRefreshView_tb_pull_show_top_line, false);
+                this.dUW = obtainStyledAttributes.getBoolean(e.l.EntelechyPullUpRefreshView_tb_pull_show_top_line, false);
                 obtainStyledAttributes.recycle();
             }
             setOrientation(1);
             setGravity(1);
             al.i(this, e.d.cp_bg_line_d_alpha98);
-            if (this.dUq) {
-                this.dUo = new View(context);
-                this.dUo.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) context.getResources().getDimension(e.C0210e.ds1)));
-                al.i(this.dUo, e.d.cp_bg_line_b);
-                addView(this.dUo);
+            if (this.dUW) {
+                this.dUU = new View(context);
+                this.dUU.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) context.getResources().getDimension(e.C0210e.ds1)));
+                al.i(this.dUU, e.d.cp_bg_line_b);
+                addView(this.dUU);
             }
-            this.dUp = new TbImageView(context);
+            this.dUV = new TbImageView(context);
             int h = l.h(getContext(), e.C0210e.ds48);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(h, h);
             layoutParams.topMargin = l.h(getContext(), e.C0210e.ds20);
-            this.dUp.setLayoutParams(layoutParams);
-            al.c(this.dUp, this.mIconId);
-            addView(this.dUp);
+            this.dUV.setLayoutParams(layoutParams);
+            al.c(this.dUV, this.mIconId);
+            addView(this.dUV);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            al.i(this.dUo, e.d.cp_bg_line_b);
-            al.c(this.dUp, this.mIconId);
+            al.i(this.dUU, e.d.cp_bg_line_b);
+            al.c(this.dUV, this.mIconId);
             al.i(this, e.d.cp_bg_line_d_alpha98);
             this.mSkinType = i;
         }
     }
 
     private Animation getClickRotateAnimation() {
-        if (this.dAk == null) {
-            this.dAk = AnimationUtils.loadAnimation(getContext(), e.a.refresh_rotate);
-            this.dAk.setInterpolator(new LinearInterpolator());
-            this.dAk.setFillAfter(true);
+        if (this.dAT == null) {
+            this.dAT = AnimationUtils.loadAnimation(getContext(), e.a.refresh_rotate);
+            this.dAT.setInterpolator(new LinearInterpolator());
+            this.dAT.setFillAfter(true);
         }
-        return this.dAk;
+        return this.dAT;
     }
 
-    public void ayF() {
-        this.dUp.startAnimation(getClickRotateAnimation());
+    public void azc() {
+        this.dUV.startAnimation(getClickRotateAnimation());
     }
 
-    public void ayG() {
-        this.dUp.clearAnimation();
+    public void azd() {
+        this.dUV.clearAnimation();
     }
 }

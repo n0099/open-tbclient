@@ -21,10 +21,10 @@ import com.baidu.tieba.e;
 import java.util.Calendar;
 /* loaded from: classes6.dex */
 public class BigdayActivity extends BaseActivity {
-    private String aou;
-    private long aow;
-    private TbImageView ezo;
-    private ImageView ezp;
+    private String aoW;
+    private long aoY;
+    private TbImageView ezY;
+    private ImageView ezZ;
     private String imgUrl;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,34 +33,34 @@ public class BigdayActivity extends BaseActivity {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         setContentView(e.h.bigday_activity);
-        this.ezo = (TbImageView) findViewById(e.g.bigday_img);
-        this.ezo.setAutoChangeStyle(false);
-        this.ezp = (ImageView) findViewById(e.g.bigday_close);
+        this.ezY = (TbImageView) findViewById(e.g.bigday_img);
+        this.ezY.setAutoChangeStyle(false);
+        this.ezZ = (ImageView) findViewById(e.g.bigday_close);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            ((FrameLayout.LayoutParams) this.ezp.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(e.C0210e.ds25));
+            ((FrameLayout.LayoutParams) this.ezZ.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(e.C0210e.ds25));
         }
         Intent intent = getIntent();
         if (intent != null) {
             this.imgUrl = intent.getStringExtra(BigdayActivityConfig.IMG_URL);
-            this.aou = intent.getStringExtra(BigdayActivityConfig.JUMP_URL);
-            this.aow = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
+            this.aoW = intent.getStringExtra(BigdayActivityConfig.JUMP_URL);
+            this.aoY = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
         }
-        this.ezo.setTag(getPageContext().getUniqueId());
-        this.ezo.startLoad(this.imgUrl, 41, false);
-        this.ezo.setOnClickListener(this);
-        this.ezp.setOnClickListener(this);
-        TiebaStatic.log(new am("c13111").i(VideoPlayActivityConfig.OBJ_ID, this.aow).aA("obj_to", this.aou));
+        this.ezY.setTag(getPageContext().getUniqueId());
+        this.ezY.startLoad(this.imgUrl, 41, false);
+        this.ezY.setOnClickListener(this);
+        this.ezZ.setOnClickListener(this);
+        TiebaStatic.log(new am("c13111").i(VideoPlayActivityConfig.OBJ_ID, this.aoY).aB("obj_to", this.aoW));
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == this.ezo.getId()) {
-            if (!StringUtils.isNULL(this.aou)) {
-                ay.Ef().c(getPageContext(), new String[]{this.aou});
-                TiebaStatic.log(new am("c13112").i(VideoPlayActivityConfig.OBJ_ID, this.aow).aA("obj_to", this.aou));
+        if (view.getId() == this.ezY.getId()) {
+            if (!StringUtils.isNULL(this.aoW)) {
+                ay.Es().c(getPageContext(), new String[]{this.aoW});
+                TiebaStatic.log(new am("c13112").i(VideoPlayActivityConfig.OBJ_ID, this.aoY).aB("obj_to", this.aoW));
                 finish();
             }
-        } else if (view.getId() == this.ezp.getId()) {
+        } else if (view.getId() == this.ezZ.getId()) {
             Calendar calendar = Calendar.getInstance();
             calendar.set(11, 23);
             calendar.set(12, 59);

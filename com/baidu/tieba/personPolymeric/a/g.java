@@ -27,14 +27,14 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.personPolymeric.c.h hVar, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.f> aVar) {
-        if (aVar == null || aVar.aqT() == null || hVar == null) {
+        if (aVar == null || aVar.arr() == null || hVar == null) {
             return null;
         }
-        aVar.aqT().a(hVar);
-        if (aVar.aqT().getView() != null) {
-            aVar.aqT().getView().setOnClickListener(this.mOnClickListener);
+        aVar.arr().a(hVar);
+        if (aVar.arr().getView() != null) {
+            aVar.arr().getView().setOnClickListener(this.mOnClickListener);
         }
-        return aVar.aqT().getView();
+        return aVar.arr().getView();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {

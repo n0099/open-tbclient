@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class i {
-    public static void eQ(String str) {
+    public static void eZ(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
@@ -39,12 +39,12 @@ public class i {
         }
         if (i > 0) {
             am amVar = new am("c12231");
-            amVar.x("obj_param1", i);
+            amVar.y("obj_param1", i);
             TiebaStatic.log(amVar);
         }
     }
 
-    public static void CG() {
+    public static void CT() {
         new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.i.1
             @Override // java.lang.Runnable
             public void run() {
@@ -64,8 +64,8 @@ public class i {
                                 mainDBDatabaseManager.a(th, "EmotionsDBManager.listMyEmotions");
                                 com.baidu.adp.lib.util.n.e(cursor);
                                 am amVar = new am("c12232");
-                                amVar.aA("uid", TbadkCoreApplication.getCurrentAccount());
-                                amVar.x("obj_param1", i);
+                                amVar.aB("uid", TbadkCoreApplication.getCurrentAccount());
+                                amVar.y("obj_param1", i);
                                 TiebaStatic.log(amVar);
                             } catch (Throwable th3) {
                                 com.baidu.adp.lib.util.n.e(cursor);
@@ -80,8 +80,8 @@ public class i {
                     i = 0;
                 }
                 am amVar2 = new am("c12232");
-                amVar2.aA("uid", TbadkCoreApplication.getCurrentAccount());
-                amVar2.x("obj_param1", i);
+                amVar2.aB("uid", TbadkCoreApplication.getCurrentAccount());
+                amVar2.y("obj_param1", i);
                 TiebaStatic.log(amVar2);
             }
         }).start();

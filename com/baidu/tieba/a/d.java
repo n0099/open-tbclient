@@ -7,45 +7,45 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class d {
-    private static volatile d bAv;
-    private ArrayList<Integer> bAr = new ArrayList<>();
-    private c bAs;
-    private a bAw;
+    private static volatile d bBi;
+    private ArrayList<Integer> bBe = new ArrayList<>();
+    private c bBf;
+    private a bBj;
 
-    public static d VO() {
-        if (bAv == null) {
+    public static d Wk() {
+        if (bBi == null) {
             synchronized (c.class) {
-                if (bAv == null) {
-                    bAv = new d();
+                if (bBi == null) {
+                    bBi = new d();
                 }
             }
         }
-        return bAv;
+        return bBi;
     }
 
     private d() {
-        this.bAr.add(1);
-        this.bAr.add(2);
-        this.bAs = new c();
-        this.bAw = new a(this.bAs, this.bAr);
+        this.bBe.add(1);
+        this.bBe.add(2);
+        this.bBf = new c();
+        this.bBj = new a(this.bBf, this.bBe);
         hI(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_abtest_channel", 0));
     }
 
     public int N(String str, int i) {
-        if (this.bAw == null) {
+        if (this.bBj == null) {
             return 0;
         }
-        return this.bAw.N(str, i);
+        return this.bBj.N(str, i);
     }
 
-    public void jK(String str) {
-        if (this.bAw != null) {
-            this.bAw.jJ(str);
+    public void ka(String str) {
+        if (this.bBj != null) {
+            this.bBj.jZ(str);
         }
     }
 
     public void a(String str, String str2, am amVar) {
-        if (amVar != null && this.bAs != null && this.bAs.VM()) {
+        if (amVar != null && this.bBf != null && this.bBf.Wi()) {
             HashMap hashMap = new HashMap();
             List<Object> params = amVar.getParams();
             if (params != null) {
@@ -69,20 +69,20 @@ public class d {
     }
 
     public void onPageStart(String str) {
-        if (ao.isEmpty(str) || this.bAs == null || !this.bAs.VM()) {
-            com.baidu.ubs.analytics.a.yu(str);
+        if (ao.isEmpty(str) || this.bBf == null || !this.bBf.Wi()) {
+            com.baidu.ubs.analytics.a.yK(str);
         }
     }
 
     public void onPageEnd(String str) {
-        if (ao.isEmpty(str) || this.bAs == null || !this.bAs.VM()) {
-            com.baidu.ubs.analytics.a.yv(str);
+        if (ao.isEmpty(str) || this.bBf == null || !this.bBf.Wi()) {
+            com.baidu.ubs.analytics.a.yL(str);
         }
     }
 
     public void hI(int i) {
-        if (this.bAs != null) {
-            this.bAs.hI(i);
+        if (this.bBf != null) {
+            this.bBf.hI(i);
         }
     }
 }

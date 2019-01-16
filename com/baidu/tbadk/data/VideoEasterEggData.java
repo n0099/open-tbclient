@@ -1,6 +1,5 @@
 package com.baidu.tbadk.data;
 
-import com.baidu.tbadk.core.atomData.GroupActivityActivityConfig;
 import com.baidu.tieba.recapp.activity.WebVideoActivityConfig;
 import java.io.Serializable;
 import org.json.JSONObject;
@@ -17,7 +16,7 @@ public class VideoEasterEggData implements Serializable {
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.activityID = jSONObject.optString(GroupActivityActivityConfig.ACTIVITY_ID, "");
+            this.activityID = jSONObject.optString("activity_id", "");
             this.videoUrl = jSONObject.optString(WebVideoActivityConfig.KEY_VIDEO_URL, "");
             this.popText = jSONObject.optString("pop_text", "");
             this.popImageUrl = jSONObject.optString("pop_imageurl", "");

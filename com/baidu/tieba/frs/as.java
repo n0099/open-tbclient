@@ -11,37 +11,37 @@ import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class as {
     private TranslateAnimation mTipInAnimation;
-    private View dOH = null;
-    private int dOI = 2000;
+    private View dPq = null;
+    private int dPr = 2000;
     private Runnable mHideTipRunnable = new Runnable() { // from class: com.baidu.tieba.frs.as.1
         @Override // java.lang.Runnable
         public void run() {
             as.this.hideTip();
         }
     };
-    private ValueAnimator dOJ = new ValueAnimator();
+    private ValueAnimator dPs = new ValueAnimator();
 
     public as() {
-        this.dOJ.setFloatValues(1.0f, 0.0f);
-        this.dOJ.setDuration(400L);
-        this.dOJ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.as.2
+        this.dPs.setFloatValues(1.0f, 0.0f);
+        this.dPs.setDuration(400L);
+        this.dPs.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.as.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (as.this.dOH != null && valueAnimator != null) {
-                    as.this.dOH.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (as.this.dPq != null && valueAnimator != null) {
+                    as.this.dPq.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.dOJ.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.as.3
+        this.dPs.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.as.3
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (as.this.dOH != null) {
-                    as.this.aDu();
-                    as.this.dOH.setAlpha(1.0f);
+                if (as.this.dPq != null) {
+                    as.this.aDR();
+                    as.this.dPq.setAlpha(1.0f);
                 }
             }
 
@@ -62,7 +62,7 @@ public class as {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                com.baidu.adp.lib.g.e.jG().postDelayed(as.this.mHideTipRunnable, as.this.dOI);
+                com.baidu.adp.lib.g.e.jG().postDelayed(as.this.mHideTipRunnable, as.this.dPr);
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -73,47 +73,47 @@ public class as {
 
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i) {
         if (viewGroup != null && view != null) {
-            this.dOH = view;
-            aDu();
-            viewGroup.addView(this.dOH, layoutParams);
-            this.dOH.setVisibility(0);
-            this.dOI = i;
+            this.dPq = view;
+            aDR();
+            viewGroup.addView(this.dPq, layoutParams);
+            this.dPq.setVisibility(0);
+            this.dPr = i;
             com.baidu.adp.lib.g.e.jG().removeCallbacks(this.mHideTipRunnable);
-            com.baidu.adp.lib.g.e.jG().postDelayed(this.mHideTipRunnable, this.dOI);
+            com.baidu.adp.lib.g.e.jG().postDelayed(this.mHideTipRunnable, this.dPr);
         }
     }
 
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         if (viewGroup != null && view != null) {
-            this.dOH = view;
-            aDu();
-            viewGroup.addView(this.dOH, layoutParams);
-            this.dOH.setVisibility(0);
+            this.dPq = view;
+            aDR();
+            viewGroup.addView(this.dPq, layoutParams);
+            this.dPq.setVisibility(0);
         }
     }
 
     public void hideTip() {
         com.baidu.adp.lib.g.e.jG().removeCallbacks(this.mHideTipRunnable);
-        if (this.dOH != null && this.dOH.getParent() != null && this.dOH.getVisibility() == 0 && !this.dOJ.isRunning()) {
-            this.dOJ.start();
+        if (this.dPq != null && this.dPq.getParent() != null && this.dPq.getVisibility() == 0 && !this.dPs.isRunning()) {
+            this.dPs.start();
         }
     }
 
-    public void aDu() {
+    public void aDR() {
         com.baidu.adp.lib.g.e.jG().removeCallbacks(this.mHideTipRunnable);
-        if (this.dOH != null) {
-            if (this.dOJ != null && this.dOJ.isRunning()) {
-                this.dOJ.cancel();
+        if (this.dPq != null) {
+            if (this.dPs != null && this.dPs.isRunning()) {
+                this.dPs.cancel();
             }
-            this.dOH.clearAnimation();
-            if (this.dOH.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.dOH.getParent()).removeView(this.dOH);
+            this.dPq.clearAnimation();
+            if (this.dPq.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.dPq.getParent()).removeView(this.dPq);
             }
-            this.dOH.setVisibility(8);
+            this.dPq.setVisibility(8);
         }
     }
 
     public void onDestroy() {
-        aDu();
+        aDR();
     }
 }

@@ -3,7 +3,7 @@ package rx.internal.operators;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class bq<T> implements d.b<T, T> {
-    private final rx.d<? extends T> iLD;
+    private final rx.d<? extends T> iMK;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -11,13 +11,13 @@ public final class bq<T> implements d.b<T, T> {
     }
 
     public bq(rx.d<? extends T> dVar) {
-        this.iLD = dVar;
+        this.iMK = dVar;
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
         rx.subscriptions.d dVar = new rx.subscriptions.d();
         rx.internal.producers.a aVar = new rx.internal.producers.a();
-        b bVar = new b(jVar, dVar, aVar, this.iLD);
+        b bVar = new b(jVar, dVar, aVar, this.iMK);
         dVar.g(bVar);
         jVar.add(dVar);
         jVar.setProducer(aVar);
@@ -28,36 +28,36 @@ public final class bq<T> implements d.b<T, T> {
     /* loaded from: classes2.dex */
     public static final class b<T> extends rx.j<T> {
         private final rx.j<? super T> child;
-        private final rx.internal.producers.a iFv;
-        private final rx.d<? extends T> iLD;
-        private boolean iLE = true;
+        private final rx.internal.producers.a iGC;
+        private final rx.d<? extends T> iMK;
+        private boolean iML = true;
         private final rx.subscriptions.d serial;
 
         b(rx.j<? super T> jVar, rx.subscriptions.d dVar, rx.internal.producers.a aVar, rx.d<? extends T> dVar2) {
             this.child = jVar;
             this.serial = dVar;
-            this.iFv = aVar;
-            this.iLD = dVar2;
+            this.iGC = aVar;
+            this.iMK = dVar2;
         }
 
         @Override // rx.j
         public void setProducer(rx.f fVar) {
-            this.iFv.setProducer(fVar);
+            this.iGC.setProducer(fVar);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.iLE) {
+            if (!this.iML) {
                 this.child.onCompleted();
             } else if (!this.child.isUnsubscribed()) {
-                ceJ();
+                cfr();
             }
         }
 
-        private void ceJ() {
-            a aVar = new a(this.child, this.iFv);
+        private void cfr() {
+            a aVar = new a(this.child, this.iGC);
             this.serial.g(aVar);
-            this.iLD.unsafeSubscribe(aVar);
+            this.iMK.unsafeSubscribe(aVar);
         }
 
         @Override // rx.e
@@ -67,9 +67,9 @@ public final class bq<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            this.iLE = false;
+            this.iML = false;
             this.child.onNext(t);
-            this.iFv.dQ(1L);
+            this.iGC.dQ(1L);
         }
     }
 
@@ -77,16 +77,16 @@ public final class bq<T> implements d.b<T, T> {
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.j<T> {
         private final rx.j<? super T> child;
-        private final rx.internal.producers.a iFv;
+        private final rx.internal.producers.a iGC;
 
         a(rx.j<? super T> jVar, rx.internal.producers.a aVar) {
             this.child = jVar;
-            this.iFv = aVar;
+            this.iGC = aVar;
         }
 
         @Override // rx.j
         public void setProducer(rx.f fVar) {
-            this.iFv.setProducer(fVar);
+            this.iGC.setProducer(fVar);
         }
 
         @Override // rx.e
@@ -102,7 +102,7 @@ public final class bq<T> implements d.b<T, T> {
         @Override // rx.e
         public void onNext(T t) {
             this.child.onNext(t);
-            this.iFv.dQ(1L);
+            this.iGC.dQ(1L);
         }
     }
 }

@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.relogin.ReloginManager;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.tbadk.core.a.a {
-    private static a fPA = null;
-    private final a.InterfaceC0155a fPB = new a.InterfaceC0155a() { // from class: com.baidu.tieba.passaccount.a.a.1
+    private static a fQx = null;
+    private final a.InterfaceC0155a fQy = new a.InterfaceC0155a() { // from class: com.baidu.tieba.passaccount.a.a.1
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0155a
-        public void ec(String str) {
+        public void el(String str) {
         }
 
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0155a
@@ -23,7 +23,7 @@ public class a extends com.baidu.tbadk.core.a.a {
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0155a
         public void b(final String str, int i, String str2) {
             if (i == 1) {
-                ReloginManager.Ct().e(null);
+                ReloginManager.CG().e(null);
             }
             BdAsyncTask<Void, Void, AccountData> bdAsyncTask = new BdAsyncTask<Void, Void, AccountData>() { // from class: com.baidu.tieba.passaccount.a.a.1.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -31,7 +31,7 @@ public class a extends com.baidu.tbadk.core.a.a {
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 /* renamed from: i */
                 public AccountData doInBackground(Void... voidArr) {
-                    return com.baidu.tbadk.core.a.b.ee(str);
+                    return com.baidu.tbadk.core.a.b.en(str);
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class a extends com.baidu.tbadk.core.a.a {
                 public void onPostExecute(AccountData accountData) {
                     super.onPostExecute(accountData);
                     if (accountData != null && !TextUtils.isEmpty(accountData.getID())) {
-                        com.baidu.tbadk.core.a.b.ed(accountData.getID());
+                        com.baidu.tbadk.core.a.b.em(accountData.getID());
                     }
                 }
             };
@@ -53,15 +53,15 @@ public class a extends com.baidu.tbadk.core.a.a {
     private a() {
     }
 
-    public static a bfX() {
-        if (fPA == null) {
-            fPA = new a();
+    public static a bgB() {
+        if (fQx == null) {
+            fQx = new a();
         }
-        return fPA;
+        return fQx;
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public a.b eb(String str) {
+    public a.b ek(String str) {
         a.b bVar;
         Exception e;
         if (str != null) {
@@ -72,7 +72,7 @@ public class a extends com.baidu.tbadk.core.a.a {
                     try {
                         bVar.El = split[0];
                         if (split.length >= 2) {
-                            bVar.aop = split[1];
+                            bVar.aoR = split[1];
                             return bVar;
                         }
                         return bVar;
@@ -91,11 +91,11 @@ public class a extends com.baidu.tbadk.core.a.a {
     }
 
     @Override // com.baidu.tbadk.core.a.a
-    public void xK() {
+    public void xX() {
         AccountData currentAccountObj;
-        a.b eb;
-        if (j.kV() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (eb = eb(currentAccountObj.getBDUSS())) != null) {
-            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), eb.El, eb.aop, currentAccountObj.getStoken(), this.fPB);
+        a.b ek;
+        if (j.kV() && (currentAccountObj = TbadkCoreApplication.getCurrentAccountObj()) != null && (ek = ek(currentAccountObj.getBDUSS())) != null) {
+            com.baidu.tieba.model.b.a(currentAccountObj.getAccount(), ek.El, ek.aoR, currentAccountObj.getStoken(), this.fQy);
         }
     }
 

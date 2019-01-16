@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.ay;
 /* loaded from: classes3.dex */
 public class GroupInfoActivityStatic {
     static {
-        aKy();
-        aAY();
+        aKW();
+        aBv();
     }
 
-    private static void aKy() {
+    private static void aKW() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2008011, new CustomMessageTask.CustomRunnable<GroupInfoActivityConfig>() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivityStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<GroupInfoActivityConfig> customMessage) {
@@ -35,8 +35,8 @@ public class GroupInfoActivityStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aAY() {
-        ay.Ef().a(new ay.a() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivityStatic.2
+    private static void aBv() {
+        ay.Es().a(new ay.a() { // from class: com.baidu.tieba.im.groupInfo.GroupInfoActivityStatic.2
             @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0) {

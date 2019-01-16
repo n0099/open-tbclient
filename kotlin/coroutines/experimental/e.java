@@ -5,7 +5,7 @@ import kotlin.coroutines.experimental.d;
 import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public final class e implements d {
-    public static final e iBn = new e();
+    public static final e iCu = new e();
 
     private e() {
     }

@@ -20,43 +20,43 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 /* loaded from: classes2.dex */
 public class a {
-    private static C0059a ZA;
-    private static volatile a Zz;
+    private static volatile a ZI;
+    private static C0059a ZJ;
     private static Executor sExecutor;
 
     private a() {
     }
 
-    public static a rC() {
-        if (Zz == null) {
+    public static a rG() {
+        if (ZI == null) {
             synchronized (a.class) {
-                if (Zz == null) {
+                if (ZI == null) {
                     sExecutor = Executors.newSingleThreadExecutor(Executors.defaultThreadFactory());
-                    ZA = new C0059a(AppRuntime.getAppContext(), "dynamic_file.db", 1);
-                    Zz = new a();
+                    ZJ = new C0059a(AppRuntime.getAppContext(), "dynamic_file.db", 1);
+                    ZI = new a();
                 }
             }
         }
-        return Zz;
+        return ZI;
     }
 
     public long d(final com.baidu.b.a.c.a.a aVar) {
         aVar.updateTime = System.currentTimeMillis();
-        if (aVar.Zy <= 0) {
+        if (aVar.ZH <= 0) {
             aVar.createTime = aVar.updateTime;
         }
-        final long[] jArr = {aVar.Zy};
+        final long[] jArr = {aVar.ZH};
         a(new com.baidu.b.a.d.a() { // from class: com.baidu.b.a.c.b.a.4
             @Override // com.baidu.b.a.d.a
             protected boolean performTransaction(SQLiteDatabase sQLiteDatabase) {
                 ContentValues e = a.this.e(aVar);
-                if (aVar.Zy <= 0) {
+                if (aVar.ZH <= 0) {
                     long insert = sQLiteDatabase.insert("file", null, e);
                     jArr[0] = insert;
                     return insert > 0;
                 }
                 try {
-                    if (sQLiteDatabase.update("file", e, "_id =? ", new String[]{String.valueOf(aVar.Zy)}) > 0) {
+                    if (sQLiteDatabase.update("file", e, "_id =? ", new String[]{String.valueOf(aVar.ZH)}) > 0) {
                         return true;
                     }
                 } catch (Exception e2) {
@@ -103,7 +103,7 @@ public class a {
             if (!TextUtils.isEmpty(str2)) {
                 str5 = "SELECT * FROM (" + str5 + " ) AS a GROUP BY a." + str2;
             }
-            return ZA.getReadableDatabase().rawQuery(str5, strArr);
+            return ZJ.getReadableDatabase().rawQuery(str5, strArr);
         } catch (SQLException e) {
             if (com.baidu.b.a.h.b.isDebug()) {
                 e.printStackTrace();
@@ -225,7 +225,7 @@ public class a {
         return false;
     }
 
-    public List<com.baidu.b.a.c.a.a> Z(String str, String str2) {
+    public List<com.baidu.b.a.c.a.a> aa(String str, String str2) {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new Pair<>("channel_id", str));
         if (str2 != null) {
@@ -257,8 +257,8 @@ public class a {
         if (!TextUtils.isEmpty(aVar.name)) {
             contentValues.put("name", aVar.name);
         }
-        contentValues.put("version", Long.valueOf(aVar.Zn));
-        contentValues.put("update_version", Long.valueOf(aVar.Zo));
+        contentValues.put("version", Long.valueOf(aVar.Zw));
+        contentValues.put("update_version", Long.valueOf(aVar.Zx));
         if (!TextUtils.isEmpty(aVar.downloadUrl)) {
             contentValues.put("download_url", aVar.downloadUrl);
         }
@@ -271,24 +271,24 @@ public class a {
         if (!TextUtils.isEmpty(aVar.md5)) {
             contentValues.put(ARResourceKey.HTTP_AR_MD5, aVar.md5);
         }
-        contentValues.put("min_host_version", aVar.Zp);
-        contentValues.put("max_host_version", aVar.Zq);
+        contentValues.put("min_host_version", aVar.Zy);
+        contentValues.put("max_host_version", aVar.Zz);
         if (!TextUtils.isEmpty(aVar.size)) {
             contentValues.put(ChooseVideoAction.CB_KEY_SIZE, aVar.size);
         }
-        contentValues.put("wifi", Integer.valueOf(aVar.Zs));
+        contentValues.put("wifi", Integer.valueOf(aVar.ZB));
         contentValues.put("rollback", Integer.valueOf(aVar.rollback));
-        contentValues.put("download_option", Integer.valueOf(aVar.Zt));
-        if (!TextUtils.isEmpty(aVar.Zr)) {
-            contentValues.put("extra_server", aVar.Zr);
+        contentValues.put("download_option", Integer.valueOf(aVar.ZC));
+        if (!TextUtils.isEmpty(aVar.ZA)) {
+            contentValues.put("extra_server", aVar.ZA);
         }
         contentValues.put("type", Integer.valueOf(aVar.type));
-        if (!TextUtils.isEmpty(aVar.Zu)) {
-            contentValues.put("extra_local", aVar.Zu);
+        if (!TextUtils.isEmpty(aVar.ZD)) {
+            contentValues.put("extra_local", aVar.ZD);
         }
         contentValues.put("file_path", aVar.filePath);
-        contentValues.put("total_size", Long.valueOf(aVar.Zw));
-        contentValues.put("current_size", Long.valueOf(aVar.Zx));
+        contentValues.put("total_size", Long.valueOf(aVar.ZF));
+        contentValues.put("current_size", Long.valueOf(aVar.ZG));
         contentValues.put("create_time", Long.valueOf(aVar.createTime));
         contentValues.put("update_time", Long.valueOf(aVar.updateTime));
         return contentValues;
@@ -326,28 +326,28 @@ public class a {
                     if (!TextUtils.isEmpty(string)) {
                         com.baidu.b.a.c.a.a aVar = new com.baidu.b.a.c.a.a();
                         aVar.packageName = string;
-                        aVar.Zo = cursor.getLong(columnIndex2);
+                        aVar.Zx = cursor.getLong(columnIndex2);
                         aVar.downloadUrl = cursor.getString(columnIndex3);
-                        aVar.Zn = cursor.getLong(columnIndex4);
+                        aVar.Zw = cursor.getLong(columnIndex4);
                         aVar.name = cursor.getString(columnIndex5);
-                        aVar.Zq = cursor.getString(columnIndex10);
-                        aVar.Zp = cursor.getString(columnIndex9);
+                        aVar.Zz = cursor.getString(columnIndex10);
+                        aVar.Zy = cursor.getString(columnIndex9);
                         aVar.md5 = cursor.getString(columnIndex6);
                         aVar.size = cursor.getString(columnIndex7);
-                        aVar.Zt = cursor.getInt(columnIndex11);
-                        aVar.Zr = cursor.getString(columnIndex8);
+                        aVar.ZC = cursor.getInt(columnIndex11);
+                        aVar.ZA = cursor.getString(columnIndex8);
                         aVar.channelId = cursor.getString(columnIndex12);
                         aVar.channelName = cursor.getString(columnIndex13);
-                        aVar.Zs = cursor.getInt(columnIndex14);
+                        aVar.ZB = cursor.getInt(columnIndex14);
                         aVar.rollback = cursor.getInt(columnIndex15);
                         aVar.type = cursor.getInt(columnIndex16);
-                        aVar.Zu = cursor.getString(columnIndex17);
+                        aVar.ZD = cursor.getString(columnIndex17);
                         aVar.filePath = cursor.getString(columnIndex18);
-                        aVar.Zw = cursor.getLong(columnIndex19);
-                        aVar.Zx = cursor.getLong(columnIndex20);
+                        aVar.ZF = cursor.getLong(columnIndex19);
+                        aVar.ZG = cursor.getLong(columnIndex20);
                         aVar.createTime = cursor.getLong(columnIndex21);
                         aVar.updateTime = cursor.getLong(columnIndex22);
-                        aVar.Zy = cursor.getInt(columnIndex23);
+                        aVar.ZH = cursor.getInt(columnIndex23);
                         arrayList.add(aVar);
                     }
                 } while (cursor.moveToNext());
@@ -357,7 +357,7 @@ public class a {
     }
 
     private boolean a(com.baidu.b.a.d.a aVar) {
-        aVar.run(ZA.getWritableDatabase());
+        aVar.run(ZJ.getWritableDatabase());
         return aVar.isTransactionSuccess();
     }
 
@@ -365,7 +365,7 @@ public class a {
         sExecutor.execute(new Runnable() { // from class: com.baidu.b.a.c.b.a.3
             @Override // java.lang.Runnable
             public void run() {
-                aVar.run(a.ZA.getWritableDatabase());
+                aVar.run(a.ZJ.getWritableDatabase());
             }
         });
     }
@@ -384,14 +384,14 @@ public class a {
 
         @Override // android.database.sqlite.SQLiteOpenHelper
         public void onCreate(SQLiteDatabase sQLiteDatabase) {
-            sQLiteDatabase.execSQL(rE());
+            sQLiteDatabase.execSQL(rI());
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
         public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         }
 
-        private String rE() {
+        private String rI() {
             return "CREATE TABLE file(_id INTEGER PRIMARY KEY,channel_id TEXT NOT NULL,channel_name TEXT NOT NULL," + ETAG.KEY_PACKAGE_NAME + " TEXT NOT NULL,name TEXT NOT NULL,version LONG,update_version LONG,min_host_version TEXT,max_host_version TEXT,download_url TEXT,type INTEGER DEFAULT 0," + ARResourceKey.HTTP_AR_MD5 + " TEXT," + ChooseVideoAction.CB_KEY_SIZE + " TEXT,download_option INTEGER DEFAULT 0,wifi INTEGER DEFAULT 0,rollback INTEGER DEFAULT 0,extra_server TEXT,extra_local TEXT,file_path TEXT,total_size LONG,current_size LONG,create_time LONG,update_time LONG);";
         }
     }

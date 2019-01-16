@@ -3,13 +3,13 @@ package kotlin.jvm.internal;
 public class LocalVariableReference extends PropertyReference0 {
     @Override // kotlin.jvm.internal.CallableReference
     public kotlin.reflect.d getOwner() {
-        q.ccG();
+        q.cdo();
         throw null;
     }
 
     @Override // kotlin.reflect.k
     public Object get() {
-        q.ccG();
+        q.cdo();
         throw null;
     }
 }

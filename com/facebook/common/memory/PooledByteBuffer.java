@@ -9,7 +9,7 @@ public interface PooledByteBuffer extends Closeable {
 
     int size();
 
-    byte yg(int i);
+    byte yi(int i);
 
     /* loaded from: classes2.dex */
     public static class ClosedException extends RuntimeException {

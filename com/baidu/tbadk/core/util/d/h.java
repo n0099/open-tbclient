@@ -43,17 +43,17 @@ public class h extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Ev() {
+    public boolean EI() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean Ew() {
+    public boolean EJ() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int Ex() {
+    public int EK() {
         return this.procType;
     }
 }

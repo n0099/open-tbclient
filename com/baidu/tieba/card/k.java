@@ -17,39 +17,39 @@ import com.baidu.tieba.horizonalList.widget.HListView;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class k extends b<com.baidu.tieba.card.data.h> {
-    private View.OnClickListener aFa;
-    private com.baidu.tieba.horizonalList.widget.b cWO;
-    private HListView cWX;
-    public l cWY;
+    private View.OnClickListener aFC;
+    private HListView cXI;
+    public l cXJ;
+    private com.baidu.tieba.horizonalList.widget.b cXz;
     private TbPageContext<?> mContext;
     private List<com.baidu.tieba.horizonalList.widget.c> mItemList;
 
     public k(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext);
-        this.aFa = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.1
+        this.aFC = new View.OnClickListener() { // from class: com.baidu.tieba.card.k.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (k.this.apS() != null) {
-                    k.this.apS().a(view, null);
+                if (k.this.aqp() != null) {
+                    k.this.aqp().a(view, null);
                 }
             }
         };
         this.mContext = tbPageContext;
-        this.cWX = new HListView(getContext());
-        this.cWX.setHeaderDividersEnabled(false);
-        this.cWX.setFooterDividersEnabled(false);
-        this.cWX.setSelector(e.f.list_selector_transparent);
-        this.cWX.setPadding(tbPageContext.getResources().getDimensionPixelSize(e.C0210e.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(e.C0210e.ds4), 0);
-        this.cWY = new l(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(e.h.card_homepage_rec_god_item, (ViewGroup) null), tbPageContext);
-        this.cWO = new com.baidu.tieba.horizonalList.widget.b(getContext(), e.h.card_homepage_rec_god_item, this.cWY);
-        this.cWO.setOnClickListener(this.aFa);
-        this.cWX.setAdapter((ListAdapter) this.cWO);
-        this.cVd.addView(this.cWX);
-        this.cVc.setVisibility(8);
-        this.cUW.setTextSize(0, com.baidu.adp.lib.util.l.h(this.mContext.getPageActivity(), e.C0210e.ds28));
-        this.cUX.setVisibility(0);
-        this.cUX.setText(this.mContext.getResources().getString(e.j.recommend_frs_hot_thread_more));
-        this.cUV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.k.2
+        this.cXI = new HListView(getContext());
+        this.cXI.setHeaderDividersEnabled(false);
+        this.cXI.setFooterDividersEnabled(false);
+        this.cXI.setSelector(e.f.list_selector_transparent);
+        this.cXI.setPadding(tbPageContext.getResources().getDimensionPixelSize(e.C0210e.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(e.C0210e.ds4), 0);
+        this.cXJ = new l(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(e.h.card_homepage_rec_god_item, (ViewGroup) null), tbPageContext);
+        this.cXz = new com.baidu.tieba.horizonalList.widget.b(getContext(), e.h.card_homepage_rec_god_item, this.cXJ);
+        this.cXz.setOnClickListener(this.aFC);
+        this.cXI.setAdapter((ListAdapter) this.cXz);
+        this.cVO.addView(this.cXI);
+        this.cVN.setVisibility(8);
+        this.cVH.setTextSize(0, com.baidu.adp.lib.util.l.h(this.mContext.getPageActivity(), e.C0210e.ds28));
+        this.cVI.setVisibility(0);
+        this.cVI.setText(this.mContext.getResources().getString(e.j.recommend_frs_hot_thread_more));
+        this.cVG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.k.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!TbadkCoreApplication.getInst().appResponseToIntentClass(GodSquareActivityConfig.class)) {
@@ -59,16 +59,16 @@ public class k extends b<com.baidu.tieba.card.data.h> {
                 }
             }
         });
-        this.cWY.setUniqueId(bdUniqueId);
+        this.cXJ.setUniqueId(bdUniqueId);
     }
 
     @Override // com.baidu.tieba.card.b, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         super.d(tbPageContext, i);
-        if (this.cWX != null && this.cWO != null) {
-            al.h(this.cUX, e.d.cp_cont_d);
-            al.h(this.cUW, e.d.cp_cont_d);
-            this.cWO.ej(i);
+        if (this.cXI != null && this.cXz != null) {
+            al.h(this.cVI, e.d.cp_cont_d);
+            al.h(this.cVH, e.d.cp_cont_d);
+            this.cXz.ej(i);
         }
     }
 
@@ -78,17 +78,17 @@ public class k extends b<com.baidu.tieba.card.data.h> {
         super.a((k) hVar);
         if (hVar != null && !com.baidu.tbadk.core.util.v.I(hVar.getDataList())) {
             if (StringUtils.isNull(hVar.mGroupTitle)) {
-                this.cUW.setText(this.mContext.getPageActivity().getResources().getString(e.j.the_gods_you_may_interest_in));
+                this.cVH.setText(this.mContext.getPageActivity().getResources().getString(e.j.the_gods_you_may_interest_in));
             }
-            if (ba(hVar.getDataList())) {
+            if (bb(hVar.getDataList())) {
                 this.mItemList = hVar.getDataList();
-                this.cWO.setData(this.mItemList);
-                this.cWO.notifyDataSetChanged();
+                this.cXz.setData(this.mItemList);
+                this.cXz.notifyDataSetChanged();
             }
         }
     }
 
-    private boolean ba(List<com.baidu.tieba.horizonalList.widget.c> list) {
+    private boolean bb(List<com.baidu.tieba.horizonalList.widget.c> list) {
         if (com.baidu.tbadk.core.util.v.I(list)) {
             return false;
         }
@@ -99,7 +99,7 @@ public class k extends b<com.baidu.tieba.card.data.h> {
                 if ((cVar instanceof com.baidu.tieba.card.data.i) && (cVar2 instanceof com.baidu.tieba.card.data.i)) {
                     com.baidu.tieba.card.data.i iVar = (com.baidu.tieba.card.data.i) cVar;
                     com.baidu.tieba.card.data.i iVar2 = (com.baidu.tieba.card.data.i) cVar2;
-                    if (iVar.atK != null && !StringUtils.isNull(iVar.atK.getUserId()) && iVar2.atK != null && !StringUtils.isNull(iVar2.atK.getUserId()) && !iVar.atK.getUserId().equals(iVar2.atK.getUserId())) {
+                    if (iVar.aum != null && !StringUtils.isNull(iVar.aum.getUserId()) && iVar2.aum != null && !StringUtils.isNull(iVar2.aum.getUserId()) && !iVar.aum.getUserId().equals(iVar2.aum.getUserId())) {
                         return true;
                     }
                 }

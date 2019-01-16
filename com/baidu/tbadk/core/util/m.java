@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import org.apache.http.HttpHost;
 /* loaded from: classes.dex */
 public class m {
-    public static int ft(String str) {
+    public static int fG(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (str.startsWith("game:detail")) {
                 return 1;

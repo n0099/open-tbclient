@@ -1,207 +1,207 @@
 package com.baidu.tbadk.core;
 /* loaded from: classes.dex */
 public class b {
-    private int anA;
-    private int anB;
-    private int anC;
-    private int anD;
-    private int anE;
-    private int anF;
-    private int anG;
-    private int anH;
-    private int anI;
-    private int anJ;
-    private int anK;
-    private int anL;
-    private int anM;
-    private int anN;
-    private int anO;
-    private int anP;
-    private int anQ;
-    private int anR;
-    private int anS;
-    private StringBuffer anT = new StringBuffer();
-    private String any;
-    private int anz;
+    private String aoa;
+    private int aob;
+    private int aoc;
+    private int aod;
+    private int aoe;
+    private int aof;
+    private int aog;
+    private int aoh;
+    private int aoi;
+    private int aoj;
+    private int aok;
+    private int aol;
+    private int aom;
+    private int aon;
+    private int aoo;
+    private int aop;
+    private int aoq;
+    private int aor;
+    private int aos;
+    private int aot;
+    private int aou;
+    private StringBuffer aov = new StringBuffer();
     private String id;
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.anT.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.aov.toString() + "]";
     }
 
-    public void dY(String str) {
-        this.anT.append(str).append(" || ");
+    public void eh(String str) {
+        this.aov.append(str).append(" || ");
     }
 
-    public int xi() {
-        return this.anN;
+    public int xv() {
+        return this.aop;
     }
 
     public void cc(int i) {
-        this.anN = i;
+        this.aop = i;
     }
 
-    public int xj() {
-        return this.anO;
+    public int xw() {
+        return this.aoq;
     }
 
     public void cd(int i) {
-        this.anO = i;
+        this.aoq = i;
     }
 
-    public int xk() {
-        return this.anL;
+    public int xx() {
+        return this.aon;
     }
 
     public void ce(int i) {
-        this.anL = i;
+        this.aon = i;
     }
 
-    public int xl() {
-        return this.anM;
+    public int xy() {
+        return this.aoo;
     }
 
     public void cf(int i) {
-        this.anM = i;
+        this.aoo = i;
     }
 
-    public int xm() {
-        return this.anJ;
+    public int xz() {
+        return this.aol;
     }
 
     public void cg(int i) {
-        this.anJ = i;
+        this.aol = i;
     }
 
-    public int xn() {
-        return this.anK;
+    public int xA() {
+        return this.aom;
     }
 
     public void ch(int i) {
-        this.anK = i;
+        this.aom = i;
     }
 
     public String getId() {
         return this.id;
     }
 
-    public int xo() {
-        return this.anP;
+    public int xB() {
+        return this.aor;
     }
 
     public void ci(int i) {
-        this.anP = i;
+        this.aor = i;
     }
 
-    public int xp() {
-        return this.anQ;
+    public int xC() {
+        return this.aos;
     }
 
     public void cj(int i) {
-        this.anQ = i;
+        this.aos = i;
     }
 
     public void setId(String str) {
         this.id = str;
     }
 
-    public void dZ(String str) {
-        this.any = str;
+    public void ei(String str) {
+        this.aoa = str;
     }
 
-    public int xq() {
-        return this.anz;
+    public int xD() {
+        return this.aob;
     }
 
     public void ck(int i) {
-        this.anz = i;
+        this.aob = i;
     }
 
-    public int xr() {
-        return this.anA;
+    public int xE() {
+        return this.aoc;
     }
 
     public void cl(int i) {
-        this.anA = i;
+        this.aoc = i;
     }
 
-    public int xs() {
-        return this.anD;
+    public int xF() {
+        return this.aof;
     }
 
     public void cm(int i) {
-        this.anD = i;
+        this.aof = i;
     }
 
-    public int xt() {
-        return this.anE;
+    public int xG() {
+        return this.aog;
     }
 
     public void cn(int i) {
-        this.anE = i;
+        this.aog = i;
     }
 
-    public int xu() {
-        return this.anB;
+    public int xH() {
+        return this.aod;
     }
 
     public void co(int i) {
-        this.anB = i;
+        this.aod = i;
     }
 
-    public int xv() {
-        return this.anC;
+    public int xI() {
+        return this.aoe;
     }
 
     public void cp(int i) {
-        this.anC = i;
+        this.aoe = i;
     }
 
-    public int xw() {
-        return this.anG;
+    public int xJ() {
+        return this.aoi;
     }
 
-    public int xx() {
-        return this.anF;
+    public int xK() {
+        return this.aoh;
     }
 
     public void cq(int i) {
-        this.anF = i;
+        this.aoh = i;
     }
 
     public void cr(int i) {
-        this.anG = i;
+        this.aoi = i;
     }
 
-    public int xy() {
-        return this.anI;
+    public int xL() {
+        return this.aok;
     }
 
     public void cs(int i) {
-        this.anI = i;
+        this.aok = i;
     }
 
-    public int xz() {
-        return this.anH;
+    public int xM() {
+        return this.aoj;
     }
 
     public void ct(int i) {
-        this.anH = i;
+        this.aoj = i;
     }
 
-    public int xA() {
-        return this.anR;
+    public int xN() {
+        return this.aot;
     }
 
     public void cu(int i) {
-        this.anR = i;
+        this.aot = i;
     }
 
-    public int xB() {
-        return this.anS;
+    public int xO() {
+        return this.aou;
     }
 
     public void cv(int i) {
-        this.anS = i;
+        this.aou = i;
     }
 }

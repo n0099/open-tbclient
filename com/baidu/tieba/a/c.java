@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class c {
-    private boolean bAu = false;
+    private boolean bBh = false;
     private int mChannel;
 
     public c() {
-        VK();
+        Wg();
     }
 
     public void a(ArrayList<Integer> arrayList, b bVar) {
@@ -58,8 +58,8 @@ public class c {
         if (ao.isEmpty(hH)) {
             return 0;
         }
-        SampleResult yw = com.baidu.ubs.analytics.a.yw(hH);
-        return (yw == SampleResult.T1 || yw == SampleResult.T2 || yw == SampleResult.T3 || yw == SampleResult.T4 || yw == SampleResult.T5) ? 1 : 0;
+        SampleResult yM = com.baidu.ubs.analytics.a.yM(hH);
+        return (yM == SampleResult.T1 || yM == SampleResult.T2 || yM == SampleResult.T3 || yM == SampleResult.T4 || yM == SampleResult.T5) ? 1 : 0;
     }
 
     private String hH(int i) {
@@ -69,37 +69,37 @@ public class c {
         return null;
     }
 
-    private void VK() {
+    private void Wg() {
         this.mChannel = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_abtest_channel", 0);
-        VL();
+        Wh();
     }
 
     public void hI(int i) {
         if (i == 1 || i == 0) {
             this.mChannel = i;
             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_abtest_channel", this.mChannel);
-            VL();
+            Wh();
         }
     }
 
-    private void VL() {
-        if (!this.bAu && this.mChannel == 1) {
-            this.bAu = VN();
-            if (!this.bAu) {
+    private void Wh() {
+        if (!this.bBh && this.mChannel == 1) {
+            this.bBh = Wj();
+            if (!this.bBh) {
                 this.mChannel = 0;
             }
         }
     }
 
-    public boolean VM() {
-        return this.bAu;
+    public boolean Wi() {
+        return this.bBh;
     }
 
-    public boolean VN() {
+    public boolean Wj() {
         boolean z = true;
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             try {
-                com.baidu.ubs.analytics.a.a(new c.a().dn(TbadkCoreApplication.getInst()).oR(false).dt(30L).xW(1).oS(false).du(15L).xX(1000).bSx());
+                com.baidu.ubs.analytics.a.a(new c.a().dn(TbadkCoreApplication.getInst()).oS(false).dt(30L).xY(1).oT(false).du(15L).xZ(1000).bTf());
             } catch (Exception e) {
                 e.printStackTrace();
                 z = false;

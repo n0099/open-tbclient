@@ -9,35 +9,35 @@ import org.json.JSONObject;
 public class h {
     private int errorCode;
     private String errorMsg;
-    private int her;
-    private String hes;
-    private int hfT;
-    private String hfU;
-    private a heN = new a();
-    private ArrayList<i> hfV = new ArrayList<>();
+    private int hfv;
+    private String hfw;
+    private int hgX;
+    private String hgY;
+    private a hfR = new a();
+    private ArrayList<i> hgZ = new ArrayList<>();
 
-    public int bAO() {
-        return this.her;
+    public int bBx() {
+        return this.hfv;
     }
 
-    public String bAm() {
-        return this.hes;
+    public String bAV() {
+        return this.hfw;
     }
 
-    public a bAo() {
-        return this.heN;
+    public a bAX() {
+        return this.hfR;
     }
 
-    public ArrayList<i> bAP() {
-        return this.hfV;
+    public ArrayList<i> bBy() {
+        return this.hgZ;
     }
 
-    public int bAQ() {
-        return this.hfT;
+    public int bBz() {
+        return this.hgX;
     }
 
-    public String bAR() {
-        return this.hfU;
+    public String bBA() {
+        return this.hgY;
     }
 
     public int getErrorCode() {
@@ -61,11 +61,11 @@ public class h {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.heN.parserJson(jSONObject.optJSONObject(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR));
-                this.her = jSONObject.optInt("show_dialog");
-                this.hes = jSONObject.optString("sign_notice");
-                this.hfT = jSONObject.optInt("is_timeout");
-                this.hfU = jSONObject.optString("timeout_notice");
+                this.hfR.parserJson(jSONObject.optJSONObject(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR));
+                this.hfv = jSONObject.optInt("show_dialog");
+                this.hfw = jSONObject.optString("sign_notice");
+                this.hgX = jSONObject.optInt("is_timeout");
+                this.hgY = jSONObject.optString("timeout_notice");
                 this.errorCode = jSONObject.optInt("error_code");
                 this.errorMsg = jSONObject.optString("error_msg");
                 JSONArray optJSONArray = jSONObject.optJSONArray("info");
@@ -75,7 +75,7 @@ public class h {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         i iVar = new i();
                         iVar.parserJson(jSONObject2);
-                        this.hfV.add(iVar);
+                        this.hgZ.add(iVar);
                     }
                 }
             } catch (Exception e) {

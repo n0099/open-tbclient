@@ -7,7 +7,7 @@ public interface e {
 
     e aG(String str, int i);
 
-    e bZ(String str, String str2);
+    e ca(String str, String str2);
 
     e v(String str, long j);
 }

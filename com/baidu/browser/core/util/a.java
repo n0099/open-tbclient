@@ -4,9 +4,9 @@ import android.os.Environment;
 import android.os.StatFs;
 /* loaded from: classes2.dex */
 public final class a {
-    private static String[] Vo = {"MemTotal:", "MemFree:", "Buffers:", "Cached:", "Active:", "Inactive:", "Dirty:"};
+    private static String[] Vx = {"MemTotal:", "MemFree:", "Buffers:", "Cached:", "Active:", "Inactive:", "Dirty:"};
 
-    public static float qm() {
+    public static float qq() {
         Exception e;
         long j;
         StatFs statFs;

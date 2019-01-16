@@ -11,14 +11,14 @@ public class g {
     private int urlType;
     private static final String DEFAULT_TITLE = TbadkCoreApplication.getInst().getString(e.j.tb_token);
     private static final String DEFAULT_TIPS = TbadkCoreApplication.getInst().getString(e.j.tb_ai_apps_tips);
-    private static final String akZ = TbadkCoreApplication.getInst().getString(e.j.cancel);
-    private static final String ala = TbadkCoreApplication.getInst().getString(e.j.check_immediately);
+    private static final String alj = TbadkCoreApplication.getInst().getString(e.j.cancel);
+    private static final String alk = TbadkCoreApplication.getInst().getString(e.j.check_immediately);
     private String title = "";
     private String img = "";
     private String tips = "";
     private String url = "";
-    private String alb = "";
-    private String alc = "";
+    private String alm = "";
+    private String aln = "";
     public String appId = "";
     public String appName = "";
 
@@ -38,13 +38,18 @@ public class g {
                     e.printStackTrace();
                 }
             }
-            this.alb = StringUtils.isNull(dataRes.btn_sure) ? ala : dataRes.btn_sure;
-            this.alc = StringUtils.isNull(dataRes.btn_cancel) ? akZ : dataRes.btn_cancel;
+            this.alm = StringUtils.isNull(dataRes.btn_sure) ? alk : dataRes.btn_sure;
+            this.aln = StringUtils.isNull(dataRes.btn_cancel) ? alj : dataRes.btn_cancel;
         } else if (this.urlType == 2) {
             this.title = dataRes.title;
             this.url = dataRes.url;
         } else if (this.urlType != 4 && this.urlType == 3) {
             this.url = dataRes.url;
+            this.title = dataRes.title;
+            this.img = dataRes.img;
+            this.tips = dataRes.tips;
+            this.alm = dataRes.btn_sure;
+            this.aln = dataRes.btn_cancel;
         }
     }
 
@@ -52,7 +57,7 @@ public class g {
         return this.title;
     }
 
-    public String vH() {
+    public String vL() {
         return this.img;
     }
 
@@ -64,15 +69,15 @@ public class g {
         return this.url;
     }
 
-    public String vI() {
-        return this.alb;
+    public String vM() {
+        return this.alm;
     }
 
-    public String vJ() {
-        return this.alc;
+    public String vN() {
+        return this.aln;
     }
 
-    public int vK() {
+    public int vO() {
         return this.urlType;
     }
 }

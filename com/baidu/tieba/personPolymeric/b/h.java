@@ -7,7 +7,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.data.k;
+import com.baidu.tbadk.data.m;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -23,24 +23,24 @@ public class h {
         return "http://tb.himg.baidu.com/sys/portraitl/item/" + str;
     }
 
-    public static void a(k kVar, BdUniqueId bdUniqueId) {
-        if (kVar != null && !StringUtils.isNull(kVar.LG()) && v.I(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
+    public static void a(m mVar, BdUniqueId bdUniqueId) {
+        if (mVar != null && !StringUtils.isNull(mVar.LX()) && v.I(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
-            httpMessage.addParam("pic_url", kVar.LG());
+            httpMessage.addParam("pic_url", mVar.LX());
             httpMessage.setTag(bdUniqueId);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public static void a(k kVar, List<com.baidu.adp.widget.ListView.h> list) {
-        k kVar2;
-        if (kVar != null && !v.I(list) && !StringUtils.isNull(kVar.LG())) {
+    public static void a(m mVar, List<com.baidu.adp.widget.ListView.h> list) {
+        m mVar2;
+        if (mVar != null && !v.I(list) && !StringUtils.isNull(mVar.LX())) {
             JSONArray jSONArray = new JSONArray();
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.adp.widget.ListView.h hVar = list.get(i);
-                if ((hVar instanceof k) && (kVar2 = (k) hVar) != kVar && !kVar2.isPortrait()) {
-                    jSONArray.put(kVar2.LG());
+                if ((hVar instanceof m) && (mVar2 = (m) hVar) != mVar && !mVar2.isPortrait()) {
+                    jSONArray.put(mVar2.LX());
                 }
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
@@ -63,10 +63,10 @@ public class h {
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 com.baidu.adp.widget.ListView.h hVar = list.get(i);
-                if (hVar instanceof k) {
-                    k kVar = (k) hVar;
-                    if (!kVar.isPortrait()) {
-                        jSONArray.put(kVar.LG());
+                if (hVar instanceof m) {
+                    m mVar = (m) hVar;
+                    if (!mVar.isPortrait()) {
+                        jSONArray.put(mVar.LX());
                     }
                 }
             }

@@ -22,13 +22,13 @@ public class am {
         this.key = str;
     }
 
-    public am aA(String str, String str2) {
+    public am aB(String str, String str2) {
         this.params.add(str);
         this.params.add(str2);
         return this;
     }
 
-    public am x(String str, int i) {
+    public am y(String str, int i) {
         this.params.add(str);
         this.params.add(Integer.valueOf(i));
         return this;
@@ -40,11 +40,21 @@ public class am {
         return this;
     }
 
+    private void J(List<Object> list) {
+        this.params = list;
+    }
+
     public void delete(String str) {
         int indexOf;
         if (!ao.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1) {
             this.params.remove(indexOf);
             this.params.remove(indexOf);
         }
+    }
+
+    public am DY() {
+        am amVar = new am(getKey());
+        amVar.J(getParams());
+        return amVar;
     }
 }

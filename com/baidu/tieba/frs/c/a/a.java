@@ -7,7 +7,7 @@ import com.baidu.tieba.tbadkCore.l;
 public interface a {
     void a(l lVar, String str);
 
-    LinearLayout aGI();
+    LinearLayout aHf();
 
     View getHeaderView();
 

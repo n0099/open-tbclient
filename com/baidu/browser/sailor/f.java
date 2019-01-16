@@ -3,7 +3,7 @@ package com.baidu.browser.sailor;
 import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes2.dex */
 public class f {
-    public static final f VE = new f();
+    public static final f VN = new f();
 
     @Deprecated
     public void a(BdSailorWebView bdSailorWebView, int i) {

@@ -13,20 +13,20 @@ import com.baidu.tieba.e;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.baseHistory.a, com.baidu.tbadk.mvc.d.b> {
-    private TextView aKj;
-    private TextView cGc;
-    private TextView fKM;
+    private TextView aKL;
+    private TextView cGN;
+    private TextView fLG;
     private View mLine;
     private View mRootView;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mRootView = view;
-        this.fKM = (TextView) view.findViewById(e.g.title);
-        this.aKj = (TextView) view.findViewById(e.g.content);
-        this.aKj.setSingleLine();
-        this.aKj.setEllipsize(TextUtils.TruncateAt.END);
-        this.cGc = (TextView) view.findViewById(e.g.time);
+        this.fLG = (TextView) view.findViewById(e.g.title);
+        this.aKL = (TextView) view.findViewById(e.g.content);
+        this.aKL.setSingleLine();
+        this.aKL.setEllipsize(TextUtils.TruncateAt.END);
+        this.cGN = (TextView) view.findViewById(e.g.time);
         this.mLine = view.findViewById(e.g.line);
     }
 
@@ -36,34 +36,34 @@ public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public void L(com.baidu.tieba.myCollection.baseHistory.a aVar) {
         super.L(aVar);
         if (aVar != null) {
-            if (this.fKM != null) {
+            if (this.fLG != null) {
                 if (aVar.getThreadType() == 49) {
                     if (StringUtils.isNull(aVar.getDescription())) {
-                        this.fKM.setText(String.format(getString(e.j.pb_history_user_name), aVar.getUserName()));
+                        this.fLG.setText(String.format(getString(e.j.pb_history_user_name), aVar.getUserName()));
                     } else {
-                        this.fKM.setText(aVar.getDescription());
+                        this.fLG.setText(aVar.getDescription());
                     }
-                } else if (aVar.bey() != null) {
+                } else if (aVar.beY() != null) {
                     if (aVar.isShareThread()) {
-                        this.fKM.setText(String.format("%s%s", getString(e.j.pb_history_share_prefix), aVar.bey()));
+                        this.fLG.setText(String.format("%s%s", getString(e.j.pb_history_share_prefix), aVar.beY()));
                     } else {
-                        this.fKM.setText(aVar.bey());
+                        this.fLG.setText(aVar.beY());
                     }
                 }
             }
-            if (this.aKj != null) {
+            if (this.aKL != null) {
                 if (aVar.getThreadType() == 49 && !TextUtils.isEmpty(aVar.getUserName())) {
-                    this.aKj.setText(String.format(getString(e.j.pb_history_user_name), aVar.getUserName()));
+                    this.aKL.setText(String.format(getString(e.j.pb_history_user_name), aVar.getUserName()));
                 } else if (aVar.getForumName() != null) {
-                    this.aKj.setText(aVar.getForumName());
+                    this.aKL.setText(aVar.getForumName());
                 }
             }
-            if (this.cGc != null) {
+            if (this.cGN != null) {
                 String g = ao.g(new Date(aVar.getTime()));
                 if (g == null) {
                     g = "";
                 }
-                this.cGc.setText(g);
+                this.cGN.setText(g);
             }
         }
     }
@@ -73,9 +73,9 @@ public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         al.i(this.mRootView, e.f.list_item_selector);
         al.i(this.mLine, e.d.cp_bg_line_b);
-        al.c(this.fKM, e.d.cp_cont_b, 1);
-        al.c(this.aKj, e.d.cp_cont_d, 1);
-        al.c(this.cGc, e.d.cp_cont_d, 1);
+        al.c(this.fLG, e.d.cp_cont_b, 1);
+        al.c(this.aKL, e.d.cp_cont_d, 1);
+        al.c(this.cGN, e.d.cp_cont_d, 1);
         return true;
     }
 }

@@ -27,27 +27,27 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
-    private CustomViewPager azq;
-    private NoNetworkView drf;
-    private FragmentTabWidget eTO;
-    private boolean eTQ;
+    private CustomViewPager azS;
+    private NoNetworkView drO;
+    private FragmentTabWidget eUB;
+    private boolean eUD;
     private String mForumId;
     private String mForumName;
     private NavigationBar mNavigationBar;
     private View mRootView;
-    private List<c> eTP = new ArrayList();
-    private List<FragmentTabIndicator> eTR = new ArrayList();
+    private List<c> eUC = new ArrayList();
+    private List<FragmentTabIndicator> eUE = new ArrayList();
     private int mCurrentTabIndex = -1;
-    private al eTS = new al() { // from class: com.baidu.tieba.im.frsgroup.view.FrsGroupActivity.1
+    private al eUF = new al() { // from class: com.baidu.tieba.im.frsgroup.view.FrsGroupActivity.1
         @Override // com.baidu.tieba.frs.al
         public void a(int i, int i2, ar arVar, ArrayList<h> arrayList) {
-            FrsGroupActivity.this.aSm();
+            FrsGroupActivity.this.aSM();
             if (v.I(arrayList)) {
                 String str = "";
                 if (arVar != null) {
                     str = arVar.errMsg;
                 }
-                FrsGroupActivity.this.nX(str);
+                FrsGroupActivity.this.op(str);
             }
         }
     };
@@ -66,21 +66,21 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
             }
         });
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.drf = (NoNetworkView) findViewById(e.g.view_no_network);
-        this.eTO = (FragmentTabWidget) findViewById(e.g.tab_widget);
-        this.azq = (CustomViewPager) findViewById(e.g.fragment_pager);
+        this.drO = (NoNetworkView) findViewById(e.g.view_no_network);
+        this.eUB = (FragmentTabWidget) findViewById(e.g.tab_widget);
+        this.azS = (CustomViewPager) findViewById(e.g.fragment_pager);
         q(bundle);
-        aSn();
+        aSN();
         initViewPager();
-        aSl();
+        aSL();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (j.kK()) {
-            this.eTP.get(0).aAg();
-            aSl();
+            this.eUC.get(0).aAD();
+            aSL();
         }
     }
 
@@ -88,9 +88,9 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.drf.onChangeSkinType(getPageContext(), i);
-        this.eTO.onChangeSkinType(i);
-        for (c cVar : this.eTP) {
+        this.drO.onChangeSkinType(getPageContext(), i);
+        this.eUB.onChangeSkinType(i);
+        for (c cVar : this.eUC) {
             cVar.onChangeSkinType(i);
         }
     }
@@ -99,39 +99,39 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        for (c cVar : this.eTP) {
+        for (c cVar : this.eUC) {
             cVar.onDestroy();
         }
     }
 
     private void initViewPager() {
-        if (this.eTQ) {
-            this.eTR.add(qj(getResources().getString(e.j.frsgroup_recommend)));
+        if (this.eUD) {
+            this.eUE.add(qz(getResources().getString(e.j.frsgroup_recommend)));
         }
-        this.eTR.add(qj(getResources().getString(e.j.frsgroup_hot)));
-        this.eTR.add(qj(getResources().getString(e.j.frsgroup_official)));
-        for (FragmentTabIndicator fragmentTabIndicator : this.eTR) {
-            this.eTO.addView(fragmentTabIndicator);
+        this.eUE.add(qz(getResources().getString(e.j.frsgroup_hot)));
+        this.eUE.add(qz(getResources().getString(e.j.frsgroup_official)));
+        for (FragmentTabIndicator fragmentTabIndicator : this.eUE) {
+            this.eUB.addView(fragmentTabIndicator);
         }
-        this.eTO.setShouldDrawIndicatorLine(true);
-        this.azq.setAdapter(new a());
-        this.eTO.setCurrentTab(0, true, false);
-        this.azq.setCurrentItem(0);
-        this.eTO.setTabSelectionListener(new FragmentTabWidget.a() { // from class: com.baidu.tieba.im.frsgroup.view.FrsGroupActivity.3
+        this.eUB.setShouldDrawIndicatorLine(true);
+        this.azS.setAdapter(new a());
+        this.eUB.setCurrentTab(0, true, false);
+        this.azS.setCurrentItem(0);
+        this.eUB.setTabSelectionListener(new FragmentTabWidget.a() { // from class: com.baidu.tieba.im.frsgroup.view.FrsGroupActivity.3
             @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.a
             public void onTabSelectionChanged(int i, boolean z) {
-                FrsGroupActivity.this.azq.setCurrentItem(i);
+                FrsGroupActivity.this.azS.setCurrentItem(i);
             }
         });
-        this.azq.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.im.frsgroup.view.FrsGroupActivity.4
+        this.azS.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.im.frsgroup.view.FrsGroupActivity.4
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
-                FrsGroupActivity.this.eTO.d(i, f);
+                FrsGroupActivity.this.eUB.d(i, f);
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
             public void onPageSelected(int i) {
-                FrsGroupActivity.this.eTO.setCurrentTab(i, true, false);
+                FrsGroupActivity.this.eUB.setCurrentTab(i, true, false);
             }
 
             @Override // android.support.v4.view.ViewPager.OnPageChangeListener
@@ -140,10 +140,10 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
         });
     }
 
-    private FragmentTabIndicator qj(String str) {
+    private FragmentTabIndicator qz(String str) {
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getPageActivity());
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(e.C0210e.ds28));
-        fragmentTabIndicator.bdB = e.d.s_actionbar_text_color;
+        fragmentTabIndicator.bem = e.d.s_actionbar_text_color;
         fragmentTabIndicator.setText(str);
         return fragmentTabIndicator;
     }
@@ -153,27 +153,27 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
         super.onSaveInstanceState(bundle);
         bundle.putString("forum_id", this.mForumId);
         bundle.putString("forum_name", this.mForumName);
-        bundle.putBoolean(IntentConfig.SHOW_RECOMMEND, this.eTQ);
+        bundle.putBoolean(IntentConfig.SHOW_RECOMMEND, this.eUD);
     }
 
-    private void aSl() {
-        this.azq.setVisibility(4);
-        this.eTO.setVisibility(4);
+    private void aSL() {
+        this.azS.setVisibility(4);
+        this.eUB.setVisibility(4);
         showLoadingView(this.mRootView, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aSm() {
-        this.azq.setVisibility(0);
-        this.eTO.setVisibility(0);
+    public void aSM() {
+        this.azS.setVisibility(0);
+        this.eUB.setVisibility(0);
         hideLoadingView(this.mRootView);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void nX(String str) {
-        this.azq.setVisibility(8);
-        this.eTO.setVisibility(8);
-        setNetRefreshViewTopMargin(BdListViewHelper.bir);
+    public void op(String str) {
+        this.azS.setVisibility(8);
+        this.eUB.setVisibility(8);
+        setNetRefreshViewTopMargin(BdListViewHelper.bja);
         showNetRefreshView(this.mRootView, str, true);
     }
 
@@ -182,36 +182,36 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
             if (getIntent() != null) {
                 this.mForumId = getIntent().getStringExtra("forum_id");
                 this.mForumName = getIntent().getStringExtra("forum_name");
-                this.eTQ = getIntent().getBooleanExtra(FrsGroupActivityConfig.SHOW_RECOMMEND_GROUP, false);
+                this.eUD = getIntent().getBooleanExtra(FrsGroupActivityConfig.SHOW_RECOMMEND_GROUP, false);
                 return;
             }
             return;
         }
         this.mForumId = bundle.getString("forum_id", "");
         this.mForumName = bundle.getString("forum_name", "");
-        this.eTQ = bundle.getBoolean(FrsGroupActivityConfig.SHOW_RECOMMEND_GROUP, false);
+        this.eUD = bundle.getBoolean(FrsGroupActivityConfig.SHOW_RECOMMEND_GROUP, false);
     }
 
-    private void aSn() {
-        if (this.eTQ) {
-            c qj = qj(1);
-            qj.b(this.eTS);
-            this.eTP.add(qj);
+    private void aSN() {
+        if (this.eUD) {
+            c qk = qk(1);
+            qk.b(this.eUF);
+            this.eUC.add(qk);
         }
-        c qj2 = qj(2);
-        if (!this.eTQ) {
-            qj2.b(this.eTS);
+        c qk2 = qk(2);
+        if (!this.eUD) {
+            qk2.b(this.eUF);
         }
-        this.eTP.add(qj2);
-        this.eTP.add(qj(3));
+        this.eUC.add(qk2);
+        this.eUC.add(qk(3));
     }
 
-    private c qj(int i) {
+    private c qk(int i) {
         c cVar = new c(getPageContext());
         cVar.g(i, this.mForumId, this.mForumName);
-        cVar.cJ(new com.baidu.tieba.im.frsgroup.view.a.a(this).aAp());
+        cVar.cK(new com.baidu.tieba.im.frsgroup.view.a.a(this).aAM());
         cVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.drf.a(cVar);
+        this.drO.a(cVar);
         return cVar;
     }
 
@@ -223,7 +223,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
 
         @Override // android.support.v4.view.PagerAdapter
         public Object instantiateItem(ViewGroup viewGroup, int i) {
-            c cVar = (c) v.d(FrsGroupActivity.this.eTP, i);
+            c cVar = (c) v.d(FrsGroupActivity.this.eUC, i);
             if (cVar == null) {
                 return new View(FrsGroupActivity.this.getActivity());
             }
@@ -238,7 +238,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
             super.setPrimaryItem(viewGroup, i, obj);
             if (FrsGroupActivity.this.mCurrentTabIndex != i) {
                 FrsGroupActivity.this.mCurrentTabIndex = i;
-                ((c) FrsGroupActivity.this.eTP.get(FrsGroupActivity.this.mCurrentTabIndex)).aAg();
+                ((c) FrsGroupActivity.this.eUC.get(FrsGroupActivity.this.mCurrentTabIndex)).aAD();
             }
         }
 
@@ -249,7 +249,7 @@ public class FrsGroupActivity extends BaseActivity<FrsGroupActivity> {
 
         @Override // android.support.v4.view.PagerAdapter
         public int getCount() {
-            return FrsGroupActivity.this.eTP.size();
+            return FrsGroupActivity.this.eUC.size();
         }
 
         @Override // android.support.v4.view.PagerAdapter

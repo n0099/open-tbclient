@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.c;
 public interface v<K> {
     void aE(K k);
 
-    void bWu();
+    void bXc();
 
-    void bWv();
+    void bXd();
 }

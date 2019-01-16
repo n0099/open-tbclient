@@ -15,12 +15,12 @@ import com.baidu.tieba.e;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes6.dex */
 public class PayConfigModel extends BdBaseModel {
-    private a bfw;
-    private final com.baidu.adp.framework.listener.a bfx;
+    private a bgg;
+    private final com.baidu.adp.framework.listener.a bgh;
 
     public PayConfigModel(BaseActivity<?> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
-        this.bfx = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039) { // from class: com.baidu.tbadk.pay.PayConfigModel.1
+        this.bgh = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039) { // from class: com.baidu.tbadk.pay.PayConfigModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (PayConfigModel.this.checkMessageIsBelongToCurPage(responsedMessage)) {
@@ -30,8 +30,8 @@ public class PayConfigModel extends BdBaseModel {
                         if (!StringUtils.isNull(errorString)) {
                             string = errorString;
                         }
-                        if (PayConfigModel.this.bfw != null) {
-                            PayConfigModel.this.bfw.onError(string);
+                        if (PayConfigModel.this.bgg != null) {
+                            PayConfigModel.this.bgg.onError(string);
                         }
                     } else if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
                         PayConfigModel.this.b(((ClientConfigHttpProtoResponse) responsedMessage).getData());
@@ -41,13 +41,13 @@ public class PayConfigModel extends BdBaseModel {
                 }
             }
         };
-        this.bfw = aVar;
-        registerListener(this.bfx);
+        this.bgg = aVar;
+        registerListener(this.bgh);
     }
 
     public PayConfigModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.bfx = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039) { // from class: com.baidu.tbadk.pay.PayConfigModel.1
+        this.bgh = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039) { // from class: com.baidu.tbadk.pay.PayConfigModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (PayConfigModel.this.checkMessageIsBelongToCurPage(responsedMessage)) {
@@ -57,8 +57,8 @@ public class PayConfigModel extends BdBaseModel {
                         if (!StringUtils.isNull(errorString)) {
                             string = errorString;
                         }
-                        if (PayConfigModel.this.bfw != null) {
-                            PayConfigModel.this.bfw.onError(string);
+                        if (PayConfigModel.this.bgg != null) {
+                            PayConfigModel.this.bgg.onError(string);
                         }
                     } else if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
                         PayConfigModel.this.b(((ClientConfigHttpProtoResponse) responsedMessage).getData());
@@ -68,8 +68,8 @@ public class PayConfigModel extends BdBaseModel {
                 }
             }
         };
-        this.bfw = aVar;
-        registerListener(this.bfx);
+        this.bgg = aVar;
+        registerListener(this.bgh);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -82,21 +82,24 @@ public class PayConfigModel extends BdBaseModel {
         return false;
     }
 
-    public void OX() {
-        if (!c.OY().OZ()) {
-            if (this.bfw != null) {
-                this.bfw.OV();
-                return;
+    public void Pp() {
+        if (!c.Pq().Pr()) {
+            if (this.bgg != null) {
+                this.bgg.Pn();
             }
-            return;
+        } else if (TbadkCoreApplication.getInst().checkInterrupt()) {
+            if (this.bgg != null) {
+                this.bgg.Po();
+            }
+        } else {
+            ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();
+            clientConfigNetMessage.setType("payType");
+            sendMessage(clientConfigNetMessage);
         }
-        ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();
-        clientConfigNetMessage.setType("payType");
-        sendMessage(clientConfigNetMessage);
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.bfx);
+        MessageManager.getInstance().unRegisterListener(this.bgh);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -107,19 +110,19 @@ public class PayConfigModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(DataRes dataRes) {
         if (dataRes == null || dataRes.payType == null) {
-            if (this.bfw != null) {
-                this.bfw.onError(TbadkCoreApplication.getInst().getString(e.j.data_load_error));
+            if (this.bgg != null) {
+                this.bgg.onError(TbadkCoreApplication.getInst().getString(e.j.data_load_error));
             }
         } else if (dataRes.payType.pay_type.intValue() == 1) {
-            if (this.bfw != null) {
-                this.bfw.OW();
+            if (this.bgg != null) {
+                this.bgg.Po();
             }
         } else if (dataRes.payType.pay_type.intValue() == 2) {
-            if (this.bfw != null) {
-                this.bfw.OV();
+            if (this.bgg != null) {
+                this.bgg.Pn();
             }
-        } else if (this.bfw != null) {
-            this.bfw.onError("");
+        } else if (this.bgg != null) {
+            this.bgg.onError("");
         }
     }
 }

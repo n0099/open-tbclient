@@ -56,9 +56,9 @@ public abstract class a implements com.baidu.b.a.b.a.a<com.baidu.b.a.c.a.a> {
 
     public List<com.baidu.b.a.c.a.a> getUploadItems() {
         ArrayList arrayList = new ArrayList();
-        Map<String, com.baidu.b.a.c.a.a> ab = b.ab(this.mChannelId, null);
-        if (ab != null && ab.size() > 0) {
-            for (Map.Entry<String, com.baidu.b.a.c.a.a> entry : ab.entrySet()) {
+        Map<String, com.baidu.b.a.c.a.a> ac = b.ac(this.mChannelId, null);
+        if (ac != null && ac.size() > 0) {
+            for (Map.Entry<String, com.baidu.b.a.c.a.a> entry : ac.entrySet()) {
                 if (entry.getValue() != null) {
                     arrayList.add(entry.getValue());
                 }
@@ -70,14 +70,14 @@ public abstract class a implements com.baidu.b.a.b.a.a<com.baidu.b.a.c.a.a> {
     public List<com.baidu.b.a.c.a.a> getUploadItems(String str) {
         com.baidu.b.a.c.a.a aVar;
         ArrayList arrayList = new ArrayList();
-        Map<String, com.baidu.b.a.c.a.a> ab = b.ab(this.mChannelId, str);
-        if (ab != null && ab.size() > 0 && (aVar = ab.get(str)) != null) {
+        Map<String, com.baidu.b.a.c.a.a> ac = b.ac(this.mChannelId, str);
+        if (ac != null && ac.size() > 0 && (aVar = ac.get(str)) != null) {
             arrayList.add(aVar);
         }
         if (arrayList.size() == 0) {
             com.baidu.b.a.c.a.a aVar2 = new com.baidu.b.a.c.a.a();
             aVar2.packageName = str;
-            aVar2.Zo = -1L;
+            aVar2.Zx = -1L;
             arrayList.add(aVar2);
         }
         return arrayList;
@@ -92,7 +92,7 @@ public abstract class a implements com.baidu.b.a.b.a.a<com.baidu.b.a.c.a.a> {
                 for (com.baidu.b.a.c.a.a aVar : uploadItems) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put(ETAG.KEY_PACKAGE_NAME, aVar.packageName);
-                    jSONObject.put("update_v", aVar.Zo + "");
+                    jSONObject.put("update_v", aVar.Zx + "");
                     jSONArray.put(jSONObject);
                 }
             }
@@ -110,14 +110,14 @@ public abstract class a implements com.baidu.b.a.b.a.a<com.baidu.b.a.c.a.a> {
                 aVar.channelId = this.mChannelId;
                 aVar.channelName = this.mChannelName;
             }
-            Map<String, com.baidu.b.a.c.a.a> ab = b.ab(this.mChannelId, null);
+            Map<String, com.baidu.b.a.c.a.a> ac = b.ac(this.mChannelId, null);
             for (com.baidu.b.a.c.a.a aVar2 : parseItems) {
-                if (!ab.containsKey(aVar2.packageName)) {
+                if (!ac.containsKey(aVar2.packageName)) {
                     this.mDownloadFiles.add(aVar2);
                     e.h(aVar2);
                     onNewItemAdded(aVar2);
                 } else {
-                    com.baidu.b.a.c.a.a aVar3 = ab.get(aVar2.packageName);
+                    com.baidu.b.a.c.a.a aVar3 = ac.get(aVar2.packageName);
                     if (aVar3.a(aVar2)) {
                         this.mDownloadFiles.add(aVar2);
                         e.h(aVar2);

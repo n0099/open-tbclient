@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.data;
 /* loaded from: classes.dex */
 public class z {
-    public String arJ;
-    public String arK;
+    public String asl;
+    public String asm;
 }

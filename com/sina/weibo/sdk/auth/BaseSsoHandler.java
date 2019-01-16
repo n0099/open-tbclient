@@ -1,6 +1,7 @@
 package com.sina.weibo.sdk.auth;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -26,7 +27,7 @@ import com.sina.weibo.sdk.web.param.AuthWebViewRequestParam;
 public class BaseSsoHandler {
     protected static final String OAUTH2_BASE_URL = "https://open.weibo.cn/oauth2/authorize?";
     protected WbAuthListener authListener;
-    protected Activity mAuthActivity;
+    protected Context mAuthActivity;
     protected final int SSO_TYPE_INVALID = 3;
     protected int ssoRequestCode = -1;
     protected int ssoRequestType = 3;
@@ -41,6 +42,11 @@ public class BaseSsoHandler {
 
     public BaseSsoHandler(Activity activity) {
         this.mAuthActivity = activity;
+        AidTask.getInstance(this.mAuthActivity).aidTaskInit(WbSdk.getAuthInfo().getAppKey());
+    }
+
+    public BaseSsoHandler(Context context) {
+        this.mAuthActivity = context;
         AidTask.getInstance(this.mAuthActivity).aidTaskInit(WbSdk.getAuthInfo().getAppKey());
     }
 
@@ -94,7 +100,7 @@ public class BaseSsoHandler {
             if (SecurityHelper.validateAppSignatureForIntent(this.mAuthActivity, intent)) {
                 fillExtraIntent(intent, i);
                 try {
-                    this.mAuthActivity.startActivityForResult(intent, this.ssoRequestCode);
+                    ((Activity) this.mAuthActivity).startActivityForResult(intent, this.ssoRequestCode);
                 } catch (Exception e) {
                     if (this.authListener != null) {
                         this.authListener.onFailure(new WbConnectErrorMessage());

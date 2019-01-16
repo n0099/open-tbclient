@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class DragContainer extends LinearLayout {
-    private Bitmap bjY;
+    private Bitmap bkM;
     private final int delay;
     private Scroller mScroller;
     private Rect mTempRect;
@@ -41,7 +41,7 @@ public class DragContainer extends LinearLayout {
         view.buildDrawingCache();
         Bitmap drawingCache = view.getDrawingCache();
         if (drawingCache != null) {
-            this.bjY = Bitmap.createBitmap(drawingCache);
+            this.bkM = Bitmap.createBitmap(drawingCache);
         }
         view.destroyDrawingCache();
         view.setDrawingCacheEnabled(false);
@@ -55,17 +55,17 @@ public class DragContainer extends LinearLayout {
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (this.view != null) {
-            if (this.mScroller.computeScrollOffset() && this.bjY != null) {
+            if (this.mScroller.computeScrollOffset() && this.bkM != null) {
                 canvas.save();
-                canvas.drawBitmap(this.bjY, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
+                canvas.drawBitmap(this.bkM, this.mTempRect.left, this.mScroller.getCurrX(), (Paint) null);
                 canvas.restore();
                 postInvalidateDelayed(16L);
                 return;
             }
-            if (this.bjY != null) {
-                this.bjY.recycle();
+            if (this.bkM != null) {
+                this.bkM.recycle();
             }
-            this.bjY = null;
+            this.bkM = null;
             this.view = null;
         }
     }
@@ -74,10 +74,10 @@ public class DragContainer extends LinearLayout {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         this.mScroller.forceFinished(true);
-        if (this.bjY != null) {
-            this.bjY.recycle();
+        if (this.bkM != null) {
+            this.bkM.recycle();
         }
-        this.bjY = null;
+        this.bkM = null;
         this.view = null;
     }
 }

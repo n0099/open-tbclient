@@ -30,30 +30,30 @@ public class b {
                 break;
         }
         if (i2 != 0) {
-            amVar.x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2);
+            amVar.y(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2);
         }
         if (shareEntity == null) {
             TiebaStatic.log(amVar);
             return;
         }
-        Bundle Kh = shareEntity.Kh();
-        if (Kh != null) {
-            int i3 = Kh.getInt("obj_param1");
+        Bundle Kw = shareEntity.Kw();
+        if (Kw != null) {
+            int i3 = Kw.getInt("obj_param1");
             if (i3 != 0) {
-                amVar.x("obj_param1", i3);
+                amVar.y("obj_param1", i3);
                 if (i3 == 2) {
-                    amVar.aA(ImageViewerConfig.FORUM_ID, Kh.getString(ImageViewerConfig.FORUM_ID));
+                    amVar.aB(ImageViewerConfig.FORUM_ID, Kw.getString(ImageViewerConfig.FORUM_ID));
                 } else if (i3 == 3) {
-                    int i4 = Kh.getInt("obj_type");
+                    int i4 = Kw.getInt("obj_type");
                     if (i4 != 0) {
-                        amVar.x("obj_type", i4);
+                        amVar.y("obj_type", i4);
                     }
-                    amVar.aA("tid", Kh.getString("tid")).aA(ImageViewerConfig.FORUM_ID, Kh.getString(ImageViewerConfig.FORUM_ID));
+                    amVar.aB("tid", Kw.getString("tid")).aB(ImageViewerConfig.FORUM_ID, Kw.getString(ImageViewerConfig.FORUM_ID));
                 }
             }
-            String string = Kh.getString("obj_url");
+            String string = Kw.getString("obj_url");
             if (!ao.isEmpty(string)) {
-                amVar.aA("obj_url", string);
+                amVar.aB("obj_url", string);
             }
         }
         TiebaStatic.log(amVar);
@@ -80,17 +80,17 @@ public class b {
                 break;
         }
         if (i2 != 0) {
-            amVar.x(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2);
+            amVar.y(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i2);
         }
         if (shareEntity == null) {
             TiebaStatic.log(amVar);
             return;
         }
-        Bundle Kh = shareEntity.Kh();
-        if (Kh != null) {
-            amVar.aA("tid", Kh.getString("tid"));
-            amVar.aA("uid", Kh.getString("uid"));
-            amVar.aA(ImageViewerConfig.FORUM_ID, Kh.getString(ImageViewerConfig.FORUM_ID));
+        Bundle Kw = shareEntity.Kw();
+        if (Kw != null) {
+            amVar.aB("tid", Kw.getString("tid"));
+            amVar.aB("uid", Kw.getString("uid"));
+            amVar.aB(ImageViewerConfig.FORUM_ID, Kw.getString(ImageViewerConfig.FORUM_ID));
         }
         TiebaStatic.log(amVar);
     }

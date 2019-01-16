@@ -19,16 +19,16 @@ import com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e {
-    private NoNetworkView bOA;
-    private ImageView bZG;
-    private FrsGameStrategyMainFragment dWQ;
-    private ScrollLabelTabHost dWR;
+    private NoNetworkView bPl;
+    private ImageView car;
+    private FrsGameStrategyMainFragment dXw;
+    private ScrollLabelTabHost dXx;
     private String mFrom;
     private NavigationBar mNavigationBar;
     private View mRootView;
 
     public e(FrsGameStrategyMainFragment frsGameStrategyMainFragment, View view) {
-        this.dWQ = frsGameStrategyMainFragment;
+        this.dXw = frsGameStrategyMainFragment;
         this.mRootView = view;
         if (this.mRootView != null) {
             initUI();
@@ -38,14 +38,14 @@ public class e {
     private void initUI() {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(e.g.view_navigation_bar);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.setMargins(0, 0, l.h(this.dWQ.getPageContext().getPageActivity(), e.C0210e.ds24), 0);
-        this.bZG = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.widget_frs_game_forum_info_item, (View.OnClickListener) null);
-        this.bZG.setLayoutParams(layoutParams);
-        this.bZG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.view.e.1
+        layoutParams.setMargins(0, 0, l.h(this.dXw.getPageContext().getPageActivity(), e.C0210e.ds24), 0);
+        this.car = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.widget_frs_game_forum_info_item, (View.OnClickListener) null);
+        this.car.setLayoutParams(layoutParams);
+        this.car.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.game.strategy.view.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!StringUtils.isNull(e.this.dWQ.getFid())) {
-                    e.this.dWQ.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(e.this.dWQ.getPageContext().getPageActivity(), e.this.dWQ.getFid(), ForumDetailActivityConfig.FromType.FRS_GAME_STRATEGY)));
+                if (!StringUtils.isNull(e.this.dXw.getFid())) {
+                    e.this.dXw.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(e.this.dXw.getPageContext().getPageActivity(), e.this.dXw.getFid(), ForumDetailActivityConfig.FromType.FRS_GAME_STRATEGY)));
                 }
             }
         });
@@ -53,17 +53,17 @@ public class e {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if ("from_single_act".equals(e.this.mFrom)) {
-                    e.this.dWQ.getActivity().finish();
+                    e.this.dXw.getActivity().finish();
                     return;
                 }
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921342);
-                customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, e.this.dWQ.getPageContext().getUniqueId()));
+                customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, e.this.dXw.getPageContext().getUniqueId()));
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
         });
-        this.bOA = (NoNetworkView) this.mRootView.findViewById(e.g.view_no_network);
-        this.dWR = (ScrollLabelTabHost) this.mRootView.findViewById(e.g.frs_game_tabview);
-        this.dWR.setPageId(this.dWQ.getBaseFragmentActivity().getUniqueId());
+        this.bPl = (NoNetworkView) this.mRootView.findViewById(e.g.view_no_network);
+        this.dXx = (ScrollLabelTabHost) this.mRootView.findViewById(e.g.frs_game_tabview);
+        this.dXx.setPageId(this.dXw.getBaseFragmentActivity().getUniqueId());
     }
 
     public void setFrom(String str) {
@@ -74,42 +74,42 @@ public class e {
         return this.mRootView;
     }
 
-    public NavigationBar abW() {
+    public NavigationBar act() {
         return this.mNavigationBar;
     }
 
     public void onChangeSkinType(int i) {
-        this.mNavigationBar.onChangeSkinType(this.dWQ.getPageContext(), i);
-        this.bOA.onChangeSkinType(this.dWQ.getPageContext(), i);
-        this.dWR.onChangeSkinType(i);
-        if (this.bZG != null) {
-            al.a(this.bZG, e.f.btn_more_selector_s, e.f.btn_more_selector);
+        this.mNavigationBar.onChangeSkinType(this.dXw.getPageContext(), i);
+        this.bPl.onChangeSkinType(this.dXw.getPageContext(), i);
+        this.dXx.onChangeSkinType(i);
+        if (this.car != null) {
+            al.a(this.car, e.f.btn_more_selector_s, e.f.btn_more_selector);
         }
     }
 
     public void setFrsGameTabDataLoadListener(com.baidu.tieba.frs.game.strategy.tab.a aVar) {
-        this.dWR.setDelegateFrsGameTabDataLoadListener(aVar);
+        this.dXx.setDelegateFrsGameTabDataLoadListener(aVar);
     }
 
     public void setTabData(List<com.baidu.tieba.frs.game.strategy.tab.e> list, boolean z) {
-        this.dWR.setTabData(list, z);
+        this.dXx.setTabData(list, z);
     }
 
     public void b(int i, int i2, List<h> list, List<com.baidu.tieba.frs.game.strategy.tab.e> list2, boolean z, boolean z2, int i3) {
-        this.dWR.b(i, i2, list, list2, z, z2, i3);
+        this.dXx.b(i, i2, list, list2, z, z2, i3);
     }
 
     public void d(int i, int i2, String str) {
-        this.dWR.d(i, i2, str);
+        this.dXx.d(i, i2, str);
     }
 
     public void onDestory() {
-        this.dWR.onDestory();
+        this.dXx.onDestory();
     }
 
-    public void aaY() {
-        if (this.dWR != null) {
-            this.dWR.aaY();
+    public void abv() {
+        if (this.dXx != null) {
+            this.dXx.abv();
         }
     }
 }

@@ -6,37 +6,37 @@ import android.view.View;
 import android.widget.Scroller;
 /* loaded from: classes.dex */
 public class f {
-    private int OI;
-    private com.baidu.adp.widget.b.a OJ;
-    private boolean OL;
-    a OM;
+    private int OU;
+    private com.baidu.adp.widget.b.a OV;
+    private boolean OW;
+    a OX;
     int mDuration;
     View mView;
-    private int OH = 1;
+    private int OT = 1;
     Handler mHandler = new Handler();
-    Runnable OO = new Runnable() { // from class: com.baidu.adp.widget.ListView.f.1
+    Runnable OY = new Runnable() { // from class: com.baidu.adp.widget.ListView.f.1
         @Override // java.lang.Runnable
         public void run() {
-            if (f.this.OM == null) {
+            if (f.this.OX == null) {
                 return;
             }
-            f.this.OM.oJ();
+            f.this.OX.oN();
         }
     };
 
     public f(Context context, int i, int i2, int i3) {
-        this.OL = true;
+        this.OW = true;
         int abs = Math.abs(i - i2);
-        this.OI = i2;
-        if (abs < this.OH) {
-            this.OL = false;
+        this.OU = i2;
+        if (abs < this.OT) {
+            this.OW = false;
         }
-        this.OM = new a(context);
+        this.OX = new a(context);
         this.mDuration = i3;
     }
 
     public void a(com.baidu.adp.widget.b.a aVar) {
-        this.OJ = aVar;
+        this.OV = aVar;
     }
 
     /* loaded from: classes.dex */
@@ -50,7 +50,7 @@ public class f {
 
         private void startCommon() {
             if (f.this.mHandler != null) {
-                f.this.mHandler.removeCallbacks(f.this.OO);
+                f.this.mHandler.removeCallbacks(f.this.OY);
             }
             if (f.this.mView != null) {
                 f.this.mView.removeCallbacks(this);
@@ -78,8 +78,8 @@ public class f {
                     }
                 }
                 if (z) {
-                    f.this.mHandler.removeCallbacks(f.this.OO);
-                    f.this.mHandler.post(f.this.OO);
+                    f.this.mHandler.removeCallbacks(f.this.OY);
+                    f.this.mHandler.post(f.this.OY);
                 }
             }
         }
@@ -95,8 +95,8 @@ public class f {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void oJ() {
-            f.this.mHandler.removeCallbacks(f.this.OO);
+        public void oN() {
+            f.this.mHandler.removeCallbacks(f.this.OY);
             if (this.mScroller != null) {
                 this.mScroller.abortAnimation();
                 this.mScroller.forceFinished(true);
@@ -104,17 +104,17 @@ public class f {
             if (f.this.mView != null) {
                 f.this.mView.removeCallbacks(this);
             }
-            if (f.this.OJ != null) {
-                f.this.OJ.onOver();
+            if (f.this.OV != null) {
+                f.this.OV.onOver();
             }
         }
     }
 
     public void B(View view) {
-        if (this.OL && this.OM != null) {
+        if (this.OW && this.OX != null) {
             this.mView = view;
-            this.OM.r(Math.abs(this.OI), this.mDuration);
-            this.mHandler.postDelayed(this.OO, this.mDuration);
+            this.OX.r(Math.abs(this.OU), this.mDuration);
+            this.mHandler.postDelayed(this.OY, this.mDuration);
         }
     }
 
@@ -122,8 +122,8 @@ public class f {
     public boolean move(int i) {
         boolean z = true;
         int paddingTop = this.mView.getPaddingTop() - Math.abs(i);
-        if (paddingTop <= this.OI) {
-            paddingTop = this.OI;
+        if (paddingTop <= this.OU) {
+            paddingTop = this.OU;
             z = false;
         }
         this.mView.setPadding(this.mView.getPaddingLeft(), paddingTop, this.mView.getPaddingRight(), this.mView.getPaddingBottom());

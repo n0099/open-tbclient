@@ -8,37 +8,37 @@ import com.baidu.tieba.im.message.RequestGetGroupActivityLocalMessage;
 import com.baidu.tieba.im.message.RequestGetGroupActivityMessage;
 /* loaded from: classes3.dex */
 public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
-    private int akb;
-    private RequestGetGroupActivityMessage eUD;
-    private RequestGetGroupActivityLocalMessage eUE;
-    private RequestDelGroupActivityMessage eUF;
-    private GroupActivityActivity eUG;
-    private GroupActivityData eUH;
+    private int akk;
+    private RequestGetGroupActivityMessage eVq;
+    private RequestGetGroupActivityLocalMessage eVr;
+    private RequestDelGroupActivityMessage eVs;
+    private GroupActivityActivity eVt;
+    private GroupActivityData eVu;
     private int mFrom;
     private long mGroupId;
 
     public GroupActivityModel(GroupActivityActivity groupActivityActivity) {
         super(groupActivityActivity.getPageContext());
-        this.eUG = groupActivityActivity;
+        this.eVt = groupActivityActivity;
     }
 
-    public int aSz() {
+    public int aSZ() {
         return this.mFrom;
     }
 
-    public void qk(int i) {
+    public void ql(int i) {
         this.mFrom = i;
     }
 
-    public int aSA() {
-        return this.akb;
+    public int aTa() {
+        return this.akk;
     }
 
-    public void ql(int i) {
-        this.akb = i;
+    public void qm(int i) {
+        this.akk = i;
     }
 
-    public long aSB() {
+    public long aTb() {
         return this.mGroupId;
     }
 
@@ -56,14 +56,14 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
         return false;
     }
 
-    private RequestGetGroupActivityMessage qm(int i) {
+    private RequestGetGroupActivityMessage qn(int i) {
         RequestGetGroupActivityMessage requestGetGroupActivityMessage = new RequestGetGroupActivityMessage();
         requestGetGroupActivityMessage.setActivityId(i);
         requestGetGroupActivityMessage.setFrom(this.mFrom);
         return requestGetGroupActivityMessage;
     }
 
-    private RequestGetGroupActivityLocalMessage qn(int i) {
+    private RequestGetGroupActivityLocalMessage qo(int i) {
         RequestGetGroupActivityLocalMessage requestGetGroupActivityLocalMessage = new RequestGetGroupActivityLocalMessage();
         requestGetGroupActivityLocalMessage.setActivityId(i);
         requestGetGroupActivityLocalMessage.setFrom(this.mFrom);
@@ -71,45 +71,45 @@ public class GroupActivityModel extends BdBaseModel<GroupActivityActivity> {
     }
 
     public void sendMessage(int i) {
-        this.eUD = qm(i);
-        this.eUG.sendMessage(this.eUD);
+        this.eVq = qn(i);
+        this.eVt.sendMessage(this.eVq);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
     }
 
-    public void qo(int i) {
-        this.eUE = qn(i);
-        this.eUG.sendMessage(this.eUE);
+    public void qp(int i) {
+        this.eVr = qo(i);
+        this.eVt.sendMessage(this.eVr);
     }
 
     public Message<?> getLocalSendMsg() {
-        return this.eUE;
+        return this.eVr;
     }
 
     public Message<?> getSendMsg() {
-        return this.eUD;
+        return this.eVq;
     }
 
-    public Message<?> aSC() {
-        return this.eUF;
+    public Message<?> aTc() {
+        return this.eVs;
     }
 
     public void m(long j, int i) {
-        this.eUF = new RequestDelGroupActivityMessage();
-        this.eUF.setActivityId(i);
-        this.eUF.setGroupId(j);
-        this.eUG.sendMessage(this.eUF);
+        this.eVs = new RequestDelGroupActivityMessage();
+        this.eVs.setActivityId(i);
+        this.eVs.setGroupId(j);
+        this.eVt.sendMessage(this.eVs);
     }
 
-    public GroupActivityData aSD() {
-        return this.eUH;
+    public GroupActivityData aTd() {
+        return this.eVu;
     }
 
     public void a(GroupActivityData groupActivityData) {
         if (groupActivityData != null) {
-            this.eUH = groupActivityData;
+            this.eVu = groupActivityData;
         }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.chosen.posts.request;
 
 import com.baidu.tbadk.mvc.b.e;
 import com.baidu.tbadk.mvc.b.h;
-import com.baidu.tbadk.util.p;
+import com.baidu.tbadk.util.q;
 import java.util.HashMap;
 import tbclient.HotThread.DataReq;
 import tbclient.HotThread.HotThreadReqIdl;
@@ -10,22 +10,27 @@ import tbclient.HotThread.HotThreadReqIdl;
 public class a implements e, h {
     private int requestCount;
 
-    public void arG() {
+    public void ase() {
         this.requestCount++;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> Oc() {
+    public HashMap<String, Object> Ot() {
+        return null;
+    }
+
+    @Override // com.baidu.tbadk.mvc.b.g
+    public HashMap<String, String> Ou() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object cD(boolean z) {
+    public Object cG(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.pn = Integer.valueOf(this.requestCount);
         HotThreadReqIdl.Builder builder2 = new HotThreadReqIdl.Builder();
         builder2.data = builder.build(false);
-        p.bindCommonParamsToProtobufData(builder2.data, true);
+        q.bindCommonParamsToProtobufData(builder2.data, true);
         return builder2.build(false);
     }
 
@@ -35,12 +40,12 @@ public class a implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String NZ() {
+    public String Oq() {
         return "tb.pb_normal";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Oa() {
+    public boolean Or() {
         return true;
     }
 

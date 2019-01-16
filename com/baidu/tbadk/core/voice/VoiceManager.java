@@ -197,7 +197,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
                         }
                         b playView4 = VoiceManager.this.getPlayView();
                         if (playView4 != null) {
-                            playView4.pZ();
+                            playView4.qd();
                         }
                         MediaService.startPlay(context);
                         return;
@@ -241,7 +241,7 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
 
         void onShowErr(int i, String str);
 
-        void pZ();
+        void qd();
     }
 
     /* loaded from: classes.dex */
@@ -448,10 +448,10 @@ public class VoiceManager extends BroadcastReceiver implements SensorEventListen
             if (this.mPermissionJudgePolicy == null) {
                 this.mPermissionJudgePolicy = new com.baidu.tbadk.core.util.b.a();
             }
-            this.mPermissionJudgePolicy.Et();
+            this.mPermissionJudgePolicy.EG();
             this.mPermissionJudgePolicy.c(this.context.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
             this.mPermissionJudgePolicy.c(this.context.getPageActivity(), "android.permission.RECORD_AUDIO");
-            if (!this.mPermissionJudgePolicy.A(this.context.getPageActivity())) {
+            if (!this.mPermissionJudgePolicy.B(this.context.getPageActivity())) {
                 if (this.mHandle != null) {
                     this.mHandle.removeCallbacks(this.stopVoiceAndRePlayRunnable);
                 }

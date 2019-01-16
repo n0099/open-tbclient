@@ -11,11 +11,11 @@ public interface a {
 
     void b(BaseFragment baseFragment);
 
-    f bqE();
+    f brn();
 
-    void bqF();
+    void bro();
 
-    void gx(boolean z);
+    void gA(boolean z);
 
     void mj(boolean z);
 
@@ -25,7 +25,7 @@ public interface a {
 
     void onResume();
 
-    void tN(String str);
+    void ud(String str);
 
-    void tO(String str);
+    void ue(String str);
 }

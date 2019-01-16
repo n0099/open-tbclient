@@ -5,12 +5,12 @@ public class s extends com.baidu.g.d {
         super("com.baidu.searchbox_ubc");
     }
 
-    public static s bSl() {
-        return a.ift;
+    public static s bST() {
+        return a.igA;
     }
 
     /* loaded from: classes2.dex */
     private static final class a {
-        private static final s ift = new s();
+        private static final s igA = new s();
     }
 }

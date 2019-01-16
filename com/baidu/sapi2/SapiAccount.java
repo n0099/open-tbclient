@@ -5,7 +5,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.fsg.base.BaiduRimConstants;
-import com.baidu.sapi2.activity.social.SocialLoginActivity;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.sapi2.share.ShareAccountAccessor;
@@ -210,7 +209,7 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
     }
 
     public SocialType getSocialType() {
-        return SocialType.getSocialType(a(SocialLoginActivity.EXTRA_SOCIAL_TYPE, SocialType.UNKNOWN.getType()));
+        return SocialType.getSocialType(a("social_type", SocialType.UNKNOWN.getType()));
     }
 
     public AccountType getAccountType() {
@@ -487,7 +486,7 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
     /* JADX INFO: Access modifiers changed from: protected */
     public void addSocialInfo(SocialType socialType, String str) {
         putExtra("is_social_account", true);
-        putExtra(SocialLoginActivity.EXTRA_SOCIAL_TYPE, Integer.valueOf(socialType.getType()));
+        putExtra("social_type", Integer.valueOf(socialType.getType()));
         putExtra("social_portrait", str);
     }
 

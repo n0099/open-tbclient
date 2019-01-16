@@ -51,7 +51,7 @@ public class e {
                             try {
                                 try {
                                     if (cursor2.moveToFirst() && (string = cursor2.getString(cursor2.getColumnIndex("_data"))) != null) {
-                                        dVar.wS(string.replace("/storage/emulated/0", "/sdcard"));
+                                        dVar.xi(string.replace("/storage/emulated/0", "/sdcard"));
                                     }
                                 } catch (Throwable th) {
                                     th = th;
@@ -87,7 +87,7 @@ public class e {
                         cursor2 = null;
                     }
                     cursor.moveToNext();
-                    if (dVar.getVideoPath() != null && dVar.getDuration() != 0 && wV(dVar.getMimeType()) && dVar.getDuration() >= 1000) {
+                    if (dVar.getVideoPath() != null && dVar.getDuration() != 0 && xl(dVar.getMimeType()) && dVar.getDuration() >= 1000) {
                         videoPath = dVar.getVideoPath();
                         String substring2 = videoPath.substring(0, videoPath.lastIndexOf("/"));
                         if (!videoPath.contains("/DCIM/") && ((substring2 == null || !substring2.equals("/sdcard")) && (file = new File(videoPath)) != null && file.exists())) {
@@ -130,11 +130,11 @@ public class e {
         return arrayList;
     }
 
-    public static int wB(String str) {
-        return VideoConvertUtil.wB(str);
+    public static int wR(String str) {
+        return VideoConvertUtil.wR(str);
     }
 
-    public static d wT(String str) {
+    public static d xj(String str) {
         File file = new File(str);
         if (file == null || !file.exists() || !file.isFile()) {
             return null;
@@ -179,7 +179,7 @@ public class e {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public static d wU(String str) {
+    public static d xk(String str) {
         File file = new File(str);
         if (file == null || !file.exists() || !file.isFile()) {
             return null;
@@ -213,13 +213,13 @@ public class e {
         return dVar;
     }
 
-    public static String wA(String str) {
-        return VideoConvertUtil.wA(str);
+    public static String wQ(String str) {
+        return VideoConvertUtil.wQ(str);
     }
 
     public static void c(String str, List<d> list, boolean z) {
         File[] listFiles;
-        d wT;
+        d xj;
         if (list != null && !StringUtils.isNull(str) && (listFiles = new File(str).listFiles()) != null && listFiles.length != 0) {
             for (File file : listFiles) {
                 if (file != null && !StringUtils.isNull(file.getPath())) {
@@ -229,8 +229,8 @@ public class e {
                             if (file.exists()) {
                                 file.delete();
                             }
-                        } else if (path.contains(".mp4") && ".mp4".equals(path.substring(path.lastIndexOf(".mp4"))) && (wT = wT(file.getPath())) != null && file.length() > 102400 && wT.getDuration() >= 1000 && wV(wT.getMimeType())) {
-                            list.add(wT);
+                        } else if (path.contains(".mp4") && ".mp4".equals(path.substring(path.lastIndexOf(".mp4"))) && (xj = xj(file.getPath())) != null && file.length() > 102400 && xj.getDuration() >= 1000 && xl(xj.getMimeType())) {
+                            list.add(xj);
                         }
                     } else if (file.isDirectory() && !path.contains("/.") && z) {
                         c(path, list, z);
@@ -240,7 +240,7 @@ public class e {
         }
     }
 
-    public static void ec(List<d> list) {
+    public static void ed(List<d> list) {
         Collections.sort(list, new a());
     }
 
@@ -261,7 +261,7 @@ public class e {
         }
     }
 
-    public static boolean wV(String str) {
+    public static boolean xl(String str) {
         return "video/mp4".equals(str) || "video/ext-mp4".equals(str);
     }
 }

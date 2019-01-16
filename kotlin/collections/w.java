@@ -12,7 +12,7 @@ public abstract class w implements Iterator<Float> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: ccy */
+    /* renamed from: cdg */
     public final Float next() {
         return Float.valueOf(nextFloat());
     }

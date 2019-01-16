@@ -70,6 +70,10 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
 
     private void initLoad() {
         Bundle extras = getIntent().getExtras();
+        if (extras == null) {
+            finish();
+            return;
+        }
         int i = extras.getInt("type", -1);
         if (i == -1) {
             finish();
@@ -136,6 +140,8 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
         relativeLayout2.addView(this.titleText, layoutParams2);
         relativeLayout.addView(relativeLayout2, new RelativeLayout.LayoutParams(-1, UIUtils.dip2px(55, this)));
         this.webView = new WebView(this);
+        this.webView.getSettings().setSavePassword(false);
+        this.webView.getSettings().setAllowFileAccess(false);
         RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams3.topMargin = UIUtils.dip2px(55, this);
         relativeLayout.addView(this.webView, layoutParams3);

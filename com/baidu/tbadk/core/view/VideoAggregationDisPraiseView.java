@@ -8,23 +8,23 @@ import com.baidu.tieba.e;
 public class VideoAggregationDisPraiseView extends VideoAggregationPraiseView {
     public VideoAggregationDisPraiseView(Context context) {
         super(context);
-        EH();
+        EU();
     }
 
     public VideoAggregationDisPraiseView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        EH();
+        EU();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.VideoAggregationPraiseView, com.baidu.tbadk.core.view.BasePraiseView
-    public void EH() {
+    public void EU() {
         this.agreeType = 5;
-        this.aFs = e.j.action_dislike;
-        this.aFv = e.d.cp_cont_i_alpha70;
-        this.aFw = e.d.cp_link_tip_a_alpha70;
-        this.aFt = e.f.icon_card_dislike_white_n;
-        this.aFu = e.f.icon_card_dislike_white_s;
+        this.aFU = e.j.action_dislike;
+        this.aFX = e.d.cp_cont_i_alpha70;
+        this.aFY = e.d.cp_link_tip_a_alpha70;
+        this.aFV = e.f.icon_card_dislike_white_n;
+        this.aFW = e.f.icon_card_dislike_white_s;
     }
 
     @Override // com.baidu.tbadk.core.view.VideoAggregationPraiseView, com.baidu.tbadk.core.view.BasePraiseView
@@ -32,28 +32,28 @@ public class VideoAggregationDisPraiseView extends VideoAggregationPraiseView {
         if (this.mData == 0) {
             return 0L;
         }
-        return ((com.baidu.tieba.frs.aggregation.g) this.mData).AT();
+        return ((com.baidu.tieba.frs.aggregation.g) this.mData).Bg();
     }
 
     @Override // com.baidu.tbadk.core.view.VideoAggregationPraiseView
-    public int EJ() {
+    public int EW() {
         int i;
         if (this.mData == 0) {
             return 0;
         }
-        if (((com.baidu.tieba.frs.aggregation.g) this.mData).aDQ() && EK()) {
+        if (((com.baidu.tieba.frs.aggregation.g) this.mData).aEn() && EX()) {
             ((com.baidu.tieba.frs.aggregation.g) this.mData).cY(5);
             ((com.baidu.tieba.frs.aggregation.g) this.mData).cW(0);
-            ((com.baidu.tieba.frs.aggregation.g) this.mData).C(((com.baidu.tieba.frs.aggregation.g) this.mData).AS());
-            ((com.baidu.tieba.frs.aggregation.g) this.mData).D(((com.baidu.tieba.frs.aggregation.g) this.mData).AT() - 1);
+            ((com.baidu.tieba.frs.aggregation.g) this.mData).C(((com.baidu.tieba.frs.aggregation.g) this.mData).Bf());
+            ((com.baidu.tieba.frs.aggregation.g) this.mData).D(((com.baidu.tieba.frs.aggregation.g) this.mData).Bg() - 1);
             i = 1;
         } else {
-            int AV = ((com.baidu.tieba.frs.aggregation.g) this.mData).AV();
-            if ((((com.baidu.tieba.frs.aggregation.g) this.mData).aDQ() && AV == 2) || AV == 1) {
-                ((com.baidu.tieba.frs.aggregation.g) this.mData).C(((com.baidu.tieba.frs.aggregation.g) this.mData).AS() - 1);
+            int Bi = ((com.baidu.tieba.frs.aggregation.g) this.mData).Bi();
+            if ((((com.baidu.tieba.frs.aggregation.g) this.mData).aEn() && Bi == 2) || Bi == 1) {
+                ((com.baidu.tieba.frs.aggregation.g) this.mData).C(((com.baidu.tieba.frs.aggregation.g) this.mData).Bf() - 1);
             }
             ((com.baidu.tieba.frs.aggregation.g) this.mData).cW(1);
-            ((com.baidu.tieba.frs.aggregation.g) this.mData).D(((com.baidu.tieba.frs.aggregation.g) this.mData).AT() + 1);
+            ((com.baidu.tieba.frs.aggregation.g) this.mData).D(((com.baidu.tieba.frs.aggregation.g) this.mData).Bg() + 1);
             ((com.baidu.tieba.frs.aggregation.g) this.mData).cY(5);
             i = 0;
         }
@@ -63,12 +63,12 @@ public class VideoAggregationDisPraiseView extends VideoAggregationPraiseView {
     @Override // com.baidu.tbadk.core.view.VideoAggregationPraiseView
     public int L(View view) {
         int L = super.L(view);
-        bz(L == 0);
+        bA(L == 0);
         return L;
     }
 
     @Override // com.baidu.tbadk.core.view.VideoAggregationPraiseView
-    public boolean EK() {
-        return this.mData != 0 && ((com.baidu.tieba.frs.aggregation.g) this.mData).AV() == 5;
+    public boolean EX() {
+        return this.mData != 0 && ((com.baidu.tieba.frs.aggregation.g) this.mData).Bi() == 5;
     }
 }

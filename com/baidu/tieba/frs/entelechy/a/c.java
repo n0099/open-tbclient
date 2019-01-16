@@ -18,13 +18,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.tieba.frs.h<s, a> implements View.OnClickListener {
-    private boolean dSK;
-    private boolean dSL;
+    private boolean dTq;
+    private boolean dTr;
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         super(tbPageContext, bdUniqueId);
-        this.dSK = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
-        this.dSL = z;
+        this.dTq = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
+        this.dTr = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,59 +42,59 @@ public class c extends com.baidu.tieba.frs.h<s, a> implements View.OnClickListen
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, s sVar, a aVar) {
         boolean z = true;
         super.onFillViewHolder(i, view, viewGroup, sVar, aVar);
-        if (sVar.bDB()) {
-            String bDC = sVar.bDC();
-            if (bDC != null) {
-                aVar.dSN.setText(bDC);
-            } else if (this.dKt != null && this.dKt.bgT() != null && this.dKt.bgT().getName() != null) {
-                TextView textView = aVar.dSN;
+        if (sVar.bEk()) {
+            String bEl = sVar.bEl();
+            if (bEl != null) {
+                aVar.dTt.setText(bEl);
+            } else if (this.dLc != null && this.dLc.bhx() != null && this.dLc.bhx().getName() != null) {
+                TextView textView = aVar.dTt;
                 Context context = this.mContext;
                 int i2 = e.j.get_fortune_hint_format;
                 Object[] objArr = new Object[1];
-                objArr[0] = this.dKt == null ? "" : this.dKt.bgT().getName();
+                objArr[0] = this.dLc == null ? "" : this.dLc.bhx().getName();
                 textView.setText(context.getString(i2, objArr));
             }
-            aVar.dSM.setTag(Integer.valueOf(i));
-            aVar.dSM.setOnClickListener(this);
-            aVar.dSM.setVisibility(0);
+            aVar.dTs.setTag(Integer.valueOf(i));
+            aVar.dTs.setOnClickListener(this);
+            aVar.dTs.setVisibility(0);
         } else {
-            aVar.dSM.setVisibility(8);
-            aVar.dST.setVisibility(8);
+            aVar.dTs.setVisibility(8);
+            aVar.dTz.setVisibility(8);
         }
-        com.baidu.tieba.tbadkCore.m bDD = sVar.bDD();
-        if (bDD != null && bDD.bDu() && !TextUtils.isEmpty(bDD.bDv())) {
-            aVar.dSP.setText(bDD.bDv());
-            aVar.dSO.setTag(Integer.valueOf(i));
-            aVar.dSO.setOnClickListener(this);
-            aVar.dSO.setVisibility(0);
+        com.baidu.tieba.tbadkCore.m bEm = sVar.bEm();
+        if (bEm != null && bEm.bEd() && !TextUtils.isEmpty(bEm.bEe())) {
+            aVar.dTv.setText(bEm.bEe());
+            aVar.dTu.setTag(Integer.valueOf(i));
+            aVar.dTu.setOnClickListener(this);
+            aVar.dTu.setVisibility(0);
         } else {
-            aVar.dSO.setVisibility(8);
-            aVar.dSU.setVisibility(8);
+            aVar.dTu.setVisibility(8);
+            aVar.dTA.setVisibility(8);
         }
-        if (this.dSL) {
-            aVar.dSQ.setVisibility(0);
+        if (this.dTr) {
+            aVar.dTw.setVisibility(0);
         } else {
-            aVar.dSQ.setVisibility(8);
+            aVar.dTw.setVisibility(8);
         }
         this.mPageContext.getLayoutMode().setNightMode(this.mSkinType == 1);
         this.mPageContext.getLayoutMode().onModeChanged(view);
-        if (this.dKt == null || this.dKt.getUserData() == null || !this.dKt.getUserData().isBawu()) {
+        if (this.dLc == null || this.dLc.getUserData() == null || !this.dLc.getUserData().isBawu()) {
             z = false;
         }
         if (z) {
-            aVar.dSR.setVisibility(0);
-            al.i(aVar.dSR, e.f.frs_top_item_bg);
-            aVar.dSQ.setVisibility(0);
-            aVar.dSR.setOnClickListener(this);
-            aVar.dSR.setTag(Integer.valueOf(i));
+            aVar.dTx.setVisibility(0);
+            al.i(aVar.dTx, e.f.frs_top_item_bg);
+            aVar.dTw.setVisibility(0);
+            aVar.dTx.setOnClickListener(this);
+            aVar.dTx.setTag(Integer.valueOf(i));
         } else {
-            aVar.dSR.setVisibility(8);
-            aVar.dSV.setVisibility(8);
+            aVar.dTx.setVisibility(8);
+            aVar.dTB.setVisibility(8);
         }
-        if (!this.dSK && !sVar.bDB()) {
+        if (!this.dTq && !sVar.bEk()) {
             if (z) {
-                aVar.dSM.setVisibility(8);
-                aVar.dSO.setVisibility(8);
+                aVar.dTs.setVisibility(8);
+                aVar.dTu.setVisibility(8);
                 a(aVar);
                 return view;
             }
@@ -104,7 +104,7 @@ public class c extends com.baidu.tieba.frs.h<s, a> implements View.OnClickListen
     }
 
     private void a(a aVar) {
-        List<View> list = aVar.dSW;
+        List<View> list = aVar.dTC;
         for (View view : list) {
             view.setVisibility(8);
         }
@@ -113,12 +113,12 @@ public class c extends com.baidu.tieba.frs.h<s, a> implements View.OnClickListen
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.dKu != null) {
+        if (this.dLd != null) {
             int id = view.getId();
             int intValue = ((Integer) view.getTag()).intValue();
             if (getItem(intValue) instanceof bb) {
-                View o = o(this.dKv.getListView(), intValue);
-                this.dKu.a(id, intValue, view, o, (bb) getItem(intValue));
+                View o = o(this.dLe.getListView(), intValue);
+                this.dLd.a(id, intValue, view, o, (bb) getItem(intValue));
             }
         }
     }
@@ -126,34 +126,34 @@ public class c extends com.baidu.tieba.frs.h<s, a> implements View.OnClickListen
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes3.dex */
     public static class a extends q.a {
-        View dSM;
-        TextView dSN;
-        View dSO;
-        TextView dSP;
-        View dSQ;
-        View dSR;
-        TextView dSS;
-        View dST;
-        View dSU;
-        View dSV;
-        List<View> dSW;
+        View dTA;
+        View dTB;
+        List<View> dTC;
+        View dTs;
+        TextView dTt;
+        View dTu;
+        TextView dTv;
+        View dTw;
+        View dTx;
+        TextView dTy;
+        View dTz;
 
         a(View view) {
             super(view);
-            this.dSW = new ArrayList();
-            this.dSN = (TextView) view.findViewById(e.g.frs_fortune_bag_content);
-            this.dSM = view.findViewById(e.g.frs_fortune_bag_item);
-            this.dSO = view.findViewById(e.g.frs_my_service_item);
-            this.dSP = (TextView) view.findViewById(e.g.frs_my_service_content);
-            this.dSQ = view.findViewById(e.g.frs_list_item_official_buttom_line);
-            this.dSR = view.findViewById(e.g.frs_bawu_center);
-            this.dSS = (TextView) view.findViewById(e.g.frs_bawu_center_inner);
-            this.dST = view.findViewById(e.g.official_account_text_divider_fortune_top);
-            this.dSU = view.findViewById(e.g.official_account_text_divider_service_top);
-            this.dSV = view.findViewById(e.g.official_account_text_divider_bawucenter_top);
-            this.dSW.add(this.dST);
-            this.dSW.add(this.dSU);
-            this.dSW.add(this.dSV);
+            this.dTC = new ArrayList();
+            this.dTt = (TextView) view.findViewById(e.g.frs_fortune_bag_content);
+            this.dTs = view.findViewById(e.g.frs_fortune_bag_item);
+            this.dTu = view.findViewById(e.g.frs_my_service_item);
+            this.dTv = (TextView) view.findViewById(e.g.frs_my_service_content);
+            this.dTw = view.findViewById(e.g.frs_list_item_official_buttom_line);
+            this.dTx = view.findViewById(e.g.frs_bawu_center);
+            this.dTy = (TextView) view.findViewById(e.g.frs_bawu_center_inner);
+            this.dTz = view.findViewById(e.g.official_account_text_divider_fortune_top);
+            this.dTA = view.findViewById(e.g.official_account_text_divider_service_top);
+            this.dTB = view.findViewById(e.g.official_account_text_divider_bawucenter_top);
+            this.dTC.add(this.dTz);
+            this.dTC.add(this.dTA);
+            this.dTC.add(this.dTB);
         }
     }
 }

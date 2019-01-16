@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.home;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.VisitedForumData;
-import com.baidu.tbadk.util.p;
+import com.baidu.tbadk.util.q;
 import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
@@ -46,13 +46,13 @@ public class RecentlyVisitedForumRequestMessage extends NetMessage {
                     VisitedForumData next = it.next();
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("forum_id", com.baidu.adp.lib.g.b.d(next.getForumId(), 0L));
-                    jSONObject.put("visit_time", next.LK());
+                    jSONObject.put("visit_time", next.Mb());
                     jSONArray.put(jSONObject);
                 }
             }
             builder.history = jSONArray.toString();
             if (z) {
-                p.bindCommonParamsToProtobufData(builder, true);
+                q.bindCommonParamsToProtobufData(builder, true);
             }
             GetHistoryForumReqIdl.Builder builder2 = new GetHistoryForumReqIdl.Builder();
             builder2.data = builder.build(false);

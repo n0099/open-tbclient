@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes2.dex */
     public static final class a {
         private final String className;
-        private C0354a iiS;
-        private C0354a iiT;
-        private boolean iiU;
+        private C0353a ijZ;
+        private C0353a ika;
+        private boolean ikb;
 
         private a(String str) {
-            this.iiS = new C0354a();
-            this.iiT = this.iiS;
-            this.iiU = false;
+            this.ijZ = new C0353a();
+            this.ika = this.ijZ;
+            this.ikb = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -45,7 +45,7 @@ public final class f {
             return o(str, obj);
         }
 
-        public a ai(String str, boolean z) {
+        public a ah(String str, boolean z) {
             return o(str, String.valueOf(z));
         }
 
@@ -54,45 +54,45 @@ public final class f {
         }
 
         public String toString() {
-            boolean z = this.iiU;
+            boolean z = this.ikb;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0354a c0354a = this.iiS.iiV; c0354a != null; c0354a = c0354a.iiV) {
-                if (!z || c0354a.value != null) {
+            for (C0353a c0353a = this.ijZ.ikc; c0353a != null; c0353a = c0353a.ikc) {
+                if (!z || c0353a.value != null) {
                     append.append(str);
                     str = ", ";
-                    if (c0354a.name != null) {
-                        append.append(c0354a.name).append('=');
+                    if (c0353a.name != null) {
+                        append.append(c0353a.name).append('=');
                     }
-                    append.append(c0354a.value);
+                    append.append(c0353a.value);
                 }
             }
             return append.append('}').toString();
         }
 
-        private C0354a bTR() {
-            C0354a c0354a = new C0354a();
-            this.iiT.iiV = c0354a;
-            this.iiT = c0354a;
-            return c0354a;
+        private C0353a bUz() {
+            C0353a c0353a = new C0353a();
+            this.ika.ikc = c0353a;
+            this.ika = c0353a;
+            return c0353a;
         }
 
         private a o(String str, @Nullable Object obj) {
-            C0354a bTR = bTR();
-            bTR.value = obj;
-            bTR.name = (String) g.checkNotNull(str);
+            C0353a bUz = bUz();
+            bUz.value = obj;
+            bUz.name = (String) g.checkNotNull(str);
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static final class C0354a {
-            C0354a iiV;
+        public static final class C0353a {
+            C0353a ikc;
             String name;
             Object value;
 
-            private C0354a() {
+            private C0353a() {
             }
         }
     }

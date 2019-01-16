@@ -11,59 +11,59 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.im.data.GroupInfoData;
 /* loaded from: classes3.dex */
 public class f extends q.a {
-    public int aLH;
+    public int aMj;
     public View dividerLine;
-    public GroupImageView eSi;
-    public TextView eSj;
-    public TextView eSk;
-    public TextView eSl;
-    public TextView eSm;
-    public ImageView eSn;
-    public ImageView eSo;
-    public ImageView eSp;
-    public ImageView[] eSq;
+    public GroupImageView eSV;
+    public TextView eSW;
+    public TextView eSX;
+    public TextView eSY;
+    public TextView eSZ;
+    public ImageView eTa;
+    public ImageView eTb;
+    public ImageView eTc;
+    public ImageView[] eTd;
     public View rootView;
 
     public f(View view, View.OnClickListener onClickListener) {
         super(view);
-        this.aLH = 3;
+        this.aMj = 3;
         this.rootView = view;
         this.rootView.setOnClickListener(onClickListener);
-        this.eSi = (GroupImageView) view.findViewById(e.g.item_head);
-        this.eSj = (TextView) view.findViewById(e.g.item_group_name);
-        this.eSk = (TextView) view.findViewById(e.g.item_group_meizi);
-        this.eSl = (TextView) view.findViewById(e.g.item_group_num);
-        this.eSm = (TextView) view.findViewById(e.g.item_introduce);
-        this.eSn = (ImageView) view.findViewById(e.g.item_grade1);
-        this.eSo = (ImageView) view.findViewById(e.g.item_grade2);
-        this.eSp = (ImageView) view.findViewById(e.g.item_grade3);
+        this.eSV = (GroupImageView) view.findViewById(e.g.item_head);
+        this.eSW = (TextView) view.findViewById(e.g.item_group_name);
+        this.eSX = (TextView) view.findViewById(e.g.item_group_meizi);
+        this.eSY = (TextView) view.findViewById(e.g.item_group_num);
+        this.eSZ = (TextView) view.findViewById(e.g.item_introduce);
+        this.eTa = (ImageView) view.findViewById(e.g.item_grade1);
+        this.eTb = (ImageView) view.findViewById(e.g.item_grade2);
+        this.eTc = (ImageView) view.findViewById(e.g.item_grade3);
         this.dividerLine = view.findViewById(e.g.divider_line);
-        this.eSq = new ImageView[4];
-        this.eSq[1] = this.eSn;
-        this.eSq[2] = this.eSo;
-        this.eSq[3] = this.eSp;
+        this.eTd = new ImageView[4];
+        this.eTd[1] = this.eTa;
+        this.eTd[2] = this.eTb;
+        this.eTd[3] = this.eTc;
     }
 
     public void a(GroupInfoData groupInfoData) {
         if (groupInfoData != null) {
-            this.eSi.setTag(null);
-            this.eSi.setDrawBorder(true);
-            this.eSi.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+            this.eSV.setTag(null);
+            this.eSV.setDrawBorder(true);
+            this.eSV.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
-                this.eSi.setTag(portrait);
-                this.eSi.startLoad(portrait, 10, false);
+                this.eSV.setTag(portrait);
+                this.eSV.startLoad(portrait, 10, false);
             }
-            this.eSj.setText(groupInfoData.getName());
-            this.eSk.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
-            this.eSl.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-            this.eSm.setText(groupInfoData.getIntro().trim());
-            a(this.eSq, groupInfoData.getGrade());
+            this.eSW.setText(groupInfoData.getName());
+            this.eSX.setVisibility(groupInfoData.autorIsMeizhi() ? 0 : 8);
+            this.eSY.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
+            this.eSZ.setText(groupInfoData.getIntro().trim());
+            a(this.eTd, groupInfoData.getGrade());
             if (groupInfoData.isMemGroup()) {
-                al.c(this.eSj, e.d.common_color_10009, 1);
-                al.c(this.eSn, e.f.icon_vip_grade_big_small_s);
-                al.c(this.eSo, e.f.icon_vip_grade_big_small_s);
-                al.c(this.eSp, e.f.icon_vip_grade_big_small_s);
+                al.c(this.eSW, e.d.common_color_10009, 1);
+                al.c(this.eTa, e.f.icon_vip_grade_big_small_s);
+                al.c(this.eTb, e.f.icon_vip_grade_big_small_s);
+                al.c(this.eTc, e.f.icon_vip_grade_big_small_s);
             }
         }
     }

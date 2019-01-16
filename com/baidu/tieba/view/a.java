@@ -13,14 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class a {
-    private TextView amN;
-    private Context hPR;
-    private LinearLayout hPS;
-    private View hPT;
-    private TextView hPU;
-    private d hPV;
-    private b hPW;
-    private List<C0334a> mItems;
+    private TextView anp;
+    private Context hQY;
+    private LinearLayout hQZ;
+    private View hRa;
+    private TextView hRb;
+    private d hRc;
+    private b hRd;
+    private List<C0333a> mItems;
     private String titleText;
     private View view;
 
@@ -41,22 +41,22 @@ public class a {
 
     public a(Context context) {
         if (context != null) {
-            this.hPR = context;
+            this.hQY = context;
             this.view = LayoutInflater.from(context).inflate(e.h.bottom_up_list_dialog_view, (ViewGroup) null);
-            this.hPS = (LinearLayout) this.view.findViewById(e.g.content_view);
-            this.amN = (TextView) this.view.findViewById(e.g.title);
-            this.hPT = this.view.findViewById(e.g.title_divide_line);
+            this.hQZ = (LinearLayout) this.view.findViewById(e.g.content_view);
+            this.anp = (TextView) this.view.findViewById(e.g.title);
+            this.hRa = this.view.findViewById(e.g.title_divide_line);
             this.mItems = new ArrayList();
-            this.hPU = (TextView) this.view.findViewById(e.g.dialog_bottom_cancel_button);
+            this.hRb = (TextView) this.view.findViewById(e.g.dialog_bottom_cancel_button);
         }
     }
 
     public Context getContext() {
-        return this.hPR;
+        return this.hQY;
     }
 
-    public ViewGroup aky() {
-        return this.hPS;
+    public ViewGroup akV() {
+        return this.hQZ;
     }
 
     public void setTitleText(String str) {
@@ -64,24 +64,24 @@ public class a {
     }
 
     public void a(d dVar) {
-        this.hPV = dVar;
+        this.hRc = dVar;
     }
 
-    public d bMN() {
-        return this.hPV;
+    public d bNv() {
+        return this.hRc;
     }
 
-    public void ee(List<C0334a> list) {
+    public void ef(List<C0333a> list) {
         if (list != null) {
             this.mItems = list;
-            this.hPS.removeAllViews();
+            this.hQZ.removeAllViews();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < list.size()) {
-                    C0334a c0334a = list.get(i2);
-                    if (c0334a != null) {
-                        this.hPS.addView(c0334a.getView());
+                    C0333a c0333a = list.get(i2);
+                    if (c0333a != null) {
+                        this.hQZ.addView(c0333a.getView());
                     }
                     i = i2 + 1;
                 } else {
@@ -92,33 +92,33 @@ public class a {
     }
 
     public void a(b bVar) {
-        this.hPW = bVar;
+        this.hRd = bVar;
     }
 
     public void onChangeSkinType() {
-        al.j(this.amN, e.d.cp_bg_line_d);
-        al.h(this.amN, e.d.cp_cont_j);
-        al.j(this.hPT, e.d.cp_bg_line_c);
-        al.i(this.hPU, e.f.bg_bottom_up_list_dialog_item);
-        al.h(this.hPU, e.d.cp_cont_f);
+        al.j(this.anp, e.d.cp_bg_line_d);
+        al.h(this.anp, e.d.cp_cont_j);
+        al.j(this.hRa, e.d.cp_bg_line_c);
+        al.i(this.hRb, e.f.bg_bottom_up_list_dialog_item);
+        al.h(this.hRb, e.d.cp_cont_f);
         if (this.mItems != null) {
-            for (C0334a c0334a : this.mItems) {
-                c0334a.onChangeSkinType();
+            for (C0333a c0333a : this.mItems) {
+                c0333a.onChangeSkinType();
             }
         }
     }
 
-    public View bMO() {
+    public View bNw() {
         if (!StringUtils.isNull(this.titleText)) {
-            this.amN.setText(this.titleText);
+            this.anp.setText(this.titleText);
         } else {
-            this.amN.setVisibility(8);
+            this.anp.setVisibility(8);
         }
-        if (this.hPW != null) {
-            this.hPU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.a.1
+        if (this.hRd != null) {
+            this.hRb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.hPW.onClick();
+                    a.this.hRd.onClick();
                 }
             });
         }
@@ -128,13 +128,13 @@ public class a {
 
     /* renamed from: com.baidu.tieba.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0334a {
-        private View eun;
-        private a hPY;
-        private int hPZ;
-        private int hQa;
-        private c hQb;
-        private boolean hQc;
+    public static class C0333a {
+        private View euT;
+        private a hRf;
+        private int hRg;
+        private int hRh;
+        private c hRi;
+        private boolean hRj;
         private int mId;
         private final View.OnClickListener mOnClickListener;
         private String mText;
@@ -142,52 +142,52 @@ public class a {
         private TextView mTextView;
         private View mView;
 
-        public C0334a(a aVar) {
+        public C0333a(a aVar) {
             this(null, aVar);
         }
 
-        public C0334a(String str, a aVar) {
+        public C0333a(String str, a aVar) {
             this.mTextColor = e.f.person_more_pop_cancel_text_selector;
-            this.hPZ = e.f.person_more_pop_item_bg_selector;
-            this.hQa = 17;
-            this.hQc = true;
+            this.hRg = e.f.person_more_pop_item_bg_selector;
+            this.hRh = 17;
+            this.hRj = true;
             this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.view.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (C0334a.this.hQb != null) {
-                        C0334a.this.hQb.onClick();
+                    if (C0333a.this.hRi != null) {
+                        C0333a.this.hRi.onClick();
                     }
-                    if (C0334a.this.hPY != null && C0334a.this.hPY.bMN() != null) {
-                        C0334a.this.hPY.bMN().hR(C0334a.this.mId);
+                    if (C0333a.this.hRf != null && C0333a.this.hRf.bNv() != null) {
+                        C0333a.this.hRf.bNv().hR(C0333a.this.mId);
                     }
                 }
             };
             this.mText = str;
-            this.hPY = aVar;
+            this.hRf = aVar;
             this.mId = hashCode();
             initView();
             initListener();
         }
 
-        public C0334a(int i, String str, a aVar) {
+        public C0333a(int i, String str, a aVar) {
             this.mTextColor = e.f.person_more_pop_cancel_text_selector;
-            this.hPZ = e.f.person_more_pop_item_bg_selector;
-            this.hQa = 17;
-            this.hQc = true;
+            this.hRg = e.f.person_more_pop_item_bg_selector;
+            this.hRh = 17;
+            this.hRj = true;
             this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.view.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (C0334a.this.hQb != null) {
-                        C0334a.this.hQb.onClick();
+                    if (C0333a.this.hRi != null) {
+                        C0333a.this.hRi.onClick();
                     }
-                    if (C0334a.this.hPY != null && C0334a.this.hPY.bMN() != null) {
-                        C0334a.this.hPY.bMN().hR(C0334a.this.mId);
+                    if (C0333a.this.hRf != null && C0333a.this.hRf.bNv() != null) {
+                        C0333a.this.hRf.bNv().hR(C0333a.this.mId);
                     }
                 }
             };
             this.mId = i;
             this.mText = str;
-            this.hPY = aVar;
+            this.hRf = aVar;
             initView();
             initListener();
         }
@@ -202,27 +202,27 @@ public class a {
         }
 
         public void a(c cVar) {
-            this.hQb = cVar;
+            this.hRi = cVar;
             initListener();
         }
 
         public void onChangeSkinType() {
             al.i(this.mTextView, e.f.bg_bottom_up_list_dialog_item);
             al.h(this.mTextView, e.d.cp_cont_b);
-            al.j(this.eun, e.d.cp_bg_line_c);
+            al.j(this.euT, e.d.cp_bg_line_c);
         }
 
         private void initView() {
-            if (this.hPY != null && this.hPY.getContext() != null) {
-                this.mView = LayoutInflater.from(this.hPY.getContext()).inflate(e.h.bottom_up_list_dialog_item, this.hPY.aky(), false);
+            if (this.hRf != null && this.hRf.getContext() != null) {
+                this.mView = LayoutInflater.from(this.hRf.getContext()).inflate(e.h.bottom_up_list_dialog_item, this.hRf.akV(), false);
                 this.mTextView = (TextView) this.mView.findViewById(e.g.item_view);
                 this.mTextView.setText(this.mText);
-                this.mTextView.setGravity(this.hQa);
-                this.eun = this.mView.findViewById(e.g.divider_line);
-                if (this.hQc) {
-                    this.eun.setVisibility(0);
+                this.mTextView.setGravity(this.hRh);
+                this.euT = this.mView.findViewById(e.g.divider_line);
+                if (this.hRj) {
+                    this.euT.setVisibility(0);
                 } else {
-                    this.eun.setVisibility(8);
+                    this.euT.setVisibility(8);
                 }
                 onChangeSkinType();
             }

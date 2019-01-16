@@ -16,7 +16,7 @@ public class b extends n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String wQ() {
+    public String xc() {
         return "TBHY_EXT_FocusFeed";
     }
 
@@ -29,7 +29,7 @@ public class b extends n {
             g gVar = new g();
             gVar.setActivityId(optInt);
             gVar.fC(optInt2);
-            gVar.hu(optString);
+            gVar.hI(optString);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016492, gVar));
         }
     }

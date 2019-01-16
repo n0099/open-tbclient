@@ -24,12 +24,12 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.personCenter.data.g;
 /* loaded from: classes5.dex */
 public class f extends com.baidu.tieba.card.a<g> {
-    private TextView aKV;
-    private TbImageView gvA;
-    private TextView gvB;
-    private ImageView gvC;
-    private FrameLayout gvD;
-    protected HeadPendantView gvz;
+    private TextView aLx;
+    protected HeadPendantView gwD;
+    private TbImageView gwE;
+    private TextView gwF;
+    private ImageView gwG;
+    private FrameLayout gwH;
     private int mSkinType;
     private UserData mUserData;
 
@@ -37,30 +37,30 @@ public class f extends com.baidu.tieba.card.a<g> {
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.gvz = (HeadPendantView) view.findViewById(e.g.person_header);
-        this.gvz.setHasPendantStyle();
-        this.gvz.getHeadView().setIsRound(true);
-        this.gvz.getHeadView().setBorderWidth((int) getContext().getResources().getDimension(e.C0210e.ds1));
-        this.gvz.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.gvz.getHeadView().setGodIconResId(e.f.pic_v_avatar_big);
-        this.gvz.getHeadView().setGodIconWidth(e.C0210e.ds40);
-        this.gvz.setDefalutResid(e.f.pic_mycenter_avatar_def_i);
-        this.gvz.setBigVIconResId(e.f.pic_v_avatar_big);
-        this.gvz.setBigVDimenSize(e.C0210e.ds40);
-        this.gvD = (FrameLayout) view.findViewById(e.g.person_header_container);
-        this.gvA = (TbImageView) view.findViewById(e.g.member_icon);
-        this.aKV = (TextView) view.findViewById(e.g.person_name);
-        this.gvB = (TextView) view.findViewById(e.g.person_desc);
-        this.gvC = (ImageView) view.findViewById(e.g.arrow_icon);
+        this.gwD = (HeadPendantView) view.findViewById(e.g.person_header);
+        this.gwD.setHasPendantStyle();
+        this.gwD.getHeadView().setIsRound(true);
+        this.gwD.getHeadView().setBorderWidth((int) getContext().getResources().getDimension(e.C0210e.ds1));
+        this.gwD.getHeadView().setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.gwD.getHeadView().setGodIconResId(e.f.pic_v_avatar_big);
+        this.gwD.getHeadView().setGodIconWidth(e.C0210e.ds40);
+        this.gwD.setDefalutResid(e.f.pic_mycenter_avatar_def_i);
+        this.gwD.setBigVIconResId(e.f.pic_v_avatar_big);
+        this.gwD.setBigVDimenSize(e.C0210e.ds40);
+        this.gwH = (FrameLayout) view.findViewById(e.g.person_header_container);
+        this.gwE = (TbImageView) view.findViewById(e.g.member_icon);
+        this.aLx = (TextView) view.findViewById(e.g.person_name);
+        this.gwF = (TextView) view.findViewById(e.g.person_desc);
+        this.gwG = (ImageView) view.findViewById(e.g.arrow_icon);
         view.setOnClickListener(this);
-        this.gvA.setOnClickListener(this);
+        this.gwE.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
             al.j(getView(), e.d.cp_bg_line_d);
-            this.gvC.setImageDrawable(al.getDrawable(e.f.icon_mine_list_arrow));
+            this.gwG.setImageDrawable(al.getDrawable(e.f.icon_mine_list_arrow));
             this.mSkinType = i;
         }
     }
@@ -73,54 +73,54 @@ public class f extends com.baidu.tieba.card.a<g> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a
     public void a(g gVar) {
-        if (gVar != null && gVar.fSM != null) {
-            this.mUserData = gVar.fSM;
-            this.gvz.a(this.mUserData);
+        if (gVar != null && gVar.fTJ != null) {
+            this.mUserData = gVar.fTJ;
+            this.gwD.a(this.mUserData);
             if (this.mUserData.getIsMem() > 0) {
-                this.gvA.startLoad(this.mUserData.getUserVipInfo().getVipIconUrl(), 10, false);
+                this.gwE.startLoad(this.mUserData.getUserVipInfo().getVipIconUrl(), 10, false);
             } else {
-                this.gvA.setImageDrawable(al.getDrawable(e.f.icon_crown_super_non));
+                this.gwE.setImageDrawable(al.getDrawable(e.f.icon_crown_super_non));
             }
-            bpw();
+            bqf();
             String name_show = this.mUserData.getName_show();
             if (!TextUtils.isEmpty(name_show)) {
-                this.aKV.setText(name_show);
+                this.aLx.setText(name_show);
             }
             int i = e.f.icon_mine_boy;
             if (this.mUserData != null) {
                 i = this.mUserData.getSex() == 2 ? e.f.icon_mine_girl : e.f.icon_mine_boy;
             }
-            this.aKV.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, this.mContext.getResources().getDrawable(i), (Drawable) null);
-            this.gvB.setText(getContext().getString(e.j.person_center_default_introduce));
-            bpx();
+            this.aLx.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, this.mContext.getResources().getDrawable(i), (Drawable) null);
+            this.gwF.setText(getContext().getString(e.j.person_center_default_introduce));
+            bqg();
             d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void bpw() {
+    private void bqf() {
         if (this.mUserData != null && (this.mUserData.getIsMem() > 0 || this.mUserData.isBigV())) {
-            al.c(this.aKV, e.d.cp_cont_h, 1);
+            al.c(this.aLx, e.d.cp_cont_h, 1);
         } else {
-            al.c(this.aKV, e.d.cp_cont_b, 1);
+            al.c(this.aLx, e.d.cp_cont_b, 1);
         }
     }
 
-    private void bpx() {
-        al.h(this.gvB, e.d.cp_cont_j);
+    private void bqg() {
+        al.h(this.gwF, e.d.cp_cont_j);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null) {
-            if (view == this.gvA) {
-                TiebaStatic.log(new am("c12523").x("obj_locate", 2));
+            if (view == this.gwE) {
+                TiebaStatic.log(new am("c12523").y("obj_locate", 2));
                 if (ba.bJ(this.mTbPageContext.getPageActivity())) {
-                    ay.Ef().c(this.mTbPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
+                    ay.Es().c(this.mTbPageContext, new String[]{TbConfig.URL_MEMBER_BUY});
                     return;
                 }
                 return;
             }
-            TiebaStatic.log(new am("c12523").x("obj_locate", 1));
+            TiebaStatic.log(new am("c12523").y("obj_locate", 1));
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.mTbPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.d(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() != null ? TbadkCoreApplication.getCurrentAccountInfo().isBigV() : false)));
         }
     }

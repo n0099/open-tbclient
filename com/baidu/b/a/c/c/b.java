@@ -30,16 +30,16 @@ public class b {
         }
         com.baidu.b.a.c.a.a aVar = new com.baidu.b.a.c.a.a();
         aVar.name = optString;
-        aVar.Zn = optLong;
+        aVar.Zw = optLong;
         aVar.packageName = optString2;
         aVar.size = optString3;
         aVar.md5 = optString4;
-        aVar.Zp = optString5;
-        aVar.Zq = optString6;
+        aVar.Zy = optString5;
+        aVar.Zz = optString6;
         aVar.downloadUrl = optString7;
-        aVar.Zo = optLong2;
-        aVar.Zr = optString8;
-        aVar.Zs = optInt;
+        aVar.Zx = optLong2;
+        aVar.ZA = optString8;
+        aVar.ZB = optInt;
         aVar.rollback = optInt2;
         return aVar;
     }
@@ -69,10 +69,10 @@ public class b {
         }
         com.baidu.b.a.c.a.a aVar = new com.baidu.b.a.c.a.a();
         aVar.packageName = optString;
-        aVar.Zo = optLong;
-        aVar.KC = optInt;
+        aVar.Zx = optLong;
+        aVar.KI = optInt;
         aVar.errMsg = optString2;
-        aVar.Zm = optString3;
+        aVar.Zv = optString3;
         return aVar;
     }
 

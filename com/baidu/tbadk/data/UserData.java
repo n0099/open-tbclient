@@ -268,19 +268,19 @@ public class UserData extends MetaData {
                 this.mPhotoAlbum = new ArrayList();
             }
             this.mPhotoAlbum.clear();
-            k kVar = new k();
-            kVar.hv(getPortraitH());
-            kVar.hw(getPortrait());
-            kVar.cj(true);
-            this.mPhotoAlbum.add(kVar);
+            m mVar = new m();
+            mVar.hJ(getPortraitH());
+            mVar.hK(getPortrait());
+            mVar.cm(true);
+            this.mPhotoAlbum.add(mVar);
             if (user.user_pics != null && user.user_pics.size() > 0) {
                 for (UserPics userPics : user.user_pics) {
                     if (userPics != null) {
-                        k kVar2 = new k();
-                        kVar2.hv(userPics.big);
-                        kVar2.hw(userPics.small);
-                        kVar2.cj(false);
-                        this.mPhotoAlbum.add(kVar2);
+                        m mVar2 = new m();
+                        mVar2.hJ(userPics.big);
+                        mVar2.hK(userPics.small);
+                        mVar2.cm(false);
+                        this.mPhotoAlbum.add(mVar2);
                     }
                 }
             }
@@ -477,22 +477,22 @@ public class UserData extends MetaData {
                     this.mPhotoAlbum = new ArrayList();
                 }
                 this.mPhotoAlbum.clear();
-                k kVar = new k();
-                kVar.hv(getPortraitH());
-                kVar.hw(getPortrait());
-                kVar.cj(true);
-                this.mPhotoAlbum.add(kVar);
+                m mVar = new m();
+                mVar.hJ(getPortraitH());
+                mVar.hK(getPortrait());
+                mVar.cm(true);
+                this.mPhotoAlbum.add(mVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            k kVar2 = new k();
-                            kVar2.hv(jSONObject2.optString("big"));
-                            kVar2.hw(jSONObject2.optString("small"));
-                            kVar2.cj(false);
-                            this.mPhotoAlbum.add(kVar2);
+                            m mVar2 = new m();
+                            mVar2.hJ(jSONObject2.optString("big"));
+                            mVar2.hK(jSONObject2.optString("small"));
+                            mVar2.cm(false);
+                            this.mPhotoAlbum.add(mVar2);
                         }
                     }
                 }

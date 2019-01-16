@@ -26,10 +26,10 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private RelativeLayout fIh;
-    private TextView fIi;
-    private Runnable fIj;
-    private Runnable fIk;
+    private RelativeLayout fJb;
+    private TextView fJc;
+    private Runnable fJd;
+    private Runnable fJe;
     private Context mContext;
     private Handler mHandler;
     private HandlerThread mHandlerThread;
@@ -44,8 +44,8 @@ public class c {
         this.mContext = context;
     }
 
-    public void bdG() {
-        if (!this.mIsShowing && isMainProcess() && bdH()) {
+    public void beg() {
+        if (!this.mIsShowing && isMainProcess() && beh()) {
             if (this.mHandlerThread == null) {
                 this.mHandlerThread = new HandlerThread("splash-thread");
                 this.mHandlerThread.start();
@@ -53,73 +53,73 @@ public class c {
             if (this.mHandler == null) {
                 this.mHandler = new Handler(this.mHandlerThread.getLooper());
             }
-            if (this.fIj == null) {
-                this.fIj = new Runnable() { // from class: com.baidu.tieba.l.c.1
+            if (this.fJd == null) {
+                this.fJd = new Runnable() { // from class: com.baidu.tieba.l.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (c.this.fIh != null) {
-                            ((WindowManager) c.this.mContext.getSystemService(WindowConfig.JSON_WINDOW_KEY)).removeViewImmediate(c.this.fIh);
+                        if (c.this.fJb != null) {
+                            ((WindowManager) c.this.mContext.getSystemService(WindowConfig.JSON_WINDOW_KEY)).removeViewImmediate(c.this.fJb);
                             c.this.clean();
                         }
                     }
                 };
             }
-            if (this.fIk == null) {
-                this.fIk = new Runnable() { // from class: com.baidu.tieba.l.c.2
+            if (this.fJe == null) {
+                this.fJe = new Runnable() { // from class: com.baidu.tieba.l.c.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.sp(c.this.mContext.getString(e.j.data_init));
+                        c.this.sG(c.this.mContext.getString(e.j.data_init));
                     }
                 };
             }
-            this.mHandler.removeCallbacks(this.fIk);
-            this.mHandler.postAtFrontOfQueue(this.fIk);
+            this.mHandler.removeCallbacks(this.fJe);
+            this.mHandler.postAtFrontOfQueue(this.fJe);
             this.mIsShowing = true;
-            this.mHandler.postDelayed(this.fIj, 20000L);
+            this.mHandler.postDelayed(this.fJd, 20000L);
         }
     }
 
     public void hide() {
-        if (this.fIh != null && this.fIi != null) {
-            this.mHandler.removeCallbacks(this.fIj);
-            this.mHandler.post(this.fIj);
+        if (this.fJb != null && this.fJc != null) {
+            this.mHandler.removeCallbacks(this.fJd);
+            this.mHandler.post(this.fJd);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void clean() {
         if (this.mHandler != null) {
-            this.mHandler.removeCallbacks(this.fIj);
-            this.mHandler.removeCallbacks(this.fIk);
-            this.fIk = null;
-            this.fIj = null;
+            this.mHandler.removeCallbacks(this.fJd);
+            this.mHandler.removeCallbacks(this.fJe);
+            this.fJe = null;
+            this.fJd = null;
             this.mHandler = null;
         }
         if (this.mHandlerThread != null) {
             this.mHandlerThread.quit();
         }
-        if (this.fIi != null) {
-            this.fIi = null;
+        if (this.fJc != null) {
+            this.fJc = null;
         }
-        if (this.fIh != null) {
-            this.fIh = null;
+        if (this.fJb != null) {
+            this.fJb = null;
         }
         this.mIsShowing = false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sp(String str) {
-        if (this.fIi == null) {
-            this.fIi = new b(this.mContext);
-            this.fIi.setTextSize(1, 18.0f);
+    public void sG(String str) {
+        if (this.fJc == null) {
+            this.fJc = new b(this.mContext);
+            this.fJc.setTextSize(1, 18.0f);
         }
-        this.fIi.setText(str);
-        this.fIh = new RelativeLayout(this.mContext);
-        this.fIh.setBackgroundResource(e.f.bg_splash_logo);
+        this.fJc.setText(str);
+        this.fJb = new RelativeLayout(this.mContext);
+        this.fJb.setBackgroundResource(e.f.bg_splash_logo);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
         layoutParams.addRule(15);
-        this.fIh.addView(this.fIi, layoutParams);
+        this.fJb.addView(this.fJc, layoutParams);
         WindowManager.LayoutParams layoutParams2 = new WindowManager.LayoutParams();
         layoutParams2.type = 2005;
         layoutParams2.format = 1;
@@ -129,7 +129,7 @@ public class c {
         layoutParams2.width = -1;
         layoutParams2.height = -1;
         layoutParams2.flags = 1280;
-        ((WindowManager) this.mContext.getSystemService(WindowConfig.JSON_WINDOW_KEY)).addView(this.fIh, layoutParams2);
+        ((WindowManager) this.mContext.getSystemService(WindowConfig.JSON_WINDOW_KEY)).addView(this.fJb, layoutParams2);
     }
 
     private boolean isMainProcess() {
@@ -152,7 +152,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean bdH() {
+    private boolean beh() {
         List<String> cK = cK(this.mContext);
         if (cK == null || cK.size() == 0) {
             return false;
@@ -189,30 +189,30 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b extends TextView {
-        private int PE;
-        private LinearGradient fIm;
-        private Matrix fIn;
-        private int fIo;
+        private int PO;
+        private LinearGradient fJg;
+        private Matrix fJh;
+        private int fJi;
         private boolean mAnimating;
         private Paint mPaint;
 
         public b(Context context) {
             super(context);
-            this.PE = 0;
-            this.fIo = 0;
+            this.PO = 0;
+            this.fJi = 0;
             this.mAnimating = true;
         }
 
         @Override // android.widget.TextView, android.view.View
         protected void onDraw(Canvas canvas) {
             super.onDraw(canvas);
-            if (this.mAnimating && this.fIn != null) {
-                this.fIo += this.PE / 10;
-                if (this.fIo > this.PE * 2) {
-                    this.fIo = -this.PE;
+            if (this.mAnimating && this.fJh != null) {
+                this.fJi += this.PO / 10;
+                if (this.fJi > this.PO * 2) {
+                    this.fJi = -this.PO;
                 }
-                this.fIn.setTranslate(this.fIo, 0.0f);
-                this.fIm.setLocalMatrix(this.fIn);
+                this.fJh.setTranslate(this.fJi, 0.0f);
+                this.fJg.setLocalMatrix(this.fJh);
                 postInvalidateDelayed(50L);
             }
         }
@@ -220,13 +220,13 @@ public class c {
         @Override // android.view.View
         protected void onSizeChanged(int i, int i2, int i3, int i4) {
             super.onSizeChanged(i, i2, i3, i4);
-            if (this.PE == 0) {
-                this.PE = getMeasuredWidth();
-                if (this.PE > 0) {
+            if (this.PO == 0) {
+                this.PO = getMeasuredWidth();
+                if (this.PO > 0) {
                     this.mPaint = getPaint();
-                    this.fIm = new LinearGradient(-this.PE, 0.0f, 0.0f, 0.0f, new int[]{1610612736, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
-                    this.mPaint.setShader(this.fIm);
-                    this.fIn = new Matrix();
+                    this.fJg = new LinearGradient(-this.PO, 0.0f, 0.0f, 0.0f, new int[]{1610612736, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, 1610612736}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP);
+                    this.mPaint.setShader(this.fJg);
+                    this.fJh = new Matrix();
                 }
             }
         }

@@ -13,7 +13,7 @@ import tbclient.Userlike.ConcernData;
 import tbclient.Userlike.DataRes;
 /* loaded from: classes6.dex */
 public class a {
-    private final c euc = new c();
+    private final c euI = new c();
 
     public c a(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
         if (i != 0 && i != 1) {
@@ -48,7 +48,7 @@ public class a {
                     j jVar = new j(bbVar);
                     if (jVar != null) {
                         jVar.tid = bbVar.getTid();
-                        jVar.mK("3");
+                        jVar.na("3");
                     }
                     if (jVar != null && jVar.isValid()) {
                         linkedList.add(jVar);
@@ -56,7 +56,7 @@ public class a {
                 } else {
                     k kVar2 = new k();
                     kVar2.threadData = bbVar;
-                    kVar2.mK(kVar2.threadData.isLinkThread() ? "4" : "1");
+                    kVar2.na(kVar2.threadData.isLinkThread() ? "4" : "1");
                     kVar2.isLinkThread = false;
                     kVar2.kQ(concernData.source.intValue());
                     if (kVar2.threadData != null && kVar2.isValid() && !StringUtils.isNull(kVar2.threadData.getId()) && !"0".equals(kVar2.threadData.getTid())) {
@@ -65,8 +65,8 @@ public class a {
                 }
             }
         }
-        this.euc.bvO = linkedList;
-        return this.euc;
+        this.euI.bwC = linkedList;
+        return this.euI;
     }
 
     private void b(boolean z, DataRes.Builder builder, DataRes.Builder builder2, int i) {
@@ -93,7 +93,7 @@ public class a {
                     }
                 }
             }
-            this.euc.ezQ = v.H(list) - H;
+            this.euI.eAA = v.H(list) - H;
         }
     }
 

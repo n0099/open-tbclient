@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.location.Address;
 import android.net.http.Headers;
 import android.os.Build;
 import android.text.TextUtils;
@@ -28,22 +27,22 @@ import org.apache.http.HttpHost;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class VideoPlatformStatic {
-    private static CustomMessageListener bAp = new CustomMessageListener(2007015) { // from class: com.baidu.tieba.VideoPlatformStatic.1
+    private static CustomMessageListener bBc = new CustomMessageListener(2007015) { // from class: com.baidu.tieba.VideoPlatformStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.tieba.t.e.bIo().bIj();
-            com.baidu.tieba.t.b.bIi().bIj();
+            com.baidu.tieba.t.e.bIX().bIS();
+            com.baidu.tieba.t.b.bIR().bIS();
         }
     };
 
     static {
-        VG();
-        MessageManager.getInstance().registerListener(bAp);
-        VH();
+        Wc();
+        MessageManager.getInstance().registerListener(bBc);
+        Wd();
     }
 
-    private static void VG() {
+    private static void Wc() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921309, new CustomMessageTask.CustomRunnable<l>() { // from class: com.baidu.tieba.VideoPlatformStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -55,7 +54,7 @@ public class VideoPlatformStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void VH() {
+    private static void Wd() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_MOOV_UPLOAD, TbConfig.SERVER_ADDRESS + TbConfig.URL_MOOV_REPORT);
         tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
@@ -74,7 +73,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static int jH(String str) {
+    public static int jX(String str) {
         if (str.contains(NetworkDef.IP_LOOPBACK)) {
             return 1;
         }
@@ -169,7 +168,7 @@ public class VideoPlatformStatic {
         }
     }
 
-    public static String jI(String str) {
+    public static String jY(String str) {
         if (TextUtils.equals(str, "1")) {
             return "index";
         }
@@ -197,14 +196,14 @@ public class VideoPlatformStatic {
         return str;
     }
 
-    public static JSONObject VI() {
+    public static JSONObject We() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("appVer", TbConfig.getVersion());
             jSONObject.put("clientIp", com.baidu.tbadk.core.util.d.getIp());
             jSONObject.put("clientTimestamp", String.valueOf(System.currentTimeMillis()));
             jSONObject.put("deviceId", UtilHelper.getDeviceId());
-            jSONObject.put("network", VJ());
+            jSONObject.put("network", Wf());
             jSONObject.put(HttpConstants.HTTP_OS_TYPE_OLD, "AND");
             jSONObject.put("osVer", Build.VERSION.RELEASE);
             if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
@@ -214,20 +213,7 @@ public class VideoPlatformStatic {
             }
             jSONObject.put("cuid", TbadkCoreApplication.getInst().getCuid());
             if (UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst())) {
-                StringBuilder sb = new StringBuilder();
-                if (com.baidu.adp.lib.d.a.iW().af(false) != null) {
-                    Address af = com.baidu.adp.lib.d.a.iW().af(false);
-                    if (!StringUtils.isNull(af.getAdminArea())) {
-                        sb.append(af.getAdminArea());
-                    }
-                    if (!StringUtils.isNull(af.getSubAdminArea())) {
-                        sb.append(af.getSubAdminArea());
-                    }
-                    if (!StringUtils.isNull(af.getSubLocality())) {
-                        sb.append(af.getSubLocality());
-                    }
-                }
-                jSONObject.put(Headers.LOCATION, sb.toString());
+                jSONObject.put(Headers.LOCATION, new StringBuilder().toString());
             }
             jSONObject.put("brand", Build.BRAND);
             jSONObject.put("model", Build.MODEL);
@@ -237,7 +223,7 @@ public class VideoPlatformStatic {
         return jSONObject;
     }
 
-    public static String VJ() {
+    public static String Wf() {
         if (j.kW()) {
             return "WIFI";
         }

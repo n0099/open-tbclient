@@ -10,9 +10,9 @@ import android.view.View;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class ChooseColorView extends View {
-    private int grQ;
-    private boolean grR;
-    private Bitmap grS;
+    private int gsU;
+    private boolean gsV;
+    private Bitmap gsW;
     private int mBorderColor;
     private Paint mBorderPaint;
     private float mBorderWidth;
@@ -29,7 +29,7 @@ public class ChooseColorView extends View {
 
     public ChooseColorView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.grQ = -16777216;
+        this.gsU = -16777216;
         this.mBorderColor = -1;
         this.mBorderWidth = getResources().getDimensionPixelSize(e.C0210e.ds4);
         init();
@@ -38,18 +38,18 @@ public class ChooseColorView extends View {
     private void init() {
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
-        this.mPaint.setColor(this.grQ);
+        this.mPaint.setColor(this.gsU);
         this.mBorderPaint = new Paint();
         this.mBorderPaint.setColor(this.mBorderColor);
         this.mBorderPaint.setAntiAlias(true);
         this.mBorderPaint.setStyle(Paint.Style.STROKE);
         this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
-        this.grS = BitmapFactory.decodeResource(getResources(), e.f.icon_select_n);
+        this.gsW = BitmapFactory.decodeResource(getResources(), e.f.icon_select_n);
     }
 
     public void setChooseColor(int i) {
-        this.grQ = i;
-        this.mPaint.setColor(this.grQ);
+        this.gsU = i;
+        this.mPaint.setColor(this.gsU);
     }
 
     public void setRadius(int i) {
@@ -57,11 +57,11 @@ public class ChooseColorView extends View {
     }
 
     public int getChooseColor() {
-        return this.grQ;
+        return this.gsU;
     }
 
     public void setIsChooseView(boolean z) {
-        this.grR = z;
+        this.gsV = z;
         invalidate();
     }
 
@@ -70,8 +70,8 @@ public class ChooseColorView extends View {
         super.onDraw(canvas);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mPaint);
         canvas.drawCircle(getWidth() / 2, getHeight() / 2, this.mRadius, this.mBorderPaint);
-        if (this.grR) {
-            canvas.drawBitmap(this.grS, getWidth() - this.grS.getWidth(), 0.0f, (Paint) null);
+        if (this.gsV) {
+            canvas.drawBitmap(this.gsW, getWidth() - this.gsW.getWidth(), 0.0f, (Paint) null);
         }
     }
 }

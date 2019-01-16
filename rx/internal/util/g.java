@@ -4,22 +4,22 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 /* loaded from: classes2.dex */
 public final class g {
-    private static final int iPf = cfh();
-    private static final boolean iPg;
+    private static final int iQm = cfP();
+    private static final boolean iQn;
 
     static {
-        iPg = iPf != 0;
+        iQn = iQm != 0;
     }
 
-    public static boolean cff() {
-        return iPg;
+    public static boolean cfN() {
+        return iQn;
     }
 
-    public static int cfg() {
-        return iPf;
+    public static int cfO() {
+        return iQm;
     }
 
-    private static int cfh() {
+    private static int cfP() {
         try {
             return ((Integer) Class.forName("android.os.Build$VERSION", true, getSystemClassLoader()).getField("SDK_INT").get(null)).intValue();
         } catch (Exception e) {
@@ -31,7 +31,7 @@ public final class g {
         return System.getSecurityManager() == null ? ClassLoader.getSystemClassLoader() : (ClassLoader) AccessController.doPrivileged(new PrivilegedAction<ClassLoader>() { // from class: rx.internal.util.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.security.PrivilegedAction
-            /* renamed from: cfi */
+            /* renamed from: cfQ */
             public ClassLoader run() {
                 return ClassLoader.getSystemClassLoader();
             }

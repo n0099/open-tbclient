@@ -10,41 +10,41 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.iBh;
-        long j = this.iPL;
-        long cfs = cfs();
-        long dV = dV(cfs);
+        E[] eArr = this.iCo;
+        long j = this.iQS;
+        long cga = cga();
+        long dV = dV(cga);
         if (b(eArr, dV) != null) {
-            if (cfs - cfr() > j) {
+            if (cga - cfZ() > j) {
                 return false;
             }
             do {
             } while (b(eArr, dV) != null);
             a(eArr, dV, e);
-            dX(1 + cfs);
+            dX(1 + cga);
             return true;
         }
         a(eArr, dV, e);
-        dX(1 + cfs);
+        dX(1 + cga);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long cfr;
-        long cfv = cfv();
+        long cfZ;
+        long cgd = cgd();
         do {
-            cfr = cfr();
-            if (cfr >= cfv) {
-                long cfs = cfs();
-                if (cfr >= cfs) {
+            cfZ = cfZ();
+            if (cfZ >= cgd) {
+                long cga = cga();
+                if (cfZ >= cga) {
                     return null;
                 }
-                dY(cfs);
+                dY(cga);
             }
-        } while (!u(cfr, 1 + cfr));
-        long dV = dV(cfr);
-        E[] eArr = this.iBh;
+        } while (!u(cfZ, 1 + cfZ));
+        long dV = dV(cfZ);
+        E[] eArr = this.iCo;
         E a = a(eArr, dV);
         b(eArr, dV, null);
         return a;
@@ -53,36 +53,36 @@ public final class i<E> extends m<E> {
     @Override // java.util.Queue
     public E peek() {
         E dW;
-        long cfv = cfv();
+        long cgd = cgd();
         do {
-            long cfr = cfr();
-            if (cfr >= cfv) {
-                long cfs = cfs();
-                if (cfr >= cfs) {
+            long cfZ = cfZ();
+            if (cfZ >= cgd) {
+                long cga = cga();
+                if (cfZ >= cga) {
                     return null;
                 }
-                dY(cfs);
+                dY(cga);
             }
-            dW = dW(dV(cfr));
+            dW = dW(dV(cfZ));
         } while (dW == null);
         return dW;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long cfr = cfr();
+        long cfZ = cfZ();
         while (true) {
-            long cfs = cfs();
-            long cfr2 = cfr();
-            if (cfr == cfr2) {
-                return (int) (cfs - cfr2);
+            long cga = cga();
+            long cfZ2 = cfZ();
+            if (cfZ == cfZ2) {
+                return (int) (cga - cfZ2);
             }
-            cfr = cfr2;
+            cfZ = cfZ2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return cfr() == cfs();
+        return cfZ() == cga();
     }
 }

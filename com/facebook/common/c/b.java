@@ -5,12 +5,12 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 /* loaded from: classes2.dex */
 public class b implements c {
-    public static final b iiY = new b();
-    private String iiZ = "unknown";
-    private int ija = 5;
+    public static final b ikf = new b();
+    private String ikg = "unknown";
+    private int ikh = 5;
 
-    public static b bTU() {
-        return iiY;
+    public static b bUC() {
+        return ikf;
     }
 
     private b() {
@@ -18,7 +18,7 @@ public class b implements c {
 
     @Override // com.facebook.common.c.c
     public boolean isLoggable(int i) {
-        return this.ija <= i;
+        return this.ikh <= i;
     }
 
     @Override // com.facebook.common.c.c
@@ -57,7 +57,7 @@ public class b implements c {
     }
 
     @Override // com.facebook.common.c.c
-    public void da(String str, String str2) {
+    public void dc(String str, String str2) {
         n(6, str, str2);
     }
 
@@ -67,16 +67,16 @@ public class b implements c {
     }
 
     private void n(int i, String str, String str2) {
-        Log.println(i, zf(str), str2);
+        Log.println(i, zv(str), str2);
     }
 
     private void b(int i, String str, String str2, Throwable th) {
-        Log.println(i, zf(str), j(str2, th));
+        Log.println(i, zv(str), j(str2, th));
     }
 
-    private String zf(String str) {
-        if (this.iiZ != null) {
-            return this.iiZ + ":" + str;
+    private String zv(String str) {
+        if (this.ikg != null) {
+            return this.ikg + ":" + str;
         }
         return str;
     }

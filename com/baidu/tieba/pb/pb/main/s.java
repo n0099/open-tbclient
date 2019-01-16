@@ -10,106 +10,106 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes6.dex */
 public class s {
-    private RelativeLayout drh;
-    private com.baidu.tbadk.editortools.pb.g gae;
-    private PbFakeFloorModel gaf;
-    private String gag;
-    private NewWriteModel.d gah;
+    private RelativeLayout drQ;
+    private com.baidu.tbadk.editortools.pb.g gbb;
+    private PbFakeFloorModel gbc;
+    private String gbd;
+    private NewWriteModel.d gbe;
     private TbPageContext mPageContext;
 
     public s(TbPageContext tbPageContext, PbFakeFloorModel pbFakeFloorModel, RelativeLayout relativeLayout) {
         this.mPageContext = tbPageContext;
-        this.drh = relativeLayout;
-        this.gaf = pbFakeFloorModel;
+        this.drQ = relativeLayout;
+        this.gbc = pbFakeFloorModel;
     }
 
-    public void bjC() {
-        if (this.gae != null) {
-            this.gae.MU();
-            if (StringUtils.isNull(this.gag)) {
-                this.gae.onDestory();
+    public void bkg() {
+        if (this.gbb != null) {
+            this.gbb.Nl();
+            if (StringUtils.isNull(this.gbd)) {
+                this.gbb.onDestory();
             }
-            this.gae.LY().Mi();
+            this.gbb.Mp().Mz();
         }
     }
 
-    public void bjD() {
-        if (this.gae != null && this.gae.LY() != null) {
-            this.gae.LY().Kx();
+    public void bkh() {
+        if (this.gbb != null && this.gbb.Mp() != null) {
+            this.gbb.Mp().KM();
         }
     }
 
-    public boolean bjE() {
-        if (this.gae == null || this.gae.LY() == null) {
+    public boolean bki() {
+        if (this.gbb == null || this.gbb.Mp() == null) {
             return false;
         }
-        return this.gae.LY().Mb();
+        return this.gbb.Mp().Ms();
     }
 
-    private void bjF() {
-        if (this.drh != null && this.gae == null) {
-            this.gae = (com.baidu.tbadk.editortools.pb.g) new com.baidu.tbadk.editortools.pb.h().bM(this.mPageContext.getPageActivity());
-            this.gae.setContext(this.mPageContext);
-            this.gae.b(this.gaf);
-            this.gae.LY().cq(true);
-            this.gae.d(this.mPageContext);
-            bjG();
-            this.gae.b(this.gah);
+    private void bkj() {
+        if (this.drQ != null && this.gbb == null) {
+            this.gbb = (com.baidu.tbadk.editortools.pb.g) new com.baidu.tbadk.editortools.pb.h().bM(this.mPageContext.getPageActivity());
+            this.gbb.setContext(this.mPageContext);
+            this.gbb.b(this.gbc);
+            this.gbb.Mp().ct(true);
+            this.gbb.d(this.mPageContext);
+            bkk();
+            this.gbb.b(this.gbe);
         }
     }
 
-    public void cn(String str, String str2) {
-        this.gag = str2;
-        if (this.gae == null) {
-            bjF();
+    public void co(String str, String str2) {
+        this.gbd = str2;
+        if (this.gbb == null) {
+            bkj();
         } else {
-            this.gae.b(this.gaf);
-            if (StringUtils.isNull(this.gag)) {
-                this.gae.d(this.mPageContext);
+            this.gbb.b(this.gbc);
+            if (StringUtils.isNull(this.gbd)) {
+                this.gbb.d(this.mPageContext);
             }
         }
-        this.gae.setReplyId(str);
-        this.gae.hY(str2);
-        if (this.gae.ML()) {
-            this.gae.a((PostWriteCallBackData) null);
+        this.gbb.setReplyId(str);
+        this.gbb.in(str2);
+        if (this.gbb.Nc()) {
+            this.gbb.a((PostWriteCallBackData) null);
         }
     }
 
-    private void bjG() {
-        if (this.drh != null && this.gae != null && this.gae.LY() != null) {
+    private void bkk() {
+        if (this.drQ != null && this.gbb != null && this.gbb.Mp() != null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
-            this.drh.addView(this.gae.LY(), layoutParams);
+            this.drQ.addView(this.gbb.Mp(), layoutParams);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        if (this.gae != null) {
-            this.gae.onActivityResult(i, i2, intent);
+        if (this.gbb != null) {
+            this.gbb.onActivityResult(i, i2, intent);
         }
     }
 
     public void onStop() {
-        if (this.gae != null) {
-            this.gae.onStop();
+        if (this.gbb != null) {
+            this.gbb.onStop();
         }
     }
 
     public void onChangeSkinType(int i) {
-        if (this.gae != null && this.gae.LY() != null) {
-            this.gae.LY().onChangeSkinType(i);
+        if (this.gbb != null && this.gbb.Mp() != null) {
+            this.gbb.Mp().onChangeSkinType(i);
         }
     }
 
     public void a(NewWriteModel.d dVar) {
-        this.gah = dVar;
-        if (this.gae != null) {
-            this.gae.b(dVar);
+        this.gbe = dVar;
+        if (this.gbb != null) {
+            this.gbb.b(dVar);
         }
     }
 
-    public com.baidu.tbadk.editortools.pb.g bjH() {
-        return this.gae;
+    public com.baidu.tbadk.editortools.pb.g bkl() {
+        return this.gbb;
     }
 }

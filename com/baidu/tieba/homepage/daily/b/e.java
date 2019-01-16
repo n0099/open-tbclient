@@ -8,16 +8,16 @@ import java.util.List;
 import tbclient.DailyTopic;
 /* loaded from: classes6.dex */
 public class e extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId evf = BdUniqueId.gen();
-    public List<a> evg;
+    public static final BdUniqueId evL = BdUniqueId.gen();
+    public List<a> evM;
 
-    public static e ck(List<DailyTopic> list) {
+    public static e cl(List<DailyTopic> list) {
         if (v.I(list)) {
             return null;
         }
         e eVar = new e();
         ArrayList arrayList = new ArrayList();
-        eVar.evg = arrayList;
+        eVar.evM = arrayList;
         int i = 0;
         Iterator<DailyTopic> it = list.iterator();
         while (true) {
@@ -43,43 +43,43 @@ public class e extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return evf;
+        return evL;
     }
 
     /* loaded from: classes6.dex */
     public static class a {
-        private String elZ;
-        private String evh;
-        private String evi;
-        private String evj;
-        private String evk;
+        private String emF;
+        private String evN;
+        private String evO;
+        private String evP;
+        private String evQ;
 
         public void a(DailyTopic dailyTopic) {
-            this.evh = dailyTopic.topic_pic;
-            this.elZ = dailyTopic.topic_title;
-            this.evi = dailyTopic.topic_abstract;
-            this.evj = dailyTopic.topic_url;
-            this.evk = dailyTopic.topic_rank_url;
+            this.evN = dailyTopic.topic_pic;
+            this.emF = dailyTopic.topic_title;
+            this.evO = dailyTopic.topic_abstract;
+            this.evP = dailyTopic.topic_url;
+            this.evQ = dailyTopic.topic_rank_url;
         }
 
-        public String aLj() {
-            return this.evh;
+        public String aLH() {
+            return this.evN;
         }
 
-        public String yY() {
-            return this.elZ;
+        public String zl() {
+            return this.emF;
         }
 
-        public String aLk() {
-            return this.evi;
+        public String aLI() {
+            return this.evO;
         }
 
-        public String Bg() {
-            return this.evj;
+        public String Bt() {
+            return this.evP;
         }
 
-        public String aLl() {
-            return this.evk;
+        public String aLJ() {
+            return this.evQ;
         }
     }
 }

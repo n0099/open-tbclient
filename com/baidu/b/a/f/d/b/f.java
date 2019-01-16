@@ -5,53 +5,53 @@ import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import java.io.File;
 /* loaded from: classes2.dex */
 public abstract class f {
-    protected com.baidu.b.a.f.d.f aag;
-    protected int aav = -1;
-    protected int aaw = -1;
+    protected int aaE = -1;
+    protected int aaF = -1;
+    protected com.baidu.b.a.f.d.f aap;
 
-    public abstract boolean rU();
+    public abstract boolean rY();
 
     public void m(com.baidu.b.a.f.d.f fVar) {
-        this.aag = fVar;
+        this.aap = fVar;
     }
 
-    public int rV() {
-        return this.aav;
+    public int rZ() {
+        return this.aaE;
     }
 
-    public int rW() {
-        return this.aaw;
+    public int sa() {
+        return this.aaF;
     }
 
-    protected String rX() {
-        return com.baidu.b.a.h.e.ae(this.aag.rM().getDownloadPath(), this.aag.rL().md5);
+    protected String sb() {
+        return com.baidu.b.a.h.e.af(this.aap.rQ().getDownloadPath(), this.aap.rP().md5);
     }
 
-    protected String rY() {
-        String rX = rX();
-        String str = rX;
+    protected String sc() {
+        String sb = sb();
+        String str = sb;
         while (true) {
             File file = new File(str);
             if (!file.exists()) {
                 return file.getAbsolutePath();
             }
-            str = rX + BaseRequestAction.SPLITE + System.currentTimeMillis();
+            str = sb + BaseRequestAction.SPLITE + System.currentTimeMillis();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean rZ() {
-        com.baidu.b.a.c.a.a rL = this.aag.rL();
-        if (rL.Zw > 0 && !TextUtils.isEmpty(rL.filePath)) {
-            if (rL.Zx == rL.Zw && com.baidu.b.a.h.e.g(rL.filePath, rL.Zx) && com.baidu.b.a.h.e.af(rL.filePath, rL.md5)) {
-                this.aag.bH(10);
+    public boolean sd() {
+        com.baidu.b.a.c.a.a rP = this.aap.rP();
+        if (rP.ZF > 0 && !TextUtils.isEmpty(rP.filePath)) {
+            if (rP.ZG == rP.ZF && com.baidu.b.a.h.e.g(rP.filePath, rP.ZG) && com.baidu.b.a.h.e.ag(rP.filePath, rP.md5)) {
+                this.aap.bH(10);
                 return false;
             }
-            com.baidu.b.a.h.h.deleteFile(rL.filePath);
-            com.baidu.b.a.f.d.e.a(rL, 0L);
+            com.baidu.b.a.h.h.deleteFile(rP.filePath);
+            com.baidu.b.a.f.d.e.a(rP, 0L);
         } else {
-            rL.filePath = rY();
-            com.baidu.b.a.f.d.e.g(rL);
+            rP.filePath = sc();
+            com.baidu.b.a.f.d.e.g(rP);
         }
         return true;
     }

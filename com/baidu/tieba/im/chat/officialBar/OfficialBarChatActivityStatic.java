@@ -9,10 +9,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.util.ab;
+import com.baidu.tbadk.util.ac;
 import com.baidu.tbadk.util.h;
-import com.baidu.tbadk.util.w;
 import com.baidu.tbadk.util.x;
+import com.baidu.tbadk.util.y;
 import com.baidu.tieba.im.db.l;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
@@ -26,12 +26,12 @@ public class OfficialBarChatActivityStatic {
                 if (customMessage != null && customMessage.getData() != null && (userData = customMessage.getData().getUserData()) != null) {
                     final LinkedList linkedList = new LinkedList();
                     linkedList.add(String.valueOf(userData.getUserId()));
-                    x.b(new w<Void>() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.1.1
+                    y.b(new x<Void>() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.1.1
                         /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.tbadk.util.w
-                        /* renamed from: Wy */
+                        @Override // com.baidu.tbadk.util.x
+                        /* renamed from: WV */
                         public Void doInBackground() {
-                            return l.aRs().o(linkedList);
+                            return l.aRS().o(linkedList);
                         }
                     }, new h<Void>() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.1.2
                         /* JADX DEBUG: Method merged with bridge method */
@@ -49,7 +49,7 @@ public class OfficialBarChatActivityStatic {
         });
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        ay.Ef().a(new ay.a() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.2
+        ay.Es().a(new ay.a() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic.2
             @Override // com.baidu.tbadk.core.util.ay.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (tbPageContext == null || strArr == null || strArr.length == 0) {
@@ -57,11 +57,11 @@ public class OfficialBarChatActivityStatic {
                 }
                 String str = strArr[0];
                 if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("jump_official_chat=1")) {
-                    String aO = ab.aO(str, "barid=");
-                    String aO2 = ab.aO(str, "barname=");
-                    String aO3 = ab.aO(str, "portrait=");
-                    if (aO != null && aO.length() > 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(tbPageContext.getPageActivity(), com.baidu.adp.lib.g.b.d(aO, 0L), aO2, aO3, 0)));
+                    String aP = ac.aP(str, "barid=");
+                    String aP2 = ac.aP(str, "barname=");
+                    String aP3 = ac.aP(str, "portrait=");
+                    if (aP != null && aP.length() > 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(tbPageContext.getPageActivity(), com.baidu.adp.lib.g.b.d(aP, 0L), aP2, aP3, 0)));
                     }
                     return 1;
                 }

@@ -11,35 +11,35 @@ import rx.j;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class PublishSubject<T> extends c<T, T> {
-    final PublishSubjectState<T> iRr;
+    final PublishSubjectState<T> iSy;
 
-    public static <T> PublishSubject<T> cfZ() {
+    public static <T> PublishSubject<T> cgH() {
         return new PublishSubject<>(new PublishSubjectState());
     }
 
     protected PublishSubject(PublishSubjectState<T> publishSubjectState) {
         super(publishSubjectState);
-        this.iRr = publishSubjectState;
+        this.iSy = publishSubjectState;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.iRr.onNext(t);
+        this.iSy.onNext(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.iRr.onError(th);
+        this.iSy.onError(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.iRr.onCompleted();
+        this.iSy.onCompleted();
     }
 
     @Override // rx.subjects.c
     public boolean hasObservers() {
-        return this.iRr.get().length != 0;
+        return this.iSy.get().length != 0;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -151,7 +151,7 @@ public final class PublishSubject<T> extends c<T, T> {
                     arrayList.add(th2);
                 }
             }
-            rx.exceptions.a.eA(arrayList);
+            rx.exceptions.a.eB(arrayList);
         }
 
         @Override // rx.e

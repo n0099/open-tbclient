@@ -13,17 +13,33 @@ import java.util.List;
 public class a {
     public static void a(bb bbVar, int i, BdUniqueId bdUniqueId, b bVar) {
         am a;
-        if (bbVar != null && (a = com.baidu.tieba.q.a.a(bbVar, "a006", "common_click", i, bbVar.avH, false, null, null)) != null) {
-            a.x("list_order", c.aHz().a(bVar));
-            com.baidu.tieba.q.c.bBT().b(bdUniqueId, a);
+        if (bbVar != null && (a = com.baidu.tieba.q.a.a(bbVar, "a006", "common_click", i, bbVar.awj, false, null, null)) != null) {
+            a.y("list_order", c.aHW().a(bVar));
+            com.baidu.tieba.q.c.bCC().b(bdUniqueId, a);
+        }
+    }
+
+    public static void a(bb bbVar, int i, BdUniqueId bdUniqueId, b bVar, int i2) {
+        am a;
+        if (bbVar != null && (a = com.baidu.tieba.q.a.a(bbVar, "a006", "common_click", i, i2, false, null, null)) != null) {
+            a.y("list_order", c.aHW().a(bVar));
+            com.baidu.tieba.q.c.bCC().b(bdUniqueId, a);
+        }
+    }
+
+    public static void a(bb bbVar, BdUniqueId bdUniqueId, b bVar, int i) {
+        am a;
+        if (bbVar != null && (a = com.baidu.tieba.q.a.a(bbVar, "a006", "common_exp", i, false, null, null)) != null) {
+            a.y("list_order", c.aHW().a(bVar));
+            com.baidu.tieba.q.c.bCC().a(bdUniqueId, bbVar.getId(), a);
         }
     }
 
     public static void a(bb bbVar, BdUniqueId bdUniqueId, b bVar) {
         am a;
-        if (bbVar != null && (a = com.baidu.tieba.q.a.a(bbVar, "a006", "common_exp", bbVar.avH, false, null, null)) != null) {
-            a.x("list_order", c.aHz().a(bVar));
-            com.baidu.tieba.q.c.bBT().a(bdUniqueId, bbVar.getId(), a);
+        if (bbVar != null && (a = com.baidu.tieba.q.a.a(bbVar, "a006", "common_exp", bbVar.awj, false, null, null)) != null) {
+            a.y("list_order", c.aHW().a(bVar));
+            com.baidu.tieba.q.c.bCC().a(bdUniqueId, bbVar.getId(), a);
         }
     }
 
@@ -39,20 +55,20 @@ public class a {
                 am b = com.baidu.tieba.q.a.b("a006", "common_fill", true, i2);
                 if (forumData != null) {
                     if (!ao.isEmpty(forumData.getId())) {
-                        b.aA(ImageViewerConfig.FORUM_ID, forumData.getId());
+                        b.aB(ImageViewerConfig.FORUM_ID, forumData.getId());
                     }
                     if (!ao.isEmpty(forumData.getName())) {
-                        b.aA(ImageViewerConfig.FORUM_NAME, forumData.getName());
+                        b.aB(ImageViewerConfig.FORUM_NAME, forumData.getName());
                     }
                     if (!ao.isEmpty(forumData.getFirst_class())) {
-                        b.aA("first_dir", forumData.getFirst_class());
+                        b.aB("first_dir", forumData.getFirst_class());
                     }
                     if (!ao.isEmpty(forumData.getSecond_class())) {
-                        b.aA("second_dir", forumData.getSecond_class());
+                        b.aB("second_dir", forumData.getSecond_class());
                     }
                 }
-                b.x("list_order", i);
-                com.baidu.tieba.q.c.bBT().b(bdUniqueId, b);
+                b.y("list_order", i);
+                com.baidu.tieba.q.c.bCC().b(bdUniqueId, b);
             }
         }
     }

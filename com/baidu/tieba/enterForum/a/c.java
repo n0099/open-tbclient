@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.a;
 public interface c {
     void aG(int i, int i2);
 
-    void ly(int i);
+    void lz(int i);
 
     void notifyDataChanged();
 }

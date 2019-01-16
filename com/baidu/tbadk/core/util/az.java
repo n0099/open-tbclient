@@ -7,7 +7,7 @@ import android.view.View;
 import com.compatible.menukey.MenuKeyUtils;
 /* loaded from: classes.dex */
 public class az {
-    public static Rect y(Activity activity) {
+    public static Rect z(Activity activity) {
         Rect rect = new Rect();
         View decorView = activity.getWindow().getDecorView();
         int windowVisibility = decorView.getWindowVisibility();
@@ -23,7 +23,7 @@ public class az {
         return rect;
     }
 
-    public static int[] z(Activity activity) {
+    public static int[] A(Activity activity) {
         View findViewById;
         int[] iArr = {activity.getWindow().getDecorView().getWidth(), activity.getWindow().getDecorView().getHeight()};
         if (Build.VERSION.SDK_INT > 21 && (findViewById = activity.getWindow().getDecorView().findViewById(16908336)) != null && findViewById.getVisibility() == 0) {

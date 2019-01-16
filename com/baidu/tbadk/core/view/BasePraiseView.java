@@ -31,20 +31,20 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public abstract class BasePraiseView<T> extends LinearLayout {
-    protected View.OnClickListener aFa;
-    protected int aFq;
-    protected int aFr;
-    public int aFs;
-    public int aFt;
-    public int aFu;
-    public int aFv;
-    public int aFw;
-    protected TextView aFx;
-    protected ImageView aFy;
-    protected ScaleAnimation aFz;
+    protected View.OnClickListener aFC;
+    protected int aFS;
+    protected int aFT;
+    public int aFU;
+    public int aFV;
+    public int aFW;
+    public int aFX;
+    public int aFY;
+    protected TextView aFZ;
+    protected ImageView aGa;
+    protected ScaleAnimation aGb;
     protected int agreeType;
-    protected long avh;
-    protected long avi;
+    protected long avJ;
+    protected long avK;
     protected T mData;
     protected String mForumId;
     protected int mFrom;
@@ -65,39 +65,39 @@ public abstract class BasePraiseView<T> extends LinearLayout {
         super(context, attributeSet);
         this.mSkinType = 3;
         this.agreeType = 2;
-        this.aFq = 3;
-        this.aFr = 1;
+        this.aFS = 3;
+        this.aFT = 1;
         this.mFrom = 2;
-        this.aFs = e.j.action_praise_default;
-        this.aFt = e.f.icon_card_like_n;
-        this.aFu = e.f.icon_card_like_s;
-        this.aFv = e.d.cp_cont_j;
-        this.aFw = e.d.cp_cont_h;
+        this.aFU = e.j.action_praise_default;
+        this.aFV = e.f.icon_card_like_n;
+        this.aFW = e.f.icon_card_like_s;
+        this.aFX = e.d.cp_cont_j;
+        this.aFY = e.d.cp_cont_h;
         this.mThreadId = "";
         this.mForumId = "";
         this.mPostId = "";
         setOrientation(0);
         setGravity(17);
         initView(context);
-        EH();
+        EU();
     }
 
     protected void initView(Context context) {
         if (context != null) {
             View inflate = View.inflate(context, e.h.praise_view, this);
-            this.aFx = (TextView) inflate.findViewById(e.g.thread_info_praise_num);
-            this.aFy = (ImageView) inflate.findViewById(e.g.thread_info_praise_img);
+            this.aFZ = (TextView) inflate.findViewById(e.g.thread_info_praise_num);
+            this.aGa = (ImageView) inflate.findViewById(e.g.thread_info_praise_img);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void EH() {
+    public void EU() {
         this.agreeType = 2;
-        this.aFs = e.j.action_praise_default;
-        this.aFv = e.d.cp_cont_j;
-        this.aFw = e.d.cp_cont_h;
-        this.aFt = e.f.icon_card_like_n;
-        this.aFu = e.f.icon_card_like_s;
+        this.aFU = e.j.action_praise_default;
+        this.aFX = e.d.cp_cont_j;
+        this.aFY = e.d.cp_cont_h;
+        this.aFV = e.f.icon_card_like_n;
+        this.aFW = e.f.icon_card_like_s;
     }
 
     public StateListDrawable createStateDrawable(int i, int i2) {
@@ -117,16 +117,16 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public void a(int i, bb bbVar) {
-        com.baidu.tbadk.data.h hVar = new com.baidu.tbadk.data.h();
-        hVar.aXn = i;
-        hVar.aXo = bbVar;
-        hVar.forumId = this.mForumId;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, hVar));
+        com.baidu.tbadk.data.j jVar = new com.baidu.tbadk.data.j();
+        jVar.aXX = i;
+        jVar.aXY = bbVar;
+        jVar.forumId = this.mForumId;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, jVar));
     }
 
     public void dZ(int i) {
-        if (this.aFy != null && i == 0) {
-            this.aFy.startAnimation(getScaleAnimation());
+        if (this.aGa != null && i == 0) {
+            this.aGa.startAnimation(getScaleAnimation());
         }
     }
 
@@ -136,7 +136,7 @@ public abstract class BasePraiseView<T> extends LinearLayout {
             httpMessage.addParam("z_id", FH.gz(TbadkCoreApplication.getInst()));
             httpMessage.addParam("thread_id", this.mThreadId);
             httpMessage.addParam("op_type", i);
-            httpMessage.addParam("obj_type", this.aFq);
+            httpMessage.addParam("obj_type", this.aFS);
             httpMessage.addParam("agree_type", this.agreeType);
             httpMessage.addParam("forum_id", this.mForumId);
             if (!TextUtils.isEmpty(this.mPostId)) {
@@ -150,11 +150,11 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public Animation getScaleAnimation() {
-        if (this.aFz == null) {
-            this.aFz = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
-            this.aFz.setDuration(200L);
+        if (this.aGb == null) {
+            this.aGb = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
+            this.aGb.setDuration(200L);
         }
-        return this.aFz;
+        return this.aGb;
     }
 
     public void onChangeSkinType(int i) {
@@ -165,7 +165,7 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public void setDisPraiseFrom(int i) {
-        this.aFr = i;
+        this.aFT = i;
     }
 
     public void setFrom(int i) {
@@ -173,7 +173,7 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public void setObjType(int i) {
-        this.aFq = i;
+        this.aFS = i;
     }
 
     public void setForumId(String str) {
@@ -190,12 +190,12 @@ public abstract class BasePraiseView<T> extends LinearLayout {
 
     public void setViewEnabled(boolean z) {
         setClickable(z);
-        this.aFy.setEnabled(z);
-        this.aFx.setEnabled(z);
+        this.aGa.setEnabled(z);
+        this.aFZ.setEnabled(z);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.aFa = onClickListener;
+        this.aFC = onClickListener;
     }
 
     public TbPageContext<?> getTbPageContext() {
@@ -219,34 +219,34 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public ImageView getImageView() {
-        return this.aFy;
+        return this.aGa;
     }
 
     public TextView getTextView() {
-        return this.aFx;
+        return this.aFZ;
     }
 
-    public void bz(boolean z) {
+    public void bA(boolean z) {
         am amVar = new am("c13271");
-        amVar.aA("uid", TbadkCoreApplication.getCurrentAccount());
-        amVar.aA(ImageViewerConfig.FORUM_ID, this.mForumId);
-        amVar.aA("tid", this.mThreadId);
-        amVar.aA("post_id", this.mPostId);
-        amVar.x("obj_type", getObjType());
-        amVar.x("obj_locate", getObjLocate());
-        amVar.x(VideoPlayActivityConfig.OBJ_ID, z ? 1 : 0);
-        amVar.x("obj_param1", com.baidu.tbadk.util.a.PJ().Gg() ? 1 : 0);
+        amVar.aB("uid", TbadkCoreApplication.getCurrentAccount());
+        amVar.aB(ImageViewerConfig.FORUM_ID, this.mForumId);
+        amVar.aB("tid", this.mThreadId);
+        amVar.aB("post_id", this.mPostId);
+        amVar.y("obj_type", getObjType());
+        amVar.y("obj_locate", getObjLocate());
+        amVar.y(VideoPlayActivityConfig.OBJ_ID, z ? 1 : 0);
+        amVar.y("obj_param1", com.baidu.tbadk.util.a.Qb().Gt() ? 1 : 0);
         TiebaStatic.log(amVar);
     }
 
     private int getObjLocate() {
-        return this.aFr;
+        return this.aFT;
     }
 
     private int getObjType() {
-        if (this.aFq == 1) {
+        if (this.aFS == 1) {
             return 2;
         }
-        return this.aFq == 2 ? 3 : 1;
+        return this.aFS == 2 ? 3 : 1;
     }
 }

@@ -1,6 +1,6 @@
 package rx.internal.util.a;
 /* loaded from: classes2.dex */
 abstract class z<E> extends ab<E> {
-    protected long iPP;
-    protected E[] iPQ;
+    protected long iQW;
+    protected E[] iQX;
 }

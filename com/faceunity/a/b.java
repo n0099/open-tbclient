@@ -5,21 +5,21 @@ import android.support.annotation.NonNull;
 import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
 public class b {
-    private static b ivl;
-    private boolean ivm;
+    private static b iws;
+    private boolean iwt;
     private AudioRecord mAudioRecord;
-    private static final int[] ivi = {1, 0, 5, 7, 6};
-    public static int ivj = 48000;
+    private static final int[] iwp = {1, 0, 5, 7, 6};
+    public static int iwq = 48000;
     public static int SAMPLES_PER_FRAME = 2048;
-    public static int ivk = 24;
+    public static int iwr = 24;
 
     public b() {
-        int minBufferSize = AudioRecord.getMinBufferSize(ivj, 16, 2);
-        int i = SAMPLES_PER_FRAME * ivk;
+        int minBufferSize = AudioRecord.getMinBufferSize(iwq, 16, 2);
+        int i = SAMPLES_PER_FRAME * iwr;
         i = i < minBufferSize ? ((minBufferSize / SAMPLES_PER_FRAME) + 1) * SAMPLES_PER_FRAME * 2 : i;
-        for (int i2 : ivi) {
+        for (int i2 : iwp) {
             try {
-                this.mAudioRecord = new AudioRecord(i2, ivj, 16, 2, i);
+                this.mAudioRecord = new AudioRecord(i2, iwq, 16, 2, i);
                 if (this.mAudioRecord.getState() != 1) {
                     this.mAudioRecord = null;
                 }
@@ -30,8 +30,8 @@ public class b {
     }
 
     public void release() {
-        if (!this.ivm) {
-            this.ivm = true;
+        if (!this.iwt) {
+            this.iwt = true;
             if (this.mAudioRecord != null) {
                 this.mAudioRecord.release();
                 this.mAudioRecord = null;
@@ -48,11 +48,11 @@ public class b {
 
     public void startRecording() {
         if (this.mAudioRecord != null) {
-            if (ivl != null && !ivl.isReleased()) {
-                ivl.release();
+            if (iws != null && !iws.isReleased()) {
+                iws.release();
             }
             this.mAudioRecord.startRecording();
-            ivl = this;
+            iws = this;
         }
     }
 
@@ -63,10 +63,10 @@ public class b {
     }
 
     public boolean isReleased() {
-        return this.ivm;
+        return this.iwt;
     }
 
-    public AudioRecord caO() {
+    public AudioRecord cbw() {
         return this.mAudioRecord;
     }
 }

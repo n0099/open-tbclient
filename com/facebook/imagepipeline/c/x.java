@@ -1,24 +1,24 @@
 package com.facebook.imagepipeline.c;
 /* loaded from: classes2.dex */
 public class x implements o {
-    private static x ipv = null;
+    private static x iqC = null;
 
     private x() {
     }
 
-    public static synchronized x bWQ() {
+    public static synchronized x bXy() {
         x xVar;
         synchronized (x.class) {
-            if (ipv == null) {
-                ipv = new x();
+            if (iqC == null) {
+                iqC = new x();
             }
-            xVar = ipv;
+            xVar = iqC;
         }
         return xVar;
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void bWH() {
+    public void bXp() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
@@ -26,11 +26,11 @@ public class x implements o {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void bWI() {
+    public void bXq() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void bWJ() {
+    public void bXr() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
@@ -38,7 +38,7 @@ public class x implements o {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void bWK() {
+    public void bXs() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
@@ -46,19 +46,19 @@ public class x implements o {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void bWL() {
+    public void bXt() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void bWM() {
+    public void bXu() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void bWN() {
+    public void bXv() {
     }
 
     @Override // com.facebook.imagepipeline.c.o
-    public void bWO() {
+    public void bXw() {
     }
 
     @Override // com.facebook.imagepipeline.c.o

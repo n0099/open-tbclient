@@ -5,9 +5,9 @@ import java.util.NoSuchElementException;
 import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public final class a<T> implements c<T> {
-    private final c<T> iBM;
-    private final boolean iBN;
-    private final kotlin.jvm.a.b<T, Boolean> iBO;
+    private final c<T> iCT;
+    private final boolean iCU;
+    private final kotlin.jvm.a.b<T, Boolean> iCV;
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: kotlin.sequences.c<? extends T> */
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.jvm.a.b<? super T, java.lang.Boolean> */
@@ -15,17 +15,17 @@ public final class a<T> implements c<T> {
     public a(c<? extends T> cVar, boolean z, kotlin.jvm.a.b<? super T, Boolean> bVar) {
         p.j(cVar, "sequence");
         p.j(bVar, "predicate");
-        this.iBM = cVar;
-        this.iBN = z;
-        this.iBO = bVar;
+        this.iCT = cVar;
+        this.iCU = z;
+        this.iCV = bVar;
     }
 
     /* renamed from: kotlin.sequences.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0400a implements Iterator<T> {
+    public static final class C0399a implements Iterator<T> {
         private T GE;
-        private final Iterator<T> iBP;
-        private int iBQ = -1;
+        private final Iterator<T> iCW;
+        private int iCX = -1;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -33,47 +33,47 @@ public final class a<T> implements c<T> {
         }
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        C0400a() {
-            this.iBP = a.this.iBM.iterator();
+        C0399a() {
+            this.iCW = a.this.iCT.iterator();
         }
 
-        private final void ccO() {
-            while (this.iBP.hasNext()) {
-                T next = this.iBP.next();
-                if (((Boolean) a.this.iBO.invoke(next)).booleanValue() == a.this.iBN) {
+        private final void cdw() {
+            while (this.iCW.hasNext()) {
+                T next = this.iCW.next();
+                if (((Boolean) a.this.iCV.invoke(next)).booleanValue() == a.this.iCU) {
                     this.GE = next;
-                    this.iBQ = 1;
+                    this.iCX = 1;
                     return;
                 }
             }
-            this.iBQ = 0;
+            this.iCX = 0;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.iBQ == -1) {
-                ccO();
+            if (this.iCX == -1) {
+                cdw();
             }
-            if (this.iBQ == 0) {
+            if (this.iCX == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.GE;
             this.GE = null;
-            this.iBQ = -1;
+            this.iCX = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.iBQ == -1) {
-                ccO();
+            if (this.iCX == -1) {
+                cdw();
             }
-            return this.iBQ == 1;
+            return this.iCX == 1;
         }
     }
 
     @Override // kotlin.sequences.c
     public Iterator<T> iterator() {
-        return new C0400a();
+        return new C0399a();
     }
 }

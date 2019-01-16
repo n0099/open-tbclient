@@ -17,17 +17,17 @@ public abstract class a {
 
     public abstract void a(InterfaceC0154a interfaceC0154a);
 
-    public abstract void aP(boolean z);
+    public abstract void aQ(boolean z);
 
-    public abstract String wp();
+    public abstract MarkData wA();
 
-    public abstract boolean wq();
+    public abstract String ww();
 
-    public abstract void wr();
+    public abstract boolean wx();
 
-    public abstract void ws();
+    public abstract void wy();
 
-    public abstract MarkData wt();
+    public abstract void wz();
 
     public static a a(BaseActivity baseActivity) {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001279, a.class, baseActivity);

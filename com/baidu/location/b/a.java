@@ -15,14 +15,14 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
     private static Object b = new Object();
-    private static a aej = null;
+    private static a aes = null;
     private static final String d = g.h() + "/gal.db";
-    private SQLiteDatabase aek = null;
+    private SQLiteDatabase aet = null;
     private boolean f = false;
-    C0084a ael = null;
+    C0084a aeu = null;
     private String g = null;
     private double h = Double.MAX_VALUE;
-    private double ado = Double.MAX_VALUE;
+    private double adx = Double.MAX_VALUE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.location.b.a$a  reason: collision with other inner class name */
@@ -42,7 +42,7 @@ public class a {
         public void a() {
             String str;
             this.h = "http://loc.map.baidu.com/gpsz";
-            String format = String.format(Locale.CHINESE, "&x=%d&y=%d%s", Integer.valueOf(this.a), Integer.valueOf(this.b), com.baidu.location.g.b.tV().c());
+            String format = String.format(Locale.CHINESE, "&x=%d&y=%d%s", Integer.valueOf(this.a), Integer.valueOf(this.b), com.baidu.location.g.b.tZ().c());
             String encode = Jni.encode(format);
             if (!encode.contains("err!")) {
                 this.k.put("gpsz", encode);
@@ -106,9 +106,9 @@ public class a {
                                         contentValues.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
                                         String format = String.format(Locale.CHINESE, "%d,%d", Integer.valueOf(i + i4), Integer.valueOf(i2 + i3));
                                         try {
-                                            if (a.this.aek.update("galdata_new", contentValues, "id = \"" + format + "\"", null) <= 0) {
+                                            if (a.this.aet.update("galdata_new", contentValues, "id = \"" + format + "\"", null) <= 0) {
                                                 contentValues.put("id", format);
-                                                a.this.aek.insert("galdata_new", null, contentValues);
+                                                a.this.aet.insert("galdata_new", null, contentValues);
                                             }
                                         } catch (Exception e) {
                                         }
@@ -128,19 +128,19 @@ public class a {
     }
 
     private void a(double d2, double d3, double d4) {
-        if (this.ael == null) {
-            this.ael = new C0084a();
+        if (this.aeu == null) {
+            this.aeu = new C0084a();
         }
-        this.ael.a(d2, d3, d4);
+        this.aeu.a(d2, d3, d4);
     }
 
-    public static a tt() {
+    public static a tx() {
         a aVar;
         synchronized (b) {
-            if (aej == null) {
-                aej = new a();
+            if (aes == null) {
+                aes = new a();
             }
-            aVar = aej;
+            aVar = aes;
         }
         return aVar;
     }
@@ -152,31 +152,31 @@ public class a {
                 file.createNewFile();
             }
             if (file.exists()) {
-                this.aek = SQLiteDatabase.openOrCreateDatabase(file, (SQLiteDatabase.CursorFactory) null);
-                Cursor rawQuery = this.aek.rawQuery("SELECT count(*) FROM sqlite_master WHERE type='table' AND name='galdata'", null);
+                this.aet = SQLiteDatabase.openOrCreateDatabase(file, (SQLiteDatabase.CursorFactory) null);
+                Cursor rawQuery = this.aet.rawQuery("SELECT count(*) FROM sqlite_master WHERE type='table' AND name='galdata'", null);
                 if (rawQuery.moveToFirst()) {
                     if (rawQuery.getInt(0) == 0) {
-                        this.aek.execSQL("CREATE TABLE IF NOT EXISTS galdata_new(id CHAR(40) PRIMARY KEY,aldata DOUBLE, sigma DOUBLE,tt INT);");
+                        this.aet.execSQL("CREATE TABLE IF NOT EXISTS galdata_new(id CHAR(40) PRIMARY KEY,aldata DOUBLE, sigma DOUBLE,tt INT);");
                     } else {
-                        this.aek.execSQL("DROP TABLE galdata");
-                        this.aek.execSQL("CREATE TABLE galdata_new(id CHAR(40) PRIMARY KEY,aldata DOUBLE, sigma DOUBLE,tt INT);");
+                        this.aet.execSQL("DROP TABLE galdata");
+                        this.aet.execSQL("CREATE TABLE galdata_new(id CHAR(40) PRIMARY KEY,aldata DOUBLE, sigma DOUBLE,tt INT);");
                     }
                 }
-                this.aek.setVersion(1);
+                this.aet.setVersion(1);
                 rawQuery.close();
             }
         } catch (Exception e) {
-            this.aek = null;
+            this.aet = null;
         }
     }
 
     public void c() {
-        if (this.aek != null) {
+        if (this.aet != null) {
             try {
-                this.aek.close();
+                this.aet.close();
             } catch (Exception e) {
             } finally {
-                this.aek = null;
+                this.aet = null;
             }
         }
     }
@@ -195,7 +195,7 @@ public class a {
         Cursor cursor;
         Throwable th;
         double[] dArr = new double[2];
-        if (this.aek == null || d2 <= 0.1d || d3 <= 0.1d) {
+        if (this.aet == null || d2 <= 0.1d || d3 <= 0.1d) {
             d4 = Double.MAX_VALUE;
             d5 = Double.MAX_VALUE;
         } else {
@@ -204,7 +204,7 @@ public class a {
             if (this.g == null || !this.g.equals(format)) {
                 try {
                     try {
-                        cursor2 = this.aek.rawQuery("select * from galdata_new where id = \"" + format + "\";", null);
+                        cursor2 = this.aet.rawQuery("select * from galdata_new where id = \"" + format + "\";", null);
                         if (cursor2 != null) {
                             try {
                                 if (cursor2.moveToFirst()) {
@@ -221,7 +221,7 @@ public class a {
                                             }
                                             this.g = format;
                                             this.h = d6;
-                                            this.ado = d7;
+                                            this.adx = d7;
                                             d4 = d7;
                                             d5 = d6;
                                             if (cursor2 != null) {
@@ -276,7 +276,7 @@ public class a {
                 }
             } else {
                 d5 = this.h;
-                d4 = this.ado;
+                d4 = this.adx;
             }
         }
         if (d5 <= 10000.0d) {
@@ -302,7 +302,7 @@ public class a {
             d2 = 0.0d;
             f = 0.0f;
         }
-        if (this.aek != null && f > 0.0f && d2 > 0.0d && bDLocation != null) {
+        if (this.aet != null && f > 0.0f && d2 > 0.0d && bDLocation != null) {
             double d3 = c(bDLocation.getLongitude(), bDLocation.getLatitude())[0];
             if (d3 != Double.MAX_VALUE) {
                 double gpsSwiftRadius = Jni.getGpsSwiftRadius(f, d2, d3);

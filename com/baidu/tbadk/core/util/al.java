@@ -32,11 +32,11 @@ import java.lang.reflect.InvocationTargetException;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
 public class al {
-    private static String aCg;
-    private static Resources aCh;
-    private static Resources aCi;
-    private static String aCj;
-    private static AssetManager aCk;
+    private static String aCI;
+    private static Resources aCJ;
+    private static Resources aCK;
+    private static String aCL;
+    private static AssetManager aCM;
     private static String sPackagename;
     private static int sPacknameLength;
 
@@ -45,27 +45,27 @@ public class al {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                Resources unused = al.aCh = null;
+                Resources unused = al.aCJ = null;
             }
         });
-        aCg = "skinType not support";
+        aCI = "skinType not support";
         sPackagename = null;
         sPacknameLength = 0;
     }
 
-    public static void fC(String str) throws IllegalAccessException, InstantiationException, SecurityException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
+    public static void fP(String str) throws IllegalAccessException, InstantiationException, SecurityException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
         if (!StringUtils.isNull(str)) {
             try {
                 Resources resources = TbadkCoreApplication.getInst().getResources();
                 if (resources != null) {
-                    aCk = (AssetManager) AssetManager.class.newInstance();
-                    File eU = l.eU(str);
-                    if (eU == null || !eU.exists()) {
+                    aCM = (AssetManager) AssetManager.class.newInstance();
+                    File fd = l.fd(str);
+                    if (fd == null || !fd.exists()) {
                         com.baidu.adp.lib.util.l.showToast(BdBaseApplication.getInst().getApp(), e.j.theme_skin_apk_error);
                     } else {
-                        aCk.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(aCk, eU.getAbsolutePath());
-                        aCi = new Resources(aCk, resources.getDisplayMetrics(), resources.getConfiguration());
-                        aCj = l.eX(str);
+                        aCM.getClass().getDeclaredMethod("addAssetPath", String.class).invoke(aCM, fd.getAbsolutePath());
+                        aCK = new Resources(aCM, resources.getDisplayMetrics(), resources.getConfiguration());
+                        aCL = l.fg(str);
                     }
                 }
             } catch (Throwable th) {
@@ -173,7 +173,7 @@ public class al {
         if (i == 1) {
             return BdBaseApplication.getInst().getApp().getResources().getColor(e.d.common_color_10004);
         }
-        throw new IllegalArgumentException(aCg);
+        throw new IllegalArgumentException(aCI);
     }
 
     public static int dM(int i) {
@@ -183,15 +183,15 @@ public class al {
 
     public static int a(Resources resources, int i) {
         String str;
-        if (aCh == null) {
-            aCh = resources;
+        if (aCJ == null) {
+            aCJ = resources;
         }
         try {
             str = resources.getResourceName(i);
         } catch (Exception e) {
             str = null;
         }
-        if (TextUtils.isEmpty(str) || str.indexOf(":") <= 0 || aCh == null) {
+        if (TextUtils.isEmpty(str) || str.indexOf(":") <= 0 || aCJ == null) {
             return 0;
         }
         if (sPacknameLength == 0) {
@@ -201,7 +201,7 @@ public class al {
         if (str.length() > sPacknameLength && str.charAt(sPacknameLength) != ':' && str.startsWith(sPackagename)) {
             str = sPackagename + str.substring(str.indexOf(":"));
         }
-        return aCh.getIdentifier(str + "_1", null, null);
+        return aCJ.getIdentifier(str + "_1", null, null);
     }
 
     public static void a(ImageView imageView, int i, int i2) {
@@ -264,10 +264,10 @@ public class al {
 
     private static int b(Resources resources, int i) {
         String str;
-        if (aCi == null) {
-            aCi = resources;
+        if (aCK == null) {
+            aCK = resources;
         }
-        if (aCi == null) {
+        if (aCK == null) {
             return 0;
         }
         try {
@@ -282,7 +282,7 @@ public class al {
         if (StringUtils.isNull(substring) || !substring.startsWith("/s_")) {
             return 0;
         }
-        return aCi.getIdentifier(aCj + str.substring(str.indexOf(":")), null, null);
+        return aCK.getIdentifier(aCL + str.substring(str.indexOf(":")), null, null);
     }
 
     public static void h(View view, int i) {
@@ -304,8 +304,8 @@ public class al {
         if (b == 0) {
             resources2 = resources;
             b = i;
-        } else if (aCi != null) {
-            resources2 = aCi;
+        } else if (aCK != null) {
+            resources2 = aCK;
         } else {
             resources2 = resources;
             b = i;
@@ -332,8 +332,8 @@ public class al {
         if (b == 0) {
             resources2 = resources;
             b = i;
-        } else if (aCi != null) {
-            resources2 = aCi;
+        } else if (aCK != null) {
+            resources2 = aCK;
         } else {
             resources2 = resources;
             b = i;
@@ -358,8 +358,8 @@ public class al {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (aCi != null) {
-                resources2 = aCi;
+            } else if (aCK != null) {
+                resources2 = aCK;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -369,8 +369,8 @@ public class al {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (aCh != null) {
-                resources2 = aCh;
+            } else if (aCJ != null) {
+                resources2 = aCJ;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -404,12 +404,12 @@ public class al {
         }
         if (i == 2) {
             int b = b(resources, i2);
-            if (b != 0 && aCi != null) {
-                Resources resources2 = aCi;
+            if (b != 0 && aCK != null) {
+                Resources resources2 = aCK;
                 i2 = b;
             }
-        } else if (i == 1 && (a = a(resources, i2)) != 0 && aCh != null) {
-            Resources resources3 = aCh;
+        } else if (i == 1 && (a = a(resources, i2)) != 0 && aCJ != null) {
+            Resources resources3 = aCJ;
             i2 = a;
         }
         if (i2 != 0) {
@@ -442,8 +442,8 @@ public class al {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (aCi != null) {
-                resources2 = aCi;
+            } else if (aCK != null) {
+                resources2 = aCK;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -453,8 +453,8 @@ public class al {
             if (i3 == 0) {
                 resources2 = resources3;
                 i3 = i2;
-            } else if (aCh != null) {
-                resources2 = aCh;
+            } else if (aCJ != null) {
+                resources2 = aCJ;
             } else {
                 resources2 = resources3;
                 i3 = i2;
@@ -498,8 +498,8 @@ public class al {
     }
 
     public static int g(Resources resources, int i) {
-        if (aCh == null) {
-            aCh = resources;
+        if (aCJ == null) {
+            aCJ = resources;
         }
         com.baidu.tbadk.core.d.a.a(SocialConstants.PARAM_IMG_URL, -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", Build.VERSION.RELEASE, "model", Build.MODEL, "brand", Build.BRAND);
         try {
@@ -508,7 +508,7 @@ public class al {
                 return 0;
             }
             String replace = resourceName.replace("_svg", "");
-            if (replace.indexOf(":") <= 0 || aCh == null) {
+            if (replace.indexOf(":") <= 0 || aCJ == null) {
                 return 0;
             }
             if (sPacknameLength == 0) {
@@ -518,7 +518,7 @@ public class al {
             if (replace.length() > sPacknameLength && replace.charAt(sPacknameLength) != ':' && replace.startsWith(sPackagename)) {
                 replace = sPackagename + replace.substring(replace.indexOf(":"));
             }
-            return aCh.getIdentifier(replace + "_1", null, null);
+            return aCJ.getIdentifier(replace + "_1", null, null);
         } catch (Exception e) {
             return 0;
         }
@@ -535,13 +535,13 @@ public class al {
             int a = a(resources, i);
             if (a == 0) {
                 a = i;
-            } else if (aCh != null) {
-                Resources resources2 = aCh;
+            } else if (aCJ != null) {
+                Resources resources2 = aCJ;
             } else {
                 a = i;
             }
             try {
-                Bitmap nightCashBitmap = BitmapHelper.getNightCashBitmap(aCh, a, i, options);
+                Bitmap nightCashBitmap = BitmapHelper.getNightCashBitmap(aCJ, a, i, options);
                 if (nightCashBitmap == null) {
                     return BitmapHelper.getCashBitmap(i, options);
                 }
@@ -555,7 +555,7 @@ public class al {
                 return BitmapHelper.getCashBitmap(i, options);
             }
             try {
-                Bitmap themeCashBitmap = BitmapHelper.getThemeCashBitmap(aCi, b, i, options);
+                Bitmap themeCashBitmap = BitmapHelper.getThemeCashBitmap(aCK, b, i, options);
                 if (themeCashBitmap == null) {
                     return BitmapHelper.getCashBitmap(i, options);
                 }

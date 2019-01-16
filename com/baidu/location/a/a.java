@@ -20,39 +20,39 @@ import java.util.List;
 import org.apache.commons.logging.LogFactory;
 /* loaded from: classes6.dex */
 public class a {
-    private static a acA = null;
+    private static a acJ = null;
     public static long c = 0;
     private ArrayList<C0081a> f;
     private boolean g = false;
     public boolean a = false;
     boolean b = false;
-    private BDLocation acB = null;
-    private BDLocation acC = null;
+    private BDLocation acK = null;
+    private BDLocation acL = null;
     int d = 0;
-    private BDLocation acD = null;
+    private BDLocation acM = null;
     private boolean k = false;
     private boolean l = false;
-    private b acE = null;
+    private b acN = null;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public class C0081a {
         public String a;
-        final /* synthetic */ a acA;
+        final /* synthetic */ a acJ;
         public Messenger b;
         public LocationClientOption c = new LocationClientOption();
         public int d = 0;
 
         public C0081a(a aVar, Message message) {
             boolean z = false;
-            this.acA = aVar;
+            this.acJ = aVar;
             this.a = null;
             this.b = null;
             this.b = message.replyTo;
             this.a = message.getData().getString("packName");
             this.c.prodName = message.getData().getString("prodName");
-            com.baidu.location.g.b.tV().a(this.c.prodName, this.a);
+            com.baidu.location.g.b.tZ().a(this.c.prodName, this.a);
             this.c.coorType = message.getData().getString("coorType");
             this.c.addrType = message.getData().getString("addrType");
             this.c.enableSimulateGps = message.getData().getBoolean("enableSimulateGps", false);
@@ -71,10 +71,10 @@ public class a {
             com.baidu.location.g.g.i = com.baidu.location.g.g.i || this.c.isNeedNewVersionRgc;
             com.baidu.location.g.g.h = com.baidu.location.g.g.h || message.getData().getBoolean("isneedaptag", false);
             com.baidu.location.g.g.j = com.baidu.location.g.g.j || message.getData().getBoolean("isneedaptagd", false);
-            com.baidu.location.g.g.agl = message.getData().getFloat("autoNotifyLocSensitivity", 0.5f);
+            com.baidu.location.g.g.agu = message.getData().getFloat("autoNotifyLocSensitivity", 0.5f);
             int i = message.getData().getInt("wifitimeout", ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-            if (i < com.baidu.location.g.g.ago) {
-                com.baidu.location.g.g.ago = i;
+            if (i < com.baidu.location.g.g.agx) {
+                com.baidu.location.g.g.agx = i;
             }
             int i2 = message.getData().getInt("autoNotifyMaxInterval", 0);
             if (i2 >= com.baidu.location.g.g.W) {
@@ -89,8 +89,8 @@ public class a {
                 com.baidu.location.g.g.X = i4;
             }
             if (this.c.mIsNeedDeviceDirect || this.c.isNeedAltitude) {
-                l.tl().a(this.c.mIsNeedDeviceDirect);
-                l.tl().b();
+                l.tq().a(this.c.mIsNeedDeviceDirect);
+                l.tq().b();
             }
             aVar.b = (aVar.b || this.c.isNeedAltitude) ? true : z;
         }
@@ -187,7 +187,7 @@ public class a {
 
     /* loaded from: classes6.dex */
     private class b implements Runnable {
-        final /* synthetic */ a acF;
+        final /* synthetic */ a acO;
         private int b;
         private boolean c;
 
@@ -197,7 +197,7 @@ public class a {
                 return;
             }
             this.b++;
-            this.acF.l = false;
+            this.acO.l = false;
         }
     }
 
@@ -260,15 +260,15 @@ public class a {
         com.baidu.location.g.g.a = z;
         if (this.g != z2) {
             this.g = z2;
-            com.baidu.location.e.d.tO().a(this.g);
+            com.baidu.location.e.d.tS().a(this.g);
         }
     }
 
-    public static a tb() {
-        if (acA == null) {
-            acA = new a();
+    public static a tf() {
+        if (acJ == null) {
+            acJ = new a();
         }
-        return acA;
+        return acJ;
     }
 
     public void a(Bundle bundle, int i) {
@@ -292,7 +292,7 @@ public class a {
         }
         c = System.currentTimeMillis();
         this.a = true;
-        com.baidu.location.e.f.tQ().b();
+        com.baidu.location.e.f.tU().b();
         a(new C0081a(this, message));
         e();
         if (this.k) {
@@ -317,7 +317,7 @@ public class a {
 
     public void b() {
         this.f.clear();
-        this.acB = null;
+        this.acK = null;
         e();
     }
 
@@ -326,7 +326,7 @@ public class a {
         if (a != null) {
             this.f.remove(a);
         }
-        l.tl().c();
+        l.tq().c();
         e();
         if (this.k) {
             b(IntentConfig.STOP);
@@ -335,16 +335,16 @@ public class a {
     }
 
     public void b(BDLocation bDLocation) {
-        if (bDLocation == null || bDLocation.getLocType() != 161 || i.th().b()) {
+        if (bDLocation == null || bDLocation.getLocType() != 161 || i.tl().b()) {
             if (!bDLocation.hasAltitude() && this.b && (bDLocation.getLocType() == 161 || bDLocation.getLocType() == 66)) {
-                double d = com.baidu.location.b.a.tt().c(bDLocation.getLongitude(), bDLocation.getLatitude())[0];
-                com.baidu.location.b.a.tt();
+                double d = com.baidu.location.b.a.tx().c(bDLocation.getLongitude(), bDLocation.getLatitude())[0];
+                com.baidu.location.b.a.tx();
                 if (d < 10000.0d - 1.0d) {
                     bDLocation.setAltitude(d);
                 }
             }
             if (bDLocation.getLocType() == 61) {
-                bDLocation.setGpsAccuracyStatus(com.baidu.location.b.a.tt().e(bDLocation));
+                bDLocation.setGpsAccuracyStatus(com.baidu.location.b.a.tx().e(bDLocation));
             }
             Iterator<C0081a> it = this.f.iterator();
             while (it.hasNext()) {
@@ -358,15 +358,15 @@ public class a {
                 }
             }
         } else {
-            if (this.acC == null) {
-                this.acC = new BDLocation();
-                this.acC.setLocType(505);
+            if (this.acL == null) {
+                this.acL = new BDLocation();
+                this.acL.setLocType(505);
             }
             Iterator<C0081a> it2 = this.f.iterator();
             while (it2.hasNext()) {
                 try {
                     C0081a next2 = it2.next();
-                    next2.a(this.acC);
+                    next2.a(this.acL);
                     if (next2.d > 4) {
                         it2.remove();
                     }
@@ -380,15 +380,15 @@ public class a {
         }
         if (com.baidu.location.g.g.W >= 10000) {
             if (bDLocation.getLocType() == 61 || bDLocation.getLocType() == 161 || bDLocation.getLocType() == 66) {
-                if (this.acB == null) {
-                    this.acB = new BDLocation(bDLocation);
+                if (this.acK == null) {
+                    this.acK = new BDLocation(bDLocation);
                     return;
                 }
                 float[] fArr = new float[1];
-                Location.distanceBetween(this.acB.getLatitude(), this.acB.getLongitude(), bDLocation.getLatitude(), bDLocation.getLongitude(), fArr);
+                Location.distanceBetween(this.acK.getLatitude(), this.acK.getLongitude(), bDLocation.getLatitude(), bDLocation.getLongitude(), fArr);
                 if (fArr[0] > com.baidu.location.g.g.Y || z) {
-                    this.acB = null;
-                    this.acB = new BDLocation(bDLocation);
+                    this.acK = null;
+                    this.acK = new BDLocation(bDLocation);
                 }
             }
         }
@@ -416,9 +416,9 @@ public class a {
     }
 
     public void c(BDLocation bDLocation) {
-        Address d = j.ti().d(bDLocation);
-        String f = j.ti().f();
-        List<Poi> g = j.ti().g();
+        Address d = j.tm().d(bDLocation);
+        String f = j.tm().f();
+        List<Poi> g = j.tm().g();
         if (d != null) {
             bDLocation.setAddr(d);
         }
@@ -429,7 +429,7 @@ public class a {
             bDLocation.setPoiList(g);
         }
         a(bDLocation);
-        j.ti().c(bDLocation);
+        j.tm().c(bDLocation);
     }
 
     public void d() {
@@ -446,15 +446,15 @@ public class a {
             int i = a.c.scanSpan;
             a.c.scanSpan = message.getData().getInt("scanSpan", a.c.scanSpan);
             if (a.c.scanSpan < 1000) {
-                l.tl().c();
+                l.tq().c();
                 this.a = false;
             } else {
                 this.a = true;
             }
             if (a.c.scanSpan > 999 && i < 1000) {
                 if (a.c.mIsNeedDeviceDirect || a.c.isNeedAltitude) {
-                    l.tl().a(a.c.mIsNeedDeviceDirect);
-                    l.tl().b();
+                    l.tq().a(a.c.mIsNeedDeviceDirect);
+                    l.tq().b();
                 }
                 if (this.b || a.c.isNeedAltitude) {
                     z = true;
@@ -476,14 +476,14 @@ public class a {
             }
             locationClientOption2.addrType = string2;
             if (!com.baidu.location.g.g.g.equals(a.c.addrType)) {
-                j.ti().j();
+                j.tm().j();
             }
             a.c.timeOut = message.getData().getInt("timeOut", a.c.timeOut);
             a.c.location_change_notify = message.getData().getBoolean("location_change_notify", a.c.location_change_notify);
             a.c.priority = message.getData().getInt(LogFactory.PRIORITY_KEY, a.c.priority);
             int i2 = message.getData().getInt("wifitimeout", ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
-            if (i2 < com.baidu.location.g.g.ago) {
-                com.baidu.location.g.g.ago = i2;
+            if (i2 < com.baidu.location.g.g.agx) {
+                com.baidu.location.g.g.agx = i2;
             }
             e();
         }
