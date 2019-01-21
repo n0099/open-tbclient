@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.view.d;
 import com.baidu.tieba.e;
 /* loaded from: classes4.dex */
 public class TbAiAppsBaseActivity extends BaseActivity<TbAiAppsBaseActivity> {
-    private AiAppsBdActionBar bFP;
-    private d biP;
+    private AiAppsBdActionBar bFQ;
+    private d biQ;
     private RelativeLayout mRootView;
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -25,7 +25,7 @@ public class TbAiAppsBaseActivity extends BaseActivity<TbAiAppsBaseActivity> {
     @Override // android.app.Activity
     public void setContentView(View view) {
         View inflate = getLayoutInflater().inflate(e.h.delivery_base_layout, (ViewGroup) null);
-        this.bFP = (AiAppsBdActionBar) inflate.findViewById(e.g.ai_apps_title_bar);
+        this.bFQ = (AiAppsBdActionBar) inflate.findViewById(e.g.ai_apps_title_bar);
         this.mRootView = (RelativeLayout) inflate.findViewById(e.g.delivery_root);
         this.mRootView.addView(view, new RelativeLayout.LayoutParams(-1, -1));
         if (UtilHelper.canUseStyleImmersiveSticky()) {
@@ -48,25 +48,25 @@ public class TbAiAppsBaseActivity extends BaseActivity<TbAiAppsBaseActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.biP = new d(getPageContext());
-        this.biP.gz("加载中...");
-        this.biP.setCancelable(true);
+        this.biQ = new d(getPageContext());
+        this.biQ.gz("加载中...");
+        this.biQ.setCancelable(true);
     }
 
     private void XS() {
-        if (this.bFP != null) {
-            this.bFP.setLeftTitleInvalidate(true);
-            this.bFP.setRightTxtZone1Visibility(8);
-            this.bFP.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbAiAppsBaseActivity.1
+        if (this.bFQ != null) {
+            this.bFQ.setLeftTitleInvalidate(true);
+            this.bFQ.setRightTxtZone1Visibility(8);
+            this.bFQ.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbAiAppsBaseActivity.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     TbAiAppsBaseActivity.this.onActionBarBackPressed();
                 }
             });
-            this.bFP.setRightExitViewVisibility(false);
-            this.bFP.setRightMenuVisibility(false);
-            this.bFP.setLeftZoneImageSrcMinWidth(AiAppsUIUtils.dip2px(this, 38.0f));
-            this.bFP.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbAiAppsBaseActivity.2
+            this.bFQ.setRightExitViewVisibility(false);
+            this.bFQ.setRightMenuVisibility(false);
+            this.bFQ.setLeftZoneImageSrcMinWidth(AiAppsUIUtils.dip2px(this, 38.0f));
+            this.bFQ.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.TbAiAppsBaseActivity.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     TbAiAppsBaseActivity.this.onActionBarBackPressed();
@@ -81,16 +81,16 @@ public class TbAiAppsBaseActivity extends BaseActivity<TbAiAppsBaseActivity> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public AiAppsBdActionBar XT() {
-        return this.bFP;
+        return this.bFQ;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void showLoading() {
-        this.biP.bB(true);
+        this.biQ.bB(true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void dismissLoading() {
-        this.biP.bB(false);
+        this.biQ.bB(false);
     }
 }

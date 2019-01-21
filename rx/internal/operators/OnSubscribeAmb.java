@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class OnSubscribeAmb<T> implements d.a<T> {
-    final Iterable<? extends rx.d<? extends T>> iGi;
+    final Iterable<? extends rx.d<? extends T>> iGj;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -105,13 +105,13 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.j<T> {
-        private final Selection<T> iGp;
-        private boolean iGq;
+        private final Selection<T> iGq;
+        private boolean iGr;
         private final rx.j<? super T> subscriber;
 
         a(long j, rx.j<? super T> jVar, Selection<T> selection) {
             this.subscriber = jVar;
-            this.iGp = selection;
+            this.iGq = selection;
             request(j);
         }
 
@@ -142,18 +142,18 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
         }
 
         private boolean isSelected() {
-            if (this.iGq) {
+            if (this.iGr) {
                 return true;
             }
-            if (this.iGp.get() == this) {
-                this.iGq = true;
+            if (this.iGq.get() == this) {
+                this.iGr = true;
                 return true;
-            } else if (this.iGp.compareAndSet(null, this)) {
-                this.iGp.unsubscribeOthers(this);
-                this.iGq = true;
+            } else if (this.iGq.compareAndSet(null, this)) {
+                this.iGq.unsubscribeOthers(this);
+                this.iGr = true;
                 return true;
             } else {
-                this.iGp.unsubscribeLosers();
+                this.iGq.unsubscribeLosers();
                 return false;
             }
         }
@@ -185,7 +185,7 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
     }
 
     private OnSubscribeAmb(Iterable<? extends rx.d<? extends T>> iterable) {
-        this.iGi = iterable;
+        this.iGj = iterable;
     }
 
     public void call(rx.j<? super T> jVar) {
@@ -200,7 +200,7 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
                 OnSubscribeAmb.m(selection.ambSubscribers);
             }
         }));
-        for (rx.d<? extends T> dVar : this.iGi) {
+        for (rx.d<? extends T> dVar : this.iGj) {
             if (jVar.isUnsubscribed()) {
                 break;
             }

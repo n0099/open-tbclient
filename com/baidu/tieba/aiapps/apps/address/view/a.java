@@ -17,17 +17,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private MultiPickerDialog.Builder bHq;
-    private BdMultiPicker.OnMultiSelectedChangedListener bHr;
-    private InterfaceC0196a bHs;
+    private MultiPickerDialog.Builder bHr;
+    private BdMultiPicker.OnMultiSelectedChangedListener bHs;
+    private InterfaceC0196a bHt;
     private AiAppAlertDialog mMultiPickerDialog;
     private JSONArray mDataArray = new JSONArray();
     private JSONArray mDataIndex = new JSONArray();
-    private List<d> bGP = new ArrayList();
-    private List<d> bHo = new ArrayList();
+    private List<d> bGQ = new ArrayList();
     private List<d> bHp = new ArrayList();
-    private Map<d, List<d>> bGQ = new HashMap();
+    private List<d> bHq = new ArrayList();
     private Map<d, List<d>> bGR = new HashMap();
+    private Map<d, List<d>> bGS = new HashMap();
 
     /* renamed from: com.baidu.tieba.aiapps.apps.address.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -40,13 +40,13 @@ public class a {
     }
 
     private void initData(Context context) {
-        this.bGP = c.Yq().Ys();
-        this.bGQ = c.Yq().Yt();
-        this.bGR = c.Yq().Yu();
+        this.bGQ = c.Yq().Ys();
+        this.bGR = c.Yq().Yt();
+        this.bGS = c.Yq().Yu();
         YA();
         YB();
-        this.bHq = new MultiPickerDialog.Builder(context);
-        this.bHr = new BdMultiPicker.OnMultiSelectedChangedListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.1
+        this.bHr = new MultiPickerDialog.Builder(context);
+        this.bHs = new BdMultiPicker.OnMultiSelectedChangedListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.1
             @Override // com.baidu.searchbox.ng.ai.apps.res.ui.BdMultiPicker.OnMultiSelectedChangedListener
             public void onMultiSelectedChanged(BdMultiPicker bdMultiPicker, JSONObject jSONObject) {
                 if (jSONObject != null) {
@@ -67,8 +67,8 @@ public class a {
     }
 
     private void YB() {
-        if (this.bGP.size() > 0) {
-            this.mDataArray.put(aq(this.bGP));
+        if (this.bGQ.size() > 0) {
+            this.mDataArray.put(aq(this.bGQ));
         }
         ac(0, this.mDataIndex.optInt(0));
         ac(1, this.mDataIndex.optInt(1));
@@ -85,17 +85,17 @@ public class a {
         JSONArray jSONArray;
         JSONArray jSONArray2 = null;
         if (i == 0) {
-            this.bHo = this.bGQ.get(this.bGP.get(i2));
-            if (this.bHo.size() <= 0) {
+            this.bHp = this.bGR.get(this.bGQ.get(i2));
+            if (this.bHp.size() <= 0) {
                 jSONArray = null;
             } else {
-                jSONArray = aq(this.bHo);
+                jSONArray = aq(this.bHp);
             }
             jSONArray2 = jSONArray;
         } else if (i == 1) {
-            this.bHp = this.bGR.get(this.bHo.get(i2));
-            if (this.bHp.size() > 0) {
-                jSONArray2 = aq(this.bHp);
+            this.bHq = this.bGS.get(this.bHp.get(i2));
+            if (this.bHq.size() > 0) {
+                jSONArray2 = aq(this.bHq);
             }
         }
         if (jSONArray2 != null) {
@@ -119,13 +119,13 @@ public class a {
 
     public void YC() {
         if (this.mMultiPickerDialog == null) {
-            this.mMultiPickerDialog = this.bHq.setDataArray(this.mDataArray).setDataIndex(this.mDataIndex).setMultiSelectedListener(this.bHr).setTitle("城市选择").setPositiveButton(R.string.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.3
+            this.mMultiPickerDialog = this.bHr.setDataArray(this.mDataArray).setDataIndex(this.mDataIndex).setMultiSelectedListener(this.bHs).setTitle("城市选择").setPositiveButton(R.string.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.3
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
                     a.this.a(dialogInterface);
                     List<d> p = a.this.p(((MultiPickerDialog) dialogInterface).getCurrentIndex());
-                    if (a.this.bHs != null) {
-                        a.this.bHs.am(p);
+                    if (a.this.bHt != null) {
+                        a.this.bHt.am(p);
                     }
                 }
             }).setNegativeButton(R.string.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.2
@@ -140,9 +140,9 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public List<d> p(JSONArray jSONArray) {
         ArrayList arrayList = new ArrayList(3);
-        arrayList.add(this.bGP.get(jSONArray.optInt(0)));
-        arrayList.add(this.bHo.get(jSONArray.optInt(1)));
-        arrayList.add(this.bHp.get(jSONArray.optInt(2)));
+        arrayList.add(this.bGQ.get(jSONArray.optInt(0)));
+        arrayList.add(this.bHp.get(jSONArray.optInt(1)));
+        arrayList.add(this.bHq.get(jSONArray.optInt(2)));
         return arrayList;
     }
 
@@ -163,6 +163,6 @@ public class a {
     }
 
     public void a(InterfaceC0196a interfaceC0196a) {
-        this.bHs = interfaceC0196a;
+        this.bHt = interfaceC0196a;
     }
 }

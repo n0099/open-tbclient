@@ -19,10 +19,10 @@ import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActivity> {
     public NavigationBar mNavigationBar;
-    private String esP = null;
+    private String esQ = null;
     private TextView mTextView = null;
-    private TextView ete = null;
-    LinearLayout aIS = null;
+    private TextView etf = null;
+    LinearLayout aIT = null;
 
     public static void aw(Context context, String str) {
         if (str != null && str.length() > 0) {
@@ -45,14 +45,14 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
     }
 
     private void initData() {
-        this.esP = getIntent().getStringExtra("barname");
-        if (this.esP == null) {
-            this.esP = "";
+        this.esQ = getIntent().getStringExtra("barname");
+        if (this.esQ == null) {
+            this.esQ = "";
         }
     }
 
     private void aLh() {
-        this.aIS = (LinearLayout) findViewById(e.g.container);
+        this.aIT = (LinearLayout) findViewById(e.g.container);
         RelativeLayout relativeLayout = (RelativeLayout) findViewById(e.g.title);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
             ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
@@ -63,7 +63,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(getPageContext().getString(e.j.create_bar));
         this.mTextView = (TextView) findViewById(e.g.text);
-        this.ete = (TextView) findViewById(e.g.text_more);
+        this.etf = (TextView) findViewById(e.g.text_more);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -71,14 +71,14 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         getLayoutMode().setNightMode(i == 1);
-        getLayoutMode().onModeChanged(this.aIS);
+        getLayoutMode().onModeChanged(this.aIT);
         boolean jJ = new p().jJ();
         String string = jJ ? getPageContext().getString(e.j.create_bar_new_tip) : getPageContext().getString(e.j.create_bar_info1);
         int length = string.length();
-        SpannableString spannableString = new SpannableString(jJ ? string + this.esP + getPageContext().getString(e.j.create_bar_new_tip2) : string + this.esP + getPageContext().getString(e.j.create_bar_info2));
-        spannableString.setSpan(new ForegroundColorSpan(al.getColor(e.d.common_color_10252)), length, this.esP.length() + length, 33);
+        SpannableString spannableString = new SpannableString(jJ ? string + this.esQ + getPageContext().getString(e.j.create_bar_new_tip2) : string + this.esQ + getPageContext().getString(e.j.create_bar_info2));
+        spannableString.setSpan(new ForegroundColorSpan(al.getColor(e.d.common_color_10252)), length, this.esQ.length() + length, 33);
         this.mTextView.setText(spannableString);
-        this.ete.setVisibility(jJ ? 0 : 8);
+        this.etf.setVisibility(jJ ? 0 : 8);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
     }
 }

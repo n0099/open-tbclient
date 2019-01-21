@@ -6,11 +6,11 @@ import com.baidu.searchbox.ng.ai.apps.media.recorder.RecordStatusCallback;
 import com.tencent.open.SocialConstants;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a hqR;
-    private final int hqS = 10;
-    private final int hqT = 3000;
+    private com.baidu.adp.lib.stats.a hqS;
+    private final int hqT = 10;
+    private final int hqU = 3000;
     public String mLogType = null;
-    public boolean aEv = false;
+    public boolean aEw = false;
 
     public b(String str) {
         ad(str, false);
@@ -18,44 +18,44 @@ public class b {
 
     public void ad(String str, boolean z) {
         this.mLogType = str;
-        this.aEv = z;
-        this.hqR = new com.baidu.adp.lib.stats.a("dbg");
+        this.aEw = z;
+        this.hqS = new com.baidu.adp.lib.stats.a("dbg");
         c.k(str, getNetType(), z);
     }
 
     public void start() {
-        this.hqR.startTimer();
+        this.hqS.startTimer();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
         e bFk;
-        if (this.hqR != null && (bFk = bFk()) != null) {
+        if (this.hqS != null && (bFk = bFk()) != null) {
             if (z) {
-                if (bFk.hqY != null) {
-                    bFk.hqY.num++;
+                if (bFk.hqZ != null) {
+                    bFk.hqZ.num++;
                     if (z2) {
-                        bFk.hqY.hqV += j2;
-                        bFk.hqY.size += j;
+                        bFk.hqZ.hqW += j2;
+                        bFk.hqZ.size += j;
                     } else {
-                        bFk.hqY.hqW++;
+                        bFk.hqZ.hqX++;
                     }
                 } else {
                     return;
                 }
-            } else if (bFk.hqZ != null) {
-                bFk.hqZ.num++;
+            } else if (bFk.hra != null) {
+                bFk.hra.num++;
                 if (z2) {
-                    bFk.hqZ.hqV += j3;
-                    bFk.hqZ.size += j;
+                    bFk.hra.hqW += j3;
+                    bFk.hra.size += j;
                     j2 = j3;
                 } else {
-                    bFk.hqZ.hqW++;
+                    bFk.hra.hqX++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.hqR = null;
+            this.hqS = null;
             if (z2) {
                 c.a(bFk, 10);
             }
@@ -77,19 +77,19 @@ public class b {
 
     public void destory() {
         e bFk;
-        if (this.hqR != null && (bFk = bFk()) != null && bFk.hra != null) {
-            long jK = this.hqR.jK();
+        if (this.hqS != null && (bFk = bFk()) != null && bFk.hrb != null) {
+            long jK = this.hqS.jK();
             if (jK > 3000) {
-                d dVar = bFk.hra;
-                dVar.hqV = jK + dVar.hqV;
-                bFk.hra.num++;
+                d dVar = bFk.hrb;
+                dVar.hqW = jK + dVar.hqW;
+                bFk.hrb.num++;
                 c.a(bFk, 10);
             }
         }
     }
 
     private e bFk() {
-        return c.l(this.mLogType, getNetType(), this.aEv);
+        return c.l(this.mLogType, getNetType(), this.aEw);
     }
 
     private String getNetType() {

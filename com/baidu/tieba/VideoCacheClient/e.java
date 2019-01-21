@@ -17,11 +17,11 @@ import java.net.URLEncoder;
 /* loaded from: classes6.dex */
 public class e {
     private static final String TAG = e.class.getSimpleName();
-    private static e bAY;
+    private static e bAZ;
     private Context mContext;
     private Handler mHandler;
     private long mLastCheckTime = 0;
-    private boolean byn = false;
+    private boolean byo = false;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.VideoCacheClient.e.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
@@ -49,27 +49,27 @@ public class e {
     private ServiceConnection mServiceConnection = new ServiceConnection() { // from class: com.baidu.tieba.VideoCacheClient.e.2
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            e.this.byn = true;
-            com.baidu.adp.lib.g.e.jG().removeCallbacks(e.this.byv);
+            e.this.byo = true;
+            com.baidu.adp.lib.g.e.jG().removeCallbacks(e.this.byw);
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            File file = new File(c.bAL);
+            File file = new File(c.bAM);
             if (file.exists()) {
                 file.delete();
             }
             b.VW().VY();
-            e.this.byn = false;
-            com.baidu.adp.lib.g.e.jG().postDelayed(e.this.byv, 1000L);
+            e.this.byo = false;
+            com.baidu.adp.lib.g.e.jG().postDelayed(e.this.byw, 1000L);
         }
     };
-    private Runnable byv = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.e.3
+    private Runnable byw = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.e.3
         @Override // java.lang.Runnable
         public void run() {
-            if (!e.this.byn) {
+            if (!e.this.byo) {
                 e.this.Ve();
-                com.baidu.adp.lib.g.e.jG().postDelayed(e.this.byv, 1000L);
+                com.baidu.adp.lib.g.e.jG().postDelayed(e.this.byw, 1000L);
             }
         }
     };
@@ -85,14 +85,14 @@ public class e {
     }
 
     public static e bZ(Context context) {
-        if (bAY == null) {
+        if (bAZ == null) {
             synchronized (e.class) {
-                if (bAY == null) {
-                    bAY = new e(context);
+                if (bAZ == null) {
+                    bAZ = new e(context);
                 }
             }
         }
-        return bAY;
+        return bAZ;
     }
 
     public void L(String str, int i) {

@@ -10,17 +10,17 @@ import com.baidu.tieba.im.message.RequestDismissGroupMessage;
 import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 /* loaded from: classes3.dex */
 public class GroupSettingModel extends BdBaseModel<GroupSettingActivity> {
-    private RequestRemoveMembersMessage eKX;
-    private RequestDismissGroupMessage eKY;
-    private GroupSettingActivity eKZ;
+    private RequestRemoveMembersMessage eKY;
+    private RequestDismissGroupMessage eKZ;
+    private GroupSettingActivity eLa;
     private int flag;
     private String groupId;
     private String groupName;
 
     public GroupSettingModel(GroupSettingActivity groupSettingActivity) {
         super(groupSettingActivity.getPageContext());
-        this.eKZ = null;
-        this.eKZ = groupSettingActivity;
+        this.eLa = null;
+        this.eLa = groupSettingActivity;
     }
 
     public void j(String str, String str2, int i) {
@@ -49,8 +49,8 @@ public class GroupSettingModel extends BdBaseModel<GroupSettingActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
-        if (this.eKX != null) {
-            this.eKX = null;
+        if (this.eKY != null) {
+            this.eKY = null;
         }
     }
 
@@ -86,23 +86,23 @@ public class GroupSettingModel extends BdBaseModel<GroupSettingActivity> {
     }
 
     public void cm(long j) {
-        this.eKX = new RequestRemoveMembersMessage();
-        this.eKX.setGroupId(j);
-        this.eKX.setUserIds(TbadkApplication.getCurrentAccountObj().getID());
-        if (this.eKZ != null) {
-            this.eKZ.sendMessage(this.eKX);
+        this.eKY = new RequestRemoveMembersMessage();
+        this.eKY.setGroupId(j);
+        this.eKY.setUserIds(TbadkApplication.getCurrentAccountObj().getID());
+        if (this.eLa != null) {
+            this.eLa.sendMessage(this.eKY);
         } else {
-            sendMessage(this.eKX);
+            sendMessage(this.eKY);
         }
     }
 
     public void cn(long j) {
-        this.eKY = new RequestDismissGroupMessage();
-        this.eKY.setGroupId(j);
-        if (this.eKZ != null) {
-            this.eKZ.sendMessage(this.eKY);
+        this.eKZ = new RequestDismissGroupMessage();
+        this.eKZ.setGroupId(j);
+        if (this.eLa != null) {
+            this.eLa.sendMessage(this.eKZ);
         } else {
-            sendMessage(this.eKY);
+            sendMessage(this.eKZ);
         }
     }
 

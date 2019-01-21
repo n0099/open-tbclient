@@ -11,7 +11,7 @@ import com.baidu.tieba.frs.worldcup.talkball.activity.TalkBallFragment;
 /* loaded from: classes3.dex */
 public class a extends com.baidu.tbadk.mainTab.b {
     public a() {
-        Oh().bez = new TalkBallFragment();
+        Oh().beA = new TalkBallFragment();
     }
 
     @Override // com.baidu.tbadk.mainTab.b
@@ -23,8 +23,8 @@ public class a extends com.baidu.tbadk.mainTab.b {
     public com.baidu.tbadk.mainTab.c Og() {
         com.baidu.tbadk.mainTab.c cVar = new com.baidu.tbadk.mainTab.c();
         cVar.type = 12;
-        cVar.aFU = e.j.frs_tab_talkball;
-        cVar.beF = com.baidu.tbadk.mainTab.c.beD;
+        cVar.aFV = e.j.frs_tab_talkball;
+        cVar.beG = com.baidu.tbadk.mainTab.c.beE;
         return cVar;
     }
 
@@ -36,7 +36,7 @@ public class a extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator bR(Context context) {
-        this.bek = (FragmentTabIndicator) LayoutInflater.from(context).inflate(e.h.fragmenttabindicator, (ViewGroup) null);
-        return this.bek;
+        this.bel = (FragmentTabIndicator) LayoutInflater.from(context).inflate(e.h.fragmenttabindicator, (ViewGroup) null);
+        return this.bel;
     }
 }

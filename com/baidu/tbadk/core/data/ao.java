@@ -7,39 +7,39 @@ import java.util.List;
 import tbclient.PbPage.RecommendBook;
 /* loaded from: classes.dex */
 public class ao extends PostData {
-    public static final BdUniqueId asT = BdUniqueId.gen();
-    public int aqS;
-    public String are;
+    public static final BdUniqueId asU = BdUniqueId.gen();
+    public int aqT;
     public String arf;
     public String arg;
-    public String asU;
+    public String arh;
     public String asV;
     public String asW;
-    public List<String> asX;
-    public String asY;
+    public String asX;
+    public List<String> asY;
     public String asZ;
+    public String ata;
 
     public void a(RecommendBook recommendBook) {
         if (recommendBook != null) {
-            this.asU = recommendBook.recommend_text;
-            this.asV = recommendBook.suggest_text;
-            this.asW = recommendBook.suggest_url;
-            this.are = recommendBook.book_id;
-            this.aqS = recommendBook.book_type.intValue();
-            this.arg = recommendBook.book_cover;
-            this.arf = recommendBook.book_title;
-            this.asX = recommendBook.book_tips;
-            this.asY = recommendBook.botton_text;
-            this.asZ = recommendBook.subscript_icon;
+            this.asV = recommendBook.recommend_text;
+            this.asW = recommendBook.suggest_text;
+            this.asX = recommendBook.suggest_url;
+            this.arf = recommendBook.book_id;
+            this.aqT = recommendBook.book_type.intValue();
+            this.arh = recommendBook.book_cover;
+            this.arg = recommendBook.book_title;
+            this.asY = recommendBook.book_tips;
+            this.asZ = recommendBook.botton_text;
+            this.ata = recommendBook.subscript_icon;
         }
     }
 
     public boolean hasData() {
-        return (this == null || StringUtils.isNull(this.are)) ? false : true;
+        return (this == null || StringUtils.isNull(this.arf)) ? false : true;
     }
 
     @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return asT;
+        return asU;
     }
 }

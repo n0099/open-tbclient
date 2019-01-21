@@ -13,37 +13,37 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.recapp.view.IVrPlayView;
 /* loaded from: classes3.dex */
 public abstract class a {
-    public a.InterfaceC0185a bCx;
-    public MediaPlayer.OnPreparedListener byQ;
-    public MediaPlayer.OnErrorListener byU;
-    public IVrPlayView gOH;
-    public com.b.a.g gOI;
-    public com.baidu.tieba.ad.play.a gOJ;
-    public MediaPlayer.OnCompletionListener gOK;
-    public a.b gOL;
+    public a.InterfaceC0185a bCy;
+    public MediaPlayer.OnPreparedListener byR;
+    public MediaPlayer.OnErrorListener byV;
+    public IVrPlayView gOI;
+    public com.b.a.g gOJ;
+    public com.baidu.tieba.ad.play.a gOK;
+    public MediaPlayer.OnCompletionListener gOL;
+    public a.b gOM;
     public TbPageContext<?> mContext;
     public int mStatus = -1;
     public String mVideoPath;
 
     public a(IVrPlayView iVrPlayView) {
-        this.gOH = iVrPlayView;
-        this.mContext = this.gOH.getPageContext();
+        this.gOI = iVrPlayView;
+        this.mContext = this.gOI.getPageContext();
         bvC();
         initListener();
     }
 
     private void bvC() {
         if (this.mStatus == -1) {
-            this.gOI = com.b.a.g.h(this.mContext.getPageActivity()).a(new g.f() { // from class: com.baidu.tieba.recapp.a.2
+            this.gOJ = com.b.a.g.h(this.mContext.getPageActivity()).a(new g.f() { // from class: com.baidu.tieba.recapp.a.2
                 public void b(Surface surface) {
-                    a.this.gOJ = new com.baidu.tieba.ad.play.a(surface);
-                    a.this.gOH.setPlayer(a.this.gOJ);
+                    a.this.gOK = new com.baidu.tieba.ad.play.a(surface);
+                    a.this.gOI.setPlayer(a.this.gOK);
                 }
             }).N(3).b(new g.d() { // from class: com.baidu.tieba.recapp.a.1
                 public void k(MotionEvent motionEvent) {
                 }
-            }).b(this.gOH.getGLView());
-            this.gOI.onResume(this.mContext.getPageActivity());
+            }).b(this.gOI.getGLView());
+            this.gOJ.onResume(this.mContext.getPageActivity());
         }
     }
 
@@ -62,13 +62,13 @@ public abstract class a {
     }
 
     public void playVideo() {
-        if (this.gOJ != null && !StringUtils.isNull(this.mVideoPath)) {
-            this.gOJ.a(this.bCx);
-            this.gOJ.setVideoPath(this.mVideoPath);
-            this.gOJ.start();
-            this.gOJ.a(this.byQ);
-            this.gOJ.setOnErrorListener(this.byU);
-            this.gOJ.a(this.gOK);
+        if (this.gOK != null && !StringUtils.isNull(this.mVideoPath)) {
+            this.gOK.a(this.bCy);
+            this.gOK.setVideoPath(this.mVideoPath);
+            this.gOK.start();
+            this.gOK.a(this.byR);
+            this.gOK.setOnErrorListener(this.byV);
+            this.gOK.a(this.gOL);
             this.mStatus = 0;
         }
     }
@@ -80,10 +80,10 @@ public abstract class a {
     }
 
     public void stopPlay() {
-        if (this.mStatus != -1 && this.gOJ != null) {
-            this.gOJ.seekTo(0);
-            this.gOJ.onDestroy();
-            this.gOH.onDestroy();
+        if (this.mStatus != -1 && this.gOK != null) {
+            this.gOK.seekTo(0);
+            this.gOK.onDestroy();
+            this.gOI.onDestroy();
             this.mStatus = -1;
             finishStopPlay();
         }
@@ -93,14 +93,14 @@ public abstract class a {
     }
 
     public void destroy() {
-        this.gOH.onDestroy();
-        if (this.gOJ != null && this.mStatus != -1) {
+        this.gOI.onDestroy();
+        if (this.gOK != null && this.mStatus != -1) {
+            this.gOK.onDestroy();
+            this.gOK = null;
+        }
+        if (this.gOJ != null) {
             this.gOJ.onDestroy();
             this.gOJ = null;
-        }
-        if (this.gOI != null) {
-            this.gOI.onDestroy();
-            this.gOI = null;
         }
         this.mStatus = -1;
     }
@@ -114,9 +114,9 @@ public abstract class a {
     }
 
     public long getCurrentPos() {
-        if (this.gOJ == null) {
+        if (this.gOK == null) {
             return 0L;
         }
-        return this.gOJ.getCurrentPosition();
+        return this.gOK.getCurrentPosition();
     }
 }

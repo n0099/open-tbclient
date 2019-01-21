@@ -7,64 +7,64 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.play.VideoLoadingProgressView;
 /* loaded from: classes.dex */
 public class x {
-    private ViewGroup gIi;
-    private ImageView gIj;
-    private VideoLoadingProgressView gIk;
-    ObjectAnimator gIl;
+    private ViewGroup gIj;
+    private ImageView gIk;
+    private VideoLoadingProgressView gIl;
     ObjectAnimator gIm;
     ObjectAnimator gIn;
+    ObjectAnimator gIo;
 
     public x(ViewGroup viewGroup) {
-        this.gIi = viewGroup;
-        this.gIj = (ImageView) viewGroup.findViewById(e.g.auto_video_loading_image);
-        this.gIk = (VideoLoadingProgressView) viewGroup.findViewById(e.g.auto_video_loading_progress);
+        this.gIj = viewGroup;
+        this.gIk = (ImageView) viewGroup.findViewById(e.g.auto_video_loading_image);
+        this.gIl = (VideoLoadingProgressView) viewGroup.findViewById(e.g.auto_video_loading_progress);
         init();
     }
 
     private void init() {
-        this.gIl = ObjectAnimator.ofFloat(this.gIj, "alpha", 1.0f, 0.5f);
-        this.gIm = ObjectAnimator.ofFloat(this.gIj, "alpha", 0.5f, 0.0f);
-        this.gIn = ObjectAnimator.ofFloat(this.gIk, "alpha", 1.0f, 0.0f);
-        this.gIl.setDuration(50L);
+        this.gIm = ObjectAnimator.ofFloat(this.gIk, "alpha", 1.0f, 0.5f);
+        this.gIn = ObjectAnimator.ofFloat(this.gIk, "alpha", 0.5f, 0.0f);
+        this.gIo = ObjectAnimator.ofFloat(this.gIl, "alpha", 1.0f, 0.0f);
         this.gIm.setDuration(50L);
         this.gIn.setDuration(50L);
+        this.gIo.setDuration(50L);
     }
 
     public void startLoading() {
         btu();
-        this.gIj.setAlpha(1.0f);
         this.gIk.setAlpha(1.0f);
-        this.gIi.setVisibility(0);
-        this.gIk.startLoading();
-        this.gIl.start();
+        this.gIl.setAlpha(1.0f);
+        this.gIj.setVisibility(0);
+        this.gIl.startLoading();
+        this.gIm.start();
     }
 
     public void btr() {
         btu();
-        this.gIk.btr();
+        this.gIl.btr();
     }
 
     public void bts() {
         btu();
-        this.gIm.start();
         this.gIn.start();
+        this.gIo.start();
     }
 
     public void btt() {
         btu();
-        this.gIi.setVisibility(8);
-        this.gIk.btt();
+        this.gIj.setVisibility(8);
+        this.gIl.btt();
     }
 
     private void btu() {
-        this.gIl.cancel();
         this.gIm.cancel();
         this.gIn.cancel();
+        this.gIo.cancel();
     }
 
     public void setLoadingAnimationListener(VideoLoadingProgressView.a aVar) {
-        if (this.gIk != null) {
-            this.gIk.setLoadingAnimationListener(aVar);
+        if (this.gIl != null) {
+            this.gIl.setLoadingAnimationListener(aVar);
         }
     }
 }

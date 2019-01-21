@@ -57,7 +57,7 @@ public class GuardProxy {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class c implements IGuard {
-        private Parcel foa;
+        private Parcel fob;
         private IBinder mRemote;
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -146,20 +146,20 @@ public class GuardProxy {
         private void aA(Context context, String str) {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(context.getPackageName(), str));
-            this.foa = Parcel.obtain();
-            this.foa.writeInterfaceToken("android.app.IActivityManager");
-            this.foa.writeStrongBinder(null);
-            intent.writeToParcel(this.foa, 0);
-            this.foa.writeString(null);
-            this.foa.writeInt(0);
+            this.fob = Parcel.obtain();
+            this.fob.writeInterfaceToken("android.app.IActivityManager");
+            this.fob.writeStrongBinder(null);
+            intent.writeToParcel(this.fob, 0);
+            this.fob.writeString(null);
+            this.fob.writeInt(0);
         }
 
         private boolean aYE() {
             try {
-                if (this.mRemote == null || this.foa == null) {
+                if (this.mRemote == null || this.fob == null) {
                     return false;
                 }
-                this.mRemote.transact(34, this.foa, null, 0);
+                this.mRemote.transact(34, this.fob, null, 0);
                 return true;
             } catch (RemoteException e) {
                 e.printStackTrace();
@@ -171,8 +171,8 @@ public class GuardProxy {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class b implements IGuard {
-        private AlarmManager fnU;
-        private PendingIntent fnV;
+        private AlarmManager fnV;
+        private PendingIntent fnW;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b() {
@@ -228,7 +228,7 @@ public class GuardProxy {
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonDead() {
             if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
-                this.fnU.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.fnV);
+                this.fnV.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.fnW);
                 if (GuardProxy.this.mConfigs != null && GuardProxy.this.mConfigs.LISTENER != null) {
                     GuardProxy.this.mConfigs.LISTENER.onWatchDaemonDaed();
                 }
@@ -239,26 +239,26 @@ public class GuardProxy {
         }
 
         private void az(Context context, String str) {
-            if (this.fnU == null) {
-                this.fnU = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
-            }
             if (this.fnV == null) {
+                this.fnV = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            }
+            if (this.fnW == null) {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName(context.getPackageName(), str));
                 intent.setFlags(16);
-                this.fnV = PendingIntent.getService(context, 0, intent, 0);
+                this.fnW = PendingIntent.getService(context, 0, intent, 0);
             }
-            this.fnU.cancel(this.fnV);
+            this.fnV.cancel(this.fnW);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class a implements IGuard {
-        private final String fnS = "bin";
-        private final String fnT = "daemon";
-        private AlarmManager fnU;
-        private PendingIntent fnV;
+        private final String fnT = "bin";
+        private final String fnU = "daemon";
+        private AlarmManager fnV;
+        private PendingIntent fnW;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public a() {
@@ -303,22 +303,22 @@ public class GuardProxy {
         @Override // com.baidu.tieba.keepLive.nativekeepalive.IGuard
         public void onDaemonDead() {
             if (TbadkCoreApplication.getKeepLiveSwitch(TbadkCoreApplication.getInst())) {
-                this.fnU.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.fnV);
+                this.fnV.setRepeating(3, SystemClock.elapsedRealtime(), 100L, this.fnW);
                 Process.killProcess(Process.myPid());
             }
         }
 
         private void az(Context context, String str) {
-            if (this.fnU == null) {
-                this.fnU = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
-            }
             if (this.fnV == null) {
+                this.fnV = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            }
+            if (this.fnW == null) {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName(context.getPackageName(), str));
                 intent.setFlags(16);
-                this.fnV = PendingIntent.getService(context, 0, intent, 0);
+                this.fnW = PendingIntent.getService(context, 0, intent, 0);
             }
-            this.fnU.cancel(this.fnV);
+            this.fnV.cancel(this.fnW);
         }
 
         private boolean cE(Context context) {
@@ -376,9 +376,9 @@ public class GuardProxy {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public class d implements IGuard {
-        private final String fnS = "bin";
-        private final String fnT = "daemon";
-        private Parcel foa;
+        private final String fnT = "bin";
+        private final String fnU = "daemon";
+        private Parcel fob;
         private IBinder mRemote;
 
         /* JADX INFO: Access modifiers changed from: package-private */
@@ -455,20 +455,20 @@ public class GuardProxy {
         private void aA(Context context, String str) {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(context.getPackageName(), str));
-            this.foa = Parcel.obtain();
-            this.foa.writeInterfaceToken("android.app.IActivityManager");
-            this.foa.writeStrongBinder(null);
-            intent.writeToParcel(this.foa, 0);
-            this.foa.writeString(null);
-            this.foa.writeInt(0);
+            this.fob = Parcel.obtain();
+            this.fob.writeInterfaceToken("android.app.IActivityManager");
+            this.fob.writeStrongBinder(null);
+            intent.writeToParcel(this.fob, 0);
+            this.fob.writeString(null);
+            this.fob.writeInt(0);
         }
 
         private boolean aYE() {
             try {
-                if (this.mRemote == null || this.foa == null) {
+                if (this.mRemote == null || this.fob == null) {
                     return false;
                 }
-                this.mRemote.transact(34, this.foa, null, 0);
+                this.mRemote.transact(34, this.fob, null, 0);
                 return true;
             } catch (RemoteException e) {
                 e.printStackTrace();

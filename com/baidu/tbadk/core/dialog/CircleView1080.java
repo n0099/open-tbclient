@@ -9,10 +9,10 @@ import android.view.View;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class CircleView1080 extends View {
-    private static int axA = 360;
-    private static int axB = 100;
-    private Paint axD;
-    private RectF axF;
+    private static int axB = 360;
+    private static int axC = 100;
+    private Paint axE;
+    private RectF axG;
     private int mLineWidth;
     private int mValue;
     private int mWidth;
@@ -43,17 +43,17 @@ public class CircleView1080 extends View {
     public void init() {
         this.mWidth = getResources().getDimensionPixelSize(e.C0210e.tbds122);
         this.mLineWidth = getResources().getDimensionPixelSize(e.C0210e.tbds6);
-        this.axD = new Paint();
-        this.axD.setStrokeWidth(this.mLineWidth);
-        this.axD.setColor(getResources().getColor(e.d.cp_cont_g));
-        this.axD.setStyle(Paint.Style.STROKE);
-        this.axD.setAntiAlias(true);
-        this.axD.setStrokeCap(Paint.Cap.ROUND);
-        this.axF = new RectF(this.mLineWidth / 2, this.mLineWidth / 2, this.mWidth + (this.mLineWidth / 2), this.mWidth + (this.mLineWidth / 2));
+        this.axE = new Paint();
+        this.axE.setStrokeWidth(this.mLineWidth);
+        this.axE.setColor(getResources().getColor(e.d.cp_cont_g));
+        this.axE.setStyle(Paint.Style.STROKE);
+        this.axE.setAntiAlias(true);
+        this.axE.setStrokeCap(Paint.Cap.ROUND);
+        this.axG = new RectF(this.mLineWidth / 2, this.mLineWidth / 2, this.mWidth + (this.mLineWidth / 2), this.mWidth + (this.mLineWidth / 2));
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.axF, 270.0f, (axA * this.mValue) / axB, false, this.axD);
+        canvas.drawArc(this.axG, 270.0f, (axB * this.mValue) / axC, false, this.axE);
     }
 }

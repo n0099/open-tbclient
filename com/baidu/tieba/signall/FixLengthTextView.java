@@ -11,7 +11,7 @@ import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class FixLengthTextView extends TextView {
-    private String hfn;
+    private String hfo;
 
     public FixLengthTextView(Context context) {
         this(context, null, 0);
@@ -24,14 +24,14 @@ public class FixLengthTextView extends TextView {
     public FixLengthTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, e.l.fixtextview);
-        this.hfn = obtainStyledAttributes.getString(obtainStyledAttributes.getIndex(e.l.fixtextview_measuretext));
+        this.hfo = obtainStyledAttributes.getString(obtainStyledAttributes.getIndex(e.l.fixtextview_measuretext));
         obtainStyledAttributes.recycle();
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onMeasure(int i, int i2) {
-        if (!TextUtils.isEmpty(this.hfn)) {
-            int desiredWidth = ((int) Layout.getDesiredWidth(this.hfn, getPaint())) + getPaddingLeft() + getPaddingRight();
+        if (!TextUtils.isEmpty(this.hfo)) {
+            int desiredWidth = ((int) Layout.getDesiredWidth(this.hfo, getPaint())) + getPaddingLeft() + getPaddingRight();
             int size = View.MeasureSpec.getSize(i);
             if (View.MeasureSpec.getMode(i) == 1073741824) {
                 desiredWidth = Math.max(desiredWidth, size);
@@ -42,10 +42,10 @@ public class FixLengthTextView extends TextView {
     }
 
     public String getmMeasureText() {
-        return this.hfn;
+        return this.hfo;
     }
 
     public void setmMeasureText(String str) {
-        this.hfn = str;
+        this.hfo = str;
     }
 }

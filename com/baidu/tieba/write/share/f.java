@@ -22,7 +22,7 @@ import com.tencent.connect.common.Constants;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f {
-    private e hYV;
+    private e hYW;
     private BdUniqueId mPageId;
     private String yX = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
 
@@ -37,7 +37,7 @@ public class f {
     }
 
     public void a(e eVar) {
-        this.hYV = eVar;
+        this.hYW = eVar;
     }
 
     /* loaded from: classes3.dex */
@@ -69,7 +69,7 @@ public class f {
                 }
             }
             if (StringUtils.isNull(str)) {
-                str = cVar.hYD;
+                str = cVar.hYE;
             }
             x xVar = new x();
             xVar.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
@@ -83,7 +83,7 @@ public class f {
             xVar.x("new_vcode", "1");
             xVar.x("content", cVar.Jt);
             xVar.x(ImageViewerConfig.FORUM_ID, cVar.forumId);
-            xVar.x("kw", cVar.hYC);
+            xVar.x("kw", cVar.hYD);
             xVar.x("is_hide", "0");
             xVar.x(IntentConfig.CALL_FROM, "2");
             xVar.x("title", cVar.Jt);
@@ -106,18 +106,18 @@ public class f {
                 xVar.x("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
             }
             xVar.x("tbopen_app_key", cVar.appKey);
-            xVar.x("tbopen_app_icon", cVar.bHy);
+            xVar.x("tbopen_app_icon", cVar.bHz);
             xVar.x("tbopen_app_name", cVar.appName);
             xVar.x("share_abstract", cVar.content);
             xVar.x("share_image", str);
             xVar.x("share_h5_url", cVar.linkUrl);
-            xVar.x("share_swan_app_key", cVar.hYB);
-            xVar.x("share_swan_path", cVar.hYE);
+            xVar.x("share_swan_app_key", cVar.hYC);
+            xVar.x("share_swan_path", cVar.hYF);
             String CY = xVar.CY();
             d dVar = new d();
             try {
                 JSONObject jSONObject = new JSONObject(CY);
-                dVar.hYG = jSONObject.optString("msg");
+                dVar.hYH = jSONObject.optString("msg");
                 dVar.preMsg = jSONObject.optString("pre_msg");
                 dVar.fid = cVar.forumId;
                 dVar.tid = jSONObject.optString("tid");
@@ -135,7 +135,7 @@ public class f {
             if (errorData.error_code != 0 && !j.kV()) {
                 errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(e.j.neterror));
             }
-            dVar.hYF = errorData;
+            dVar.hYG = errorData;
             AntiData antiData = new AntiData();
             try {
                 antiData.parserJson(new JSONObject(CY).optJSONObject("anti_stat"));
@@ -158,8 +158,8 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(d dVar) {
-            if (f.this.hYV != null) {
-                f.this.hYV.a(dVar);
+            if (f.this.hYW != null) {
+                f.this.hYW.a(dVar);
             }
         }
     }

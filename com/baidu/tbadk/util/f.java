@@ -6,9 +6,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class f {
-    private static f bjd = new f();
-    private b bje;
-    private a bjf;
+    private static f bje = new f();
+    private b bjf;
+    private a bjg;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -19,17 +19,17 @@ public class f {
     }
 
     public static f Qh() {
-        return bjd;
+        return bje;
     }
 
     public void a(a aVar) {
-        this.bjf = aVar;
-        if (this.bje != null) {
-            this.bje.cancel();
+        this.bjg = aVar;
+        if (this.bjf != null) {
+            this.bjf.cancel();
         }
-        this.bje = new b();
-        this.bje.setPriority(4);
-        this.bje.execute(new String[0]);
+        this.bjf = new b();
+        this.bjf.setPriority(4);
+        this.bjf.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -76,8 +76,8 @@ public class f {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Boolean bool) {
-            if (f.this.bjf != null && bool != null) {
-                f.this.bjf.onResult(bool.booleanValue());
+            if (f.this.bjg != null && bool != null) {
+                f.this.bjg.onResult(bool.booleanValue());
             }
         }
     }

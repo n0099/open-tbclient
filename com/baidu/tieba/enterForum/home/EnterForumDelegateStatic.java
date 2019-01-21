@@ -23,11 +23,11 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
     @Override // com.baidu.tbadk.mainTab.b
     public c Og() {
         c cVar = new c();
-        cVar.bez = new EnterForumFragment();
+        cVar.beA = new EnterForumFragment();
         cVar.type = 1;
-        cVar.aFU = e.j.enter_forum;
-        cVar.aFV = e.f.s_tabbar_icon_two_bg;
-        cVar.beF = c.beD;
+        cVar.aFV = e.j.enter_forum;
+        cVar.aFW = e.f.s_tabbar_icon_two_bg;
+        cVar.beG = c.beE;
         cVar.nk = e.f.tabbar_enterforum_anim;
         return cVar;
     }
@@ -42,7 +42,7 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
                     EnterForumDelegateStatic enterForumDelegateStatic = new EnterForumDelegateStatic();
                     ((d) customResponsedMessage.getData()).a(enterForumDelegateStatic);
                     if (((d) customResponsedMessage.getData()).getContext() != null && (Oh = enterForumDelegateStatic.Oh()) != null) {
-                        Oh.bez.setArguments(new Bundle());
+                        Oh.beA.setArguments(new Bundle());
                     }
                 }
             }
@@ -53,7 +53,7 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator bR(Context context) {
-        this.bek = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(e.h.maintab_bottom_indicator, (ViewGroup) null);
-        return this.bek;
+        this.bel = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(e.h.maintab_bottom_indicator, (ViewGroup) null);
+        return this.bel;
     }
 }

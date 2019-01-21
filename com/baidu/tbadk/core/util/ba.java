@@ -16,10 +16,10 @@ import com.baidu.tieba.e;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class ba {
-    private static int aDJ = -1;
     private static int aDK = -1;
-    private static boolean aDL = false;
-    private static com.baidu.adp.lib.e.a<Integer, Integer> aDM = new com.baidu.adp.lib.e.a<>(500);
+    private static int aDL = -1;
+    private static boolean aDM = false;
+    private static com.baidu.adp.lib.e.a<Integer, Integer> aDN = new com.baidu.adp.lib.e.a<>(500);
     private static Context mAppContext = null;
 
     /* loaded from: classes.dex */
@@ -29,13 +29,13 @@ public class ba {
 
     public static void bG(Context context) {
         mAppContext = context;
-        aDL = true;
+        aDM = true;
     }
 
     private static void Et() {
         if (mAppContext != null && mAppContext.getResources() != null) {
-            aDK = mAppContext.getResources().getColor(e.d.common_color_10097);
-            aDJ = mAppContext.getResources().getColor(e.d.common_color_10004);
+            aDL = mAppContext.getResources().getColor(e.d.common_color_10097);
+            aDK = mAppContext.getResources().getColor(e.d.common_color_10004);
         }
     }
 
@@ -45,11 +45,11 @@ public class ba {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static int bx(boolean z) {
-        if (aDL) {
-            aDL = false;
+        if (aDM) {
+            aDM = false;
             Et();
         }
-        return z ? aDJ : aDK;
+        return z ? aDK : aDL;
     }
 
     public static void J(View view) {
@@ -60,16 +60,16 @@ public class ba {
 
     public static void K(View view) {
         if (view != null) {
-            aDM.remove(Integer.valueOf(System.identityHashCode(view)));
+            aDN.remove(Integer.valueOf(System.identityHashCode(view)));
         }
     }
 
     public static void b(ViewGroup viewGroup, int i) {
         int identityHashCode = System.identityHashCode(viewGroup);
-        Integer num = aDM.get(Integer.valueOf(identityHashCode));
+        Integer num = aDN.get(Integer.valueOf(identityHashCode));
         if (num == null || i != num.intValue()) {
             c(viewGroup, i);
-            aDM.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
+            aDN.put(Integer.valueOf(identityHashCode), Integer.valueOf(i));
         }
     }
 

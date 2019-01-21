@@ -5,13 +5,13 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes2.dex */
 public class a {
-    float bXP;
     float bXQ;
-    InterfaceC0359a ioL;
-    final float ioM;
-    boolean ioN;
+    float bXR;
+    InterfaceC0359a ioM;
+    final float ioN;
     boolean ioO;
-    long ioP;
+    boolean ioP;
+    long ioQ;
 
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
@@ -20,7 +20,7 @@ public class a {
     }
 
     public a(Context context) {
-        this.ioM = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.ioN = ViewConfiguration.get(context).getScaledTouchSlop();
         init();
     }
 
@@ -29,51 +29,51 @@ public class a {
     }
 
     public void init() {
-        this.ioL = null;
+        this.ioM = null;
         reset();
     }
 
     public void reset() {
-        this.ioN = false;
         this.ioO = false;
+        this.ioP = false;
     }
 
     public void a(InterfaceC0359a interfaceC0359a) {
-        this.ioL = interfaceC0359a;
+        this.ioM = interfaceC0359a;
     }
 
     public boolean bWT() {
-        return this.ioN;
+        return this.ioO;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.ioN = true;
                 this.ioO = true;
-                this.ioP = motionEvent.getEventTime();
-                this.bXP = motionEvent.getX();
-                this.bXQ = motionEvent.getY();
+                this.ioP = true;
+                this.ioQ = motionEvent.getEventTime();
+                this.bXQ = motionEvent.getX();
+                this.bXR = motionEvent.getY();
                 break;
             case 1:
-                this.ioN = false;
-                if (Math.abs(motionEvent.getX() - this.bXP) > this.ioM || Math.abs(motionEvent.getY() - this.bXQ) > this.ioM) {
-                    this.ioO = false;
-                }
-                if (this.ioO && motionEvent.getEventTime() - this.ioP <= ViewConfiguration.getLongPressTimeout() && this.ioL != null) {
-                    this.ioL.bVQ();
-                }
                 this.ioO = false;
+                if (Math.abs(motionEvent.getX() - this.bXQ) > this.ioN || Math.abs(motionEvent.getY() - this.bXR) > this.ioN) {
+                    this.ioP = false;
+                }
+                if (this.ioP && motionEvent.getEventTime() - this.ioQ <= ViewConfiguration.getLongPressTimeout() && this.ioM != null) {
+                    this.ioM.bVQ();
+                }
+                this.ioP = false;
                 break;
             case 2:
-                if (Math.abs(motionEvent.getX() - this.bXP) > this.ioM || Math.abs(motionEvent.getY() - this.bXQ) > this.ioM) {
-                    this.ioO = false;
+                if (Math.abs(motionEvent.getX() - this.bXQ) > this.ioN || Math.abs(motionEvent.getY() - this.bXR) > this.ioN) {
+                    this.ioP = false;
                     break;
                 }
                 break;
             case 3:
-                this.ioN = false;
                 this.ioO = false;
+                this.ioP = false;
                 break;
         }
         return true;

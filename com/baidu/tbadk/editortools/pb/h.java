@@ -19,7 +19,7 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class h extends com.baidu.tbadk.editortools.c {
-    private boolean bbh = false;
+    private boolean bbi = false;
 
     @Override // com.baidu.tbadk.editortools.c
     protected com.baidu.tbadk.editortools.d bN(Context context) {
@@ -46,7 +46,7 @@ public class h extends com.baidu.tbadk.editortools.c {
                         switch (aVar.code) {
                             case 4:
                                 gVar.m18if((String) aVar.data);
-                                h.this.bbh = false;
+                                h.this.bbi = false;
                                 return;
                             case 5:
                             case 6:
@@ -59,7 +59,7 @@ public class h extends com.baidu.tbadk.editortools.c {
                                 return;
                             case 7:
                                 gVar.GQ().showToast(e.j.over_limit_tip);
-                                h.this.bbh = true;
+                                h.this.bbi = true;
                                 return;
                             case 8:
                                 if (h.this.a(gVar.GQ(), 11001)) {
@@ -77,13 +77,13 @@ public class h extends com.baidu.tbadk.editortools.c {
                                 return;
                             case 11:
                                 gVar.setVoiceModel(null);
-                                if (Mp != null && (fL = Mp.fL(6)) != null && fL.aYV != null) {
-                                    fL.aYV.a(new com.baidu.tbadk.editortools.a(52, 0, null));
+                                if (Mp != null && (fL = Mp.fL(6)) != null && fL.aYW != null) {
+                                    fL.aYW.a(new com.baidu.tbadk.editortools.a(52, 0, null));
                                     return;
                                 }
                                 return;
                             case 16:
-                                if (h.this.bbh) {
+                                if (h.this.bbi) {
                                     gVar.GQ().showToast(e.j.over_limit_tip);
                                 }
                                 if (h.this.a(gVar.GQ(), 11025)) {
@@ -115,16 +115,16 @@ public class h extends com.baidu.tbadk.editortools.c {
         k fL = Mp.fL(5);
         if (fL != null) {
             fL.cw(false);
-            fL.aZK = 1;
-            fL.aZI = e.f.new_pbeditor_face_button;
+            fL.aZL = 1;
+            fL.aZJ = e.f.new_pbeditor_face_button;
         }
         if (com.baidu.tieba.tbadkCore.voice.c.bGd() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, Mp.getContext()), k.class)) != null && (kVar = (k) runTask.getData()) != null) {
-            kVar.aZI = e.f.new_pbeditor_voice_button;
-            kVar.aZK = 2;
+            kVar.aZJ = e.f.new_pbeditor_voice_button;
+            kVar.aZL = 2;
             Mp.b(kVar);
         }
         com.baidu.tbadk.editortools.a.a aVar = new com.baidu.tbadk.editortools.a.a(Mp.getContext(), 4);
-        aVar.aZI = e.f.new_pbeditor_at_button;
+        aVar.aZJ = e.f.new_pbeditor_at_button;
         Mp.b(aVar);
         e eVar = new e(Mp.getContext());
         if (eVar.getInputView() != null) {

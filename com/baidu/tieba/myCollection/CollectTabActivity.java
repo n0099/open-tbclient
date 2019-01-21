@@ -18,8 +18,8 @@ import com.baidu.tieba.e;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
-    private a fKn;
-    private CustomMessageListener fKo = new CustomMessageListener(2022209) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
+    private a fKo;
+    private CustomMessageListener fKp = new CustomMessageListener(2022209) { // from class: com.baidu.tieba.myCollection.CollectTabActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,8 +27,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
                 Bundle bundle = (Bundle) customResponsedMessage.getData();
                 boolean z = bundle.getBoolean("is_enable_edit", true);
                 int i = bundle.getInt("fragment_type", -1);
-                if (i != -1 && i == CollectTabActivity.this.fKn.bew()) {
-                    CollectTabActivity.this.fKn.jX(z);
+                if (i != -1 && i == CollectTabActivity.this.fKo.bew()) {
+                    CollectTabActivity.this.fKo.jX(z);
                 }
             }
         }
@@ -39,8 +39,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(e.h.collect_tab_activity);
-        this.fKn = new a(this);
-        registerListener(this.fKo);
+        this.fKo = new a(this);
+        registerListener(this.fKp);
         bev();
         U(getIntent());
     }
@@ -52,24 +52,24 @@ public class CollectTabActivity extends BaseFragmentActivity {
         if (aVar.getContext() != null) {
             com.baidu.tbadk.mainTab.c Oh = threadDelegateStatic.Oh();
             if (Oh != null) {
-                Oh.bez.setArguments(new Bundle());
+                Oh.beA.setArguments(new Bundle());
             } else {
                 return;
             }
         }
-        this.fKn.ai(aVar.getList());
+        this.fKo.ai(aVar.getList());
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         super.changeSkinType(i);
-        this.fKn.onChangeSkinType(i);
+        this.fKo.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.fKn.bey()) {
-            this.fKn.jW(!this.fKn.bez());
+        if (view == this.fKo.bey()) {
+            this.fKo.jW(!this.fKo.bez());
         }
     }
 
@@ -93,7 +93,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        Fragment bex = this.fKn.bex();
+        Fragment bex = this.fKo.bex();
         if (bex != null) {
             bex.onActivityResult(i, i2, intent);
         }

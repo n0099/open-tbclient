@@ -5,8 +5,8 @@ import com.baidu.adp.lib.util.BdLog;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class TbRichTextLinkImageInfo extends OrmObject {
-    private boolean bsd;
     private boolean bse;
+    private boolean bsf;
     private String cdn_src;
     private String link;
     private int mHeight;
@@ -17,8 +17,8 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         this.mHeight = 1;
         this.cdn_src = null;
         this.link = null;
-        this.bsd = false;
-        this.bse = true;
+        this.bse = false;
+        this.bsf = true;
     }
 
     public TbRichTextLinkImageInfo(PbContent pbContent) {
@@ -26,8 +26,8 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         this.mHeight = 1;
         this.cdn_src = null;
         this.link = null;
-        this.bsd = false;
-        this.bse = true;
+        this.bse = false;
+        this.bsf = true;
         this.cdn_src = pbContent.cdn_src;
         this.link = pbContent.link;
         String str = pbContent.bsize;
@@ -47,7 +47,7 @@ public class TbRichTextLinkImageInfo extends OrmObject {
             this.mHeight = 1;
         }
         if (this.cdn_src != null && this.cdn_src.indexOf(".baidu.com") != -1) {
-            this.bsd = true;
+            this.bse = true;
         }
     }
 
@@ -68,6 +68,6 @@ public class TbRichTextLinkImageInfo extends OrmObject {
     }
 
     public boolean SU() {
-        return this.bse;
+        return this.bsf;
     }
 }

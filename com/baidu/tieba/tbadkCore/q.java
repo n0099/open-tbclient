@@ -32,7 +32,7 @@ public class q {
                             for (int i4 = 0; i4 < viewCount; i4++) {
                                 ICardInfo viewItem = yL.getViewItem(i4, i);
                                 if (viewItem != null) {
-                                    viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.fqu.get(viewItem.getCardType()));
+                                    viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.fqv.get(viewItem.getCardType()));
                                     arrayList.add(viewItem);
                                 }
                             }
@@ -80,7 +80,7 @@ public class q {
                         for (int i4 = 0; i4 < viewCount; i4++) {
                             ICardInfo viewItem = iCardInfo.getViewItem(i4, i);
                             if (viewItem != null) {
-                                viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.fqu.get(viewItem.getCardType()));
+                                viewItem.setBdUniqueId(com.baidu.tieba.lego.card.e.fqv.get(viewItem.getCardType()));
                                 arrayList.add(viewItem);
                             }
                         }
@@ -110,10 +110,10 @@ public class q {
     }
 
     public static ArrayList<BdUniqueId> bEf() {
-        int size = com.baidu.tieba.lego.card.e.fqu.size();
+        int size = com.baidu.tieba.lego.card.e.fqv.size();
         ArrayList<BdUniqueId> arrayList = new ArrayList<>();
         for (int i = 0; i < size; i++) {
-            arrayList.add(com.baidu.tieba.lego.card.e.fqu.valueAt(i));
+            arrayList.add(com.baidu.tieba.lego.card.e.fqv.valueAt(i));
         }
         return arrayList;
     }

@@ -5,7 +5,7 @@ import rx.internal.schedulers.SchedulerWhen;
 import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes2.dex */
 public abstract class g {
-    static final long iFk = TimeUnit.MINUTES.toNanos(Long.getLong("rx.scheduler.drift-tolerance", 15).longValue());
+    static final long iFl = TimeUnit.MINUTES.toNanos(Long.getLong("rx.scheduler.drift-tolerance", 15).longValue());
 
     public abstract a createWorker();
 
@@ -23,12 +23,12 @@ public abstract class g {
             final SequentialSubscription sequentialSubscription2 = new SequentialSubscription(sequentialSubscription);
             sequentialSubscription.replace(a(new rx.functions.a() { // from class: rx.g.a.1
                 long count;
-                long iFl;
                 long iFm;
+                long iFn;
 
                 {
-                    this.iFl = nanos2;
-                    this.iFm = nanos3;
+                    this.iFm = nanos2;
+                    this.iFn = nanos3;
                 }
 
                 @Override // rx.functions.a
@@ -37,19 +37,19 @@ public abstract class g {
                     aVar.call();
                     if (!sequentialSubscription2.isUnsubscribed()) {
                         long nanos4 = TimeUnit.MILLISECONDS.toNanos(a.this.now());
-                        if (g.iFk + nanos4 < this.iFl || nanos4 >= this.iFl + nanos + g.iFk) {
+                        if (g.iFl + nanos4 < this.iFm || nanos4 >= this.iFm + nanos + g.iFl) {
                             j3 = nanos + nanos4;
                             long j4 = nanos;
                             long j5 = this.count + 1;
                             this.count = j5;
-                            this.iFm = j3 - (j4 * j5);
+                            this.iFn = j3 - (j4 * j5);
                         } else {
-                            long j6 = this.iFm;
+                            long j6 = this.iFn;
                             long j7 = this.count + 1;
                             this.count = j7;
                             j3 = j6 + (j7 * nanos);
                         }
-                        this.iFl = nanos4;
+                        this.iFm = nanos4;
                         sequentialSubscription2.replace(a.this.a(this, j3 - nanos4, TimeUnit.NANOSECONDS));
                     }
                 }

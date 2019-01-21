@@ -25,29 +25,29 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class b {
-        final a aIs;
         final a aIt;
-        final int aIu;
+        final a aIu;
+        final int aIv;
 
         private b(a aVar) {
-            this.aIs = aVar.aIs;
             this.aIt = aVar.aIt;
             this.aIu = aVar.aIu;
+            this.aIv = aVar.aIv;
         }
 
         /* loaded from: classes.dex */
         public static class a {
-            private a aIs = null;
             private a aIt = null;
-            private int aIu = -1;
+            private a aIu = null;
+            private int aIv = -1;
 
             public a b(a aVar) {
-                this.aIs = aVar;
+                this.aIt = aVar;
                 return this;
             }
 
             public a el(int i) {
-                this.aIu = i;
+                this.aIv = i;
                 return this;
             }
 
@@ -72,41 +72,41 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class a {
-        View.OnClickListener aIr;
+        View.OnClickListener aIs;
         String mText;
 
         public a(String str, View.OnClickListener onClickListener) {
             this.mText = str;
-            this.aIr = onClickListener;
+            this.aIs = onClickListener;
         }
     }
 
     /* loaded from: classes.dex */
     public static class c {
-        final int aIp;
-        final ImgType aIv;
+        final int aIq;
+        final ImgType aIw;
         final int mHeight;
         final int mMarginTop;
         final int mWidth;
 
         private c(a aVar) {
-            this.aIv = aVar.aIv;
+            this.aIw = aVar.aIw;
             this.mMarginTop = aVar.mMarginTop;
-            this.aIp = aVar.aIp;
+            this.aIq = aVar.aIq;
             this.mHeight = aVar.mHeight;
             this.mWidth = aVar.mWidth;
         }
 
         /* loaded from: classes.dex */
         public static class a {
-            private ImgType aIv = ImgType.NONE;
+            private ImgType aIw = ImgType.NONE;
             private int mMarginTop = -1;
-            private int aIp = -1;
+            private int aIq = -1;
             private int mHeight = -1;
             private int mWidth = -1;
 
             public a b(ImgType imgType) {
-                this.aIv = imgType;
+                this.aIw = imgType;
                 return this;
             }
 
@@ -116,7 +116,7 @@ public class NoDataViewFactory {
             }
 
             public a en(int i) {
-                this.aIp = i;
+                this.aIq = i;
                 return this;
             }
 
@@ -161,27 +161,27 @@ public class NoDataViewFactory {
 
     /* loaded from: classes.dex */
     public static class d {
-        final String aIw;
-        final int aIx;
+        final String aIx;
         final int aIy;
-        final String art;
+        final int aIz;
+        final String aru;
         final String mTitle;
 
         private d(a aVar) {
             this.mTitle = aVar.mTitle;
-            this.art = aVar.art;
-            this.aIw = aVar.aIw;
-            this.aIx = aVar.aIz;
-            this.aIy = aVar.aIy;
+            this.aru = aVar.aru;
+            this.aIx = aVar.aIx;
+            this.aIy = aVar.aIA;
+            this.aIz = aVar.aIz;
         }
 
         /* loaded from: classes.dex */
         public static class a {
             private String mTitle = null;
-            private String art = null;
-            private String aIw = null;
-            private int aIz = -1;
-            private int aIy = 0;
+            private String aru = null;
+            private String aIx = null;
+            private int aIA = -1;
+            private int aIz = 0;
 
             public a gD(String str) {
                 this.mTitle = str;
@@ -189,12 +189,12 @@ public class NoDataViewFactory {
             }
 
             public a gE(String str) {
-                this.art = str;
+                this.aru = str;
                 return this;
             }
 
             public a er(int i) {
-                this.aIz = i;
+                this.aIA = i;
                 return this;
             }
 

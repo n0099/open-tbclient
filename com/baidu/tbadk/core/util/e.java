@@ -16,7 +16,7 @@ public class e {
             }
         }
     };
-    private boolean aAA;
+    private boolean aAB;
 
     public static e CQ() {
         return new e();
@@ -26,7 +26,7 @@ public class e {
     }
 
     public void m(String str, int i, int i2) {
-        if (!this.aAA && str != null) {
+        if (!this.aAB && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
                 mHandler.removeCallbacks(r);
@@ -69,12 +69,12 @@ public class e {
     }
 
     public void onPause() {
-        this.aAA = true;
+        this.aAB = true;
         cancel();
     }
 
     public void onResume() {
-        this.aAA = false;
+        this.aAB = false;
     }
 
     public static void cancel() {

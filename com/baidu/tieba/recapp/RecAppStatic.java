@@ -23,7 +23,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class RecAppStatic {
     static {
-        r.gPq.set(new t());
+        r.gPr.set(new t());
         TbadkCoreApplication.getInst().setRecAppExist(true);
         com.baidu.tieba.ad.a.WE().a(new h.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
             @Override // com.baidu.tieba.recapp.h.a
@@ -76,7 +76,7 @@ public class RecAppStatic {
         });
         com.baidu.tieba.InjectPlugin.a.e.Un().a(1, new f());
         com.baidu.tieba.InjectPlugin.a.e.Un().a(2, new d());
-        bb.atU.set(true);
+        bb.atV.set(true);
         final TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(WebVideoActivityConfig.class, WebVideoActivity.class);
         inst.RegisterIntent(AdDebugActivityConfig.class, AdDebugActivity.class);

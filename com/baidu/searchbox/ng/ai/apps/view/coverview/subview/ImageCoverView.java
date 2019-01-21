@@ -31,7 +31,7 @@ public class ImageCoverView extends SimpleDraweeView implements ICoverView {
     public ImageCoverView(Context context) {
         super(context);
         this.mCoverViewHelper = new CoverViewHelper();
-        getHierarchy().b(n.b.ioa);
+        getHierarchy().b(n.b.iob);
     }
 
     @Override // com.baidu.searchbox.ng.ai.apps.view.coverview.subview.ICoverView

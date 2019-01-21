@@ -17,7 +17,7 @@ import java.util.Map;
 /* loaded from: classes5.dex */
 public class ScalableVideoView extends TextureView implements MediaPlayer.OnVideoSizeChangedListener, TextureView.SurfaceTextureListener {
     protected MediaPlayer Wm;
-    protected ScalableType hGV;
+    protected ScalableType hGW;
 
     public ScalableVideoView(Context context) {
         this(context, null);
@@ -30,11 +30,11 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     public ScalableVideoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         TypedArray obtainStyledAttributes;
-        this.hGV = ScalableType.NONE;
+        this.hGW = ScalableType.NONE;
         if (attributeSet != null && (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, e.l.videoScaleStyle, 0, 0)) != null) {
             int i2 = obtainStyledAttributes.getInt(e.l.videoScaleStyle_videoScalableType, ScalableType.NONE.ordinal());
             obtainStyledAttributes.recycle();
-            this.hGV = ScalableType.values()[i2];
+            this.hGW = ScalableType.values()[i2];
         }
     }
 
@@ -81,7 +81,7 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
 
     private void aa(int i, int i2) {
         Matrix a;
-        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.hGV)) != null) {
+        if (i != 0 && i2 != 0 && (a = new a(new b(getWidth(), getHeight()), new b(i, i2)).a(this.hGW)) != null) {
             setTransform(a);
         }
     }
@@ -135,7 +135,7 @@ public class ScalableVideoView extends TextureView implements MediaPlayer.OnVide
     }
 
     public void setScalableType(ScalableType scalableType) {
-        this.hGV = scalableType;
+        this.hGW = scalableType;
         aa(getVideoWidth(), getVideoHeight());
     }
 

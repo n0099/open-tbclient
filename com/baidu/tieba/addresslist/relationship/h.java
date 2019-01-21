@@ -7,12 +7,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes3.dex */
 public class h {
-    private static volatile SQLiteDatabase bEW;
+    private static volatile SQLiteDatabase bEX;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public static synchronized void Xo() {
         synchronized (h.class) {
-            n.i(bEW);
+            n.i(bEX);
         }
     }
 
@@ -26,11 +26,11 @@ public class h {
             }
             if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                 sQLiteDatabase = null;
-            } else if (bEW != null && bEW.isOpen()) {
-                sQLiteDatabase = bEW;
+            } else if (bEX != null && bEX.isOpen()) {
+                sQLiteDatabase = bEX;
             } else {
-                bEW = new g(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
-                sQLiteDatabase = bEW;
+                bEX = new g(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
+                sQLiteDatabase = bEX;
             }
         }
         return sQLiteDatabase;

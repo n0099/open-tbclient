@@ -78,7 +78,7 @@ public class a implements IAiAppLiveIoc {
         return a(context, unitedSchemeEntity, callbackHandler, aiApp, new InterfaceC0201a() { // from class: com.baidu.tieba.aiapps.apps.media.b.a.1
             @Override // com.baidu.tieba.aiapps.apps.media.b.a.InterfaceC0201a
             public boolean a(Context context2, b bVar, e eVar) {
-                eVar.f(bVar.bJG, bVar.mDirection);
+                eVar.f(bVar.bJH, bVar.mDirection);
                 return true;
             }
         });
@@ -88,7 +88,7 @@ public class a implements IAiAppLiveIoc {
         return a(context, unitedSchemeEntity, callbackHandler, aiApp, new InterfaceC0201a() { // from class: com.baidu.tieba.aiapps.apps.media.b.a.2
             @Override // com.baidu.tieba.aiapps.apps.media.b.a.InterfaceC0201a
             public boolean a(Context context2, b bVar, e eVar) {
-                eVar.dG(bVar.bJA);
+                eVar.dG(bVar.bJB);
                 return true;
             }
         });

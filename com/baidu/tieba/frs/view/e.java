@@ -16,35 +16,35 @@ import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.tbadkCore.j;
 /* loaded from: classes6.dex */
 public class e implements View.OnClickListener {
-    private j elr;
-    private ForumData els;
-    private ViewGroup elt;
-    private View elu;
-    private TextView elv;
+    private j els;
+    private ForumData elt;
+    private ViewGroup elu;
+    private View elv;
+    private TextView elw;
     private Context mContext;
     TbPageContext<FrsActivity> mTbPageContext;
 
     public e(TbPageContext<FrsActivity> tbPageContext, View view) {
-        this.elt = null;
         this.elu = null;
         this.elv = null;
+        this.elw = null;
         this.mContext = view.getContext().getApplicationContext();
         this.mTbPageContext = tbPageContext;
-        this.elu = view.findViewById(e.g.frs_header_divider_ticket);
-        this.elt = (ViewGroup) view.findViewById(e.g.frs_header_ticket);
-        this.elv = (TextView) view.findViewById(e.g.frs_header_ticket_text);
-        this.elt.setOnClickListener(this);
+        this.elv = view.findViewById(e.g.frs_header_divider_ticket);
+        this.elu = (ViewGroup) view.findViewById(e.g.frs_header_ticket);
+        this.elw = (TextView) view.findViewById(e.g.frs_header_ticket_text);
+        this.elu.setOnClickListener(this);
     }
 
     public void changeSkinType(int i) {
-        al.i(this.elt, e.f.frs_top_item_bg);
+        al.i(this.elu, e.f.frs_top_item_bg);
     }
 
     public void a(j jVar, ForumData forumData) {
         boolean z;
         boolean z2 = true;
-        this.elr = jVar;
-        this.els = forumData;
+        this.els = jVar;
+        this.elt = forumData;
         String string = this.mContext.getString(e.j.frs_star_ticket_name);
         if (jVar != null) {
             z = jVar.bDD();
@@ -58,34 +58,34 @@ public class e implements View.OnClickListener {
             string = forumData.getName() + this.mContext.getString(e.j.forum) + this.mContext.getString(e.j.frs_star_ticket_name);
         }
         if (z) {
+            this.elv.setVisibility(0);
             this.elu.setVisibility(0);
-            this.elt.setVisibility(0);
             hD(z2);
-            this.elv.setText(string);
+            this.elw.setText(string);
             TiebaStatic.log("ticket_show");
         } else {
+            this.elv.setVisibility(8);
             this.elu.setVisibility(8);
-            this.elt.setVisibility(8);
         }
+        this.elv.setVisibility(8);
         this.elu.setVisibility(8);
-        this.elt.setVisibility(8);
     }
 
     private void hD(boolean z) {
         if (z) {
-            this.elv.setCompoundDrawablesWithIntrinsicBounds(0, 0, e.f.icon_news_down_bar_one, 0);
+            this.elw.setCompoundDrawablesWithIntrinsicBounds(0, 0, e.f.icon_news_down_bar_one, 0);
         } else {
-            this.elv.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
+            this.elw.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.elt) {
-            if ((this.mTbPageContext == null || ba.bJ(this.mTbPageContext.getPageActivity())) && this.elr != null && this.els != null) {
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("FRS_STARTICKET_LAST_CLICK_TIME" + this.els.getId() + TbadkCoreApplication.getCurrentAccount(), this.elr.bDE());
+        if (view == this.elu) {
+            if ((this.mTbPageContext == null || ba.bJ(this.mTbPageContext.getPageActivity())) && this.els != null && this.elt != null) {
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("FRS_STARTICKET_LAST_CLICK_TIME" + this.elt.getId() + TbadkCoreApplication.getCurrentAccount(), this.els.bDE());
                 hD(false);
-                com.baidu.tbadk.browser.a.a(this.elt.getContext(), k.a(this.elv.getText(), this.mContext.getString(e.j.frs_star_ticket_name)), com.baidu.tbadk.browser.a.appendVersionCode(com.baidu.tbadk.browser.a.appendCuidParam(this.elr.bDF())), true, false, true);
+                com.baidu.tbadk.browser.a.a(this.elu.getContext(), k.a(this.elw.getText(), this.mContext.getString(e.j.frs_star_ticket_name)), com.baidu.tbadk.browser.a.appendVersionCode(com.baidu.tbadk.browser.a.appendCuidParam(this.els.bDF())), true, false, true);
             }
         }
     }

@@ -3,15 +3,15 @@ package com.facebook.imagepipeline.c;
 public class u {
     public final int iqA;
     public final int iqB;
-    public final int iqx;
+    public final int iqC;
     public final int iqy;
     public final int iqz;
 
     public u(int i, int i2, int i3, int i4, int i5) {
-        this.iqx = i;
-        this.iqy = i2;
-        this.iqz = i3;
-        this.iqA = i4;
-        this.iqB = i5;
+        this.iqy = i;
+        this.iqz = i2;
+        this.iqA = i3;
+        this.iqB = i4;
+        this.iqC = i5;
     }
 }

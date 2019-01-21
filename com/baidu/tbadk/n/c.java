@@ -170,13 +170,13 @@ public class c extends com.baidu.adp.framework.a.d {
         if (DH != null) {
             httpMessage.addParam("stTime", String.valueOf(DH.mTime));
             httpMessage.addParam("stSize", String.valueOf(DH.mSize));
-            httpMessage.addParam("stTimesNum", String.valueOf(DH.aBN));
+            httpMessage.addParam("stTimesNum", String.valueOf(DH.aBO));
             httpMessage.addParam("stMode", String.valueOf(DH.mMode));
-            httpMessage.addParam("stMethod", String.valueOf(DH.aBM));
+            httpMessage.addParam("stMethod", String.valueOf(DH.aBN));
         }
         int dE = aa.dE(0);
         if (dE == 0 && DH != null) {
-            dE = DH.aBN;
+            dE = DH.aBO;
         }
         httpMessage.addParam("stErrorNums", String.valueOf(dE));
     }

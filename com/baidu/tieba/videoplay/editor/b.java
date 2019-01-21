@@ -30,7 +30,7 @@ public class b extends com.baidu.tbadk.editortools.c {
             k fL = Mp.fL(5);
             if (fL != null) {
                 fL.cw(false);
-                fL.aZI = 0;
+                fL.aZJ = 0;
             }
             Mp.b(new c(Mp.getContext()));
             Mp.Mq();

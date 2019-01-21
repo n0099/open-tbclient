@@ -5,9 +5,9 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
     public int De;
-    public int aDW;
+    public int aDX;
     public String mErrorString;
-    public String aDX = null;
+    public String aDY = null;
     public boolean mIsGif = false;
     public Map<String, List<String>> mHeader = null;
 
@@ -16,7 +16,7 @@ public class c {
     }
 
     public boolean isRequestSuccess() {
-        return this.De == 200 && this.aDW == 0;
+        return this.De == 200 && this.aDX == 0;
     }
 
     public boolean jh() {

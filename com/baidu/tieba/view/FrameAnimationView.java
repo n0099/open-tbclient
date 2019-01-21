@@ -12,12 +12,12 @@ import com.baidu.tbadk.widget.TbImageView;
 import java.util.List;
 /* loaded from: classes.dex */
 public class FrameAnimationView extends TbImageView {
-    private Rect bcx;
-    private Bitmap ckX;
-    private Rect ckY;
-    private int hRB;
-    private boolean hRC;
-    private Runnable hRD;
+    private Rect bcy;
+    private Bitmap ckY;
+    private Rect ckZ;
+    private int hRC;
+    private boolean hRD;
+    private Runnable hRE;
     private int index;
     private List<String> mData;
     private BdUniqueId mPageId;
@@ -25,12 +25,12 @@ public class FrameAnimationView extends TbImageView {
     public FrameAnimationView(Context context) {
         super(context);
         this.index = 0;
-        this.bcx = new Rect();
-        this.ckY = new Rect();
-        this.hRD = new Runnable() { // from class: com.baidu.tieba.view.FrameAnimationView.1
+        this.bcy = new Rect();
+        this.ckZ = new Rect();
+        this.hRE = new Runnable() { // from class: com.baidu.tieba.view.FrameAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.adp.lib.g.e.jG().removeCallbacks(FrameAnimationView.this.hRD);
+                com.baidu.adp.lib.g.e.jG().removeCallbacks(FrameAnimationView.this.hRE);
                 if (FrameAnimationView.this.mData != null) {
                     FrameAnimationView.this.age();
                 }
@@ -41,12 +41,12 @@ public class FrameAnimationView extends TbImageView {
     public FrameAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.index = 0;
-        this.bcx = new Rect();
-        this.ckY = new Rect();
-        this.hRD = new Runnable() { // from class: com.baidu.tieba.view.FrameAnimationView.1
+        this.bcy = new Rect();
+        this.ckZ = new Rect();
+        this.hRE = new Runnable() { // from class: com.baidu.tieba.view.FrameAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.adp.lib.g.e.jG().removeCallbacks(FrameAnimationView.this.hRD);
+                com.baidu.adp.lib.g.e.jG().removeCallbacks(FrameAnimationView.this.hRE);
                 if (FrameAnimationView.this.mData != null) {
                     FrameAnimationView.this.age();
                 }
@@ -57,12 +57,12 @@ public class FrameAnimationView extends TbImageView {
     public FrameAnimationView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.index = 0;
-        this.bcx = new Rect();
-        this.ckY = new Rect();
-        this.hRD = new Runnable() { // from class: com.baidu.tieba.view.FrameAnimationView.1
+        this.bcy = new Rect();
+        this.ckZ = new Rect();
+        this.hRE = new Runnable() { // from class: com.baidu.tieba.view.FrameAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.adp.lib.g.e.jG().removeCallbacks(FrameAnimationView.this.hRD);
+                com.baidu.adp.lib.g.e.jG().removeCallbacks(FrameAnimationView.this.hRE);
                 if (FrameAnimationView.this.mData != null) {
                     FrameAnimationView.this.age();
                 }
@@ -72,10 +72,10 @@ public class FrameAnimationView extends TbImageView {
 
     public void setData(List<String> list, int i) {
         if (list != null) {
-            this.hRC = false;
-            this.hRB = i;
+            this.hRD = false;
+            this.hRC = i;
             if (!eg(list)) {
-                com.baidu.adp.lib.g.e.jG().removeCallbacks(this.hRD);
+                com.baidu.adp.lib.g.e.jG().removeCallbacks(this.hRE);
                 this.mData = list;
                 this.index = 0;
             }
@@ -84,7 +84,7 @@ public class FrameAnimationView extends TbImageView {
 
     public void setData(String str) {
         if (!ao.isEmpty(str)) {
-            this.hRC = true;
+            this.hRD = true;
             startLoad(str, 10, false);
         }
     }
@@ -112,11 +112,11 @@ public class FrameAnimationView extends TbImageView {
         if (this.mData != null) {
             Bitmap frameBitmap = getFrameBitmap();
             if (frameBitmap != null && !frameBitmap.isRecycled()) {
-                this.ckX = frameBitmap;
-                this.bcx.set(0, 0, this.ckX.getWidth(), this.ckX.getHeight());
+                this.ckY = frameBitmap;
+                this.bcy.set(0, 0, this.ckY.getWidth(), this.ckY.getHeight());
             }
             invalidate();
-            com.baidu.adp.lib.g.e.jG().postDelayed(this.hRD, this.hRB);
+            com.baidu.adp.lib.g.e.jG().postDelayed(this.hRE, this.hRC);
         }
     }
 
@@ -150,7 +150,7 @@ public class FrameAnimationView extends TbImageView {
     @Override // com.baidu.tbadk.widget.TbImageView, android.widget.ImageView, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (!this.hRC) {
+        if (!this.hRD) {
             cv();
         }
     }
@@ -163,16 +163,16 @@ public class FrameAnimationView extends TbImageView {
     }
 
     public void stopAnimation() {
-        com.baidu.adp.lib.g.e.jG().removeCallbacks(this.hRD);
+        com.baidu.adp.lib.g.e.jG().removeCallbacks(this.hRE);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (!this.hRC && this.ckX != null && !this.ckX.isRecycled()) {
-            this.ckY.set(0, 0, getMeasuredWidth(), getMeasuredHeight());
-            canvas.drawBitmap(this.ckX, this.bcx, this.ckY, (Paint) null);
+        if (!this.hRD && this.ckY != null && !this.ckY.isRecycled()) {
+            this.ckZ.set(0, 0, getMeasuredWidth(), getMeasuredHeight());
+            canvas.drawBitmap(this.ckY, this.bcy, this.ckZ, (Paint) null);
         }
     }
 

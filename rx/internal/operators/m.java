@@ -5,7 +5,7 @@ import rx.d;
 import rx.internal.producers.SingleDelayedProducer;
 /* loaded from: classes2.dex */
 public final class m<T> implements d.a<T> {
-    private final Callable<? extends T> iGW;
+    private final Callable<? extends T> iGX;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -13,14 +13,14 @@ public final class m<T> implements d.a<T> {
     }
 
     public m(Callable<? extends T> callable) {
-        this.iGW = callable;
+        this.iGX = callable;
     }
 
     public void call(rx.j<? super T> jVar) {
         SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(jVar);
         jVar.setProducer(singleDelayedProducer);
         try {
-            singleDelayedProducer.setValue(this.iGW.call());
+            singleDelayedProducer.setValue(this.iGX.call());
         } catch (Throwable th) {
             rx.exceptions.a.a(th, jVar);
         }

@@ -13,9 +13,9 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class StickerLayout extends FrameLayout {
-    private List<StickerView> ieG;
-    private FrameLayout.LayoutParams ieH;
-    private int ieI;
+    private List<StickerView> ieH;
+    private FrameLayout.LayoutParams ieI;
+    private int ieJ;
     private Context mContext;
 
     public StickerLayout(Context context) {
@@ -33,19 +33,19 @@ public class StickerLayout extends FrameLayout {
 
     private void init(Context context) {
         this.mContext = context;
-        this.ieG = new ArrayList();
-        this.ieH = new FrameLayout.LayoutParams(-1, -1);
+        this.ieH = new ArrayList();
+        this.ieI = new FrameLayout.LayoutParams(-1, -1);
     }
 
     public StickerView a(Bitmap bitmap, final c cVar) {
         final StickerView stickerView = new StickerView(this.mContext);
         stickerView.setImageBitmap(bitmap);
-        stickerView.setLayoutParams(this.ieH);
+        stickerView.setLayoutParams(this.ieI);
         stickerView.setmOnStickerActionListener(new a() { // from class: com.baidu.tieba.write.write.sticker.view.StickerLayout.1
             @Override // com.baidu.tieba.write.write.sticker.a.a
             public void bRV() {
                 StickerLayout.this.removeView(stickerView);
-                StickerLayout.this.ieG.remove(stickerView);
+                StickerLayout.this.ieH.remove(stickerView);
                 StickerLayout.this.bfO();
                 if (cVar != null) {
                     cVar.bQt();
@@ -69,7 +69,7 @@ public class StickerLayout extends FrameLayout {
             }
         });
         addView(stickerView);
-        this.ieG.add(stickerView);
+        this.ieH.add(stickerView);
         bfO();
         if (cVar != null) {
             cVar.bQs();
@@ -78,7 +78,7 @@ public class StickerLayout extends FrameLayout {
     }
 
     public void a(c cVar) {
-        Iterator<StickerView> it = this.ieG.iterator();
+        Iterator<StickerView> it = this.ieH.iterator();
         while (it.hasNext()) {
             StickerView next = it.next();
             if (next != null) {
@@ -93,10 +93,10 @@ public class StickerLayout extends FrameLayout {
     }
 
     public void bfO() {
-        if (this.ieG.size() > 0) {
-            for (StickerView stickerView : this.ieG) {
+        if (this.ieH.size() > 0) {
+            for (StickerView stickerView : this.ieH) {
                 if (stickerView != null) {
-                    stickerView.setRemoveRes(this.ieI);
+                    stickerView.setRemoveRes(this.ieJ);
                     stickerView.setEdit(false);
                 }
             }
@@ -104,7 +104,7 @@ public class StickerLayout extends FrameLayout {
     }
 
     public Bitmap bRW() {
-        if (v.I(this.ieG)) {
+        if (v.I(this.ieH)) {
             return null;
         }
         bfO();
@@ -112,10 +112,10 @@ public class StickerLayout extends FrameLayout {
     }
 
     public void setRemoveRes(int i) {
-        this.ieI = i;
+        this.ieJ = i;
     }
 
     public List<StickerView> getStickerViews() {
-        return this.ieG;
+        return this.ieH;
     }
 }

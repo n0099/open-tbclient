@@ -3,10 +3,10 @@ package com.baidu.ubs.analytics.d;
 import android.os.Environment;
 /* loaded from: classes6.dex */
 public final class a {
-    private static final String ihB = Environment.getExternalStorageDirectory().getPath();
-    static final String ihC = ihB + "/baidu/ab/crash/";
-    static final String ihD = ihB + "/baidu/ab/sdklog/";
-    public static final String ihE = ihB + "/baidu/ab/sdkupdata/" + bTz() + "/";
+    private static final String ihC = Environment.getExternalStorageDirectory().getPath();
+    static final String ihD = ihC + "/baidu/ab/crash/";
+    static final String ihE = ihC + "/baidu/ab/sdklog/";
+    public static final String ihF = ihC + "/baidu/ab/sdkupdata/" + bTz() + "/";
     private static int aU = EnumC0349a.aV;
 
     /* JADX WARN: $VALUES field not found */
@@ -16,7 +16,7 @@ public final class a {
     public static final class EnumC0349a {
         public static final int aV = 1;
         public static final int aW = 2;
-        private static final /* synthetic */ int[] ihF = {aV, aW};
+        private static final /* synthetic */ int[] ihG = {aV, aW};
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

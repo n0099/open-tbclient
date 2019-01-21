@@ -23,47 +23,47 @@ import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.adp.base.c<MoreActivity> {
-    private MoreActivity haV;
-    private d haW;
-    private AlertDialog haX;
-    private View haY;
-    private TbSettingTextTipView haZ;
-    private SettingTextImageView hba;
-    private TbSettingTextTipView hbb;
+    private MoreActivity haW;
+    private d haX;
+    private AlertDialog haY;
+    private View haZ;
+    private TbSettingTextTipView hba;
+    private SettingTextImageView hbb;
     private TbSettingTextTipView hbc;
     private TbSettingTextTipView hbd;
     private TbSettingTextTipView hbe;
     private TbSettingTextTipView hbf;
     private TbSettingTextTipView hbg;
-    private SettingTextVersionView hbh;
-    private TbSettingTextTipView hbi;
+    private TbSettingTextTipView hbh;
+    private SettingTextVersionView hbi;
     private TbSettingTextTipView hbj;
-    private TbSettingTextNewDotView hbk;
-    private TextView hbl;
-    private RelativeLayout hbm;
-    private View hbn;
+    private TbSettingTextTipView hbk;
+    private TbSettingTextNewDotView hbl;
+    private TextView hbm;
+    private RelativeLayout hbn;
     private View hbo;
     private View hbp;
     private View hbq;
     private View hbr;
     private View hbs;
     private View hbt;
-    private RelativeLayout hbu;
-    private BdSwitchView hbv;
+    private View hbu;
+    private RelativeLayout hbv;
+    private BdSwitchView hbw;
     private NavigationBar mNavigationBar;
 
     public e(MoreActivity moreActivity, d dVar) {
         super(moreActivity.getPageContext());
-        this.hbp = null;
         this.hbq = null;
         this.hbr = null;
         this.hbs = null;
         this.hbt = null;
         this.hbu = null;
         this.hbv = null;
-        this.haV = moreActivity;
-        this.haW = dVar;
-        this.haV.setContentView(e.h.more_activity);
+        this.hbw = null;
+        this.haW = moreActivity;
+        this.haX = dVar;
+        this.haW.setContentView(e.h.more_activity);
         KN();
         byP();
     }
@@ -71,38 +71,38 @@ public class e extends com.baidu.adp.base.c<MoreActivity> {
     public void byN() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            this.hba.setVisibility(8);
+            this.hbb.setVisibility(8);
         } else {
-            this.hba.setVisibility(0);
+            this.hbb.setVisibility(0);
         }
     }
 
     public void ab(String str, boolean z) {
         if (str == null || str.length() <= 0) {
-            if (this.hba != null) {
-                this.hba.bzO();
+            if (this.hbb != null) {
+                this.hbb.bzO();
                 return;
             }
             return;
         }
-        this.hba.bzP();
-        this.hba.setIcon(str, z);
+        this.hbb.bzP();
+        this.hbb.setIcon(str, z);
     }
 
     public void byO() {
-        if (this.hbh != null) {
-            this.hbh.refresh();
+        if (this.hbi != null) {
+            this.hbi.refresh();
         }
-        if (this.hbk != null) {
-            this.hbk.refresh();
+        if (this.hbl != null) {
+            this.hbl.refresh();
         }
     }
 
     public void byP() {
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            this.hbv.nV();
+            this.hbw.nV();
         } else {
-            this.hbv.nW();
+            this.hbw.nW();
         }
     }
 
@@ -129,100 +129,100 @@ public class e extends com.baidu.adp.base.c<MoreActivity> {
     }
 
     public void bxR() {
-        this.hba.recycle();
         this.hbb.recycle();
         this.hbc.recycle();
         this.hbd.recycle();
-        this.hbf.recycle();
+        this.hbe.recycle();
         this.hbg.recycle();
         this.hbh.recycle();
         this.hbi.recycle();
         this.hbj.recycle();
+        this.hbk.recycle();
     }
 
     public void onChangeSkinType(int i) {
         fv(i);
-        if (this.haY != null) {
-            this.haV.getLayoutMode().setNightMode(i == 1);
-            this.haV.getLayoutMode().onModeChanged(this.haY);
+        if (this.haZ != null) {
+            this.haW.getLayoutMode().setNightMode(i == 1);
+            this.haW.getLayoutMode().onModeChanged(this.haZ);
         }
     }
 
     public void fv(int i) {
-        al.j(this.hbm, e.d.cp_bg_line_d);
+        al.j(this.hbn, e.d.cp_bg_line_d);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.hba.fv(i);
-        this.haV.getLayoutMode().setNightMode(i == 1);
-        this.haV.getLayoutMode().onModeChanged(this.hbm);
+        this.hbb.fv(i);
+        this.haW.getLayoutMode().setNightMode(i == 1);
+        this.haW.getLayoutMode().onModeChanged(this.hbn);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         byO();
-        this.hbv.setBackgroundRes(al.dO(e.f.bg_switch_open), al.dO(e.f.bg_switch_close), al.dO(e.f.btn_handle));
-        al.j(this.hbn, e.d.cp_bg_line_d);
+        this.hbw.setBackgroundRes(al.dO(e.f.bg_switch_open), al.dO(e.f.bg_switch_close), al.dO(e.f.btn_handle));
+        al.j(this.hbo, e.d.cp_bg_line_d);
     }
 
     private void KN() {
         View.OnClickListener clickListener = getClickListener();
-        this.hbm = (RelativeLayout) this.haV.findViewById(e.g.parent);
-        this.hbn = this.haV.findViewById(e.g.scroll);
-        this.haV.findViewById(e.g.head_top_view).getLayoutParams().height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-        this.mNavigationBar = (NavigationBar) this.haV.findViewById(e.g.view_navigation_bar);
-        this.hbo = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setCenterTextTitle(this.haV.getPageContext().getString(e.j.setup));
+        this.hbn = (RelativeLayout) this.haW.findViewById(e.g.parent);
+        this.hbo = this.haW.findViewById(e.g.scroll);
+        this.haW.findViewById(e.g.head_top_view).getLayoutParams().height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        this.mNavigationBar = (NavigationBar) this.haW.findViewById(e.g.view_navigation_bar);
+        this.hbp = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.setCenterTextTitle(this.haW.getPageContext().getString(e.j.setup));
         this.mNavigationBar.showBottomLine();
-        this.haZ = (TbSettingTextTipView) this.haV.findViewById(e.g.accountSafeSetting);
-        this.hba = (SettingTextImageView) this.haV.findViewById(e.g.personInfo);
-        this.hbb = (TbSettingTextTipView) this.haV.findViewById(e.g.interest_label_setting);
-        this.hbb.setTopLineVisibility(true);
-        this.hbc = (TbSettingTextTipView) this.haV.findViewById(e.g.accountManager);
+        this.hba = (TbSettingTextTipView) this.haW.findViewById(e.g.accountSafeSetting);
+        this.hbb = (SettingTextImageView) this.haW.findViewById(e.g.personInfo);
+        this.hbc = (TbSettingTextTipView) this.haW.findViewById(e.g.interest_label_setting);
         this.hbc.setTopLineVisibility(true);
-        this.hbd = (TbSettingTextTipView) this.haV.findViewById(e.g.browseSetting);
-        this.hbd.setBottomLineVisibility(true);
-        this.hbe = (TbSettingTextTipView) this.haV.findViewById(e.g.adSetting);
+        this.hbd = (TbSettingTextTipView) this.haW.findViewById(e.g.accountManager);
+        this.hbd.setTopLineVisibility(true);
+        this.hbe = (TbSettingTextTipView) this.haW.findViewById(e.g.browseSetting);
         this.hbe.setBottomLineVisibility(true);
-        this.hbf = (TbSettingTextTipView) this.haV.findViewById(e.g.messageSetting);
+        this.hbf = (TbSettingTextTipView) this.haW.findViewById(e.g.adSetting);
         this.hbf.setBottomLineVisibility(true);
-        this.hbd.setBottomLineVisibility(true);
-        this.hbg = (TbSettingTextTipView) this.haV.findViewById(e.g.secretSetting);
+        this.hbg = (TbSettingTextTipView) this.haW.findViewById(e.g.messageSetting);
         this.hbg.setBottomLineVisibility(true);
-        this.hbh = (SettingTextVersionView) this.haV.findViewById(e.g.versionInfo);
-        this.hbi = (TbSettingTextTipView) this.haV.findViewById(e.g.feedBack);
-        this.hbi.setTopLineVisibility(true);
-        this.hbi.setBottomLineVisibility(true);
-        this.hbj = (TbSettingTextTipView) this.haV.findViewById(e.g.recommend);
+        this.hbe.setBottomLineVisibility(true);
+        this.hbh = (TbSettingTextTipView) this.haW.findViewById(e.g.secretSetting);
+        this.hbh.setBottomLineVisibility(true);
+        this.hbi = (SettingTextVersionView) this.haW.findViewById(e.g.versionInfo);
+        this.hbj = (TbSettingTextTipView) this.haW.findViewById(e.g.feedBack);
+        this.hbj.setTopLineVisibility(true);
+        this.hbj.setBottomLineVisibility(true);
+        this.hbk = (TbSettingTextTipView) this.haW.findViewById(e.g.recommend);
         if (!TbadkCoreApplication.getInst().getIsAppOn()) {
-            this.hbj.setVisibility(8);
-            this.hbj.setBottomLineVisibility(false);
+            this.hbk.setVisibility(8);
+            this.hbk.setBottomLineVisibility(false);
         } else {
-            this.hbj.setVisibility(0);
-            this.hbj.setBottomLineVisibility(true);
+            this.hbk.setVisibility(0);
+            this.hbk.setBottomLineVisibility(true);
         }
-        this.hbk = (TbSettingTextNewDotView) this.haV.findViewById(e.g.systemhelpsetting);
-        this.hbl = (TextView) this.haV.findViewById(e.g.quit);
-        this.hbu = (RelativeLayout) this.haV.findViewById(e.g.eyeshield_mode);
-        this.hbv = (BdSwitchView) this.haV.findViewById(e.g.item_switch);
-        l.b(this.haV.getPageContext().getPageActivity(), this.hbv, 10, 10, 10, 10);
-        this.hbp = this.haV.findViewById(e.g.divide_view2);
-        this.hbq = this.haV.findViewById(e.g.divide_view1);
-        this.hbr = this.haV.findViewById(e.g.divide_view3);
-        this.hbs = this.haV.findViewById(e.g.divide_view4);
-        this.hbt = this.haV.findViewById(e.g.divide_view5);
+        this.hbl = (TbSettingTextNewDotView) this.haW.findViewById(e.g.systemhelpsetting);
+        this.hbm = (TextView) this.haW.findViewById(e.g.quit);
+        this.hbv = (RelativeLayout) this.haW.findViewById(e.g.eyeshield_mode);
+        this.hbw = (BdSwitchView) this.haW.findViewById(e.g.item_switch);
+        l.b(this.haW.getPageContext().getPageActivity(), this.hbw, 10, 10, 10, 10);
+        this.hbq = this.haW.findViewById(e.g.divide_view2);
+        this.hbr = this.haW.findViewById(e.g.divide_view1);
+        this.hbs = this.haW.findViewById(e.g.divide_view3);
+        this.hbt = this.haW.findViewById(e.g.divide_view4);
+        this.hbu = this.haW.findViewById(e.g.divide_view5);
         byO();
         byN();
-        this.hba.bzO();
+        this.hbb.bzO();
         fv(TbadkCoreApplication.getInst().getSkinType());
-        this.hbq.setVisibility(0);
         this.hbr.setVisibility(0);
         this.hbs.setVisibility(0);
         this.hbt.setVisibility(0);
+        this.hbu.setVisibility(0);
         U(clickListener);
         if (!byQ()) {
-            this.hbd.setTip(this.haV.getResources().getString(e.j.browsing_settings_tip_no_night));
-            this.hbp.setVisibility(8);
-            this.hbu.setVisibility(8);
+            this.hbe.setTip(this.haW.getResources().getString(e.j.browsing_settings_tip_no_night));
+            this.hbq.setVisibility(8);
+            this.hbv.setVisibility(8);
             return;
         }
-        this.hbp.setVisibility(0);
-        this.hbu.setVisibility(0);
+        this.hbq.setVisibility(0);
+        this.hbv.setVisibility(0);
     }
 
     private boolean byQ() {
@@ -230,38 +230,37 @@ public class e extends com.baidu.adp.base.c<MoreActivity> {
     }
 
     private void createDialog() {
-        this.haY = LayoutInflater.from(this.haV.getPageContext().getPageActivity()).inflate(e.h.quit_dialog, (ViewGroup) null);
-        this.haV.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.haV.getLayoutMode().onModeChanged(this.haY);
-        ((TextView) this.haY.findViewById(e.g.id_close_tv)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.e.1
+        this.haZ = LayoutInflater.from(this.haW.getPageContext().getPageActivity()).inflate(e.h.quit_dialog, (ViewGroup) null);
+        this.haW.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.haW.getLayoutMode().onModeChanged(this.haZ);
+        ((TextView) this.haZ.findViewById(e.g.id_close_tv)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.Tz();
-                e.this.haW.uJ(11);
+                e.this.haX.uJ(11);
             }
         });
-        ((TextView) this.haY.findViewById(e.g.id_quit_tv)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.e.2
+        ((TextView) this.haZ.findViewById(e.g.id_quit_tv)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.e.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.Tz();
-                e.this.haW.uJ(12);
+                e.this.haX.uJ(12);
             }
         });
-        this.haX = new AlertDialog.Builder(this.mContext.getPageActivity()).create();
-        this.haX.setCanceledOnTouchOutside(true);
-        com.baidu.adp.lib.g.g.a(this.haX, this.mContext.getPageActivity());
-        if (this.haX.getWindow() != null) {
-            WindowManager.LayoutParams attributes = this.haX.getWindow().getAttributes();
+        this.haY = new AlertDialog.Builder(this.mContext.getPageActivity()).create();
+        this.haY.setCanceledOnTouchOutside(true);
+        com.baidu.adp.lib.g.g.a(this.haY, this.mContext.getPageActivity());
+        if (this.haY.getWindow() != null) {
+            WindowManager.LayoutParams attributes = this.haY.getWindow().getAttributes();
             attributes.dimAmount = 0.7f;
-            this.haX.getWindow().setAttributes(attributes);
-            this.haX.getWindow().setContentView(this.haY);
+            this.haY.getWindow().setAttributes(attributes);
+            this.haY.getWindow().setContentView(this.haZ);
         }
     }
 
     private void U(View.OnClickListener onClickListener) {
-        this.haZ.setOnClickListener(onClickListener);
-        this.hbo.setOnClickListener(onClickListener);
         this.hba.setOnClickListener(onClickListener);
+        this.hbp.setOnClickListener(onClickListener);
         this.hbb.setOnClickListener(onClickListener);
         this.hbc.setOnClickListener(onClickListener);
         this.hbd.setOnClickListener(onClickListener);
@@ -273,60 +272,61 @@ public class e extends com.baidu.adp.base.c<MoreActivity> {
         this.hbj.setOnClickListener(onClickListener);
         this.hbk.setOnClickListener(onClickListener);
         this.hbl.setOnClickListener(onClickListener);
-        this.hbv.setOnSwitchStateChangeListener(this.haV);
+        this.hbm.setOnClickListener(onClickListener);
+        this.hbw.setOnSwitchStateChangeListener(this.haW);
     }
 
     private View.OnClickListener getClickListener() {
         return new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.e.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == e.this.hbo) {
-                    e.this.haW.uJ(0);
-                } else if (view == e.this.hba) {
-                    e.this.haW.uJ(1);
+                if (view == e.this.hbp) {
+                    e.this.haX.uJ(0);
                 } else if (view == e.this.hbb) {
-                    e.this.haW.uJ(15);
+                    e.this.haX.uJ(1);
                 } else if (view == e.this.hbc) {
-                    e.this.haW.uJ(2);
+                    e.this.haX.uJ(15);
                 } else if (view == e.this.hbd) {
-                    e.this.haW.uJ(3);
-                } else if (view == e.this.hbf) {
-                    e.this.haW.uJ(4);
-                } else if (view == e.this.hbg) {
-                    e.this.haW.uJ(9);
-                } else if (view == e.this.hbh) {
-                    e.this.haW.uJ(6);
-                } else if (view == e.this.hbi) {
-                    e.this.haW.uJ(7);
-                } else if (view == e.this.hbj) {
-                    e.this.haW.uJ(8);
-                } else if (view == e.this.hbk) {
-                    e.this.haW.uJ(5);
-                } else if (view == e.this.hbl) {
-                    e.this.haW.uJ(10);
-                } else if (view == e.this.haZ) {
-                    e.this.haW.uJ(13);
+                    e.this.haX.uJ(2);
                 } else if (view == e.this.hbe) {
-                    e.this.haW.uJ(16);
+                    e.this.haX.uJ(3);
+                } else if (view == e.this.hbg) {
+                    e.this.haX.uJ(4);
+                } else if (view == e.this.hbh) {
+                    e.this.haX.uJ(9);
+                } else if (view == e.this.hbi) {
+                    e.this.haX.uJ(6);
+                } else if (view == e.this.hbj) {
+                    e.this.haX.uJ(7);
+                } else if (view == e.this.hbk) {
+                    e.this.haX.uJ(8);
+                } else if (view == e.this.hbl) {
+                    e.this.haX.uJ(5);
+                } else if (view == e.this.hbm) {
+                    e.this.haX.uJ(10);
+                } else if (view == e.this.hba) {
+                    e.this.haX.uJ(13);
+                } else if (view == e.this.hbf) {
+                    e.this.haX.uJ(16);
                 }
             }
         };
     }
 
     public void byR() {
-        if (this.haX == null) {
+        if (this.haY == null) {
             createDialog();
         }
-        com.baidu.adp.lib.g.g.a(this.haX, this.haV.getPageContext());
+        com.baidu.adp.lib.g.g.a(this.haY, this.haW.getPageContext());
     }
 
     public void Tz() {
-        if (this.haX != null) {
-            com.baidu.adp.lib.g.g.b(this.haX, this.haV.getPageContext());
+        if (this.haY != null) {
+            com.baidu.adp.lib.g.g.b(this.haY, this.haW.getPageContext());
         }
     }
 
     public BdSwitchView byS() {
-        return this.hbv;
+        return this.hbw;
     }
 }

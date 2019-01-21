@@ -8,27 +8,27 @@ import com.baidu.tbadk.a.f;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class b implements e {
-    private final HashMap<String, f> fpl;
+    private final HashMap<String, f> fpm;
 
     private b() {
-        this.fpl = new HashMap<>();
+        this.fpm = new HashMap<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.recapp.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0305b {
-        private static b gPx = new b();
+        private static b gPy = new b();
     }
 
     public static b bvU() {
-        return C0305b.gPx;
+        return C0305b.gPy;
     }
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, d dVar) {
         if (str != null) {
             a uQ = a.uQ(str);
-            f fVar = this.fpl.get(uQ.getKey());
+            f fVar = this.fpm.get(uQ.getKey());
             if (fVar != null && uQ.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
                     uQ.getParams().putAll(hashMap);
@@ -39,7 +39,7 @@ public class b implements e {
     }
 
     public void a(String str, f fVar) {
-        this.fpl.put(str, fVar);
+        this.fpm.put(str, fVar);
     }
 
     public void a(com.baidu.tbadk.a.a aVar) {
@@ -48,12 +48,12 @@ public class b implements e {
 
     /* loaded from: classes3.dex */
     public static class a {
-        private boolean aso;
+        private boolean asp;
         String key;
         HashMap<String, String> params;
 
         public boolean isValid() {
-            return this.aso;
+            return this.asp;
         }
 
         public String getKey() {
@@ -65,10 +65,10 @@ public class b implements e {
         }
 
         private a(String str) {
-            this.aso = false;
+            this.asp = false;
             Uri parse = Uri.parse(str);
-            this.aso = TextUtils.isEmpty(parse.getScheme()) ? false : true;
-            if (this.aso) {
+            this.asp = TextUtils.isEmpty(parse.getScheme()) ? false : true;
+            if (this.asp) {
                 this.key = parse.getAuthority() + parse.getPath();
                 this.params = new HashMap<>();
                 for (String str2 : parse.getQueryParameterNames()) {

@@ -29,8 +29,8 @@ import org.json.JSONObject;
 public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
     private boolean FT;
     private com.baidu.tbadk.core.dialog.a Tm;
-    private com.baidu.tbadk.k.f bLl;
-    private final String gxL = "https://tieba.baidu.com/n/interact/modifyname";
+    private com.baidu.tbadk.k.f bLm;
+    private final String gxM = "https://tieba.baidu.com/n/interact/modifyname";
     private NavigationBar mNavigationBar;
     private TbPageContext<EditNickNameActivity> mPageContext;
     private g mRefreshView;
@@ -127,16 +127,16 @@ public class EditNickNameActivity extends BaseActivity<EditNickNameActivity> {
 
     public void showLoadingView() {
         if (this.mPageContext != null && this.mRootView != null) {
-            this.bLl = new com.baidu.tbadk.k.f(this.mPageContext.getPageActivity());
-            this.bLl.attachView(this.mRootView, false);
-            this.bLl.onChangeSkinType();
+            this.bLm = new com.baidu.tbadk.k.f(this.mPageContext.getPageActivity());
+            this.bLm.attachView(this.mRootView, false);
+            this.bLm.onChangeSkinType();
         }
     }
 
     public void hideLoadingView() {
-        if (this.bLl != null) {
-            this.bLl.dettachView(this.mRootView);
-            this.bLl = null;
+        if (this.bLm != null) {
+            this.bLm.dettachView(this.mRootView);
+            this.bLm = null;
         }
     }
 

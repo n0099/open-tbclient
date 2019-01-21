@@ -27,8 +27,8 @@ public class b extends g {
     /* loaded from: classes2.dex */
     static class a extends g.a {
         private final Handler handler;
-        private final rx.a.a.b iFD = rx.a.a.a.ces().cet();
-        private volatile boolean iFE;
+        private final rx.a.a.b iFE = rx.a.a.a.ces().cet();
+        private volatile boolean iFF;
 
         a(Handler handler) {
             this.handler = handler;
@@ -36,25 +36,25 @@ public class b extends g {
 
         @Override // rx.k
         public void unsubscribe() {
-            this.iFE = true;
+            this.iFF = true;
             this.handler.removeCallbacksAndMessages(this);
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.iFE;
+            return this.iFF;
         }
 
         @Override // rx.g.a
         public k a(rx.functions.a aVar, long j, TimeUnit timeUnit) {
-            if (this.iFE) {
+            if (this.iFF) {
                 return e.cgS();
             }
-            RunnableC0405b runnableC0405b = new RunnableC0405b(this.iFD.b(aVar), this.handler);
+            RunnableC0405b runnableC0405b = new RunnableC0405b(this.iFE.b(aVar), this.handler);
             Message obtain = Message.obtain(this.handler, runnableC0405b);
             obtain.obj = this;
             this.handler.sendMessageDelayed(obtain, timeUnit.toMillis(j));
-            if (this.iFE) {
+            if (this.iFF) {
                 this.handler.removeCallbacks(runnableC0405b);
                 return e.cgS();
             }
@@ -73,7 +73,7 @@ public class b extends g {
     public static final class RunnableC0405b implements Runnable, k {
         private final rx.functions.a action;
         private final Handler handler;
-        private volatile boolean iFE;
+        private volatile boolean iFF;
 
         RunnableC0405b(rx.functions.a aVar, Handler handler) {
             this.action = aVar;
@@ -99,13 +99,13 @@ public class b extends g {
 
         @Override // rx.k
         public void unsubscribe() {
-            this.iFE = true;
+            this.iFF = true;
             this.handler.removeCallbacks(this);
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.iFE;
+            return this.iFF;
         }
     }
 }

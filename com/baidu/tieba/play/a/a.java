@@ -7,8 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private List<String> gIP;
-    private long gIQ;
+    private List<String> gIQ;
+    private long gIR;
     private String mHost;
     private long mStartTime = System.currentTimeMillis();
 
@@ -19,19 +19,19 @@ public class a {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            this.gIQ = jSONObject.optLong("ttl");
+            this.gIR = jSONObject.optLong("ttl");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
                 this.mHost = optJSONObject.keys().next();
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.mHost);
             if (optJSONObject2 != null && (optJSONArray = optJSONObject2.optJSONArray("ip")) != null && optJSONArray.length() > 0) {
-                this.gIP = new ArrayList();
+                this.gIQ = new ArrayList();
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < optJSONArray.length()) {
-                        this.gIP.add((String) optJSONArray.get(i2));
+                        this.gIQ.add((String) optJSONArray.get(i2));
                         i = i2 + 1;
                     } else {
                         return this;
@@ -52,7 +52,7 @@ public class a {
     }
 
     public List<String> btz() {
-        return this.gIP;
+        return this.gIQ;
     }
 
     public String getHost() {
@@ -60,6 +60,6 @@ public class a {
     }
 
     public boolean df(long j) {
-        return j - this.mStartTime > this.gIQ * 1000;
+        return j - this.mStartTime > this.gIR * 1000;
     }
 }

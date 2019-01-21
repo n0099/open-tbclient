@@ -8,22 +8,22 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class f {
-    private RelativeLayout fTu;
-    private TextView fTv;
+    private RelativeLayout fTv;
     private TextView fTw;
-    private ImageView fTx;
+    private TextView fTx;
+    private ImageView fTy;
     private View rootView;
 
     public f(View view) {
         this.rootView = view;
-        this.fTu = (RelativeLayout) view.findViewById(e.g.chosen_pb_reply_text);
-        this.fTv = (TextView) view.findViewById(e.g.chosen_pb_reply_comment);
-        this.fTw = (TextView) view.findViewById(e.g.chosen_pb_reply_number);
-        this.fTx = (ImageView) view.findViewById(e.g.chosen_pb_reply_share);
+        this.fTv = (RelativeLayout) view.findViewById(e.g.chosen_pb_reply_text);
+        this.fTw = (TextView) view.findViewById(e.g.chosen_pb_reply_comment);
+        this.fTx = (TextView) view.findViewById(e.g.chosen_pb_reply_number);
+        this.fTy = (ImageView) view.findViewById(e.g.chosen_pb_reply_share);
     }
 
     public void G(View.OnClickListener onClickListener) {
-        this.fTu.setOnClickListener(onClickListener);
+        this.fTv.setOnClickListener(onClickListener);
     }
 
     public void setVisible(boolean z) {
@@ -31,18 +31,18 @@ public class f {
     }
 
     public void H(View.OnClickListener onClickListener) {
-        this.fTx.setOnClickListener(onClickListener);
+        this.fTy.setOnClickListener(onClickListener);
     }
 
     public void td(String str) {
-        this.fTw.setText(str);
+        this.fTx.setText(str);
     }
 
     public void onChangeSkinType() {
         al.i(this.rootView, e.f.bg_rec_lick);
-        al.i(this.fTu, e.f.bg_rec_comment);
-        al.c(this.fTv, e.d.cp_cont_c, 1);
-        al.c(this.fTw, e.d.cp_cont_e, 1);
-        al.c(this.fTx, e.f.recommend_pb_share_selector);
+        al.i(this.fTv, e.f.bg_rec_comment);
+        al.c(this.fTw, e.d.cp_cont_c, 1);
+        al.c(this.fTx, e.d.cp_cont_e, 1);
+        al.c(this.fTy, e.f.recommend_pb_share_selector);
     }
 }

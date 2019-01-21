@@ -13,14 +13,14 @@ public final class d {
     private Context g;
     private String h;
     private String i;
-    private JSONArray igN;
+    private JSONArray igO;
     private boolean j;
     private Map<String, g> k;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a {
-        public static final d igO = new d((byte) 0);
+        public static final d igP = new d((byte) 0);
     }
 
     /* synthetic */ d(byte b) {
@@ -40,7 +40,7 @@ public final class d {
     }
 
     public static d bTh() {
-        return a.igO;
+        return a.igP;
     }
 
     public final void a(Context context) {
@@ -87,7 +87,7 @@ public final class d {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final SampleResult yN(String str) {
-        if (this.igN == null) {
+        if (this.igO == null) {
             if (str == null || this.k == null) {
                 return SampleResult.OTHERE;
             }
@@ -96,8 +96,8 @@ public final class d {
             }
             return SampleResult.OTHERE;
         }
-        for (int i = 0; i < this.igN.length(); i++) {
-            JSONObject optJSONObject = this.igN.optJSONObject(i);
+        for (int i = 0; i < this.igO.length(); i++) {
+            JSONObject optJSONObject = this.igO.optJSONObject(i);
             if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
                 return i.za(optJSONObject.optString("group"));
             }

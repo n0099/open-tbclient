@@ -9,23 +9,23 @@ import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
-    private a bER;
+    private a bES;
 
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.bER = a.WS();
+        this.bES = a.WS();
     }
 
     public void a(a.InterfaceC0188a interfaceC0188a) {
-        this.bER.a(interfaceC0188a);
+        this.bES.a(interfaceC0188a);
     }
 
     public void b(a.InterfaceC0188a interfaceC0188a) {
-        this.bER.b(interfaceC0188a);
+        this.bES.b(interfaceC0188a);
     }
 
     public List<com.baidu.tbadk.coreExtra.relationship.a> Xj() {
-        return this.bER.WT();
+        return this.bES.WT();
     }
 
     public void Xk() {
@@ -37,21 +37,21 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void aj(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
-        this.bER.ag(list);
+        this.bES.ag(list);
     }
 
     public void a(com.baidu.tbadk.coreExtra.relationship.a aVar) {
-        this.bER.a(aVar);
+        this.bES.a(aVar);
     }
 
     public void aX(long j) {
-        this.bER.aX(j);
+        this.bES.aX(j);
     }
 
     public int kx(String str) {
         int i;
         if (c.hp(str)) {
-            List<com.baidu.tbadk.coreExtra.relationship.a> WT = this.bER.WT();
+            List<com.baidu.tbadk.coreExtra.relationship.a> WT = this.bES.WT();
             if (WT != null) {
                 for (com.baidu.tbadk.coreExtra.relationship.a aVar : WT) {
                     if (str.equals(aVar.Ks())) {

@@ -13,11 +13,11 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertActivity> {
-    private ImageView cyf;
-    private String hgS;
+    private ImageView cyg;
     private String hgT;
-    private boolean hgU;
-    private TbImageView hgV;
+    private String hgU;
+    private boolean hgV;
+    private TbImageView hgW;
     private ImageView mIcon;
     private NavigationBar mNavigationBar;
 
@@ -28,9 +28,9 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         super.setActivityBgTransparent();
         super.setSwipeBackEnabled(false);
         Intent intent = getIntent();
-        this.hgS = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_PIC);
-        this.hgT = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_URL);
-        this.hgU = intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
+        this.hgT = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_PIC);
+        this.hgU = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_URL);
+        this.hgV = intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
         initUI();
         bBw();
     }
@@ -40,10 +40,10 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         this.mNavigationBar = (NavigationBar) findViewById(e.g.view_navigation_bar);
         this.mNavigationBar.setTitleText(getPageContext().getString(e.j.signallforum));
         this.mIcon = (ImageView) findViewById(e.g.signallforum_icon);
-        this.hgV = (TbImageView) findViewById(e.g.signallforum_advert_pic);
-        this.cyf = (ImageView) findViewById(e.g.signallforum_advert_close);
-        this.hgV.setDefaultBgResource(e.f.transparent_bg);
-        com.baidu.adp.lib.f.c.jA().a(this.hgS, 10, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.1
+        this.hgW = (TbImageView) findViewById(e.g.signallforum_advert_pic);
+        this.cyg = (ImageView) findViewById(e.g.signallforum_advert_close);
+        this.hgW.setDefaultBgResource(e.f.transparent_bg);
+        com.baidu.adp.lib.f.c.jA().a(this.hgT, 10, new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
@@ -54,16 +54,16 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
                 }
             }
         }, null);
-        this.hgV.startLoad(this.hgS, 10, false);
-        this.hgV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.2
+        this.hgW.startLoad(this.hgT, 10, false);
+        this.hgW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.2
             /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.signall.SignAllForumAdvertActivity */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ay.Es().c(SignAllForumAdvertActivity.this.getPageContext(), new String[]{SignAllForumAdvertActivity.this.hgT});
+                ay.Es().c(SignAllForumAdvertActivity.this.getPageContext(), new String[]{SignAllForumAdvertActivity.this.hgU});
             }
         });
-        this.cyf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.3
+        this.cyg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.signall.SignAllForumAdvertActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 SignAllForumAdvertActivity.this.finish();

@@ -9,23 +9,23 @@ import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class ImageRequestBuilder {
     @Nullable
-    private com.facebook.imagepipeline.g.b irl;
-    private Uri ivX = null;
-    private ImageRequest.RequestLevel iua = ImageRequest.RequestLevel.FULL_FETCH;
+    private com.facebook.imagepipeline.g.b irm;
+    private Uri ivY = null;
+    private ImageRequest.RequestLevel iub = ImageRequest.RequestLevel.FULL_FETCH;
     @Nullable
-    private com.facebook.imagepipeline.common.c ipF = null;
+    private com.facebook.imagepipeline.common.c ipG = null;
     @Nullable
-    private com.facebook.imagepipeline.common.d ipG = null;
-    private com.facebook.imagepipeline.common.a ipH = com.facebook.imagepipeline.common.a.bXB();
-    private ImageRequest.CacheChoice ivW = ImageRequest.CacheChoice.DEFAULT;
-    private boolean irQ = h.bYa().bYu();
-    private boolean iwb = false;
-    private Priority iwc = Priority.HIGH;
+    private com.facebook.imagepipeline.common.d ipH = null;
+    private com.facebook.imagepipeline.common.a ipI = com.facebook.imagepipeline.common.a.bXB();
+    private ImageRequest.CacheChoice ivX = ImageRequest.CacheChoice.DEFAULT;
+    private boolean irR = h.bYa().bYu();
+    private boolean iwc = false;
+    private Priority iwd = Priority.HIGH;
     @Nullable
-    private b ivr = null;
-    private boolean iwe = true;
+    private b ivs = null;
+    private boolean iwf = true;
     @Nullable
-    private a ivZ = null;
+    private a iwa = null;
 
     public static ImageRequestBuilder G(Uri uri) {
         return new ImageRequestBuilder().H(uri);
@@ -36,70 +36,70 @@ public class ImageRequestBuilder {
 
     public ImageRequestBuilder H(Uri uri) {
         g.checkNotNull(uri);
-        this.ivX = uri;
+        this.ivY = uri;
         return this;
     }
 
     public Uri cbc() {
-        return this.ivX;
+        return this.ivY;
     }
 
     @Nullable
     public a cbe() {
-        return this.ivZ;
+        return this.iwa;
     }
 
     public ImageRequest.RequestLevel car() {
-        return this.iua;
+        return this.iub;
     }
 
     @Nullable
     public com.facebook.imagepipeline.common.c cbf() {
-        return this.ipF;
+        return this.ipG;
     }
 
     public ImageRequestBuilder a(@Nullable com.facebook.imagepipeline.common.d dVar) {
-        this.ipG = dVar;
+        this.ipH = dVar;
         return this;
     }
 
     @Nullable
     public com.facebook.imagepipeline.common.d cbg() {
-        return this.ipG;
-    }
-
-    public com.facebook.imagepipeline.common.a cbh() {
         return this.ipH;
     }
 
+    public com.facebook.imagepipeline.common.a cbh() {
+        return this.ipI;
+    }
+
     public ImageRequest.CacheChoice cbb() {
-        return this.ivW;
+        return this.ivX;
     }
 
     public boolean bYu() {
-        return this.irQ;
+        return this.irR;
     }
 
     public boolean cbo() {
-        return this.iwb;
+        return this.iwc;
     }
 
     public boolean cbk() {
-        return this.iwe && com.facebook.common.util.d.k(this.ivX);
+        return this.iwf && com.facebook.common.util.d.k(this.ivY);
     }
 
     public Priority cbp() {
-        return this.iwc;
+        return this.iwd;
     }
 
     @Nullable
     public b cbm() {
-        return this.ivr;
+        return this.ivs;
     }
 
     @Nullable
     public com.facebook.imagepipeline.g.b cbn() {
-        return this.irl;
+        return this.irm;
     }
 
     public ImageRequest cbq() {
@@ -115,23 +115,23 @@ public class ImageRequestBuilder {
     }
 
     protected void validate() {
-        if (this.ivX == null) {
+        if (this.ivY == null) {
             throw new BuilderException("Source must be set!");
         }
-        if (com.facebook.common.util.d.q(this.ivX)) {
-            if (!this.ivX.isAbsolute()) {
+        if (com.facebook.common.util.d.q(this.ivY)) {
+            if (!this.ivY.isAbsolute()) {
                 throw new BuilderException("Resource URI path must be absolute.");
             }
-            if (this.ivX.getPath().isEmpty()) {
+            if (this.ivY.getPath().isEmpty()) {
                 throw new BuilderException("Resource URI must not be empty");
             }
             try {
-                Integer.parseInt(this.ivX.getPath().substring(1));
+                Integer.parseInt(this.ivY.getPath().substring(1));
             } catch (NumberFormatException e) {
                 throw new BuilderException("Resource URI path must be a resource id.");
             }
         }
-        if (com.facebook.common.util.d.p(this.ivX) && !this.ivX.isAbsolute()) {
+        if (com.facebook.common.util.d.p(this.ivY) && !this.ivY.isAbsolute()) {
             throw new BuilderException("Asset URI path must be absolute.");
         }
     }

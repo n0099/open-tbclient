@@ -28,9 +28,9 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.apT;
-        if (StringUtils.isNull(str) && advertAppInfo.aqd != null) {
-            str = advertAppInfo.aqd.userName;
+        String str = advertAppInfo.apU;
+        if (StringUtils.isNull(str) && advertAppInfo.aqe != null) {
+            str = advertAppInfo.aqe.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -47,16 +47,16 @@ public class s {
             return false;
         }
         com.baidu.tbadk.distribute.a.Mc().b(advertAppInfo);
-        String str2 = advertAppInfo.apT;
+        String str2 = advertAppInfo.apU;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.d.bwa().a(advertAppInfo.apX, advertAppInfo.apW, str2, i, com.baidu.tieba.recapp.download.d.uS(advertAppInfo.apX).intValue(), null, true, false, true, advertAppInfo.aqd.userPortrait, downloadStaticsData, advertAppInfo.aqd.userName);
+        com.baidu.tieba.recapp.download.d.bwa().a(advertAppInfo.apY, advertAppInfo.apX, str2, i, com.baidu.tieba.recapp.download.d.uS(advertAppInfo.apY).intValue(), null, true, false, true, advertAppInfo.aqe.userPortrait, downloadStaticsData, advertAppInfo.aqe.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.d.bwa().j(advertAppInfo.apW, advertAppInfo.apX, true);
+        com.baidu.tieba.recapp.download.d.bwa().j(advertAppInfo.apX, advertAppInfo.apY, true);
     }
 
     public static final void aE(Context context, String str) {

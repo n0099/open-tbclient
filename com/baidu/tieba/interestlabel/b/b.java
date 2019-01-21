@@ -8,20 +8,20 @@ import tbclient.GetTagList.DataRes;
 import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes3.dex */
 public class b {
-    private List<a> fng;
-    private List<Integer> fnh;
-    private List<a> fnk;
+    private List<a> fnh;
+    private List<Integer> fni;
+    private List<a> fnl;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
             if (!v.I(dataRes.sex_taglist)) {
-                this.fnk = new ArrayList();
-                o(this.fnk, dataRes.sex_taglist);
+                this.fnl = new ArrayList();
+                o(this.fnl, dataRes.sex_taglist);
             }
             if (!v.I(dataRes.taglist)) {
-                this.fng = new ArrayList();
                 this.fnh = new ArrayList();
-                o(this.fng, dataRes.taglist);
+                this.fni = new ArrayList();
+                o(this.fnh, dataRes.taglist);
             }
         }
     }
@@ -33,8 +33,8 @@ public class b {
                     a aVar = new a();
                     aVar.a(responseTagInfo);
                     list.add(aVar);
-                    if (this.fnh != null && aVar.isFollow) {
-                        this.fnh.add(Integer.valueOf(aVar.labelId));
+                    if (this.fni != null && aVar.isFollow) {
+                        this.fni.add(Integer.valueOf(aVar.labelId));
                     }
                 }
             }
@@ -42,14 +42,14 @@ public class b {
     }
 
     public List<a> aYo() {
-        return this.fnk;
+        return this.fnl;
     }
 
     public List<a> aYp() {
-        return this.fng;
+        return this.fnh;
     }
 
     public List<Integer> aYq() {
-        return this.fnh;
+        return this.fni;
     }
 }

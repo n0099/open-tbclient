@@ -27,11 +27,11 @@ import org.apache.http.HttpHost;
 public class GroupCardActivity extends BaseActivity<GroupCardActivity> implements View.OnClickListener {
     private static String imageUrl = TbConfig.SERVER_ADDRESS + "c/p/groupShareImg?group_id=";
     private com.baidu.tbadk.core.util.b.a mPermissionJudgement;
-    private a eVO = null;
-    private GroupCardModel eVP = null;
+    private a eVP = null;
+    private GroupCardModel eVQ = null;
     private long groupId = 0;
     private String groupName = "";
-    private String eVQ = "";
+    private String eVR = "";
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -54,7 +54,7 @@ public class GroupCardActivity extends BaseActivity<GroupCardActivity> implement
         if (l.hA()) {
             return true;
         }
-        this.eVO.U(0, getPageContext().getString(e.j.voice_error_sdcard));
+        this.eVP.U(0, getPageContext().getString(e.j.voice_error_sdcard));
         return false;
     }
 
@@ -62,20 +62,20 @@ public class GroupCardActivity extends BaseActivity<GroupCardActivity> implement
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.eVO.onChangeSkinType(i);
+        this.eVP.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.eVO.aTm()) {
+        if (view == this.eVP.aTm()) {
             if (aPG()) {
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "group_card_save", AiAppsUBCStatistic.TYPE_CLICK, 1, new Object[0]);
-                this.eVP.saveImage();
+                this.eVQ.saveImage();
             }
-        } else if (view == this.eVO.aTo()) {
+        } else if (view == this.eVP.aTo()) {
             finish();
-        } else if (view == this.eVO.aTn()) {
+        } else if (view == this.eVP.aTn()) {
             TiebaStatic.eventStat(getPageContext().getPageActivity(), "group_card_share", AiAppsUBCStatistic.TYPE_CLICK, 1, new Object[0]);
             FD();
         }
@@ -91,10 +91,10 @@ public class GroupCardActivity extends BaseActivity<GroupCardActivity> implement
         dVar.content = MessageFormat.format(getPageContext().getString(e.j.im_share_content), this.groupName, String.valueOf(this.groupId));
         dVar.linkUrl = TiebaIMConfig.IM_GROUP_SHARE_URL + this.groupId;
         try {
-            if (this.eVQ == null || this.eVQ.equals("")) {
+            if (this.eVR == null || this.eVR.equals("")) {
                 dVar.g(BitmapFactory.decodeResource(getResources(), e.f.icon));
-            } else if (this.eVQ.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                dVar.imageUri = Uri.parse(this.eVQ);
+            } else if (this.eVR.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                dVar.imageUri = Uri.parse(this.eVR);
             } else {
                 dVar.g(l.ay(null, TbConfig.GROUP_HEAD_FILE));
             }
@@ -115,35 +115,35 @@ public class GroupCardActivity extends BaseActivity<GroupCardActivity> implement
     }
 
     private void initView() {
-        this.eVO = new a(this, null);
+        this.eVP = new a(this, null);
     }
 
     private void initData() {
-        this.eVO.showProgress();
+        this.eVP.showProgress();
         Intent intent = getIntent();
         this.groupId = intent.getLongExtra("group_id", 0L);
         this.groupName = intent.getStringExtra("group_name");
-        this.eVQ = intent.getStringExtra(GroupCardActivityConfig.GROUP_PORTRAIT);
-        this.eVP = new GroupCardModel(this.groupId, this);
-        if (this.eVP != null) {
+        this.eVR = intent.getStringExtra(GroupCardActivityConfig.GROUP_PORTRAIT);
+        this.eVQ = new GroupCardModel(this.groupId, this);
+        if (this.eVQ != null) {
             int aO = com.baidu.adp.lib.util.l.aO(getPageContext().getPageActivity()) - com.baidu.adp.lib.util.l.dip2px(getPageContext().getPageActivity(), 10.0f);
-            int aQ = (com.baidu.adp.lib.util.l.aQ(getPageContext().getPageActivity()) - this.eVO.aTp().getHeight()) - this.eVO.aTq().getHeight();
+            int aQ = (com.baidu.adp.lib.util.l.aQ(getPageContext().getPageActivity()) - this.eVP.aTp().getHeight()) - this.eVP.aTq().getHeight();
             b<com.baidu.adp.widget.ImageView.a> bVar = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.im.groupCard.GroupCardActivity.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.f.b
                 public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                     super.onLoaded((AnonymousClass1) aVar, str, i);
-                    GroupCardActivity.this.eVO.aIa();
+                    GroupCardActivity.this.eVP.aIa();
                     if (aVar != null) {
-                        GroupCardActivity.this.eVO.g(aVar);
-                        GroupCardActivity.this.eVO.aTl();
+                        GroupCardActivity.this.eVP.g(aVar);
+                        GroupCardActivity.this.eVP.aTl();
                         return;
                     }
-                    GroupCardActivity.this.eVO.U(0, GroupCardActivity.this.getPageContext().getString(e.j.group_card_error));
+                    GroupCardActivity.this.eVP.U(0, GroupCardActivity.this.getPageContext().getString(e.j.group_card_error));
                 }
             };
-            String bp = this.eVP.bp(aO, aQ);
+            String bp = this.eVQ.bp(aO, aQ);
             if (bp != null) {
                 c.jA().a(bp, 10, bVar, aO, aQ, getUniqueId(), new Object[0]);
             }

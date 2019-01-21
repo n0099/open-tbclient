@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class BdListViewHelper {
-    public static final int bja = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), e.C0210e.ds320);
+    public static final int bjb = com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst().getContext(), e.C0210e.ds320);
 
     /* loaded from: classes.dex */
     public enum HeadType {

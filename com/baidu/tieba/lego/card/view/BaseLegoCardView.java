@@ -28,14 +28,14 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends LinearLayout implements e<T> {
-    protected int fqv;
-    protected View frp;
+    protected int fqw;
     protected View frq;
     protected View frr;
     protected View frt;
-    protected ImageView fru;
-    protected a frv;
-    protected c frw;
+    protected View fru;
+    protected ImageView frv;
+    protected a frw;
+    protected c frx;
     private boolean isInit;
     protected TbPageContext mContext;
     public String mFrom;
@@ -74,57 +74,57 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     public final void aZA() {
         FrameLayout frameLayout = new FrameLayout(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        this.frp = aZy();
-        frameLayout.addView(this.frp, aZz());
-        this.frq = new View(getContext());
-        al.j(this.frq, e.d.common_color_10205);
-        frameLayout.addView(this.frq, new ViewGroup.LayoutParams(-1, -1));
-        this.fru = new ImageView(getContext());
-        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, getResources().getDimensionPixelSize(e.C0210e.ds1));
-        al.j(this.fru, e.d.cp_bg_line_d);
-        al.c(this.fru, e.d.cp_bg_line_b);
+        this.frq = aZy();
+        frameLayout.addView(this.frq, aZz());
         this.frr = new View(getContext());
+        al.j(this.frr, e.d.common_color_10205);
+        frameLayout.addView(this.frr, new ViewGroup.LayoutParams(-1, -1));
+        this.frv = new ImageView(getContext());
+        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, getResources().getDimensionPixelSize(e.C0210e.ds1));
+        al.j(this.frv, e.d.cp_bg_line_d);
+        al.c(this.frv, e.d.cp_bg_line_b);
         this.frt = new View(getContext());
+        this.fru = new View(getContext());
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, getResources().getDimensionPixelSize(e.C0210e.ds16));
-        switch (this.fqv) {
+        switch (this.fqw) {
             case 1:
             case 4:
-                this.frr.setBackgroundColor(getResources().getColor(17170445));
-                addView(this.frr, layoutParams3);
-                layoutParams2.bottomMargin = 0;
-                addView(this.fru, layoutParams2);
-                addView(frameLayout, layoutParams);
                 this.frt.setBackgroundColor(getResources().getColor(17170445));
                 addView(this.frt, layoutParams3);
+                layoutParams2.bottomMargin = 0;
+                addView(this.frv, layoutParams2);
+                addView(frameLayout, layoutParams);
+                this.fru.setBackgroundColor(getResources().getColor(17170445));
+                addView(this.fru, layoutParams3);
                 return;
             case 2:
-                al.j(this.frr, e.d.cp_bg_line_c);
-                addView(this.frr, layoutParams3);
-                addView(this.fru, layoutParams2);
-                addView(frameLayout, layoutParams);
                 al.j(this.frt, e.d.cp_bg_line_c);
                 addView(this.frt, layoutParams3);
+                addView(this.frv, layoutParams2);
+                addView(frameLayout, layoutParams);
+                al.j(this.fru, e.d.cp_bg_line_c);
+                addView(this.fru, layoutParams3);
                 return;
             case 3:
-                al.j(this.frr, e.d.cp_bg_line_c);
-                addView(this.frr, layoutParams3);
-                addView(frameLayout, layoutParams);
-                layoutParams2.bottomMargin = getResources().getDimensionPixelSize(e.C0210e.ds1);
-                addView(this.fru, layoutParams2);
                 al.j(this.frt, e.d.cp_bg_line_c);
                 addView(this.frt, layoutParams3);
+                addView(frameLayout, layoutParams);
+                layoutParams2.bottomMargin = getResources().getDimensionPixelSize(e.C0210e.ds1);
+                addView(this.frv, layoutParams2);
+                al.j(this.fru, e.d.cp_bg_line_c);
+                addView(this.fru, layoutParams3);
                 return;
             case 5:
                 addView(frameLayout, layoutParams);
                 return;
             default:
-                this.frr.setBackgroundColor(getResources().getColor(17170445));
-                addView(this.frr, layoutParams3);
-                layoutParams2.bottomMargin = 0;
-                addView(frameLayout, layoutParams);
-                addView(this.fru, layoutParams2);
                 this.frt.setBackgroundColor(getResources().getColor(17170445));
                 addView(this.frt, layoutParams3);
+                layoutParams2.bottomMargin = 0;
+                addView(frameLayout, layoutParams);
+                addView(this.frv, layoutParams2);
+                this.fru.setBackgroundColor(getResources().getColor(17170445));
+                addView(this.fru, layoutParams3);
                 return;
         }
     }
@@ -136,46 +136,46 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
         switch (i) {
             case -1:
             case 0:
-                this.fru.setVisibility(8);
+                this.frv.setVisibility(8);
                 return;
             case 1:
-                this.fru.setPadding(0, 0, 0, 0);
-                this.fru.setVisibility(0);
+                this.frv.setPadding(0, 0, 0, 0);
+                this.frv.setVisibility(0);
                 return;
             case 2:
-                this.fru.setPadding(getResources().getDimensionPixelSize(e.C0210e.ds24), 0, 0, 0);
-                this.fru.setVisibility(0);
+                this.frv.setPadding(getResources().getDimensionPixelSize(e.C0210e.ds24), 0, 0, 0);
+                this.frv.setVisibility(0);
                 return;
             case 3:
-                this.fru.setPadding(getResources().getDimensionPixelSize(e.C0210e.ds24), 0, getResources().getDimensionPixelSize(e.C0210e.ds24), 0);
-                this.fru.setVisibility(0);
+                this.frv.setPadding(getResources().getDimensionPixelSize(e.C0210e.ds24), 0, getResources().getDimensionPixelSize(e.C0210e.ds24), 0);
+                this.frv.setVisibility(0);
                 return;
             default:
-                this.fru.setVisibility(8);
+                this.frv.setVisibility(8);
                 return;
         }
     }
 
     protected final void c(T t) {
-        this.frq.setVisibility(t.isShowCover() ? 0 : 8);
+        this.frr.setVisibility(t.isShowCover() ? 0 : 8);
         int showSpace = t.getShowSpace();
         ri(showSpace != 0 ? -1 : t.getShowLine());
         switch (showSpace) {
             case 0:
-                this.frr.setVisibility(8);
                 this.frt.setVisibility(8);
+                this.fru.setVisibility(8);
                 return;
             case 1:
-                this.frr.setVisibility(8);
-                this.frt.setVisibility(0);
+                this.frt.setVisibility(8);
+                this.fru.setVisibility(0);
                 return;
             case 2:
-                this.frr.setVisibility(0);
-                this.frt.setVisibility(8);
+                this.frt.setVisibility(0);
+                this.fru.setVisibility(8);
                 return;
             case 3:
-                this.frr.setVisibility(0);
                 this.frt.setVisibility(0);
+                this.fru.setVisibility(0);
                 return;
             default:
                 return;
@@ -183,7 +183,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     }
 
     public final void aZB() {
-        this.frp.setVisibility(0);
+        this.frq.setVisibility(0);
     }
 
     public final void d(T t) {
@@ -215,8 +215,8 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
 
     public void f(T t) {
         int e = q.e(this.mContext, t.getScheme());
-        if (this.frv != null) {
-            this.frv.b(e, null);
+        if (this.frw != null) {
+            this.frw.b(e, null);
         }
     }
 
@@ -239,11 +239,11 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
 
     @Override // com.baidu.tieba.lego.card.view.e
     public final void setBusinessType(int i) {
-        this.fqv = i;
+        this.fqw = i;
     }
 
     public final int getBusinessType() {
-        return this.fqv;
+        return this.fqw;
     }
 
     public final boolean isNightMode() {
@@ -308,21 +308,21 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
     }
 
     private void aZC() {
-        al.j(this.fru, e.d.cp_bg_line_d);
-        al.c(this.fru, e.d.cp_bg_line_b);
-        switch (this.fqv) {
+        al.j(this.frv, e.d.cp_bg_line_d);
+        al.c(this.frv, e.d.cp_bg_line_b);
+        switch (this.fqw) {
             case 1:
-                this.frr.setBackgroundColor(getResources().getColor(17170445));
                 this.frt.setBackgroundColor(getResources().getColor(17170445));
+                this.fru.setBackgroundColor(getResources().getColor(17170445));
                 return;
             case 2:
             case 3:
-                al.j(this.frr, e.d.cp_bg_line_c);
                 al.j(this.frt, e.d.cp_bg_line_c);
+                al.j(this.fru, e.d.cp_bg_line_c);
                 return;
             default:
-                this.frr.setBackgroundColor(getResources().getColor(17170445));
                 this.frt.setBackgroundColor(getResources().getColor(17170445));
+                this.fru.setBackgroundColor(getResources().getColor(17170445));
                 return;
         }
     }
@@ -378,7 +378,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
 
     @Override // com.baidu.tieba.lego.card.view.e
     public final void setAfterClickSchemeListener(a aVar) {
-        this.frv = aVar;
+        this.frw = aVar;
     }
 
     @Override // com.baidu.tieba.lego.card.view.e
@@ -388,7 +388,7 @@ public abstract class BaseLegoCardView<T extends BaseLegoCardInfo> extends Linea
 
     @Override // com.baidu.tieba.lego.card.view.e
     public void setDownloadAppCallback(c cVar) {
-        this.frw = cVar;
+        this.frx = cVar;
     }
 
     @Override // com.baidu.tieba.lego.card.view.e

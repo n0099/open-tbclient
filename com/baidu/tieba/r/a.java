@@ -7,8 +7,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static a hxk;
-    private InterfaceC0303a hxl = bHD();
+    private static a hxl;
+    private InterfaceC0303a hxm = bHD();
 
     /* renamed from: com.baidu.tieba.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -38,37 +38,37 @@ public class a {
     }
 
     public static a bHE() {
-        if (hxk == null) {
+        if (hxl == null) {
             synchronized (a.class) {
-                if (hxk == null) {
-                    hxk = new a();
+                if (hxl == null) {
+                    hxl = new a();
                 }
             }
         }
-        return hxk;
+        return hxl;
     }
 
     public void b(Application application) {
-        if (this.hxl != null) {
-            this.hxl.b(application);
+        if (this.hxm != null) {
+            this.hxm.b(application);
         }
     }
 
     public void onPause(Activity activity) {
-        if (this.hxl != null) {
-            this.hxl.onPause(activity);
+        if (this.hxm != null) {
+            this.hxm.onPause(activity);
         }
     }
 
     public void onResume(Activity activity) {
-        if (this.hxl != null) {
-            this.hxl.onResume(activity);
+        if (this.hxm != null) {
+            this.hxm.onResume(activity);
         }
     }
 
     public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
-        if (this.hxl != null) {
-            this.hxl.behaviorRecordEvent(motionEvent, activity);
+        if (this.hxm != null) {
+            this.hxm.behaviorRecordEvent(motionEvent, activity);
         }
     }
 }

@@ -53,9 +53,9 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public int view_card_num;
     public static int FROM_PERSON_POLYMERIC = 1;
     public static int FROM_PERSON_POST = 2;
-    private static int gCE = 0;
-    private static int gCF = 1;
-    private static String gCG = "";
+    private static int gCF = 0;
+    private static int gCG = 1;
+    private static String gCH = "";
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -182,36 +182,36 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     public void resetThreadPn() {
-        gCF = 1;
+        gCG = 1;
     }
 
     public void fetchPost(TbPageContext<BaseFragmentActivity> tbPageContext, a aVar, boolean z, String str, boolean z2, int i, boolean z3, boolean z4) {
         this.mIsReset = z;
         if (z3) {
-            if (z || !str.equals(gCG)) {
-                gCE = 1;
-                gCG = str;
+            if (z || !str.equals(gCH)) {
+                gCF = 1;
+                gCH = str;
             } else {
-                gCE++;
+                gCF++;
             }
         } else {
-            if (z || !str.equals(gCG)) {
+            if (z || !str.equals(gCH)) {
                 if (this.mFrom == FROM_PERSON_POLYMERIC) {
-                    gCF = 1;
+                    gCG = 1;
                 } else {
-                    gCF = 0;
+                    gCG = 0;
                 }
-                gCG = str;
+                gCH = str;
             }
-            gCF++;
+            gCG++;
         }
         UserPostPageRequestMessage userPostPageRequestMessage = new UserPostPageRequestMessage();
         userPostPageRequestMessage.set_sub_type(i);
-        userPostPageRequestMessage.setUid(gCG);
+        userPostPageRequestMessage.setUid(gCH);
         if (z3) {
-            userPostPageRequestMessage.setPn(gCE);
-        } else {
             userPostPageRequestMessage.setPn(gCF);
+        } else {
+            userPostPageRequestMessage.setPn(gCG);
         }
         userPostPageRequestMessage.setRn(20);
         userPostPageRequestMessage.setThread(!z3);
@@ -264,7 +264,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 } else if (this.mFrom == FROM_PERSON_POST) {
                     cardPersonDynamicThreadData.from = 1;
                 }
-                if (cardPersonDynamicThreadData.dcc != 33) {
+                if (cardPersonDynamicThreadData.dcd != 33) {
                     this.threadList.add(cardPersonDynamicThreadData);
                     this.postList.add(postInfoList2);
                 }
@@ -510,17 +510,17 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         while (it.hasNext()) {
             h next = it.next();
             if (next instanceof CardPersonDynamicThreadData) {
+                ((CardPersonDynamicThreadData) next).dcp = true;
                 ((CardPersonDynamicThreadData) next).dco = true;
-                ((CardPersonDynamicThreadData) next).dcn = true;
-                long j = ((CardPersonDynamicThreadData) next).dca * 1000;
+                long j = ((CardPersonDynamicThreadData) next).dcb * 1000;
                 String ag2 = ao.ag(j);
                 String aj = ao.aj(j);
                 String ai = ao.ai(j);
                 if (ao.equals(ag2, ag)) {
-                    ((CardPersonDynamicThreadData) next).dco = false;
+                    ((CardPersonDynamicThreadData) next).dcp = false;
                 }
                 if (ao.equals(ai, str5) && ao.equals(aj, str4) && ao.equals(ag2, ag)) {
-                    ((CardPersonDynamicThreadData) next).dcn = false;
+                    ((CardPersonDynamicThreadData) next).dco = false;
                     str = str5;
                     str2 = str4;
                     str3 = ag;

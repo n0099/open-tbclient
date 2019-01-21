@@ -7,17 +7,17 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes3.dex */
 public class e {
-    private com.baidu.tieba.easterEgg.a.a dpG;
-    private a dpH;
+    private com.baidu.tieba.easterEgg.a.a dpH;
+    private a dpI;
     private HttpMessageListener mNetListener = new HttpMessageListener(CmdConfigHttp.CMD_GET_RN_SYNC) { // from class: com.baidu.tieba.easterEgg.e.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof RnSyncResponseMessage) {
                 RnSyncResponseMessage rnSyncResponseMessage = (RnSyncResponseMessage) httpResponsedMessage;
-                e.this.dpG = rnSyncResponseMessage.getData();
-                if (e.this.dpH != null) {
-                    e.this.dpH.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
+                e.this.dpH = rnSyncResponseMessage.getData();
+                if (e.this.dpI != null) {
+                    e.this.dpI.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
                 }
             }
         }
@@ -42,6 +42,6 @@ public class e {
     }
 
     public void a(a aVar) {
-        this.dpH = aVar;
+        this.dpI = aVar;
     }
 }

@@ -18,22 +18,22 @@ import com.baidu.tbadk.coreExtra.message.ResponsedPingMessage;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class PingManager extends Handler implements com.baidu.adp.framework.client.socket.b {
-    private static PingManager aWP = null;
-    private long aWQ = 0;
-    private int aWR = 180000;
-    private int aWS = 900000;
-    private int aWT = this.aWS;
-    private PingMessage aWU = null;
+    private static PingManager aWQ = null;
+    private long aWR = 0;
+    private int aWS = 180000;
+    private int aWT = 900000;
+    private int aWU = this.aWT;
+    private PingMessage aWV = null;
 
     public static PingManager Lw() {
-        if (aWP == null) {
+        if (aWQ == null) {
             synchronized (PingManager.class) {
-                if (aWP == null) {
-                    aWP = new PingManager();
+                if (aWQ == null) {
+                    aWQ = new PingManager();
                 }
             }
         }
-        return aWP;
+        return aWQ;
     }
 
     @Override // android.os.Handler
@@ -60,10 +60,10 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
 
     @Override // com.baidu.adp.framework.client.socket.b
     public boolean b(boolean z, String str) {
-        if ((z || System.currentTimeMillis() - this.aWQ >= 180000) && BdSocketLinkService.isOpen()) {
-            this.aWQ = System.currentTimeMillis();
-            MessageManager.getInstance().sendMessage(this.aWU);
-            i.a("PingManager", this.aWU, 0, "send_ping", 0, str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + (this.aWT == this.aWS ? AiAppsUBCStatistic.VALUE_BACK : "fore"));
+        if ((z || System.currentTimeMillis() - this.aWR >= 180000) && BdSocketLinkService.isOpen()) {
+            this.aWR = System.currentTimeMillis();
+            MessageManager.getInstance().sendMessage(this.aWV);
+            i.a("PingManager", this.aWV, 0, "send_ping", 0, str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + (this.aWU == this.aWT ? AiAppsUBCStatistic.VALUE_BACK : "fore"));
             return true;
         }
         return false;
@@ -77,8 +77,8 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
     @Override // com.baidu.adp.framework.client.socket.b
     public void gq() {
         removeMessages(1);
-        sendMessageDelayed(obtainMessage(1), this.aWT);
-        this.aWQ = System.currentTimeMillis();
+        sendMessageDelayed(obtainMessage(1), this.aWU);
+        this.aWR = System.currentTimeMillis();
     }
 
     public void initial() {
@@ -89,7 +89,7 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
         bVar.a(SocketMessageTask.DupLicateMode.REMOVE_ME);
         bVar.N(false);
         MessageManager.getInstance().registerTask(bVar);
-        this.aWU = new PingMessage();
+        this.aWV = new PingMessage();
         Lx();
         com.baidu.adp.framework.listener.c cVar = new com.baidu.adp.framework.listener.c(1003) { // from class: com.baidu.tbadk.coreExtra.websocketBase.PingManager.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -117,11 +117,11 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
         if (responsedMessage != null) {
             int error = responsedMessage.getError();
             if (error == 0) {
-                i.a("PingManager", responsedMessage.getOrginalMessage(), 0, "ping_succ", com.baidu.tbadk.core.g.aoE, "costtime:" + String.valueOf(System.currentTimeMillis() - this.aWQ));
+                i.a("PingManager", responsedMessage.getOrginalMessage(), 0, "ping_succ", com.baidu.tbadk.core.g.aoF, "costtime:" + String.valueOf(System.currentTimeMillis() - this.aWR));
                 return;
             }
             BdSocketLinkService.close(7, "ping error");
-            i.a("PingManager", this.aWU.getCmd(), this.aWU.getClientLogID(), 0, "ping_err", error, "costtime:" + String.valueOf(System.currentTimeMillis() - this.aWQ));
+            i.a("PingManager", this.aWV.getCmd(), this.aWV.getClientLogID(), 0, "ping_err", error, "costtime:" + String.valueOf(System.currentTimeMillis() - this.aWR));
         }
     }
 
@@ -129,10 +129,10 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
     public void a(BackgroundSwitchMessage backgroundSwitchMessage) {
         if (backgroundSwitchMessage != null) {
             if (backgroundSwitchMessage.getData().booleanValue()) {
-                this.aWT = this.aWS;
+                this.aWU = this.aWT;
                 return;
             }
-            this.aWT = this.aWR;
+            this.aWU = this.aWS;
             ai("switchToForeground");
         }
     }
@@ -140,19 +140,19 @@ public class PingManager extends Handler implements com.baidu.adp.framework.clie
     public void Lx() {
         int[] socketHeartBeatStratgy = TbadkCoreApplication.getInst().getSocketHeartBeatStratgy();
         if (socketHeartBeatStratgy.length == 2) {
-            this.aWR = socketHeartBeatStratgy[0] * 1000;
-            this.aWS = socketHeartBeatStratgy[1] * 1000;
-            if (this.aWR < 180000) {
-                this.aWR = 180000;
-            }
+            this.aWS = socketHeartBeatStratgy[0] * 1000;
+            this.aWT = socketHeartBeatStratgy[1] * 1000;
             if (this.aWS < 180000) {
                 this.aWS = 180000;
+            }
+            if (this.aWT < 180000) {
+                this.aWT = 180000;
             }
         }
     }
 
     public int Ly() {
-        return this.aWR;
+        return this.aWS;
     }
 
     @Override // com.baidu.adp.framework.client.socket.b

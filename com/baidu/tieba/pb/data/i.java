@@ -5,40 +5,40 @@ import com.baidu.tbadk.core.data.bb;
 import tbclient.PbPage.DataRes;
 /* loaded from: classes6.dex */
 public class i implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId fUz = BdUniqueId.gen();
-    public bb bOk;
-    private boolean fUA = false;
+    public static final BdUniqueId fUA = BdUniqueId.gen();
+    public bb bOl;
     private boolean fUB = false;
-    private int fUC = 1;
+    private boolean fUC = false;
+    private int fUD = 1;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return fUz;
+        return fUA;
     }
 
     public void b(DataRes dataRes) {
         boolean z = true;
         if (dataRes != null && dataRes.thread != null) {
-            this.fUA = (dataRes.thread.origin_thread_info == null || dataRes.thread.origin_thread_info.is_deleted.intValue() != 1) ? false : false;
+            this.fUB = (dataRes.thread.origin_thread_info == null || dataRes.thread.origin_thread_info.is_deleted.intValue() != 1) ? false : false;
         }
     }
 
     public int Bi() {
-        if (this.bOk != null) {
-            return this.bOk.Bi();
+        if (this.bOl != null) {
+            return this.bOl.Bi();
         }
         return 0;
     }
 
     public boolean bid() {
-        return this.bOk != null && this.bOk.Bh() == 1;
+        return this.bOl != null && this.bOl.Bh() == 1;
     }
 
     public void kz(boolean z) {
-        this.fUB = z;
+        this.fUC = z;
     }
 
     public boolean bie() {
-        return this.fUB;
+        return this.fUC;
     }
 }

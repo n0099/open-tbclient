@@ -5,8 +5,8 @@ import android.os.Handler;
 import android.os.Message;
 /* loaded from: classes.dex */
 public class c extends com.baidu.tieba.animation3d.b.a {
-    private int cUl;
-    private a cUm;
+    private int cUm;
+    private a cUn;
     private Handler mHandler;
     private float mRadius;
 
@@ -18,8 +18,8 @@ public class c extends com.baidu.tieba.animation3d.b.a {
     public c(Context context) {
         super(context);
         this.mRadius = 0.0f;
-        this.cUl = 1;
-        this.cUm = null;
+        this.cUm = 1;
+        this.cUn = null;
         initHandler();
     }
 
@@ -29,14 +29,14 @@ public class c extends com.baidu.tieba.animation3d.b.a {
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        if (c.this.cUm != null) {
-                            c.this.cUm.fp(true);
+                        if (c.this.cUn != null) {
+                            c.this.cUn.fp(true);
                             return true;
                         }
                         return true;
                     case 2:
-                        if (c.this.cUm != null) {
-                            c.this.cUm.fp(false);
+                        if (c.this.cUn != null) {
+                            c.this.cUn.fp(false);
                             return true;
                         }
                         return true;
@@ -49,8 +49,8 @@ public class c extends com.baidu.tieba.animation3d.b.a {
 
     public void setRotateRadius(float f) {
         this.mRadius = f;
+        this.cUc = this.mRadius;
         this.cUb = this.mRadius;
-        this.cUa = this.mRadius;
     }
 
     private void apR() {
@@ -59,20 +59,20 @@ public class c extends com.baidu.tieba.animation3d.b.a {
     }
 
     public int getViewStatus() {
-        return this.cUl;
+        return this.cUm;
     }
 
     @Override // com.baidu.tieba.animation3d.b.a
     public void ED() {
         super.ED();
+        this.cUc = this.mRadius;
         this.cUb = this.mRadius;
-        this.cUa = this.mRadius;
-        this.cUl = 1;
+        this.cUm = 1;
         apR();
         this.mHandler.sendEmptyMessage(1);
     }
 
     public void setWriteEndCallBack(a aVar) {
-        this.cUm = aVar;
+        this.cUn = aVar;
     }
 }

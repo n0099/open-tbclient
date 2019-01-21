@@ -9,21 +9,21 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b extends c.a {
-    private final long gJN;
-    private final String gJO;
-    private com.baidu.tieba.j.a.e[] gJP;
-    private final int gJi;
+    private final long gJO;
+    private final String gJP;
+    private com.baidu.tieba.j.a.e[] gJQ;
     private final int gJj;
+    private final int gJk;
     private final int what;
 
     public b(int i, int i2, int i3, long j, String str, com.baidu.tieba.j.a.e... eVarArr) {
         super(300);
-        this.gJi = i;
+        this.gJj = i;
         this.what = i2;
-        this.gJj = i3;
-        this.gJN = j;
-        this.gJO = str;
-        this.gJP = eVarArr;
+        this.gJk = i3;
+        this.gJO = j;
+        this.gJP = str;
+        this.gJQ = eVarArr;
     }
 
     @Override // com.baidu.tieba.m.c.a, com.baidu.tieba.m.c
@@ -31,18 +31,18 @@ public class b extends c.a {
         JSONObject btE = super.btE();
         try {
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put(new JSONObject().put("error_msg", c(this.gJi, this.what, this.gJj, this.gJN).toString()));
-            if (this.gJP != null) {
-                int length = this.gJP.length;
+            jSONArray.put(new JSONObject().put("error_msg", c(this.gJj, this.what, this.gJk, this.gJO).toString()));
+            if (this.gJQ != null) {
+                int length = this.gJQ.length;
                 for (int i = 0; i < length; i++) {
-                    com.baidu.tieba.j.a.e eVar = this.gJP[i];
+                    com.baidu.tieba.j.a.e eVar = this.gJQ[i];
                     if (eVar != null) {
                         jSONArray.put(new JSONObject().put(eVar.key, com.baidu.tieba.j.d.sn(eVar.url).toString()));
                     }
                 }
             }
-            if (!StringUtils.isNull(this.gJO)) {
-                jSONArray.put(new JSONObject().put("error_parent", this.gJO));
+            if (!StringUtils.isNull(this.gJP)) {
+                jSONArray.put(new JSONObject().put("error_parent", this.gJP));
             }
             btE.put("ext", jSONArray);
         } catch (Exception e) {

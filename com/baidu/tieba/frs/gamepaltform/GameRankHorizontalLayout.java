@@ -16,8 +16,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class GameRankHorizontalLayout extends HorizontalScrollView {
-    private LinearLayout bCa;
-    private a dXO;
+    private LinearLayout bCb;
+    private a dXP;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -42,13 +42,13 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
     private void init(Context context) {
         setFillViewport(true);
         setHorizontalScrollBarEnabled(false);
-        this.bCa = new LinearLayout(context);
-        addView(this.bCa, -1, -1);
+        this.bCb = new LinearLayout(context);
+        addView(this.bCb, -1, -1);
     }
 
     public void setData(com.baidu.tieba.h.b bVar) {
-        if (this.bCa != null && bVar != null) {
-            this.bCa.removeAllViews();
+        if (this.bCb != null && bVar != null) {
+            this.bCb.removeAllViews();
             if (!v.I(bVar.aKm())) {
                 for (int i = 0; i < bVar.aKm().size(); i++) {
                     View a2 = a(bVar.aKm().get(i), i);
@@ -64,14 +64,14 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                         layoutParams.rightMargin = 0;
                     }
                     a2.setLayoutParams(layoutParams);
-                    this.bCa.addView(a2);
+                    this.bCb.addView(a2);
                 }
             }
         }
     }
 
     public void setOnCardClickListener(a aVar) {
-        this.dXO = aVar;
+        this.dXP = aVar;
     }
 
     private View a(final com.baidu.tieba.h.a aVar, final int i) {
@@ -104,8 +104,8 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                 roundAngleRelativeLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (GameRankHorizontalLayout.this.dXO != null) {
-                            GameRankHorizontalLayout.this.dXO.b(aVar, i);
+                        if (GameRankHorizontalLayout.this.dXP != null) {
+                            GameRankHorizontalLayout.this.dXP.b(aVar, i);
                             if (com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("game_rank_list_show_times", 0) != 0) {
                                 com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("game_rank_list_show_times", 0);
                             }

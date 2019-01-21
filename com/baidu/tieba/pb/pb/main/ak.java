@@ -8,15 +8,15 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class ak extends k<com.baidu.tieba.pb.data.h, al> {
-    private BdUniqueId gfc;
     private BdUniqueId gfd;
+    private BdUniqueId gfe;
     private View.OnClickListener mCommonClickListener;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ak(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
-        this.gfc = BdUniqueId.gen();
         this.gfd = BdUniqueId.gen();
+        this.gfe = BdUniqueId.gen();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,12 +24,12 @@ public class ak extends k<com.baidu.tieba.pb.data.h, al> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bq */
     public al onCreateViewHolder(ViewGroup viewGroup) {
-        al alVar = new al(this.fYJ.getPageContext(), LayoutInflater.from(this.mContext).inflate(e.h.pb_reply_title_layout, viewGroup, false));
+        al alVar = new al(this.fYK.getPageContext(), LayoutInflater.from(this.mContext).inflate(e.h.pb_reply_title_layout, viewGroup, false));
         alVar.L(this.mCommonClickListener);
-        if (getType() == com.baidu.tieba.pb.data.h.fUt) {
-            alVar.h(this.gfc);
-        } else if (getType() == com.baidu.tieba.pb.data.h.fUu) {
-            alVar.n(this.gfd);
+        if (getType() == com.baidu.tieba.pb.data.h.fUu) {
+            alVar.h(this.gfd);
+        } else if (getType() == com.baidu.tieba.pb.data.h.fUv) {
+            alVar.n(this.gfe);
         }
         return alVar;
     }
@@ -47,8 +47,8 @@ public class ak extends k<com.baidu.tieba.pb.data.h, al> {
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.gfc);
         MessageManager.getInstance().unRegisterListener(this.gfd);
+        MessageManager.getInstance().unRegisterListener(this.gfe);
     }
 
     public void s(View.OnClickListener onClickListener) {

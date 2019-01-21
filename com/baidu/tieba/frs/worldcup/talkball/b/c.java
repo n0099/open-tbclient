@@ -7,34 +7,34 @@ import tbclient.TalkBall.Competition;
 import tbclient.TalkBall.Country;
 /* loaded from: classes3.dex */
 public class c {
-    private List<d> emw;
-    private String emx;
+    private List<d> emx;
+    private String emy;
     private long mTime;
     private String mType;
 
     public void a(Competition competition) {
         if (competition != null) {
-            this.emw = new ArrayList();
+            this.emx = new ArrayList();
             List<Country> list = competition.country;
             if (list != null) {
                 for (Country country : list) {
                     d dVar = new d();
                     dVar.a(country);
-                    this.emw.add(dVar);
+                    this.emx.add(dVar);
                 }
             }
             this.mTime = competition.time.longValue() * 1000;
             this.mType = competition.type;
-            this.emx = competition.btn_title;
+            this.emy = competition.btn_title;
         }
     }
 
     public boolean aJB() {
-        return this.emw.size() == 2 && this.emw.get(0).aJB() && this.emw.get(1).aJB() && !ao.isEmpty(this.mType) && this.mTime > 0 && !ao.isEmpty(this.emx);
+        return this.emx.size() == 2 && this.emx.get(0).aJB() && this.emx.get(1).aJB() && !ao.isEmpty(this.mType) && this.mTime > 0 && !ao.isEmpty(this.emy);
     }
 
     public List<d> aJC() {
-        return this.emw;
+        return this.emx;
     }
 
     public long getTime() {
@@ -46,6 +46,6 @@ public class c {
     }
 
     public String aJD() {
-        return this.emx;
+        return this.emy;
     }
 }

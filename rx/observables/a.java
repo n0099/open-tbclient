@@ -71,30 +71,30 @@ public abstract class a<S, T> implements d.a<T> {
     public static final class C0424a<S, T> implements e<rx.d<? extends T>>, f, k {
         boolean emitting;
         private boolean hasTerminated;
-        private final a<S, T> iRg;
-        private final b<rx.d<T>> iRi;
-        List<Long> iRj;
-        f iRk;
-        long iRl;
+        private final a<S, T> iRh;
+        private final b<rx.d<T>> iRj;
+        List<Long> iRk;
+        f iRl;
+        long iRm;
         private boolean onNextCalled;
         private S state;
-        final rx.subscriptions.b iKq = new rx.subscriptions.b();
-        private final rx.b.e<rx.d<? extends T>> iRh = new rx.b.e<>(this);
-        final AtomicBoolean iRf = new AtomicBoolean();
+        final rx.subscriptions.b iKr = new rx.subscriptions.b();
+        private final rx.b.e<rx.d<? extends T>> iRi = new rx.b.e<>(this);
+        final AtomicBoolean iRg = new AtomicBoolean();
 
         public C0424a(a<S, T> aVar, S s, b<rx.d<T>> bVar) {
-            this.iRg = aVar;
+            this.iRh = aVar;
             this.state = s;
-            this.iRi = bVar;
+            this.iRj = bVar;
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            if (this.iRf.compareAndSet(false, true)) {
+            if (this.iRg.compareAndSet(false, true)) {
                 synchronized (this) {
                     if (this.emitting) {
-                        this.iRj = new ArrayList();
-                        this.iRj.add(0L);
+                        this.iRk = new ArrayList();
+                        this.iRk.add(0L);
                     } else {
                         this.emitting = true;
                         cleanup();
@@ -104,25 +104,25 @@ public abstract class a<S, T> implements d.a<T> {
         }
 
         void a(f fVar) {
-            if (this.iRk != null) {
+            if (this.iRl != null) {
                 throw new IllegalStateException("setConcatProducer may be called at most once!");
             }
-            this.iRk = fVar;
+            this.iRl = fVar;
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.iRf.get();
+            return this.iRg.get();
         }
 
         public void ea(long j) {
-            this.state = this.iRg.a(this.state, j, this.iRh);
+            this.state = this.iRh.a(this.state, j, this.iRi);
         }
 
         void cleanup() {
-            this.iKq.unsubscribe();
+            this.iKr.unsubscribe();
             try {
-                this.iRg.br(this.state);
+                this.iRh.br(this.state);
             } catch (Throwable th) {
                 S(th);
             }
@@ -137,10 +137,10 @@ public abstract class a<S, T> implements d.a<T> {
                 }
                 synchronized (this) {
                     if (this.emitting) {
-                        List list = this.iRj;
+                        List list = this.iRk;
                         if (list == null) {
                             list = new ArrayList();
-                            this.iRj = list;
+                            this.iRk = list;
                         }
                         list.add(Long.valueOf(j));
                     } else {
@@ -148,18 +148,18 @@ public abstract class a<S, T> implements d.a<T> {
                         z = false;
                     }
                 }
-                this.iRk.request(j);
+                this.iRl.request(j);
                 if (z || ec(j)) {
                     return;
                 }
                 while (true) {
                     synchronized (this) {
-                        List<Long> list2 = this.iRj;
+                        List<Long> list2 = this.iRk;
                         if (list2 == null) {
                             this.emitting = false;
                             return;
                         }
-                        this.iRj = null;
+                        this.iRk = null;
                         for (Long l : list2) {
                             if (ec(l.longValue())) {
                                 return;
@@ -177,10 +177,10 @@ public abstract class a<S, T> implements d.a<T> {
                 }
                 synchronized (this) {
                     if (this.emitting) {
-                        List list = this.iRj;
+                        List list = this.iRk;
                         if (list == null) {
                             list = new ArrayList();
-                            this.iRj = list;
+                            this.iRk = list;
                         }
                         list.add(Long.valueOf(j));
                         return;
@@ -191,12 +191,12 @@ public abstract class a<S, T> implements d.a<T> {
                     }
                     while (true) {
                         synchronized (this) {
-                            List<Long> list2 = this.iRj;
+                            List<Long> list2 = this.iRk;
                             if (list2 == null) {
                                 this.emitting = false;
                                 return;
                             }
-                            this.iRj = null;
+                            this.iRk = null;
                             for (Long l : list2) {
                                 if (ec(l.longValue())) {
                                     return;
@@ -215,7 +215,7 @@ public abstract class a<S, T> implements d.a<T> {
             } else {
                 try {
                     this.onNextCalled = false;
-                    this.iRl = j;
+                    this.iRm = j;
                     ea(j);
                     if (this.hasTerminated || isUnsubscribed()) {
                         cleanup();
@@ -237,7 +237,7 @@ public abstract class a<S, T> implements d.a<T> {
                 return;
             }
             this.hasTerminated = true;
-            this.iRi.onError(th);
+            this.iRj.onError(th);
             cleanup();
         }
 
@@ -247,7 +247,7 @@ public abstract class a<S, T> implements d.a<T> {
                 throw new IllegalStateException("Terminal event already emitted.");
             }
             this.hasTerminated = true;
-            this.iRi.onCompleted();
+            this.iRj.onCompleted();
         }
 
         @Override // rx.e
@@ -256,7 +256,7 @@ public abstract class a<S, T> implements d.a<T> {
                 throw new IllegalStateException("Terminal event already emitted.");
             }
             this.hasTerminated = true;
-            this.iRi.onError(th);
+            this.iRj.onError(th);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -274,17 +274,17 @@ public abstract class a<S, T> implements d.a<T> {
 
         private void m(rx.d<? extends T> dVar) {
             final BufferUntilSubscriber ceB = BufferUntilSubscriber.ceB();
-            final long j = this.iRl;
+            final long j = this.iRm;
             final j jVar = (j<T>) new j<T>() { // from class: rx.observables.a.a.1
-                long iRm;
+                long iRn;
 
                 {
-                    this.iRm = j;
+                    this.iRn = j;
                 }
 
                 @Override // rx.e
                 public void onNext(T t) {
-                    this.iRm--;
+                    this.iRn--;
                     ceB.onNext(t);
                 }
 
@@ -296,27 +296,27 @@ public abstract class a<S, T> implements d.a<T> {
                 @Override // rx.e
                 public void onCompleted() {
                     ceB.onCompleted();
-                    long j2 = this.iRm;
+                    long j2 = this.iRn;
                     if (j2 > 0) {
                         C0424a.this.eb(j2);
                     }
                 }
             };
-            this.iKq.add(jVar);
+            this.iKr.add(jVar);
             dVar.doOnTerminate(new rx.functions.a() { // from class: rx.observables.a.a.2
                 @Override // rx.functions.a
                 public void call() {
-                    C0424a.this.iKq.b(jVar);
+                    C0424a.this.iKr.b(jVar);
                 }
             }).subscribe((j<? super Object>) jVar);
-            this.iRi.onNext(ceB);
+            this.iRj.onNext(ceB);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b<T> extends rx.d<T> implements e<T> {
-        private final C0425a<T> iRq;
+        private final C0425a<T> iRr;
 
         public static <T> b<T> cgg() {
             return new b<>(new C0425a());
@@ -324,22 +324,22 @@ public abstract class a<S, T> implements d.a<T> {
 
         protected b(C0425a<T> c0425a) {
             super(c0425a);
-            this.iRq = c0425a;
+            this.iRr = c0425a;
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.iRq.subscriber.onCompleted();
+            this.iRr.subscriber.onCompleted();
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iRq.subscriber.onError(th);
+            this.iRr.subscriber.onError(th);
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            this.iRq.subscriber.onNext(t);
+            this.iRr.subscriber.onNext(t);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */

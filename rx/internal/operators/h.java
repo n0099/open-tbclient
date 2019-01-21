@@ -3,8 +3,8 @@ package rx.internal.operators;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class h<T, U> implements d.a<T> {
-    final rx.d<? extends T> iGH;
-    final rx.d<U> iGI;
+    final rx.d<? extends T> iGI;
+    final rx.d<U> iGJ;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -12,8 +12,8 @@ public final class h<T, U> implements d.a<T> {
     }
 
     public h(rx.d<? extends T> dVar, rx.d<U> dVar2) {
-        this.iGH = dVar;
-        this.iGI = dVar2;
+        this.iGI = dVar;
+        this.iGJ = dVar2;
     }
 
     public void call(rx.j<? super T> jVar) {
@@ -43,11 +43,11 @@ public final class h<T, U> implements d.a<T> {
                 if (!this.done) {
                     this.done = true;
                     dVar.g(rx.subscriptions.e.cgS());
-                    h.this.iGH.unsafeSubscribe(b);
+                    h.this.iGI.unsafeSubscribe(b);
                 }
             }
         };
         dVar.g(jVar2);
-        this.iGI.unsafeSubscribe(jVar2);
+        this.iGJ.unsafeSubscribe(jVar2);
     }
 }

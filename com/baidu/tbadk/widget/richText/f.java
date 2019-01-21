@@ -4,11 +4,11 @@ import com.baidu.adp.lib.util.StringUtils;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class f {
-    private String bso;
-    private int bsp;
-    private String bsq;
-    private int bsr;
+    private String bsp;
+    private int bsq;
+    private String bsr;
     private int bss;
+    private int bst;
     private int duration;
     private int height;
     private String videoUrl;
@@ -17,14 +17,14 @@ public class f {
     public void b(PbContent pbContent) {
         if (pbContent != null) {
             this.videoUrl = pbContent.link;
-            this.bso = pbContent.src;
+            this.bsp = pbContent.src;
             this.width = pbContent.width.intValue();
             this.height = pbContent.height.intValue();
-            this.bsp = pbContent.e_type.intValue();
-            this.bsq = pbContent.text;
+            this.bsq = pbContent.e_type.intValue();
+            this.bsr = pbContent.text;
             this.duration = pbContent.during_time.intValue();
-            this.bsr = pbContent.count.intValue();
-            this.bss = pbContent.origin_size.intValue();
+            this.bss = pbContent.count.intValue();
+            this.bst = pbContent.origin_size.intValue();
         }
     }
 
@@ -33,7 +33,7 @@ public class f {
     }
 
     public String getThumbUrl() {
-        return this.bso;
+        return this.bsp;
     }
 
     public int getWidth() {
@@ -45,11 +45,11 @@ public class f {
     }
 
     public String Tl() {
-        return this.bsq;
+        return this.bsr;
     }
 
     public boolean Tm() {
-        return this.bsp == 15;
+        return this.bsq == 15;
     }
 
     public boolean isAvaliable() {
@@ -61,6 +61,6 @@ public class f {
     }
 
     public int getFileSize() {
-        return this.bss;
+        return this.bst;
     }
 }

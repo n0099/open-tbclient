@@ -12,25 +12,25 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f implements a {
-    private e dQO;
-    private boolean dQP;
+    private e dQP;
+    private boolean dQQ;
     private TbPageContext mContext;
     private BdTypeListView mListView;
     private List<com.baidu.adp.widget.ListView.h> mDatas = new ArrayList();
     private final List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
-    private int dQQ = -1;
+    private int dQR = -1;
 
     public f(TbPageContext tbPageContext, BdTypeListView bdTypeListView, boolean z) {
-        this.dQP = false;
+        this.dQQ = false;
         this.mContext = tbPageContext;
         this.mListView = bdTypeListView;
-        this.dQP = z;
+        this.dQQ = z;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.dQO = new e(this.mContext, this, this.dQP);
-        this.mAdapters.add(this.dQO);
+        this.dQP = new e(this.mContext, this, this.dQQ);
+        this.mAdapters.add(this.dQP);
         this.mListView.addAdapters(this.mAdapters);
     }
 
@@ -41,7 +41,7 @@ public class f implements a {
             }
             this.mDatas.addAll(list);
             this.mListView.setData(this.mDatas);
-            if (z && list.size() > 0 && this.dQP && j.kW()) {
+            if (z && list.size() > 0 && this.dQQ && j.kW()) {
                 aEm();
                 list.get(0).autoPlay = true;
             }
@@ -59,8 +59,8 @@ public class f implements a {
                     break;
                 }
                 com.baidu.adp.widget.ListView.h next = it.next();
-                if (next != null && (next instanceof g) && ((g) next).dQV != null && str.equals(((g) next).dQV.userId)) {
-                    ((g) next).dQV.hasFocus = z;
+                if (next != null && (next instanceof g) && ((g) next).dQW != null && str.equals(((g) next).dQW.userId)) {
+                    ((g) next).dQW.hasFocus = z;
                     z2 = true;
                 }
                 z3 = z2;
@@ -78,32 +78,32 @@ public class f implements a {
     }
 
     public void onDestroy() {
-        this.dQO.onDestroy();
+        this.dQP.onDestroy();
     }
 
     public boolean pF() {
-        return this.dQO.pF();
+        return this.dQP.pF();
     }
 
     public void pD() {
-        this.dQO.pD();
+        this.dQP.pD();
     }
 
     public void pE() {
-        this.dQO.pE();
+        this.dQP.pE();
     }
 
     public void onConfigurationChanged(Configuration configuration) {
-        this.dQO.onConfigurationChanged(configuration);
+        this.dQP.onConfigurationChanged(configuration);
     }
 
     public boolean mI(int i) {
-        return this.dQO.mI(i);
+        return this.dQP.mI(i);
     }
 
     @Override // com.baidu.tieba.frs.aggregation.a
     public void mH(int i) {
-        this.dQQ = i;
+        this.dQR = i;
         if (!v.I(this.mDatas) && this.mListView != null) {
             for (com.baidu.adp.widget.ListView.h hVar : this.mDatas) {
                 if (hVar instanceof g) {
@@ -111,24 +111,24 @@ public class f implements a {
                 }
             }
             if (j.kW()) {
-                if (this.dQQ < this.mDatas.size() - 1) {
+                if (this.dQR < this.mDatas.size() - 1) {
                     List<com.baidu.adp.widget.ListView.h> list = this.mDatas;
-                    int i2 = this.dQQ + 1;
-                    this.dQQ = i2;
+                    int i2 = this.dQR + 1;
+                    this.dQR = i2;
                     if (list.get(i2) instanceof g) {
-                        ((g) this.mDatas.get(this.dQQ)).autoPlay = true;
+                        ((g) this.mDatas.get(this.dQR)).autoPlay = true;
                         this.mListView.smoothScrollToPositionFromTop(this.mListView.getHeaderViewsCount() + i + 1, 0);
                         notifyDataSetChanged();
                     }
-                } else if (this.dQQ == this.mDatas.size() - 1 && (this.mDatas.get(this.dQQ) instanceof g)) {
-                    ((g) this.mDatas.get(this.dQQ)).autoPlay = false;
+                } else if (this.dQR == this.mDatas.size() - 1 && (this.mDatas.get(this.dQR) instanceof g)) {
+                    ((g) this.mDatas.get(this.dQR)).autoPlay = false;
                 }
             }
         }
     }
 
     public int aEk() {
-        return this.dQQ;
+        return this.dQR;
     }
 
     public void aEl() {
@@ -147,7 +147,7 @@ public class f implements a {
 
     private void aEm() {
         aEl();
-        this.dQQ = 0;
+        this.dQR = 0;
         pD();
     }
 }

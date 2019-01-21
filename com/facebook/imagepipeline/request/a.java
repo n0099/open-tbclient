@@ -13,15 +13,15 @@ import javax.annotation.concurrent.Immutable;
 /* loaded from: classes2.dex */
 public class a {
     @Nullable
-    private final List<b> iwf;
-    private final boolean iwg;
+    private final List<b> iwg;
+    private final boolean iwh;
     private final String mMediaId;
     private final String mSource;
 
     private a(C0365a c0365a) {
         this.mMediaId = c0365a.mMediaId;
-        this.iwf = c0365a.iwf;
         this.iwg = c0365a.iwg;
+        this.iwh = c0365a.iwh;
         this.mSource = c0365a.mSource;
     }
 
@@ -30,10 +30,10 @@ public class a {
     }
 
     public int cbr() {
-        if (this.iwf == null) {
+        if (this.iwg == null) {
             return 0;
         }
-        return this.iwf.size();
+        return this.iwg.size();
     }
 
     public List<b> a(Comparator<b> comparator) {
@@ -43,14 +43,14 @@ public class a {
         }
         ArrayList arrayList = new ArrayList(cbr);
         for (int i = 0; i < cbr; i++) {
-            arrayList.add(this.iwf.get(i));
+            arrayList.add(this.iwg.get(i));
         }
         Collections.sort(arrayList, comparator);
         return arrayList;
     }
 
     public boolean cbs() {
-        return this.iwg;
+        return this.iwh;
     }
 
     public String getSource() {
@@ -60,23 +60,23 @@ public class a {
     public boolean equals(Object obj) {
         if (obj instanceof a) {
             a aVar = (a) obj;
-            return f.equal(this.mMediaId, aVar.mMediaId) && this.iwg == aVar.iwg && f.equal(this.iwf, aVar.iwf);
+            return f.equal(this.mMediaId, aVar.mMediaId) && this.iwh == aVar.iwh && f.equal(this.iwg, aVar.iwg);
         }
         return false;
     }
 
     public int hashCode() {
-        return f.hashCode(this.mMediaId, Boolean.valueOf(this.iwg), this.iwf, this.mSource);
+        return f.hashCode(this.mMediaId, Boolean.valueOf(this.iwh), this.iwg, this.mSource);
     }
 
     public String toString() {
-        return String.format(null, "%s-%b-%s-%s", this.mMediaId, Boolean.valueOf(this.iwg), this.iwf, this.mSource);
+        return String.format(null, "%s-%b-%s-%s", this.mMediaId, Boolean.valueOf(this.iwh), this.iwg, this.mSource);
     }
 
     /* loaded from: classes2.dex */
     public static final class b {
         @Nullable
-        private final ImageRequest.CacheChoice ivW;
+        private final ImageRequest.CacheChoice ivX;
         private final int mHeight;
         private final Uri mUri;
         private final int mWidth;
@@ -85,7 +85,7 @@ public class a {
             this.mUri = uri;
             this.mWidth = i;
             this.mHeight = i2;
-            this.ivW = cacheChoice;
+            this.ivX = cacheChoice;
         }
 
         public Uri getUri() {
@@ -102,13 +102,13 @@ public class a {
 
         @Nullable
         public ImageRequest.CacheChoice cbb() {
-            return this.ivW;
+            return this.ivX;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof b) {
                 b bVar = (b) obj;
-                return f.equal(this.mUri, bVar.mUri) && this.mWidth == bVar.mWidth && this.mHeight == bVar.mHeight && this.ivW == bVar.ivW;
+                return f.equal(this.mUri, bVar.mUri) && this.mWidth == bVar.mWidth && this.mHeight == bVar.mHeight && this.ivX == bVar.ivX;
             }
             return false;
         }
@@ -118,7 +118,7 @@ public class a {
         }
 
         public String toString() {
-            return String.format(null, "%dx%d %s %s", Integer.valueOf(this.mWidth), Integer.valueOf(this.mHeight), this.mUri, this.ivW);
+            return String.format(null, "%dx%d %s %s", Integer.valueOf(this.mWidth), Integer.valueOf(this.mHeight), this.mUri, this.ivX);
         }
     }
 
@@ -129,27 +129,27 @@ public class a {
     /* renamed from: com.facebook.imagepipeline.request.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0365a {
-        private List<b> iwf;
-        private boolean iwg;
+        private List<b> iwg;
+        private boolean iwh;
         private final String mMediaId;
         private String mSource;
 
         private C0365a(String str) {
-            this.iwg = false;
+            this.iwh = false;
             this.mSource = "request";
             this.mMediaId = str;
         }
 
         public C0365a a(Uri uri, int i, int i2, ImageRequest.CacheChoice cacheChoice) {
-            if (this.iwf == null) {
-                this.iwf = new ArrayList();
+            if (this.iwg == null) {
+                this.iwg = new ArrayList();
             }
-            this.iwf.add(new b(uri, i, i2, cacheChoice));
+            this.iwg.add(new b(uri, i, i2, cacheChoice));
             return this;
         }
 
         public C0365a pe(boolean z) {
-            this.iwg = z;
+            this.iwh = z;
             return this;
         }
 

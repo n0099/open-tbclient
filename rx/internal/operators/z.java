@@ -5,10 +5,10 @@ import java.util.Map;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class z<T, K, V> implements d.a<Map<K, V>>, rx.functions.e<Map<K, V>> {
-    final rx.d<T> iFW;
-    final rx.functions.f<? super T, ? extends K> iIg;
-    final rx.functions.f<? super T, ? extends V> iIh;
-    final rx.functions.e<? extends Map<K, V>> iIi;
+    final rx.d<T> iFX;
+    final rx.functions.f<? super T, ? extends K> iIh;
+    final rx.functions.f<? super T, ? extends V> iIi;
+    final rx.functions.e<? extends Map<K, V>> iIj;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -20,13 +20,13 @@ public final class z<T, K, V> implements d.a<Map<K, V>>, rx.functions.e<Map<K, V
     }
 
     public z(rx.d<T> dVar, rx.functions.f<? super T, ? extends K> fVar, rx.functions.f<? super T, ? extends V> fVar2, rx.functions.e<? extends Map<K, V>> eVar) {
-        this.iFW = dVar;
-        this.iIg = fVar;
-        this.iIh = fVar2;
+        this.iFX = dVar;
+        this.iIh = fVar;
+        this.iIi = fVar2;
         if (eVar == null) {
-            this.iIi = this;
+            this.iIj = this;
         } else {
-            this.iIi = eVar;
+            this.iIj = eVar;
         }
     }
 
@@ -39,7 +39,7 @@ public final class z<T, K, V> implements d.a<Map<K, V>>, rx.functions.e<Map<K, V
 
     public void call(rx.j<? super Map<K, V>> jVar) {
         try {
-            new a(jVar, this.iIi.call(), this.iIg, this.iIh).c(this.iFW);
+            new a(jVar, this.iIj.call(), this.iIh, this.iIi).c(this.iFX);
         } catch (Throwable th) {
             rx.exceptions.a.a(th, jVar);
         }
@@ -48,8 +48,8 @@ public final class z<T, K, V> implements d.a<Map<K, V>>, rx.functions.e<Map<K, V
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T, K, V> extends c<T, Map<K, V>> {
-        final rx.functions.f<? super T, ? extends K> iIg;
-        final rx.functions.f<? super T, ? extends V> iIh;
+        final rx.functions.f<? super T, ? extends K> iIh;
+        final rx.functions.f<? super T, ? extends V> iIi;
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: java.util.Map<K, V> */
         /* JADX WARN: Multi-variable type inference failed */
@@ -57,8 +57,8 @@ public final class z<T, K, V> implements d.a<Map<K, V>>, rx.functions.e<Map<K, V
             super(jVar);
             this.value = map;
             this.hasValue = true;
-            this.iIg = fVar;
-            this.iIh = fVar2;
+            this.iIh = fVar;
+            this.iIi = fVar2;
         }
 
         @Override // rx.j
@@ -70,7 +70,7 @@ public final class z<T, K, V> implements d.a<Map<K, V>>, rx.functions.e<Map<K, V
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    ((Map) this.value).put(this.iIg.call(t), this.iIh.call(t));
+                    ((Map) this.value).put(this.iIh.call(t), this.iIi.call(t));
                 } catch (Throwable th) {
                     rx.exceptions.a.J(th);
                     unsubscribe();

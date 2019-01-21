@@ -23,105 +23,105 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class c {
-    private e ifA;
-    private a ifq;
-    private b ifr;
-    private long ift;
+    private e ifB;
+    private a ifr;
+    private b ifs;
     private long ifu;
     private long ifv;
-    private int ifw;
-    private SparseArray<ArrayList> ifx;
-    private HashMap<String, Long> ify;
+    private long ifw;
+    private int ifx;
+    private SparseArray<ArrayList> ify;
+    private HashMap<String, Long> ifz;
     private Context mContext;
-    private m ifz = o.bSQ().ZB();
-    private List<j> ifs = new ArrayList(20);
+    private m ifA = o.bSQ().ZB();
+    private List<j> ift = new ArrayList(20);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(Context context) {
         this.mContext = context;
-        this.ifq = new a(context);
-        this.ifr = new b(context);
+        this.ifr = new a(context);
+        this.ifs = new b(context);
         s bST = s.bST();
-        this.ift = bST.getLong("ubc_last_upload_all_time", 0L);
-        this.ifu = bST.getLong("ubc_last_upload_non_real", 0L);
-        this.ifv = bST.getLong("ubc_reset_real_time_count_time", 0L);
-        this.ifw = bST.getInt("ubc_real_time_count", 0);
-        this.ifA = e.bSo();
-        this.ifA.a(this, context);
+        this.ifu = bST.getLong("ubc_last_upload_all_time", 0L);
+        this.ifv = bST.getLong("ubc_last_upload_non_real", 0L);
+        this.ifw = bST.getLong("ubc_reset_real_time_count_time", 0L);
+        this.ifx = bST.getInt("ubc_real_time_count", 0);
+        this.ifB = e.bSo();
+        this.ifB.a(this, context);
     }
 
     private void aAx() {
-        if (this.ifx == null) {
-            this.ifx = new SparseArray<>();
-            this.ifq.f(this.ifx);
-            this.ify = new HashMap<>();
+        if (this.ify == null) {
+            this.ify = new SparseArray<>();
+            this.ifr.f(this.ify);
+            this.ifz = new HashMap<>();
             int i = 0;
-            for (int i2 = 0; i2 < this.ifx.size(); i2++) {
-                int keyAt = this.ifx.keyAt(i2);
+            for (int i2 = 0; i2 < this.ify.size(); i2++) {
+                int keyAt = this.ify.keyAt(i2);
                 if (keyAt != 0 && i == 0) {
                     i = keyAt;
                 }
-                this.ify.put("ubc_last_upload_time_level_" + keyAt, 0L);
+                this.ifz.put("ubc_last_upload_time_level_" + keyAt, 0L);
             }
-            this.ifA.xO(i);
+            this.ifB.xO(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(j jVar) {
         boolean z = false;
-        if (TextUtils.equals(jVar.getId(), jVar.bSA()) && this.ifA.yr(jVar.getId()) && (jVar.bSC() & 64) == 0) {
+        if (TextUtils.equals(jVar.getId(), jVar.bSA()) && this.ifB.yr(jVar.getId()) && (jVar.bSC() & 64) == 0) {
             z = true;
         }
         if (z && !c(jVar)) {
-            this.ifq.a(jVar);
-        } else if (Math.abs(System.currentTimeMillis() - this.ifu) >= e.bSo().bSp()) {
+            this.ifr.a(jVar);
+        } else if (Math.abs(System.currentTimeMillis() - this.ifv) >= e.bSo().bSp()) {
             if (!z) {
-                this.ifs.add(jVar);
+                this.ift.add(jVar);
             }
             bSi();
         } else if ((jVar.bSC() & 1) == 0) {
             if (!z) {
-                this.ifs.add(jVar);
+                this.ift.add(jVar);
             }
-            if (this.ifs.size() >= 20) {
+            if (this.ift.size() >= 20) {
                 bSe();
             }
         } else if (!z) {
-            this.ifq.a(jVar);
+            this.ifr.a(jVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(j jVar) {
-        this.ifr.a(jVar, this.ifA.yr(jVar.getId()));
+        this.ifs.a(jVar, this.ifB.yr(jVar.getId()));
     }
 
     private void bSe() {
-        if (this.ifs != null && this.ifs.size() != 0) {
-            this.ifq.ep(this.ifs);
-            this.ifs.clear();
+        if (this.ift != null && this.ift.size() != 0) {
+            this.ifr.ep(this.ift);
+            this.ift.clear();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(k kVar) {
-        this.ifq.a(kVar);
+        this.ifr.a(kVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void n(String str, int i, String str2) {
-        this.ifq.n(str, i, str2);
+        this.ifr.n(str, i, str2);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(String str, int i, long j, JSONArray jSONArray) {
         bSe();
-        this.ifq.a(str, i, j, jSONArray);
-        if (this.ifA.yr(str)) {
+        this.ifr.a(str, i, j, jSONArray);
+        if (this.ifB.yr(str)) {
             bSf();
         }
-        if (Math.abs(System.currentTimeMillis() - this.ifu) >= e.bSo().bSp()) {
+        if (Math.abs(System.currentTimeMillis() - this.ifv) >= e.bSo().bSp()) {
             bSi();
         }
     }
@@ -129,8 +129,8 @@ public class c {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void bc(String str, int i) {
         bSe();
-        this.ifq.bc(str, i);
-        if (Math.abs(System.currentTimeMillis() - this.ifu) >= e.bSo().bSp()) {
+        this.ifr.bc(str, i);
+        if (Math.abs(System.currentTimeMillis() - this.ifv) >= e.bSo().bSp()) {
             bSi();
         }
     }
@@ -160,17 +160,17 @@ public class c {
                 if (jVar.bSy()) {
                     jSONObject.put("of", "1");
                 }
-                jSONObject.put("idtype", this.ifA.yx(jVar.getId()));
+                jSONObject.put("idtype", this.ifB.yx(jVar.getId()));
                 tVar.aA(jSONObject);
                 tVar.n(jVar.getTime(), jVar.getTime());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            if (this.ifx == null) {
+            if (this.ify == null) {
                 aAx();
             }
-            if (this.ifx.size() > 0) {
-                this.ifq.a(this.ifx.valueAt(0), tVar);
+            if (this.ify.size() > 0) {
+                this.ifr.a(this.ify.valueAt(0), tVar);
             }
             c(tVar);
             bSh();
@@ -183,14 +183,14 @@ public class c {
         if (dm(this.mContext) && bSg()) {
             t tVar = new t();
             tVar.oQ(true);
-            if (this.ifx == null) {
+            if (this.ify == null) {
                 aAx();
             }
-            if (this.ifx.size() > 0) {
+            if (this.ify.size() > 0) {
                 if (o.bSQ().ZD()) {
-                    this.ifq.a(tVar);
+                    this.ifr.a(tVar);
                 } else {
-                    this.ifq.a(this.ifx.valueAt(0), tVar);
+                    this.ifr.a(this.ify.valueAt(0), tVar);
                 }
             }
             c(tVar);
@@ -203,15 +203,15 @@ public class c {
             return true;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (Math.abs(currentTimeMillis - this.ifv) > 86400000) {
-            this.ifw = 0;
-            this.ifv = currentTimeMillis;
-            s.bST().putLong("ubc_reset_real_time_count_time", this.ifv);
-            s.bST().putInt("ubc_real_time_count", this.ifw);
+        if (Math.abs(currentTimeMillis - this.ifw) > 86400000) {
+            this.ifx = 0;
+            this.ifw = currentTimeMillis;
+            s.bST().putLong("ubc_reset_real_time_count_time", this.ifw);
+            s.bST().putInt("ubc_real_time_count", this.ifx);
         }
-        if (this.ifw >= 1000) {
-            if (this.ifw == 1000) {
-                this.ifw++;
+        if (this.ifx >= 1000) {
+            if (this.ifx == 1000) {
+                this.ifx++;
                 o.onEvent(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "realLimit");
             }
             return false;
@@ -220,43 +220,43 @@ public class c {
     }
 
     private void bSh() {
-        this.ifw++;
-        s.bST().putInt("ubc_real_time_count", this.ifw);
+        this.ifx++;
+        s.bST().putInt("ubc_real_time_count", this.ifx);
     }
 
     private void bSi() {
         if (dm(this.mContext)) {
-            this.ifu = System.currentTimeMillis();
-            s.bST().putLong("ubc_last_upload_non_real", this.ifu);
+            this.ifv = System.currentTimeMillis();
+            s.bST().putLong("ubc_last_upload_non_real", this.ifv);
             bSk();
             bSe();
-            this.ifq.bSa();
+            this.ifr.bSa();
             HashSet hashSet = new HashSet();
-            if (this.ifx == null) {
+            if (this.ify == null) {
                 aAx();
             }
             t tVar = new t();
             tVar.oQ(false);
             int i = 0;
-            for (int i2 = 0; i2 < this.ifx.size(); i2++) {
-                int keyAt = this.ifx.keyAt(i2);
+            for (int i2 = 0; i2 < this.ify.size(); i2++) {
+                int keyAt = this.ify.keyAt(i2);
                 if (keyAt != 0) {
-                    long longValue = this.ify.get("ubc_last_upload_time_level_" + keyAt).longValue();
-                    if (longValue == 0 || (longValue + (keyAt * 60000)) - System.currentTimeMillis() < this.ifA.bSp()) {
-                        i |= this.ifq.a(this.ifx.valueAt(i2), tVar);
-                        this.ify.put("ubc_last_upload_time_level_" + keyAt, Long.valueOf(System.currentTimeMillis()));
+                    long longValue = this.ifz.get("ubc_last_upload_time_level_" + keyAt).longValue();
+                    if (longValue == 0 || (longValue + (keyAt * 60000)) - System.currentTimeMillis() < this.ifB.bSp()) {
+                        i |= this.ifr.a(this.ify.valueAt(i2), tVar);
+                        this.ifz.put("ubc_last_upload_time_level_" + keyAt, Long.valueOf(System.currentTimeMillis()));
                         hashSet.add(Integer.valueOf(keyAt));
                     }
                 }
             }
             if (i != 0) {
-                for (int i3 = 0; i3 < this.ifx.size(); i3++) {
-                    int keyAt2 = this.ifx.keyAt(i3);
+                for (int i3 = 0; i3 < this.ify.size(); i3++) {
+                    int keyAt2 = this.ify.keyAt(i3);
                     if (keyAt2 != 0 && !hashSet.contains(Integer.valueOf(keyAt2))) {
                         if (tVar.xX(com.baidu.fsg.base.statistics.b.c)) {
                             break;
                         }
-                        this.ifq.a(this.ifx.valueAt(i3), tVar);
+                        this.ifr.a(this.ify.valueAt(i3), tVar);
                     }
                 }
                 c(tVar);
@@ -266,10 +266,10 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void bSj() {
-        if (dm(this.mContext) && Math.abs(System.currentTimeMillis() - this.ift) >= 3600000) {
-            this.ifq.bSa();
+        if (dm(this.mContext) && Math.abs(System.currentTimeMillis() - this.ifu) >= 3600000) {
+            this.ifr.bSa();
             t tVar = new t();
-            if (this.ifq.a(tVar) != 0) {
+            if (this.ifr.a(tVar) != 0) {
                 t tVar2 = new t();
                 tVar2.n(tVar.bSZ(), tVar.bTa());
                 tVar2.yH(tVar.bSY());
@@ -281,7 +281,7 @@ public class c {
                 SparseArray<Integer> bSV = tVar.bSV();
                 int size = bSV.size();
                 for (int i = 0; i < size; i++) {
-                    if (this.ifA.yr(String.valueOf(bSV.valueAt(i).intValue()))) {
+                    if (this.ifB.yr(String.valueOf(bSV.valueAt(i).intValue()))) {
                         tVar2.cd(bSV.keyAt(i), bSV.valueAt(i).intValue());
                     } else {
                         tVar3.cd(bSV.keyAt(i), bSV.valueAt(i).intValue());
@@ -291,7 +291,7 @@ public class c {
                 int size2 = bSW.size();
                 for (int i2 = 0; i2 < size2; i2++) {
                     String str = (String) bSW.get(i2);
-                    if (this.ifA.yr(str)) {
+                    if (this.ifB.yr(str)) {
                         tVar2.yG(str);
                     } else {
                         tVar3.yG(str);
@@ -309,7 +309,7 @@ public class c {
                             e.printStackTrace();
                         }
                         if (!TextUtils.isEmpty(str2)) {
-                            if (this.ifA.yr(str2)) {
+                            if (this.ifB.yr(str2)) {
                                 tVar2.aA(optJSONObject);
                             } else {
                                 tVar3.aA(optJSONObject);
@@ -323,10 +323,10 @@ public class c {
                 if (tVar3.bTb().length() > 0) {
                     c(tVar3);
                 }
-                this.ift = System.currentTimeMillis();
-                s.bST().putLong("ubc_last_upload_all_time", this.ift);
-                this.ifu = this.ift;
-                s.bST().putLong("ubc_last_upload_non_real", this.ifu);
+                this.ifu = System.currentTimeMillis();
+                s.bST().putLong("ubc_last_upload_all_time", this.ifu);
+                this.ifv = this.ifu;
+                s.bST().putLong("ubc_last_upload_non_real", this.ifv);
             }
         }
     }
@@ -336,13 +336,13 @@ public class c {
             JSONObject bSX = tVar.bSX();
             String md5 = com.baidu.g.c.toMd5(bSX.toString().getBytes(), true);
             da(bSX.toString(), md5);
-            if (!this.ifq.a(tVar.bSV(), tVar.bSW(), tVar.bTc(), md5)) {
+            if (!this.ifr.a(tVar.bSV(), tVar.bSW(), tVar.bTc(), md5)) {
                 tVar.clearData();
                 File file = new File(this.mContext.getFilesDir() + File.separator + "ubcsenddir", md5);
                 if (file.exists() && file.delete()) {
                     Log.d("UBCBehaviorModel", "db fail deleteUploadFile file suc");
                 }
-                this.ifq.ym(md5);
+                this.ifr.ym(md5);
                 return;
             }
             d.bSn().k(bSX, md5);
@@ -352,7 +352,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void k(JSONObject jSONObject, String str) {
-        if (this.ifz.a("https://mbd.baidu.com", jSONObject, false)) {
+        if (this.ifA.a("https://mbd.baidu.com", jSONObject, false)) {
             d.bSn().af(str, true);
         } else {
             d.bSn().af(str, false);
@@ -367,51 +367,51 @@ public class c {
     private void oN(boolean z) {
         t tVar = new t();
         tVar.oQ(z);
-        if (this.ifr.a(tVar, z)) {
+        if (this.ifs.a(tVar, z)) {
             JSONObject bSX = tVar.bSX();
-            this.ifr.oM(z);
+            this.ifs.oM(z);
             d.bSn().ay(bSX);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void ay(JSONObject jSONObject) {
-        if (!this.ifz.a("http://m.baidu.com", jSONObject, false)) {
+        if (!this.ifA.a("http://m.baidu.com", jSONObject, false)) {
             o.onEvent(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "sendFail");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a bSl() {
-        return this.ifq;
+        return this.ifr;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(n nVar) {
-        this.ifA.er(nVar.bSL());
-        this.ifA.xP(nVar.bSK() * AiAppDateTimeUtil.TIME_DAY_MILLISECOND);
-        this.ifA.xQ(nVar.getThreshold());
+        this.ifB.er(nVar.bSL());
+        this.ifB.xP(nVar.bSK() * AiAppDateTimeUtil.TIME_DAY_MILLISECOND);
+        this.ifB.xQ(nVar.getThreshold());
         s.bST().putString("ubc_version_md5", nVar.bSJ());
-        this.ifq.eq(nVar.bSL());
+        this.ifr.eq(nVar.bSL());
         nVar.bSL().clear();
-        if (this.ifx == null) {
-            this.ifx = new SparseArray<>();
-        }
-        this.ifx.clear();
         if (this.ify == null) {
-            this.ify = new HashMap<>();
+            this.ify = new SparseArray<>();
         }
         this.ify.clear();
-        this.ifq.f(this.ifx);
+        if (this.ifz == null) {
+            this.ifz = new HashMap<>();
+        }
+        this.ifz.clear();
+        this.ifr.f(this.ify);
         int i = 0;
-        for (int i2 = 0; i2 < this.ifx.size(); i2++) {
-            int keyAt = this.ifx.keyAt(i2);
+        for (int i2 = 0; i2 < this.ify.size(); i2++) {
+            int keyAt = this.ify.keyAt(i2);
             if (keyAt != 0 && i == 0) {
                 i = keyAt;
             }
-            this.ify.put("ubc_last_upload_time_level_" + keyAt, 0L);
+            this.ifz.put("ubc_last_upload_time_level_" + keyAt, 0L);
         }
-        this.ifA.xO(i);
+        this.ifB.xO(i);
     }
 
     private boolean dm(Context context) {
@@ -495,17 +495,17 @@ public class c {
             Log.d("UBCBehaviorModel", "deleteUploadFile file suc");
             p.yF("delete file suc");
         }
-        this.ifq.ym(str);
+        this.ifr.ym(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void yp(String str) {
         p.yF("upload file fail");
-        this.ifq.yn(str);
+        this.ifr.yn(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void bSm() {
-        this.ifq.bSb();
+        this.ifr.bSb();
     }
 }

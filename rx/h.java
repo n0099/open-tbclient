@@ -9,7 +9,7 @@ import rx.internal.operators.ct;
 import rx.schedulers.Schedulers;
 /* loaded from: classes2.dex */
 public class h<T> {
-    final a<T> iFt;
+    final a<T> iFu;
 
     /* loaded from: classes2.dex */
     public interface a<T> extends rx.functions.b<i<? super T>> {
@@ -17,7 +17,7 @@ public class h<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(a<T> aVar) {
-        this.iFt = rx.c.c.b(aVar);
+        this.iFu = rx.c.c.b(aVar);
     }
 
     public static <T> h<T> a(a<T> aVar) {
@@ -25,7 +25,7 @@ public class h<T> {
     }
 
     private static <T> d<T> a(h<T> hVar) {
-        return d.create(new ct(hVar.iFt));
+        return d.create(new ct(hVar.iFu));
     }
 
     public static <T> h<T> aW(T t) {
@@ -39,7 +39,7 @@ public class h<T> {
         if (gVar == null) {
             throw new NullPointerException("scheduler is null");
         }
-        return a((a) new cs(this.iFt, gVar));
+        return a((a) new cs(this.iFu, gVar));
     }
 
     public final k subscribe() {
@@ -79,7 +79,7 @@ public class h<T> {
             throw new IllegalArgumentException("te is null");
         }
         try {
-            rx.c.c.a(this, this.iFt).call(iVar);
+            rx.c.c.a(this, this.iFu).call(iVar);
             return rx.c.c.d(iVar);
         } catch (Throwable th) {
             rx.exceptions.a.J(th);
@@ -120,7 +120,7 @@ public class h<T> {
     }
 
     public final h<T> a(long j, TimeUnit timeUnit, g gVar) {
-        return a((a) new co(this.iFt, j, timeUnit, gVar));
+        return a((a) new co(this.iFu, j, timeUnit, gVar));
     }
 
     public final h<T> a(long j, TimeUnit timeUnit) {

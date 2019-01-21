@@ -9,55 +9,55 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
-    private boolean eLA;
+    protected long eLA;
     private boolean eLB;
-    protected int eLC;
-    protected com.baidu.adp.lib.c.a eLs;
-    protected com.baidu.adp.lib.c.b eLt;
-    protected long eLz;
+    private boolean eLC;
+    protected int eLD;
+    protected com.baidu.adp.lib.c.a eLt;
+    protected com.baidu.adp.lib.c.b eLu;
     protected TbPageContext<MsglistActivity<?>> mPageContext;
 
     public e(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.eLs = null;
         this.eLt = null;
-        this.eLz = 0L;
-        this.eLA = false;
+        this.eLu = null;
+        this.eLA = 0L;
         this.eLB = false;
+        this.eLC = false;
         this.mPageContext = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
-        this.eLs = aVar;
+        this.eLt = aVar;
     }
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.eLt = bVar;
+        this.eLu = bVar;
     }
 
     private void aPy() {
-        this.eLz = System.currentTimeMillis() / 1000;
+        this.eLA = System.currentTimeMillis() / 1000;
     }
 
     public boolean aPz() {
-        return this.eLA;
+        return this.eLB;
     }
 
     /* renamed from: if  reason: not valid java name */
     public void m20if(boolean z) {
-        this.eLA = z;
-    }
-
-    public boolean aPA() {
-        return this.eLB;
-    }
-
-    public void ig(boolean z) {
         this.eLB = z;
     }
 
+    public boolean aPA() {
+        return this.eLC;
+    }
+
+    public void ig(boolean z) {
+        this.eLC = z;
+    }
+
     public void pP(int i) {
-        this.eLC = i;
+        this.eLD = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -74,15 +74,15 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
 
     /* loaded from: classes.dex */
     public static class a<T> extends q.a {
-        private T eLD;
+        private T eLE;
 
         public a(View view, T t) {
             super(view);
-            this.eLD = t;
+            this.eLE = t;
         }
 
         public T aPB() {
-            return this.eLD;
+            return this.eLE;
         }
     }
 }

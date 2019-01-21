@@ -8,9 +8,9 @@ import rx.d;
 import rx.internal.producers.SingleDelayedProducer;
 /* loaded from: classes2.dex */
 public final class cf<T> implements d.b<List<T>, T> {
-    private static final Comparator iNC = new a();
-    final int iIx;
-    final Comparator<? super T> iNB;
+    private static final Comparator iND = new a();
+    final int iIy;
+    final Comparator<? super T> iNC;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -18,14 +18,14 @@ public final class cf<T> implements d.b<List<T>, T> {
     }
 
     public cf(int i) {
-        this.iNB = iNC;
-        this.iIx = i;
+        this.iNC = iND;
+        this.iIy = i;
     }
 
     /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: java.util.Comparator<T>, java.util.Comparator<? super T> */
     public cf(final rx.functions.g<? super T, ? super T, Integer> gVar, int i) {
-        this.iIx = i;
-        this.iNB = (Comparator<T>) new Comparator<T>() { // from class: rx.internal.operators.cf.1
+        this.iIy = i;
+        this.iNC = (Comparator<T>) new Comparator<T>() { // from class: rx.internal.operators.cf.1
             @Override // java.util.Comparator
             public int compare(T t, T t2) {
                 return ((Integer) gVar.j(t, t2)).intValue();
@@ -40,7 +40,7 @@ public final class cf<T> implements d.b<List<T>, T> {
             List<T> list;
 
             {
-                this.list = new ArrayList(cf.this.iIx);
+                this.list = new ArrayList(cf.this.iIy);
             }
 
             @Override // rx.j
@@ -55,7 +55,7 @@ public final class cf<T> implements d.b<List<T>, T> {
                     List<T> list = this.list;
                     this.list = null;
                     try {
-                        Collections.sort(list, cf.this.iNB);
+                        Collections.sort(list, cf.this.iNC);
                         singleDelayedProducer.setValue(list);
                     } catch (Throwable th) {
                         rx.exceptions.a.a(th, this);

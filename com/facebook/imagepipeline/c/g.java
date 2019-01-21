@@ -10,33 +10,33 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class g<K, V> {
-    private final ac<V> ipX;
+    private final ac<V> ipY;
     @GuardedBy("this")
-    private final LinkedHashMap<K, V> ipY = new LinkedHashMap<>();
+    private final LinkedHashMap<K, V> ipZ = new LinkedHashMap<>();
     @GuardedBy("this")
-    private int ipZ = 0;
+    private int iqa = 0;
 
     public g(ac<V> acVar) {
-        this.ipX = acVar;
+        this.ipY = acVar;
     }
 
     public synchronized int getCount() {
-        return this.ipY.size();
+        return this.ipZ.size();
     }
 
     public synchronized int getSizeInBytes() {
-        return this.ipZ;
+        return this.iqa;
     }
 
     @Nullable
     public synchronized K bXh() {
-        return this.ipY.isEmpty() ? null : this.ipY.keySet().iterator().next();
+        return this.ipZ.isEmpty() ? null : this.ipZ.keySet().iterator().next();
     }
 
     public synchronized ArrayList<Map.Entry<K, V>> a(@Nullable Predicate<K> predicate) {
         ArrayList<Map.Entry<K, V>> arrayList;
-        arrayList = new ArrayList<>(this.ipY.entrySet().size());
-        for (Map.Entry<K, V> entry : this.ipY.entrySet()) {
+        arrayList = new ArrayList<>(this.ipZ.entrySet().size());
+        for (Map.Entry<K, V> entry : this.ipZ.entrySet()) {
             if (predicate == null || predicate.apply(entry.getKey())) {
                 arrayList.add(entry);
             }
@@ -46,24 +46,24 @@ public class g<K, V> {
 
     @Nullable
     public synchronized V get(K k) {
-        return this.ipY.get(k);
+        return this.ipZ.get(k);
     }
 
     @Nullable
     public synchronized V put(K k, V v) {
         V remove;
-        remove = this.ipY.remove(k);
-        this.ipZ -= aF(remove);
-        this.ipY.put(k, v);
-        this.ipZ += aF(v);
+        remove = this.ipZ.remove(k);
+        this.iqa -= aF(remove);
+        this.ipZ.put(k, v);
+        this.iqa += aF(v);
         return remove;
     }
 
     @Nullable
     public synchronized V remove(K k) {
         V remove;
-        remove = this.ipY.remove(k);
-        this.ipZ -= aF(remove);
+        remove = this.ipZ.remove(k);
+        this.iqa -= aF(remove);
         return remove;
     }
 
@@ -71,6 +71,6 @@ public class g<K, V> {
         if (v == null) {
             return 0;
         }
-        return this.ipX.aD(v);
+        return this.ipY.aD(v);
     }
 }

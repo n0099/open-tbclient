@@ -10,77 +10,77 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.im.data.ValidateItemData;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.adp.base.b<ValidateActivity> {
-    private View eYa;
-    private HeadImageView eYb;
-    private TextView eYc;
-    private ValidateActivity fdn;
-    private TextView fdo;
+    private View eYb;
+    private HeadImageView eYc;
+    private TextView eYd;
+    private ValidateActivity fdo;
     private TextView fdp;
     private TextView fdq;
-    private ValidateItemData fdr;
+    private TextView fdr;
+    private ValidateItemData fds;
 
     public b(ValidateActivity validateActivity) {
         super(validateActivity.getPageContext(), e.h.validate_item);
-        this.fdn = validateActivity;
+        this.fdo = validateActivity;
         initView();
     }
 
     void initView() {
-        this.eYa = this.vo.findViewById(e.g.root_view);
-        this.eYb = (HeadImageView) this.eYa.findViewById(e.g.iv_head);
-        this.eYb.setIsRound(false);
-        this.fdo = (TextView) this.eYa.findViewById(e.g.tv_user_name);
-        this.eYc = (TextView) this.eYa.findViewById(e.g.tv_group_name);
-        this.fdp = (TextView) this.eYa.findViewById(e.g.tv_apply_reason);
-        this.fdq = (TextView) this.eYa.findViewById(e.g.btn_pass);
-        this.fdq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.1
+        this.eYb = this.vo.findViewById(e.g.root_view);
+        this.eYc = (HeadImageView) this.eYb.findViewById(e.g.iv_head);
+        this.eYc.setIsRound(false);
+        this.fdp = (TextView) this.eYb.findViewById(e.g.tv_user_name);
+        this.eYd = (TextView) this.eYb.findViewById(e.g.tv_group_name);
+        this.fdq = (TextView) this.eYb.findViewById(e.g.tv_apply_reason);
+        this.fdr = (TextView) this.eYb.findViewById(e.g.btn_pass);
+        this.fdr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.fdn.a(b.this.fdq, 100, 0, 0L, b.this.fdr);
+                b.this.fdo.a(b.this.fdr, 100, 0, 0L, b.this.fds);
             }
         });
-        this.eYb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.2
+        this.eYc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.validate.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.fdn.a(b.this.eYb, 101, 0, 0L, b.this.fdr);
+                b.this.fdo.a(b.this.eYc, 101, 0, 0L, b.this.fds);
             }
         });
-        this.eYa.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.validate.b.3
+        this.eYb.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.im.validate.b.3
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
-                b.this.fdn.b(b.this.eYa, 200, 0, 0L, b.this.fdr);
+                b.this.fdo.b(b.this.eYb, 200, 0, 0L, b.this.fds);
                 return true;
             }
         });
     }
 
     public void refresh() {
-        if (this.fdr != null) {
-            this.fdn.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-            this.fdn.getLayoutMode().onModeChanged(this.eYa);
-            String portrait = this.fdr.getPortrait();
-            this.eYb.setTag(portrait);
-            this.eYb.startLoad(portrait, 12, false);
-            if (!TextUtils.isEmpty(this.fdr.getUserName())) {
-                this.fdo.setText(this.fdr.getUserName());
+        if (this.fds != null) {
+            this.fdo.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+            this.fdo.getLayoutMode().onModeChanged(this.eYb);
+            String portrait = this.fds.getPortrait();
+            this.eYc.setTag(portrait);
+            this.eYc.startLoad(portrait, 12, false);
+            if (!TextUtils.isEmpty(this.fds.getUserName())) {
+                this.fdp.setText(this.fds.getUserName());
             }
-            if (!TextUtils.isEmpty(this.fdr.getGroupName())) {
-                this.eYc.setText(this.fdn.getPageContext().getString(e.j.validate_im_apply_prefix) + this.fdr.getGroupName());
+            if (!TextUtils.isEmpty(this.fds.getGroupName())) {
+                this.eYd.setText(this.fdo.getPageContext().getString(e.j.validate_im_apply_prefix) + this.fds.getGroupName());
             }
-            if (!TextUtils.isEmpty(this.fdr.getApplyReason())) {
-                this.fdp.setText(this.fdn.getPageContext().getString(e.j.validate_im_reason_prefix) + this.fdr.getApplyReason());
+            if (!TextUtils.isEmpty(this.fds.getApplyReason())) {
+                this.fdq.setText(this.fdo.getPageContext().getString(e.j.validate_im_reason_prefix) + this.fds.getApplyReason());
             }
-            if (this.fdr.isPass()) {
-                this.fdq.setEnabled(false);
-                this.fdq.setText(this.fdn.getPageContext().getString(e.j.passed));
-                al.h(this.fdq, e.d.cp_cont_d);
-                this.fdq.setBackgroundDrawable(null);
+            if (this.fds.isPass()) {
+                this.fdr.setEnabled(false);
+                this.fdr.setText(this.fdo.getPageContext().getString(e.j.passed));
+                al.h(this.fdr, e.d.cp_cont_d);
+                this.fdr.setBackgroundDrawable(null);
             } else {
-                this.fdq.setEnabled(true);
-                this.fdq.setText(this.fdn.getPageContext().getString(e.j.pass));
+                this.fdr.setEnabled(true);
+                this.fdr.setText(this.fdo.getPageContext().getString(e.j.pass));
             }
-            if (!this.fdr.isShown()) {
-                al.i(this.eYa, e.d.common_color_10178);
+            if (!this.fds.isShown()) {
+                al.i(this.eYb, e.d.common_color_10178);
             }
         }
     }
@@ -91,6 +91,6 @@ public class b extends com.baidu.adp.base.b<ValidateActivity> {
     }
 
     public void g(ValidateItemData validateItemData) {
-        this.fdr = validateItemData;
+        this.fds = validateItemData;
     }
 }

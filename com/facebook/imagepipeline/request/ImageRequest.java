@@ -11,23 +11,23 @@ import org.apache.commons.logging.LogFactory;
 /* loaded from: classes2.dex */
 public class ImageRequest {
     @Nullable
-    private final com.facebook.imagepipeline.common.c ipF;
-    private final com.facebook.imagepipeline.common.d ipG;
-    private final com.facebook.imagepipeline.common.a ipH;
-    private final boolean irQ;
+    private final com.facebook.imagepipeline.common.c ipG;
+    private final com.facebook.imagepipeline.common.d ipH;
+    private final com.facebook.imagepipeline.common.a ipI;
+    private final boolean irR;
     @Nullable
-    private final com.facebook.imagepipeline.g.b irl;
-    private final RequestLevel iua;
-    private final CacheChoice ivW;
-    private final Uri ivX;
-    private final int ivY;
+    private final com.facebook.imagepipeline.g.b irm;
+    private final RequestLevel iub;
+    private final CacheChoice ivX;
+    private final Uri ivY;
+    private final int ivZ;
+    private final b ivs;
     @Nullable
-    private final a ivZ;
-    private final b ivr;
-    private File iwa;
-    private final boolean iwb;
-    private final Priority iwc;
-    private final boolean iwd;
+    private final a iwa;
+    private File iwb;
+    private final boolean iwc;
+    private final Priority iwd;
+    private final boolean iwe;
 
     /* loaded from: classes2.dex */
     public enum CacheChoice {
@@ -44,117 +44,117 @@ public class ImageRequest {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ImageRequest(ImageRequestBuilder imageRequestBuilder) {
-        this.ivW = imageRequestBuilder.cbb();
-        this.ivX = imageRequestBuilder.cbc();
-        this.ivY = F(this.ivX);
-        this.ivZ = imageRequestBuilder.cbe();
-        this.irQ = imageRequestBuilder.bYu();
-        this.iwb = imageRequestBuilder.cbo();
-        this.ipH = imageRequestBuilder.cbh();
-        this.ipF = imageRequestBuilder.cbf();
-        this.ipG = imageRequestBuilder.cbg() == null ? com.facebook.imagepipeline.common.d.bXL() : imageRequestBuilder.cbg();
-        this.iwc = imageRequestBuilder.cbp();
-        this.iua = imageRequestBuilder.car();
-        this.iwd = imageRequestBuilder.cbk();
-        this.ivr = imageRequestBuilder.cbm();
-        this.irl = imageRequestBuilder.cbn();
+        this.ivX = imageRequestBuilder.cbb();
+        this.ivY = imageRequestBuilder.cbc();
+        this.ivZ = F(this.ivY);
+        this.iwa = imageRequestBuilder.cbe();
+        this.irR = imageRequestBuilder.bYu();
+        this.iwc = imageRequestBuilder.cbo();
+        this.ipI = imageRequestBuilder.cbh();
+        this.ipG = imageRequestBuilder.cbf();
+        this.ipH = imageRequestBuilder.cbg() == null ? com.facebook.imagepipeline.common.d.bXL() : imageRequestBuilder.cbg();
+        this.iwd = imageRequestBuilder.cbp();
+        this.iub = imageRequestBuilder.car();
+        this.iwe = imageRequestBuilder.cbk();
+        this.ivs = imageRequestBuilder.cbm();
+        this.irm = imageRequestBuilder.cbn();
     }
 
     public CacheChoice cbb() {
-        return this.ivW;
-    }
-
-    public Uri cbc() {
         return this.ivX;
     }
 
-    public int cbd() {
+    public Uri cbc() {
         return this.ivY;
+    }
+
+    public int cbd() {
+        return this.ivZ;
     }
 
     @Nullable
     public a cbe() {
-        return this.ivZ;
+        return this.iwa;
     }
 
     public int getPreferredWidth() {
-        if (this.ipF != null) {
-            return this.ipF.width;
+        if (this.ipG != null) {
+            return this.ipG.width;
         }
         return 2048;
     }
 
     public int getPreferredHeight() {
-        if (this.ipF != null) {
-            return this.ipF.height;
+        if (this.ipG != null) {
+            return this.ipG.height;
         }
         return 2048;
     }
 
     @Nullable
     public com.facebook.imagepipeline.common.c cbf() {
-        return this.ipF;
-    }
-
-    public com.facebook.imagepipeline.common.d cbg() {
         return this.ipG;
     }
 
-    public com.facebook.imagepipeline.common.a cbh() {
+    public com.facebook.imagepipeline.common.d cbg() {
         return this.ipH;
     }
 
+    public com.facebook.imagepipeline.common.a cbh() {
+        return this.ipI;
+    }
+
     public boolean cbi() {
-        return this.irQ;
+        return this.irR;
     }
 
     public boolean cbj() {
-        return this.iwb;
-    }
-
-    public Priority cat() {
         return this.iwc;
     }
 
-    public RequestLevel car() {
-        return this.iua;
-    }
-
-    public boolean cbk() {
+    public Priority cat() {
         return this.iwd;
     }
 
+    public RequestLevel car() {
+        return this.iub;
+    }
+
+    public boolean cbk() {
+        return this.iwe;
+    }
+
     public synchronized File cbl() {
-        if (this.iwa == null) {
-            this.iwa = new File(this.ivX.getPath());
+        if (this.iwb == null) {
+            this.iwb = new File(this.ivY.getPath());
         }
-        return this.iwa;
+        return this.iwb;
     }
 
     @Nullable
     public b cbm() {
-        return this.ivr;
+        return this.ivs;
     }
 
     @Nullable
     public com.facebook.imagepipeline.g.b cbn() {
-        return this.irl;
+        return this.irm;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof ImageRequest) {
             ImageRequest imageRequest = (ImageRequest) obj;
-            return f.equal(this.ivX, imageRequest.ivX) && f.equal(this.ivW, imageRequest.ivW) && f.equal(this.ivZ, imageRequest.ivZ) && f.equal(this.iwa, imageRequest.iwa);
+            return f.equal(this.ivY, imageRequest.ivY) && f.equal(this.ivX, imageRequest.ivX) && f.equal(this.iwa, imageRequest.iwa) && f.equal(this.iwb, imageRequest.iwb);
         }
         return false;
     }
 
     public int hashCode() {
-        return f.hashCode(this.ivW, this.ivX, this.ivZ, this.iwa);
+        return f.hashCode(this.ivX, this.ivY, this.iwa, this.iwb);
     }
 
     public String toString() {
-        return f.ao(this).n("uri", this.ivX).n("cacheChoice", this.ivW).n("decodeOptions", this.ipH).n("postprocessor", this.ivr).n(LogFactory.PRIORITY_KEY, this.iwc).n("resizeOptions", this.ipF).n("rotationOptions", this.ipG).n("mediaVariations", this.ivZ).toString();
+        return f.ao(this).n("uri", this.ivY).n("cacheChoice", this.ivX).n("decodeOptions", this.ipI).n("postprocessor", this.ivs).n(LogFactory.PRIORITY_KEY, this.iwd).n("resizeOptions", this.ipG).n("rotationOptions", this.ipH).n("mediaVariations", this.iwa).toString();
     }
 
     /* loaded from: classes2.dex */

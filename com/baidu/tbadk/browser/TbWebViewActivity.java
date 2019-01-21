@@ -885,10 +885,10 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                     String optString7 = jSONObject.optString("wbcontent");
                     TbWebViewActivity.this.mShareItem = TbWebViewActivity.this.createShareContent(optString, optString4, optString2, optString3);
                     TbWebViewActivity.this.mShareItem.topic = optString5;
-                    TbWebViewActivity.this.mShareItem.aSV = optString6;
-                    TbWebViewActivity.this.mShareItem.aSW = optString7;
+                    TbWebViewActivity.this.mShareItem.aSW = optString6;
+                    TbWebViewActivity.this.mShareItem.aSX = optString7;
                     TbWebViewActivity.this.mShareItem.shareType = jSONObject.optInt("shareimg");
-                    TbWebViewActivity.this.mShareItem.aTd = jSONObject.optInt("weixin_disable");
+                    TbWebViewActivity.this.mShareItem.aTe = jSONObject.optInt("weixin_disable");
                     String optString8 = jSONObject.optString("extdata");
                     if (!StringUtils.isNull(optString8)) {
                         try {
@@ -898,7 +898,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
                             if (!StringUtils.isNull(optString9) && !StringUtils.isNull(optString10)) {
                                 JSONObject jSONObject3 = new JSONObject();
                                 jSONObject3.put(optString9, optString10);
-                                TbWebViewActivity.this.mShareItem.aSX = jSONObject3.toString();
+                                TbWebViewActivity.this.mShareItem.aSY = jSONObject3.toString();
                             }
                         } catch (JSONException e) {
                         }

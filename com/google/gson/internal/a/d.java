@@ -4,10 +4,10 @@ import com.google.gson.o;
 import com.google.gson.p;
 /* loaded from: classes2.dex */
 public final class d implements p {
-    private final com.google.gson.internal.b ixh;
+    private final com.google.gson.internal.b ixi;
 
     public d(com.google.gson.internal.b bVar) {
-        this.ixh = bVar;
+        this.ixi = bVar;
     }
 
     @Override // com.google.gson.p
@@ -16,7 +16,7 @@ public final class d implements p {
         if (bVar == null) {
             return null;
         }
-        return (o<T>) a(this.ixh, dVar, aVar, bVar);
+        return (o<T>) a(this.ixi, dVar, aVar, bVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

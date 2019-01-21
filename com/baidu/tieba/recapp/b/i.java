@@ -8,11 +8,11 @@ import com.baidu.tieba.recapp.m;
 import com.baidu.tieba.tbadkCore.data.AppData;
 /* loaded from: classes3.dex */
 public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore.data.l, j> implements m {
-    protected BaseActivity<?> bBV;
+    protected BaseActivity<?> bBW;
 
     public i(BaseActivity<?> baseActivity, BdUniqueId bdUniqueId) {
         super(baseActivity.getPageContext().getPageActivity(), bdUniqueId);
-        this.bBV = baseActivity;
+        this.bBW = baseActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class i extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.tbadkCore
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bG */
     public j onCreateViewHolder(ViewGroup viewGroup) {
-        View view = new View(this.bBV.getPageContext().getPageActivity());
+        View view = new View(this.bBW.getPageContext().getPageActivity());
         view.setVisibility(8);
         return new j(view);
     }

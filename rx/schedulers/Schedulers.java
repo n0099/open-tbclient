@@ -11,18 +11,18 @@ import rx.internal.schedulers.h;
 import rx.internal.schedulers.j;
 /* loaded from: classes2.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> iSn = new AtomicReference<>();
-    private final g iSk;
+    private static final AtomicReference<Schedulers> iSo = new AtomicReference<>();
     private final g iSl;
     private final g iSm;
+    private final g iSn;
 
     private static Schedulers cgD() {
         Schedulers schedulers;
         while (true) {
-            schedulers = iSn.get();
+            schedulers = iSo.get();
             if (schedulers == null) {
                 schedulers = new Schedulers();
-                if (iSn.compareAndSet(null, schedulers)) {
+                if (iSo.compareAndSet(null, schedulers)) {
                     break;
                 }
                 schedulers.cgF();
@@ -37,42 +37,42 @@ public final class Schedulers {
         rx.c.g cgu = f.cgp().cgu();
         g cgy = cgu.cgy();
         if (cgy != null) {
-            this.iSk = cgy;
+            this.iSl = cgy;
         } else {
-            this.iSk = rx.c.g.cgv();
+            this.iSl = rx.c.g.cgv();
         }
         g cgz = cgu.cgz();
         if (cgz != null) {
-            this.iSl = cgz;
+            this.iSm = cgz;
         } else {
-            this.iSl = rx.c.g.cgw();
+            this.iSm = rx.c.g.cgw();
         }
         g cgA = cgu.cgA();
         if (cgA != null) {
-            this.iSm = cgA;
+            this.iSn = cgA;
         } else {
-            this.iSm = rx.c.g.cgx();
+            this.iSn = rx.c.g.cgx();
         }
     }
 
     public static g immediate() {
-        return e.iPw;
+        return e.iPx;
     }
 
     public static g trampoline() {
-        return j.iPW;
+        return j.iPX;
     }
 
     public static g newThread() {
-        return c.f(cgD().iSm);
+        return c.f(cgD().iSn);
     }
 
     public static g computation() {
-        return c.d(cgD().iSk);
+        return c.d(cgD().iSl);
     }
 
     public static g io() {
-        return c.e(cgD().iSl);
+        return c.e(cgD().iSm);
     }
 
     public static TestScheduler test() {
@@ -84,7 +84,7 @@ public final class Schedulers {
     }
 
     public static void reset() {
-        Schedulers andSet = iSn.getAndSet(null);
+        Schedulers andSet = iSo.getAndSet(null);
         if (andSet != null) {
             andSet.cgF();
         }
@@ -94,7 +94,7 @@ public final class Schedulers {
         Schedulers cgD = cgD();
         cgD.cgE();
         synchronized (cgD) {
-            d.iPt.start();
+            d.iPu.start();
         }
     }
 
@@ -102,31 +102,31 @@ public final class Schedulers {
         Schedulers cgD = cgD();
         cgD.cgF();
         synchronized (cgD) {
-            d.iPt.shutdown();
+            d.iPu.shutdown();
         }
     }
 
     synchronized void cgE() {
-        if (this.iSk instanceof h) {
-            ((h) this.iSk).start();
-        }
         if (this.iSl instanceof h) {
             ((h) this.iSl).start();
         }
         if (this.iSm instanceof h) {
             ((h) this.iSm).start();
         }
+        if (this.iSn instanceof h) {
+            ((h) this.iSn).start();
+        }
     }
 
     synchronized void cgF() {
-        if (this.iSk instanceof h) {
-            ((h) this.iSk).shutdown();
-        }
         if (this.iSl instanceof h) {
             ((h) this.iSl).shutdown();
         }
         if (this.iSm instanceof h) {
             ((h) this.iSm).shutdown();
+        }
+        if (this.iSn instanceof h) {
+            ((h) this.iSn).shutdown();
         }
     }
 }

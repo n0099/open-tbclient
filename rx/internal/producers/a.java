@@ -3,16 +3,16 @@ package rx.internal.producers;
 import rx.f;
 /* loaded from: classes2.dex */
 public final class a implements f {
-    static final f iOJ = new f() { // from class: rx.internal.producers.a.1
+    static final f iOK = new f() { // from class: rx.internal.producers.a.1
         @Override // rx.f
         public void request(long j) {
         }
     };
     boolean emitting;
-    long iLZ;
-    f iOG;
-    long iOH;
-    f iOI;
+    long iMa;
+    f iOH;
+    long iOI;
+    f iOJ;
     long requested;
 
     /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -24,7 +24,7 @@ public final class a implements f {
         if (j != 0) {
             synchronized (this) {
                 if (this.emitting) {
-                    this.iLZ += j;
+                    this.iMa += j;
                 } else {
                     this.emitting = true;
                     try {
@@ -33,7 +33,7 @@ public final class a implements f {
                             j2 = Long.MAX_VALUE;
                         }
                         this.requested = j2;
-                        f fVar = this.iOG;
+                        f fVar = this.iOH;
                         if (fVar != null) {
                             fVar.request(j);
                         }
@@ -56,7 +56,7 @@ public final class a implements f {
         }
         synchronized (this) {
             if (this.emitting) {
-                this.iOH += j;
+                this.iOI += j;
                 return;
             }
             this.emitting = true;
@@ -84,14 +84,14 @@ public final class a implements f {
         synchronized (this) {
             if (this.emitting) {
                 if (fVar == null) {
-                    fVar = iOJ;
+                    fVar = iOK;
                 }
-                this.iOI = fVar;
+                this.iOJ = fVar;
                 return;
             }
             this.emitting = true;
             try {
-                this.iOG = fVar;
+                this.iOH = fVar;
                 if (fVar != null) {
                     fVar.request(this.requested);
                 }
@@ -108,16 +108,16 @@ public final class a implements f {
     public void cfd() {
         while (true) {
             synchronized (this) {
-                long j = this.iLZ;
-                long j2 = this.iOH;
-                f fVar = this.iOI;
+                long j = this.iMa;
+                long j2 = this.iOI;
+                f fVar = this.iOJ;
                 if (j == 0 && j2 == 0 && fVar == null) {
                     this.emitting = false;
                     return;
                 }
-                this.iLZ = 0L;
-                this.iOH = 0L;
-                this.iOI = null;
+                this.iMa = 0L;
+                this.iOI = 0L;
+                this.iOJ = null;
                 long j3 = this.requested;
                 if (j3 != Long.MAX_VALUE) {
                     long j4 = j3 + j;
@@ -133,14 +133,14 @@ public final class a implements f {
                     }
                 }
                 if (fVar != null) {
-                    if (fVar == iOJ) {
-                        this.iOG = null;
+                    if (fVar == iOK) {
+                        this.iOH = null;
                     } else {
-                        this.iOG = fVar;
+                        this.iOH = fVar;
                         fVar.request(j3);
                     }
                 } else {
-                    f fVar2 = this.iOG;
+                    f fVar2 = this.iOH;
                     if (fVar2 != null && j != 0) {
                         fVar2.request(j);
                     }

@@ -11,9 +11,9 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends BaseAdapter {
-    private List<c> asp;
-    public final ArrayList<e> bnO = new ArrayList<>();
-    private e eCB;
+    private List<c> asq;
+    public final ArrayList<e> bnP = new ArrayList<>();
+    private e eCC;
     private LayoutInflater mInflater;
     private View.OnClickListener mOnClickListener;
     private int mResourceId;
@@ -21,11 +21,11 @@ public class b extends BaseAdapter {
     public b(Context context, int i, e eVar) {
         this.mInflater = LayoutInflater.from(context);
         this.mResourceId = i;
-        this.eCB = eVar;
+        this.eCC = eVar;
     }
 
     public void setData(List<c> list) {
-        this.asp = list;
+        this.asq = list;
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
@@ -39,34 +39,34 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.H(this.asp);
+        return v.H(this.asq);
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return v.d(this.asp, i);
+        return v.d(this.asq, i);
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (v.d(this.asp, i) == null) {
+        if (v.d(this.asq, i) == null) {
             return -1L;
         }
-        return ((c) v.d(this.asp, i)).hashCode();
+        return ((c) v.d(this.asq, i)).hashCode();
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
             view = this.mInflater.inflate(this.mResourceId, viewGroup, false);
-            e aB = this.eCB.aB(view);
+            e aB = this.eCC.aB(view);
             aB.setOnClickListener(this.mOnClickListener);
             view.setTag(aB);
-            this.bnO.add(aB);
+            this.bnP.add(aB);
         }
         e eVar = (e) view.getTag();
-        if (v.d(this.asp, i) != null) {
-            a(eVar, this.asp.get(i));
+        if (v.d(this.asq, i) != null) {
+            a(eVar, this.asq.get(i));
         }
         return eVar.getView();
     }
@@ -78,8 +78,8 @@ public class b extends BaseAdapter {
     }
 
     public void ej(int i) {
-        if (v.H(this.bnO) > 0) {
-            Iterator<e> it = this.bnO.iterator();
+        if (v.H(this.bnP) > 0) {
+            Iterator<e> it = this.bnP.iterator();
             while (it.hasNext()) {
                 it.next().onChangeSkinType(i);
             }

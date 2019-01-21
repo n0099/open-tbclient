@@ -4,29 +4,29 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import tbclient.HistoryForumInfo;
 /* loaded from: classes.dex */
 public class VisitedForumData extends OrmObject {
-    private boolean aYe;
-    private int aYf;
-    private String aYg;
+    private boolean aYf;
+    private int aYg;
+    private String aYh;
     private String mForumId;
     private String mForumImageUrl;
     private String mForumName;
 
     public VisitedForumData() {
         this.mForumImageUrl = "";
-        this.aYe = false;
-        this.aYf = 0;
+        this.aYf = false;
+        this.aYg = 0;
         this.mForumName = "";
         this.mForumId = "";
-        this.aYg = "";
+        this.aYh = "";
     }
 
     public VisitedForumData(String str, String str2, String str3, String str4, boolean z) {
         this.mForumImageUrl = str3;
-        this.aYe = z;
+        this.aYf = z;
         this.mForumName = str2;
         this.mForumId = str;
-        this.aYg = str4;
-        this.aYf = 0;
+        this.aYh = str4;
+        this.aYg = 0;
     }
 
     public void a(HistoryForumInfo historyForumInfo) {
@@ -34,9 +34,9 @@ public class VisitedForumData extends OrmObject {
             this.mForumImageUrl = historyForumInfo.avatar;
             this.mForumId = String.valueOf(historyForumInfo.forum_id);
             this.mForumName = historyForumInfo.forum_name;
-            this.aYe = historyForumInfo.is_liveforum.intValue() == 1;
-            this.aYf = historyForumInfo.unread_num.intValue();
-            this.aYg = historyForumInfo.visit_time;
+            this.aYf = historyForumInfo.is_liveforum.intValue() == 1;
+            this.aYg = historyForumInfo.unread_num.intValue();
+            this.aYh = historyForumInfo.visit_time;
         }
     }
 
@@ -45,11 +45,11 @@ public class VisitedForumData extends OrmObject {
     }
 
     public boolean LZ() {
-        return this.aYe;
+        return this.aYf;
     }
 
     public int Ma() {
-        return this.aYf;
+        return this.aYg;
     }
 
     public String getForumName() {
@@ -61,6 +61,6 @@ public class VisitedForumData extends OrmObject {
     }
 
     public String Mb() {
-        return this.aYg;
+        return this.aYh;
     }
 }

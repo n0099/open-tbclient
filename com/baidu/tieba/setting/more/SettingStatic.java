@@ -40,9 +40,9 @@ import protobuf.MaskInfo;
 /* loaded from: classes3.dex */
 public class SettingStatic {
     private static MaskInfo maskInfo;
-    private static boolean hcw = false;
     private static boolean hcx = false;
-    private static final com.baidu.adp.framework.listener.c eYS = new com.baidu.adp.framework.listener.c(1001) { // from class: com.baidu.tieba.setting.more.SettingStatic.1
+    private static boolean hcy = false;
+    private static final com.baidu.adp.framework.listener.c eYT = new com.baidu.adp.framework.listener.c(1001) { // from class: com.baidu.tieba.setting.more.SettingStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -53,20 +53,20 @@ public class SettingStatic {
             }
         }
     };
-    private static final CustomMessageListener bBN = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.setting.more.SettingStatic.2
+    private static final CustomMessageListener bBO = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.setting.more.SettingStatic.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            boolean unused = SettingStatic.hcx = false;
+            boolean unused = SettingStatic.hcy = false;
             MaskInfo unused2 = SettingStatic.maskInfo = null;
-            boolean unused3 = SettingStatic.hcw = false;
+            boolean unused3 = SettingStatic.hcx = false;
         }
     };
-    private static final CustomMessageListener hcy = new CustomMessageListener(2001311) { // from class: com.baidu.tieba.setting.more.SettingStatic.3
+    private static final CustomMessageListener hcz = new CustomMessageListener(2001311) { // from class: com.baidu.tieba.setting.more.SettingStatic.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            boolean unused = SettingStatic.hcw = true;
+            boolean unused = SettingStatic.hcx = true;
             SettingStatic.bzK();
         }
     };
@@ -97,9 +97,9 @@ public class SettingStatic {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.GET_PRIVATE_INFO_CMD, com.baidu.tieba.tbadkCore.a.a.aV(TbConfig.GET_PRIVATE_INFO, 303016));
         tbHttpMessageTask.setResponsedClass(ResponsedPrivacyHttpMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(bBN);
-        MessageManager.getInstance().registerListener(eYS);
-        MessageManager.getInstance().registerListener(hcy);
+        MessageManager.getInstance().registerListener(bBO);
+        MessageManager.getInstance().registerListener(eYT);
+        MessageManager.getInstance().registerListener(hcz);
         com.baidu.tieba.tbadkCore.a.a.c(104101, ResponseUpdateMaskMessage.class, false);
         com.baidu.tieba.tbadkCore.a.a.c(104106, ResponseUpdateForumMask.class, false);
         bzL();
@@ -119,7 +119,7 @@ public class SettingStatic {
         String[] split;
         String[] split2;
         String[] split3;
-        if (hcw && maskInfo != null && !hcx) {
+        if (hcx && maskInfo != null && !hcy) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!TextUtils.isEmpty(currentAccount)) {
                 if ((maskInfo.remindMask == null || maskInfo.shieldStatus == null || maskInfo.remindMask.intValue() != 0 || maskInfo.shieldStatus.intValue() != 0 || com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean(new StringBuilder().append("had_sync_setting_switch").append(currentAccount).toString(), false)) ? false : true) {
@@ -208,7 +208,7 @@ public class SettingStatic {
                         com.baidu.tieba.im.settingcache.e.aVy().a(currentAccount, str3, false, null);
                     }
                 }
-                hcx = true;
+                hcy = true;
             }
         }
     }

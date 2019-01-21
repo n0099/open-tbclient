@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes2.dex */
     public static final class a {
         private final String className;
-        private C0353a ijZ;
         private C0353a ika;
-        private boolean ikb;
+        private C0353a ikb;
+        private boolean ikc;
 
         private a(String str) {
-            this.ijZ = new C0353a();
-            this.ika = this.ijZ;
-            this.ikb = false;
+            this.ika = new C0353a();
+            this.ikb = this.ika;
+            this.ikc = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -54,10 +54,10 @@ public final class f {
         }
 
         public String toString() {
-            boolean z = this.ikb;
+            boolean z = this.ikc;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0353a c0353a = this.ijZ.ikc; c0353a != null; c0353a = c0353a.ikc) {
+            for (C0353a c0353a = this.ika.ikd; c0353a != null; c0353a = c0353a.ikd) {
                 if (!z || c0353a.value != null) {
                     append.append(str);
                     str = ", ";
@@ -72,8 +72,8 @@ public final class f {
 
         private C0353a bUz() {
             C0353a c0353a = new C0353a();
-            this.ika.ikc = c0353a;
-            this.ika = c0353a;
+            this.ikb.ikd = c0353a;
+            this.ikb = c0353a;
             return c0353a;
         }
 
@@ -88,7 +88,7 @@ public final class f {
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
         public static final class C0353a {
-            C0353a ikc;
+            C0353a ikd;
             String name;
             Object value;
 

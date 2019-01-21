@@ -23,18 +23,18 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
     @Override // com.baidu.tbadk.core.view.BasePraiseView
     public void EU() {
         super.EU();
-        this.aFX = e.d.cp_cont_i_alpha70;
-        this.aFY = e.d.cp_cont_h_alpha70;
-        this.aFV = e.f.icon_card_like_video_n;
-        this.aFW = e.f.icon_card_like_video_s;
+        this.aFY = e.d.cp_cont_i_alpha70;
+        this.aFZ = e.d.cp_cont_h_alpha70;
+        this.aFW = e.f.icon_card_like_video_n;
+        this.aFX = e.f.icon_card_like_video_s;
     }
 
     @Override // com.baidu.tbadk.core.view.BasePraiseView
     protected void initView(Context context) {
         if (context != null) {
             View inflate = View.inflate(context, e.h.praise_view_middlevideo, this);
-            this.aFZ = (TextView) inflate.findViewById(e.g.thread_info_praise_num);
-            this.aGa = (ImageView) inflate.findViewById(e.g.thread_info_praise_img);
+            this.aGa = (TextView) inflate.findViewById(e.g.thread_info_praise_num);
+            this.aGb = (ImageView) inflate.findViewById(e.g.thread_info_praise_img);
             setDisPraiseFrom(6);
         }
     }
@@ -61,8 +61,8 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
             }
             this.mData = gVar;
             this.mThreadId = ((com.baidu.tieba.frs.aggregation.g) this.mData).threadId;
-            this.avJ = ((com.baidu.tieba.frs.aggregation.g) this.mData).Bf();
-            this.avK = ((com.baidu.tieba.frs.aggregation.g) this.mData).Bg();
+            this.avK = ((com.baidu.tieba.frs.aggregation.g) this.mData).Bf();
+            this.avL = ((com.baidu.tieba.frs.aggregation.g) this.mData).Bg();
             updateUI();
         }
     }
@@ -71,19 +71,19 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
     public void updateUI() {
         Context context = getContext();
         long num = getNum();
-        String string = context.getString(this.aFU);
+        String string = context.getString(this.aFV);
         if (num > 0) {
             string = ao.X(num);
         }
-        this.aFZ.setText(string);
-        this.aFZ.setContentDescription(context.getString(this.aFU) + num);
+        this.aGa.setText(string);
+        this.aGa.setContentDescription(context.getString(this.aFV) + num);
         if (((com.baidu.tieba.frs.aggregation.g) this.mData).aEn() && EX()) {
-            this.aGa.setImageDrawable(createStateDrawable(this.aFW, this.aFV));
-            this.aFZ.setTextColor(createColorStateList(this.aFY, this.aFX));
+            this.aGb.setImageDrawable(createStateDrawable(this.aFX, this.aFW));
+            this.aGa.setTextColor(createColorStateList(this.aFZ, this.aFY));
             return;
         }
-        this.aGa.setImageDrawable(createStateDrawable(this.aFV, this.aFW));
-        this.aFZ.setTextColor(createColorStateList(this.aFX, this.aFY));
+        this.aGb.setImageDrawable(createStateDrawable(this.aFW, this.aFX));
+        this.aGa.setTextColor(createColorStateList(this.aFY, this.aFZ));
     }
 
     public int EW() {
@@ -126,8 +126,8 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
         bbVar.C(((com.baidu.tieba.frs.aggregation.g) this.mData).Bf());
         bbVar.D(((com.baidu.tieba.frs.aggregation.g) this.mData).Bg());
         a(EW, bbVar);
-        if (this.aFC != null) {
-            this.aFC.onClick(view);
+        if (this.aFD != null) {
+            this.aFD.onClick(view);
         }
         return EW;
     }

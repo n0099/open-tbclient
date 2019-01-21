@@ -24,7 +24,7 @@ public class FrsMoreFeedForumsActivityStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                    ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new c(null, h.hmD, true));
+                    ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new c(null, h.hmE, true));
                 }
             }
         });

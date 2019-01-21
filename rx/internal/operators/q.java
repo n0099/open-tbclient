@@ -4,8 +4,8 @@ import java.util.NoSuchElementException;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class q<T> implements d.a<T> {
-    final rx.d<T> iFW;
-    final rx.functions.g<T, T, T> iHN;
+    final rx.d<T> iFX;
+    final rx.functions.g<T, T, T> iHO;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -13,12 +13,12 @@ public final class q<T> implements d.a<T> {
     }
 
     public q(rx.d<T> dVar, rx.functions.g<T, T, T> gVar) {
-        this.iFW = dVar;
-        this.iHN = gVar;
+        this.iFX = dVar;
+        this.iHO = gVar;
     }
 
     public void call(rx.j<? super T> jVar) {
-        final a aVar = new a(jVar, this.iHN);
+        final a aVar = new a(jVar, this.iHO);
         jVar.add(aVar);
         jVar.setProducer(new rx.f() { // from class: rx.internal.operators.q.1
             @Override // rx.f
@@ -26,7 +26,7 @@ public final class q<T> implements d.a<T> {
                 aVar.dG(j);
             }
         });
-        this.iFW.unsafeSubscribe(aVar);
+        this.iFX.unsafeSubscribe(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -35,12 +35,12 @@ public final class q<T> implements d.a<T> {
         static final Object EMPTY = new Object();
         final rx.j<? super T> actual;
         boolean done;
-        final rx.functions.g<T, T, T> iHN;
+        final rx.functions.g<T, T, T> iHO;
         T value = (T) EMPTY;
 
         public a(rx.j<? super T> jVar, rx.functions.g<T, T, T> gVar) {
             this.actual = jVar;
-            this.iHN = gVar;
+            this.iHO = gVar;
             request(0L);
         }
 
@@ -53,7 +53,7 @@ public final class q<T> implements d.a<T> {
                     return;
                 }
                 try {
-                    this.value = this.iHN.j(t2, t);
+                    this.value = this.iHO.j(t2, t);
                 } catch (Throwable th) {
                     rx.exceptions.a.J(th);
                     unsubscribe();

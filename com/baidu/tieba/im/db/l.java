@@ -8,7 +8,7 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class l extends a {
     public static String HEAD = "tb_oficial_msg_";
-    private static a eRr;
+    private static a eRs;
 
     private l() {
         super("tb_oficial_msg_", OfficialChatMessage.class);
@@ -17,10 +17,10 @@ public class l extends a {
     public static synchronized l aRS() {
         l lVar;
         synchronized (l.class) {
-            if (eRr == null) {
-                eRr = new l();
+            if (eRs == null) {
+                eRs = new l();
             }
-            lVar = (l) eRr;
+            lVar = (l) eRs;
         }
         return lVar;
     }

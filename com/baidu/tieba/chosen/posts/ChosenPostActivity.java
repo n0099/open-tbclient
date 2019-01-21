@@ -9,49 +9,49 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.chosen.posts.a.d;
 /* loaded from: classes3.dex */
 public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> implements com.baidu.tbadk.mvc.c.a {
-    private ViewEventCenter dgd;
-    private ChosenPostModelController dge;
-    private b dgf;
+    private ViewEventCenter dge;
+    private ChosenPostModelController dgf;
+    private b dgg;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         Pe().addEventDelegate(this);
-        this.dge = arW();
-        this.dgf = arX();
+        this.dgf = arW();
+        this.dgg = arX();
         if (getIntent() != null) {
-            this.dge.p(getIntent().getExtras());
+            this.dgf.p(getIntent().getExtras());
         } else if (bundle != null) {
-            this.dge.p(bundle);
+            this.dgf.p(bundle);
         } else {
-            this.dge.p(null);
+            this.dgf.p(null);
         }
-        setContentView(this.dgf.acA());
-        this.dgf.asc();
-        this.dgf.d(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        setContentView(this.dgg.acA());
+        this.dgg.asc();
+        this.dgg.d(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         adjustResizeForSoftInput();
     }
 
     public ChosenPostModelController arW() {
-        if (this.dge == null) {
-            this.dge = new ChosenPostModelController(this);
-        }
-        return this.dge;
-    }
-
-    public b arX() {
         if (this.dgf == null) {
-            this.dgf = new b(this);
+            this.dgf = new ChosenPostModelController(this);
         }
         return this.dgf;
     }
 
-    public ViewEventCenter Pe() {
-        if (this.dgd == null) {
-            this.dgd = new ViewEventCenter();
+    public b arX() {
+        if (this.dgg == null) {
+            this.dgg = new b(this);
         }
-        return this.dgd;
+        return this.dgg;
+    }
+
+    public ViewEventCenter Pe() {
+        if (this.dge == null) {
+            this.dge = new ViewEventCenter();
+        }
+        return this.dge;
     }
 
     @Override // com.baidu.tbadk.mvc.c.a

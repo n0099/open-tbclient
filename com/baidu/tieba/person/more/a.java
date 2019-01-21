@@ -8,19 +8,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private com.baidu.tieba.personCenter.a.c guU;
+    private com.baidu.tieba.personCenter.a.c guV;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
     public a(TbPageContext tbPageContext, BdTypeListView bdTypeListView, ad<f> adVar) {
         this.mListView = bdTypeListView;
-        this.guU = new com.baidu.tieba.personCenter.a.c(tbPageContext, f.gvP);
-        this.guU.b(adVar);
-        this.mAdapters.add(this.guU);
+        this.guV = new com.baidu.tieba.personCenter.a.c(tbPageContext, f.gvQ);
+        this.guV.b(adVar);
+        this.mAdapters.add(this.guV);
         this.mListView.addAdapters(this.mAdapters);
     }
 
     public void notifyDataSetChanged() {
-        this.guU.notifyDataSetChanged();
+        this.guV.notifyDataSetChanged();
     }
 }

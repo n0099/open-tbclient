@@ -10,44 +10,44 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes3.dex */
 public class a {
-    private com.baidu.tieba.tbadvert.a.a htA;
-    private InterfaceC0319a htB;
-    private InterfaceC0319a htC = new InterfaceC0319a() { // from class: com.baidu.tieba.tbadvert.b.a.1
+    private com.baidu.tieba.tbadvert.a.a htB;
+    private InterfaceC0319a htC;
+    private InterfaceC0319a htD = new InterfaceC0319a() { // from class: com.baidu.tieba.tbadvert.b.a.1
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0319a
         public void a(com.baidu.tieba.tbadvert.a.a aVar) {
-            a.this.htA = aVar;
-            if (a.this.htB != null) {
-                a.this.htB.a(aVar);
+            a.this.htB = aVar;
+            if (a.this.htC != null) {
+                a.this.htC.a(aVar);
             }
         }
 
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0319a
         public void ak(Object obj) {
-            if (a.this.htB != null) {
-                a.this.htB.ak(obj);
+            if (a.this.htC != null) {
+                a.this.htC.ak(obj);
             }
         }
 
         @Override // com.baidu.tieba.tbadvert.b.a.InterfaceC0319a
         public void bGl() {
-            a.this.htA = null;
-            if (a.this.htB != null) {
-                a.this.htB.bGl();
+            a.this.htB = null;
+            if (a.this.htC != null) {
+                a.this.htC.bGl();
             }
         }
     };
-    private com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> htD = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.tbadvert.b.a.2
+    private com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> htE = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.tbadvert.b.a.2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.f.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass2) aVar, str, i);
             if (aVar == null || aVar.ot() == null) {
-                if (a.this.htB != null) {
-                    a.this.htB.bGl();
+                if (a.this.htC != null) {
+                    a.this.htC.bGl();
                 }
-            } else if (a.this.htB != null) {
-                a.this.htB.ak(aVar);
+            } else if (a.this.htC != null) {
+                a.this.htC.ak(aVar);
             }
         }
 
@@ -55,8 +55,8 @@ public class a {
         @Override // com.baidu.adp.lib.f.b
         public void onCancelled(String str) {
             super.onCancelled(str);
-            if (a.this.htB != null) {
-                a.this.htB.bGl();
+            if (a.this.htC != null) {
+                a.this.htC.bGl();
             }
         }
     };
@@ -72,17 +72,17 @@ public class a {
     }
 
     public void bGp() {
-        b bVar = new b(this.htC);
+        b bVar = new b(this.htD);
         bVar.setSelfExecute(true);
         bVar.execute(new String[0]);
     }
 
     public com.baidu.tieba.tbadvert.a.b bGq() {
-        if (this.htA == null || v.I(this.htA.htx)) {
+        if (this.htB == null || v.I(this.htB.hty)) {
             return null;
         }
-        for (com.baidu.tieba.tbadvert.a.b bVar : this.htA.htx) {
-            if (bVar != null && bVar.bGo() && bVar.auM == 3) {
+        for (com.baidu.tieba.tbadvert.a.b bVar : this.htB.hty) {
+            if (bVar != null && bVar.bGo() && bVar.auN == 3) {
                 return bVar;
             }
         }
@@ -91,19 +91,19 @@ public class a {
 
     public void bGr() {
         com.baidu.tieba.tbadvert.a.b bGq = bGq();
-        if (bGq != null && !TextUtils.isEmpty(bGq.htz)) {
-            h(bGq.showType, bGq.htz, true);
-        } else if (this.htB != null) {
-            this.htB.bGl();
+        if (bGq != null && !TextUtils.isEmpty(bGq.htA)) {
+            h(bGq.showType, bGq.htA, true);
+        } else if (this.htC != null) {
+            this.htC.bGl();
         }
     }
 
     public void bGs() {
-        if (this.htA != null && !v.I(this.htA.htx)) {
+        if (this.htB != null && !v.I(this.htB.hty)) {
             com.baidu.tieba.tbadvert.a.b bGq = bGq();
-            for (com.baidu.tieba.tbadvert.a.b bVar : this.htA.htx) {
-                if (bVar != null && bVar != bGq && bVar.bGo() && bVar.auM != 4) {
-                    h(bVar.showType, bVar.htz, false);
+            for (com.baidu.tieba.tbadvert.a.b bVar : this.htB.hty) {
+                if (bVar != null && bVar != bGq && bVar.bGo() && bVar.auN != 4) {
+                    h(bVar.showType, bVar.htA, false);
                 }
             }
         }
@@ -112,7 +112,7 @@ public class a {
     private void h(int i, String str, boolean z) {
         if (i == 1 || i == 2) {
             if (z) {
-                c.jA().a(str, 10, this.htD, null);
+                c.jA().a(str, 10, this.htE, null);
             } else {
                 c.jA().a(str, 10, null, null);
             }
@@ -120,15 +120,15 @@ public class a {
     }
 
     public void a(InterfaceC0319a interfaceC0319a) {
-        this.htB = interfaceC0319a;
+        this.htC = interfaceC0319a;
     }
 
     /* loaded from: classes3.dex */
     private class b extends BdAsyncTask<String, Void, Object> {
-        private InterfaceC0319a htB;
+        private InterfaceC0319a htC;
 
         public b(InterfaceC0319a interfaceC0319a) {
-            this.htB = interfaceC0319a;
+            this.htC = interfaceC0319a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -149,11 +149,11 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Object obj) {
-            if (this.htB != null) {
+            if (this.htC != null) {
                 if (obj instanceof com.baidu.tieba.tbadvert.a.a) {
-                    this.htB.a((com.baidu.tieba.tbadvert.a.a) obj);
+                    this.htC.a((com.baidu.tieba.tbadvert.a.a) obj);
                 } else {
-                    this.htB.bGl();
+                    this.htC.bGl();
                 }
             }
         }

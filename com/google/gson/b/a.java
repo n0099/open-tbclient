@@ -6,20 +6,20 @@ import java.lang.reflect.Type;
 /* loaded from: classes2.dex */
 public class a<T> {
     final int hashCode;
-    final Class<? super T> iAE;
-    final Type izq;
+    final Class<? super T> iAF;
+    final Type izr;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a() {
-        this.izq = B(getClass());
-        this.iAE = (Class<? super T>) C$Gson$Types.g(this.izq);
-        this.hashCode = this.izq.hashCode();
+        this.izr = B(getClass());
+        this.iAF = (Class<? super T>) C$Gson$Types.g(this.izr);
+        this.hashCode = this.izr.hashCode();
     }
 
     a(Type type) {
-        this.izq = C$Gson$Types.f((Type) com.google.gson.internal.a.checkNotNull(type));
-        this.iAE = (Class<? super T>) C$Gson$Types.g(this.izq);
-        this.hashCode = this.izq.hashCode();
+        this.izr = C$Gson$Types.f((Type) com.google.gson.internal.a.checkNotNull(type));
+        this.iAF = (Class<? super T>) C$Gson$Types.g(this.izr);
+        this.hashCode = this.izr.hashCode();
     }
 
     static Type B(Class<?> cls) {
@@ -31,11 +31,11 @@ public class a<T> {
     }
 
     public final Class<? super T> ccr() {
-        return this.iAE;
+        return this.iAF;
     }
 
     public final Type ccs() {
-        return this.izq;
+        return this.izr;
     }
 
     public final int hashCode() {
@@ -43,11 +43,11 @@ public class a<T> {
     }
 
     public final boolean equals(Object obj) {
-        return (obj instanceof a) && C$Gson$Types.a(this.izq, ((a) obj).izq);
+        return (obj instanceof a) && C$Gson$Types.a(this.izr, ((a) obj).izr);
     }
 
     public final String toString() {
-        return C$Gson$Types.h(this.izq);
+        return C$Gson$Types.h(this.izr);
     }
 
     public static a<?> l(Type type) {

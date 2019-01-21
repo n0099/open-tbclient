@@ -12,14 +12,14 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class g {
-    private ValueAnimator dPs;
-    private TextView dXB;
+    private ValueAnimator dPt;
+    private TextView dXC;
     private Context mContext;
     private Runnable mHideRunnable = new Runnable() { // from class: com.baidu.tieba.frs.game.strategy.view.g.3
         @Override // java.lang.Runnable
         public void run() {
-            if (g.this.dXB != null && g.this.dXB.getParent() != null && g.this.dPs != null) {
-                g.this.dPs.start();
+            if (g.this.dXC != null && g.this.dXC.getParent() != null && g.this.dPt != null) {
+                g.this.dPt.start();
             }
         }
     };
@@ -31,31 +31,31 @@ public class g {
     }
 
     private void aFU() {
-        this.dXB = new TextView(this.mContext);
-        this.dXB.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(e.C0210e.fontsize24));
-        al.i(this.dXB, e.d.common_color_10260);
-        al.h(this.dXB, e.d.cp_cont_i);
-        this.dXB.setGravity(17);
-        this.dXB.setVisibility(0);
-        this.dPs = new ValueAnimator();
-        this.dPs.setFloatValues(1.0f, 0.0f);
-        this.dPs.setDuration(400L);
-        this.dPs.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.game.strategy.view.g.1
+        this.dXC = new TextView(this.mContext);
+        this.dXC.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(e.C0210e.fontsize24));
+        al.i(this.dXC, e.d.common_color_10260);
+        al.h(this.dXC, e.d.cp_cont_i);
+        this.dXC.setGravity(17);
+        this.dXC.setVisibility(0);
+        this.dPt = new ValueAnimator();
+        this.dPt.setFloatValues(1.0f, 0.0f);
+        this.dPt.setDuration(400L);
+        this.dPt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.game.strategy.view.g.1
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                if (g.this.dXB != null && valueAnimator != null) {
-                    g.this.dXB.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                if (g.this.dXC != null && valueAnimator != null) {
+                    g.this.dXC.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 }
             }
         });
-        this.dPs.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.game.strategy.view.g.2
+        this.dPt.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.frs.game.strategy.view.g.2
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (g.this.dXB != null) {
+                if (g.this.dXC != null) {
                     g.this.aDR();
                 }
             }
@@ -74,25 +74,25 @@ public class g {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
-        if (this.dPs != null) {
-            this.dPs.cancel();
+        if (this.dPt != null) {
+            this.dPt.cancel();
         }
-        if (this.dXB != null) {
-            ViewParent parent = this.dXB.getParent();
+        if (this.dXC != null) {
+            ViewParent parent = this.dXC.getParent();
             if (parent != null && (parent instanceof ViewGroup)) {
-                ((ViewGroup) parent).removeView(this.dXB);
+                ((ViewGroup) parent).removeView(this.dXC);
             }
-            this.dXB.setVisibility(8);
-            this.dXB = null;
+            this.dXC.setVisibility(8);
+            this.dXC = null;
         }
     }
 
     public boolean isShowing() {
-        return this.dXB != null && this.dXB.getVisibility() == 0;
+        return this.dXC != null && this.dXC.getVisibility() == 0;
     }
 
     public TextView aFV() {
-        return this.dXB;
+        return this.dXC;
     }
 
     public void aFW() {

@@ -8,13 +8,13 @@ import com.baidu.searchbox.ng.ai.apps.view.coverview.model.ImageCoverViewModel;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class b extends AiAppsNaViewModel {
-    public boolean bJA;
     public boolean bJB;
-    public int bJC;
+    public boolean bJC;
     public int bJD;
-    public String bJE;
+    public int bJE;
     public String bJF;
-    public boolean bJG;
+    public String bJG;
+    public boolean bJH;
     public boolean mAutoPlay;
     public int mDirection;
     public String mPlayerId;
@@ -22,24 +22,24 @@ public final class b extends AiAppsNaViewModel {
 
     public b() {
         super("liveId", AiAppsNAViewType.LIVEPLAYER);
-        this.bJA = false;
         this.bJB = false;
-        this.bJC = 1;
-        this.bJD = 3;
-        this.bJE = "vertical";
-        this.bJF = "contain";
+        this.bJC = false;
+        this.bJD = 1;
+        this.bJE = 3;
+        this.bJF = "vertical";
+        this.bJG = "contain";
         this.mAutoPlay = false;
-        this.bJG = false;
+        this.bJH = false;
         this.mDirection = 0;
     }
 
     @Override // com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel, com.baidu.searchbox.ng.ai.apps.model.IModel
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.mPlayerId) && this.bJC <= this.bJD;
+        return !TextUtils.isEmpty(this.mPlayerId) && this.bJD <= this.bJE;
     }
 
     public String toString() {
-        return "LivePlayerParams{mPlayerId='" + this.mPlayerId + "', mSlaveId='" + this.slaveId + "', mMuted=" + this.bJA + ", mBackgroundMuted=" + this.bJB + ", mMinCacheS=" + this.bJC + ", mMaxCacheS=" + this.bJD + ", mOrientation='" + this.bJE + "', mObjectFit='" + this.bJF + "', mSrc='" + this.mSrc + "', mAutoPlay=" + this.mAutoPlay + '}';
+        return "LivePlayerParams{mPlayerId='" + this.mPlayerId + "', mSlaveId='" + this.slaveId + "', mMuted=" + this.bJB + ", mBackgroundMuted=" + this.bJC + ", mMinCacheS=" + this.bJD + ", mMaxCacheS=" + this.bJE + ", mOrientation='" + this.bJF + "', mObjectFit='" + this.bJG + "', mSrc='" + this.mSrc + "', mAutoPlay=" + this.mAutoPlay + '}';
     }
 
     public static b a(JSONObject jSONObject, @NonNull b bVar) {
@@ -51,13 +51,13 @@ public final class b extends AiAppsNaViewModel {
         bVar2.mPlayerId = jSONObject.optString("liveId");
         bVar2.mSrc = jSONObject.optString(ImageCoverViewModel.KEY_SRC, bVar.mSrc);
         bVar2.mAutoPlay = jSONObject.optBoolean("autoplay", bVar.mAutoPlay);
-        bVar2.bJA = jSONObject.optBoolean("muted", bVar.bJA);
-        bVar2.bJB = jSONObject.optBoolean("backgroundMute", bVar.bJB);
-        bVar2.bJE = jSONObject.optString("orientation", bVar.bJE);
-        bVar2.bJF = jSONObject.optString("objectFit", bVar.bJF);
-        bVar2.bJC = jSONObject.optInt("minCache", bVar.bJC);
-        bVar2.bJD = jSONObject.optInt("maxCache", bVar.bJD);
-        bVar2.bJG = jSONObject.optBoolean("fullScreen", bVar.bJG);
+        bVar2.bJB = jSONObject.optBoolean("muted", bVar.bJB);
+        bVar2.bJC = jSONObject.optBoolean("backgroundMute", bVar.bJC);
+        bVar2.bJF = jSONObject.optString("orientation", bVar.bJF);
+        bVar2.bJG = jSONObject.optString("objectFit", bVar.bJG);
+        bVar2.bJD = jSONObject.optInt("minCache", bVar.bJD);
+        bVar2.bJE = jSONObject.optInt("maxCache", bVar.bJE);
+        bVar2.bJH = jSONObject.optBoolean("fullScreen", bVar.bJH);
         bVar2.mDirection = jSONObject.optInt("direction", bVar.mDirection);
         return bVar2;
     }

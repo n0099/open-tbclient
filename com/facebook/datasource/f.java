@@ -9,11 +9,11 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class f<T> implements i<b<T>> {
-    private final List<i<b<T>>> ilv;
+    private final List<i<b<T>>> ilw;
 
     private f(List<i<b<T>>> list) {
         com.facebook.common.internal.g.checkArgument(!list.isEmpty(), "List of suppliers is empty!");
-        this.ilv = list;
+        this.ilw = list;
     }
 
     public static <T> f<T> et(List<i<b<T>>> list) {
@@ -28,7 +28,7 @@ public class f<T> implements i<b<T>> {
     }
 
     public int hashCode() {
-        return this.ilv.hashCode();
+        return this.ilw.hashCode();
     }
 
     public boolean equals(Object obj) {
@@ -38,11 +38,11 @@ public class f<T> implements i<b<T>> {
         if (!(obj instanceof f)) {
             return false;
         }
-        return com.facebook.common.internal.f.equal(this.ilv, ((f) obj).ilv);
+        return com.facebook.common.internal.f.equal(this.ilw, ((f) obj).ilw);
     }
 
     public String toString() {
-        return com.facebook.common.internal.f.ao(this).n("list", this.ilv).toString();
+        return com.facebook.common.internal.f.ao(this).n("list", this.ilw).toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -51,17 +51,17 @@ public class f<T> implements i<b<T>> {
     public class a extends AbstractDataSource<T> {
         @GuardedBy("IncreasingQualityDataSource.this")
         @Nullable
-        private ArrayList<b<T>> ilA;
+        private ArrayList<b<T>> ilB;
         @GuardedBy("IncreasingQualityDataSource.this")
-        private int ilB;
+        private int ilC;
 
         public a() {
-            int size = f.this.ilv.size();
-            this.ilB = size;
-            this.ilA = new ArrayList<>(size);
+            int size = f.this.ilw.size();
+            this.ilC = size;
+            this.ilB = new ArrayList<>(size);
             for (int i = 0; i < size; i++) {
-                b<T> bVar = (b) ((i) f.this.ilv.get(i)).get();
-                this.ilA.add(bVar);
+                b<T> bVar = (b) ((i) f.this.ilw.get(i)).get();
+                this.ilB.add(bVar);
                 bVar.a(new C0357a(i), com.facebook.common.b.a.bUv());
                 if (bVar.bVd()) {
                     return;
@@ -71,15 +71,15 @@ public class f<T> implements i<b<T>> {
 
         @Nullable
         private synchronized b<T> yl(int i) {
-            return (this.ilA == null || i >= this.ilA.size()) ? null : this.ilA.get(i);
+            return (this.ilB == null || i >= this.ilB.size()) ? null : this.ilB.get(i);
         }
 
         @Nullable
         private synchronized b<T> ym(int i) {
             b<T> bVar = null;
             synchronized (this) {
-                if (this.ilA != null && i < this.ilA.size()) {
-                    bVar = this.ilA.set(i, null);
+                if (this.ilB != null && i < this.ilB.size()) {
+                    bVar = this.ilB.set(i, null);
                 }
             }
             return bVar;
@@ -87,7 +87,7 @@ public class f<T> implements i<b<T>> {
 
         @Nullable
         private synchronized b<T> bVn() {
-            return yl(this.ilB);
+            return yl(this.ilC);
         }
 
         @Override // com.facebook.datasource.AbstractDataSource, com.facebook.datasource.b
@@ -113,8 +113,8 @@ public class f<T> implements i<b<T>> {
             int i = 0;
             synchronized (this) {
                 if (super.bVg()) {
-                    ArrayList<b<T>> arrayList = this.ilA;
-                    this.ilA = null;
+                    ArrayList<b<T>> arrayList = this.ilB;
+                    this.ilB = null;
                     if (arrayList != null) {
                         while (true) {
                             int i2 = i;
@@ -149,14 +149,14 @@ public class f<T> implements i<b<T>> {
 
         private void a(int i, b<T> bVar, boolean z) {
             synchronized (this) {
-                int i2 = this.ilB;
-                if (bVar == yl(i) && i != this.ilB) {
-                    if (bVn() == null || (z && i < this.ilB)) {
-                        this.ilB = i;
+                int i2 = this.ilC;
+                if (bVar == yl(i) && i != this.ilC) {
+                    if (bVn() == null || (z && i < this.ilC)) {
+                        this.ilC = i;
                     } else {
                         i = i2;
                     }
-                    for (int i3 = this.ilB; i3 > i; i3--) {
+                    for (int i3 = this.ilC; i3 > i; i3--) {
                         e(ym(i3));
                     }
                 }

@@ -9,19 +9,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 class n {
-    private int igp;
-    private String igq;
-    private JSONObject igr;
-    private List<h> igs = new ArrayList();
+    private int igq;
+    private String igr;
+    private JSONObject igs;
+    private List<h> igt = new ArrayList();
     private int mThreshold;
 
     public n(String str, JSONObject jSONObject) {
-        this.igq = str;
-        this.igr = jSONObject;
+        this.igr = str;
+        this.igs = jSONObject;
     }
 
     public String bSJ() {
-        return this.igq;
+        return this.igr;
     }
 
     public int getThreshold() {
@@ -29,18 +29,18 @@ class n {
     }
 
     public int bSK() {
-        return this.igp;
+        return this.igq;
     }
 
     public List<h> bSL() {
-        return this.igs;
+        return this.igt;
     }
 
     public boolean bSM() {
         try {
-            JSONObject jSONObject = this.igr;
+            JSONObject jSONObject = this.igs;
             this.mThreshold = jSONObject.getInt("threshold");
-            this.igp = jSONObject.getInt("timeup");
+            this.igq = jSONObject.getInt("timeup");
             JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
             int length = jSONArray.length();
             for (int i = 0; i < length; i++) {
@@ -68,7 +68,7 @@ class n {
                     if (jSONObject2.has("idtype")) {
                         hVar.yy(jSONObject2.getString("idtype"));
                     }
-                    this.igs.add(hVar);
+                    this.igt.add(hVar);
                 }
             }
             return true;

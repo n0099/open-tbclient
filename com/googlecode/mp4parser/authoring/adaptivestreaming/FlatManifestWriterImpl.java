@@ -100,7 +100,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 createElement3.setAttribute("MaxWidth", Long.toString(aVar.width));
                 createElement3.setAttribute("MaxHeight", Long.toString(aVar.height));
                 createElement3.setAttribute("CodecPrivateData", aVar.codecPrivateData);
-                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.iAW));
+                createElement3.setAttribute("NALUnitLengthField", Integer.toString(aVar.iAX));
                 createElement2.appendChild(createElement3);
             }
             for (int i2 = 0; i2 < this.videoFragmentsDurations.length; i2++) {
@@ -462,7 +462,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
             aVar.fourCC = "AVC1";
             aVar.width = visualSampleEntry.getWidth();
             aVar.height = visualSampleEntry.getHeight();
-            aVar.iAW = avcConfigurationBox.getLengthSizeMinusOne() + 1;
+            aVar.iAX = avcConfigurationBox.getLengthSizeMinusOne() + 1;
             return aVar;
         }
         throw new InternalError("I don't know how to handle video of type " + getFormat(visualSampleEntry));
@@ -494,43 +494,43 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public class a {
-        private byte iAS;
         private byte iAT;
-        private EC3SpecificBox.Entry iAU;
+        private byte iAU;
+        private EC3SpecificBox.Entry iAV;
 
         public a(byte b, byte b2, EC3SpecificBox.Entry entry) {
-            this.iAS = b;
-            this.iAT = b2;
-            this.iAU = entry;
+            this.iAT = b;
+            this.iAU = b2;
+            this.iAV = entry;
         }
 
         public byte ccJ() {
-            return this.iAS;
-        }
-
-        public byte ccK() {
             return this.iAT;
         }
 
+        public byte ccK() {
+            return this.iAU;
+        }
+
         public a ccL() {
-            switch (this.iAU.chan_loc) {
+            switch (this.iAV.chan_loc) {
                 case 0:
-                    this.iAS = (byte) (this.iAS | 3);
+                    this.iAT = (byte) (this.iAT | 3);
                     break;
                 case 1:
-                    this.iAS = (byte) (this.iAS | 12);
+                    this.iAT = (byte) (this.iAT | 12);
                     break;
                 case 2:
-                    this.iAT = (byte) (this.iAT | 128);
+                    this.iAU = (byte) (this.iAU | 128);
                     break;
                 case 3:
-                    this.iAT = (byte) (this.iAT | 8);
+                    this.iAU = (byte) (this.iAU | 8);
                     break;
                 case 6:
-                    this.iAT = (byte) (this.iAT | 5);
+                    this.iAU = (byte) (this.iAU | 5);
                     break;
                 case 7:
-                    this.iAT = (byte) (this.iAT | 2);
+                    this.iAU = (byte) (this.iAU | 2);
                     break;
             }
             return this;

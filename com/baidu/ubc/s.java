@@ -6,11 +6,11 @@ public class s extends com.baidu.g.d {
     }
 
     public static s bST() {
-        return a.igA;
+        return a.igB;
     }
 
     /* loaded from: classes2.dex */
     private static final class a {
-        private static final s igA = new s();
+        private static final s igB = new s();
     }
 }

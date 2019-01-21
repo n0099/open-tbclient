@@ -17,14 +17,14 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.write.write.f;
 /* loaded from: classes3.dex */
 public class g {
-    private WriteImageGridView idx;
-    private f idy;
+    private WriteImageGridView idy;
+    private f idz;
     private TbPageContext<WriteActivity> mContext;
     private WriteImagesInfo mWriteImagesInfo;
-    private com.baidu.tbadk.img.b bac = new com.baidu.tbadk.img.b();
+    private com.baidu.tbadk.img.b bad = new com.baidu.tbadk.img.b();
     private String mFrom = "write";
     private String mForumId = "";
-    private f.a idz = new f.a() { // from class: com.baidu.tieba.write.write.g.1
+    private f.a idA = new f.a() { // from class: com.baidu.tieba.write.write.g.1
         @Override // com.baidu.tieba.write.write.f.a
         public void xE(int i) {
             if (g.this.mWriteImagesInfo != null && g.this.mWriteImagesInfo.getChosedFiles() != null && i >= 0 && i < g.this.mWriteImagesInfo.getChosedFiles().size()) {
@@ -32,8 +32,8 @@ public class g {
                 if (remove.isTempFile()) {
                     com.baidu.adp.lib.Disk.d.hB().c(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
                 }
-                g.this.idy.a(g.this.mWriteImagesInfo);
-                g.this.idy.notifyDataSetChanged();
+                g.this.idz.a(g.this.mWriteImagesInfo);
+                g.this.idz.notifyDataSetChanged();
                 if (v.I(g.this.mWriteImagesInfo.getChosedFiles()) && g.this.mContext.getOrignalPage() != 0) {
                     ((WriteActivity) g.this.mContext.getOrignalPage()).bAC();
                 }
@@ -63,24 +63,24 @@ public class g {
 
     public g(TbPageContext<WriteActivity> tbPageContext, View view) {
         this.mContext = tbPageContext;
-        this.idx = (WriteImageGridView) view.findViewById(e.g.write_image_grid_view);
-        this.idy = new f(view.getContext(), this.bac, null, this.idz);
-        this.idx.setAdapter((ListAdapter) this.idy);
+        this.idy = (WriteImageGridView) view.findViewById(e.g.write_image_grid_view);
+        this.idz = new f(view.getContext(), this.bad, null, this.idA);
+        this.idy.setAdapter((ListAdapter) this.idz);
     }
 
     public void a(WriteImagesInfo writeImagesInfo, String str, String str2) {
         this.mFrom = str;
         this.mForumId = str2;
         this.mWriteImagesInfo = writeImagesInfo;
-        this.idy.a(this.mWriteImagesInfo);
-        this.idy.notifyDataSetChanged();
+        this.idz.a(this.mWriteImagesInfo);
+        this.idz.notifyDataSetChanged();
     }
 
     public void destroy() {
-        this.bac.NW();
+        this.bad.NW();
     }
 
     public void oC(boolean z) {
-        this.idy.oC(z);
+        this.idz.oC(z);
     }
 }

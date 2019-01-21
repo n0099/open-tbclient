@@ -7,35 +7,35 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class ac {
-    private static ac aBR;
-    private static final BdUniqueId aBS = BdUniqueId.gen();
+    private static ac aBS;
+    private static final BdUniqueId aBT = BdUniqueId.gen();
 
     public static synchronized ac DI() {
         ac acVar;
         synchronized (ac.class) {
-            if (aBR == null) {
-                aBR = new ac();
+            if (aBS == null) {
+                aBS = new ac();
             }
-            acVar = aBR;
+            acVar = aBS;
         }
         return acVar;
     }
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, String, String> {
-        private final String aBT;
-        private final boolean aBU;
+        private final String aBU;
         private final boolean aBV;
         private final boolean aBW;
+        private final boolean aBX;
         private final String imageUrl;
 
         public a(String str, String str2, boolean z, boolean z2, boolean z3) {
             this.imageUrl = str;
-            this.aBT = str2;
-            this.aBU = z;
-            this.aBV = z2;
-            this.aBW = z3;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ac.aBS));
+            this.aBU = str2;
+            this.aBV = z;
+            this.aBW = z2;
+            this.aBX = z3;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ac.aBT));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -43,7 +43,7 @@ public class ac {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             try {
-                ac.this.c(this.imageUrl, this.aBT, this.aBU, this.aBV, this.aBW);
+                ac.this.c(this.imageUrl, this.aBU, this.aBV, this.aBW, this.aBX);
             } finally {
                 return null;
             }

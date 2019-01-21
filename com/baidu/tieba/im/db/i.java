@@ -18,21 +18,21 @@ import java.util.LinkedList;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes.dex */
 public class i {
-    private static i eRk;
-    private static long eRn = -1;
-    private static int eRo = 0;
-    private a eRl = new a();
-    private b eRm = null;
+    private static i eRl;
+    private static long eRo = -1;
+    private static int eRp = 0;
+    private a eRm = new a();
+    private b eRn = null;
 
     public static i aRL() {
-        if (eRk == null) {
+        if (eRl == null) {
             synchronized (i.class) {
-                if (eRk == null) {
-                    eRk = new i();
+                if (eRl == null) {
+                    eRl = new i();
                 }
             }
         }
-        return eRk;
+        return eRl;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -46,7 +46,7 @@ public class i {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    i.aRL().eRl.removeMessages(1);
+                    i.aRL().eRm.removeMessages(1);
                     i.aRL().execute();
                     return;
                 default:
@@ -62,10 +62,10 @@ public class i {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        i.this.eRl.sendMessageDelayed(i.this.eRl.obtainMessage(1), StatisticConfig.MIN_UPLOAD_INTERVAL);
+                        i.this.eRm.sendMessageDelayed(i.this.eRm.obtainMessage(1), StatisticConfig.MIN_UPLOAD_INTERVAL);
                         return;
                     }
-                    i.this.eRl.removeMessages(1);
+                    i.this.eRm.removeMessages(1);
                     i.this.stop();
                 }
             }
@@ -74,21 +74,21 @@ public class i {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void execute() {
-        if (this.eRm != null) {
-            this.eRm.cancel();
-            this.eRm = null;
+        if (this.eRn != null) {
+            this.eRn.cancel();
+            this.eRn = null;
         }
-        this.eRm = new b();
-        this.eRm.setParallel(TiebaIMConfig.getParallel());
-        this.eRm.setPriority(4);
-        this.eRm.execute(new String[0]);
+        this.eRn = new b();
+        this.eRn.setParallel(TiebaIMConfig.getParallel());
+        this.eRn.setPriority(4);
+        this.eRn.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void stop() {
-        if (this.eRm != null) {
-            this.eRm.cancel();
-            this.eRm = null;
+        if (this.eRn != null) {
+            this.eRn.cancel();
+            this.eRn = null;
         }
     }
 
@@ -107,23 +107,23 @@ public class i {
             if (aRP == null || aRP.size() == 0) {
                 return false;
             }
-            if (i.eRn < 0) {
+            if (i.eRo < 0) {
                 try {
                     StatFs statFs = new StatFs(Environment.getDataDirectory().getPath());
-                    long unused = i.eRn = statFs.getAvailableBlocks() * statFs.getBlockSize();
-                    if (i.eRn > 2147483648L) {
-                        int unused2 = i.eRo = UIMsg.m_AppUI.MSG_APP_GPS;
-                    } else if (i.eRn > IjkMediaMeta.AV_CH_STEREO_RIGHT) {
-                        int unused3 = i.eRo = 3000;
+                    long unused = i.eRo = statFs.getAvailableBlocks() * statFs.getBlockSize();
+                    if (i.eRo > 2147483648L) {
+                        int unused2 = i.eRp = UIMsg.m_AppUI.MSG_APP_GPS;
+                    } else if (i.eRo > IjkMediaMeta.AV_CH_STEREO_RIGHT) {
+                        int unused3 = i.eRp = 3000;
                     } else {
-                        int unused4 = i.eRo = 1000;
+                        int unused4 = i.eRp = 1000;
                     }
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
             }
-            if (i.eRo < 1000) {
-                int unused5 = i.eRo = 1000;
+            if (i.eRp < 1000) {
+                int unused5 = i.eRp = 1000;
             }
             try {
                 h.aRJ().aRK();
@@ -132,13 +132,13 @@ public class i {
                         h.aRJ().endTransaction();
                         return false;
                     } else if (imMessageCenterPojo.getCustomGroupType() == 1) {
-                        c.aRC().an(imMessageCenterPojo.getGid(), i.eRo);
+                        c.aRC().an(imMessageCenterPojo.getGid(), i.eRp);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 2) {
-                        m.aRU().an(imMessageCenterPojo.getGid(), i.eRo);
+                        m.aRU().an(imMessageCenterPojo.getGid(), i.eRp);
                     } else if (imMessageCenterPojo.getCustomGroupType() == 4) {
-                        l.aRS().an(imMessageCenterPojo.getGid(), i.eRo);
+                        l.aRS().an(imMessageCenterPojo.getGid(), i.eRp);
                     } else if (imMessageCenterPojo.getCustomGroupType() == -2) {
-                        d.aRD().an(imMessageCenterPojo.getGid(), i.eRo);
+                        d.aRD().an(imMessageCenterPojo.getGid(), i.eRp);
                     }
                 }
             } catch (Exception e2) {

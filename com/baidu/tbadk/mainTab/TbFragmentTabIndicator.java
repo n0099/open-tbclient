@@ -10,21 +10,21 @@ import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
-    protected boolean beP;
+    protected boolean beQ;
 
     public TbFragmentTabIndicator(Context context) {
         super(context);
-        this.beP = false;
+        this.beQ = false;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.beP = false;
+        this.beQ = false;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.beP = false;
+        this.beQ = false;
     }
 
     public void eD(int i) {
@@ -96,25 +96,25 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.beP = z;
+        this.beQ = z;
     }
 
     /* loaded from: classes.dex */
     public static class a {
         public int Cd;
-        public int beR;
-        public TbFragmentTabIndicator beT;
+        public int beS;
+        public TbFragmentTabIndicator beU;
         public View view;
-        public boolean beQ = true;
-        public int beS = e.d.common_color_10225;
+        public boolean beR = true;
+        public int beT = e.d.common_color_10225;
 
         public void eD(int i) {
-            if (this.beR != 0) {
-                al.i(this.view, this.beR);
+            if (this.beS != 0) {
+                al.i(this.view, this.beS);
             }
             if (this.view instanceof TextView) {
-                if (this.beS != 0) {
-                    al.c(this.view, this.beS, 1);
+                if (this.beT != 0) {
+                    al.c(this.view, this.beT, 1);
                 }
                 int a = a((TextView) this.view);
                 if (a > 0 && a < 10) {

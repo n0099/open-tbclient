@@ -5,31 +5,31 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class RefCountSubscription implements k {
-    static final a iST = new a(false, 0);
-    private final k iSS;
-    final AtomicReference<a> iSU = new AtomicReference<>(iST);
+    static final a iSU = new a(false, 0);
+    private final k iST;
+    final AtomicReference<a> iSV = new AtomicReference<>(iSU);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        final int iSV;
+        final int iSW;
         final boolean isUnsubscribed;
 
         a(boolean z, int i) {
             this.isUnsubscribed = z;
-            this.iSV = i;
+            this.iSW = i;
         }
 
         a cgO() {
-            return new a(this.isUnsubscribed, this.iSV + 1);
+            return new a(this.isUnsubscribed, this.iSW + 1);
         }
 
         a cgP() {
-            return new a(this.isUnsubscribed, this.iSV - 1);
+            return new a(this.isUnsubscribed, this.iSW - 1);
         }
 
         a cgQ() {
-            return new a(true, this.iSV);
+            return new a(true, this.iSW);
         }
     }
 
@@ -37,12 +37,12 @@ public final class RefCountSubscription implements k {
         if (kVar == null) {
             throw new IllegalArgumentException("s");
         }
-        this.iSS = kVar;
+        this.iST = kVar;
     }
 
     public k cgM() {
         a aVar;
-        AtomicReference<a> atomicReference = this.iSU;
+        AtomicReference<a> atomicReference = this.iSV;
         do {
             aVar = atomicReference.get();
             if (aVar.isUnsubscribed) {
@@ -54,14 +54,14 @@ public final class RefCountSubscription implements k {
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.iSU.get().isUnsubscribed;
+        return this.iSV.get().isUnsubscribed;
     }
 
     @Override // rx.k
     public void unsubscribe() {
         a aVar;
         a cgQ;
-        AtomicReference<a> atomicReference = this.iSU;
+        AtomicReference<a> atomicReference = this.iSV;
         do {
             aVar = atomicReference.get();
             if (!aVar.isUnsubscribed) {
@@ -74,15 +74,15 @@ public final class RefCountSubscription implements k {
     }
 
     private void a(a aVar) {
-        if (aVar.isUnsubscribed && aVar.iSV == 0) {
-            this.iSS.unsubscribe();
+        if (aVar.isUnsubscribed && aVar.iSW == 0) {
+            this.iST.unsubscribe();
         }
     }
 
     void cgN() {
         a aVar;
         a cgP;
-        AtomicReference<a> atomicReference = this.iSU;
+        AtomicReference<a> atomicReference = this.iSV;
         do {
             aVar = atomicReference.get();
             cgP = aVar.cgP();

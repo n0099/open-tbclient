@@ -15,7 +15,7 @@ import com.baidu.tieba.homepage.daily.message.DailyPageSocketResMessage;
 import tbclient.DailyPage.DataRes;
 /* loaded from: classes6.dex */
 public class DailyNetModel extends BdBaseModel {
-    private a evU;
+    private a evV;
     private int mCurrentPage;
     private boolean mIsLoading;
     private com.baidu.adp.framework.listener.a mNetMessageListener;
@@ -37,8 +37,8 @@ public class DailyNetModel extends BdBaseModel {
                 DailyNetModel.this.mIsLoading = false;
                 int i = (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof DailyPageRequetMessage)) ? 0 : ((DailyPageRequetMessage) responsedMessage.getOrginalMessage().getExtra()).pn;
                 if (responsedMessage.getError() != 0) {
-                    if (DailyNetModel.this.evU != null) {
-                        DailyNetModel.this.evU.t(responsedMessage.getError(), responsedMessage.getErrorString());
+                    if (DailyNetModel.this.evV != null) {
+                        DailyNetModel.this.evV.t(responsedMessage.getError(), responsedMessage.getErrorString());
                         return;
                     }
                     return;
@@ -50,8 +50,8 @@ public class DailyNetModel extends BdBaseModel {
                     dataRes = ((DailyPageSocketResMessage) responsedMessage).getData();
                 }
                 DailyNetModel.this.mCurrentPage = i;
-                if (DailyNetModel.this.evU != null) {
-                    DailyNetModel.this.evU.a(dataRes, i == 1);
+                if (DailyNetModel.this.evV != null) {
+                    DailyNetModel.this.evV.a(dataRes, i == 1);
                 }
             }
         };
@@ -114,7 +114,7 @@ public class DailyNetModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.evU = aVar;
+        this.evV = aVar;
     }
 
     public void onDestroy() {

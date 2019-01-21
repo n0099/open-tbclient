@@ -12,49 +12,49 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class a extends c<AddGroupActivity> {
-    private NavigationBar bEF;
-    private View fbP;
+    private NavigationBar bEG;
     private View fbQ;
-    private EditText fbR;
-    private ImageButton fbS;
-    private View fbT;
+    private View fbR;
+    private EditText fbS;
+    private ImageButton fbT;
     private View fbU;
-    private AddGroupActivity fbV;
+    private View fbV;
+    private AddGroupActivity fbW;
     private ProgressBar progressBar;
 
     public a(AddGroupActivity addGroupActivity) {
         super(addGroupActivity.getPageContext());
-        this.fbP = null;
-        this.bEF = null;
         this.fbQ = null;
+        this.bEG = null;
         this.fbR = null;
         this.fbS = null;
-        this.progressBar = null;
         this.fbT = null;
-        this.fbV = null;
-        this.fbV = addGroupActivity;
+        this.progressBar = null;
+        this.fbU = null;
+        this.fbW = null;
+        this.fbW = addGroupActivity;
         initUI();
     }
 
     public View aQN() {
-        return this.fbS;
-    }
-
-    public View aVo() {
         return this.fbT;
     }
 
-    public View aVp() {
-        return this.fbQ;
-    }
-
-    public View aVq() {
+    public View aVo() {
         return this.fbU;
     }
 
+    public View aVp() {
+        return this.fbR;
+    }
+
+    public View aVq() {
+        return this.fbV;
+    }
+
     public void aVr() {
-        if (this.fbR != null) {
-            this.fbR.setText("");
+        if (this.fbS != null) {
+            this.fbS.setText("");
         }
     }
 
@@ -63,29 +63,29 @@ public class a extends c<AddGroupActivity> {
     }
 
     public void changeSkinType(int i) {
-        this.fbV.getLayoutMode().setNightMode(i == 1);
-        this.fbV.getLayoutMode().onModeChanged(this.fbP);
-        this.bEF.onChangeSkinType(this.fbV.getPageContext(), i);
+        this.fbW.getLayoutMode().setNightMode(i == 1);
+        this.fbW.getLayoutMode().onModeChanged(this.fbQ);
+        this.bEG.onChangeSkinType(this.fbW.getPageContext(), i);
     }
 
     private void initUI() {
-        this.fbV.setContentView(e.h.im_add_group_activity);
-        this.fbP = this.fbV.findViewById(e.g.addgroup_rootlayout);
-        this.bEF = (NavigationBar) this.fbV.findViewById(e.g.addgroup_navigationbar);
-        this.fbQ = this.bEF.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.bEF.setTitleText(this.fbV.getResources().getString(e.j.add_group_title_main));
-        this.fbR = (EditText) this.fbV.findViewById(e.g.addgroup_input);
-        this.fbR.setInputType(2);
-        this.fbS = (ImageButton) this.fbV.findViewById(e.g.addgroup_delbtn);
-        this.fbT = this.fbV.findViewById(e.g.addgroup_searchbutton);
-        this.fbU = this.fbV.findViewById(e.g.addgroup_vcode);
-        this.fbR.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.im.searchGroup.a.1
+        this.fbW.setContentView(e.h.im_add_group_activity);
+        this.fbQ = this.fbW.findViewById(e.g.addgroup_rootlayout);
+        this.bEG = (NavigationBar) this.fbW.findViewById(e.g.addgroup_navigationbar);
+        this.fbR = this.bEG.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.bEG.setTitleText(this.fbW.getResources().getString(e.j.add_group_title_main));
+        this.fbS = (EditText) this.fbW.findViewById(e.g.addgroup_input);
+        this.fbS.setInputType(2);
+        this.fbT = (ImageButton) this.fbW.findViewById(e.g.addgroup_delbtn);
+        this.fbU = this.fbW.findViewById(e.g.addgroup_searchbutton);
+        this.fbV = this.fbW.findViewById(e.g.addgroup_vcode);
+        this.fbS.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.im.searchGroup.a.1
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (a.this.fbR.length() > 0) {
-                    a.this.fbS.setVisibility(0);
+                if (a.this.fbS.length() > 0) {
+                    a.this.fbT.setVisibility(0);
                 } else {
-                    a.this.fbS.setVisibility(8);
+                    a.this.fbT.setVisibility(8);
                 }
             }
 
@@ -95,17 +95,17 @@ public class a extends c<AddGroupActivity> {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                a.this.fbT.setTag(editable.toString().trim());
+                a.this.fbU.setTag(editable.toString().trim());
             }
         });
-        this.fbT = this.fbV.findViewById(e.g.addgroup_searchbutton);
-        this.progressBar = (ProgressBar) this.fbV.findViewById(e.g.addgroup_progress);
-        this.fbQ.setOnClickListener(this.fbV);
-        this.fbS.setOnClickListener(this.fbV);
-        this.fbT.setOnClickListener(this.fbV);
-        this.fbU.setOnClickListener(this.fbV);
+        this.fbU = this.fbW.findViewById(e.g.addgroup_searchbutton);
+        this.progressBar = (ProgressBar) this.fbW.findViewById(e.g.addgroup_progress);
+        this.fbR.setOnClickListener(this.fbW);
+        this.fbT.setOnClickListener(this.fbW);
+        this.fbU.setOnClickListener(this.fbW);
+        this.fbV.setOnClickListener(this.fbW);
         if (!TbadkCoreApplication.getInst().appResponseToCmd(2902030)) {
-            this.fbU.setVisibility(8);
+            this.fbV.setVisibility(8);
         }
     }
 }

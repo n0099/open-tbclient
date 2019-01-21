@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
 import java.util.RandomAccess;
 /* loaded from: classes2.dex */
 public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
-    public static final a iCg = new a(null);
+    public static final a iCh = new a(null);
 
     @Override // java.util.List
     public void add(int i, E e) {
@@ -56,29 +56,29 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
     /* renamed from: kotlin.collections.d$d  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     private static final class C0398d<E> extends d<E> implements RandomAccess {
-        private int iCi;
-        private final d<E> iCj;
-        private final int iCk;
+        private int iCj;
+        private final d<E> iCk;
+        private final int iCl;
 
         /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: kotlin.collections.d<? extends E> */
         /* JADX WARN: Multi-variable type inference failed */
         public C0398d(d<? extends E> dVar, int i, int i2) {
             kotlin.jvm.internal.p.j(dVar, "list");
-            this.iCj = dVar;
-            this.iCk = i;
-            d.iCg.af(this.iCk, i2, this.iCj.size());
-            this.iCi = i2 - this.iCk;
+            this.iCk = dVar;
+            this.iCl = i;
+            d.iCh.af(this.iCl, i2, this.iCk.size());
+            this.iCj = i2 - this.iCl;
         }
 
         @Override // kotlin.collections.d, java.util.List
         public E get(int i) {
-            d.iCg.ck(i, this.iCi);
-            return this.iCj.get(this.iCk + i);
+            d.iCh.ck(i, this.iCj);
+            return this.iCk.get(this.iCl + i);
         }
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return this.iCi;
+            return this.iCj;
         }
     }
 
@@ -88,14 +88,14 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
             return true;
         }
         if (obj instanceof List) {
-            return iCg.a(this, (Collection) obj);
+            return iCh.a(this, (Collection) obj);
         }
         return false;
     }
 
     @Override // java.util.Collection, java.util.List
     public int hashCode() {
-        return iCg.h(this);
+        return iCh.h(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -151,7 +151,7 @@ public abstract class d<E> extends kotlin.collections.a<E> implements List<E> {
 
         public c(int i) {
             super();
-            d.iCg.cl(i, d.this.size());
+            d.iCh.cl(i, d.this.size());
             setIndex(i);
         }
 

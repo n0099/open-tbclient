@@ -17,12 +17,12 @@ import com.baidu.tieba.card.CardFrsGameSpecialTopicLayout;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class i extends com.baidu.tieba.frs.h<com.baidu.tieba.e.h, a> {
-    private com.baidu.adp.lib.e.b<CardFrsGameSpecialTopicItemView> dUb;
+    private com.baidu.adp.lib.e.b<CardFrsGameSpecialTopicItemView> dUc;
     private String mForumId;
 
     public i(TbPageContext tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.dUb = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<CardFrsGameSpecialTopicItemView>() { // from class: com.baidu.tieba.frs.gamerecommend.a.i.1
+        this.dUc = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<CardFrsGameSpecialTopicItemView>() { // from class: com.baidu.tieba.frs.gamerecommend.a.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: aGa */
@@ -61,7 +61,7 @@ public class i extends com.baidu.tieba.frs.h<com.baidu.tieba.e.h, a> {
     /* renamed from: aF */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         a aVar = new a(LayoutInflater.from(this.mContext).inflate(e.h.card_frs_game_special_topic_layout, viewGroup, false));
-        aVar.dYE.setViewPool(this.dUb);
+        aVar.dYF.setViewPool(this.dUc);
         return aVar;
     }
 
@@ -72,37 +72,37 @@ public class i extends com.baidu.tieba.frs.h<com.baidu.tieba.e.h, a> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.h hVar, a aVar) {
         if (hVar != null && hVar.avb() != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            aVar.dYC.setText(hVar.avb().title);
-            aVar.dYC.setTextColor(al.getColor(skinType, e.d.cp_cont_b));
-            aVar.dYE.setPageContext(this.mPageContext);
-            aVar.dYE.setData(hVar.avb().sub_nodes);
-            aVar.dYD.setMaxOverScrollDistance(aVar.dYE.getChildItemWidth());
-            aVar.dYB.setBackgroundColor(al.getColor(skinType, e.d.cp_bg_line_d));
-            al.i(aVar.dYp, e.d.cp_bg_line_e);
-            al.i(aVar.dBw, e.d.cp_bg_line_e);
+            aVar.dYD.setText(hVar.avb().title);
+            aVar.dYD.setTextColor(al.getColor(skinType, e.d.cp_cont_b));
+            aVar.dYF.setPageContext(this.mPageContext);
+            aVar.dYF.setData(hVar.avb().sub_nodes);
+            aVar.dYE.setMaxOverScrollDistance(aVar.dYF.getChildItemWidth());
+            aVar.dYC.setBackgroundColor(al.getColor(skinType, e.d.cp_bg_line_d));
+            al.i(aVar.dYq, e.d.cp_bg_line_e);
+            al.i(aVar.dBx, e.d.cp_bg_line_e);
         }
         return aVar.getView();
     }
 
     /* loaded from: classes3.dex */
     public class a extends q.a {
-        private View dBw;
-        private LinearLayout dYB;
-        private TextView dYC;
-        private FlexibleHorizontalScrollView dYD;
-        private CardFrsGameSpecialTopicLayout dYE;
-        private View dYp;
+        private View dBx;
+        private LinearLayout dYC;
+        private TextView dYD;
+        private FlexibleHorizontalScrollView dYE;
+        private CardFrsGameSpecialTopicLayout dYF;
+        private View dYq;
 
         public a(View view) {
             super(view);
-            this.dYB = (LinearLayout) view.findViewById(e.g.card_game_special_topic_content);
-            this.dYC = (TextView) view.findViewById(e.g.game_special_topic_title);
-            this.dYD = (FlexibleHorizontalScrollView) view.findViewById(e.g.game_special_topic_scroll_container);
-            this.dYE = (CardFrsGameSpecialTopicLayout) view.findViewById(e.g.game_special_topic_container);
-            this.dYE.setItemSpace(l.h(view.getContext(), e.C0210e.tbds20));
-            this.dYE.setItemWidth(((l.h(view.getContext(), e.C0210e.tbds170) * 2) * 21) / 9);
-            this.dYp = view.findViewById(e.g.divider_line_1);
-            this.dBw = view.findViewById(e.g.divider_line_2);
+            this.dYC = (LinearLayout) view.findViewById(e.g.card_game_special_topic_content);
+            this.dYD = (TextView) view.findViewById(e.g.game_special_topic_title);
+            this.dYE = (FlexibleHorizontalScrollView) view.findViewById(e.g.game_special_topic_scroll_container);
+            this.dYF = (CardFrsGameSpecialTopicLayout) view.findViewById(e.g.game_special_topic_container);
+            this.dYF.setItemSpace(l.h(view.getContext(), e.C0210e.tbds20));
+            this.dYF.setItemWidth(((l.h(view.getContext(), e.C0210e.tbds170) * 2) * 21) / 9);
+            this.dYq = view.findViewById(e.g.divider_line_1);
+            this.dBx = view.findViewById(e.g.divider_line_2);
         }
     }
 }

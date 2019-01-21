@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class c extends d {
-    private volatile HashMap<String, Long> hsl;
+    private volatile HashMap<String, Long> hsm;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2005016) { // from class: com.baidu.tieba.tbadkCore.util.c.1
@@ -24,14 +24,14 @@ public class c extends d {
 
     public c(int i) {
         super(i);
-        this.hsl = new HashMap<>();
+        this.hsm = new HashMap<>();
     }
 
     public long wi(String str) {
         long longValue;
         try {
             synchronized (this) {
-                longValue = this.hsl.get(str) != null ? this.hsl.get(str).longValue() : 0L;
+                longValue = this.hsm.get(str) != null ? this.hsm.get(str).longValue() : 0L;
             }
             return longValue;
         } catch (Exception e) {
@@ -43,8 +43,8 @@ public class c extends d {
     @Override // com.baidu.tieba.tbadkCore.util.d
     public void bFN() {
         synchronized (this) {
+            this.hsn.clear();
             this.hsm.clear();
-            this.hsl.clear();
         }
     }
 }

@@ -14,18 +14,18 @@ import com.baidu.tbadk.core.util.q;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes.dex */
 public class b {
-    public boolean aBv;
-    private final g aDS = new g();
+    public boolean aBw;
+    private final g aDT = new g();
     public boolean mIsNeedTbs = false;
-    public boolean aDT = true;
+    public boolean aDU = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
     public boolean mIsFromCDN = false;
-    public boolean aDU = false;
-    public int aDV = 0;
+    public boolean aDV = false;
+    public int aDW = 0;
 
     public g Ex() {
-        return this.aDS;
+        return this.aDT;
     }
 
     public void a(q qVar) {
@@ -97,17 +97,17 @@ public class b {
     }
 
     public String Ey() {
-        if (this.aDS.mUrl == null) {
+        if (this.aDT.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.aDS.mUrl.startsWith(str)) {
-            int indexOf = this.aDS.mUrl.indexOf(63);
+        if (this.aDT.mUrl.startsWith(str)) {
+            int indexOf = this.aDT.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.aDS.mUrl.length();
+                indexOf = this.aDT.mUrl.length();
             }
-            return this.aDS.mUrl.substring(str.length(), indexOf);
+            return this.aDT.mUrl.substring(str.length(), indexOf);
         }
-        return this.aDS.mUrl;
+        return this.aDT.mUrl;
     }
 }

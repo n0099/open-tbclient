@@ -14,13 +14,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public class RatingView extends LinearLayout {
-    private a gSO;
+    private a gSP;
     private Context mContext;
 
     /* loaded from: classes3.dex */
     public static class a {
-        public String fuu;
-        public Double fuv;
+        public String fuv;
+        public Double fuw;
         public String title;
     }
 
@@ -57,7 +57,7 @@ public class RatingView extends LinearLayout {
                     if (!TextUtils.isEmpty(matcher.group(1))) {
                         aVar.title = matcher.group(1);
                     }
-                    aVar.fuv = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
+                    aVar.fuw = Double.valueOf(Double.parseDouble(matcher.group(2).trim()));
                 } catch (NumberFormatException e) {
                     aVar.title = str;
                 }
@@ -69,19 +69,19 @@ public class RatingView extends LinearLayout {
     }
 
     public void setRating(String str, String str2) {
-        this.gSO = uZ(str2);
-        this.gSO.fuu = str;
+        this.gSP = uZ(str2);
+        this.gSP.fuv = str;
         bas();
     }
 
     private void bas() {
         int i;
         removeAllViews();
-        if (this.gSO != null) {
-            if (!TextUtils.isEmpty(this.gSO.fuu)) {
+        if (this.gSP != null) {
+            if (!TextUtils.isEmpty(this.gSP.fuv)) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView = new TextView(this.mContext);
-                textView.setText(this.gSO.fuu);
+                textView.setText(this.gSP.fuv);
                 textView.setTextSize(0, l.h(this.mContext, e.C0210e.fontsize24));
                 textView.setTextColor(al.getColor(e.d.cp_cont_d));
                 textView.setPadding(0, 0, l.h(this.mContext, e.C0210e.ds30), 0);
@@ -89,10 +89,10 @@ public class RatingView extends LinearLayout {
                 textView.setIncludeFontPadding(false);
                 addView(textView);
             }
-            if (!TextUtils.isEmpty(this.gSO.title)) {
+            if (!TextUtils.isEmpty(this.gSP.title)) {
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
                 TextView textView2 = new TextView(this.mContext);
-                textView2.setText(this.gSO.title);
+                textView2.setText(this.gSP.title);
                 textView2.setTextSize(0, l.h(this.mContext, e.C0210e.fontsize24));
                 textView2.setTextColor(al.getColor(e.d.cp_cont_d));
                 textView2.setPadding(0, 0, l.h(this.mContext, e.C0210e.ds6), 0);
@@ -100,8 +100,8 @@ public class RatingView extends LinearLayout {
                 textView2.setIncludeFontPadding(false);
                 addView(textView2);
             }
-            if (this.gSO.fuv != null && !Double.isNaN(this.gSO.fuv.doubleValue())) {
-                Integer valueOf = Integer.valueOf(this.gSO.fuv.intValue());
+            if (this.gSP.fuw != null && !Double.isNaN(this.gSP.fuw.doubleValue())) {
+                Integer valueOf = Integer.valueOf(this.gSP.fuw.intValue());
                 if (valueOf.intValue() > 10) {
                     valueOf = 10;
                 }

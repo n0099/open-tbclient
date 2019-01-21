@@ -3,19 +3,19 @@ package com.baidu.tbadk.core.util;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class aq {
-    private static aq aDi = null;
-    private boolean aDj = false;
+    private static aq aDj = null;
     private boolean aDk = false;
-    private int aDl = TbConfig.POST_IMAGE_SMALL;
-    private String aDm = String.valueOf(45);
+    private boolean aDl = false;
+    private int aDm = TbConfig.POST_IMAGE_SMALL;
+    private String aDn = String.valueOf(45);
 
     public static aq Ee() {
-        if (aDi == null) {
+        if (aDj == null) {
             synchronized (aq.class) {
-                aDi = new aq();
+                aDj = new aq();
             }
         }
-        return aDi;
+        return aDj;
     }
 
     public aq() {
@@ -30,33 +30,33 @@ public class aq {
     }
 
     public void bv(boolean z) {
-        this.aDk = z;
+        this.aDl = z;
     }
 
     public boolean Eg() {
-        return this.aDk;
+        return this.aDl;
     }
 
     public void bw(boolean z) {
-        this.aDj = z;
+        this.aDk = z;
         Ef();
     }
 
     private void Eh() {
-        this.aDj = com.baidu.adp.lib.util.j.kW();
+        this.aDk = com.baidu.adp.lib.util.j.kW();
     }
 
     public boolean Ei() {
-        return this.aDj;
+        return this.aDk;
     }
 
     public String Ej() {
-        return this.aDm;
+        return this.aDn;
     }
 
     public int Ek() {
         Eo();
-        return this.aDl;
+        return this.aDm;
     }
 
     public int El() {
@@ -65,7 +65,7 @@ public class aq {
 
     public void Em() {
         boolean z = true;
-        if (com.baidu.tbadk.core.i.xR().getViewImageQuality() != 0 ? com.baidu.tbadk.core.i.xR().getViewImageQuality() != 1 : !this.aDj) {
+        if (com.baidu.tbadk.core.i.xR().getViewImageQuality() != 0 ? com.baidu.tbadk.core.i.xR().getViewImageQuality() != 1 : !this.aDk) {
             z = false;
         }
         bv(z);
@@ -80,7 +80,7 @@ public class aq {
         } else if (com.baidu.tbadk.core.i.xR().getViewImageQuality() == 1) {
             valueOf = String.valueOf(80);
         }
-        this.aDm = valueOf;
+        this.aDn = valueOf;
     }
 
     public void Eo() {
@@ -104,7 +104,7 @@ public class aq {
                 i = 1800;
                 break;
         }
-        this.aDl = i;
+        this.aDm = i;
     }
 
     public static boolean Ep() {

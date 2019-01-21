@@ -31,20 +31,20 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public abstract class BasePraiseView<T> extends LinearLayout {
-    protected View.OnClickListener aFC;
-    protected int aFS;
+    protected View.OnClickListener aFD;
     protected int aFT;
-    public int aFU;
+    protected int aFU;
     public int aFV;
     public int aFW;
     public int aFX;
     public int aFY;
-    protected TextView aFZ;
-    protected ImageView aGa;
-    protected ScaleAnimation aGb;
+    public int aFZ;
+    protected TextView aGa;
+    protected ImageView aGb;
+    protected ScaleAnimation aGc;
     protected int agreeType;
-    protected long avJ;
     protected long avK;
+    protected long avL;
     protected T mData;
     protected String mForumId;
     protected int mFrom;
@@ -65,14 +65,14 @@ public abstract class BasePraiseView<T> extends LinearLayout {
         super(context, attributeSet);
         this.mSkinType = 3;
         this.agreeType = 2;
-        this.aFS = 3;
-        this.aFT = 1;
+        this.aFT = 3;
+        this.aFU = 1;
         this.mFrom = 2;
-        this.aFU = e.j.action_praise_default;
-        this.aFV = e.f.icon_card_like_n;
-        this.aFW = e.f.icon_card_like_s;
-        this.aFX = e.d.cp_cont_j;
-        this.aFY = e.d.cp_cont_h;
+        this.aFV = e.j.action_praise_default;
+        this.aFW = e.f.icon_card_like_n;
+        this.aFX = e.f.icon_card_like_s;
+        this.aFY = e.d.cp_cont_j;
+        this.aFZ = e.d.cp_cont_h;
         this.mThreadId = "";
         this.mForumId = "";
         this.mPostId = "";
@@ -85,19 +85,19 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     protected void initView(Context context) {
         if (context != null) {
             View inflate = View.inflate(context, e.h.praise_view, this);
-            this.aFZ = (TextView) inflate.findViewById(e.g.thread_info_praise_num);
-            this.aGa = (ImageView) inflate.findViewById(e.g.thread_info_praise_img);
+            this.aGa = (TextView) inflate.findViewById(e.g.thread_info_praise_num);
+            this.aGb = (ImageView) inflate.findViewById(e.g.thread_info_praise_img);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void EU() {
         this.agreeType = 2;
-        this.aFU = e.j.action_praise_default;
-        this.aFX = e.d.cp_cont_j;
-        this.aFY = e.d.cp_cont_h;
-        this.aFV = e.f.icon_card_like_n;
-        this.aFW = e.f.icon_card_like_s;
+        this.aFV = e.j.action_praise_default;
+        this.aFY = e.d.cp_cont_j;
+        this.aFZ = e.d.cp_cont_h;
+        this.aFW = e.f.icon_card_like_n;
+        this.aFX = e.f.icon_card_like_s;
     }
 
     public StateListDrawable createStateDrawable(int i, int i2) {
@@ -118,15 +118,15 @@ public abstract class BasePraiseView<T> extends LinearLayout {
 
     public void a(int i, bb bbVar) {
         com.baidu.tbadk.data.j jVar = new com.baidu.tbadk.data.j();
-        jVar.aXX = i;
-        jVar.aXY = bbVar;
+        jVar.aXY = i;
+        jVar.aXZ = bbVar;
         jVar.forumId = this.mForumId;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, jVar));
     }
 
     public void dZ(int i) {
-        if (this.aGa != null && i == 0) {
-            this.aGa.startAnimation(getScaleAnimation());
+        if (this.aGb != null && i == 0) {
+            this.aGb.startAnimation(getScaleAnimation());
         }
     }
 
@@ -136,7 +136,7 @@ public abstract class BasePraiseView<T> extends LinearLayout {
             httpMessage.addParam("z_id", FH.gz(TbadkCoreApplication.getInst()));
             httpMessage.addParam("thread_id", this.mThreadId);
             httpMessage.addParam("op_type", i);
-            httpMessage.addParam("obj_type", this.aFS);
+            httpMessage.addParam("obj_type", this.aFT);
             httpMessage.addParam("agree_type", this.agreeType);
             httpMessage.addParam("forum_id", this.mForumId);
             if (!TextUtils.isEmpty(this.mPostId)) {
@@ -150,11 +150,11 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public Animation getScaleAnimation() {
-        if (this.aGb == null) {
-            this.aGb = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
-            this.aGb.setDuration(200L);
+        if (this.aGc == null) {
+            this.aGc = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
+            this.aGc.setDuration(200L);
         }
-        return this.aGb;
+        return this.aGc;
     }
 
     public void onChangeSkinType(int i) {
@@ -165,7 +165,7 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public void setDisPraiseFrom(int i) {
-        this.aFT = i;
+        this.aFU = i;
     }
 
     public void setFrom(int i) {
@@ -173,7 +173,7 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public void setObjType(int i) {
-        this.aFS = i;
+        this.aFT = i;
     }
 
     public void setForumId(String str) {
@@ -190,12 +190,12 @@ public abstract class BasePraiseView<T> extends LinearLayout {
 
     public void setViewEnabled(boolean z) {
         setClickable(z);
+        this.aGb.setEnabled(z);
         this.aGa.setEnabled(z);
-        this.aFZ.setEnabled(z);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.aFC = onClickListener;
+        this.aFD = onClickListener;
     }
 
     public TbPageContext<?> getTbPageContext() {
@@ -219,11 +219,11 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public ImageView getImageView() {
-        return this.aGa;
+        return this.aGb;
     }
 
     public TextView getTextView() {
-        return this.aFZ;
+        return this.aGa;
     }
 
     public void bA(boolean z) {
@@ -240,13 +240,13 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     private int getObjLocate() {
-        return this.aFT;
+        return this.aFU;
     }
 
     private int getObjType() {
-        if (this.aFS == 1) {
+        if (this.aFT == 1) {
             return 2;
         }
-        return this.aFS == 2 ? 3 : 1;
+        return this.aFT == 2 ? 3 : 1;
     }
 }

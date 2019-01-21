@@ -10,8 +10,8 @@ public class c extends d {
         super(updateGroupActivity);
         setContentView(e.h.update_group_name_activity);
         qI(e.j.group_info_name);
-        this.ePv = (ImageButton) updateGroupActivity.findViewById(e.g.button_del);
-        this.ePv.setOnClickListener(updateGroupActivity);
+        this.ePw = (ImageButton) updateGroupActivity.findViewById(e.g.button_del);
+        this.ePw.setOnClickListener(updateGroupActivity);
         this.mEditText.setFilters(new InputFilter[]{new com.baidu.tieba.im.util.a(20)});
     }
 
@@ -20,9 +20,9 @@ public class c extends d {
     public void v(int i, int i2, int i3, int i4) {
         super.v(i, i2, i3, i4);
         if (i < 1) {
-            this.ePv.setVisibility(8);
+            this.ePw.setVisibility(8);
         } else {
-            this.ePv.setVisibility(0);
+            this.ePw.setVisibility(0);
         }
     }
 

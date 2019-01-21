@@ -8,8 +8,8 @@ import java.util.List;
 import tbclient.DailyTopic;
 /* loaded from: classes6.dex */
 public class e extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId evL = BdUniqueId.gen();
-    public List<a> evM;
+    public static final BdUniqueId evM = BdUniqueId.gen();
+    public List<a> evN;
 
     public static e cl(List<DailyTopic> list) {
         if (v.I(list)) {
@@ -17,7 +17,7 @@ public class e extends com.baidu.tieba.card.data.b {
         }
         e eVar = new e();
         ArrayList arrayList = new ArrayList();
-        eVar.evM = arrayList;
+        eVar.evN = arrayList;
         int i = 0;
         Iterator<DailyTopic> it = list.iterator();
         while (true) {
@@ -43,43 +43,43 @@ public class e extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return evL;
+        return evM;
     }
 
     /* loaded from: classes6.dex */
     public static class a {
-        private String emF;
-        private String evN;
+        private String emG;
         private String evO;
         private String evP;
         private String evQ;
+        private String evR;
 
         public void a(DailyTopic dailyTopic) {
-            this.evN = dailyTopic.topic_pic;
-            this.emF = dailyTopic.topic_title;
-            this.evO = dailyTopic.topic_abstract;
-            this.evP = dailyTopic.topic_url;
-            this.evQ = dailyTopic.topic_rank_url;
+            this.evO = dailyTopic.topic_pic;
+            this.emG = dailyTopic.topic_title;
+            this.evP = dailyTopic.topic_abstract;
+            this.evQ = dailyTopic.topic_url;
+            this.evR = dailyTopic.topic_rank_url;
         }
 
         public String aLH() {
-            return this.evN;
-        }
-
-        public String zl() {
-            return this.emF;
-        }
-
-        public String aLI() {
             return this.evO;
         }
 
-        public String Bt() {
+        public String zl() {
+            return this.emG;
+        }
+
+        public String aLI() {
             return this.evP;
         }
 
-        public String aLJ() {
+        public String Bt() {
             return this.evQ;
+        }
+
+        public String aLJ() {
+            return this.evR;
         }
     }
 }

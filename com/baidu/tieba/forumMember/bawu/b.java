@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import tbclient.BawuRoleInfoPub;
 /* loaded from: classes3.dex */
 public class b implements i {
-    private ArrayList<BawuRoleInfoPub> dHh = new ArrayList<>();
-    private boolean dHi = false;
-    private String dHj;
+    private ArrayList<BawuRoleInfoPub> dHi = new ArrayList<>();
+    private boolean dHj = false;
+    private String dHk;
 
     @Override // com.baidu.tieba.forumMember.bawu.i
     public int aAu() {
@@ -14,26 +14,26 @@ public class b implements i {
     }
 
     public ArrayList<BawuRoleInfoPub> aAv() {
-        return this.dHh;
-    }
-
-    public void M(ArrayList<BawuRoleInfoPub> arrayList) {
-        this.dHh = arrayList;
-    }
-
-    public boolean isLast() {
         return this.dHi;
     }
 
-    public void gp(boolean z) {
-        this.dHi = z;
+    public void M(ArrayList<BawuRoleInfoPub> arrayList) {
+        this.dHi = arrayList;
     }
 
-    public String aAw() {
+    public boolean isLast() {
         return this.dHj;
     }
 
+    public void gp(boolean z) {
+        this.dHj = z;
+    }
+
+    public String aAw() {
+        return this.dHk;
+    }
+
     public void og(String str) {
-        this.dHj = str;
+        this.dHk = str;
     }
 }

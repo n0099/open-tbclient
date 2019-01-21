@@ -11,31 +11,31 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class c {
-    private ViewEventCenter dre;
-    private SoftReference<ForumEditView> dsO;
-    private com.baidu.tieba.enterForum.a.b dsP;
+    private ViewEventCenter drf;
+    private SoftReference<ForumEditView> dsP;
+    private com.baidu.tieba.enterForum.a.b dsQ;
     private TbPageContext<?> mContext;
 
     public c(TbPageContext<?> tbPageContext, ViewEventCenter viewEventCenter) {
         this.mContext = tbPageContext;
-        this.dre = viewEventCenter;
+        this.drf = viewEventCenter;
     }
 
     public ForumEditView awQ() {
-        if (this.dsO == null) {
+        if (this.dsP == null) {
             return null;
         }
-        return this.dsO.get();
+        return this.dsP.get();
     }
 
     public void createView() {
         ForumEditView forumEditView = new ForumEditView(this.mContext.getPageActivity());
-        forumEditView.setEventCenter(this.dre);
-        this.dsO = new SoftReference<>(forumEditView);
+        forumEditView.setEventCenter(this.drf);
+        this.dsP = new SoftReference<>(forumEditView);
     }
 
     public List<f> getDataList() {
-        return TbadkCoreApplication.getInst().getSkinType() != 2 ? h(this.dsP.getDataList(), false) : this.dsP.getDataList();
+        return TbadkCoreApplication.getInst().getSkinType() != 2 ? h(this.dsQ.getDataList(), false) : this.dsQ.getDataList();
     }
 
     public void b(f fVar) {
@@ -43,16 +43,16 @@ public class c {
         if (dataList != null) {
             dataList.remove(fVar);
             if (TbadkCoreApplication.getInst().getSkinType() != 2) {
-                this.dsP.S(h(dataList, true));
+                this.dsQ.S(h(dataList, true));
             } else {
-                this.dsP.S(dataList);
+                this.dsQ.S(dataList);
             }
         }
     }
 
     public void bl(List<f> list) {
         ForumEditView forumEditView;
-        if (this.dsO != null && list != null && (forumEditView = this.dsO.get()) != null) {
+        if (this.dsP != null && list != null && (forumEditView = this.dsP.get()) != null) {
             forumEditView.setColumnTypeAndRefeshView();
             bm(list);
         }
@@ -80,33 +80,33 @@ public class c {
     }
 
     public void bm(List<f> list) {
-        ForumEditView forumEditView = this.dsO.get();
+        ForumEditView forumEditView = this.dsP.get();
         if (forumEditView != null) {
-            if (this.dsP == null) {
+            if (this.dsQ == null) {
                 awR();
             }
-            forumEditView.setGridAdapterIfNeeded(this.dsP);
+            forumEditView.setGridAdapterIfNeeded(this.dsQ);
             if (TbadkCoreApplication.getInst().getSkinType() != 2) {
-                this.dsP.S(h(list, true));
+                this.dsQ.S(h(list, true));
             } else {
-                this.dsP.S(list);
+                this.dsQ.S(list);
             }
-            this.dsP.b(this.mContext, TbadkCoreApplication.getInst().getSkinType());
+            this.dsQ.b(this.mContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     private void awR() {
-        this.dsP = new com.baidu.tieba.enterForum.a.b(this.mContext, com.baidu.tieba.enterForum.view.c.class, e.h.home_like_item_in_edit_grid, this.dre);
-        this.dsP.cL(false);
+        this.dsQ = new com.baidu.tieba.enterForum.a.b(this.mContext, com.baidu.tieba.enterForum.view.c.class, e.h.home_like_item_in_edit_grid, this.drf);
+        this.dsQ.cL(false);
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            if (this.dsO.get() != null) {
-                this.dsO.get().onChangeSkinType(tbPageContext);
+            if (this.dsP.get() != null) {
+                this.dsP.get().onChangeSkinType(tbPageContext);
             }
-            if (this.dsP != null) {
-                this.dsP.b(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+            if (this.dsQ != null) {
+                this.dsQ.b(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
             }
         }
     }

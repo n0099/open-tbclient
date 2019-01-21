@@ -17,26 +17,26 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public class f {
-    private static WeakReference<a> hso;
-    private static a hsp;
-    private static AtomicBoolean hsq;
-    private static int hsr;
-    private static boolean hss;
-    private static int hst;
-    private static List<Integer> hsu;
+    private static WeakReference<a> hsp;
+    private static a hsq;
+    private static AtomicBoolean hsr;
+    private static int hss;
+    private static boolean hst;
+    private static int hsu;
+    private static List<Integer> hsv;
 
     static {
         bFS();
         bFT();
-        hsq = new AtomicBoolean(false);
-        hsr = 0;
-        hss = true;
-        hst = 0;
-        hsu = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
+        hsr = new AtomicBoolean(false);
+        hss = 0;
+        hst = true;
+        hsu = 0;
+        hsv = Arrays.asList(3250020, 3250021, 3250022, 3250023, 3250024, 3250017);
     }
 
     public static boolean a(int i, AuthTokenData authTokenData, a aVar) {
-        if (!hsu.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
+        if (!hsv.contains(Integer.valueOf(i)) || ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken())))) {
             return false;
         }
         return a(i, authTokenData.getAuthToken(), aVar);
@@ -45,17 +45,17 @@ public class f {
     private static boolean a(int i, String str, a aVar) {
         AuthVerifyData createDataForAuthWidget;
         boolean z;
-        if (hsq.compareAndSet(false, true)) {
-            if (hso == null || hso.get() == null) {
+        if (hsr.compareAndSet(false, true)) {
+            if (hsp == null || hsp.get() == null) {
                 String valueOf = String.valueOf(System.currentTimeMillis());
                 if (aVar != null) {
                     aVar.setFrom(valueOf);
-                    hso = new WeakReference<>(aVar);
+                    hsp = new WeakReference<>(aVar);
                 }
                 if (i == 3250022) {
                     final AuthVerifyData createDataForModifyPwd = AuthVerifyData.createDataForModifyPwd(valueOf);
-                    if (hso != null && hso.get() != null) {
-                        hso.get().onFail();
+                    if (hsp != null && hsp.get() != null) {
+                        hsp.get().onFail();
                     }
                     final com.baidu.tbadk.core.dialog.a aVar2 = new com.baidu.tbadk.core.dialog.a(TbadkCoreApplication.getInst().getCurrentActivity());
                     aVar2.db(e.j.anti_account_modifypwd_tip);
@@ -91,14 +91,14 @@ public class f {
                 }
                 z = true;
             } else {
-                hsr++;
-                if (hss && hst < 3 && hsr > 0 && hsr / 3 == 0) {
+                hss++;
+                if (hst && hsu < 3 && hss > 0 && hss / 3 == 0) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921373));
-                    hst++;
+                    hsu++;
                 }
                 z = false;
             }
-            hsq.set(false);
+            hsr.set(false);
             return z;
         }
         return false;
@@ -124,7 +124,7 @@ public class f {
                     wm(((AuthVerifyData.a) cVar).authSid);
                     return;
                 } else if (cVar instanceof AuthVerifyData.b) {
-                    wn(((AuthVerifyData.b) cVar).aOm);
+                    wn(((AuthVerifyData.b) cVar).aOn);
                     return;
                 } else {
                     bFV();
@@ -140,13 +140,13 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void reset() {
-        if (hso != null) {
-            hso.clear();
+        if (hsp != null) {
+            hsp.clear();
         }
-        hso = null;
         hsp = null;
-        hst = 0;
-        hsr = 0;
+        hsq = null;
+        hsu = 0;
+        hss = 0;
     }
 
     public static void bFS() {
@@ -158,8 +158,8 @@ public class f {
                     Object data = customResponsedMessage.getData();
                     if (data instanceof AuthVerifyData) {
                         AuthVerifyData authVerifyData = (AuthVerifyData) data;
-                        if (f.hso != null && f.hso.get() != null) {
-                            a aVar = (a) f.hso.get();
+                        if (f.hsp != null && f.hsp.get() != null) {
+                            a aVar = (a) f.hsp.get();
                             if (TextUtils.equals(aVar.from, authVerifyData.getFrom())) {
                                 aVar.b(authVerifyData.getResult());
                             }

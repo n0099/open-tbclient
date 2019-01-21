@@ -4,26 +4,26 @@ import kotlin.collections.y;
 import kotlin.jvm.internal.o;
 /* loaded from: classes2.dex */
 public class a implements Iterable<Integer> {
-    public static final C0397a iCO = new C0397a(null);
-    private final int iCM;
+    public static final C0397a iCP = new C0397a(null);
     private final int iCN;
+    private final int iCO;
     private final int step;
 
     public a(int i, int i2, int i3) {
         if (i3 == 0) {
             throw new IllegalArgumentException("Step must be non-zero");
         }
-        this.iCM = i;
-        this.iCN = kotlin.internal.a.ah(i, i2, i3);
+        this.iCN = i;
+        this.iCO = kotlin.internal.a.ah(i, i2, i3);
         this.step = i3;
     }
 
     public final int getFirst() {
-        return this.iCM;
+        return this.iCN;
     }
 
     public final int getLast() {
-        return this.iCN;
+        return this.iCO;
     }
 
     public final int cdq() {
@@ -34,26 +34,26 @@ public class a implements Iterable<Integer> {
     @Override // java.lang.Iterable
     /* renamed from: cdr */
     public y iterator() {
-        return new b(this.iCM, this.iCN, this.step);
+        return new b(this.iCN, this.iCO, this.step);
     }
 
     public boolean isEmpty() {
-        return this.step > 0 ? this.iCM > this.iCN : this.iCM < this.iCN;
+        return this.step > 0 ? this.iCN > this.iCO : this.iCN < this.iCO;
     }
 
     public boolean equals(Object obj) {
-        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.iCM == ((a) obj).iCM && this.iCN == ((a) obj).iCN && this.step == ((a) obj).step));
+        return (obj instanceof a) && ((isEmpty() && ((a) obj).isEmpty()) || (this.iCN == ((a) obj).iCN && this.iCO == ((a) obj).iCO && this.step == ((a) obj).step));
     }
 
     public int hashCode() {
         if (isEmpty()) {
             return -1;
         }
-        return (((this.iCM * 31) + this.iCN) * 31) + this.step;
+        return (((this.iCN * 31) + this.iCO) * 31) + this.step;
     }
 
     public String toString() {
-        return this.step > 0 ? "" + this.iCM + ".." + this.iCN + " step " + this.step : "" + this.iCM + " downTo " + this.iCN + " step " + (-this.step);
+        return this.step > 0 ? "" + this.iCN + ".." + this.iCO + " step " + this.step : "" + this.iCN + " downTo " + this.iCO + " step " + (-this.step);
     }
 
     /* renamed from: kotlin.b.a$a  reason: collision with other inner class name */

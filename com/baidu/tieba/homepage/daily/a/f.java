@@ -13,25 +13,25 @@ import com.baidu.tieba.card.o;
 import com.baidu.tieba.card.v;
 /* loaded from: classes6.dex */
 public class f extends com.baidu.adp.widget.ListView.a<bb, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c>> {
-    private ad<bb> cbl;
-    private com.baidu.tieba.homepage.daily.view.c evC;
+    private ad<bb> cbm;
+    private com.baidu.tieba.homepage.daily.view.c evD;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.cbl = new ad<bb>() { // from class: com.baidu.tieba.homepage.daily.a.f.1
+        this.cbm = new ad<bb>() { // from class: com.baidu.tieba.homepage.daily.a.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ad
             public void a(View view, bb bbVar) {
                 int i = 2;
-                if (view != null && bbVar != null && f.this.evC != null && f.this.evC.getView() != null) {
+                if (view != null && bbVar != null && f.this.evD != null && f.this.evD.getView() != null) {
                     am amVar = new am("c13175");
                     amVar.y("obj_type", 2);
                     amVar.aB("tid", bbVar.getTid());
                     amVar.i(ImageViewerConfig.FORUM_ID, bbVar.getFid());
-                    if (view.getId() != f.this.evC.aLL() && view.getId() != f.this.evC.aLM()) {
-                        if (view.getId() == f.this.evC.aLN()) {
+                    if (view.getId() != f.this.evD.aLL() && view.getId() != f.this.evD.aLM()) {
+                        if (view.getId() == f.this.evD.aLN()) {
                             i = 3;
                         }
                     } else {
@@ -50,13 +50,13 @@ public class f extends com.baidu.adp.widget.ListView.a<bb, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aa */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c> onCreateViewHolder(ViewGroup viewGroup) {
-        this.evC = new com.baidu.tieba.homepage.daily.view.c(this.mPageContext);
-        this.evC.setTag(this.mPageId);
-        this.evC.setShareReportFrom(7);
-        this.evC.oB(11);
-        this.evC.setStType(o.zH());
-        this.evC.currentPageType = 16;
-        return new com.baidu.tieba.card.a.a<>(this.evC);
+        this.evD = new com.baidu.tieba.homepage.daily.view.c(this.mPageContext);
+        this.evD.setTag(this.mPageId);
+        this.evD.setShareReportFrom(7);
+        this.evD.oB(11);
+        this.evD.setStType(o.zH());
+        this.evD.currentPageType = 16;
+        return new com.baidu.tieba.card.a.a<>(this.evD);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,7 +72,7 @@ public class f extends com.baidu.adp.widget.ListView.a<bb, com.baidu.tieba.card.
         amVar.aB("tid", bbVar.getTid());
         amVar.i(ImageViewerConfig.FORUM_ID, bbVar.getFid());
         v.aqP().a(amVar);
-        aVar.arr().b(this.cbl);
+        aVar.arr().b(this.cbm);
         aVar.arr().a(bbVar);
         return aVar.getView();
     }

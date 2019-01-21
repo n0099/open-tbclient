@@ -7,11 +7,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes3.dex */
 public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPolymeric.c.j, com.baidu.tieba.card.a.a<com.baidu.tieba.personPolymeric.view.h>> {
-    private com.baidu.tieba.personPolymeric.b.b gzW;
+    private com.baidu.tieba.personPolymeric.b.b gzX;
     private TbPageContext<?> mPageContext;
 
     public j(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.j.gCj, bdUniqueId);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.personPolymeric.c.j.gCk, bdUniqueId);
         this.mPageContext = tbPageContext;
     }
 
@@ -31,11 +31,11 @@ public class j extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.personPol
         com.baidu.tieba.personPolymeric.view.h arr = aVar.arr();
         arr.a(jVar);
         arr.d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        arr.b(this.gzW);
+        arr.b(this.gzX);
         return aVar.getView();
     }
 
     public void a(com.baidu.tieba.personPolymeric.b.b bVar) {
-        this.gzW = bVar;
+        this.gzX = bVar;
     }
 }

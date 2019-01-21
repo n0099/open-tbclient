@@ -10,12 +10,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class d {
-    public static String bdc = "add_user_collect_emotoin";
-    public static String bdd = ARResourceKey.THUMBNAIL;
-    public static String bde = "package_id";
-    public static String bdf = "#(meme,setting)";
-    public static String bdg = "#(meme,collect_";
-    public static String bdh = "meme,collect_";
+    public static String bdd = "add_user_collect_emotoin";
+    public static String bde = ARResourceKey.THUMBNAIL;
+    public static String bdf = "package_id";
+    public static String bdg = "#(meme,setting)";
+    public static String bdh = "#(meme,collect_";
+    public static String bdi = "meme,collect_";
 
     /* loaded from: classes.dex */
     public static class a {

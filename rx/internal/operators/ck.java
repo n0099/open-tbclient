@@ -11,9 +11,9 @@ import rx.g;
 import rx.subjects.UnicastSubject;
 /* loaded from: classes2.dex */
 public final class ck<T> implements d.b<rx.d<T>, T> {
-    static final Object iNI = new Object();
-    final long iIN;
+    static final Object iNJ = new Object();
     final long iIO;
+    final long iIP;
     final rx.g scheduler;
     final int size;
     final TimeUnit unit;
@@ -24,8 +24,8 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
     }
 
     public ck(long j, long j2, TimeUnit timeUnit, int i, rx.g gVar) {
-        this.iIN = j;
-        this.iIO = j2;
+        this.iIO = j;
+        this.iIP = j2;
         this.unit = timeUnit;
         this.size = i;
         this.scheduler = gVar;
@@ -33,7 +33,7 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
 
     public rx.j<? super T> call(rx.j<? super rx.d<T>> jVar) {
         g.a createWorker = this.scheduler.createWorker();
-        if (this.iIN == this.iIO) {
+        if (this.iIO == this.iIP) {
             b bVar = new b(jVar, createWorker);
             bVar.add(createWorker);
             bVar.ceN();
@@ -49,19 +49,19 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class d<T> {
-        static final d<Object> iOj = new d<>(null, null, 0);
+        static final d<Object> iOk = new d<>(null, null, 0);
         final int count;
-        final rx.e<T> iNK;
-        final rx.d<T> iNL;
+        final rx.e<T> iNL;
+        final rx.d<T> iNM;
 
         public d(rx.e<T> eVar, rx.d<T> dVar, int i) {
-            this.iNK = eVar;
-            this.iNL = dVar;
+            this.iNL = eVar;
+            this.iNM = dVar;
             this.count = i;
         }
 
         public d<T> cfA() {
-            return new d<>(this.iNK, this.iNL, this.count + 1);
+            return new d<>(this.iNL, this.iNM, this.count + 1);
         }
 
         public d<T> a(rx.e<T> eVar, rx.d<T> dVar) {
@@ -73,7 +73,7 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
         }
 
         public static <T> d<T> cfC() {
-            return (d<T>) iOj;
+            return (d<T>) iOk;
         }
     }
 
@@ -82,18 +82,18 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
     public final class b extends rx.j<T> {
         final rx.j<? super rx.d<T>> child;
         boolean emitting;
-        List<Object> iNM;
-        final g.a iOc;
+        List<Object> iNN;
+        final g.a iOd;
         final Object guard = new Object();
-        volatile d<T> iOd = d.cfC();
+        volatile d<T> iOe = d.cfC();
 
         public b(rx.j<? super rx.d<T>> jVar, g.a aVar) {
             this.child = new rx.b.f(jVar);
-            this.iOc = aVar;
+            this.iOd = aVar;
             jVar.add(rx.subscriptions.e.j(new rx.functions.a() { // from class: rx.internal.operators.ck.b.1
                 @Override // rx.functions.a
                 public void call() {
-                    if (b.this.iOd.iNK == null) {
+                    if (b.this.iOe.iNL == null) {
                         b.this.unsubscribe();
                     }
                 }
@@ -113,10 +113,10 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
             boolean z2 = false;
             synchronized (this.guard) {
                 if (this.emitting) {
-                    if (this.iNM == null) {
-                        this.iNM = new ArrayList();
+                    if (this.iNN == null) {
+                        this.iNN = new ArrayList();
                     }
-                    this.iNM.add(t);
+                    this.iNN.add(t);
                     return;
                 }
                 this.emitting = true;
@@ -131,12 +131,12 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
                         try {
                             synchronized (this.guard) {
                                 try {
-                                    list = this.iNM;
+                                    list = this.iNN;
                                     if (list == null) {
                                         this.emitting = false;
                                         return;
                                     }
-                                    this.iNM = null;
+                                    this.iNN = null;
                                 } catch (Throwable th) {
                                     th = th;
                                     z = false;
@@ -174,7 +174,7 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
                 return true;
             }
             for (Object obj : list) {
-                if (obj == ck.iNI) {
+                if (obj == ck.iNJ) {
                     if (!cfx()) {
                         return false;
                     }
@@ -192,38 +192,38 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
         }
 
         boolean cfx() {
-            rx.e<T> eVar = this.iOd.iNK;
+            rx.e<T> eVar = this.iOe.iNL;
             if (eVar != null) {
                 eVar.onCompleted();
             }
             if (this.child.isUnsubscribed()) {
-                this.iOd = this.iOd.cfB();
+                this.iOe = this.iOe.cfB();
                 unsubscribe();
                 return false;
             }
             UnicastSubject cgK = UnicastSubject.cgK();
-            this.iOd = this.iOd.a(cgK, cgK);
+            this.iOe = this.iOe.a(cgK, cgK);
             this.child.onNext(cgK);
             return true;
         }
 
         boolean bn(T t) {
             d<T> cfA;
-            d<T> dVar = this.iOd;
-            if (dVar.iNK == null) {
+            d<T> dVar = this.iOe;
+            if (dVar.iNL == null) {
                 if (!cfx()) {
                     return false;
                 }
-                dVar = this.iOd;
+                dVar = this.iOe;
             }
-            dVar.iNK.onNext(t);
+            dVar.iNL.onNext(t);
             if (dVar.count == ck.this.size - 1) {
-                dVar.iNK.onCompleted();
+                dVar.iNL.onCompleted();
                 cfA = dVar.cfB();
             } else {
                 cfA = dVar.cfA();
             }
-            this.iOd = cfA;
+            this.iOe = cfA;
             return true;
         }
 
@@ -231,18 +231,18 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
         public void onError(Throwable th) {
             synchronized (this.guard) {
                 if (this.emitting) {
-                    this.iNM = Collections.singletonList(NotificationLite.M(th));
+                    this.iNN = Collections.singletonList(NotificationLite.M(th));
                     return;
                 }
-                this.iNM = null;
+                this.iNN = null;
                 this.emitting = true;
                 error(th);
             }
         }
 
         void error(Throwable th) {
-            rx.e<T> eVar = this.iOd.iNK;
-            this.iOd = this.iOd.cfB();
+            rx.e<T> eVar = this.iOe.iNL;
+            this.iOe = this.iOe.cfB();
             if (eVar != null) {
                 eVar.onError(th);
             }
@@ -251,8 +251,8 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
         }
 
         void complete() {
-            rx.e<T> eVar = this.iOd.iNK;
-            this.iOd = this.iOd.cfB();
+            rx.e<T> eVar = this.iOe.iNL;
+            this.iOe = this.iOe.cfB();
             if (eVar != null) {
                 eVar.onCompleted();
             }
@@ -264,14 +264,14 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
         public void onCompleted() {
             synchronized (this.guard) {
                 if (this.emitting) {
-                    if (this.iNM == null) {
-                        this.iNM = new ArrayList();
+                    if (this.iNN == null) {
+                        this.iNN = new ArrayList();
                     }
-                    this.iNM.add(NotificationLite.ceF());
+                    this.iNN.add(NotificationLite.ceF());
                     return;
                 }
-                List<Object> list = this.iNM;
-                this.iNM = null;
+                List<Object> list = this.iNN;
+                this.iNN = null;
                 this.emitting = true;
                 try {
                     eF(list);
@@ -283,12 +283,12 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
         }
 
         void ceN() {
-            this.iOc.a(new rx.functions.a() { // from class: rx.internal.operators.ck.b.2
+            this.iOd.a(new rx.functions.a() { // from class: rx.internal.operators.ck.b.2
                 @Override // rx.functions.a
                 public void call() {
                     b.this.cfy();
                 }
-            }, 0L, ck.this.iIN, ck.this.unit);
+            }, 0L, ck.this.iIO, ck.this.unit);
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [341=4] */
@@ -298,10 +298,10 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
             boolean z2 = false;
             synchronized (this.guard) {
                 if (this.emitting) {
-                    if (this.iNM == null) {
-                        this.iNM = new ArrayList();
+                    if (this.iNN == null) {
+                        this.iNN = new ArrayList();
                     }
-                    this.iNM.add(ck.iNI);
+                    this.iNN.add(ck.iNJ);
                     return;
                 }
                 this.emitting = true;
@@ -316,12 +316,12 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
                         try {
                             synchronized (this.guard) {
                                 try {
-                                    list = this.iNM;
+                                    list = this.iNN;
                                     if (list == null) {
                                         this.emitting = false;
                                         return;
                                     }
-                                    this.iNM = null;
+                                    this.iNN = null;
                                 } catch (Throwable th) {
                                     th = th;
                                     z = false;
@@ -357,12 +357,12 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
     /* loaded from: classes2.dex */
     public static final class a<T> {
         int count;
-        final rx.e<T> iNK;
-        final rx.d<T> iNL;
+        final rx.e<T> iNL;
+        final rx.d<T> iNM;
 
         public a(rx.e<T> eVar, rx.d<T> dVar) {
-            this.iNK = new rx.b.e(eVar);
-            this.iNL = dVar;
+            this.iNL = new rx.b.e(eVar);
+            this.iNM = dVar;
         }
     }
 
@@ -372,15 +372,15 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
         final rx.j<? super rx.d<T>> child;
         boolean done;
         final Object guard;
-        final List<a<T>> iIJ;
-        final g.a iOc;
+        final List<a<T>> iIK;
+        final g.a iOd;
 
         public c(rx.j<? super rx.d<T>> jVar, g.a aVar) {
             super(jVar);
             this.child = jVar;
-            this.iOc = aVar;
+            this.iOd = aVar;
             this.guard = new Object();
-            this.iIJ = new LinkedList();
+            this.iIK = new LinkedList();
         }
 
         @Override // rx.j
@@ -392,8 +392,8 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
         public void onNext(T t) {
             synchronized (this.guard) {
                 if (!this.done) {
-                    ArrayList<a> arrayList = new ArrayList(this.iIJ);
-                    Iterator<a<T>> it = this.iIJ.iterator();
+                    ArrayList<a> arrayList = new ArrayList(this.iIK);
+                    Iterator<a<T>> it = this.iIK.iterator();
                     while (it.hasNext()) {
                         a<T> next = it.next();
                         int i = next.count + 1;
@@ -403,9 +403,9 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
                         }
                     }
                     for (a aVar : arrayList) {
-                        aVar.iNK.onNext(t);
+                        aVar.iNL.onNext(t);
                         if (aVar.count == ck.this.size) {
-                            aVar.iNK.onCompleted();
+                            aVar.iNL.onCompleted();
                         }
                     }
                 }
@@ -417,10 +417,10 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
             synchronized (this.guard) {
                 if (!this.done) {
                     this.done = true;
-                    ArrayList<a> arrayList = new ArrayList(this.iIJ);
-                    this.iIJ.clear();
+                    ArrayList<a> arrayList = new ArrayList(this.iIK);
+                    this.iIK.clear();
                     for (a aVar : arrayList) {
-                        aVar.iNK.onError(th);
+                        aVar.iNL.onError(th);
                     }
                     this.child.onError(th);
                 }
@@ -432,10 +432,10 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
             synchronized (this.guard) {
                 if (!this.done) {
                     this.done = true;
-                    ArrayList<a> arrayList = new ArrayList(this.iIJ);
-                    this.iIJ.clear();
+                    ArrayList<a> arrayList = new ArrayList(this.iIK);
+                    this.iIK.clear();
                     for (a aVar : arrayList) {
-                        aVar.iNK.onCompleted();
+                        aVar.iNL.onCompleted();
                     }
                     this.child.onCompleted();
                 }
@@ -443,27 +443,27 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
         }
 
         void ceO() {
-            this.iOc.a(new rx.functions.a() { // from class: rx.internal.operators.ck.c.1
+            this.iOd.a(new rx.functions.a() { // from class: rx.internal.operators.ck.c.1
                 @Override // rx.functions.a
                 public void call() {
                     c.this.ceP();
                 }
-            }, ck.this.iIO, ck.this.iIO, ck.this.unit);
+            }, ck.this.iIP, ck.this.iIP, ck.this.unit);
         }
 
         void ceP() {
             final a<T> cfz = cfz();
             synchronized (this.guard) {
                 if (!this.done) {
-                    this.iIJ.add(cfz);
+                    this.iIK.add(cfz);
                     try {
-                        this.child.onNext(cfz.iNL);
-                        this.iOc.a(new rx.functions.a() { // from class: rx.internal.operators.ck.c.2
+                        this.child.onNext(cfz.iNM);
+                        this.iOd.a(new rx.functions.a() { // from class: rx.internal.operators.ck.c.2
                             @Override // rx.functions.a
                             public void call() {
                                 c.this.a(cfz);
                             }
-                        }, ck.this.iIN, ck.this.unit);
+                        }, ck.this.iIO, ck.this.unit);
                     } catch (Throwable th) {
                         onError(th);
                     }
@@ -475,7 +475,7 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
             boolean z;
             synchronized (this.guard) {
                 if (!this.done) {
-                    Iterator<a<T>> it = this.iIJ.iterator();
+                    Iterator<a<T>> it = this.iIK.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             z = false;
@@ -487,7 +487,7 @@ public final class ck<T> implements d.b<rx.d<T>, T> {
                         }
                     }
                     if (z) {
-                        aVar.iNK.onCompleted();
+                        aVar.iNL.onCompleted();
                     }
                 }
             }

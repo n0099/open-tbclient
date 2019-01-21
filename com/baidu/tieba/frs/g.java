@@ -17,7 +17,7 @@ public class g {
 
     public static void a(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, com.baidu.tieba.tbadkCore.l lVar) {
         if (threadCommentAndPraiseInfoLayout != null) {
-            if (lVar != null && lVar.hop != 303 && b(a(lVar))) {
+            if (lVar != null && lVar.hoq != 303 && b(a(lVar))) {
                 threadCommentAndPraiseInfoLayout.setManageVisible(true);
             } else {
                 threadCommentAndPraiseInfoLayout.setManageVisible(false);

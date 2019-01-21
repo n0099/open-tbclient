@@ -18,12 +18,12 @@ import com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout;
 import com.baidu.tieba.frs.h;
 /* loaded from: classes3.dex */
 public class a extends h<com.baidu.tieba.h.b, b> implements d {
-    private com.baidu.tieba.frs.e.b dTF;
+    private com.baidu.tieba.frs.e.b dTG;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.dTF = new com.baidu.tieba.frs.e.b();
+        this.dTG = new com.baidu.tieba.frs.e.b();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -44,17 +44,17 @@ public class a extends h<com.baidu.tieba.h.b, b> implements d {
             return null;
         }
         al.j(view, e.d.cp_bg_line_d);
-        if (this.dTF != null) {
-            TiebaStatic.log(new am("c12104").aB(ImageViewerConfig.FORUM_ID, this.dTF.eeL));
+        if (this.dTG != null) {
+            TiebaStatic.log(new am("c12104").aB(ImageViewerConfig.FORUM_ID, this.dTG.eeM));
         }
-        if (bVar2.dXS != null) {
-            bVar2.dXS.setData(bVar);
-            bVar2.dXS.setOnCardClickListener(new GameRankHorizontalLayout.a() { // from class: com.baidu.tieba.frs.gamepaltform.a.1
+        if (bVar2.dXT != null) {
+            bVar2.dXT.setData(bVar);
+            bVar2.dXT.setOnCardClickListener(new GameRankHorizontalLayout.a() { // from class: com.baidu.tieba.frs.gamepaltform.a.1
                 @Override // com.baidu.tieba.frs.gamepaltform.GameRankHorizontalLayout.a
                 public void b(com.baidu.tieba.h.a aVar, int i2) {
                     if (aVar != null) {
-                        if (a.this.dTF != null) {
-                            TiebaStatic.log(new am("c12105").aB(ImageViewerConfig.FORUM_ID, a.this.dTF.eeL).y("obj_locate", i2 + 1));
+                        if (a.this.dTG != null) {
+                            TiebaStatic.log(new am("c12105").aB(ImageViewerConfig.FORUM_ID, a.this.dTG.eeM).y("obj_locate", i2 + 1));
                         }
                         if (!StringUtils.isNull(aVar.aKk())) {
                             com.baidu.tbadk.browser.a.ad(a.this.mPageContext.getPageActivity(), aVar.aKk());
@@ -63,8 +63,8 @@ public class a extends h<com.baidu.tieba.h.b, b> implements d {
                 }
             });
         }
-        if (bVar2.dXT != null) {
-            bVar2.dXT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamepaltform.a.2
+        if (bVar2.dXU != null) {
+            bVar2.dXU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamepaltform.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putString("game_rank_list_info", System.currentTimeMillis() + ",7");
@@ -80,6 +80,6 @@ public class a extends h<com.baidu.tieba.h.b, b> implements d {
 
     @Override // com.baidu.tieba.frs.e.d
     public com.baidu.tieba.frs.e.b aFf() {
-        return this.dTF;
+        return this.dTG;
     }
 }

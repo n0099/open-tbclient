@@ -19,12 +19,12 @@ public class FrsMemberStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                     AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                    absDelegateAdapterList.add(new i(null, j.dIl));
-                    absDelegateAdapterList.add(new l(null, m.dIz));
-                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.frs.i.dLk));
-                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.a(null, com.baidu.tieba.forumMember.a.b.dHP));
-                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.d(null, com.baidu.tieba.forumMember.a.e.dHS));
-                    absDelegateAdapterList.add(new o(null, p.dIS));
+                    absDelegateAdapterList.add(new i(null, j.dIm));
+                    absDelegateAdapterList.add(new l(null, m.dIA));
+                    absDelegateAdapterList.add(new g(null, com.baidu.tieba.frs.i.dLl));
+                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.a(null, com.baidu.tieba.forumMember.a.b.dHQ));
+                    absDelegateAdapterList.add(new com.baidu.tieba.forumMember.a.d(null, com.baidu.tieba.forumMember.a.e.dHT));
+                    absDelegateAdapterList.add(new o(null, p.dIT));
                 }
             }
         });
@@ -35,7 +35,7 @@ public class FrsMemberStatic {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof aa)) {
                     aa aaVar = (aa) customResponsedMessage.getData();
                     e eVar = new e();
-                    eVar.setTag(aaVar.bes);
+                    eVar.setTag(aaVar.beu);
                     aaVar.a(3, eVar);
                 }
             }

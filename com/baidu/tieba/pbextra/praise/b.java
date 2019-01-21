@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b {
-    private View bGA;
-    private HeadImageView gtn;
-    private TextView gto;
+    private View bGB;
+    private HeadImageView gto;
     private TextView gtp;
-    private ImageView gtq;
+    private TextView gtq;
+    private ImageView gtr;
 
     public static b d(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
-        this.bGA = null;
-        this.gtn = null;
+        this.bGB = null;
         this.gto = null;
         this.gtp = null;
         this.gtq = null;
-        this.bGA = LayoutInflater.from(context).inflate(e.h.zan_list_item, (ViewGroup) null);
-        this.gtn = (HeadImageView) this.bGA.findViewById(e.g.zan_list_item_head);
-        this.gto = (TextView) this.bGA.findViewById(e.g.zan_list_item_name);
-        this.gtp = (TextView) this.bGA.findViewById(e.g.zan_list_item_time);
-        this.gtq = (ImageView) this.bGA.findViewById(e.g.zan_list_item_line_bottom);
-        this.gtq.setVisibility(0);
-        this.bGA.setTag(this);
+        this.gtr = null;
+        this.bGB = LayoutInflater.from(context).inflate(e.h.zan_list_item, (ViewGroup) null);
+        this.gto = (HeadImageView) this.bGB.findViewById(e.g.zan_list_item_head);
+        this.gtp = (TextView) this.bGB.findViewById(e.g.zan_list_item_name);
+        this.gtq = (TextView) this.bGB.findViewById(e.g.zan_list_item_time);
+        this.gtr = (ImageView) this.bGB.findViewById(e.g.zan_list_item_line_bottom);
+        this.gtr.setVisibility(0);
+        this.bGB.setTag(this);
     }
 
     public View getView() {
-        return this.bGA;
+        return this.bGB;
     }
 
     public void a(String str, String str2, long j, boolean z) {
-        this.gto.setText(str);
-        this.gtn.setImageDrawable(null);
-        this.gtp.setText(ao.M(j));
-        this.gtn.startLoad(str2, 28, false);
+        this.gtp.setText(str);
+        this.gto.setImageDrawable(null);
+        this.gtq.setText(ao.M(j));
+        this.gto.startLoad(str2, 28, false);
     }
 }

@@ -6,88 +6,88 @@ import java.io.IOException;
 import java.io.OutputStream;
 /* loaded from: classes3.dex */
 class b {
-    int gsC;
-    private int gsh;
+    int gsD;
     private int gsi;
-    private byte[] gsj;
-    private int gsk;
+    private int gsj;
+    private byte[] gsk;
     private int gsl;
     private int gsm;
-    int gsn;
-    int gsp;
-    int gsw;
+    private int gsn;
+    int gso;
+    int gsq;
     int gsx;
     int gsy;
-    int gso = 12;
-    int gsq = 4096;
-    int[] gsr = new int[5003];
+    int gsz;
+    int gsp = 12;
+    int gsr = 4096;
     int[] gss = new int[5003];
-    int gst = 5003;
-    int gsu = 0;
-    boolean gsv = false;
-    int gsz = 0;
+    int[] gst = new int[5003];
+    int gsu = 5003;
+    int gsv = 0;
+    boolean gsw = false;
     int gsA = 0;
-    int[] gsB = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, ArBridge.MessageType.MSG_TYPE_VIDEO_PAUSE, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
-    byte[] gsD = new byte[256];
+    int gsB = 0;
+    int[] gsC = {0, 1, 3, 7, 15, 31, 63, 127, 255, 511, ArBridge.MessageType.MSG_TYPE_VIDEO_PAUSE, 2047, 4095, 8191, 16383, 32767, SupportMenu.USER_MASK};
+    byte[] gsE = new byte[256];
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(int i, int i2, byte[] bArr, int i3) {
-        this.gsh = i;
-        this.gsi = i2;
-        this.gsj = bArr;
-        this.gsk = Math.max(2, i3);
+        this.gsi = i;
+        this.gsj = i2;
+        this.gsk = bArr;
+        this.gsl = Math.max(2, i3);
     }
 
     void a(byte b, OutputStream outputStream) throws IOException {
-        byte[] bArr = this.gsD;
-        int i = this.gsC;
-        this.gsC = i + 1;
+        byte[] bArr = this.gsE;
+        int i = this.gsD;
+        this.gsD = i + 1;
         bArr[i] = b;
-        if (this.gsC >= 254) {
+        if (this.gsD >= 254) {
             g(outputStream);
         }
     }
 
     void f(OutputStream outputStream) throws IOException {
-        ti(this.gst);
-        this.gsu = this.gsx + 2;
-        this.gsv = true;
-        b(this.gsx, outputStream);
+        ti(this.gsu);
+        this.gsv = this.gsy + 2;
+        this.gsw = true;
+        b(this.gsy, outputStream);
     }
 
     void ti(int i) {
         for (int i2 = 0; i2 < i; i2++) {
-            this.gsr[i2] = -1;
+            this.gss[i2] = -1;
         }
     }
 
     void a(int i, OutputStream outputStream) throws IOException {
         int i2 = 0;
-        this.gsw = i;
-        this.gsv = false;
-        this.gsn = this.gsw;
-        this.gsp = tj(this.gsn);
-        this.gsx = 1 << (i - 1);
-        this.gsy = this.gsx + 1;
-        this.gsu = this.gsx + 2;
-        this.gsC = 0;
+        this.gsx = i;
+        this.gsw = false;
+        this.gso = this.gsx;
+        this.gsq = tj(this.gso);
+        this.gsy = 1 << (i - 1);
+        this.gsz = this.gsy + 1;
+        this.gsv = this.gsy + 2;
+        this.gsD = 0;
         int bps = bps();
-        for (int i3 = this.gst; i3 < 65536; i3 *= 2) {
+        for (int i3 = this.gsu; i3 < 65536; i3 *= 2) {
             i2++;
         }
         int i4 = 8 - i2;
-        int i5 = this.gst;
+        int i5 = this.gsu;
         ti(i5);
-        b(this.gsx, outputStream);
+        b(this.gsy, outputStream);
         while (true) {
             int bps2 = bps();
             if (bps2 != -1) {
-                int i6 = (bps2 << this.gso) + bps;
+                int i6 = (bps2 << this.gsp) + bps;
                 int i7 = (bps2 << i4) ^ bps;
-                if (this.gsr[i7] == i6) {
-                    bps = this.gss[i7];
+                if (this.gss[i7] == i6) {
+                    bps = this.gst[i7];
                 } else {
-                    if (this.gsr[i7] >= 0) {
+                    if (this.gss[i7] >= 0) {
                         int i8 = i5 - i7;
                         if (i7 == 0) {
                             i8 = 1;
@@ -97,19 +97,19 @@ class b {
                             if (i7 < 0) {
                                 i7 += i5;
                             }
-                            if (this.gsr[i7] == i6) {
-                                bps = this.gss[i7];
+                            if (this.gss[i7] == i6) {
+                                bps = this.gst[i7];
                                 break;
                             }
-                        } while (this.gsr[i7] >= 0);
+                        } while (this.gss[i7] >= 0);
                     }
                     b(bps, outputStream);
-                    if (this.gsu < this.gsq) {
-                        int[] iArr = this.gss;
-                        int i9 = this.gsu;
-                        this.gsu = i9 + 1;
+                    if (this.gsv < this.gsr) {
+                        int[] iArr = this.gst;
+                        int i9 = this.gsv;
+                        this.gsv = i9 + 1;
                         iArr[i7] = i9;
-                        this.gsr[i7] = i6;
+                        this.gss[i7] = i6;
                         bps = bps2;
                     } else {
                         f(outputStream);
@@ -118,7 +118,7 @@ class b {
                 }
             } else {
                 b(bps, outputStream);
-                b(this.gsy, outputStream);
+                b(this.gsz, outputStream);
                 return;
             }
         }
@@ -126,18 +126,18 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void encode(OutputStream outputStream) throws IOException {
-        outputStream.write(this.gsk);
-        this.gsl = this.gsh * this.gsi;
-        this.gsm = 0;
-        a(this.gsk + 1, outputStream);
+        outputStream.write(this.gsl);
+        this.gsm = this.gsi * this.gsj;
+        this.gsn = 0;
+        a(this.gsl + 1, outputStream);
         outputStream.write(0);
     }
 
     void g(OutputStream outputStream) throws IOException {
-        if (this.gsC > 0) {
-            outputStream.write(this.gsC);
-            outputStream.write(this.gsD, 0, this.gsC);
-            this.gsC = 0;
+        if (this.gsD > 0) {
+            outputStream.write(this.gsD);
+            outputStream.write(this.gsE, 0, this.gsD);
+            this.gsD = 0;
         }
     }
 
@@ -146,49 +146,49 @@ class b {
     }
 
     private int bps() {
-        if (this.gsl == 0) {
+        if (this.gsm == 0) {
             return -1;
         }
-        this.gsl--;
-        byte[] bArr = this.gsj;
-        int i = this.gsm;
-        this.gsm = i + 1;
+        this.gsm--;
+        byte[] bArr = this.gsk;
+        int i = this.gsn;
+        this.gsn = i + 1;
         return bArr[i] & 255;
     }
 
     void b(int i, OutputStream outputStream) throws IOException {
-        this.gsz &= this.gsB[this.gsA];
-        if (this.gsA > 0) {
-            this.gsz |= i << this.gsA;
+        this.gsA &= this.gsC[this.gsB];
+        if (this.gsB > 0) {
+            this.gsA |= i << this.gsB;
         } else {
-            this.gsz = i;
+            this.gsA = i;
         }
-        this.gsA += this.gsn;
-        while (this.gsA >= 8) {
-            a((byte) (this.gsz & 255), outputStream);
-            this.gsz >>= 8;
-            this.gsA -= 8;
+        this.gsB += this.gso;
+        while (this.gsB >= 8) {
+            a((byte) (this.gsA & 255), outputStream);
+            this.gsA >>= 8;
+            this.gsB -= 8;
         }
-        if (this.gsu > this.gsp || this.gsv) {
-            if (this.gsv) {
-                int i2 = this.gsw;
-                this.gsn = i2;
-                this.gsp = tj(i2);
-                this.gsv = false;
+        if (this.gsv > this.gsq || this.gsw) {
+            if (this.gsw) {
+                int i2 = this.gsx;
+                this.gso = i2;
+                this.gsq = tj(i2);
+                this.gsw = false;
             } else {
-                this.gsn++;
-                if (this.gsn == this.gso) {
-                    this.gsp = this.gsq;
+                this.gso++;
+                if (this.gso == this.gsp) {
+                    this.gsq = this.gsr;
                 } else {
-                    this.gsp = tj(this.gsn);
+                    this.gsq = tj(this.gso);
                 }
             }
         }
-        if (i == this.gsy) {
-            while (this.gsA > 0) {
-                a((byte) (this.gsz & 255), outputStream);
-                this.gsz >>= 8;
-                this.gsA -= 8;
+        if (i == this.gsz) {
+            while (this.gsB > 0) {
+                a((byte) (this.gsA & 255), outputStream);
+                this.gsA >>= 8;
+                this.gsB -= 8;
             }
             g(outputStream);
         }

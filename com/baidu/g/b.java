@@ -6,11 +6,11 @@ public class b extends d {
     }
 
     public static b bTd() {
-        return a.igF;
+        return a.igG;
     }
 
     /* loaded from: classes2.dex */
     private static final class a {
-        private static final b igF = new b();
+        private static final b igG = new b();
     }
 }

@@ -23,12 +23,12 @@ public class WriteThreadDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
     public c Og() {
         c cVar = new c();
-        cVar.bez = new WriteThreadFragment();
+        cVar.beA = new WriteThreadFragment();
         cVar.type = 9;
-        cVar.aFU = e.j.send;
-        cVar.aFV = e.f.icon_tabbar_add_n;
-        cVar.beA = e.f.icon_tabbar_chaticon_n;
-        cVar.beF = c.beB;
+        cVar.aFV = e.j.send;
+        cVar.aFW = e.f.icon_tabbar_add_n;
+        cVar.beB = e.f.icon_tabbar_chaticon_n;
+        cVar.beG = c.beC;
         return cVar;
     }
 
@@ -42,7 +42,7 @@ public class WriteThreadDelegateStatic extends b {
                     WriteThreadDelegateStatic writeThreadDelegateStatic = new WriteThreadDelegateStatic();
                     ((d) customResponsedMessage.getData()).a(writeThreadDelegateStatic);
                     if (((d) customResponsedMessage.getData()).getContext() != null && (Oh = writeThreadDelegateStatic.Oh()) != null) {
-                        Oh.bez.setArguments(new Bundle());
+                        Oh.beA.setArguments(new Bundle());
                     }
                 }
             }
@@ -53,7 +53,7 @@ public class WriteThreadDelegateStatic extends b {
 
     @Override // com.baidu.tbadk.mainTab.b
     public TbFragmentTabIndicator bR(Context context) {
-        this.bek = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(e.h.maintab_bottom_indicator, (ViewGroup) null);
-        return this.bek;
+        this.bel = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(e.h.maintab_bottom_indicator, (ViewGroup) null);
+        return this.bel;
     }
 }

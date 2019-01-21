@@ -48,12 +48,12 @@ public class c {
 
     /* loaded from: classes6.dex */
     public static class a extends ad<bb> {
-        private int elS;
+        private int elT;
         private String mForumId;
 
         public a(String str, int i) {
             this.mForumId = str;
-            this.elS = i;
+            this.elT = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,19 +61,19 @@ public class c {
         public void a(View view, bb bbVar, Object obj) {
             if (view != null && bbVar != null && (obj instanceof BdUniqueId)) {
                 BdUniqueId bdUniqueId = (BdUniqueId) obj;
-                if (bb.atI.getId() == bdUniqueId.getId()) {
-                    c.b(bbVar, this.mForumId, this.elS);
-                } else if (bb.atL.getId() == bdUniqueId.getId()) {
-                    c.b(bbVar, this.mForumId, this.elS);
-                } else if (bb.atR.getId() == bdUniqueId.getId()) {
-                    c.b(bbVar, this.mForumId, this.elS);
-                    if (this.elS == 1) {
+                if (bb.atJ.getId() == bdUniqueId.getId()) {
+                    c.b(bbVar, this.mForumId, this.elT);
+                } else if (bb.atM.getId() == bdUniqueId.getId()) {
+                    c.b(bbVar, this.mForumId, this.elT);
+                } else if (bb.atS.getId() == bdUniqueId.getId()) {
+                    c.b(bbVar, this.mForumId, this.elT);
+                    if (this.elT == 1) {
                         c.a(bbVar, this.mForumId, 2);
                     }
-                } else if (bb.atQ.getId() == bdUniqueId.getId()) {
-                    c.b(bbVar, this.mForumId, this.elS);
-                } else if (bb.atK.getId() == bdUniqueId.getId()) {
-                    c.b(bbVar, this.mForumId, this.elS);
+                } else if (bb.atR.getId() == bdUniqueId.getId()) {
+                    c.b(bbVar, this.mForumId, this.elT);
+                } else if (bb.atL.getId() == bdUniqueId.getId()) {
+                    c.b(bbVar, this.mForumId, this.elT);
                 }
             }
         }

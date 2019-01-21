@@ -3,13 +3,13 @@ package com.baidu.tbadk.core.data;
 import tbclient.LotteryTheme;
 /* loaded from: classes.dex */
 public class ag {
-    private String asC;
     private String asD;
+    private String asE;
 
     public void a(LotteryTheme lotteryTheme) {
         if (lotteryTheme != null) {
-            this.asC = lotteryTheme.bgcolor;
-            this.asD = lotteryTheme.bgimage;
+            this.asD = lotteryTheme.bgcolor;
+            this.asE = lotteryTheme.bgimage;
         }
     }
 }

@@ -8,23 +8,23 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 public class f extends g {
     public long Cw;
     public long NW;
-    public long bgr;
     public long bgt;
     public long bgu;
-    public int bgv;
+    public long bgv;
     public int bgw;
-    private a bgx = null;
-    private final Handler bgy = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tbadk.l.f.1
+    public int bgx;
+    private a bgy = null;
+    private final Handler bgz = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tbadk.l.f.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            f.this.bgx = new a();
-            f.this.bgx.setSelfExecute(true);
-            f.this.bgx.execute(new String[0]);
+            f.this.bgy = new a();
+            f.this.bgy.setSelfExecute(true);
+            f.this.bgy.execute(new String[0]);
         }
     };
 
     public void Pw() {
-        this.bgy.sendEmptyMessage(0);
+        this.bgz.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -44,7 +44,7 @@ public class f extends g {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            f.this.bgw = m.PD().PG();
+            f.this.bgx = m.PD().PG();
             f.this.Px();
             return Boolean.TRUE;
         }

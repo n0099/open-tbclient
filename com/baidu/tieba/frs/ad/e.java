@@ -19,31 +19,31 @@ import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 /* loaded from: classes6.dex */
 public class e {
-    private RelativeLayout bBm;
-    private PbListView bPm;
-    private BdSwipeRefreshLayout bRZ;
-    private BdTypeRecyclerView dNm;
-    private FrsADFragment dPF;
-    private a dPQ;
+    private RelativeLayout bBn;
+    private PbListView bPn;
+    private BdSwipeRefreshLayout bSa;
+    private BdTypeRecyclerView dNn;
+    private FrsADFragment dPG;
+    private a dPR;
     private FrameLayout mListContainer;
     private k mPullView;
 
     public e(FrsADFragment frsADFragment, View view) {
-        this.dPF = frsADFragment;
+        this.dPG = frsADFragment;
         aL(view);
     }
 
     public a aEa() {
-        return this.dPQ;
+        return this.dPR;
     }
 
     private void aL(View view) {
-        this.bBm = (RelativeLayout) view.findViewById(e.g.frs_ad_container);
-        this.dNm = (BdTypeRecyclerView) view.findViewById(e.g.frs_ad_listview);
-        this.dNm.setLayoutManager(new LinearLayoutManager(this.dNm.getContext()));
-        this.dNm.setFadingEdgeLength(0);
-        this.dNm.setOverScrollMode(2);
-        this.dNm.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.frs.ad.e.1
+        this.bBn = (RelativeLayout) view.findViewById(e.g.frs_ad_container);
+        this.dNn = (BdTypeRecyclerView) view.findViewById(e.g.frs_ad_listview);
+        this.dNn.setLayoutManager(new LinearLayoutManager(this.dNn.getContext()));
+        this.dNn.setFadingEdgeLength(0);
+        this.dNn.setOverScrollMode(2);
+        this.dNn.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.frs.ad.e.1
             @Override // android.support.v7.widget.RecyclerView.RecyclerListener
             public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
                 View view2 = viewHolder.itemView;
@@ -62,21 +62,21 @@ public class e {
                 }
             }
         });
-        this.dNm.setOnSrollToBottomListener(this.dPF);
-        this.dPQ = new a(this.dPF, this.dNm);
-        this.bPm = new PbListView(this.dPF.getPageContext().getPageActivity());
-        this.bPm.oH();
-        this.bPm.ex(e.d.cp_bg_line_e);
-        this.bPm.setHeight(l.h(this.dPF.getActivity(), e.C0210e.tbds182));
-        this.bPm.Fm();
-        this.bPm.setTextSize(e.C0210e.tbfontsize33);
-        this.bPm.setTextColor(al.getColor(e.d.cp_cont_j));
-        this.bPm.ew(e.d.cp_cont_e);
-        this.mPullView = new k(this.dPF.getPageContext());
-        if (this.bRZ == null) {
-            this.bRZ = (BdSwipeRefreshLayout) view.findViewById(e.g.frs_ad_pull_refresh_layout);
-            this.bRZ.setProgressView(this.mPullView);
-            al.j(this.bRZ, e.d.cp_bg_line_e);
+        this.dNn.setOnSrollToBottomListener(this.dPG);
+        this.dPR = new a(this.dPG, this.dNn);
+        this.bPn = new PbListView(this.dPG.getPageContext().getPageActivity());
+        this.bPn.oH();
+        this.bPn.ex(e.d.cp_bg_line_e);
+        this.bPn.setHeight(l.h(this.dPG.getActivity(), e.C0210e.tbds182));
+        this.bPn.Fm();
+        this.bPn.setTextSize(e.C0210e.tbfontsize33);
+        this.bPn.setTextColor(al.getColor(e.d.cp_cont_j));
+        this.bPn.ew(e.d.cp_cont_e);
+        this.mPullView = new k(this.dPG.getPageContext());
+        if (this.bSa == null) {
+            this.bSa = (BdSwipeRefreshLayout) view.findViewById(e.g.frs_ad_pull_refresh_layout);
+            this.bSa.setProgressView(this.mPullView);
+            al.j(this.bSa, e.d.cp_bg_line_e);
         }
         this.mListContainer = (FrameLayout) view.findViewById(e.g.frs_ad_list_content);
         dl(false);
@@ -88,38 +88,38 @@ public class e {
 
     public void dl(boolean z) {
         if (!z) {
-            this.bRZ.setRefreshing(false);
+            this.bSa.setRefreshing(false);
         }
     }
 
     public BdTypeRecyclerView getListView() {
-        return this.dNm;
+        return this.dNn;
     }
 
     public RelativeLayout aDc() {
-        return this.bBm;
+        return this.bBn;
     }
 
     public View aEb() {
-        return this.bRZ;
+        return this.bSa;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void aby() {
-        this.dNm.setNextPage(this.bPm);
-        this.bPm.ez(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.bPm.Fp();
+        this.dNn.setNextPage(this.bPn);
+        this.bPn.ez(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.bPn.Fp();
     }
 
     public void abz() {
-        this.dNm.setNextPage(this.bPm);
-        this.bPm.ez(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.bPm.Fq();
-        this.bPm.setText(this.dPF.getResources().getString(e.j.list_no_more));
+        this.dNn.setNextPage(this.bPn);
+        this.bPn.ez(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+        this.bPn.Fq();
+        this.bPn.setText(this.dPG.getResources().getString(e.j.list_no_more));
     }
 
     public void abA() {
-        this.dNm.setNextPage(null);
+        this.dNn.setNextPage(null);
     }
 
     public void gX(boolean z) {
@@ -127,12 +127,12 @@ public class e {
     }
 
     public void startPullRefresh() {
-        this.bRZ.setRefreshing(true);
+        this.bSa.setRefreshing(true);
     }
 
     public void aCR() {
-        if (this.dPQ != null) {
-            this.dPQ.notifyDataSetChanged();
+        if (this.dPR != null) {
+            this.dPR.notifyDataSetChanged();
         }
     }
 
@@ -140,20 +140,20 @@ public class e {
         if (this.mPullView != null) {
             this.mPullView.ey(i);
         }
-        this.dPF.getBaseFragmentActivity().getLayoutMode().setNightMode(i == 1);
-        this.dPF.getBaseFragmentActivity().getLayoutMode().onModeChanged(this.bBm);
-        if (this.bPm != null) {
-            this.bPm.setTextColor(al.getColor(e.d.cp_cont_j));
-            this.bPm.ey(i);
+        this.dPG.getBaseFragmentActivity().getLayoutMode().setNightMode(i == 1);
+        this.dPG.getBaseFragmentActivity().getLayoutMode().onModeChanged(this.bBn);
+        if (this.bPn != null) {
+            this.bPn.setTextColor(al.getColor(e.d.cp_cont_j));
+            this.bPn.ey(i);
         }
-        al.j(this.bRZ, e.d.cp_bg_line_e);
-        if (this.dPQ != null) {
-            this.dPQ.notifyDataSetChanged();
+        al.j(this.bSa, e.d.cp_bg_line_e);
+        if (this.dPR != null) {
+            this.dPR.notifyDataSetChanged();
         }
     }
 
     public void onDestroy() {
-        this.dPQ.onDestory();
-        this.dNm.setOnSrollToBottomListener(null);
+        this.dPR.onDestory();
+        this.dNn.setOnSrollToBottomListener(null);
     }
 }

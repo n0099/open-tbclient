@@ -12,60 +12,60 @@ public class c<T extends n> extends com.baidu.tieba.card.a.a<T> implements com.b
     @Override // com.baidu.tieba.card.a.a
     /* renamed from: aMD */
     public T arr() {
-        return (T) this.dcH;
+        return (T) this.dcI;
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlayStarted() {
-        if (this.dcH == 0) {
+        if (this.dcI == 0) {
             return false;
         }
-        return ((n) this.dcH).isPlayStarted();
+        return ((n) this.dcI).isPlayStarted();
     }
 
     @Override // com.baidu.tieba.play.f
     public boolean isPlaying() {
-        if (this.dcH == 0) {
+        if (this.dcI == 0) {
             return false;
         }
-        return ((n) this.dcH).isPlaying();
+        return ((n) this.dcI).isPlaying();
     }
 
     @Override // com.baidu.tieba.play.f
     public void startPlay() {
-        if (this.dcH != 0) {
-            ((n) this.dcH).startPlay();
+        if (this.dcI != 0) {
+            ((n) this.dcI).startPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public void stopPlay() {
-        if (this.dcH != 0) {
-            ((n) this.dcH).stopPlay();
+        if (this.dcI != 0) {
+            ((n) this.dcI).stopPlay();
         }
     }
 
     @Override // com.baidu.tieba.play.f
     public View getVideoContainer() {
-        if (this.dcH == 0) {
+        if (this.dcI == 0) {
             return null;
         }
-        return ((n) this.dcH).getVideoContainer();
+        return ((n) this.dcI).getVideoContainer();
     }
 
     @Override // com.baidu.tieba.play.f
     public String getPlayUrl() {
-        if (this.dcH == 0) {
+        if (this.dcI == 0) {
             return null;
         }
-        return ((n) this.dcH).getPlayUrl();
+        return ((n) this.dcI).getPlayUrl();
     }
 
     @Override // com.baidu.tieba.play.f
     public int getCurrentPosition() {
-        if (this.dcH == 0) {
+        if (this.dcI == 0) {
             return 0;
         }
-        return ((n) this.dcH).getCurrentPosition();
+        return ((n) this.dcI).getCurrentPosition();
     }
 }

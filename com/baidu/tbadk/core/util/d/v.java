@@ -8,13 +8,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ar;
 /* loaded from: classes.dex */
 public class v extends a {
-    private boolean aET;
+    private boolean aEU;
     private int procType;
 
     public v(boolean z, int i) {
-        this.aET = true;
+        this.aEU = true;
         this.procType = 0;
-        this.aET = z;
+        this.aEU = z;
         this.procType = i;
     }
 
@@ -35,7 +35,7 @@ public class v extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.aET;
+        return this.aEU;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a

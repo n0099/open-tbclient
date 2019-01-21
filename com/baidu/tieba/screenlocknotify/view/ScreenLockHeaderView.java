@@ -17,35 +17,35 @@ import java.util.Date;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class ScreenLockHeaderView extends LinearLayout {
-    private TextView cwu;
-    TextView gYl;
-    View gYm;
+    private TextView cwv;
+    TextView gYm;
     View gYn;
-    TextView gYo;
+    View gYo;
     TextView gYp;
     TextView gYq;
-    private d gYr;
-    private RelativeLayout gYs;
+    TextView gYr;
+    private d gYs;
+    private RelativeLayout gYt;
     private EditText mEditText;
     View mLine;
 
     public ScreenLockHeaderView(Context context) {
         super(context);
         LayoutInflater.from(getContext()).inflate(e.h.screenlock_show_item_header, (ViewGroup) this, true);
-        this.gYl = (TextView) findViewById(e.g.friend_name_show1);
-        this.gYm = findViewById(e.g.friend_name_layout);
-        this.gYn = findViewById(e.g.msg_content_layout);
-        this.gYo = (TextView) findViewById(e.g.last_msg_time_show1);
-        this.gYp = (TextView) findViewById(e.g.one_msg_content_show1);
-        this.gYq = (TextView) findViewById(e.g.unread_msg_count_show1);
+        this.gYm = (TextView) findViewById(e.g.friend_name_show1);
+        this.gYn = findViewById(e.g.friend_name_layout);
+        this.gYo = findViewById(e.g.msg_content_layout);
+        this.gYp = (TextView) findViewById(e.g.last_msg_time_show1);
+        this.gYq = (TextView) findViewById(e.g.one_msg_content_show1);
+        this.gYr = (TextView) findViewById(e.g.unread_msg_count_show1);
         this.mLine = findViewById(e.g.line);
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setBackgroundResource(e.f.screen_notify_item_background);
         setOrientation(1);
-        this.gYs = (RelativeLayout) findViewById(e.g.screenlock_input_layout);
-        this.cwu = (TextView) findViewById(e.g.screenlock_send_button);
+        this.gYt = (RelativeLayout) findViewById(e.g.screenlock_input_layout);
+        this.cwv = (TextView) findViewById(e.g.screenlock_send_button);
         this.mEditText = (EditText) findViewById(e.g.screenlock_edit_view);
-        this.gYs.setVisibility(8);
+        this.gYt.setVisibility(8);
     }
 
     public ScreenLockHeaderView(Context context, AttributeSet attributeSet) {
@@ -57,20 +57,20 @@ public class ScreenLockHeaderView extends LinearLayout {
     }
 
     public void f(d dVar) {
-        this.gYr = dVar;
-        this.gYl.setText(dVar.groupName);
-        this.gYo.setText(dh(dVar.lastTime));
-        this.gYp.setText(dVar.content);
-        this.gYq.setText(uy(dVar.gYh));
+        this.gYs = dVar;
+        this.gYm.setText(dVar.groupName);
+        this.gYp.setText(dh(dVar.lastTime));
+        this.gYq.setText(dVar.content);
+        this.gYr.setText(uy(dVar.gYi));
     }
 
     public void mV(boolean z) {
         if (z) {
-            this.gYs.setVisibility(0);
+            this.gYt.setVisibility(0);
             this.mLine.setVisibility(8);
             return;
         }
-        this.gYs.setVisibility(8);
+        this.gYt.setVisibility(8);
         this.mLine.setVisibility(0);
     }
 
@@ -94,12 +94,12 @@ public class ScreenLockHeaderView extends LinearLayout {
     }
 
     public d getData() {
-        return this.gYr;
+        return this.gYs;
     }
 
     public void setUIClickListener(View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
-        this.cwu.setOnClickListener(onClickListener);
-        this.gYm.setOnClickListener(onClickListener2);
+        this.cwv.setOnClickListener(onClickListener);
         this.gYn.setOnClickListener(onClickListener2);
+        this.gYo.setOnClickListener(onClickListener2);
     }
 }

@@ -3,7 +3,6 @@ package com.baidu.tbadk.l;
 import com.baidu.adp.framework.message.ResponsedMessage;
 /* loaded from: classes.dex */
 public class i extends g {
-    public long bgB;
     public long bgC;
     public long bgD;
     public long bgE;
@@ -15,14 +14,15 @@ public class i extends g {
     public long bgK;
     public long bgL;
     public long bgM;
-    public boolean bgN;
-    public long bgO;
+    public long bgN;
+    public boolean bgO;
     public long bgP;
-    public boolean bgQ;
-    public long bgR;
+    public long bgQ;
+    public boolean bgR;
     public long bgS;
     public long bgT;
     public long bgU;
+    public long bgV;
     public int errCode;
     public boolean isSuccess;
     public long sequenceID;
@@ -34,56 +34,56 @@ public class i extends g {
     public i() {
         this.wx = 0L;
         this.wy = 0L;
-        this.bgI = 0L;
-        this.bgK = 0L;
+        this.bgJ = 0L;
         this.bgL = 0L;
         this.bgM = 0L;
-        this.bgO = 0L;
+        this.bgN = 0L;
         this.bgP = 0L;
-        this.bgQ = false;
+        this.bgQ = 0L;
+        this.bgR = false;
     }
 
     public i(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4) {
         this.wx = 0L;
         this.wy = 0L;
-        this.bgI = 0L;
-        this.bgK = 0L;
+        this.bgJ = 0L;
         this.bgL = 0L;
         this.bgM = 0L;
-        this.bgO = 0L;
+        this.bgN = 0L;
         this.bgP = 0L;
-        this.bgQ = false;
+        this.bgQ = 0L;
+        this.bgR = false;
         if (responsedMessage != null) {
             this.mSubType = i;
-            this.bgN = z;
-            if (this.bgN) {
-                this.bgM = responsedMessage.getDownSize();
-                this.bgR = responsedMessage.getOrginalMessage().getClientLogID();
+            this.bgO = z;
+            if (this.bgO) {
+                this.bgN = responsedMessage.getDownSize();
+                this.bgS = responsedMessage.getOrginalMessage().getClientLogID();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
-                this.bgO = responsedMessage.performanceData.yz;
-                this.bgP = responsedMessage.performanceData.yA;
+                this.bgP = responsedMessage.performanceData.yz;
+                this.bgQ = responsedMessage.performanceData.yA;
                 this.socketErrNo = responsedMessage.performanceData.yx;
                 this.socketCostTime = responsedMessage.performanceData.yy;
             } else {
-                this.bgL = responsedMessage.getDownSize();
+                this.bgM = responsedMessage.getDownSize();
                 this.sequenceID = responsedMessage.getOrginalMessage().getSquencedId();
             }
-            this.bgB = j;
-            this.bgC = j2;
-            this.bgJ = j3;
+            this.bgC = j;
+            this.bgD = j2;
+            this.bgK = j3;
             this.isSuccess = !responsedMessage.hasError();
-            this.bgD = responsedMessage.performanceData.yp;
-            this.bgE = responsedMessage.performanceData.yq;
-            this.bgF = responsedMessage.performanceData.yr;
+            this.bgE = responsedMessage.performanceData.yp;
+            this.bgF = responsedMessage.performanceData.yq;
+            this.bgG = responsedMessage.performanceData.yr;
             this.wx = responsedMessage.performanceData.ys;
             this.wy = responsedMessage.performanceData.yt;
-            this.bgG = responsedMessage.performanceData.yu;
-            this.bgH = responsedMessage.performanceData.yv;
-            this.bgI = responsedMessage.performanceData.yw;
-            this.bgI += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
+            this.bgH = responsedMessage.performanceData.yu;
+            this.bgI = responsedMessage.performanceData.yv;
+            this.bgJ = responsedMessage.performanceData.yw;
+            this.bgJ += responsedMessage.getProcessTime() - responsedMessage.getStartTime();
             this.errCode = responsedMessage.getError();
-            this.bgQ = z2;
-            this.bgK = j4;
+            this.bgR = z2;
+            this.bgL = j4;
         }
     }
 

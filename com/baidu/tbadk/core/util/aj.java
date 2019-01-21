@@ -15,16 +15,16 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class aj {
     private com.baidu.tbadk.core.dialog.a Tm;
-    private com.baidu.tbadk.coreExtra.model.a aCD;
-    private AttentionHostData aCE;
-    private int aCF;
-    private a aCG;
+    private com.baidu.tbadk.coreExtra.model.a aCE;
+    private AttentionHostData aCF;
+    private int aCG;
+    private a aCH;
     private TbPageContext mContext;
-    public static int aCy = 0;
-    public static int aCz = 1;
-    public static int aCA = 2;
+    public static int aCz = 0;
+    public static int aCA = 1;
     public static int aCB = 2;
-    public static int aCC = 3;
+    public static int aCC = 2;
+    public static int aCD = 3;
     private CustomMessageListener mAttentionListener = new CustomMessageListener(2001115) { // from class: com.baidu.tbadk.core.util.aj.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -32,22 +32,22 @@ public class aj {
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 UpdateAttentionMessage.a data = updateAttentionMessage.getData();
-                if (aj.this.aCE != null && !StringUtils.isNull(aj.this.aCE.uid) && data != null && aj.this.aCE.uid.equals(data.toUid)) {
+                if (aj.this.aCF != null && !StringUtils.isNull(aj.this.aCF.uid) && data != null && aj.this.aCF.uid.equals(data.toUid)) {
                     boolean z = false;
                     if (updateAttentionMessage.getOrginalMessage() != null && updateAttentionMessage.getOrginalMessage().getTag().equals(aj.this.mId)) {
                         z = true;
                         if (updateAttentionMessage.getError() == 3250013) {
                             BdToast.a(aj.this.mContext.getPageActivity(), updateAttentionMessage.getErrorString(), e.f.icon_toast_game_error, 3000).Ca();
                         } else {
-                            AntiHelper.a(aj.this.mContext.getPageActivity(), data.aPX);
+                            AntiHelper.a(aj.this.mContext.getPageActivity(), data.aPY);
                         }
                     }
                     if (data.Jr) {
-                        aj.this.aCE.likeStatus = data.status;
-                        aj.this.aCE.isAttention = data.isAttention;
+                        aj.this.aCF.likeStatus = data.status;
+                        aj.this.aCF.isAttention = data.isAttention;
                     }
-                    if (z && aj.this.aCG != null) {
-                        aj.this.aCG.c(data.Jr, aj.this.aCF);
+                    if (z && aj.this.aCH != null) {
+                        aj.this.aCH.c(data.Jr, aj.this.aCG);
                     }
                 }
             }
@@ -67,7 +67,7 @@ public class aj {
     }
 
     public boolean dK(int i) {
-        if (i == aCC) {
+        if (i == aCD) {
             com.baidu.adp.lib.util.l.showToast(this.mContext.getPageActivity(), e.j.reason_cannot_reply_thread);
             return false;
         }
@@ -75,14 +75,14 @@ public class aj {
     }
 
     public boolean x(int i, int i2) {
-        this.aCF = i2;
-        if (i == aCB) {
-            if (this.aCE == null || this.aCE.isAttention) {
+        this.aCG = i2;
+        if (i == aCC) {
+            if (this.aCF == null || this.aCF.isAttention) {
                 return true;
             }
             DW();
             return false;
-        } else if (i == aCC) {
+        } else if (i == aCD) {
             com.baidu.adp.lib.util.l.showToast(this.mContext.getPageActivity(), e.j.reason_cannot_reply_thread);
             return false;
         } else {
@@ -91,7 +91,7 @@ public class aj {
     }
 
     public void a(AttentionHostData attentionHostData) {
-        this.aCE = attentionHostData;
+        this.aCF = attentionHostData;
     }
 
     private void DW() {
@@ -118,17 +118,17 @@ public class aj {
     }
 
     public void a(com.baidu.tbadk.core.data.aw awVar) {
-        if (awVar != null && !StringUtils.isNull(awVar.title) && !StringUtils.isNull(awVar.ats) && !StringUtils.isNull(awVar.att)) {
+        if (awVar != null && !StringUtils.isNull(awVar.title) && !StringUtils.isNull(awVar.att) && !StringUtils.isNull(awVar.atu)) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
             aVar.eK(awVar.title);
-            aVar.a(awVar.att, new a.b() { // from class: com.baidu.tbadk.core.util.aj.3
+            aVar.a(awVar.atu, new a.b() { // from class: com.baidu.tbadk.core.util.aj.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aj.this.DX();
                     aVar2.dismiss();
                 }
             });
-            aVar.b(awVar.ats, new a.b() { // from class: com.baidu.tbadk.core.util.aj.4
+            aVar.b(awVar.att, new a.b() { // from class: com.baidu.tbadk.core.util.aj.4
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
@@ -146,16 +146,16 @@ public class aj {
     public void DX() {
         if (!com.baidu.adp.lib.util.j.kK()) {
             this.mContext.showToast(e.j.network_ungeilivable);
-        } else if (this.aCE != null && ba.bJ(this.mContext.getPageActivity())) {
-            if (this.aCD == null) {
-                this.aCD = new com.baidu.tbadk.coreExtra.model.a(this.mContext);
+        } else if (this.aCF != null && ba.bJ(this.mContext.getPageActivity())) {
+            if (this.aCE == null) {
+                this.aCE = new com.baidu.tbadk.coreExtra.model.a(this.mContext);
             }
-            this.aCD.a(true, this.aCE.portrait, this.aCE.uid, this.aCE.isGod, "0", this.mId, null, "0");
+            this.aCE.a(true, this.aCF.portrait, this.aCF.uid, this.aCF.isGod, "0", this.mId, null, "0");
         }
     }
 
     public void a(a aVar) {
-        this.aCG = aVar;
+        this.aCH = aVar;
     }
 
     public void onDestroy() {
@@ -163,8 +163,8 @@ public class aj {
         if (this.Tm != null) {
             this.Tm.dismiss();
         }
-        if (this.aCD != null) {
-            this.aCD.cancel();
+        if (this.aCE != null) {
+            this.aCE.cancel();
         }
     }
 }

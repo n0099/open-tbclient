@@ -1,19 +1,19 @@
 package org.java_websocket.d;
 /* loaded from: classes2.dex */
 public class b implements a {
-    private final String iEP;
+    private final String iEQ;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.iEP = str;
+        this.iEQ = str;
     }
 
     @Override // org.java_websocket.d.a
     public boolean Ah(String str) {
         for (String str2 : str.replaceAll(" ", "").split(",")) {
-            if (this.iEP.equals(str2)) {
+            if (this.iEQ.equals(str2)) {
                 return true;
             }
         }
@@ -22,7 +22,7 @@ public class b implements a {
 
     @Override // org.java_websocket.d.a
     public String ceg() {
-        return this.iEP;
+        return this.iEQ;
     }
 
     @Override // org.java_websocket.d.a
@@ -42,10 +42,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.iEP.equals(((b) obj).iEP);
+        return this.iEQ.equals(((b) obj).iEQ);
     }
 
     public int hashCode() {
-        return this.iEP.hashCode();
+        return this.iEQ.hashCode();
     }
 }

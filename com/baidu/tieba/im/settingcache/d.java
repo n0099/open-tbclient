@@ -11,13 +11,13 @@ import com.baidu.tbadk.util.y;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
 /* loaded from: classes.dex */
 public class d extends a {
-    private static d fcG = new d();
+    private static d fcH = new d();
 
     private d() {
     }
 
     public static d aVx() {
-        return fcG;
+        return fcH;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -29,8 +29,8 @@ public class d extends a {
             return null;
         }
         String str3 = str + "@" + str2;
-        synchronized (this.fcz) {
-            ChatSetting chatSetting = this.fcz.get(str3);
+        synchronized (this.fcA) {
+            ChatSetting chatSetting = this.fcA.get(str3);
             officialSettingItemData = (chatSetting == null || !(chatSetting instanceof OfficialSettingItemData)) ? null : (OfficialSettingItemData) chatSetting;
         }
         if (officialSettingItemData == null) {
@@ -76,8 +76,8 @@ public class d extends a {
             l<String> aVu = aVu();
             String str = myUid + "@" + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(officialSettingItemData);
-            synchronized (this.fcz) {
-                this.fcz.put(str, officialSettingItemData);
+            synchronized (this.fcA) {
+                this.fcA.put(str, officialSettingItemData);
             }
             aVu.e(str, jsonStrWithObject);
         }
@@ -96,8 +96,8 @@ public class d extends a {
                 return;
             }
             final String str = myUid + "@" + toUid;
-            synchronized (this.fcz) {
-                this.fcz.put(str, officialSettingItemData);
+            synchronized (this.fcA) {
+                this.fcA.put(str, officialSettingItemData);
             }
             y.b(new x<Void>() { // from class: com.baidu.tieba.im.settingcache.d.1
                 /* JADX DEBUG: Method merged with bridge method */

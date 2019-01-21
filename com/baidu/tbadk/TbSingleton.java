@@ -10,8 +10,8 @@ public final class TbSingleton {
     private static TbSingleton mInstance = null;
     private boolean isRecommendPage;
     private LinkedList<a> mVideoWatchTimeRecord;
-    private long pushDialogLoopTime = ao.aCQ;
-    private long pushDialogShowTime = 5 * ao.aCP;
+    private long pushDialogLoopTime = ao.aCR;
+    private long pushDialogShowTime = 5 * ao.aCQ;
     private long lastResumeTime = 0;
     private boolean canShowPermDlg = false;
     private boolean hasShowPermDlg = false;

@@ -16,14 +16,14 @@ import java.util.Iterator;
 import java.util.LinkedList;
 /* loaded from: classes6.dex */
 public class a extends k<i, C0286a> {
-    private View.OnClickListener aIZ;
-    private b giP;
-    private final LinkedList<C0286a> giQ;
+    private View.OnClickListener aJa;
+    private b giQ;
+    private final LinkedList<C0286a> giR;
 
     public a(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
-        this.giQ = new LinkedList<>();
-        this.giP = new b(this.fYJ);
+        this.giR = new LinkedList<>();
+        this.giQ = new b(this.fYK);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -31,7 +31,7 @@ public class a extends k<i, C0286a> {
     /* renamed from: bs */
     public C0286a onCreateViewHolder(ViewGroup viewGroup) {
         C0286a c0286a = new C0286a(LayoutInflater.from(this.mContext).inflate(e.h.layout_pb_thread_praise_item, viewGroup, false));
-        this.giQ.add(c0286a);
+        this.giR.add(c0286a);
         return c0286a;
     }
 
@@ -41,9 +41,9 @@ public class a extends k<i, C0286a> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, i iVar, C0286a c0286a) {
         super.onFillViewHolder(i, view, viewGroup, iVar, c0286a);
         if (iVar != null && c0286a != null) {
-            c0286a.giR.setOnClickOutListener(this.aIZ);
-            c0286a.giR.setPostId(getPostId());
-            c0286a.giR.setForumId(getForumId());
+            c0286a.giS.setOnClickOutListener(this.aJa);
+            c0286a.giS.setPostId(getPostId());
+            c0286a.giS.setForumId(getForumId());
             c0286a.a(iVar);
         }
         return view;
@@ -51,27 +51,27 @@ public class a extends k<i, C0286a> {
 
     public void onDestroy() {
         bnl();
-        if (this.giP != null) {
-            this.giP.onDestroy();
+        if (this.giQ != null) {
+            this.giQ.onDestroy();
         }
     }
 
     private void bnl() {
-        Iterator<C0286a> it = this.giQ.iterator();
+        Iterator<C0286a> it = this.giR.iterator();
         while (it.hasNext()) {
             C0286a next = it.next();
-            if (next != null && next.giR != null) {
-                next.giR.onDestroy();
+            if (next != null && next.giS != null) {
+                next.giS.onDestroy();
             }
         }
     }
 
     public void gF(String str) {
-        Iterator<C0286a> it = this.giQ.iterator();
+        Iterator<C0286a> it = this.giR.iterator();
         while (it.hasNext()) {
             C0286a next = it.next();
-            if (next != null && next.giR != null) {
-                next.giR.gF(str);
+            if (next != null && next.giS != null) {
+                next.giS.gF(str);
             }
         }
     }
@@ -82,46 +82,46 @@ public class a extends k<i, C0286a> {
     }
 
     private String getForumId() {
-        return this.fYJ.biD() != null ? this.fYJ.biD().getForumId() : "";
+        return this.fYK.biD() != null ? this.fYK.biD().getForumId() : "";
     }
 
     private bb bnm() {
-        if (this.fYJ.biD() == null || this.fYJ.biD().getPbData() == null) {
+        if (this.fYK.biD() == null || this.fYK.biD().getPbData() == null) {
             return null;
         }
-        return this.fYJ.biD().getPbData().bhz();
+        return this.fYK.biD().getPbData().bhz();
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.aIZ = onClickListener;
+        this.aJa = onClickListener;
     }
 
     /* renamed from: com.baidu.tieba.pb.pb.main.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public static class C0286a extends q.a {
-        public View eAF;
-        public PbThreadCommentAndPraiseInfoLayout giR;
+        public View eAG;
+        public PbThreadCommentAndPraiseInfoLayout giS;
 
         public C0286a(View view) {
             super(view);
             if (view != null) {
-                this.giR = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(e.g.card_bottom_func_layout);
-                this.eAF = view.findViewById(e.g.bottom_divider_line);
-                this.eAF.setVisibility(0);
+                this.giS = (PbThreadCommentAndPraiseInfoLayout) view.findViewById(e.g.card_bottom_func_layout);
+                this.eAG = view.findViewById(e.g.bottom_divider_line);
+                this.eAG.setVisibility(0);
             }
         }
 
         public void a(i iVar) {
-            if (iVar != null && iVar.bOk != null) {
-                this.giR.setData(iVar.bOk);
-                this.eAF.setVisibility(iVar.bie() ? 0 : 8);
+            if (iVar != null && iVar.bOl != null) {
+                this.giS.setData(iVar.bOl);
+                this.eAG.setVisibility(iVar.bie() ? 0 : 8);
             }
             onChangeSkinType();
         }
 
         public void onChangeSkinType() {
-            al.j(this.eAF, e.d.cp_bg_line_e);
-            this.giR.onChangeSkinType();
+            al.j(this.eAG, e.d.cp_bg_line_e);
+            this.giS.onChangeSkinType();
         }
     }
 }

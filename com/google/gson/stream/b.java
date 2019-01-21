@@ -7,41 +7,41 @@ import java.io.IOException;
 import java.io.Writer;
 /* loaded from: classes2.dex */
 public class b implements Closeable, Flushable {
-    private static final String[] iAO = new String[128];
-    private static final String[] iAP;
-    private String iAQ;
+    private static final String[] iAP = new String[128];
+    private static final String[] iAQ;
     private String iAR;
-    private boolean ixk;
+    private String iAS;
     private boolean ixl;
-    private boolean ixo;
+    private boolean ixm;
+    private boolean ixp;
     private final Writer out;
     private String separator;
-    private int[] iAN = new int[32];
-    private int iyK = 0;
+    private int[] iAO = new int[32];
+    private int iyL = 0;
 
     static {
         for (int i = 0; i <= 31; i++) {
-            iAO[i] = String.format("\\u%04x", Integer.valueOf(i));
+            iAP[i] = String.format("\\u%04x", Integer.valueOf(i));
         }
-        iAO[34] = "\\\"";
-        iAO[92] = "\\\\";
-        iAO[9] = "\\t";
-        iAO[8] = "\\b";
-        iAO[10] = "\\n";
-        iAO[13] = "\\r";
-        iAO[12] = "\\f";
-        iAP = (String[]) iAO.clone();
-        iAP[60] = "\\u003c";
-        iAP[62] = "\\u003e";
-        iAP[38] = "\\u0026";
-        iAP[61] = "\\u003d";
-        iAP[39] = "\\u0027";
+        iAP[34] = "\\\"";
+        iAP[92] = "\\\\";
+        iAP[9] = "\\t";
+        iAP[8] = "\\b";
+        iAP[10] = "\\n";
+        iAP[13] = "\\r";
+        iAP[12] = "\\f";
+        iAQ = (String[]) iAP.clone();
+        iAQ[60] = "\\u003c";
+        iAQ[62] = "\\u003e";
+        iAQ[38] = "\\u0026";
+        iAQ[61] = "\\u003d";
+        iAQ[39] = "\\u0027";
     }
 
     public b(Writer writer) {
         zj(6);
         this.separator = ":";
-        this.ixk = true;
+        this.ixl = true;
         if (writer == null) {
             throw new NullPointerException("out == null");
         }
@@ -50,36 +50,36 @@ public class b implements Closeable, Flushable {
 
     public final void setIndent(String str) {
         if (str.length() == 0) {
-            this.iAQ = null;
+            this.iAR = null;
             this.separator = ":";
             return;
         }
-        this.iAQ = str;
+        this.iAR = str;
         this.separator = ": ";
     }
 
     public final void setLenient(boolean z) {
-        this.ixo = z;
+        this.ixp = z;
     }
 
     public boolean isLenient() {
-        return this.ixo;
+        return this.ixp;
     }
 
     public final void pj(boolean z) {
-        this.ixl = z;
+        this.ixm = z;
     }
 
     public final boolean ccC() {
-        return this.ixl;
+        return this.ixm;
     }
 
     public final void pk(boolean z) {
-        this.ixk = z;
+        this.ixl = z;
     }
 
     public final boolean ccD() {
-        return this.ixk;
+        return this.ixl;
     }
 
     public b ccm() throws IOException {
@@ -112,10 +112,10 @@ public class b implements Closeable, Flushable {
         if (ccE != i2 && ccE != i) {
             throw new IllegalStateException("Nesting problem.");
         }
-        if (this.iAR != null) {
-            throw new IllegalStateException("Dangling name: " + this.iAR);
+        if (this.iAS != null) {
+            throw new IllegalStateException("Dangling name: " + this.iAS);
         }
-        this.iyK--;
+        this.iyL--;
         if (ccE == i2) {
             ccG();
         }
@@ -124,47 +124,47 @@ public class b implements Closeable, Flushable {
     }
 
     private void zj(int i) {
-        if (this.iyK == this.iAN.length) {
-            int[] iArr = new int[this.iyK * 2];
-            System.arraycopy(this.iAN, 0, iArr, 0, this.iyK);
-            this.iAN = iArr;
+        if (this.iyL == this.iAO.length) {
+            int[] iArr = new int[this.iyL * 2];
+            System.arraycopy(this.iAO, 0, iArr, 0, this.iyL);
+            this.iAO = iArr;
         }
-        int[] iArr2 = this.iAN;
-        int i2 = this.iyK;
-        this.iyK = i2 + 1;
+        int[] iArr2 = this.iAO;
+        int i2 = this.iyL;
+        this.iyL = i2 + 1;
         iArr2[i2] = i;
     }
 
     private int ccE() {
-        if (this.iyK == 0) {
+        if (this.iyL == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
-        return this.iAN[this.iyK - 1];
+        return this.iAO[this.iyL - 1];
     }
 
     private void zl(int i) {
-        this.iAN[this.iyK - 1] = i;
+        this.iAO[this.iyL - 1] = i;
     }
 
     public b zM(String str) throws IOException {
         if (str == null) {
             throw new NullPointerException("name == null");
         }
-        if (this.iAR != null) {
+        if (this.iAS != null) {
             throw new IllegalStateException();
         }
-        if (this.iyK == 0) {
+        if (this.iyL == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
-        this.iAR = str;
+        this.iAS = str;
         return this;
     }
 
     private void ccF() throws IOException {
-        if (this.iAR != null) {
+        if (this.iAS != null) {
             ccH();
-            zQ(this.iAR);
-            this.iAR = null;
+            zQ(this.iAS);
+            this.iAS = null;
         }
     }
 
@@ -179,11 +179,11 @@ public class b implements Closeable, Flushable {
     }
 
     public b ccq() throws IOException {
-        if (this.iAR != null) {
-            if (this.ixk) {
+        if (this.iAS != null) {
+            if (this.ixl) {
                 ccF();
             } else {
-                this.iAR = null;
+                this.iAS = null;
                 return this;
             }
         }
@@ -222,7 +222,7 @@ public class b implements Closeable, Flushable {
         }
         ccF();
         String obj = number.toString();
-        if (!this.ixo && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals("NaN"))) {
+        if (!this.ixp && (obj.equals("-Infinity") || obj.equals("Infinity") || obj.equals("NaN"))) {
             throw new IllegalArgumentException("Numeric values must be finite, but was " + number);
         }
         ccI();
@@ -231,7 +231,7 @@ public class b implements Closeable, Flushable {
     }
 
     public void flush() throws IOException {
-        if (this.iyK == 0) {
+        if (this.iyL == 0) {
             throw new IllegalStateException("JsonWriter is closed.");
         }
         this.out.flush();
@@ -240,11 +240,11 @@ public class b implements Closeable, Flushable {
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         this.out.close();
-        int i = this.iyK;
-        if (i > 1 || (i == 1 && this.iAN[i - 1] != 7)) {
+        int i = this.iyL;
+        if (i > 1 || (i == 1 && this.iAO[i - 1] != 7)) {
             throw new IOException("Incomplete document");
         }
-        this.iyK = 0;
+        this.iyL = 0;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:0x0032  */
@@ -255,7 +255,7 @@ public class b implements Closeable, Flushable {
         int i;
         String str2;
         int i2 = 0;
-        String[] strArr = this.ixl ? iAP : iAO;
+        String[] strArr = this.ixm ? iAQ : iAP;
         this.out.write("\"");
         int length = str.length();
         for (i = 0; i < length; i = i + 1) {
@@ -287,11 +287,11 @@ public class b implements Closeable, Flushable {
     }
 
     private void ccG() throws IOException {
-        if (this.iAQ != null) {
+        if (this.iAR != null) {
             this.out.write("\n");
-            int i = this.iyK;
+            int i = this.iyL;
             for (int i2 = 1; i2 < i; i2++) {
-                this.out.write(this.iAQ);
+                this.out.write(this.iAR);
             }
         }
     }
@@ -329,7 +329,7 @@ public class b implements Closeable, Flushable {
             case 6:
                 break;
             case 7:
-                if (!this.ixo) {
+                if (!this.ixp) {
                     throw new IllegalStateException("JSON must have only one top-level value.");
                 }
                 break;

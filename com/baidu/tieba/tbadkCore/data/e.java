@@ -3,17 +3,17 @@ package com.baidu.tieba.tbadkCore.data;
 import android.util.SparseIntArray;
 /* loaded from: classes.dex */
 public class e {
-    public static final int[] hpb = {3, 8, 13};
-    public static final int[] hpc = {2, 12};
-    public static final int[] hpd = {20};
-    public static final int[] hpe = {3, 13, 23};
-    private SparseIntArray hpf = new SparseIntArray();
-    private String hpg;
-    private final int[] hph;
+    public static final int[] hpc = {3, 8, 13};
+    public static final int[] hpd = {2, 12};
+    public static final int[] hpe = {20};
+    public static final int[] hpf = {3, 13, 23};
+    private SparseIntArray hpg = new SparseIntArray();
+    private String hph;
+    private final int[] hpi;
 
     public e(String str, int[] iArr) {
-        this.hph = iArr;
-        this.hpg = str;
+        this.hpi = iArr;
+        this.hph = str;
     }
 
     public void vH(int i) {
@@ -21,12 +21,12 @@ public class e {
         if (i < 0) {
             i = 0;
         }
-        if (this.hpf != null) {
-            this.hpf.clear();
-            if (this.hph != null) {
-                for (int i2 : this.hph) {
+        if (this.hpg != null) {
+            this.hpg.clear();
+            if (this.hpi != null) {
+                for (int i2 : this.hpi) {
                     if (i2 >= 0) {
-                        this.hpf.append(i2 + i, i2);
+                        this.hpg.append(i2 + i, i2);
                     }
                 }
             }
@@ -38,21 +38,21 @@ public class e {
     }
 
     public void bR(int i, int i2) {
-        if (i >= 0 && i2 >= 0 && this.hpf != null) {
-            this.hpf.append(i2, i);
+        if (i >= 0 && i2 >= 0 && this.hpg != null) {
+            this.hpg.append(i2, i);
         }
     }
 
     public int vI(int i) {
-        if (i >= 0 && this.hpf != null) {
-            return this.hpf.get(i, -1);
+        if (i >= 0 && this.hpg != null) {
+            return this.hpg.get(i, -1);
         }
         return -1;
     }
 
     public void vJ(int i) {
-        if (this.hpf != null) {
-            this.hpf.delete(i);
+        if (this.hpg != null) {
+            this.hpg.delete(i);
         }
     }
 }

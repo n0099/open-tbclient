@@ -16,21 +16,21 @@ import com.baidu.tieba.e;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
-    private TextView anp;
-    private TextView bec;
-    private TextView dgC;
-    private LinearLayout dgD;
-    private TextView dgx;
+    private TextView anq;
+    private TextView bed;
+    private TextView dgD;
+    private LinearLayout dgE;
     private TextView dgy;
+    private TextView dgz;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
-        this.anp = (TextView) view.findViewById(e.g.chosen_no_picture_title);
-        this.dgx = (TextView) view.findViewById(e.g.chosen_no_picture_praise);
-        this.dgy = (TextView) view.findViewById(e.g.chosen_no_picture_comment);
-        this.dgC = (TextView) view.findViewById(e.g.chosen_no_picture_head);
-        this.bec = (TextView) view.findViewById(e.g.chosen_no_picture_sub);
-        this.dgD = (LinearLayout) view.findViewById(e.g.chosen_no_picture_comment_line);
+        this.anq = (TextView) view.findViewById(e.g.chosen_no_picture_title);
+        this.dgy = (TextView) view.findViewById(e.g.chosen_no_picture_praise);
+        this.dgz = (TextView) view.findViewById(e.g.chosen_no_picture_comment);
+        this.dgD = (TextView) view.findViewById(e.g.chosen_no_picture_head);
+        this.bed = (TextView) view.findViewById(e.g.chosen_no_picture_sub);
+        this.dgE = (LinearLayout) view.findViewById(e.g.chosen_no_picture_comment_line);
     }
 
     @Override // com.baidu.tieba.tbadkCore.o
@@ -47,18 +47,18 @@ public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
     public void L(final tinfo tinfoVar) {
         super.L(tinfoVar);
         if (StringUtils.isNull(tinfoVar.title)) {
-            this.dgC.setVisibility(8);
-        } else {
-            this.dgC.setVisibility(0);
-            this.dgC.setText(tinfoVar.title);
-        }
-        if (StringUtils.isNull(tinfoVar.forum_name)) {
             this.dgD.setVisibility(8);
         } else {
             this.dgD.setVisibility(0);
-            this.anp.setVisibility(0);
-            this.anp.setText(UtilHelper.getFixedText(getContext().getString(e.j.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
-            this.anp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.b.1
+            this.dgD.setText(tinfoVar.title);
+        }
+        if (StringUtils.isNull(tinfoVar.forum_name)) {
+            this.dgE.setVisibility(8);
+        } else {
+            this.dgE.setVisibility(0);
+            this.anq.setVisibility(0);
+            this.anq.setText(UtilHelper.getFixedText(getContext().getString(e.j.chosen_pb_original_bar, tinfoVar.forum_name), 7, false));
+            this.anq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.chosen.posts.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     String str = tinfoVar.forum_name;
@@ -69,23 +69,23 @@ public class b extends com.baidu.tbadk.mvc.f.a<tinfo, com.baidu.tbadk.mvc.d.b> {
                 }
             });
             if (tinfoVar.zan_num == null) {
-                this.dgx.setVisibility(8);
-            } else {
-                this.dgx.setVisibility(0);
-                this.dgx.setText(tinfoVar.zan_num + "");
-            }
-            if (tinfoVar.reply_num == null) {
                 this.dgy.setVisibility(8);
             } else {
                 this.dgy.setVisibility(0);
-                this.dgy.setText(tinfoVar.reply_num + "");
+                this.dgy.setText(tinfoVar.zan_num + "");
+            }
+            if (tinfoVar.reply_num == null) {
+                this.dgz.setVisibility(8);
+            } else {
+                this.dgz.setVisibility(0);
+                this.dgz.setText(tinfoVar.reply_num + "");
             }
         }
         if (StringUtils.isNull(tinfoVar._abstract)) {
-            this.bec.setVisibility(8);
+            this.bed.setVisibility(8);
             return;
         }
-        this.bec.setVisibility(0);
-        this.bec.setText(tinfoVar._abstract);
+        this.bed.setVisibility(0);
+        this.bed.setText(tinfoVar._abstract);
     }
 }

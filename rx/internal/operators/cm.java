@@ -7,9 +7,9 @@ import rx.d;
 /* loaded from: classes2.dex */
 public final class cm<T, R> implements d.a<R> {
     final rx.functions.o<R> combiner;
-    final rx.d<T> iGH;
-    final rx.d<?>[] iOm;
-    final Iterable<rx.d<?>> iOn;
+    final rx.d<T> iGI;
+    final rx.d<?>[] iOn;
+    final Iterable<rx.d<?>> iOo;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -17,9 +17,9 @@ public final class cm<T, R> implements d.a<R> {
     }
 
     public cm(rx.d<T> dVar, rx.d<?>[] dVarArr, Iterable<rx.d<?>> iterable, rx.functions.o<R> oVar) {
-        this.iGH = dVar;
-        this.iOm = dVarArr;
-        this.iOn = iterable;
+        this.iGI = dVar;
+        this.iOn = dVarArr;
+        this.iOo = iterable;
         this.combiner = oVar;
     }
 
@@ -27,13 +27,13 @@ public final class cm<T, R> implements d.a<R> {
         int i;
         rx.d<?>[] dVarArr;
         rx.b.f fVar = new rx.b.f(jVar);
-        if (this.iOm != null) {
-            dVarArr = this.iOm;
+        if (this.iOn != null) {
+            dVarArr = this.iOn;
             i = dVarArr.length;
         } else {
             i = 0;
             dVarArr = new rx.d[8];
-            for (rx.d<?> dVar : this.iOn) {
+            for (rx.d<?> dVar : this.iOo) {
                 if (i == dVarArr.length) {
                     dVarArr = (rx.d[]) Arrays.copyOf(dVarArr, (i >> 2) + i);
                 }
@@ -54,7 +54,7 @@ public final class cm<T, R> implements d.a<R> {
                 return;
             }
         }
-        this.iGH.unsafeSubscribe(aVar);
+        this.iGI.unsafeSubscribe(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -64,8 +64,8 @@ public final class cm<T, R> implements d.a<R> {
         final rx.j<? super R> actual;
         final rx.functions.o<R> combiner;
         boolean done;
-        final AtomicReferenceArray<Object> iOo;
-        final AtomicInteger iOp;
+        final AtomicReferenceArray<Object> iOp;
+        final AtomicInteger iOq;
 
         public a(rx.j<? super R> jVar, rx.functions.o<R> oVar, int i) {
             this.actual = jVar;
@@ -74,16 +74,16 @@ public final class cm<T, R> implements d.a<R> {
             for (int i2 = 0; i2 <= i; i2++) {
                 atomicReferenceArray.lazySet(i2, EMPTY);
             }
-            this.iOo = atomicReferenceArray;
-            this.iOp = new AtomicInteger(i);
+            this.iOp = atomicReferenceArray;
+            this.iOq = new AtomicInteger(i);
             request(0L);
         }
 
         @Override // rx.e
         public void onNext(T t) {
             if (!this.done) {
-                if (this.iOp.get() == 0) {
-                    AtomicReferenceArray<Object> atomicReferenceArray = this.iOo;
+                if (this.iOq.get() == 0) {
+                    AtomicReferenceArray<Object> atomicReferenceArray = this.iOp;
                     int length = atomicReferenceArray.length();
                     atomicReferenceArray.lazySet(0, t);
                     Object[] objArr = new Object[atomicReferenceArray.length()];
@@ -130,8 +130,8 @@ public final class cm<T, R> implements d.a<R> {
         }
 
         void d(int i, Object obj) {
-            if (this.iOo.getAndSet(i, obj) == EMPTY) {
-                this.iOp.decrementAndGet();
+            if (this.iOp.getAndSet(i, obj) == EMPTY) {
+                this.iOq.decrementAndGet();
             }
         }
 
@@ -140,7 +140,7 @@ public final class cm<T, R> implements d.a<R> {
         }
 
         void zD(int i) {
-            if (this.iOo.get(i) == EMPTY) {
+            if (this.iOp.get(i) == EMPTY) {
                 onCompleted();
             }
         }
@@ -149,27 +149,27 @@ public final class cm<T, R> implements d.a<R> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b extends rx.j<Object> {
-        final a<?, ?> iOq;
+        final a<?, ?> iOr;
         final int index;
 
         public b(a<?, ?> aVar, int i) {
-            this.iOq = aVar;
+            this.iOr = aVar;
             this.index = i;
         }
 
         @Override // rx.e
         public void onNext(Object obj) {
-            this.iOq.d(this.index, obj);
+            this.iOr.d(this.index, obj);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iOq.c(this.index, th);
+            this.iOr.c(this.index, th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.iOq.zD(this.index);
+            this.iOr.zD(this.index);
         }
     }
 }

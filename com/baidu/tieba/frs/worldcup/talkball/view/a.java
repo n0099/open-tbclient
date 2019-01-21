@@ -20,12 +20,12 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.view.ScrollItemView;
 /* loaded from: classes3.dex */
 public class a {
-    private TextView aJI;
-    private TextView emX;
-    private ImageView emY;
-    private ScrollItemView emZ;
-    private ImageView ena;
-    private com.baidu.tieba.frs.worldcup.talkball.a.a enb;
+    private TextView aJJ;
+    private TextView emY;
+    private ImageView emZ;
+    private ScrollItemView ena;
+    private ImageView enb;
+    private com.baidu.tieba.frs.worldcup.talkball.a.a enc;
     private View mRootView;
     private TbPageContext mTbPageContext;
     private String mUrl;
@@ -48,10 +48,10 @@ public class a {
     private void aI(ViewGroup viewGroup) {
         this.mRootView = this.mTbPageContext.getPageActivity().getLayoutInflater().inflate(e.h.guess_competition_layout, viewGroup, false);
         this.mRootView.findViewById(e.g.container).setOnClickListener(this.mClickListener);
-        this.emX = (TextView) this.mRootView.findViewById(e.g.competition_text);
-        this.emY = (ImageView) this.mRootView.findViewById(e.g.prise_icon);
-        this.emZ = (ScrollItemView) this.mRootView.findViewById(e.g.prise_text);
-        this.emZ.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.frs.worldcup.talkball.view.a.2
+        this.emY = (TextView) this.mRootView.findViewById(e.g.competition_text);
+        this.emZ = (ImageView) this.mRootView.findViewById(e.g.prise_icon);
+        this.ena = (ScrollItemView) this.mRootView.findViewById(e.g.prise_text);
+        this.ena.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.frs.worldcup.talkball.view.a.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (a.this.mClickListener != null) {
@@ -59,12 +59,12 @@ public class a {
                 }
             }
         });
-        this.aJI = (TextView) this.mRootView.findViewById(e.g.more);
-        this.ena = (ImageView) this.mRootView.findViewById(e.g.right_arrow);
+        this.aJJ = (TextView) this.mRootView.findViewById(e.g.more);
+        this.enb = (ImageView) this.mRootView.findViewById(e.g.right_arrow);
         RecyclerView recyclerView = (RecyclerView) this.mRootView.findViewById(e.g.recycler_view);
-        this.enb = new com.baidu.tieba.frs.worldcup.talkball.a.a(this.mTbPageContext);
-        this.enb.setOnClickListener(this.mClickListener);
-        recyclerView.setAdapter(this.enb);
+        this.enc = new com.baidu.tieba.frs.worldcup.talkball.a.a(this.mTbPageContext);
+        this.enc.setOnClickListener(this.mClickListener);
+        recyclerView.setAdapter(this.enc);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.mTbPageContext.getPageActivity(), 0, false));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
@@ -77,46 +77,46 @@ public class a {
         if (eVar != null) {
             this.mUrl = eVar.aJF();
             c(eVar);
-            this.enb.setData(eVar.aJE());
-            this.enb.notifyDataSetChanged();
+            this.enc.setData(eVar.aJE());
+            this.enc.notifyDataSetChanged();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     private void c(com.baidu.tieba.frs.worldcup.talkball.b.e eVar) {
-        this.emZ.setData(eVar.aJG());
+        this.ena.setData(eVar.aJG());
         if (v.I(eVar.aJG())) {
-            this.emY.setVisibility(8);
+            this.emZ.setVisibility(8);
         } else {
-            this.emY.setVisibility(0);
+            this.emZ.setVisibility(0);
         }
     }
 
     public void gA(boolean z) {
-        if (this.emZ != null) {
+        if (this.ena != null) {
             if (z) {
-                this.emZ.aJo();
+                this.ena.aJo();
             } else {
-                this.emZ.stopScroll();
+                this.ena.stopScroll();
             }
         }
     }
 
     public void onDestroy() {
-        if (this.emZ != null) {
-            this.emZ.onDestroy();
+        if (this.ena != null) {
+            this.ena.onDestroy();
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            al.h(this.emX, e.d.cp_cont_f);
-            al.h(this.aJI, e.d.cp_cont_j);
-            al.c(this.emY, e.f.icon_front_worldcup_jiang_n);
-            al.c(this.ena, e.f.icon_arrow_gray_right_n);
-            if (this.enb != null) {
-                this.enb.notifyDataSetChanged();
+            al.h(this.emY, e.d.cp_cont_f);
+            al.h(this.aJJ, e.d.cp_cont_j);
+            al.c(this.emZ, e.f.icon_front_worldcup_jiang_n);
+            al.c(this.enb, e.f.icon_arrow_gray_right_n);
+            if (this.enc != null) {
+                this.enc.notifyDataSetChanged();
             }
         }
     }

@@ -25,29 +25,29 @@ import tbclient.MFollow.MFollowResult;
 /* loaded from: classes3.dex */
 public class d implements View.OnClickListener {
     private com.baidu.tbadk.core.dialog.a Tm;
-    private a erB;
-    private ViewGroup erG;
-    private com.baidu.tieba.godRecommends.a erH;
-    private TextView erI;
-    private View erJ;
-    private TextView erK;
-    private View erL;
-    private TextView erM;
+    private a erC;
+    private ViewGroup erH;
+    private com.baidu.tieba.godRecommends.a erI;
+    private TextView erJ;
+    private View erK;
+    private TextView erL;
+    private View erM;
+    private TextView erN;
     private Activity mActivity;
     private TbPageContext<?> mContext;
     private ListView mListView;
     private View.OnClickListener mOnClickListener;
     private AdapterView.OnItemClickListener mOnItemClickListener;
     private View mTopLine;
-    private List<MetaData> erN = new ArrayList();
     private List<MetaData> erO = new ArrayList();
+    private List<MetaData> erP = new ArrayList();
     private Handler mHandler = new Handler();
     private Runnable mRunnable = new Runnable() { // from class: com.baidu.tieba.godRecommends.d.1
         @Override // java.lang.Runnable
         public void run() {
             if (d.this.aKO()) {
-                if (!d.this.ch(d.this.erN)) {
-                    d.this.erH.setData(d.this.erN);
+                if (!d.this.ch(d.this.erO)) {
+                    d.this.erI.setData(d.this.erO);
                 } else {
                     d.this.Tz();
                 }
@@ -74,70 +74,70 @@ public class d implements View.OnClickListener {
     }
 
     public void a(a aVar) {
-        this.erB = aVar;
+        this.erC = aVar;
     }
 
     public void a(c cVar) {
         if (cVar != null && !v.I(cVar.aKL())) {
             Tz();
-            this.erN.clear();
             this.erO.clear();
+            this.erP.clear();
             List<MetaData> aKL = cVar.aKL();
             int size = aKL.size();
             if (size <= 3) {
-                this.erN.addAll(aKL);
+                this.erO.addAll(aKL);
             } else {
-                this.erN.addAll(aKL.subList(0, 3));
-                this.erO.addAll(aKL.subList(3, size));
+                this.erO.addAll(aKL.subList(0, 3));
+                this.erP.addAll(aKL.subList(3, size));
             }
             initUI();
-            this.erI.setText(e.j.god_recommend_title);
-            al.i(this.erG, e.f.bg_god_recommend_layout);
-            al.h(this.erI, e.d.cp_cont_d);
+            this.erJ.setText(e.j.god_recommend_title);
+            al.i(this.erH, e.f.bg_god_recommend_layout);
+            al.h(this.erJ, e.d.cp_cont_d);
             al.j(this.mTopLine, e.d.cp_bg_line_b);
-            al.j(this.erJ, e.d.cp_bg_line_a);
-            al.h(this.erK, e.d.cp_cont_f);
-            al.i(this.erK, e.f.god_recommend_left_button_selector);
-            al.j(this.erL, e.d.cp_bg_line_a);
-            al.h(this.erM, e.d.cp_link_tip_a);
-            al.i(this.erM, e.f.god_recommend_right_button_selertor);
-            this.erH.setData(this.erN);
-            this.mListView.setAdapter((ListAdapter) this.erH);
+            al.j(this.erK, e.d.cp_bg_line_a);
+            al.h(this.erL, e.d.cp_cont_f);
+            al.i(this.erL, e.f.god_recommend_left_button_selector);
+            al.j(this.erM, e.d.cp_bg_line_a);
+            al.h(this.erN, e.d.cp_link_tip_a);
+            al.i(this.erN, e.f.god_recommend_right_button_selertor);
+            this.erI.setData(this.erO);
+            this.mListView.setAdapter((ListAdapter) this.erI);
             this.Tm.reset();
             this.Tm.b(this.mContext).BS();
         }
     }
 
     private void initUI() {
-        if (this.erG == null) {
-            this.erG = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(e.h.god_recommend_content_layout, (ViewGroup) null);
-            this.erI = (TextView) this.erG.findViewById(e.g.god_title);
-            this.mTopLine = this.erG.findViewById(e.g.top_line);
-            this.erJ = this.erG.findViewById(e.g.content_button_divider);
-            this.erK = (TextView) this.erG.findViewById(e.g.btn_to_do_leter);
-            this.erK.setOnClickListener(this);
-            this.erL = this.erG.findViewById(e.g.button_divider);
-            this.erM = (TextView) this.erG.findViewById(e.g.btn_attention_all);
-            this.erM.setOnClickListener(this);
-            this.mListView = (ListView) this.erG.findViewById(e.g.listview);
-            this.erH = new com.baidu.tieba.godRecommends.a(this.mActivity);
+        if (this.erH == null) {
+            this.erH = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(e.h.god_recommend_content_layout, (ViewGroup) null);
+            this.erJ = (TextView) this.erH.findViewById(e.g.god_title);
+            this.mTopLine = this.erH.findViewById(e.g.top_line);
+            this.erK = this.erH.findViewById(e.g.content_button_divider);
+            this.erL = (TextView) this.erH.findViewById(e.g.btn_to_do_leter);
+            this.erL.setOnClickListener(this);
+            this.erM = this.erH.findViewById(e.g.button_divider);
+            this.erN = (TextView) this.erH.findViewById(e.g.btn_attention_all);
+            this.erN.setOnClickListener(this);
+            this.mListView = (ListView) this.erH.findViewById(e.g.listview);
+            this.erI = new com.baidu.tieba.godRecommends.a(this.mActivity);
             this.mListView.setOnItemClickListener(this.mOnItemClickListener);
-            this.erH.setOnClickListener(this.mOnClickListener);
+            this.erI.setOnClickListener(this.mOnClickListener);
         }
         if (this.Tm == null) {
             this.Tm = new com.baidu.tbadk.core.dialog.a(this.mActivity);
-            this.Tm.G(this.erG);
+            this.Tm.G(this.erH);
             this.Tm.dd(1);
             this.Tm.bh(true);
         }
     }
 
     private List<MetaData> aKM() {
-        if (v.I(this.erN)) {
+        if (v.I(this.erO)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (MetaData metaData : this.erN) {
+        for (MetaData metaData : this.erO) {
             if (metaData != null && !metaData.getGodUserData().getIsLike()) {
                 arrayList.add(metaData);
             }
@@ -146,7 +146,7 @@ public class d implements View.OnClickListener {
     }
 
     public MetaData ov(int i) {
-        return this.erH.getItem(i);
+        return this.erI.getItem(i);
     }
 
     public void l(List<MFollowResult> list, boolean z) {
@@ -158,10 +158,10 @@ public class d implements View.OnClickListener {
                     Tz();
                     return;
                 }
-                this.erH.setData(this.erN);
+                this.erI.setData(this.erO);
                 l.showToast(this.mActivity, e.j.attention_fail);
             } else if (cg) {
-                this.erH.setData(this.erN);
+                this.erI.setData(this.erO);
                 aKN();
             } else {
                 l.showToast(this.mActivity, cf(list));
@@ -195,15 +195,15 @@ public class d implements View.OnClickListener {
     }
 
     private void aKN() {
-        if (!v.I(this.erO)) {
-            int size = this.erN.size() - 1;
+        if (!v.I(this.erP)) {
+            int size = this.erO.size() - 1;
             while (true) {
                 if (size >= 0) {
-                    if (this.erN.get(size) == null || !this.erN.get(size).getGodUserData().getIsLike()) {
+                    if (this.erO.get(size) == null || !this.erO.get(size).getGodUserData().getIsLike()) {
                         size--;
                     } else {
-                        this.erN.remove(size);
-                        this.erN.add(this.erO.remove(0));
+                        this.erO.remove(size);
+                        this.erO.add(this.erP.remove(0));
                         break;
                     }
                 } else {
@@ -224,7 +224,7 @@ public class d implements View.OnClickListener {
             if (!mFollowResult.is_success.booleanValue()) {
                 z = false;
             } else {
-                Iterator<MetaData> it = this.erN.iterator();
+                Iterator<MetaData> it = this.erO.iterator();
                 while (true) {
                     if (it.hasNext()) {
                         MetaData next = it.next();
@@ -271,8 +271,8 @@ public class d implements View.OnClickListener {
         if (id == e.g.btn_to_do_leter) {
             this.Tm.dismiss();
         }
-        if (id == e.g.btn_attention_all && this.erB != null) {
-            this.erB.ce(aKM());
+        if (id == e.g.btn_attention_all && this.erC != null) {
+            this.erC.ce(aKM());
         }
     }
 }

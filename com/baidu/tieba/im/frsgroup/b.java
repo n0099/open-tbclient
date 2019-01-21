@@ -6,16 +6,16 @@ import com.baidu.adp.widget.ListView.q;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b extends q.a {
-    public View dIt;
+    public View dIu;
     public View divider;
-    public TextView eSw;
+    public TextView eSx;
     public View rootView;
 
     public b(View view, View.OnClickListener onClickListener) {
         super(view);
         this.rootView = view;
-        this.dIt = view.findViewById(e.g.divider_top);
-        this.eSw = (TextView) view.findViewById(e.g.create_item_text);
+        this.dIu = view.findViewById(e.g.divider_top);
+        this.eSx = (TextView) view.findViewById(e.g.create_item_text);
         this.divider = view.findViewById(e.g.divider);
         this.rootView.setOnClickListener(onClickListener);
     }

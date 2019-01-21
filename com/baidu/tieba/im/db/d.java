@@ -19,13 +19,13 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private static d eQY;
+    private static d eQZ;
 
     public static d aRD() {
-        if (eQY == null) {
-            eQY = new d();
+        if (eQZ == null) {
+            eQZ = new d();
         }
-        return eQY;
+        return eQZ;
     }
 
     public void qk(String str) {

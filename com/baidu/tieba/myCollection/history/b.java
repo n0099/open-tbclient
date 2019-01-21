@@ -13,20 +13,20 @@ import com.baidu.tieba.e;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.baseHistory.a, com.baidu.tbadk.mvc.d.b> {
-    private TextView aKL;
-    private TextView cGN;
-    private TextView fLG;
+    private TextView aKM;
+    private TextView cGO;
+    private TextView fLH;
     private View mLine;
     private View mRootView;
 
     public b(TbPageContext<?> tbPageContext, View view, ViewEventCenter viewEventCenter) {
         super(tbPageContext, view, viewEventCenter);
         this.mRootView = view;
-        this.fLG = (TextView) view.findViewById(e.g.title);
-        this.aKL = (TextView) view.findViewById(e.g.content);
-        this.aKL.setSingleLine();
-        this.aKL.setEllipsize(TextUtils.TruncateAt.END);
-        this.cGN = (TextView) view.findViewById(e.g.time);
+        this.fLH = (TextView) view.findViewById(e.g.title);
+        this.aKM = (TextView) view.findViewById(e.g.content);
+        this.aKM.setSingleLine();
+        this.aKM.setEllipsize(TextUtils.TruncateAt.END);
+        this.cGO = (TextView) view.findViewById(e.g.time);
         this.mLine = view.findViewById(e.g.line);
     }
 
@@ -36,34 +36,34 @@ public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public void L(com.baidu.tieba.myCollection.baseHistory.a aVar) {
         super.L(aVar);
         if (aVar != null) {
-            if (this.fLG != null) {
+            if (this.fLH != null) {
                 if (aVar.getThreadType() == 49) {
                     if (StringUtils.isNull(aVar.getDescription())) {
-                        this.fLG.setText(String.format(getString(e.j.pb_history_user_name), aVar.getUserName()));
+                        this.fLH.setText(String.format(getString(e.j.pb_history_user_name), aVar.getUserName()));
                     } else {
-                        this.fLG.setText(aVar.getDescription());
+                        this.fLH.setText(aVar.getDescription());
                     }
                 } else if (aVar.beY() != null) {
                     if (aVar.isShareThread()) {
-                        this.fLG.setText(String.format("%s%s", getString(e.j.pb_history_share_prefix), aVar.beY()));
+                        this.fLH.setText(String.format("%s%s", getString(e.j.pb_history_share_prefix), aVar.beY()));
                     } else {
-                        this.fLG.setText(aVar.beY());
+                        this.fLH.setText(aVar.beY());
                     }
                 }
             }
-            if (this.aKL != null) {
+            if (this.aKM != null) {
                 if (aVar.getThreadType() == 49 && !TextUtils.isEmpty(aVar.getUserName())) {
-                    this.aKL.setText(String.format(getString(e.j.pb_history_user_name), aVar.getUserName()));
+                    this.aKM.setText(String.format(getString(e.j.pb_history_user_name), aVar.getUserName()));
                 } else if (aVar.getForumName() != null) {
-                    this.aKL.setText(aVar.getForumName());
+                    this.aKM.setText(aVar.getForumName());
                 }
             }
-            if (this.cGN != null) {
+            if (this.cGO != null) {
                 String g = ao.g(new Date(aVar.getTime()));
                 if (g == null) {
                     g = "";
                 }
-                this.cGN.setText(g);
+                this.cGO.setText(g);
             }
         }
     }
@@ -73,9 +73,9 @@ public class b extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
     public boolean b(TbPageContext<?> tbPageContext, int i) {
         al.i(this.mRootView, e.f.list_item_selector);
         al.i(this.mLine, e.d.cp_bg_line_b);
-        al.c(this.fLG, e.d.cp_cont_b, 1);
-        al.c(this.aKL, e.d.cp_cont_d, 1);
-        al.c(this.cGN, e.d.cp_cont_d, 1);
+        al.c(this.fLH, e.d.cp_cont_b, 1);
+        al.c(this.aKM, e.d.cp_cont_d, 1);
+        al.c(this.cGO, e.d.cp_cont_d, 1);
         return true;
     }
 }

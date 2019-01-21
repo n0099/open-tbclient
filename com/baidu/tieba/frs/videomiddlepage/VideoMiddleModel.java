@@ -30,9 +30,9 @@ public class VideoMiddleModel extends BdBaseModel {
     public static final String TYPE_CALL_FROM_FRS = "client_frs";
     public static final String TYPE_CALL_FROM_INDEX = "client_index";
     public static final String TYPE_CALL_FROM_OTHER = "client_other";
-    private final HttpMessageListener dRh;
-    private a eif;
-    private String eig;
+    private final HttpMessageListener dRi;
+    private a eig;
+    private String eih;
     private String mFrom;
     private String mId;
     private boolean mIsLoading;
@@ -56,13 +56,13 @@ public class VideoMiddleModel extends BdBaseModel {
 
     public VideoMiddleModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.eig = "client_other";
-        this.dRh = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION) { // from class: com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.1
+        this.eih = "client_other";
+        this.dRi = new HttpMessageListener(CmdConfigHttp.CMD_VIDEO_MIDDLE_AGGREGATION) { // from class: com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003378 || !(httpResponsedMessage instanceof VideoMiddleDataResponseMessage)) {
-                    VideoMiddleModel.this.eif.oC(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR);
+                    VideoMiddleModel.this.eig.oC(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR);
                     return;
                 }
                 VideoMiddleModel.this.mIsLoading = false;
@@ -72,19 +72,19 @@ public class VideoMiddleModel extends BdBaseModel {
                     if (TextUtils.isEmpty(errorString)) {
                         errorString = TbadkCoreApplication.getInst().getResources().getString(e.j.error_unkown_try_again);
                     }
-                    VideoMiddleModel.this.eif.oC(errorString);
+                    VideoMiddleModel.this.eig.oC(errorString);
                     return;
                 }
                 TbSingleton.getInstance().clearVideoRecord();
-                VideoMiddleModel.this.eif.i(((VideoMiddleDataResponseMessage) httpResponsedMessage).mDataList, ((VideoMiddleDataResponseMessage) httpResponsedMessage).mHasMore);
+                VideoMiddleModel.this.eig.i(((VideoMiddleDataResponseMessage) httpResponsedMessage).mDataList, ((VideoMiddleDataResponseMessage) httpResponsedMessage).mHasMore);
             }
         };
         this.mPageContext = tbPageContext;
-        this.eif = aVar;
+        this.eig = aVar;
         registerTask();
-        this.dRh.setTag(getUniqueId());
-        this.dRh.setSelfListener(true);
-        registerListener(this.dRh);
+        this.dRi.setTag(getUniqueId());
+        this.dRi.setSelfListener(true);
+        registerListener(this.dRi);
     }
 
     public void setId(String str) {
@@ -127,7 +127,7 @@ public class VideoMiddleModel extends BdBaseModel {
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         com.baidu.tieba.frs.aggregation.g gVar = new com.baidu.tieba.frs.aggregation.g();
                         gVar.parseJson(jSONArray.optString(i2));
-                        if (gVar.dQW != null) {
+                        if (gVar.dQX != null) {
                             this.mDataList.add(gVar);
                         }
                     }
@@ -152,13 +152,13 @@ public class VideoMiddleModel extends BdBaseModel {
         httpMessage.addParam(Config.PACKAGE_NAME, i);
         httpMessage.addParam("user_view_data", aIV());
         if ("frs".equals(this.mFrom)) {
-            this.eig = "client_frs";
+            this.eih = "client_frs";
         } else if ("index".equals(this.mFrom)) {
-            this.eig = "client_index";
+            this.eih = "client_index";
         } else {
-            this.eig = "client_other";
+            this.eih = "client_other";
         }
-        httpMessage.addParam(IntentConfig.CALL_FROM, this.eig);
+        httpMessage.addParam(IntentConfig.CALL_FROM, this.eih);
         sendMessage(httpMessage);
         return true;
     }

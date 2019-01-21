@@ -15,7 +15,7 @@ import rx.j;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class UnicastSubject<T> extends c<T, T> {
-    final State<T> iSN;
+    final State<T> iSO;
 
     public static <T> UnicastSubject<T> cgK() {
         return zK(16);
@@ -31,27 +31,27 @@ public final class UnicastSubject<T> extends c<T, T> {
 
     private UnicastSubject(State<T> state) {
         super(state);
-        this.iSN = state;
+        this.iSO = state;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.iSN.onNext(t);
+        this.iSO.onNext(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.iSN.onError(th);
+        this.iSO.onError(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.iSN.onCompleted();
+        this.iSO.onCompleted();
     }
 
     @Override // rx.subjects.c
     public boolean hasObservers() {
-        return this.iSN.subscriber.get() != null;
+        return this.iSO.subscriber.get() != null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

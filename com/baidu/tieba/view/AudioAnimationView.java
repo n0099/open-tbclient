@@ -24,7 +24,7 @@ public class AudioAnimationView extends View {
     private int Tx;
     private int Ty;
     private boolean Tz;
-    private Rect[] hQO;
+    private Rect[] hQP;
     private Paint mPaint;
     private int mSkinType;
     private Random random;
@@ -105,8 +105,8 @@ public class AudioAnimationView extends View {
         if (this.Tz) {
             for (int i = 0; i < this.Ty; i++) {
                 pW();
-                if (i < this.hQO.length) {
-                    canvas.drawRect(this.hQO[i], this.mPaint);
+                if (i < this.hQP.length) {
+                    canvas.drawRect(this.hQP[i], this.mPaint);
                 }
             }
         }
@@ -130,8 +130,8 @@ public class AudioAnimationView extends View {
 
     private void pW() {
         int nextInt;
-        if (this.hQO == null || this.hQO.length != this.Ty) {
-            this.hQO = new Rect[this.Ty];
+        if (this.hQP == null || this.hQP.length != this.Ty) {
+            this.hQP = new Rect[this.Ty];
         }
         for (int i = 0; i < this.Ty; i++) {
             int i2 = this.TG * i * 2;
@@ -142,10 +142,10 @@ public class AudioAnimationView extends View {
             }
             int i3 = this.TG + i2;
             int i4 = this.TC;
-            if (this.hQO[i] == null) {
-                this.hQO[i] = new Rect(i2, nextInt, i3, i4);
+            if (this.hQP[i] == null) {
+                this.hQP[i] = new Rect(i2, nextInt, i3, i4);
             } else {
-                this.hQO[i].set(i2, nextInt, i3, i4);
+                this.hQP[i].set(i2, nextInt, i3, i4);
             }
         }
     }

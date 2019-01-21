@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.AbstractImageProvider;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class BlackListItemData extends AbstractImageProvider {
-    private String eQL;
+    private String eQM;
     private long userId;
     private String userName;
     private String userNameShow;
@@ -30,11 +30,11 @@ public class BlackListItemData extends AbstractImageProvider {
     }
 
     public String aRs() {
-        return this.eQL;
+        return this.eQM;
     }
 
     public void qc(String str) {
-        this.eQL = str;
+        this.eQM = str;
     }
 
     public void ho(String str) {

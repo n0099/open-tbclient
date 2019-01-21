@@ -15,11 +15,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class ay {
-    private static ay aDA = new ay() { // from class: com.baidu.tbadk.core.util.ay.1
+    private static ay aDB = new ay() { // from class: com.baidu.tbadk.core.util.ay.1
     };
-    private static final Pattern aDD = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private final ConcurrentHashMap<String, b> aDB;
-    private c aDC;
+    private static final Pattern aDE = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private final ConcurrentHashMap<String, b> aDC;
+    private c aDD;
     private final List<a> mListeners;
 
     /* loaded from: classes.dex */
@@ -43,13 +43,13 @@ public class ay {
 
     private ay() {
         this.mListeners = new LinkedList();
-        this.aDB = new ConcurrentHashMap<>();
-        this.aDC = null;
+        this.aDC = new ConcurrentHashMap<>();
+        this.aDD = null;
     }
 
     public static SpannableString ai(Context context, String str) {
         int start;
-        Matcher matcher = aDD.matcher(str);
+        Matcher matcher = aDE.matcher(str);
         SpannableString spannableString = new SpannableString(str);
         while (matcher.find()) {
             String group = matcher.group();
@@ -64,7 +64,7 @@ public class ay {
     }
 
     public static ay Es() {
-        return aDA;
+        return aDB;
     }
 
     public void a(final a aVar) {
@@ -88,7 +88,7 @@ public class ay {
     }
 
     public void a(c cVar) {
-        this.aDC = cVar;
+        this.aDD = cVar;
     }
 
     public boolean a(TbPageContext<?> tbPageContext, String[] strArr, boolean z, d dVar, boolean z2) {
@@ -101,7 +101,7 @@ public class ay {
             return 3;
         }
         String str = strArr[0];
-        b bVar = this.aDB.get(gf(str));
+        b bVar = this.aDC.get(gf(str));
         if (bVar != null) {
             bVar.a(tbPageContext, ge(gd(str)));
             return 0;
@@ -121,7 +121,7 @@ public class ay {
             return false;
         }
         String str2 = strArr[0];
-        b bVar = this.aDB.get(gf(str2));
+        b bVar = this.aDC.get(gf(str2));
         if (bVar != null) {
             bVar.a(tbPageContext, ge(gd(str2)));
             return true;
@@ -138,7 +138,7 @@ public class ay {
                 break;
             }
         }
-        if (!z3 && this.aDC != null) {
+        if (!z3 && this.aDD != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -243,8 +243,8 @@ public class ay {
     }
 
     private void b(TbPageContext<?> tbPageContext, String str, String str2, boolean z, d dVar, boolean z2) {
-        if (aDD.matcher(str2).find()) {
-            this.aDC.a(tbPageContext, str, str2, z, dVar, z2);
+        if (aDE.matcher(str2).find()) {
+            this.aDD.a(tbPageContext, str, str2, z, dVar, z2);
         }
     }
 
@@ -252,12 +252,12 @@ public class ay {
         if (!StringUtils.isNull(str) && bVar != null) {
             String gf = gf(str);
             if (!StringUtils.isNull(gf)) {
-                this.aDB.put(gf, bVar);
+                this.aDC.put(gf, bVar);
             }
         }
     }
 
     public boolean gg(String str) {
-        return aDD.matcher(str).find();
+        return aDE.matcher(str).find();
     }
 }

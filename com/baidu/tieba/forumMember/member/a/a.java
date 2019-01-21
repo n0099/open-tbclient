@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private o dJe;
+    private o dJf;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -25,14 +25,14 @@ public class a {
 
     public a(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
         this.mListView = bdTypeListView;
-        this.mAdapters.add(new i(baseActivity.getPageContext(), j.dIl));
-        this.mAdapters.add(new l(baseActivity.getPageContext(), m.dIz));
-        this.mAdapters.add(new g(baseActivity.getPageContext(), com.baidu.tieba.frs.i.dLk));
-        this.mAdapters.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.dHP));
-        this.mAdapters.add(new d(baseActivity.getPageContext(), e.dHS));
+        this.mAdapters.add(new i(baseActivity.getPageContext(), j.dIm));
+        this.mAdapters.add(new l(baseActivity.getPageContext(), m.dIA));
+        this.mAdapters.add(new g(baseActivity.getPageContext(), com.baidu.tieba.frs.i.dLl));
+        this.mAdapters.add(new com.baidu.tieba.forumMember.a.a(baseActivity.getPageContext(), com.baidu.tieba.forumMember.a.b.dHQ));
+        this.mAdapters.add(new d(baseActivity.getPageContext(), e.dHT));
         this.mAdapters.add(new com.baidu.tieba.forumMember.member.a(baseActivity.getPageContext()));
-        this.dJe = new o(baseActivity.getPageContext(), p.dIS);
-        this.mAdapters.add(this.dJe);
+        this.dJf = new o(baseActivity.getPageContext(), p.dIT);
+        this.mAdapters.add(this.dJf);
     }
 
     public void notifyDataSetChanged() {
@@ -42,6 +42,6 @@ public class a {
     }
 
     public void onDestroy() {
-        this.dJe.onDestroy();
+        this.dJf.onDestroy();
     }
 }

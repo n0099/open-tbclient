@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.memory;
 import android.util.SparseIntArray;
 /* loaded from: classes2.dex */
 public class g {
-    public static final int itp = Runtime.getRuntime().availableProcessors();
+    public static final int itq = Runtime.getRuntime().availableProcessors();
 
     public static SparseIntArray ae(int i, int i2, int i3) {
         SparseIntArray sparseIntArray = new SparseIntArray();
@@ -15,6 +15,6 @@ public class g {
     }
 
     public static r bZP() {
-        return new r(4194304, itp * 4194304, ae(131072, 4194304, itp), 131072, 4194304, itp);
+        return new r(4194304, itq * 4194304, ae(131072, 4194304, itq), 131072, 4194304, itq);
     }
 }

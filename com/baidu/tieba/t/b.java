@@ -13,10 +13,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
-    private static b hDC = new b();
+    private static b hDD = new b();
 
     public static b bIR() {
-        return hDC;
+        return hDD;
     }
 
     public void bIS() {
@@ -30,7 +30,7 @@ public class b {
                     int size = bIU.size();
                     for (int i = 0; i < size; i++) {
                         a aVar = (a) bIU.get(i);
-                        b.this.h(aVar.uuid, aVar.gUP);
+                        b.this.h(aVar.uuid, aVar.gUQ);
                     }
                     return null;
                 }
@@ -39,7 +39,7 @@ public class b {
     }
 
     private static File[] bIT() {
-        File file = new File(g.a.fHT);
+        File file = new File(g.a.fHU);
         if (file.exists()) {
             return file.listFiles();
         }
@@ -53,11 +53,11 @@ public class b {
         if (bIT != null) {
             for (File file : bIT) {
                 String name = file.getName();
-                JSONObject wK = wK(file.getAbsolutePath() + g.a.fHK + "kpi");
+                JSONObject wK = wK(file.getAbsolutePath() + g.a.fHL + "kpi");
                 if (wK == null) {
                     com.baidu.tieba.j.d.so(name);
                 } else {
-                    JSONObject wL = wL(file.getAbsolutePath() + g.a.fHK + "debug");
+                    JSONObject wL = wL(file.getAbsolutePath() + g.a.fHL + "debug");
                     if (wL == null) {
                         com.baidu.tieba.j.d.so(name);
                     } else {
@@ -157,7 +157,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(a aVar) {
         try {
-            c.g(c.ax(aVar.gUP), TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
+            c.g(c.ax(aVar.gUQ), TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
             com.baidu.tieba.j.d.so(aVar.uuid);
         } catch (Exception e) {
             e.printStackTrace();

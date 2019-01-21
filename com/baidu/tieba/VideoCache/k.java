@@ -6,9 +6,9 @@ import android.os.Message;
 import java.io.InputStream;
 /* loaded from: classes6.dex */
 public class k {
-    private static k bAN;
-    private g bAO;
-    private b bAP;
+    private static k bAO;
+    private g bAP;
+    private b bAQ;
     private Handler mHandler;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.VideoCache.k.1
         @Override // android.os.Handler.Callback
@@ -23,19 +23,19 @@ public class k {
                 }
             } else if (message.what == 2) {
                 if (message.obj instanceof String) {
-                    k.this.bAO.setVideoUrl((String) message.obj);
-                    k.this.bAO.run();
+                    k.this.bAP.setVideoUrl((String) message.obj);
+                    k.this.bAP.run();
                 }
             } else if (message.what == 3) {
-                if (k.this.bAP != null) {
-                    k.this.bAP.VB();
+                if (k.this.bAQ != null) {
+                    k.this.bAQ.VB();
                 }
             } else if (message.what == 4) {
                 if (message.obj instanceof String) {
-                    k.this.bAP.jB((String) message.obj);
+                    k.this.bAQ.jB((String) message.obj);
                 }
-            } else if (message.what == 5 && k.this.bAP != null) {
-                k.this.bAP.clearCache();
+            } else if (message.what == 5 && k.this.bAQ != null) {
+                k.this.bAQ.clearCache();
             }
             return true;
         }
@@ -45,19 +45,19 @@ public class k {
         HandlerThread handlerThread = new HandlerThread("video_cache_handler");
         handlerThread.start();
         this.mHandler = new Handler(handlerThread.getLooper(), this.mHandlerCallback);
-        this.bAO = new g();
-        this.bAP = new b();
+        this.bAP = new g();
+        this.bAQ = new b();
     }
 
     public static k VQ() {
-        if (bAN == null) {
+        if (bAO == null) {
             synchronized (k.class) {
-                if (bAN == null) {
-                    bAN = new k();
+                if (bAO == null) {
+                    bAO = new k();
                 }
             }
         }
-        return bAN;
+        return bAO;
     }
 
     public void m(InputStream inputStream) {

@@ -4,59 +4,59 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 /* loaded from: classes3.dex */
 public class p implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId dIS = BdUniqueId.gen();
-    private String dIV;
+    public static final BdUniqueId dIT = BdUniqueId.gen();
     private String dIW;
-    private int dIT = -1;
+    private String dIX;
     private int dIU = -1;
-    private int dIX = -1;
+    private int dIV = -1;
+    private int dIY = -1;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dIS;
+        return dIT;
     }
 
     public int aAH() {
-        return this.dIT;
-    }
-
-    public void ma(int i) {
-        this.dIT = i;
-    }
-
-    public int aAI() {
-        return this.dIX;
-    }
-
-    public void mb(int i) {
-        this.dIX = i;
-    }
-
-    public int aAJ() {
         return this.dIU;
     }
 
-    public void mc(int i) {
+    public void ma(int i) {
         this.dIU = i;
     }
 
-    public String aAK() {
+    public int aAI() {
+        return this.dIY;
+    }
+
+    public void mb(int i) {
+        this.dIY = i;
+    }
+
+    public int aAJ() {
         return this.dIV;
     }
 
-    public void ol(String str) {
-        this.dIV = str;
+    public void mc(int i) {
+        this.dIV = i;
     }
 
-    public String aAL() {
+    public String aAK() {
         return this.dIW;
     }
 
-    public void om(String str) {
+    public void ol(String str) {
         this.dIW = str;
     }
 
+    public String aAL() {
+        return this.dIX;
+    }
+
+    public void om(String str) {
+        this.dIX = str;
+    }
+
     public boolean isEmpty() {
-        return StringUtils.isNull(this.dIV) || StringUtils.isNull(this.dIW) || this.dIT < 0 || this.dIU < 0;
+        return StringUtils.isNull(this.dIW) || StringUtils.isNull(this.dIX) || this.dIU < 0 || this.dIV < 0;
     }
 }

@@ -21,7 +21,7 @@ public class a implements c {
     public boolean hasMore;
     public ArrayList<h> threadList = new ArrayList<>();
     public HashMap<String, MetaData> userMap = new HashMap<>();
-    public int dSz = 0;
+    public int dSA = 0;
 
     public StarTrendsResIdl J(byte[] bArr) {
         if (bArr == null) {
@@ -62,7 +62,7 @@ public class a implements c {
                         bbVar.a(threadInfo);
                         bbVar.setCurrentPage(3);
                         bbVar.AD();
-                        if (bbVar.getType() == bb.atI || bbVar.getType() == bb.atK || bbVar.getType() == bb.atP || bbVar.getType() == bb.atL || bbVar.getType() == bb.atQ || bbVar.getType() == bb.atR) {
+                        if (bbVar.getType() == bb.atJ || bbVar.getType() == bb.atL || bbVar.getType() == bb.atQ || bbVar.getType() == bb.atM || bbVar.getType() == bb.atR || bbVar.getType() == bb.atS) {
                             this.threadList.add(bbVar);
                         }
                     }

@@ -5,14 +5,14 @@ import com.facebook.common.internal.ImmutableMap;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes2.dex */
 public class h implements ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> {
-    private final com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> ilL;
-    private final com.facebook.imagepipeline.c.f iqF;
-    private final ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> itW;
+    private final com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> ilM;
+    private final com.facebook.imagepipeline.c.f iqG;
+    private final ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> itX;
 
     public h(com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> tVar, com.facebook.imagepipeline.c.f fVar, ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> aiVar) {
-        this.ilL = tVar;
-        this.iqF = fVar;
-        this.itW = aiVar;
+        this.ilM = tVar;
+        this.iqG = fVar;
+        this.itX = aiVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
@@ -20,8 +20,8 @@ public class h implements ai<com.facebook.common.references.a<com.facebook.image
         al caq = ajVar.caq();
         String id = ajVar.getId();
         caq.de(id, caA());
-        com.facebook.cache.common.b a = this.iqF.a(ajVar.cap(), ajVar.bVS());
-        com.facebook.common.references.a<com.facebook.imagepipeline.f.b> aH = this.ilL.aH(a);
+        com.facebook.cache.common.b a = this.iqG.a(ajVar.cap(), ajVar.bVS());
+        com.facebook.common.references.a<com.facebook.imagepipeline.f.b> aH = this.ilM.aH(a);
         if (aH != null) {
             boolean bZE = aH.get().bZt().bZE();
             if (bZE) {
@@ -41,7 +41,7 @@ public class h implements ai<com.facebook.common.references.a<com.facebook.image
         }
         j<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> a2 = a(jVar, a);
         caq.a(id, caA(), caq.zE(id) ? ImmutableMap.of("cached_value_found", ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE) : null);
-        this.itW.a(a2, ajVar);
+        this.itX.a(a2, ajVar);
     }
 
     protected j<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> a(j<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jVar, final com.facebook.cache.common.b bVar) {
@@ -58,7 +58,7 @@ public class h implements ai<com.facebook.common.references.a<com.facebook.image
                 } else if (aVar.get().isStateful()) {
                     caC().e(aVar, z);
                 } else {
-                    if (!z && (aH = h.this.ilL.aH(bVar)) != null) {
+                    if (!z && (aH = h.this.ilM.aH(bVar)) != null) {
                         try {
                             com.facebook.imagepipeline.f.g bZt = aVar.get().bZt();
                             com.facebook.imagepipeline.f.g bZt2 = aH.get().bZt();
@@ -70,7 +70,7 @@ public class h implements ai<com.facebook.common.references.a<com.facebook.image
                             com.facebook.common.references.a.c((com.facebook.common.references.a<?>) aH);
                         }
                     }
-                    com.facebook.common.references.a<com.facebook.imagepipeline.f.b> a = h.this.ilL.a(bVar, aVar);
+                    com.facebook.common.references.a<com.facebook.imagepipeline.f.b> a = h.this.ilM.a(bVar, aVar);
                     if (z) {
                         try {
                             caC().az(1.0f);

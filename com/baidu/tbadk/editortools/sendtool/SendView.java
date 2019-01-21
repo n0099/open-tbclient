@@ -12,18 +12,18 @@ import com.baidu.tieba.e;
 public class SendView extends TextView implements l {
     private EditorTools Tj;
     private int Tk;
-    private int aMj;
-    private boolean[] bbc;
-    private int[] bbd;
+    private int aMk;
+    private boolean[] bbd;
+    private int[] bbe;
     private int mType;
-    public static int bbe = 1;
+    public static int bbf = 1;
     public static int ALL = 0;
 
     public SendView(Context context) {
         super(context);
-        this.bbc = new boolean[]{false, false, false, false, false};
-        this.bbd = new int[]{0, 0};
-        this.aMj = 0;
+        this.bbd = new boolean[]{false, false, false, false, false};
+        this.bbe = new int[]{0, 0};
+        this.aMk = 0;
         this.mType = ALL;
         setPadding(context.getResources().getDimensionPixelSize(e.C0210e.ds17), context.getResources().getDimensionPixelSize(e.C0210e.ds28), context.getResources().getDimensionPixelSize(e.C0210e.ds10), context.getResources().getDimensionPixelSize(e.C0210e.ds28));
         setGravity(17);
@@ -46,64 +46,64 @@ public class SendView extends TextView implements l {
             switch (aVar.code) {
                 case 4:
                     if (aVar.data == null || ((aVar.data instanceof String) && StringUtils.isNull((String) aVar.data))) {
-                        this.bbc[0] = false;
+                        this.bbd[0] = false;
                         break;
                     } else {
-                        this.bbc[0] = true;
+                        this.bbd[0] = true;
                         break;
                     }
                     break;
                 case 9:
-                    this.bbc[0] = false;
-                    this.bbc[1] = false;
-                    this.bbc[2] = false;
-                    this.bbc[3] = false;
-                    this.bbc[4] = false;
-                    this.bbd[0] = 0;
-                    this.bbd[1] = 0;
+                    this.bbd[0] = false;
+                    this.bbd[1] = false;
+                    this.bbd[2] = false;
+                    this.bbd[3] = false;
+                    this.bbd[4] = false;
+                    this.bbe[0] = 0;
+                    this.bbe[1] = 0;
                     break;
                 case 10:
-                    this.bbc[2] = true;
+                    this.bbd[2] = true;
                     break;
                 case 11:
-                    this.bbc[2] = false;
+                    this.bbd[2] = false;
                     break;
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.aZU != null) {
-                            if (aVar2.aZU.getChosedFiles() != null) {
-                                this.bbd[0] = aVar2.aZU.getChosedFiles().size();
+                        if (aVar2.aZV != null) {
+                            if (aVar2.aZV.getChosedFiles() != null) {
+                                this.bbe[0] = aVar2.aZV.getChosedFiles().size();
                             } else {
-                                this.bbd[0] = 0;
+                                this.bbe[0] = 0;
                             }
                         }
-                        if (this.bbd[0] > 0) {
-                            this.bbc[1] = true;
+                        if (this.bbe[0] > 0) {
+                            this.bbd[1] = true;
                             break;
                         } else {
-                            this.bbc[1] = false;
+                            this.bbd[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.bbd;
+                    int[] iArr = this.bbe;
                     iArr[0] = iArr[0] - 1;
-                    if (this.bbd[0] > 0) {
-                        this.bbc[1] = true;
+                    if (this.bbe[0] > 0) {
+                        this.bbd[1] = true;
                         break;
                     } else {
-                        this.bbc[1] = false;
+                        this.bbd[1] = false;
                         break;
                     }
                 case 28:
                 case 39:
-                    this.bbc[3] = true;
+                    this.bbd[3] = true;
                     break;
                 case 29:
-                    this.bbc[3] = false;
+                    this.bbd[3] = false;
                     break;
             }
             fT(this.mType);
@@ -149,7 +149,7 @@ public class SendView extends TextView implements l {
 
     @Override // com.baidu.tbadk.editortools.l
     public void onChangeSkinType(int i) {
-        this.aMj = i;
+        this.aMk = i;
         if (isEnabled()) {
             al.b(this, e.d.cp_link_tip_a, 1, i);
         } else {
@@ -163,17 +163,17 @@ public class SendView extends TextView implements l {
 
     public void fT(int i) {
         if (i == ALL) {
-            if (this.bbc[0] || this.bbc[1] || this.bbc[2] || this.bbc[3] || this.bbc[4]) {
+            if (this.bbd[0] || this.bbd[1] || this.bbd[2] || this.bbd[3] || this.bbd[4]) {
                 setEnabled(true);
-                al.b(this, e.d.cp_link_tip_a, 1, this.aMj);
+                al.b(this, e.d.cp_link_tip_a, 1, this.aMk);
                 return;
             }
             setEnabled(false);
             al.c(this, e.d.cp_cont_e, 1);
-        } else if (i == bbe) {
-            if (this.bbc[1]) {
+        } else if (i == bbf) {
+            if (this.bbd[1]) {
                 setEnabled(true);
-                al.b(this, e.d.cp_link_tip_a, 1, this.aMj);
+                al.b(this, e.d.cp_link_tip_a, 1, this.aMk);
                 return;
             }
             setEnabled(false);

@@ -10,14 +10,14 @@ public class n {
 
     /* loaded from: classes2.dex */
     public interface b {
-        public static final b ioa = i.ioi;
-        public static final b iob = h.ioi;
-        public static final b ioc = f.ioi;
-        public static final b iod = g.ioi;
-        public static final b ioe = c.ioi;
-        public static final b iof = e.ioi;
-        public static final b iog = d.ioi;
-        public static final b ioh = j.ioi;
+        public static final b iob = i.ioj;
+        public static final b ioc = h.ioj;
+        public static final b iod = f.ioj;
+        public static final b ioe = g.ioj;
+        public static final b iof = c.ioj;
+        public static final b iog = e.ioj;
+        public static final b ioh = d.ioj;
+        public static final b ioi = j.ioj;
 
         Matrix a(Matrix matrix, Rect rect, int i, int i2, float f, float f2);
     }
@@ -64,7 +64,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class i extends a {
-        public static final b ioi = new i();
+        public static final b ioj = new i();
 
         private i() {
         }
@@ -82,7 +82,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class h extends a {
-        public static final b ioi = new h();
+        public static final b ioj = new h();
 
         private h() {
         }
@@ -101,7 +101,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class f extends a {
-        public static final b ioi = new f();
+        public static final b ioj = new f();
 
         private f() {
         }
@@ -121,7 +121,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class g extends a {
-        public static final b ioi = new g();
+        public static final b ioj = new g();
 
         private g() {
         }
@@ -141,7 +141,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class c extends a {
-        public static final b ioi = new c();
+        public static final b ioj = new c();
 
         private c() {
         }
@@ -158,7 +158,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class e extends a {
-        public static final b ioi = new e();
+        public static final b ioj = new e();
 
         private e() {
         }
@@ -178,7 +178,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class d extends a {
-        public static final b ioi = new d();
+        public static final b ioj = new d();
 
         private d() {
         }
@@ -206,7 +206,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class j extends a {
-        public static final b ioi = new j();
+        public static final b ioj = new j();
 
         private j() {
         }

@@ -26,24 +26,24 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
     private BdListView OQ;
-    private TextView axG;
-    private View beG;
-    private ViewEventCenter dre;
-    private View dsS;
-    private TextView dsT;
-    private View dsU;
-    private TextView dsV;
-    private c dsW;
-    private MultiConcernModel dsX;
-    private MultiConcernModel.a dsY;
+    private TextView axH;
+    private View beH;
+    private ViewEventCenter drf;
+    private View dsT;
+    private TextView dsU;
+    private View dsV;
+    private TextView dsW;
+    private c dsX;
+    private MultiConcernModel dsY;
+    private MultiConcernModel.a dsZ;
     private List<b> forumList;
     private boolean isShowing = false;
     private View.OnClickListener mClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.multiConcern.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view != a.this.beG) {
-                if (view != a.this.dsT) {
-                    if (view == a.this.dsV) {
+            if (view != a.this.beH) {
+                if (view != a.this.dsU) {
+                    if (view == a.this.dsW) {
                         ArrayList<Long> arrayList = new ArrayList<>();
                         StringBuilder sb = new StringBuilder();
                         for (b bVar : a.this.forumList) {
@@ -61,29 +61,29 @@ public class a {
                             l.showToast(a.this.mContext.getPageActivity(), e.j.neterror);
                             return;
                         } else {
-                            a.this.dsV.setClickable(false);
-                            if (a.this.dsX == null) {
-                                a.this.dsX = new MultiConcernModel(a.this.mContext);
-                            }
+                            a.this.dsW.setClickable(false);
                             if (a.this.dsY == null) {
-                                a.this.dsY = new MultiConcernModel.a() { // from class: com.baidu.tieba.enterForum.multiConcern.a.1.1
+                                a.this.dsY = new MultiConcernModel(a.this.mContext);
+                            }
+                            if (a.this.dsZ == null) {
+                                a.this.dsZ = new MultiConcernModel.a() { // from class: com.baidu.tieba.enterForum.multiConcern.a.1.1
                                     @Override // com.baidu.tieba.enterForum.multiConcern.MultiConcernModel.a
                                     public void M(int i, String str) {
-                                        a.this.dsV.setClickable(true);
+                                        a.this.dsW.setClickable(true);
                                         if (i != 0) {
                                             l.showToast(a.this.mContext.getPageActivity(), str);
                                             return;
                                         }
                                         a.this.ZZ();
                                         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("show_recommend_forums_window_", false);
-                                        if (a.this.dre != null) {
-                                            a.this.dre.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9, null, null, null));
+                                        if (a.this.drf != null) {
+                                            a.this.drf.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9, null, null, null));
                                         }
                                     }
                                 };
-                                a.this.dsX.a(a.this.dsY);
+                                a.this.dsY.a(a.this.dsZ);
                             }
-                            a.this.dsX.H(arrayList);
+                            a.this.dsY.H(arrayList);
                             return;
                         }
                     }
@@ -102,34 +102,34 @@ public class a {
         if (tbPageContext != null && viewGroup != null) {
             this.mContext = tbPageContext;
             this.mRootView = viewGroup;
-            this.dre = viewEventCenter;
+            this.drf = viewEventCenter;
         }
     }
 
     private void createView() {
-        this.beG = LayoutInflater.from(this.mContext.getPageActivity()).inflate(e.h.layout_recommend_forums_by_tag, (ViewGroup) null);
-        this.dsS = this.beG.findViewById(e.g.rec_forum_list_container);
-        this.dsT = (TextView) this.beG.findViewById(e.g.view_skip);
-        this.axG = (TextView) this.beG.findViewById(e.g.view_recommend_tip);
-        this.dsU = this.beG.findViewById(e.g.view_top_divider);
-        this.OQ = (BdListView) this.beG.findViewById(e.g.listview_forums);
-        this.dsV = (TextView) this.beG.findViewById(e.g.view_forums_concern);
-        this.dsV.setClickable(true);
-        this.dsW = new c(this.mContext.getPageActivity());
-        this.OQ.setAdapter((ListAdapter) this.dsW);
+        this.beH = LayoutInflater.from(this.mContext.getPageActivity()).inflate(e.h.layout_recommend_forums_by_tag, (ViewGroup) null);
+        this.dsT = this.beH.findViewById(e.g.rec_forum_list_container);
+        this.dsU = (TextView) this.beH.findViewById(e.g.view_skip);
+        this.axH = (TextView) this.beH.findViewById(e.g.view_recommend_tip);
+        this.dsV = this.beH.findViewById(e.g.view_top_divider);
+        this.OQ = (BdListView) this.beH.findViewById(e.g.listview_forums);
+        this.dsW = (TextView) this.beH.findViewById(e.g.view_forums_concern);
+        this.dsW.setClickable(true);
+        this.dsX = new c(this.mContext.getPageActivity());
+        this.OQ.setAdapter((ListAdapter) this.dsX);
         this.OQ.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.enterForum.multiConcern.a.2
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 if (v.d(a.this.forumList, i) != null) {
                     ((b) v.d(a.this.forumList, i)).isSelected = !((b) v.d(a.this.forumList, i)).isSelected;
-                    a.this.dsW.setData(a.this.forumList);
-                    a.this.dsW.notifyDataSetChanged();
+                    a.this.dsX.setData(a.this.forumList);
+                    a.this.dsX.notifyDataSetChanged();
                 }
             }
         });
-        this.dsT.setOnClickListener(this.mClickListener);
-        this.dsV.setOnClickListener(this.mClickListener);
-        this.beG.setOnClickListener(this.mClickListener);
+        this.dsU.setOnClickListener(this.mClickListener);
+        this.dsW.setOnClickListener(this.mClickListener);
+        this.beH.setOnClickListener(this.mClickListener);
         onChangeSkinType();
     }
 
@@ -140,25 +140,25 @@ public class a {
                 ZZ();
                 return;
             }
-            if (this.beG == null) {
+            if (this.beH == null) {
                 createView();
             }
-            this.dsV.setClickable(true);
+            this.dsW.setClickable(true);
             this.isShowing = true;
-            if (this.beG.getParent() == null) {
-                d.ad(this.mRootView).a(this.mRootView, this.beG, false);
+            if (this.beH.getParent() == null) {
+                d.ad(this.mRootView).a(this.mRootView, this.beH, false);
             }
             com.baidu.adp.lib.g.e.jG().postDelayed(new Runnable() { // from class: com.baidu.tieba.enterForum.multiConcern.a.3
                 @Override // java.lang.Runnable
                 public void run() {
                     Animation loadAnimation = AnimationUtils.loadAnimation(a.this.mContext.getPageActivity(), e.a.anim_recommend_forums_window);
                     loadAnimation.setFillAfter(true);
-                    a.this.beG.setVisibility(0);
-                    a.this.dsS.startAnimation(loadAnimation);
+                    a.this.beH.setVisibility(0);
+                    a.this.dsT.startAnimation(loadAnimation);
                 }
             }, 100L);
-            this.dsW.setData(this.forumList);
-            this.dsW.notifyDataSetChanged();
+            this.dsX.setData(this.forumList);
+            this.dsX.notifyDataSetChanged();
             TiebaStatic.log(new am("c12238").aB("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
@@ -166,10 +166,10 @@ public class a {
     public void ZZ() {
         if (this.isShowing) {
             this.isShowing = false;
-            if (this.beG != null && this.mRootView != null) {
-                this.beG.setVisibility(8);
-                if (this.beG.getParent() == this.mRootView) {
-                    this.mRootView.removeView(this.beG);
+            if (this.beH != null && this.mRootView != null) {
+                this.beH.setVisibility(8);
+                if (this.beH.getParent() == this.mRootView) {
+                    this.mRootView.removeView(this.beH);
                 }
             }
         }
@@ -177,24 +177,24 @@ public class a {
 
     public void onDestroy() {
         ZZ();
-        if (this.dsX != null) {
-            this.dsX.cancelMessage();
+        if (this.dsY != null) {
+            this.dsY.cancelMessage();
         }
     }
 
     public void onChangeSkinType() {
-        al.h(this.dsT, e.d.cp_cont_d);
-        al.h(this.axG, e.d.cp_cont_d);
-        al.j(this.dsU, e.d.cp_bg_line_c);
-        al.h(this.dsV, e.d.common_color_10310);
-        al.i(this.dsV, e.f.bule_bg_commen_label_button);
-        al.i(this.beG, e.d.black_alpha50);
-        al.i(this.dsS, e.f.bg_recommend_forum_by_tag);
-        this.dsW.notifyDataSetChanged();
+        al.h(this.dsU, e.d.cp_cont_d);
+        al.h(this.axH, e.d.cp_cont_d);
+        al.j(this.dsV, e.d.cp_bg_line_c);
+        al.h(this.dsW, e.d.common_color_10310);
+        al.i(this.dsW, e.f.bule_bg_commen_label_button);
+        al.i(this.beH, e.d.black_alpha50);
+        al.i(this.dsT, e.f.bg_recommend_forum_by_tag);
+        this.dsX.notifyDataSetChanged();
     }
 
     public View awU() {
-        return this.beG;
+        return this.beH;
     }
 
     public boolean isShowing() {

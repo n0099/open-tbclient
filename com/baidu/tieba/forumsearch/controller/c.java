@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class c {
-    public final View ano;
-    public final ImageView caP;
-    private final RelativeLayout dJY;
-    public final EditText dJZ;
-    public final ImageView dKa;
+    public final View anp;
+    public final ImageView caQ;
+    private final RelativeLayout dJZ;
+    public final EditText dKa;
+    public final ImageView dKb;
     public final TextView mCancel;
     public final BdTypeListView mListView;
     private TbPageContext mPageContext;
@@ -29,21 +29,21 @@ public class c {
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.ano = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(e.h.forum_search_main, (ViewGroup) null);
-        this.dJY = (RelativeLayout) this.ano.findViewById(e.g.search_area_root);
-        this.caP = (ImageView) this.ano.findViewById(e.g.search_bar_icon);
-        this.dJZ = (EditText) this.ano.findViewById(e.g.home_et_search);
-        this.dKa = (ImageView) this.ano.findViewById(e.g.home_bt_search_del);
-        this.dJZ.setHint(e.j.search_bar_you_want_post_to_share);
-        this.mCancel = (TextView) this.ano.findViewById(e.g.home_bt_search_cancel_s);
+        this.anp = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(e.h.forum_search_main, (ViewGroup) null);
+        this.dJZ = (RelativeLayout) this.anp.findViewById(e.g.search_area_root);
+        this.caQ = (ImageView) this.anp.findViewById(e.g.search_bar_icon);
+        this.dKa = (EditText) this.anp.findViewById(e.g.home_et_search);
+        this.dKb = (ImageView) this.anp.findViewById(e.g.home_bt_search_del);
+        this.dKa.setHint(e.j.search_bar_you_want_post_to_share);
+        this.mCancel = (TextView) this.anp.findViewById(e.g.home_bt_search_cancel_s);
         this.mCancel.setText(tbPageContext.getString(e.j.cancel));
-        this.mListView = (BdTypeListView) this.ano.findViewById(e.g.search_bar_list);
+        this.mListView = (BdTypeListView) this.anp.findViewById(e.g.search_bar_list);
         aAX();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     private void aAX() {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dJY.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dJZ.getLayoutParams();
         layoutParams.height = l.h(this.mPageContext.getPageActivity(), e.C0210e.ds88);
         int h = l.h(this.mPageContext.getPageActivity(), e.C0210e.ds8);
         layoutParams.rightMargin = h;
@@ -52,20 +52,20 @@ public class c {
         if (immersiveStickyBarHeight > 0) {
             layoutParams.topMargin = immersiveStickyBarHeight;
         }
-        this.dJY.setLayoutParams(layoutParams);
+        this.dJZ.setLayoutParams(layoutParams);
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            al.a(this.caP, e.f.icon_search, e.f.icon_search, e.f.icon_search, i);
+            al.a(this.caQ, e.f.icon_search, e.f.icon_search, e.f.icon_search, i);
             al.c(this.mCancel, e.d.cp_link_tip_a, 1);
-            al.c(this.dKa, e.f.del_search_btn);
+            al.c(this.dKb, e.f.del_search_btn);
             if (i == 2) {
-                this.dJZ.setHintTextColor(al.getColor(e.d.s_navbar_title_color));
+                this.dKa.setHintTextColor(al.getColor(e.d.s_navbar_title_color));
             } else {
-                this.dJZ.setHintTextColor(al.getColor(e.d.cp_cont_e));
+                this.dKa.setHintTextColor(al.getColor(e.d.cp_cont_e));
             }
-            al.b(this.dJZ, e.d.cp_cont_b, e.d.s_navbar_title_color);
+            al.b(this.dKa, e.d.cp_cont_b, e.d.s_navbar_title_color);
             this.mSkinType = i;
         }
     }

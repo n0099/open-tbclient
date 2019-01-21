@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.x;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
-    private a bqj;
+    private a bqk;
     private x mNetWork;
     private String mPath;
     private String mUrl;
@@ -37,7 +37,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.bqj = aVar;
+        this.bqk = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -68,11 +68,11 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.bqj != null) {
+        if (this.bqk != null) {
             if (!ao.isEmpty(str)) {
-                this.bqj.d(true, str);
+                this.bqk.d(true, str);
             } else {
-                this.bqj.d(false, null);
+                this.bqk.d(false, null);
             }
         }
     }

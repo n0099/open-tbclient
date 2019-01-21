@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class t implements o {
-    private List<AppData> gPv;
+    private List<AppData> gPw;
 
     @Override // com.baidu.tieba.recapp.o
     public com.baidu.adp.widget.ListView.a<?, ?> a(n nVar, BdUniqueId bdUniqueId) {
-        if (nVar != null && bdUniqueId == AdvertAppInfo.apB) {
+        if (nVar != null && bdUniqueId == AdvertAppInfo.apC) {
             return new com.baidu.tieba.recapp.b.e(nVar, bdUniqueId);
         }
         return null;
@@ -27,10 +27,10 @@ public class t implements o {
         if (baseActivity == null) {
             return null;
         }
-        if (bdUniqueId == AdvertAppInfo.apK) {
+        if (bdUniqueId == AdvertAppInfo.apL) {
             return new com.baidu.tieba.recapp.b.k(baseActivity, bdUniqueId);
         }
-        if (bdUniqueId == AdvertAppInfo.apG) {
+        if (bdUniqueId == AdvertAppInfo.apH) {
             return new com.baidu.tieba.recapp.b.i(baseActivity, bdUniqueId);
         }
         return null;
@@ -38,7 +38,7 @@ public class t implements o {
 
     @Override // com.baidu.tieba.recapp.o
     public com.baidu.adp.widget.ListView.a<?, ?> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        if (bdUniqueId == AdvertAppInfo.apH) {
+        if (bdUniqueId == AdvertAppInfo.apI) {
             return new com.baidu.tieba.recapp.b.a(tbPageContext, bdUniqueId);
         }
         if (bdUniqueId != null) {
@@ -79,14 +79,14 @@ public class t implements o {
 
     @Override // com.baidu.tieba.recapp.o
     public List<AppData> bvR() {
-        if (this.gPv == null) {
-            this.gPv = new ArrayList();
+        if (this.gPw == null) {
+            this.gPw = new ArrayList();
         }
-        return this.gPv;
+        return this.gPw;
     }
 
     @Override // com.baidu.tieba.recapp.o
     public void bvS() {
-        AdDebugService.updateFloatView(this.gPv != null ? StringUtils.string(Integer.valueOf(this.gPv.size())) : "0");
+        AdDebugService.updateFloatView(this.gPw != null ? StringUtils.string(Integer.valueOf(this.gPw.size())) : "0");
     }
 }

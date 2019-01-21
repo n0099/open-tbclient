@@ -7,23 +7,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ae {
-    private ArrayList<String> asy;
-    private int asz = 0;
-    private UserData asw = new UserData();
-    private AntiData asx = new AntiData();
+    private int asA = 0;
+    private UserData asx = new UserData();
+    private AntiData asy = new AntiData();
+    private ArrayList<String> asz;
 
     public ae() {
-        this.asy = null;
-        this.asy = new ArrayList<>();
+        this.asz = null;
+        this.asz = new ArrayList<>();
         cD(0);
     }
 
     public UserData getUser() {
-        return this.asw;
+        return this.asx;
     }
 
     public AntiData yR() {
-        return this.asx;
+        return this.asy;
     }
 
     public void parserJson(String str) {
@@ -36,12 +36,12 @@ public class ae {
 
     public void parserJson(JSONObject jSONObject) {
         try {
-            this.asw.parserJson(jSONObject.optJSONObject("user"));
-            this.asx.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
+            this.asx.parserJson(jSONObject.optJSONObject("user"));
+            this.asy.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
             JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
             if (optJSONArray != null) {
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    this.asy.add(optJSONArray.optString(i, null));
+                    this.asz.add(optJSONArray.optString(i, null));
                 }
             }
             cD(jSONObject.optInt("retrytime"));
@@ -51,6 +51,6 @@ public class ae {
     }
 
     public void cD(int i) {
-        this.asz = i;
+        this.asA = i;
     }
 }

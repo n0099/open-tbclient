@@ -5,14 +5,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class c {
-    private final Map<com.facebook.c.c, b> isG;
-    private final List<c.a> isH;
+    private final Map<com.facebook.c.c, b> isH;
+    private final List<c.a> isI;
 
     public Map<com.facebook.c.c, b> bZm() {
-        return this.isG;
+        return this.isH;
     }
 
     public List<c.a> bZn() {
-        return this.isH;
+        return this.isI;
     }
 }

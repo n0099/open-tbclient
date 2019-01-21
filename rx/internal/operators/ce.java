@@ -11,7 +11,7 @@ public final class ce<T> implements d.b<List<T>, T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final ce<Object> iNA = new ce<>();
+        static final ce<Object> iNB = new ce<>();
     }
 
     @Override // rx.functions.f
@@ -20,7 +20,7 @@ public final class ce<T> implements d.b<List<T>, T> {
     }
 
     public static <T> ce<T> cfs() {
-        return (ce<T>) a.iNA;
+        return (ce<T>) a.iNB;
     }
 
     ce() {

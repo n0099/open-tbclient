@@ -3,46 +3,46 @@ package org.aspectj.a.b;
 import java.lang.reflect.Modifier;
 /* loaded from: classes5.dex */
 class h {
-    static h iDT = new h();
-    static h iDU;
+    static h iDU = new h();
     static h iDV;
-    boolean iDK = true;
+    static h iDW;
     boolean iDL = true;
-    boolean iDM = false;
+    boolean iDM = true;
     boolean iDN = false;
     boolean iDO = false;
-    boolean iDP = true;
+    boolean iDP = false;
     boolean iDQ = true;
     boolean iDR = true;
-    int iDS;
+    boolean iDS = true;
+    int iDT;
 
     h() {
     }
 
     static {
-        iDT.iDK = true;
-        iDT.iDL = false;
-        iDT.iDM = false;
-        iDT.iDN = false;
-        iDT.iDO = true;
-        iDT.iDP = false;
-        iDT.iDQ = false;
-        iDT.iDS = 0;
-        iDU = new h();
-        iDU.iDK = true;
         iDU.iDL = true;
         iDU.iDM = false;
         iDU.iDN = false;
         iDU.iDO = false;
-        iDT.iDS = 1;
+        iDU.iDP = true;
+        iDU.iDQ = false;
+        iDU.iDR = false;
+        iDU.iDT = 0;
         iDV = new h();
-        iDV.iDK = false;
         iDV.iDL = true;
-        iDV.iDM = false;
-        iDV.iDN = true;
+        iDV.iDM = true;
+        iDV.iDN = false;
         iDV.iDO = false;
-        iDV.iDR = false;
-        iDV.iDS = 2;
+        iDV.iDP = false;
+        iDU.iDT = 1;
+        iDW = new h();
+        iDW.iDL = false;
+        iDW.iDM = true;
+        iDW.iDN = false;
+        iDW.iDO = true;
+        iDW.iDP = false;
+        iDW.iDS = false;
+        iDW.iDT = 2;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -53,7 +53,7 @@ class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String zz(int i) {
-        if (this.iDN) {
+        if (this.iDO) {
             String modifier = Modifier.toString(i);
             return modifier.length() == 0 ? "" : new StringBuffer().append(modifier).append(" ").toString();
         }
@@ -80,11 +80,11 @@ class h {
     }
 
     public String E(Class cls) {
-        return b(cls, cls.getName(), this.iDK);
+        return b(cls, cls.getName(), this.iDL);
     }
 
     public String i(Class cls, String str) {
-        return b(cls, str, this.iDO);
+        return b(cls, str, this.iDP);
     }
 
     public void a(StringBuffer stringBuffer, Class[] clsArr) {
@@ -98,7 +98,7 @@ class h {
 
     public void b(StringBuffer stringBuffer, Class[] clsArr) {
         if (clsArr != null) {
-            if (!this.iDL) {
+            if (!this.iDM) {
                 if (clsArr.length == 0) {
                     stringBuffer.append("()");
                     return;
@@ -114,7 +114,7 @@ class h {
     }
 
     public void c(StringBuffer stringBuffer, Class[] clsArr) {
-        if (this.iDM && clsArr != null && clsArr.length != 0) {
+        if (this.iDN && clsArr != null && clsArr.length != 0) {
             stringBuffer.append(" throws ");
             a(stringBuffer, clsArr);
         }

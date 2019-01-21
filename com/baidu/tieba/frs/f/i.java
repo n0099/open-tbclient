@@ -98,7 +98,7 @@ public class i {
                 }
                 dVar.forumName = decode.substring(length);
                 try {
-                    dVar.efN = data.getQueryParameter("from");
+                    dVar.efO = data.getQueryParameter("from");
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -223,11 +223,11 @@ public class i {
         PbActivityConfig createFromThreadCfg;
         if (frsFragment != null && bbVar != null) {
             String valueOf = String.valueOf(bbVar.getFid());
-            if (bbVar.awe == null) {
+            if (bbVar.awf == null) {
                 str = valueOf;
                 str2 = null;
             } else {
-                str = bbVar.awe.id;
+                str = bbVar.awf.id;
                 str2 = valueOf;
             }
             if (bbVar.Aq() > 0 && com.baidu.tieba.tbadkCore.util.e.bFR()) {

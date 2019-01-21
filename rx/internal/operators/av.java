@@ -5,9 +5,9 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class av<T, R> implements d.b<R, T> {
-    final rx.functions.f<? super T, ? extends R> iJW;
-    final rx.functions.f<? super Throwable, ? extends R> iJX;
-    final rx.functions.e<? extends R> iJY;
+    final rx.functions.f<? super T, ? extends R> iJX;
+    final rx.functions.f<? super Throwable, ? extends R> iJY;
+    final rx.functions.e<? extends R> iJZ;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -15,13 +15,13 @@ public final class av<T, R> implements d.b<R, T> {
     }
 
     public av(rx.functions.f<? super T, ? extends R> fVar, rx.functions.f<? super Throwable, ? extends R> fVar2, rx.functions.e<? extends R> eVar) {
-        this.iJW = fVar;
-        this.iJX = fVar2;
-        this.iJY = eVar;
+        this.iJX = fVar;
+        this.iJY = fVar2;
+        this.iJZ = eVar;
     }
 
     public rx.j<? super T> call(rx.j<? super R> jVar) {
-        final a aVar = new a(jVar, this.iJW, this.iJX, this.iJY);
+        final a aVar = new a(jVar, this.iJX, this.iJY, this.iJZ);
         jVar.add(aVar);
         jVar.setProducer(new rx.f() { // from class: rx.internal.operators.av.1
             @Override // rx.f
@@ -36,20 +36,20 @@ public final class av<T, R> implements d.b<R, T> {
     /* loaded from: classes2.dex */
     public static final class a<T, R> extends rx.j<T> {
         final rx.j<? super R> actual;
-        final rx.functions.f<? super T, ? extends R> iJW;
-        final rx.functions.f<? super Throwable, ? extends R> iJX;
-        final rx.functions.e<? extends R> iJY;
+        final rx.functions.f<? super T, ? extends R> iJX;
+        final rx.functions.f<? super Throwable, ? extends R> iJY;
+        final rx.functions.e<? extends R> iJZ;
         long produced;
         R value;
         final AtomicLong requested = new AtomicLong();
-        final AtomicLong iKb = new AtomicLong();
-        final AtomicReference<rx.f> iGP = new AtomicReference<>();
+        final AtomicLong iKc = new AtomicLong();
+        final AtomicReference<rx.f> iGQ = new AtomicReference<>();
 
         public a(rx.j<? super R> jVar, rx.functions.f<? super T, ? extends R> fVar, rx.functions.f<? super Throwable, ? extends R> fVar2, rx.functions.e<? extends R> eVar) {
             this.actual = jVar;
-            this.iJW = fVar;
-            this.iJX = fVar2;
-            this.iJY = eVar;
+            this.iJX = fVar;
+            this.iJY = fVar2;
+            this.iJZ = eVar;
         }
 
         /* JADX DEBUG: Type inference failed for r1v2. Raw type applied. Possible types: R, ? super R */
@@ -57,7 +57,7 @@ public final class av<T, R> implements d.b<R, T> {
         public void onNext(T t) {
             try {
                 this.produced++;
-                this.actual.onNext((R) this.iJW.call(t));
+                this.actual.onNext((R) this.iJX.call(t));
             } catch (Throwable th) {
                 rx.exceptions.a.a(th, this.actual, t);
             }
@@ -67,7 +67,7 @@ public final class av<T, R> implements d.b<R, T> {
         public void onError(Throwable th) {
             ceV();
             try {
-                this.value = this.iJX.call(th);
+                this.value = this.iJY.call(th);
             } catch (Throwable th2) {
                 rx.exceptions.a.a(th2, this.actual, th);
             }
@@ -78,7 +78,7 @@ public final class av<T, R> implements d.b<R, T> {
         public void onCompleted() {
             ceV();
             try {
-                this.value = this.iJY.call();
+                this.value = this.iJZ.call();
             } catch (Throwable th) {
                 rx.exceptions.a.a(th, this.actual);
             }
@@ -87,15 +87,15 @@ public final class av<T, R> implements d.b<R, T> {
 
         void ceV() {
             long j = this.produced;
-            if (j != 0 && this.iGP.get() != null) {
+            if (j != 0 && this.iGQ.get() != null) {
                 rx.internal.operators.a.b(this.requested, j);
             }
         }
 
         @Override // rx.j
         public void setProducer(rx.f fVar) {
-            if (this.iGP.compareAndSet(null, fVar)) {
-                long andSet = this.iKb.getAndSet(0L);
+            if (this.iGQ.compareAndSet(null, fVar)) {
+                long andSet = this.iKc.getAndSet(0L);
                 if (andSet != 0) {
                     fVar.request(andSet);
                     return;
@@ -114,7 +114,7 @@ public final class av<T, R> implements d.b<R, T> {
                     return;
                 }
             } while (!this.requested.compareAndSet(j, j | Long.MIN_VALUE));
-            if (j != 0 || this.iGP.get() == null) {
+            if (j != 0 || this.iGQ.get() == null) {
                 if (!this.actual.isUnsubscribed()) {
                     this.actual.onNext((R) this.value);
                 }
@@ -151,16 +151,16 @@ public final class av<T, R> implements d.b<R, T> {
                     }
                 } else {
                     if (this.requested.compareAndSet(j2, rx.internal.operators.a.r(j2, j))) {
-                        AtomicReference<rx.f> atomicReference = this.iGP;
+                        AtomicReference<rx.f> atomicReference = this.iGQ;
                         rx.f fVar = atomicReference.get();
                         if (fVar != null) {
                             fVar.request(j);
                             return;
                         }
-                        rx.internal.operators.a.a(this.iKb, j);
+                        rx.internal.operators.a.a(this.iKc, j);
                         rx.f fVar2 = atomicReference.get();
                         if (fVar2 != null) {
-                            long andSet = this.iKb.getAndSet(0L);
+                            long andSet = this.iKc.getAndSet(0L);
                             if (andSet != 0) {
                                 fVar2.request(andSet);
                                 return;

@@ -13,7 +13,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b {
-    private a hYz;
+    private a hYA;
     private HttpMessageListener mHttpMessageListener = new HttpMessageListener(CmdConfigHttp.CMD_CHECK_SHARE_SDK) { // from class: com.baidu.tieba.write.share.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -23,8 +23,8 @@ public class b {
                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                     httpResponsedMessage.setErrorString(TbadkCoreApplication.getInst().getString(e.j.share_sdk_check_no_resp));
                 }
-                if (b.this.hYz != null) {
-                    b.this.hYz.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                if (b.this.hYA != null) {
+                    b.this.hYA.a(checkResponseData, httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
@@ -52,13 +52,13 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.hYz = aVar;
+        this.hYA = aVar;
     }
 
     public void cY(String str, String str2) {
         if (StringUtils.isNull(str)) {
-            if (this.hYz != null) {
-                this.hYz.a(null, -2112, TbadkCoreApplication.getInst().getString(e.j.check_share_sdk_appkey_null));
+            if (this.hYA != null) {
+                this.hYA.a(null, -2112, TbadkCoreApplication.getInst().getString(e.j.check_share_sdk_appkey_null));
                 return;
             }
             return;

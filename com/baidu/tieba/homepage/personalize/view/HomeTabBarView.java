@@ -28,9 +28,9 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
 /* loaded from: classes6.dex */
 public class HomeTabBarView extends RelativeLayout implements View.OnClickListener {
-    private ImageView eAV;
-    private PagerSlidingTabStrip eAW;
-    private ImageView ebJ;
+    private ImageView eAW;
+    private PagerSlidingTabStrip eAX;
+    private ImageView ebK;
     private int mSkinType;
 
     public HomeTabBarView(Context context) {
@@ -53,16 +53,16 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(e.h.home_tab_bar_view_layout, (ViewGroup) this, true);
-        this.ebJ = (ImageView) findViewById(e.g.home_page_search_icon);
-        this.eAV = (ImageView) findViewById(e.g.home_page_live_icon);
-        this.eAW = (PagerSlidingTabStrip) findViewById(e.g.home_page_tabstrip);
-        this.eAW.e(l.h(context, e.C0210e.ds34), l.h(context, e.C0210e.ds4), false);
-        this.ebJ.setOnClickListener(this);
-        this.eAV.setOnClickListener(this);
+        this.ebK = (ImageView) findViewById(e.g.home_page_search_icon);
+        this.eAW = (ImageView) findViewById(e.g.home_page_live_icon);
+        this.eAX = (PagerSlidingTabStrip) findViewById(e.g.home_page_tabstrip);
+        this.eAX.e(l.h(context, e.C0210e.ds34), l.h(context, e.C0210e.ds4), false);
+        this.ebK.setOnClickListener(this);
+        this.eAW.setOnClickListener(this);
         if (b.getInstance().getBoolean("key_live_forum_enter_switch", false)) {
-            this.eAV.setVisibility(0);
+            this.eAW.setVisibility(0);
         } else {
-            this.eAV.setVisibility(8);
+            this.eAW.setVisibility(8);
         }
         setOnClickListener(this);
         onChangeSkinType();
@@ -73,10 +73,10 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.ebJ) {
+        if (view == this.ebK) {
             TiebaStatic.log(new am("c10378").y("obj_type", 1));
             MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new SquareSearchActivityConfig(getContext(), "", false)));
-        } else if (view == this.eAV) {
+        } else if (view == this.eAW) {
             TiebaStatic.log("c13393");
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2911006, String.class);
             if (runTask != null && !StringUtils.isNull((String) runTask.getData())) {
@@ -86,32 +86,32 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.eAW.setOnPageChangeListener(onPageChangeListener);
+        this.eAX.setOnPageChangeListener(onPageChangeListener);
     }
 
     public void setShowConcernRedTip(boolean z) {
-        if (this.eAW != null) {
-            this.eAW.setShowConcernRedTip(z);
+        if (this.eAX != null) {
+            this.eAX.setShowConcernRedTip(z);
         }
     }
 
     public boolean aMa() {
-        if (this.eAW != null) {
-            return this.eAW.aMa();
+        if (this.eAX != null) {
+            return this.eAX.aMa();
         }
         return false;
     }
 
     public void setViewPager(ViewPager viewPager) {
-        this.eAW.setViewPager(viewPager);
+        this.eAX.setViewPager(viewPager);
     }
 
     public void setTabItemClicked(boolean z) {
-        this.eAW.setTabItemClicked(z);
+        this.eAX.setTabItemClicked(z);
     }
 
     public void notifyDataSetChanged() {
-        this.eAW.notifyDataSetChanged();
+        this.eAX.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
@@ -119,29 +119,29 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
             al.j(this, e.d.cp_bg_line_d);
-            ap.Ed().c(this.ebJ, e.f.icon_topbar_search_n_svg, e.d.select_topbar_icon_color_tint);
-            al.c(this.eAV, e.f.icon_live_entry_selector);
-            this.eAW.onChangeSkinType();
+            ap.Ed().c(this.ebK, e.f.icon_topbar_search_n_svg, e.d.select_topbar_icon_color_tint);
+            al.c(this.eAW, e.f.icon_live_entry_selector);
+            this.eAX.onChangeSkinType();
         }
     }
 
     public View oO(int i) {
-        return this.eAW.oO(i);
+        return this.eAX.oO(i);
     }
 
     public void onResume() {
-        ap.Ed().c(this.ebJ, e.f.icon_topbar_search_n_svg, e.d.select_topbar_icon_color_tint);
+        ap.Ed().c(this.ebK, e.f.icon_topbar_search_n_svg, e.d.select_topbar_icon_color_tint);
     }
 
     public void setConcernTabIndex(int i) {
-        this.eAW.setConcernTabIndex(i);
+        this.eAX.setConcernTabIndex(i);
     }
 
     public void setOnTabItemClickListener(PagerSlidingTabStrip.a aVar) {
-        this.eAW.setOnTabItemClickListener(aVar);
+        this.eAX.setOnTabItemClickListener(aVar);
     }
 
     public boolean aMh() {
-        return this.eAV.getVisibility() == 0;
+        return this.eAW.getVisibility() == 0;
     }
 }

@@ -13,7 +13,7 @@ import java.util.List;
 public class a {
     public static void a(bb bbVar, int i, BdUniqueId bdUniqueId, b bVar) {
         am a;
-        if (bbVar != null && (a = com.baidu.tieba.q.a.a(bbVar, "a006", "common_click", i, bbVar.awj, false, null, null)) != null) {
+        if (bbVar != null && (a = com.baidu.tieba.q.a.a(bbVar, "a006", "common_click", i, bbVar.awk, false, null, null)) != null) {
             a.y("list_order", c.aHW().a(bVar));
             com.baidu.tieba.q.c.bCC().b(bdUniqueId, a);
         }
@@ -37,7 +37,7 @@ public class a {
 
     public static void a(bb bbVar, BdUniqueId bdUniqueId, b bVar) {
         am a;
-        if (bbVar != null && (a = com.baidu.tieba.q.a.a(bbVar, "a006", "common_exp", bbVar.awj, false, null, null)) != null) {
+        if (bbVar != null && (a = com.baidu.tieba.q.a.a(bbVar, "a006", "common_exp", bbVar.awk, false, null, null)) != null) {
             a.y("list_order", c.aHW().a(bVar));
             com.baidu.tieba.q.c.bCC().a(bdUniqueId, bbVar.getId(), a);
         }

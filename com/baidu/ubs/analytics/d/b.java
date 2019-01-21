@@ -10,48 +10,48 @@ import java.util.Date;
 import java.util.TimeZone;
 /* loaded from: classes6.dex */
 public final class b {
-    private static boolean igH;
-    private static boolean ihG;
-    private static StringBuffer ihH = new StringBuffer();
+    private static boolean igI;
+    private static boolean ihH;
+    private static StringBuffer ihI = new StringBuffer();
 
     static {
         if (com.baidu.ubs.analytics.d.bTh() != null) {
-            igH = !a.bTy();
-            ihG = true;
-            ihH.append("ABsdkLog-");
-            ihH.append(new SimpleDateFormat(AiAppDateTimeUtil.DATE_FORMAT).format(new Date()));
-            ihH.append(BaseRequestAction.SPLITE);
+            igI = !a.bTy();
+            ihH = true;
+            ihI.append("ABsdkLog-");
+            ihI.append(new SimpleDateFormat(AiAppDateTimeUtil.DATE_FORMAT).format(new Date()));
+            ihI.append(BaseRequestAction.SPLITE);
             try {
-                ihH.append(a(com.baidu.ubs.analytics.c.i.k(com.baidu.ubs.analytics.d.bTh().getContext()).getBytes("UTF-8")));
+                ihI.append(a(com.baidu.ubs.analytics.c.i.k(com.baidu.ubs.analytics.d.bTh().getContext()).getBytes("UTF-8")));
             } catch (UnsupportedEncodingException e) {
                 j.a(e);
             } catch (Exception e2) {
                 j.a(e2);
             }
-            ihH.append(".log");
+            ihI.append(".log");
         }
     }
 
     public static String bTA() {
-        return ihH.toString();
+        return ihI.toString();
     }
 
     public static void yT(String str) {
-        if (igH) {
+        if (igI) {
             Log.w("BaiDuUbs", str);
         }
         a(Config.DEVICE_WIDTH, "BaiDuUbs", str);
     }
 
     public static void yU(String str) {
-        if (igH) {
+        if (igI) {
             Log.e("BaiDuUbs", str);
         }
         a("e", "BaiDuUbs", str);
     }
 
     private static void a(final String str, final String str2, final String str3) {
-        if (ihG) {
+        if (ihH) {
             c.a(new d() { // from class: com.baidu.ubs.analytics.d.b.1
                 @Override // com.baidu.ubs.analytics.d.d
                 protected final void a() {
@@ -65,7 +65,7 @@ public final class b {
                     stringBuffer.append(str2);
                     stringBuffer.append("\t");
                     stringBuffer.append(str3);
-                    g.n(stringBuffer.toString(), a.ihD, b.ihH.toString());
+                    g.n(stringBuffer.toString(), a.ihE, b.ihI.toString());
                 }
             });
         }

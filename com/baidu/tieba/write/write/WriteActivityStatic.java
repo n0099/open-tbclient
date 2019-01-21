@@ -44,8 +44,8 @@ import com.baidu.tieba.write.video.WriteVideoActivity;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class WriteActivityStatic {
-    private static int idh = 11;
-    private static int idi = 18;
+    private static int idi = 11;
+    private static int idj = 18;
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
@@ -78,7 +78,7 @@ public class WriteActivityStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void C(TbPageContext<?> tbPageContext) {
         BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
-        if (Build.VERSION.SDK_INT <= idi && Build.VERSION.SDK_INT >= idh) {
+        if (Build.VERSION.SDK_INT <= idj && Build.VERSION.SDK_INT >= idi) {
             G(tbPageContext);
         } else {
             H(tbPageContext);

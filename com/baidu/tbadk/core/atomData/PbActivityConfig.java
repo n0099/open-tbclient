@@ -316,10 +316,10 @@ public class PbActivityConfig extends IntentConfig {
             intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
             String valueOf = String.valueOf(bbVar.getFid());
             String zZ = bbVar.zZ();
-            if (bbVar.awe != null) {
+            if (bbVar.awf != null) {
                 setFromForumId(valueOf);
-                valueOf = bbVar.awe.id;
-                zZ = bbVar.awe.ori_fname;
+                valueOf = bbVar.awf.id;
+                zZ = bbVar.awf.ori_fname;
             }
             setForumId(String.valueOf(valueOf));
             setForumName(zZ);

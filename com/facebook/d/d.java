@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 class d {
-    private static final Class<?> iiQ = d.class;
+    private static final Class<?> iiR = d.class;
 
     d() {
     }
@@ -19,7 +19,7 @@ class d {
             case 5:
             case 7:
             default:
-                com.facebook.common.c.a.e(iiQ, "Unsupported orientation");
+                com.facebook.common.c.a.e(iiR, "Unsupported orientation");
                 return 0;
             case 3:
                 return 180;
@@ -33,20 +33,20 @@ class d {
     public static int g(InputStream inputStream, int i) throws IOException {
         a aVar = new a();
         int a2 = a(inputStream, i, aVar);
-        int i2 = aVar.iwl - 8;
+        int i2 = aVar.iwm - 8;
         if (a2 == 0 || i2 > a2) {
             return 0;
         }
         inputStream.skip(i2);
-        return b(inputStream, a(inputStream, a2 - i2, aVar.iwj, 274), aVar.iwj);
+        return b(inputStream, a(inputStream, a2 - i2, aVar.iwk, 274), aVar.iwk);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        boolean iwj;
-        int iwk;
+        boolean iwk;
         int iwl;
+        int iwm;
 
         private a() {
         }
@@ -56,17 +56,17 @@ class d {
         if (i <= 8) {
             return 0;
         }
-        aVar.iwk = c.a(inputStream, 4, false);
+        aVar.iwl = c.a(inputStream, 4, false);
         int i2 = i - 4;
-        if (aVar.iwk != 1229531648 && aVar.iwk != 1296891946) {
-            com.facebook.common.c.a.g(iiQ, "Invalid TIFF header");
+        if (aVar.iwl != 1229531648 && aVar.iwl != 1296891946) {
+            com.facebook.common.c.a.g(iiR, "Invalid TIFF header");
             return 0;
         }
-        aVar.iwj = aVar.iwk == 1229531648;
-        aVar.iwl = c.a(inputStream, 4, aVar.iwj);
+        aVar.iwk = aVar.iwl == 1229531648;
+        aVar.iwm = c.a(inputStream, 4, aVar.iwk);
         int i3 = i2 - 4;
-        if (aVar.iwl < 8 || aVar.iwl - 8 > i3) {
-            com.facebook.common.c.a.g(iiQ, "Invalid offset");
+        if (aVar.iwm < 8 || aVar.iwm - 8 > i3) {
+            com.facebook.common.c.a.g(iiR, "Invalid offset");
             return 0;
         }
         return i3;

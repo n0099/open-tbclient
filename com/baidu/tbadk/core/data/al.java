@@ -5,21 +5,21 @@ import org.json.JSONObject;
 import tbclient.Page;
 /* loaded from: classes.dex */
 public class al {
-    private int asK = 0;
+    private int asL = 0;
     private int total_num = 0;
     private int current_page = 0;
-    private int asM = 0;
-    private int has_more = 0;
     private int asN = 0;
+    private int has_more = 0;
+    private int asO = 0;
     private int total_count = 0;
-    private int asL = 0;
+    private int asM = 0;
 
     public int yX() {
-        return this.asK;
+        return this.asL;
     }
 
     public void cF(int i) {
-        this.asK = i;
+        this.asL = i;
     }
 
     public int yn() {
@@ -35,11 +35,11 @@ public class al {
     }
 
     public int yZ() {
-        return this.asL;
+        return this.asM;
     }
 
     public void cH(int i) {
-        this.asL = i;
+        this.asM = i;
     }
 
     public int za() {
@@ -51,11 +51,11 @@ public class al {
     }
 
     public int zb() {
-        return this.asM;
+        return this.asN;
     }
 
     public void cJ(int i) {
-        this.asM = i;
+        this.asN = i;
     }
 
     public void cK(int i) {
@@ -67,37 +67,37 @@ public class al {
     }
 
     public void cL(int i) {
-        this.asN = i;
+        this.asO = i;
     }
 
     public int zd() {
-        return this.asN;
+        return this.asO;
     }
 
     public void a(Page page) {
         if (page != null) {
-            this.asK = page.total_page.intValue();
+            this.asL = page.total_page.intValue();
             this.total_num = page.total_num.intValue();
             this.total_count = page.total_count.intValue();
             this.current_page = page.current_page.intValue();
-            this.asM = page.page_size.intValue();
+            this.asN = page.page_size.intValue();
             this.has_more = page.has_more.intValue();
-            this.asN = page.has_prev.intValue();
-            this.asL = page.lz_total_floor.intValue();
+            this.asO = page.has_prev.intValue();
+            this.asM = page.lz_total_floor.intValue();
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.asK = jSONObject.optInt("total_page", 0);
+                this.asL = jSONObject.optInt("total_page", 0);
                 this.total_num = jSONObject.optInt("total_num", 0);
                 this.total_count = jSONObject.optInt("total_count", 0);
                 this.current_page = jSONObject.optInt("current_page", 0);
-                this.asM = jSONObject.optInt("page_size", 0);
+                this.asN = jSONObject.optInt("page_size", 0);
                 this.has_more = jSONObject.optInt("has_more", 0);
-                this.asN = jSONObject.optInt("has_prev", 0);
-                this.asL = jSONObject.optInt("lz_total_floor", 0);
+                this.asO = jSONObject.optInt("has_prev", 0);
+                this.asM = jSONObject.optInt("lz_total_floor", 0);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

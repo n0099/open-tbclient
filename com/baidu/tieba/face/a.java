@@ -7,11 +7,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    public static final Pattern dum = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
-    public static final Pattern dun = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    public static final Pattern dun = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
+    public static final Pattern duo = Pattern.compile("#\\([^#\\)\\(]+\\)$");
 
     public static String ny(String str) {
-        String replaceAll = str.replaceAll(d.bdh, "meme,");
+        String replaceAll = str.replaceAll(d.bdi, "meme,");
         Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
         StringBuilder sb = new StringBuilder(replaceAll);
         int i = 0;
@@ -45,7 +45,7 @@ public class a {
         if (str == null || str.length() == 0) {
             return 0;
         }
-        Matcher matcher = dum.matcher(str);
+        Matcher matcher = dun.matcher(str);
         while (true) {
             i = i2;
             if (!matcher.find()) {

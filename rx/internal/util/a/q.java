@@ -10,7 +10,7 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.iCo;
+        E[] eArr = this.iCp;
         long j = this.producerIndex;
         long dV = dV(j);
         if (b(eArr, dV) != null) {
@@ -25,7 +25,7 @@ public final class q<E> extends v<E> {
     public E poll() {
         long j = this.consumerIndex;
         long dV = dV(j);
-        E[] eArr = this.iCo;
+        E[] eArr = this.iCp;
         E b = b(eArr, dV);
         if (b == null) {
             return null;
@@ -59,18 +59,18 @@ public final class q<E> extends v<E> {
     }
 
     private void dT(long j) {
-        ae.iRa.putOrderedLong(this, iQU, j);
+        ae.iRb.putOrderedLong(this, iQV, j);
     }
 
     private void dU(long j) {
-        ae.iRa.putOrderedLong(this, iQT, j);
+        ae.iRb.putOrderedLong(this, iQU, j);
     }
 
     private long cga() {
-        return ae.iRa.getLongVolatile(this, iQU);
+        return ae.iRb.getLongVolatile(this, iQV);
     }
 
     private long cfZ() {
-        return ae.iRa.getLongVolatile(this, iQT);
+        return ae.iRb.getLongVolatile(this, iQU);
     }
 }

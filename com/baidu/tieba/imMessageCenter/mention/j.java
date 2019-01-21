@@ -15,16 +15,16 @@ import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes4.dex */
 public class j implements com.baidu.tbadk.mvc.b.j {
     protected boolean Jr;
-    protected ArrayList<FeedData> fin = new ArrayList<>();
-    protected al fio = new al();
-    protected h fip = new h();
+    protected ArrayList<FeedData> fio = new ArrayList<>();
+    protected al fip = new al();
+    protected h fiq = new h();
 
     public ArrayList<FeedData> aXj() {
-        return this.fin;
+        return this.fio;
     }
 
     public al zf() {
-        return this.fio;
+        return this.fip;
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -36,14 +36,14 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.fin.add(feedData);
+                    this.fio.add(feedData);
                     if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.H(feedData.getPraiseList()) == 0) {
-                        this.fin.remove(feedData);
+                        this.fio.remove(feedData);
                     }
                 }
             }
-            this.fip.parserJson(jSONObject.optJSONObject("message"));
-            this.fio.parserJson(jSONObject.optJSONObject(SystemScreenshotManager.PAGE));
+            this.fiq.parserJson(jSONObject.optJSONObject("message"));
+            this.fip.parserJson(jSONObject.optJSONObject(SystemScreenshotManager.PAGE));
             this.Jr = true;
         } catch (Exception e) {
             this.Jr = false;
@@ -61,13 +61,13 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.fin.add(feedData);
+                        this.fio.add(feedData);
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.H(feedData.getPraiseList()) == 0) {
-                            this.fin.remove(feedData);
+                            this.fio.remove(feedData);
                         }
                     }
                 }
-                this.fio.a(dataRes.page);
+                this.fip.a(dataRes.page);
                 this.Jr = true;
             } catch (Exception e) {
                 this.Jr = false;

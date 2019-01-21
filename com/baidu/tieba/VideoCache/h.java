@@ -2,19 +2,19 @@ package com.baidu.tieba.VideoCache;
 /* loaded from: classes6.dex */
 public class h {
     private String ama;
-    private String bAA;
-    private boolean bAB;
-    private long bAC = -1;
+    private String bAB;
+    private boolean bAC;
     private long bAD = -1;
-    private long bAE = 0;
+    private long bAE = -1;
     private long bAF = 0;
+    private long bAG = 0;
 
     public String VK() {
-        return this.bAA;
+        return this.bAB;
     }
 
     public void jK(String str) {
-        this.bAA = str;
+        this.bAB = str;
     }
 
     public String VL() {
@@ -26,42 +26,42 @@ public class h {
     }
 
     public boolean VM() {
-        return this.bAB;
-    }
-
-    public void ds(boolean z) {
-        this.bAB = z;
-    }
-
-    public long VN() {
         return this.bAC;
     }
 
-    public void aT(long j) {
-        this.bAC = j;
+    public void ds(boolean z) {
+        this.bAC = z;
     }
 
-    public long VO() {
+    public long VN() {
         return this.bAD;
     }
 
-    public void aU(long j) {
+    public void aT(long j) {
         this.bAD = j;
     }
 
-    public long getTotalLength() {
+    public long VO() {
         return this.bAE;
     }
 
-    public void am(long j) {
+    public void aU(long j) {
         this.bAE = j;
     }
 
-    public void aV(long j) {
+    public long getTotalLength() {
+        return this.bAF;
+    }
+
+    public void am(long j) {
         this.bAF = j;
     }
 
+    public void aV(long j) {
+        this.bAG = j;
+    }
+
     public long VP() {
-        return this.bAF;
+        return this.bAG;
     }
 }

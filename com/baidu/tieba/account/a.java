@@ -15,14 +15,14 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a extends BaseAdapter {
-    private View.OnClickListener aIr;
+    private View.OnClickListener aIs;
     private BaseActivity mContext;
     private List<AccountData> mData = null;
-    private boolean bBB = false;
+    private boolean bBC = false;
 
     public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mContext = baseActivity;
-        this.aIr = onClickListener;
+        this.aIs = onClickListener;
     }
 
     public void setData(List<AccountData> list) {
@@ -77,30 +77,30 @@ public class a extends BaseAdapter {
                 } else if (getItemViewType(i) == 0) {
                     view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(e.h.account_item, viewGroup, false);
                     c0184a = new C0184a();
-                    c0184a.bBC = (TextView) view5.findViewById(e.g.account);
-                    c0184a.bBE = (ImageView) view5.findViewById(e.g.active);
-                    c0184a.bBF = (TextView) view5.findViewById(e.g.delete);
+                    c0184a.bBD = (TextView) view5.findViewById(e.g.account);
+                    c0184a.bBF = (ImageView) view5.findViewById(e.g.active);
+                    c0184a.bBG = (TextView) view5.findViewById(e.g.delete);
                     c0184a.mLine = view5.findViewById(e.g.account_item_line);
-                    c0184a.bBF.setOnClickListener(this.aIr);
+                    c0184a.bBG.setOnClickListener(this.aIs);
                     view5.setTag(c0184a);
                 } else {
                     view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(e.h.account_add_item, viewGroup, false);
                     c0184a = new C0184a();
-                    c0184a.bBD = (TextView) view5.findViewById(e.g.add_text);
+                    c0184a.bBE = (TextView) view5.findViewById(e.g.add_text);
                     view5.setTag(c0184a);
                 }
                 if (getItemViewType(i) == 0) {
                     AccountData accountData = (AccountData) getItem(i);
-                    c0184a.bBE.setVisibility(8);
                     c0184a.bBF.setVisibility(8);
-                    c0184a.bBF.setTag(accountData);
+                    c0184a.bBG.setVisibility(8);
+                    c0184a.bBG.setTag(accountData);
                     if (accountData != null) {
-                        c0184a.bBC.setText(accountData.getAccountNameShow());
+                        c0184a.bBD.setText(accountData.getAccountNameShow());
                         if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            c0184a.bBE.setVisibility(0);
-                        }
-                        if (this.bBB) {
                             c0184a.bBF.setVisibility(0);
+                        }
+                        if (this.bBC) {
+                            c0184a.bBG.setVisibility(0);
                         }
                     }
                     if (i == getCount() - 2) {
@@ -150,11 +150,11 @@ public class a extends BaseAdapter {
     }
 
     public void dt(boolean z) {
-        this.bBB = z;
+        this.bBC = z;
     }
 
     public boolean Ws() {
-        return this.bBB;
+        return this.bBC;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -173,10 +173,10 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.account.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
     private class C0184a {
-        TextView bBC;
         TextView bBD;
-        ImageView bBE;
-        TextView bBF;
+        TextView bBE;
+        ImageView bBF;
+        TextView bBG;
         View mLine;
 
         private C0184a() {

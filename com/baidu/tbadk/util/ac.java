@@ -97,17 +97,17 @@ public class ac {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String bjK;
+        public String bjL;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.bjK = "";
+            this.bjL = "";
             this.BDUSS = str;
-            this.bjK = str2;
+            this.bjL = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.bjK != null ? this.bjK.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.bjL != null ? this.bjL.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -123,7 +123,7 @@ public class ac {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.bjK == null ? aVar.bjK == null : this.bjK.equals(aVar.bjK);
+                return this.bjL == null ? aVar.bjL == null : this.bjL.equals(aVar.bjL);
             }
             return false;
         }

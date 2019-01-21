@@ -7,11 +7,11 @@ import android.view.MotionEvent;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 /* loaded from: classes6.dex */
 public class FrsBaseViewPager extends BdBaseViewPager {
-    private int dKT;
-    private boolean dKU;
-    private a dKV;
-    private boolean dKW;
+    private int dKU;
+    private boolean dKV;
+    private a dKW;
     private boolean dKX;
+    private boolean dKY;
     private Activity mActivity;
     private float x;
 
@@ -28,10 +28,10 @@ public class FrsBaseViewPager extends BdBaseViewPager {
 
     public FrsBaseViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dKT = 16;
-        this.dKX = true;
+        this.dKU = 16;
+        this.dKY = true;
         this.mActivity = (Activity) context;
-        this.dKT = com.baidu.adp.lib.util.l.dip2px(this.mActivity, this.dKT);
+        this.dKU = com.baidu.adp.lib.util.l.dip2px(this.mActivity, this.dKU);
         BdBaseViewPager.a aVar = new BdBaseViewPager.a(this.mActivity);
         aVar.eH(1000);
         aVar.b(this);
@@ -43,30 +43,30 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         this.x = motionEvent.getRawX();
         switch (motionEvent.getAction()) {
             case 0:
-                if (this.dKV != null) {
-                    this.dKV.aBF();
+                if (this.dKW != null) {
+                    this.dKW.aBF();
                 }
-                if (this.x >= getMeasuredWidth() - this.dKT && this.x <= getMeasuredWidth()) {
+                if (this.x >= getMeasuredWidth() - this.dKU && this.x <= getMeasuredWidth()) {
                     setmDisallowSlip(false);
-                    this.dKU = true;
-                    this.dKX = true;
+                    this.dKV = true;
+                    this.dKY = true;
                     break;
                 } else {
-                    this.dKX = false;
+                    this.dKY = false;
                     break;
                 }
                 break;
             case 1:
-                this.dKX = true;
+                this.dKY = true;
                 break;
             case 2:
-                if (this.dKX) {
-                    boolean aBG = this.dKV != null ? this.dKV.aBG() : true;
-                    if (this.dKU && aBG) {
+                if (this.dKY) {
+                    boolean aBG = this.dKW != null ? this.dKW.aBG() : true;
+                    if (this.dKV && aBG) {
                         z = false;
                     }
                     setmDisallowSlip(z);
-                    this.dKX = aBG;
+                    this.dKY = aBG;
                     break;
                 }
                 break;
@@ -76,7 +76,7 @@ public class FrsBaseViewPager extends BdBaseViewPager {
 
     @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPager, android.support.v4.view.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
-        if (this.dKW || this.dKU) {
+        if (this.dKX || this.dKV) {
             return true;
         }
         return super.onInterceptTouchEvent(motionEvent);
@@ -87,11 +87,11 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         this.x = motionEvent.getRawX();
         switch (motionEvent.getAction()) {
             case 1:
-                if (this.dKU) {
-                    this.dKU = false;
+                if (this.dKV) {
+                    this.dKV = false;
                 }
-                if (this.dKW) {
-                    this.dKW = false;
+                if (this.dKX) {
+                    this.dKX = false;
                 }
                 setmDisallowSlip(false);
                 break;
@@ -100,10 +100,10 @@ public class FrsBaseViewPager extends BdBaseViewPager {
     }
 
     public void setForceIntercept(boolean z) {
-        this.dKW = z;
+        this.dKX = z;
     }
 
     public void setOnTouchEventListener(a aVar) {
-        this.dKV = aVar;
+        this.dKW = aVar;
     }
 }

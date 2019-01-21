@@ -8,44 +8,44 @@ import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
     private static int chunkLength = 524288;
-    private static int hsw = 6144000;
-    private static int hsx = 524288;
-    private h hqL;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b hsy;
+    private static int hsx = 6144000;
+    private static int hsy = 524288;
+    private h hqM;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b hsz;
 
     public a(h hVar) {
-        this.hqL = hVar;
+        this.hqM = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (d.iQ().aO("is_video_batch") == 1) {
-                this.hsy = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, hsx, this.hqL);
+                this.hsz = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, hsy, this.hqM);
             } else {
-                this.hsy = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, hsw, this.hqL);
+                this.hsz = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, hsx, this.hqM);
             }
-            this.hsy.a(eVar);
-            return this.hsy.aW(str2, i);
+            this.hsz.a(eVar);
+            return this.hsz.aW(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.hqL != null) {
-                this.hqL.e(MsgConstants.TRACK_MODEL_SHOWING, -4399, com.baidu.tieba.j.a.o(e));
+            if (this.hqM != null) {
+                this.hqM.e(MsgConstants.TRACK_MODEL_SHOWING, -4399, com.baidu.tieba.j.a.o(e));
             }
             return null;
         }
     }
 
     public void qK() {
-        if (this.hsy != null) {
-            this.hsy.cancel();
+        if (this.hsz != null) {
+            this.hsz.cancel();
         }
     }
 
     public static void vV(int i) {
         if (i <= 0) {
-            hsx = 524288;
+            hsy = 524288;
         } else {
-            hsx = i;
+            hsy = i;
         }
     }
 
@@ -59,9 +59,9 @@ public class a {
 
     public static void vX(int i) {
         if (i <= 0) {
-            hsw = 6144000;
+            hsx = 6144000;
         } else {
-            hsw = i;
+            hsx = i;
         }
     }
 }

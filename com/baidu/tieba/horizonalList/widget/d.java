@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class d implements Filterable, WrapperListAdapter {
-    static final ArrayList<HListView.b> eCC = new ArrayList<>();
+    static final ArrayList<HListView.b> eCD = new ArrayList<>();
     boolean OM;
     private final ListAdapter mAdapter;
     ArrayList<HListView.b> mFooterViewInfos;
@@ -23,12 +23,12 @@ public class d implements Filterable, WrapperListAdapter {
         this.mAdapter = listAdapter;
         this.mIsFilterable = listAdapter instanceof Filterable;
         if (arrayList == null) {
-            this.mHeaderViewInfos = eCC;
+            this.mHeaderViewInfos = eCD;
         } else {
             this.mHeaderViewInfos = arrayList;
         }
         if (arrayList2 == null) {
-            this.mFooterViewInfos = eCC;
+            this.mFooterViewInfos = eCD;
         } else {
             this.mFooterViewInfos = arrayList2;
         }

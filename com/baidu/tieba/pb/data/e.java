@@ -83,24 +83,24 @@ public class e {
     }
 
     public static void a(PostData postData, PbActivity.c cVar) {
-        if (postData != null && postData.bEU() != null && postData.bEU().Sx() != null && cVar != null && cVar.fYD != null && cVar.fYE != null && postData.bEU().Sx().size() != 0) {
-            String str = (String) v.d(cVar.fYD, cVar.index);
+        if (postData != null && postData.bEU() != null && postData.bEU().Sx() != null && cVar != null && cVar.fYE != null && cVar.fYF != null && postData.bEU().Sx().size() != 0) {
+            String str = (String) v.d(cVar.fYE, cVar.index);
             if (!StringUtils.isNull(str)) {
-                cVar.fYD = new ArrayList<>();
-                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = cVar.fYE;
-                cVar.fYE = new ConcurrentHashMap<>();
+                cVar.fYE = new ArrayList<>();
+                ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = cVar.fYF;
+                cVar.fYF = new ConcurrentHashMap<>();
                 Iterator<TbRichTextData> it = postData.bEU().Sx().iterator();
                 while (it.hasNext()) {
                     TbRichTextData next = it.next();
                     if (next != null && next.getType() == 8) {
                         String b = b(next);
                         if (!StringUtils.isNull(b) && concurrentHashMap.get(b) != null) {
-                            cVar.fYD.add(b);
-                            cVar.fYE.put(b, concurrentHashMap.get(b));
+                            cVar.fYE.add(b);
+                            cVar.fYF.put(b, concurrentHashMap.get(b));
                         }
                     }
                 }
-                cVar.index = v.a(cVar.fYD, str);
+                cVar.index = v.a(cVar.fYE, str);
             }
         }
     }

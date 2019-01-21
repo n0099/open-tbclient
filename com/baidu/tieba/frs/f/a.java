@@ -39,7 +39,7 @@ public class a {
         int[] iArr;
         int indexOf;
         if (eVar != null && v.H(list) > 0 && v.H(list2) > 0) {
-            for (int i : com.baidu.tieba.tbadkCore.data.e.hpe) {
+            for (int i : com.baidu.tieba.tbadkCore.data.e.hpf) {
                 com.baidu.adp.widget.ListView.h hVar = (com.baidu.adp.widget.ListView.h) v.d(list, i);
                 if (hVar != null && (indexOf = list2.indexOf(hVar)) >= 0) {
                     eVar.bR(i, indexOf);

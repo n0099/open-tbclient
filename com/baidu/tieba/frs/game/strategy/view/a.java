@@ -6,8 +6,8 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 /* loaded from: classes3.dex */
 public abstract class a extends BaseAdapter {
-    private boolean dXh = true;
-    private f dXm;
+    private boolean dXi = true;
+    private f dXn;
 
     public abstract int aFN();
 
@@ -24,10 +24,10 @@ public abstract class a extends BaseAdapter {
     @Override // android.widget.Adapter
     public int getCount() {
         if (aFS()) {
-            if (this.dXh) {
-                return this.dXm.getArrowIndex() + 1;
+            if (this.dXi) {
+                return this.dXn.getArrowIndex() + 1;
             }
-            if (this.dXm != null && this.dXm.aFQ()) {
+            if (this.dXn != null && this.dXn.aFQ()) {
                 return aFO() + 1;
             }
             return aFO();
@@ -67,7 +67,7 @@ public abstract class a extends BaseAdapter {
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
         int arrowIndex;
-        return (aFS() && (arrowIndex = this.dXm.getArrowIndex()) > 0 && i == arrowIndex) ? 1 : 0;
+        return (aFS() && (arrowIndex = this.dXn.getArrowIndex()) > 0 && i == arrowIndex) ? 1 : 0;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -76,25 +76,25 @@ public abstract class a extends BaseAdapter {
     }
 
     public void a(f fVar) {
-        this.dXm = fVar;
+        this.dXn = fVar;
     }
 
     private View aS(View view) {
-        if (this.dXm != null) {
-            if (view == null || view != this.dXm.getArrowView()) {
-                view = this.dXm.getArrowView();
+        if (this.dXn != null) {
+            if (view == null || view != this.dXn.getArrowView()) {
+                view = this.dXn.getArrowView();
                 if (view.getLayoutParams() == null) {
                     view.setLayoutParams(new AbsListView.LayoutParams(-1, aFN()));
                 }
             }
-            this.dXm.aR(view);
+            this.dXn.aR(view);
         }
         return view;
     }
 
     public int na(int i) {
         int arrowIndex;
-        if (this.dXm != null && this.dXm.aFQ() && i >= (arrowIndex = this.dXm.getArrowIndex())) {
+        if (this.dXn != null && this.dXn.aFQ() && i >= (arrowIndex = this.dXn.getArrowIndex())) {
             if (i == arrowIndex) {
                 return -1;
             }
@@ -104,10 +104,10 @@ public abstract class a extends BaseAdapter {
     }
 
     public boolean aFS() {
-        return this.dXm != null && this.dXm.aFQ() && aFO() + (-1) > this.dXm.getArrowIndex();
+        return this.dXn != null && this.dXn.aFQ() && aFO() + (-1) > this.dXn.getArrowIndex();
     }
 
     public void hj(boolean z) {
-        this.dXh = z;
+        this.dXi = z;
     }
 }

@@ -10,43 +10,43 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class e {
-    private HTypeListView bCT;
-    private c gui;
-    private b guj;
-    private a guk;
+    private HTypeListView bCU;
+    private c guj;
+    private b guk;
+    private a gul;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private TbPageContext mTbPageContext;
 
     public e(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         this.mTbPageContext = tbPageContext;
-        this.bCT = hTypeListView;
+        this.bCU = hTypeListView;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.gui = new c(this.mTbPageContext, m.aCu);
-        this.guj = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.gus);
-        this.guk = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.gtS);
-        this.mAdapters.add(this.gui);
+        this.guj = new c(this.mTbPageContext, m.aCv);
+        this.guk = new b(this.mTbPageContext, com.baidu.tieba.person.data.c.gut);
+        this.gul = new a(this.mTbPageContext.getPageActivity(), com.baidu.tieba.person.d.gtT);
         this.mAdapters.add(this.guj);
         this.mAdapters.add(this.guk);
-        this.bCT.addAdapters(this.mAdapters);
+        this.mAdapters.add(this.gul);
+        this.bCU.addAdapters(this.mAdapters);
     }
 
     public void setDatas(List<h> list) {
-        if (this.bCT != null) {
-            this.bCT.setData(list);
+        if (this.bCU != null) {
+            this.bCU.setData(list);
         }
     }
 
     public void notifyDataSetChanged() {
-        if (this.bCT != null && (this.bCT.getAdapter() instanceof q)) {
-            ((q) this.bCT.getAdapter()).notifyDataSetChanged();
+        if (this.bCU != null && (this.bCU.getAdapter() instanceof q)) {
+            ((q) this.bCU.getAdapter()).notifyDataSetChanged();
         }
     }
 
     public void setItemOnclickListener(View.OnClickListener onClickListener) {
-        this.gui.w(onClickListener);
         this.guj.w(onClickListener);
+        this.guk.w(onClickListener);
     }
 }

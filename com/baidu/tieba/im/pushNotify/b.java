@@ -19,10 +19,10 @@ import java.util.ArrayList;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class b {
-    private static b fbr = null;
-    private String fbt;
-    private ArrayList<CustomMessageListener> fbs = new ArrayList<>();
-    private c eKD = new c(202006) { // from class: com.baidu.tieba.im.pushNotify.b.1
+    private static b fbs = null;
+    private String fbu;
+    private ArrayList<CustomMessageListener> fbt = new ArrayList<>();
+    private c eKE = new c(202006) { // from class: com.baidu.tieba.im.pushNotify.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -40,7 +40,7 @@ public class b {
             }
         }
     };
-    private CustomMessageListener fbu = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.pushNotify.b.2
+    private CustomMessageListener fbv = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.pushNotify.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -57,10 +57,10 @@ public class b {
     public static synchronized b aVd() {
         b bVar;
         synchronized (b.class) {
-            if (fbr == null) {
-                fbr = new b();
+            if (fbs == null) {
+                fbs = new b();
             }
-            bVar = fbr;
+            bVar = fbs;
         }
         return bVar;
     }
@@ -73,8 +73,8 @@ public class b {
     }
 
     private void aVe() {
-        MessageManager.getInstance().registerListener(this.eKD);
-        MessageManager.getInstance().registerListener(2016014, this.fbu);
+        MessageManager.getInstance().registerListener(this.eKE);
+        MessageManager.getInstance().registerListener(2016014, this.fbv);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -117,10 +117,10 @@ public class b {
     }
 
     public String aVf() {
-        return this.fbt;
+        return this.fbu;
     }
 
     public void qM(String str) {
-        this.fbt = str;
+        this.fbu = str;
     }
 }

@@ -18,10 +18,10 @@ public class Static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921326, new CustomMessageTask.CustomRunnable<FrsFragment>() { // from class: com.baidu.tieba.frs.ar.Static.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<FrsFragment> customMessage) {
-                if (customMessage == null || customMessage.getData() == null || customMessage.getData() == null || customMessage.getData().aCl() == null || customMessage.getData().aCl().dRv == null) {
+                if (customMessage == null || customMessage.getData() == null || customMessage.getData() == null || customMessage.getData().aCl() == null || customMessage.getData().aCl().dRw == null) {
                     return null;
                 }
-                ForumArIno forumArIno = customMessage.getData().aCl().dRv;
+                ForumArIno forumArIno = customMessage.getData().aCl().dRw;
                 if (forumArIno._switch.intValue() == 0) {
                     return null;
                 }

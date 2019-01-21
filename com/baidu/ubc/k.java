@@ -8,12 +8,12 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class k {
     private long SG;
-    private int ifM;
-    private JSONArray ifO;
-    private JSONObject igj;
-    private int igk;
-    private String igl;
-    private boolean igm = false;
+    private int ifN;
+    private JSONArray ifP;
+    private JSONObject igk;
+    private int igl;
+    private String igm;
+    private boolean ign = false;
     private String mCategory;
     private String mContent;
     private long mEndTime;
@@ -25,9 +25,9 @@ public class k {
 
     public k(String str, int i, String str2, int i2) {
         this.mId = str;
-        this.ifM = i;
+        this.ifN = i;
         this.mContent = str2;
-        this.igk = i2;
+        this.igl = i2;
     }
 
     public String getId() {
@@ -39,11 +39,11 @@ public class k {
     }
 
     public int bSB() {
-        return this.ifM;
+        return this.ifN;
     }
 
     public void xV(int i) {
-        this.ifM = i;
+        this.ifN = i;
     }
 
     public String getContent() {
@@ -55,7 +55,7 @@ public class k {
     }
 
     public JSONObject bSE() {
-        return this.igj;
+        return this.igk;
     }
 
     public long bSH() {
@@ -83,11 +83,11 @@ public class k {
     }
 
     public int bSC() {
-        return this.igk;
+        return this.igl;
     }
 
     public String bSD() {
-        return this.igl;
+        return this.igm;
     }
 
     public String getCategory() {
@@ -99,27 +99,27 @@ public class k {
     }
 
     public boolean bSy() {
-        return this.igm;
+        return this.ign;
     }
 
     public void oO(boolean z) {
-        this.igm = z;
+        this.ign = z;
     }
 
     public void yC(String str) {
-        this.igl = str;
+        this.igm = str;
     }
 
     public void bSF() {
         if (e.bSo().ys(this.mId)) {
-            this.igl = o.bSQ().ZC();
+            this.igm = o.bSQ().ZC();
         }
     }
 
     public void yD(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.ifO = new JSONArray(str);
+                this.ifP = new JSONArray(str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -127,6 +127,6 @@ public class k {
     }
 
     public JSONArray bSI() {
-        return this.ifO;
+        return this.ifP;
     }
 }

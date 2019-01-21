@@ -14,7 +14,7 @@ import java.util.Collections;
 /* loaded from: classes6.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private a bzZ = new a();
+    private a bAa = new a();
 
     public b() {
         Vz();
@@ -22,7 +22,7 @@ public class b {
 
     private void Vz() {
         File[] listFiles;
-        File file = new File(i.bAJ);
+        File file = new File(i.bAK);
         if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length > 0) {
             for (File file2 : listFiles) {
                 if (file2 != null && file2.exists()) {
@@ -30,10 +30,10 @@ public class b {
                     dVar.jD(file2.getName());
                     dVar.aR(jA(file2.getAbsolutePath()));
                     dVar.aS(m.jN(file2.getName()));
-                    this.bzZ.a(dVar);
+                    this.bAa.a(dVar);
                 }
             }
-            Collections.sort(this.bzZ.Vw(), new AccessTimeComparator());
+            Collections.sort(this.bAa.Vw(), new AccessTimeComparator());
         }
     }
 
@@ -144,15 +144,15 @@ public class b {
         String jP = m.jP(str);
         if (jP != null && !jP.isEmpty()) {
             jC(jP);
-            if (this.bzZ != null) {
+            if (this.bAa != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int i = 0;
                 while (true) {
-                    if (i >= this.bzZ.Vy()) {
+                    if (i >= this.bAa.Vy()) {
                         dVar = null;
                         break;
                     }
-                    d hy = this.bzZ.hy((this.bzZ.Vy() - 1) - i);
+                    d hy = this.bAa.hy((this.bAa.Vy() - 1) - i);
                     if (hy != null && hy.getFileName() != null && hy.getFileName().equals(jP)) {
                         dVar = hy;
                         break;
@@ -160,7 +160,7 @@ public class b {
                     i++;
                 }
                 if (dVar != null) {
-                    this.bzZ.b(dVar);
+                    this.bAa.b(dVar);
                 } else {
                     dVar = new d();
                     dVar.jD(jP);
@@ -169,15 +169,15 @@ public class b {
                 j(jP, currentTimeMillis2);
                 dVar.aR(currentTimeMillis2);
                 dVar.aS(m.jN(jP));
-                this.bzZ.a(dVar);
-                j.log(TAG, "total cache size: " + ((this.bzZ.Vx() / 1024) / 1024) + "M list size " + this.bzZ.Vy());
-                if (this.bzZ.Vx() > 629145600) {
-                    while (this.bzZ.Vx() > 524288000 && this.bzZ.Vy() > 2 && VA()) {
+                this.bAa.a(dVar);
+                j.log(TAG, "total cache size: " + ((this.bAa.Vx() / 1024) / 1024) + "M list size " + this.bAa.Vy());
+                if (this.bAa.Vx() > 629145600) {
+                    while (this.bAa.Vx() > 524288000 && this.bAa.Vy() > 2 && VA()) {
                     }
                     VC();
                 }
                 if (m.VS() < 314572800) {
-                    while (m.VS() < 419430400 && this.bzZ.Vy() > 2 && VA()) {
+                    while (m.VS() < 419430400 && this.bAa.Vy() > 2 && VA()) {
                     }
                     VC();
                 }
@@ -187,11 +187,11 @@ public class b {
     }
 
     private boolean VA() {
-        d hy = this.bzZ.hy(0);
+        d hy = this.bAa.hy(0);
         if (hy == null || !(e.VH().jE(hy.getFileName()) || e.VH().jG(hy.getFileName()))) {
-            this.bzZ.remove(0);
+            this.bAa.remove(0);
             if (hy != null) {
-                File file = new File(i.bAK + hy.getFileName());
+                File file = new File(i.bAL + hy.getFileName());
                 j.log(TAG, "delete file " + file.getName());
                 m.G(file);
             }
@@ -201,7 +201,7 @@ public class b {
     }
 
     private void j(String str, long j) {
-        File file = new File(i.bAK + str);
+        File file = new File(i.bAL + str);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -218,11 +218,11 @@ public class b {
     }
 
     public void VB() {
-        if (this.bzZ != null) {
+        if (this.bAa != null) {
             long currentTimeMillis = System.currentTimeMillis();
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.bzZ.Vy() - 2; i++) {
-                d hy = this.bzZ.hy(i);
+            for (int i = 0; i < this.bAa.Vy() - 2; i++) {
+                d hy = this.bAa.hy(i);
                 if (hy != null) {
                     if (currentTimeMillis - hy.VF() < 86400000) {
                         break;
@@ -233,9 +233,9 @@ public class b {
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
                 d dVar = (d) arrayList.get(i2);
                 if (dVar == null || (!e.VH().jE(dVar.getFileName()) && !e.VH().jG(dVar.getFileName()))) {
-                    this.bzZ.b(dVar);
+                    this.bAa.b(dVar);
                     if (dVar != null) {
-                        File file = new File(i.bAK + dVar.getFileName());
+                        File file = new File(i.bAL + dVar.getFileName());
                         j.log(TAG, "delete expired file " + dVar.getFileName());
                         m.G(file);
                     }
@@ -250,8 +250,8 @@ public class b {
         if (str != null) {
             try {
                 if (!str.isEmpty()) {
-                    File file = new File(i.bAK + str + "/completed");
-                    File file2 = new File(i.bAK + str + "/segments");
+                    File file = new File(i.bAL + str + "/completed");
+                    File file2 = new File(i.bAL + str + "/segments");
                     if (file.exists()) {
                         j.log(TAG, "delete segments");
                         if (file2 != null && file2.exists() && file2.listFiles() != null) {
@@ -271,8 +271,8 @@ public class b {
     }
 
     public void clearCache() {
-        if (this.bzZ != null) {
-            while (this.bzZ.Vy() > 0 && VA()) {
+        if (this.bAa != null) {
+            while (this.bAa.Vy() > 0 && VA()) {
             }
             VC();
         }
@@ -280,7 +280,7 @@ public class b {
 
     private void VC() {
         File[] listFiles;
-        File file = new File(i.bAJ);
+        File file = new File(i.bAK);
         if (file.exists() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {
                 if (file2 != null && file2.exists()) {

@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class a {
-    private com.baidu.tieba.personCenter.a.c guU;
-    private d gvk;
-    private com.baidu.tieba.personCenter.a.a gvl;
-    private com.baidu.tieba.personCenter.a.b gvm;
-    private e gvn;
+    private com.baidu.tieba.personCenter.a.c guV;
+    private d gvl;
+    private com.baidu.tieba.personCenter.a.a gvm;
+    private com.baidu.tieba.personCenter.a.b gvn;
+    private e gvo;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -26,16 +26,16 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.gvk = new d(tbPageContext, g.gvQ);
-        this.gvl = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.c.gvA);
-        this.gvm = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.d.gvB);
-        this.gvn = new e(tbPageContext, i.gvV);
-        this.guU = new com.baidu.tieba.personCenter.a.c(tbPageContext, f.gvP);
-        this.mAdapters.add(this.gvk);
+        this.gvl = new d(tbPageContext, g.gvR);
+        this.gvm = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.c.gvB);
+        this.gvn = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.d.gvC);
+        this.gvo = new e(tbPageContext, i.gvW);
+        this.guV = new com.baidu.tieba.personCenter.a.c(tbPageContext, f.gvQ);
         this.mAdapters.add(this.gvl);
         this.mAdapters.add(this.gvm);
         this.mAdapters.add(this.gvn);
-        this.mAdapters.add(this.guU);
+        this.mAdapters.add(this.gvo);
+        this.mAdapters.add(this.guV);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
@@ -46,10 +46,10 @@ public class a {
     }
 
     public void bpV() {
-        this.gvl.bpV();
+        this.gvm.bpV();
     }
 
     public void bpW() {
-        this.gvl.destroy();
+        this.gvm.destroy();
     }
 }

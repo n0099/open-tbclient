@@ -14,12 +14,12 @@ import tbclient.TalkBall.DataRes;
 import tbclient.TalkBall.TalkBallResIdl;
 /* loaded from: classes3.dex */
 public class c implements com.baidu.tbadk.mvc.b.c {
-    private int dep;
-    private long emK;
-    private List<com.baidu.tieba.frs.worldcup.talkball.b.a> emN;
-    private AdidasAdvert emO;
-    private e emP;
-    private m emQ;
+    private int deq;
+    private long emL;
+    private List<com.baidu.tieba.frs.worldcup.talkball.b.a> emO;
+    private AdidasAdvert emP;
+    private e emQ;
+    private m emR;
     private List<com.baidu.tieba.frs.worldcup.talkball.b.b> mThreadList;
 
     @Override // com.baidu.tbadk.mvc.b.j
@@ -42,24 +42,24 @@ public class c implements com.baidu.tbadk.mvc.b.c {
                     }
                 }
             }
-            this.emN = new ArrayList();
+            this.emO = new ArrayList();
             List<BannerImage> list2 = dataRes.banner_images;
             if (list2 != null) {
                 for (BannerImage bannerImage : list2) {
                     if (bannerImage != null && !TextUtils.isEmpty(bannerImage.img_url)) {
                         com.baidu.tieba.frs.worldcup.talkball.b.a aVar = new com.baidu.tieba.frs.worldcup.talkball.b.a();
                         aVar.a(bannerImage);
-                        this.emN.add(aVar);
+                        this.emO.add(aVar);
                     }
                 }
             }
-            this.emO = dataRes.adidas_advert;
-            this.dep = dataRes.has_more.intValue();
-            this.emK = dataRes.last_thread_id.longValue();
-            this.emP = new e();
-            this.emP.a(dataRes.guessing_competition);
-            this.emQ = new m();
-            this.emQ.a(dataRes.redpacketrain);
+            this.emP = dataRes.adidas_advert;
+            this.deq = dataRes.has_more.intValue();
+            this.emL = dataRes.last_thread_id.longValue();
+            this.emQ = new e();
+            this.emQ.a(dataRes.guessing_competition);
+            this.emR = new m();
+            this.emR.a(dataRes.redpacketrain);
         }
     }
 
@@ -68,27 +68,27 @@ public class c implements com.baidu.tbadk.mvc.b.c {
     }
 
     public List<com.baidu.tieba.frs.worldcup.talkball.b.a> aJO() {
-        return this.emN;
-    }
-
-    public int axg() {
-        return this.dep;
-    }
-
-    public long aJP() {
-        return this.emK;
-    }
-
-    public e aJQ() {
-        return this.emP;
-    }
-
-    public AdidasAdvert aJR() {
         return this.emO;
     }
 
-    public m aJS() {
+    public int axg() {
+        return this.deq;
+    }
+
+    public long aJP() {
+        return this.emL;
+    }
+
+    public e aJQ() {
         return this.emQ;
+    }
+
+    public AdidasAdvert aJR() {
+        return this.emP;
+    }
+
+    public m aJS() {
+        return this.emR;
     }
 
     @Override // com.baidu.tbadk.mvc.b.d

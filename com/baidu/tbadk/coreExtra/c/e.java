@@ -19,21 +19,21 @@ import java.net.URI;
 import java.net.URISyntaxException;
 /* loaded from: classes.dex */
 public class e {
-    private a aTf;
-    private b aTg;
-    private String aTh = TbadkCoreApplication.getInst().getContext().getString(e.j.share_tail);
-    private String aTi = TbadkCoreApplication.getInst().getContext().getString(e.j.weibo_share_tail) + this.aTh;
+    private a aTg;
+    private b aTh;
+    private String aTi = TbadkCoreApplication.getInst().getContext().getString(e.j.share_tail);
+    private String aTj = TbadkCoreApplication.getInst().getContext().getString(e.j.weibo_share_tail) + this.aTi;
     private final Context mContext;
 
     public e(Context context, a aVar) {
         c cVar;
-        this.aTf = null;
         this.aTg = null;
+        this.aTh = null;
         this.mContext = context;
-        this.aTf = aVar;
+        this.aTg = aVar;
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001445, c.class);
         if (runTask.getData() != null && (cVar = (c) runTask.getData()) != null) {
-            this.aTg = cVar.a(this.mContext, this.aTf);
+            this.aTh = cVar.a(this.mContext, this.aTg);
         }
     }
 
@@ -50,51 +50,51 @@ public class e {
     }
 
     public void b(d dVar) {
-        if (this.aTg != null && dVar != null) {
-            dVar.content = b(dVar.content, 80, 20, dVar.aTb ? this.aTh : "");
-            this.aTg.a(a(dVar, "weixin"), 3, false);
+        if (this.aTh != null && dVar != null) {
+            dVar.content = b(dVar.content, 80, 20, dVar.aTc ? this.aTi : "");
+            this.aTh.a(a(dVar, "weixin"), 3, false);
         }
     }
 
     public void c(d dVar) {
-        if (this.aTg != null && dVar != null) {
-            dVar.content = b(dVar.content, 80, 20, dVar.aTb ? this.aTh : "");
-            this.aTg.a(a(dVar, "weixin_timeline"), 2, false);
+        if (this.aTh != null && dVar != null) {
+            dVar.content = b(dVar.content, 80, 20, dVar.aTc ? this.aTi : "");
+            this.aTh.a(a(dVar, "weixin_timeline"), 2, false);
         }
     }
 
     public void d(d dVar) {
-        if (this.aTg != null && dVar != null) {
-            dVar.content = b(dVar.content, 80, 32, dVar.aTb ? this.aTh : "");
-            this.aTg.a(a(dVar, "qqfriend"), 8, true);
+        if (this.aTh != null && dVar != null) {
+            dVar.content = b(dVar.content, 80, 32, dVar.aTc ? this.aTi : "");
+            this.aTh.a(a(dVar, "qqfriend"), 8, true);
         }
     }
 
     public void e(d dVar) {
-        if (this.aTg != null) {
-            dVar.content = b(dVar.content, 80, 32, dVar.aTb ? this.aTh : "");
-            this.aTg.a(a(dVar, Constants.SOURCE_QZONE), 4, true);
+        if (this.aTh != null) {
+            dVar.content = b(dVar.content, 80, 32, dVar.aTc ? this.aTi : "");
+            this.aTh.a(a(dVar, Constants.SOURCE_QZONE), 4, true);
         }
     }
 
     public void f(d dVar) {
-        if (this.aTg != null) {
-            dVar.content = b(dVar.content, 140, 20, dVar.aTb ? this.aTh : "");
-            this.aTg.a(a(dVar, "tencent_weibo"), 5, true);
+        if (this.aTh != null) {
+            dVar.content = b(dVar.content, 140, 20, dVar.aTc ? this.aTi : "");
+            this.aTh.a(a(dVar, "tencent_weibo"), 5, true);
         }
     }
 
     public void g(d dVar) {
-        if (this.aTg != null) {
-            dVar.content = b(dVar.content, 140, 20, dVar.aTb ? this.aTi : "");
-            this.aTg.a(a(dVar, "sina_weibo"), 6, true);
+        if (this.aTh != null) {
+            dVar.content = b(dVar.content, 140, 20, dVar.aTc ? this.aTj : "");
+            this.aTh.a(a(dVar, "sina_weibo"), 6, true);
         }
     }
 
     public void h(d dVar) {
-        if (this.aTg != null) {
-            dVar.content = b(dVar.content, 140, 20, dVar.aTb ? this.aTh : "");
-            this.aTg.a(a(dVar, "renren"), 7, true);
+        if (this.aTh != null) {
+            dVar.content = b(dVar.content, 140, 20, dVar.aTc ? this.aTi : "");
+            this.aTh.a(a(dVar, "renren"), 7, true);
         }
     }
 
@@ -126,7 +126,7 @@ public class e {
                 aI(uri, "sfc=" + str);
             }
         }
-        if (dVar.aTc) {
+        if (dVar.aTd) {
             dVar.linkUrl = r(dVar.linkUrl, str, dVar.tid);
         }
         return dVar;

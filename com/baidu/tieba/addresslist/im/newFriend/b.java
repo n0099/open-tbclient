@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
-    private static b bEt;
+    private static b bEu;
 
     private b() {
     }
@@ -21,10 +21,10 @@ public class b {
     public static synchronized b WZ() {
         b bVar;
         synchronized (b.class) {
-            if (bEt == null) {
-                bEt = new b();
+            if (bEu == null) {
+                bEu = new b();
             }
-            bVar = bEt;
+            bVar = bEu;
         }
         return bVar;
     }

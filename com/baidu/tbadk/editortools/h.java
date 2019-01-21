@@ -9,11 +9,11 @@ import com.baidu.tbadk.editortools.view.a;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class h extends com.baidu.tbadk.editortools.view.a {
-    LinkedList<g> aYW;
+    LinkedList<g> aYX;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void k(LinkedList<g> linkedList) {
-        this.aYW = linkedList;
+        this.aYX = linkedList;
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -25,13 +25,13 @@ public class h extends com.baidu.tbadk.editortools.view.a {
         if (i < 0 || i >= getCount()) {
             return null;
         }
-        return (DLauncher) this.aYW.get(i);
+        return (DLauncher) this.aYX.get(i);
     }
 
     @Override // com.baidu.tbadk.editortools.view.a
     public int getCount() {
-        if (this.aYW != null) {
-            return this.aYW.size();
+        if (this.aYX != null) {
+            return this.aYX.size();
         }
         return 0;
     }
@@ -63,9 +63,9 @@ public class h extends com.baidu.tbadk.editortools.view.a {
 
     @Override // com.baidu.tbadk.editortools.view.a
     public void exit() {
-        if (this.aYW != null) {
-            this.aYW.clear();
+        if (this.aYX != null) {
+            this.aYX.clear();
         }
-        this.aYW = null;
+        this.aYX = null;
     }
 }

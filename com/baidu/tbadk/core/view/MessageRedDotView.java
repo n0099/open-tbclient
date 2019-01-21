@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class MessageRedDotView extends View {
-    private Paint aGt;
-    private Drawable aHX;
-    private int aHY;
-    private boolean aHZ;
-    private String aIa;
-    private int aIb;
-    private Rect aIc;
+    private Paint aGu;
+    private Drawable aHY;
+    private int aHZ;
+    private boolean aIa;
+    private String aIb;
+    private int aIc;
+    private Rect aId;
     private Drawable mBackgroundDrawable;
     private int mType;
 
@@ -67,8 +67,8 @@ public class MessageRedDotView extends View {
         if (this.mBackgroundDrawable != null) {
             this.mBackgroundDrawable.setBounds(0, 0, this.mBackgroundDrawable.getIntrinsicWidth(), this.mBackgroundDrawable.getIntrinsicHeight());
             this.mBackgroundDrawable.draw(canvas);
-            if (!ao.isEmpty(this.aIa)) {
-                if (this.aIa.equals("...")) {
+            if (!ao.isEmpty(this.aIb)) {
+                if (this.aIb.equals("...")) {
                     h(canvas);
                 } else {
                     i(canvas);
@@ -78,7 +78,7 @@ public class MessageRedDotView extends View {
     }
 
     private void h(Canvas canvas) {
-        if (this.aHX != null && this.mBackgroundDrawable != null) {
+        if (this.aHY != null && this.mBackgroundDrawable != null) {
             int intrinsicWidth = this.mBackgroundDrawable.getIntrinsicWidth() / 2;
             int intrinsicHeight = this.mBackgroundDrawable.getIntrinsicHeight() / 2;
             int h = com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.tbds6);
@@ -87,36 +87,36 @@ public class MessageRedDotView extends View {
             int i2 = intrinsicHeight - (h / 2);
             int i3 = intrinsicWidth + (h / 2);
             int i4 = intrinsicHeight + (h / 2);
-            this.aHX.setBounds(i, i2, i3, i4);
-            this.aHX.draw(canvas);
-            this.aHX.setBounds((i - h2) - h, i2, i - h2, i4);
-            this.aHX.draw(canvas);
-            this.aHX.setBounds(i3 + h2, i2, i3 + h2 + h, i4);
-            this.aHX.draw(canvas);
+            this.aHY.setBounds(i, i2, i3, i4);
+            this.aHY.draw(canvas);
+            this.aHY.setBounds((i - h2) - h, i2, i - h2, i4);
+            this.aHY.draw(canvas);
+            this.aHY.setBounds(i3 + h2, i2, i3 + h2 + h, i4);
+            this.aHY.draw(canvas);
         }
     }
 
     private void i(Canvas canvas) {
-        if (!ao.isEmpty(this.aIa) && this.mBackgroundDrawable != null) {
-            this.aGt.getTextBounds(this.aIa, 0, this.aIa.length(), this.aIc);
-            canvas.drawText(this.aIa, this.mBackgroundDrawable.getIntrinsicWidth() / 2, ((this.mBackgroundDrawable.getIntrinsicHeight() + this.aIc.height()) / 2) - this.aIb, this.aGt);
+        if (!ao.isEmpty(this.aIb) && this.mBackgroundDrawable != null) {
+            this.aGu.getTextBounds(this.aIb, 0, this.aIb.length(), this.aId);
+            canvas.drawText(this.aIb, this.mBackgroundDrawable.getIntrinsicWidth() / 2, ((this.mBackgroundDrawable.getIntrinsicHeight() + this.aId.height()) / 2) - this.aIc, this.aGu);
         }
     }
 
     private void initView() {
         Fg();
-        this.aGt = new Paint(1);
-        this.aGt.setColor(al.getColor(e.d.cp_cont_i));
-        this.aGt.setTextSize(com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.tbfontsize26));
-        this.aGt.setTextAlign(Paint.Align.CENTER);
-        this.aGt.setTypeface(Typeface.MONOSPACE);
-        this.aIc = new Rect();
+        this.aGu = new Paint(1);
+        this.aGu.setColor(al.getColor(e.d.cp_cont_i));
+        this.aGu.setTextSize(com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.tbfontsize26));
+        this.aGu.setTextAlign(Paint.Align.CENTER);
+        this.aGu.setTypeface(Typeface.MONOSPACE);
+        this.aId = new Rect();
     }
 
     private void Fg() {
         String str = Build.MODEL;
         if (str.contains("vivo") && str.contains("X20")) {
-            this.aIb = com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.tbds2);
+            this.aIc = com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.tbds2);
         }
     }
 
@@ -124,28 +124,28 @@ public class MessageRedDotView extends View {
         int i2;
         if (i <= 0) {
             i2 = e.f.icon_news_red_dot;
-            this.aIa = null;
+            this.aIb = null;
         } else if (i < 10) {
-            this.aIa = String.valueOf(i);
+            this.aIb = String.valueOf(i);
             i2 = e.f.icon_news_red_dot_one_number;
         } else if (i < 100) {
-            this.aIa = String.valueOf(i);
+            this.aIb = String.valueOf(i);
             i2 = e.f.icon_news_red_dot_two_number;
         } else if (this.mType == 1) {
-            this.aIa = "...";
+            this.aIb = "...";
             i2 = e.f.icon_news_red_dot_two_number;
         } else if (this.mType == 2) {
-            this.aIa = "99+";
+            this.aIb = "99+";
             i2 = e.f.icon_news_red_dot_three_number;
         } else {
             i2 = 0;
         }
-        if (i2 != this.aHY) {
-            this.aHZ = true;
+        if (i2 != this.aHZ) {
+            this.aIa = true;
         } else {
-            this.aHZ = false;
+            this.aIa = false;
         }
-        this.aHY = i2;
+        this.aHZ = i2;
         onChangeSkinType();
     }
 
@@ -154,13 +154,13 @@ public class MessageRedDotView extends View {
     }
 
     public void onChangeSkinType() {
-        this.mBackgroundDrawable = al.getDrawable(this.aHY);
-        this.aHX = al.getDrawable(e.f.icon_news_white_dot);
-        if (this.aGt != null) {
-            this.aGt.setColor(al.getColor(e.d.cp_cont_i));
+        this.mBackgroundDrawable = al.getDrawable(this.aHZ);
+        this.aHY = al.getDrawable(e.f.icon_news_white_dot);
+        if (this.aGu != null) {
+            this.aGu.setColor(al.getColor(e.d.cp_cont_i));
         }
-        if (this.aHZ) {
-            this.aHZ = false;
+        if (this.aIa) {
+            this.aIa = false;
             requestLayout();
             return;
         }

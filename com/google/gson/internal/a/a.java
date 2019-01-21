@@ -11,7 +11,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public final class a<E> extends o<Object> {
-    public static final p iyA = new p() { // from class: com.google.gson.internal.a.a.1
+    public static final p iyB = new p() { // from class: com.google.gson.internal.a.a.1
         @Override // com.google.gson.p
         public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
             Type ccs = aVar.ccs();
@@ -22,12 +22,12 @@ public final class a<E> extends o<Object> {
             return new a(dVar, dVar.a(com.google.gson.b.a.l(i)), C$Gson$Types.g(i));
         }
     };
-    private final Class<E> iyB;
-    private final o<E> iyC;
+    private final Class<E> iyC;
+    private final o<E> iyD;
 
     public a(com.google.gson.d dVar, o<E> oVar, Class<E> cls) {
-        this.iyC = new m(dVar, oVar, cls);
-        this.iyB = cls;
+        this.iyD = new m(dVar, oVar, cls);
+        this.iyC = cls;
     }
 
     @Override // com.google.gson.o
@@ -39,10 +39,10 @@ public final class a<E> extends o<Object> {
         ArrayList arrayList = new ArrayList();
         aVar.beginArray();
         while (aVar.hasNext()) {
-            arrayList.add(this.iyC.b(aVar));
+            arrayList.add(this.iyD.b(aVar));
         }
         aVar.endArray();
-        Object newInstance = Array.newInstance((Class<?>) this.iyB, arrayList.size());
+        Object newInstance = Array.newInstance((Class<?>) this.iyC, arrayList.size());
         for (int i = 0; i < arrayList.size(); i++) {
             Array.set(newInstance, i, arrayList.get(i));
         }
@@ -60,7 +60,7 @@ public final class a<E> extends o<Object> {
         bVar.ccm();
         int length = Array.getLength(obj);
         for (int i = 0; i < length; i++) {
-            this.iyC.a(bVar, Array.get(obj, i));
+            this.iyD.a(bVar, Array.get(obj, i));
         }
         bVar.ccn();
     }

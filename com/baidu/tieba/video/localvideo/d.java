@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 /* loaded from: classes5.dex */
 public class d {
     private long duration;
-    private String hJI;
+    private String hJJ;
     private boolean hasLoaded = false;
     private long lastModified;
     private String mimeType;
@@ -59,7 +59,7 @@ public class d {
     }
 
     public void xi(String str) {
-        this.hJI = str;
+        this.hJJ = str;
     }
 
     public long getLastModified() {

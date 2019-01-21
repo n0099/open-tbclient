@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.ba;
 /* loaded from: classes6.dex */
 public class PraiseView extends BasePraiseView<bb> {
-    private View.OnClickListener aJa;
+    private View.OnClickListener aJb;
 
     public PraiseView(Context context) {
         this(context, null);
@@ -41,8 +41,8 @@ public class PraiseView extends BasePraiseView<bb> {
             this.mData = bbVar;
             this.mThreadId = bbVar.getTid();
             this.mForumId = String.valueOf(bbVar.getFid());
-            this.avJ = ((bb) this.mData).Bf();
-            this.avK = ((bb) this.mData).Bg();
+            this.avK = ((bb) this.mData).Bf();
+            this.avL = ((bb) this.mData).Bg();
             updateUI();
         }
     }
@@ -51,19 +51,19 @@ public class PraiseView extends BasePraiseView<bb> {
     public void updateUI() {
         Context context = getContext();
         long num = getNum();
-        String string = context.getString(this.aFU);
+        String string = context.getString(this.aFV);
         if (num > 0) {
             string = ao.X(num);
         }
-        this.aFZ.setText(string);
-        this.aFZ.setContentDescription(context.getString(this.aFU) + num);
+        this.aGa.setText(string);
+        this.aGa.setContentDescription(context.getString(this.aFV) + num);
         if (this.mData != 0 && ((bb) this.mData).Bh() != 0 && EX()) {
-            this.aGa.setImageDrawable(createStateDrawable(this.aFW, this.aFV));
-            this.aFZ.setTextColor(createColorStateList(this.aFY, this.aFX));
+            this.aGb.setImageDrawable(createStateDrawable(this.aFX, this.aFW));
+            this.aGa.setTextColor(createColorStateList(this.aFZ, this.aFY));
             return;
         }
-        this.aGa.setImageDrawable(createStateDrawable(this.aFV, this.aFW));
-        this.aFZ.setTextColor(createColorStateList(this.aFX, this.aFY));
+        this.aGb.setImageDrawable(createStateDrawable(this.aFW, this.aFX));
+        this.aGa.setTextColor(createColorStateList(this.aFY, this.aFZ));
     }
 
     public int EW() {
@@ -98,12 +98,12 @@ public class PraiseView extends BasePraiseView<bb> {
         updateUI();
         dZ(EW);
         ea(EW);
-        if (this.aFC != null) {
-            this.aFC.onClick(view);
+        if (this.aFD != null) {
+            this.aFD.onClick(view);
         }
         a(EW, (bb) this.mData);
-        if (this.aJa != null && ((bb) this.mData).zY()) {
-            this.aJa.onClick(view);
+        if (this.aJb != null && ((bb) this.mData).zY()) {
+            this.aJb.onClick(view);
         }
         return EW;
     }
@@ -119,6 +119,6 @@ public class PraiseView extends BasePraiseView<bb> {
     }
 
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
-        this.aJa = onClickListener;
+        this.aJb = onClickListener;
     }
 }

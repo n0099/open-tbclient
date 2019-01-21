@@ -1,13 +1,13 @@
 package com.baidu.ubc;
 /* loaded from: classes2.dex */
 class h {
-    private String igb;
     private String igc;
-    private int igd;
-    private String ige;
-    private int igf;
+    private String igd;
+    private int ige;
+    private String igf;
     private int igg;
-    private String igh;
+    private int igh;
+    private String igi;
     private String mCategory;
     private String mId;
     private int mRate;
@@ -15,11 +15,11 @@ class h {
 
     public h(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.igb = str2;
-        this.igc = str3;
-        this.igd = i;
+        this.igc = str2;
+        this.igd = str3;
+        this.ige = i;
         this.mType = str4;
-        this.ige = str5;
+        this.igf = str5;
     }
 
     public String getId() {
@@ -27,15 +27,15 @@ class h {
     }
 
     public String bSs() {
-        return this.igb;
-    }
-
-    public String bSt() {
         return this.igc;
     }
 
-    public int getTimeout() {
+    public String bSt() {
         return this.igd;
+    }
+
+    public int getTimeout() {
+        return this.ige;
     }
 
     public String getType() {
@@ -43,7 +43,7 @@ class h {
     }
 
     public String bSu() {
-        return this.ige;
+        return this.igf;
     }
 
     public int bSv() {
@@ -63,26 +63,26 @@ class h {
     }
 
     public int bSw() {
-        return this.igf;
-    }
-
-    public void xS(int i) {
-        this.igf = i;
-    }
-
-    public int bSx() {
         return this.igg;
     }
 
-    public void xT(int i) {
+    public void xS(int i) {
         this.igg = i;
     }
 
-    public String getIdType() {
+    public int bSx() {
         return this.igh;
     }
 
+    public void xT(int i) {
+        this.igh = i;
+    }
+
+    public String getIdType() {
+        return this.igi;
+    }
+
     public void yy(String str) {
-        this.igh = str;
+        this.igi = str;
     }
 }

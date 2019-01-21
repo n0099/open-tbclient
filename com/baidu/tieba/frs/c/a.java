@@ -26,12 +26,12 @@ import java.util.List;
 import tbclient.OriForumInfo;
 /* loaded from: classes6.dex */
 public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
-    private LinearLayout ecA;
-    private RelationBarView ecB;
-    private ImageView ecv;
-    private TextView ecw;
-    private String ecx;
-    private View ecy;
+    private View ecA;
+    private LinearLayout ecB;
+    private RelationBarView ecC;
+    private ImageView ecw;
+    private TextView ecx;
+    private String ecy;
     private View ecz;
     private TbPageContext mContext;
     private View rootView;
@@ -42,7 +42,7 @@ public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
         @Override // com.baidu.adp.lib.f.b
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             if (aVar != null) {
-                aVar.a(a.this.ecv);
+                aVar.a(a.this.ecw);
             }
         }
 
@@ -64,22 +64,22 @@ public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
     public a(TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
         this.rootView = LayoutInflater.from(tbPageContext.getContext()).inflate(e.h.frs_head_image_item, (ViewGroup) null, false);
-        this.ecy = this.rootView.findViewById(e.g.frs_header_title_container);
-        this.ecv = (ImageView) this.rootView.findViewById(e.g.frs_head_image);
+        this.ecz = this.rootView.findViewById(e.g.frs_header_title_container);
+        this.ecw = (ImageView) this.rootView.findViewById(e.g.frs_head_image);
         this.titleText = (TextView) this.rootView.findViewById(e.g.frs_header_title);
-        this.ecw = (TextView) this.rootView.findViewById(e.g.frs_header_title_lable);
-        this.ecz = this.rootView.findViewById(e.g.frs_image_header_contianer);
+        this.ecx = (TextView) this.rootView.findViewById(e.g.frs_header_title_lable);
+        this.ecA = this.rootView.findViewById(e.g.frs_image_header_contianer);
         aHe();
-        this.ecz.getLayoutParams().height = aHd();
-        this.ecz.requestLayout();
-        this.ecw.setText(tbPageContext.getString(e.j.frs_header_image_lable));
-        this.ecv.setOnClickListener(this);
-        this.ecy.setOnClickListener(this);
+        this.ecA.getLayoutParams().height = aHd();
+        this.ecA.requestLayout();
+        this.ecx.setText(tbPageContext.getString(e.j.frs_header_image_lable));
+        this.ecw.setOnClickListener(this);
         this.ecz.setOnClickListener(this);
-        this.ecA = (LinearLayout) this.rootView.findViewById(e.g.brand_layout);
-        this.ecA.setBackgroundColor(0);
-        this.ecA.setVisibility(0);
-        this.ecB = (RelationBarView) this.rootView.findViewById(e.g.frs_brand_relation_bar_list);
+        this.ecA.setOnClickListener(this);
+        this.ecB = (LinearLayout) this.rootView.findViewById(e.g.brand_layout);
+        this.ecB.setBackgroundColor(0);
+        this.ecB.setVisibility(0);
+        this.ecC = (RelationBarView) this.rootView.findViewById(e.g.frs_brand_relation_bar_list);
     }
 
     private int aHd() {
@@ -113,24 +113,24 @@ public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void onChangeSkinType(int i) {
-        if (this.ecv != null) {
-            al.e(this.ecv, e.d.cp_bg_line_e, i);
-        }
         if (this.ecw != null) {
-            al.c(this.ecw, e.d.cp_cont_i, i);
+            al.e(this.ecw, e.d.cp_bg_line_e, i);
+        }
+        if (this.ecx != null) {
+            al.c(this.ecx, e.d.cp_cont_i, i);
         }
         if (this.titleText != null) {
             al.c(this.titleText, e.d.cp_cont_i, i);
         }
-        if (this.ecB != null) {
-            this.ecB.onChangeSkinType();
+        if (this.ecC != null) {
+            this.ecC.onChangeSkinType();
         }
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void hideTitle() {
-        if (this.ecy != null) {
-            this.ecy.setVisibility(8);
+        if (this.ecz != null) {
+            this.ecz.setVisibility(8);
         }
     }
 
@@ -141,14 +141,14 @@ public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
 
     @Override // com.baidu.tieba.frs.c.a.a
     public LinearLayout aHf() {
-        return this.ecA;
+        return this.ecB;
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void a(com.baidu.tieba.tbadkCore.l lVar, String str) {
-        if (this.ecv != null) {
+        if (this.ecw != null) {
             if (TextUtils.isEmpty(str)) {
-                this.ecv.setBackgroundResource(e.f.bg_frs_brand_head);
+                this.ecw.setBackgroundResource(e.f.bg_frs_brand_head);
             }
             c.jA().a(str, 10, this.mCallback, 0, 0, null, new Object[0]);
         }
@@ -156,35 +156,35 @@ public class a implements View.OnClickListener, com.baidu.tieba.frs.c.a.a {
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void setTitle(String str) {
-        if (this.titleText != null && this.ecw != null) {
+        if (this.titleText != null && this.ecx != null) {
             if (!TextUtils.isEmpty(str)) {
                 this.titleText.setText(str);
                 this.titleText.setVisibility(0);
             } else {
                 this.titleText.setVisibility(8);
             }
-            if (TextUtils.isEmpty(this.ecx)) {
-                this.ecw.setVisibility(8);
+            if (TextUtils.isEmpty(this.ecy)) {
+                this.ecx.setVisibility(8);
             } else {
-                this.ecw.setVisibility(0);
+                this.ecx.setVisibility(0);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.c.a.a
     public void setSchemaUrl(String str) {
-        this.ecx = str;
+        this.ecy = str;
     }
 
     public void bO(List<OriForumInfo> list) {
-        this.ecB.setData(list);
+        this.ecC.setData(list);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (!TextUtils.isEmpty(this.ecx) && this.mContext != null) {
-            TiebaStatic.log(new am("c13109").aB("obj_to", this.ecx));
-            ay.Es().a(this.mContext, new String[]{this.ecx}, true);
+        if (!TextUtils.isEmpty(this.ecy) && this.mContext != null) {
+            TiebaStatic.log(new am("c13109").aB("obj_to", this.ecy));
+            ay.Es().a(this.mContext, new String[]{this.ecy}, true);
         }
     }
 }

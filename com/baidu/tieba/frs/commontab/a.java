@@ -19,17 +19,17 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private BdTypeRecyclerView bRY;
-    private l dPI;
-    private FrsCommonTabFragment dRZ;
-    private i dSa;
+    private BdTypeRecyclerView bRZ;
+    private l dPJ;
+    private FrsCommonTabFragment dSa;
     private i dSb;
-    private com.baidu.tieba.frs.entelechy.a.l dSc;
-    private p dSd;
-    private com.baidu.tieba.frs.entelechy.a.d dSe;
-    private boolean dSf;
+    private i dSc;
+    private com.baidu.tieba.frs.entelechy.a.l dSd;
+    private p dSe;
+    private com.baidu.tieba.frs.entelechy.a.d dSf;
+    private boolean dSg;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
-    private CustomMessageListener dSg = new CustomMessageListener(2003008) { // from class: com.baidu.tieba.frs.commontab.a.1
+    private CustomMessageListener dSh = new CustomMessageListener(2003008) { // from class: com.baidu.tieba.frs.commontab.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -38,8 +38,8 @@ public class a {
                 while (it.hasNext()) {
                     com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
                     if ((aVar instanceof aa) && "FrsHottopicDelegateAdapter".equals(((aa) aVar).aqR()) && a.this.mAdapters != null) {
-                        ((aa) aVar).a(a.this.dRZ.getPageContext(), a.this.dRZ.getUniqueId());
-                        if (a.this.dSf) {
+                        ((aa) aVar).a(a.this.dSa.getPageContext(), a.this.dSa.getUniqueId());
+                        if (a.this.dSg) {
                             ((aa) aVar).setFrom("c13010");
                         }
                         a.this.mAdapters.add(aVar);
@@ -51,37 +51,37 @@ public class a {
 
     public a(FrsCommonTabFragment frsCommonTabFragment, BdTypeRecyclerView bdTypeRecyclerView) {
         a(frsCommonTabFragment, bdTypeRecyclerView);
-        this.bRY = bdTypeRecyclerView;
+        this.bRZ = bdTypeRecyclerView;
     }
 
     public void a(FrsCommonTabFragment frsCommonTabFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.dRZ = frsCommonTabFragment;
-        this.dSg.setPriority(1);
-        this.dSg.setSelfListener(true);
-        this.dRZ.registerListener(this.dSg);
-        this.dSa = new i(frsCommonTabFragment.getPageContext(), bb.atI, this.dRZ.getUniqueId());
-        this.dSa.setVoiceManager(frsCommonTabFragment.getVoiceManager());
-        this.dSb = new i(frsCommonTabFragment.getPageContext(), bb.atK, this.dRZ.getUniqueId());
+        this.dSa = frsCommonTabFragment;
+        this.dSh.setPriority(1);
+        this.dSh.setSelfListener(true);
+        this.dSa.registerListener(this.dSh);
+        this.dSb = new i(frsCommonTabFragment.getPageContext(), bb.atJ, this.dSa.getUniqueId());
         this.dSb.setVoiceManager(frsCommonTabFragment.getVoiceManager());
-        this.dSc = new com.baidu.tieba.frs.entelechy.a.l(frsCommonTabFragment.getPageContext(), bb.atP, this.dRZ.getUniqueId());
-        this.dSd = new p(frsCommonTabFragment.getPageContext(), bb.atL, this.dRZ.getUniqueId());
-        this.dSd.dSl = this.dRZ.dSl;
-        this.dSe = new com.baidu.tieba.frs.entelechy.a.d(frsCommonTabFragment.getPageContext(), bb.atQ, this.dRZ.getUniqueId());
-        this.dSe.dSl = this.dRZ.dSl;
-        this.dPI = new l(frsCommonTabFragment.getPageContext(), m.dOd);
-        this.mAdapters.add(this.dSa);
+        this.dSc = new i(frsCommonTabFragment.getPageContext(), bb.atL, this.dSa.getUniqueId());
+        this.dSc.setVoiceManager(frsCommonTabFragment.getVoiceManager());
+        this.dSd = new com.baidu.tieba.frs.entelechy.a.l(frsCommonTabFragment.getPageContext(), bb.atQ, this.dSa.getUniqueId());
+        this.dSe = new p(frsCommonTabFragment.getPageContext(), bb.atM, this.dSa.getUniqueId());
+        this.dSe.dSm = this.dSa.dSm;
+        this.dSf = new com.baidu.tieba.frs.entelechy.a.d(frsCommonTabFragment.getPageContext(), bb.atR, this.dSa.getUniqueId());
+        this.dSf.dSm = this.dSa.dSm;
+        this.dPJ = new l(frsCommonTabFragment.getPageContext(), m.dOe);
         this.mAdapters.add(this.dSb);
         this.mAdapters.add(this.dSc);
         this.mAdapters.add(this.dSd);
         this.mAdapters.add(this.dSe);
-        this.mAdapters.add(this.dPI);
+        this.mAdapters.add(this.dSf);
+        this.mAdapters.add(this.dPJ);
         if (frsCommonTabFragment.tabId == 89) {
-            this.dSf = true;
-            this.dSa.setFrom("c13010");
+            this.dSg = true;
             this.dSb.setFrom("c13010");
             this.dSc.setFrom("c13010");
             this.dSd.setFrom("c13010");
             this.dSe.setFrom("c13010");
+            this.dSf.setFrom("c13010");
             kb("page_frs_dynamic");
         }
         bdTypeRecyclerView.addAdapters(this.mAdapters);
@@ -89,18 +89,18 @@ public class a {
     }
 
     public void setData(ArrayList<h> arrayList) {
-        this.bRY.setData(arrayList);
+        this.bRZ.setData(arrayList);
     }
 
     private void aEt() {
-        if (this.dRZ != null && !v.I(this.mAdapters)) {
+        if (this.dSa != null && !v.I(this.mAdapters)) {
             for (com.baidu.adp.widget.ListView.a aVar : this.mAdapters) {
                 if (aVar instanceof com.baidu.tieba.frs.e.d) {
                     com.baidu.tieba.frs.e.d dVar = (com.baidu.tieba.frs.e.d) aVar;
                     if (dVar.aFf() != null) {
-                        dVar.aFf().eeJ = this.dRZ.dSk;
-                        dVar.aFf().eeL = this.dRZ.forumId;
-                        dVar.aFf().eeM = this.dRZ.tabId;
+                        dVar.aFf().eeK = this.dSa.dSl;
+                        dVar.aFf().eeM = this.dSa.forumId;
+                        dVar.aFf().eeN = this.dSa.tabId;
                     }
                 }
             }
@@ -108,7 +108,7 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        this.bRY.getAdapter().notifyDataSetChanged();
+        this.bRZ.getAdapter().notifyDataSetChanged();
     }
 
     public void onDestory() {

@@ -5,7 +5,7 @@ import rx.h;
 import rx.internal.operators.cr;
 /* loaded from: classes2.dex */
 public final class ct<T> implements d.a<T> {
-    final h.a<T> iOz;
+    final h.a<T> iOA;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -13,12 +13,12 @@ public final class ct<T> implements d.a<T> {
     }
 
     public ct(h.a<T> aVar) {
-        this.iOz = aVar;
+        this.iOA = aVar;
     }
 
     public void call(rx.j<? super T> jVar) {
         cr.a aVar = new cr.a(jVar);
         jVar.add(aVar);
-        this.iOz.call(aVar);
+        this.iOA.call(aVar);
     }
 }

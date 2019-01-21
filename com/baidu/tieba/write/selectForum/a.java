@@ -15,14 +15,14 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private HotTopicChangeFourmActivity hYv;
+    private HotTopicChangeFourmActivity hYw;
     private final Context mContext;
     private List<HotTopicBussinessData> mData;
     private ViewGroup mParent = null;
 
     public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
-        this.hYv = hotTopicChangeFourmActivity;
-        this.mContext = this.hYv.getPageContext().getContext();
+        this.hYw = hotTopicChangeFourmActivity;
+        this.mContext = this.hYw.getPageContext().getContext();
     }
 
     public void setData(List<HotTopicBussinessData> list) {
@@ -87,11 +87,11 @@ public class a extends BaseAdapter {
         } else {
             c0336a = (C0336a) obj;
         }
-        c0336a.hYx.setText(xV(hotTopicBussinessData.mForumName));
-        c0336a.hYw.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
+        c0336a.hYy.setText(xV(hotTopicBussinessData.mForumName));
+        c0336a.hYx.startLoad(hotTopicBussinessData.mForumAvatar, 10, false);
         al.i(c0336a.mRootView, e.f.select_forum_item_bg);
-        al.h(c0336a.hYx, e.d.cp_cont_b);
-        al.j(c0336a.dUU, e.d.cp_bg_line_e);
+        al.h(c0336a.hYy, e.d.cp_cont_b);
+        al.j(c0336a.dUV, e.d.cp_bg_line_e);
         return c0336a;
     }
 
@@ -99,13 +99,13 @@ public class a extends BaseAdapter {
         C0336a c0336a = new C0336a();
         c0336a.mRootView = LayoutInflater.from(this.mContext).inflate(e.h.hot_topic_change_item, (ViewGroup) null);
         al.i(c0336a.mRootView, e.f.select_forum_item_bg);
-        al.h(c0336a.hYx, e.d.cp_cont_b);
-        c0336a.hYx = (TextView) c0336a.mRootView.findViewById(e.g.fourm_tv);
-        c0336a.dUU = c0336a.mRootView.findViewById(e.g.line_view);
-        c0336a.hYw = (TbImageView) c0336a.mRootView.findViewById(e.g.icon_img);
-        c0336a.hYw.setDefaultBgResource(e.d.cp_bg_line_e);
-        c0336a.hYw.setDefaultResource(e.f.transparent_bg);
-        c0336a.hYw.setDefaultErrorResource(e.f.icon_default_ba_120);
+        al.h(c0336a.hYy, e.d.cp_cont_b);
+        c0336a.hYy = (TextView) c0336a.mRootView.findViewById(e.g.fourm_tv);
+        c0336a.dUV = c0336a.mRootView.findViewById(e.g.line_view);
+        c0336a.hYx = (TbImageView) c0336a.mRootView.findViewById(e.g.icon_img);
+        c0336a.hYx.setDefaultBgResource(e.d.cp_bg_line_e);
+        c0336a.hYx.setDefaultResource(e.f.transparent_bg);
+        c0336a.hYx.setDefaultErrorResource(e.f.icon_default_ba_120);
         c0336a.mRootView.setTag(c0336a);
         return c0336a;
     }
@@ -114,9 +114,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.write.selectForum.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0336a {
-        public View dUU;
-        public TbImageView hYw;
-        public TextView hYx;
+        public View dUV;
+        public TbImageView hYx;
+        public TextView hYy;
         public View mRootView;
 
         private C0336a() {

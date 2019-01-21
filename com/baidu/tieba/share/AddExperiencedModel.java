@@ -23,10 +23,10 @@ public class AddExperiencedModel extends BdBaseModel {
     public static int MAX_ADD_ADVANCED = 6;
     public static int MAX_ADD_NORMAL = 3;
     public static String USELESS_FORUM_ID = "24981790";
-    private HttpMessageListener aCw;
-    private a hdv;
-    private ContriInfo hdw;
-    private Runnable hdx;
+    private HttpMessageListener aCx;
+    private a hdw;
+    private ContriInfo hdx;
+    private Runnable hdy;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -35,26 +35,26 @@ public class AddExperiencedModel extends BdBaseModel {
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.hdx = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
+        this.hdy = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
             @Override // java.lang.Runnable
             public void run() {
-                if (AddExperiencedModel.this.hdv != null) {
-                    AddExperiencedModel.this.hdv.b(AddExperiencedModel.this.hdw);
+                if (AddExperiencedModel.this.hdw != null) {
+                    AddExperiencedModel.this.hdw.b(AddExperiencedModel.this.hdx);
                 }
             }
         };
-        this.aCw = new HttpMessageListener(CmdConfigHttp.CMD_ADD_EXPERIENCED, true) { // from class: com.baidu.tieba.share.AddExperiencedModel.2
+        this.aCx = new HttpMessageListener(CmdConfigHttp.CMD_ADD_EXPERIENCED, true) { // from class: com.baidu.tieba.share.AddExperiencedModel.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
-                    AddExperiencedModel.this.hdw = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                    e.jG().postDelayed(AddExperiencedModel.this.hdx, SystemScreenshotManager.DELAY_TIME);
+                    AddExperiencedModel.this.hdx = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
+                    e.jG().postDelayed(AddExperiencedModel.this.hdy, SystemScreenshotManager.DELAY_TIME);
                 }
             }
         };
         registerTask();
-        registerListener(this.aCw);
+        registerListener(this.aCx);
     }
 
     private void registerTask() {
@@ -124,10 +124,10 @@ public class AddExperiencedModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.hdv = aVar;
+        this.hdw = aVar;
     }
 
     public void onDestroy() {
-        e.jG().removeCallbacks(this.hdx);
+        e.jG().removeCallbacks(this.hdy);
     }
 }

@@ -13,18 +13,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class b implements com.baidu.tieba.c.a {
-    private EnterForumModel drY;
-    private a.InterfaceC0205a dsr;
-    private final EnterForumModel.b dsl = new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.b.1
+    private EnterForumModel drZ;
+    private a.InterfaceC0205a dss;
+    private final EnterForumModel.b dsm = new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.home.b.1
         @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
         public void a(EnterForumModel.a aVar) {
-            if (b.this.dsr != null) {
-                if (aVar == null || !aVar.dsM || aVar.dsN == null || aVar.dsN.awc() == null) {
-                    b.this.dsr.a(null, false, 1, 0);
+            if (b.this.dss != null) {
+                if (aVar == null || !aVar.dsN || aVar.dsO == null || aVar.dsO.awc() == null) {
+                    b.this.dss.a(null, false, 1, 0);
                     return;
                 }
                 ArrayList<TransmitForumData> arrayList = new ArrayList<>();
-                ArrayList<f> awi = aVar.dsN.awc().awi();
+                ArrayList<f> awi = aVar.dsO.awc().awi();
                 if (v.H(awi) > 0) {
                     Iterator<f> it = awi.iterator();
                     while (it.hasNext()) {
@@ -34,40 +34,40 @@ public class b implements com.baidu.tieba.c.a {
                         }
                     }
                 }
-                b.this.dsr.a(arrayList, true, 1, 0);
+                b.this.dss.a(arrayList, true, 1, 0);
             }
         }
     };
-    private com.baidu.adp.framework.listener.a dss = new com.baidu.adp.framework.listener.a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011) { // from class: com.baidu.tieba.enterForum.home.b.2
+    private com.baidu.adp.framework.listener.a dst = new com.baidu.adp.framework.listener.a(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011) { // from class: com.baidu.tieba.enterForum.home.b.2
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && b.this.drY.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
+            if (((responsedMessage instanceof forumRecommendSocketResponseMessage) || (responsedMessage instanceof forumRecommendHttpResponseMessage)) && b.this.drZ.getUniqueId() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError()) {
                 if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                    b.this.drY.a((forumRecommendSocketResponseMessage) responsedMessage);
+                    b.this.drZ.a((forumRecommendSocketResponseMessage) responsedMessage);
                 }
                 if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    b.this.drY.a((forumRecommendHttpResponseMessage) responsedMessage);
+                    b.this.drZ.a((forumRecommendHttpResponseMessage) responsedMessage);
                 }
             }
         }
     };
 
     public b() {
-        this.drY = null;
-        this.drY = new EnterForumModel(null);
-        this.drY.a(this.dsl);
-        MessageManager.getInstance().registerListener(this.dss);
+        this.drZ = null;
+        this.drZ = new EnterForumModel(null);
+        this.drZ.a(this.dsm);
+        MessageManager.getInstance().registerListener(this.dst);
     }
 
     @Override // com.baidu.tieba.c.a
     public void asq() {
-        if (this.dsr != null && this.drY != null) {
-            this.drY.gg(true);
+        if (this.dss != null && this.drZ != null) {
+            this.drZ.gg(true);
         }
     }
 
     @Override // com.baidu.tieba.c.a
     public void a(a.InterfaceC0205a interfaceC0205a) {
-        this.dsr = interfaceC0205a;
+        this.dss = interfaceC0205a;
     }
 }

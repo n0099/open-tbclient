@@ -13,11 +13,11 @@ import com.baidu.tieba.forumMember.member.p;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class h extends BaseAdapter {
-    private int cvU;
-    private b dHE;
-    private ArrayList<i> dHG = new ArrayList<>();
-    private p dHH;
-    private int dHI;
+    private int cvV;
+    private b dHF;
+    private ArrayList<i> dHH = new ArrayList<>();
+    private p dHI;
+    private int dHJ;
     private TbPageContext<?> mContext;
 
     /* loaded from: classes3.dex */
@@ -26,17 +26,17 @@ public class h extends BaseAdapter {
     }
 
     public h(TbPageContext<?> tbPageContext) {
-        this.cvU = 0;
-        this.dHI = 0;
+        this.cvV = 0;
+        this.dHJ = 0;
         this.mContext = tbPageContext;
-        this.cvU = l.h(tbPageContext.getPageActivity(), e.C0210e.ds24);
-        this.dHI = l.h(tbPageContext.getPageActivity(), e.C0210e.ds30);
+        this.cvV = l.h(tbPageContext.getPageActivity(), e.C0210e.ds24);
+        this.dHJ = l.h(tbPageContext.getPageActivity(), e.C0210e.ds30);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.dHG != null) {
-            return this.dHG.size();
+        if (this.dHH != null) {
+            return this.dHH.size();
         }
         return 0;
     }
@@ -45,10 +45,10 @@ public class h extends BaseAdapter {
     @Override // android.widget.Adapter
     /* renamed from: lX */
     public i getItem(int i) {
-        if (this.dHG == null || i >= this.dHG.size()) {
+        if (this.dHH == null || i >= this.dHH.size()) {
             return null;
         }
-        return this.dHG.get(i);
+        return this.dHH.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -86,92 +86,92 @@ public class h extends BaseAdapter {
         } else if (getItemViewType(i) == 1) {
             if (view != null && (view.getTag() instanceof c)) {
                 c cVar2 = (c) view.getTag();
-                cVar2.dHL.setVisibility(0);
-                cVar2.dHM.setVisibility(8);
+                cVar2.dHM.setVisibility(0);
                 cVar2.dHN.setVisibility(8);
                 cVar2.dHO.setVisibility(8);
+                cVar2.dHP.setVisibility(8);
                 cVar = cVar2;
             } else {
                 view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(e.h.bawu_item_member, viewGroup, false);
                 c cVar3 = new c();
-                cVar3.dHK = (RelativeLayout) view.findViewById(e.g.bawu_item_member_root);
-                cVar3.dHL = (BawuMemberInfoView) view.findViewById(e.g.left_member);
-                cVar3.dHM = (BawuMemberInfoView) view.findViewById(e.g.right_member);
-                cVar3.dHN = (BawuManagerApplyInfoView) view.findViewById(e.g.left_manager_apply);
-                cVar3.dHO = (BawuManagerApplyInfoView) view.findViewById(e.g.right_manager_apply);
+                cVar3.dHL = (RelativeLayout) view.findViewById(e.g.bawu_item_member_root);
+                cVar3.dHM = (BawuMemberInfoView) view.findViewById(e.g.left_member);
+                cVar3.dHN = (BawuMemberInfoView) view.findViewById(e.g.right_member);
+                cVar3.dHO = (BawuManagerApplyInfoView) view.findViewById(e.g.left_manager_apply);
+                cVar3.dHP = (BawuManagerApplyInfoView) view.findViewById(e.g.right_manager_apply);
                 view.setTag(cVar3);
                 cVar = cVar3;
             }
             com.baidu.tieba.forumMember.bawu.b bVar = (com.baidu.tieba.forumMember.bawu.b) getItem(i);
             if (bVar != null && bVar.aAv() != null && bVar.aAv().size() > 0) {
                 if (bVar.isLast()) {
-                    cVar.dHK.setPadding(this.cvU, 0, this.cvU, this.dHI);
-                    if (this.dHH != null && !this.dHH.isEmpty()) {
+                    cVar.dHL.setPadding(this.cvV, 0, this.cvV, this.dHJ);
+                    if (this.dHI != null && !this.dHI.isEmpty()) {
                         if (bVar.aAv().size() == 2) {
                             if (bVar.aAw().equals(this.mContext.getResources().getString(e.j.bawu_member_bazhu_tip))) {
-                                cVar.dHO.setVisibility(8);
-                                cVar.dHN.setVisibility(0);
-                                cVar.dHN.ac(this.mContext.getResources().getString(e.j.tip_manager_apply), this.dHH.aAH());
-                                cVar.dHN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.1
+                                cVar.dHP.setVisibility(8);
+                                cVar.dHO.setVisibility(0);
+                                cVar.dHO.ac(this.mContext.getResources().getString(e.j.tip_manager_apply), this.dHI.aAH());
+                                cVar.dHO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.1
                                     @Override // android.view.View.OnClickListener
                                     public void onClick(View view2) {
-                                        if (h.this.dHE != null) {
-                                            h.this.dHE.oi(h.this.dHH.aAK());
+                                        if (h.this.dHF != null) {
+                                            h.this.dHF.oi(h.this.dHI.aAK());
                                         }
                                     }
                                 });
                             } else if (bVar.aAw().equals(this.mContext.getResources().getString(e.j.bawu_member_xbazhu_tip))) {
-                                cVar.dHO.setVisibility(8);
-                                cVar.dHN.setVisibility(0);
-                                cVar.dHN.ac(this.mContext.getResources().getString(e.j.tip_assist_apply), this.dHH.aAJ());
-                                cVar.dHN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.2
+                                cVar.dHP.setVisibility(8);
+                                cVar.dHO.setVisibility(0);
+                                cVar.dHO.ac(this.mContext.getResources().getString(e.j.tip_assist_apply), this.dHI.aAJ());
+                                cVar.dHO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.2
                                     @Override // android.view.View.OnClickListener
                                     public void onClick(View view2) {
-                                        if (h.this.dHE != null) {
-                                            h.this.dHE.oi(h.this.dHH.aAL());
+                                        if (h.this.dHF != null) {
+                                            h.this.dHF.oi(h.this.dHI.aAL());
                                         }
                                     }
                                 });
                             }
                         } else if (bVar.aAw().equals(this.mContext.getResources().getString(e.j.bawu_member_bazhu_tip))) {
-                            cVar.dHM.setVisibility(8);
-                            cVar.dHO.setVisibility(0);
                             cVar.dHN.setVisibility(8);
-                            cVar.dHO.ac(this.mContext.getResources().getString(e.j.tip_manager_apply), this.dHH.aAH());
-                            cVar.dHO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.3
+                            cVar.dHP.setVisibility(0);
+                            cVar.dHO.setVisibility(8);
+                            cVar.dHP.ac(this.mContext.getResources().getString(e.j.tip_manager_apply), this.dHI.aAH());
+                            cVar.dHP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.3
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view2) {
-                                    if (h.this.dHE != null) {
-                                        h.this.dHE.oi(h.this.dHH.aAK());
+                                    if (h.this.dHF != null) {
+                                        h.this.dHF.oi(h.this.dHI.aAK());
                                     }
                                 }
                             });
                         } else if (bVar.aAw().equals(this.mContext.getResources().getString(e.j.bawu_member_xbazhu_tip))) {
-                            cVar.dHM.setVisibility(8);
-                            cVar.dHO.setVisibility(0);
                             cVar.dHN.setVisibility(8);
-                            cVar.dHO.ac(this.mContext.getResources().getString(e.j.tip_assist_apply), this.dHH.aAJ());
-                            cVar.dHO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.4
+                            cVar.dHP.setVisibility(0);
+                            cVar.dHO.setVisibility(8);
+                            cVar.dHP.ac(this.mContext.getResources().getString(e.j.tip_assist_apply), this.dHI.aAJ());
+                            cVar.dHP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.forumMember.bawu.h.4
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view2) {
-                                    if (h.this.dHE != null) {
-                                        h.this.dHE.oi(h.this.dHH.aAL());
+                                    if (h.this.dHF != null) {
+                                        h.this.dHF.oi(h.this.dHI.aAL());
                                     }
                                 }
                             });
                         }
                     }
                 } else {
-                    cVar.dHK.setPadding(this.cvU, 0, this.cvU, 0);
-                    cVar.dHN.setVisibility(8);
+                    cVar.dHL.setPadding(this.cvV, 0, this.cvV, 0);
                     cVar.dHO.setVisibility(8);
+                    cVar.dHP.setVisibility(8);
                 }
-                cVar.dHL.a(bVar.aAv().get(0));
+                cVar.dHM.a(bVar.aAv().get(0));
                 if (bVar.aAv().size() >= 2) {
-                    cVar.dHM.a(bVar.aAv().get(1));
-                    cVar.dHM.setVisibility(0);
+                    cVar.dHN.a(bVar.aAv().get(1));
+                    cVar.dHN.setVisibility(0);
                 } else {
-                    cVar.dHM.setVisibility(8);
+                    cVar.dHN.setVisibility(8);
                 }
                 this.mContext.getLayoutMode().onModeChanged(view);
             }
@@ -190,24 +190,24 @@ public class h extends BaseAdapter {
     }
 
     public void N(ArrayList<i> arrayList) {
-        this.dHG = arrayList;
+        this.dHH = arrayList;
     }
 
     public void a(p pVar) {
-        this.dHH = pVar;
+        this.dHI = pVar;
     }
 
     public void a(b bVar) {
-        this.dHE = bVar;
+        this.dHF = bVar;
     }
 
     /* loaded from: classes3.dex */
     public class c {
-        RelativeLayout dHK;
-        BawuMemberInfoView dHL;
+        RelativeLayout dHL;
         BawuMemberInfoView dHM;
-        BawuManagerApplyInfoView dHN;
+        BawuMemberInfoView dHN;
         BawuManagerApplyInfoView dHO;
+        BawuManagerApplyInfoView dHP;
 
         public c() {
         }

@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseInfoLayout {
-    private View.OnClickListener aIZ;
+    private View.OnClickListener aJa;
 
     public PbThreadCommentAndPraiseInfoLayout(Context context) {
         super(context);
@@ -29,37 +29,26 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         setNeedAddPraiseIcon(true);
         setNeedAddReplyIcon(true);
         setShareVisible(true);
-        this.aFG.setDisPraiseFrom(7);
         this.aFH.setDisPraiseFrom(7);
+        this.aFI.setDisPraiseFrom(7);
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     protected void N(View view) {
-        if (this.aIZ != null) {
-            this.aIZ.onClick(view);
+        if (this.aJa != null) {
+            this.aJa.onClick(view);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     protected void O(View view) {
-        if (this.aIZ != null) {
-            this.aIZ.onClick(view);
+        if (this.aJa != null) {
+            this.aJa.onClick(view);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     protected void P(View view) {
-        if (ba.bJ(getContext())) {
-            if (!com.baidu.adp.lib.util.l.ll()) {
-                com.baidu.adp.lib.util.l.showToast(getContext(), e.j.no_network_guide);
-            } else if (this.aFG != null) {
-                this.aFG.L(view);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    protected void Q(View view) {
         if (ba.bJ(getContext())) {
             if (!com.baidu.adp.lib.util.l.ll()) {
                 com.baidu.adp.lib.util.l.showToast(getContext(), e.j.no_network_guide);
@@ -69,22 +58,33 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         }
     }
 
+    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
+    protected void Q(View view) {
+        if (ba.bJ(getContext())) {
+            if (!com.baidu.adp.lib.util.l.ll()) {
+                com.baidu.adp.lib.util.l.showToast(getContext(), e.j.no_network_guide);
+            } else if (this.aFI != null) {
+                this.aFI.L(view);
+            }
+        }
+    }
+
     public void gF(String str) {
-        if (this.aFI != null && !TextUtils.isEmpty(str) && str.equals(this.aFI.getTid())) {
-            P(this.aFG);
+        if (this.aFJ != null && !TextUtils.isEmpty(str) && str.equals(this.aFJ.getTid())) {
+            P(this.aFH);
         }
     }
 
     public void setPostId(String str) {
-        if (this.aFG != null) {
-            this.aFG.setPostId(str);
-        }
         if (this.aFH != null) {
             this.aFH.setPostId(str);
+        }
+        if (this.aFI != null) {
+            this.aFI.setPostId(str);
         }
     }
 
     public void setOnClickOutListener(View.OnClickListener onClickListener) {
-        this.aIZ = onClickListener;
+        this.aJa = onClickListener;
     }
 }

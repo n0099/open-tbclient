@@ -14,8 +14,8 @@ import java.util.HashMap;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes.dex */
 public class BdToast {
-    private static SoftReference<Toast> axy;
-    private static HashMap<DefaultIcon, Integer> axz = new HashMap<>(2);
+    private static HashMap<DefaultIcon, Integer> axA = new HashMap<>(2);
+    private static SoftReference<Toast> axz;
     private Toast Gv;
     private final Context mContext;
     private final ImageView mIconView;
@@ -37,9 +37,9 @@ public class BdToast {
     }
 
     static {
-        axz.put(DefaultIcon.SUCCESS, Integer.valueOf(e.f.icon_unite_pass));
-        axz.put(DefaultIcon.FAILURE, Integer.valueOf(e.f.icon_unite_lose));
-        axz.put(DefaultIcon.NOT, 0);
+        axA.put(DefaultIcon.SUCCESS, Integer.valueOf(e.f.icon_unite_pass));
+        axA.put(DefaultIcon.FAILURE, Integer.valueOf(e.f.icon_unite_lose));
+        axA.put(DefaultIcon.NOT, 0);
     }
 
     private BdToast(Context context) {
@@ -102,10 +102,10 @@ public class BdToast {
     }
 
     private void BZ() {
-        if (axy != null && axy.get() != null) {
-            axy.get().cancel();
+        if (axz != null && axz.get() != null) {
+            axz.get().cancel();
         }
-        axy = new SoftReference<>(this.Gv);
+        axz = new SoftReference<>(this.Gv);
     }
 
     private void dp(int i) {
@@ -139,10 +139,10 @@ public class BdToast {
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon) {
-        return new BdToast(context).d(charSequence).dm(axz.get(defaultIcon).intValue()).BY();
+        return new BdToast(context).d(charSequence).dm(axA.get(defaultIcon).intValue()).BY();
     }
 
     public static BdToast a(Context context, CharSequence charSequence, DefaultIcon defaultIcon, int i) {
-        return new BdToast(context).d(charSequence).dm(axz.get(defaultIcon).intValue()).m16do(i).BY();
+        return new BdToast(context).d(charSequence).dm(axA.get(defaultIcon).intValue()).m16do(i).BY();
     }
 }

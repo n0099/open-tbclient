@@ -15,20 +15,20 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public final class i implements p {
-    private final com.google.gson.internal.b ixh;
-    private final com.google.gson.internal.c ixi;
-    private final d ixp;
-    private final com.google.gson.c iyX;
+    private final com.google.gson.internal.b ixi;
+    private final com.google.gson.internal.c ixj;
+    private final d ixq;
+    private final com.google.gson.c iyY;
 
     public i(com.google.gson.internal.b bVar, com.google.gson.c cVar, com.google.gson.internal.c cVar2, d dVar) {
-        this.ixh = bVar;
-        this.iyX = cVar;
-        this.ixi = cVar2;
-        this.ixp = dVar;
+        this.ixi = bVar;
+        this.iyY = cVar;
+        this.ixj = cVar2;
+        this.ixq = dVar;
     }
 
     public boolean a(Field field, boolean z) {
-        return a(field, z, this.ixi);
+        return a(field, z, this.ixj);
     }
 
     static boolean a(Field field, boolean z, com.google.gson.internal.c cVar) {
@@ -38,7 +38,7 @@ public final class i implements p {
     private List<String> a(Field field) {
         com.google.gson.a.c cVar = (com.google.gson.a.c) field.getAnnotation(com.google.gson.a.c.class);
         if (cVar == null) {
-            return Collections.singletonList(this.iyX.translateName(field));
+            return Collections.singletonList(this.iyY.translateName(field));
         }
         String value = cVar.value();
         String[] cbR = cVar.cbR();
@@ -59,7 +59,7 @@ public final class i implements p {
         if (!Object.class.isAssignableFrom(ccr)) {
             return null;
         }
-        return new a(this.ixh.b(aVar), a(dVar, (com.google.gson.b.a<?>) aVar, (Class<?>) ccr));
+        return new a(this.ixi.b(aVar), a(dVar, (com.google.gson.b.a<?>) aVar, (Class<?>) ccr));
     }
 
     private b a(final com.google.gson.d dVar, final Field field, String str, final com.google.gson.b.a<?> aVar, boolean z, boolean z2) {
@@ -67,7 +67,7 @@ public final class i implements p {
         com.google.gson.a.b bVar = (com.google.gson.a.b) field.getAnnotation(com.google.gson.a.b.class);
         final o<?> oVar = null;
         if (bVar != null) {
-            oVar = this.ixp.a(this.ixh, dVar, aVar, bVar);
+            oVar = this.ixq.a(this.ixi, dVar, aVar, bVar);
         }
         final boolean z3 = oVar != null;
         if (oVar == null) {
@@ -89,7 +89,7 @@ public final class i implements p {
 
             @Override // com.google.gson.internal.a.i.b
             public boolean aS(Object obj) throws IOException, IllegalAccessException {
-                return this.izg && field.get(obj) != obj;
+                return this.izh && field.get(obj) != obj;
             }
         };
     }
@@ -137,8 +137,8 @@ public final class i implements p {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static abstract class b {
-        final boolean izg;
         final boolean izh;
+        final boolean izi;
         final String name;
 
         abstract void a(com.google.gson.stream.a aVar, Object obj) throws IOException, IllegalAccessException;
@@ -149,19 +149,19 @@ public final class i implements p {
 
         protected b(String str, boolean z, boolean z2) {
             this.name = str;
-            this.izg = z;
-            this.izh = z2;
+            this.izh = z;
+            this.izi = z2;
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class a<T> extends o<T> {
-        private final com.google.gson.internal.e<T> iyE;
-        private final Map<String, b> izf;
+        private final com.google.gson.internal.e<T> iyF;
+        private final Map<String, b> izg;
 
         a(com.google.gson.internal.e<T> eVar, Map<String, b> map) {
-            this.iyE = eVar;
-            this.izf = map;
+            this.iyF = eVar;
+            this.izg = map;
         }
 
         @Override // com.google.gson.o
@@ -170,12 +170,12 @@ public final class i implements p {
                 aVar.nextNull();
                 return null;
             }
-            T cbT = this.iyE.cbT();
+            T cbT = this.iyF.cbT();
             try {
                 aVar.beginObject();
                 while (aVar.hasNext()) {
-                    b bVar = this.izf.get(aVar.nextName());
-                    if (bVar == null || !bVar.izh) {
+                    b bVar = this.izg.get(aVar.nextName());
+                    if (bVar == null || !bVar.izi) {
                         aVar.skipValue();
                     } else {
                         bVar.a(aVar, cbT);
@@ -198,7 +198,7 @@ public final class i implements p {
             }
             bVar.cco();
             try {
-                for (b bVar2 : this.izf.values()) {
+                for (b bVar2 : this.izg.values()) {
                     if (bVar2.aS(t)) {
                         bVar.zM(bVar2.name);
                         bVar2.a(bVar, t);

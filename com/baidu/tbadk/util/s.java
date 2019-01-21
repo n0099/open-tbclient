@@ -31,26 +31,26 @@ public final class s {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static final class a {
-        private static a bjv;
-        private final Properties bjw = new Properties();
+        private static a bjw;
+        private final Properties bjx = new Properties();
 
         private a() throws IOException {
-            this.bjw.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
+            this.bjx.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
         }
 
         public static a Qw() throws IOException {
-            if (bjv == null) {
+            if (bjw == null) {
                 synchronized (a.class) {
-                    if (bjv == null) {
-                        bjv = new a();
+                    if (bjw == null) {
+                        bjw = new a();
                     }
                 }
             }
-            return bjv;
+            return bjw;
         }
 
         public String getProperty(String str) {
-            return this.bjw.getProperty(str);
+            return this.bjx.getProperty(str);
         }
     }
 }

@@ -58,8 +58,8 @@ import java.util.List;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes6.dex */
 public class PassManagerStatic {
-    private static boolean fQt = false;
-    private static SapiConfiguration fQu;
+    private static boolean fQu = false;
+    private static SapiConfiguration fQv;
 
     static {
         Wr();
@@ -140,7 +140,7 @@ public class PassManagerStatic {
     }
 
     private static void bgq() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(com.baidu.tbadk.core.frameworkData.a.ays, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.11
+        CustomMessageTask customMessageTask = new CustomMessageTask(com.baidu.tbadk.core.frameworkData.a.ayt, new CustomMessageTask.CustomRunnable<Context>() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.11
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Context> customMessage) {
                 if (customMessage != null && (customMessage.getData() instanceof Context)) {
@@ -166,9 +166,9 @@ public class PassManagerStatic {
         SapiAccountManager.registerReceiveShareListener(new SapiAccountManager.ReceiveShareListener() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.13
             @Override // com.baidu.sapi2.SapiAccountManager.ReceiveShareListener
             public void onReceiveShare() {
-                if (PassManagerStatic.fQu != null) {
+                if (PassManagerStatic.fQv != null) {
                     try {
-                        SapiAccountManager.getInstance().init(PassManagerStatic.fQu);
+                        SapiAccountManager.getInstance().init(PassManagerStatic.fQv);
                     } catch (Exception e) {
                         BdLog.e(e);
                     }
@@ -187,19 +187,19 @@ public class PassManagerStatic {
         }
         SapiConfiguration.Builder builder = new SapiConfiguration.Builder(context);
         if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("is_domain_qa", false)) {
-            com.baidu.tbadk.coreExtra.a.b.aNB = Domain.DOMAIN_QA;
+            com.baidu.tbadk.coreExtra.a.b.aNC = Domain.DOMAIN_QA;
             builder.setRuntimeEnvironment(Domain.DOMAIN_QA);
         } else {
-            builder.setRuntimeEnvironment(com.baidu.tbadk.coreExtra.a.b.aNB);
+            builder.setRuntimeEnvironment(com.baidu.tbadk.coreExtra.a.b.aNC);
         }
         builder.setProductLineInfo(TbConfig.PassConfig.TPL, "1", TbConfig.PassConfig.ENC_KEY).sofireSdkConfig("200033", "ea737e4f435b53786043369d2e5ace4f", 1).customActionBar(true).initialShareStrategy(LoginShareStrategy.SILENT).skin("file:///android_asset/sapi_theme/style.css").fastRegConfirm(bgt()).fastRegConfirmMsg(str).fastLoginSupport(bgr()).wxAppID(TbConfig.WEIXIN_SHARE_APP_ID).biometricTypeSupport(BiometricType.LIVENESS_RECOG).qqAppID("101462192").sinaAppID("1511099634", "https://passport.baidu.com").setSupportFaceLogin(true).forbidPresetPhoneNumber(true);
-        if (com.baidu.tbadk.coreExtra.a.b.aNB == Domain.DOMAIN_QA) {
+        if (com.baidu.tbadk.coreExtra.a.b.aNC == Domain.DOMAIN_QA) {
             builder.setRuntimeEnvironment(Domain.DOMAIN_QA.forceHttps(true));
             builder.debug(true);
         }
-        fQu = builder.build();
+        fQv = builder.build();
         try {
-            SapiAccountManager.getInstance().init(fQu);
+            SapiAccountManager.getInstance().init(fQv);
             WbSdk.install(context, new AuthInfo(context, "1511099634", "https://passport.baidu.com", "invitation_write"));
         } catch (Exception e2) {
             BdLog.e(e2);
@@ -270,13 +270,13 @@ public class PassManagerStatic {
         CustomMessageTask customMessageTask = new CustomMessageTask(2921332, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.passaccount.framework.PassManagerStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-                if (!PassManagerStatic.fQt) {
+                if (!PassManagerStatic.fQu) {
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put(BaiduRimConstants.RIM_ID_KEY, "2100020001");
                     hashMap.put(BaiduRimConstants.TPL_INIT_KEY, "1200020868");
                     hashMap.put("appkey", "ef4b7e008deab5c6fd206d180c5967039bfa8120");
                     BaiduRIM.getInstance().initRIM(TbadkApplication.getInst().getContext(), hashMap);
-                    boolean unused = PassManagerStatic.fQt = true;
+                    boolean unused = PassManagerStatic.fQu = true;
                 }
                 return null;
             }
@@ -291,8 +291,8 @@ public class PassManagerStatic {
             public CustomResponsedMessage<?> run(CustomMessage<com.baidu.tieba.passaccount.a> customMessage) {
                 if (customMessage != null && (customMessage.getData() instanceof com.baidu.tieba.passaccount.a)) {
                     com.baidu.tieba.passaccount.a data = customMessage.getData();
-                    if (data.fQb != null && data.fQc != null && (data.fQc instanceof SendAuth.Resp)) {
-                        PassportSDK.getInstance().handleWXLoginResp(data.fQb, ((SendAuth.Resp) data.fQc).state, ((SendAuth.Resp) data.fQc).code, data.fQc.errCode);
+                    if (data.fQc != null && data.fQd != null && (data.fQd instanceof SendAuth.Resp)) {
+                        PassportSDK.getInstance().handleWXLoginResp(data.fQc, ((SendAuth.Resp) data.fQd).state, ((SendAuth.Resp) data.fQd).code, data.fQd.errCode);
                     }
                 }
                 return null;
@@ -304,9 +304,9 @@ public class PassManagerStatic {
 
     public static void bgw() {
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            fQu.isNightMode = true;
+            fQv.isNightMode = true;
         } else {
-            fQu.isNightMode = false;
+            fQv.isNightMode = false;
         }
     }
 

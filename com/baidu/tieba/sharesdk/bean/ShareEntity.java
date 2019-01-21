@@ -27,7 +27,7 @@ public class ShareEntity implements Parcelable {
             shareEntity.k(parcel.readBundle());
             shareEntity.uS(parcel.readInt());
             shareEntity.topic = parcel.readString();
-            shareEntity.aSX = parcel.readString();
+            shareEntity.aSY = parcel.readString();
             return shareEntity;
         }
 
@@ -38,12 +38,12 @@ public class ShareEntity implements Parcelable {
             return new ShareEntity[i];
         }
     };
-    private String aSN;
-    private Location aSO;
-    public String aSX;
-    private Bundle aSZ;
+    private String aSO;
+    private Location aSP;
+    public String aSY;
+    private Bundle aTa;
     private String content;
-    private int hdF;
+    private int hdG;
     private Uri imageUri;
     private String linkUrl;
     private int shareType;
@@ -52,11 +52,11 @@ public class ShareEntity implements Parcelable {
     private String videoUrl;
 
     public void k(Bundle bundle) {
-        this.aSZ = bundle;
+        this.aTa = bundle;
     }
 
     public Bundle Kw() {
-        return this.aSZ;
+        return this.aTa;
     }
 
     public String getVideoUrl() {
@@ -92,11 +92,11 @@ public class ShareEntity implements Parcelable {
     }
 
     public void hq(String str) {
-        this.aSN = str;
+        this.aSO = str;
     }
 
     public String sb() {
-        return this.aSN;
+        return this.aSO;
     }
 
     public String yF() {
@@ -112,15 +112,15 @@ public class ShareEntity implements Parcelable {
     }
 
     public void setLocation(Location location) {
-        this.aSO = location;
+        this.aSP = location;
     }
 
     public int bAa() {
-        return this.hdF;
+        return this.hdG;
     }
 
     public void uR(int i) {
-        this.hdF = i;
+        this.hdG = i;
     }
 
     public int bAb() {
@@ -132,7 +132,7 @@ public class ShareEntity implements Parcelable {
     }
 
     public boolean bAc() {
-        return this.shareType != 0 && (this.hdF == 8 || this.hdF == 4 || this.hdF == 3 || this.hdF == 2);
+        return this.shareType != 0 && (this.hdG == 8 || this.hdG == 4 || this.hdG == 3 || this.hdG == 2);
     }
 
     @Override // android.os.Parcelable
@@ -145,14 +145,14 @@ public class ShareEntity implements Parcelable {
         parcel.writeString(this.title);
         parcel.writeString(this.content);
         parcel.writeString(this.linkUrl);
-        parcel.writeString(this.aSN);
-        parcel.writeInt(this.hdF);
+        parcel.writeString(this.aSO);
+        parcel.writeInt(this.hdG);
         parcel.writeString(this.videoUrl);
         parcel.writeParcelable(this.imageUri, i);
-        parcel.writeParcelable(this.aSO, i);
-        parcel.writeBundle(this.aSZ);
+        parcel.writeParcelable(this.aSP, i);
+        parcel.writeBundle(this.aTa);
         parcel.writeInt(this.shareType);
         parcel.writeString(this.topic);
-        parcel.writeString(this.aSX);
+        parcel.writeString(this.aSY);
     }
 }

@@ -14,10 +14,10 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private String aWq;
-    private List<String> aWr;
-    private b aWs;
-    private boolean aWt;
+    private String aWr;
+    private List<String> aWs;
+    private b aWt;
+    private boolean aWu;
 
     /* renamed from: com.baidu.tbadk.coreExtra.websocketBase.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -28,20 +28,20 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class c {
-        private static a aWx = new a();
+        private static a aWy = new a();
     }
 
     public static a Lj() {
-        return c.aWx;
+        return c.aWy;
     }
 
     private a() {
-        this.aWq = null;
         this.aWr = null;
         this.aWs = null;
-        this.aWt = false;
-        this.aWt = false;
-        this.aWr = null;
+        this.aWt = null;
+        this.aWu = false;
+        this.aWu = false;
+        this.aWs = null;
     }
 
     public int Lk() {
@@ -53,48 +53,48 @@ public class a {
         if (Lk >= 10) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("KeyOfSharedPrefImCount", 0);
             com.baidu.tbadk.core.sharedPref.b.getInstance().putString("KeyOfSharedPrefValidIp", "");
-            this.aWq = null;
+            this.aWr = null;
             return null;
         }
-        if (this.aWq == null) {
-            this.aWq = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("KeyOfSharedPrefValidIp", null);
+        if (this.aWr == null) {
+            this.aWr = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("KeyOfSharedPrefValidIp", null);
         }
-        if (!k.isEmpty(this.aWq)) {
+        if (!k.isEmpty(this.aWr)) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("KeyOfSharedPrefImCount", Lk + 1);
         } else {
-            this.aWq = null;
+            this.aWr = null;
         }
-        return this.aWq;
+        return this.aWr;
     }
 
     public void hA(String str) {
         if (!TiebaIMConfig.defaultUrl.equals(str)) {
-            this.aWq = str;
+            this.aWr = str;
             com.baidu.tbadk.core.sharedPref.b.getInstance().putString("KeyOfSharedPrefValidIp", str);
         }
     }
 
     public List<String> getIpList() {
-        if (this.aWr == null) {
-            this.aWr = hB(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("KeyOfSharedPrefIpList", null));
+        if (this.aWs == null) {
+            this.aWs = hB(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("KeyOfSharedPrefIpList", null));
         }
-        return this.aWr;
+        return this.aWs;
     }
 
     public void Lm() {
-        this.aWt = false;
+        this.aWu = false;
     }
 
     public boolean Ln() {
-        return this.aWt;
+        return this.aWu;
     }
 
     public void a(InterfaceC0166a interfaceC0166a) {
-        if (this.aWs == null) {
-            this.aWt = true;
-            this.aWs = new b(interfaceC0166a);
-            this.aWs.setSelfExecute(true);
-            this.aWs.execute(new Object[0]);
+        if (this.aWt == null) {
+            this.aWu = true;
+            this.aWt = new b(interfaceC0166a);
+            this.aWt.setSelfExecute(true);
+            this.aWt.execute(new Object[0]);
         }
     }
 
@@ -113,12 +113,12 @@ public class a {
 
     /* loaded from: classes.dex */
     private class b extends BdAsyncTask<Object, Integer, Void> {
-        private InterfaceC0166a aWu;
+        private InterfaceC0166a aWv;
         private volatile x mNetwork = null;
 
         public b(InterfaceC0166a interfaceC0166a) {
-            this.aWu = null;
-            this.aWu = interfaceC0166a;
+            this.aWv = null;
+            this.aWv = interfaceC0166a;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -133,11 +133,11 @@ public class a {
                     JSONObject jSONObject = new JSONObject(CY);
                     if (jSONObject.optInt("error_code") == 0) {
                         String optString = jSONObject.optString("urls");
-                        a.this.aWr = a.this.hB(optString);
-                        if (a.this.aWr != null && a.this.aWr.size() > 0) {
+                        a.this.aWs = a.this.hB(optString);
+                        if (a.this.aWs != null && a.this.aWs.size() > 0) {
                             HashMap hashMap = new HashMap();
-                            for (int i = 0; i < a.this.aWr.size(); i++) {
-                                String str2 = (String) a.this.aWr.get(i);
+                            for (int i = 0; i < a.this.aWs.size(); i++) {
+                                String str2 = (String) a.this.aWs.get(i);
                                 e eVar = new e();
                                 eVar.hE(str2);
                                 if (eVar.isSucc()) {
@@ -145,7 +145,7 @@ public class a {
                                 }
                             }
                             if (hashMap.size() > 0) {
-                                a.this.aWr = new ArrayList();
+                                a.this.aWs = new ArrayList();
                                 ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
                                 Collections.sort(arrayList, new Comparator<Map.Entry<String, Integer>>() { // from class: com.baidu.tbadk.coreExtra.websocketBase.a.b.1
                                     /* JADX DEBUG: Method merged with bridge method */
@@ -158,7 +158,7 @@ public class a {
                                 StringBuilder sb = new StringBuilder(50);
                                 int i2 = 0;
                                 for (Map.Entry entry : arrayList) {
-                                    a.this.aWr.add(entry.getKey());
+                                    a.this.aWs.add(entry.getKey());
                                     if (i2 != 0) {
                                         sb.append(",");
                                     }
@@ -187,9 +187,9 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Void r3) {
-            a.this.aWs = null;
-            if (this.aWu != null) {
-                this.aWu.Lo();
+            a.this.aWt = null;
+            if (this.aWv != null) {
+                this.aWv.Lo();
             }
         }
 
@@ -197,18 +197,18 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled(Void r3) {
-            a.this.aWs = null;
-            if (this.aWu != null) {
-                this.aWu.Lo();
+            a.this.aWt = null;
+            if (this.aWv != null) {
+                this.aWv.Lo();
             }
         }
 
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
-            a.this.aWs = null;
-            if (this.aWu != null) {
-                this.aWu.Lo();
+            a.this.aWt = null;
+            if (this.aWv != null) {
+                this.aWv.Lo();
             }
         }
 
@@ -218,7 +218,7 @@ public class a {
                 this.mNetwork.jg();
                 this.mNetwork = null;
             }
-            a.this.aWs = null;
+            a.this.aWt = null;
             super.cancel(true);
         }
     }

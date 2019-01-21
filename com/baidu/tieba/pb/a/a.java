@@ -6,25 +6,25 @@ import android.view.MotionEvent;
 import android.view.View;
 /* loaded from: classes.dex */
 public class a implements View.OnTouchListener {
-    private InterfaceC0279a fUO;
+    private InterfaceC0279a fUP;
     private int count = 0;
-    private long fUM = 0;
     private long fUN = 0;
-    private long fUP = 500;
+    private long fUO = 0;
+    private long fUQ = 500;
     private Handler mHandler = new Handler() { // from class: com.baidu.tieba.pb.a.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 2) {
                 a.this.count = 0;
-                a.this.fUM = 0L;
                 a.this.fUN = 0L;
+                a.this.fUO = 0L;
             } else if (message.what == 1 && a.this.count == 1) {
-                if (a.this.fUO != null) {
-                    a.this.fUO.bio();
+                if (a.this.fUP != null) {
+                    a.this.fUP.bio();
                 }
                 a.this.count = 0;
-                a.this.fUM = 0L;
                 a.this.fUN = 0L;
+                a.this.fUO = 0L;
             }
         }
     };
@@ -38,24 +38,24 @@ public class a implements View.OnTouchListener {
     }
 
     public a(InterfaceC0279a interfaceC0279a) {
-        this.fUO = interfaceC0279a;
+        this.fUP = interfaceC0279a;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 0) {
-            if (this.fUO == null) {
+            if (this.fUP == null) {
                 return false;
             }
             this.count++;
             if (this.count == 1) {
-                this.fUM = System.currentTimeMillis();
-                this.mHandler.sendEmptyMessageDelayed(1, this.fUP);
+                this.fUN = System.currentTimeMillis();
+                this.mHandler.sendEmptyMessageDelayed(1, this.fUQ);
                 return true;
             } else if (this.count == 2) {
-                this.fUN = System.currentTimeMillis();
-                if (this.fUN - this.fUM < this.fUP) {
-                    this.fUO.bin();
+                this.fUO = System.currentTimeMillis();
+                if (this.fUO - this.fUN < this.fUQ) {
+                    this.fUP.bin();
                 }
                 this.mHandler.sendEmptyMessage(2);
                 return true;

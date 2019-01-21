@@ -11,21 +11,21 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    private static volatile c bGS;
-    private List<d> bGP = new ArrayList();
-    private Map<d, List<d>> bGQ = new HashMap();
+    private static volatile c bGT;
+    private List<d> bGQ = new ArrayList();
     private Map<d, List<d>> bGR = new HashMap();
+    private Map<d, List<d>> bGS = new HashMap();
     private boolean isInited;
 
     public static c Yq() {
-        if (bGS == null) {
+        if (bGT == null) {
             synchronized (c.class) {
-                if (bGS == null) {
-                    bGS = new c();
+                if (bGT == null) {
+                    bGT = new c();
                 }
             }
         }
-        return bGS;
+        return bGT;
     }
 
     public void initData() {
@@ -38,15 +38,15 @@ public class c {
     }
 
     public List<d> Ys() {
-        return this.bGP;
-    }
-
-    public Map<d, List<d>> Yt() {
         return this.bGQ;
     }
 
-    public Map<d, List<d>> Yu() {
+    public Map<d, List<d>> Yt() {
         return this.bGR;
+    }
+
+    public Map<d, List<d>> Yu() {
+        return this.bGS;
     }
 
     private void n(JSONArray jSONArray) {
@@ -58,12 +58,12 @@ public class c {
                 if (i2 < jSONArray.length()) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     if (optJSONObject != null && (L = d.L(optJSONObject)) != null) {
-                        this.bGP.add(L);
+                        this.bGQ.add(L);
                         if (L.Yz()) {
-                            this.bGQ.put(L, L.acA);
+                            this.bGR.put(L, L.acA);
                             for (d dVar : L.acA) {
                                 if (dVar.Yz()) {
-                                    this.bGR.put(dVar, dVar.acA);
+                                    this.bGS.put(dVar, dVar.acA);
                                 }
                             }
                         }

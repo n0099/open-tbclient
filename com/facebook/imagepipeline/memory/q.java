@@ -4,61 +4,61 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes2.dex */
 public class q {
-    private com.facebook.common.memory.j ipN;
-    private c ipu;
-    private com.facebook.common.memory.g ipx;
-    private i ipz;
-    private final p itF;
-    private k itG;
-    private com.facebook.common.memory.a itH;
+    private i ipA;
+    private com.facebook.common.memory.j ipO;
+    private c ipv;
+    private com.facebook.common.memory.g ipy;
+    private final p itG;
+    private k itH;
+    private com.facebook.common.memory.a itI;
 
     public q(p pVar) {
-        this.itF = (p) com.facebook.common.internal.g.checkNotNull(pVar);
+        this.itG = (p) com.facebook.common.internal.g.checkNotNull(pVar);
     }
 
     public c cag() {
-        if (this.ipu == null) {
-            this.ipu = new c(this.itF.bYj(), this.itF.bZX(), this.itF.bZY());
+        if (this.ipv == null) {
+            this.ipv = new c(this.itG.bYj(), this.itG.bZX(), this.itG.bZY());
         }
-        return this.ipu;
+        return this.ipv;
     }
 
     public i cah() {
-        if (this.ipz == null) {
-            this.ipz = new i(this.itF.bYj(), this.itF.cab());
+        if (this.ipA == null) {
+            this.ipA = new i(this.itG.bYj(), this.itG.cab());
         }
-        return this.ipz;
+        return this.ipA;
     }
 
     public int cai() {
-        return this.itF.cab().itN;
+        return this.itG.cab().itO;
     }
 
     public k caj() {
-        if (this.itG == null) {
-            this.itG = new k(this.itF.bYj(), this.itF.bZZ(), this.itF.caa());
+        if (this.itH == null) {
+            this.itH = new k(this.itG.bYj(), this.itG.bZZ(), this.itG.caa());
         }
-        return this.itG;
+        return this.itH;
     }
 
     public com.facebook.common.memory.g cak() {
-        if (this.ipx == null) {
-            this.ipx = new m(caj(), cal());
+        if (this.ipy == null) {
+            this.ipy = new m(caj(), cal());
         }
-        return this.ipx;
+        return this.ipy;
     }
 
     public com.facebook.common.memory.j cal() {
-        if (this.ipN == null) {
-            this.ipN = new com.facebook.common.memory.j(cam());
+        if (this.ipO == null) {
+            this.ipO = new com.facebook.common.memory.j(cam());
         }
-        return this.ipN;
+        return this.ipO;
     }
 
     public com.facebook.common.memory.a cam() {
-        if (this.itH == null) {
-            this.itH = new j(this.itF.bYj(), this.itF.cac(), this.itF.cad());
+        if (this.itI == null) {
+            this.itI = new j(this.itG.bYj(), this.itG.cac(), this.itG.cad());
         }
-        return this.itH;
+        return this.itI;
     }
 }

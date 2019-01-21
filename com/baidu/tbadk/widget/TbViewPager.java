@@ -12,8 +12,8 @@ import com.baidu.searchbox.ng.ai.apps.core.slave.AiAppsSlavePool;
 import java.lang.reflect.Field;
 /* loaded from: classes.dex */
 public class TbViewPager extends ViewPager {
-    private boolean aMd;
-    private float bll;
+    private boolean aMe;
+    private float blm;
     private int mDuration;
     private int mTouchSlop;
 
@@ -59,14 +59,14 @@ public class TbViewPager extends ViewPager {
 
     public TbViewPager(Context context) {
         super(context);
-        this.aMd = false;
+        this.aMe = false;
         this.mDuration = AiAppsSlavePool.PRELOAD_NEXT_DELAY_MS;
         init();
     }
 
     public TbViewPager(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aMd = false;
+        this.aMe = false;
         this.mDuration = AiAppsSlavePool.PRELOAD_NEXT_DELAY_MS;
         init();
     }
@@ -77,7 +77,7 @@ public class TbViewPager extends ViewPager {
 
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
-        this.aMd = z;
+        this.aMe = z;
         super.requestDisallowInterceptTouchEvent(z);
     }
 
@@ -86,7 +86,7 @@ public class TbViewPager extends ViewPager {
         if (r(motionEvent)) {
             return true;
         }
-        if (motionEvent.getPointerCount() > 1 && this.aMd) {
+        if (motionEvent.getPointerCount() > 1 && this.aMe) {
             requestDisallowInterceptTouchEvent(false);
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             requestDisallowInterceptTouchEvent(true);
@@ -114,15 +114,15 @@ public class TbViewPager extends ViewPager {
             case 5:
             case 6:
                 bN(true);
-                this.bll = motionEvent.getX();
+                this.blm = motionEvent.getX();
                 break;
             case 1:
             case 3:
                 bN(false);
-                this.bll = 0.0f;
+                this.blm = 0.0f;
                 break;
             case 2:
-                float x = motionEvent.getX() - this.bll;
+                float x = motionEvent.getX() - this.blm;
                 if (getCurrentItem() == 0) {
                     if (x >= this.mTouchSlop) {
                         bN(false);

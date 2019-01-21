@@ -8,22 +8,22 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static a dMW;
-    private static FrsLinkHashMap<String, Long> dMX = new FrsLinkHashMap<>();
+    private static a dMX;
+    private static FrsLinkHashMap<String, Long> dMY = new FrsLinkHashMap<>();
 
     private a() {
         aCv();
     }
 
     public static a aCu() {
-        if (dMW == null) {
+        if (dMX == null) {
             synchronized (a.class) {
-                if (dMW == null) {
-                    dMW = new a();
+                if (dMX == null) {
+                    dMX = new a();
                 }
             }
         }
-        return dMW;
+        return dMX;
     }
 
     private static void aCv() {
@@ -37,7 +37,7 @@ public class a {
                 if (ao != null) {
                     String str = ao.get("hot_topic_key");
                     if (!StringUtils.isNull(str) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str, FrsHotTopicListData.class)) != null) {
-                        FrsLinkHashMap unused = a.dMX = frsHotTopicListData.mSceneMap;
+                        FrsLinkHashMap unused = a.dMY = frsHotTopicListData.mSceneMap;
                     }
                 }
                 return null;
@@ -49,8 +49,8 @@ public class a {
 
     public boolean n(String str, long j) {
         boolean z;
-        if (dMX != null && str != null) {
-            Iterator<Map.Entry<String, Long>> it = dMX.entrySet().iterator();
+        if (dMY != null && str != null) {
+            Iterator<Map.Entry<String, Long>> it = dMY.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -62,8 +62,8 @@ public class a {
                     break;
                 }
             }
-            if (!z || (z && dMX.get(str).longValue() != j)) {
-                dMX.put(str, Long.valueOf(j));
+            if (!z || (z && dMY.get(str).longValue() != j)) {
+                dMY.put(str, Long.valueOf(j));
                 aCw();
                 return true;
             }
@@ -80,7 +80,7 @@ public class a {
                 l<String> ao = com.baidu.tbadk.core.c.a.BO().ao("tb.frs_hottopic", "");
                 if (ao != null) {
                     FrsHotTopicListData frsHotTopicListData = new FrsHotTopicListData();
-                    frsHotTopicListData.mSceneMap = a.dMX;
+                    frsHotTopicListData.mSceneMap = a.dMY;
                     String jsonStrWithObject = OrmObject.jsonStrWithObject(frsHotTopicListData);
                     if (!StringUtils.isNull(jsonStrWithObject)) {
                         ao.e("hot_topic_key", jsonStrWithObject);

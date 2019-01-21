@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.play.i;
 /* loaded from: classes6.dex */
 public class VCacheClientStatic {
-    private static CustomMessageListener bBa = new CustomMessageListener(2007015) { // from class: com.baidu.tieba.VideoCacheClient.VCacheClientStatic.1
+    private static CustomMessageListener bBb = new CustomMessageListener(2007015) { // from class: com.baidu.tieba.VideoCacheClient.VCacheClientStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -26,7 +26,7 @@ public class VCacheClientStatic {
 
     static {
         Wb();
-        MessageManager.getInstance().registerListener(bBa);
+        MessageManager.getInstance().registerListener(bBb);
     }
 
     private static void Wb() {

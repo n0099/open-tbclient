@@ -32,23 +32,23 @@ import java.util.regex.Matcher;
 public class PbNewInputContainer extends LinearLayout implements View.OnClickListener, l {
     private EditorTools Tj;
     private int Tk;
-    private int aMj;
-    private EditText baW;
-    private PbNewLocationInfoView baX;
-    private LinearLayout baY;
-    private ImageView baZ;
-    private boolean bau;
+    private int aMk;
+    private EditText baX;
+    private PbNewLocationInfoView baY;
+    private LinearLayout baZ;
     private boolean bav;
     private boolean baw;
-    private int bax;
-    private LinearLayout bba;
-    private boolean bbb;
-    private boolean[] bbc;
-    private int[] bbd;
+    private boolean bax;
+    private int bay;
+    private ImageView bba;
+    private LinearLayout bbb;
+    private boolean bbc;
+    private boolean[] bbd;
+    private int[] bbe;
     private View mBottomLine;
     private TextView mSendView;
     private int mType;
-    public static int bbe = 1;
+    public static int bbf = 1;
     public static int ALL = 0;
 
     public PbNewInputContainer(Context context) {
@@ -61,24 +61,24 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
 
     public PbNewInputContainer(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bau = false;
-        this.bav = true;
+        this.bav = false;
         this.baw = true;
-        this.bax = -1;
-        this.bbb = true;
-        this.bbc = new boolean[]{false, false, false, false, false};
-        this.bbd = new int[]{0, 0};
-        this.aMj = 0;
+        this.bax = true;
+        this.bay = -1;
+        this.bbc = true;
+        this.bbd = new boolean[]{false, false, false, false, false};
+        this.bbe = new int[]{0, 0};
+        this.aMk = 0;
         this.mType = ALL;
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
         setOrientation(1);
         setGravity(48);
         setMinimumHeight(context.getResources().getDimensionPixelSize(e.C0210e.ds90));
         bO(context);
-        this.bba = new LinearLayout(getContext());
-        this.bba.setOrientation(0);
-        this.bba.setMinimumHeight(com.baidu.adp.lib.util.l.h(context, e.C0210e.ds90));
-        addView(this.bba, new LinearLayout.LayoutParams(-1, -2));
+        this.bbb = new LinearLayout(getContext());
+        this.bbb.setOrientation(0);
+        this.bbb.setMinimumHeight(com.baidu.adp.lib.util.l.h(context, e.C0210e.ds90));
+        addView(this.bbb, new LinearLayout.LayoutParams(-1, -2));
         bQ(context);
         bP(context);
         this.mBottomLine = new View(getContext());
@@ -87,26 +87,26 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
     }
 
     private void bO(Context context) {
-        this.baY = new LinearLayout(getContext());
-        this.baY.setGravity(16);
-        this.baY.setOrientation(0);
-        this.baY.setPadding(com.baidu.adp.lib.util.l.h(context, e.C0210e.ds20), 0, 0, 0);
+        this.baZ = new LinearLayout(getContext());
+        this.baZ.setGravity(16);
+        this.baZ.setOrientation(0);
+        this.baZ.setPadding(com.baidu.adp.lib.util.l.h(context, e.C0210e.ds20), 0, 0, 0);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, com.baidu.adp.lib.util.l.h(context, e.C0210e.ds48));
         layoutParams.setMargins(com.baidu.adp.lib.util.l.h(context, e.C0210e.ds34), com.baidu.adp.lib.util.l.h(context, e.C0210e.ds30), com.baidu.adp.lib.util.l.h(context, e.C0210e.ds34), com.baidu.adp.lib.util.l.h(context, e.C0210e.ds12));
-        this.baY.setLayoutParams(layoutParams);
-        this.baY.setOnClickListener(this);
+        this.baZ.setLayoutParams(layoutParams);
+        this.baZ.setOnClickListener(this);
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-        this.baX = new PbNewLocationInfoView(context);
-        this.baY.addView(this.baX, layoutParams2);
+        this.baY = new PbNewLocationInfoView(context);
+        this.baZ.addView(this.baY, layoutParams2);
         int dimensionPixelSize = getResources().getDimensionPixelSize(e.C0210e.ds24);
-        this.baZ = new ImageView(context);
-        this.baZ.setPadding(com.baidu.adp.lib.util.l.h(context, e.C0210e.ds24), 0, com.baidu.adp.lib.util.l.h(context, e.C0210e.ds20), 0);
+        this.bba = new ImageView(context);
+        this.bba.setPadding(com.baidu.adp.lib.util.l.h(context, e.C0210e.ds24), 0, com.baidu.adp.lib.util.l.h(context, e.C0210e.ds20), 0);
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(dimensionPixelSize * 3, dimensionPixelSize);
         layoutParams3.gravity = 17;
-        this.baY.addView(this.baZ, layoutParams3);
-        addView(this.baY);
-        this.baY.setVisibility(8);
-        this.baZ.setOnClickListener(this);
+        this.baZ.addView(this.bba, layoutParams3);
+        addView(this.baZ);
+        this.baZ.setVisibility(8);
+        this.bba.setOnClickListener(this);
     }
 
     private void bP(Context context) {
@@ -124,33 +124,33 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
         });
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(0, 0, com.baidu.adp.lib.util.l.h(context, e.C0210e.ds34), 0);
-        this.bba.addView(this.mSendView, layoutParams);
+        this.bbb.addView(this.mSendView, layoutParams);
     }
 
     private void bQ(Context context) {
-        this.baW = new EditText(context);
-        this.baW.setMinHeight(context.getResources().getDimensionPixelSize(e.C0210e.ds32));
-        this.baW.setMaxLines(4);
-        this.baW.setGravity(16);
-        this.baW.setTextSize(0, getResources().getDimensionPixelSize(e.C0210e.ds32));
-        this.baW.setTextColor(getResources().getColor(e.d.cp_cont_b));
-        this.baW.setHintTextColor(getResources().getColor(e.d.cp_cont_e));
-        this.baW.setBackgroundResource(e.d.common_color_10022);
-        a(this.baW, e.f.edittext_cursor);
-        this.baW.setPadding(0, com.baidu.adp.lib.util.l.h(context, e.C0210e.ds24), com.baidu.adp.lib.util.l.h(context, e.C0210e.ds54), com.baidu.adp.lib.util.l.h(context, e.C0210e.ds24));
-        this.baW.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
-        this.baW.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tbadk.editortools.pb.PbNewInputContainer.2
+        this.baX = new EditText(context);
+        this.baX.setMinHeight(context.getResources().getDimensionPixelSize(e.C0210e.ds32));
+        this.baX.setMaxLines(4);
+        this.baX.setGravity(16);
+        this.baX.setTextSize(0, getResources().getDimensionPixelSize(e.C0210e.ds32));
+        this.baX.setTextColor(getResources().getColor(e.d.cp_cont_b));
+        this.baX.setHintTextColor(getResources().getColor(e.d.cp_cont_e));
+        this.baX.setBackgroundResource(e.d.common_color_10022);
+        a(this.baX, e.f.edittext_cursor);
+        this.baX.setPadding(0, com.baidu.adp.lib.util.l.h(context, e.C0210e.ds24), com.baidu.adp.lib.util.l.h(context, e.C0210e.ds54), com.baidu.adp.lib.util.l.h(context, e.C0210e.ds24));
+        this.baX.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
+        this.baX.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tbadk.editortools.pb.PbNewInputContainer.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (!PbNewInputContainer.this.baw) {
-                    PbNewInputContainer.this.baw = true;
-                    if (PbNewInputContainer.this.bax != -1) {
-                        PbNewInputContainer.this.baW.setSelection(PbNewInputContainer.this.bax);
-                        PbNewInputContainer.this.bax = -1;
+                if (!PbNewInputContainer.this.bax) {
+                    PbNewInputContainer.this.bax = true;
+                    if (PbNewInputContainer.this.bay != -1) {
+                        PbNewInputContainer.this.baX.setSelection(PbNewInputContainer.this.bay);
+                        PbNewInputContainer.this.bay = -1;
                     }
                 }
             }
@@ -158,16 +158,16 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (editable != null && editable.toString().trim() != null) {
-                    PbNewInputContainer.this.b(new com.baidu.tbadk.editortools.a(4, -1, PbNewInputContainer.this.baW.getText().toString()));
+                    PbNewInputContainer.this.b(new com.baidu.tbadk.editortools.a(4, -1, PbNewInputContainer.this.baX.getText().toString()));
                 }
             }
         });
-        this.baW.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tbadk.editortools.pb.PbNewInputContainer.3
+        this.baX.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tbadk.editortools.pb.PbNewInputContainer.3
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 1) {
                     PbNewInputContainer.this.b(new com.baidu.tbadk.editortools.a(5, -1, null));
-                    PbNewInputContainer.this.baW.requestFocus();
+                    PbNewInputContainer.this.baX.requestFocus();
                 }
                 return false;
             }
@@ -175,7 +175,7 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
         layoutParams.weight = 1.0f;
         layoutParams.setMargins(com.baidu.adp.lib.util.l.h(context, e.C0210e.ds34), 0, 0, 0);
-        this.bba.addView(this.baW, layoutParams);
+        this.bbb.addView(this.baX, layoutParams);
     }
 
     private void a(EditText editText, int i) {
@@ -201,7 +201,7 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
                     i = i2 + 1;
                 } else {
                     String sb2 = sb.toString();
-                    this.baW.getText().insert(this.baW.getSelectionStart(), sb2);
+                    this.baX.getText().insert(this.baX.getSelectionStart(), sb2);
                     return;
                 }
             }
@@ -210,7 +210,7 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
 
     private void hY(String str) {
         if (!StringUtils.isNull(str)) {
-            this.baW.getText().insert(this.baW.getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
+            this.baX.getText().insert(this.baX.getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }
     }
 
@@ -227,28 +227,28 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
 
     private void a(p pVar) {
         if (pVar != null && !TextUtils.isEmpty(pVar.getName()) && !TextUtils.isEmpty(pVar.getUrl())) {
-            String obj = this.baW.getText().toString();
-            if (this.bav && com.baidu.tieba.face.a.nz(obj) >= 10 && getContext() != null) {
+            String obj = this.baX.getText().toString();
+            if (this.baw && com.baidu.tieba.face.a.nz(obj) >= 10 && getContext() != null) {
                 com.baidu.tbadk.core.util.e.CQ().showToast(e.j.too_many_face);
             } else {
-                com.baidu.tieba.face.b.a(getContext(), pVar, this.baW);
+                com.baidu.tieba.face.b.a(getContext(), pVar, this.baX);
             }
         }
     }
 
     private void b(p pVar) {
-        if (!this.bau || pVar.Ha() == EmotionGroupType.LOCAL) {
-            String obj = this.baW.getText().toString();
-            if (this.bav && com.baidu.tieba.face.a.nz(obj) >= 10 && getContext() != null) {
+        if (!this.bav || pVar.Ha() == EmotionGroupType.LOCAL) {
+            String obj = this.baX.getText().toString();
+            if (this.baw && com.baidu.tieba.face.a.nz(obj) >= 10 && getContext() != null) {
                 com.baidu.tbadk.core.util.e.CQ().showToast(e.j.too_many_face);
             } else {
-                com.baidu.tieba.face.b.b(getContext(), pVar, this.baW);
+                com.baidu.tieba.face.b.b(getContext(), pVar, this.baX);
             }
         }
     }
 
     public void setIsOnlyLocalEmotion(boolean z) {
-        this.bau = z;
+        this.bav = z;
     }
 
     @Override // com.baidu.tbadk.editortools.l
@@ -279,11 +279,11 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
 
     @Override // com.baidu.tbadk.editortools.l
     public void pR() {
-        if (this.baW != null && this.bba.getVisibility() == 0) {
-            this.baW.setFocusable(true);
-            this.baW.setFocusableInTouchMode(true);
-            this.baW.requestFocus();
-            com.baidu.adp.lib.util.l.c(getContext(), this.baW);
+        if (this.baX != null && this.bbb.getVisibility() == 0) {
+            this.baX.setFocusable(true);
+            this.baX.setFocusableInTouchMode(true);
+            this.baX.requestFocus();
+            com.baidu.adp.lib.util.l.c(getContext(), this.baX);
         }
         setVisibility(0);
     }
@@ -295,24 +295,24 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
 
     @Override // com.baidu.tbadk.editortools.l
     public void onChangeSkinType(int i) {
-        al.b(this.baW, e.d.cp_cont_b, 2, i);
+        al.b(this.baX, e.d.cp_cont_b, 2, i);
         al.j(this.mBottomLine, e.d.cp_bg_line_c);
         al.j(this, e.d.cp_bg_line_d);
-        al.i(this.baY, e.f.pb_new_locatin_view_selector);
-        al.c(this.baZ, e.f.icon_edit_close_n);
+        al.i(this.baZ, e.f.pb_new_locatin_view_selector);
+        al.c(this.bba, e.f.icon_edit_close_n);
         if (i == 0) {
-            a(this.baW, e.f.edittext_cursor);
-            this.baW.setHintTextColor(getContext().getResources().getColor(e.d.cp_cont_e));
+            a(this.baX, e.f.edittext_cursor);
+            this.baX.setHintTextColor(getContext().getResources().getColor(e.d.cp_cont_e));
         } else {
-            a(this.baW, e.f.edittext_cursor_1);
-            this.baW.setHintTextColor(al.getColor(i, e.d.cp_cont_e));
+            a(this.baX, e.f.edittext_cursor_1);
+            this.baX.setHintTextColor(al.getColor(i, e.d.cp_cont_e));
         }
         if (this.mSendView.isEnabled()) {
             al.b(this.mSendView, e.d.cp_link_tip_a, 1, i);
         } else {
             al.c(this.mSendView, e.d.cp_cont_e, 1);
         }
-        this.baX.onChangeSkinType();
+        this.baY.onChangeSkinType();
     }
 
     @Override // com.baidu.tbadk.editortools.b
@@ -320,30 +320,30 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
         if (aVar != null) {
             switch (aVar.code) {
                 case 3:
-                    if (this.baW.getSelectionStart() > 0) {
-                        String substring = this.baW.getText().toString().substring(0, this.baW.getSelectionStart());
-                        Matcher matcher = com.baidu.tieba.face.a.dun.matcher(substring);
+                    if (this.baX.getSelectionStart() > 0) {
+                        String substring = this.baX.getText().toString().substring(0, this.baX.getSelectionStart());
+                        Matcher matcher = com.baidu.tieba.face.a.duo.matcher(substring);
                         if (matcher.find()) {
-                            this.baW.getText().delete(this.baW.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.baW.getSelectionStart());
+                            this.baX.getText().delete(this.baX.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.baX.getSelectionStart());
                             break;
                         } else {
-                            this.baW.getText().delete(this.baW.getSelectionStart() - 1, this.baW.getSelectionStart());
+                            this.baX.getText().delete(this.baX.getSelectionStart() - 1, this.baX.getSelectionStart());
                             break;
                         }
                     }
                     break;
                 case 6:
                     if (aVar.data == null) {
-                        this.baW.setText((CharSequence) null);
+                        this.baX.setText((CharSequence) null);
                     } else if (aVar.data instanceof String) {
                         if (TextUtils.isEmpty((String) aVar.data)) {
-                            this.baW.setText((CharSequence) null);
+                            this.baX.setText((CharSequence) null);
                         } else {
                             com.baidu.tieba.face.b.a(getContext(), (String) aVar.data, new b.a() { // from class: com.baidu.tbadk.editortools.pb.PbNewInputContainer.4
                                 @Override // com.baidu.tieba.face.b.a
                                 public void a(SpannableStringBuilder spannableStringBuilder) {
-                                    PbNewInputContainer.this.baW.setText(spannableStringBuilder);
-                                    PbNewInputContainer.this.baW.setSelection(PbNewInputContainer.this.baW.getText().length());
+                                    PbNewInputContainer.this.baX.setText(spannableStringBuilder);
+                                    PbNewInputContainer.this.baX.setSelection(PbNewInputContainer.this.baX.getText().length());
                                     PbNewInputContainer.this.b(new com.baidu.tbadk.editortools.a(5, -1, null));
                                     PbNewInputContainer.this.requestFocus();
                                 }
@@ -352,59 +352,59 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
                     }
                 case 4:
                     if (aVar.data == null || ((aVar.data instanceof String) && StringUtils.isNull((String) aVar.data))) {
-                        this.bbc[0] = false;
+                        this.bbd[0] = false;
                         break;
                     } else {
-                        this.bbc[0] = true;
+                        this.bbd[0] = true;
                         break;
                     }
                     break;
                 case 9:
                     if (((Boolean) aVar.data).booleanValue()) {
-                        this.baW.setText((CharSequence) null);
+                        this.baX.setText((CharSequence) null);
                     }
-                    this.bbc[0] = false;
-                    this.bbc[1] = false;
-                    this.bbc[2] = false;
-                    this.bbc[3] = false;
-                    this.bbc[4] = false;
-                    this.bbd[0] = 0;
-                    this.bbd[1] = 0;
+                    this.bbd[0] = false;
+                    this.bbd[1] = false;
+                    this.bbd[2] = false;
+                    this.bbd[3] = false;
+                    this.bbd[4] = false;
+                    this.bbe[0] = 0;
+                    this.bbe[1] = 0;
                     break;
                 case 10:
-                    this.bbc[2] = true;
+                    this.bbd[2] = true;
                     break;
                 case 11:
-                    this.bbc[2] = false;
+                    this.bbd[2] = false;
                     break;
                 case 12:
                     if (aVar.data instanceof com.baidu.tbadk.editortools.imagetool.a) {
                         com.baidu.tbadk.editortools.imagetool.a aVar2 = (com.baidu.tbadk.editortools.imagetool.a) aVar.data;
-                        if (aVar2.aZU != null) {
-                            if (aVar2.aZU.getChosedFiles() != null) {
-                                this.bbd[0] = aVar2.aZU.getChosedFiles().size();
+                        if (aVar2.aZV != null) {
+                            if (aVar2.aZV.getChosedFiles() != null) {
+                                this.bbe[0] = aVar2.aZV.getChosedFiles().size();
                             } else {
-                                this.bbd[0] = 0;
+                                this.bbe[0] = 0;
                             }
                         }
-                        if (this.bbd[0] > 0) {
-                            this.bbc[1] = true;
+                        if (this.bbe[0] > 0) {
+                            this.bbd[1] = true;
                             break;
                         } else {
-                            this.bbc[1] = false;
+                            this.bbd[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr = this.bbd;
+                    int[] iArr = this.bbe;
                     iArr[0] = iArr[0] - 1;
-                    if (this.bbd[0] > 0) {
-                        this.bbc[1] = true;
+                    if (this.bbe[0] > 0) {
+                        this.bbd[1] = true;
                         break;
                     } else {
-                        this.bbc[1] = false;
+                        this.bbd[1] = false;
                         break;
                     }
                 case 17:
@@ -415,36 +415,36 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
                     break;
                 case 19:
                     if (aVar.data == null) {
-                        this.baY.setVisibility(8);
+                        this.baZ.setVisibility(8);
                         break;
                     } else {
                         com.baidu.tbadk.editortools.d.a aVar3 = (com.baidu.tbadk.editortools.d.a) aVar.data;
                         if (aVar3.isShow) {
-                            this.baY.setVisibility(0);
+                            this.baZ.setVisibility(0);
                             if (TextUtils.isEmpty(aVar3.addr)) {
-                                this.baX.setState(aVar3.state, null);
+                                this.baY.setState(aVar3.state, null);
                                 break;
                             } else {
-                                this.baX.setState(aVar3.state, aVar3.addr);
+                                this.baY.setState(aVar3.state, aVar3.addr);
                                 break;
                             }
                         } else {
-                            this.baY.setVisibility(8);
+                            this.baZ.setVisibility(8);
                             break;
                         }
                     }
                 case 20:
-                    this.baY.setVisibility(8);
+                    this.baZ.setVisibility(8);
                     break;
                 case 24:
                     d(aVar);
                     break;
                 case 28:
                 case 39:
-                    this.bbc[3] = true;
+                    this.bbd[3] = true;
                     break;
                 case 29:
-                    this.bbc[3] = false;
+                    this.bbd[3] = false;
                     break;
                 case 44:
                     if (aVar.data != null && (aVar.data instanceof String)) {
@@ -463,15 +463,15 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
 
     public void fT(int i) {
         if (i == ALL) {
-            if (this.bbc[0] || this.bbc[1] || this.bbc[2] || this.bbc[3] || this.bbc[4]) {
+            if (this.bbd[0] || this.bbd[1] || this.bbd[2] || this.bbd[3] || this.bbd[4]) {
                 this.mSendView.setEnabled(true);
                 al.b(this.mSendView, e.d.cp_link_tip_a, 1, TbadkCoreApplication.getInst().getSkinType());
                 return;
             }
             this.mSendView.setEnabled(false);
             al.c(this.mSendView, e.d.cp_cont_d, 1);
-        } else if (i == bbe) {
-            if (this.bbc[1]) {
+        } else if (i == bbf) {
+            if (this.bbd[1]) {
                 this.mSendView.setEnabled(true);
                 al.b(this.mSendView, e.d.cp_link_tip_a, 1, TbadkCoreApplication.getInst().getSkinType());
                 return;
@@ -482,23 +482,23 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
     }
 
     public void setHasHint(boolean z) {
-        this.bbb = z;
+        this.bbc = z;
     }
 
     public void setHint(int i) {
-        if (this.baW != null) {
-            this.baW.setHint(getContext().getString(i));
+        if (this.baX != null) {
+            this.baX.setHint(getContext().getString(i));
         }
     }
 
     public void setHint(CharSequence charSequence) {
-        if (this.baW != null) {
-            this.baW.setHint(charSequence);
+        if (this.baX != null) {
+            this.baX.setHint(charSequence);
         }
     }
 
     public EditText getInputView() {
-        return this.baW;
+        return this.baX;
     }
 
     public TextView getSendView() {
@@ -506,18 +506,18 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
     }
 
     public TextView getLocationInfoView() {
-        return this.baX;
+        return this.baY;
     }
 
     public LinearLayout getInputLayout() {
-        return this.bba;
+        return this.bbb;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.baY) {
+        if (view == this.baZ) {
             b(new com.baidu.tbadk.editortools.a(18, -1, null));
-        } else if (view == this.baZ) {
+        } else if (view == this.bba) {
             b(new com.baidu.tbadk.editortools.a(20, -1, null));
         }
     }

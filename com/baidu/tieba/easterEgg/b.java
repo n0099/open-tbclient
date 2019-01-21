@@ -24,58 +24,58 @@ import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b {
-    private Runnable bxg;
-    private com.baidu.tieba.tbadkCore.e.a dpA;
-    private ActivityLifeCycleListener dpB;
-    private com.baidu.tieba.tbadkCore.e.c dpC;
-    private PopupWindow dpz;
+    private Runnable bxh;
+    private PopupWindow dpA;
+    private com.baidu.tieba.tbadkCore.e.a dpB;
+    private ActivityLifeCycleListener dpC;
+    private com.baidu.tieba.tbadkCore.e.c dpD;
     private Handler handler;
 
     private b() {
         this.handler = new Handler();
-        this.dpC = new com.baidu.tieba.tbadkCore.e.c() { // from class: com.baidu.tieba.easterEgg.b.1
+        this.dpD = new com.baidu.tieba.tbadkCore.e.c() { // from class: com.baidu.tieba.easterEgg.b.1
             @Override // com.baidu.tieba.tbadkCore.e.c
             public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-                return b.this.dpA != null && b.this.dpA.b(str, jsPromptResult);
+                return b.this.dpB != null && b.this.dpB.b(str, jsPromptResult);
             }
         };
-        this.bxg = new Runnable() { // from class: com.baidu.tieba.easterEgg.b.2
+        this.bxh = new Runnable() { // from class: com.baidu.tieba.easterEgg.b.2
             @Override // java.lang.Runnable
             public void run() {
                 b.this.handler.removeCallbacksAndMessages(null);
                 b.this.avA();
             }
         };
-        this.dpA = new com.baidu.tieba.tbadkCore.e.a();
-        this.dpA.a(new com.baidu.tieba.easterEgg.a());
-        this.dpB = new ActivityLifeCycleListener();
+        this.dpB = new com.baidu.tieba.tbadkCore.e.a();
+        this.dpB.a(new com.baidu.tieba.easterEgg.a());
+        this.dpC = new ActivityLifeCycleListener();
     }
 
     public static b avz() {
-        return a.dpF;
+        return a.dpG;
     }
 
     private void f(Activity activity, View view) {
-        this.dpz = new PopupWindow(activity);
-        this.dpz.setBackgroundDrawable(new ColorDrawable(0));
-        this.dpz.setWidth(l.aO(activity));
-        this.dpz.setHeight(l.aQ(activity));
+        this.dpA = new PopupWindow(activity);
+        this.dpA.setBackgroundDrawable(new ColorDrawable(0));
+        this.dpA.setWidth(l.aO(activity));
+        this.dpA.setHeight(l.aQ(activity));
         view.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-        this.dpz.setContentView(view);
+        this.dpA.setContentView(view);
         this.handler.removeCallbacksAndMessages(null);
-        this.handler.postDelayed(this.bxg, 5000L);
+        this.handler.postDelayed(this.bxh, 5000L);
         FragmentManager fragmentManager = activity.getFragmentManager();
         if (fragmentManager.findFragmentByTag("LIFE_CYCLE") == null) {
-            fragmentManager.beginTransaction().add(this.dpB, "LIFE_CYCLE").commitAllowingStateLoss();
+            fragmentManager.beginTransaction().add(this.dpC, "LIFE_CYCLE").commitAllowingStateLoss();
         }
-        this.dpz.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.easterEgg.b.3
+        this.dpA.setOnDismissListener(new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.easterEgg.b.3
             @Override // android.widget.PopupWindow.OnDismissListener
             public void onDismiss() {
-                b.this.dpz = null;
+                b.this.dpA = null;
             }
         });
         try {
-            this.dpz.showAtLocation(activity.getWindow().getDecorView(), 0, 0, 0);
+            this.dpA.showAtLocation(activity.getWindow().getDecorView(), 0, 0, 0);
             TiebaStatic.log(new am("c13126"));
         } catch (Throwable th) {
         }
@@ -97,8 +97,8 @@ public class b {
                 }, 1000L);
                 return;
             }
-            if (this.dpz != null && this.dpz.isShowing()) {
-                if (this.dpz.getContentView() == null || this.dpz.getContentView().getContext() != fX) {
+            if (this.dpA != null && this.dpA.isShowing()) {
+                if (this.dpA.getContentView() == null || this.dpA.getContentView().getContext() != fX) {
                     avA();
                 } else {
                     return;
@@ -122,7 +122,7 @@ public class b {
                 }
             });
             baseWebView.setBackgroundColor(0);
-            baseWebView.setOnJsPromptCallback(this.dpC);
+            baseWebView.setOnJsPromptCallback(this.dpD);
             f(fX, inflate);
         }
     }
@@ -130,7 +130,7 @@ public class b {
     public void bt(final String str, final String str2) {
         Activity fX;
         if (!ao.isEmpty(str)) {
-            if ((this.dpz == null || !this.dpz.isShowing()) && (fX = com.baidu.adp.base.a.fW().fX()) != null && ab.bF(fX)) {
+            if ((this.dpA == null || !this.dpA.isShowing()) && (fX = com.baidu.adp.base.a.fW().fX()) != null && ab.bF(fX)) {
                 if (K(fX)) {
                     this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.easterEgg.b.7
                         @Override // java.lang.Runnable
@@ -188,9 +188,9 @@ public class b {
     }
 
     public void avA() {
-        if (this.dpz != null && this.dpz.isShowing()) {
+        if (this.dpA != null && this.dpA.isShowing()) {
             try {
-                this.dpz.dismiss();
+                this.dpA.dismiss();
             } catch (Throwable th) {
             }
         }
@@ -198,7 +198,7 @@ public class b {
 
     /* loaded from: classes3.dex */
     private static class a {
-        private static b dpF = new b();
+        private static b dpG = new b();
     }
 
     private boolean K(Activity activity) {

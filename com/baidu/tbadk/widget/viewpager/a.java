@@ -6,12 +6,12 @@ import android.view.View;
 import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0180a bvU;
-    private float bvV;
-    private long bvW;
+    private InterfaceC0180a bvV;
+    private float bvW;
     private long bvX;
-    private boolean bvY;
+    private long bvY;
     private boolean bvZ;
+    private boolean bwa;
     private float mDownX;
     private int mMaximumVelocity;
     private int mMinimumVelocity;
@@ -47,41 +47,41 @@ public class a {
         switch (motionEvent.getAction()) {
             case 0:
                 this.mDownX = motionEvent.getX();
-                this.bvV = motionEvent.getY();
-                this.bvW = System.currentTimeMillis();
-                this.bvY = true;
+                this.bvW = motionEvent.getY();
+                this.bvX = System.currentTimeMillis();
+                this.bvZ = true;
                 break;
             case 1:
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.bvW < 100 && currentTimeMillis - this.bvX < 500) {
-                    this.bvZ = true;
+                if (currentTimeMillis - this.bvX < 100 && currentTimeMillis - this.bvY < 500) {
+                    this.bwa = true;
                 } else {
-                    this.bvZ = false;
+                    this.bwa = false;
                 }
                 VelocityTracker velocityTracker = this.mVelocityTracker;
                 velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
-                if (Math.abs(velocityTracker.getYVelocity()) > this.mMinimumVelocity && Math.abs(this.bvV - motionEvent.getY()) > 50.0f) {
+                if (Math.abs(velocityTracker.getYVelocity()) > this.mMinimumVelocity && Math.abs(this.bvW - motionEvent.getY()) > 50.0f) {
+                    this.bwa = false;
                     this.bvZ = false;
-                    this.bvY = false;
                 }
-                if (this.bvZ) {
-                    if (this.bvU != null) {
-                        this.bvU.t(motionEvent.getRawX(), motionEvent.getRawY());
+                if (this.bwa) {
+                    if (this.bvV != null) {
+                        this.bvV.t(motionEvent.getRawX(), motionEvent.getRawY());
                     }
-                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.bvV - motionEvent.getY()) && this.bvU != null) {
-                    this.bvU.Ua();
+                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.bvW - motionEvent.getY()) && this.bvV != null) {
+                    this.bvV.Ua();
                 }
-                if (!this.bvZ && this.bvY && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.bvV - motionEvent.getY()) < 30.0f) {
+                if (!this.bwa && this.bvZ && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.bvW - motionEvent.getY()) < 30.0f) {
                     this.mView.postDelayed(new Runnable() { // from class: com.baidu.tbadk.widget.viewpager.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!a.this.bvZ && a.this.bvY && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.bvV - motionEvent.getY()) < 30.0f && a.this.bvU != null) {
-                                a.this.bvU.TZ();
+                            if (!a.this.bwa && a.this.bvZ && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.bvW - motionEvent.getY()) < 30.0f && a.this.bvV != null) {
+                                a.this.bvV.TZ();
                             }
                         }
                     }, 300L);
                 }
-                this.bvX = currentTimeMillis;
+                this.bvY = currentTimeMillis;
                 releaseVelocityTracker();
                 break;
             case 3:
@@ -92,7 +92,7 @@ public class a {
     }
 
     public void setEventListener(InterfaceC0180a interfaceC0180a) {
-        this.bvU = interfaceC0180a;
+        this.bvV = interfaceC0180a;
     }
 
     private void releaseVelocityTracker() {

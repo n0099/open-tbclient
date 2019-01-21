@@ -12,19 +12,19 @@ import android.widget.GridView;
 import com.baidu.adp.lib.util.l;
 /* loaded from: classes3.dex */
 public class TransparentHeadGridView extends GridView {
-    private Interpolator bqC;
-    private Animation.AnimationListener cFq;
-    private int hXA;
-    private boolean hXB;
-    private c hXC;
-    private boolean hXs;
-    private int hXt;
-    private View hXu;
-    private d hXv;
-    private int hXw;
-    private a hXx;
-    private b hXy;
-    private AbsListView.OnScrollListener hXz;
+    private Interpolator bqD;
+    private Animation.AnimationListener cFr;
+    private AbsListView.OnScrollListener hXA;
+    private int hXB;
+    private boolean hXC;
+    private c hXD;
+    private boolean hXt;
+    private int hXu;
+    private View hXv;
+    private d hXw;
+    private int hXx;
+    private a hXy;
+    private b hXz;
     private Context mContext;
     private AbsListView.OnScrollListener mOnScrollListener;
     private float mStartY;
@@ -51,18 +51,18 @@ public class TransparentHeadGridView extends GridView {
         super(context);
         this.mState = 0;
         this.mStartY = 0.0f;
-        this.hXs = true;
-        this.hXt = -1;
-        this.hXA = -1;
-        this.hXB = false;
-        this.cFq = new Animation.AnimationListener() { // from class: com.baidu.tieba.write.album.TransparentHeadGridView.1
+        this.hXt = true;
+        this.hXu = -1;
+        this.hXB = -1;
+        this.hXC = false;
+        this.cFr = new Animation.AnimationListener() { // from class: com.baidu.tieba.write.album.TransparentHeadGridView.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                if (TransparentHeadGridView.this.hXB) {
+                if (TransparentHeadGridView.this.hXC) {
                     TransparentHeadGridView.this.setVisibility(8);
                 }
             }
@@ -71,22 +71,22 @@ public class TransparentHeadGridView extends GridView {
             public void onAnimationRepeat(Animation animation) {
             }
         };
-        this.hXC = new c() { // from class: com.baidu.tieba.write.album.TransparentHeadGridView.2
+        this.hXD = new c() { // from class: com.baidu.tieba.write.album.TransparentHeadGridView.2
             @Override // com.baidu.tieba.write.album.TransparentHeadGridView.c
             public void Su() {
-                if (TransparentHeadGridView.this.hXB) {
+                if (TransparentHeadGridView.this.hXC) {
                     TransparentHeadGridView.this.setVisibility(8);
                 }
-                if (TransparentHeadGridView.this.hXy != null) {
-                    TransparentHeadGridView.this.hXy.bPw();
+                if (TransparentHeadGridView.this.hXz != null) {
+                    TransparentHeadGridView.this.hXz.bPw();
                 }
             }
         };
         this.mOnScrollListener = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.write.album.TransparentHeadGridView.3
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
-                if (TransparentHeadGridView.this.hXz != null) {
-                    TransparentHeadGridView.this.hXz.onScrollStateChanged(absListView, i);
+                if (TransparentHeadGridView.this.hXA != null) {
+                    TransparentHeadGridView.this.hXA.onScrollStateChanged(absListView, i);
                 }
             }
 
@@ -94,27 +94,27 @@ public class TransparentHeadGridView extends GridView {
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
                 int height;
                 if (i != 0 || absListView == null || absListView.getChildAt(0) == null || absListView.getPaddingTop() != 0) {
-                    if (TransparentHeadGridView.this.hXx != null && TransparentHeadGridView.this.hXA != 100 && TransparentHeadGridView.this.getPaddingTop() == 0) {
-                        TransparentHeadGridView.this.hXx.xv(100);
-                        TransparentHeadGridView.this.hXA = 100;
+                    if (TransparentHeadGridView.this.hXy != null && TransparentHeadGridView.this.hXB != 100 && TransparentHeadGridView.this.getPaddingTop() == 0) {
+                        TransparentHeadGridView.this.hXy.xv(100);
+                        TransparentHeadGridView.this.hXB = 100;
                     }
                 } else {
                     View childAt = absListView.getChildAt(0);
-                    if (TransparentHeadGridView.this.hXt < 0) {
-                        TransparentHeadGridView.this.hXt = childAt.getTop();
+                    if (TransparentHeadGridView.this.hXu < 0) {
+                        TransparentHeadGridView.this.hXu = childAt.getTop();
                     }
-                    int i4 = -(childAt.getTop() - TransparentHeadGridView.this.hXt);
-                    TransparentHeadGridView.this.hXs = i4 == 0;
-                    if (TransparentHeadGridView.this.hXu != null) {
-                        TransparentHeadGridView.this.hXu.scrollTo(0, i4);
+                    int i4 = -(childAt.getTop() - TransparentHeadGridView.this.hXu);
+                    TransparentHeadGridView.this.hXt = i4 == 0;
+                    if (TransparentHeadGridView.this.hXv != null) {
+                        TransparentHeadGridView.this.hXv.scrollTo(0, i4);
                     }
-                    if (TransparentHeadGridView.this.hXx != null && childAt.getHeight() != 0 && TransparentHeadGridView.this.getPaddingTop() == 0 && (height = (((int) (-childAt.getY())) * 100) / childAt.getHeight()) != TransparentHeadGridView.this.hXA) {
-                        TransparentHeadGridView.this.hXx.xv(height);
-                        TransparentHeadGridView.this.hXA = height;
+                    if (TransparentHeadGridView.this.hXy != null && childAt.getHeight() != 0 && TransparentHeadGridView.this.getPaddingTop() == 0 && (height = (((int) (-childAt.getY())) * 100) / childAt.getHeight()) != TransparentHeadGridView.this.hXB) {
+                        TransparentHeadGridView.this.hXy.xv(height);
+                        TransparentHeadGridView.this.hXB = height;
                     }
                 }
-                if (TransparentHeadGridView.this.hXz != null) {
-                    TransparentHeadGridView.this.hXz.onScroll(absListView, i, i2, i3);
+                if (TransparentHeadGridView.this.hXA != null) {
+                    TransparentHeadGridView.this.hXA.onScroll(absListView, i, i2, i3);
                 }
             }
         };
@@ -125,18 +125,18 @@ public class TransparentHeadGridView extends GridView {
         super(context, attributeSet);
         this.mState = 0;
         this.mStartY = 0.0f;
-        this.hXs = true;
-        this.hXt = -1;
-        this.hXA = -1;
-        this.hXB = false;
-        this.cFq = new Animation.AnimationListener() { // from class: com.baidu.tieba.write.album.TransparentHeadGridView.1
+        this.hXt = true;
+        this.hXu = -1;
+        this.hXB = -1;
+        this.hXC = false;
+        this.cFr = new Animation.AnimationListener() { // from class: com.baidu.tieba.write.album.TransparentHeadGridView.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                if (TransparentHeadGridView.this.hXB) {
+                if (TransparentHeadGridView.this.hXC) {
                     TransparentHeadGridView.this.setVisibility(8);
                 }
             }
@@ -145,22 +145,22 @@ public class TransparentHeadGridView extends GridView {
             public void onAnimationRepeat(Animation animation) {
             }
         };
-        this.hXC = new c() { // from class: com.baidu.tieba.write.album.TransparentHeadGridView.2
+        this.hXD = new c() { // from class: com.baidu.tieba.write.album.TransparentHeadGridView.2
             @Override // com.baidu.tieba.write.album.TransparentHeadGridView.c
             public void Su() {
-                if (TransparentHeadGridView.this.hXB) {
+                if (TransparentHeadGridView.this.hXC) {
                     TransparentHeadGridView.this.setVisibility(8);
                 }
-                if (TransparentHeadGridView.this.hXy != null) {
-                    TransparentHeadGridView.this.hXy.bPw();
+                if (TransparentHeadGridView.this.hXz != null) {
+                    TransparentHeadGridView.this.hXz.bPw();
                 }
             }
         };
         this.mOnScrollListener = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.write.album.TransparentHeadGridView.3
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
-                if (TransparentHeadGridView.this.hXz != null) {
-                    TransparentHeadGridView.this.hXz.onScrollStateChanged(absListView, i);
+                if (TransparentHeadGridView.this.hXA != null) {
+                    TransparentHeadGridView.this.hXA.onScrollStateChanged(absListView, i);
                 }
             }
 
@@ -168,27 +168,27 @@ public class TransparentHeadGridView extends GridView {
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
                 int height;
                 if (i != 0 || absListView == null || absListView.getChildAt(0) == null || absListView.getPaddingTop() != 0) {
-                    if (TransparentHeadGridView.this.hXx != null && TransparentHeadGridView.this.hXA != 100 && TransparentHeadGridView.this.getPaddingTop() == 0) {
-                        TransparentHeadGridView.this.hXx.xv(100);
-                        TransparentHeadGridView.this.hXA = 100;
+                    if (TransparentHeadGridView.this.hXy != null && TransparentHeadGridView.this.hXB != 100 && TransparentHeadGridView.this.getPaddingTop() == 0) {
+                        TransparentHeadGridView.this.hXy.xv(100);
+                        TransparentHeadGridView.this.hXB = 100;
                     }
                 } else {
                     View childAt = absListView.getChildAt(0);
-                    if (TransparentHeadGridView.this.hXt < 0) {
-                        TransparentHeadGridView.this.hXt = childAt.getTop();
+                    if (TransparentHeadGridView.this.hXu < 0) {
+                        TransparentHeadGridView.this.hXu = childAt.getTop();
                     }
-                    int i4 = -(childAt.getTop() - TransparentHeadGridView.this.hXt);
-                    TransparentHeadGridView.this.hXs = i4 == 0;
-                    if (TransparentHeadGridView.this.hXu != null) {
-                        TransparentHeadGridView.this.hXu.scrollTo(0, i4);
+                    int i4 = -(childAt.getTop() - TransparentHeadGridView.this.hXu);
+                    TransparentHeadGridView.this.hXt = i4 == 0;
+                    if (TransparentHeadGridView.this.hXv != null) {
+                        TransparentHeadGridView.this.hXv.scrollTo(0, i4);
                     }
-                    if (TransparentHeadGridView.this.hXx != null && childAt.getHeight() != 0 && TransparentHeadGridView.this.getPaddingTop() == 0 && (height = (((int) (-childAt.getY())) * 100) / childAt.getHeight()) != TransparentHeadGridView.this.hXA) {
-                        TransparentHeadGridView.this.hXx.xv(height);
-                        TransparentHeadGridView.this.hXA = height;
+                    if (TransparentHeadGridView.this.hXy != null && childAt.getHeight() != 0 && TransparentHeadGridView.this.getPaddingTop() == 0 && (height = (((int) (-childAt.getY())) * 100) / childAt.getHeight()) != TransparentHeadGridView.this.hXB) {
+                        TransparentHeadGridView.this.hXy.xv(height);
+                        TransparentHeadGridView.this.hXB = height;
                     }
                 }
-                if (TransparentHeadGridView.this.hXz != null) {
-                    TransparentHeadGridView.this.hXz.onScroll(absListView, i, i2, i3);
+                if (TransparentHeadGridView.this.hXA != null) {
+                    TransparentHeadGridView.this.hXA.onScroll(absListView, i, i2, i3);
                 }
             }
         };
@@ -199,18 +199,18 @@ public class TransparentHeadGridView extends GridView {
         super(context, attributeSet, i);
         this.mState = 0;
         this.mStartY = 0.0f;
-        this.hXs = true;
-        this.hXt = -1;
-        this.hXA = -1;
-        this.hXB = false;
-        this.cFq = new Animation.AnimationListener() { // from class: com.baidu.tieba.write.album.TransparentHeadGridView.1
+        this.hXt = true;
+        this.hXu = -1;
+        this.hXB = -1;
+        this.hXC = false;
+        this.cFr = new Animation.AnimationListener() { // from class: com.baidu.tieba.write.album.TransparentHeadGridView.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                if (TransparentHeadGridView.this.hXB) {
+                if (TransparentHeadGridView.this.hXC) {
                     TransparentHeadGridView.this.setVisibility(8);
                 }
             }
@@ -219,22 +219,22 @@ public class TransparentHeadGridView extends GridView {
             public void onAnimationRepeat(Animation animation) {
             }
         };
-        this.hXC = new c() { // from class: com.baidu.tieba.write.album.TransparentHeadGridView.2
+        this.hXD = new c() { // from class: com.baidu.tieba.write.album.TransparentHeadGridView.2
             @Override // com.baidu.tieba.write.album.TransparentHeadGridView.c
             public void Su() {
-                if (TransparentHeadGridView.this.hXB) {
+                if (TransparentHeadGridView.this.hXC) {
                     TransparentHeadGridView.this.setVisibility(8);
                 }
-                if (TransparentHeadGridView.this.hXy != null) {
-                    TransparentHeadGridView.this.hXy.bPw();
+                if (TransparentHeadGridView.this.hXz != null) {
+                    TransparentHeadGridView.this.hXz.bPw();
                 }
             }
         };
         this.mOnScrollListener = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.write.album.TransparentHeadGridView.3
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i2) {
-                if (TransparentHeadGridView.this.hXz != null) {
-                    TransparentHeadGridView.this.hXz.onScrollStateChanged(absListView, i2);
+                if (TransparentHeadGridView.this.hXA != null) {
+                    TransparentHeadGridView.this.hXA.onScrollStateChanged(absListView, i2);
                 }
             }
 
@@ -242,27 +242,27 @@ public class TransparentHeadGridView extends GridView {
             public void onScroll(AbsListView absListView, int i2, int i22, int i3) {
                 int height;
                 if (i2 != 0 || absListView == null || absListView.getChildAt(0) == null || absListView.getPaddingTop() != 0) {
-                    if (TransparentHeadGridView.this.hXx != null && TransparentHeadGridView.this.hXA != 100 && TransparentHeadGridView.this.getPaddingTop() == 0) {
-                        TransparentHeadGridView.this.hXx.xv(100);
-                        TransparentHeadGridView.this.hXA = 100;
+                    if (TransparentHeadGridView.this.hXy != null && TransparentHeadGridView.this.hXB != 100 && TransparentHeadGridView.this.getPaddingTop() == 0) {
+                        TransparentHeadGridView.this.hXy.xv(100);
+                        TransparentHeadGridView.this.hXB = 100;
                     }
                 } else {
                     View childAt = absListView.getChildAt(0);
-                    if (TransparentHeadGridView.this.hXt < 0) {
-                        TransparentHeadGridView.this.hXt = childAt.getTop();
+                    if (TransparentHeadGridView.this.hXu < 0) {
+                        TransparentHeadGridView.this.hXu = childAt.getTop();
                     }
-                    int i4 = -(childAt.getTop() - TransparentHeadGridView.this.hXt);
-                    TransparentHeadGridView.this.hXs = i4 == 0;
-                    if (TransparentHeadGridView.this.hXu != null) {
-                        TransparentHeadGridView.this.hXu.scrollTo(0, i4);
+                    int i4 = -(childAt.getTop() - TransparentHeadGridView.this.hXu);
+                    TransparentHeadGridView.this.hXt = i4 == 0;
+                    if (TransparentHeadGridView.this.hXv != null) {
+                        TransparentHeadGridView.this.hXv.scrollTo(0, i4);
                     }
-                    if (TransparentHeadGridView.this.hXx != null && childAt.getHeight() != 0 && TransparentHeadGridView.this.getPaddingTop() == 0 && (height = (((int) (-childAt.getY())) * 100) / childAt.getHeight()) != TransparentHeadGridView.this.hXA) {
-                        TransparentHeadGridView.this.hXx.xv(height);
-                        TransparentHeadGridView.this.hXA = height;
+                    if (TransparentHeadGridView.this.hXy != null && childAt.getHeight() != 0 && TransparentHeadGridView.this.getPaddingTop() == 0 && (height = (((int) (-childAt.getY())) * 100) / childAt.getHeight()) != TransparentHeadGridView.this.hXB) {
+                        TransparentHeadGridView.this.hXy.xv(height);
+                        TransparentHeadGridView.this.hXB = height;
                     }
                 }
-                if (TransparentHeadGridView.this.hXz != null) {
-                    TransparentHeadGridView.this.hXz.onScroll(absListView, i2, i22, i3);
+                if (TransparentHeadGridView.this.hXA != null) {
+                    TransparentHeadGridView.this.hXA.onScroll(absListView, i2, i22, i3);
                 }
             }
         };
@@ -272,7 +272,7 @@ public class TransparentHeadGridView extends GridView {
     private void init(Context context) {
         this.mContext = context;
         setOnScrollListener(this.mOnScrollListener);
-        this.hXw = (int) (l.aQ(context) * 0.22f);
+        this.hXx = (int) (l.aQ(context) * 0.22f);
     }
 
     @Override // android.widget.AbsListView, android.view.View
@@ -281,8 +281,8 @@ public class TransparentHeadGridView extends GridView {
             case 1:
                 this.mState = 0;
                 this.mStartY = 0.0f;
-                if (this.hXB && getPaddingTop() > this.hXw) {
-                    a(getHeight(), 200L, 0L, this.hXC);
+                if (this.hXC && getPaddingTop() > this.hXx) {
+                    a(getHeight(), 200L, 0L, this.hXD);
                     break;
                 } else {
                     a(0, 200L, 0L, null);
@@ -294,14 +294,14 @@ public class TransparentHeadGridView extends GridView {
                     this.mStartY = motionEvent.getY();
                 }
                 float y = motionEvent.getY();
-                if (y > this.mStartY && getPaddingTop() == 0 && this.hXs) {
+                if (y > this.mStartY && getPaddingTop() == 0 && this.hXt) {
                     this.mState = 1;
                 }
                 if (this.mState == 1) {
                     int i = (int) ((y - this.mStartY) / 2.0f);
                     setPadding(0, i, 0, 0);
-                    if (this.hXy != null && i >= 0 && this.hXw > 0 && i <= this.hXw) {
-                        this.hXy.xw((i * 100) / this.hXw);
+                    if (this.hXz != null && i >= 0 && this.hXx > 0 && i <= this.hXx) {
+                        this.hXz.xw((i * 100) / this.hXx);
                         break;
                     }
                 }
@@ -314,42 +314,42 @@ public class TransparentHeadGridView extends GridView {
         setPadding(0, (int) ((10.0f - this.mStartY) / 2.0f), 0, 0);
         this.mState = 0;
         this.mStartY = 0.0f;
-        if (this.hXB && getPaddingTop() > this.hXw) {
-            a(getHeight(), 200L, 0L, this.hXC);
+        if (this.hXC && getPaddingTop() > this.hXx) {
+            a(getHeight(), 200L, 0L, this.hXD);
         } else {
             a(0, 200L, 0L, null);
         }
     }
 
     public void setOuterOnScrollListener(AbsListView.OnScrollListener onScrollListener) {
-        this.hXz = onScrollListener;
+        this.hXA = onScrollListener;
     }
 
     public void setBottomMoveView(View view) {
-        this.hXu = view;
+        this.hXv = view;
     }
 
     private void a(int i, long j, long j2, c cVar) {
-        if (this.hXv != null) {
-            this.hXv.stop();
+        if (this.hXw != null) {
+            this.hXw.stop();
         }
         int paddingTop = getPaddingTop();
         if (paddingTop != i) {
-            if (this.bqC == null) {
-                this.bqC = new DecelerateInterpolator();
+            if (this.bqD == null) {
+                this.bqD = new DecelerateInterpolator();
             }
-            this.hXv = new d(paddingTop, i, j, cVar);
+            this.hXw = new d(paddingTop, i, j, cVar);
             if (j2 > 0) {
-                postDelayed(this.hXv, j2);
+                postDelayed(this.hXw, j2);
             } else {
-                post(this.hXv);
+                post(this.hXw);
             }
         }
     }
 
     /* loaded from: classes3.dex */
     public class d implements Runnable {
-        private c hXE;
+        private c hXF;
         private final long mDuration;
         private final Interpolator mInterpolator;
         private final int mScrollFromY;
@@ -361,9 +361,9 @@ public class TransparentHeadGridView extends GridView {
         public d(int i, int i2, long j, c cVar) {
             this.mScrollFromY = i;
             this.mScrollToY = i2;
-            this.mInterpolator = TransparentHeadGridView.this.bqC;
+            this.mInterpolator = TransparentHeadGridView.this.bqD;
             this.mDuration = j;
-            this.hXE = cVar;
+            this.hXF = cVar;
         }
 
         @Override // java.lang.Runnable
@@ -373,14 +373,14 @@ public class TransparentHeadGridView extends GridView {
             } else {
                 this.mCurrentY = this.mScrollFromY - Math.round(this.mInterpolator.getInterpolation(((float) Math.max(Math.min(((System.currentTimeMillis() - this.mStartTime) * 1000) / this.mDuration, 1000L), 0L)) / 1000.0f) * (this.mScrollFromY - this.mScrollToY));
                 TransparentHeadGridView.this.setPadding(0, this.mCurrentY, 0, 0);
-                if (TransparentHeadGridView.this.hXy != null && this.mCurrentY >= 0 && TransparentHeadGridView.this.hXw > 0 && this.mCurrentY <= TransparentHeadGridView.this.hXw) {
-                    TransparentHeadGridView.this.hXy.xw((this.mCurrentY * 100) / TransparentHeadGridView.this.hXw);
+                if (TransparentHeadGridView.this.hXz != null && this.mCurrentY >= 0 && TransparentHeadGridView.this.hXx > 0 && this.mCurrentY <= TransparentHeadGridView.this.hXx) {
+                    TransparentHeadGridView.this.hXz.xw((this.mCurrentY * 100) / TransparentHeadGridView.this.hXx);
                 }
             }
             if (this.mContinueRunning && this.mScrollToY != this.mCurrentY) {
                 TransparentHeadGridView.this.postDelayed(this, 16L);
-            } else if (this.hXE != null) {
-                this.hXE.Su();
+            } else if (this.hXF != null) {
+                this.hXF.Su();
             }
         }
 
@@ -391,10 +391,10 @@ public class TransparentHeadGridView extends GridView {
     }
 
     public void setOnHeadDisplayChangeListener(a aVar) {
-        this.hXx = aVar;
+        this.hXy = aVar;
     }
 
     public void setOnPullChangeListener(b bVar) {
-        this.hXy = bVar;
+        this.hXz = bVar;
     }
 }

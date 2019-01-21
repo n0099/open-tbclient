@@ -24,7 +24,7 @@ public class SpecialFrsWebManagerStatic {
                             } else {
                                 com.baidu.tbadk.mainTab.c Oh = cVar.Oh();
                                 if (Oh != null) {
-                                    Oh.bez.setArguments(new Bundle());
+                                    Oh.beA.setArguments(new Bundle());
                                 } else {
                                     return;
                                 }

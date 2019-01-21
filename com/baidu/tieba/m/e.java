@@ -5,8 +5,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class e extends c.a {
-    private final int gJi;
     private final int gJj;
+    private final int gJk;
     private final String ip;
     private final int times;
     private final int type;
@@ -15,9 +15,9 @@ public class e extends c.a {
     public e(int i, int i2, int i3, int i4, int i5, String str, int i6) {
         super(i);
         this.type = i2;
-        this.gJi = i3;
+        this.gJj = i3;
         this.what = i4;
-        this.gJj = i5;
+        this.gJk = i5;
         this.ip = str;
         this.times = i6;
     }
@@ -28,7 +28,7 @@ public class e extends c.a {
         try {
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(new JSONObject().put("retry_type", this.type));
-            jSONArray.put(new JSONObject().put("error_msg", b.c(this.gJi, this.what, this.gJj, 0L).toString()));
+            jSONArray.put(new JSONObject().put("error_msg", b.c(this.gJj, this.what, this.gJk, 0L).toString()));
             jSONArray.put(new JSONObject().put("retry_ip", this.ip));
             jSONArray.put(new JSONObject().put("retry_error_times", this.times));
             btE.put("ext", jSONArray);

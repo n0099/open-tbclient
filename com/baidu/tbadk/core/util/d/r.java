@@ -4,23 +4,23 @@ import android.graphics.Bitmap;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class r extends a {
-    private boolean aET;
     private boolean aEU;
     private boolean aEV;
+    private boolean aEW;
     private int height;
     private int procType;
     private int width;
 
     public r(boolean z, boolean z2, boolean z3, int i) {
-        this.aET = true;
-        this.aEU = false;
+        this.aEU = true;
         this.aEV = false;
+        this.aEW = false;
         this.procType = 0;
         this.width = 0;
         this.height = 0;
-        this.aET = z;
-        this.aEU = z2;
-        this.aEV = z3;
+        this.aEU = z;
+        this.aEV = z2;
+        this.aEW = z3;
         this.procType = i;
         this.width = Math.min(com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst().getApp(), 427.0f), 640);
         this.height = (int) (this.width * 1.6f);
@@ -43,17 +43,17 @@ public class r extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.aET;
+        return this.aEU;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean EI() {
-        return this.aEV;
+        return this.aEW;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean EJ() {
-        return this.aEU;
+        return this.aEV;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a

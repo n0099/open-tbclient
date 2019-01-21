@@ -35,7 +35,7 @@ public class a {
                 return;
             }
             if (z && (asH = asH()) != null) {
-                dVar.aSO = asH;
+                dVar.aSP = asH;
             }
             com.baidu.tbadk.coreExtra.c.e eVar = new com.baidu.tbadk.coreExtra.c.e(this.mContext, null);
             if (i == 3) {
@@ -43,7 +43,7 @@ public class a {
                 eVar.b(dVar);
             } else if (i == 2) {
                 a(dVar, 3);
-                if (dVar.aSD) {
+                if (dVar.aSE) {
                     dVar.content = m(dVar);
                 }
                 eVar.c(dVar);
@@ -56,19 +56,19 @@ public class a {
                 BdToast.a(this.mContext, this.mContext.getText(e.j.share_qq_not_install)).Ca();
             } else if (i == 5) {
                 a(dVar, 6);
-                if (!dVar.aSC) {
+                if (!dVar.aSD) {
                     dVar.content = m(dVar);
                 }
                 eVar.f(dVar);
             } else if (i == 6) {
                 a(dVar, 7);
-                if (!dVar.aSC) {
+                if (!dVar.aSD) {
                     dVar.content = m(dVar);
                 }
                 eVar.g(dVar);
             } else if (i == 7) {
                 a(dVar, 8);
-                if (!dVar.aSC) {
+                if (!dVar.aSD) {
                     dVar.content = m(dVar);
                 }
                 eVar.h(dVar);
@@ -85,17 +85,17 @@ public class a {
 
     private void a(d dVar, int i) {
         if (dVar != null && dVar.extData != null) {
-            if (dVar.aSD) {
+            if (dVar.aSE) {
                 TiebaStatic.log(new am("c10125").aB(ImageViewerConfig.FORUM_ID, dVar.extData).y("obj_type", i));
-            } else if (dVar.aSE || dVar.aSH) {
-                TiebaStatic.log(new am("c10125").aB("tid", dVar.extData).y("obj_type", i).y(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.aSS).y("obj_param1", dVar.aST).aB(ImageViewerConfig.FORUM_ID, dVar.fid));
-            } else if (dVar.aSF) {
-                TiebaStatic.log(new am("c10427").aB("tid", dVar.extData).y("obj_type", i));
-            } else if (dVar.aSC) {
-                ai(i, dVar.aSP);
+            } else if (dVar.aSF || dVar.aSI) {
+                TiebaStatic.log(new am("c10125").aB("tid", dVar.extData).y("obj_type", i).y(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, dVar.aST).y("obj_param1", dVar.aSU).aB(ImageViewerConfig.FORUM_ID, dVar.fid));
             } else if (dVar.aSG) {
+                TiebaStatic.log(new am("c10427").aB("tid", dVar.extData).y("obj_type", i));
+            } else if (dVar.aSD) {
+                ai(i, dVar.aSQ);
+            } else if (dVar.aSH) {
                 TiebaStatic.log(new am("c10125").y("obj_param1", 7).y("obj_type", i).aB(ImageViewerConfig.FORUM_ID, dVar.extData));
-            } else if (dVar.aSI) {
+            } else if (dVar.aSJ) {
                 am y = new am("c10125").y("obj_type", i);
                 if (!ao.isEmpty(dVar.linkUrl) && dVar.linkUrl.contains("worldcup")) {
                     y.y("obj_param1", 9);

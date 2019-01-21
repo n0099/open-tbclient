@@ -16,7 +16,7 @@ import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class VideoMiddlePageActivity extends BaseFragmentActivity {
-    private VideoMiddlePageFragment eii;
+    private VideoMiddlePageFragment eij;
     private String mFrom;
     private String mId;
 
@@ -48,7 +48,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
                 videoMiddlePageFragment = VideoMiddlePageFragment.bI(this.mFrom, this.mId);
                 supportFragmentManager.beginTransaction().add(e.g.video_middle_page_container, videoMiddlePageFragment, VideoMiddlePageFragment.class.getCanonicalName()).commitAllowingStateLoss();
             }
-            this.eii = videoMiddlePageFragment;
+            this.eij = videoMiddlePageFragment;
         }
     }
 
@@ -87,10 +87,10 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (keyEvent == null || this.eii == null) {
+        if (keyEvent == null || this.eij == null) {
             return super.onKeyDown(i, keyEvent);
         }
-        if (this.eii.mI(i)) {
+        if (this.eij.mI(i)) {
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -114,7 +114,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
                 arrayList.add("a006");
             }
             pageStayDurationItem.V(arrayList);
-            pageStayDurationItem.bgb = "0";
+            pageStayDurationItem.bgc = "0";
         }
         return pageStayDurationItem;
     }

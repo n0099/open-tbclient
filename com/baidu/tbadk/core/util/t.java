@@ -1,47 +1,47 @@
 package com.baidu.tbadk.core.util;
 /* loaded from: classes.dex */
 public class t {
-    private static t aBn;
-    private long aBi = 0;
+    private static t aBo;
     private long aBj = 0;
-    private String aBk = "";
+    private long aBk = 0;
     private String aBl = "";
-    private final long aBm = 120000;
+    private String aBm = "";
+    private final long aBn = 120000;
 
     public static t Dn() {
-        if (aBn == null) {
+        if (aBo == null) {
             synchronized (t.class) {
-                if (aBn == null) {
-                    aBn = new t();
+                if (aBo == null) {
+                    aBo = new t();
                 }
             }
         }
-        return aBn;
+        return aBo;
     }
 
     public String Do() {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.aBi > 120000) {
+        if (currentTimeMillis - this.aBj > 120000) {
             if (com.baidu.adp.lib.util.l.lk()) {
                 return "";
             }
-            this.aBi = currentTimeMillis;
-            this.aBk = UtilHelper.getIpFromDomain("c.tieba.baidu.com");
+            this.aBj = currentTimeMillis;
+            this.aBl = UtilHelper.getIpFromDomain("c.tieba.baidu.com");
         }
-        return this.aBk;
+        return this.aBl;
     }
 
     public String fJ(String str) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.aBj > 120000) {
+        if (currentTimeMillis - this.aBk > 120000) {
             int indexOf = str.indexOf("hiphotos.baidu.com");
             if (indexOf <= 0 || com.baidu.adp.lib.util.l.lk()) {
                 return "";
             }
-            this.aBj = currentTimeMillis;
-            this.aBl = UtilHelper.getIpFromDomain(str.substring(0, indexOf).replace("http://", "") + "hiphotos.baidu.com");
-            return this.aBl;
+            this.aBk = currentTimeMillis;
+            this.aBm = UtilHelper.getIpFromDomain(str.substring(0, indexOf).replace("http://", "") + "hiphotos.baidu.com");
+            return this.aBm;
         }
-        return this.aBl;
+        return this.aBm;
     }
 }

@@ -12,19 +12,19 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.compatible.CompatibleUtile;
 /* loaded from: classes.dex */
 public class r {
-    private static final byte[] bjs = new byte[1];
-    private static r bjt = null;
+    private static final byte[] bjt = new byte[1];
+    private static r bju = null;
     private CustomMessageListener mNetworkChangedListener;
 
     public static r Qt() {
-        if (bjt == null) {
-            synchronized (bjs) {
-                if (bjt == null) {
-                    bjt = new r();
+        if (bju == null) {
+            synchronized (bjt) {
+                if (bju == null) {
+                    bju = new r();
                 }
             }
         }
-        return bjt;
+        return bju;
     }
 
     private r() {

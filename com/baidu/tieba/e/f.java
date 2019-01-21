@@ -4,27 +4,27 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
 /* loaded from: classes3.dex */
 public class f implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId doe = BdUniqueId.gen();
-    private Integer dnX;
+    public static final BdUniqueId dof = BdUniqueId.gen();
     private Integer dnY;
-    private FeatureCardGame dof;
+    private Integer dnZ;
+    private FeatureCardGame dog;
     private String mTitle;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return doe;
+        return dof;
     }
 
     public FeatureCardGame auZ() {
-        return this.dof;
+        return this.dog;
     }
 
     public void a(FeatureCardGame featureCardGame) {
         if (featureCardGame != null) {
-            this.dof = featureCardGame;
+            this.dog = featureCardGame;
             this.mTitle = featureCardGame.title;
-            this.dnX = featureCardGame.floor;
-            this.dnY = featureCardGame.type;
+            this.dnY = featureCardGame.floor;
+            this.dnZ = featureCardGame.type;
         }
     }
 }

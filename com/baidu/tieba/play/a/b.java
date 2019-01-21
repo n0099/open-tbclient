@@ -15,10 +15,10 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 /* loaded from: classes.dex */
 public class b {
-    private static b gIS = null;
-    private com.baidu.tieba.play.a.a gIR;
-    private InterfaceC0295b gIT = null;
-    private int gIU = 0;
+    private static b gIT = null;
+    private com.baidu.tieba.play.a.a gIS;
+    private InterfaceC0295b gIU = null;
+    private int gIV = 0;
 
     /* renamed from: com.baidu.tieba.play.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -30,40 +30,40 @@ public class b {
     }
 
     public static b btA() {
-        if (gIS == null) {
+        if (gIT == null) {
             synchronized (b.class) {
-                if (gIS == null) {
-                    gIS = new b();
+                if (gIT == null) {
+                    gIT = new b();
                 }
             }
         }
-        return gIS;
+        return gIT;
     }
 
     public void a(InterfaceC0295b interfaceC0295b) {
-        this.gIT = interfaceC0295b;
+        this.gIU = interfaceC0295b;
     }
 
     public boolean ur(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (us(str) && this.gIR.btz().size() > this.gIU) {
-            if (this.gIT != null) {
-                InterfaceC0295b interfaceC0295b = this.gIT;
-                List<String> btz = this.gIR.btz();
-                int i = this.gIU;
-                this.gIU = i + 1;
+        if (us(str) && this.gIS.btz().size() > this.gIV) {
+            if (this.gIU != null) {
+                InterfaceC0295b interfaceC0295b = this.gIU;
+                List<String> btz = this.gIS.btz();
+                int i = this.gIV;
+                this.gIV = i + 1;
                 interfaceC0295b.cv(btz.get(i), str);
             }
             return true;
-        } else if (this.gIR != null && this.gIR.btz() != null && this.gIR.btz().size() <= this.gIU) {
-            this.gIU = 0;
-            this.gIR = null;
+        } else if (this.gIS != null && this.gIS.btz() != null && this.gIS.btz().size() <= this.gIV) {
+            this.gIV = 0;
+            this.gIS = null;
             return false;
         } else {
-            this.gIU = 0;
-            this.gIR = null;
+            this.gIV = 0;
+            this.gIS = null;
             a aVar = new a();
             aVar.setHost(str);
             aVar.execute(new Void[0]);
@@ -72,7 +72,7 @@ public class b {
     }
 
     private boolean us(String str) {
-        return (this.gIR == null || TextUtils.isEmpty(str) || !str.equals(this.gIR.getHost()) || v.I(this.gIR.btz()) || this.gIR.df(System.currentTimeMillis()) || this.gIR.btz().size() <= this.gIU) ? false : true;
+        return (this.gIS == null || TextUtils.isEmpty(str) || !str.equals(this.gIS.getHost()) || v.I(this.gIS.btz()) || this.gIS.df(System.currentTimeMillis()) || this.gIS.btz().size() <= this.gIV) ? false : true;
     }
 
     /* loaded from: classes.dex */
@@ -261,14 +261,14 @@ public class b {
         public void onProgressUpdate(com.baidu.tieba.play.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
             if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.mHost)) {
-                b.this.gIR = aVarArr[0];
-                if (!v.I(aVarArr[0].btz()) && b.this.gIT != null) {
-                    b.this.gIT.cv(aVarArr[0].btz().get(0), aVarArr[0].getHost());
+                b.this.gIS = aVarArr[0];
+                if (!v.I(aVarArr[0].btz()) && b.this.gIU != null) {
+                    b.this.gIU.cv(aVarArr[0].btz().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.gIT != null) {
-                b.this.gIT.cv(null, null);
+            if (b.this.gIU != null) {
+                b.this.gIU.cv(null, null);
             }
         }
 

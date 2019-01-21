@@ -30,14 +30,14 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
         initView();
         adjustResizeForSoftInput(e.d.common_color_10022, false);
-        if (this.eMu != null) {
-            this.eMu.setImageUploadUIProgressCallback(this.eMz);
+        if (this.eMv != null) {
+            this.eMv.setImageUploadUIProgressCallback(this.eMA);
         }
         aPD();
         if (a((d) this)) {
             loadDraft();
             aOX();
-            j.eMs = com.baidu.tbadk.util.i.Qj();
+            j.eMt = com.baidu.tbadk.util.i.Qj();
         }
     }
 
@@ -45,8 +45,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.eMu != null) {
-            this.eMu.onDestroy();
+        if (this.eMv != null) {
+            this.eMv.onDestroy();
         }
         setIntent(intent);
         if (!v(null)) {
@@ -65,8 +65,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.eMt != null) {
-            this.eMt.onChangeSkinType(i);
+        if (this.eMu != null) {
+            this.eMu.onChangeSkinType(i);
         }
     }
 
@@ -74,8 +74,8 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.eMt != null) {
-            this.eMt.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        if (this.eMu != null) {
+            this.eMu.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             aOU();
         }
     }
@@ -83,14 +83,14 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     /* JADX INFO: Access modifiers changed from: protected */
     public void aOU() {
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
-            this.eMt.showReceiver();
+            this.eMu.showReceiver();
         } else {
-            this.eMt.closeReceiver();
+            this.eMu.closeReceiver();
         }
     }
 
     protected boolean loadDraft() {
-        return this.eMu.loadDraft();
+        return this.eMv.loadDraft();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -17,60 +17,60 @@ import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class FrsPraiseView extends LinearLayout {
-    private View bSL;
-    private boolean gmW;
-    private TextView hmE;
+    private View bSM;
+    private boolean gmX;
     private TextView hmF;
     private TextView hmG;
-    private PraiseData hmH;
-    private boolean hmI;
+    private TextView hmH;
+    private PraiseData hmI;
+    private boolean hmJ;
     private Context mContext;
     private String mPostId;
     private String mThreadId;
 
     public FrsPraiseView(Context context) {
         super(context, null);
-        this.gmW = false;
-        this.hmI = false;
+        this.gmX = false;
+        this.hmJ = false;
     }
 
     public FrsPraiseView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gmW = false;
-        this.hmI = false;
+        this.gmX = false;
+        this.hmJ = false;
         setOrientation(0);
         this.mContext = context;
         initView();
     }
 
     private void initView() {
-        this.bSL = View.inflate(this.mContext, e.h.frs_item_praise, this);
-        this.hmE = (TextView) this.bSL.findViewById(e.g.frs_go_praise_list_num);
-        this.hmF = (TextView) this.bSL.findViewById(e.g.frs_praise_user_name_text1);
-        this.hmG = (TextView) this.bSL.findViewById(e.g.frs_praise_user_name_text2);
+        this.bSM = View.inflate(this.mContext, e.h.frs_item_praise, this);
+        this.hmF = (TextView) this.bSM.findViewById(e.g.frs_go_praise_list_num);
+        this.hmG = (TextView) this.bSM.findViewById(e.g.frs_praise_user_name_text1);
+        this.hmH = (TextView) this.bSM.findViewById(e.g.frs_praise_user_name_text2);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str = "";
-                if (FrsPraiseView.this.hmH != null) {
-                    str = FrsPraiseView.this.hmH.getTitle();
+                if (FrsPraiseView.this.hmI != null) {
+                    str = FrsPraiseView.this.hmI.getTitle();
                 }
-                com.baidu.tbadk.util.o.a(new PraiseListActivityConfig(FrsPraiseView.this.mContext, FrsPraiseView.this.mThreadId, FrsPraiseView.this.mPostId, str, FrsPraiseView.this.gmW));
+                com.baidu.tbadk.util.o.a(new PraiseListActivityConfig(FrsPraiseView.this.mContext, FrsPraiseView.this.mThreadId, FrsPraiseView.this.mPostId, str, FrsPraiseView.this.gmX));
             }
         });
-        this.hmG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.2
+        this.hmH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MetaData metaData = FrsPraiseView.this.hmH.getUser().get(1);
+                MetaData metaData = FrsPraiseView.this.hmI.getUser().get(1);
                 if (metaData != null) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(FrsPraiseView.this.mContext).createNormalConfig(com.baidu.adp.lib.g.b.d(metaData.getUserId(), 0L), false, metaData.isBigV())));
                 }
             }
         });
-        this.hmF.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.3
+        this.hmG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.FrsPraiseView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MetaData metaData = FrsPraiseView.this.hmH.getUser().get(0);
+                MetaData metaData = FrsPraiseView.this.hmI.getUser().get(0);
                 if (metaData != null) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(FrsPraiseView.this.mContext).createNormalConfig(com.baidu.adp.lib.g.b.d(metaData.getUserId(), 0L), false, metaData.isBigV())));
                 }
@@ -82,48 +82,48 @@ public class FrsPraiseView extends LinearLayout {
         if (praiseData != null) {
             this.mThreadId = str;
             this.mPostId = str2;
-            this.hmH = praiseData;
+            this.hmI = praiseData;
             nq(z);
         }
     }
 
     public void setIsFromPb(boolean z) {
-        this.gmW = z;
+        this.gmX = z;
     }
 
     public void setIsFromPbVideo(boolean z) {
-        this.hmI = z;
+        this.hmJ = z;
     }
 
     private void nq(boolean z) {
-        long num = this.hmH.getNum();
+        long num = this.hmI.getNum();
+        this.hmH.setVisibility(8);
         this.hmG.setVisibility(8);
-        this.hmF.setVisibility(8);
         if (num > 0) {
-            ArrayList<MetaData> user = this.hmH.getUser();
+            ArrayList<MetaData> user = this.hmI.getUser();
             if (user != null && user.size() > 0) {
                 if (user.size() == 1) {
                     if (user.get(0) != null) {
-                        this.hmF.setVisibility(0);
-                        this.hmF.setText(vI(user.get(0).getName_show()));
+                        this.hmG.setVisibility(0);
+                        this.hmG.setText(vI(user.get(0).getName_show()));
                     }
                 } else {
                     if (user.get(0) != null) {
-                        this.hmF.setVisibility(0);
-                        this.hmF.setText(vI(user.get(0).getName_show()));
+                        this.hmG.setVisibility(0);
+                        this.hmG.setText(vI(user.get(0).getName_show()));
                     }
                     if (user.get(1) != null) {
-                        this.hmG.setVisibility(0);
-                        this.hmG.setText("、" + vI(user.get(1).getName_show()));
+                        this.hmH.setVisibility(0);
+                        this.hmH.setText("、" + vI(user.get(1).getName_show()));
                     }
                 }
             }
             if (num <= 2) {
-                this.hmE.setText(this.mContext.getString(e.j.common_praise_view_text));
+                this.hmF.setText(this.mContext.getString(e.j.common_praise_view_text));
             } else if (num <= 999999) {
-                this.hmE.setText(this.mContext.getString(e.j.etc) + num + this.mContext.getString(e.j.common_praise_view_text2));
+                this.hmF.setText(this.mContext.getString(e.j.etc) + num + this.mContext.getString(e.j.common_praise_view_text2));
             } else {
-                this.hmE.setText(this.mContext.getString(e.j.etc) + "999999+" + this.mContext.getString(e.j.common_praise_view_text2));
+                this.hmF.setText(this.mContext.getString(e.j.etc) + "999999+" + this.mContext.getString(e.j.common_praise_view_text2));
             }
         }
     }
@@ -136,23 +136,23 @@ public class FrsPraiseView extends LinearLayout {
     }
 
     public void eD(int i) {
-        if (this.gmW) {
-            if (this.hmI) {
-                al.i(this.bSL, e.f.praise_video_selector);
-                al.c(this.hmE, e.d.cp_cont_c, 1);
-                al.c(this.hmF, e.d.cp_link_tip_c, 1);
+        if (this.gmX) {
+            if (this.hmJ) {
+                al.i(this.bSM, e.f.praise_video_selector);
+                al.c(this.hmF, e.d.cp_cont_c, 1);
                 al.c(this.hmG, e.d.cp_link_tip_c, 1);
+                al.c(this.hmH, e.d.cp_link_tip_c, 1);
                 return;
             }
-            al.i(this.bSL, e.f.praise_head_selector);
-            al.c(this.hmE, e.d.cp_cont_d, 1);
-            al.c(this.hmF, e.d.cp_link_tip_c, 1);
+            al.i(this.bSM, e.f.praise_head_selector);
+            al.c(this.hmF, e.d.cp_cont_d, 1);
             al.c(this.hmG, e.d.cp_link_tip_c, 1);
+            al.c(this.hmH, e.d.cp_link_tip_c, 1);
             return;
         }
-        al.i(this.bSL, e.f.praise_view_btn_color);
-        al.c(this.hmE, e.d.cp_cont_d, 1);
-        al.c(this.hmF, e.d.cp_cont_c, 1);
+        al.i(this.bSM, e.f.praise_view_btn_color);
+        al.c(this.hmF, e.d.cp_cont_d, 1);
         al.c(this.hmG, e.d.cp_cont_c, 1);
+        al.c(this.hmH, e.d.cp_cont_c, 1);
     }
 }

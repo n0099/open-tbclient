@@ -7,27 +7,27 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class c {
-    public int eaa;
-    public b eak;
-    public List<h> eal;
+    public int eab;
+    public b eal;
+    public List<h> eam;
     public boolean hasMore;
 
     public c(JSONObject jSONObject) {
         int length;
         if (jSONObject != null) {
-            this.eaa = jSONObject.optInt("current_pn");
+            this.eab = jSONObject.optInt("current_pn");
             this.hasMore = jSONObject.optInt("has_more", 0) == 1;
             JSONObject optJSONObject = jSONObject.optJSONObject("main_comment");
             if (optJSONObject != null) {
-                this.eak = new b(optJSONObject);
+                this.eal = new b(optJSONObject);
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("sub_comment");
             if (optJSONArray != null && (length = optJSONArray.length()) > 0) {
-                this.eal = new ArrayList(length);
+                this.eam = new ArrayList(length);
                 for (int i = 0; i < length; i++) {
                     d dVar = new d(optJSONArray.optJSONObject(i));
                     if (dVar != null) {
-                        this.eal.add(dVar);
+                        this.eam.add(dVar);
                     }
                 }
             }

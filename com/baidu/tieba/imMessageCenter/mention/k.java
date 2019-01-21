@@ -9,7 +9,7 @@ import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes4.dex */
 public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int fiD;
+    private int fiE;
     private String ids;
     private int mPn = 1;
 
@@ -21,17 +21,17 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
 
     public void toNextPage() {
         this.mPn++;
-        this.fiD = 4;
+        this.fiE = 4;
     }
 
     public void reset() {
         this.mPn = 1;
-        this.fiD = 1;
+        this.fiE = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.fiD;
+        return this.fiE;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
@@ -43,7 +43,7 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
         hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
         hashMap.put("scr_h", Integer.valueOf(com.baidu.adp.lib.util.l.aQ(TbadkCoreApplication.getInst().getApp())));
         hashMap.put("scr_w", Integer.valueOf(com.baidu.adp.lib.util.l.aO(TbadkCoreApplication.getInst().getApp())));
-        if (this.fiD == 4 && !TextUtils.isEmpty(this.ids)) {
+        if (this.fiE == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;

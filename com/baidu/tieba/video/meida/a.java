@@ -17,12 +17,12 @@ import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public class a extends d {
-    private long hJJ;
+    private long hJK;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(String str) {
         super(str);
-        this.hJJ = 88200L;
+        this.hJK = 88200L;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:106:0x0253 A[SYNTHETIC] */
@@ -56,8 +56,8 @@ public class a extends d {
             if (this.channelCount == 0) {
                 this.channelCount = 1;
             }
-            this.hJJ = (this.sampleRate * 16) / 8;
-            fileInputStream = new FileInputStream(this.hJO);
+            this.hJK = (this.sampleRate * 16) / 8;
+            fileInputStream = new FileInputStream(this.hJP);
             try {
                 fileOutputStream = new FileOutputStream(str);
             } catch (Exception e) {
@@ -126,7 +126,7 @@ public class a extends d {
                         i2 = i3;
                         bArr = bArr3;
                         z = z3;
-                        j = (long) ((1000000.0d * (i7 / 2.0d)) / this.hJJ);
+                        j = (long) ((1000000.0d * (i7 / 2.0d)) / this.hJK);
                         z2 = z5;
                     }
                 }

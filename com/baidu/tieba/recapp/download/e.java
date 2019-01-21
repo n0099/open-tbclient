@@ -24,22 +24,22 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class e {
-    private static e gQh = new e();
-    private static DownloadData aYC = null;
+    private static e gQi = new e();
+    private static DownloadData aYD = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private a gQi = null;
+    private a gQj = null;
     private int max = 20;
     @SuppressLint({"HandlerLeak"})
-    private Handler aYE = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.recapp.download.e.1
+    private Handler aYF = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.recapp.download.e.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
-            if (message.what == 900002 && message.arg2 > 0 && e.aYC != null) {
-                e.aYC.setLength(message.arg1);
-                e.aYC.setSize(message.arg2);
-                e.aYC.setStatus(1);
-                if (e.aYC.getCallback() != null) {
-                    e.aYC.getCallback().onFileUpdateProgress(e.aYC);
+            if (message.what == 900002 && message.arg2 > 0 && e.aYD != null) {
+                e.aYD.setLength(message.arg1);
+                e.aYD.setSize(message.arg2);
+                e.aYD.setStatus(1);
+                if (e.aYD.getCallback() != null) {
+                    e.aYD.getCallback().onFileUpdateProgress(e.aYD);
                 }
             }
         }
@@ -49,7 +49,7 @@ public class e {
     }
 
     public static e bwc() {
-        return gQh;
+        return gQi;
     }
 
     public void a(DownloadData downloadData, int i) {
@@ -111,11 +111,11 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Mk() {
-        if (aYC == null && !mTaskList.isEmpty()) {
-            aYC = mTaskList.get(0);
-            if (aYC != null) {
-                this.gQi = new a();
-                this.gQi.execute(aYC);
+        if (aYD == null && !mTaskList.isEmpty()) {
+            aYD = mTaskList.get(0);
+            if (aYD != null) {
+                this.gQj = new a();
+                this.gQj.execute(aYD);
             }
         }
     }
@@ -125,12 +125,12 @@ public class e {
     }
 
     public void u(String str, boolean z) {
-        if (aYC != null && aYC.getUrl().equals(str)) {
+        if (aYD != null && aYD.getUrl().equals(str)) {
             if (z) {
-                this.gQi.Mn();
+                this.gQj.Mn();
                 return;
             } else {
-                this.gQi.cancel(true);
+                this.gQj.cancel(true);
                 return;
             }
         }
@@ -189,15 +189,15 @@ public class e {
         public void onCancelled() {
             super.onCancelled();
             this.mNetWork.jj();
-            e.aYC.setStatus(4);
-            e.aYC.setStatusMsg(null);
-            if (e.aYC.getCallback() != null) {
-                e.aYC.getCallback().onFileUpdateProgress(e.aYC);
+            e.aYD.setStatus(4);
+            e.aYD.setStatusMsg(null);
+            if (e.aYD.getCallback() != null) {
+                e.aYD.getCallback().onFileUpdateProgress(e.aYD);
             }
             if (!e.mTaskList.isEmpty()) {
                 e.mTaskList.remove(0);
             }
-            DownloadData unused = e.aYC = null;
+            DownloadData unused = e.aYD = null;
             e.this.Mk();
         }
 
@@ -224,7 +224,7 @@ public class e {
                 }
                 if (!file.exists()) {
                     this.mNetWork.setUrl(downloadDataArr[0].getUrl());
-                    if (!Boolean.valueOf(this.mNetWork.a(downloadDataArr[0].getId() + BaseRequestAction.SPLITE + downloadDataArr[0].getName() + ".tmp", e.this.aYE, TbConfig.NET_MSG_GETLENTH, 3, 3000)).booleanValue()) {
+                    if (!Boolean.valueOf(this.mNetWork.a(downloadDataArr[0].getId() + BaseRequestAction.SPLITE + downloadDataArr[0].getName() + ".tmp", e.this.aYF, TbConfig.NET_MSG_GETLENTH, 3, 3000)).booleanValue()) {
                         return 3;
                     }
                     File fd = l.fd(downloadDataArr[0].getId() + BaseRequestAction.SPLITE + downloadDataArr[0].getName() + ".tmp");
@@ -325,12 +325,12 @@ public class e {
             super.onPostExecute((a) num);
             if (num != null) {
                 if (num.intValue() == 0) {
-                    e.aYC.setStatus(0);
-                    if (e.aYC.getCallback() != null) {
-                        e.aYC.getCallback().onFileUpdateProgress(e.aYC);
+                    e.aYD.setStatus(0);
+                    if (e.aYD.getCallback() != null) {
+                        e.aYD.getCallback().onFileUpdateProgress(e.aYD);
                     }
-                    if (e.aYC.getCallback() != null) {
-                        e.aYC.getCallback().onFileDownloadSucceed(e.aYC);
+                    if (e.aYD.getCallback() != null) {
+                        e.aYD.getCallback().onFileDownloadSucceed(e.aYD);
                     }
                 } else {
                     switch (num.intValue()) {
@@ -357,17 +357,17 @@ public class e {
                             string = TbadkCoreApplication.getInst().getApp().getString(e.j.download_fail);
                             break;
                     }
-                    e.aYC.setStatusMsg(string);
-                    e.aYC.setErrorCode(num.intValue());
-                    e.aYC.setStatus(2);
-                    if (e.aYC.getCallback() != null) {
-                        e.aYC.getCallback().onFileUpdateProgress(e.aYC);
+                    e.aYD.setStatusMsg(string);
+                    e.aYD.setErrorCode(num.intValue());
+                    e.aYD.setStatus(2);
+                    if (e.aYD.getCallback() != null) {
+                        e.aYD.getCallback().onFileUpdateProgress(e.aYD);
                     }
-                    if (e.aYC.getCallback() != null) {
-                        e.aYC.getCallback().onFileDownloadFailed(e.aYC, num.intValue(), string);
+                    if (e.aYD.getCallback() != null) {
+                        e.aYD.getCallback().onFileDownloadFailed(e.aYD, num.intValue(), string);
                     }
                 }
-                DownloadData unused = e.aYC = null;
+                DownloadData unused = e.aYD = null;
                 if (!e.mTaskList.isEmpty()) {
                     e.mTaskList.remove(0);
                     e.this.Mk();

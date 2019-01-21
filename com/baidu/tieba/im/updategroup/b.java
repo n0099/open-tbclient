@@ -5,14 +5,14 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b extends d {
-    protected TextView fcX;
+    protected TextView fcY;
 
     public b(UpdateGroupActivity updateGroupActivity) {
         super(updateGroupActivity);
-        this.fcX = null;
+        this.fcY = null;
         setContentView(e.h.update_group_info_activity);
         qI(e.j.group_update_info);
-        this.fcX = (TextView) this.fcY.findViewById(e.g.edit_count);
+        this.fcY = (TextView) this.fcZ.findViewById(e.g.edit_count);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a
@@ -22,14 +22,14 @@ public class b extends d {
             int length = obj.length();
             v(length, length, 15, 300);
             int i = 300 - length;
-            this.fcX.setText(String.valueOf(i));
+            this.fcY.setText(String.valueOf(i));
             if (i <= 50) {
-                this.fcX.setVisibility(0);
+                this.fcY.setVisibility(0);
             } else {
-                this.fcX.setVisibility(8);
+                this.fcY.setVisibility(8);
             }
             if (i == 0) {
-                this.fcX.setTextColor(this.fcY.getResources().getColor(e.d.common_color_10170));
+                this.fcY.setTextColor(this.fcZ.getResources().getColor(e.d.common_color_10170));
             } else {
                 aQq();
             }
@@ -37,8 +37,8 @@ public class b extends d {
     }
 
     private void aQq() {
-        this.fcY.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.fcY.getLayoutMode().onModeChanged(this.fcX);
+        this.fcZ.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.fcZ.getLayoutMode().onModeChanged(this.fcY);
     }
 
     @Override // com.baidu.tieba.im.updategroup.a

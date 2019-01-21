@@ -12,7 +12,7 @@ import com.baidu.tieba.personCenter.data.f;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c {
-    private a guY;
+    private a guZ;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
     TbPageContext mPageContext;
@@ -26,7 +26,7 @@ public class c {
         this.mNavigationBar = (NavigationBar) view.findViewById(e.g.person_more_navigation_bar);
         azR();
         this.mListView = (BdTypeListView) view.findViewById(e.g.person_more_listview);
-        this.guY = new a(this.mPageContext, this.mListView, this.vh);
+        this.guZ = new a(this.mPageContext, this.mListView, this.vh);
     }
 
     private void azR() {
@@ -46,7 +46,7 @@ public class c {
     }
 
     public void onChangeSkinType() {
-        this.guY.notifyDataSetChanged();
+        this.guZ.notifyDataSetChanged();
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 

@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class QuickPlayerStatic {
-    private static CustomMessageListener byL = new CustomMessageListener(2007015) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.1
+    private static CustomMessageListener byM = new CustomMessageListener(2007015) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -25,7 +25,7 @@ public class QuickPlayerStatic {
             }
         }
     };
-    private static final CustomMessageListener byM = new CustomMessageListener(2001011) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.3
+    private static final CustomMessageListener byN = new CustomMessageListener(2001011) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -34,7 +34,7 @@ public class QuickPlayerStatic {
             }
         }
     };
-    private static final CustomMessageListener byN = new CustomMessageListener(2921340) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.4
+    private static final CustomMessageListener byO = new CustomMessageListener(2921340) { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -60,9 +60,9 @@ public class QuickPlayerStatic {
             }
         }).start();
         Vn();
-        MessageManager.getInstance().registerListener(byM);
-        MessageManager.getInstance().registerListener(byL);
         MessageManager.getInstance().registerListener(byN);
+        MessageManager.getInstance().registerListener(byM);
+        MessageManager.getInstance().registerListener(byO);
     }
 
     private static void Vn() {

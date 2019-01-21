@@ -4,53 +4,53 @@ import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import java.util.TimerTask;
 /* loaded from: classes.dex */
 public final class a extends TimerTask {
-    private float buT = 2.1474836E9f;
-    private final float buU;
-    private final WheelView buV;
+    private float buU = 2.1474836E9f;
+    private final float buV;
+    private final WheelView buW;
 
     public a(WheelView wheelView, float f) {
-        this.buV = wheelView;
-        this.buU = f;
+        this.buW = wheelView;
+        this.buV = f;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public final void run() {
-        if (this.buT == 2.1474836E9f) {
-            if (Math.abs(this.buU) > 2000.0f) {
-                this.buT = this.buU <= 0.0f ? -2000.0f : 2000.0f;
+        if (this.buU == 2.1474836E9f) {
+            if (Math.abs(this.buV) > 2000.0f) {
+                this.buU = this.buV <= 0.0f ? -2000.0f : 2000.0f;
             } else {
-                this.buT = this.buU;
+                this.buU = this.buV;
             }
         }
-        if (Math.abs(this.buT) >= 0.0f && Math.abs(this.buT) <= 20.0f) {
-            this.buV.TS();
-            this.buV.getHandler().sendEmptyMessage(2000);
+        if (Math.abs(this.buU) >= 0.0f && Math.abs(this.buU) <= 20.0f) {
+            this.buW.TS();
+            this.buW.getHandler().sendEmptyMessage(2000);
             return;
         }
-        int i = (int) (this.buT / 100.0f);
-        this.buV.setTotalScrollY(this.buV.getTotalScrollY() - i);
-        if (!this.buV.TU()) {
-            float itemHeight = this.buV.getItemHeight();
-            float f = (-this.buV.getInitPosition()) * itemHeight;
-            float itemsCount = ((this.buV.getItemsCount() - 1) - this.buV.getInitPosition()) * itemHeight;
-            if (this.buV.getTotalScrollY() - (itemHeight * 0.25d) < f) {
-                f = this.buV.getTotalScrollY() + i;
-            } else if (this.buV.getTotalScrollY() + (itemHeight * 0.25d) > itemsCount) {
-                itemsCount = this.buV.getTotalScrollY() + i;
+        int i = (int) (this.buU / 100.0f);
+        this.buW.setTotalScrollY(this.buW.getTotalScrollY() - i);
+        if (!this.buW.TU()) {
+            float itemHeight = this.buW.getItemHeight();
+            float f = (-this.buW.getInitPosition()) * itemHeight;
+            float itemsCount = ((this.buW.getItemsCount() - 1) - this.buW.getInitPosition()) * itemHeight;
+            if (this.buW.getTotalScrollY() - (itemHeight * 0.25d) < f) {
+                f = this.buW.getTotalScrollY() + i;
+            } else if (this.buW.getTotalScrollY() + (itemHeight * 0.25d) > itemsCount) {
+                itemsCount = this.buW.getTotalScrollY() + i;
             }
-            if (this.buV.getTotalScrollY() <= f) {
-                this.buT = 40.0f;
-                this.buV.setTotalScrollY((int) f);
-            } else if (this.buV.getTotalScrollY() >= itemsCount) {
-                this.buV.setTotalScrollY((int) itemsCount);
-                this.buT = -40.0f;
+            if (this.buW.getTotalScrollY() <= f) {
+                this.buU = 40.0f;
+                this.buW.setTotalScrollY((int) f);
+            } else if (this.buW.getTotalScrollY() >= itemsCount) {
+                this.buW.setTotalScrollY((int) itemsCount);
+                this.buU = -40.0f;
             }
         }
-        if (this.buT < 0.0f) {
-            this.buT += 20.0f;
+        if (this.buU < 0.0f) {
+            this.buU += 20.0f;
         } else {
-            this.buT -= 20.0f;
+            this.buU -= 20.0f;
         }
-        this.buV.getHandler().sendEmptyMessage(1000);
+        this.buW.getHandler().sendEmptyMessage(1000);
     }
 }

@@ -17,28 +17,28 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends q.a {
-    public int aMj;
-    public TextView anp;
-    public View dhf;
-    public HTypeListView guH;
-    public e guI;
+    public int aMk;
+    public TextView anq;
+    public View dhg;
+    public HTypeListView guI;
+    public e guJ;
     public TbPageContext mPageContext;
     public View rootView;
 
     public d(View view, TbPageContext tbPageContext) {
         super(view);
-        this.aMj = 3;
+        this.aMk = 3;
         this.rootView = view;
         this.mPageContext = tbPageContext;
-        this.dhf = view.findViewById(e.g.divider_view_under_photo_album);
-        this.anp = (TextView) view.findViewById(e.g.text_view_photo_album);
-        this.guH = (HTypeListView) view.findViewById(e.g.listview_photo_album);
-        this.guI = new com.baidu.tieba.person.a.e(this.mPageContext, this.guH);
+        this.dhg = view.findViewById(e.g.divider_view_under_photo_album);
+        this.anq = (TextView) view.findViewById(e.g.text_view_photo_album);
+        this.guI = (HTypeListView) view.findViewById(e.g.listview_photo_album);
+        this.guJ = new com.baidu.tieba.person.a.e(this.mPageContext, this.guI);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.guI.setDatas(dt(fVar.getPhotoAlbum()));
+            this.guJ.setDatas(dt(fVar.getPhotoAlbum()));
         }
     }
 
@@ -54,12 +54,12 @@ public class d extends q.a {
     }
 
     public void NK() {
-        if (this.aMj != TbadkCoreApplication.getInst().getSkinType()) {
-            this.aMj = TbadkCoreApplication.getInst().getSkinType();
+        if (this.aMk != TbadkCoreApplication.getInst().getSkinType()) {
+            this.aMk = TbadkCoreApplication.getInst().getSkinType();
             al.j(this.rootView, e.d.cp_bg_line_d);
-            al.j(this.dhf, e.d.cp_bg_line_c);
-            al.c(this.anp, e.d.cp_cont_d, 1);
-            this.guI.notifyDataSetChanged();
+            al.j(this.dhg, e.d.cp_bg_line_c);
+            al.c(this.anq, e.d.cp_cont_d, 1);
+            this.guJ.notifyDataSetChanged();
         }
     }
 }

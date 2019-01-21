@@ -7,7 +7,7 @@ import tbclient.GetAddressList.listData;
 import tbclient.GetAddressList.robotsList;
 /* loaded from: classes3.dex */
 public class e {
-    private List<com.baidu.tbadk.coreExtra.relationship.a> bDu;
+    private List<com.baidu.tbadk.coreExtra.relationship.a> bDv;
     private String mKey;
 
     public String getKey() {
@@ -15,22 +15,22 @@ public class e {
     }
 
     public List<com.baidu.tbadk.coreExtra.relationship.a> getContacts() {
-        if (this.bDu == null) {
-            this.bDu = new ArrayList();
+        if (this.bDv == null) {
+            this.bDv = new ArrayList();
         }
-        return this.bDu;
+        return this.bDv;
     }
 
     public void a(listData listdata) {
         if (listdata != null) {
             this.mKey = listdata.key;
             if (listdata.friend_list != null) {
-                this.bDu = new ArrayList();
+                this.bDv = new ArrayList();
                 for (friendList friendlist : listdata.friend_list) {
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar.a(friendlist);
                     aVar.hn(this.mKey);
-                    this.bDu.add(aVar);
+                    this.bDv.add(aVar);
                 }
             }
         }
@@ -40,12 +40,12 @@ public class e {
         if (robotslist != null) {
             this.mKey = robotslist.key;
             if (robotslist.friend_list != null) {
-                this.bDu = new ArrayList();
+                this.bDv = new ArrayList();
                 for (friendList friendlist : robotslist.friend_list) {
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar.a(friendlist);
                     aVar.hn(this.mKey);
-                    this.bDu.add(aVar);
+                    this.bDv.add(aVar);
                 }
             }
         }

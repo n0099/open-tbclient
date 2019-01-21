@@ -19,11 +19,11 @@ public class EntelechyBannerView extends BannerView {
     }
 
     private void init() {
-        if (this.aTz != null && (this.aTz.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aTz.getLayoutParams();
+        if (this.aTA != null && (this.aTA.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aTA.getLayoutParams();
             layoutParams.topMargin = (l.h(getContext(), e.C0210e.ds100) - l.dip2px(getContext(), 20.0f)) / 2;
             layoutParams.addRule(10);
-            this.aTz.requestLayout();
+            this.aTA.requestLayout();
         }
     }
 }

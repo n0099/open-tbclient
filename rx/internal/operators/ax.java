@@ -9,7 +9,7 @@ public final class ax<T> implements d.b<Notification<T>, T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final ax<Object> iKh = new ax<>();
+        static final ax<Object> iKi = new ax<>();
     }
 
     @Override // rx.functions.f
@@ -18,7 +18,7 @@ public final class ax<T> implements d.b<Notification<T>, T> {
     }
 
     public static <T> ax<T> ceX() {
-        return (ax<T>) a.iKh;
+        return (ax<T>) a.iKi;
     }
 
     ax() {
@@ -42,8 +42,8 @@ public final class ax<T> implements d.b<Notification<T>, T> {
     /* loaded from: classes2.dex */
     public static class b<T> extends rx.j<T> {
         private final rx.j<? super Notification<T>> child;
-        private volatile Notification<T> iKi;
-        private boolean iKj;
+        private volatile Notification<T> iKj;
+        private boolean iKk;
         private boolean missed;
         private final AtomicLong requested = new AtomicLong();
 
@@ -64,13 +64,13 @@ public final class ax<T> implements d.b<Notification<T>, T> {
 
         @Override // rx.e
         public void onCompleted() {
-            this.iKi = Notification.cek();
+            this.iKj = Notification.cek();
             drain();
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iKi = Notification.H(th);
+            this.iKj = Notification.H(th);
             rx.c.c.onError(th);
             drain();
         }
@@ -94,15 +94,15 @@ public final class ax<T> implements d.b<Notification<T>, T> {
 
         private void drain() {
             synchronized (this) {
-                if (this.iKj) {
+                if (this.iKk) {
                     this.missed = true;
                     return;
                 }
                 AtomicLong atomicLong = this.requested;
                 while (!this.child.isUnsubscribed()) {
-                    Notification<T> notification = this.iKi;
+                    Notification<T> notification = this.iKj;
                     if (notification != null && atomicLong.get() > 0) {
-                        this.iKi = null;
+                        this.iKj = null;
                         this.child.onNext(notification);
                         if (!this.child.isUnsubscribed()) {
                             this.child.onCompleted();
@@ -112,7 +112,7 @@ public final class ax<T> implements d.b<Notification<T>, T> {
                     }
                     synchronized (this) {
                         if (!this.missed) {
-                            this.iKj = false;
+                            this.iKk = false;
                             return;
                         }
                     }

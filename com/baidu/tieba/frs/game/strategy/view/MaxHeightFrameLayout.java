@@ -10,27 +10,27 @@ import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class MaxHeightFrameLayout extends FrameLayout {
     private float dXA;
-    private float dXz;
+    private float dXB;
 
     public MaxHeightFrameLayout(Context context) {
         super(context);
-        this.dXz = 0.6f;
-        this.dXA = 0.0f;
+        this.dXA = 0.6f;
+        this.dXB = 0.0f;
         init();
     }
 
     public MaxHeightFrameLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.dXz = 0.6f;
-        this.dXA = 0.0f;
+        this.dXA = 0.6f;
+        this.dXB = 0.0f;
         initAttrs(context, attributeSet);
         init();
     }
 
     public MaxHeightFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.dXz = 0.6f;
-        this.dXA = 0.0f;
+        this.dXA = 0.6f;
+        this.dXB = 0.0f;
         initAttrs(context, attributeSet);
         init();
     }
@@ -41,19 +41,19 @@ public class MaxHeightFrameLayout extends FrameLayout {
         for (int i = 0; i < indexCount; i++) {
             int index = obtainStyledAttributes.getIndex(i);
             if (index == e.l.MaxHeightFrameLayout_mhf_HeightRatio) {
-                this.dXz = obtainStyledAttributes.getFloat(index, 0.6f);
+                this.dXA = obtainStyledAttributes.getFloat(index, 0.6f);
             } else if (index == e.l.MaxHeightFrameLayout_mhf_HeightDimen) {
-                this.dXA = obtainStyledAttributes.getDimension(index, 0.0f);
+                this.dXB = obtainStyledAttributes.getDimension(index, 0.0f);
             }
         }
         obtainStyledAttributes.recycle();
     }
 
     private void init() {
-        if (this.dXA <= 0.0f) {
-            this.dXA = this.dXz * l.aQ(getContext());
+        if (this.dXB <= 0.0f) {
+            this.dXB = this.dXA * l.aQ(getContext());
         } else {
-            this.dXA = Math.min(this.dXA, this.dXz * l.aQ(getContext()));
+            this.dXB = Math.min(this.dXB, this.dXA * l.aQ(getContext()));
         }
     }
 
@@ -61,19 +61,19 @@ public class MaxHeightFrameLayout extends FrameLayout {
     protected void onMeasure(int i, int i2) {
         int mode = View.MeasureSpec.getMode(i2);
         int size = View.MeasureSpec.getSize(i2);
-        if (mode == 1073741824 && size > this.dXA) {
-            size = (int) this.dXA;
+        if (mode == 1073741824 && size > this.dXB) {
+            size = (int) this.dXB;
         }
-        if (mode == 0 && size > this.dXA) {
-            size = (int) this.dXA;
+        if (mode == 0 && size > this.dXB) {
+            size = (int) this.dXB;
         }
-        if (mode == Integer.MIN_VALUE && size > this.dXA) {
-            size = (int) this.dXA;
+        if (mode == Integer.MIN_VALUE && size > this.dXB) {
+            size = (int) this.dXB;
         }
         super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(size, mode));
     }
 
     public void setMaxHeight(int i) {
-        this.dXA = i;
+        this.dXB = i;
     }
 }

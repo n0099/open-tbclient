@@ -13,7 +13,7 @@ import java.util.LinkedList;
 public class g {
     private static String vy = null;
     private static volatile SQLiteDatabase vu = null;
-    public static HashMap<String, SQLiteDatabase> eRi = new HashMap<>();
+    public static HashMap<String, SQLiteDatabase> eRj = new HashMap<>();
 
     public static synchronized SQLiteDatabase aRH() {
         SQLiteDatabase sQLiteDatabase;
@@ -26,8 +26,8 @@ public class g {
                 sQLiteDatabase = null;
             } else {
                 String str = TbadkCoreApplication.getCurrentAccount() + ".db";
-                if (eRi.containsKey(str)) {
-                    sQLiteDatabase = eRi.get(str);
+                if (eRj.containsKey(str)) {
+                    sQLiteDatabase = eRj.get(str);
                 } else if (vu != null && str.equals(vy) && vu.isOpen()) {
                     sQLiteDatabase = vu;
                 } else {

@@ -7,9 +7,9 @@ import android.widget.AbsListView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 /* loaded from: classes.dex */
 public class u {
-    private boolean bjA;
-    private View bjy;
-    private int bjz;
+    private int bjA;
+    private boolean bjB;
+    private View bjz;
     private final Handler mHandler;
 
     public void Qx() {
@@ -31,29 +31,29 @@ public class u {
     }
 
     public void cU(boolean z) {
-        if (this.bjy != null) {
-            if (z || this.bjy.getVisibility() != 8) {
+        if (this.bjz != null) {
+            if (z || this.bjz.getVisibility() != 8) {
                 Qy();
             }
         }
     }
 
     public void cV(boolean z) {
-        if (this.bjy != null) {
-            if (z || this.bjy.getVisibility() != 0) {
+        if (this.bjz != null) {
+            if (z || this.bjz.getVisibility() != 0) {
                 Qx();
             }
         }
     }
 
     public void onScroll(int i, int i2) {
-        if (this.bjy != null) {
-            if (i != 0 && i2 > i && this.bjy.getVisibility() != 8) {
+        if (this.bjz != null) {
+            if (i != 0 && i2 > i && this.bjz.getVisibility() != 8) {
                 cU(false);
-            } else if ((i == 0 || i2 < i) && this.bjy.getVisibility() != 0) {
+            } else if ((i == 0 || i2 < i) && this.bjz.getVisibility() != 0) {
                 cV(false);
             }
-            this.bjz = i;
+            this.bjA = i;
         }
     }
 
@@ -67,12 +67,12 @@ public class u {
             } else {
                 return;
             }
-            if (firstVisiblePosition > this.bjz) {
+            if (firstVisiblePosition > this.bjA) {
                 cU(true);
-            } else if (firstVisiblePosition < this.bjz) {
+            } else if (firstVisiblePosition < this.bjA) {
                 cV(true);
-            } else if (firstVisiblePosition == this.bjz) {
-                if (firstVisiblePosition == 0 || !this.bjA) {
+            } else if (firstVisiblePosition == this.bjA) {
+                if (firstVisiblePosition == 0 || !this.bjB) {
                     cV(true);
                 } else {
                     cU(true);

@@ -21,15 +21,15 @@ import com.baidu.tbadk.coreExtra.messageCenter.c;
 import com.baidu.tieba.setting.more.AboutActivity;
 /* loaded from: classes3.dex */
 public class AboutModel extends BdBaseModel<AboutActivity> {
-    private a gZn;
-    private final boolean gZo;
+    private a gZo;
+    private final boolean gZp;
     private Context mContext;
 
     public AboutModel(BaseActivity baseActivity, d dVar) {
         super(baseActivity.getPageContext());
         this.mContext = baseActivity.getPageContext().getPageActivity();
         this.mLoadDataCallBack = dVar;
-        this.gZo = false;
+        this.gZp = false;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -39,19 +39,19 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.gZn != null) {
-            this.gZn.cancel();
+        if (this.gZo != null) {
+            this.gZo.cancel();
             return false;
         }
         return false;
     }
 
     public void bxS() {
-        if (this.gZn == null) {
-            this.gZn = new a();
+        if (this.gZo == null) {
+            this.gZo = new a();
         }
-        this.gZn.setPriority(3);
-        this.gZn.execute(new String[0]);
+        this.gZo.setPriority(3);
+        this.gZo.execute(new String[0]);
     }
 
     /* loaded from: classes3.dex */
@@ -88,7 +88,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
                 } else {
                     this.mNetWork.x("_msg_status", "1");
                 }
-                if (AboutModel.this.gZo) {
+                if (AboutModel.this.gZp) {
                     this.mNetWork.x("reversion_return", "1");
                 }
                 String packageName = TbadkCoreApplication.getInst().getPackageName();
@@ -130,7 +130,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
-            AboutModel.this.gZn = null;
+            AboutModel.this.gZo = null;
             if (this.mNetWork != null) {
                 this.mNetWork.jg();
             }
@@ -146,7 +146,7 @@ public class AboutModel extends BdBaseModel<AboutActivity> {
             if (dVar != null && dVar.getAdAdSense() != null) {
                 TbadkCoreApplication.getInst().setAdAdSense(dVar.getAdAdSense());
             }
-            AboutModel.this.gZn = null;
+            AboutModel.this.gZo = null;
             AboutModel.this.mLoadDataCallBack.m(dVar);
         }
     }

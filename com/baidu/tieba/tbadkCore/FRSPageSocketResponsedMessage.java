@@ -60,7 +60,7 @@ public class FRSPageSocketResponsedMessage extends MvcSocketResponsedMessage<i, 
         if (M != null && M.error != null) {
             if (M.error.errorno != null) {
                 setError(M.error.errorno.intValue());
-                this.responseData.dSz = M.error.errorno.intValue();
+                this.responseData.dSA = M.error.errorno.intValue();
             }
             setErrorString(M.error.usermsg);
         }

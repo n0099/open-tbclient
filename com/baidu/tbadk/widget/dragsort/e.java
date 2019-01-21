@@ -9,9 +9,9 @@ import android.widget.ListView;
 import com.baidu.tbadk.widget.dragsort.a;
 /* loaded from: classes.dex */
 public class e implements a.h {
-    private Bitmap bnF;
-    private ImageView bnG;
-    private int bnH = -16777216;
+    private Bitmap bnG;
+    private ImageView bnH;
+    private int bnI = -16777216;
     private ListView mListView;
 
     public e(ListView listView) {
@@ -19,7 +19,7 @@ public class e implements a.h {
     }
 
     public void setBackgroundColor(int i) {
-        this.bnH = i;
+        this.bnI = i;
     }
 
     @Override // com.baidu.tbadk.widget.dragsort.a.h
@@ -30,16 +30,16 @@ public class e implements a.h {
         }
         childAt.setPressed(false);
         childAt.setDrawingCacheEnabled(true);
-        this.bnF = Bitmap.createBitmap(childAt.getDrawingCache());
+        this.bnG = Bitmap.createBitmap(childAt.getDrawingCache());
         childAt.setDrawingCacheEnabled(false);
-        if (this.bnG == null) {
-            this.bnG = new ImageView(this.mListView.getContext());
+        if (this.bnH == null) {
+            this.bnH = new ImageView(this.mListView.getContext());
         }
-        this.bnG.setBackgroundColor(this.bnH);
-        this.bnG.setPadding(0, 0, 0, 0);
-        this.bnG.setImageBitmap(this.bnF);
-        this.bnG.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
-        return this.bnG;
+        this.bnH.setBackgroundColor(this.bnI);
+        this.bnH.setPadding(0, 0, 0, 0);
+        this.bnH.setImageBitmap(this.bnG);
+        this.bnH.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
+        return this.bnH;
     }
 
     @Override // com.baidu.tbadk.widget.dragsort.a.h
@@ -49,7 +49,7 @@ public class e implements a.h {
     @Override // com.baidu.tbadk.widget.dragsort.a.h
     public void af(View view) {
         ((ImageView) view).setImageDrawable(null);
-        this.bnF.recycle();
-        this.bnF = null;
+        this.bnG.recycle();
+        this.bnG = null;
     }
 }

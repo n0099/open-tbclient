@@ -6,17 +6,17 @@ import java.util.List;
 import tbclient.PbContent;
 /* loaded from: classes6.dex */
 public class b implements h {
-    public static final BdUniqueId enW = BdUniqueId.gen();
+    public static final BdUniqueId enX = BdUniqueId.gen();
     private List<PbContent> content;
-    private String enX;
-    private int enY;
+    private String enY;
     private int enZ;
-    private String eoa;
+    private int eoa;
+    private String eob;
     private String groupName;
     private int rank;
 
     public b oj(int i) {
-        this.enY = i;
+        this.enZ = i;
         return this;
     }
 
@@ -30,20 +30,20 @@ public class b implements h {
     }
 
     public String aKa() {
-        return this.eoa;
+        return this.eob;
     }
 
     public String aJM() {
-        return this.enX;
+        return this.enY;
     }
 
     public b pn(String str) {
-        this.enX = str;
+        this.enY = str;
         return this;
     }
 
     public b po(String str) {
-        this.eoa = str;
+        this.eob = str;
         return this;
     }
 
@@ -53,7 +53,7 @@ public class b implements h {
     }
 
     public b ol(int i) {
-        this.enZ = i;
+        this.eoa = i;
         return this;
     }
 
@@ -63,11 +63,11 @@ public class b implements h {
     }
 
     public boolean aKb() {
-        return this.enZ == 3;
+        return this.eoa == 3;
     }
 
     public int aKc() {
-        return this.enY;
+        return this.enZ;
     }
 
     public String getGroupName() {
@@ -80,6 +80,6 @@ public class b implements h {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return enW;
+        return enX;
     }
 }

@@ -15,8 +15,8 @@ public class b extends BitmapDrawable {
     private String mKey;
     private Rect mRect = null;
     private Matrix mMatrix = null;
-    private int brZ = 0;
     private int bsa = 0;
+    private int bsb = 0;
 
     public b(Context context, int i) {
         this.mId = 0;
@@ -65,10 +65,10 @@ public class b extends BitmapDrawable {
                 if (width > 0 && height > 0 && this.mRect != null) {
                     canvas.save();
                     canvas.clipRect(super.getBounds());
-                    if (height > 0 || width > 0 || this.brZ != 0 || this.bsa != 0) {
+                    if (height > 0 || width > 0 || this.bsa != 0 || this.bsb != 0) {
                         if (this.mMatrix == null) {
                             this.mMatrix = new Matrix();
-                            this.mMatrix.postTranslate(this.brZ, this.bsa);
+                            this.mMatrix.postTranslate(this.bsa, this.bsb);
                             float f = (this.mRect.right - this.mRect.left) / width;
                             float f2 = (this.mRect.bottom - this.mRect.top) / height;
                             if (f >= f2) {

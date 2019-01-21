@@ -1,9 +1,9 @@
 package rx;
 /* loaded from: classes2.dex */
 public final class Notification<T> {
-    private static final Notification<Void> iFj = new Notification<>(Kind.OnCompleted, null, null);
-    private final Kind iFh;
-    private final Throwable iFi;
+    private static final Notification<Void> iFk = new Notification<>(Kind.OnCompleted, null, null);
+    private final Kind iFi;
+    private final Throwable iFj;
     private final T value;
 
     /* loaded from: classes2.dex */
@@ -22,17 +22,17 @@ public final class Notification<T> {
     }
 
     public static <T> Notification<T> cek() {
-        return (Notification<T>) iFj;
+        return (Notification<T>) iFk;
     }
 
     private Notification(Kind kind, T t, Throwable th) {
         this.value = t;
-        this.iFi = th;
-        this.iFh = kind;
+        this.iFj = th;
+        this.iFi = kind;
     }
 
     public Throwable cel() {
-        return this.iFi;
+        return this.iFj;
     }
 
     public T getValue() {
@@ -44,11 +44,11 @@ public final class Notification<T> {
     }
 
     public boolean cem() {
-        return ceo() && this.iFi != null;
+        return ceo() && this.iFj != null;
     }
 
     public Kind cen() {
-        return this.iFh;
+        return this.iFi;
     }
 
     public boolean ceo() {
@@ -96,7 +96,7 @@ public final class Notification<T> {
         }
         if (obj.getClass() == getClass()) {
             Notification notification = (Notification) obj;
-            if (notification.cen() != cen() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.iFi != notification.iFi && (this.iFi == null || !this.iFi.equals(notification.iFi))))) {
+            if (notification.cen() != cen() || ((this.value != notification.value && (this.value == null || !this.value.equals(notification.value))) || (this.iFj != notification.iFj && (this.iFj == null || !this.iFj.equals(notification.iFj))))) {
                 z = false;
             }
             return z;

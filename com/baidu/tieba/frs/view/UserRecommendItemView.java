@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class UserRecommendItemView extends LinearLayout {
-    private TextView aKT;
-    private ClickableHeaderImageView elM;
-    private CardUserLikeButton elN;
-    private TextView elO;
+    private TextView aKU;
+    private ClickableHeaderImageView elN;
+    private CardUserLikeButton elO;
+    private TextView elP;
     private boolean isGod;
     private int mSkinType;
 
@@ -38,17 +38,17 @@ public class UserRecommendItemView extends LinearLayout {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(e.h.frs_user_recommend_item, (ViewGroup) this, true);
-        this.elM = (ClickableHeaderImageView) findViewById(e.g.user_recommend_head);
-        this.elM.setAutoChangeStyle(true);
-        this.elM.setDefaultResource(17170445);
-        this.elM.setDefaultErrorResource(e.f.icon_default_avatar100);
-        this.elM.setDefaultBgResource(e.d.cp_bg_line_e);
-        this.elM.setIsRound(true);
-        this.elM.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.elN = (CardUserLikeButton) findViewById(e.g.user_recommend_like_btn);
-        this.elN.setGravity(17);
-        this.aKT = (TextView) findViewById(e.g.user_recommend_username);
-        this.elO = (TextView) findViewById(e.g.user_recommend_fans_num);
+        this.elN = (ClickableHeaderImageView) findViewById(e.g.user_recommend_head);
+        this.elN.setAutoChangeStyle(true);
+        this.elN.setDefaultResource(17170445);
+        this.elN.setDefaultErrorResource(e.f.icon_default_avatar100);
+        this.elN.setDefaultBgResource(e.d.cp_bg_line_e);
+        this.elN.setIsRound(true);
+        this.elN.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.elO = (CardUserLikeButton) findViewById(e.g.user_recommend_like_btn);
+        this.elO.setGravity(17);
+        this.aKU = (TextView) findViewById(e.g.user_recommend_username);
+        this.elP = (TextView) findViewById(e.g.user_recommend_fans_num);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -56,7 +56,7 @@ public class UserRecommendItemView extends LinearLayout {
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.UserRecommendItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                UserRecommendItemView.this.elM.onClick(UserRecommendItemView.this.elM);
+                UserRecommendItemView.this.elN.onClick(UserRecommendItemView.this.elN);
             }
         });
     }
@@ -65,9 +65,9 @@ public class UserRecommendItemView extends LinearLayout {
         if (this.isGod != z) {
             this.isGod = z;
             if (z) {
-                this.aKT.setTextColor(al.getColor(this.mSkinType, e.d.cp_cont_r));
+                this.aKU.setTextColor(al.getColor(this.mSkinType, e.d.cp_cont_r));
             } else {
-                this.aKT.setTextColor(al.getColor(this.mSkinType, e.d.cp_cont_b));
+                this.aKU.setTextColor(al.getColor(this.mSkinType, e.d.cp_cont_b));
             }
         }
     }
@@ -75,30 +75,30 @@ public class UserRecommendItemView extends LinearLayout {
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            this.elO.setTextColor(al.getColor(i, e.d.cp_cont_d));
+            this.elP.setTextColor(al.getColor(i, e.d.cp_cont_d));
             if (this.isGod) {
-                this.aKT.setTextColor(al.getColor(i, e.d.cp_cont_r));
+                this.aKU.setTextColor(al.getColor(i, e.d.cp_cont_r));
             } else {
-                this.aKT.setTextColor(al.getColor(i, e.d.cp_cont_b));
+                this.aKU.setTextColor(al.getColor(i, e.d.cp_cont_b));
             }
             setBackgroundColor(al.getColor(i, e.d.cp_bg_line_d));
-            this.elN.onChangeSkinType(i);
+            this.elO.onChangeSkinType(i);
         }
     }
 
     public ClickableHeaderImageView getHeaderView() {
-        return this.elM;
-    }
-
-    public CommonUserLikeButton getLikeBtn() {
         return this.elN;
     }
 
+    public CommonUserLikeButton getLikeBtn() {
+        return this.elO;
+    }
+
     public TextView getUsername() {
-        return this.aKT;
+        return this.aKU;
     }
 
     public TextView getFansNum() {
-        return this.elO;
+        return this.elP;
     }
 }

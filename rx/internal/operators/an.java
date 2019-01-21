@@ -8,7 +8,7 @@ public final class an<T> implements d.b<T, Notification<T>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final an<Object> iJo = new an<>();
+        static final an<Object> iJp = new an<>();
     }
 
     @Override // rx.functions.f
@@ -17,7 +17,7 @@ public final class an<T> implements d.b<T, Notification<T>> {
     }
 
     public static an ceQ() {
-        return a.iJo;
+        return a.iJp;
     }
 
     an() {
@@ -31,7 +31,7 @@ public final class an<T> implements d.b<T, Notification<T>> {
             @Override // rx.e
             /* renamed from: b */
             public void onNext(Notification<T> notification) {
-                switch (AnonymousClass2.iJn[notification.cen().ordinal()]) {
+                switch (AnonymousClass2.iJo[notification.cen().ordinal()]) {
                     case 1:
                         if (!this.terminated) {
                             jVar.onNext(notification.getValue());
@@ -72,19 +72,19 @@ public final class an<T> implements d.b<T, Notification<T>> {
     /* renamed from: rx.internal.operators.an$2  reason: invalid class name */
     /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass2 {
-        static final /* synthetic */ int[] iJn = new int[Notification.Kind.values().length];
+        static final /* synthetic */ int[] iJo = new int[Notification.Kind.values().length];
 
         static {
             try {
-                iJn[Notification.Kind.OnNext.ordinal()] = 1;
+                iJo[Notification.Kind.OnNext.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                iJn[Notification.Kind.OnError.ordinal()] = 2;
+                iJo[Notification.Kind.OnError.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                iJn[Notification.Kind.OnCompleted.ordinal()] = 3;
+                iJo[Notification.Kind.OnCompleted.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
         }

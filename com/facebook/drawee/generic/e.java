@@ -19,7 +19,7 @@ import com.facebook.drawee.generic.RoundingParams;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class e {
-    private static final Drawable ioK = new ColorDrawable(0);
+    private static final Drawable ioL = new ColorDrawable(0);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
@@ -48,7 +48,7 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static m a(com.facebook.drawee.drawable.c cVar, n.b bVar) {
-        Drawable b = b(cVar.h(ioK), bVar);
+        Drawable b = b(cVar.h(ioL), bVar);
         cVar.h(b);
         g.checkNotNull(b, "Parent has no child drawable!");
         return (m) b;
@@ -64,10 +64,10 @@ public class e {
                 roundedCornersDrawable.setOverlayColor(roundingParams.bWP());
                 return;
             }
-            cVar.h(a(cVar.h(ioK), roundingParams));
+            cVar.h(a(cVar.h(ioL), roundingParams));
         } else if (drawable instanceof RoundedCornersDrawable) {
-            cVar.h(((RoundedCornersDrawable) drawable).j(ioK));
-            ioK.setCallback(null);
+            cVar.h(((RoundedCornersDrawable) drawable).j(ioL));
+            ioL.setCallback(null);
         }
     }
 
@@ -79,7 +79,7 @@ public class e {
             if (drawable instanceof j) {
                 a((j) drawable, roundingParams);
             } else if (drawable != null) {
-                a.h(ioK);
+                a.h(ioL);
                 a.h(b(drawable, roundingParams, resources));
             }
         } else if (drawable instanceof j) {
@@ -103,7 +103,7 @@ public class e {
         if (drawable != null && roundingParams != null && roundingParams.bWO() == RoundingParams.RoundingMethod.BITMAP_ONLY) {
             if (drawable instanceof com.facebook.drawee.drawable.g) {
                 com.facebook.drawee.drawable.c a = a((com.facebook.drawee.drawable.g) drawable);
-                a.h(b(a.h(ioK), roundingParams, resources));
+                a.h(b(a.h(ioL), roundingParams, resources));
                 return drawable;
             }
             return b(drawable, roundingParams, resources);

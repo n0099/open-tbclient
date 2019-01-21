@@ -10,12 +10,12 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes.dex */
 public class r implements o {
-    public static final AtomicReference<o> gPq = new AtomicReference<>(null);
-    private static final o gPr = new r();
+    public static final AtomicReference<o> gPr = new AtomicReference<>(null);
+    private static final o gPs = new r();
 
     public static o bvT() {
-        o oVar = gPq.get();
-        return oVar == null ? gPr : oVar;
+        o oVar = gPr.get();
+        return oVar == null ? gPs : oVar;
     }
 
     @Override // com.baidu.tieba.recapp.o

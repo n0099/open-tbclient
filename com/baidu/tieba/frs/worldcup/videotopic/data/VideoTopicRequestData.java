@@ -9,12 +9,12 @@ import tbclient.VideoTopicList.DataReq;
 import tbclient.VideoTopicList.VideoTopicListReqIdl;
 /* loaded from: classes3.dex */
 public class VideoTopicRequestData extends OrmObject implements e, h {
-    private Integer enr;
     private Integer ens;
-    private String ent;
+    private Integer ent;
     private String enu;
-    private Integer env;
+    private String env;
     private Integer enw;
+    private Integer enx;
     private Long pn;
     private Integer rn = 10;
 
@@ -51,13 +51,13 @@ public class VideoTopicRequestData extends OrmObject implements e, h {
     @Override // com.baidu.tbadk.mvc.b.k
     public Object cG(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
-        builder.topic_id = this.env;
+        builder.topic_id = this.enw;
         builder.pn = this.pn;
         builder.rn = this.rn;
-        builder.q_type = this.enu;
-        builder.scr_dip = this.ent;
-        builder.scr_h = this.ens;
-        builder.scr_w = this.enr;
+        builder.q_type = this.env;
+        builder.scr_dip = this.enu;
+        builder.scr_h = this.ent;
+        builder.scr_w = this.ens;
         q.bindCommonParamsToProtobufData(builder, true, false, true);
         VideoTopicListReqIdl.Builder builder2 = new VideoTopicListReqIdl.Builder();
         builder2.data = builder.build(false);
@@ -65,23 +65,23 @@ public class VideoTopicRequestData extends OrmObject implements e, h {
     }
 
     public void setScrW(Integer num) {
-        this.enr = num;
-    }
-
-    public void setScrH(Integer num) {
         this.ens = num;
     }
 
-    public void pl(String str) {
-        this.ent = str;
+    public void setScrH(Integer num) {
+        this.ent = num;
     }
 
-    public void pm(String str) {
+    public void pl(String str) {
         this.enu = str;
     }
 
+    public void pm(String str) {
+        this.env = str;
+    }
+
     public void l(Integer num) {
-        this.env = num;
+        this.enw = num;
     }
 
     public void ce(long j) {
@@ -93,10 +93,10 @@ public class VideoTopicRequestData extends OrmObject implements e, h {
     }
 
     public int getRequestType() {
-        return this.enw.intValue();
+        return this.enx.intValue();
     }
 
     public void m(Integer num) {
-        this.enw = num;
+        this.enx = num;
     }
 }

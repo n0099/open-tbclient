@@ -4,10 +4,10 @@ import java.util.NoSuchElementException;
 import rx.h;
 /* loaded from: classes2.dex */
 public class t<T> implements h.a<T> {
-    private final rx.d<T> iHW;
+    private final rx.d<T> iHX;
 
     public t(rx.d<T> dVar) {
-        this.iHW = dVar;
+        this.iHX = dVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -15,9 +15,9 @@ public class t<T> implements h.a<T> {
     /* renamed from: b */
     public void call(final rx.i<? super T> iVar) {
         rx.j<T> jVar = new rx.j<T>() { // from class: rx.internal.operators.t.1
-            private boolean iHX;
             private boolean iHY;
-            private T iHZ;
+            private boolean iHZ;
+            private T iIa;
 
             @Override // rx.j
             public void onStart() {
@@ -26,9 +26,9 @@ public class t<T> implements h.a<T> {
 
             @Override // rx.e
             public void onCompleted() {
-                if (!this.iHX) {
-                    if (this.iHY) {
-                        iVar.onSuccess(this.iHZ);
+                if (!this.iHY) {
+                    if (this.iHZ) {
+                        iVar.onSuccess(this.iIa);
                     } else {
                         iVar.onError(new NoSuchElementException("Observable emitted no items"));
                     }
@@ -43,18 +43,18 @@ public class t<T> implements h.a<T> {
 
             @Override // rx.e
             public void onNext(T t) {
-                if (this.iHY) {
-                    this.iHX = true;
+                if (this.iHZ) {
+                    this.iHY = true;
                     iVar.onError(new IllegalArgumentException("Observable emitted too many elements"));
                     unsubscribe();
                     return;
                 }
-                this.iHY = true;
-                this.iHZ = t;
+                this.iHZ = true;
+                this.iIa = t;
             }
         };
         iVar.add(jVar);
-        this.iHW.unsafeSubscribe(jVar);
+        this.iHX.unsafeSubscribe(jVar);
     }
 
     public static <T> t<T> g(rx.d<T> dVar) {

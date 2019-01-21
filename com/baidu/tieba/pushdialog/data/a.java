@@ -5,36 +5,36 @@ import com.baidu.tbadk.core.data.MetaData;
 import tbclient.GetLockWindowMsg.DataRes;
 /* loaded from: classes3.dex */
 public class a {
-    private String gMq;
     private String gMr;
-    private b gMs;
-    private MetaData gMt;
+    private String gMs;
+    private b gMt;
+    private MetaData gMu;
 
     public String buU() {
-        return this.gMq;
-    }
-
-    public String buV() {
         return this.gMr;
     }
 
-    public b buW() {
+    public String buV() {
         return this.gMs;
     }
 
-    public MetaData buX() {
+    public b buW() {
         return this.gMt;
+    }
+
+    public MetaData buX() {
+        return this.gMu;
     }
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.gMq = dataRes.publish_user;
-            this.gMr = dataRes.publish_pic;
-            this.gMt = new MetaData();
-            this.gMt.parserProtobuf(dataRes.author);
-            this.gMt.setPendantData(null);
-            this.gMs = new b();
-            this.gMs.a(TbadkCoreApplication.getInst(), dataRes.thread_info);
+            this.gMr = dataRes.publish_user;
+            this.gMs = dataRes.publish_pic;
+            this.gMu = new MetaData();
+            this.gMu.parserProtobuf(dataRes.author);
+            this.gMu.setPendantData(null);
+            this.gMt = new b();
+            this.gMt.a(TbadkCoreApplication.getInst(), dataRes.thread_info);
         }
     }
 }

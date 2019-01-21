@@ -14,47 +14,47 @@ import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class i implements o {
     private int OT;
-    CreateGroupStepActivity eOX;
-    private com.baidu.adp.widget.ImageView.a ePA = null;
-    private a ePB = null;
-    private int ePb;
-    HeadImageView ePx;
-    ImageView ePy;
-    TextView ePz;
+    CreateGroupStepActivity eOY;
+    TextView ePA;
+    private com.baidu.adp.widget.ImageView.a ePB = null;
+    private a ePC = null;
+    private int ePc;
+    HeadImageView ePy;
+    ImageView ePz;
     private int mIndex;
     View mView;
 
     public i(CreateGroupStepActivity createGroupStepActivity, int i, int i2, int i3) {
-        this.eOX = null;
+        this.eOY = null;
         this.mView = null;
-        this.ePx = null;
         this.ePy = null;
         this.ePz = null;
-        this.eOX = createGroupStepActivity;
+        this.ePA = null;
+        this.eOY = createGroupStepActivity;
         this.mView = LayoutInflater.from(createGroupStepActivity.getPageContext().getPageActivity()).inflate(e.h.create_group_step3_view, (ViewGroup) null);
-        this.ePy = (ImageView) this.mView.findViewById(e.g.step3_img_bg);
-        this.ePx = (HeadImageView) this.mView.findViewById(e.g.step3_img_scr);
-        this.ePz = (TextView) this.mView.findViewById(e.g.create_group3);
+        this.ePz = (ImageView) this.mView.findViewById(e.g.step3_img_bg);
+        this.ePy = (HeadImageView) this.mView.findViewById(e.g.step3_img_scr);
+        this.ePA = (TextView) this.mView.findViewById(e.g.create_group3);
         this.mIndex = i;
         this.OT = i2;
-        this.ePb = i3;
+        this.ePc = i3;
     }
 
     public void aQx() {
-        if (this.ePB != null) {
-            this.ePB.cancel();
+        if (this.ePC != null) {
+            this.ePC.cancel();
         }
-        this.ePA = null;
-        this.ePB = new a();
-        this.ePB.execute(new Object[0]);
+        this.ePB = null;
+        this.ePC = new a();
+        this.ePC.execute(new Object[0]);
     }
 
     public ImageView aQy() {
-        return this.ePy;
+        return this.ePz;
     }
 
     public TextView aQz() {
-        return this.ePz;
+        return this.ePA;
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
@@ -64,14 +64,14 @@ public class i implements o {
 
     @Override // com.baidu.tieba.im.creategroup.o
     public void aQi() {
-        this.ePy.setBackgroundDrawable(null);
+        this.ePz.setBackgroundDrawable(null);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public void aQj() {
-        this.eOX.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.eOX.getLayoutMode().onModeChanged(this.mView);
-        this.ePx.refresh();
+        this.eOY.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.eOY.getLayoutMode().onModeChanged(this.mView);
+        this.ePy.refresh();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -111,24 +111,24 @@ public class i implements o {
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((a) bitmap);
             if (bitmap != null) {
-                i.this.ePx.setVisibility(0);
-                i.this.ePA = new com.baidu.adp.widget.ImageView.a(bitmap, false, (String) null);
-                i.this.ePA.a(i.this.ePx);
+                i.this.ePy.setVisibility(0);
+                i.this.ePB = new com.baidu.adp.widget.ImageView.a(bitmap, false, (String) null);
+                i.this.ePB.a(i.this.ePy);
             }
         }
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String getTitle() {
-        return String.format(this.eOX.getPageContext().getString(e.j.group_create_step_photo), Integer.valueOf(this.OT));
+        return String.format(this.eOY.getPageContext().getString(e.j.group_create_step_photo), Integer.valueOf(this.OT));
     }
 
     @Override // com.baidu.tieba.im.creategroup.o
     public String aQl() {
-        if (this.mIndex != this.ePb) {
-            return this.eOX.getPageContext().getString(e.j.next_step);
+        if (this.mIndex != this.ePc) {
+            return this.eOY.getPageContext().getString(e.j.next_step);
         }
-        return this.eOX.getPageContext().getString(e.j.group_create_step_done_tip);
+        return this.eOY.getPageContext().getString(e.j.group_create_step_done_tip);
     }
 
     @Override // com.baidu.tieba.im.creategroup.o

@@ -10,8 +10,8 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.tbadvert.view.CountDownTextView;
 /* loaded from: classes3.dex */
 public class a {
-    private ImageView htG;
-    private InterfaceC0320a htH;
+    private ImageView htH;
+    private InterfaceC0320a htI;
     private Context mContext;
     private FrameLayout mRootView;
 
@@ -24,7 +24,7 @@ public class a {
     }
 
     public a(Context context, InterfaceC0320a interfaceC0320a) {
-        this.htH = interfaceC0320a;
+        this.htI = interfaceC0320a;
         this.mContext = context;
         this.mRootView = new FrameLayout(context);
     }
@@ -42,20 +42,20 @@ public class a {
     }
 
     private void i(com.baidu.adp.widget.ImageView.a aVar) {
-        this.htG = new ImageView(this.mContext);
-        this.htG.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.htH = new ImageView(this.mContext);
+        this.htH.setScaleType(ImageView.ScaleType.CENTER_CROP);
         if (aVar != null) {
-            this.htG.setImageBitmap(aVar.ot());
+            this.htH.setImageBitmap(aVar.ot());
         }
-        this.htG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
+        this.htH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.htH != null) {
-                    a.this.htH.bGm();
+                if (a.this.htI != null) {
+                    a.this.htI.bGm();
                 }
             }
         });
-        this.mRootView.addView(this.htG);
+        this.mRootView.addView(this.htH);
     }
 
     private void bGt() {
@@ -97,16 +97,16 @@ public class a {
         countDownTextView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.htH != null) {
-                    a.this.htH.bGn();
+                if (a.this.htI != null) {
+                    a.this.htI.bGn();
                 }
             }
         });
         countDownTextView.setTimeoutListener(new CountDownTextView.b() { // from class: com.baidu.tieba.tbadvert.view.a.3
             @Override // com.baidu.tieba.tbadvert.view.CountDownTextView.b
             public void ak(View view) {
-                if (a.this.htH != null) {
-                    a.this.htH.bGn();
+                if (a.this.htI != null) {
+                    a.this.htI.bGn();
                 }
             }
         });

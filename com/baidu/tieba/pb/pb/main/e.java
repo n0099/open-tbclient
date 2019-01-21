@@ -7,33 +7,33 @@ import com.baidu.tbadk.core.data.bb;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class e extends as {
-    private TextView fWo;
+    private TextView fWp;
 
     public e(BaseActivity baseActivity, View view) {
         super(baseActivity, view);
-        this.fWo = null;
+        this.fWp = null;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.as
     protected void a(d dVar) {
-        this.fWo = (TextView) this.mRootView.findViewById(e.g.icon_push);
-        this.fWo.setVisibility(8);
+        this.fWp = (TextView) this.mRootView.findViewById(e.g.icon_push);
+        this.fWp.setVisibility(8);
     }
 
     public void kH(boolean z) {
-        if (this.fWo != null) {
+        if (this.fWp != null) {
             if (z) {
-                this.fWo.setText(e.j.push);
-                com.baidu.tbadk.core.util.al.h(this.fWo, e.f.push_text_selector);
-                com.baidu.tbadk.core.util.al.i(this.fWo, e.f.push_bg_selector);
-                this.fWo.setClickable(true);
+                this.fWp.setText(e.j.push);
+                com.baidu.tbadk.core.util.al.h(this.fWp, e.f.push_text_selector);
+                com.baidu.tbadk.core.util.al.i(this.fWp, e.f.push_bg_selector);
+                this.fWp.setClickable(true);
             } else {
-                this.fWo.setText(e.j.already_push);
-                com.baidu.tbadk.core.util.al.i(this.fWo, e.f.label_bg_gray80);
-                com.baidu.tbadk.core.util.al.h(this.fWo, e.d.cp_cont_d);
-                this.fWo.setClickable(false);
+                this.fWp.setText(e.j.already_push);
+                com.baidu.tbadk.core.util.al.i(this.fWp, e.f.label_bg_gray80);
+                com.baidu.tbadk.core.util.al.h(this.fWp, e.d.cp_cont_d);
+                this.fWp.setClickable(false);
             }
-            this.fWo.setVisibility(0);
+            this.fWp.setVisibility(0);
         }
     }
 
@@ -49,6 +49,6 @@ public class e extends as {
     }
 
     public TextView biO() {
-        return this.fWo;
+        return this.fWp;
     }
 }

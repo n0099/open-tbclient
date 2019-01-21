@@ -12,8 +12,8 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b {
-    private RequestGroupLocModel fdc;
-    private a fdd;
+    private RequestGroupLocModel fdd;
+    private a fde;
     private double longitude = 0.0d;
     private double latitude = 0.0d;
     private BdUniqueId unique_id = null;
@@ -25,39 +25,39 @@ public class b {
                     if (address != null) {
                         b.this.latitude = address.getLatitude();
                         b.this.longitude = address.getLongitude();
-                        b.this.fdc.setLat(String.valueOf(address.getLatitude()));
-                        b.this.fdc.setLng(String.valueOf(address.getLongitude()));
-                        b.this.fdc.setGroupId(0L);
-                        b.this.fdc.sendMessage();
+                        b.this.fdd.setLat(String.valueOf(address.getLatitude()));
+                        b.this.fdd.setLng(String.valueOf(address.getLongitude()));
+                        b.this.fdd.setGroupId(0L);
+                        b.this.fdd.sendMessage();
                         return;
                     }
                     return;
                 case 1:
                 case 2:
                 case 3:
-                    b.this.fdd.aQB();
+                    b.this.fde.aQB();
                     return;
                 case 4:
                 case 5:
-                    b.this.fdd.aQA();
+                    b.this.fde.aQA();
                     return;
                 default:
                     return;
             }
         }
     };
-    private final com.baidu.adp.framework.listener.c fde = new com.baidu.adp.framework.listener.c(103010) { // from class: com.baidu.tieba.im.util.b.2
+    private final com.baidu.adp.framework.listener.c fdf = new com.baidu.adp.framework.listener.c(103010) { // from class: com.baidu.tieba.im.util.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103010) {
-                b.this.fdd.aQA();
+                b.this.fde.aQA();
             } else if (!(socketResponsedMessage instanceof ResponseRequestGroupLocMessage)) {
-                b.this.fdd.aQA();
+                b.this.fde.aQA();
             } else {
                 ResponseRequestGroupLocMessage responseRequestGroupLocMessage = (ResponseRequestGroupLocMessage) socketResponsedMessage;
                 if (responseRequestGroupLocMessage.getError() != 0) {
-                    b.this.fdd.aQA();
+                    b.this.fde.aQA();
                     return;
                 }
                 Iterator<String> iteraotrOfBusinessAreaList = responseRequestGroupLocMessage.getIteraotrOfBusinessAreaList();
@@ -67,9 +67,9 @@ public class b {
                 }
                 String position = responseRequestGroupLocMessage.getPosition();
                 if ((position == null || position.equals("")) && arrayList.size() < 1) {
-                    b.this.fdd.aQA();
+                    b.this.fde.aQA();
                 } else {
-                    b.this.fdd.a(position, arrayList, b.this.latitude, b.this.longitude);
+                    b.this.fde.a(position, arrayList, b.this.latitude, b.this.longitude);
                 }
             }
         }
@@ -85,17 +85,17 @@ public class b {
     }
 
     public b(a aVar) {
-        this.fdc = null;
         this.fdd = null;
-        this.fdc = new RequestGroupLocModel();
-        this.fdd = aVar;
-        this.fde.setTag(this.unique_id);
-        MessageManager.getInstance().registerListener(this.fde);
+        this.fde = null;
+        this.fdd = new RequestGroupLocModel();
+        this.fde = aVar;
+        this.fdf.setTag(this.unique_id);
+        MessageManager.getInstance().registerListener(this.fdf);
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
         this.unique_id = bdUniqueId;
-        this.fdc.setUniqueId(bdUniqueId);
+        this.fdd.setUniqueId(bdUniqueId);
     }
 
     public void RP() {
@@ -103,7 +103,7 @@ public class b {
     }
 
     public void cancelLoad() {
-        this.fdc.cancelMessage();
-        MessageManager.getInstance().unRegisterListener(this.fde);
+        this.fdd.cancelMessage();
+        MessageManager.getInstance().unRegisterListener(this.fdf);
     }
 }
