@@ -8,31 +8,31 @@ import java.util.List;
 import tbclient.RecommendForumListForBottle.ForumInfo;
 /* loaded from: classes.dex */
 public class a {
-    private List<ForumInfo> ejh;
+    private List<ForumInfo> eji;
     private BdUniqueId mBdUniqueId;
     private BdUniqueId mRequestId;
-    private InterfaceC0264a fwa = null;
-    private com.baidu.adp.framework.listener.a exN = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST, 309440) { // from class: com.baidu.tieba.likedForum.a.1
+    private InterfaceC0264a fwb = null;
+    private com.baidu.adp.framework.listener.a exO = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST, 309440) { // from class: com.baidu.tieba.likedForum.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage != null) {
                 if ((responsedMessage instanceof GetBottleForumListHttpResMessage) || (responsedMessage instanceof GetBottleForumListSocketResMessage)) {
                     if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetBottleForumListReqMessage) || a.this.mRequestId == ((GetBottleForumListReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
                         if (responsedMessage.hasError()) {
-                            if (a.this.fwa != null) {
-                                a.this.fwa.a(false, responsedMessage.getError(), responsedMessage.getErrorString(), null);
+                            if (a.this.fwb != null) {
+                                a.this.fwb.a(false, responsedMessage.getError(), responsedMessage.getErrorString(), null);
                                 return;
                             }
                             return;
                         }
                         if (responsedMessage instanceof GetBottleForumListHttpResMessage) {
-                            a.this.ejh = ((GetBottleForumListHttpResMessage) responsedMessage).getBottleForumList();
+                            a.this.eji = ((GetBottleForumListHttpResMessage) responsedMessage).getBottleForumList();
                         }
                         if (responsedMessage instanceof GetBottleForumListSocketResMessage) {
-                            a.this.ejh = ((GetBottleForumListSocketResMessage) responsedMessage).getBottleForumList();
+                            a.this.eji = ((GetBottleForumListSocketResMessage) responsedMessage).getBottleForumList();
                         }
-                        if (a.this.fwa != null) {
-                            a.this.fwa.a(true, responsedMessage.getError(), responsedMessage.getErrorString(), a.this.ejh);
+                        if (a.this.fwb != null) {
+                            a.this.fwb.a(true, responsedMessage.getError(), responsedMessage.getErrorString(), a.this.eji);
                         }
                     }
                 }
@@ -48,10 +48,10 @@ public class a {
 
     public a(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        this.exN.setTag(this.mBdUniqueId);
-        MessageManager.getInstance().registerListener(this.exN);
-        this.exN.getHttpMessageListener().setSelfListener(true);
-        this.exN.getSocketMessageListener().setSelfListener(true);
+        this.exO.setTag(this.mBdUniqueId);
+        MessageManager.getInstance().registerListener(this.exO);
+        this.exO.getHttpMessageListener().setSelfListener(true);
+        this.exO.getSocketMessageListener().setSelfListener(true);
     }
 
     public boolean OP() {
@@ -63,10 +63,10 @@ public class a {
     }
 
     public void a(InterfaceC0264a interfaceC0264a) {
-        this.fwa = interfaceC0264a;
+        this.fwb = interfaceC0264a;
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.exN);
+        MessageManager.getInstance().unRegisterListener(this.exO);
     }
 }

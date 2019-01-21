@@ -11,17 +11,17 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class a {
-    private View.OnClickListener aTI;
+    private View.OnClickListener aTJ;
     private ViewGroup amV;
-    private GodReplyLeaderboardTipView fWd;
-    private int aMj = 3;
-    private final int[] fWc = new int[2];
-    private int fWe = Integer.MIN_VALUE;
+    private GodReplyLeaderboardTipView fWe;
+    private int aMk = 3;
+    private final int[] fWd = new int[2];
     private int fWf = Integer.MIN_VALUE;
-    private boolean fWg = false;
+    private int fWg = Integer.MIN_VALUE;
+    private boolean fWh = false;
 
     public void J(View.OnClickListener onClickListener) {
-        this.aTI = onClickListener;
+        this.aTJ = onClickListener;
     }
 
     public void showTip(View view) {
@@ -31,24 +31,24 @@ public class a {
                 this.amV = (RelativeLayout) ((Activity) context).findViewById(e.g.pb_layout);
             }
             if (this.amV != null) {
-                view.getLocationOnScreen(this.fWc);
+                view.getLocationOnScreen(this.fWd);
                 int dip2px = l.dip2px(context, 160.0f);
                 int dip2px2 = l.dip2px(context, 36.0f);
-                if (this.fWd == null) {
-                    this.fWd = new GodReplyLeaderboardTipView(context);
+                if (this.fWe == null) {
+                    this.fWe = new GodReplyLeaderboardTipView(context);
                 }
-                this.fWd.animate().cancel();
-                this.fWd.setAlpha(0.0f);
-                this.fWd.animate().alpha(1.0f).setListener(null).start();
-                this.fWd.setOnClickListener(this.aTI);
-                this.fWd.onChangeSkinType(this.aMj);
-                if (this.fWd.getParent() != null && this.fWd.getParent() != this.amV) {
-                    ((ViewGroup) this.fWd.getParent()).removeView(this.fWd);
+                this.fWe.animate().cancel();
+                this.fWe.setAlpha(0.0f);
+                this.fWe.animate().alpha(1.0f).setListener(null).start();
+                this.fWe.setOnClickListener(this.aTJ);
+                this.fWe.onChangeSkinType(this.aMk);
+                if (this.fWe.getParent() != null && this.fWe.getParent() != this.amV) {
+                    ((ViewGroup) this.fWe.getParent()).removeView(this.fWe);
                 }
-                if (this.fWd.getParent() == null) {
+                if (this.fWe.getParent() == null) {
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dip2px, dip2px2);
                     layoutParams.rightMargin = cR(context);
-                    layoutParams.topMargin = this.fWc[1] + view.getHeight() + cQ(context);
+                    layoutParams.topMargin = this.fWd[1] + view.getHeight() + cQ(context);
                     layoutParams.addRule(11);
                     int childCount = this.amV.getChildCount();
                     int i = -1;
@@ -59,18 +59,18 @@ public class a {
                         }
                     }
                     if (i > -1 && i <= this.amV.getChildCount()) {
-                        this.amV.addView(this.fWd, i, layoutParams);
+                        this.amV.addView(this.fWe, i, layoutParams);
                     }
                 }
-                this.fWd.setVisibility(0);
+                this.fWe.setVisibility(0);
             }
         }
     }
 
     public void hideTip() {
-        if (this.fWd != null) {
-            this.fWd.animate().cancel();
-            this.fWd.animate().alpha(0.0f).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.usertips.a.1
+        if (this.fWe != null) {
+            this.fWe.animate().cancel();
+            this.fWe.animate().alpha(0.0f).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.usertips.a.1
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
                     a.this.biM();
@@ -86,24 +86,24 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void biM() {
-        if (this.fWd != null && this.fWd.getParent() != null && this.fWd.getParent() == this.amV) {
-            this.fWd.setVisibility(4);
+        if (this.fWe != null && this.fWe.getParent() != null && this.fWe.getParent() == this.amV) {
+            this.fWe.setVisibility(4);
         }
     }
 
     public void bu(View view) {
         if (biN()) {
             Context context = view.getContext();
-            view.getLocationOnScreen(this.fWc);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fWd.getLayoutParams();
+            view.getLocationOnScreen(this.fWd);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fWe.getLayoutParams();
             layoutParams.rightMargin = cR(context);
-            layoutParams.topMargin = this.fWc[1] + view.getHeight() + cQ(context);
+            layoutParams.topMargin = this.fWd[1] + view.getHeight() + cQ(context);
             layoutParams.addRule(11);
-            this.fWd.setLayoutParams(layoutParams);
-            if (layoutParams.topMargin + this.fWd.getHeight() < l.aS(context)[1] && !this.fWg) {
+            this.fWe.setLayoutParams(layoutParams);
+            if (layoutParams.topMargin + this.fWe.getHeight() < l.aS(context)[1] && !this.fWh) {
                 b.l(context, true);
-                this.fWg = true;
-                this.fWd.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.usertips.a.2
+                this.fWh = true;
+                this.fWe.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.usertips.a.2
                     @Override // java.lang.Runnable
                     public void run() {
                         a.this.hideTip();
@@ -114,27 +114,27 @@ public class a {
     }
 
     public boolean biN() {
-        return this.fWd != null && this.fWd.getParent() != null && this.fWd.getParent() == this.amV && this.fWd.getVisibility() == 0;
+        return this.fWe != null && this.fWe.getParent() != null && this.fWe.getParent() == this.amV && this.fWe.getVisibility() == 0;
     }
 
     public void onChangeSkinType(int i) {
-        this.aMj = i;
-        if (this.fWd != null) {
-            this.fWd.onChangeSkinType(i);
+        this.aMk = i;
+        if (this.fWe != null) {
+            this.fWe.onChangeSkinType(i);
         }
     }
 
     private int cQ(Context context) {
-        if (this.fWe == Integer.MIN_VALUE) {
-            this.fWe = -l.dip2px(context, 5.0f);
+        if (this.fWf == Integer.MIN_VALUE) {
+            this.fWf = -l.dip2px(context, 5.0f);
         }
-        return this.fWe;
+        return this.fWf;
     }
 
     private int cR(Context context) {
-        if (this.fWf == Integer.MIN_VALUE) {
-            this.fWf = l.dip2px(context, 17.0f);
+        if (this.fWg == Integer.MIN_VALUE) {
+            this.fWg = l.dip2px(context, 17.0f);
         }
-        return this.fWf;
+        return this.fWg;
     }
 }

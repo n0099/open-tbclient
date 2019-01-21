@@ -32,84 +32,84 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes3.dex */
     public static class a {
-        private boolean dDi;
-        private boolean eXC;
-        private GroupData eZO;
-        private List<MemberData> eZP;
-        private List<PhotoUrlData> eZQ;
-        private int eZR;
+        private boolean dDj;
+        private boolean eXD;
+        private GroupData eZP;
+        private List<MemberData> eZQ;
+        private List<PhotoUrlData> eZR;
         private int eZS;
-        private boolean eZT;
+        private int eZT;
         private boolean eZU;
-        private GroupActivityData eZV;
+        private boolean eZV;
+        private GroupActivityData eZW;
         private boolean isMemGroup;
 
         public GroupActivityData aUp() {
-            return this.eZV;
+            return this.eZW;
         }
 
         public void a(GroupActivityData groupActivityData) {
-            this.eZV = groupActivityData;
+            this.eZW = groupActivityData;
         }
 
         public GroupData getGroup() {
-            return this.eZO;
-        }
-
-        public void setGroup(GroupData groupData) {
-            this.eZO = groupData;
-        }
-
-        public List<MemberData> aUq() {
             return this.eZP;
         }
 
-        public void cM(List<MemberData> list) {
-            this.eZP = list;
+        public void setGroup(GroupData groupData) {
+            this.eZP = groupData;
         }
 
-        public List<PhotoUrlData> aUr() {
+        public List<MemberData> aUq() {
             return this.eZQ;
         }
 
-        public void cN(List<PhotoUrlData> list) {
+        public void cM(List<MemberData> list) {
             this.eZQ = list;
         }
 
-        public int aUs() {
+        public List<PhotoUrlData> aUr() {
             return this.eZR;
         }
 
-        public void qw(int i) {
-            this.eZR = i;
+        public void cN(List<PhotoUrlData> list) {
+            this.eZR = list;
         }
 
-        public int aUt() {
+        public int aUs() {
             return this.eZS;
         }
 
-        public void qx(int i) {
+        public void qw(int i) {
             this.eZS = i;
         }
 
+        public int aUt() {
+            return this.eZT;
+        }
+
+        public void qx(int i) {
+            this.eZT = i;
+        }
+
         public boolean aUu() {
-            return this.dDi;
+            return this.dDj;
         }
 
         public void iR(boolean z) {
-            this.dDi = z;
+            this.dDj = z;
         }
 
         public boolean aUv() {
-            return this.eXC;
+            return this.eXD;
         }
 
         public void iS(boolean z) {
-            this.eXC = z;
+            this.eXD = z;
         }
 
         public void iT(boolean z) {
-            this.eZT = z;
+            this.eZU = z;
         }
 
         public boolean isMemGroup() {
@@ -121,11 +121,11 @@ public class ResponseGroupInfoLocalMessage extends CustomResponsedMessage<a> {
         }
 
         public boolean aUw() {
-            return this.eZU;
+            return this.eZV;
         }
 
         public void iU(boolean z) {
-            this.eZU = z;
+            this.eZV = z;
         }
     }
 

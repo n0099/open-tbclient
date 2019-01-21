@@ -29,7 +29,7 @@ import java.io.OutputStream;
 /* loaded from: classes.dex */
 public class l {
     public static final File FL = Environment.getExternalStorageDirectory();
-    private static final File aAE = TbadkCoreApplication.getInst().getApp().getCacheDir();
+    private static final File aAF = TbadkCoreApplication.getInst().getApp().getCacheDir();
 
     public static boolean hA() {
         String str = null;
@@ -118,7 +118,7 @@ public class l {
     }
 
     public static File fe(String str) {
-        return ff(aAE + "/" + str);
+        return ff(aAF + "/" + str);
     }
 
     public static File ff(String str) {
@@ -198,7 +198,7 @@ public class l {
     }
 
     public static File fl(String str) {
-        return fm(new File(aAE + "/" + str).getAbsolutePath());
+        return fm(new File(aAF + "/" + str).getAbsolutePath());
     }
 
     public static File fm(String str) {
@@ -1497,10 +1497,10 @@ public class l {
     }
 
     private static String d(int i, String str, boolean z) {
-        if (aAE == null) {
+        if (aAF == null) {
             return null;
         }
-        File[] listFiles = aAE.listFiles();
+        File[] listFiles = aAF.listFiles();
         String dA = dA(i);
         for (int i2 = 0; i2 < listFiles.length; i2++) {
             if (listFiles[i2] != null && listFiles[i2].getName().startsWith(dA)) {
@@ -1664,11 +1664,11 @@ public class l {
 
     /* loaded from: classes.dex */
     public static class a {
-        public static final String aAF = TbadkCoreApplication.getInst().getApp().getFileStreamPath("").getAbsolutePath();
+        public static final String aAG = TbadkCoreApplication.getInst().getApp().getFileStreamPath("").getAbsolutePath();
 
         public static boolean checkFile(String str) {
             try {
-                return new File(new StringBuilder().append(aAF).append("/").append(str).toString()).exists();
+                return new File(new StringBuilder().append(aAG).append("/").append(str).toString()).exists();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 TiebaStatic.file(e, "FileHelper.checkFile " + str);
@@ -1678,7 +1678,7 @@ public class l {
 
         public static boolean fD(String str) {
             try {
-                File file = new File(aAF + "/" + str);
+                File file = new File(aAG + "/" + str);
                 if (file.exists()) {
                     return false;
                 }
@@ -1714,7 +1714,7 @@ public class l {
 
         public static boolean fE(String str) {
             try {
-                File file = new File(aAF + "/" + str);
+                File file = new File(aAG + "/" + str);
                 if (file.exists()) {
                     if (!file.isDirectory()) {
                         return false;
@@ -1732,7 +1732,7 @@ public class l {
         public static String fF(String str) {
             String str2 = null;
             try {
-                File file = new File(aAF + "/" + str);
+                File file = new File(aAG + "/" + str);
                 if (file.exists() && file.isDirectory()) {
                     File[] listFiles = file.listFiles();
                     int length = listFiles.length;
@@ -1896,7 +1896,7 @@ public class l {
 
     public static void fC(@NonNull String str) {
         if (str != null) {
-            z(new File(aAE + "/" + str));
+            z(new File(aAF + "/" + str));
         }
     }
 

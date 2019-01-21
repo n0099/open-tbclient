@@ -17,16 +17,16 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class ap {
-    private b aDf;
+    private b aDg;
     private Resources mResources;
 
     /* loaded from: classes.dex */
     private static class a {
-        static ap aDg = new ap();
+        static ap aDh = new ap();
     }
 
     private ap() {
-        this.aDf = new b();
+        this.aDg = new b();
         try {
             this.mResources = (Resources) Class.forName("android.support.v7.widget.VectorEnabledTintResources").getDeclaredConstructor(Context.class, Resources.class).newInstance(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources());
         } catch (Exception e) {
@@ -37,7 +37,7 @@ public class ap {
     public static synchronized ap Ed() {
         ap apVar;
         synchronized (ap.class) {
-            apVar = a.aDg;
+            apVar = a.aDh;
         }
         return apVar;
     }
@@ -64,19 +64,19 @@ public class ap {
             }
             switch (i2) {
                 case 1:
-                    VectorDrawableCompat dW = this.aDf.dW(a2);
+                    VectorDrawableCompat dW = this.aDg.dW(a2);
                     if (dW == null) {
                         return al.c(skinType, this.mResources, al.g(this.mResources, i));
                     }
                     return dW;
                 case 2:
-                    AnimatedVectorDrawableCompat dX = this.aDf.dX(a2);
+                    AnimatedVectorDrawableCompat dX = this.aDg.dX(a2);
                     if (dX == null) {
                         return al.c(skinType, this.mResources, al.g(this.mResources, i));
                     }
                     return dX;
                 case 3:
-                    StateListDrawable a3 = this.aDf.a(a2, this.mResources);
+                    StateListDrawable a3 = this.aDg.a(a2, this.mResources);
                     if (a3 == null) {
                         return al.c(skinType, this.mResources, al.g(this.mResources, i));
                     }
@@ -92,7 +92,7 @@ public class ap {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class b {
-        private LruCache<Integer, Drawable.ConstantState> aDh = new LruCache<>(50);
+        private LruCache<Integer, Drawable.ConstantState> aDi = new LruCache<>(50);
 
         b() {
         }
@@ -108,7 +108,7 @@ public class ap {
             Throwable th;
             VectorDrawableCompat vectorDrawableCompat;
             Drawable.ConstantState constantState2;
-            Drawable.ConstantState constantState3 = this.aDh.get(Integer.valueOf(i));
+            Drawable.ConstantState constantState3 = this.aDi.get(Integer.valueOf(i));
             if (constantState3 == null) {
                 try {
                     VectorDrawableCompat create = VectorDrawableCompat.create(TbadkCoreApplication.getInst().getResources(), i, null);
@@ -130,7 +130,7 @@ public class ap {
                     }
                     if (constantState2 != null) {
                         try {
-                            this.aDh.put(Integer.valueOf(i), constantState2);
+                            this.aDi.put(Integer.valueOf(i), constantState2);
                         } catch (Throwable th3) {
                             th = th3;
                             constantState = constantState2;
@@ -173,7 +173,7 @@ public class ap {
         public StateListDrawable a(int i, @NonNull Resources resources) {
             StateListDrawable stateListDrawable;
             StateListDrawable stateListDrawable2;
-            Drawable.ConstantState constantState = this.aDh.get(Integer.valueOf(i));
+            Drawable.ConstantState constantState = this.aDi.get(Integer.valueOf(i));
             if (constantState == null) {
                 try {
                     stateListDrawable2 = (StateListDrawable) ResourcesCompat.getDrawable(resources, i, null);
@@ -189,7 +189,7 @@ public class ap {
                         }
                     }
                     if (constantState != null) {
-                        this.aDh.put(Integer.valueOf(i), constantState);
+                        this.aDi.put(Integer.valueOf(i), constantState);
                         Drawable newDrawable = constantState.newDrawable();
                         if (newDrawable instanceof StateListDrawable) {
                             return (StateListDrawable) newDrawable;
@@ -217,7 +217,7 @@ public class ap {
         */
         public AnimatedVectorDrawableCompat dX(int i) {
             AnimatedVectorDrawableCompat animatedVectorDrawableCompat;
-            Drawable.ConstantState constantState = this.aDh.get(Integer.valueOf(i));
+            Drawable.ConstantState constantState = this.aDi.get(Integer.valueOf(i));
             if (constantState == null) {
                 try {
                     animatedVectorDrawableCompat = AnimatedVectorDrawableCompat.create(TbadkCoreApplication.getInst(), i);
@@ -235,7 +235,7 @@ public class ap {
                         }
                     }
                     if (constantState != null) {
-                        this.aDh.put(Integer.valueOf(i), constantState);
+                        this.aDi.put(Integer.valueOf(i), constantState);
                     }
                 } catch (Throwable th2) {
                     th = th2;

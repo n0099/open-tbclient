@@ -22,17 +22,17 @@ import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 /* loaded from: classes.dex */
 public class GLTextureView extends TextureView implements TextureView.SurfaceTextureListener {
-    private static final j cUo = new j();
-    private final WeakReference<GLTextureView> cUp;
-    private i cUq;
-    private TBGLSurfaceView.m cUr;
-    private e cUs;
-    private f cUt;
-    private g cUu;
-    private k cUv;
-    private int cUw;
+    private static final j cUp = new j();
+    private final WeakReference<GLTextureView> cUq;
+    private i cUr;
+    private TBGLSurfaceView.m cUs;
+    private e cUt;
+    private f cUu;
+    private g cUv;
+    private k cUw;
     private int cUx;
-    private boolean cUy;
+    private int cUy;
+    private boolean cUz;
     private boolean mDetached;
 
     /* loaded from: classes.dex */
@@ -61,20 +61,20 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
 
     public GLTextureView(Context context) {
         super(context);
-        this.cUp = new WeakReference<>(this);
+        this.cUq = new WeakReference<>(this);
         init();
     }
 
     public GLTextureView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.cUp = new WeakReference<>(this);
+        this.cUq = new WeakReference<>(this);
         init();
     }
 
     protected void finalize() throws Throwable {
         try {
-            if (this.cUq != null) {
-                this.cUq.aqg();
+            if (this.cUr != null) {
+                this.cUr.aqg();
             }
         } finally {
             super.finalize();
@@ -86,54 +86,54 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     public void setGLWrapper(k kVar) {
-        this.cUv = kVar;
+        this.cUw = kVar;
     }
 
     public void setDebugFlags(int i2) {
-        this.cUw = i2;
+        this.cUx = i2;
     }
 
     public int getDebugFlags() {
-        return this.cUw;
+        return this.cUx;
     }
 
     public void setPreserveEGLContextOnPause(boolean z) {
-        this.cUy = z;
+        this.cUz = z;
     }
 
     public boolean getPreserveEGLContextOnPause() {
-        return this.cUy;
+        return this.cUz;
     }
 
     public void setRenderer(TBGLSurfaceView.m mVar) {
         apS();
-        if (this.cUs == null) {
-            this.cUs = new m(true);
-        }
         if (this.cUt == null) {
-            this.cUt = new c();
+            this.cUt = new m(true);
         }
         if (this.cUu == null) {
-            this.cUu = new d();
+            this.cUu = new c();
         }
-        this.cUr = mVar;
-        this.cUq = new i(this.cUp);
-        this.cUq.start();
+        if (this.cUv == null) {
+            this.cUv = new d();
+        }
+        this.cUs = mVar;
+        this.cUr = new i(this.cUq);
+        this.cUr.start();
     }
 
     public void setEGLContextFactory(f fVar) {
         apS();
-        this.cUt = fVar;
+        this.cUu = fVar;
     }
 
     public void setEGLWindowSurfaceFactory(g gVar) {
         apS();
-        this.cUu = gVar;
+        this.cUv = gVar;
     }
 
     public void setEGLConfigChooser(e eVar) {
         apS();
-        this.cUs = eVar;
+        this.cUt = eVar;
     }
 
     public void setEGLConfigChooser(boolean z) {
@@ -146,40 +146,40 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
 
     public void setEGLContextClientVersion(int i2) {
         apS();
-        this.cUx = i2;
+        this.cUy = i2;
     }
 
     public void setRenderMode(int i2) {
-        this.cUq.setRenderMode(i2);
+        this.cUr.setRenderMode(i2);
     }
 
     public int getRenderMode() {
-        return this.cUq.getRenderMode();
+        return this.cUr.getRenderMode();
     }
 
     public void requestRender() {
-        this.cUq.requestRender();
+        this.cUr.requestRender();
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
-        this.cUq.aqe();
+        this.cUr.aqe();
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
-        this.cUq.ay(i2, i3);
+        this.cUr.ay(i2, i3);
     }
 
     @Override // android.view.TextureView, android.view.View
     protected void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        this.cUq.ay(i2, i3);
+        this.cUr.ay(i2, i3);
     }
 
     @Override // android.view.TextureView.SurfaceTextureListener
     public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-        this.cUq.aqf();
+        this.cUr.aqf();
         return true;
     }
 
@@ -189,31 +189,31 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     public void onPause() {
-        this.cUq.onPause();
+        this.cUr.onPause();
     }
 
     public void onResume() {
-        this.cUq.onResume();
+        this.cUr.onResume();
     }
 
     @Override // android.view.TextureView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.mDetached && this.cUr != null) {
-            int renderMode = this.cUq != null ? this.cUq.getRenderMode() : 1;
-            this.cUq = new i(this.cUp);
+        if (this.mDetached && this.cUs != null) {
+            int renderMode = this.cUr != null ? this.cUr.getRenderMode() : 1;
+            this.cUr = new i(this.cUq);
             if (renderMode != 1) {
-                this.cUq.setRenderMode(renderMode);
+                this.cUr.setRenderMode(renderMode);
             }
-            this.cUq.start();
+            this.cUr.start();
         }
         this.mDetached = false;
     }
 
     @Override // android.view.View
     protected void onDetachedFromWindow() {
-        if (this.cUq != null) {
-            this.cUq.aqg();
+        if (this.cUr != null) {
+            this.cUr.aqg();
         }
         this.mDetached = true;
         try {
@@ -232,9 +232,9 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
 
         @Override // com.baidu.tieba.animation3d.View.GLTextureView.f
         public EGLContext createContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
-            int[] iArr = {this.EGL_CONTEXT_CLIENT_VERSION, GLTextureView.this.cUx, 12344};
+            int[] iArr = {this.EGL_CONTEXT_CLIENT_VERSION, GLTextureView.this.cUy, 12344};
             EGLContext eGLContext = EGL10.EGL_NO_CONTEXT;
-            if (GLTextureView.this.cUx == 0) {
+            if (GLTextureView.this.cUy == 0) {
                 iArr = null;
             }
             return egl10.eglCreateContext(eGLDisplay, eGLConfig, eGLContext, iArr);
@@ -272,18 +272,18 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
 
     /* loaded from: classes.dex */
     private abstract class a implements e {
-        protected int[] cUz;
+        protected int[] cUA;
 
         abstract EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig[] eGLConfigArr);
 
         public a(int[] iArr) {
-            this.cUz = j(iArr);
+            this.cUA = j(iArr);
         }
 
         @Override // com.baidu.tieba.animation3d.View.GLTextureView.e
         public EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay) {
             int[] iArr = new int[1];
-            if (!egl10.eglChooseConfig(eGLDisplay, this.cUz, null, 0, iArr)) {
+            if (!egl10.eglChooseConfig(eGLDisplay, this.cUA, null, 0, iArr)) {
                 throw new IllegalArgumentException("eglChooseConfig failed");
             }
             int i = iArr[0];
@@ -291,7 +291,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                 throw new IllegalArgumentException("No configs match configSpec");
             }
             EGLConfig[] eGLConfigArr = new EGLConfig[i];
-            if (!egl10.eglChooseConfig(eGLDisplay, this.cUz, eGLConfigArr, i, iArr)) {
+            if (!egl10.eglChooseConfig(eGLDisplay, this.cUA, eGLConfigArr, i, iArr)) {
                 throw new IllegalArgumentException("eglChooseConfig#2 failed");
             }
             EGLConfig chooseConfig = chooseConfig(egl10, eGLDisplay, eGLConfigArr);
@@ -302,7 +302,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
 
         private int[] j(int[] iArr) {
-            if (GLTextureView.this.cUx == 2) {
+            if (GLTextureView.this.cUy == 2) {
                 int length = iArr.length;
                 int[] iArr2 = new int[length + 2];
                 System.arraycopy(iArr, 0, iArr2, 0, length - 1);
@@ -372,69 +372,69 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class h {
-        private WeakReference<GLTextureView> cUB;
-        EGL10 cUC;
-        EGLDisplay cUD;
-        EGLSurface cUE;
-        EGLConfig cUF;
-        EGLContext cUG;
+        private WeakReference<GLTextureView> cUC;
+        EGL10 cUD;
+        EGLDisplay cUE;
+        EGLSurface cUF;
+        EGLConfig cUG;
+        EGLContext cUH;
 
         public h(WeakReference<GLTextureView> weakReference) {
-            this.cUB = weakReference;
+            this.cUC = weakReference;
         }
 
         public void start() {
-            this.cUC = (EGL10) EGLContext.getEGL();
-            this.cUD = this.cUC.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
-            if (this.cUD == EGL10.EGL_NO_DISPLAY) {
+            this.cUD = (EGL10) EGLContext.getEGL();
+            this.cUE = this.cUD.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
+            if (this.cUE == EGL10.EGL_NO_DISPLAY) {
                 throw new RuntimeException("eglGetDisplay failed");
             }
-            if (!this.cUC.eglInitialize(this.cUD, new int[2])) {
+            if (!this.cUD.eglInitialize(this.cUE, new int[2])) {
                 throw new RuntimeException("eglInitialize failed");
             }
-            GLTextureView gLTextureView = this.cUB.get();
+            GLTextureView gLTextureView = this.cUC.get();
             if (gLTextureView != null) {
-                this.cUF = gLTextureView.cUs.chooseConfig(this.cUC, this.cUD);
+                this.cUG = gLTextureView.cUt.chooseConfig(this.cUD, this.cUE);
                 try {
-                    this.cUG = gLTextureView.cUt.createContext(this.cUC, this.cUD, this.cUF);
+                    this.cUH = gLTextureView.cUu.createContext(this.cUD, this.cUE, this.cUG);
                 } catch (IllegalArgumentException e) {
                     BdLog.e(e);
                 }
             } else {
-                this.cUF = null;
                 this.cUG = null;
+                this.cUH = null;
             }
-            if (this.cUG == null || this.cUG == EGL10.EGL_NO_CONTEXT) {
-                this.cUG = null;
+            if (this.cUH == null || this.cUH == EGL10.EGL_NO_CONTEXT) {
+                this.cUH = null;
                 mR("createContext");
             }
-            this.cUE = null;
+            this.cUF = null;
         }
 
         public boolean apU() {
-            if (this.cUC == null) {
+            if (this.cUD == null) {
                 throw new RuntimeException("egl not initialized");
             }
-            if (this.cUD == null) {
+            if (this.cUE == null) {
                 throw new RuntimeException("eglDisplay not initialized");
             }
-            if (this.cUF == null) {
+            if (this.cUG == null) {
                 throw new RuntimeException("mEglConfig not initialized");
             }
             apY();
-            GLTextureView gLTextureView = this.cUB.get();
+            GLTextureView gLTextureView = this.cUC.get();
             if (gLTextureView != null) {
-                this.cUE = gLTextureView.cUu.createWindowSurface(this.cUC, this.cUD, this.cUF, gLTextureView.getSurfaceTexture());
+                this.cUF = gLTextureView.cUv.createWindowSurface(this.cUD, this.cUE, this.cUG, gLTextureView.getSurfaceTexture());
             } else {
-                this.cUE = null;
+                this.cUF = null;
             }
-            if (this.cUE == null || this.cUE == EGL10.EGL_NO_SURFACE) {
-                if (this.cUC.eglGetError() == 12299) {
+            if (this.cUF == null || this.cUF == EGL10.EGL_NO_SURFACE) {
+                if (this.cUD.eglGetError() == 12299) {
                     Log.e("EglHelper", "createWindowSurface returned EGL_BAD_NATIVE_WINDOW.");
                 }
                 return false;
-            } else if (!this.cUC.eglMakeCurrent(this.cUD, this.cUE, this.cUE, this.cUG)) {
-                h("EGLHelper", "eglMakeCurrent", this.cUC.eglGetError());
+            } else if (!this.cUD.eglMakeCurrent(this.cUE, this.cUF, this.cUF, this.cUH)) {
+                h("EGLHelper", "eglMakeCurrent", this.cUD.eglGetError());
                 return false;
             } else {
                 return true;
@@ -443,18 +443,18 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
 
         GL apV() {
             l lVar;
-            GL gl = this.cUG.getGL();
-            GLTextureView gLTextureView = this.cUB.get();
+            GL gl = this.cUH.getGL();
+            GLTextureView gLTextureView = this.cUC.get();
             if (gLTextureView != null) {
-                if (gLTextureView.cUv != null) {
-                    gl = gLTextureView.cUv.wrap(gl);
+                if (gLTextureView.cUw != null) {
+                    gl = gLTextureView.cUw.wrap(gl);
                 }
-                if ((gLTextureView.cUw & 3) != 0) {
+                if ((gLTextureView.cUx & 3) != 0) {
                     int i = 0;
-                    if ((gLTextureView.cUw & 1) != 0) {
+                    if ((gLTextureView.cUx & 1) != 0) {
                         i = 1;
                     }
-                    if ((gLTextureView.cUw & 2) == 0) {
+                    if ((gLTextureView.cUx & 2) == 0) {
                         lVar = null;
                     } else {
                         lVar = new l();
@@ -467,10 +467,10 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
 
         public int apW() {
-            if (this.cUC.eglSwapBuffers(this.cUD, this.cUE)) {
+            if (this.cUD.eglSwapBuffers(this.cUE, this.cUF)) {
                 return 12288;
             }
-            return this.cUC.eglGetError();
+            return this.cUD.eglGetError();
         }
 
         public void apX() {
@@ -478,35 +478,35 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
 
         private void apY() {
-            if (this.cUE != null && this.cUE != EGL10.EGL_NO_SURFACE) {
-                this.cUC.eglMakeCurrent(this.cUD, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_CONTEXT);
-                GLTextureView gLTextureView = this.cUB.get();
+            if (this.cUF != null && this.cUF != EGL10.EGL_NO_SURFACE) {
+                this.cUD.eglMakeCurrent(this.cUE, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_CONTEXT);
+                GLTextureView gLTextureView = this.cUC.get();
                 if (gLTextureView != null) {
-                    gLTextureView.cUu.destroySurface(this.cUC, this.cUD, this.cUE);
+                    gLTextureView.cUv.destroySurface(this.cUD, this.cUE, this.cUF);
                 }
-                this.cUE = null;
+                this.cUF = null;
             }
         }
 
         public void finish() {
-            if (this.cUG != null) {
-                GLTextureView gLTextureView = this.cUB.get();
+            if (this.cUH != null) {
+                GLTextureView gLTextureView = this.cUC.get();
                 if (gLTextureView != null) {
                     try {
-                        gLTextureView.cUt.destroyContext(this.cUC, this.cUD, this.cUG);
+                        gLTextureView.cUu.destroyContext(this.cUD, this.cUE, this.cUH);
                     } catch (Exception e) {
                     }
                 }
-                this.cUG = null;
+                this.cUH = null;
             }
-            if (this.cUD != null) {
-                this.cUC.eglTerminate(this.cUD);
-                this.cUD = null;
+            if (this.cUE != null) {
+                this.cUD.eglTerminate(this.cUE);
+                this.cUE = null;
             }
         }
 
         private void mR(String str) {
-            X(str, this.cUC.eglGetError());
+            X(str, this.cUD.eglGetError());
         }
 
         public static void X(String str, int i) {
@@ -525,8 +525,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class i extends Thread {
-        private WeakReference<GLTextureView> cUB;
-        private boolean cUH;
+        private WeakReference<GLTextureView> cUC;
         private boolean cUI;
         private boolean cUJ;
         private boolean cUK;
@@ -536,18 +535,19 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         private boolean cUO;
         private boolean cUP;
         private boolean cUQ;
-        private boolean cUT;
-        private h cUV;
+        private boolean cUR;
+        private boolean cUU;
+        private h cUW;
         private boolean mPaused;
         private ArrayList<Runnable> mEventQueue = new ArrayList<>();
-        private boolean cUU = true;
+        private boolean cUV = true;
         private int mWidth = 0;
         private int mHeight = 0;
-        private boolean cUS = true;
-        private int cUR = 1;
+        private boolean cUT = true;
+        private int cUS = 1;
 
         i(WeakReference<GLTextureView> weakReference) {
-            this.cUB = weakReference;
+            this.cUC = weakReference;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
@@ -556,29 +556,29 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             try {
                 try {
                     aqb();
-                    GLTextureView.cUo.a(this);
+                    GLTextureView.cUp.a(this);
                 } catch (Exception e) {
                     af.DK().bu(false);
-                    GLTextureView.cUo.a(this);
+                    GLTextureView.cUp.a(this);
                 }
             } catch (Throwable th) {
-                GLTextureView.cUo.a(this);
+                GLTextureView.cUp.a(this);
                 throw th;
             }
         }
 
         private void apZ() {
-            if (this.cUO) {
-                this.cUO = false;
-                this.cUV.apX();
+            if (this.cUP) {
+                this.cUP = false;
+                this.cUW.apX();
             }
         }
 
         private void aqa() {
-            if (this.cUN) {
-                this.cUV.finish();
-                this.cUN = false;
-                GLTextureView.cUo.c(this);
+            if (this.cUO) {
+                this.cUW.finish();
+                this.cUO = false;
+                GLTextureView.cUp.c(this);
             }
         }
 
@@ -605,9 +605,9 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             boolean z14;
             int i3;
             int i4;
-            this.cUV = new h(this.cUB);
-            this.cUN = false;
+            this.cUW = new h(this.cUC);
             this.cUO = false;
+            this.cUP = false;
             boolean z15 = false;
             GL10 gl102 = null;
             int i5 = 0;
@@ -623,21 +623,21 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
             while (true) {
                 try {
                     sleep(4L);
-                    synchronized (GLTextureView.cUo) {
-                        while (!this.cUH) {
+                    synchronized (GLTextureView.cUp) {
+                        while (!this.cUI) {
                             if (this.mEventQueue.isEmpty()) {
-                                if (this.mPaused != this.cUJ) {
-                                    boolean z23 = this.cUJ;
-                                    this.mPaused = this.cUJ;
-                                    GLTextureView.cUo.notifyAll();
+                                if (this.mPaused != this.cUK) {
+                                    boolean z23 = this.cUK;
+                                    this.mPaused = this.cUK;
+                                    GLTextureView.cUp.notifyAll();
                                     z9 = z23;
                                 } else {
                                     z9 = false;
                                 }
-                                if (this.cUQ) {
+                                if (this.cUR) {
                                     apZ();
                                     aqa();
-                                    this.cUQ = false;
+                                    this.cUR = false;
                                     z16 = true;
                                 }
                                 if (z19) {
@@ -645,69 +645,69 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                                     aqa();
                                     z19 = false;
                                 }
-                                if (z9 && this.cUO) {
+                                if (z9 && this.cUP) {
                                     apZ();
                                 }
-                                if (z9 && this.cUN) {
-                                    GLTextureView gLTextureView = this.cUB.get();
-                                    if (!(gLTextureView == null ? false : gLTextureView.cUy) || GLTextureView.cUo.aqi()) {
+                                if (z9 && this.cUO) {
+                                    GLTextureView gLTextureView = this.cUC.get();
+                                    if (!(gLTextureView == null ? false : gLTextureView.cUz) || GLTextureView.cUp.aqi()) {
                                         aqa();
                                     }
                                 }
-                                if (z9 && GLTextureView.cUo.aqj()) {
-                                    this.cUV.finish();
+                                if (z9 && GLTextureView.cUp.aqj()) {
+                                    this.cUW.finish();
                                 }
-                                if (!this.cUK && !this.cUM) {
-                                    if (this.cUO) {
+                                if (!this.cUL && !this.cUN) {
+                                    if (this.cUP) {
                                         apZ();
                                     }
-                                    this.cUM = true;
-                                    this.cUL = false;
-                                    GLTextureView.cUo.notifyAll();
-                                }
-                                if (this.cUK && this.cUM) {
+                                    this.cUN = true;
                                     this.cUM = false;
-                                    GLTextureView.cUo.notifyAll();
+                                    GLTextureView.cUp.notifyAll();
+                                }
+                                if (this.cUL && this.cUN) {
+                                    this.cUN = false;
+                                    GLTextureView.cUp.notifyAll();
                                 }
                                 if (z22) {
                                     z17 = false;
                                     z22 = false;
-                                    this.cUT = true;
-                                    GLTextureView.cUo.notifyAll();
+                                    this.cUU = true;
+                                    GLTextureView.cUp.notifyAll();
                                 }
                                 if (aqd()) {
-                                    if (!this.cUN) {
+                                    if (!this.cUO) {
                                         if (z16) {
                                             z16 = false;
-                                        } else if (GLTextureView.cUo.b(this)) {
+                                        } else if (GLTextureView.cUp.b(this)) {
                                             try {
-                                                this.cUV.start();
-                                                this.cUN = true;
+                                                this.cUW.start();
+                                                this.cUO = true;
                                                 z15 = true;
-                                                GLTextureView.cUo.notifyAll();
+                                                GLTextureView.cUp.notifyAll();
                                             } catch (RuntimeException e) {
-                                                GLTextureView.cUo.c(this);
+                                                GLTextureView.cUp.c(this);
                                                 throw e;
                                             }
                                         }
                                     }
-                                    if (!this.cUN || this.cUO) {
+                                    if (!this.cUO || this.cUP) {
                                         z10 = z18;
                                         z11 = z20;
                                     } else {
-                                        this.cUO = true;
+                                        this.cUP = true;
                                         z21 = true;
                                         z10 = true;
                                         z11 = true;
                                     }
-                                    if (this.cUO) {
-                                        if (this.cUU) {
+                                    if (this.cUP) {
+                                        if (this.cUV) {
                                             z14 = true;
                                             i4 = this.mWidth;
                                             i3 = this.mHeight;
                                             z13 = true;
                                             z12 = true;
-                                            this.cUU = false;
+                                            this.cUV = false;
                                         } else {
                                             z12 = z21;
                                             int i7 = i6;
@@ -716,8 +716,8 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                                             i3 = i5;
                                             i4 = i7;
                                         }
-                                        this.cUS = false;
-                                        GLTextureView.cUo.notifyAll();
+                                        this.cUT = false;
+                                        GLTextureView.cUp.notifyAll();
                                         z3 = z11;
                                         z6 = z13;
                                         remove = runnable;
@@ -734,7 +734,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                                         z18 = z10;
                                     }
                                 }
-                                GLTextureView.cUo.wait();
+                                GLTextureView.cUp.wait();
                             } else {
                                 z = z22;
                                 i = i6;
@@ -748,7 +748,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                                 i2 = i5;
                             }
                         }
-                        synchronized (GLTextureView.cUo) {
+                        synchronized (GLTextureView.cUp) {
                             apZ();
                             aqa();
                         }
@@ -770,17 +770,17 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                     } else {
                         if (!z2) {
                             z8 = z2;
-                        } else if (this.cUV.apU()) {
-                            synchronized (GLTextureView.cUo) {
-                                this.cUP = true;
-                                GLTextureView.cUo.notifyAll();
+                        } else if (this.cUW.apU()) {
+                            synchronized (GLTextureView.cUp) {
+                                this.cUQ = true;
+                                GLTextureView.cUp.notifyAll();
                             }
                             z8 = false;
                         } else {
-                            synchronized (GLTextureView.cUo) {
-                                this.cUP = true;
-                                this.cUL = true;
-                                GLTextureView.cUo.notifyAll();
+                            synchronized (GLTextureView.cUp) {
+                                this.cUQ = true;
+                                this.cUM = true;
+                                GLTextureView.cUp.notifyAll();
                             }
                             i5 = i2;
                             z16 = z7;
@@ -795,32 +795,32 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                             z22 = z25;
                         }
                         if (z3) {
-                            GL10 gl103 = (GL10) this.cUV.apV();
-                            GLTextureView.cUo.c(gl103);
+                            GL10 gl103 = (GL10) this.cUW.apV();
+                            GLTextureView.cUp.c(gl103);
                             z3 = false;
                             gl10 = gl103;
                         } else {
                             gl10 = gl102;
                         }
                         if (z15) {
-                            GLTextureView gLTextureView2 = this.cUB.get();
+                            GLTextureView gLTextureView2 = this.cUC.get();
                             if (gLTextureView2 != null) {
-                                gLTextureView2.cUr.onSurfaceCreated(gl10, this.cUV.cUF);
+                                gLTextureView2.cUs.onSurfaceCreated(gl10, this.cUW.cUG);
                             }
                             z15 = false;
                         }
                         if (z5) {
-                            GLTextureView gLTextureView3 = this.cUB.get();
+                            GLTextureView gLTextureView3 = this.cUC.get();
                             if (gLTextureView3 != null) {
-                                gLTextureView3.cUr.onSurfaceChanged(gl10, i, i2);
+                                gLTextureView3.cUs.onSurfaceChanged(gl10, i, i2);
                             }
                             z5 = false;
                         }
-                        GLTextureView gLTextureView4 = this.cUB.get();
+                        GLTextureView gLTextureView4 = this.cUC.get();
                         if (gLTextureView4 != null) {
-                            gLTextureView4.cUr.onDrawFrame(gl10);
+                            gLTextureView4.cUs.onDrawFrame(gl10);
                         }
-                        int apW = this.cUV.apW();
+                        int apW = this.cUW.apW();
                         switch (apW) {
                             case 12288:
                                 break;
@@ -829,9 +829,9 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                                 break;
                             default:
                                 h.h("GLThread", "eglSwapBuffers", apW);
-                                synchronized (GLTextureView.cUo) {
-                                    this.cUL = true;
-                                    GLTextureView.cUo.notifyAll();
+                                synchronized (GLTextureView.cUp) {
+                                    this.cUM = true;
+                                    GLTextureView.cUp.notifyAll();
                                     break;
                                 }
                         }
@@ -850,7 +850,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
                         z16 = z27;
                     }
                 } catch (Throwable th) {
-                    synchronized (GLTextureView.cUo) {
+                    synchronized (GLTextureView.cUp) {
                         apZ();
                         aqa();
                         throw th;
@@ -860,18 +860,18 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
 
         public boolean aqc() {
-            return this.cUN && this.cUO && aqd();
+            return this.cUO && this.cUP && aqd();
         }
 
         private boolean aqd() {
-            return !this.mPaused && this.cUK && !this.cUL && this.mWidth > 0 && this.mHeight > 0 && (this.cUS || this.cUR == 1);
+            return !this.mPaused && this.cUL && !this.cUM && this.mWidth > 0 && this.mHeight > 0 && (this.cUT || this.cUS == 1);
         }
 
         public void setRenderMode(int i) {
             if (i >= 0 && i <= 1) {
-                synchronized (GLTextureView.cUo) {
-                    this.cUR = i;
-                    GLTextureView.cUo.notifyAll();
+                synchronized (GLTextureView.cUp) {
+                    this.cUS = i;
+                    GLTextureView.cUp.notifyAll();
                 }
                 return;
             }
@@ -880,27 +880,27 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
 
         public int getRenderMode() {
             int i;
-            synchronized (GLTextureView.cUo) {
-                i = this.cUR;
+            synchronized (GLTextureView.cUp) {
+                i = this.cUS;
             }
             return i;
         }
 
         public void requestRender() {
-            synchronized (GLTextureView.cUo) {
-                this.cUS = true;
-                GLTextureView.cUo.notifyAll();
+            synchronized (GLTextureView.cUp) {
+                this.cUT = true;
+                GLTextureView.cUp.notifyAll();
             }
         }
 
         public void aqe() {
-            synchronized (GLTextureView.cUo) {
-                this.cUK = true;
-                this.cUP = false;
-                GLTextureView.cUo.notifyAll();
-                while (this.cUM && !this.cUP && !this.cUI) {
+            synchronized (GLTextureView.cUp) {
+                this.cUL = true;
+                this.cUQ = false;
+                GLTextureView.cUp.notifyAll();
+                while (this.cUN && !this.cUQ && !this.cUJ) {
                     try {
-                        GLTextureView.cUo.wait();
+                        GLTextureView.cUp.wait();
                     } catch (Exception e) {
                         Thread.currentThread().interrupt();
                     }
@@ -909,12 +909,12 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
 
         public void aqf() {
-            synchronized (GLTextureView.cUo) {
-                this.cUK = false;
-                GLTextureView.cUo.notifyAll();
-                while (!this.cUM && !this.cUI) {
+            synchronized (GLTextureView.cUp) {
+                this.cUL = false;
+                GLTextureView.cUp.notifyAll();
+                while (!this.cUN && !this.cUJ) {
                     try {
-                        GLTextureView.cUo.wait();
+                        GLTextureView.cUp.wait();
                     } catch (Exception e) {
                         Thread.currentThread().interrupt();
                     }
@@ -923,12 +923,12 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
 
         public void onPause() {
-            synchronized (GLTextureView.cUo) {
-                this.cUJ = true;
-                GLTextureView.cUo.notifyAll();
-                while (!this.cUI && !this.mPaused) {
+            synchronized (GLTextureView.cUp) {
+                this.cUK = true;
+                GLTextureView.cUp.notifyAll();
+                while (!this.cUJ && !this.mPaused) {
                     try {
-                        GLTextureView.cUo.wait();
+                        GLTextureView.cUp.wait();
                     } catch (Exception e) {
                         Thread.currentThread().interrupt();
                     }
@@ -937,14 +937,14 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
 
         public void onResume() {
-            synchronized (GLTextureView.cUo) {
-                this.cUJ = false;
-                this.cUS = true;
-                this.cUT = false;
-                GLTextureView.cUo.notifyAll();
-                while (!this.cUI && this.mPaused && !this.cUT) {
+            synchronized (GLTextureView.cUp) {
+                this.cUK = false;
+                this.cUT = true;
+                this.cUU = false;
+                GLTextureView.cUp.notifyAll();
+                while (!this.cUJ && this.mPaused && !this.cUU) {
                     try {
-                        GLTextureView.cUo.wait();
+                        GLTextureView.cUp.wait();
                     } catch (Exception e) {
                         Thread.currentThread().interrupt();
                     }
@@ -953,16 +953,16 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
 
         public void ay(int i, int i2) {
-            synchronized (GLTextureView.cUo) {
+            synchronized (GLTextureView.cUp) {
                 this.mWidth = i;
                 this.mHeight = i2;
-                this.cUU = true;
-                this.cUS = true;
-                this.cUT = false;
-                GLTextureView.cUo.notifyAll();
-                while (!this.cUI && !this.mPaused && !this.cUT && aqc()) {
+                this.cUV = true;
+                this.cUT = true;
+                this.cUU = false;
+                GLTextureView.cUp.notifyAll();
+                while (!this.cUJ && !this.mPaused && !this.cUU && aqc()) {
                     try {
-                        GLTextureView.cUo.wait();
+                        GLTextureView.cUp.wait();
                     } catch (Exception e) {
                         Thread.currentThread().interrupt();
                     }
@@ -971,12 +971,12 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
 
         public void aqg() {
-            synchronized (GLTextureView.cUo) {
-                this.cUH = true;
-                GLTextureView.cUo.notifyAll();
-                while (!this.cUI) {
+            synchronized (GLTextureView.cUp) {
+                this.cUI = true;
+                GLTextureView.cUp.notifyAll();
+                while (!this.cUJ) {
                     try {
-                        GLTextureView.cUo.wait();
+                        GLTextureView.cUp.wait();
                     } catch (Exception e) {
                         Thread.currentThread().interrupt();
                     }
@@ -985,8 +985,8 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
 
         public void aqh() {
-            this.cUQ = true;
-            GLTextureView.cUo.notifyAll();
+            this.cUR = true;
+            GLTextureView.cUp.notifyAll();
         }
     }
 
@@ -1029,7 +1029,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     }
 
     private void apS() {
-        if (this.cUq != null) {
+        if (this.cUr != null) {
             throw new IllegalStateException("setRenderer has already been called for this instance.");
         }
     }
@@ -1038,75 +1038,75 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     /* loaded from: classes.dex */
     public static class j {
         private static String TAG = "GLThreadManager";
-        private boolean cUW;
-        private int cUX;
-        private boolean cUY;
+        private boolean cUX;
+        private int cUY;
         private boolean cUZ;
         private boolean cVa;
-        private i cVb;
+        private boolean cVb;
+        private i cVc;
 
         private j() {
         }
 
         public synchronized void a(i iVar) {
-            iVar.cUI = true;
-            if (this.cVb == iVar) {
-                this.cVb = null;
+            iVar.cUJ = true;
+            if (this.cVc == iVar) {
+                this.cVc = null;
             }
             notifyAll();
         }
 
         public boolean b(i iVar) {
-            if (this.cVb == iVar || this.cVb == null) {
-                this.cVb = iVar;
+            if (this.cVc == iVar || this.cVc == null) {
+                this.cVc = iVar;
                 notifyAll();
                 return true;
             }
             aqk();
-            if (this.cUZ) {
+            if (this.cVa) {
                 return true;
             }
-            if (this.cVb != null) {
-                this.cVb.aqh();
+            if (this.cVc != null) {
+                this.cVc.aqh();
             }
             return false;
         }
 
         public void c(i iVar) {
-            if (this.cVb == iVar) {
-                this.cVb = null;
+            if (this.cVc == iVar) {
+                this.cVc = null;
             }
             notifyAll();
         }
 
         public synchronized boolean aqi() {
-            return this.cVa;
+            return this.cVb;
         }
 
         public synchronized boolean aqj() {
             aqk();
-            return !this.cUZ;
+            return !this.cVa;
         }
 
         public synchronized void c(GL10 gl10) {
             synchronized (this) {
-                if (!this.cUY) {
+                if (!this.cUZ) {
                     aqk();
                     String glGetString = gl10.glGetString(7937);
-                    if (this.cUX < 131072) {
-                        this.cUZ = !glGetString.startsWith("Q3Dimension MSM7500 ");
+                    if (this.cUY < 131072) {
+                        this.cVa = !glGetString.startsWith("Q3Dimension MSM7500 ");
                         notifyAll();
                     }
-                    this.cVa = this.cUZ ? false : true;
-                    this.cUY = true;
+                    this.cVb = this.cVa ? false : true;
+                    this.cUZ = true;
                 }
             }
         }
 
         private void aqk() {
-            if (!this.cUW) {
-                this.cUZ = true;
-                this.cUW = true;
+            if (!this.cUX) {
+                this.cVa = true;
+                this.cUX = true;
             }
         }
     }

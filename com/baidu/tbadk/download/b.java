@@ -22,22 +22,22 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b {
-    private static b aYu = null;
-    private static DownloadData aYx = null;
+    private static b aYv = null;
+    private static DownloadData aYy = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private final int aYv = 5;
-    private a aYw = null;
+    private final int aYw = 5;
+    private a aYx = null;
 
     private b() {
     }
 
     public static b Mh() {
         synchronized (b.class) {
-            if (aYu == null) {
-                aYu = new b();
+            if (aYv == null) {
+                aYv = new b();
             }
         }
-        return aYu;
+        return aYv;
     }
 
     public void a(String str, String str2, String str3, String[] strArr) {
@@ -80,12 +80,12 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Mi() {
-        if (aYx == null) {
-            aYx = (DownloadData) v.d(mTaskList, 0);
-            if (aYx != null) {
-                this.aYw = new a();
-                this.aYw.setPriority(3);
-                this.aYw.execute(aYx);
+        if (aYy == null) {
+            aYy = (DownloadData) v.d(mTaskList, 0);
+            if (aYy != null) {
+                this.aYx = new a();
+                this.aYx.setPriority(3);
+                this.aYx.execute(aYy);
             }
         }
     }
@@ -121,10 +121,10 @@ public class b {
     /* renamed from: com.baidu.tbadk.download.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     private class C0167b extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
-        ArrayList<AdvertAppInfo> aYz;
+        ArrayList<AdvertAppInfo> aYA;
 
         private C0167b() {
-            this.aYz = null;
+            this.aYA = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -137,12 +137,12 @@ public class b {
             if (arrayList == null) {
                 return linkedList;
             }
-            this.aYz = arrayList;
+            this.aYA = arrayList;
             Iterator<AdvertAppInfo> it = arrayList.iterator();
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
-                String str = next.apX;
-                if (l.fd(b.this.getFileOfUrl(next.apW)) != null) {
+                String str = next.apY;
+                if (l.fd(b.this.getFileOfUrl(next.apX)) != null) {
                     DownloadData downloadData = new DownloadData(str);
                     downloadData.setStatus(3);
                     linkedList.add(downloadData);
@@ -161,15 +161,15 @@ public class b {
                 list = new LinkedList<>();
             }
             for (DownloadData downloadData : d.Mj().nx()) {
-                Iterator<AdvertAppInfo> it = this.aYz.iterator();
+                Iterator<AdvertAppInfo> it = this.aYA.iterator();
                 while (it.hasNext()) {
-                    if (TextUtils.equals(it.next().apX, downloadData.getId())) {
+                    if (TextUtils.equals(it.next().apY, downloadData.getId())) {
                         list.add(downloadData);
                     }
                 }
             }
             b.this.P(list);
-            this.aYz = null;
+            this.aYA = null;
         }
     }
 
@@ -230,7 +230,7 @@ public class b {
         /* renamed from: e */
         public void onPostExecute(DownloadData downloadData) {
             super.onPostExecute(downloadData);
-            b.this.aYw = null;
+            b.this.aYx = null;
             if (downloadData != null) {
                 if (downloadData.getStatus() == 3) {
                     b.this.b(downloadData);
@@ -247,7 +247,7 @@ public class b {
                         b.this.c(downloadData);
                     }
                 }
-                DownloadData unused = b.aYx = null;
+                DownloadData unused = b.aYy = null;
                 if (!b.mTaskList.isEmpty()) {
                     b.mTaskList.remove(0);
                     b.this.Mi();

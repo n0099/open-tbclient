@@ -23,11 +23,11 @@ import java.util.List;
 import tbclient.PbContent;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.tieba.frs.g.a<b> {
-    private final View.OnClickListener enP;
+    private final View.OnClickListener enQ;
 
     public a(@NonNull TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.enP = new View.OnClickListener() { // from class: com.baidu.tieba.frs.g.a.a.1
+        this.enQ = new View.OnClickListener() { // from class: com.baidu.tieba.frs.g.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 b item;
@@ -44,12 +44,12 @@ public class a extends com.baidu.tieba.frs.g.a<b> {
         if (view == null) {
             C0221a c0221a2 = new C0221a();
             view = LayoutInflater.from(getContext()).inflate(e.h.frs_header_youhua_hot_content_item, viewGroup, false);
-            c0221a2.bSL = view;
-            c0221a2.enR = (TextView) view.findViewById(e.g.top_youhua_hot_thread_index);
-            c0221a2.enS = (TextView) view.findViewById(e.g.top_youhua_hot_thread_sub_title);
-            c0221a2.enT = (TextView) view.findViewById(e.g.top_youhua_hot_thread_content);
-            c0221a2.enU = (TbImageView) view.findViewById(e.g.top_youhua_hot_thread_image);
-            c0221a2.enV = (ImageView) view.findViewById(e.g.top_youhua_hot_thread_image_flag);
+            c0221a2.bSM = view;
+            c0221a2.enS = (TextView) view.findViewById(e.g.top_youhua_hot_thread_index);
+            c0221a2.enT = (TextView) view.findViewById(e.g.top_youhua_hot_thread_sub_title);
+            c0221a2.enU = (TextView) view.findViewById(e.g.top_youhua_hot_thread_content);
+            c0221a2.enV = (TbImageView) view.findViewById(e.g.top_youhua_hot_thread_image);
+            c0221a2.enW = (ImageView) view.findViewById(e.g.top_youhua_hot_thread_image_flag);
             c0221a2.divider = view.findViewById(e.g.top_item_divider);
             view.setTag(c0221a2);
             c0221a = c0221a2;
@@ -64,38 +64,38 @@ public class a extends com.baidu.tieba.frs.g.a<b> {
         b item = getItem(i);
         if (item != null) {
             c0221a.position = i;
-            c0221a.enT.setText(bY(item.aKd()));
+            c0221a.enU.setText(bY(item.aKd()));
             String a = a(item);
             if (TextUtils.isEmpty(a)) {
-                c0221a.enS.setVisibility(8);
+                c0221a.enT.setVisibility(8);
             } else {
-                c0221a.enS.setVisibility(0);
-                c0221a.enS.setText(a);
+                c0221a.enT.setVisibility(0);
+                c0221a.enT.setText(a);
             }
             if (TextUtils.isEmpty(item.aKa())) {
+                c0221a.enW.setVisibility(8);
                 c0221a.enV.setVisibility(8);
-                c0221a.enU.setVisibility(8);
             } else {
                 if (item.aKb()) {
-                    c0221a.enV.setVisibility(0);
+                    c0221a.enW.setVisibility(0);
                 } else {
-                    c0221a.enV.setVisibility(8);
+                    c0221a.enW.setVisibility(8);
                 }
-                c0221a.enU.setVisibility(0);
-                c0221a.enU.startLoad(item.aKa(), 10, false);
+                c0221a.enV.setVisibility(0);
+                c0221a.enV.startLoad(item.aKa(), 10, false);
             }
             if (item.getRank() < 10) {
-                c0221a.enR.setText("0" + item.getRank());
+                c0221a.enS.setText("0" + item.getRank());
             } else {
-                c0221a.enR.setText(String.valueOf(item.getRank()));
+                c0221a.enS.setText(String.valueOf(item.getRank()));
             }
             c0221a.divider.setVisibility(i == getCount() + (-1) ? 8 : 0);
-            al.i(c0221a.bSL, e.f.home_thread_card_item_bg);
-            al.h(c0221a.enT, e.d.cp_cont_b);
-            al.h(c0221a.enS, e.d.cp_cont_d);
-            al.h(c0221a.enR, oi(i));
+            al.i(c0221a.bSM, e.f.home_thread_card_item_bg);
+            al.h(c0221a.enU, e.d.cp_cont_b);
+            al.h(c0221a.enT, e.d.cp_cont_d);
+            al.h(c0221a.enS, oi(i));
             al.j(c0221a.divider, e.d.cp_bg_line_c);
-            c0221a.bSL.setOnClickListener(this.enP);
+            c0221a.bSM.setOnClickListener(this.enQ);
         }
     }
 
@@ -160,13 +160,13 @@ public class a extends com.baidu.tieba.frs.g.a<b> {
     /* renamed from: com.baidu.tieba.frs.g.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     public class C0221a {
-        View bSL;
+        View bSM;
         View divider;
-        TextView enR;
         TextView enS;
         TextView enT;
-        TbImageView enU;
-        ImageView enV;
+        TextView enU;
+        TbImageView enV;
+        ImageView enW;
         int position;
 
         public C0221a() {

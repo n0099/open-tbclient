@@ -15,19 +15,19 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class AutoBannerView extends RelativeLayout {
-    private com.baidu.tbadk.f.a aTt;
-    private CoverFlowView<com.baidu.tieba.personCenter.data.a> dAd;
+    private com.baidu.tbadk.f.a aTu;
+    private CoverFlowView<com.baidu.tieba.personCenter.data.a> dAe;
     private List<com.baidu.tieba.personCenter.data.a> mData;
 
     public AutoBannerView(Context context) {
         super(context);
-        this.dAd = null;
+        this.dAe = null;
         this.mData = null;
         initUI();
     }
 
     private void initUI() {
-        this.dAd = new CoverFlowView<>(getContext());
+        this.dAe = new CoverFlowView<>(getContext());
         com.baidu.tbadk.core.flow.a.b bVar = new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.personCenter.view.AutoBannerView.1
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public com.baidu.tbadk.core.flow.a.e Cd() {
@@ -60,16 +60,16 @@ public class AutoBannerView extends RelativeLayout {
                 return cVar;
             }
         };
-        this.dAd.setIndicatorNoOffet(false);
-        this.dAd.setDisableParentEvent(false);
-        this.dAd.setCoverFlowFactory(bVar);
-        this.dAd.setIndicatorVisible(0);
-        this.dAd.setIsAutoPlayDragging(false);
-        addView(this.dAd);
+        this.dAe.setIndicatorNoOffet(false);
+        this.dAe.setDisableParentEvent(false);
+        this.dAe.setCoverFlowFactory(bVar);
+        this.dAe.setIndicatorVisible(0);
+        this.dAe.setIsAutoPlayDragging(false);
+        addView(this.dAe);
     }
 
     public CoverFlowView getCoverFlowView() {
-        return this.dAd;
+        return this.dAe;
     }
 
     public boolean checkIndex(int i) {
@@ -87,43 +87,43 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void FS() {
-        if (this.dAd != null) {
-            this.dAd.Cg();
+        if (this.dAe != null) {
+            this.dAe.Cg();
         }
     }
 
     public void setIndicatorVisible(int i) {
-        if (this.dAd != null) {
-            this.dAd.setIndicatorVisible(i);
+        if (this.dAe != null) {
+            this.dAe.setIndicatorVisible(i);
         }
     }
 
     public void bX(List<com.baidu.tieba.personCenter.data.a> list) {
         this.mData = list;
-        this.dAd.setData(list);
+        this.dAe.setData(list);
     }
 
     public void setIWindowChangedListener(com.baidu.tbadk.f.a aVar) {
-        this.aTt = aVar;
+        this.aTu = aVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (this.dAd != null) {
-            this.dAd.onChangeSkinType();
+        if (this.dAe != null) {
+            this.dAe.onChangeSkinType();
         }
     }
 
     public void setMarqueenTime(long j) {
-        if (this.dAd != null) {
-            this.dAd.setMarqueenTime(j);
+        if (this.dAe != null) {
+            this.dAe.setMarqueenTime(j);
         }
     }
 
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.aTt != null) {
-            this.aTt.a(this, i == 0, null);
+        if (this.aTu != null) {
+            this.aTu.a(this, i == 0, null);
         }
     }
 }

@@ -9,27 +9,27 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 /* loaded from: classes4.dex */
 public class AiAppsHistoryProvider extends ContentProvider {
-    public static final Uri bHC = Uri.parse("content://com.baidu.tieba.aiapps_visit_history/swanhistory");
-    private static UriMatcher bHD = new UriMatcher(-1);
-    private a bHE;
+    public static final Uri bHD = Uri.parse("content://com.baidu.tieba.aiapps_visit_history/swanhistory");
+    private static UriMatcher bHE = new UriMatcher(-1);
+    private a bHF;
 
     static {
-        bHD.addURI("com.baidu.tieba.aiapps_visit_history", "swanhistory", 1);
+        bHE.addURI("com.baidu.tieba.aiapps_visit_history", "swanhistory", 1);
     }
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        this.bHE = new a(getContext());
+        this.bHF = new a(getContext());
         return true;
     }
 
     @Override // android.content.ContentProvider
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        switch (bHD.match(uri)) {
+        switch (bHE.match(uri)) {
             case 1:
-                Cursor a = this.bHE.a(strArr, str, strArr2, str2);
-                a.setNotificationUri(getContext().getContentResolver(), bHC);
+                Cursor a = this.bHF.a(strArr, str, strArr2, str2);
+                a.setNotificationUri(getContext().getContentResolver(), bHD);
                 return a;
             default:
                 return null;
@@ -39,9 +39,9 @@ public class AiAppsHistoryProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public String getType(@NonNull Uri uri) {
-        switch (bHD.match(uri)) {
+        switch (bHE.match(uri)) {
             case 1:
-                return this.bHE.getType();
+                return this.bHF.getType();
             default:
                 return null;
         }
@@ -50,10 +50,10 @@ public class AiAppsHistoryProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        switch (bHD.match(uri)) {
+        switch (bHE.match(uri)) {
             case 1:
-                Uri insert = this.bHE.insert(uri, contentValues);
-                getContext().getContentResolver().notifyChange(bHC, null);
+                Uri insert = this.bHF.insert(uri, contentValues);
+                getContext().getContentResolver().notifyChange(bHD, null);
                 return insert;
             default:
                 return null;
@@ -62,9 +62,9 @@ public class AiAppsHistoryProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        switch (bHD.match(uri)) {
+        switch (bHE.match(uri)) {
             case 1:
-                return this.bHE.b(str, strArr);
+                return this.bHF.b(str, strArr);
             default:
                 return 0;
         }
@@ -72,10 +72,10 @@ public class AiAppsHistoryProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        switch (bHD.match(uri)) {
+        switch (bHE.match(uri)) {
             case 1:
-                int a = this.bHE.a(contentValues, str, strArr);
-                getContext().getContentResolver().notifyChange(bHC, null);
+                int a = this.bHF.a(contentValues, str, strArr);
+                getContext().getContentResolver().notifyChange(bHD, null);
                 return a;
             default:
                 return 0;

@@ -23,10 +23,10 @@ import org.java_websocket.exceptions.LimitExedeedException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes2.dex */
 public abstract class Draft {
-    public static int iEt = 1000;
-    public static int iEu = 64;
-    protected WebSocket.Role iEh = null;
-    protected Framedata.Opcode iEv = null;
+    public static int iEu = 1000;
+    public static int iEv = 64;
+    protected WebSocket.Role iEi = null;
+    protected Framedata.Opcode iEw = null;
 
     /* loaded from: classes2.dex */
     public enum CloseHandshakeType {
@@ -151,10 +151,10 @@ public abstract class Draft {
         if (opcode != Framedata.Opcode.BINARY && opcode != Framedata.Opcode.TEXT) {
             throw new IllegalArgumentException("Only Opcode.BINARY or  Opcode.TEXT are allowed");
         }
-        if (this.iEv != null) {
+        if (this.iEw != null) {
             iVar = new org.java_websocket.framing.c();
         } else {
-            this.iEv = opcode;
+            this.iEw = opcode;
             if (opcode == Framedata.Opcode.BINARY) {
                 iVar = new org.java_websocket.framing.a();
             } else {
@@ -166,9 +166,9 @@ public abstract class Draft {
         try {
             iVar.cdW();
             if (z) {
-                this.iEv = null;
+                this.iEw = null;
             } else {
-                this.iEv = opcode;
+                this.iEw = opcode;
             }
             return Collections.singletonList(iVar);
         } catch (InvalidDataException e) {
@@ -214,7 +214,7 @@ public abstract class Draft {
     }
 
     public f r(ByteBuffer byteBuffer) throws InvalidHandshakeException {
-        return a(byteBuffer, this.iEh);
+        return a(byteBuffer, this.iEi);
     }
 
     public int zB(int i) throws LimitExedeedException, InvalidDataException {
@@ -238,7 +238,7 @@ public abstract class Draft {
     }
 
     public void a(WebSocket.Role role) {
-        this.iEh = role;
+        this.iEi = role;
     }
 
     public String toString() {

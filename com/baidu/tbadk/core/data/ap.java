@@ -7,34 +7,34 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ap {
-    private ArrayList<UserData> ata = new ArrayList<>();
     private ArrayList<UserData> atb = new ArrayList<>();
-    private al atc = new al();
-    private int atd = 0;
+    private ArrayList<UserData> atc = new ArrayList<>();
+    private al atd = new al();
     private int ate = 0;
+    private int atf = 0;
 
     public void a(al alVar) {
-        this.atc = alVar;
+        this.atd = alVar;
     }
 
     public al zf() {
-        return this.atc;
-    }
-
-    public ArrayList<UserData> zg() {
-        return this.ata;
-    }
-
-    public ArrayList<UserData> zh() {
-        return this.atb;
-    }
-
-    public int zi() {
         return this.atd;
     }
 
-    public int zj() {
+    public ArrayList<UserData> zg() {
+        return this.atb;
+    }
+
+    public ArrayList<UserData> zh() {
+        return this.atc;
+    }
+
+    public int zi() {
         return this.ate;
+    }
+
+    public int zj() {
+        return this.atf;
     }
 
     public void parserJson(String str) {
@@ -55,7 +55,7 @@ public class ap {
                         UserData userData = new UserData();
                         userData.parserJson(optJSONArray.getJSONObject(i));
                         userData.mAttentionType = 2;
-                        this.ata.add(userData);
+                        this.atb.add(userData);
                     }
                 }
                 if (optJSONArray2 != null) {
@@ -63,12 +63,12 @@ public class ap {
                         UserData userData2 = new UserData();
                         userData2.parserJson(optJSONArray2.getJSONObject(i2));
                         userData2.mAttentionType = 1;
-                        this.atb.add(userData2);
+                        this.atc.add(userData2);
                     }
                 }
-                this.atc.parserJson(jSONObject.optJSONObject(SystemScreenshotManager.PAGE));
-                this.atd = jSONObject.optInt("tafriendnum", 0);
-                this.ate = jSONObject.optInt("commonfriendnum", 0);
+                this.atd.parserJson(jSONObject.optJSONObject(SystemScreenshotManager.PAGE));
+                this.ate = jSONObject.optInt("tafriendnum", 0);
+                this.atf = jSONObject.optInt("commonfriendnum", 0);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

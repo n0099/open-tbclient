@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk.core.view.userLike.b {
-    private TranslateAnimation gkN;
-    private ObjectAnimator gkO;
+    private TranslateAnimation gkO;
+    private ObjectAnimator gkP;
 
     public PbNavbarUserConcernView(Context context) {
         super(context);
@@ -58,11 +58,11 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
             setVisibility(0);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         } else if (z) {
-            if (this.gkN == null) {
-                this.gkN = new TranslateAnimation(0.0f, -getMeasuredWidth(), 0.0f, 0.0f);
-                this.gkN.setDuration(300L);
-                this.gkN.setFillAfter(true);
-                this.gkN.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbNavbarUserConcernView.1
+            if (this.gkO == null) {
+                this.gkO = new TranslateAnimation(0.0f, -getMeasuredWidth(), 0.0f, 0.0f);
+                this.gkO.setDuration(300L);
+                this.gkO.setFillAfter(true);
+                this.gkO.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.pb.main.view.PbNavbarUserConcernView.1
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationStart(Animation animation) {
                     }
@@ -77,15 +77,15 @@ public class PbNavbarUserConcernView extends TextView implements com.baidu.tbadk
                     }
                 });
             }
-            startAnimation(this.gkN);
+            startAnimation(this.gkO);
         } else {
-            if (this.gkO == null) {
-                this.gkO = ObjectAnimator.ofFloat(this, "translationX", 0.0f, -30.0f);
-                this.gkO.setDuration(200L);
-                this.gkO.setRepeatCount(1);
-                this.gkO.setRepeatMode(2);
+            if (this.gkP == null) {
+                this.gkP = ObjectAnimator.ofFloat(this, "translationX", 0.0f, -30.0f);
+                this.gkP.setDuration(200L);
+                this.gkP.setRepeatCount(1);
+                this.gkP.setRepeatMode(2);
             }
-            this.gkO.start();
+            this.gkP.start();
         }
     }
 

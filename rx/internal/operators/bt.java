@@ -7,7 +7,7 @@ import rx.d;
 /* loaded from: classes2.dex */
 public final class bt<T> implements d.b<T, T> {
     final int count;
-    final long iMR;
+    final long iMS;
     final rx.g scheduler;
 
     @Override // rx.functions.f
@@ -16,7 +16,7 @@ public final class bt<T> implements d.b<T, T> {
     }
 
     public bt(long j, TimeUnit timeUnit, rx.g gVar) {
-        this.iMR = timeUnit.toMillis(j);
+        this.iMS = timeUnit.toMillis(j);
         this.scheduler = gVar;
         this.count = -1;
     }
@@ -25,13 +25,13 @@ public final class bt<T> implements d.b<T, T> {
         if (i < 0) {
             throw new IndexOutOfBoundsException("count could not be negative");
         }
-        this.iMR = timeUnit.toMillis(j);
+        this.iMS = timeUnit.toMillis(j);
         this.scheduler = gVar;
         this.count = i;
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
-        final a aVar = new a(jVar, this.count, this.iMR, this.scheduler);
+        final a aVar = new a(jVar, this.count, this.iMS, this.scheduler);
         jVar.add(aVar);
         jVar.setProducer(new rx.f() { // from class: rx.internal.operators.bt.1
             @Override // rx.f
@@ -47,16 +47,16 @@ public final class bt<T> implements d.b<T, T> {
     public static final class a<T> extends rx.j<T> implements rx.functions.f<Object, T> {
         final rx.j<? super T> actual;
         final int count;
-        final long iMR;
+        final long iMS;
         final rx.g scheduler;
         final AtomicLong requested = new AtomicLong();
-        final ArrayDeque<Object> iIE = new ArrayDeque<>();
-        final ArrayDeque<Long> iMU = new ArrayDeque<>();
+        final ArrayDeque<Object> iIF = new ArrayDeque<>();
+        final ArrayDeque<Long> iMV = new ArrayDeque<>();
 
         public a(rx.j<? super T> jVar, int i, long j, rx.g gVar) {
             this.actual = jVar;
             this.count = i;
-            this.iMR = j;
+            this.iMS = j;
             this.scheduler = gVar;
         }
 
@@ -64,23 +64,23 @@ public final class bt<T> implements d.b<T, T> {
         public void onNext(T t) {
             if (this.count != 0) {
                 long now = this.scheduler.now();
-                if (this.iIE.size() == this.count) {
-                    this.iIE.poll();
-                    this.iMU.poll();
+                if (this.iIF.size() == this.count) {
+                    this.iIF.poll();
+                    this.iMV.poll();
                 }
                 dO(now);
-                this.iIE.offer(NotificationLite.aY(t));
-                this.iMU.offer(Long.valueOf(now));
+                this.iIF.offer(NotificationLite.aY(t));
+                this.iMV.offer(Long.valueOf(now));
             }
         }
 
         protected void dO(long j) {
-            long j2 = j - this.iMR;
+            long j2 = j - this.iMS;
             while (true) {
-                Long peek = this.iMU.peek();
+                Long peek = this.iMV.peek();
                 if (peek != null && peek.longValue() < j2) {
-                    this.iIE.poll();
-                    this.iMU.poll();
+                    this.iIF.poll();
+                    this.iMV.poll();
                 } else {
                     return;
                 }
@@ -89,16 +89,16 @@ public final class bt<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iIE.clear();
-            this.iMU.clear();
+            this.iIF.clear();
+            this.iMV.clear();
             this.actual.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
             dO(this.scheduler.now());
-            this.iMU.clear();
-            rx.internal.operators.a.a(this.requested, this.iIE, this.actual, this);
+            this.iMV.clear();
+            rx.internal.operators.a.a(this.requested, this.iIF, this.actual, this);
         }
 
         @Override // rx.functions.f
@@ -107,7 +107,7 @@ public final class bt<T> implements d.b<T, T> {
         }
 
         void dH(long j) {
-            rx.internal.operators.a.a(this.requested, j, this.iIE, this.actual, this);
+            rx.internal.operators.a.a(this.requested, j, this.iIF, this.actual, this);
         }
     }
 }

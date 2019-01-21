@@ -15,27 +15,27 @@ import java.util.Map;
 import org.apache.http.cookie.SM;
 /* loaded from: classes.dex */
 public class c {
-    private static c gVe;
-    private CustomMessageListener gVg = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.c.1
+    private static c gVf;
+    private CustomMessageListener gVh = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.kV() && c.this.gVf != null) {
-                c.this.gVf.bwQ();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.kV() && c.this.gVg != null) {
+                c.this.gVg.bwQ();
             }
         }
     };
-    private d gVf = new g();
+    private d gVg = new g();
 
     public static c bwO() {
-        if (gVe == null) {
+        if (gVf == null) {
             synchronized (c.class) {
-                if (gVe == null) {
-                    gVe = new c();
+                if (gVf == null) {
+                    gVf = new c();
                 }
             }
         }
-        return gVe;
+        return gVf;
     }
 
     private boolean bwP() {
@@ -43,15 +43,15 @@ public class c {
     }
 
     private c() {
-        MessageManager.getInstance().registerListener(this.gVg);
+        MessageManager.getInstance().registerListener(this.gVh);
     }
 
     public void a(b bVar) {
-        if (bwP() && bVar != null && this.gVf != null) {
+        if (bwP() && bVar != null && this.gVg != null) {
             if (j.kV()) {
-                this.gVf.b(bVar);
+                this.gVg.b(bVar);
             } else {
-                this.gVf.c(bVar);
+                this.gVg.c(bVar);
             }
         }
     }

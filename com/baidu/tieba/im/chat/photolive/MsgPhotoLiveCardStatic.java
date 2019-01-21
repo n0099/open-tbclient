@@ -14,10 +14,10 @@ public class MsgPhotoLiveCardStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof MsgAdapterScanMessage.a)) {
                     MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
-                    if (aVar.eLy != null && aVar.context != null) {
+                    if (aVar.eLz != null && aVar.context != null) {
                         MsgPhotoLiveItemAdapter msgPhotoLiveItemAdapter = new MsgPhotoLiveItemAdapter(aVar.context, ChatMessage.TYPE_MSG_PHOTOLIVE);
                         msgPhotoLiveItemAdapter.ig(true);
-                        aVar.eLy.add(msgPhotoLiveItemAdapter);
+                        aVar.eLz.add(msgPhotoLiveItemAdapter);
                     }
                 }
             }

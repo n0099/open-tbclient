@@ -34,9 +34,9 @@ public final class be<T> implements d.b<T, T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.j<T> implements rx.functions.a {
-        private static final Object iLO = new Object();
+        private static final Object iLP = new Object();
         private final rx.j<? super T> subscriber;
-        final AtomicReference<Object> value = new AtomicReference<>(iLO);
+        final AtomicReference<Object> value = new AtomicReference<>(iLP);
 
         public a(rx.j<? super T> jVar) {
             this.subscriber = jVar;
@@ -71,8 +71,8 @@ public final class be<T> implements d.b<T, T> {
         }
 
         private void cfn() {
-            Object andSet = this.value.getAndSet(iLO);
-            if (andSet != iLO) {
+            Object andSet = this.value.getAndSet(iLP);
+            if (andSet != iLP) {
                 try {
                     this.subscriber.onNext(andSet);
                 } catch (Throwable th) {

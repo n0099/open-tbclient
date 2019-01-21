@@ -6,14 +6,14 @@ import kotlin.coroutines.experimental.d;
 import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public final class a implements d {
-    private final d iCq;
-    private final d.b iCr;
+    private final d iCr;
+    private final d.b iCs;
 
     public a(d dVar, d.b bVar) {
         p.j(dVar, "left");
         p.j(bVar, "element");
-        this.iCq = dVar;
-        this.iCr = bVar;
+        this.iCr = dVar;
+        this.iCs = bVar;
     }
 
     @Override // kotlin.coroutines.experimental.d
@@ -21,9 +21,9 @@ public final class a implements d {
         p.j(cVar, RimArmor.KEY);
         a aVar = this;
         while (true) {
-            E e = (E) aVar.iCr.a(cVar);
+            E e = (E) aVar.iCs.a(cVar);
             if (e == null) {
-                d dVar = aVar.iCq;
+                d dVar = aVar.iCr;
                 if (dVar instanceof a) {
                     aVar = (a) dVar;
                 } else {
@@ -38,22 +38,22 @@ public final class a implements d {
     @Override // kotlin.coroutines.experimental.d
     public <R> R a(R r, kotlin.jvm.a.c<? super R, ? super d.b, ? extends R> cVar) {
         p.j(cVar, "operation");
-        return cVar.invoke((Object) this.iCq.a(r, cVar), this.iCr);
+        return cVar.invoke((Object) this.iCr.a(r, cVar), this.iCs);
     }
 
     @Override // kotlin.coroutines.experimental.d
     public d b(d.c<?> cVar) {
         p.j(cVar, RimArmor.KEY);
-        if (this.iCr.a(cVar) != null) {
-            return this.iCq;
+        if (this.iCs.a(cVar) != null) {
+            return this.iCr;
         }
-        d b = this.iCq.b(cVar);
-        return b == this.iCq ? this : b == e.iCu ? this.iCr : new a(b, this.iCr);
+        d b = this.iCr.b(cVar);
+        return b == this.iCr ? this : b == e.iCv ? this.iCs : new a(b, this.iCs);
     }
 
     private final int size() {
-        if (this.iCq instanceof a) {
-            return ((a) this.iCq).size() + 1;
+        if (this.iCr instanceof a) {
+            return ((a) this.iCr).size() + 1;
         }
         return 2;
     }
@@ -63,8 +63,8 @@ public final class a implements d {
     }
 
     private final boolean a(a aVar) {
-        while (a(aVar.iCr)) {
-            d dVar = aVar.iCq;
+        while (a(aVar.iCs)) {
+            d dVar = aVar.iCr;
             if (dVar instanceof a) {
                 aVar = (a) dVar;
             } else if (dVar == null) {
@@ -81,7 +81,7 @@ public final class a implements d {
     }
 
     public int hashCode() {
-        return this.iCq.hashCode() + this.iCr.hashCode();
+        return this.iCr.hashCode() + this.iCs.hashCode();
     }
 
     public String toString() {

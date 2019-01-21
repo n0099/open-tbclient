@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 final class b {
-    private static final Pattern gMG = Pattern.compile(",");
-    private Point gMH;
+    private static final Pattern gMH = Pattern.compile(",");
     private Point gMI;
     private Point gMJ;
+    private Point gMK;
     private final Context mContext;
 
     public b(Context context) {
@@ -27,20 +27,20 @@ final class b {
         if (c(camera)) {
             parameters.setFocusMode("auto");
         }
-        this.gMH = a.cU(this.mContext);
+        this.gMI = a.cU(this.mContext);
         Point point = new Point();
-        point.x = this.gMH.x;
-        point.y = this.gMH.y;
+        point.x = this.gMI.x;
+        point.y = this.gMI.y;
         int cT = a.cT(this.mContext);
         if (cT == 0) {
-            point.x = this.gMH.y;
-            point.y = this.gMH.x;
+            point.x = this.gMI.y;
+            point.y = this.gMI.x;
         }
-        this.gMJ = a(parameters, point);
+        this.gMK = a(parameters, point);
         if (cT == 0) {
-            this.gMI = new Point(this.gMJ.y, this.gMJ.x);
+            this.gMJ = new Point(this.gMK.y, this.gMK.x);
         } else {
-            this.gMI = this.gMJ;
+            this.gMJ = this.gMK;
         }
     }
 
@@ -49,12 +49,12 @@ final class b {
     }
 
     public Point bve() {
-        return this.gMI;
+        return this.gMJ;
     }
 
     public void d(Camera camera) {
         Camera.Parameters parameters = camera.getParameters();
-        parameters.setPreviewSize(this.gMJ.x, this.gMJ.y);
+        parameters.setPreviewSize(this.gMK.x, this.gMK.y);
         a(parameters);
         camera.setDisplayOrientation(bvf());
         camera.setParameters(parameters);
@@ -147,7 +147,7 @@ final class b {
     }
 
     private static int c(CharSequence charSequence, int i) {
-        String[] split = gMG.split(charSequence);
+        String[] split = gMH.split(charSequence);
         int length = split.length;
         int i2 = 0;
         int i3 = 0;

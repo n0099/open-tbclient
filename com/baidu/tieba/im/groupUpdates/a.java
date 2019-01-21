@@ -8,34 +8,34 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private List<UpdatesItemData> bVP = new ArrayList();
-    private UpdatesActivity eXZ;
+    private List<UpdatesItemData> bVQ = new ArrayList();
+    private UpdatesActivity eYa;
 
     public a(UpdatesActivity updatesActivity) {
-        this.eXZ = updatesActivity;
+        this.eYa = updatesActivity;
     }
 
     public void destroy() {
-        this.eXZ = null;
+        this.eYa = null;
     }
 
     public List<UpdatesItemData> getDatas() {
-        return this.bVP;
+        return this.bVQ;
     }
 
     public void setData(List<UpdatesItemData> list) {
         if (list != null) {
-            this.bVP = list;
+            this.bVQ = list;
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bVP == null) {
+        if (this.bVQ == null) {
             return 0;
         }
-        return this.bVP.size();
+        return this.bVQ.size();
     }
 
     @Override // android.widget.Adapter
@@ -44,14 +44,14 @@ public class a extends BaseAdapter {
         if (view != null) {
             bVar = (b) view.getTag();
         }
-        b bVar2 = bVar == null ? new b(this.eXZ) : bVar;
-        bVar2.b(this.bVP.get(i));
+        b bVar2 = bVar == null ? new b(this.eYa) : bVar;
+        bVar2.b(this.bVQ.get(i));
         return bVar2.gb();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.bVP.get(i);
+        return this.bVQ.get(i);
     }
 
     @Override // android.widget.Adapter

@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.h;
 /* loaded from: classes.dex */
 public abstract class a implements h {
-    public static final BdUniqueId aMJ = BdUniqueId.gen();
+    public static final BdUniqueId aMK = BdUniqueId.gen();
 
     public abstract Object FY();
 
@@ -12,6 +12,6 @@ public abstract class a implements h {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return aMJ;
+        return aMK;
     }
 }

@@ -8,15 +8,15 @@ import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class MsgRightViewItemAdapter extends e<MsgrightView> {
-    private boolean eLL;
+    private boolean eLM;
 
     public MsgRightViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.eLL = false;
+        this.eLM = false;
     }
 
     public void ii(boolean z) {
-        this.eLL = z;
+        this.eLM = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -35,13 +35,13 @@ public class MsgRightViewItemAdapter extends e<MsgrightView> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgrightView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
         MsgrightView aPB = aVar.aPB();
-        aPB.pP(this.eLC);
-        aPB.ii(this.eLL);
+        aPB.pP(this.eLD);
+        aPB.ii(this.eLM);
         chatMessage.getCacheData().setIs_left(0);
-        aPB.a(this.eLs);
-        aPB.setOnItemViewLongClickListener(this.eLt);
+        aPB.a(this.eLt);
+        aPB.setOnItemViewLongClickListener(this.eLu);
         aPB.setPosition(i);
-        aPB.cp(this.eLz);
+        aPB.cp(this.eLA);
         aPB.co(chatMessage.getCacheData().getLastMsgTime());
         aPB.a(viewGroup, chatMessage);
         aPB.b(viewGroup, chatMessage);

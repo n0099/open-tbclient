@@ -4,16 +4,16 @@ import java.lang.ref.SoftReference;
 import java.util.StringTokenizer;
 /* loaded from: classes5.dex */
 abstract class f implements org.aspectj.lang.c {
-    String iDD;
-    Class iDE;
-    a iDF;
-    private String iDG;
-    ClassLoader iDt = null;
-    int ixJ;
+    String iDE;
+    Class iDF;
+    a iDG;
+    private String iDH;
+    ClassLoader iDu = null;
+    int ixK;
     String name;
-    private static boolean dow = true;
+    private static boolean dox = true;
     static String[] EMPTY_STRING_ARRAY = new String[0];
-    static Class[] iDH = new Class[0];
+    static Class[] iDI = new Class[0];
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
@@ -27,44 +27,44 @@ abstract class f implements org.aspectj.lang.c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(int i, String str, Class cls) {
-        this.ixJ = -1;
-        this.ixJ = i;
+        this.ixK = -1;
+        this.ixK = i;
         this.name = str;
-        this.iDE = cls;
+        this.iDF = cls;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a(h hVar) {
         String str = null;
-        if (dow) {
-            if (this.iDF == null) {
+        if (dox) {
+            if (this.iDG == null) {
                 try {
-                    this.iDF = new b();
+                    this.iDG = new b();
                 } catch (Throwable th) {
-                    dow = false;
+                    dox = false;
                 }
             } else {
-                str = this.iDF.zy(hVar.iDS);
+                str = this.iDG.zy(hVar.iDT);
             }
         }
         if (str == null) {
             str = b(hVar);
         }
-        if (dow) {
-            this.iDF.set(hVar.iDS, str);
+        if (dox) {
+            this.iDG.set(hVar.iDT, str);
         }
         return str;
     }
 
     public final String toString() {
-        return a(h.iDU);
+        return a(h.iDV);
     }
 
     public int getModifiers() {
-        if (this.ixJ == -1) {
-            this.ixJ = zv(0);
+        if (this.ixK == -1) {
+            this.ixK = zv(0);
         }
-        return this.ixJ;
+        return this.ixK;
     }
 
     public String getName() {
@@ -75,42 +75,42 @@ abstract class f implements org.aspectj.lang.c {
     }
 
     public Class cdB() {
+        if (this.iDF == null) {
+            this.iDF = zw(2);
+        }
+        return this.iDF;
+    }
+
+    public String cdC() {
         if (this.iDE == null) {
-            this.iDE = zw(2);
+            this.iDE = cdB().getName();
         }
         return this.iDE;
     }
 
-    public String cdC() {
-        if (this.iDD == null) {
-            this.iDD = cdB().getName();
-        }
-        return this.iDD;
-    }
-
     private ClassLoader cdD() {
-        if (this.iDt == null) {
-            this.iDt = getClass().getClassLoader();
+        if (this.iDu == null) {
+            this.iDu = getClass().getClassLoader();
         }
-        return this.iDt;
+        return this.iDu;
     }
 
     String zu(int i) {
         int i2 = 0;
-        int indexOf = this.iDG.indexOf(45);
+        int indexOf = this.iDH.indexOf(45);
         while (true) {
             int i3 = i - 1;
             if (i <= 0) {
                 break;
             }
             i2 = indexOf + 1;
-            indexOf = this.iDG.indexOf(45, i2);
+            indexOf = this.iDH.indexOf(45, i2);
             i = i3;
         }
         if (indexOf == -1) {
-            indexOf = this.iDG.length();
+            indexOf = this.iDH.length();
         }
-        return this.iDG.substring(i2, indexOf);
+        return this.iDH.substring(i2, indexOf);
     }
 
     int zv(int i) {
@@ -136,7 +136,7 @@ abstract class f implements org.aspectj.lang.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static final class b implements a {
-        private SoftReference iDI;
+        private SoftReference iDJ;
 
         public b() {
             cdF();
@@ -161,12 +161,12 @@ abstract class f implements org.aspectj.lang.c {
         }
 
         private String[] cdE() {
-            return (String[]) this.iDI.get();
+            return (String[]) this.iDJ.get();
         }
 
         private String[] cdF() {
             String[] strArr = new String[3];
-            this.iDI = new SoftReference(strArr);
+            this.iDJ = new SoftReference(strArr);
             return strArr;
         }
     }

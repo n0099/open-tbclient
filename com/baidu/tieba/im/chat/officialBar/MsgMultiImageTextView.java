@@ -11,7 +11,7 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class MsgMultiImageTextView extends g {
-    private MultiContentView eMY;
+    private MultiContentView eMZ;
 
     public MsgMultiImageTextView(TbPageContext<MsglistActivity<?>> tbPageContext) {
         super(tbPageContext, e.h.msg_multi_pictext_view);
@@ -19,19 +19,19 @@ public class MsgMultiImageTextView extends g {
     }
 
     private void init() {
-        this.dxJ = (TextView) findViewById(e.g.tex_msgitem_time);
-        this.eMY = (MultiContentView) findViewById(e.g.msg_content);
+        this.dxK = (TextView) findViewById(e.g.tex_msgitem_time);
+        this.eMZ = (MultiContentView) findViewById(e.g.msg_content);
     }
 
     public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
             g(chatMessage);
             List<c.a> a = c.a(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId());
-            this.eMY.setPosition(this.mPosition);
-            this.eMY.setOnItemViewLongClickListener(this.eLt);
-            this.eMY.setNeedNightMode(false);
-            this.eMY.setType(1);
-            this.eMY.setData(tbPageContext, a, view);
+            this.eMZ.setPosition(this.mPosition);
+            this.eMZ.setOnItemViewLongClickListener(this.eLu);
+            this.eMZ.setNeedNightMode(false);
+            this.eMZ.setType(1);
+            this.eMZ.setData(tbPageContext, a, view);
         }
     }
 }

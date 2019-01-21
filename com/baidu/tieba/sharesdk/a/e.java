@@ -19,33 +19,33 @@ import com.sina.weibo.sdk.share.WbShareHandler;
 import com.sina.weibo.sdk.utils.Utility;
 /* loaded from: classes3.dex */
 public class e extends a {
-    private final com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> bcE;
-    private ShareEntity hdB;
-    private com.baidu.tieba.sharesdk.b.b hdM;
-    private WbShareHandler hdN;
-    private WbShareCallback hdO;
+    private final com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a> bcF;
+    private ShareEntity hdC;
+    private com.baidu.tieba.sharesdk.b.b hdN;
+    private WbShareHandler hdO;
+    private WbShareCallback hdP;
 
     public e(Activity activity, com.baidu.tieba.sharesdk.b.b bVar, WbShareCallback wbShareCallback) {
         super(activity);
-        this.bcE = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.sharesdk.a.e.1
+        this.bcF = new com.baidu.adp.lib.f.b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tieba.sharesdk.a.e.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                 super.onLoaded((AnonymousClass1) aVar, str, i);
                 if (aVar == null) {
-                    e.this.a(e.this.hdB, (Bitmap) null);
+                    e.this.a(e.this.hdC, (Bitmap) null);
                     return;
                 }
-                e.this.a(e.this.hdB, aVar.ot());
+                e.this.a(e.this.hdC, aVar.ot());
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.f.b
             public void onCancelled(String str) {
                 super.onCancelled(str);
-                if (e.this.hdM != null) {
-                    e.this.hdM.bJ(6, 3);
+                if (e.this.hdN != null) {
+                    e.this.hdN.bJ(6, 3);
                 }
                 e.this.uU(3);
             }
@@ -56,17 +56,17 @@ public class e extends a {
             BdLog.e(e);
         }
         this.context = activity;
-        this.hdM = bVar;
-        this.hdO = wbShareCallback;
-        this.hdN = new WbShareHandler(activity);
-        if (this.hdN != null) {
-            this.hdN.registerApp();
+        this.hdN = bVar;
+        this.hdP = wbShareCallback;
+        this.hdO = new WbShareHandler(activity);
+        if (this.hdO != null) {
+            this.hdO.registerApp();
         }
     }
 
     @Override // com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.hdN == null) {
+        if (shareEntity == null || this.hdO == null) {
             uU(2);
             if (bVar != null) {
                 bVar.bJ(6, 2);
@@ -74,25 +74,25 @@ public class e extends a {
             }
             return;
         }
-        this.hdB = shareEntity;
-        this.hdM = bVar;
+        this.hdC = shareEntity;
+        this.hdN = bVar;
         String yF = shareEntity.yF();
         if (hr(shareEntity.sb())) {
-            a(this.hdB, vu(shareEntity.sb()));
+            a(this.hdC, vu(shareEntity.sb()));
         } else if (!TextUtils.isEmpty(yF) && (yF.startsWith("http://") || yF.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
-            com.baidu.adp.lib.f.c.jA().a(yF, 10, this.bcE, 0, 0, getPageId(), new Object[0]);
+            com.baidu.adp.lib.f.c.jA().a(yF, 10, this.bcF, 0, 0, getPageId(), new Object[0]);
         } else if (i(shareEntity.getImageUri())) {
-            a(this.hdB, h(shareEntity.getImageUri()));
+            a(this.hdC, h(shareEntity.getImageUri()));
         } else {
-            a(this.hdB, bAd());
+            a(this.hdC, bAd());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ShareEntity shareEntity, Bitmap bitmap) {
-        if (this.hdB == null || this.hdN == null || !(this.context instanceof Activity)) {
-            if (this.hdM != null) {
-                this.hdM.bJ(6, 2);
+        if (this.hdC == null || this.hdO == null || !(this.context instanceof Activity)) {
+            if (this.hdN != null) {
+                this.hdN.bJ(6, 2);
             }
             uU(2);
             return;
@@ -108,7 +108,7 @@ public class e extends a {
         if (a != null) {
             weiboMultiMessage.mediaObject = a;
         }
-        this.hdN.shareMessage(weiboMultiMessage, false);
+        this.hdO.shareMessage(weiboMultiMessage, false);
     }
 
     private WebpageObject a(WeiboMultiMessage weiboMultiMessage, ShareEntity shareEntity, Bitmap bitmap) {
@@ -161,12 +161,12 @@ public class e extends a {
     }
 
     private TextObject bAe() {
-        if (this.hdB == null) {
+        if (this.hdC == null) {
             return null;
         }
         TextObject textObject = new TextObject();
-        textObject.title = vw(this.hdB.getTitle());
-        textObject.text = vw(this.hdB.topic) + vw(this.hdB.getContent());
+        textObject.title = vw(this.hdC.getTitle());
+        textObject.text = vw(this.hdC.topic) + vw(this.hdC.getContent());
         return textObject;
     }
 
@@ -183,28 +183,28 @@ public class e extends a {
 
     @Override // com.baidu.tieba.sharesdk.a.a
     public void H(Intent intent) {
-        if (this.hdN != null && this.hdO != null) {
-            this.hdN.doResultIntent(intent, this.hdO);
+        if (this.hdO != null && this.hdP != null) {
+            this.hdO.doResultIntent(intent, this.hdP);
         }
     }
 
     public void onWbShareSuccess() {
-        if (this.hdM != null) {
-            this.hdM.bJ(6, 1);
+        if (this.hdN != null) {
+            this.hdN.bJ(6, 1);
         }
         uU(1);
     }
 
     public void onWbShareCancel() {
-        if (this.hdM != null) {
-            this.hdM.bJ(6, 3);
+        if (this.hdN != null) {
+            this.hdN.bJ(6, 3);
         }
         uU(3);
     }
 
     public void onWbShareFail() {
-        if (this.hdM != null) {
-            this.hdM.bJ(6, 2);
+        if (this.hdN != null) {
+            this.hdN.bJ(6, 2);
         }
         uU(2);
     }

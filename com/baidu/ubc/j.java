@@ -5,11 +5,11 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class j {
     private String SB;
-    private int ifM;
-    private JSONObject igj;
-    private int igk;
-    private String igl;
-    private boolean igm;
+    private int ifN;
+    private JSONObject igk;
+    private int igl;
+    private String igm;
+    private boolean ign;
     private String mCategory;
     private String mContent;
     private String mFlowId;
@@ -18,56 +18,56 @@ public class j {
 
     public j(String str, String str2, int i) {
         this.mContent = "";
-        this.igm = false;
+        this.ign = false;
         this.SB = "";
         this.mId = str;
         this.mFlowId = str;
-        this.ifM = -1;
+        this.ifN = -1;
         this.mContent = str2;
-        this.igk = i;
-        if ((this.igk & 2) == 0) {
+        this.igl = i;
+        if ((this.igl & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
     }
 
     public j(String str, JSONObject jSONObject, int i) {
         this.mContent = "";
-        this.igm = false;
+        this.ign = false;
         this.SB = "";
         this.mId = str;
         this.mFlowId = str;
-        this.ifM = -1;
-        this.igj = jSONObject;
-        this.igk = i;
-        if ((this.igk & 2) == 0) {
+        this.ifN = -1;
+        this.igk = jSONObject;
+        this.igl = i;
+        if ((this.igl & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
     }
 
     public j(String str, String str2, int i, String str3, int i2) {
         this.mContent = "";
-        this.igm = false;
+        this.ign = false;
         this.SB = "";
         this.mId = str2;
         this.mFlowId = str;
-        this.ifM = i;
+        this.ifN = i;
         this.mContent = str3;
-        this.igk = i2;
-        if ((this.igk & 2) == 0) {
+        this.igl = i2;
+        if ((this.igl & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
     }
 
     public j(String str, String str2, int i, String str3, long j, int i2) {
         this.mContent = "";
-        this.igm = false;
+        this.ign = false;
         this.SB = "";
         this.mId = str2;
         this.mFlowId = str;
-        this.ifM = i;
+        this.ifN = i;
         this.mContent = str3;
-        this.igk = i2;
-        if ((this.igk & 2) == 0) {
+        this.igl = i2;
+        if ((this.igl & 2) == 0) {
             if (j > 0) {
                 this.mTime = j;
             } else {
@@ -85,7 +85,7 @@ public class j {
     }
 
     public int bSB() {
-        return this.ifM;
+        return this.ifN;
     }
 
     public String getContent() {
@@ -97,11 +97,11 @@ public class j {
     }
 
     public int bSC() {
-        return this.igk;
+        return this.igl;
     }
 
     public String bSD() {
-        return this.igl;
+        return this.igm;
     }
 
     public String getCategory() {
@@ -113,7 +113,7 @@ public class j {
     }
 
     public JSONObject bSE() {
-        return this.igj;
+        return this.igk;
     }
 
     public String getFileName() {
@@ -125,16 +125,16 @@ public class j {
     }
 
     public boolean bSy() {
-        return this.igm;
+        return this.ign;
     }
 
     public void oO(boolean z) {
-        this.igm = z;
+        this.ign = z;
     }
 
     public void bSF() {
         if (this.mId != null && this.mId.equals(this.mFlowId) && e.bSo().ys(this.mId)) {
-            this.igl = o.bSQ().ZC();
+            this.igm = o.bSQ().ZC();
         }
     }
 }

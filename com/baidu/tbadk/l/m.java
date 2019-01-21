@@ -8,32 +8,32 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 /* loaded from: classes.dex */
 public class m {
-    private static String bhj = "tb_perfor_samllflow_time";
-    private static volatile m bhm;
-    private long bhl;
-    private boolean bhh = false;
-    private long bhk = 86400;
-    private long bhi = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(bhj, 0);
+    private static String bhk = "tb_perfor_samllflow_time";
+    private static volatile m bhn;
+    private long bhm;
+    private boolean bhi = false;
+    private long bhl = 86400;
+    private long bhj = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(bhk, 0);
 
     public static m PD() {
-        if (bhm == null) {
+        if (bhn == null) {
             synchronized (m.class) {
-                if (bhm == null) {
-                    bhm = new m();
+                if (bhn == null) {
+                    bhn = new m();
                 }
             }
         }
-        return bhm;
+        return bhn;
     }
 
     private m() {
-        this.bhl = 0L;
-        this.bhl = this.bhk;
+        this.bhm = 0L;
+        this.bhm = this.bhl;
     }
 
     public boolean PE() {
-        if (!this.bhh || (System.currentTimeMillis() - this.bhi) / 1000 <= this.bhl) {
-            return this.bhh;
+        if (!this.bhi || (System.currentTimeMillis() - this.bhj) / 1000 <= this.bhm) {
+            return this.bhi;
         }
         return false;
     }
@@ -41,15 +41,15 @@ public class m {
     public void cP(boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (z) {
-            if (0 == this.bhi || currentTimeMillis - this.bhi >= this.bhl) {
-                this.bhi = currentTimeMillis;
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bhj, this.bhi);
+            if (0 == this.bhj || currentTimeMillis - this.bhj >= this.bhm) {
+                this.bhj = currentTimeMillis;
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bhk, this.bhj);
             }
         } else {
-            this.bhi = 0L;
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bhj, this.bhi);
+            this.bhj = 0L;
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(bhk, this.bhj);
         }
-        this.bhh = z;
+        this.bhi = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
             n.PJ().PK();
         }
@@ -130,7 +130,7 @@ public class m {
 
     public void as(long j) {
         if (j > 0) {
-            this.bhl = j;
+            this.bhm = j;
         }
     }
 

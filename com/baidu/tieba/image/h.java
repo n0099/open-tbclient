@@ -14,14 +14,14 @@ import tbclient.App;
 import tbclient.GoodsInfo;
 /* loaded from: classes3.dex */
 public class h {
-    private LinkedList<f> fkY;
+    private LinkedList<f> fkZ;
     private String fid = null;
-    private int fkX = 0;
-    private AdvertAppInfo fkZ = null;
+    private int fkY = 0;
+    private AdvertAppInfo fla = null;
 
     public h() {
-        this.fkY = null;
-        this.fkY = new LinkedList<>();
+        this.fkZ = null;
+        this.fkZ = new LinkedList<>();
     }
 
     public void P(String str, boolean z) {
@@ -33,11 +33,11 @@ public class h {
     }
 
     public LinkedList<f> aXR() {
-        return this.fkY;
+        return this.fkZ;
     }
 
     public int getImageNum() {
-        return this.fkX;
+        return this.fkY;
     }
 
     public void a(JSONObject jSONObject, Boolean bool) {
@@ -47,7 +47,7 @@ public class h {
                 if (optJSONObject != null) {
                     this.fid = optJSONObject.optString("id");
                 }
-                this.fkX = jSONObject.optInt("pic_amount", 0);
+                this.fkY = jSONObject.optInt("pic_amount", 0);
                 JSONArray optJSONArray = jSONObject.optJSONArray("pic_list");
                 if (optJSONArray != null) {
                     if (bool.booleanValue()) {
@@ -55,8 +55,8 @@ public class h {
                             f fVar = new f();
                             fVar.paserJson(optJSONArray.optJSONObject(i));
                             int index = fVar.getIndex();
-                            if (index >= 1 && index <= this.fkX) {
-                                this.fkY.addLast(fVar);
+                            if (index >= 1 && index <= this.fkY) {
+                                this.fkZ.addLast(fVar);
                             }
                         }
                     } else {
@@ -64,8 +64,8 @@ public class h {
                             f fVar2 = new f();
                             fVar2.paserJson(optJSONArray.getJSONObject(length));
                             int index2 = fVar2.getIndex();
-                            if (index2 >= 1 && index2 <= this.fkX) {
-                                this.fkY.addFirst(fVar2);
+                            if (index2 >= 1 && index2 <= this.fkY) {
+                                this.fkZ.addFirst(fVar2);
                             }
                         }
                     }
@@ -120,10 +120,10 @@ public class h {
             }
             builder.loc_code = optJSONObject.optString("loc_code");
             App build = builder.build(true);
-            this.fkZ = new AdvertAppInfo();
-            this.fkZ.a(build);
-            this.fkZ.adPosition = "c0111";
-            this.fkZ.aqi = this.fid;
+            this.fla = new AdvertAppInfo();
+            this.fla.a(build);
+            this.fla.adPosition = "c0111";
+            this.fla.aqj = this.fid;
         }
     }
 
@@ -157,6 +157,6 @@ public class h {
     }
 
     public AdvertAppInfo aXS() {
-        return this.fkZ;
+        return this.fla;
     }
 }

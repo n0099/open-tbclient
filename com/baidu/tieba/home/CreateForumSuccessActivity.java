@@ -18,13 +18,13 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessActivity> {
-    private LinearLayout aKk;
-    private NoNetworkView dHC;
-    private NoDataView esX;
+    private LinearLayout aKl;
+    private NoNetworkView dHD;
+    private NoDataView esY;
     private NavigationBar mNavigationBar;
     private String mForumName = null;
     private TextView mTextView = null;
-    private TextView etk = null;
+    private TextView etl = null;
 
     public static void aw(Context context, String str) {
         if (str != null && str.length() > 0) {
@@ -54,20 +54,20 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
     }
 
     private void aLh() {
-        this.aKk = (LinearLayout) findViewById(e.g.root_view);
+        this.aKl = (LinearLayout) findViewById(e.g.root_view);
         this.mNavigationBar = (NavigationBar) findViewById(e.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(e.j.create_bar);
-        this.dHC = (NoNetworkView) this.aKk.findViewById(e.g.view_no_network);
+        this.dHD = (NoNetworkView) this.aKl.findViewById(e.g.view_no_network);
         int h = l.h(getActivity(), e.C0210e.ds100);
-        this.esX = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.aKk.findViewById(e.g.emotion_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, h), null, null);
-        this.esX.setVisibility(0);
+        this.esY = NoDataViewFactory.a(getPageContext().getPageActivity(), (LinearLayout) this.aKl.findViewById(e.g.emotion_layout), NoDataViewFactory.c.a(NoDataViewFactory.ImgType.SINGALL, h), null, null);
+        this.esY.setVisibility(0);
         this.mTextView = (TextView) findViewById(e.g.text_suc_tip);
         this.mTextView.setText(getActivity().getString(e.j.noforum_create_suc_tip1) + this.mForumName + getActivity().getString(e.j.noforum_create_suc_tip2));
-        this.etk = (TextView) findViewById(e.g.text_audit_tip);
+        this.etl = (TextView) findViewById(e.g.text_audit_tip);
         String string = getResources().getString(e.j.noforum_create_audit_tip);
-        if (!StringUtils.isNull(string) && this.etk != null) {
-            this.etk.setText(string.replace("%s", this.mForumName));
+        if (!StringUtils.isNull(string) && this.etl != null) {
+            this.etl.setText(string.replace("%s", this.mForumName));
         }
         findViewById(e.g.text_create_succ).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.home.CreateForumSuccessActivity.1
             @Override // android.view.View.OnClickListener
@@ -81,13 +81,13 @@ public class CreateForumSuccessActivity extends BaseActivity<CreateForumSuccessA
     public void changeSkinType(int i) {
         super.changeSkinType(i);
         super.changeSkinType(i);
-        getLayoutMode().onModeChanged(this.aKk);
-        com.baidu.tbadk.o.a.a(getPageContext(), this.aKk);
-        if (this.dHC != null && this.dHC.getVisibility() == 0) {
-            this.dHC.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        getLayoutMode().onModeChanged(this.aKl);
+        com.baidu.tbadk.o.a.a(getPageContext(), this.aKl);
+        if (this.dHD != null && this.dHD.getVisibility() == 0) {
+            this.dHD.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
-        if (this.esX != null) {
-            this.esX.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        if (this.esY != null) {
+            this.esY.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);

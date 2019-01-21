@@ -4,19 +4,19 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 /* loaded from: classes2.dex */
 public final class g {
-    private static final int iQm = cfP();
-    private static final boolean iQn;
+    private static final int iQn = cfP();
+    private static final boolean iQo;
 
     static {
-        iQn = iQm != 0;
+        iQo = iQn != 0;
     }
 
     public static boolean cfN() {
-        return iQn;
+        return iQo;
     }
 
     public static int cfO() {
-        return iQm;
+        return iQn;
     }
 
     private static int cfP() {

@@ -6,9 +6,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
 /* loaded from: classes3.dex */
 public class PersonPostAdapter extends FragmentPagerAdapter {
-    private int[] caq;
-    private PersonThreadFragment gJZ;
-    private PersonReplyFragment gKa;
+    private int[] car;
+    private PersonThreadFragment gKa;
+    private PersonReplyFragment gKb;
 
     public PersonPostAdapter(PersonPostActivity personPostActivity) {
         super(personPostActivity.getSupportFragmentManager());
@@ -16,27 +16,27 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         bundle.putString("key_uid", personPostActivity.getUid());
         bundle.putString(PersonPostActivityConfig.KEY_PORTRAIT_URL, personPostActivity.getPortraitUrl());
         bundle.putString("key_empty_view_text", personPostActivity.btM());
-        this.gKa = new PersonReplyFragment();
+        this.gKb = new PersonReplyFragment();
+        this.gKb.setArguments(bundle);
+        this.gKb.a(personPostActivity);
+        this.gKa = new PersonThreadFragment();
         this.gKa.setArguments(bundle);
-        this.gKa.a(personPostActivity);
-        this.gJZ = new PersonThreadFragment();
-        this.gJZ.setArguments(bundle);
-        this.gJZ.a((d) personPostActivity);
-        this.gJZ.a((b) personPostActivity);
-        this.caq = new int[]{0, 1};
+        this.gKa.a((d) personPostActivity);
+        this.gKa.a((b) personPostActivity);
+        this.car = new int[]{0, 1};
     }
 
     public PersonThreadFragment btN() {
-        return this.gJZ;
+        return this.gKa;
     }
 
     @Override // android.support.v4.app.FragmentPagerAdapter
     public Fragment getItem(int i) {
         switch (i) {
             case 0:
-                return this.gJZ;
-            case 1:
                 return this.gKa;
+            case 1:
+                return this.gKb;
             default:
                 return null;
         }
@@ -48,6 +48,6 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
     }
 
     public int qD(int i) {
-        return this.caq[i];
+        return this.car[i];
     }
 }

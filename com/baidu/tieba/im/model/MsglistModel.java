@@ -120,12 +120,12 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
         this.mInjectListener = new AntiHelper.a() { // from class: com.baidu.tieba.im.model.MsglistModel.1
             @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
             public void onPositiveButtonClick(a aVar) {
-                TiebaStatic.log(new am("c12536").y("obj_locate", as.a.aDs));
+                TiebaStatic.log(new am("c12536").y("obj_locate", as.a.aDt));
             }
 
             @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
             public void onNavigationButtonClick(a aVar) {
-                TiebaStatic.log(new am("c12535").y("obj_locate", as.a.aDs));
+                TiebaStatic.log(new am("c12535").y("obj_locate", as.a.aDt));
             }
         };
         this.mCustomListenerInMessageCenter = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.model.MsglistModel.14
@@ -164,12 +164,12 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
         this.mInjectListener = new AntiHelper.a() { // from class: com.baidu.tieba.im.model.MsglistModel.1
             @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
             public void onPositiveButtonClick(a aVar) {
-                TiebaStatic.log(new am("c12536").y("obj_locate", as.a.aDs));
+                TiebaStatic.log(new am("c12536").y("obj_locate", as.a.aDt));
             }
 
             @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.a
             public void onNavigationButtonClick(a aVar) {
-                TiebaStatic.log(new am("c12535").y("obj_locate", as.a.aDs));
+                TiebaStatic.log(new am("c12535").y("obj_locate", as.a.aDt));
             }
         };
         this.mCustomListenerInMessageCenter = new CustomMessageListener(0) { // from class: com.baidu.tieba.im.model.MsglistModel.14
@@ -619,7 +619,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                 MemoryModifyLastMsgMessage.a aVar = new MemoryModifyLastMsgMessage.a();
                 aVar.customGroupType = cacheInfo.customGroupType;
                 aVar.id = cacheInfo.id;
-                aVar.eZN = chatMessage2;
+                aVar.eZO = chatMessage2;
                 aVar.type = 2;
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new MemoryModifyLastMsgMessage(aVar));
             }
@@ -750,13 +750,13 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
                     if (AntiHelper.al(responseCommitMessage.getError(), responseCommitMessage.getErrorString())) {
                         if (this.mAntiDialog != null) {
                             if (!this.mAntiDialog.isShowing()) {
-                                TiebaStatic.log(new am("c12534").y("obj_locate", as.a.aDs));
+                                TiebaStatic.log(new am("c12534").y("obj_locate", as.a.aDt));
                                 this.mAntiDialog.BS();
                             }
                         } else {
                             this.mAntiDialog = AntiHelper.a(this.mActivity.getActivity(), responseCommitMessage.getBlockPopInfoData(), this.mInjectListener);
                             if (this.mAntiDialog != null) {
-                                TiebaStatic.log(new am("c12534").y("obj_locate", as.a.aDs));
+                                TiebaStatic.log(new am("c12534").y("obj_locate", as.a.aDt));
                             }
                         }
                     } else if (responseCommitMessage.getError() != 3160008 && responseCommitMessage.getError() != 3100001) {
@@ -1030,7 +1030,7 @@ public abstract class MsglistModel extends BdBaseModel<Object> {
             if (i2 >= 0 && i < size) {
                 for (ChatMessage chatMessage : list) {
                     if (chatMessage.getMsgType() == 4) {
-                        j.eMs = i.Qj();
+                        j.eMt = i.Qj();
                     }
                     long userId = chatMessage.getUserId();
                     String portrait = chatMessage.getUserInfo().getPortrait();

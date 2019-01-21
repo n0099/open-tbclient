@@ -4,11 +4,11 @@ import android.util.Pair;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes2.dex */
 public class g extends ad<Pair<com.facebook.cache.common.b, ImageRequest.RequestLevel>, com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> {
-    private final com.facebook.imagepipeline.c.f iqF;
+    private final com.facebook.imagepipeline.c.f iqG;
 
     public g(com.facebook.imagepipeline.c.f fVar, ai aiVar) {
         super(aiVar);
-        this.iqF = fVar;
+        this.iqG = fVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -16,7 +16,7 @@ public class g extends ad<Pair<com.facebook.cache.common.b, ImageRequest.Request
     @Override // com.facebook.imagepipeline.producers.ad
     /* renamed from: a */
     public Pair<com.facebook.cache.common.b, ImageRequest.RequestLevel> b(aj ajVar) {
-        return Pair.create(this.iqF.a(ajVar.cap(), ajVar.bVS()), ajVar.car());
+        return Pair.create(this.iqG.a(ajVar.cap(), ajVar.bVS()), ajVar.car());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

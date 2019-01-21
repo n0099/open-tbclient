@@ -4,31 +4,31 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 /* loaded from: classes5.dex */
 public class b {
     private int column;
-    private EmotionGroupType dqO;
-    private int dqP;
+    private EmotionGroupType dqP;
     private int dqQ;
-    private com.baidu.tbadk.editortools.emotiontool.c dqR;
-    private int dqS;
+    private int dqR;
+    private com.baidu.tbadk.editortools.emotiontool.c dqS;
     private int dqT;
+    private int dqU;
     private int endIndex;
     private int index;
     private int row;
     private int startIndex;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.dqR = cVar;
+        this.dqS = cVar;
     }
 
     public com.baidu.tbadk.editortools.emotiontool.c avM() {
-        return this.dqR;
+        return this.dqS;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.dqO = emotionGroupType;
+        this.dqP = emotionGroupType;
     }
 
     public EmotionGroupType avN() {
-        return this.dqO;
+        return this.dqP;
     }
 
     public void fV(int i) {
@@ -48,27 +48,27 @@ public class b {
     }
 
     public void lu(int i) {
-        this.dqT = i;
+        this.dqU = i;
     }
 
     public int avP() {
-        return this.dqT;
+        return this.dqU;
     }
 
     public void lv(int i) {
-        this.dqS = i;
+        this.dqT = i;
     }
 
     public int avQ() {
-        return this.dqS;
+        return this.dqT;
     }
 
     public void lw(int i) {
-        this.dqP = i;
+        this.dqQ = i;
     }
 
     public int avR() {
-        return this.dqP;
+        return this.dqQ;
     }
 
     public void lx(int i) {
@@ -92,10 +92,10 @@ public class b {
     }
 
     public void ly(int i) {
-        this.dqQ = i;
+        this.dqR = i;
     }
 
     public int avT() {
-        return this.dqQ;
+        return this.dqR;
     }
 }

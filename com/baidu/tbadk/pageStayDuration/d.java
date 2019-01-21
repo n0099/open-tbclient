@@ -4,12 +4,12 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    public boolean bfW = false;
-    private List<String> bfX;
-    private String bfY;
-    private long bfZ;
-    public String bga;
+    public boolean bfX = false;
+    private List<String> bfY;
+    private String bfZ;
+    private long bga;
     public String bgb;
+    public String bgc;
     private long fid;
     public String objParam1;
     private long pid;
@@ -17,19 +17,19 @@ public class d {
     private long tid;
 
     public List<String> Ph() {
-        return this.bfX;
-    }
-
-    public void V(List<String> list) {
-        this.bfX = list;
-    }
-
-    public String getCurrentPageKey() {
         return this.bfY;
     }
 
+    public void V(List<String> list) {
+        this.bfY = list;
+    }
+
+    public String getCurrentPageKey() {
+        return this.bfZ;
+    }
+
     public void iF(String str) {
-        this.bfY = str;
+        this.bfZ = str;
     }
 
     public long getFid() {
@@ -53,11 +53,11 @@ public class d {
     }
 
     public long Pi() {
-        return this.bfZ;
+        return this.bga;
     }
 
     public void aq(long j) {
-        this.bfZ = j;
+        this.bga = j;
     }
 
     public void setTaskId(String str) {
@@ -69,6 +69,6 @@ public class d {
     }
 
     public boolean Pj() {
-        return StringUtils.isNull(this.bfY);
+        return StringUtils.isNull(this.bfZ);
     }
 }

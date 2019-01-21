@@ -15,17 +15,17 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public final class a implements h {
-    private static final Pattern aDD = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
-    private static a bCd = new a();
+    private static final Pattern aDE = Pattern.compile("(http://|ftp://|https://|www){1,1}[^一-龥\\s]*", 2);
+    private static a bCe = new a();
     private final List<h.a> mListeners = new LinkedList();
-    private final ConcurrentHashMap<String, h.b> aDB = new ConcurrentHashMap<>();
-    private h.c bCe = null;
+    private final ConcurrentHashMap<String, h.b> aDC = new ConcurrentHashMap<>();
+    private h.c bCf = null;
 
     private a() {
     }
 
     public static a WE() {
-        return bCd;
+        return bCe;
     }
 
     public void a(final h.a aVar) {
@@ -49,7 +49,7 @@ public final class a implements h {
     }
 
     public void a(h.c cVar) {
-        this.bCe = cVar;
+        this.bCf = cVar;
     }
 
     public boolean a(Context context, String[] strArr, boolean z, h.d dVar, boolean z2) {
@@ -76,7 +76,7 @@ public final class a implements h {
             return false;
         }
         String str2 = strArr[0];
-        h.b bVar = this.aDB.get(gf(str2));
+        h.b bVar = this.aDC.get(gf(str2));
         if (bVar != null) {
             bVar.d(context, ge(ke(str2)));
             return true;
@@ -93,7 +93,7 @@ public final class a implements h {
                 break;
             }
         }
-        if (!z3 && this.bCe != null) {
+        if (!z3 && this.bCf != null) {
             if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
                 z4 = true;
                 return z4;
@@ -152,13 +152,13 @@ public final class a implements h {
     }
 
     private void a(Context context, String str, String str2, boolean z, h.d dVar, boolean z2) {
-        if (aDD.matcher(str2).find()) {
-            this.bCe.b(context, str, str2, z, dVar, z2);
+        if (aDE.matcher(str2).find()) {
+            this.bCf.b(context, str, str2, z, dVar, z2);
         }
     }
 
     @Override // com.baidu.tieba.recapp.h
     public boolean kf(String str) {
-        return aDD.matcher(str).find();
+        return aDE.matcher(str).find();
     }
 }

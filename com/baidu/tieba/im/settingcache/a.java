@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
-    protected HashMap<String, ChatSetting> fcz = new HashMap<>();
+    protected HashMap<String, ChatSetting> fcA = new HashMap<>();
 
     public abstract void a(ChatSetting chatSetting);
 
@@ -24,8 +24,8 @@ public abstract class a {
 
     public void p(Class<? extends ChatSetting> cls) {
         String str;
-        synchronized (this.fcz) {
-            this.fcz.clear();
+        synchronized (this.fcA) {
+            this.fcA.clear();
         }
         String str2 = "";
         if (TbadkCoreApplication.getCurrentAccountObj() != null) {
@@ -33,14 +33,14 @@ public abstract class a {
         }
         if (str2 != null && str2.length() != 0) {
             String str3 = str2 + "@";
-            synchronized (this.fcz) {
+            synchronized (this.fcA) {
                 l<String> aVu = aVu();
                 List<l.b<String>> b = r.b(aVu);
                 if (b != null) {
                     for (l.b<String> bVar : b) {
                         String str4 = bVar.key;
                         if (str4 != null && str4.startsWith(str3) && (str = aVu.get(str4)) != null) {
-                            this.fcz.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
+                            this.fcA.put(str4, (ChatSetting) OrmObject.objectWithJsonStr(str, cls));
                         }
                     }
                 }

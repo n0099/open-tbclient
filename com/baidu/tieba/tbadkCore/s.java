@@ -4,13 +4,13 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.bb;
 /* loaded from: classes.dex */
 public class s extends bb {
-    public static final BdUniqueId hox = BdUniqueId.gen();
+    public static final BdUniqueId hoy = BdUniqueId.gen();
     private String fortune_desc;
-    private boolean hoy;
-    private m hoz;
+    private m hoA;
+    private boolean hoz;
 
     public boolean bEk() {
-        return this.hoy;
+        return this.hoz;
     }
 
     public String bEl() {
@@ -18,11 +18,11 @@ public class s extends bb {
     }
 
     public m bEm() {
-        return this.hoz;
+        return this.hoA;
     }
 
     @Override // com.baidu.tbadk.core.data.bb, com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return hox;
+        return hoy;
     }
 }

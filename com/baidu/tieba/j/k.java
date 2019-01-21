@@ -13,25 +13,25 @@ import com.baidu.webkit.internal.ETAG;
 public class k {
     private static final String TAG = k.class.getName();
     private long fIA;
-    private boolean fIB;
-    private long fIz;
+    private long fIB;
+    private boolean fIC;
 
     public void bdX() {
-        this.fIB = true;
-        this.fIz = SystemClock.elapsedRealtime();
-    }
-
-    public void bdY() {
+        this.fIC = true;
         this.fIA = SystemClock.elapsedRealtime();
     }
 
+    public void bdY() {
+        this.fIB = SystemClock.elapsedRealtime();
+    }
+
     public void a(String str, long j, long j2, String str2, QuickVideoView quickVideoView) {
-        if (this.fIB) {
-            this.fIB = false;
+        if (this.fIC) {
+            this.fIC = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j3 = this.fIA - this.fIz;
-            long j4 = elapsedRealtime - this.fIA;
-            long j5 = elapsedRealtime - this.fIz;
+            long j3 = this.fIB - this.fIA;
+            long j4 = elapsedRealtime - this.fIB;
+            long j5 = elapsedRealtime - this.fIA;
             if (com.baidu.adp.lib.util.j.netType() == 2 || j3 <= 17500) {
                 am amVar = new am("c13171");
                 amVar.aB(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, str2);

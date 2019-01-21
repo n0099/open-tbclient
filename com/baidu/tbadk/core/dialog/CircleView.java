@@ -9,12 +9,12 @@ import android.view.View;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class CircleView extends View {
-    private static int axA = 360;
-    private static int axB = 100;
-    private int axC;
-    private Paint axD;
+    private static int axB = 360;
+    private static int axC = 100;
+    private int axD;
     private Paint axE;
-    private RectF axF;
+    private Paint axF;
+    private RectF axG;
     private int mLineWidth;
     private int mValue;
     private int mWidth;
@@ -45,23 +45,23 @@ public class CircleView extends View {
     public void init() {
         this.mWidth = getResources().getDimensionPixelSize(e.C0210e.ds100);
         this.mLineWidth = getResources().getDimensionPixelSize(e.C0210e.ds4);
-        this.axC = getResources().getDimensionPixelSize(e.C0210e.ds2);
-        this.axD = new Paint();
-        this.axD.setStrokeWidth(this.mLineWidth);
-        this.axD.setColor(getResources().getColor(e.d.cp_cont_g));
-        this.axD.setStyle(Paint.Style.STROKE);
-        this.axD.setAntiAlias(true);
+        this.axD = getResources().getDimensionPixelSize(e.C0210e.ds2);
         this.axE = new Paint();
-        this.axE.setStrokeWidth(this.axC);
-        this.axE.setColor(getResources().getColor(e.d.common_color_10042));
+        this.axE.setStrokeWidth(this.mLineWidth);
+        this.axE.setColor(getResources().getColor(e.d.cp_cont_g));
         this.axE.setStyle(Paint.Style.STROKE);
         this.axE.setAntiAlias(true);
-        this.axF = new RectF(this.mLineWidth, this.mLineWidth, this.mWidth + this.mLineWidth, this.mWidth + this.mLineWidth);
+        this.axF = new Paint();
+        this.axF.setStrokeWidth(this.axD);
+        this.axF.setColor(getResources().getColor(e.d.common_color_10042));
+        this.axF.setStyle(Paint.Style.STROKE);
+        this.axF.setAntiAlias(true);
+        this.axG = new RectF(this.mLineWidth, this.mLineWidth, this.mWidth + this.mLineWidth, this.mWidth + this.mLineWidth);
     }
 
     @Override // android.view.View
     protected void onDraw(Canvas canvas) {
-        canvas.drawArc(this.axF, 0.0f, axA, false, this.axE);
-        canvas.drawArc(this.axF, 270.0f, (axA * this.mValue) / axB, false, this.axD);
+        canvas.drawArc(this.axG, 0.0f, axB, false, this.axF);
+        canvas.drawArc(this.axG, 270.0f, (axB * this.mValue) / axC, false, this.axE);
     }
 }

@@ -5,23 +5,23 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    protected volatile int aFn;
-    protected volatile HashMap<Long, Integer> hsm = new HashMap<>();
+    protected volatile int aFo;
+    protected volatile HashMap<Long, Integer> hsn = new HashMap<>();
     private volatile int mWeight = 0;
 
     public d(int i) {
-        this.aFn = i;
+        this.aFo = i;
     }
 
     public void wj(String str) {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                if (this.hsm.size() >= this.aFn) {
+                if (this.hsn.size() >= this.aFo) {
                     bFO();
                 }
                 this.mWeight++;
-                this.hsm.put(valueOf, Integer.valueOf(this.mWeight));
+                this.hsn.put(valueOf, Integer.valueOf(this.mWeight));
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -34,7 +34,7 @@ public class d {
         synchronized (this) {
             Long l2 = null;
             int i2 = 134217727;
-            for (Map.Entry<Long, Integer> entry : this.hsm.entrySet()) {
+            for (Map.Entry<Long, Integer> entry : this.hsn.entrySet()) {
                 if (entry.getValue().intValue() < i2) {
                     int intValue = entry.getValue().intValue();
                     l = entry.getKey();
@@ -47,9 +47,9 @@ public class d {
                 l2 = l;
             }
             if (l2 != null) {
-                this.hsm.remove(l2);
+                this.hsn.remove(l2);
             } else {
-                this.hsm.clear();
+                this.hsn.clear();
             }
         }
     }
@@ -59,7 +59,7 @@ public class d {
         try {
             Long valueOf = Long.valueOf(Long.parseLong(str));
             synchronized (this) {
-                z = this.hsm.get(valueOf) != null;
+                z = this.hsn.get(valueOf) != null;
             }
             return z;
         } catch (Exception e) {
@@ -70,7 +70,7 @@ public class d {
 
     public boolean wl(String str) {
         try {
-            return this.hsm.containsKey(Long.valueOf(Long.parseLong(str)));
+            return this.hsn.containsKey(Long.valueOf(Long.parseLong(str)));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
             return false;
@@ -79,7 +79,7 @@ public class d {
 
     public void bFN() {
         synchronized (this) {
-            this.hsm.clear();
+            this.hsn.clear();
         }
     }
 }

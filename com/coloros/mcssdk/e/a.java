@@ -4,21 +4,21 @@ import android.text.TextUtils;
 /* loaded from: classes3.dex */
 public class a extends c {
     String content;
-    long iiu;
     long iiv;
-    int iiw;
-    String iiy;
+    long iiw;
+    int iix;
+    String iiz;
     String title;
-    String iix = "08:00-22:00";
-    int iiz = 0;
+    String iiy = "08:00-22:00";
     int iiA = 0;
+    int iiB = 0;
 
     public void dv(long j) {
-        this.iiu = j;
+        this.iiv = j;
     }
 
     public void dw(long j) {
-        this.iiv = j;
+        this.iiw = j;
     }
 
     @Override // com.coloros.mcssdk.e.c
@@ -36,42 +36,42 @@ public class a extends c {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("messageID:" + this.iiF);
-        sb.append(",taskID:" + this.iiG);
+        sb.append("messageID:" + this.iiG);
+        sb.append(",taskID:" + this.iiH);
         sb.append(",appPackage:" + this.appPackage);
         sb.append(",title:" + this.title);
-        sb.append(",rule:" + this.iiy);
+        sb.append(",rule:" + this.iiz);
         sb.append(",content:" + this.content);
-        sb.append(",balanceTime:" + this.iiw);
-        sb.append(",startTime:" + this.iiu);
-        sb.append(",endTime:" + this.iiv);
-        sb.append(",balanceTime:" + this.iiw);
-        sb.append(",timeRanges:" + this.iix);
-        sb.append(",forcedDelivery:" + this.iiz);
-        sb.append(",distinctBycontent:" + this.iiA);
+        sb.append(",balanceTime:" + this.iix);
+        sb.append(",startTime:" + this.iiv);
+        sb.append(",endTime:" + this.iiw);
+        sb.append(",balanceTime:" + this.iix);
+        sb.append(",timeRanges:" + this.iiy);
+        sb.append(",forcedDelivery:" + this.iiA);
+        sb.append(",distinctBycontent:" + this.iiB);
         return sb.toString();
     }
 
     public void yb(int i) {
-        this.iiw = i;
+        this.iix = i;
     }
 
     public void yc(int i) {
-        this.iiz = i;
+        this.iiA = i;
     }
 
     public void yd(int i) {
-        this.iiA = i;
+        this.iiB = i;
     }
 
     public void zi(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.iix = str;
+        this.iiy = str;
     }
 
     public void zj(String str) {
-        this.iiy = str;
+        this.iiz = str;
     }
 }

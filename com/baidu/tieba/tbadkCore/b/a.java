@@ -26,7 +26,7 @@ import com.baidu.tieba.e;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static c hoP;
+    private static c hoQ;
 
     /* renamed from: com.baidu.tieba.tbadkCore.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -122,8 +122,8 @@ public class a {
                         textView3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadkCore.b.a.3.1
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view2) {
-                                if (a.hoP != null) {
-                                    a.hoP.dismiss();
+                                if (a.hoQ != null) {
+                                    a.hoQ.dismiss();
                                 }
                                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig((Context) BaseActivity.this.getPageContext().getPageActivity(), true, 23004, "expiring");
                                 memberPayActivityConfig.setReferPageClickZone("posting_V8.9", "bubble_pop_ups_opende/renewalfee_button_V8.9");
@@ -155,7 +155,7 @@ public class a {
                 });
                 dVar.ab(true);
                 dVar.ad(false);
-                hoP = dVar.iT();
+                hoQ = dVar.iT();
                 new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadkCore.b.a.4
                     @Override // java.lang.Runnable
                     public void run() {
@@ -169,15 +169,15 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void f(Activity activity, boolean z) {
-        if (hoP != null) {
-            hoP.n(activity);
+        if (hoQ != null) {
+            hoQ.n(activity);
         }
         if (!z) {
             new Handler().postDelayed(new Runnable() { // from class: com.baidu.tieba.tbadkCore.b.a.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (a.hoP != null) {
-                        a.hoP.dismiss();
+                    if (a.hoQ != null) {
+                        a.hoQ.dismiss();
                     }
                 }
             }, 5000L);

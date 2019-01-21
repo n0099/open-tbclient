@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class c {
-    private boolean bBh = false;
+    private boolean bBi = false;
     private int mChannel;
 
     public c() {
@@ -83,16 +83,16 @@ public class c {
     }
 
     private void Wh() {
-        if (!this.bBh && this.mChannel == 1) {
-            this.bBh = Wj();
-            if (!this.bBh) {
+        if (!this.bBi && this.mChannel == 1) {
+            this.bBi = Wj();
+            if (!this.bBi) {
                 this.mChannel = 0;
             }
         }
     }
 
     public boolean Wi() {
-        return this.bBh;
+        return this.bBi;
     }
 
     public boolean Wj() {

@@ -22,13 +22,13 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f extends BaseAdapter {
-    private com.baidu.tbadk.img.b bac;
-    private l bam;
-    private a idv;
+    private com.baidu.tbadk.img.b bad;
+    private l ban;
+    private a idw;
     private Context mContext;
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mDataList = new ArrayList();
-    private boolean hWG = false;
+    private boolean hWH = false;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -44,11 +44,11 @@ public class f extends BaseAdapter {
     }
 
     public f(Context context, com.baidu.tbadk.img.b bVar, l lVar, a aVar) {
-        this.bam = lVar;
+        this.ban = lVar;
         this.mContext = context;
         this.mLayoutInflater = LayoutInflater.from(this.mContext);
-        this.bac = bVar;
-        this.idv = aVar;
+        this.bad = bVar;
+        this.idw = aVar;
     }
 
     public void a(WriteImagesInfo writeImagesInfo) {
@@ -57,7 +57,7 @@ public class f extends BaseAdapter {
         if (writeImagesInfo != null && H > 0) {
             this.mDataList.addAll(writeImagesInfo.getChosedFiles());
         }
-        if (H < 10 && this.hWG) {
+        if (H < 10 && this.hWH) {
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setFilePath("FLAG_ADD_ICON");
             this.mDataList.add(imageFileInfo);
@@ -110,8 +110,8 @@ public class f extends BaseAdapter {
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.f.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (f.this.idv != null) {
-                        f.this.idv.bRs();
+                    if (f.this.idw != null) {
+                        f.this.idw.bRs();
                     }
                 }
             });
@@ -136,7 +136,7 @@ public class f extends BaseAdapter {
             imageFileInfo.addPageAction(com.baidu.tbadk.img.effect.d.L(aO, aO));
             frameLayout.setForeground(al.getDrawable(e.f.new_frame_add_photo_foreground_selector));
             tbImageView.setTag(imageFileInfo.toCachedKey(true));
-            if (this.bac.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.write.f.2
+            if (this.bad.a(imageFileInfo, new com.baidu.tbadk.imageManager.b() { // from class: com.baidu.tieba.write.write.f.2
                 @Override // com.baidu.tbadk.imageManager.b
                 public void a(com.baidu.adp.widget.ImageView.a aVar, String str, boolean z) {
                     TbImageView tbImageView2 = (TbImageView) viewGroup.findViewWithTag(str);
@@ -163,11 +163,11 @@ public class f extends BaseAdapter {
                         com.baidu.adp.lib.util.l.g(f.this.mContext, e.j.editor_mutiiamge_image_error);
                         return;
                     }
-                    if (f.this.bam != null) {
-                        f.this.bam.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(i)));
+                    if (f.this.ban != null) {
+                        f.this.ban.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(i)));
                     }
-                    if (f.this.idv != null) {
-                        f.this.idv.xL(i);
+                    if (f.this.idw != null) {
+                        f.this.idw.xL(i);
                     }
                 }
             }
@@ -175,8 +175,8 @@ public class f extends BaseAdapter {
         linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.write.f.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (f.this.idv != null) {
-                    f.this.idv.xE(i);
+                if (f.this.idw != null) {
+                    f.this.idw.xE(i);
                 }
             }
         });
@@ -184,6 +184,6 @@ public class f extends BaseAdapter {
     }
 
     public void oC(boolean z) {
-        this.hWG = z;
+        this.hWH = z;
     }
 }

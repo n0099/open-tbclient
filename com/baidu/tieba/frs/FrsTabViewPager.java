@@ -8,11 +8,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 /* loaded from: classes6.dex */
 public class FrsTabViewPager extends BdBaseViewPager {
-    private float dOT;
     private float dOU;
     private float dOV;
     private float dOW;
-    private boolean dOX;
+    private float dOX;
+    private boolean dOY;
     private float x;
     private float y;
 
@@ -30,11 +30,11 @@ public class FrsTabViewPager extends BdBaseViewPager {
         this.y = motionEvent.getRawY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.dOT = motionEvent.getRawX();
-                this.dOU = motionEvent.getRawY();
+                this.dOU = motionEvent.getRawX();
+                this.dOV = motionEvent.getRawY();
                 gP(true);
                 if (aDG()) {
-                    this.dOX = false;
+                    this.dOY = false;
                     break;
                 }
                 break;
@@ -54,15 +54,15 @@ public class FrsTabViewPager extends BdBaseViewPager {
                 gP(false);
                 break;
             case 2:
-                this.dOV = this.x - this.dOT;
-                this.dOW = this.y - this.dOU;
-                if (this.dOV < 0.0f && Math.abs(this.dOV) > Math.abs(this.dOW) && aDG()) {
+                this.dOW = this.x - this.dOU;
+                this.dOX = this.y - this.dOV;
+                if (this.dOW < 0.0f && Math.abs(this.dOW) > Math.abs(this.dOX) && aDG()) {
                     bN(false);
-                    if (this.dOX) {
+                    if (this.dOY) {
                         return false;
                     }
                     gQ(true);
-                    this.dOX = true;
+                    this.dOY = true;
                     return false;
                 }
                 break;
@@ -91,23 +91,23 @@ public class FrsTabViewPager extends BdBaseViewPager {
 
     /* loaded from: classes6.dex */
     public static class a {
-        private boolean dOY;
         private boolean dOZ;
+        private boolean dPa;
 
         public boolean aDH() {
-            return this.dOY;
-        }
-
-        public void gR(boolean z) {
-            this.dOY = z;
-        }
-
-        public boolean aDI() {
             return this.dOZ;
         }
 
-        public void gS(boolean z) {
+        public void gR(boolean z) {
             this.dOZ = z;
+        }
+
+        public boolean aDI() {
+            return this.dPa;
+        }
+
+        public void gS(boolean z) {
+            this.dPa = z;
         }
     }
 }

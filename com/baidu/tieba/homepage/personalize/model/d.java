@@ -245,8 +245,8 @@ public class d {
             for (App app : builder.banner_list.app) {
                 com.baidu.tieba.homepage.personalize.data.a aVar = new com.baidu.tieba.homepage.personalize.data.a();
                 aVar.b(app);
-                if (bvR != null && aVar.dbq != null) {
-                    bvR.add(aVar.dbq.aqk);
+                if (bvR != null && aVar.dbr != null) {
+                    bvR.add(aVar.dbr.aql);
                 }
                 AdvertAppInfo arh = aVar.arh();
                 if (arh == null) {
@@ -256,21 +256,21 @@ public class d {
                     if (yp != 0) {
                         a(aVar.arh(), 1, yp);
                         if (yp != 28 && yp != 31) {
-                            if (arh.aqd != null) {
-                                arh.aqd.aqq = -1001;
+                            if (arh.aqe != null) {
+                                arh.aqe.aqr = -1001;
                             }
                         }
                     }
                     if (aVar.getPosition() <= 0) {
                         a(aVar.arh(), 1, 23);
-                        if (arh.aqd != null) {
-                            arh.aqd.aqq = -1001;
+                        if (arh.aqe != null) {
+                            arh.aqe.aqr = -1001;
                         }
                     }
                     if (arh.yq()) {
                         try {
-                            if (TextUtils.isEmpty(arh.apX) || u.isInstalledPackage(TbadkCoreApplication.getInst().getContext(), arh.apX)) {
-                                if (TextUtils.isEmpty(arh.apX)) {
+                            if (TextUtils.isEmpty(arh.apY) || u.isInstalledPackage(TbadkCoreApplication.getInst().getContext(), arh.apY)) {
+                                if (TextUtils.isEmpty(arh.apY)) {
                                     a(aVar.arh(), 1, 26);
                                 } else {
                                     a(aVar.arh(), 1, 3);
@@ -344,9 +344,9 @@ public class d {
                 } else {
                     kVar2.isLinkThread = false;
                     if (bbVar.zW()) {
-                        kVar2.dbI = true;
+                        kVar2.dbJ = true;
                     } else {
-                        kVar2.dbI = false;
+                        kVar2.dbJ = false;
                     }
                 }
                 kVar2.threadData = bbVar;
@@ -447,8 +447,8 @@ public class d {
 
     private static void a(AdvertAppInfo advertAppInfo, int i, int i2) {
         com.baidu.tieba.recapp.report.c.bwO().a(com.baidu.tieba.recapp.report.f.b(advertAppInfo, 5, i, i2));
-        if (advertAppInfo != null && advertAppInfo.aqk != null) {
-            advertAppInfo.aqk.mDiscardReason = i2;
+        if (advertAppInfo != null && advertAppInfo.aql != null) {
+            advertAppInfo.aql.mDiscardReason = i2;
         }
     }
 

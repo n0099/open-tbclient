@@ -21,11 +21,11 @@ public class PostDisPraiseView extends PostPraiseView {
     @Override // com.baidu.tbadk.core.view.BasePraiseView
     public void EU() {
         this.agreeType = 5;
-        this.aFU = e.j.action_dislike;
-        this.aFX = e.d.cp_cont_j;
-        this.aFY = e.d.cp_link_tip_a;
-        this.aFV = e.f.icon_card_dislike_n;
-        this.aFW = e.f.icon_card_dislike_s;
+        this.aFV = e.j.action_dislike;
+        this.aFY = e.d.cp_cont_j;
+        this.aFZ = e.d.cp_link_tip_a;
+        this.aFW = e.f.icon_card_dislike_n;
+        this.aFX = e.f.icon_card_dislike_s;
     }
 
     @Override // com.baidu.tbadk.core.view.PostPraiseView, com.baidu.tbadk.core.view.BasePraiseView

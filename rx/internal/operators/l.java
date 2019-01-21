@@ -12,8 +12,8 @@ import rx.internal.util.ExceptionsUtils;
 import rx.internal.util.ScalarSynchronousObservable;
 /* loaded from: classes2.dex */
 public final class l<T, R> implements d.a<R> {
-    final rx.d<? extends T> iFW;
-    final rx.functions.f<? super T, ? extends Iterable<? extends R>> iGw;
+    final rx.d<? extends T> iFX;
+    final rx.functions.f<? super T, ? extends Iterable<? extends R>> iGx;
     final int prefetch;
 
     @Override // rx.functions.b
@@ -22,13 +22,13 @@ public final class l<T, R> implements d.a<R> {
     }
 
     protected l(rx.d<? extends T> dVar, rx.functions.f<? super T, ? extends Iterable<? extends R>> fVar, int i) {
-        this.iFW = dVar;
-        this.iGw = fVar;
+        this.iFX = dVar;
+        this.iGx = fVar;
         this.prefetch = i;
     }
 
     public void call(rx.j<? super R> jVar) {
-        final a aVar = new a(jVar, this.iGw, this.prefetch);
+        final a aVar = new a(jVar, this.iGx, this.prefetch);
         jVar.add(aVar);
         jVar.setProducer(new rx.f() { // from class: rx.internal.operators.l.1
             @Override // rx.f
@@ -36,7 +36,7 @@ public final class l<T, R> implements d.a<R> {
                 aVar.dH(j);
             }
         });
-        this.iFW.unsafeSubscribe(aVar);
+        this.iFX.unsafeSubscribe(aVar);
     }
 
     public static <T, R> rx.d<R> a(rx.d<? extends T> dVar, rx.functions.f<? super T, ? extends Iterable<? extends R>> fVar, int i) {
@@ -48,9 +48,9 @@ public final class l<T, R> implements d.a<R> {
     public static final class a<T, R> extends rx.j<T> {
         final rx.j<? super R> actual;
         volatile boolean done;
-        final long iGU;
-        Iterator<? extends R> iGV;
-        final rx.functions.f<? super T, ? extends Iterable<? extends R>> iGw;
+        final long iGV;
+        Iterator<? extends R> iGW;
+        final rx.functions.f<? super T, ? extends Iterable<? extends R>> iGx;
         long produced;
         final Queue<Object> queue;
         final AtomicReference<Throwable> error = new AtomicReference<>();
@@ -59,12 +59,12 @@ public final class l<T, R> implements d.a<R> {
 
         public a(rx.j<? super R> jVar, rx.functions.f<? super T, ? extends Iterable<? extends R>> fVar, int i) {
             this.actual = jVar;
-            this.iGw = fVar;
+            this.iGx = fVar;
             if (i == Integer.MAX_VALUE) {
-                this.iGU = Long.MAX_VALUE;
+                this.iGV = Long.MAX_VALUE;
                 this.queue = new rx.internal.util.atomic.d(rx.internal.util.h.SIZE);
             } else {
-                this.iGU = i - (i >> 2);
+                this.iGV = i - (i >> 2);
                 if (rx.internal.util.a.ae.cge()) {
                     this.queue = new rx.internal.util.a.q(i);
                 } else {
@@ -126,7 +126,7 @@ public final class l<T, R> implements d.a<R> {
                 Queue<?> queue = this.queue;
                 int i = 1;
                 while (true) {
-                    Iterator<? extends R> it3 = this.iGV;
+                    Iterator<? extends R> it3 = this.iGW;
                     if (it3 == null) {
                         boolean z = this.done;
                         Object poll = queue.poll();
@@ -134,20 +134,20 @@ public final class l<T, R> implements d.a<R> {
                         if (!a(z, z2, jVar, queue)) {
                             if (!z2) {
                                 long j = this.produced + 1;
-                                if (j == this.iGU) {
+                                if (j == this.iGV) {
                                     this.produced = 0L;
                                     request(j);
                                 } else {
                                     this.produced = j;
                                 }
                                 try {
-                                    it = this.iGw.call((Object) NotificationLite.bb(poll)).iterator();
+                                    it = this.iGx.call((Object) NotificationLite.bb(poll)).iterator();
                                 } catch (Throwable th) {
                                     rx.exceptions.a.J(th);
                                     onError(th);
                                 }
                                 if (it.hasNext()) {
-                                    this.iGV = it;
+                                    this.iGW = it;
                                     if (it == null) {
                                         long j2 = this.requested.get();
                                         long j3 = 0;
@@ -162,13 +162,13 @@ public final class l<T, R> implements d.a<R> {
                                                         j3++;
                                                         try {
                                                             if (!it.hasNext()) {
-                                                                this.iGV = null;
+                                                                this.iGW = null;
                                                                 it2 = null;
                                                                 break;
                                                             }
                                                         } catch (Throwable th2) {
                                                             rx.exceptions.a.J(th2);
-                                                            this.iGV = null;
+                                                            this.iGW = null;
                                                             onError(th2);
                                                             it2 = null;
                                                         }
@@ -177,7 +177,7 @@ public final class l<T, R> implements d.a<R> {
                                                     }
                                                 } catch (Throwable th3) {
                                                     rx.exceptions.a.J(th3);
-                                                    this.iGV = null;
+                                                    this.iGW = null;
                                                     onError(th3);
                                                     it2 = null;
                                                 }
@@ -223,7 +223,7 @@ public final class l<T, R> implements d.a<R> {
         boolean a(boolean z, boolean z2, rx.j<?> jVar, Queue<?> queue) {
             if (jVar.isUnsubscribed()) {
                 queue.clear();
-                this.iGV = null;
+                this.iGW = null;
                 return true;
             }
             if (z) {
@@ -231,7 +231,7 @@ public final class l<T, R> implements d.a<R> {
                     Throwable terminate = ExceptionsUtils.terminate(this.error);
                     unsubscribe();
                     queue.clear();
-                    this.iGV = null;
+                    this.iGW = null;
                     jVar.onError(terminate);
                     return true;
                 } else if (z2) {
@@ -246,7 +246,7 @@ public final class l<T, R> implements d.a<R> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b<T, R> implements d.a<R> {
-        final rx.functions.f<? super T, ? extends Iterable<? extends R>> iGw;
+        final rx.functions.f<? super T, ? extends Iterable<? extends R>> iGx;
         final T value;
 
         @Override // rx.functions.b
@@ -256,13 +256,13 @@ public final class l<T, R> implements d.a<R> {
 
         public b(T t, rx.functions.f<? super T, ? extends Iterable<? extends R>> fVar) {
             this.value = t;
-            this.iGw = fVar;
+            this.iGx = fVar;
         }
 
         /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
         public void call(rx.j<? super R> jVar) {
             try {
-                Iterator<? extends R> it = this.iGw.call((T) this.value).iterator();
+                Iterator<? extends R> it = this.iGx.call((T) this.value).iterator();
                 if (!it.hasNext()) {
                     jVar.onCompleted();
                 } else {

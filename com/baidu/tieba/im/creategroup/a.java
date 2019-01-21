@@ -11,13 +11,13 @@ import com.baidu.tieba.e;
 public class a extends com.baidu.adp.base.c<BaseActivity> {
     private ImageView ahZ;
     private View divider;
-    private TextView eOV;
+    private TextView eOW;
     private View layoutView;
 
     public a(BaseActivity baseActivity) {
         super(baseActivity.getPageContext());
         this.layoutView = null;
-        this.eOV = null;
+        this.eOW = null;
         this.ahZ = null;
         this.divider = null;
         initUI();
@@ -28,7 +28,7 @@ public class a extends com.baidu.adp.base.c<BaseActivity> {
     }
 
     public void pW(String str) {
-        this.eOV.setText(str);
+        this.eOW.setText(str);
     }
 
     public void ip(boolean z) {
@@ -37,7 +37,7 @@ public class a extends com.baidu.adp.base.c<BaseActivity> {
 
     private void initUI() {
         this.layoutView = LayoutInflater.from(this.mContext.getContext()).inflate(e.h.address_lbs_item, (ViewGroup) null);
-        this.eOV = (TextView) this.layoutView.findViewById(e.g.text);
+        this.eOW = (TextView) this.layoutView.findViewById(e.g.text);
         this.ahZ = (ImageView) this.layoutView.findViewById(e.g.group_address_list_item_selected);
         this.divider = this.layoutView.findViewById(e.g.group_address_list_item_divider);
         this.layoutView.setTag(this);

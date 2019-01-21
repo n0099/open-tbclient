@@ -22,36 +22,36 @@ import java.util.List;
 @SuppressLint({"ValidFragment"})
 /* loaded from: classes6.dex */
 public class DailyFragment extends BaseFragment implements BdListView.e, j.b, ah {
-    private com.baidu.tieba.homepage.daily.model.a evk;
-    private a evl;
-    private boolean evm;
-    private a.InterfaceC0236a evn = new a.InterfaceC0236a() { // from class: com.baidu.tieba.homepage.daily.DailyFragment.1
+    private com.baidu.tieba.homepage.daily.model.a evl;
+    private a evm;
+    private boolean evn;
+    private a.InterfaceC0236a evo = new a.InterfaceC0236a() { // from class: com.baidu.tieba.homepage.daily.DailyFragment.1
         @Override // com.baidu.tieba.homepage.daily.model.a.InterfaceC0236a
         public void a(b bVar, boolean z, boolean z2) {
-            DailyFragment.this.evl.hideLoadingView();
-            DailyFragment.this.evl.aLB();
-            DailyFragment.this.evl.a(bVar);
-            if (!DailyFragment.this.evk.aLK()) {
-                DailyFragment.this.evl.abA();
+            DailyFragment.this.evm.hideLoadingView();
+            DailyFragment.this.evm.aLB();
+            DailyFragment.this.evm.a(bVar);
+            if (!DailyFragment.this.evl.aLK()) {
+                DailyFragment.this.evm.abA();
             } else if (z2) {
-                DailyFragment.this.evl.aLA();
+                DailyFragment.this.evm.aLA();
             } else {
-                DailyFragment.this.evl.abz();
+                DailyFragment.this.evm.abz();
             }
         }
 
         @Override // com.baidu.tieba.homepage.daily.model.a.InterfaceC0236a
         public void t(int i, String str) {
-            DailyFragment.this.evl.hideLoadingView();
-            DailyFragment.this.evl.aLB();
-            if (DailyFragment.this.evk.Pd()) {
-                DailyFragment.this.evl.showNetRefreshView(DailyFragment.this.evl.getRootView(), str);
+            DailyFragment.this.evm.hideLoadingView();
+            DailyFragment.this.evm.aLB();
+            if (DailyFragment.this.evl.Pd()) {
+                DailyFragment.this.evm.showNetRefreshView(DailyFragment.this.evm.getRootView(), str);
                 return;
             }
             if (com.baidu.adp.lib.util.j.kV()) {
                 DailyFragment.this.showToast(str);
             }
-            DailyFragment.this.evl.aLA();
+            DailyFragment.this.evm.aLA();
         }
     };
 
@@ -60,25 +60,25 @@ public class DailyFragment extends BaseFragment implements BdListView.e, j.b, ah
 
     public DailyFragment(Context context) {
         TbPageContext pageContext = context instanceof TbPageContextSupport ? ((TbPageContextSupport) context).getPageContext() : null;
-        this.evk = new com.baidu.tieba.homepage.daily.model.a(pageContext);
-        this.evl = new a(pageContext);
+        this.evl = new com.baidu.tieba.homepage.daily.model.a(pageContext);
+        this.evm = new a(pageContext);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.evk.a(this.evn);
-        this.evk.setPageUniqueId(getUniqueId());
-        this.evl.a(this);
-        this.evl.setOnSrollToBottomListener(this);
-        this.evl.t(getNetRefreshListener());
+        this.evl.a(this.evo);
         this.evl.setPageUniqueId(getUniqueId());
+        this.evm.a(this);
+        this.evm.setOnSrollToBottomListener(this);
+        this.evm.t(getNetRefreshListener());
+        this.evm.setPageUniqueId(getUniqueId());
     }
 
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        View rootView = this.evl.getRootView();
+        View rootView = this.evm.getRootView();
         if (rootView != null && (rootView.getParent() instanceof ViewGroup)) {
             ((ViewGroup) rootView.getParent()).removeView(rootView);
         }
@@ -88,21 +88,21 @@ public class DailyFragment extends BaseFragment implements BdListView.e, j.b, ah
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (!this.evm) {
-            this.evl.showLoadingView();
-            this.evk.refresh();
-            this.evm = true;
+        if (!this.evn) {
+            this.evm.showLoadingView();
+            this.evl.refresh();
+            this.evn = true;
         }
     }
 
     public void abv() {
-        this.evl.abv();
+        this.evm.abv();
     }
 
     @Override // com.baidu.tieba.frs.ah
     public void aaZ() {
-        if (this.evm) {
-            this.evl.reload();
+        if (this.evn) {
+            this.evm.reload();
         }
     }
 
@@ -134,7 +134,7 @@ public class DailyFragment extends BaseFragment implements BdListView.e, j.b, ah
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.evl.onChangeSkinType(i);
+        this.evm.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tieba.frs.ah
@@ -143,36 +143,36 @@ public class DailyFragment extends BaseFragment implements BdListView.e, j.b, ah
 
     @Override // com.baidu.tbadk.core.view.j.b
     public void bI(boolean z) {
-        this.evk.refresh();
+        this.evl.refresh();
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (this.evk.hasMore()) {
-            if (!this.evk.Fv()) {
-                this.evl.aby();
-                this.evk.aaA();
+        if (this.evl.hasMore()) {
+            if (!this.evl.Fv()) {
+                this.evm.aby();
+                this.evl.aaA();
                 return;
             }
             return;
         }
-        this.evl.abz();
+        this.evm.abz();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     protected void onNetRefreshButtonClicked() {
         if (com.baidu.adp.lib.util.j.kV()) {
-            this.evl.abx();
-            this.evl.showLoadingView();
-            this.evk.refresh();
+            this.evm.abx();
+            this.evm.showLoadingView();
+            this.evl.refresh();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
+        this.evm.onDestroy();
         this.evl.onDestroy();
-        this.evk.onDestroy();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a

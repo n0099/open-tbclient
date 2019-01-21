@@ -16,8 +16,8 @@ public class PostPraiseView extends BasePraiseView<PostData> {
 
     public PostPraiseView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aFS = 1;
-        if (this.aFS == 2) {
+        this.aFT = 1;
+        if (this.aFT == 2) {
             setDisPraiseFrom(9);
         } else {
             setDisPraiseFrom(8);
@@ -46,8 +46,8 @@ public class PostPraiseView extends BasePraiseView<PostData> {
             }
             this.mData = postData;
             this.mPostId = postData.getId();
-            this.avJ = ((PostData) this.mData).Bf();
-            this.avK = ((PostData) this.mData).Bg();
+            this.avK = ((PostData) this.mData).Bf();
+            this.avL = ((PostData) this.mData).Bg();
             updateUI();
         }
     }
@@ -56,22 +56,22 @@ public class PostPraiseView extends BasePraiseView<PostData> {
     public void updateUI() {
         Context context = getContext();
         long num = getNum();
-        String string = context.getString(this.aFU);
+        String string = context.getString(this.aFV);
         if (!com.baidu.tbadk.util.a.Qb().Gt()) {
             string = "";
         }
         if (num > 0) {
             string = ao.X(num);
         }
-        this.aFZ.setText(string);
-        this.aFZ.setContentDescription(context.getString(this.aFU) + num);
+        this.aGa.setText(string);
+        this.aGa.setContentDescription(context.getString(this.aFV) + num);
         if (this.mData != 0 && ((PostData) this.mData).aEn() && EX()) {
-            this.aGa.setImageDrawable(createStateDrawable(this.aFW, this.aFV));
-            this.aFZ.setTextColor(createColorStateList(this.aFY, this.aFX));
+            this.aGb.setImageDrawable(createStateDrawable(this.aFX, this.aFW));
+            this.aGa.setTextColor(createColorStateList(this.aFZ, this.aFY));
             return;
         }
-        this.aGa.setImageDrawable(createStateDrawable(this.aFV, this.aFW));
-        this.aFZ.setTextColor(createColorStateList(this.aFX, this.aFY));
+        this.aGb.setImageDrawable(createStateDrawable(this.aFW, this.aFX));
+        this.aGa.setTextColor(createColorStateList(this.aFY, this.aFZ));
     }
 
     public int EW() {
@@ -105,8 +105,8 @@ public class PostPraiseView extends BasePraiseView<PostData> {
             updateUI();
             dZ(i);
             ea(i);
-            if (this.aFC != null) {
-                this.aFC.onClick(view);
+            if (this.aFD != null) {
+                this.aFD.onClick(view);
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016529, this.mData));
         }

@@ -7,12 +7,12 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b implements h {
-    public static final BdUniqueId eag = BdUniqueId.gen();
+    public static final BdUniqueId eah = BdUniqueId.gen();
     public String content;
     public String createTime;
-    public String eah;
-    public int eai;
-    public boolean eaj;
+    public String eai;
+    public int eaj;
+    public boolean eak;
     public String forumId;
     public String id;
     public String portrait;
@@ -27,10 +27,10 @@ public class b implements h {
             this.forumId = jSONObject.optString("forum_id");
             this.score = jSONObject.optString(PaddleController.SDK_TO_LUA_GESTURE_RESULT_SCORE);
             this.createTime = jSONObject.optString("create_time");
-            this.eah = jSONObject.optString("time_passed");
+            this.eai = jSONObject.optString("time_passed");
             this.content = jSONObject.optString("content");
-            this.eai = jSONObject.optInt("zan_num");
-            this.eaj = jSONObject.optInt("is_zan", 0) == 1;
+            this.eaj = jSONObject.optInt("zan_num");
+            this.eak = jSONObject.optInt("is_zan", 0) == 1;
             this.userName = jSONObject.optString("user_name");
             this.portrait = jSONObject.optString(IntentConfig.PORTRAIT);
         }
@@ -38,6 +38,6 @@ public class b implements h {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return eag;
+        return eah;
     }
 }

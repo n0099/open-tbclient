@@ -35,9 +35,9 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         setOnAdapterItemClickListener(new n() { // from class: com.baidu.tieba.homepage.personalize.a.k.1
             @Override // com.baidu.adp.widget.ListView.n
             public void a(View view, com.baidu.adp.widget.ListView.h hVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                if (view != null && aVar != null && !ao.isEmpty(aVar.bBS)) {
+                if (view != null && aVar != null && !ao.isEmpty(aVar.bBT)) {
                     TiebaStatic.log(new am("c12885"));
-                    ay.Es().c(k.this.mPageContext, new String[]{aVar.bBS});
+                    ay.Es().c(k.this.mPageContext, new String[]{aVar.bBT});
                 }
             }
         });
@@ -59,21 +59,21 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
 
     /* loaded from: classes6.dex */
     public static class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.personalize.data.g> {
-        private ImageView aTr;
-        private String bBS;
-        private TbImageView ezA;
+        private ImageView aTs;
+        private String bBT;
+        private TbImageView ezB;
 
         public a(TbPageContext tbPageContext, ViewGroup viewGroup) {
             super(tbPageContext, viewGroup);
-            this.ezA = (TbImageView) getView().findViewById(e.g.quiz_entrance_img);
-            this.ezA.setAutoChangeStyle(true);
-            this.ezA.setScaleType(ImageView.ScaleType.FIT_XY);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ezA.getLayoutParams();
+            this.ezB = (TbImageView) getView().findViewById(e.g.quiz_entrance_img);
+            this.ezB.setAutoChangeStyle(true);
+            this.ezB.setScaleType(ImageView.ScaleType.FIT_XY);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ezB.getLayoutParams();
             layoutParams.height = (int) (com.baidu.adp.lib.util.l.h(tbPageContext.getPageActivity(), e.C0210e.tbds236) * ((com.baidu.adp.lib.util.l.aO(tbPageContext.getPageActivity()) * 1.0f) / 1080.0f));
-            this.ezA.setLayoutParams(layoutParams);
-            this.ezA.setDefaultBgResource(e.f.pic_quiz_banner_default);
-            this.aTr = (ImageView) getView().findViewById(e.g.close);
-            this.aTr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.a.k.a.1
+            this.ezB.setLayoutParams(layoutParams);
+            this.ezB.setDefaultBgResource(e.f.pic_quiz_banner_default);
+            this.aTs = (ImageView) getView().findViewById(e.g.close);
+            this.aTs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.personalize.a.k.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016569));
@@ -94,14 +94,14 @@ public class k extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.card.a
         public void a(com.baidu.tieba.homepage.personalize.data.g gVar) {
-            if (gVar.eAw >= 0 && gVar.eAv >= 0) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ezA.getLayoutParams();
-                layoutParams.height = (int) (((com.baidu.adp.lib.util.l.aO(this.mTbPageContext.getPageActivity()) * 1.0f) / gVar.eAw) * gVar.eAv);
-                this.ezA.setLayoutParams(layoutParams);
+            if (gVar.eAx >= 0 && gVar.eAw >= 0) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ezB.getLayoutParams();
+                layoutParams.height = (int) (((com.baidu.adp.lib.util.l.aO(this.mTbPageContext.getPageActivity()) * 1.0f) / gVar.eAx) * gVar.eAw);
+                this.ezB.setLayoutParams(layoutParams);
             }
-            this.ezA.startLoad(gVar.imgUrl, 10, false);
-            this.bBS = gVar.aoW;
-            al.c(this.aTr, e.f.icon_live_close_n);
+            this.ezB.startLoad(gVar.imgUrl, 10, false);
+            this.bBT = gVar.aoX;
+            al.c(this.aTs, e.f.icon_live_close_n);
         }
 
         @Override // android.view.View.OnClickListener

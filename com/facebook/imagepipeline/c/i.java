@@ -6,10 +6,10 @@ import android.support.v7.widget.ActivityChooserView;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes2.dex */
 public class i implements com.facebook.common.internal.i<u> {
-    private final ActivityManager bYk;
+    private final ActivityManager bYl;
 
     public i(ActivityManager activityManager) {
-        this.bYk = activityManager;
+        this.bYl = activityManager;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class i implements com.facebook.common.internal.i<u> {
     }
 
     private int bXn() {
-        int min = Math.min(this.bYk.getMemoryClass() * 1048576, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        int min = Math.min(this.bYl.getMemoryClass() * 1048576, (int) ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
         if (min < 33554432) {
             return 4194304;
         }

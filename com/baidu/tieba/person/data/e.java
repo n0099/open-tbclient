@@ -4,7 +4,7 @@ import com.baidu.adp.widget.ListView.h;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class e {
-    private boolean guB = true;
+    private boolean guC = true;
     private ArrayList<h> mData;
 
     public void aq(ArrayList<h> arrayList) {
@@ -12,11 +12,11 @@ public class e {
     }
 
     public boolean bpR() {
-        return this.guB;
+        return this.guC;
     }
 
     public void lY(boolean z) {
-        this.guB = z;
+        this.guC = z;
     }
 
     public ArrayList<h> bpS() {

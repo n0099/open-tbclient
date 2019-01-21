@@ -6,39 +6,39 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class h {
-    private static h aFt;
-    private HashMap<String, f> aFu = new HashMap<>();
-    private LinkedList<String> aFv = new LinkedList<>();
+    private static h aFu;
+    private HashMap<String, f> aFv = new HashMap<>();
+    private LinkedList<String> aFw = new LinkedList<>();
 
     private h() {
     }
 
     public static h ER() {
-        if (aFt == null) {
+        if (aFu == null) {
             synchronized (h.class) {
-                if (aFt == null) {
-                    aFt = new h();
+                if (aFu == null) {
+                    aFu = new h();
                 }
             }
         }
-        return aFt;
+        return aFu;
     }
 
     public void K(List<String> list) {
-        if (this.aFv != null) {
-            this.aFv.clear();
+        if (this.aFw != null) {
+            this.aFw.clear();
         }
         for (String str : list) {
             if (!TextUtils.isEmpty(str)) {
-                if (this.aFu.get(str) == null) {
-                    if (this.aFu.size() < e.EP().EQ()) {
+                if (this.aFv.get(str) == null) {
+                    if (this.aFv.size() < e.EP().EQ()) {
                         g.log("put loadingQueue  url: " + str);
                         f gy = gy(str);
-                        this.aFu.put(str, gy);
+                        this.aFv.put(str, gy);
                         gy.load();
                     } else {
                         g.log("put waitingQueue  url: " + str);
-                        this.aFv.push(str);
+                        this.aFw.push(str);
                     }
                 } else {
                     g.log("has loading  : " + str);
@@ -49,19 +49,19 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void gx(String str) {
-        f remove = this.aFu.remove(str);
+        f remove = this.aFv.remove(str);
         g.log("processCallback remove loadingQueue  url: " + str);
         if (remove != null) {
             remove.release();
         }
-        if (this.aFv != null && this.aFv.size() > 0) {
-            String pop = this.aFv.pop();
+        if (this.aFw != null && this.aFw.size() > 0) {
+            String pop = this.aFw.pop();
             f gy = gy(pop);
-            this.aFu.put(pop, gy);
+            this.aFv.put(pop, gy);
             g.log("processCallback put loadingQueue  url: " + pop);
             gy.load();
         }
-        g.log("processCallback  mWaitingQueue.size() =  " + this.aFv.size() + " mLoadingQueue.size()  " + this.aFu.size());
+        g.log("processCallback  mWaitingQueue.size() =  " + this.aFw.size() + " mLoadingQueue.size()  " + this.aFv.size());
     }
 
     private f gy(String str) {

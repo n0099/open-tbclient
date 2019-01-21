@@ -13,10 +13,10 @@ public class a {
     public String appId;
     public String appKey;
     public String appTitle;
-    public long bHA;
-    public String bHx;
+    public int bHA;
+    public long bHB;
     public String bHy;
-    public int bHz;
+    public String bHz;
 
     public static List<a> j(Cursor cursor) {
         if (cursor == null || cursor.getCount() <= 0) {
@@ -35,10 +35,10 @@ public class a {
             aVar.appId = cursor.getString(columnIndex);
             aVar.appKey = cursor.getString(columnIndex2);
             aVar.appTitle = cursor.getString(columnIndex3);
-            aVar.bHx = cursor.getString(columnIndex4);
-            aVar.bHy = cursor.getString(columnIndex5);
-            aVar.bHA = cursor.getLong(columnIndex6);
-            aVar.bHz = cursor.getInt(columnIndex7);
+            aVar.bHy = cursor.getString(columnIndex4);
+            aVar.bHz = cursor.getString(columnIndex5);
+            aVar.bHB = cursor.getLong(columnIndex6);
+            aVar.bHA = cursor.getInt(columnIndex7);
             linkedList.add(aVar);
         }
         return linkedList;
@@ -51,11 +51,11 @@ public class a {
         ContentValues contentValues = new ContentValues();
         contentValues.put(AiAppsApsUtils.APP_KEY, aVar.appKey);
         contentValues.put(HttpConstants.HTTP_APP_ID, aVar.appId);
-        contentValues.put("app_access_time", Long.valueOf(aVar.bHA));
-        contentValues.put("app_desc", aVar.bHx);
+        contentValues.put("app_access_time", Long.valueOf(aVar.bHB));
+        contentValues.put("app_desc", aVar.bHy);
         contentValues.put("app_title", aVar.appTitle);
-        contentValues.put("app_icon_url", aVar.bHy);
-        contentValues.put("app_type", Integer.valueOf(aVar.bHz));
+        contentValues.put("app_icon_url", aVar.bHz);
+        contentValues.put("app_type", Integer.valueOf(aVar.bHA));
         return contentValues;
     }
 
@@ -65,13 +65,13 @@ public class a {
         }
         AiAppsLaunchInfo launchInfo = aiApp.getLaunchInfo();
         a aVar = new a();
-        aVar.bHA = System.currentTimeMillis();
-        aVar.bHy = launchInfo.mAppIconUrl;
+        aVar.bHB = System.currentTimeMillis();
+        aVar.bHz = launchInfo.mAppIconUrl;
         aVar.appId = launchInfo.mAppId;
         aVar.appKey = launchInfo.mAppKey;
-        aVar.bHx = launchInfo.mDescription;
+        aVar.bHy = launchInfo.mDescription;
         aVar.appTitle = launchInfo.mAppTitle;
-        aVar.bHz = launchInfo.mType;
+        aVar.bHA = launchInfo.mType;
         return aVar;
     }
 }

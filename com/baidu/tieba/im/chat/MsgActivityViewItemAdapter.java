@@ -21,9 +21,9 @@ public class MsgActivityViewItemAdapter extends e<MsgActivityView> {
         MsgActivityView aPB = aVar.aPB();
         aPB.setPosition(i);
         aPB.setData(chatMessage);
-        aPB.a(this.eLs);
-        aPB.setOnItemViewLongClickListener(this.eLt);
-        aPB.cp(this.eLz);
+        aPB.a(this.eLt);
+        aPB.setOnItemViewLongClickListener(this.eLu);
+        aPB.cp(this.eLA);
         aPB.co(chatMessage.getCacheData().getLastMsgTime());
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);

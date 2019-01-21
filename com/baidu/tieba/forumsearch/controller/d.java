@@ -13,13 +13,13 @@ import com.baidu.tieba.forumsearch.message.SearchPostForumRequestMessage;
 import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
 /* loaded from: classes3.dex */
 public class d {
-    private a dJW;
-    private com.baidu.adp.framework.listener.a dKb = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466) { // from class: com.baidu.tieba.forumsearch.controller.d.1
+    private a dJX;
+    private com.baidu.adp.framework.listener.a dKc = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_SEARCH_POST_FORUM, 309466) { // from class: com.baidu.tieba.forumsearch.controller.d.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage == null || responsedMessage.hasError() || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != d.this.mPageId) {
-                if (d.this.dJW != null) {
-                    d.this.dJW.a(false, null);
+                if (d.this.dJX != null) {
+                    d.this.dJX.a(false, null);
                     return;
                 }
                 return;
@@ -28,8 +28,8 @@ public class d {
             if (responsedMessage instanceof SearchPostForumSocketResponseMessage) {
                 searchData = ((SearchPostForumSocketResponseMessage) responsedMessage).getSearchData();
             }
-            if (d.this.dJW != null) {
-                d.this.dJW.a(searchData != null, searchData);
+            if (d.this.dJX != null) {
+                d.this.dJX.a(searchData != null, searchData);
             }
         }
     };
@@ -44,12 +44,12 @@ public class d {
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
         this.mPageId = bdUniqueId;
-        this.dKb.setTag(this.mPageId);
-        MessageManager.getInstance().registerListener(this.dKb);
+        this.dKc.setTag(this.mPageId);
+        MessageManager.getInstance().registerListener(this.dKc);
     }
 
     public void a(a aVar) {
-        this.dJW = aVar;
+        this.dJX = aVar;
     }
 
     public void oq(String str) {

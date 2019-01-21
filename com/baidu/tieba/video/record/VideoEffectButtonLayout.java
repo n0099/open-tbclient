@@ -14,13 +14,13 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
     private ImageView hNA;
     private ImageView hNB;
     private ImageView hNC;
-    private LinearLayout hND;
+    private ImageView hND;
     private LinearLayout hNE;
     private LinearLayout hNF;
     private LinearLayout hNG;
-    private a hNH;
-    private View hNI;
-    private ImageView hNz;
+    private LinearLayout hNH;
+    private a hNI;
+    private View hNJ;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -50,37 +50,37 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
 
     private void initView() {
         inflate(getContext(), e.h.layout_video_effect_button, this);
-        this.hND = (LinearLayout) findViewById(e.g.layout_music);
-        this.hNE = (LinearLayout) findViewById(e.g.layout_sticker);
-        this.hNF = (LinearLayout) findViewById(e.g.layout_beauty);
-        this.hNG = (LinearLayout) findViewById(e.g.layout_filter);
-        this.hNz = (ImageView) findViewById(e.g.img_music);
-        this.hNA = (ImageView) findViewById(e.g.img_sticker);
-        this.hNB = (ImageView) findViewById(e.g.img_beauty);
-        this.hNC = (ImageView) findViewById(e.g.img_filter);
-        this.hNz.setOnClickListener(this);
+        this.hNE = (LinearLayout) findViewById(e.g.layout_music);
+        this.hNF = (LinearLayout) findViewById(e.g.layout_sticker);
+        this.hNG = (LinearLayout) findViewById(e.g.layout_beauty);
+        this.hNH = (LinearLayout) findViewById(e.g.layout_filter);
+        this.hNA = (ImageView) findViewById(e.g.img_music);
+        this.hNB = (ImageView) findViewById(e.g.img_sticker);
+        this.hNC = (ImageView) findViewById(e.g.img_beauty);
+        this.hND = (ImageView) findViewById(e.g.img_filter);
         this.hNA.setOnClickListener(this);
         this.hNB.setOnClickListener(this);
         this.hNC.setOnClickListener(this);
+        this.hND.setOnClickListener(this);
     }
 
     public void reset() {
-        this.hNI = null;
+        this.hNJ = null;
     }
 
     public void setViewVisibility(int i, int i2) {
         switch (i) {
             case 0:
-                this.hND.setVisibility(i2);
-                return;
-            case 1:
                 this.hNE.setVisibility(i2);
                 return;
-            case 2:
+            case 1:
                 this.hNF.setVisibility(i2);
                 return;
-            case 3:
+            case 2:
                 this.hNG.setVisibility(i2);
+                return;
+            case 3:
+                this.hNH.setVisibility(i2);
                 return;
             default:
                 return;
@@ -90,16 +90,16 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
     public void setViewChoosed(int i, boolean z) {
         switch (i) {
             case 0:
-                this.hNz.setSelected(z);
-                return;
-            case 1:
                 this.hNA.setSelected(z);
                 return;
-            case 2:
+            case 1:
                 this.hNB.setSelected(z);
                 return;
-            case 3:
+            case 2:
                 this.hNC.setSelected(z);
+                return;
+            case 3:
+                this.hND.setSelected(z);
                 return;
             default:
                 return;
@@ -108,21 +108,21 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.hNH != null) {
+        if (this.hNI != null) {
             int id = view.getId();
-            this.hNI = view;
+            this.hNJ = view;
             am amVar = new am("c12495");
             if (id == e.g.img_music) {
-                this.hNH.bMf();
+                this.hNI.bMf();
                 amVar.y("obj_type", 6);
             } else if (id == e.g.img_sticker) {
-                this.hNH.bMg();
+                this.hNI.bMg();
                 amVar.y("obj_type", 4);
             } else if (id == e.g.img_beauty) {
-                this.hNH.bMh();
+                this.hNI.bMh();
                 amVar.y("obj_type", 3);
             } else if (id == e.g.img_filter) {
-                this.hNH.bMi();
+                this.hNI.bMi();
                 amVar.y("obj_type", 2);
             }
             TiebaStatic.log(amVar);
@@ -130,15 +130,15 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
     }
 
     public void setListener(a aVar) {
-        this.hNH = aVar;
+        this.hNI = aVar;
     }
 
     @Override // com.baidu.tieba.video.record.i.a
     public void wT(int i) {
         if (i == 1) {
-            this.hNz.setImageResource(e.f.icon_video_music);
+            this.hNA.setImageResource(e.f.icon_video_music);
         } else {
-            this.hNz.setImageResource(e.f.icon_video_music_disable);
+            this.hNA.setImageResource(e.f.icon_video_music_disable);
         }
     }
 }

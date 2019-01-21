@@ -6,8 +6,8 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private a fUR;
-    private View fUS;
+    private a fUS;
+    private View fUT;
     private GestureDetector mGestureDetector = new GestureDetector(TbadkCoreApplication.getInst(), this);
 
     /* loaded from: classes.dex */
@@ -20,12 +20,12 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public c(a aVar) {
-        this.fUR = aVar;
+        this.fUS = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.fUS = view;
+        this.fUT = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -62,29 +62,29 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.fUR != null) {
-            return this.fUR.a(this.fUS, motionEvent);
+        if (this.fUS != null) {
+            return this.fUS.a(this.fUT, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.fUR != null) {
-            return this.fUR.b(this.fUS, motionEvent);
+        if (this.fUS != null) {
+            return this.fUS.b(this.fUT, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.fUR != null) {
-            return this.fUR.c(this.fUS, motionEvent);
+        if (this.fUS != null) {
+            return this.fUS.c(this.fUT, motionEvent);
         }
         return false;
     }
 
     public void bt(View view) {
-        this.fUS = view;
+        this.fUT = view;
     }
 }

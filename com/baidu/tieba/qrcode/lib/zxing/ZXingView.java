@@ -11,7 +11,7 @@ import com.google.zxing.Result;
 import com.google.zxing.common.HybridBinarizer;
 /* loaded from: classes3.dex */
 public class ZXingView extends QRCodeView {
-    private MultiFormatReader gNX;
+    private MultiFormatReader gNY;
 
     public ZXingView(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -23,8 +23,8 @@ public class ZXingView extends QRCodeView {
     }
 
     private void bvt() {
-        this.gNX = new MultiFormatReader();
-        this.gNX.setHints(a.gNW);
+        this.gNY = new MultiFormatReader();
+        this.gNY.setHints(a.gNX);
     }
 
     @Override // com.baidu.tieba.qrcode.lib.core.c.a
@@ -33,16 +33,16 @@ public class ZXingView extends QRCodeView {
         PlanarYUVLuminanceSource planarYUVLuminanceSource;
         try {
             try {
-                Rect tY = this.gMR.tY(i2);
+                Rect tY = this.gMS.tY(i2);
                 if (tY != null) {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, tY.left, tY.top, tY.width(), tY.height(), false);
                 } else {
                     planarYUVLuminanceSource = new PlanarYUVLuminanceSource(bArr, i, i2, 0, 0, i, i2, false);
                 }
-                result = this.gNX.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
+                result = this.gNY.decodeWithState(new BinaryBitmap(new HybridBinarizer(planarYUVLuminanceSource)));
             } catch (Exception e) {
                 e.printStackTrace();
-                this.gNX.reset();
+                this.gNY.reset();
                 result = null;
             }
             if (result != null) {
@@ -50,7 +50,7 @@ public class ZXingView extends QRCodeView {
             }
             return null;
         } finally {
-            this.gNX.reset();
+            this.gNY.reset();
         }
     }
 }

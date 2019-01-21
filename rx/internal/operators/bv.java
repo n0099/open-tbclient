@@ -3,7 +3,7 @@ package rx.internal.operators;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class bv<T, E> implements d.b<T, T> {
-    private final rx.d<? extends E> iGI;
+    private final rx.d<? extends E> iGJ;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -11,7 +11,7 @@ public final class bv<T, E> implements d.b<T, T> {
     }
 
     public bv(rx.d<? extends E> dVar) {
-        this.iGI = dVar;
+        this.iGJ = dVar;
     }
 
     public rx.j<? super T> call(rx.j<? super T> jVar) {
@@ -64,7 +64,7 @@ public final class bv<T, E> implements d.b<T, T> {
         fVar.add(jVar2);
         fVar.add(jVar3);
         jVar.add(fVar);
-        this.iGI.unsafeSubscribe(jVar3);
+        this.iGJ.unsafeSubscribe(jVar3);
         return jVar2;
     }
 }

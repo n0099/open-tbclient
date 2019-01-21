@@ -8,7 +8,7 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes3.dex */
 public class AdCardVrPicView extends AdCardBaseView {
-    private VrPicView gSc;
+    private VrPicView gSd;
 
     public AdCardVrPicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -21,28 +21,28 @@ public class AdCardVrPicView extends AdCardBaseView {
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void bQ(View view) {
-        this.gSc = (VrPicView) view.findViewById(e.g.vr_pic_view);
+        this.gSd = (VrPicView) view.findViewById(e.g.vr_pic_view);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(AdCard adCard) {
         if (adCard.threadPicList != null && adCard.threadPicList.length >= 1) {
             String str = adCard.threadPicList[0].pic;
-            this.gQV.setVisibility(0);
+            this.gQW.setVisibility(0);
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
-            advertAppInfo.aqd.width = this.mMaxWidth;
-            advertAppInfo.aqd.height = (this.mMaxWidth * this.mImageHeight) / this.mImageWidth;
-            advertAppInfo.aqd.aqo = str;
-            this.gSc.a(this.mContext, advertAppInfo);
-            ViewGroup.LayoutParams layoutParams = this.gSc.getLayoutParams();
+            advertAppInfo.aqe.width = this.mMaxWidth;
+            advertAppInfo.aqe.height = (this.mMaxWidth * this.mImageHeight) / this.mImageWidth;
+            advertAppInfo.aqe.aqp = str;
+            this.gSd.a(this.mContext, advertAppInfo);
+            ViewGroup.LayoutParams layoutParams = this.gSd.getLayoutParams();
             if (layoutParams != null) {
-                layoutParams.width = advertAppInfo.aqd.width;
-                layoutParams.height = advertAppInfo.aqd.height;
+                layoutParams.width = advertAppInfo.aqe.width;
+                layoutParams.height = advertAppInfo.aqe.height;
             }
-            this.gSc.setLayoutParams(layoutParams);
+            this.gSd.setLayoutParams(layoutParams);
             return;
         }
-        this.gQV.setVisibility(8);
+        this.gQW.setVisibility(8);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView

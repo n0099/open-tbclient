@@ -2,8 +2,8 @@ package com.facebook.imagepipeline.common;
 /* loaded from: classes2.dex */
 public class c {
     public final int height;
-    public final float iqY;
     public final float iqZ;
+    public final float ira;
     public final int width;
 
     public int hashCode() {

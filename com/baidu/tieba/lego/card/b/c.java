@@ -56,8 +56,8 @@ public class c {
 
     public static void a(b bVar) {
         if (bVar != null && bVar.getParallelCharge() != null) {
-            rw(bVar.getParallelCharge().fqz);
-            Iterator<String> it = bVar.getParallelCharge().fqC.iterator();
+            rw(bVar.getParallelCharge().fqA);
+            Iterator<String> it = bVar.getParallelCharge().fqD.iterator();
             while (it.hasNext()) {
                 rw(it.next());
             }
@@ -66,8 +66,8 @@ public class c {
 
     public static void b(b bVar) {
         if (bVar != null && bVar.getParallelCharge() != null) {
-            rw(bVar.getParallelCharge().fqA);
-            Iterator<String> it = bVar.getParallelCharge().fqB.iterator();
+            rw(bVar.getParallelCharge().fqB);
+            Iterator<String> it = bVar.getParallelCharge().fqC.iterator();
             while (it.hasNext()) {
                 rw(it.next());
             }

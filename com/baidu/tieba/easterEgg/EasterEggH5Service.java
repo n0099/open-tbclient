@@ -79,15 +79,15 @@ public class EasterEggH5Service extends Service {
                 }
                 if (str != null) {
                     HashMap hashMap = new HashMap();
-                    if (!v.I(gVar.aEs)) {
+                    if (!v.I(gVar.aEt)) {
                         int i = 0;
                         while (true) {
                             int i2 = i;
-                            if (i2 >= gVar.aEs.size()) {
+                            if (i2 >= gVar.aEt.size()) {
                                 break;
                             }
-                            if (gVar.aEs.get(i2) != null) {
-                                hashMap.put(gVar.aEs.get(i2).getName(), gVar.aEs.get(i2).getValue());
+                            if (gVar.aEt.get(i2) != null) {
+                                hashMap.put(gVar.aEt.get(i2).getName(), gVar.aEt.get(i2).getValue());
                             }
                             i = i2 + 1;
                         }

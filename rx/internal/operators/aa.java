@@ -7,11 +7,11 @@ import java.util.Map;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class aa<T, K, V> implements d.a<Map<K, Collection<V>>>, rx.functions.e<Map<K, Collection<V>>> {
-    private final rx.d<T> iFW;
-    private final rx.functions.f<? super T, ? extends K> iIg;
-    private final rx.functions.f<? super T, ? extends V> iIh;
-    private final rx.functions.e<? extends Map<K, Collection<V>>> iIi;
-    private final rx.functions.f<? super K, ? extends Collection<V>> iIj;
+    private final rx.d<T> iFX;
+    private final rx.functions.f<? super T, ? extends K> iIh;
+    private final rx.functions.f<? super T, ? extends V> iIi;
+    private final rx.functions.e<? extends Map<K, Collection<V>>> iIj;
+    private final rx.functions.f<? super K, ? extends Collection<V>> iIk;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -27,15 +27,15 @@ public final class aa<T, K, V> implements d.a<Map<K, Collection<V>>>, rx.functio
     }
 
     public aa(rx.d<T> dVar, rx.functions.f<? super T, ? extends K> fVar, rx.functions.f<? super T, ? extends V> fVar2, rx.functions.e<? extends Map<K, Collection<V>>> eVar, rx.functions.f<? super K, ? extends Collection<V>> fVar3) {
-        this.iFW = dVar;
-        this.iIg = fVar;
-        this.iIh = fVar2;
+        this.iFX = dVar;
+        this.iIh = fVar;
+        this.iIi = fVar2;
         if (eVar == null) {
-            this.iIi = this;
+            this.iIj = this;
         } else {
-            this.iIi = eVar;
+            this.iIj = eVar;
         }
-        this.iIj = fVar3;
+        this.iIk = fVar3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,7 +47,7 @@ public final class aa<T, K, V> implements d.a<Map<K, Collection<V>>>, rx.functio
 
     public void call(rx.j<? super Map<K, Collection<V>>> jVar) {
         try {
-            new b(jVar, this.iIi.call(), this.iIg, this.iIh, this.iIj).c(this.iFW);
+            new b(jVar, this.iIj.call(), this.iIh, this.iIi, this.iIk).c(this.iFX);
         } catch (Throwable th) {
             rx.exceptions.a.J(th);
             jVar.onError(th);
@@ -57,9 +57,9 @@ public final class aa<T, K, V> implements d.a<Map<K, Collection<V>>>, rx.functio
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static final class b<T, K, V> extends c<T, Map<K, Collection<V>>> {
-        private final rx.functions.f<? super T, ? extends K> iIg;
-        private final rx.functions.f<? super T, ? extends V> iIh;
-        private final rx.functions.f<? super K, ? extends Collection<V>> iIj;
+        private final rx.functions.f<? super T, ? extends K> iIh;
+        private final rx.functions.f<? super T, ? extends V> iIi;
+        private final rx.functions.f<? super K, ? extends Collection<V>> iIk;
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: java.util.Map<K, java.util.Collection<V>> */
         /* JADX WARN: Multi-variable type inference failed */
@@ -67,9 +67,9 @@ public final class aa<T, K, V> implements d.a<Map<K, Collection<V>>>, rx.functio
             super(jVar);
             this.value = map;
             this.hasValue = true;
-            this.iIg = fVar;
-            this.iIh = fVar2;
-            this.iIj = fVar3;
+            this.iIh = fVar;
+            this.iIi = fVar2;
+            this.iIk = fVar3;
         }
 
         @Override // rx.j
@@ -81,11 +81,11 @@ public final class aa<T, K, V> implements d.a<Map<K, Collection<V>>>, rx.functio
         public void onNext(T t) {
             if (!this.done) {
                 try {
-                    K call = this.iIg.call(t);
-                    V call2 = this.iIh.call(t);
+                    K call = this.iIh.call(t);
+                    V call2 = this.iIi.call(t);
                     Collection<V> collection = (Collection) ((Map) this.value).get(call);
                     if (collection == null) {
-                        collection = this.iIj.call(call);
+                        collection = this.iIk.call(call);
                         ((Map) this.value).put(call, collection);
                     }
                     collection.add(call2);
@@ -100,13 +100,13 @@ public final class aa<T, K, V> implements d.a<Map<K, Collection<V>>>, rx.functio
 
     /* loaded from: classes2.dex */
     private static final class a<K, V> implements rx.functions.f<K, Collection<V>> {
-        private static final a<Object, Object> iIk = new a<>();
+        private static final a<Object, Object> iIl = new a<>();
 
         private a() {
         }
 
         static <K, V> a<K, V> ceJ() {
-            return (a<K, V>) iIk;
+            return (a<K, V>) iIl;
         }
 
         /* JADX DEBUG: Method merged with bridge method */

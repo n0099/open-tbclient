@@ -12,17 +12,17 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class GetEmotionPidModel extends BdBaseModel {
-    private a bdB;
-    private final HttpMessageListener bdC = new HttpMessageListener(CmdConfigHttp.CMD_GET_PB_EMOTION_PID) { // from class: com.baidu.tbadk.img.GetEmotionPidModel.1
+    private a bdC;
+    private final HttpMessageListener bdD = new HttpMessageListener(CmdConfigHttp.CMD_GET_PB_EMOTION_PID) { // from class: com.baidu.tbadk.img.GetEmotionPidModel.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003331 && (httpResponsedMessage instanceof GetEmotionPidResponseMessage) && GetEmotionPidModel.this.bdB != null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003331 && (httpResponsedMessage instanceof GetEmotionPidResponseMessage) && GetEmotionPidModel.this.bdC != null) {
                 GetEmotionPidResponseMessage getEmotionPidResponseMessage = (GetEmotionPidResponseMessage) httpResponsedMessage;
                 if (getEmotionPidResponseMessage.getImageInfo() != null) {
-                    GetEmotionPidModel.this.bdB.a(getEmotionPidResponseMessage.getImageInfo());
+                    GetEmotionPidModel.this.bdC.a(getEmotionPidResponseMessage.getImageInfo());
                 } else {
-                    GetEmotionPidModel.this.bdB.onFail(getEmotionPidResponseMessage.getError(), getEmotionPidResponseMessage.getErrorString());
+                    GetEmotionPidModel.this.bdC.onFail(getEmotionPidResponseMessage.getError(), getEmotionPidResponseMessage.getErrorString());
                 }
             }
         }
@@ -38,9 +38,9 @@ public class GetEmotionPidModel extends BdBaseModel {
     public GetEmotionPidModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.bdC.setTag(getUniqueId());
-        this.bdC.setSelfListener(true);
-        registerListener(this.bdC);
+        this.bdD.setTag(getUniqueId());
+        this.bdD.setSelfListener(true);
+        registerListener(this.bdD);
     }
 
     private void registerTask() {
@@ -50,7 +50,7 @@ public class GetEmotionPidModel extends BdBaseModel {
     }
 
     public void a(String str, a aVar) {
-        this.bdB = aVar;
+        this.bdC = aVar;
         if (TextUtils.isEmpty(str)) {
             if (aVar != null) {
                 aVar.onFail(0, "picUrl is empty");
@@ -70,7 +70,7 @@ public class GetEmotionPidModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.bdC);
+        MessageManager.getInstance().unRegisterListener(this.bdD);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_PB_EMOTION_PID);
         return true;
     }

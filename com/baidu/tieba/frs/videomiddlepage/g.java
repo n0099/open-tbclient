@@ -6,25 +6,25 @@ import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class g implements f.a {
-    private f.b eiJ;
-    private VideoMiddleModel eiK;
-    private VideoSerializeVideoThreadInfo eiL;
-    private VideoMiddleModel.a eiM = new VideoMiddleModel.a() { // from class: com.baidu.tieba.frs.videomiddlepage.g.1
+    private f.b eiK;
+    private VideoMiddleModel eiL;
+    private VideoSerializeVideoThreadInfo eiM;
+    private VideoMiddleModel.a eiN = new VideoMiddleModel.a() { // from class: com.baidu.tieba.frs.videomiddlepage.g.1
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.a
         public void i(List<com.baidu.tieba.card.data.b> list, boolean z) {
-            if (g.this.eiJ != null) {
-                g.this.eiJ.hideLoadingView();
+            if (g.this.eiK != null) {
+                g.this.eiK.hideLoadingView();
                 g.this.mHasMore = z;
-                g.this.eiJ.c(list, z, false);
+                g.this.eiK.c(list, z, false);
             }
         }
 
         @Override // com.baidu.tieba.frs.videomiddlepage.VideoMiddleModel.a
         public void oC(String str) {
-            if (g.this.eiJ != null) {
-                g.this.eiJ.hideLoadingView();
-                g.this.eiJ.showMsg(str);
-                g.this.eiJ.Nx();
+            if (g.this.eiK != null) {
+                g.this.eiK.hideLoadingView();
+                g.this.eiK.showMsg(str);
+                g.this.eiK.Nx();
             }
         }
     };
@@ -36,16 +36,16 @@ public class g implements f.a {
 
     public g(f.b bVar) {
         if (bVar instanceof VideoMiddlePageFragment) {
-            this.eiJ = bVar;
-            this.eiJ.a(this);
-            this.eiK = new VideoMiddleModel(((VideoMiddlePageFragment) bVar).getPageContext(), this.eiM);
+            this.eiK = bVar;
+            this.eiK.a(this);
+            this.eiL = new VideoMiddleModel(((VideoMiddlePageFragment) bVar).getPageContext(), this.eiN);
         }
     }
 
     public void aIX() {
-        if (this.eiK != null) {
-            this.eiK.setFrom(this.mFrom);
-            this.eiK.LoadData();
+        if (this.eiL != null) {
+            this.eiL.setFrom(this.mFrom);
+            this.eiL.LoadData();
         }
     }
 
@@ -54,50 +54,50 @@ public class g implements f.a {
     }
 
     public void aaA() {
-        if (this.eiK != null && this.mHasMore) {
-            this.eiK.setFrom(this.mFrom);
-            this.eiK.LoadData();
+        if (this.eiL != null && this.mHasMore) {
+            this.eiL.setFrom(this.mFrom);
+            this.eiL.LoadData();
         }
     }
 
     public void setId(String str) {
         this.mId = str;
-        if (this.eiK != null) {
-            this.eiK.setId(this.mId);
+        if (this.eiL != null) {
+            this.eiL.setId(this.mId);
         }
     }
 
     public void oB(String str) {
         this.st_type = str;
-        if (this.eiK != null) {
-            this.eiK.oB(str);
+        if (this.eiL != null) {
+            this.eiL.oB(str);
         }
     }
 
     public void setLocation(String str) {
         this.yuelaou_locate = str;
-        if (this.eiK != null) {
-            this.eiK.setLocation(str);
+        if (this.eiL != null) {
+            this.eiL.setLocation(str);
         }
     }
 
     public void a(VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo) {
-        this.eiL = videoSerializeVideoThreadInfo;
+        this.eiM = videoSerializeVideoThreadInfo;
     }
 
     public VideoSerializeVideoThreadInfo aIY() {
-        return this.eiL;
+        return this.eiM;
     }
 
     public void aEp() {
-        if (this.eiK != null) {
-            this.eiK.cancelLoadData();
+        if (this.eiL != null) {
+            this.eiL.cancelLoadData();
         }
     }
 
     public int getPageNum() {
-        if (this.eiK != null) {
-            return this.eiK.getPageNum();
+        if (this.eiL != null) {
+            return this.eiL.getPageNum();
         }
         return 0;
     }

@@ -6,27 +6,27 @@ import android.widget.BaseAdapter;
 import com.baidu.tbadk.TbadkApplication;
 /* loaded from: classes3.dex */
 public class m extends BaseAdapter {
-    private String[] eQl;
-    private GroupAddressLocateActivity eQx;
+    private String[] eQm;
+    private GroupAddressLocateActivity eQy;
 
     public m(GroupAddressLocateActivity groupAddressLocateActivity, String[] strArr) {
-        this.eQl = null;
-        this.eQx = null;
-        this.eQx = groupAddressLocateActivity;
-        this.eQl = strArr;
+        this.eQm = null;
+        this.eQy = null;
+        this.eQy = groupAddressLocateActivity;
+        this.eQm = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.eQl != null) {
-            return this.eQl.length;
+        if (this.eQm != null) {
+            return this.eQm.length;
         }
         return 0;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return (this.eQl == null || i <= -1 || i >= this.eQl.length) ? "" : this.eQl[i];
+        return (this.eQm == null || i <= -1 || i >= this.eQm.length) ? "" : this.eQm[i];
     }
 
     @Override // android.widget.Adapter
@@ -38,7 +38,7 @@ public class m extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null) {
-            aVar = new a(this.eQx);
+            aVar = new a(this.eQy);
             view = aVar.anZ();
         } else {
             aVar = (a) view.getTag();
@@ -51,7 +51,7 @@ public class m extends BaseAdapter {
             }
         }
         aVar.pW(getItem(i).toString());
-        if (this.eQx.getSelectedPosition() == i) {
+        if (this.eQy.getSelectedPosition() == i) {
             aVar.ip(true);
         } else {
             aVar.ip(false);
@@ -61,7 +61,7 @@ public class m extends BaseAdapter {
     }
 
     private void bb(View view) {
-        this.eQx.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
-        this.eQx.getLayoutMode().onModeChanged(view);
+        this.eQy.getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
+        this.eQy.getLayoutMode().onModeChanged(view);
     }
 }

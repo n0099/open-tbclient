@@ -29,10 +29,10 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
 public class b {
-    private static volatile b fQB;
-    private a fQC;
-    private AtomicBoolean fQD = new AtomicBoolean(false);
+    private static volatile b fQC;
+    private a fQD;
     private AtomicBoolean fQE = new AtomicBoolean(false);
+    private AtomicBoolean fQF = new AtomicBoolean(false);
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -40,14 +40,14 @@ public class b {
     }
 
     public static b bgC() {
-        if (fQB == null) {
+        if (fQC == null) {
             synchronized (b.class) {
-                if (fQB == null) {
-                    fQB = new b();
+                if (fQC == null) {
+                    fQC = new b();
                 }
             }
         }
-        return fQB;
+        return fQC;
     }
 
     private b() {
@@ -104,34 +104,34 @@ public class b {
     }
 
     public void b(AuthVerifyData authVerifyData, a aVar) {
-        if (this.fQE.compareAndSet(false, true)) {
-            if (this.fQD.compareAndSet(false, true)) {
+        if (this.fQF.compareAndSet(false, true)) {
+            if (this.fQE.compareAndSet(false, true)) {
                 try {
                     a(authVerifyData, aVar);
                 } catch (Exception e) {
                     BdStatisticsManager.getInstance().error("passloaderror", 0L, (String) null, "Exception", e.toString());
-                    this.fQD.set(false);
+                    this.fQE.set(false);
                 }
             } else if (!bgF()) {
                 try {
                     a(authVerifyData, aVar);
                 } catch (Exception e2) {
-                    this.fQD.set(false);
+                    this.fQE.set(false);
                 }
             }
-            this.fQE.set(false);
+            this.fQF.set(false);
         }
     }
 
     public void a(AuthVerifyData.c cVar) {
-        if (this.fQC != null) {
+        if (this.fQD != null) {
             if (cVar == null) {
                 cVar = new AuthVerifyData.c(false);
             }
-            this.fQC.b(cVar);
+            this.fQD.b(cVar);
         }
-        this.fQC = null;
-        this.fQD.set(false);
+        this.fQD = null;
+        this.fQE.set(false);
     }
 
     public void m(boolean z, String str) {
@@ -198,7 +198,7 @@ public class b {
     }
 
     public void a(a aVar) {
-        this.fQC = aVar;
+        this.fQD = aVar;
     }
 
     public static void registerTask() {
@@ -246,16 +246,16 @@ public class b {
     /* renamed from: com.baidu.tieba.passaccount.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
     static class C0276b implements a {
-        private AuthVerifyData fQF;
+        private AuthVerifyData fQG;
 
         public C0276b(AuthVerifyData authVerifyData) {
-            this.fQF = authVerifyData;
+            this.fQG = authVerifyData;
         }
 
         @Override // com.baidu.tieba.passaccount.a.b.a
         public void b(AuthVerifyData.c cVar) {
-            this.fQF.setResult(cVar);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921372, this.fQF));
+            this.fQG.setResult(cVar);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921372, this.fQG));
         }
     }
 }

@@ -11,10 +11,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 /* loaded from: classes3.dex */
 public class EmotionEditLayout extends FrameLayout {
-    private float duH;
-    private float gsX;
+    private float duI;
     private float gsY;
-    private long gsZ;
+    private float gsZ;
+    private long gta;
     private ViewDragHelper mDragHelper;
 
     public EmotionEditLayout(Context context) {
@@ -27,7 +27,7 @@ public class EmotionEditLayout extends FrameLayout {
 
     public EmotionEditLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.duH = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.duI = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }
 
     public void a(final EmotionEditText emotionEditText) {
@@ -55,9 +55,9 @@ public class EmotionEditLayout extends FrameLayout {
             public void onViewCaptured(View view, int i) {
                 super.onViewCaptured(view, i);
                 if (view instanceof EmotionEditText) {
-                    EmotionEditLayout.this.gsZ = System.currentTimeMillis();
-                    EmotionEditLayout.this.gsX = view.getX();
-                    EmotionEditLayout.this.gsY = view.getY();
+                    EmotionEditLayout.this.gta = System.currentTimeMillis();
+                    EmotionEditLayout.this.gsY = view.getX();
+                    EmotionEditLayout.this.gsZ = view.getY();
                     emotionEditText.bpB();
                 }
             }
@@ -68,9 +68,9 @@ public class EmotionEditLayout extends FrameLayout {
                 if (view instanceof EmotionEditText) {
                     float x = view.getX();
                     float y = view.getY();
-                    float abs = Math.abs(x - EmotionEditLayout.this.gsX);
-                    float abs2 = Math.abs(y - EmotionEditLayout.this.gsY);
-                    if (abs < EmotionEditLayout.this.duH && abs2 < EmotionEditLayout.this.duH && System.currentTimeMillis() - EmotionEditLayout.this.gsZ < 300) {
+                    float abs = Math.abs(x - EmotionEditLayout.this.gsY);
+                    float abs2 = Math.abs(y - EmotionEditLayout.this.gsZ);
+                    if (abs < EmotionEditLayout.this.duI && abs2 < EmotionEditLayout.this.duI && System.currentTimeMillis() - EmotionEditLayout.this.gta < 300) {
                         emotionEditText.bpC();
                     }
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);

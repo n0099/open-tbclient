@@ -37,7 +37,7 @@ public final class bs<T> implements d.b<T, T> {
         final rx.j<? super T> actual;
         final int count;
         final AtomicLong requested = new AtomicLong();
-        final ArrayDeque<Object> iIE = new ArrayDeque<>();
+        final ArrayDeque<Object> iIF = new ArrayDeque<>();
 
         public a(rx.j<? super T> jVar, int i) {
             this.actual = jVar;
@@ -46,21 +46,21 @@ public final class bs<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            if (this.iIE.size() == this.count) {
-                this.iIE.poll();
+            if (this.iIF.size() == this.count) {
+                this.iIF.poll();
             }
-            this.iIE.offer(NotificationLite.aY(t));
+            this.iIF.offer(NotificationLite.aY(t));
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iIE.clear();
+            this.iIF.clear();
             this.actual.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            rx.internal.operators.a.a(this.requested, this.iIE, this.actual, this);
+            rx.internal.operators.a.a(this.requested, this.iIF, this.actual, this);
         }
 
         @Override // rx.functions.f
@@ -70,7 +70,7 @@ public final class bs<T> implements d.b<T, T> {
 
         void dH(long j) {
             if (j > 0) {
-                rx.internal.operators.a.a(this.requested, j, this.iIE, this.actual, this);
+                rx.internal.operators.a.a(this.requested, j, this.iIF, this.actual, this);
             }
         }
     }

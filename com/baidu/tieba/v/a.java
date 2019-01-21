@@ -7,7 +7,7 @@ import com.baidu.tbadk.coreExtra.data.y;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private CustomMessageListener aoH = new CustomMessageListener(2001371) { // from class: com.baidu.tieba.v.a.1
+    private CustomMessageListener aoI = new CustomMessageListener(2001371) { // from class: com.baidu.tieba.v.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -16,8 +16,8 @@ public class a {
             }
         }
     };
-    private long hQw;
-    private y hQx;
+    private long hQx;
+    private y hQy;
     private long mEndTime;
     private long mInterval;
     private long mStartTime;
@@ -28,8 +28,8 @@ public class a {
 
     private void init() {
         bNn();
-        this.hQw = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_video_splash_last_show_time", 0L);
-        MessageManager.getInstance().registerListener(this.aoH);
+        this.hQx = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_video_splash_last_show_time", 0L);
+        MessageManager.getInstance().registerListener(this.aoI);
     }
 
     public boolean bNm() {
@@ -45,22 +45,22 @@ public class a {
     }
 
     private boolean m(Date date) {
-        return date != null && date.getTime() - this.hQw >= this.mInterval;
+        return date != null && date.getTime() - this.hQx >= this.mInterval;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bNn() {
-        if (this.hQx == null) {
-            this.hQx = new y();
+        if (this.hQy == null) {
+            this.hQy = new y();
         }
-        this.hQx.parseJson(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_video_splash_config", ""));
-        this.mStartTime = this.hQx.Ho();
-        this.mEndTime = this.hQx.Hp();
-        this.mInterval = this.hQx.Hq();
+        this.hQy.parseJson(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_video_splash_config", ""));
+        this.mStartTime = this.hQy.Ho();
+        this.mEndTime = this.hQy.Hp();
+        this.mInterval = this.hQy.Hq();
     }
 
     public void dr(long j) {
-        this.hQw = j;
+        this.hQx = j;
         com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("key_video_splash_last_show_time", j);
     }
 }

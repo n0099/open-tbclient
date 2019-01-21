@@ -1,7 +1,7 @@
 package com.facebook.cache.common;
 /* loaded from: classes2.dex */
 public class f implements CacheEventListener {
-    private static f iiP = null;
+    private static f iiQ = null;
 
     private f() {
     }
@@ -9,10 +9,10 @@ public class f implements CacheEventListener {
     public static synchronized f bTR() {
         f fVar;
         synchronized (f.class) {
-            if (iiP == null) {
-                iiP = new f();
+            if (iiQ == null) {
+                iiQ = new f();
             }
-            fVar = iiP;
+            fVar = iiQ;
         }
         return fVar;
     }

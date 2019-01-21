@@ -5,75 +5,75 @@ import com.baidu.tieba.InjectPlugin.a.g;
 import java.util.List;
 /* loaded from: classes.dex */
 public class b extends g {
-    private int aMj;
-    private Object bwB;
-    private List<h> bwC;
+    private int aMk;
+    private Object bwC;
     private List<h> bwD;
-    private List<Object> bwE;
-    private boolean bwF;
+    private List<h> bwE;
+    private List<Object> bwF;
     private boolean bwG;
     private boolean bwH;
-    private String bwI;
+    private boolean bwI;
     private String bwJ;
     private String bwK;
+    private String bwL;
     private int currentPage;
     private String forumId;
     private int pageNum;
 
     public b(com.baidu.tieba.InjectPlugin.a.b bVar, int i) {
         super(bVar, i);
-        this.bwF = false;
         this.bwG = false;
-        this.currentPage = 0;
         this.bwH = false;
+        this.currentPage = 0;
+        this.bwI = false;
     }
 
     public Object Us() {
-        return this.bwB;
-    }
-
-    public void setExtraData(Object obj) {
-        this.bwB = obj;
-    }
-
-    public List<h> getThreadList() {
         return this.bwC;
     }
 
-    public void ab(List<h> list) {
-        this.bwC = list;
+    public void setExtraData(Object obj) {
+        this.bwC = obj;
     }
 
-    public List<Object> Ut() {
-        return this.bwE;
-    }
-
-    public void ac(List<Object> list) {
-        this.bwE = list;
-    }
-
-    public List<h> Uu() {
+    public List<h> getThreadList() {
         return this.bwD;
     }
 
-    public void ad(List<h> list) {
+    public void ab(List<h> list) {
         this.bwD = list;
     }
 
-    public boolean Uv() {
+    public List<Object> Ut() {
         return this.bwF;
     }
 
-    public void dk(boolean z) {
-        this.bwF = z;
+    public void ac(List<Object> list) {
+        this.bwF = list;
     }
 
-    public boolean isRefresh() {
+    public List<h> Uu() {
+        return this.bwE;
+    }
+
+    public void ad(List<h> list) {
+        this.bwE = list;
+    }
+
+    public boolean Uv() {
         return this.bwG;
     }
 
-    public void dl(boolean z) {
+    public void dk(boolean z) {
         this.bwG = z;
+    }
+
+    public boolean isRefresh() {
+        return this.bwH;
+    }
+
+    public void dl(boolean z) {
+        this.bwH = z;
     }
 
     public int Uw() {
@@ -85,19 +85,19 @@ public class b extends g {
     }
 
     public int getSkinType() {
-        return this.aMj;
+        return this.aMk;
     }
 
     public void setSkinType(int i) {
-        this.aMj = i;
+        this.aMk = i;
     }
 
     public boolean Ux() {
-        return this.bwH;
+        return this.bwI;
     }
 
     public void dm(boolean z) {
-        this.bwH = z;
+        this.bwI = z;
     }
 
     public int getPageNum() {
@@ -117,26 +117,26 @@ public class b extends g {
     }
 
     public String Uy() {
-        return this.bwI;
-    }
-
-    public void jv(String str) {
-        this.bwI = str;
-    }
-
-    public String Uz() {
         return this.bwJ;
     }
 
-    public void jw(String str) {
+    public void jv(String str) {
         this.bwJ = str;
     }
 
-    public String UA() {
+    public String Uz() {
         return this.bwK;
     }
 
-    public void jx(String str) {
+    public void jw(String str) {
         this.bwK = str;
+    }
+
+    public String UA() {
+        return this.bwL;
+    }
+
+    public void jx(String str) {
+        this.bwL = str;
     }
 }

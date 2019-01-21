@@ -15,7 +15,7 @@ public class j extends com.baidu.adp.widget.ListView.a<o, com.baidu.tieba.card.a
 
     /* JADX INFO: Access modifiers changed from: protected */
     public j(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), o.dcr);
+        super(tbPageContext.getPageActivity(), o.dcs);
         this.mPageContext = tbPageContext;
     }
 
@@ -36,7 +36,7 @@ public class j extends com.baidu.adp.widget.ListView.a<o, com.baidu.tieba.card.a
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, o oVar, com.baidu.tieba.card.a.a aVar) {
         aVar.arr().a(oVar);
         aVar.arr().d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        v.aqP().a(new am("c10718").aB(VideoPlayActivityConfig.OBJ_ID, String.valueOf(oVar.dcs)));
+        v.aqP().a(new am("c10718").aB(VideoPlayActivityConfig.OBJ_ID, String.valueOf(oVar.dct)));
         return aVar.getView();
     }
 }

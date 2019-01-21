@@ -10,34 +10,34 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class e {
-    private BdTypeRecyclerView bRY;
-    private ArrayList<h> dqn;
-    private b fjN;
+    private BdTypeRecyclerView bRZ;
+    private ArrayList<h> dqo;
     private b fjO;
     private b fjP;
     private b fjQ;
     private b fjR;
+    private b fjS;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         if (tbPageContext != null && bdTypeRecyclerView != null) {
-            this.bRY = bdTypeRecyclerView;
+            this.bRZ = bdTypeRecyclerView;
             p(tbPageContext);
         }
     }
 
     private void p(TbPageContext tbPageContext) {
-        this.fjN = new b(tbPageContext, a.fjv);
         this.fjO = new b(tbPageContext, a.fjw);
-        this.fjP = new b(tbPageContext, a.fjz);
-        this.fjQ = new b(tbPageContext, a.fjy);
-        this.fjR = new b(tbPageContext, a.fjx);
-        this.mAdapters.add(this.fjN);
+        this.fjP = new b(tbPageContext, a.fjx);
+        this.fjQ = new b(tbPageContext, a.fjA);
+        this.fjR = new b(tbPageContext, a.fjz);
+        this.fjS = new b(tbPageContext, a.fjy);
         this.mAdapters.add(this.fjO);
         this.mAdapters.add(this.fjP);
         this.mAdapters.add(this.fjQ);
         this.mAdapters.add(this.fjR);
-        this.bRY.addAdapters(this.mAdapters);
+        this.mAdapters.add(this.fjS);
+        this.bRZ.addAdapters(this.mAdapters);
     }
 
     public void onDestory() {
@@ -46,12 +46,12 @@ public class e {
     }
 
     public void setData(ArrayList<h> arrayList) {
-        this.bRY.setData(arrayList);
-        this.dqn = arrayList;
+        this.bRZ.setData(arrayList);
+        this.dqo = arrayList;
     }
 
     public void notifyDataSetChanged() {
-        this.bRY.getAdapter().notifyDataSetChanged();
+        this.bRZ.getAdapter().notifyDataSetChanged();
     }
 
     public void d(n nVar) {
@@ -63,8 +63,8 @@ public class e {
     }
 
     public void e(ad adVar) {
+        this.fjS.e(adVar);
         this.fjR.e(adVar);
         this.fjQ.e(adVar);
-        this.fjP.e(adVar);
     }
 }

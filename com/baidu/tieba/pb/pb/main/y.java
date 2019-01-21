@@ -10,8 +10,7 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class y extends com.baidu.tbadk.core.dialog.b {
-    private View.OnClickListener dJl;
-    private TextView gdh;
+    private View.OnClickListener dJm;
     private TextView gdi;
     private TextView gdj;
     private TextView gdk;
@@ -19,47 +18,48 @@ public class y extends com.baidu.tbadk.core.dialog.b {
     private TextView gdm;
     private TextView gdn;
     private TextView gdo;
-    private boolean gdp;
+    private TextView gdp;
+    private boolean gdq;
     private TbPageContext<?> mContext;
 
     public y(TbPageContext<?> tbPageContext, View.OnClickListener onClickListener) {
         super(tbPageContext.getPageActivity());
-        this.gdp = false;
+        this.gdq = false;
         this.mContext = tbPageContext;
-        this.dJl = onClickListener;
+        this.dJm = onClickListener;
         createDialog();
     }
 
     public TextView blj() {
-        return this.gdh;
-    }
-
-    public TextView blk() {
         return this.gdi;
     }
 
-    public TextView bll() {
+    public TextView blk() {
         return this.gdj;
     }
 
-    public TextView blm() {
+    public TextView bll() {
         return this.gdk;
     }
 
-    public TextView bln() {
+    public TextView blm() {
         return this.gdl;
     }
 
-    public TextView blo() {
-        return this.gdo;
-    }
-
-    public TextView blp() {
+    public TextView bln() {
         return this.gdm;
     }
 
-    public TextView blq() {
+    public TextView blo() {
+        return this.gdp;
+    }
+
+    public TextView blp() {
         return this.gdn;
+    }
+
+    public TextView blq() {
+        return this.gdo;
     }
 
     private void createDialog() {
@@ -68,19 +68,19 @@ public class y extends com.baidu.tbadk.core.dialog.b {
             public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
                 if (bVar != null && view != null) {
                     bVar.dismiss();
-                    y.this.dJl.onClick(view);
+                    y.this.dJm.onClick(view);
                 }
             }
         });
         d(this.mContext);
-        this.gdo = bD(dj(0));
-        this.gdh = bD(dj(4));
-        this.gdi = bD(dj(7));
-        this.gdj = bD(dj(5));
-        this.gdk = bD(dj(6));
-        this.gdl = bD(dj(3));
-        this.gdm = bD(dj(1));
-        this.gdn = bD(dj(2));
+        this.gdp = bD(dj(0));
+        this.gdi = bD(dj(4));
+        this.gdj = bD(dj(7));
+        this.gdk = bD(dj(5));
+        this.gdl = bD(dj(6));
+        this.gdm = bD(dj(3));
+        this.gdn = bD(dj(1));
+        this.gdo = bD(dj(2));
     }
 
     public void showDialog() {
@@ -99,7 +99,7 @@ public class y extends com.baidu.tbadk.core.dialog.b {
     }
 
     public void lb(boolean z) {
-        this.gdj.setVisibility(z ? 0 : 8);
+        this.gdk.setVisibility(z ? 0 : 8);
     }
 
     public View getView() {

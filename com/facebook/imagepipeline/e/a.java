@@ -10,14 +10,14 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public abstract class a<T> extends AbstractDataSource<T> {
-    private final com.facebook.imagepipeline.g.b irl;
-    private final an isB;
+    private final com.facebook.imagepipeline.g.b irm;
+    private final an isC;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(ai<T> aiVar, an anVar, com.facebook.imagepipeline.g.b bVar) {
-        this.isB = anVar;
-        this.irl = bVar;
-        this.irl.a(anVar.cap(), this.isB.bVS(), this.isB.getId(), this.isB.cas());
+        this.isC = anVar;
+        this.irm = bVar;
+        this.irm.a(anVar.cap(), this.isC.bVS(), this.isC.getId(), this.isC.cas());
         aiVar.a(bZj(), anVar);
     }
 
@@ -48,14 +48,14 @@ public abstract class a<T> extends AbstractDataSource<T> {
     /* JADX INFO: Access modifiers changed from: protected */
     public void d(@Nullable T t, boolean z) {
         if (super.a((a<T>) t, z) && z) {
-            this.irl.a(this.isB.cap(), this.isB.getId(), this.isB.cas());
+            this.irm.a(this.isC.cap(), this.isC.getId(), this.isC.cas());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void A(Throwable th) {
         if (super.t(th)) {
-            this.irl.a(this.isB.cap(), this.isB.getId(), th, this.isB.cas());
+            this.irm.a(this.isC.cap(), this.isC.getId(), th, this.isC.cas());
         }
     }
 
@@ -70,8 +70,8 @@ public abstract class a<T> extends AbstractDataSource<T> {
             return false;
         }
         if (!super.isFinished()) {
-            this.irl.zD(this.isB.getId());
-            this.isB.cancel();
+            this.irm.zD(this.isC.getId());
+            this.isC.cancel();
         }
         return true;
     }

@@ -13,30 +13,30 @@ import java.util.List;
 @SuppressLint({"WrongCall"})
 /* loaded from: classes.dex */
 public class TbListTextView extends TextView {
-    private boolean blb;
+    private boolean blc;
 
     public TbListTextView(Context context) {
         super(context);
-        this.blb = true;
+        this.blc = true;
     }
 
     public TbListTextView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.blb = true;
+        this.blc = true;
     }
 
     public TbListTextView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.blb = true;
+        this.blc = true;
     }
 
     public void setCheckSelection(boolean z) {
-        this.blb = z;
+        this.blc = z;
     }
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (!this.blb) {
+        if (!this.blc) {
             return super.onTouchEvent(motionEvent);
         }
         setLongClickable(false);
@@ -64,7 +64,7 @@ public class TbListTextView extends TextView {
 
     private void a(SpannableStringBuilder spannableStringBuilder, int i, int i2) {
         a b = b(spannableStringBuilder, i, i2);
-        if (b.blc) {
+        if (b.bld) {
             a(i, i2, spannableStringBuilder, b);
         } else {
             N(i, i2);
@@ -106,7 +106,7 @@ public class TbListTextView extends TextView {
     }
 
     private void a(int i, int i2, SpannableStringBuilder spannableStringBuilder, a aVar) {
-        for (Object obj : aVar.ble) {
+        for (Object obj : aVar.blf) {
             int spanEnd = spannableStringBuilder.getSpanEnd(obj);
             spannableStringBuilder.delete(spanEnd, spanEnd + 1);
             try {
@@ -116,7 +116,7 @@ public class TbListTextView extends TextView {
             }
         }
         boolean z = true;
-        for (Object obj2 : aVar.bld) {
+        for (Object obj2 : aVar.ble) {
             int spanStart = spannableStringBuilder.getSpanStart(obj2);
             spannableStringBuilder.delete(spanStart - 1, spanStart);
             try {
@@ -140,9 +140,9 @@ public class TbListTextView extends TextView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public static class a {
-        public final boolean blc;
-        public final List<Object> bld;
+        public final boolean bld;
         public final List<Object> ble;
+        public final List<Object> blf;
 
         public static a d(List<Object> list, List<Object> list2) {
             return new a(true, list, list2);
@@ -153,9 +153,9 @@ public class TbListTextView extends TextView {
         }
 
         private a(boolean z, List<Object> list, List<Object> list2) {
-            this.blc = z;
-            this.bld = list;
-            this.ble = list2;
+            this.bld = z;
+            this.ble = list;
+            this.blf = list2;
         }
     }
 }

@@ -7,8 +7,8 @@ import rx.d;
 import rx.subjects.UnicastSubject;
 /* loaded from: classes2.dex */
 public final class ch<T, U> implements d.b<rx.d<T>, T> {
-    static final Object iNI = new Object();
-    final rx.d<U> iGI;
+    static final Object iNJ = new Object();
+    final rx.d<U> iGJ;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -16,7 +16,7 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
     }
 
     public ch(rx.d<U> dVar) {
-        this.iGI = dVar;
+        this.iGJ = dVar;
     }
 
     public rx.j<? super T> call(rx.j<? super rx.d<T>> jVar) {
@@ -25,7 +25,7 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
         jVar.add(bVar);
         jVar.add(aVar);
         bVar.cfv();
-        this.iGI.unsafeSubscribe(aVar);
+        this.iGJ.unsafeSubscribe(aVar);
         return bVar;
     }
 
@@ -35,9 +35,9 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
         final rx.j<? super rx.d<T>> child;
         boolean emitting;
         final Object guard = new Object();
-        rx.e<T> iNK;
-        rx.d<T> iNL;
-        List<Object> iNM;
+        rx.e<T> iNL;
+        rx.d<T> iNM;
+        List<Object> iNN;
 
         public b(rx.j<? super rx.d<T>> jVar) {
             this.child = new rx.b.f(jVar);
@@ -54,14 +54,14 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
             boolean z2 = false;
             synchronized (this.guard) {
                 if (this.emitting) {
-                    if (this.iNM == null) {
-                        this.iNM = new ArrayList();
+                    if (this.iNN == null) {
+                        this.iNN = new ArrayList();
                     }
-                    this.iNM.add(t);
+                    this.iNN.add(t);
                     return;
                 }
-                List<Object> list = this.iNM;
-                this.iNM = null;
+                List<Object> list = this.iNN;
+                this.iNN = null;
                 this.emitting = true;
                 List<Object> list2 = list;
                 boolean z3 = true;
@@ -75,8 +75,8 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
                         try {
                             synchronized (this.guard) {
                                 try {
-                                    list2 = this.iNM;
-                                    this.iNM = null;
+                                    list2 = this.iNN;
+                                    this.iNN = null;
                                     if (list2 == null) {
                                         this.emitting = false;
                                         return;
@@ -116,7 +116,7 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
         void eE(List<Object> list) {
             if (list != null) {
                 for (Object obj : list) {
-                    if (obj == ch.iNI) {
+                    if (obj == ch.iNJ) {
                         cft();
                     } else if (NotificationLite.ba(obj)) {
                         error(NotificationLite.bc(obj));
@@ -132,22 +132,22 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
         }
 
         void cft() {
-            rx.e<T> eVar = this.iNK;
+            rx.e<T> eVar = this.iNL;
             if (eVar != null) {
                 eVar.onCompleted();
             }
             cfu();
-            this.child.onNext(this.iNL);
+            this.child.onNext(this.iNM);
         }
 
         void cfu() {
             UnicastSubject cgK = UnicastSubject.cgK();
-            this.iNK = cgK;
             this.iNL = cgK;
+            this.iNM = cgK;
         }
 
         void bl(T t) {
-            rx.e<T> eVar = this.iNK;
+            rx.e<T> eVar = this.iNL;
             if (eVar != null) {
                 eVar.onNext(t);
             }
@@ -157,10 +157,10 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
         public void onError(Throwable th) {
             synchronized (this.guard) {
                 if (this.emitting) {
-                    this.iNM = Collections.singletonList(NotificationLite.M(th));
+                    this.iNN = Collections.singletonList(NotificationLite.M(th));
                     return;
                 }
-                this.iNM = null;
+                this.iNN = null;
                 this.emitting = true;
                 error(th);
             }
@@ -170,14 +170,14 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
         public void onCompleted() {
             synchronized (this.guard) {
                 if (this.emitting) {
-                    if (this.iNM == null) {
-                        this.iNM = new ArrayList();
+                    if (this.iNN == null) {
+                        this.iNN = new ArrayList();
                     }
-                    this.iNM.add(NotificationLite.ceF());
+                    this.iNN.add(NotificationLite.ceF());
                     return;
                 }
-                List<Object> list = this.iNM;
-                this.iNM = null;
+                List<Object> list = this.iNN;
+                this.iNN = null;
                 this.emitting = true;
                 try {
                     eE(list);
@@ -193,14 +193,14 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
             boolean z2 = false;
             synchronized (this.guard) {
                 if (this.emitting) {
-                    if (this.iNM == null) {
-                        this.iNM = new ArrayList();
+                    if (this.iNN == null) {
+                        this.iNN = new ArrayList();
                     }
-                    this.iNM.add(ch.iNI);
+                    this.iNN.add(ch.iNJ);
                     return;
                 }
-                List<Object> list = this.iNM;
-                this.iNM = null;
+                List<Object> list = this.iNN;
+                this.iNN = null;
                 this.emitting = true;
                 List<Object> list2 = list;
                 boolean z3 = true;
@@ -214,8 +214,8 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
                         try {
                             synchronized (this.guard) {
                                 try {
-                                    list2 = this.iNM;
-                                    this.iNM = null;
+                                    list2 = this.iNN;
+                                    this.iNN = null;
                                     if (list2 == null) {
                                         this.emitting = false;
                                         return;
@@ -251,9 +251,9 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
         }
 
         void complete() {
-            rx.e<T> eVar = this.iNK;
-            this.iNK = null;
+            rx.e<T> eVar = this.iNL;
             this.iNL = null;
+            this.iNM = null;
             if (eVar != null) {
                 eVar.onCompleted();
             }
@@ -262,9 +262,9 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
         }
 
         void error(Throwable th) {
-            rx.e<T> eVar = this.iNK;
-            this.iNK = null;
+            rx.e<T> eVar = this.iNL;
             this.iNL = null;
+            this.iNM = null;
             if (eVar != null) {
                 eVar.onError(th);
             }
@@ -276,10 +276,10 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T, U> extends rx.j<U> {
-        final b<T> iNJ;
+        final b<T> iNK;
 
         public a(b<T> bVar) {
-            this.iNJ = bVar;
+            this.iNK = bVar;
         }
 
         @Override // rx.j
@@ -289,17 +289,17 @@ public final class ch<T, U> implements d.b<rx.d<T>, T> {
 
         @Override // rx.e
         public void onNext(U u) {
-            this.iNJ.cfv();
+            this.iNK.cfv();
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iNJ.onError(th);
+            this.iNK.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.iNJ.onCompleted();
+            this.iNK.onCompleted();
         }
     }
 }

@@ -9,9 +9,9 @@ import com.faceunity.gles.Texture2dProgram;
 import com.faceunity.wrapper.faceunity;
 /* loaded from: classes5.dex */
 class h implements SurfaceTexture.OnFrameAvailableListener {
-    private boolean hGv;
-    private String hGw;
-    private com.faceunity.gles.c hGy;
+    private com.faceunity.gles.c hGA;
+    private boolean hGw;
+    private String hGx;
     private com.faceunity.gles.c hGz;
     private Context mContext;
     private int mHeight;
@@ -21,25 +21,25 @@ class h implements SurfaceTexture.OnFrameAvailableListener {
     private int mWidth;
     static int mFacebeautyItem = 0;
     static int mEffectItem = 0;
-    static int hGx = 0;
-    static int[] itemsArray = {mFacebeautyItem, mEffectItem, hGx};
-    private Object hGu = new Object();
+    static int hGy = 0;
+    static int[] itemsArray = {mFacebeautyItem, mEffectItem, hGy};
+    private Object hGv = new Object();
     private final float[] mSTMatrix = new float[16];
 
     public h(Context context, String str, int i, int i2) {
-        this.hGw = "normal";
+        this.hGx = "normal";
         this.mContext = context;
-        this.hGw = str;
+        this.hGx = str;
         this.mWidth = i;
         this.mHeight = i2;
         setup();
     }
 
     private void setup() {
-        this.hGy = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+        this.hGz = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
         Log.d("OutputSurface", "onSurfaceCreated: ");
-        this.hGz = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
-        this.mTextureId = this.hGz.createTextureObject();
+        this.hGA = new com.faceunity.gles.c(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
+        this.mTextureId = this.hGA.createTextureObject();
         this.mSurfaceTexture = new SurfaceTexture(this.mTextureId);
         this.mSurface = new Surface(this.mSurfaceTexture);
         mFacebeautyItem = com.faceunity.a.dv(this.mContext);
@@ -51,9 +51,9 @@ class h implements SurfaceTexture.OnFrameAvailableListener {
         this.mSurface.release();
         this.mSurface = null;
         this.mSurfaceTexture = null;
-        if (this.hGy != null) {
-            this.hGy.release(false);
-            this.hGy = null;
+        if (this.hGz != null) {
+            this.hGz.release(false);
+            this.hGz = null;
         }
         faceunity.fuDestroyItem(mEffectItem);
         int[] iArr = itemsArray;
@@ -69,10 +69,10 @@ class h implements SurfaceTexture.OnFrameAvailableListener {
     public void bKh() {
         this.mSurfaceTexture.updateTexImage();
         this.mSurfaceTexture.getTransformMatrix(this.mSTMatrix);
-        faceunity.fuItemSetParam(mFacebeautyItem, "filter_name", this.hGw);
+        faceunity.fuItemSetParam(mFacebeautyItem, "filter_name", this.hGx);
         faceunity.fuItemSetParam(mFacebeautyItem, "eye_bright", 0.0d);
         faceunity.fuItemSetParam(mFacebeautyItem, "tooth_whiten", 0.0d);
-        this.hGy.drawFrame(faceunity.fuBeautifyImage(this.mTextureId, 1, this.mWidth, this.mHeight, 0, itemsArray), this.mSTMatrix);
+        this.hGz.drawFrame(faceunity.fuBeautifyImage(this.mTextureId, 1, this.mWidth, this.mHeight, 0, itemsArray), this.mSTMatrix);
     }
 
     public Surface getSurface() {
@@ -80,18 +80,18 @@ class h implements SurfaceTexture.OnFrameAvailableListener {
     }
 
     public void bKi() {
-        synchronized (this.hGu) {
+        synchronized (this.hGv) {
             do {
-                if (!this.hGv) {
+                if (!this.hGw) {
                     try {
-                        this.hGu.wait(500L);
+                        this.hGv.wait(500L);
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
                 } else {
-                    this.hGv = false;
+                    this.hGw = false;
                 }
-            } while (this.hGv);
+            } while (this.hGw);
             throw new RuntimeException("Surface frame wait timed out");
         }
         checkGlError("before updateTexImage");
@@ -101,12 +101,12 @@ class h implements SurfaceTexture.OnFrameAvailableListener {
     @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
     public void onFrameAvailable(SurfaceTexture surfaceTexture) {
         Log.d("OutputSurface", "new frame available");
-        synchronized (this.hGu) {
-            if (this.hGv) {
+        synchronized (this.hGv) {
+            if (this.hGw) {
                 throw new RuntimeException("mFrameAvailable already set, frame could be dropped");
             }
-            this.hGv = true;
-            this.hGu.notifyAll();
+            this.hGw = true;
+            this.hGv.notifyAll();
         }
     }
 

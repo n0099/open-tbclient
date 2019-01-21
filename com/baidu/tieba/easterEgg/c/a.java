@@ -8,13 +8,13 @@ import com.baidu.tbadk.TbConfig;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class a extends d {
-    private com.google.gson.d bHG;
-    private com.baidu.tieba.easterEgg.d dpL;
-    private HashMap<String, String> dpM;
+    private com.google.gson.d bHH;
+    private com.baidu.tieba.easterEgg.d dpM;
+    private HashMap<String, String> dpN;
 
     public a(int i) {
         super(i);
-        this.bHG = new com.google.gson.d();
+        this.bHH = new com.google.gson.d();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,18 +22,18 @@ public class a extends d {
     public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         String json;
         String nt = nt(httpMessageTask.getUrl());
-        if (nt != null && this.dpL != null) {
+        if (nt != null && this.dpM != null) {
             if (httpMessage.getExtra() instanceof NetMessage) {
                 NetMessage netMessage = (NetMessage) httpMessage.getExtra();
                 if (netMessage.getSocketMessage() == null) {
                     json = "";
                 } else {
-                    json = this.bHG.toJson(netMessage.getSocketMessage().getData());
+                    json = this.bHH.toJson(netMessage.getSocketMessage().getData());
                 }
             } else {
-                json = this.bHG.toJson(httpMessage.getParams());
+                json = this.bHH.toJson(httpMessage.getParams());
             }
-            this.dpL.H(httpMessageTask.getUrl(), this.bHG.toJson(nt), this.bHG.toJson(json));
+            this.dpM.H(httpMessageTask.getUrl(), this.bHH.toJson(nt), this.bHH.toJson(json));
         }
         return httpMessage;
     }
@@ -43,17 +43,17 @@ public class a extends d {
             str = str.split("[?]")[0];
         }
         String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-        if (this.dpM != null) {
-            return this.dpM.get(replace);
+        if (this.dpN != null) {
+            return this.dpN.get(replace);
         }
         return null;
     }
 
     public void q(HashMap<String, String> hashMap) {
-        this.dpM = hashMap;
+        this.dpN = hashMap;
     }
 
     public void a(com.baidu.tieba.easterEgg.d dVar) {
-        this.dpL = dVar;
+        this.dpM = dVar;
     }
 }

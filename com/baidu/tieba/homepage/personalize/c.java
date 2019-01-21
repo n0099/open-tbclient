@@ -6,8 +6,8 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 /* loaded from: classes6.dex */
 public class c {
-    private static int eyb = 0;
     private static int eyc = 0;
+    private static int eyd = 0;
 
     public static boolean L(Activity activity) {
         if (activity != null) {
@@ -26,17 +26,17 @@ public class c {
             int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
             View childAt = bdTypeRecyclerView.getChildAt(0);
             int top = childAt != null ? childAt.getTop() : 0;
-            eyb = firstVisiblePosition;
-            eyc = top;
+            eyc = firstVisiblePosition;
+            eyd = top;
         }
     }
 
     public static void e(BdTypeRecyclerView bdTypeRecyclerView) {
-        if (bdTypeRecyclerView != null && (bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager) && eyb <= bdTypeRecyclerView.getCount() - 1) {
+        if (bdTypeRecyclerView != null && (bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager) && eyc <= bdTypeRecyclerView.getCount() - 1) {
             bdTypeRecyclerView.requestFocusFromTouch();
-            ((LinearLayoutManager) bdTypeRecyclerView.getLayoutManager()).scrollToPositionWithOffset(eyb, eyc);
-            eyb = 0;
+            ((LinearLayoutManager) bdTypeRecyclerView.getLayoutManager()).scrollToPositionWithOffset(eyc, eyd);
             eyc = 0;
+            eyd = 0;
         }
     }
 }

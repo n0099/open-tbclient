@@ -4,49 +4,49 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.SearchPostForum.SearchForum;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId dKl = BdUniqueId.gen();
-    private String dJQ;
-    private String dKh;
+    public static final BdUniqueId dKm = BdUniqueId.gen();
+    private String dJR;
     private String dKi;
     private String dKj;
-    private boolean dKk;
-    private String drD;
+    private String dKk;
+    private boolean dKl;
+    private String drE;
     private long mForumId;
     private String mForumName;
     private String mIntro;
 
     public b(String str) {
-        this.dJQ = str;
+        this.dJR = str;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return dKl;
+        return dKm;
     }
 
     public void a(SearchForum searchForum) {
         if (searchForum != null) {
             this.mForumId = searchForum.forum_id.longValue();
             this.mForumName = searchForum.forum_name;
-            this.drD = searchForum.avatar;
-            this.dKh = searchForum.post_num;
-            this.dKi = searchForum.concern_num;
-            this.dKj = searchForum.slogan;
+            this.drE = searchForum.avatar;
+            this.dKi = searchForum.post_num;
+            this.dKj = searchForum.concern_num;
+            this.dKk = searchForum.slogan;
             this.mIntro = searchForum.intro;
-            this.dKk = searchForum.has_concerned.intValue() != 0;
+            this.dKl = searchForum.has_concerned.intValue() != 0;
         }
     }
 
     public String getAvatar() {
-        return this.drD;
+        return this.drE;
     }
 
     public String aBb() {
-        return this.dKi;
+        return this.dKj;
     }
 
     public String aBc() {
-        return this.dKh;
+        return this.dKi;
     }
 
     public String getForumName() {
@@ -58,6 +58,6 @@ public class b extends com.baidu.tieba.card.data.b {
     }
 
     public String aBd() {
-        return this.dJQ;
+        return this.dJR;
     }
 }

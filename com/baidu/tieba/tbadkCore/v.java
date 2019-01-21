@@ -6,25 +6,25 @@ import com.baidu.tbadk.core.data.bd;
 import com.baidu.tbadk.core.data.bg;
 /* loaded from: classes.dex */
 public class v extends bb {
-    public static final BdUniqueId hoJ = BdUniqueId.gen();
-    private boolean bRD = false;
-    private bd hoK;
-    private bg hoL;
+    public static final BdUniqueId hoK = BdUniqueId.gen();
+    private boolean bRE = false;
+    private bd hoL;
+    private bg hoM;
 
     @Override // com.baidu.tbadk.core.data.bb, com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return hoJ;
+        return hoK;
     }
 
     public boolean aLG() {
-        return this.bRD;
+        return this.bRE;
     }
 
     public bd bEn() {
-        return this.hoK;
+        return this.hoL;
     }
 
     public bg bEo() {
-        return this.hoL;
+        return this.hoM;
     }
 }

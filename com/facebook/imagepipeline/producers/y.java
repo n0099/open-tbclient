@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.util.concurrent.Executor;
 /* loaded from: classes2.dex */
 public abstract class y implements ai<com.facebook.imagepipeline.f.d> {
-    private final com.facebook.common.memory.g ipx;
+    private final com.facebook.common.memory.g ipy;
     private final Executor mExecutor;
 
     protected abstract String caA();
@@ -16,7 +16,7 @@ public abstract class y implements ai<com.facebook.imagepipeline.f.d> {
     /* JADX INFO: Access modifiers changed from: protected */
     public y(Executor executor, com.facebook.common.memory.g gVar) {
         this.mExecutor = executor;
-        this.ipx = gVar;
+        this.ipy = gVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
@@ -60,9 +60,9 @@ public abstract class y implements ai<com.facebook.imagepipeline.f.d> {
         com.facebook.common.references.a aVar = null;
         try {
             if (i <= 0) {
-                aVar = com.facebook.common.references.a.c(this.ipx.p(inputStream));
+                aVar = com.facebook.common.references.a.c(this.ipy.p(inputStream));
             } else {
-                aVar = com.facebook.common.references.a.c(this.ipx.a(inputStream, i));
+                aVar = com.facebook.common.references.a.c(this.ipy.a(inputStream, i));
             }
             return new com.facebook.imagepipeline.f.d(aVar);
         } finally {

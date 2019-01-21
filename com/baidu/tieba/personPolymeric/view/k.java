@@ -30,17 +30,17 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class k implements View.OnClickListener {
-    private TextView gDA;
+    private LinearLayout gDA;
     private TextView gDB;
-    private LinearLayout gDC;
+    private TextView gDC;
     private LinearLayout gDD;
     private LinearLayout gDE;
-    private ImageView gDF;
-    private FrameLayout gDv;
-    private TbImageView gDw;
+    private LinearLayout gDF;
+    private ImageView gDG;
+    private FrameLayout gDw;
     private TbImageView gDx;
-    private TextView gDy;
-    private LinearLayout gDz;
+    private TbImageView gDy;
+    private TextView gDz;
     private View mDividerView;
     private boolean mIsHost;
     private TbPageContext mPageContext;
@@ -53,43 +53,43 @@ public class k implements View.OnClickListener {
     }
 
     private void initView(View view) {
-        this.gDv = (FrameLayout) view.findViewById(e.g.ala_entrance_root);
-        this.gDw = (TbImageView) view.findViewById(e.g.entrance_background);
-        this.gDw.setAutoChangeStyle(false);
-        this.gDw.setDrawerType(1);
-        this.gDw.setRadius(com.baidu.adp.lib.util.l.h(this.mPageContext.getPageActivity(), e.C0210e.ds10));
-        this.gDx = (TbImageView) view.findViewById(e.g.live_level_img);
+        this.gDw = (FrameLayout) view.findViewById(e.g.ala_entrance_root);
+        this.gDx = (TbImageView) view.findViewById(e.g.entrance_background);
         this.gDx.setAutoChangeStyle(false);
         this.gDx.setDrawerType(1);
         this.gDx.setRadius(com.baidu.adp.lib.util.l.h(this.mPageContext.getPageActivity(), e.C0210e.ds10));
-        this.gDy = (TextView) view.findViewById(e.g.live_level_text);
-        this.gDz = (LinearLayout) view.findViewById(e.g.replay_root);
-        this.gDB = (TextView) this.gDz.findViewById(e.g.tv_replay_more);
-        this.gDF = (ImageView) this.gDz.findViewById(e.g.replay_more_arrow);
-        this.gDA = (TextView) this.gDz.findViewById(e.g.tv_replay_tile);
-        this.gDC = (LinearLayout) this.gDz.findViewById(e.g.replay_item_one);
-        this.gDD = (LinearLayout) this.gDz.findViewById(e.g.replay_item_two);
-        this.gDE = (LinearLayout) this.gDz.findViewById(e.g.replay_item_three);
-        g(this.gDC);
+        this.gDy = (TbImageView) view.findViewById(e.g.live_level_img);
+        this.gDy.setAutoChangeStyle(false);
+        this.gDy.setDrawerType(1);
+        this.gDy.setRadius(com.baidu.adp.lib.util.l.h(this.mPageContext.getPageActivity(), e.C0210e.ds10));
+        this.gDz = (TextView) view.findViewById(e.g.live_level_text);
+        this.gDA = (LinearLayout) view.findViewById(e.g.replay_root);
+        this.gDC = (TextView) this.gDA.findViewById(e.g.tv_replay_more);
+        this.gDG = (ImageView) this.gDA.findViewById(e.g.replay_more_arrow);
+        this.gDB = (TextView) this.gDA.findViewById(e.g.tv_replay_tile);
+        this.gDD = (LinearLayout) this.gDA.findViewById(e.g.replay_item_one);
+        this.gDE = (LinearLayout) this.gDA.findViewById(e.g.replay_item_two);
+        this.gDF = (LinearLayout) this.gDA.findViewById(e.g.replay_item_three);
         g(this.gDD);
         g(this.gDE);
-        this.gDv.setOnClickListener(this);
-        this.gDC.setOnClickListener(this);
+        g(this.gDF);
+        this.gDw.setOnClickListener(this);
         this.gDD.setOnClickListener(this);
         this.gDE.setOnClickListener(this);
-        this.gDB.setOnClickListener(this);
+        this.gDF.setOnClickListener(this);
+        this.gDC.setOnClickListener(this);
         this.mDividerView = view.findViewById(e.g.divider_view);
     }
 
     public void onChangeSkinType(int i) {
         al.j(this.mRootView, e.d.cp_bg_line_d);
-        al.h(this.gDA, e.d.cp_cont_b);
-        al.h(this.gDB, e.d.cp_cont_d);
+        al.h(this.gDB, e.d.cp_cont_b);
+        al.h(this.gDC, e.d.cp_cont_d);
         al.j(this.mDividerView, e.d.cp_bg_line_e);
-        al.c(this.gDF, e.f.icon_mine_list_arrow);
-        h(this.gDC);
+        al.c(this.gDG, e.f.icon_mine_list_arrow);
         h(this.gDD);
         h(this.gDE);
+        h(this.gDF);
     }
 
     public View anZ() {
@@ -109,56 +109,56 @@ public class k implements View.OnClickListener {
 
     private void a(AlaLiveInfoCoreData alaLiveInfoCoreData, boolean z, UserData userData) {
         if (z || alaLiveInfoCoreData == null || alaLiveInfoCoreData.liveStatus != 1 || userData == null || userData.alaUserData == null || StringUtils.isNull(alaLiveInfoCoreData.liveCover)) {
-            this.gDv.setVisibility(8);
+            this.gDw.setVisibility(8);
             return;
         }
-        this.gDv.setVisibility(0);
-        this.gDv.setTag(alaLiveInfoCoreData);
+        this.gDw.setVisibility(0);
+        this.gDw.setTag(alaLiveInfoCoreData);
         if (!StringUtils.isNull(alaLiveInfoCoreData.liveCover)) {
-            this.gDw.startLoad(alaLiveInfoCoreData.liveCover, 10, false);
+            this.gDx.startLoad(alaLiveInfoCoreData.liveCover, 10, false);
         }
         int i = userData.alaUserData.level_id;
         if (i <= 10) {
-            this.gDx.setBackgroundResource(e.f.shape_ala_grade_1_green);
+            this.gDy.setBackgroundResource(e.f.shape_ala_grade_1_green);
         } else if (i <= 20) {
-            this.gDx.setBackgroundResource(e.f.shape_ala_grade_2_blue);
+            this.gDy.setBackgroundResource(e.f.shape_ala_grade_2_blue);
         } else if (i <= 30) {
-            this.gDx.setBackgroundResource(e.f.shape_ala_grade_3_yellow);
+            this.gDy.setBackgroundResource(e.f.shape_ala_grade_3_yellow);
         } else if (i <= 40) {
-            this.gDx.setBackgroundResource(e.f.shape_ala_grade_4_orange);
+            this.gDy.setBackgroundResource(e.f.shape_ala_grade_4_orange);
         } else {
-            this.gDx.setBackgroundResource(e.f.shape_ala_grade_5_purple);
+            this.gDy.setBackgroundResource(e.f.shape_ala_grade_5_purple);
         }
-        this.gDy.setText(ui(String.valueOf(i)));
+        this.gDz.setText(ui(String.valueOf(i)));
     }
 
     private void dz(List<AlaLiveInfoCoreData> list) {
         if (v.I(list)) {
-            this.gDz.setVisibility(8);
+            this.gDA.setVisibility(8);
             return;
         }
-        this.gDz.setVisibility(0);
-        this.gDD.setVisibility(0);
+        this.gDA.setVisibility(0);
         this.gDE.setVisibility(0);
-        this.gDC.setVisibility(0);
+        this.gDF.setVisibility(0);
+        this.gDD.setVisibility(0);
         int size = list.size();
         if (size >= 4) {
-            this.gDB.setVisibility(0);
-            this.gDF.setVisibility(0);
+            this.gDC.setVisibility(0);
+            this.gDG.setVisibility(0);
         } else {
-            this.gDB.setVisibility(4);
-            this.gDF.setVisibility(4);
+            this.gDC.setVisibility(4);
+            this.gDG.setVisibility(4);
         }
-        a(list.get(0), this.gDC);
+        a(list.get(0), this.gDD);
         if (size >= 3) {
-            a(list.get(1), this.gDD);
-            a(list.get(2), this.gDE);
+            a(list.get(1), this.gDE);
+            a(list.get(2), this.gDF);
         } else if (size >= 2) {
-            a(list.get(1), this.gDD);
-            this.gDE.setVisibility(4);
+            a(list.get(1), this.gDE);
+            this.gDF.setVisibility(4);
         } else {
-            this.gDD.setVisibility(4);
             this.gDE.setVisibility(4);
+            this.gDF.setVisibility(4);
         }
     }
 
@@ -212,22 +212,22 @@ public class k implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gDv) {
-            if (this.gDv.getTag() != null && (this.gDv.getTag() instanceof AlaLiveInfoCoreData)) {
-                AlaLiveInfoCoreData alaLiveInfoCoreData = (AlaLiveInfoCoreData) this.gDv.getTag();
+        if (view == this.gDw) {
+            if (this.gDw.getTag() != null && (this.gDw.getTag() instanceof AlaLiveInfoCoreData)) {
+                AlaLiveInfoCoreData alaLiveInfoCoreData = (AlaLiveInfoCoreData) this.gDw.getTag();
                 if (alaLiveInfoCoreData.liveID > 0) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921315, Long.valueOf(alaLiveInfoCoreData.liveID)));
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.mPageContext.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY, TbadkCoreApplication.getCurrentAccount(), this.mIsHost, "")));
                 TiebaStatic.log(new am("c12544"));
             }
-        } else if (view == this.gDC) {
-            bN(this.gDC);
         } else if (view == this.gDD) {
             bN(this.gDD);
         } else if (view == this.gDE) {
             bN(this.gDE);
-        } else if (view == this.gDB) {
+        } else if (view == this.gDF) {
+            bN(this.gDF);
+        } else if (view == this.gDC) {
             brX();
         }
     }

@@ -14,7 +14,7 @@ import com.baidu.tieba.e;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes.dex */
 public class FlipLoadingLayout extends LoadingLayout {
-    private final Animation bqQ;
+    private final Animation bqR;
     private final Animation mRotateAnimation;
 
     public FlipLoadingLayout(Context context, PullToRefreshBase.Mode mode, PullToRefreshBase.Orientation orientation, TypedArray typedArray) {
@@ -24,10 +24,10 @@ public class FlipLoadingLayout extends LoadingLayout {
         this.mRotateAnimation.setInterpolator(ANIMATION_INTERPOLATOR);
         this.mRotateAnimation.setDuration(150L);
         this.mRotateAnimation.setFillAfter(true);
-        this.bqQ = new RotateAnimation(i, 0.0f, 1, 0.5f, 1, 0.5f);
-        this.bqQ.setInterpolator(ANIMATION_INTERPOLATOR);
-        this.bqQ.setDuration(150L);
-        this.bqQ.setFillAfter(true);
+        this.bqR = new RotateAnimation(i, 0.0f, 1, 0.5f, 1, 0.5f);
+        this.bqR.setInterpolator(ANIMATION_INTERPOLATOR);
+        this.bqR.setDuration(150L);
+        this.bqR.setFillAfter(true);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
@@ -55,7 +55,7 @@ public class FlipLoadingLayout extends LoadingLayout {
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     protected void pullToRefreshImpl() {
         if (this.mRotateAnimation == this.mHeaderImage.getAnimation()) {
-            this.mHeaderImage.startAnimation(this.bqQ);
+            this.mHeaderImage.startAnimation(this.bqR);
         }
     }
 
@@ -83,14 +83,14 @@ public class FlipLoadingLayout extends LoadingLayout {
     }
 
     private float getDrawableRotationAngle() {
-        switch (this.bqv) {
+        switch (this.bqw) {
             case PULL_FROM_END:
-                if (this.bqV == PullToRefreshBase.Orientation.HORIZONTAL) {
+                if (this.bqW == PullToRefreshBase.Orientation.HORIZONTAL) {
                     return 90.0f;
                 }
                 return 180.0f;
             case PULL_FROM_START:
-                if (this.bqV != PullToRefreshBase.Orientation.HORIZONTAL) {
+                if (this.bqW != PullToRefreshBase.Orientation.HORIZONTAL) {
                     return 0.0f;
                 }
                 return 270.0f;

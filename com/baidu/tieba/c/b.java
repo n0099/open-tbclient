@@ -10,18 +10,18 @@ import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class b {
-    private ImageView dhr;
-    private MessageRedDotView dhs;
-    private int dht = e.f.icon_topbar_remind_n_svg;
-    private int dhu = e.d.select_topbar_icon_color_tint;
+    private ImageView dhs;
+    private MessageRedDotView dht;
+    private int dhu = e.f.icon_topbar_remind_n_svg;
+    private int dhv = e.d.select_topbar_icon_color_tint;
     private Context mContext;
     private View mRootView;
 
     public b(Context context) {
         this.mContext = context;
         this.mRootView = LayoutInflater.from(this.mContext).inflate(e.h.widget_message_entrance, (ViewGroup) null);
-        this.dhr = (ImageView) this.mRootView.findViewById(e.g.img_message);
-        this.dhs = (MessageRedDotView) this.mRootView.findViewById(e.g.img_red_tip);
+        this.dhs = (ImageView) this.mRootView.findViewById(e.g.img_message);
+        this.dht = (MessageRedDotView) this.mRootView.findViewById(e.g.img_red_tip);
     }
 
     public View getView() {
@@ -29,24 +29,24 @@ public class b {
     }
 
     public ImageView asr() {
-        return this.dhr;
+        return this.dhs;
     }
 
     public void h(boolean z, int i) {
         if (z) {
-            this.dhs.refresh(i);
-            this.dhs.setVisibility(0);
+            this.dht.refresh(i);
+            this.dht.setVisibility(0);
             return;
         }
-        this.dhs.setVisibility(8);
+        this.dht.setVisibility(8);
     }
 
     public void onChangeSkinType(int i) {
-        this.dhs.onChangeSkinType();
-        ap.Ed().c(this.dhr, this.dht, this.dhu);
+        this.dht.onChangeSkinType();
+        ap.Ed().c(this.dhs, this.dhu, this.dhv);
     }
 
     public void lf(int i) {
-        this.dhu = i;
+        this.dhv = i;
     }
 }

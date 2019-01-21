@@ -22,15 +22,15 @@ import com.baidu.tieba.card.y;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data.k, com.baidu.tieba.card.a.a<y>> {
-    private com.baidu.adp.lib.e.b<ConstrainImageLayout> dQa;
-    private com.baidu.adp.lib.e.b<TbImageView> dQb;
-    private ad dTH;
+    private com.baidu.adp.lib.e.b<ConstrainImageLayout> dQb;
+    private com.baidu.adp.lib.e.b<TbImageView> dQc;
+    private ad dTI;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.dTH = new ad() { // from class: com.baidu.tieba.homepage.personalize.a.d.1
+        this.dTI = new ad() { // from class: com.baidu.tieba.homepage.personalize.a.d.1
             @Override // com.baidu.tieba.card.ad
             public void a(View view, com.baidu.tieba.card.data.b bVar, Object obj) {
                 if ((bVar instanceof bb) && (obj instanceof w)) {
@@ -38,7 +38,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 }
             }
         };
-        this.dQa = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.personalize.a.d.2
+        this.dQb = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.personalize.a.d.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: aDZ */
@@ -67,7 +67,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 return constrainImageLayout;
             }
         }, 6, 0);
-        this.dQb = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.homepage.personalize.a.d.3
+        this.dQc = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<TbImageView>() { // from class: com.baidu.tieba.homepage.personalize.a.d.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: FH */
@@ -113,9 +113,9 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     public com.baidu.tieba.card.a.a<y> onCreateViewHolder(ViewGroup viewGroup) {
         y yVar = new y(this.mPageContext, viewGroup);
         com.baidu.tieba.card.a.a<y> aVar = new com.baidu.tieba.card.a.a<>(yVar);
-        yVar.setConstrainImagePool(this.dQb);
-        yVar.setConstrainLayoutPool(this.dQa);
-        yVar.b(this.dTH);
+        yVar.setConstrainImagePool(this.dQc);
+        yVar.setConstrainLayoutPool(this.dQb);
+        yVar.b(this.dTI);
         return aVar;
     }
 
@@ -132,10 +132,10 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             wVar.locate = i + 1;
             wVar.source = kVar.getSource();
             wVar.weight = kVar.getWeight();
-            wVar.daf = kVar.arb();
+            wVar.dag = kVar.arb();
             v.aqP().a(a("c13023", kVar.aaq(), wVar));
             aVar.arr().a(wVar);
-            aVar.arr().b(this.dTH);
+            aVar.arr().b(this.dTI);
             aVar.arr().a(kVar.aaq());
         }
         return aVar.getView();
@@ -146,7 +146,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         if (StringUtils.isNull(str) || bbVar == null || wVar == null) {
             return null;
         }
-        am aB = new am(str).aB(ImageViewerConfig.FORUM_ID, String.valueOf(bbVar.getFid())).aB("tid", String.valueOf(bbVar.getTid())).y("obj_locate", wVar.locate).aB(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, wVar.source).aB("obj_param1", wVar.weight).aB("ab_tag", wVar.daf).aB("obj_param3", o.aqG());
+        am aB = new am(str).aB(ImageViewerConfig.FORUM_ID, String.valueOf(bbVar.getFid())).aB("tid", String.valueOf(bbVar.getTid())).y("obj_locate", wVar.locate).aB(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, wVar.source).aB("obj_param1", wVar.weight).aB("ab_tag", wVar.dag).aB("obj_param3", o.aqG());
         if (bbVar.zT() != null) {
             aB.aB("obj_name", bbVar.zT().getName_show());
             return aB;

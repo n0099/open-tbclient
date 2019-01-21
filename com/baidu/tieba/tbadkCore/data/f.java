@@ -1,7 +1,7 @@
 package com.baidu.tieba.tbadkCore.data;
 /* loaded from: classes.dex */
 public class f {
-    private String hpi;
+    private String hpj;
     private int status;
 
     public void setStatus(int i) {
@@ -9,10 +9,10 @@ public class f {
     }
 
     public String bEu() {
-        return this.hpi;
+        return this.hpj;
     }
 
     public void vU(String str) {
-        this.hpi = str;
+        this.hpj = str;
     }
 }

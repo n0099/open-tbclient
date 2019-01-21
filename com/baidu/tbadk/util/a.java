@@ -4,18 +4,18 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static a biX;
-    private com.baidu.tbadk.coreExtra.data.a aRx;
+    private static a biY;
+    private com.baidu.tbadk.coreExtra.data.a aRy;
 
     public static a Qb() {
-        if (biX == null) {
+        if (biY == null) {
             synchronized (a.class) {
-                if (biX == null) {
-                    biX = new a();
+                if (biY == null) {
+                    biY = new a();
                 }
             }
         }
-        return biX;
+        return biY;
     }
 
     public void a(com.baidu.tbadk.coreExtra.data.a aVar) {
@@ -24,19 +24,19 @@ public class a {
 
     private void b(com.baidu.tbadk.coreExtra.data.a aVar) {
         boolean z = false;
-        z = (aVar == null || this.aRx == null || aVar.Gt() != this.aRx.Gt()) ? true : true;
-        this.aRx = aVar;
+        z = (aVar == null || this.aRy == null || aVar.Gt() != this.aRy.Gt()) ? true : true;
+        this.aRy = aVar;
         if (z) {
             iM("zan_or_cai_smallflow");
         }
     }
 
     public boolean Gt() {
-        if (this.aRx == null) {
-            this.aRx = new com.baidu.tbadk.coreExtra.data.a();
-            this.aRx.Gu();
+        if (this.aRy == null) {
+            this.aRy = new com.baidu.tbadk.coreExtra.data.a();
+            this.aRy.Gu();
         }
-        return this.aRx.Gt();
+        return this.aRy.Gt();
     }
 
     private void iM(String str) {

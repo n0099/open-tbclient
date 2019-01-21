@@ -8,23 +8,23 @@ import tbclient.TalkBall.InsertFloor;
 import tbclient.TalkBall.VideoCard;
 /* loaded from: classes3.dex */
 public class f extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId emA = BdUniqueId.gen();
-    private Integer emB;
-    private List<g> emC;
+    public static final BdUniqueId emB = BdUniqueId.gen();
+    private Integer emC;
+    private List<g> emD;
     private String mTopicName;
 
     public void a(InsertFloor insertFloor) {
         if (insertFloor != null) {
-            this.emB = insertFloor.topic_id;
+            this.emC = insertFloor.topic_id;
             this.mTopicName = insertFloor.topic_name;
-            this.emC = new ArrayList();
+            this.emD = new ArrayList();
             List<VideoCard> list = insertFloor.wander_list;
             if (list != null) {
                 for (VideoCard videoCard : list) {
                     if (a(videoCard)) {
                         g gVar = new g();
                         gVar.b(videoCard);
-                        this.emC.add(gVar);
+                        this.emD.add(gVar);
                     }
                 }
             }
@@ -37,12 +37,12 @@ public class f extends com.baidu.tieba.card.data.b {
     }
 
     private void aJH() {
-        if (this.emC != null) {
-            if (this.emC.size() < 3) {
-                this.emC.clear();
-            } else if (this.emC.size() > 5) {
-                for (int i = 5; i < this.emC.size(); i++) {
-                    this.emC.remove(i);
+        if (this.emD != null) {
+            if (this.emD.size() < 3) {
+                this.emD.clear();
+            } else if (this.emD.size() > 5) {
+                for (int i = 5; i < this.emD.size(); i++) {
+                    this.emD.remove(i);
                 }
             }
         }
@@ -50,11 +50,11 @@ public class f extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return emA;
+        return emB;
     }
 
     public Integer aJI() {
-        return this.emB;
+        return this.emC;
     }
 
     public String getTopicName() {
@@ -62,6 +62,6 @@ public class f extends com.baidu.tieba.card.data.b {
     }
 
     public List<g> aJJ() {
-        return this.emC;
+        return this.emD;
     }
 }

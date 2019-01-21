@@ -26,7 +26,7 @@ import com.baidu.tieba.im.message.PushMessage;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class NewFriendDbManagerStatic {
-    private static NewFriendDbManagerStatic bDL = new NewFriendDbManagerStatic();
+    private static NewFriendDbManagerStatic bDM = new NewFriendDbManagerStatic();
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2001216) { // from class: com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic.1
@@ -316,7 +316,7 @@ public class NewFriendDbManagerStatic {
     }
 
     public static NewFriendDbManagerStatic WU() {
-        return bDL;
+        return bDM;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

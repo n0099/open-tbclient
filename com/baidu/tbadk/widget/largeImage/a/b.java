@@ -10,32 +10,32 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private final int bok;
-    private final RectF boo;
-    private final int bop;
+    private final int bol;
+    private final RectF bop;
     private final int boq;
-    private a bot;
-    private final Rect bou;
-    private final RectF bom = new RectF();
-    private final Rect bon = new Rect();
-    private float bor = 1.0f;
-    private final List<a> bos = new ArrayList();
+    private final int bor;
+    private a bou;
+    private final Rect bov;
+    private final RectF bon = new RectF();
+    private final Rect boo = new Rect();
+    private float bos = 1.0f;
+    private final List<a> bot = new ArrayList();
     private final Matrix mMatrix = new Matrix();
 
     public b(int i, int i2, int[] iArr) {
-        this.boq = i2;
-        this.bop = i;
-        this.boo = new RectF(0.0f, 0.0f, i, i2);
-        this.bou = new Rect(0, 0, iArr[0], iArr[1]);
-        this.bok = i / 2;
+        this.bor = i2;
+        this.boq = i;
+        this.bop = new RectF(0.0f, 0.0f, i, i2);
+        this.bov = new Rect(0, 0, iArr[0], iArr[1]);
+        this.bol = i / 2;
     }
 
     public int getBlockSize() {
-        return this.bok;
+        return this.bol;
     }
 
     public Rect RF() {
-        return this.bou;
+        return this.bov;
     }
 
     public Rect a(a aVar) {
@@ -48,25 +48,25 @@ public class b {
     public Point[] RG() {
         RI();
         int RE = RE();
-        int i = (this.bon.top / RE) / this.bok;
-        int i2 = (this.bon.left / RE) / this.bok;
+        int i = (this.boo.top / RE) / this.bol;
+        int i2 = (this.boo.left / RE) / this.bol;
         Point point = new Point();
         point.y = i;
         point.x = i2;
         Point point2 = new Point();
-        point2.y = (((this.bon.bottom / RE) / this.bok) * RE) + 1;
-        point2.x = (RE * ((this.bon.right / RE) / this.bok)) + 1;
+        point2.y = (((this.boo.bottom / RE) / this.bol) * RE) + 1;
+        point2.x = (RE * ((this.boo.right / RE) / this.bol)) + 1;
         return new Point[]{point, point2};
     }
 
     public a RH() {
-        return new a(this.bok);
+        return new a(this.bol);
     }
 
     public Rect RI() {
-        this.mMatrix.mapRect(this.bom, this.boo);
-        a(this.bon, this.bom);
-        return this.bon;
+        this.mMatrix.mapRect(this.bon, this.bop);
+        a(this.boo, this.bon);
+        return this.boo;
     }
 
     private void a(Rect rect, RectF rectF) {
@@ -74,28 +74,28 @@ public class b {
     }
 
     public int getRealWidth() {
-        return this.bop;
-    }
-
-    public int RJ() {
         return this.boq;
     }
 
+    public int RJ() {
+        return this.bor;
+    }
+
     public List<a> RK() {
-        return this.bos;
+        return this.bot;
     }
 
     public void ac(float f) {
-        this.bor = f;
+        this.bos = f;
     }
 
     public float RL() {
-        return this.bor;
+        return this.bos;
     }
 
     public int RE() {
         int i = 1;
-        while (i < Math.round(this.bor)) {
+        while (i < Math.round(this.bos)) {
             i *= 2;
         }
         return i;
@@ -103,13 +103,13 @@ public class b {
 
     public void k(Bitmap bitmap) {
         if (bitmap != null) {
-            this.bot = new a(bitmap);
-            this.bot.i(0, 0, this.bop, this.boq);
+            this.bou = new a(bitmap);
+            this.bou.i(0, 0, this.boq, this.bor);
         }
     }
 
     public a RM() {
-        return this.bot;
+        return this.bou;
     }
 
     public void r(float f, float f2) {
@@ -126,15 +126,15 @@ public class b {
 
     public boolean r(int i, int i2, int i3) {
         if (i3 == RE()) {
-            return s(i, i2, i3).intersect(this.bon);
+            return s(i, i2, i3).intersect(this.boo);
         }
         return false;
     }
 
     public Rect s(int i, int i2, int i3) {
-        int i4 = this.bok * i3 * i2;
-        int i5 = this.bok * i3 * i;
-        return new Rect(i4, i5, (this.bok * i3) + i4, (this.bok * i3) + i5);
+        int i4 = this.bol * i3 * i2;
+        int i5 = this.bol * i3 * i;
+        return new Rect(i4, i5, (this.bol * i3) + i4, (this.bol * i3) + i5);
     }
 
     public void g(Rect rect) {
@@ -144,11 +144,11 @@ public class b {
         if (rect.top < 0) {
             rect.top = 0;
         }
-        if (rect.right > this.bou.right) {
-            rect.right = this.bou.right;
+        if (rect.right > this.bov.right) {
+            rect.right = this.bov.right;
         }
-        if (rect.bottom > this.bou.bottom) {
-            rect.bottom = this.bou.bottom;
+        if (rect.bottom > this.bov.bottom) {
+            rect.bottom = this.bov.bottom;
         }
     }
 }

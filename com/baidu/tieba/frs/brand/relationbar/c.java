@@ -6,13 +6,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 /* loaded from: classes6.dex */
 public class c extends RecyclerView.ItemDecoration {
-    private int dRX;
     private int dRY;
+    private int dRZ;
     private int mEnd;
 
     public c(int i, int i2, int i3) {
-        this.dRX = i;
-        this.dRY = i2;
+        this.dRY = i;
+        this.dRZ = i2;
         this.mEnd = i3;
     }
 
@@ -21,9 +21,9 @@ public class c extends RecyclerView.ItemDecoration {
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
         if (linearLayoutManager.getOrientation() == 1) {
             if (recyclerView.getChildAdapterPosition(view) == 0) {
-                rect.top = this.dRX;
-            } else {
                 rect.top = this.dRY;
+            } else {
+                rect.top = this.dRZ;
             }
             if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
                 rect.bottom = this.mEnd;
@@ -32,9 +32,9 @@ public class c extends RecyclerView.ItemDecoration {
             return;
         }
         if (recyclerView.getChildAdapterPosition(view) == 0) {
-            rect.left = this.dRX;
-        } else {
             rect.left = this.dRY;
+        } else {
+            rect.left = this.dRZ;
         }
         if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
             rect.right = this.mEnd;

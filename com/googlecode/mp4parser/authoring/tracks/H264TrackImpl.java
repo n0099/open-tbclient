@@ -272,14 +272,14 @@ public class H264TrackImpl extends AbstractTrack {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes5.dex */
     public class a {
-        long azb;
+        long azc;
         ByteBuffer buffer;
         DataSource dataSource;
-        long iBw = 0;
-        int iBx = 0;
+        long iBx = 0;
+        int iBy = 0;
 
         public void ccN() throws IOException {
-            this.buffer = this.dataSource.map(this.iBw, Math.min(this.dataSource.size() - this.iBw, H264TrackImpl.BUFFER));
+            this.buffer = this.dataSource.map(this.iBx, Math.min(this.dataSource.size() - this.iBx, H264TrackImpl.BUFFER));
         }
 
         a(DataSource dataSource) throws IOException {
@@ -288,9 +288,9 @@ public class H264TrackImpl extends AbstractTrack {
         }
 
         boolean ccO() throws IOException {
-            if (this.buffer.limit() - this.iBx >= 3) {
-                return this.buffer.get(this.iBx) == 0 && this.buffer.get(this.iBx + 1) == 0 && this.buffer.get(this.iBx + 2) == 1;
-            } else if (this.iBw + this.iBx != this.dataSource.size()) {
+            if (this.buffer.limit() - this.iBy >= 3) {
+                return this.buffer.get(this.iBy) == 0 && this.buffer.get(this.iBy + 1) == 0 && this.buffer.get(this.iBy + 2) == 1;
+            } else if (this.iBx + this.iBy != this.dataSource.size()) {
                 System.err.println(H264TrackImpl.this.samples.size());
                 throw new RuntimeException("buffer repositioning require");
             } else {
@@ -299,32 +299,32 @@ public class H264TrackImpl extends AbstractTrack {
         }
 
         boolean ccP() throws IOException {
-            if (this.buffer.limit() - this.iBx >= 3) {
-                return this.buffer.get(this.iBx) == 0 && this.buffer.get(this.iBx + 1) == 0 && (this.buffer.get(this.iBx + 2) == 0 || this.buffer.get(this.iBx + 2) == 1);
-            } else if (this.iBw + this.iBx + 3 > this.dataSource.size()) {
-                return this.iBw + ((long) this.iBx) == this.dataSource.size();
+            if (this.buffer.limit() - this.iBy >= 3) {
+                return this.buffer.get(this.iBy) == 0 && this.buffer.get(this.iBy + 1) == 0 && (this.buffer.get(this.iBy + 2) == 0 || this.buffer.get(this.iBy + 2) == 1);
+            } else if (this.iBx + this.iBy + 3 > this.dataSource.size()) {
+                return this.iBx + ((long) this.iBy) == this.dataSource.size();
             } else {
-                this.iBw = this.azb;
-                this.iBx = 0;
+                this.iBx = this.azc;
+                this.iBy = 0;
                 ccN();
                 return ccP();
             }
         }
 
         void ccQ() {
-            this.iBx++;
+            this.iBy++;
         }
 
         void ccR() {
-            this.iBx += 3;
-            this.azb = this.iBw + this.iBx;
+            this.iBy += 3;
+            this.azc = this.iBx + this.iBy;
         }
 
         public ByteBuffer ccS() {
-            if (this.azb >= this.iBw) {
-                this.buffer.position((int) (this.azb - this.iBw));
+            if (this.azc >= this.iBx) {
+                this.buffer.position((int) (this.azc - this.iBx));
                 ByteBuffer slice = this.buffer.slice();
-                slice.limit((int) (this.iBx - (this.azb - this.iBw)));
+                slice.limit((int) (this.iBy - (this.azc - this.iBx)));
                 return slice;
             }
             throw new RuntimeException("damn sample crosses buffers");

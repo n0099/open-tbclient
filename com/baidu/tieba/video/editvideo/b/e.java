@@ -9,32 +9,32 @@ import java.nio.ByteBuffer;
 @TargetApi(18)
 /* loaded from: classes5.dex */
 class e {
-    private final MediaMuxer hGp;
-    private volatile boolean hGr;
+    private final MediaMuxer hGq;
     private volatile boolean hGs;
-    private int hGq = 2;
+    private volatile boolean hGt;
+    private int hGr = 2;
     private boolean mIsStarted = false;
 
     public e(String str) throws IOException {
-        this.hGp = new MediaMuxer(str, 0);
+        this.hGq = new MediaMuxer(str, 0);
     }
 
     public void bKe() {
-        this.hGr = true;
+        this.hGs = true;
     }
 
     public void bKf() {
-        this.hGs = true;
+        this.hGt = true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized boolean start() {
         boolean z;
-        if (!this.hGs || !this.hGr) {
+        if (!this.hGt || !this.hGs) {
             z = false;
         } else {
-            if (this.hGq > 0 && this.hGs && this.hGr) {
-                this.hGp.start();
+            if (this.hGr > 0 && this.hGt && this.hGs) {
+                this.hGq.start();
                 this.mIsStarted = true;
                 notifyAll();
             }
@@ -45,10 +45,10 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void stop() {
-        if (this.hGq > 0) {
+        if (this.hGr > 0) {
             try {
-                this.hGp.stop();
-                this.hGp.release();
+                this.hGq.stop();
+                this.hGq.release();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -61,13 +61,13 @@ class e {
         if (this.mIsStarted) {
             throw new IllegalStateException("muxer already started");
         }
-        return this.hGp.addTrack(mediaFormat);
+        return this.hGq.addTrack(mediaFormat);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void writeSampleData(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         if (this.mIsStarted) {
-            this.hGp.writeSampleData(i, byteBuffer, bufferInfo);
+            this.hGq.writeSampleData(i, byteBuffer, bufferInfo);
         }
     }
 

@@ -3,17 +3,17 @@ package com.baidu.tieba.pb.pb.main;
 import com.baidu.adp.lib.cache.l;
 /* loaded from: classes6.dex */
 public class g {
-    private static g fZq;
-    private com.baidu.adp.lib.cache.l<byte[]> fZr = null;
+    private static g fZr;
     private com.baidu.adp.lib.cache.l<byte[]> fZs = null;
+    private com.baidu.adp.lib.cache.l<byte[]> fZt = null;
 
     public static synchronized g bkd() {
         g gVar;
         synchronized (g.class) {
-            if (fZq == null) {
-                fZq = new g();
+            if (fZr == null) {
+                fZr = new g();
             }
-            gVar = fZq;
+            gVar = fZr;
         }
         return gVar;
     }
@@ -23,34 +23,34 @@ public class g {
     }
 
     private void aAx() {
-        if (this.fZr == null) {
-            this.fZr = com.baidu.tbadk.core.c.a.BO().eG("tb.pb_mark");
-        }
         if (this.fZs == null) {
-            this.fZs = com.baidu.tbadk.core.c.a.BO().eG("tb.pb_normal");
+            this.fZs = com.baidu.tbadk.core.c.a.BO().eG("tb.pb_mark");
+        }
+        if (this.fZt == null) {
+            this.fZt = com.baidu.tbadk.core.c.a.BO().eG("tb.pb_normal");
         }
     }
 
     public void S(String str, boolean z) {
         if (z) {
-            if (this.fZr != null && str != null) {
-                this.fZr.b(str, new byte[0], 0L);
+            if (this.fZs != null && str != null) {
+                this.fZs.b(str, new byte[0], 0L);
             }
-        } else if (this.fZs != null && str != null) {
-            this.fZs.b(str, new byte[0], 0L);
+        } else if (this.fZt != null && str != null) {
+            this.fZt.b(str, new byte[0], 0L);
         }
     }
 
     public byte[] T(String str, boolean z) {
         l.b<byte[]> aF;
         if (z) {
-            if (this.fZr != null && str != null) {
-                aF = this.fZr.aF(str);
+            if (this.fZs != null && str != null) {
+                aF = this.fZs.aF(str);
             }
             aF = null;
         } else {
-            if (this.fZs != null && str != null) {
-                aF = this.fZs.aF(str);
+            if (this.fZt != null && str != null) {
+                aF = this.fZt.aF(str);
             }
             aF = null;
         }
@@ -64,9 +64,9 @@ public class g {
         if (str != null) {
             aAx();
             if (z) {
-                this.fZr.a(str, bArr, 604800000L);
+                this.fZs.a(str, bArr, 604800000L);
             } else {
-                this.fZs.a(str, bArr, 86400000L);
+                this.fZt.a(str, bArr, 86400000L);
             }
         }
     }
@@ -74,7 +74,7 @@ public class g {
     public void m(String str, byte[] bArr) {
         if (bArr != null && str != null) {
             aAx();
-            this.fZr.a(str, bArr, 2592000000L);
+            this.fZs.a(str, bArr, 2592000000L);
         }
     }
 }

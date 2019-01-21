@@ -4,10 +4,10 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.h;
 /* loaded from: classes3.dex */
 public class e implements h {
-    public static final BdUniqueId awy = BdUniqueId.gen();
+    public static final BdUniqueId awz = BdUniqueId.gen();
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return awy;
+        return awz;
     }
 }

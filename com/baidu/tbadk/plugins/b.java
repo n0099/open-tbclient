@@ -24,12 +24,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class b {
-    public static String bin = "#";
-    public static String bio = "＃";
+    public static String bio = "#";
+    public static String bip = "＃";
     private static final Pattern akP = Pattern.compile("#([^#(]+)#", 2);
 
     public static boolean iG(String str) {
-        return bin.equals(str);
+        return bio.equals(str);
     }
 
     public static boolean cS(boolean z) {
@@ -137,7 +137,7 @@ public class b {
         }
         if (str.charAt(0) != '#' || str.charAt(str.length() - 1) != '#') {
             StringBuilder sb = new StringBuilder(str.length() + 2);
-            sb.append(bin).append(str).append(bin);
+            sb.append(bio).append(str).append(bio);
             return sb.toString();
         }
         return str;
@@ -145,7 +145,7 @@ public class b {
 
     public static boolean iJ(String str) {
         String substring;
-        return str != null && str.startsWith(bin) && str.endsWith(bin) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
+        return str != null && str.startsWith(bio) && str.endsWith(bio) && (substring = str.substring(1, str.length() + (-1))) != null && "".equals(substring.trim());
     }
 
     public static void a(k kVar) {

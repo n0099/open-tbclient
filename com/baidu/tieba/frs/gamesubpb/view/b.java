@@ -11,26 +11,26 @@ import com.baidu.tieba.frs.gamesubpb.a;
 import com.baidu.tieba.frs.gamesubpb.model.d;
 /* loaded from: classes3.dex */
 public class b {
-    private a.InterfaceC0225a dZP;
-    private SpannableTextView eaG;
+    private a.InterfaceC0225a dZQ;
+    private SpannableTextView eaH;
     private View mRootView;
     private TbPageContext<?> mTbPageContext;
 
     public b(TbPageContext<?> tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.mRootView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(e.h.game_sub_comment_view, (ViewGroup) null);
-        this.eaG = (SpannableTextView) this.mRootView.findViewById(e.g.sub_comment_tv);
-        al.h(this.eaG, e.d.cp_cont_f);
+        this.eaH = (SpannableTextView) this.mRootView.findViewById(e.g.sub_comment_tv);
+        al.h(this.eaH, e.d.cp_cont_f);
     }
 
     public void f(final d dVar) {
         if (dVar != null && dVar.userName != null) {
-            this.eaG.f(dVar);
-            this.eaG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.b.1
+            this.eaH.f(dVar);
+            this.eaH.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamesubpb.view.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (b.this.dZP != null) {
-                        b.this.dZP.c(dVar);
+                    if (b.this.dZQ != null) {
+                        b.this.dZQ.c(dVar);
                     }
                 }
             });
@@ -42,21 +42,21 @@ public class b {
     }
 
     public void setClickListener(a.InterfaceC0225a interfaceC0225a) {
-        this.dZP = interfaceC0225a;
-        this.eaG.setClickListener(interfaceC0225a);
+        this.dZQ = interfaceC0225a;
+        this.eaH.setClickListener(interfaceC0225a);
     }
 
     /* loaded from: classes3.dex */
     public static class a extends q.a {
-        private b eaI;
+        private b eaJ;
 
         public a(b bVar) {
             super(bVar.getRootView());
-            this.eaI = bVar;
+            this.eaJ = bVar;
         }
 
         public void f(d dVar) {
-            this.eaI.f(dVar);
+            this.eaJ.f(dVar);
         }
     }
 }

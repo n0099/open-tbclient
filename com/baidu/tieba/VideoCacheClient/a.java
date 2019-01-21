@@ -19,12 +19,12 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes6.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a bAV;
+    private static a bAW;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
     private boolean mNeedFinish = false;
     private byte[] mBuffer = new byte[1024];
-    private Runnable bdZ = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
+    private Runnable bea = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         /* JADX WARN: Code restructure failed: missing block: B:100:0x02d4, code lost:
             r3.printStackTrace();
          */
@@ -122,7 +122,7 @@ public class a {
                 if (!a.this.mNeedFinish) {
                     String VV = a.this.VV();
                     if (VV != null && !VV.isEmpty()) {
-                        File file = new File(c.bAK + b.jP(VV) + "/header_downloaded");
+                        File file = new File(c.bAL + b.jP(VV) + "/header_downloaded");
                         if (file.exists()) {
                             d.log(a.TAG, "header exists " + VV);
                         } else {
@@ -292,21 +292,21 @@ public class a {
             j = j2;
         }
     };
-    private Thread mThread = new Thread(this.bdZ);
+    private Thread mThread = new Thread(this.bea);
 
     private a() {
         this.mThread.start();
     }
 
     public static a VU() {
-        if (bAV == null) {
+        if (bAW == null) {
             synchronized (a.class) {
-                if (bAV == null) {
-                    bAV = new a();
+                if (bAW == null) {
+                    bAW = new a();
                 }
             }
         }
-        return bAV;
+        return bAW;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

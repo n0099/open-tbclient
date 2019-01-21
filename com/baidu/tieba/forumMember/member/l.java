@@ -81,13 +81,13 @@ public class l extends com.baidu.tieba.frs.h<m, n> {
                     }
                 }
                 nVar.gq(this.mSkinType == 1);
-                al.j(nVar.dIN, e.d.cp_bg_line_d);
-                al.j(nVar.dIO, e.d.cp_bg_line_b);
+                al.j(nVar.dIO, e.d.cp_bg_line_d);
+                al.j(nVar.dIP, e.d.cp_bg_line_b);
                 al.c(nVar.mTitleView, e.d.cp_cont_c, 1);
-                al.c(nVar.dIJ, e.d.cp_cont_f, 1);
                 al.c(nVar.dIK, e.d.cp_cont_f, 1);
                 al.c(nVar.dIL, e.d.cp_cont_f, 1);
                 al.c(nVar.dIM, e.d.cp_cont_f, 1);
+                al.c(nVar.dIN, e.d.cp_cont_f, 1);
                 nVar.mTitleView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(e.f.icon_arrow_tab), (Drawable) null);
             }
         }

@@ -31,11 +31,11 @@ import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes4.dex */
 public class a extends d {
-    private String baC;
-    private NewWriteModel baF;
-    private final NewWriteModel.d baT;
-    private com.baidu.tieba.write.b glP;
-    private InterfaceC0332a hQq;
+    private String baD;
+    private NewWriteModel baG;
+    private final NewWriteModel.d baU;
+    private com.baidu.tieba.write.b glQ;
+    private InterfaceC0332a hQr;
     private TbPageContext<?> mContext;
     private String mForumId;
     private String mForumName;
@@ -50,25 +50,25 @@ public class a extends d {
 
     public a(EditorTools editorTools) {
         super(editorTools);
-        this.baC = "";
+        this.baD = "";
         this.mThreadId = null;
-        this.baT = new NewWriteModel.d() { // from class: com.baidu.tieba.videoplay.editor.a.1
+        this.baU = new NewWriteModel.d() { // from class: com.baidu.tieba.videoplay.editor.a.1
             @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
             public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, x xVar, WriteData writeData, AntiData antiData) {
                 String str;
                 String str2 = null;
-                if (a.this.baF != null) {
+                if (a.this.baG != null) {
                     if (a.this.Mp() != null) {
                         a.this.Mp().hide();
                     }
-                    if (a.this.hQq != null) {
-                        a.this.hQq.on(false);
+                    if (a.this.hQr != null) {
+                        a.this.hQr.on(false);
                     }
-                    WriteData writeData2 = writeData == null ? a.this.baF.getWriteData() : writeData;
+                    WriteData writeData2 = writeData == null ? a.this.baG.getWriteData() : writeData;
                     if (z) {
-                        a.this.glP.xK(null);
-                        a.this.glP.aA(null);
-                        a.this.glP.ou(false);
+                        a.this.glQ.xK(null);
+                        a.this.glQ.aA(null);
+                        a.this.glQ.ou(false);
                         a.this.bNj();
                         a.this.resetData();
                         if (writeData2 != null) {
@@ -97,9 +97,9 @@ public class a extends d {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(a.this.mContext.getPageActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG, writeData2, postWriteCallBackData.getAccessState())));
                     } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 220015) {
                         a.this.xC(postWriteCallBackData.getErrorString());
-                        a.this.glP.aA(postWriteCallBackData.getSensitiveWords());
-                        a.this.glP.xK(postWriteCallBackData.getErrorString());
-                        if (!v.I(a.this.glP.bOt())) {
+                        a.this.glQ.aA(postWriteCallBackData.getSensitiveWords());
+                        a.this.glQ.xK(postWriteCallBackData.getErrorString());
+                        if (!v.I(a.this.glQ.bOt())) {
                             a.this.lO(true);
                         }
                     } else if (postWriteCallBackData != null && (postWriteCallBackData.getErrorCode() == 230277 || postWriteCallBackData.getErrorCode() == 230278 || postWriteCallBackData.getErrorCode() == 340016 || postWriteCallBackData.getErrorCode() == 1990032 || AntiHelper.vQ(postWriteCallBackData.getErrorCode()))) {
@@ -121,18 +121,18 @@ public class a extends d {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                if (a.this.glP != null) {
-                    if (!a.this.glP.bOw()) {
+                if (a.this.glQ != null) {
+                    if (!a.this.glQ.bOw()) {
                         a.this.lO(false);
                     }
-                    a.this.glP.ov(false);
+                    a.this.glQ.ov(false);
                 }
             }
         };
         editorTools.ct(true);
-        this.glP = new com.baidu.tieba.write.b();
-        this.glP.xl(e.d.cp_cont_h_alpha85);
-        this.glP.xk(e.d.cp_cont_i);
+        this.glQ = new com.baidu.tieba.write.b();
+        this.glQ.xl(e.d.cp_cont_h_alpha85);
+        this.glQ.xk(e.d.cp_cont_i);
     }
 
     public void setContext(TbPageContext<?> tbPageContext) {
@@ -145,7 +145,7 @@ public class a extends d {
 
     /* renamed from: if  reason: not valid java name */
     public void m22if(String str) {
-        this.baC = str;
+        this.baD = str;
     }
 
     public void R(String str, String str2, String str3) {
@@ -189,45 +189,45 @@ public class a extends d {
             Mp().b(new com.baidu.tbadk.editortools.a(4, -1, ""));
             Mp().hide();
         }
-        if (this.hQq != null) {
-            this.hQq.on(true);
+        if (this.hQr != null) {
+            this.hQr.on(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void resetData() {
-        if (this.baF != null) {
-            this.baF.setWriteData(null);
-            this.baF.nD(false);
+        if (this.baG != null) {
+            this.baG.setWriteData(null);
+            this.baG.nD(false);
         }
     }
 
     public void onDestroy() {
-        if (this.baF != null) {
-            this.baF.cancelLoadData();
+        if (this.baG != null) {
+            this.baG.cancelLoadData();
         }
     }
 
     public void Nh() {
-        if (this.baF == null) {
-            this.baF = new NewWriteModel(this.mContext);
-            this.baF.b(this.baT);
+        if (this.baG == null) {
+            this.baG = new NewWriteModel(this.mContext);
+            this.baG.b(this.baU);
         }
         WriteData writeData = new WriteData();
         writeData.setType(1);
         writeData.setThreadId(this.mThreadId);
         writeData.setForumId(this.mForumId);
         writeData.setForumName(this.mForumName);
-        writeData.setContent(this.baC);
-        this.baF.setWriteData(writeData);
-        this.baF.startPostWrite();
+        writeData.setContent(this.baD);
+        this.baG.setWriteData(writeData);
+        this.baG.startPostWrite();
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
         switch (i) {
             case IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG /* 12006 */:
                 if (i2 == 0) {
-                    this.baT.callback(false, (intent == null || !(intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) ? null : (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data"), null, this.baF.getWriteData(), null);
+                    this.baU.callback(false, (intent == null || !(intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) ? null : (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data"), null, this.baG.getWriteData(), null);
                     return;
                 } else if (i2 == -1) {
                     bNj();
@@ -245,17 +245,17 @@ public class a extends d {
         if (Mp() != null && (Mp().fL(28) instanceof c) && ((c) Mp().fL(28)).getInputView() != null && ((c) Mp().fL(28)).getInputView().getText() != null) {
             EditText inputView = ((c) Mp().fL(28)).getInputView();
             int selectionEnd = inputView.getSelectionEnd();
-            SpannableStringBuilder b = this.glP.b(inputView.getText());
+            SpannableStringBuilder b = this.glQ.b(inputView.getText());
             if (b != null) {
-                this.glP.ov(true);
+                this.glQ.ov(true);
                 inputView.setText(b);
-                if (z && this.glP.bOu() >= 0) {
+                if (z && this.glQ.bOu() >= 0) {
                     inputView.requestFocus();
-                    inputView.setSelection(this.glP.bOu());
+                    inputView.setSelection(this.glQ.bOu());
                 } else {
                     inputView.setSelection(selectionEnd);
                 }
-                this.glP.ou(this.glP.bOu() >= 0);
+                this.glQ.ou(this.glQ.bOu() >= 0);
             }
         }
     }
@@ -268,7 +268,7 @@ public class a extends d {
     }
 
     public void a(InterfaceC0332a interfaceC0332a) {
-        this.hQq = interfaceC0332a;
+        this.hQr = interfaceC0332a;
     }
 
     public void bNk() {

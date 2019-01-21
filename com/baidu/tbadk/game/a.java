@@ -12,16 +12,16 @@ import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class a {
-    private static a bcc = new a();
-    private GameInfoData bcd;
-    private final c bce = new c(303009) { // from class: com.baidu.tbadk.game.a.2
+    private static a bcd = new a();
+    private GameInfoData bce;
+    private final c bcf = new c(303009) { // from class: com.baidu.tbadk.game.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponseGameDetailMessage) && !socketResponsedMessage.hasError()) {
                 ResponseGameDetailMessage responseGameDetailMessage = (ResponseGameDetailMessage) socketResponsedMessage;
                 if (responseGameDetailMessage.getOrginalMessage() instanceof RequestGameDetailMessage) {
-                    a.this.bcd = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
+                    a.this.bce = GameInfoData.fromGameInfo(responseGameDetailMessage.getGameInfo());
                 }
             }
         }
@@ -29,7 +29,7 @@ public class a {
     private String mUrl;
 
     private a() {
-        MessageManager.getInstance().registerListener(this.bce);
+        MessageManager.getInstance().registerListener(this.bcf);
         CustomMessageTask customMessageTask = new CustomMessageTask(2001261, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tbadk.game.a.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
@@ -44,7 +44,7 @@ public class a {
     }
 
     public static a Ny() {
-        return bcc;
+        return bcd;
     }
 
     private GameInfoData Nz() {
@@ -58,7 +58,7 @@ public class a {
     }
 
     public GameInfoData NA() {
-        return this.bcd == null ? Nz() : this.bcd;
+        return this.bce == null ? Nz() : this.bce;
     }
 
     public ShareFromGameCenterMsgData NB() {

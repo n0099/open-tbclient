@@ -12,17 +12,17 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
     private static int count = 0;
-    private List<com.coloros.mcssdk.b.c> iio;
-    private List<d> iip;
-    private String iiq;
+    private List<com.coloros.mcssdk.b.c> iip;
+    private List<d> iiq;
     private String iir;
-    private com.coloros.mcssdk.d.b iis;
+    private String iis;
+    private com.coloros.mcssdk.d.b iit;
     private String mAppKey;
     private Context mContext;
 
     private a() {
-        this.iio = new ArrayList();
         this.iip = new ArrayList();
+        this.iiq = new ArrayList();
         synchronized (a.class) {
             if (count > 0) {
                 throw new RuntimeException("PushManager can't create again!");
@@ -75,13 +75,13 @@ public class a {
 
     private synchronized void a(d dVar) {
         if (dVar != null) {
-            this.iip.add(dVar);
+            this.iiq.add(dVar);
         }
     }
 
     private synchronized void a(com.coloros.mcssdk.b.c cVar) {
         if (cVar != null) {
-            this.iio.add(cVar);
+            this.iip.add(cVar);
         }
     }
 
@@ -93,15 +93,15 @@ public class a {
         intent.putExtra("params", str);
         intent.putExtra("appPackage", this.mContext.getPackageName());
         intent.putExtra(WBConstants.SSO_APP_KEY, this.mAppKey);
-        intent.putExtra("appSecret", this.iiq);
-        intent.putExtra("registerID", this.iir);
+        intent.putExtra("appSecret", this.iir);
+        intent.putExtra("registerID", this.iis);
         intent.putExtra("sdkVersion", getSDKVersion());
         this.mContext.startService(intent);
     }
 
     public static a bTJ() {
         a aVar;
-        aVar = c.iit;
+        aVar = c.iiu;
         return aVar;
     }
 
@@ -122,22 +122,22 @@ public class a {
             throw new IllegalArgumentException("the phone is not support oppo push!");
         }
         this.mAppKey = str;
-        this.iiq = str2;
+        this.iir = str2;
         this.mContext = context.getApplicationContext();
-        this.iis = bVar;
+        this.iit = bVar;
         ya(UIMsg.k_event.MV_MAP_CACHEMANAGE);
     }
 
     public List<d> bTH() {
-        return this.iip;
+        return this.iiq;
     }
 
     public List<com.coloros.mcssdk.b.c> bTI() {
-        return this.iio;
+        return this.iip;
     }
 
     public com.coloros.mcssdk.d.b bTK() {
-        return this.iis;
+        return this.iit;
     }
 
     public String getSDKVersion() {
@@ -145,6 +145,6 @@ public class a {
     }
 
     public void zg(String str) {
-        this.iir = str;
+        this.iis = str;
     }
 }

@@ -5,7 +5,7 @@ import android.text.TextUtils;
 public class b {
     public boolean Sc;
     public String apA;
-    public String apx;
+    public String apB;
     public String apy;
     public String apz;
     public String extensionInfo;
@@ -17,11 +17,11 @@ public class b {
         if (bVar != null && !bVar.Sc) {
             com.baidu.tieba.recapp.report.b aa = com.baidu.tieba.recapp.report.f.aa(z ? 13 : 3, i, bVar.pn);
             aa.vm(bVar.page);
-            aa.cB("isCache", String.valueOf(bVar.apx));
-            aa.vj(bVar.apy);
-            aa.vk(bVar.apz);
+            aa.cB("isCache", String.valueOf(bVar.apy));
+            aa.vj(bVar.apz);
+            aa.vk(bVar.apA);
             aa.vl(bVar.fid);
-            aa.cB("vc", bVar.apA);
+            aa.cB("vc", bVar.apB);
             aa.vf(bVar.extensionInfo);
             com.baidu.tieba.recapp.report.c.bwO().a(aa);
             bVar.Sc = true;
@@ -33,11 +33,11 @@ public class b {
         if (advertAppInfo != null && (bVar = advertAppInfo.advertAppContext) != null && !bVar.Sc) {
             com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(advertAppInfo, 3, bVar.pn);
             c.vm(bVar.page);
-            c.cB("isCache", bVar.apx);
-            c.vj(bVar.apy);
-            c.vk(bVar.apz);
+            c.cB("isCache", bVar.apy);
+            c.vj(bVar.apz);
+            c.vk(bVar.apA);
             c.vl(bVar.fid);
-            c.cB("vc", bVar.apA);
+            c.cB("vc", bVar.apB);
             c.vf(bVar.extensionInfo);
             com.baidu.tieba.recapp.report.c.bwO().a(c);
             com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.e(advertAppInfo));
@@ -66,10 +66,10 @@ public class b {
                 bVar2.setPageNumber(bVar.pn);
             }
             bVar2.vm(bVar.page);
-            bVar2.vj(bVar.apy);
-            bVar2.vk(bVar.apz);
+            bVar2.vj(bVar.apz);
+            bVar2.vk(bVar.apA);
             bVar2.vl(bVar.fid);
-            bVar2.cB("vc", bVar.apA);
+            bVar2.cB("vc", bVar.apB);
             bVar2.vf(bVar.extensionInfo);
             com.baidu.tieba.recapp.report.c.bwO().a(bVar2);
             bVar.Sc = true;
@@ -79,8 +79,8 @@ public class b {
     public static void a(com.baidu.tieba.tbadkCore.data.l lVar) {
         b bVar;
         if (lVar != null && lVar.bEG() != null && (bVar = lVar.bEG().advertAppContext) != null && !bVar.Sc) {
-            lVar.aqg = bVar.apy;
             lVar.aqh = bVar.apz;
+            lVar.aqi = bVar.apA;
             lVar.forumId = bVar.fid;
             int i = 3;
             if (lVar != null && lVar.bEH() != null && lVar.bEH().forFree()) {

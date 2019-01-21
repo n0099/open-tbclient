@@ -12,15 +12,15 @@ import javax.annotation.concurrent.ThreadSafe;
 @TargetApi(21)
 /* loaded from: classes2.dex */
 public class a implements e {
-    private static final byte[] itS = {-1, -39};
-    private final com.facebook.imagepipeline.memory.c ipu;
-    final Pools.SynchronizedPool<ByteBuffer> itR;
+    private static final byte[] itT = {-1, -39};
+    private final com.facebook.imagepipeline.memory.c ipv;
+    final Pools.SynchronizedPool<ByteBuffer> itS;
 
     public a(com.facebook.imagepipeline.memory.c cVar, int i, Pools.SynchronizedPool synchronizedPool) {
-        this.ipu = cVar;
-        this.itR = synchronizedPool;
+        this.ipv = cVar;
+        this.itS = synchronizedPool;
         for (int i2 = 0; i2 < i; i2++) {
-            this.itR.release(ByteBuffer.allocate(16384));
+            this.itS.release(ByteBuffer.allocate(16384));
         }
     }
 
@@ -45,7 +45,7 @@ public class a implements e {
         InputStream inputStream = dVar.getInputStream();
         g.checkNotNull(inputStream);
         InputStream aVar = dVar.getSize() > i ? new com.facebook.common.f.a(inputStream, i) : inputStream;
-        InputStream bVar = !yF ? new com.facebook.common.f.b(aVar, itS) : aVar;
+        InputStream bVar = !yF ? new com.facebook.common.f.b(aVar, itT) : aVar;
         boolean z = b.inPreferredConfig != Bitmap.Config.ARGB_8888;
         try {
             return a(bVar, b);
@@ -59,29 +59,29 @@ public class a implements e {
 
     protected com.facebook.common.references.a<Bitmap> a(InputStream inputStream, BitmapFactory.Options options) {
         g.checkNotNull(inputStream);
-        Bitmap bitmap = this.ipu.get(com.facebook.d.a.a(options.outWidth, options.outHeight, options.inPreferredConfig));
+        Bitmap bitmap = this.ipv.get(com.facebook.d.a.a(options.outWidth, options.outHeight, options.inPreferredConfig));
         if (bitmap == null) {
             throw new NullPointerException("BitmapPool.get returned null");
         }
         options.inBitmap = bitmap;
-        ByteBuffer acquire = this.itR.acquire();
+        ByteBuffer acquire = this.itS.acquire();
         ByteBuffer allocate = acquire == null ? ByteBuffer.allocate(16384) : acquire;
         try {
             try {
                 options.inTempStorage = allocate.array();
                 Bitmap decodeStream = BitmapFactory.decodeStream(inputStream, null, options);
                 if (bitmap != decodeStream) {
-                    this.ipu.release(bitmap);
+                    this.ipv.release(bitmap);
                     decodeStream.recycle();
                     throw new IllegalStateException();
                 }
-                return com.facebook.common.references.a.a(decodeStream, this.ipu);
+                return com.facebook.common.references.a.a(decodeStream, this.ipv);
             } catch (RuntimeException e) {
-                this.ipu.release(bitmap);
+                this.ipv.release(bitmap);
                 throw e;
             }
         } finally {
-            this.itR.release(allocate);
+            this.itS.release(allocate);
         }
     }
 

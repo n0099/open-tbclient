@@ -5,61 +5,61 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private List<h> aMD;
     private List<h> aME;
-    private boolean aMF;
+    private List<h> aMF;
     private boolean aMG;
-    private int aMH = 2;
-    private int aMI = 1;
-    private int aMw;
+    private boolean aMH;
+    private int aMI = 2;
+    private int aMJ = 1;
+    private int aMx;
 
     public d(List<h> list, boolean z, int i) {
-        this.aMw = 2;
-        this.aMD = list;
-        this.aMG = z;
-        this.aMw = i;
+        this.aMx = 2;
+        this.aME = list;
+        this.aMH = z;
+        this.aMx = i;
         L(list);
     }
 
     public void L(List<h> list) {
-        if (list != null && list.size() >= this.aMH && list.size() <= this.aMw) {
-            this.aMF = true;
-        } else if (list.size() > this.aMw && this.aMG) {
-            this.aMF = true;
+        if (list != null && list.size() >= this.aMI && list.size() <= this.aMx) {
+            this.aMG = true;
+        } else if (list.size() > this.aMx && this.aMH) {
+            this.aMG = true;
         } else {
-            this.aMF = false;
+            this.aMG = false;
         }
-        this.aME = FU();
+        this.aMF = FU();
     }
 
     private List<h> FU() {
         ArrayList arrayList = new ArrayList();
-        if (this.aMD != null) {
-            if (this.aMF) {
-                if (this.aMD.size() > this.aMw && this.aMD.size() >= this.aMI) {
-                    arrayList.addAll(this.aMD.subList(0, this.aMw));
-                    arrayList.addAll(0, this.aMD.subList(this.aMw - this.aMI, this.aMw));
-                    arrayList.addAll(this.aMD.subList(0, this.aMI));
+        if (this.aME != null) {
+            if (this.aMG) {
+                if (this.aME.size() > this.aMx && this.aME.size() >= this.aMJ) {
+                    arrayList.addAll(this.aME.subList(0, this.aMx));
+                    arrayList.addAll(0, this.aME.subList(this.aMx - this.aMJ, this.aMx));
+                    arrayList.addAll(this.aME.subList(0, this.aMJ));
                 } else {
-                    arrayList.addAll(this.aMD);
-                    arrayList.addAll(0, this.aMD.subList(this.aMD.size() - this.aMI, this.aMD.size()));
-                    arrayList.addAll(this.aMD.subList(0, this.aMI));
+                    arrayList.addAll(this.aME);
+                    arrayList.addAll(0, this.aME.subList(this.aME.size() - this.aMJ, this.aME.size()));
+                    arrayList.addAll(this.aME.subList(0, this.aMJ));
                 }
-            } else if (this.aMD != null && this.aMD.size() > 0 && this.aMD.size() >= this.aMI) {
-                arrayList.addAll(this.aMD.subList(0, this.aMI));
+            } else if (this.aME != null && this.aME.size() > 0 && this.aME.size() >= this.aMJ) {
+                arrayList.addAll(this.aME.subList(0, this.aMJ));
             }
         }
         return arrayList;
     }
 
     public int eJ(int i) {
-        if (this.aMF) {
-            int size = this.aME.size();
+        if (this.aMG) {
+            int size = this.aMF.size();
             if (i == 0) {
-                return (size - 1) - this.aMI;
+                return (size - 1) - this.aMJ;
             }
-            if (i == size - this.aMI) {
-                return this.aMI;
+            if (i == size - this.aMJ) {
+                return this.aMJ;
             }
             return i;
         }
@@ -67,42 +67,42 @@ public class d {
     }
 
     public int eK(int i) {
-        if (this.aMF) {
-            return i - this.aMI;
+        if (this.aMG) {
+            return i - this.aMJ;
         }
         return i;
     }
 
     public int FV() {
-        if (this.aMD == null) {
+        if (this.aME == null) {
             return 0;
         }
-        return this.aMD.size();
+        return this.aME.size();
     }
 
     public int FW() {
-        if (this.aMF) {
-            return this.aMI;
+        if (this.aMG) {
+            return this.aMJ;
         }
         return 0;
     }
 
     public void eL(int i) {
-        this.aMw = i;
-        L(this.aMD);
+        this.aMx = i;
+        L(this.aME);
     }
 
     public void eM(int i) {
-        this.aMH = i;
-        L(this.aMD);
+        this.aMI = i;
+        L(this.aME);
     }
 
     public List<h> FX() {
-        return this.aME;
+        return this.aMF;
     }
 
     public void eN(int i) {
-        this.aMI = i;
-        L(this.aMD);
+        this.aMJ = i;
+        L(this.aME);
     }
 }

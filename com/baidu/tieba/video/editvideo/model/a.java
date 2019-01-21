@@ -10,9 +10,9 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class a {
-    private static volatile a hGB;
-    private HashMap<String, String> hGC;
-    private DownloadData hGD;
+    private static volatile a hGC;
+    private HashMap<String, String> hGD;
+    private DownloadData hGE;
 
     /* renamed from: com.baidu.tieba.video.editvideo.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
@@ -28,14 +28,14 @@ public class a {
     }
 
     public static a bKk() {
-        if (hGB == null) {
+        if (hGC == null) {
             synchronized (a.class) {
-                if (hGB == null) {
-                    hGB = new a();
+                if (hGC == null) {
+                    hGC = new a();
                 }
             }
         }
-        return hGB;
+        return hGC;
     }
 
     public String xa(String str) {
@@ -43,29 +43,29 @@ public class a {
         if (fY == null) {
             return null;
         }
-        if (this.hGC == null) {
-            this.hGC = new HashMap<>();
+        if (this.hGD == null) {
+            this.hGD = new HashMap<>();
             bKl();
-            if (this.hGC.size() > 0) {
-                return this.hGC.get(fY);
+            if (this.hGD.size() > 0) {
+                return this.hGD.get(fY);
             }
             return null;
         }
-        return this.hGC.get(fY);
+        return this.hGD.get(fY);
     }
 
     public void bKl() {
-        if (this.hGC == null) {
-            this.hGC = new HashMap<>();
+        if (this.hGD == null) {
+            this.hGD = new HashMap<>();
         } else {
-            this.hGC.clear();
+            this.hGD.clear();
         }
-        File file = new File(c.hDY);
+        File file = new File(c.hDZ);
         if (file.exists()) {
             File[] listFiles = file.listFiles();
             for (File file2 : listFiles) {
                 if (file2.isFile()) {
-                    this.hGC.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                    this.hGD.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                 }
             }
         }
@@ -74,14 +74,14 @@ public class a {
     public void a(String str, final String str2, final InterfaceC0324a interfaceC0324a) {
         String fY;
         if (!TextUtils.isEmpty(str2) && (fY = ar.fY(str2)) != null) {
-            if (this.hGD != null) {
-                if (!str2.equals(this.hGD.getUrl())) {
-                    d.Mj().u(this.hGD.getUrl(), true);
+            if (this.hGE != null) {
+                if (!str2.equals(this.hGE.getUrl())) {
+                    d.Mj().u(this.hGE.getUrl(), true);
                 } else {
                     return;
                 }
             }
-            File file = new File(c.hDY);
+            File file = new File(c.hDZ);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -89,7 +89,7 @@ public class a {
             downloadData.setType(17);
             downloadData.setId(str);
             downloadData.setUrl(str2);
-            downloadData.setPath(c.hDY + fY + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+            downloadData.setPath(c.hDZ + fY + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
             downloadData.setCallback(new com.baidu.tbadk.download.c() { // from class: com.baidu.tieba.video.editvideo.model.a.1
                 @Override // com.baidu.tbadk.download.c
                 public void onFileUpdateProgress(DownloadData downloadData2) {
@@ -98,8 +98,8 @@ public class a {
                         if (file2.exists()) {
                             file2.delete();
                         }
-                        if (a.this.hGD != null && downloadData2.getUrl().equals(a.this.hGD.getUrl())) {
-                            a.this.hGD = null;
+                        if (a.this.hGE != null && downloadData2.getUrl().equals(a.this.hGE.getUrl())) {
+                            a.this.hGE = null;
                         }
                         if (interfaceC0324a != null) {
                             interfaceC0324a.bJy();
@@ -120,11 +120,11 @@ public class a {
                 @Override // com.baidu.tbadk.download.c
                 public void onFileDownloadSucceed(DownloadData downloadData2) {
                     if (downloadData2 != null && !StringUtils.isNull(downloadData2.getPath())) {
-                        if (a.this.hGD != null && downloadData2.getUrl().equals(a.this.hGD.getUrl())) {
-                            a.this.hGD = null;
+                        if (a.this.hGE != null && downloadData2.getUrl().equals(a.this.hGE.getUrl())) {
+                            a.this.hGE = null;
                         }
                         if (interfaceC0324a != null) {
-                            a.this.hGC.put(downloadData2.getPath().substring(c.hDY.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
+                            a.this.hGD.put(downloadData2.getPath().substring(c.hDZ.length(), downloadData2.getPath().lastIndexOf(".")), downloadData2.getPath());
                             interfaceC0324a.cT(str2, downloadData2.getPath());
                         }
                     }
@@ -136,22 +136,22 @@ public class a {
                     if (file2.exists()) {
                         file2.delete();
                     }
-                    if (a.this.hGD != null && downloadData2.getUrl().equals(a.this.hGD.getUrl())) {
-                        a.this.hGD = null;
+                    if (a.this.hGE != null && downloadData2.getUrl().equals(a.this.hGE.getUrl())) {
+                        a.this.hGE = null;
                     }
                     if (interfaceC0324a != null) {
                         interfaceC0324a.wS(str3);
                     }
                 }
             });
-            this.hGD = downloadData;
+            this.hGE = downloadData;
             d.Mj().f(downloadData);
         }
     }
 
     public void bKm() {
-        if (this.hGD != null) {
-            d.Mj().u(this.hGD.getUrl(), true);
+        if (this.hGE != null) {
+            d.Mj().u(this.hGE.getUrl(), true);
         }
     }
 }

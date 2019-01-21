@@ -14,21 +14,21 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
 public abstract class c extends b implements ae {
-    private String dbj;
-    private int dbk;
-    private String dbl;
+    private String dbk;
+    private int dbl;
     private String dbm;
-    public int dbp;
+    private String dbn;
+    public int dbq;
     private String mExtra;
     private String mSource;
     public String tid;
-    public int aFS = 1;
-    public int dbn = 0;
-    public SparseArray<String> asE = null;
-    private Integer dbo = 0;
+    public int aFT = 1;
+    public int dbo = 0;
+    public SparseArray<String> asF = null;
+    private Integer dbp = 0;
 
     public void setWeight(String str) {
-        this.dbj = str;
+        this.dbk = str;
     }
 
     public void setSource(String str) {
@@ -36,23 +36,23 @@ public abstract class c extends b implements ae {
     }
 
     public void kP(int i) {
-        this.dbk = i;
+        this.dbl = i;
     }
 
     public void mZ(String str) {
-        this.dbl = str;
+        this.dbm = str;
     }
 
     public int aqZ() {
-        return this.dbk;
+        return this.dbl;
     }
 
     public String ara() {
-        return this.mSource + "#" + this.dbk + "#" + this.dbl;
+        return this.mSource + "#" + this.dbl + "#" + this.dbm;
     }
 
     public String getWeight() {
-        return this.dbj;
+        return this.dbk;
     }
 
     public String getSource() {
@@ -60,15 +60,15 @@ public abstract class c extends b implements ae {
     }
 
     public String arb() {
-        return this.dbl;
-    }
-
-    public String arc() {
         return this.dbm;
     }
 
+    public String arc() {
+        return this.dbn;
+    }
+
     public void na(String str) {
-        this.dbm = str;
+        this.dbn = str;
     }
 
     public bb aaq() {
@@ -88,11 +88,11 @@ public abstract class c extends b implements ae {
     }
 
     public Integer ard() {
-        return this.dbo;
+        return this.dbp;
     }
 
     public void c(Integer num) {
-        this.dbo = num;
+        this.dbp = num;
     }
 
     public am nb(String str) {
@@ -108,7 +108,7 @@ public abstract class c extends b implements ae {
         if (!z) {
             aB.y("obj_type", are());
         } else {
-            if (aaq.avT > 0) {
+            if (aaq.avU > 0) {
                 aB.y("midpageflag", 1);
             } else {
                 aB.y("midpageflag", 0);
@@ -117,7 +117,7 @@ public abstract class c extends b implements ae {
             aB.y("is_vertical", ard().intValue());
         }
         if (aaq.Bk() != null && aaq.Bk().bEU() != null && aaq.Bk().bEU().Sx() != null && aaq.Bk().bEU().Sx().size() > 0) {
-            aB.y("obj_to", aaq.Bk().hqi ? 2 : 1);
+            aB.y("obj_to", aaq.Bk().hqj ? 2 : 1);
         }
         return aB;
     }
@@ -181,10 +181,10 @@ public abstract class c extends b implements ae {
     }
 
     public void kQ(int i) {
-        this.dbp = i;
+        this.dbq = i;
     }
 
     public boolean arf() {
-        return this.dbp == 1;
+        return this.dbq == 1;
     }
 }

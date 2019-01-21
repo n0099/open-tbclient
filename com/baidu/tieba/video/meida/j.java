@@ -12,35 +12,35 @@ import java.util.Random;
 /* loaded from: classes5.dex */
 public class j {
     static final /* synthetic */ boolean $assertionsDisabled;
-    private static final int[] hKc;
     private static final int[] hKd;
     private static final int[] hKe;
-    private static final double[][] hKf;
-    private static final double[] hKr;
-    private ByteOrder hJX;
-    private k hJY;
-    private double hJZ;
+    private static final int[] hKf;
+    private static final double[][] hKg;
+    private static final double[] hKs;
+    private ByteOrder hJY;
+    private k hJZ;
     private double hKa;
-    private int hKb;
-    private double[][] hKg;
-    private int hKh;
+    private double hKb;
+    private int hKc;
+    private double[][] hKh;
     private int hKi;
     private int hKj;
     private int hKk;
-    private double[] hKl;
-    private int hKm;
-    private boolean hKn;
-    private int hKo;
-    private long hKp;
+    private int hKl;
+    private double[] hKm;
+    private int hKn;
+    private boolean hKo;
+    private int hKp;
     private long hKq;
+    private long hKr;
 
     static {
         $assertionsDisabled = !j.class.desiredAssertionStatus();
-        hKc = new int[]{0, 48000, 44100, 37800, 32000, 22050, 48000, 44100};
-        hKd = new int[]{1, 16, 20, 16, 16, 15, 16, 15};
-        hKe = new int[]{8, 18, 27, 8, 8, 8, 10, 9};
-        hKf = new double[][]{new double[]{-1.0d}, new double[]{-2.87207293510437d, 5.041323184967041d, -6.244299411773682d, 5.848398685455322d, -3.706754207611084d, 1.0495119094848633d, 1.1830236911773682d, -2.1126792430877686d, 1.9094531536102295d, -0.9991308450698853d, 0.17090806365013123d, 0.32615602016448975d, -0.39127644896507263d, 0.2687646150588989d, -0.0976761057972908d, 0.023473845794796944d}, new double[]{-2.6773197650909424d, 4.830892562866211d, -6.570110321044922d, 7.4572014808654785d, -6.726327419281006d, 4.848165035247803d, -2.0412089824676514d, -0.7006359100341797d, 2.95375657081604d, -4.080038547515869d, 4.184521675109863d, -3.331181287765503d, 2.117992639541626d, -0.879302978515625d, 0.031759146600961685d, 0.4238278865814209d, -0.4788210391998291d, 0.35490813851356506d, -0.1749683916568756d, 0.06090816855430603d}, new double[]{-1.6335992813110352d, 2.261549234390259d, -2.407702922821045d, 2.634171724319458d, -2.144036293029785d, 1.8153258562088013d, -1.0816224813461304d, 0.703026533126831d, -0.15991993248462677d, -0.04154951870441437d, 0.2941657602787018d, -0.25183168053627014d, 0.27766478061676025d, -0.15785403549671173d, 0.10165894031524658d, -0.016833892092108727d}, new double[]{-0.8290129899978638d, 0.9892265796661377d, -0.5982571244239807d, 1.0028809309005737d, -0.5993821620941162d, 0.7950245141983032d, -0.42723315954208374d, 0.5449252724647522d, -0.3079260587692261d, 0.3687179982662201d, -0.187920480966568d, 0.2261127084493637d, -0.10573341697454453d, 0.11435490846633911d, -0.0388006791472435d, 0.040842197835445404d}, new double[]{-0.06522997468709946d, 0.5498126149177551d, 0.4027854800224304d, 0.3178376853466034d, 0.2820179760456085d, 0.16985194385051727d, 0.15433363616466522d, 0.12507140636444092d, 0.08903945237398148d, 0.06441012024879456d, 0.04714600369334221d, 0.03280523791909218d, 0.028495194390416145d, 0.011695005930960178d, 0.011831838637590408d}, new double[]{-2.3925774097442627d, 3.4350297451019287d, -3.185370922088623d, 1.8117271661758423d, 0.2012477070093155d, -1.4759907722473145d, 1.7210904359817505d, -0.9774670004844666d, 0.13790138065814972d, 0.38185903429985046d, -0.27421241998672485d, -0.06658421456813812d, 0.35223302245140076d, -0.37672343850135803d, 0.23964276909828186d, -0.06867482513189316d}, new double[]{-2.0833916664123535d, 3.0418450832366943d, -3.204789876937866d, 2.757192611694336d, -1.4978630542755127d, 0.34275946021080017d, 0.7173374891281128d, -1.073705792427063d, 1.0225815773010254d, -0.5664999485015869d, 0.20968692004680634d, 0.06537853181362152d, -0.10322438180446625d, 0.06744202226400375d, 0.00495197344571352d}};
-        hKr = new double[]{0.7d, 0.9d, 0.18d};
+        hKd = new int[]{0, 48000, 44100, 37800, 32000, 22050, 48000, 44100};
+        hKe = new int[]{1, 16, 20, 16, 16, 15, 16, 15};
+        hKf = new int[]{8, 18, 27, 8, 8, 8, 10, 9};
+        hKg = new double[][]{new double[]{-1.0d}, new double[]{-2.87207293510437d, 5.041323184967041d, -6.244299411773682d, 5.848398685455322d, -3.706754207611084d, 1.0495119094848633d, 1.1830236911773682d, -2.1126792430877686d, 1.9094531536102295d, -0.9991308450698853d, 0.17090806365013123d, 0.32615602016448975d, -0.39127644896507263d, 0.2687646150588989d, -0.0976761057972908d, 0.023473845794796944d}, new double[]{-2.6773197650909424d, 4.830892562866211d, -6.570110321044922d, 7.4572014808654785d, -6.726327419281006d, 4.848165035247803d, -2.0412089824676514d, -0.7006359100341797d, 2.95375657081604d, -4.080038547515869d, 4.184521675109863d, -3.331181287765503d, 2.117992639541626d, -0.879302978515625d, 0.031759146600961685d, 0.4238278865814209d, -0.4788210391998291d, 0.35490813851356506d, -0.1749683916568756d, 0.06090816855430603d}, new double[]{-1.6335992813110352d, 2.261549234390259d, -2.407702922821045d, 2.634171724319458d, -2.144036293029785d, 1.8153258562088013d, -1.0816224813461304d, 0.703026533126831d, -0.15991993248462677d, -0.04154951870441437d, 0.2941657602787018d, -0.25183168053627014d, 0.27766478061676025d, -0.15785403549671173d, 0.10165894031524658d, -0.016833892092108727d}, new double[]{-0.8290129899978638d, 0.9892265796661377d, -0.5982571244239807d, 1.0028809309005737d, -0.5993821620941162d, 0.7950245141983032d, -0.42723315954208374d, 0.5449252724647522d, -0.3079260587692261d, 0.3687179982662201d, -0.187920480966568d, 0.2261127084493637d, -0.10573341697454453d, 0.11435490846633911d, -0.0388006791472435d, 0.040842197835445404d}, new double[]{-0.06522997468709946d, 0.5498126149177551d, 0.4027854800224304d, 0.3178376853466034d, 0.2820179760456085d, 0.16985194385051727d, 0.15433363616466522d, 0.12507140636444092d, 0.08903945237398148d, 0.06441012024879456d, 0.04714600369334221d, 0.03280523791909218d, 0.028495194390416145d, 0.011695005930960178d, 0.011831838637590408d}, new double[]{-2.3925774097442627d, 3.4350297451019287d, -3.185370922088623d, 1.8117271661758423d, 0.2012477070093155d, -1.4759907722473145d, 1.7210904359817505d, -0.9774670004844666d, 0.13790138065814972d, 0.38185903429985046d, -0.27421241998672485d, -0.06658421456813812d, 0.35223302245140076d, -0.37672343850135803d, 0.23964276909828186d, -0.06867482513189316d}, new double[]{-2.0833916664123535d, 3.0418450832366943d, -3.204789876937866d, 2.757192611694336d, -1.4978630542755127d, 0.34275946021080017d, 0.7173374891281128d, -1.073705792427063d, 1.0225815773010254d, -0.5664999485015869d, 0.20968692004680634d, 0.06537853181362152d, -0.10322438180446625d, 0.06744202226400375d, 0.00495197344571352d}};
+        hKs = new double[]{0.7d, 0.9d, 0.18d};
     }
 
     private int j(double d) {
@@ -50,7 +50,7 @@ public class j {
     public int a(int i, int i2, int i3, int i4, int i5, int i6, double d) {
         int[] iArr = new int[97];
         int i7 = 1;
-        while (i7 < 6 && i != hKc[i7]) {
+        while (i7 < 6 && i != hKd[i7]) {
             i7++;
         }
         if ((i5 == 3 || i5 == 4) && i7 == 6) {
@@ -60,15 +60,15 @@ public class j {
         if (i5 == 4 && (i7 == 1 || i7 == 2)) {
             i7 += 5;
         }
-        this.hKh = i7;
-        this.hKg = new double[i2];
-        this.hKi = hKd[this.hKh];
+        this.hKi = i7;
+        this.hKh = new double[i2];
+        this.hKj = hKe[this.hKi];
         for (int i8 = 0; i8 < i2; i8++) {
-            this.hKg[i8] = new double[this.hKi];
+            this.hKh[i8] = new double[this.hKj];
         }
-        this.hKj = i3;
-        this.hKk = i4;
-        this.hKl = new double[65536];
+        this.hKk = i3;
+        this.hKl = i4;
+        this.hKm = new double[65536];
         Random random = new Random(System.currentTimeMillis());
         for (int i9 = 0; i9 < 97; i9++) {
             iArr[i9] = random.nextInt();
@@ -79,7 +79,7 @@ public class j {
                     int nextInt = random.nextInt() % 97;
                     int i11 = iArr[nextInt];
                     iArr[nextInt] = random.nextInt();
-                    this.hKl[i10] = ((i11 / 2.147483647E9d) - 0.5d) * d;
+                    this.hKm[i10] = ((i11 / 2.147483647E9d) - 0.5d) * d;
                 }
                 break;
             case 1:
@@ -90,7 +90,7 @@ public class j {
                     int nextInt3 = random.nextInt() % 97;
                     int i14 = iArr[nextInt3];
                     iArr[nextInt3] = random.nextInt();
-                    this.hKl[i12] = ((i13 / 2.147483647E9d) - (i14 / 2.147483647E9d)) * d;
+                    this.hKm[i12] = ((i13 / 2.147483647E9d) - (i14 / 2.147483647E9d)) * d;
                 }
                 break;
             case 2:
@@ -110,89 +110,89 @@ public class j {
                         int nextInt5 = random.nextInt() % 97;
                         iArr[nextInt5] = random.nextInt();
                         d3 = 6.283185307179586d * (iArr[nextInt5] / 2.147483647E9d);
-                        this.hKl[i15] = d * d2 * Math.cos(d3);
+                        this.hKm[i15] = d * d2 * Math.cos(d3);
                     } else {
                         z = false;
-                        this.hKl[i15] = d * d2 * Math.sin(d3);
+                        this.hKm[i15] = d * d2 * Math.sin(d3);
                     }
                 }
                 break;
         }
-        this.hKm = 0;
+        this.hKn = 0;
         if (i5 == 0 || i5 == 1) {
             return 1;
         }
-        return hKe[this.hKh];
+        return hKf[this.hKi];
     }
 
     public int a(double d, double[] dArr, int i, int i2) {
         double j;
         if (i == 1) {
-            double[] dArr2 = this.hKl;
-            int i3 = this.hKm;
-            this.hKm = i3 + 1;
+            double[] dArr2 = this.hKm;
+            int i3 = this.hKn;
+            this.hKn = i3 + 1;
             double d2 = dArr2[i3 & SupportMenu.USER_MASK] + d;
-            if (d2 < this.hKj) {
-                double d3 = d2 / this.hKj;
+            if (d2 < this.hKk) {
+                double d3 = d2 / this.hKk;
                 if (dArr[0] >= d3) {
                     d3 = dArr[0];
                 }
                 dArr[0] = d3;
-                d2 = this.hKj;
+                d2 = this.hKk;
             }
-            if (d2 > this.hKk) {
-                double d4 = d2 / this.hKk;
+            if (d2 > this.hKl) {
+                double d4 = d2 / this.hKl;
                 if (dArr[0] >= d4) {
                     d4 = dArr[0];
                 }
                 dArr[0] = d4;
-                d2 = this.hKk;
+                d2 = this.hKl;
             }
             return j(d2);
         }
         double d5 = 0.0d;
-        for (int i4 = 0; i4 < this.hKi; i4++) {
-            d5 += hKf[this.hKh][i4] * this.hKg[i2][i4];
+        for (int i4 = 0; i4 < this.hKj; i4++) {
+            d5 += hKg[this.hKi][i4] * this.hKh[i2][i4];
         }
         double d6 = d5 + d;
-        double[] dArr3 = this.hKl;
-        int i5 = this.hKm;
-        this.hKm = i5 + 1;
+        double[] dArr3 = this.hKm;
+        int i5 = this.hKn;
+        this.hKn = i5 + 1;
         double d7 = d6 + dArr3[i5 & SupportMenu.USER_MASK];
-        for (int i6 = this.hKi - 2; i6 >= 0; i6--) {
-            this.hKg[i2][i6 + 1] = this.hKg[i2][i6];
+        for (int i6 = this.hKj - 2; i6 >= 0; i6--) {
+            this.hKh[i2][i6 + 1] = this.hKh[i2][i6];
         }
-        if (d7 < this.hKj) {
-            double d8 = d7 / this.hKj;
+        if (d7 < this.hKk) {
+            double d8 = d7 / this.hKk;
             if (dArr[0] >= d8) {
                 d8 = dArr[0];
             }
             dArr[0] = d8;
-            j = this.hKj;
-            this.hKg[i2][0] = j - d6;
-            if (this.hKg[i2][0] > 1.0d) {
-                this.hKg[i2][0] = 1.0d;
+            j = this.hKk;
+            this.hKh[i2][0] = j - d6;
+            if (this.hKh[i2][0] > 1.0d) {
+                this.hKh[i2][0] = 1.0d;
             }
-            if (this.hKg[i2][0] < -1.0d) {
-                this.hKg[i2][0] = -1.0d;
+            if (this.hKh[i2][0] < -1.0d) {
+                this.hKh[i2][0] = -1.0d;
             }
-        } else if (d7 > this.hKk) {
-            double d9 = d7 / this.hKk;
+        } else if (d7 > this.hKl) {
+            double d9 = d7 / this.hKl;
             if (dArr[0] >= d9) {
                 d9 = dArr[0];
             }
             dArr[0] = d9;
-            j = this.hKk;
-            this.hKg[i2][0] = j - d6;
-            if (this.hKg[i2][0] > 1.0d) {
-                this.hKg[i2][0] = 1.0d;
+            j = this.hKl;
+            this.hKh[i2][0] = j - d6;
+            if (this.hKh[i2][0] > 1.0d) {
+                this.hKh[i2][0] = 1.0d;
             }
-            if (this.hKg[i2][0] < -1.0d) {
-                this.hKg[i2][0] = -1.0d;
+            if (this.hKh[i2][0] < -1.0d) {
+                this.hKh[i2][0] = -1.0d;
             }
         } else {
             j = j(d7);
-            this.hKg[i2][0] = j - d6;
+            this.hKh[i2][0] = j - d6;
         }
         return (int) j;
     }
@@ -227,23 +227,23 @@ public class j {
     }
 
     private void bLl() {
-        this.hKp = System.currentTimeMillis();
-        this.hKq = 0L;
-        this.hKo = -1;
+        this.hKq = System.currentTimeMillis();
+        this.hKr = 0L;
+        this.hKp = -1;
     }
 
     private void m(double d) {
-        if (!this.hKn) {
-            long currentTimeMillis = System.currentTimeMillis() - this.hKp;
+        if (!this.hKo) {
+            long currentTimeMillis = System.currentTimeMillis() - this.hKq;
             int i = d == 0.0d ? 0 : (int) ((currentTimeMillis * (1.0d - d)) / d);
             int i2 = (int) (100.0d * d);
-            if (i2 != this.hKo || currentTimeMillis != this.hKq) {
+            if (i2 != this.hKp || currentTimeMillis != this.hKr) {
                 System.err.printf(" %3d%% processed", Integer.valueOf(i2));
-                this.hKo = i2;
+                this.hKp = i2;
             }
-            if (currentTimeMillis != this.hKq) {
+            if (currentTimeMillis != this.hKr) {
                 System.err.printf(", ETA =%4dmsec", Integer.valueOf(i));
-                this.hKq = currentTimeMillis;
+                this.hKr = currentTimeMillis;
             }
             System.err.printf("\r", new Object[0]);
             System.err.flush();
@@ -282,8 +282,8 @@ public class j {
         int i15;
         double[] dArr = {0.0d};
         int i16 = 0;
-        int i17 = this.hKb;
-        double d5 = this.hJZ;
+        int i17 = this.hKc;
+        double d5 = this.hKa;
         int gcd = gcd(i4, i5);
         int i18 = (i4 / gcd) * i5;
         if (i18 / i5 == 1) {
@@ -334,7 +334,7 @@ public class j {
         for (int i26 = -(i19 / 2); i26 <= i19 / 2; i26++) {
             dArr2[((i19 / 2) + i26) % i21][((i19 / 2) + i26) / i21] = ((a(i26, i19, k, i20) * c(i26, d7, i18)) * i18) / i4;
         }
-        double d8 = this.hJZ;
+        double d8 = this.hKa;
         if (d8 <= 21.0d) {
             d3 = 0.9222d;
         } else {
@@ -348,7 +348,7 @@ public class j {
                 i9--;
             }
             d4 = i4 / 2;
-            if ((i27 * d3) / (i9 - 1) < this.hKa) {
+            if ((i27 * d3) / (i9 - 1) < this.hKb) {
                 break;
             }
             i28 *= 2;
@@ -369,7 +369,7 @@ public class j {
         int[] iArr3 = new int[(int) (2.0d + Math.sqrt(i31))];
         iArr3[0] = 0;
         double[] dArr4 = new double[i31 / 2];
-        this.hJY.a(i31, 1, dArr3, iArr3, dArr4);
+        this.hJZ.a(i31, 1, dArr3, iArr3, dArr4);
         bLl();
         int i33 = i31 / 2;
         double[][] dArr5 = (double[][]) Array.newInstance(Double.TYPE, i, (i33 / i8) + 1);
@@ -418,7 +418,7 @@ public class j {
                 case 2:
                     i10 = 0;
                     while (i10 < i44 * i) {
-                        dArr7[(i * i37) + i10] = 3.051850947599719E-5d * wrap.order(this.hJX).asShortBuffer().get(i10);
+                        dArr7[(i * i37) + i10] = 3.051850947599719E-5d * wrap.order(this.hJY).asShortBuffer().get(i10);
                         i10++;
                     }
                     break;
@@ -432,7 +432,7 @@ public class j {
                 case 4:
                     i10 = 0;
                     while (i10 < i44 * i) {
-                        dArr7[(i * i37) + i10] = 4.656612875245797E-10d * wrap.order(this.hJX).asIntBuffer().get(i10);
+                        dArr7[(i * i37) + i10] = 4.656612875245797E-10d * wrap.order(this.hJY).asIntBuffer().get(i10);
                         i10++;
                     }
                     break;
@@ -504,14 +504,14 @@ public class j {
                 for (int i63 = i33; i63 < i31; i63++) {
                     dArr6[i48][i63] = 0.0d;
                 }
-                this.hJY.a(i31, 1, dArr6[i48], iArr3, dArr4);
+                this.hJZ.a(i31, 1, dArr6[i48], iArr3, dArr4);
                 dArr6[i48][0] = dArr3[0] * dArr6[i48][0];
                 dArr6[i48][1] = dArr3[1] * dArr6[i48][1];
                 for (int i64 = 1; i64 < i31 / 2; i64++) {
                     dArr6[i48][i64 * 2] = (dArr3[i64 * 2] * dArr6[i48][i64 * 2]) - (dArr3[(i64 * 2) + 1] * dArr6[i48][(i64 * 2) + 1]);
                     dArr6[i48][(i64 * 2) + 1] = (dArr3[(i64 * 2) + 1] * dArr6[i48][i64 * 2]) + (dArr3[i64 * 2] * dArr6[i48][(i64 * 2) + 1]);
                 }
-                this.hJY.a(i31, -1, dArr6[i48], iArr3, dArr4);
+                this.hJZ.a(i31, -1, dArr6[i48], iArr3, dArr4);
                 int i65 = 0;
                 int i66 = i39;
                 while (i66 < i33) {
@@ -609,7 +609,7 @@ public class j {
                                     j2 = 32767;
                                 }
                             }
-                            allocate2.order(this.hJX).asShortBuffer().put(i74, (short) j2);
+                            allocate2.order(this.hJY).asShortBuffer().put(i74, (short) j2);
                             int i75 = i73 + 1;
                             if (i75 == i) {
                                 i75 = 0;
@@ -802,8 +802,8 @@ public class j {
         int i18;
         int i19;
         double[] dArr2 = {0.0d};
-        int i20 = this.hKb;
-        double d5 = this.hJZ;
+        int i20 = this.hKc;
+        double d5 = this.hKa;
         int gcd = gcd(i4, i5);
         if (i5 / gcd == 1) {
             i8 = 1;
@@ -828,7 +828,7 @@ public class j {
             }
             double d6 = (i21 * d2) / (i9 - 1);
             d3 = (i5 - d6) / 2.0d;
-            if (d6 < this.hKa) {
+            if (d6 < this.hKb) {
                 break;
             }
             i22 *= 2;
@@ -849,7 +849,7 @@ public class j {
         int[] iArr3 = new int[(int) (2.0d + Math.sqrt(i25))];
         iArr3[0] = 0;
         double[] dArr4 = new double[i25 / 2];
-        this.hJY.a(i25, 1, dArr3, iArr3, dArr4);
+        this.hJZ.a(i25, 1, dArr3, iArr3, dArr4);
         if (i8 == 1) {
             int i27 = (i4 / gcd) * i5;
             double[][] dArr5 = (double[][]) Array.newInstance(Double.TYPE, 1, 1);
@@ -862,7 +862,7 @@ public class j {
             i11 = i27;
             i13 = 1;
         } else {
-            double d7 = this.hJZ;
+            double d7 = this.hKa;
             int i28 = (i4 / gcd) * i5;
             double d8 = (((i21 / 2) - (i4 / 2)) * 2) / 2.0d;
             double d9 = (i4 / 2) + (((i21 / 2) - (i4 / 2)) / 2.0d);
@@ -965,7 +965,7 @@ public class j {
                 case 2:
                     i45 = 0;
                     while (i45 < i49 * i) {
-                        dArr9[(i * 0) + i45] = 3.051850947599719E-5d * wrap.order(this.hJX).asShortBuffer().get(i45);
+                        dArr9[(i * 0) + i45] = 3.051850947599719E-5d * wrap.order(this.hJY).asShortBuffer().get(i45);
                         i45++;
                     }
                     break;
@@ -979,7 +979,7 @@ public class j {
                 case 4:
                     i45 = 0;
                     while (i45 < i49 * i) {
-                        dArr9[(i * 0) + i45] = 4.656612875245797E-10d * wrap.order(this.hJX).getInt(i45);
+                        dArr9[(i * 0) + i45] = 4.656612875245797E-10d * wrap.order(this.hJY).getInt(i45);
                         i45++;
                     }
                     break;
@@ -1018,7 +1018,7 @@ public class j {
                     }
                     int i60 = i57 - i37;
                     int i61 = i54 + i56;
-                    this.hJY.a(i25, 1, dArr7[i51], iArr3, dArr4);
+                    this.hJZ.a(i25, 1, dArr7[i51], iArr3, dArr4);
                     dArr7[i51][0] = dArr3[0] * dArr7[i51][0];
                     dArr7[i51][1] = dArr3[1] * dArr7[i51][1];
                     for (int i62 = 1; i62 < i37; i62++) {
@@ -1027,7 +1027,7 @@ public class j {
                         dArr7[i51][i62 * 2] = d10;
                         dArr7[i51][(i62 * 2) + 1] = d11;
                     }
-                    this.hJY.a(i25, -1, dArr7[i51], iArr3, dArr4);
+                    this.hJZ.a(i25, -1, dArr7[i51], iArr3, dArr4);
                     int i63 = 0;
                     while (i63 < i37) {
                         double[] dArr11 = dArr8[i51];
@@ -1149,7 +1149,7 @@ public class j {
                                             j2 = 32767;
                                         }
                                     }
-                                    allocate2.order(this.hJX).asShortBuffer().put(i78, (short) j2);
+                                    allocate2.order(this.hJY).asShortBuffer().put(i78, (short) j2);
                                     int i79 = i77 + 1;
                                     if (i79 == i) {
                                         i79 = 0;
@@ -1343,7 +1343,7 @@ public class j {
                     ByteBuffer wrap2 = ByteBuffer.wrap(bArr2);
                     wrap2.position(wrap2.limit());
                     wrap2.flip();
-                    d2 = wrap2.order(this.hJX).asShortBuffer().get(0) * 3.051850947599719E-5d;
+                    d2 = wrap2.order(this.hJY).asShortBuffer().get(0) * 3.051850947599719E-5d;
                     byteBuffer = wrap2;
                     break;
                 case 3:
@@ -1365,7 +1365,7 @@ public class j {
                     ByteBuffer wrap4 = ByteBuffer.wrap(bArr4);
                     wrap4.position(wrap4.limit());
                     wrap4.flip();
-                    d2 = wrap4.order(this.hJX).asIntBuffer().get(0) * 4.656612875245797E-10d;
+                    d2 = wrap4.order(this.hJY).asIntBuffer().get(0) * 4.656612875245797E-10d;
                     byteBuffer = wrap4;
                     break;
                 default:
@@ -1439,29 +1439,29 @@ public class j {
     }
 
     public j() {
-        this.hJX = ByteOrder.LITTLE_ENDIAN;
-        this.hJY = new k();
-        this.hJZ = 150.0d;
-        this.hKa = 200.0d;
-        this.hKb = 1;
-        this.hKn = false;
+        this.hJY = ByteOrder.LITTLE_ENDIAN;
+        this.hJZ = new k();
+        this.hKa = 150.0d;
+        this.hKb = 200.0d;
+        this.hKc = 1;
+        this.hKo = false;
     }
 
     public j(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3, int i4, int i5, int i6, double d, int i7, boolean z) throws Exception {
         int i8;
         int i9;
-        this.hJX = ByteOrder.LITTLE_ENDIAN;
-        this.hJY = new k();
-        this.hJZ = 150.0d;
-        this.hKa = 200.0d;
-        this.hKb = 1;
-        this.hKn = false;
+        this.hJY = ByteOrder.LITTLE_ENDIAN;
+        this.hJZ = new k();
+        this.hKa = 150.0d;
+        this.hKb = 200.0d;
+        this.hKc = 1;
+        this.hKo = false;
         double[] dArr = {0.0d};
         if (i7 < 0 || i7 > 4) {
             throw new IllegalArgumentException("unrecognized dither type : " + i7);
         }
-        this.hKn = z;
-        if (!this.hKn) {
+        this.hKo = z;
+        if (!this.hKo) {
             System.err.printf("Shibatch sampling rate converter version 1.30(high precision/nio)\n\n", new Object[0]);
         }
         if (i3 != 1 && i3 != 2 && i3 != 3 && i3 != 4) {
@@ -1487,7 +1487,7 @@ public class j {
         } else {
             i9 = 1;
         }
-        if (!this.hKn) {
+        if (!this.hKo) {
             String[] strArr = {"none", "no noise shaping", "triangular spectral shape", "ATH based noise shaping", "ATH based noise shaping(less amplitude)"};
             String[] strArr2 = {"rectangular", "triangular", "gaussian"};
             System.err.printf("frequency : %d -> %d\n", Integer.valueOf(i), Integer.valueOf(i10));
@@ -1530,13 +1530,13 @@ public class j {
         } else {
             dArr[0] = a(inputStream, outputStream, i5, i3, i8, Math.pow(10.0d, (-d) / 20.0d), (i6 / i3) / i5, false, i9);
         }
-        if (!this.hKn) {
+        if (!this.hKo) {
             System.err.printf("\n", new Object[0]);
         }
         if (i9 != 0) {
             wO(i5);
         }
-        if (dArr[0] > 1.0d && !this.hKn) {
+        if (dArr[0] > 1.0d && !this.hKo) {
             System.err.printf("clipping detected : %gdB\n", Double.valueOf(20.0d * Math.log10(dArr[0])));
         }
     }

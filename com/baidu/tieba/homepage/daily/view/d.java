@@ -17,37 +17,37 @@ import com.baidu.tieba.homepage.daily.b.e;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class d extends BaseAdapter {
-    private List<e.a> evM;
-    private int ewg;
+    private List<e.a> evN;
     private int ewh;
+    private int ewi;
     private Context mContext;
 
     public d(Context context) {
         this.mContext = context;
-        this.ewg = ((((l.aO(context) - (l.h(context, e.C0210e.tbds44) * 2)) - l.h(context, e.C0210e.tbds60)) / 2) - l.h(context, e.C0210e.tbds104)) - l.h(context, e.C0210e.tbds26);
+        this.ewh = ((((l.aO(context) - (l.h(context, e.C0210e.tbds44) * 2)) - l.h(context, e.C0210e.tbds60)) / 2) - l.h(context, e.C0210e.tbds104)) - l.h(context, e.C0210e.tbds26);
     }
 
     public void setData(List<e.a> list) {
         if (list != null) {
-            this.evM = list;
+            this.evN = list;
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.H(this.evM);
+        return v.H(this.evN);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: oC */
     public e.a getItem(int i) {
-        return (e.a) v.d(this.evM, i);
+        return (e.a) v.d(this.evN, i);
     }
 
     public String aLJ() {
-        e.a aVar = (e.a) v.d(this.evM, 0);
+        e.a aVar = (e.a) v.d(this.evN, 0);
         if (aVar != null) {
             return aVar.aLJ();
         }
@@ -65,9 +65,9 @@ public class d extends BaseAdapter {
         if (view == null || !(view.getTag() instanceof a)) {
             view = LayoutInflater.from(this.mContext).inflate(e.h.daily_topic_item_view, (ViewGroup) null);
             a aVar2 = new a();
-            aVar2.ewi = (TbImageView) view.findViewById(e.g.topic_pic);
-            aVar2.ewa = (TextView) view.findViewById(e.g.topic_title);
-            aVar2.ewj = (TextView) view.findViewById(e.g.topic_abstract);
+            aVar2.ewj = (TbImageView) view.findViewById(e.g.topic_pic);
+            aVar2.ewb = (TextView) view.findViewById(e.g.topic_title);
+            aVar2.ewk = (TextView) view.findViewById(e.g.topic_abstract);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -75,26 +75,26 @@ public class d extends BaseAdapter {
         }
         e.a item = getItem(i);
         if (item != null) {
-            aVar.ewi.startLoad(item.aLH(), 10, false);
-            aVar.ewa.setText(this.mContext.getString(e.j.daily_topic_name, b(aVar.ewa.getPaint(), item.zl(), this.ewg)));
-            aVar.ewj.setText(item.aLI());
+            aVar.ewj.startLoad(item.aLH(), 10, false);
+            aVar.ewb.setText(this.mContext.getString(e.j.daily_topic_name, b(aVar.ewb.getPaint(), item.zl(), this.ewh)));
+            aVar.ewk.setText(item.aLI());
         }
         aVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return view;
     }
 
     public String b(TextPaint textPaint, String str, int i) {
-        if (this.ewh <= 0) {
-            this.ewh = i - l.c(textPaint, "##");
+        if (this.ewi <= 0) {
+            this.ewi = i - l.c(textPaint, "##");
         }
-        return l.a(textPaint, str, this.ewh);
+        return l.a(textPaint, str, this.ewi);
     }
 
     /* loaded from: classes6.dex */
     private static class a {
-        public TextView ewa;
-        public TbImageView ewi;
-        public TextView ewj;
+        public TextView ewb;
+        public TbImageView ewj;
+        public TextView ewk;
         private int mSkinType;
 
         private a() {
@@ -104,9 +104,9 @@ public class d extends BaseAdapter {
         public void onChangeSkinType(int i) {
             if (i != this.mSkinType) {
                 this.mSkinType = i;
-                this.ewi.setBorderColor(al.getColor(e.d.black_alpha15));
-                al.h(this.ewa, e.d.cp_cont_b);
-                al.h(this.ewj, e.d.cp_cont_d);
+                this.ewj.setBorderColor(al.getColor(e.d.black_alpha15));
+                al.h(this.ewb, e.d.cp_cont_b);
+                al.h(this.ewk, e.d.cp_cont_d);
             }
         }
     }

@@ -8,35 +8,35 @@ import java.util.List;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class j implements k {
-    private volatile boolean iFE;
-    private List<k> iQz;
+    private volatile boolean iFF;
+    private List<k> iQA;
 
     public j() {
     }
 
     public j(k... kVarArr) {
-        this.iQz = new LinkedList(Arrays.asList(kVarArr));
+        this.iQA = new LinkedList(Arrays.asList(kVarArr));
     }
 
     public j(k kVar) {
-        this.iQz = new LinkedList();
-        this.iQz.add(kVar);
+        this.iQA = new LinkedList();
+        this.iQA.add(kVar);
     }
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.iFE;
+        return this.iFF;
     }
 
     public void add(k kVar) {
         if (!kVar.isUnsubscribed()) {
-            if (!this.iFE) {
+            if (!this.iFF) {
                 synchronized (this) {
-                    if (!this.iFE) {
-                        List list = this.iQz;
+                    if (!this.iFF) {
+                        List list = this.iQA;
                         if (list == null) {
                             list = new LinkedList();
-                            this.iQz = list;
+                            this.iQA = list;
                         }
                         list.add(kVar);
                         return;
@@ -48,10 +48,10 @@ public final class j implements k {
     }
 
     public void b(k kVar) {
-        if (!this.iFE) {
+        if (!this.iFF) {
             synchronized (this) {
-                List<k> list = this.iQz;
-                if (!this.iFE && list != null) {
+                List<k> list = this.iQA;
+                if (!this.iFF && list != null) {
                     boolean remove = list.remove(kVar);
                     if (remove) {
                         kVar.unsubscribe();
@@ -63,12 +63,12 @@ public final class j implements k {
 
     @Override // rx.k
     public void unsubscribe() {
-        if (!this.iFE) {
+        if (!this.iFF) {
             synchronized (this) {
-                if (!this.iFE) {
-                    this.iFE = true;
-                    List<k> list = this.iQz;
-                    this.iQz = null;
+                if (!this.iFF) {
+                    this.iFF = true;
+                    List<k> list = this.iQA;
+                    this.iQA = null;
                     n(list);
                 }
             }

@@ -14,8 +14,8 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class d extends BaseAdapter {
-    BaseActivity bBV;
-    private View.OnClickListener eNJ = new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.d.1
+    BaseActivity bBW;
+    private View.OnClickListener eNK = new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.d.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int intValue = ((Integer) view.getTag()).intValue();
@@ -33,7 +33,7 @@ public class d extends BaseAdapter {
 
     public d(BaseActivity baseActivity, Context context) {
         this.mContext = context;
-        this.bBV = baseActivity;
+        this.bBW = baseActivity;
     }
 
     @Override // android.widget.Adapter
@@ -121,14 +121,14 @@ public class d extends BaseAdapter {
                     chatMessage2.setMsgType(aVar.type);
                     j.a(this.mContext, historyItemView3, historyItemView4.getImageView(), chatMessage2, 0L, "official_history_adapter");
                     historyItemView4.getImageView().setTag(Integer.valueOf(i));
-                    historyItemView4.getImageView().setOnClickListener(this.eNJ);
+                    historyItemView4.getImageView().setOnClickListener(this.eNK);
                     return historyItemView3;
                 case 2:
                     View historyItemView5 = view == null ? new HistoryItemView(this.mContext) : view;
                     MultiContentView multiContentView = new MultiContentView(this.mContext);
                     multiContentView.setNeedNightMode(true);
                     multiContentView.setTime(aVar.time);
-                    multiContentView.setData(this.bBV.getPageContext(), c.b(aVar.content, "", 0L), viewGroup);
+                    multiContentView.setData(this.bBW.getPageContext(), c.b(aVar.content, "", 0L), viewGroup);
                     ((HistoryItemView) historyItemView5).bf(multiContentView);
                     return historyItemView5;
                 default:

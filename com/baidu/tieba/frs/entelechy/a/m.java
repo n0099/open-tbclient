@@ -24,14 +24,14 @@ import com.baidu.tieba.frs.view.UserRecommendItemView;
 import com.baidu.tieba.frs.view.UserRecommendLayout;
 /* loaded from: classes6.dex */
 public class m extends com.baidu.tieba.frs.h<com.baidu.tieba.frs.q, a> {
-    private boolean dUa;
-    private com.baidu.adp.lib.e.b<UserRecommendItemView> dUb;
+    private boolean dUb;
+    private com.baidu.adp.lib.e.b<UserRecommendItemView> dUc;
     private String mForumId;
 
     public m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext, bdUniqueId, bdUniqueId2);
-        this.dUa = false;
-        this.dUb = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<UserRecommendItemView>() { // from class: com.baidu.tieba.frs.entelechy.a.m.1
+        this.dUb = false;
+        this.dUc = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<UserRecommendItemView>() { // from class: com.baidu.tieba.frs.entelechy.a.m.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
             /* renamed from: aFh */
@@ -62,7 +62,7 @@ public class m extends com.baidu.tieba.frs.h<com.baidu.tieba.frs.q, a> {
     }
 
     public void aFg() {
-        this.dUa = true;
+        this.dUb = true;
     }
 
     public void setForumId(String str) {
@@ -74,8 +74,8 @@ public class m extends com.baidu.tieba.frs.h<com.baidu.tieba.frs.q, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aw */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        a aVar = new a(LayoutInflater.from(this.mContext).inflate(e.h.card_user_recommend_layout, viewGroup, false), this.dUa, this.mForumId);
-        aVar.dUe.setViewPool(this.dUb);
+        a aVar = new a(LayoutInflater.from(this.mContext).inflate(e.h.card_user_recommend_layout, viewGroup, false), this.dUb, this.mForumId);
+        aVar.dUf.setViewPool(this.dUc);
         return aVar;
     }
 
@@ -86,12 +86,12 @@ public class m extends com.baidu.tieba.frs.h<com.baidu.tieba.frs.q, a> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.frs.q qVar, a aVar) {
         if (qVar != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            aVar.dUf.setText(qVar.aDo());
-            aVar.dUe.setPageContext(this.mPageContext);
-            aVar.dUe.setData(qVar.getUserInfo());
-            aVar.dUd.setMaxOverScrollDistance(aVar.dUe.getChildItemWidth());
-            aVar.dUf.setTextColor(al.getColor(skinType, e.d.cp_cont_f));
-            aVar.aKk.setBackgroundColor(al.getColor(skinType, e.d.cp_bg_line_e));
+            aVar.dUg.setText(qVar.aDo());
+            aVar.dUf.setPageContext(this.mPageContext);
+            aVar.dUf.setData(qVar.getUserInfo());
+            aVar.dUe.setMaxOverScrollDistance(aVar.dUf.getChildItemWidth());
+            aVar.dUg.setTextColor(al.getColor(skinType, e.d.cp_cont_f));
+            aVar.aKl.setBackgroundColor(al.getColor(skinType, e.d.cp_bg_line_e));
             if (!qVar.aDp()) {
                 for (MetaData metaData : qVar.getUserInfo()) {
                     if (metaData != null && !ao.isEmpty(metaData.getUserId())) {
@@ -106,53 +106,53 @@ public class m extends com.baidu.tieba.frs.h<com.baidu.tieba.frs.q, a> {
 
     /* loaded from: classes6.dex */
     public static class a extends q.a {
-        LinearLayout aKk;
-        private boolean dUa;
-        FlexibleHorizontalScrollView dUd;
-        UserRecommendLayout dUe;
-        TextView dUf;
-        View.OnClickListener dUg;
+        LinearLayout aKl;
+        private boolean dUb;
+        FlexibleHorizontalScrollView dUe;
+        UserRecommendLayout dUf;
+        TextView dUg;
         View.OnClickListener dUh;
+        View.OnClickListener dUi;
         private final String forumId;
 
         public a(View view, boolean z, String str) {
             super(view);
-            this.dUa = false;
-            this.dUg = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.a.m.a.1
+            this.dUb = false;
+            this.dUh = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.a.m.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     com.baidu.tbadk.core.view.userLike.a FN;
-                    if (a.this.dUd != null && a.this.dUe != null) {
-                        a.this.dUd.smoothScrollBy(a.this.dUe.getChildItemWidth(), 0);
+                    if (a.this.dUe != null && a.this.dUf != null) {
+                        a.this.dUe.smoothScrollBy(a.this.dUf.getChildItemWidth(), 0);
                         if ((view2.getTag() instanceof com.baidu.tbadk.core.view.userLike.c) && (FN = ((com.baidu.tbadk.core.view.userLike.c) view2.getTag()).FN()) != null) {
                             a.this.ae(FN.getUserId(), 2);
                         }
-                        if (a.this.dUa) {
+                        if (a.this.dUb) {
                             TiebaStatic.log(new am("c13047").y("obj_locate", 9).aB(ImageViewerConfig.FORUM_ID, a.this.forumId));
                         }
                     }
                 }
             };
-            this.dUh = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.a.m.a.2
+            this.dUi = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.a.m.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (view2 instanceof ClickableHeaderImageView) {
                         a.this.ae(((ClickableHeaderImageView) view2).getUserId(), 1);
                     }
-                    if (a.this.dUa) {
+                    if (a.this.dUb) {
                         TiebaStatic.log(new am("c13047").y("obj_locate", 9).aB(ImageViewerConfig.FORUM_ID, a.this.forumId));
                     }
                 }
             };
-            this.dUa = z;
+            this.dUb = z;
             this.forumId = str;
-            this.dUd = (FlexibleHorizontalScrollView) view.findViewById(e.g.user_recommend_scroll_container);
-            this.dUe = (UserRecommendLayout) view.findViewById(e.g.user_recommend_container);
-            this.dUe.setItemSpace(com.baidu.adp.lib.util.l.h(view.getContext(), e.C0210e.ds16));
-            this.dUe.setAfterLikeBtnClickListener(this.dUg);
-            this.dUe.setAfterHeaderLickListener(this.dUh);
-            this.dUf = (TextView) view.findViewById(e.g.user_recommend_document);
-            this.aKk = (LinearLayout) view.findViewById(e.g.user_recommend_root);
+            this.dUe = (FlexibleHorizontalScrollView) view.findViewById(e.g.user_recommend_scroll_container);
+            this.dUf = (UserRecommendLayout) view.findViewById(e.g.user_recommend_container);
+            this.dUf.setItemSpace(com.baidu.adp.lib.util.l.h(view.getContext(), e.C0210e.ds16));
+            this.dUf.setAfterLikeBtnClickListener(this.dUh);
+            this.dUf.setAfterHeaderLickListener(this.dUi);
+            this.dUg = (TextView) view.findViewById(e.g.user_recommend_document);
+            this.aKl = (LinearLayout) view.findViewById(e.g.user_recommend_root);
         }
 
         /* JADX INFO: Access modifiers changed from: private */

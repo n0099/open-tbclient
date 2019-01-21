@@ -7,10 +7,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Random;
 /* loaded from: classes3.dex */
 public class a {
-    private static final String[] doq = {"119.75.222.62", "119.75.222.63"};
-    private static final String[] dor = {"111.13.100.247", "117.185.16.61"};
-    private static final String[] dos = {"111.206.37.190"};
-    private static final String[] dot = {"115.239.211.146", "180.97.33.196"};
+    private static final String[] dor = {"119.75.222.62", "119.75.222.63"};
+    private static final String[] dos = {"111.13.100.247", "117.185.16.61"};
+    private static final String[] dot = {"111.206.37.190"};
+    private static final String[] dou = {"115.239.211.146", "180.97.33.196"};
     private volatile String imsi;
     private volatile int operator;
 
@@ -18,17 +18,17 @@ public class a {
     public String ave() {
         avf();
         if (j.kW()) {
-            return dot[new Random().nextInt(dot.length)];
+            return dou[new Random().nextInt(dou.length)];
         }
         if (j.kX()) {
             if (this.operator == 1) {
-                return doq[new Random().nextInt(doq.length)];
-            }
-            if (this.operator == 2) {
                 return dor[new Random().nextInt(dor.length)];
             }
-            if (this.operator == 3) {
+            if (this.operator == 2) {
                 return dos[new Random().nextInt(dos.length)];
+            }
+            if (this.operator == 3) {
+                return dot[new Random().nextInt(dot.length)];
             }
             return "119.75.222.62";
         }

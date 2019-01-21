@@ -8,31 +8,31 @@ import java.io.OutputStream;
 /* loaded from: classes3.dex */
 public class a {
     protected Bitmap NE;
-    protected int grI;
-    protected byte[] grK;
+    protected int grJ;
     protected byte[] grL;
-    protected int grM;
-    protected byte[] grN;
+    protected byte[] grM;
+    protected int grN;
+    protected byte[] grO;
     protected int height;
     protected OutputStream out;
     protected int width;
     protected int x = 0;
     protected int y = 0;
     protected int transparent = -1;
-    protected int grJ = -1;
+    protected int grK = -1;
     protected int delay = 0;
     protected boolean started = false;
-    protected boolean[] grO = new boolean[256];
-    protected int grP = 7;
-    protected int grQ = -1;
-    protected boolean grR = false;
-    protected boolean grS = true;
-    protected boolean grT = false;
-    protected int grU = 10;
+    protected boolean[] grP = new boolean[256];
+    protected int grQ = 7;
+    protected int grR = -1;
+    protected boolean grS = false;
+    protected boolean grT = true;
+    protected boolean grU = false;
+    protected int grV = 10;
 
     public void tg(int i) {
         if (i >= 0) {
-            this.grJ = i;
+            this.grK = i;
         }
     }
 
@@ -41,26 +41,26 @@ public class a {
             return false;
         }
         try {
-            if (!this.grT) {
+            if (!this.grU) {
                 setSize(bitmap.getWidth(), bitmap.getHeight());
             }
             this.NE = bitmap;
             bpk();
             bpj();
-            if (this.grS) {
+            if (this.grT) {
                 bpn();
                 bpp();
-                if (this.grJ >= 0) {
+                if (this.grK >= 0) {
                     bpo();
                 }
             }
             bpl();
             bpm();
-            if (!this.grS) {
+            if (!this.grT) {
                 bpp();
             }
             bpq();
-            this.grS = false;
+            this.grT = false;
             return true;
         } catch (IOException e) {
             return false;
@@ -74,21 +74,21 @@ public class a {
             try {
                 this.out.write(59);
                 this.out.flush();
-                if (this.grR) {
+                if (this.grS) {
                     this.out.close();
                 }
                 z = true;
             } catch (IOException e) {
                 z = false;
             }
-            this.grI = 0;
+            this.grJ = 0;
             this.out = null;
             this.NE = null;
-            this.grK = null;
             this.grL = null;
-            this.grN = null;
-            this.grR = false;
-            this.grS = true;
+            this.grM = null;
+            this.grO = null;
+            this.grS = false;
+            this.grT = true;
             return z;
         }
         return false;
@@ -103,7 +103,7 @@ public class a {
         if (this.height < 1) {
             this.height = 240;
         }
-        this.grT = true;
+        this.grU = true;
     }
 
     public boolean e(OutputStream outputStream) {
@@ -111,7 +111,7 @@ public class a {
             return false;
         }
         boolean z = true;
-        this.grR = false;
+        this.grS = false;
         this.out = outputStream;
         try {
             writeString("GIF89a");
@@ -123,55 +123,55 @@ public class a {
     }
 
     protected void bpj() {
-        int length = this.grK.length;
+        int length = this.grL.length;
         int i = length / 3;
-        this.grL = new byte[i];
-        c cVar = new c(this.grK, length, this.grU);
-        this.grN = cVar.bpw();
-        for (int i2 = 0; i2 < this.grN.length; i2 += 3) {
-            byte b = this.grN[i2];
-            this.grN[i2] = this.grN[i2 + 2];
-            this.grN[i2 + 2] = b;
-            this.grO[i2 / 3] = false;
+        this.grM = new byte[i];
+        c cVar = new c(this.grL, length, this.grV);
+        this.grO = cVar.bpw();
+        for (int i2 = 0; i2 < this.grO.length; i2 += 3) {
+            byte b = this.grO[i2];
+            this.grO[i2] = this.grO[i2 + 2];
+            this.grO[i2 + 2] = b;
+            this.grP[i2 / 3] = false;
         }
         int i3 = 0;
         for (int i4 = 0; i4 < i; i4++) {
             int i5 = i3 + 1;
             int i6 = i5 + 1;
             i3 = i6 + 1;
-            int U = cVar.U(this.grK[i3] & 255, this.grK[i5] & 255, this.grK[i6] & 255);
-            this.grO[U] = true;
-            this.grL[i4] = (byte) U;
+            int U = cVar.U(this.grL[i3] & 255, this.grL[i5] & 255, this.grL[i6] & 255);
+            this.grP[U] = true;
+            this.grM[i4] = (byte) U;
         }
-        this.grK = null;
-        this.grM = 8;
-        this.grP = 7;
+        this.grL = null;
+        this.grN = 8;
+        this.grQ = 7;
         if (this.transparent != -1) {
-            this.grI = th(this.transparent);
+            this.grJ = th(this.transparent);
         }
     }
 
     protected int th(int i) {
         int i2;
         int i3 = 0;
-        if (this.grN == null) {
+        if (this.grO == null) {
             return -1;
         }
         int i4 = (i >> 16) & 255;
         int i5 = (i >> 8) & 255;
         int i6 = (i >> 0) & 255;
         int i7 = 16777216;
-        int length = this.grN.length;
+        int length = this.grO.length;
         int i8 = 0;
         while (i3 < length) {
             int i9 = i3 + 1;
-            int i10 = i4 - (this.grN[i3] & 255);
+            int i10 = i4 - (this.grO[i3] & 255);
             int i11 = i9 + 1;
-            int i12 = i5 - (this.grN[i9] & 255);
-            int i13 = i6 - (this.grN[i11] & 255);
+            int i12 = i5 - (this.grO[i9] & 255);
+            int i13 = i6 - (this.grO[i11] & 255);
             int i14 = (i10 * i10) + (i12 * i12) + (i13 * i13);
             int i15 = i11 / 3;
-            if (!this.grO[i15] || i14 >= i7) {
+            if (!this.grP[i15] || i14 >= i7) {
                 i14 = i7;
                 i2 = i8;
             } else {
@@ -193,14 +193,14 @@ public class a {
             this.NE = createBitmap;
         }
         int[] u = u(this.NE);
-        this.grK = new byte[u.length * 3];
+        this.grL = new byte[u.length * 3];
         for (int i = 0; i < u.length; i++) {
             int i2 = u[i];
             int i3 = i * 3;
             int i4 = i3 + 1;
-            this.grK[i3] = (byte) ((i2 >> 0) & 255);
-            this.grK[i4] = (byte) ((i2 >> 8) & 255);
-            this.grK[i4 + 1] = (byte) ((i2 >> 16) & 255);
+            this.grL[i3] = (byte) ((i2 >> 0) & 255);
+            this.grL[i4] = (byte) ((i2 >> 8) & 255);
+            this.grL[i4 + 1] = (byte) ((i2 >> 16) & 255);
         }
     }
 
@@ -225,12 +225,12 @@ public class a {
             i = 1;
             i2 = 2;
         }
-        if (this.grQ >= 0) {
-            i2 = this.grQ & 7;
+        if (this.grR >= 0) {
+            i2 = this.grR & 7;
         }
         this.out.write((i2 << 2) | 0 | 0 | i);
         writeShort(this.delay);
-        this.out.write(this.grI);
+        this.out.write(this.grJ);
         this.out.write(0);
     }
 
@@ -240,17 +240,17 @@ public class a {
         writeShort(this.y);
         writeShort(this.width);
         writeShort(this.height);
-        if (this.grS) {
+        if (this.grT) {
             this.out.write(0);
         } else {
-            this.out.write(this.grP | 128);
+            this.out.write(this.grQ | 128);
         }
     }
 
     protected void bpn() throws IOException {
         writeShort(this.width);
         writeShort(this.height);
-        this.out.write(this.grP | 240);
+        this.out.write(this.grQ | 240);
         this.out.write(0);
         this.out.write(0);
     }
@@ -262,20 +262,20 @@ public class a {
         writeString("NETSCAPE2.0");
         this.out.write(3);
         this.out.write(1);
-        writeShort(this.grJ);
+        writeShort(this.grK);
         this.out.write(0);
     }
 
     protected void bpp() throws IOException {
-        this.out.write(this.grN, 0, this.grN.length);
-        int length = 768 - this.grN.length;
+        this.out.write(this.grO, 0, this.grO.length);
+        int length = 768 - this.grO.length;
         for (int i = 0; i < length; i++) {
             this.out.write(0);
         }
     }
 
     protected void bpq() throws IOException {
-        new b(this.width, this.height, this.grL, this.grM).encode(this.out);
+        new b(this.width, this.height, this.grM, this.grN).encode(this.out);
     }
 
     protected void writeShort(int i) throws IOException {

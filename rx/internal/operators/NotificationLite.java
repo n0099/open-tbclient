@@ -3,14 +3,14 @@ package rx.internal.operators;
 import java.io.Serializable;
 /* loaded from: classes2.dex */
 public final class NotificationLite {
-    private static final Object iGl = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
+    private static final Object iGm = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
         private static final long serialVersionUID = 1;
 
         public String toString() {
             return "Notification=>Completed";
         }
     };
-    private static final Object iGm = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
+    private static final Object iGn = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
         private static final long serialVersionUID = 2;
 
         public String toString() {
@@ -34,13 +34,13 @@ public final class NotificationLite {
 
     public static <T> Object aY(T t) {
         if (t == null) {
-            return iGm;
+            return iGn;
         }
         return t;
     }
 
     public static Object ceF() {
-        return iGl;
+        return iGm;
     }
 
     public static Object M(Throwable th) {
@@ -48,10 +48,10 @@ public final class NotificationLite {
     }
 
     public static <T> boolean a(rx.e<? super T> eVar, Object obj) {
-        if (obj == iGl) {
+        if (obj == iGm) {
             eVar.onCompleted();
             return true;
-        } else if (obj == iGm) {
+        } else if (obj == iGn) {
             eVar.onNext(null);
             return false;
         } else if (obj != null) {
@@ -67,7 +67,7 @@ public final class NotificationLite {
     }
 
     public static boolean aZ(Object obj) {
-        return obj == iGl;
+        return obj == iGm;
     }
 
     public static boolean ba(Object obj) {
@@ -77,7 +77,7 @@ public final class NotificationLite {
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     public static <T> T bb(Object obj) {
-        if (obj == iGm) {
+        if (obj == iGn) {
             return null;
         }
         return obj;

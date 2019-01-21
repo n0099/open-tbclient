@@ -15,10 +15,10 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class a {
     private final String Xf;
-    private final long hsG;
-    private final int hsH;
+    private final long hsH;
     private final int hsI;
-    private e hsJ;
+    private final int hsJ;
+    private e hsK;
     protected final String mFileName;
 
     public abstract d b(ArrayList<Integer> arrayList, String str, int i);
@@ -29,20 +29,20 @@ public abstract class a {
 
     public a(String str, int i, int i2, long j, String str2) {
         this.mFileName = str;
-        this.hsI = i2;
-        this.hsG = j;
+        this.hsJ = i2;
+        this.hsH = j;
         this.Xf = str2;
-        this.hsH = i;
+        this.hsI = i;
     }
 
     public void a(e eVar) {
-        this.hsJ = eVar;
+        this.hsK = eVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void vY(int i) {
-        if (this.hsJ != null) {
-            this.hsJ.az(i / 100.0f);
+        if (this.hsK != null) {
+            this.hsK.az(i / 100.0f);
         }
     }
 
@@ -59,9 +59,9 @@ public abstract class a {
         } else {
             x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
             xVar.x("chunk_no", String.valueOf(i));
-            xVar.x("chunk_sum", String.valueOf(this.hsI));
+            xVar.x("chunk_sum", String.valueOf(this.hsJ));
             xVar.x("chunk_size", String.valueOf(a.length));
-            xVar.x("video_size", String.valueOf(this.hsG));
+            xVar.x("video_size", String.valueOf(this.hsH));
             xVar.x("video_md5", this.Xf);
             xVar.x("video_len", String.valueOf(j));
             xVar.x("tbs", TbadkCoreApplication.getInst().getTbs());
@@ -80,7 +80,7 @@ public abstract class a {
                 return dVar2;
             }
             if (xVar.Dw().Ev().Dz()) {
-                dVar2.errorNo = xVar.Dw().Ev().aDW;
+                dVar2.errorNo = xVar.Dw().Ev().aDX;
             } else {
                 dVar2.errorNo = xVar.Dw().Ev().De;
             }
@@ -94,15 +94,15 @@ public abstract class a {
         if (randomAccessFile == null || i < 0) {
             return null;
         }
-        if (i == this.hsI) {
-            i2 = (int) (this.hsG - ((i - 1) * this.hsH));
+        if (i == this.hsJ) {
+            i2 = (int) (this.hsH - ((i - 1) * this.hsI));
         } else {
-            i2 = this.hsH;
+            i2 = this.hsI;
         }
         byte[] bArr = new byte[i2];
         try {
             synchronized (randomAccessFile) {
-                randomAccessFile.seek((i - 1) * this.hsH);
+                randomAccessFile.seek((i - 1) * this.hsI);
                 r3 = randomAccessFile.read(bArr, 0, i2) != -1;
             }
         } catch (IOException e) {

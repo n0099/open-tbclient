@@ -24,9 +24,9 @@ public class g {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.apT;
-        if (StringUtils.isNull(str) && advertAppInfo.aqd != null) {
-            str = advertAppInfo.aqd.userName;
+        String str = advertAppInfo.apU;
+        if (StringUtils.isNull(str) && advertAppInfo.aqe != null) {
+            str = advertAppInfo.aqe.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -39,11 +39,11 @@ public class g {
             return false;
         }
         com.baidu.tbadk.distribute.a.Mc().b(advertAppInfo);
-        String str2 = advertAppInfo.apT;
+        String str2 = advertAppInfo.apU;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        h.bwg().a(advertAppInfo.apX, advertAppInfo.apW, str2, i, h.uS(advertAppInfo.apX).intValue(), null, true, false, true, advertAppInfo.aqd.userPortrait, downloadStaticsData, advertAppInfo.aqd.userName);
+        h.bwg().a(advertAppInfo.apY, advertAppInfo.apX, str2, i, h.uS(advertAppInfo.apY).intValue(), null, true, false, true, advertAppInfo.aqe.userPortrait, downloadStaticsData, advertAppInfo.aqe.userName);
         return true;
     }
 
@@ -52,7 +52,7 @@ public class g {
         if (adAdSense != null && !adAdSense.GO()) {
             s.f(advertAppInfo);
         } else {
-            h.bwg().j(advertAppInfo.apW, advertAppInfo.apX, true);
+            h.bwg().j(advertAppInfo.apX, advertAppInfo.apY, true);
         }
     }
 

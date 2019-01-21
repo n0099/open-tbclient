@@ -21,37 +21,37 @@ import com.baidu.tieba.recapp.view.WebViewContainer;
 import tbclient.VideoInfo;
 /* loaded from: classes3.dex */
 public class WebVideoActivity extends AdTbWebViewActivity {
-    public static a gPy;
-    private String aFq;
-    private int gHk;
-    private WebViewContainer gPA;
-    private float gPB;
-    private int gPC;
+    public static a gPz;
+    private String aFr;
+    private int gHl;
+    private DistributeVideoView gPA;
+    private WebViewContainer gPB;
+    private float gPC;
     private int gPD;
-    private AdCard.a gPE;
-    private AdCard.f gPF;
-    private WebViewContainer.OnScrollChangedCallback gPG = new WebViewContainer.OnScrollChangedCallback() { // from class: com.baidu.tieba.recapp.activity.WebVideoActivity.1
+    private int gPE;
+    private AdCard.a gPF;
+    private AdCard.f gPG;
+    private WebViewContainer.OnScrollChangedCallback gPH = new WebViewContainer.OnScrollChangedCallback() { // from class: com.baidu.tieba.recapp.activity.WebVideoActivity.1
         @Override // com.baidu.tieba.recapp.view.WebViewContainer.OnScrollChangedCallback
         public void onScroll(int i, int i2) {
-            WebVideoActivity.this.gPC -= i2;
-            if (WebVideoActivity.this.gPC <= 0) {
-                WebVideoActivity.this.gPz.stopPlay(WebVideoActivity.this.gPz.getPlayStatus() != 2);
-            } else if (WebVideoActivity.this.gPC < WebVideoActivity.this.gPD) {
-                WebVideoActivity.this.gPz.pausePlay(1);
-            } else if (WebVideoActivity.this.gPz.getPlayStatus() == 2) {
-                WebVideoActivity.this.gPz.autoContinue();
-            } else if (WebVideoActivity.this.gPz.getPlayStatus() == -1) {
-                WebVideoActivity.this.gPz.autoPlay(0);
+            WebVideoActivity.this.gPD -= i2;
+            if (WebVideoActivity.this.gPD <= 0) {
+                WebVideoActivity.this.gPA.stopPlay(WebVideoActivity.this.gPA.getPlayStatus() != 2);
+            } else if (WebVideoActivity.this.gPD < WebVideoActivity.this.gPE) {
+                WebVideoActivity.this.gPA.pausePlay(1);
+            } else if (WebVideoActivity.this.gPA.getPlayStatus() == 2) {
+                WebVideoActivity.this.gPA.autoContinue();
+            } else if (WebVideoActivity.this.gPA.getPlayStatus() == -1) {
+                WebVideoActivity.this.gPA.autoPlay(0);
             }
         }
     };
-    private DistributeVideoView gPz;
     private String mThumbUrl;
     private int mVideoHeight;
 
     /* loaded from: classes3.dex */
     public static class a {
-        public AdvertAppInfo gPI;
+        public AdvertAppInfo gPJ;
         public String mPage;
         public int mPageNum;
     }
@@ -60,27 +60,27 @@ public class WebVideoActivity extends AdTbWebViewActivity {
     public void onCreate(Bundle bundle) {
         Intent intent = getIntent();
         if (intent != null) {
-            this.aFq = intent.getStringExtra(WebVideoActivityConfig.KEY_VIDEO_URL);
+            this.aFr = intent.getStringExtra(WebVideoActivityConfig.KEY_VIDEO_URL);
             this.mThumbUrl = intent.getStringExtra(WebVideoActivityConfig.KEY_VIDEO_THUMB_URL);
-            this.gPB = intent.getFloatExtra(WebVideoActivityConfig.KEY_VIDEO_RATIO, 1.0f);
-            this.gHk = intent.getIntExtra(WebVideoActivityConfig.KEY_VIDEO_DURATION, 0);
+            this.gPC = intent.getFloatExtra(WebVideoActivityConfig.KEY_VIDEO_RATIO, 1.0f);
+            this.gHl = intent.getIntExtra(WebVideoActivityConfig.KEY_VIDEO_DURATION, 0);
             String stringExtra = intent.getStringExtra(WebVideoActivityConfig.KEY_CHARGE_STYLE);
             String stringExtra2 = intent.getStringExtra(WebVideoActivityConfig.KEY_CHARGE_URL);
             if (!TextUtils.isEmpty(stringExtra) && !TextUtils.isEmpty(stringExtra2)) {
-                this.gPE = new AdCard.a();
-                this.gPE.gQC = stringExtra2;
-                this.gPE.gQB = stringExtra;
+                this.gPF = new AdCard.a();
+                this.gPF.gQD = stringExtra2;
+                this.gPF.gQC = stringExtra;
             }
             String stringExtra3 = intent.getStringExtra(WebVideoActivityConfig.KEY_TAIL_FRAME);
             if (!TextUtils.isEmpty(stringExtra3)) {
-                this.gPF = new AdCard.f();
-                this.gPF.uU(stringExtra3);
+                this.gPG = new AdCard.f();
+                this.gPG.uU(stringExtra3);
             }
         } else if (bundle != null) {
-            this.aFq = bundle.getString(WebVideoActivityConfig.KEY_VIDEO_URL);
+            this.aFr = bundle.getString(WebVideoActivityConfig.KEY_VIDEO_URL);
             this.mThumbUrl = bundle.getString(WebVideoActivityConfig.KEY_VIDEO_THUMB_URL);
-            this.gPB = bundle.getFloat(WebVideoActivityConfig.KEY_VIDEO_RATIO, 1.0f);
-            this.gHk = bundle.getInt(WebVideoActivityConfig.KEY_VIDEO_DURATION, 0);
+            this.gPC = bundle.getFloat(WebVideoActivityConfig.KEY_VIDEO_RATIO, 1.0f);
+            this.gHl = bundle.getInt(WebVideoActivityConfig.KEY_VIDEO_DURATION, 0);
         } else {
             BdLog.e("WebVideoActivity: onCreate invalid parameters");
         }
@@ -90,8 +90,8 @@ public class WebVideoActivity extends AdTbWebViewActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ad.browser.AdTbWebViewActivity, com.baidu.tieba.ad.browser.AdBaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
-        if (this.gPC > this.gPD && this.gPz != null) {
-            this.gPz.autoPlay(0);
+        if (this.gPD > this.gPE && this.gPA != null) {
+            this.gPA.autoPlay(0);
         }
         super.onResume();
     }
@@ -99,8 +99,8 @@ public class WebVideoActivity extends AdTbWebViewActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ad.browser.AdTbWebViewActivity, com.baidu.tieba.ad.browser.AdBaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
-        if (this.gPC > 0 && this.gPz != null) {
-            this.gPz.stopPlay(this.gPz.getPlayStatus() != 2);
+        if (this.gPD > 0 && this.gPA != null) {
+            this.gPA.stopPlay(this.gPA.getPlayStatus() != 2);
         }
         super.onPause();
     }
@@ -108,8 +108,8 @@ public class WebVideoActivity extends AdTbWebViewActivity {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ad.browser.AdBaseWebViewActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.gPz != null) {
-            this.gPz.stopPlay(this.gPz.getPlayStatus() != 2);
+        if (this.gPA != null) {
+            this.gPA.stopPlay(this.gPA.getPlayStatus() != 2);
         }
         super.onDestroy();
     }
@@ -117,55 +117,55 @@ public class WebVideoActivity extends AdTbWebViewActivity {
     @Override // com.baidu.tieba.ad.browser.AdTbWebViewActivity, com.baidu.tieba.ad.browser.AdBaseWebViewActivity
     public View createWebView() {
         FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(getActivity()).inflate(e.h.ad_web_video_view, (ViewGroup) null, false);
-        this.gPA = (WebViewContainer) frameLayout.findViewById(e.g.web_scroll);
-        this.bCp = (AdBaseWebView) frameLayout.findViewById(e.g.web_web);
+        this.gPB = (WebViewContainer) frameLayout.findViewById(e.g.web_scroll);
+        this.bCq = (AdBaseWebView) frameLayout.findViewById(e.g.web_web);
         WG();
-        this.gPz = (DistributeVideoView) frameLayout.findViewById(e.g.web_video);
-        if (TextUtils.isEmpty(this.aFq) || TextUtils.isEmpty(this.mThumbUrl)) {
-            this.gPz.setVisibility(8);
+        this.gPA = (DistributeVideoView) frameLayout.findViewById(e.g.web_video);
+        if (TextUtils.isEmpty(this.aFr) || TextUtils.isEmpty(this.mThumbUrl)) {
+            this.gPA.setVisibility(8);
         } else {
             VideoInfo.Builder builder = new VideoInfo.Builder();
-            builder.video_url = this.aFq;
+            builder.video_url = this.aFr;
             builder.thumbnail_url = this.mThumbUrl;
             builder.video_width = Integer.valueOf(l.aO(getActivity()));
             builder.video_height = builder.video_width;
-            builder.video_duration = Integer.valueOf(this.gHk);
-            if (this.gPB > 0.0f) {
-                builder.video_height = Integer.valueOf((int) (builder.video_width.intValue() / this.gPB));
+            builder.video_duration = Integer.valueOf(this.gHl);
+            if (this.gPC > 0.0f) {
+                builder.video_height = Integer.valueOf((int) (builder.video_width.intValue() / this.gPC));
             }
             VideoInfo build = builder.build(false);
-            this.gPC = build.video_height.intValue();
-            this.gPA.setTopMargin(this.gPC);
-            this.gPA.setTopLimit(this.gPC);
-            this.gPA.setOnScrollChangeListener(this.gPG);
+            this.gPD = build.video_height.intValue();
+            this.gPB.setTopMargin(this.gPD);
+            this.gPB.setTopLimit(this.gPD);
+            this.gPB.setOnScrollChangeListener(this.gPH);
             d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
             if (adAdSense != null) {
-                this.gPA.setStyle(adAdSense.GN());
+                this.gPB.setStyle(adAdSense.GN());
             }
             this.mVideoHeight = build.video_height.intValue();
-            this.gPD = this.mVideoHeight / 2;
-            if (this.gPF != null) {
-                this.gPz.setVideoTailFrameData(this.gPF);
+            this.gPE = this.mVideoHeight / 2;
+            if (this.gPG != null) {
+                this.gPA.setVideoTailFrameData(this.gPG);
             }
-            this.gPz.setPageContext(getPageContext());
-            this.gPz.setData(build, 2, getPageContext());
-            this.gPz.updateTailFrameView(null);
-            if (gPy != null) {
-                this.gPz.setStatisticInfo(gPy.gPI, gPy.mPageNum, gPy.mPage);
+            this.gPA.setPageContext(getPageContext());
+            this.gPA.setData(build, 2, getPageContext());
+            this.gPA.updateTailFrameView(null);
+            if (gPz != null) {
+                this.gPA.setStatisticInfo(gPz.gPJ, gPz.mPageNum, gPz.mPage);
             }
-            this.gPz.setChargeInfo(this.gPE);
-            this.gPz.autoPlay(0);
+            this.gPA.setChargeInfo(this.gPF);
+            this.gPA.autoPlay(0);
             uc(build.video_height.intValue());
         }
         return frameLayout;
     }
 
     private void uc(int i) {
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bCp.getLayoutParams();
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.bCq.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.topMargin = i;
             layoutParams.height = (l.aQ(getActivity()) - l.r(getActivity())) - bvY();
-            this.bCp.setLayoutParams(layoutParams);
+            this.bCq.setLayoutParams(layoutParams);
         }
     }
 

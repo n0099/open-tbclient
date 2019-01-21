@@ -5,35 +5,35 @@ import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 abstract class b<E> extends AbstractQueue<E> {
-    private final AtomicReference<LinkedQueueNode<E>> iQB = new AtomicReference<>();
     private final AtomicReference<LinkedQueueNode<E>> iQC = new AtomicReference<>();
+    private final AtomicReference<LinkedQueueNode<E>> iQD = new AtomicReference<>();
 
     protected final LinkedQueueNode<E> cfV() {
-        return this.iQB.get();
+        return this.iQC.get();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final LinkedQueueNode<E> cfW() {
-        return this.iQB.get();
+        return this.iQC.get();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(LinkedQueueNode<E> linkedQueueNode) {
-        this.iQB.lazySet(linkedQueueNode);
+        this.iQC.lazySet(linkedQueueNode);
     }
 
     protected final LinkedQueueNode<E> cfX() {
-        return this.iQC.get();
+        return this.iQD.get();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final LinkedQueueNode<E> cfY() {
-        return this.iQC.get();
+        return this.iQD.get();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b(LinkedQueueNode<E> linkedQueueNode) {
-        this.iQC.lazySet(linkedQueueNode);
+        this.iQD.lazySet(linkedQueueNode);
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable

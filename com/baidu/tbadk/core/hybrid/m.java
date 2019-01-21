@@ -9,12 +9,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
-    private static final AtomicLong ayW = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
-    final Map<String, Object> ayX;
+    private static final AtomicLong ayX = new AtomicLong((System.currentTimeMillis() / 1000) * 1000);
     final Map<String, Object> ayY;
-    final String ayZ;
-    final long aza;
+    final Map<String, Object> ayZ;
+    final String aza;
     final long azb;
+    final long azc;
     final String cmd;
     final String method;
     final int type;
@@ -22,12 +22,12 @@ public class m {
     private m(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, long j) {
         this.cmd = str;
         this.method = str2;
-        this.ayX = map;
-        this.ayY = map2;
+        this.ayY = map;
+        this.ayZ = map2;
         this.type = i;
-        this.ayZ = str3;
-        this.aza = j;
-        this.azb = System.currentTimeMillis();
+        this.aza = str3;
+        this.azb = j;
+        this.azc = System.currentTimeMillis();
     }
 
     private static m a(int i, String str, String str2, Map<String, Object> map, long j, boolean z) {
@@ -68,19 +68,19 @@ public class m {
         if (!TextUtils.isEmpty(this.method)) {
             jSONObject.put("method", this.method);
         }
-        if (this.ayX != null && !this.ayX.isEmpty()) {
+        if (this.ayY != null && !this.ayY.isEmpty()) {
             JSONObject jSONObject2 = new JSONObject();
-            b(this.ayX, jSONObject2);
+            b(this.ayY, jSONObject2);
             jSONObject.put("inputData", jSONObject2);
         }
-        if (this.ayY != null && !this.ayY.isEmpty()) {
+        if (this.ayZ != null && !this.ayZ.isEmpty()) {
             JSONObject jSONObject3 = new JSONObject();
-            b(this.ayY, jSONObject3);
+            b(this.ayZ, jSONObject3);
             jSONObject.put("outputData", jSONObject3);
         }
         jSONObject.put("messageType", Cw());
-        if (!TextUtils.isEmpty(this.ayZ)) {
-            jSONObject.put(WBConstants.SHARE_CALLBACK_ID, this.ayZ);
+        if (!TextUtils.isEmpty(this.aza)) {
+            jSONObject.put(WBConstants.SHARE_CALLBACK_ID, this.aza);
         }
         return encode(jSONObject.toString());
     }
@@ -90,7 +90,7 @@ public class m {
     }
 
     private static String Cy() {
-        return "TBCWebViewJsBridge_callback_ID_" + ayW.getAndIncrement();
+        return "TBCWebViewJsBridge_callback_ID_" + ayX.getAndIncrement();
     }
 
     private void b(Map<String, Object> map, JSONObject jSONObject) throws JSONException {
@@ -109,21 +109,21 @@ public class m {
 
     /* loaded from: classes.dex */
     private static final class a extends m {
-        private final k azc;
+        private final k azd;
 
         private a(int i, String str, String str2, Map<String, Object> map, Map<String, Object> map2, String str3, k kVar, long j) {
             super(i, str, str2, map, map2, str3, j);
-            this.azc = kVar;
+            this.azd = kVar;
         }
 
         @Override // com.baidu.tbadk.core.hybrid.m
         protected void A(JSONObject jSONObject) {
-            this.azc.a(this, jSONObject);
+            this.azd.a(this, jSONObject);
         }
 
         @Override // com.baidu.tbadk.core.hybrid.m
         void b(int i, Throwable th) {
-            this.azc.b(i, th);
+            this.azd.b(i, th);
         }
     }
 }

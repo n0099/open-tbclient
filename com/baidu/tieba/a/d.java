@@ -7,45 +7,45 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class d {
-    private static volatile d bBi;
-    private ArrayList<Integer> bBe = new ArrayList<>();
-    private c bBf;
-    private a bBj;
+    private static volatile d bBj;
+    private ArrayList<Integer> bBf = new ArrayList<>();
+    private c bBg;
+    private a bBk;
 
     public static d Wk() {
-        if (bBi == null) {
+        if (bBj == null) {
             synchronized (c.class) {
-                if (bBi == null) {
-                    bBi = new d();
+                if (bBj == null) {
+                    bBj = new d();
                 }
             }
         }
-        return bBi;
+        return bBj;
     }
 
     private d() {
-        this.bBe.add(1);
-        this.bBe.add(2);
-        this.bBf = new c();
-        this.bBj = new a(this.bBf, this.bBe);
+        this.bBf.add(1);
+        this.bBf.add(2);
+        this.bBg = new c();
+        this.bBk = new a(this.bBg, this.bBf);
         hI(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_abtest_channel", 0));
     }
 
     public int N(String str, int i) {
-        if (this.bBj == null) {
+        if (this.bBk == null) {
             return 0;
         }
-        return this.bBj.N(str, i);
+        return this.bBk.N(str, i);
     }
 
     public void ka(String str) {
-        if (this.bBj != null) {
-            this.bBj.jZ(str);
+        if (this.bBk != null) {
+            this.bBk.jZ(str);
         }
     }
 
     public void a(String str, String str2, am amVar) {
-        if (amVar != null && this.bBf != null && this.bBf.Wi()) {
+        if (amVar != null && this.bBg != null && this.bBg.Wi()) {
             HashMap hashMap = new HashMap();
             List<Object> params = amVar.getParams();
             if (params != null) {
@@ -69,20 +69,20 @@ public class d {
     }
 
     public void onPageStart(String str) {
-        if (ao.isEmpty(str) || this.bBf == null || !this.bBf.Wi()) {
+        if (ao.isEmpty(str) || this.bBg == null || !this.bBg.Wi()) {
             com.baidu.ubs.analytics.a.yK(str);
         }
     }
 
     public void onPageEnd(String str) {
-        if (ao.isEmpty(str) || this.bBf == null || !this.bBf.Wi()) {
+        if (ao.isEmpty(str) || this.bBg == null || !this.bBg.Wi()) {
             com.baidu.ubs.analytics.a.yL(str);
         }
     }
 
     public void hI(int i) {
-        if (this.bBf != null) {
-            this.bBf.hI(i);
+        if (this.bBg != null) {
+            this.bBg.hI(i);
         }
     }
 }

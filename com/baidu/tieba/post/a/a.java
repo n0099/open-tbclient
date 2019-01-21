@@ -16,12 +16,12 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    public j gKM;
-    private b gKN;
-    public i gzZ;
+    public i gAa;
+    public j gKN;
+    private b gKO;
     private BdTypeListView mListView;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
-    private ArrayList<h> cnn = new ArrayList<>();
+    private ArrayList<h> cno = new ArrayList<>();
 
     public a(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         this.mListView = bdTypeListView;
@@ -29,20 +29,20 @@ public class a {
     }
 
     private void p(TbPageContext<?> tbPageContext) {
-        this.gzZ = new i(tbPageContext);
-        this.gKM = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.gCj);
-        this.gKN = new d(tbPageContext, this, tbPageContext.getUniqueId());
-        this.gKM.a(this.gKN);
-        this.mAdapters.add(this.gzZ);
-        this.mAdapters.add(this.gKM);
+        this.gAa = new i(tbPageContext);
+        this.gKN = new j(tbPageContext, com.baidu.tieba.personPolymeric.c.j.gCk);
+        this.gKO = new d(tbPageContext, this, tbPageContext.getUniqueId());
+        this.gKN.a(this.gKO);
+        this.mAdapters.add(this.gAa);
+        this.mAdapters.add(this.gKN);
         this.mListView.addAdapters(this.mAdapters);
     }
 
     public void C(ArrayList<h> arrayList) {
         if (arrayList != null && this.mListView != null) {
-            this.cnn.clear();
-            this.cnn.addAll(arrayList);
-            this.mListView.setData(this.cnn);
+            this.cno.clear();
+            this.cno.addAll(arrayList);
+            this.mListView.setData(this.cno);
         }
     }
 
@@ -63,10 +63,10 @@ public class a {
         if (ao.isEmpty(str)) {
             return false;
         }
-        if (this.mListView == null || this.cnn == null) {
+        if (this.mListView == null || this.cno == null) {
             return false;
         }
-        Iterator<h> it = this.cnn.iterator();
+        Iterator<h> it = this.cno.iterator();
         while (true) {
             if (!it.hasNext()) {
                 z = false;
@@ -80,8 +80,8 @@ public class a {
             }
         }
         if (z) {
-            this.cnn = PersonPostModel.mergeDynamicThreadByTime(this.cnn);
-            this.mListView.setData(this.cnn);
+            this.cno = PersonPostModel.mergeDynamicThreadByTime(this.cno);
+            this.mListView.setData(this.cno);
             notifyDataSetChanged();
             return z;
         }

@@ -14,9 +14,9 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.homepage.HomePageStatic;
 /* loaded from: classes6.dex */
 public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickListener {
-    private ImageView eve;
-    private TextView evf;
+    private ImageView evf;
     private TextView evg;
+    private TextView evh;
     private Context mContext;
 
     public ConcernNotLoginLayout(Context context) {
@@ -37,24 +37,24 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     private void init(Context context) {
         View inflate = LayoutInflater.from(context).inflate(e.h.concern_not_login_layout, (ViewGroup) this, true);
         this.mContext = context;
-        this.eve = (ImageView) inflate.findViewById(e.g.iv_concern_not_login_emotion_pic);
-        this.evf = (TextView) inflate.findViewById(e.g.tv_concern_you_not_login);
-        this.evg = (TextView) inflate.findViewById(e.g.tv_concern_login_and_see_more);
-        this.evg.setOnClickListener(this);
+        this.evf = (ImageView) inflate.findViewById(e.g.iv_concern_not_login_emotion_pic);
+        this.evg = (TextView) inflate.findViewById(e.g.tv_concern_you_not_login);
+        this.evh = (TextView) inflate.findViewById(e.g.tv_concern_login_and_see_more);
+        this.evh.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == e.g.tv_concern_login_and_see_more) {
             ba.bJ(this.mContext);
-            HomePageStatic.eto = true;
+            HomePageStatic.etp = true;
         }
     }
 
     public void onChangeSkinType(int i) {
-        al.c(this.eve, e.f.pic_jinba_login);
-        al.h(this.evf, e.d.cp_cont_b);
-        al.h(this.evg, e.d.cp_cont_i);
-        al.i(this.evg, e.f.btn_all_blue);
+        al.c(this.evf, e.f.pic_jinba_login);
+        al.h(this.evg, e.d.cp_cont_b);
+        al.h(this.evh, e.d.cp_cont_i);
+        al.i(this.evh, e.f.btn_all_blue);
     }
 }

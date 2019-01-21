@@ -27,11 +27,11 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class a {
-    private final C0345a ifa;
+    private final C0345a ifb;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(Context context) {
-        this.ifa = new C0345a(context, "bdbehavior.db");
+        this.ifb = new C0345a(context, "bdbehavior.db");
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -72,7 +72,7 @@ public class a {
                 protected boolean performTransaction(SQLiteDatabase sQLiteDatabase) {
                     return a.this.a(bSA, id, bSB, sQLiteDatabase) && sQLiteDatabase.insert(NotificationCompat.CATEGORY_EVENT, null, contentValues) != -1;
                 }
-            }.run(this.ifa.getWritableDatabase());
+            }.run(this.ifb.getWritableDatabase());
         }
     }
 
@@ -117,7 +117,7 @@ public class a {
                     }
                     return z;
                 }
-            }.run(this.ifa.getWritableDatabase());
+            }.run(this.ifb.getWritableDatabase());
         }
     }
 
@@ -175,7 +175,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(k kVar) {
         if (kVar != null && !TextUtils.isEmpty(kVar.getId())) {
-            SQLiteDatabase writableDatabase = this.ifa.getWritableDatabase();
+            SQLiteDatabase writableDatabase = this.ifb.getWritableDatabase();
             final ContentValues contentValues = new ContentValues();
             contentValues.put("flowid", kVar.getId());
             contentValues.put("flowhandle", Integer.valueOf(kVar.bSB()));
@@ -232,7 +232,7 @@ public class a {
                 protected boolean performTransaction(SQLiteDatabase sQLiteDatabase) {
                     return sQLiteDatabase.update("flow", contentValues, sb2, null) == 1;
                 }
-            }.run(this.ifa.getWritableDatabase());
+            }.run(this.ifb.getWritableDatabase());
         }
     }
 
@@ -258,7 +258,7 @@ public class a {
                 protected boolean performTransaction(SQLiteDatabase sQLiteDatabase) {
                     return sQLiteDatabase.update("flow", contentValues, sb2, null) == 1;
                 }
-            }.run(this.ifa.getWritableDatabase());
+            }.run(this.ifb.getWritableDatabase());
         }
     }
 
@@ -280,7 +280,7 @@ public class a {
                     sQLiteDatabase.delete(NotificationCompat.CATEGORY_EVENT, "flowhandle = " + i, null);
                     return true;
                 }
-            }.run(this.ifa.getWritableDatabase());
+            }.run(this.ifb.getWritableDatabase());
         }
     }
 
@@ -382,7 +382,7 @@ public class a {
                 }
                 return true;
             }
-        }.run(this.ifa.getWritableDatabase());
+        }.run(this.ifb.getWritableDatabase());
         yl("flow");
         yl(NotificationCompat.CATEGORY_EVENT);
     }
@@ -398,7 +398,7 @@ public class a {
         RuntimeException runtimeException;
         Cursor cursor2 = null;
         final int i = 0;
-        SQLiteDatabase writableDatabase = this.ifa.getWritableDatabase();
+        SQLiteDatabase writableDatabase = this.ifb.getWritableDatabase();
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT COUNT(*), MIN(").append("_id").append("), MAX(").append("_id").append(") FROM ").append(str);
         try {
@@ -467,7 +467,7 @@ public class a {
         Throwable th;
         Cursor cursor;
         RuntimeException e;
-        ?? readableDatabase = this.ifa.getReadableDatabase();
+        ?? readableDatabase = this.ifb.getReadableDatabase();
         Cursor cursor2 = null;
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT * FROM ").append("config");
@@ -556,7 +556,7 @@ public class a {
     public void f(SparseArray<ArrayList> sparseArray) {
         int i;
         Cursor cursor = null;
-        SQLiteDatabase readableDatabase = this.ifa.getReadableDatabase();
+        SQLiteDatabase readableDatabase = this.ifb.getReadableDatabase();
         StringBuilder sb = new StringBuilder();
         sb.append("SELECT ").append("eventid").append(" , ").append("type").append(" , ").append("cycle").append(" FROM ").append("config").append(" WHERE ").append("switch").append("=\"").append("1").append("\"");
         try {
@@ -648,7 +648,7 @@ public class a {
         try {
             try {
                 try {
-                    cursor2 = this.ifa.getReadableDatabase().rawQuery(str, null);
+                    cursor2 = this.ifb.getReadableDatabase().rawQuery(str, null);
                     if (cursor2 != null) {
                         try {
                             if (cursor2.getCount() > 0) {
@@ -772,7 +772,7 @@ public class a {
     private void b(ArrayList<k> arrayList, t tVar) {
         Cursor cursor;
         Cursor cursor2 = null;
-        SQLiteDatabase readableDatabase = this.ifa.getReadableDatabase();
+        SQLiteDatabase readableDatabase = this.ifb.getReadableDatabase();
         try {
             Iterator<k> it = arrayList.iterator();
             while (it.hasNext()) {
@@ -850,7 +850,7 @@ public class a {
         long j2 = 0;
         try {
             try {
-                Cursor rawQuery = this.ifa.getReadableDatabase().rawQuery(str, null);
+                Cursor rawQuery = this.ifb.getReadableDatabase().rawQuery(str, null);
                 if (rawQuery != null) {
                     try {
                         if (rawQuery.getCount() > 0) {
@@ -996,7 +996,7 @@ public class a {
                     }
                     return true;
                 }
-            }.run(this.ifa.getWritableDatabase());
+            }.run(this.ifb.getWritableDatabase());
         }
     }
 
@@ -1042,7 +1042,7 @@ public class a {
                 return true;
             }
         };
-        bVar.run(this.ifa.getWritableDatabase());
+        bVar.run(this.ifb.getWritableDatabase());
         return bVar.isTransactionSuccess();
     }
 
@@ -1061,7 +1061,7 @@ public class a {
                 sQLiteDatabase.delete("file", sb.toString(), null);
                 return true;
             }
-        }.run(this.ifa.getWritableDatabase());
+        }.run(this.ifb.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1081,7 +1081,7 @@ public class a {
                 sQLiteDatabase.update("file", contentValues, sb.toString(), null);
                 return true;
             }
-        }.run(this.ifa.getWritableDatabase());
+        }.run(this.ifb.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -1094,7 +1094,7 @@ public class a {
                 sQLiteDatabase.update("file", contentValues, null, null);
                 return true;
             }
-        }.run(this.ifa.getWritableDatabase());
+        }.run(this.ifb.getWritableDatabase());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -1110,23 +1110,23 @@ public class a {
     }
 
     final long bSc() {
-        return this.ifa.bSc();
+        return this.ifb.bSc();
     }
 
     final long bSd() {
-        return this.ifa.bSd();
+        return this.ifb.bSd();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.ubc.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
     public static class C0345a extends SQLiteOpenHelper {
-        private String ifo;
+        private String ifp;
         private Context mContext;
 
         C0345a(Context context, String str) {
             super(context.getApplicationContext(), str, (SQLiteDatabase.CursorFactory) null, 5);
-            this.ifo = str;
+            this.ifp = str;
             this.mContext = context.getApplicationContext();
         }
 
@@ -1202,7 +1202,7 @@ public class a {
                 sQLiteDatabase = super.getReadableDatabase();
             } catch (Exception e) {
                 e.printStackTrace();
-                if (new File(this.mContext.getDatabasePath(this.ifo).getPath()).delete()) {
+                if (new File(this.mContext.getDatabasePath(this.ifp).getPath()).delete()) {
                     sQLiteDatabase = super.getReadableDatabase();
                     s.bST().putString("ubc_version_md5", "0");
                     JSONObject jSONObject = new JSONObject();
@@ -1225,7 +1225,7 @@ public class a {
                 sQLiteDatabase = super.getWritableDatabase();
             } catch (Exception e) {
                 e.printStackTrace();
-                if (new File(this.mContext.getDatabasePath(this.ifo).getPath()).delete()) {
+                if (new File(this.mContext.getDatabasePath(this.ifp).getPath()).delete()) {
                     sQLiteDatabase = super.getWritableDatabase();
                     s.bST().putString("ubc_version_md5", "0");
                     o.onEvent(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "delDB");
@@ -1235,34 +1235,34 @@ public class a {
         }
 
         long bSc() {
-            return new File(this.mContext.getDatabasePath(this.ifo).getPath()).length();
+            return new File(this.mContext.getDatabasePath(this.ifp).getPath()).length();
         }
 
         long bSd() {
-            return new File(this.mContext.getDatabasePath(this.ifo).getPath() + "-journal").length();
+            return new File(this.mContext.getDatabasePath(this.ifp).getPath() + "-journal").length();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public abstract class b {
-        private boolean ifp;
+        private boolean ifq;
 
         protected abstract boolean performTransaction(SQLiteDatabase sQLiteDatabase);
 
         private b() {
-            this.ifp = false;
+            this.ifq = false;
         }
 
         public void run(SQLiteDatabase sQLiteDatabase) {
             if (sQLiteDatabase != null) {
-                this.ifp = false;
+                this.ifq = false;
                 sQLiteDatabase.beginTransaction();
                 try {
                     try {
                         if (performTransaction(sQLiteDatabase)) {
                             sQLiteDatabase.setTransactionSuccessful();
-                            this.ifp = true;
+                            this.ifq = true;
                         }
                         try {
                             sQLiteDatabase.endTransaction();
@@ -1295,7 +1295,7 @@ public class a {
         }
 
         protected boolean isTransactionSuccess() {
-            return this.ifp;
+            return this.ifq;
         }
     }
 }

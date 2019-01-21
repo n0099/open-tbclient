@@ -18,7 +18,7 @@ public class d {
 
     public e a(AdCard.f fVar, e eVar) {
         if (fVar != null && fVar.style != null) {
-            if (eVar == null || !cC(fVar.style, eVar.gVy)) {
+            if (eVar == null || !cC(fVar.style, eVar.gVz)) {
                 if (this.container == null) {
                     return null;
                 }

@@ -18,15 +18,15 @@ public class f {
             bVar.uk(-1);
             bVar.setPageNumber(-1);
         } else if ("NEWINDEX".equals(advertAppInfo.page)) {
-            bVar.uk(advertAppInfo.apY);
+            bVar.uk(advertAppInfo.apZ);
             bVar.setPageNumber(i2);
         } else {
             bVar.uk(com.baidu.adp.lib.g.b.l(advertAppInfo.adPosition, 0));
             bVar.setPageNumber(i2);
         }
-        bVar.vj(advertAppInfo.aqg);
-        bVar.vk(advertAppInfo.aqh);
-        bVar.vl(advertAppInfo.aqi);
+        bVar.vj(advertAppInfo.aqh);
+        bVar.vk(advertAppInfo.aqi);
+        bVar.vl(advertAppInfo.aqj);
         bVar.vm(advertAppInfo.page);
         return bVar;
     }
@@ -42,7 +42,7 @@ public class f {
             bVar.uk(-1);
             bVar.setPageNumber(-1);
         } else if ("NEWINDEX".equals(advertAppInfo.page)) {
-            bVar.uk(advertAppInfo.apY);
+            bVar.uk(advertAppInfo.apZ);
             bVar.setPageNumber(i2);
         } else {
             bVar.uk(com.baidu.adp.lib.g.b.l(advertAppInfo.adPosition, 0));
@@ -72,12 +72,12 @@ public class f {
             bVar.uk(-1);
             bVar.setPageNumber(-1);
         } else {
-            bVar.uk(advertAppInfo.apY);
+            bVar.uk(advertAppInfo.apZ);
             bVar.setPageNumber(i2);
         }
-        bVar.vj(advertAppInfo.aqg);
-        bVar.vk(advertAppInfo.aqh);
-        bVar.vl(advertAppInfo.aqi);
+        bVar.vj(advertAppInfo.aqh);
+        bVar.vk(advertAppInfo.aqi);
+        bVar.vl(advertAppInfo.aqj);
         bVar.vm(advertAppInfo.page);
         return bVar;
     }
@@ -108,7 +108,7 @@ public class f {
         AppData bEG = lVar.bEG();
         b bVar = new b();
         bVar.vf(bEG.ext_info);
-        if (lVar.hpA) {
+        if (lVar.hpB) {
             bVar.uk(-1);
             bVar.setPageNumber(-1);
         } else {
@@ -117,8 +117,8 @@ public class f {
         }
         bVar.uj(i);
         bVar.vh(bEG.price);
-        bVar.vj(lVar.aqg);
-        bVar.vk(lVar.aqh);
+        bVar.vj(lVar.aqh);
+        bVar.vk(lVar.aqi);
         bVar.vl(lVar.forumId);
         bVar.vm(lVar.bEJ());
         return bVar;

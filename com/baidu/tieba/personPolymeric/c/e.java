@@ -3,13 +3,13 @@ package com.baidu.tieba.personPolymeric.c;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes3.dex */
 public class e extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId gCa = BdUniqueId.gen();
+    public static final BdUniqueId gCb = BdUniqueId.gen();
     public String des;
-    public String gBV;
+    public String gBW;
     public String iconUrl;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return gCa;
+        return gCb;
     }
 }

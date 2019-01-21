@@ -14,10 +14,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class TbFaceManager {
-    private static TbFaceManager bcS = null;
-    public static String bcU = "#[\\(][\\w?~！]+[\\)]";
+    private static TbFaceManager bcT = null;
+    public static String bcV = "#[\\(][\\w?~！]+[\\)]";
     private Context mContext = null;
-    private com.baidu.tbadk.imageManager.a bcT = null;
+    private com.baidu.tbadk.imageManager.a bcU = null;
 
     /* loaded from: classes.dex */
     public static class RichUnit extends OrmObject implements Serializable {
@@ -33,10 +33,10 @@ public class TbFaceManager {
     }
 
     public static TbFaceManager NL() {
-        if (bcS == null) {
-            bcS = new TbFaceManager();
+        if (bcT == null) {
+            bcT = new TbFaceManager();
         }
-        return bcS;
+        return bcT;
     }
 
     private TbFaceManager() {
@@ -47,7 +47,7 @@ public class TbFaceManager {
             throw new InvalidParameterException("TbFaceManager initial error");
         }
         this.mContext = context;
-        this.bcT = aVar;
+        this.bcU = aVar;
     }
 
     public com.baidu.adp.widget.ImageView.a iq(String str) {
@@ -66,12 +66,12 @@ public class TbFaceManager {
     }
 
     public int hS(String str) {
-        return this.bcT.hS(str);
+        return this.bcU.hS(str);
     }
 
     public a.C0171a ir(String str) {
         com.baidu.adp.widget.ImageView.a iq;
-        a.C0171a aj = this.bcT.aj(this.mContext, str);
+        a.C0171a aj = this.bcU.aj(this.mContext, str);
         if (aj == null && (iq = iq(str)) != null) {
             return new a.C0171a(iq.getWidth(), iq.getHeight());
         }
@@ -79,15 +79,15 @@ public class TbFaceManager {
     }
 
     public int hT(String str) {
-        return this.bcT.hT(str);
+        return this.bcU.hT(str);
     }
 
     public int MC() {
-        return this.bcT.MC();
+        return this.bcU.MC();
     }
 
     public String hU(String str) {
-        return this.bcT.hU(str);
+        return this.bcU.hU(str);
     }
 
     public SpannableString ak(Context context, String str) {
@@ -100,10 +100,10 @@ public class TbFaceManager {
             return null;
         }
         SpannableString spannableString = new SpannableString(str);
-        Matcher matcher = Pattern.compile(bcU).matcher(str);
+        Matcher matcher = Pattern.compile(bcV).matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
-            int hT = this.bcT.hT(group);
+            int hT = this.bcU.hT(group);
             if (hT > 0 && (n = n(hT, String.valueOf(hT))) != null) {
                 int length = group.length();
                 int start = matcher.start();
@@ -122,10 +122,10 @@ public class TbFaceManager {
             return null;
         }
         SpannableString spannableString = new SpannableString(str);
-        Matcher matcher = Pattern.compile(bcU).matcher(str);
+        Matcher matcher = Pattern.compile(bcV).matcher(str);
         while (matcher.find()) {
             String group = matcher.group();
-            int hT = this.bcT.hT(group);
+            int hT = this.bcU.hT(group);
             if (hT > 0) {
                 com.baidu.adp.widget.ImageView.a n = n(hT, String.valueOf(hT));
                 if (n != null) {

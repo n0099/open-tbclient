@@ -9,11 +9,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class l extends h<m, n> {
-    private final int dOc;
+    private final int dOd;
 
     public l(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.dOc = (com.baidu.adp.lib.util.l.aQ(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0210e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0210e.ds90);
+        this.dOd = (com.baidu.adp.lib.util.l.aQ(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0210e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(e.C0210e.ds90);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -24,7 +24,7 @@ public class l extends h<m, n> {
         View inflate = LayoutInflater.from(this.mContext).inflate(e.h.frs_no_list_item_view, viewGroup, false);
         ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
         generateLayoutParamsByParent.width = -1;
-        generateLayoutParamsByParent.height = this.dOc;
+        generateLayoutParamsByParent.height = this.dOd;
         inflate.setLayoutParams(generateLayoutParamsByParent);
         return new n(inflate);
     }
@@ -36,11 +36,11 @@ public class l extends h<m, n> {
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, m mVar, n nVar) {
         super.onFillViewHolder(i, view, viewGroup, mVar, nVar);
         if (mVar.aDm() == 6) {
-            nVar.dOf.setText(e.j.attention_no_post_tip);
+            nVar.dOg.setText(e.j.attention_no_post_tip);
         } else {
-            nVar.dOf.setText(e.j.no_data_text);
+            nVar.dOg.setText(e.j.no_data_text);
         }
-        com.baidu.tbadk.core.util.al.c(nVar.dOf, e.d.cp_cont_b, 1);
+        com.baidu.tbadk.core.util.al.c(nVar.dOg, e.d.cp_cont_b, 1);
         return view;
     }
 }

@@ -13,14 +13,14 @@ import com.baidu.tieba.card.ad;
 import com.baidu.tieba.card.o;
 /* loaded from: classes3.dex */
 public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, com.baidu.tieba.card.a.a<com.baidu.tieba.card.f>> {
-    private com.baidu.tieba.card.f dYi;
+    private com.baidu.tieba.card.f dYj;
     private String mForumId;
     private TbPageContext<?> mPageContext;
     private ad vh;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.b.dnU);
+        super(tbPageContext.getPageActivity(), com.baidu.tieba.e.b.dnV);
         this.mPageContext = tbPageContext;
         this.mForumId = str;
     }
@@ -30,8 +30,8 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.b, com.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: aa */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.card.f> onCreateViewHolder(ViewGroup viewGroup) {
-        this.dYi = new com.baidu.tieba.card.f(this.mPageContext);
-        return new com.baidu.tieba.card.a.a<>(this.dYi);
+        this.dYj = new com.baidu.tieba.card.f(this.mPageContext);
+        return new com.baidu.tieba.card.a.a<>(this.dYj);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

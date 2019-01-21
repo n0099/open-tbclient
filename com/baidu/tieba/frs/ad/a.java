@@ -9,32 +9,32 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class a {
-    private FrsADFragment dPF;
-    private BdTypeRecyclerView dPG;
-    private d dPH;
-    private l dPI;
+    private FrsADFragment dPG;
+    private BdTypeRecyclerView dPH;
+    private d dPI;
+    private l dPJ;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
 
     public a(FrsADFragment frsADFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.dPF = frsADFragment;
-        this.dPG = bdTypeRecyclerView;
+        this.dPG = frsADFragment;
+        this.dPH = bdTypeRecyclerView;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.dPH = new d(this.dPF.getPageContext(), c.dPU, this.dPF.getUniqueId());
-        this.dPI = new l(this.dPF.getPageContext(), m.dOd);
-        this.mAdapters.add(this.dPH);
+        this.dPI = new d(this.dPG.getPageContext(), c.dPV, this.dPG.getUniqueId());
+        this.dPJ = new l(this.dPG.getPageContext(), m.dOe);
         this.mAdapters.add(this.dPI);
-        this.dPG.addAdapters(this.mAdapters);
+        this.mAdapters.add(this.dPJ);
+        this.dPH.addAdapters(this.mAdapters);
     }
 
     public void setData(ArrayList<h> arrayList) {
-        this.dPG.setData(arrayList);
+        this.dPH.setData(arrayList);
     }
 
     public void notifyDataSetChanged() {
-        this.dPG.getAdapter().notifyDataSetChanged();
+        this.dPH.getAdapter().notifyDataSetChanged();
     }
 
     public void onDestory() {

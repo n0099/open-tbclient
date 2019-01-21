@@ -4,13 +4,13 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.GiftInfo;
 /* loaded from: classes3.dex */
 public class o extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId gCo = BdUniqueId.gen();
+    public static final BdUniqueId gCp = BdUniqueId.gen();
     public long giftNum;
     public String picUrl;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return gCo;
+        return gCp;
     }
 
     public void a(GiftInfo giftInfo) {

@@ -16,11 +16,11 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private ChannelAddVideoActivity dds;
+    private ChannelAddVideoActivity ddt;
     private List<com.baidu.tieba.channel.data.b> mData;
 
     public a(ChannelAddVideoActivity channelAddVideoActivity) {
-        this.dds = channelAddVideoActivity;
+        this.ddt = channelAddVideoActivity;
     }
 
     public List<com.baidu.tieba.channel.data.b> getData() {
@@ -60,43 +60,43 @@ public class a extends BaseAdapter {
         if (view != null) {
             c0207a = (C0207a) view.getTag();
         } else {
-            view = LayoutInflater.from(this.dds.getPageContext().getPageActivity()).inflate(e.h.channel_add_video_item_layout, viewGroup, false);
+            view = LayoutInflater.from(this.ddt.getPageContext().getPageActivity()).inflate(e.h.channel_add_video_item_layout, viewGroup, false);
             C0207a c0207a2 = new C0207a();
-            c0207a2.ddt = (TbCheckBox) view.findViewById(e.g.item_check_box);
-            c0207a2.ddv = (TbImageView) view.findViewById(e.g.video_cover);
-            c0207a2.ddw = (TextView) view.findViewById(e.g.video_length);
+            c0207a2.ddv = (TbCheckBox) view.findViewById(e.g.item_check_box);
+            c0207a2.ddw = (TbImageView) view.findViewById(e.g.video_cover);
+            c0207a2.ddx = (TextView) view.findViewById(e.g.video_length);
             c0207a2.title = (TextView) view.findViewById(e.g.title);
-            c0207a2.ddx = (TextView) view.findViewById(e.g.forum_from);
-            c0207a2.ddy = (TextView) view.findViewById(e.g.intro);
+            c0207a2.ddy = (TextView) view.findViewById(e.g.forum_from);
+            c0207a2.ddz = (TextView) view.findViewById(e.g.intro);
             view.setTag(c0207a2);
             c0207a = c0207a2;
         }
         com.baidu.tieba.channel.data.b item = getItem(i);
         if (item != null) {
-            c0207a.ddt.setTagData(item);
+            c0207a.ddv.setTagData(item);
             if (item.arI() == 1) {
-                c0207a.ddt.setEnabled(false);
-                al.c(c0207a.ddt, e.f.icon_choose_channel_n);
+                c0207a.ddv.setEnabled(false);
+                al.c(c0207a.ddv, e.f.icon_choose_channel_n);
             } else {
-                c0207a.ddt.setEnabled(true);
-                c0207a.ddt.Fw();
+                c0207a.ddv.setEnabled(true);
+                c0207a.ddv.Fw();
             }
             if (!TextUtils.isEmpty(item.getThumbnailUrl())) {
-                c0207a.ddv.setTag(null);
-                c0207a.ddv.startLoad(item.getThumbnailUrl(), 10, false);
-                c0207a.ddv.invalidate();
+                c0207a.ddw.setTag(null);
+                c0207a.ddw.startLoad(item.getThumbnailUrl(), 10, false);
+                c0207a.ddw.invalidate();
             }
-            c0207a.ddw.setText(ao.dR(item.getVideoDuration() * 1000));
+            c0207a.ddx.setText(ao.dR(item.getVideoDuration() * 1000));
             if (!TextUtils.isEmpty(item.getTitle())) {
                 c0207a.title.setText(item.getTitle());
             }
             if (!TextUtils.isEmpty(item.getForumName())) {
-                c0207a.ddx.setText(item.getForumName() + "吧");
+                c0207a.ddy.setText(item.getForumName() + "吧");
             }
-            c0207a.ddy.setText(ao.Q(item.arH()) + "次播放·" + com.baidu.tieba.channel.c.c.bE(item.getCreateTime()));
+            c0207a.ddz.setText(ao.Q(item.arH()) + "次播放·" + com.baidu.tieba.channel.c.c.bE(item.getCreateTime()));
         }
-        this.dds.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.dds.getLayoutMode().onModeChanged(view);
+        this.ddt.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.ddt.getLayoutMode().onModeChanged(view);
         return view;
     }
 
@@ -108,11 +108,11 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.channel.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0207a {
-        public TbCheckBox ddt;
-        public TbImageView ddv;
-        public TextView ddw;
+        public TbCheckBox ddv;
+        public TbImageView ddw;
         public TextView ddx;
         public TextView ddy;
+        public TextView ddz;
         public TextView title;
 
         public C0207a() {

@@ -13,12 +13,12 @@ import tbclient.Post;
 import tbclient.User;
 /* loaded from: classes3.dex */
 public class c {
-    private TextView anp;
-    private View cYU;
-    private View fSV;
-    private b fSW;
+    private TextView anq;
+    private View cYV;
+    private View fSW;
     private b fSX;
     private b fSY;
+    private b fSZ;
     private View rootView;
 
     /* loaded from: classes3.dex */
@@ -28,12 +28,12 @@ public class c {
 
     public c(Context context, a aVar) {
         this.rootView = LayoutInflater.from(context).inflate(e.h.chosen_pb_comment_layout, (ViewGroup) null);
-        this.anp = (TextView) this.rootView.findViewById(e.g.chosen_pb_comment_title);
-        this.cYU = this.rootView.findViewById(e.g.chosen_pb_comment_line);
-        this.fSV = this.rootView.findViewById(e.g.comment_layout_blank_view);
-        this.fSW = new b((ViewStub) this.rootView.findViewById(e.g.chosen_pb_commrnt_first), aVar);
-        this.fSX = new b((ViewStub) this.rootView.findViewById(e.g.chosen_pb_commrnt_second), aVar);
-        this.fSY = new b((ViewStub) this.rootView.findViewById(e.g.chosen_pb_commrnt_third), aVar);
+        this.anq = (TextView) this.rootView.findViewById(e.g.chosen_pb_comment_title);
+        this.cYV = this.rootView.findViewById(e.g.chosen_pb_comment_line);
+        this.fSW = this.rootView.findViewById(e.g.comment_layout_blank_view);
+        this.fSX = new b((ViewStub) this.rootView.findViewById(e.g.chosen_pb_commrnt_first), aVar);
+        this.fSY = new b((ViewStub) this.rootView.findViewById(e.g.chosen_pb_commrnt_second), aVar);
+        this.fSZ = new b((ViewStub) this.rootView.findViewById(e.g.chosen_pb_commrnt_third), aVar);
     }
 
     public void a(Context context, List<Post> list, List<User> list2) {
@@ -41,32 +41,32 @@ public class c {
         boolean z2;
         boolean z3;
         if (list == null || list.isEmpty()) {
-            this.anp.setVisibility(8);
-            this.fSW.ku(false);
+            this.anq.setVisibility(8);
             this.fSX.ku(false);
             this.fSY.ku(false);
-            this.cYU.setVisibility(8);
+            this.fSZ.ku(false);
+            this.cYV.setVisibility(8);
             return;
         }
-        this.cYU.setVisibility(0);
+        this.cYV.setVisibility(0);
         int size = list.size();
         if (size == 1) {
-            boolean a2 = this.fSW.a(context, list.get(0), a(list.get(0), list2));
-            this.fSX.ku(false);
+            boolean a2 = this.fSX.a(context, list.get(0), a(list.get(0), list2));
             this.fSY.ku(false);
+            this.fSZ.ku(false);
             z2 = false;
             z3 = a2;
             z = false;
         } else if (size == 2) {
-            z3 = this.fSW.a(context, list.get(0), a(list.get(0), list2));
-            boolean a3 = this.fSX.a(context, list.get(1), a(list.get(1), list2));
-            this.fSY.ku(false);
+            z3 = this.fSX.a(context, list.get(0), a(list.get(0), list2));
+            boolean a3 = this.fSY.a(context, list.get(1), a(list.get(1), list2));
+            this.fSZ.ku(false);
             z2 = a3;
             z = false;
         } else if (size >= 3) {
-            boolean a4 = this.fSW.a(context, list.get(0), a(list.get(0), list2));
-            boolean a5 = this.fSX.a(context, list.get(1), a(list.get(1), list2));
-            z = this.fSY.a(context, list.get(2), a(list.get(2), list2));
+            boolean a4 = this.fSX.a(context, list.get(0), a(list.get(0), list2));
+            boolean a5 = this.fSY.a(context, list.get(1), a(list.get(1), list2));
+            z = this.fSZ.a(context, list.get(2), a(list.get(2), list2));
             z2 = a5;
             z3 = a4;
         } else {
@@ -75,9 +75,9 @@ public class c {
             z3 = false;
         }
         if (z3 || z2 || z) {
-            this.anp.setVisibility(0);
+            this.anq.setVisibility(0);
         } else {
-            this.anp.setVisibility(8);
+            this.anq.setVisibility(8);
         }
     }
 
@@ -99,12 +99,12 @@ public class c {
 
     public void onChangeSkinType() {
         al.i(this.rootView, e.d.common_color_10187);
-        al.j(this.fSV, e.d.cp_bg_line_d);
-        al.c(this.anp, e.d.cp_cont_f, 1);
-        al.j(this.cYU, e.d.cp_bg_line_b);
-        this.fSW.onChangeSkinType();
+        al.j(this.fSW, e.d.cp_bg_line_d);
+        al.c(this.anq, e.d.cp_cont_f, 1);
+        al.j(this.cYV, e.d.cp_bg_line_b);
         this.fSX.onChangeSkinType();
         this.fSY.onChangeSkinType();
+        this.fSZ.onChangeSkinType();
     }
 
     public View getView() {

@@ -78,7 +78,7 @@ public class d implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
                 aVar.Dw = iVar;
             }
             byte[] r = iVar.r(str, false);
-            if ((r != null || iVar.jq().Dd) && !iVar.aEJ) {
+            if ((r != null || iVar.jq().Dd) && !iVar.aEK) {
                 com.baidu.adp.lib.Disk.ops.c cVar = new com.baidu.adp.lib.Disk.ops.c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, ar.fY(str2), DiskFileOperate.Action.WRITE);
                 cVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
                 cVar.setData(r);

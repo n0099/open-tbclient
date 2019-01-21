@@ -16,8 +16,8 @@ import com.baidu.tieba.e;
 import org.apache.http.HttpHost;
 /* loaded from: classes.dex */
 public class HeadPendantClickableView extends HeadPendantView {
-    private View.OnClickListener aFC;
-    private bb aFI;
+    private View.OnClickListener aFD;
+    private bb aFJ;
     private Context mContext;
     public View.OnClickListener mOnClickListener;
 
@@ -26,14 +26,14 @@ public class HeadPendantClickableView extends HeadPendantView {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.HeadPendantClickableView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HeadPendantClickableView.this.aFI != null && HeadPendantClickableView.this.aFI.zT() != null && !StringUtils.isNull(HeadPendantClickableView.this.aFI.zT().getName_show()) && !StringUtils.isNull(HeadPendantClickableView.this.aFI.zT().getUserId())) {
-                    if (HeadPendantClickableView.this.aFI.AW() != null && HeadPendantClickableView.this.aFI.AW().channelId > 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(HeadPendantClickableView.this.mContext, HeadPendantClickableView.this.aFI.AW().channelId, HeadPendantClickableView.this.aFI.AW().mCurrentPage)));
+                if (HeadPendantClickableView.this.aFJ != null && HeadPendantClickableView.this.aFJ.zT() != null && !StringUtils.isNull(HeadPendantClickableView.this.aFJ.zT().getName_show()) && !StringUtils.isNull(HeadPendantClickableView.this.aFJ.zT().getUserId())) {
+                    if (HeadPendantClickableView.this.aFJ.AW() != null && HeadPendantClickableView.this.aFJ.AW().channelId > 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(HeadPendantClickableView.this.mContext, HeadPendantClickableView.this.aFJ.AW().channelId, HeadPendantClickableView.this.aFJ.AW().mCurrentPage)));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(HeadPendantClickableView.this.mContext, HeadPendantClickableView.this.aFI.zT().getUserId(), HeadPendantClickableView.this.aFI.zT().getName_show(), HeadPendantClickableView.this.aFI.zZ(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(HeadPendantClickableView.this.mContext, HeadPendantClickableView.this.aFJ.zT().getUserId(), HeadPendantClickableView.this.aFJ.zT().getName_show(), HeadPendantClickableView.this.aFJ.zZ(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                     }
-                    if (HeadPendantClickableView.this.aFC != null) {
-                        HeadPendantClickableView.this.aFC.onClick(view);
+                    if (HeadPendantClickableView.this.aFD != null) {
+                        HeadPendantClickableView.this.aFD.onClick(view);
                     }
                 }
             }
@@ -47,14 +47,14 @@ public class HeadPendantClickableView extends HeadPendantView {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.HeadPendantClickableView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HeadPendantClickableView.this.aFI != null && HeadPendantClickableView.this.aFI.zT() != null && !StringUtils.isNull(HeadPendantClickableView.this.aFI.zT().getName_show()) && !StringUtils.isNull(HeadPendantClickableView.this.aFI.zT().getUserId())) {
-                    if (HeadPendantClickableView.this.aFI.AW() != null && HeadPendantClickableView.this.aFI.AW().channelId > 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(HeadPendantClickableView.this.mContext, HeadPendantClickableView.this.aFI.AW().channelId, HeadPendantClickableView.this.aFI.AW().mCurrentPage)));
+                if (HeadPendantClickableView.this.aFJ != null && HeadPendantClickableView.this.aFJ.zT() != null && !StringUtils.isNull(HeadPendantClickableView.this.aFJ.zT().getName_show()) && !StringUtils.isNull(HeadPendantClickableView.this.aFJ.zT().getUserId())) {
+                    if (HeadPendantClickableView.this.aFJ.AW() != null && HeadPendantClickableView.this.aFJ.AW().channelId > 0) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelHomeActivityConfig(HeadPendantClickableView.this.mContext, HeadPendantClickableView.this.aFJ.AW().channelId, HeadPendantClickableView.this.aFJ.AW().mCurrentPage)));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(HeadPendantClickableView.this.mContext, HeadPendantClickableView.this.aFI.zT().getUserId(), HeadPendantClickableView.this.aFI.zT().getName_show(), HeadPendantClickableView.this.aFI.zZ(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(HeadPendantClickableView.this.mContext, HeadPendantClickableView.this.aFJ.zT().getUserId(), HeadPendantClickableView.this.aFJ.zT().getName_show(), HeadPendantClickableView.this.aFJ.zZ(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                     }
-                    if (HeadPendantClickableView.this.aFC != null) {
-                        HeadPendantClickableView.this.aFC.onClick(view);
+                    if (HeadPendantClickableView.this.aFD != null) {
+                        HeadPendantClickableView.this.aFD.onClick(view);
                     }
                 }
             }
@@ -65,7 +65,7 @@ public class HeadPendantClickableView extends HeadPendantView {
 
     public void setData(bb bbVar) {
         if (bbVar != null && bbVar.zT() != null) {
-            this.aFI = bbVar;
+            this.aFJ = bbVar;
             MetaData zT = bbVar.zT();
             setContentDescription(zT.getName_show() + this.mContext.getString(e.j.somebodys_portrait));
             getHeadView().setUserId(zT.getUserId());
@@ -100,6 +100,6 @@ public class HeadPendantClickableView extends HeadPendantView {
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.aFC = onClickListener;
+        this.aFD = onClickListener;
     }
 }

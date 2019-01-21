@@ -4,12 +4,12 @@ import rx.d;
 import rx.internal.producers.SingleDelayedProducer;
 /* loaded from: classes2.dex */
 public final class ad<T> implements d.b<Boolean, T> {
-    final rx.functions.f<? super T, Boolean> iGR;
-    final boolean iIs;
+    final rx.functions.f<? super T, Boolean> iGS;
+    final boolean iIt;
 
     public ad(rx.functions.f<? super T, Boolean> fVar, boolean z) {
-        this.iGR = fVar;
-        this.iIs = z;
+        this.iGS = fVar;
+        this.iIt = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,16 +18,16 @@ public final class ad<T> implements d.b<Boolean, T> {
         final SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(jVar);
         rx.j jVar2 = (rx.j<T>) new rx.j<T>() { // from class: rx.internal.operators.ad.1
             boolean done;
-            boolean iIt;
+            boolean iIu;
 
             @Override // rx.e
             public void onNext(T t) {
                 if (!this.done) {
-                    this.iIt = true;
+                    this.iIu = true;
                     try {
-                        if (ad.this.iGR.call(t).booleanValue()) {
+                        if (ad.this.iGS.call(t).booleanValue()) {
                             this.done = true;
-                            singleDelayedProducer.setValue(Boolean.valueOf(!ad.this.iIs));
+                            singleDelayedProducer.setValue(Boolean.valueOf(!ad.this.iIt));
                             unsubscribe();
                         }
                     } catch (Throwable th) {
@@ -50,10 +50,10 @@ public final class ad<T> implements d.b<Boolean, T> {
             public void onCompleted() {
                 if (!this.done) {
                     this.done = true;
-                    if (this.iIt) {
+                    if (this.iIu) {
                         singleDelayedProducer.setValue(false);
                     } else {
-                        singleDelayedProducer.setValue(Boolean.valueOf(ad.this.iIs));
+                        singleDelayedProducer.setValue(Boolean.valueOf(ad.this.iIt));
                     }
                 }
             }

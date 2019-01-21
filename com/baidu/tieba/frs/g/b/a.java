@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.ay;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class a extends com.baidu.tieba.frs.g.a<b> {
-    private final View.OnClickListener enP;
+    private final View.OnClickListener enQ;
 
     public a(@NonNull TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.enP = new View.OnClickListener() { // from class: com.baidu.tieba.frs.g.b.a.1
+        this.enQ = new View.OnClickListener() { // from class: com.baidu.tieba.frs.g.b.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 b item = a.this.getItem(0);
@@ -31,7 +31,7 @@ public class a extends com.baidu.tieba.frs.g.a<b> {
     protected View d(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(e.h.frs_header_youhua_hot_title_item, viewGroup, false);
-            inflate.setOnClickListener(this.enP);
+            inflate.setOnClickListener(this.enQ);
             al.i(inflate.findViewById(e.g.top_youhua_thread_title_item_layout), e.f.home_thread_card_item_bg);
             al.h(inflate.findViewById(e.g.frs_top_youhua_thread_title_label), e.d.cp_cont_b);
             al.h(inflate.findViewById(e.g.frs_top_youhua_thread_title_all_label), e.d.cp_cont_j);

@@ -6,28 +6,28 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes2.dex */
 public class a {
-    private static final a iqK = bXC().bXK();
-    public final int iqL;
-    public final boolean iqM;
+    private static final a iqL = bXC().bXK();
+    public final int iqM;
     public final boolean iqN;
     public final boolean iqO;
     public final boolean iqP;
-    public final Bitmap.Config iqQ;
+    public final boolean iqQ;
+    public final Bitmap.Config iqR;
     @Nullable
-    public final com.facebook.imagepipeline.decoder.b iqR;
+    public final com.facebook.imagepipeline.decoder.b iqS;
 
     public a(b bVar) {
-        this.iqL = bVar.bXD();
-        this.iqM = bVar.bXE();
-        this.iqN = bVar.bXF();
-        this.iqO = bVar.bXG();
-        this.iqP = bVar.bXI();
-        this.iqQ = bVar.bXJ();
-        this.iqR = bVar.bXH();
+        this.iqM = bVar.bXD();
+        this.iqN = bVar.bXE();
+        this.iqO = bVar.bXF();
+        this.iqP = bVar.bXG();
+        this.iqQ = bVar.bXI();
+        this.iqR = bVar.bXJ();
+        this.iqS = bVar.bXH();
     }
 
     public static a bXB() {
-        return iqK;
+        return iqL;
     }
 
     public static b bXC() {
@@ -42,14 +42,14 @@ public class a {
             return false;
         }
         a aVar = (a) obj;
-        return this.iqM == aVar.iqM && this.iqN == aVar.iqN && this.iqO == aVar.iqO && this.iqP == aVar.iqP && this.iqQ == aVar.iqQ && this.iqR == aVar.iqR;
+        return this.iqN == aVar.iqN && this.iqO == aVar.iqO && this.iqP == aVar.iqP && this.iqQ == aVar.iqQ && this.iqR == aVar.iqR && this.iqS == aVar.iqS;
     }
 
     public int hashCode() {
-        return (((((((this.iqO ? 1 : 0) + (((this.iqN ? 1 : 0) + (((this.iqM ? 1 : 0) + (this.iqL * 31)) * 31)) * 31)) * 31) + (this.iqP ? 1 : 0)) * 31) + this.iqQ.ordinal()) * 31) + (this.iqR != null ? this.iqR.hashCode() : 0);
+        return (((((((this.iqP ? 1 : 0) + (((this.iqO ? 1 : 0) + (((this.iqN ? 1 : 0) + (this.iqM * 31)) * 31)) * 31)) * 31) + (this.iqQ ? 1 : 0)) * 31) + this.iqR.ordinal()) * 31) + (this.iqS != null ? this.iqS.hashCode() : 0);
     }
 
     public String toString() {
-        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.iqL), Boolean.valueOf(this.iqM), Boolean.valueOf(this.iqN), Boolean.valueOf(this.iqO), Boolean.valueOf(this.iqP), this.iqQ.name(), this.iqR);
+        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.iqM), Boolean.valueOf(this.iqN), Boolean.valueOf(this.iqO), Boolean.valueOf(this.iqP), Boolean.valueOf(this.iqQ), this.iqR.name(), this.iqS);
     }
 }

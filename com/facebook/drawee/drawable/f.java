@@ -6,103 +6,103 @@ import android.os.SystemClock;
 import java.util.Arrays;
 /* loaded from: classes2.dex */
 public class f extends a {
-    private final Drawable[] ina;
-    int inm;
+    private final Drawable[] inb;
     int inn;
-    long ino;
-    int[] inp;
+    int ino;
+    long inp;
     int[] inq;
-    boolean[] inr;
+    int[] inr;
 
     /* renamed from: int  reason: not valid java name */
-    int f1int;
+    boolean[] f1int;
+    int inu;
     int mAlpha;
 
     public f(Drawable[] drawableArr) {
         super(drawableArr);
         com.facebook.common.internal.g.c(drawableArr.length >= 1, "At least one layer required!");
-        this.ina = drawableArr;
-        this.inp = new int[drawableArr.length];
+        this.inb = drawableArr;
         this.inq = new int[drawableArr.length];
+        this.inr = new int[drawableArr.length];
         this.mAlpha = 255;
-        this.inr = new boolean[drawableArr.length];
-        this.f1int = 0;
+        this.f1int = new boolean[drawableArr.length];
+        this.inu = 0;
         resetInternal();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void invalidateSelf() {
-        if (this.f1int == 0) {
+        if (this.inu == 0) {
             super.invalidateSelf();
         }
     }
 
     public void bWg() {
-        this.f1int++;
+        this.inu++;
     }
 
     public void bWh() {
-        this.f1int--;
+        this.inu--;
         invalidateSelf();
     }
 
     public void yr(int i) {
-        this.inn = i;
-        if (this.inm == 1) {
-            this.inm = 0;
+        this.ino = i;
+        if (this.inn == 1) {
+            this.inn = 0;
         }
     }
 
     private void resetInternal() {
-        this.inm = 2;
-        Arrays.fill(this.inp, 0);
-        this.inp[0] = 255;
+        this.inn = 2;
         Arrays.fill(this.inq, 0);
         this.inq[0] = 255;
-        Arrays.fill(this.inr, false);
-        this.inr[0] = true;
+        Arrays.fill(this.inr, 0);
+        this.inr[0] = 255;
+        Arrays.fill(this.f1int, false);
+        this.f1int[0] = true;
     }
 
     public void ys(int i) {
-        this.inm = 0;
-        this.inr[i] = true;
+        this.inn = 0;
+        this.f1int[i] = true;
         invalidateSelf();
     }
 
     public void yt(int i) {
-        this.inm = 0;
-        this.inr[i] = false;
+        this.inn = 0;
+        this.f1int[i] = false;
         invalidateSelf();
     }
 
     public void bWi() {
-        this.inm = 0;
-        Arrays.fill(this.inr, true);
+        this.inn = 0;
+        Arrays.fill(this.f1int, true);
         invalidateSelf();
     }
 
     public void bWj() {
-        this.inm = 2;
-        for (int i = 0; i < this.ina.length; i++) {
-            this.inq[i] = this.inr[i] ? 255 : 0;
+        this.inn = 2;
+        for (int i = 0; i < this.inb.length; i++) {
+            this.inr[i] = this.f1int[i] ? 255 : 0;
         }
         invalidateSelf();
     }
 
     private boolean aH(float f) {
         boolean z = true;
-        for (int i = 0; i < this.ina.length; i++) {
-            this.inq[i] = (int) (((this.inr[i] ? 1 : -1) * 255 * f) + this.inp[i]);
-            if (this.inq[i] < 0) {
-                this.inq[i] = 0;
+        for (int i = 0; i < this.inb.length; i++) {
+            this.inr[i] = (int) (((this.f1int[i] ? 1 : -1) * 255 * f) + this.inq[i]);
+            if (this.inr[i] < 0) {
+                this.inr[i] = 0;
             }
-            if (this.inq[i] > 255) {
-                this.inq[i] = 255;
+            if (this.inr[i] > 255) {
+                this.inr[i] = 255;
             }
-            if (this.inr[i] && this.inq[i] < 255) {
+            if (this.f1int[i] && this.inr[i] < 255) {
                 z = false;
             }
-            if (!this.inr[i] && this.inq[i] > 0) {
+            if (!this.f1int[i] && this.inr[i] > 0) {
                 z = false;
             }
         }
@@ -112,23 +112,23 @@ public class f extends a {
     @Override // com.facebook.drawee.drawable.a, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         boolean z = true;
-        switch (this.inm) {
+        switch (this.inn) {
             case 0:
-                System.arraycopy(this.inq, 0, this.inp, 0, this.ina.length);
-                this.ino = bWk();
-                boolean aH = aH(this.inn == 0 ? 1.0f : 0.0f);
-                this.inm = aH ? 2 : 1;
+                System.arraycopy(this.inr, 0, this.inq, 0, this.inb.length);
+                this.inp = bWk();
+                boolean aH = aH(this.ino == 0 ? 1.0f : 0.0f);
+                this.inn = aH ? 2 : 1;
                 z = aH;
                 break;
             case 1:
-                com.facebook.common.internal.g.checkState(this.inn > 0);
-                boolean aH2 = aH(((float) (bWk() - this.ino)) / this.inn);
-                this.inm = aH2 ? 2 : 1;
+                com.facebook.common.internal.g.checkState(this.ino > 0);
+                boolean aH2 = aH(((float) (bWk() - this.inp)) / this.ino);
+                this.inn = aH2 ? 2 : 1;
                 z = aH2;
                 break;
         }
-        for (int i = 0; i < this.ina.length; i++) {
-            a(canvas, this.ina[i], (this.inq[i] * this.mAlpha) / 255);
+        for (int i = 0; i < this.inb.length; i++) {
+            a(canvas, this.inb[i], (this.inr[i] * this.mAlpha) / 255);
         }
         if (!z) {
             invalidateSelf();
@@ -137,9 +137,9 @@ public class f extends a {
 
     private void a(Canvas canvas, Drawable drawable, int i) {
         if (drawable != null && i > 0) {
-            this.f1int++;
+            this.inu++;
             drawable.mutate().setAlpha(i);
-            this.f1int--;
+            this.inu--;
             drawable.draw(canvas);
         }
     }

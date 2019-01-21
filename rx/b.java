@@ -1,7 +1,7 @@
 package rx;
 /* loaded from: classes2.dex */
 public class b {
-    static final b iFa = new b(new a() { // from class: rx.b.1
+    static final b iFb = new b(new a() { // from class: rx.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: c */
@@ -10,7 +10,7 @@ public class b {
             cVar.onCompleted();
         }
     }, false);
-    static final b iFb = new b(new a() { // from class: rx.b.3
+    static final b iFc = new b(new a() { // from class: rx.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // rx.functions.b
         /* renamed from: c */
@@ -18,7 +18,7 @@ public class b {
             cVar.onSubscribe(rx.subscriptions.e.cgS());
         }
     }, false);
-    private final a iEZ;
+    private final a iFa;
 
     /* loaded from: classes2.dex */
     public interface a extends rx.functions.b<c> {
@@ -83,11 +83,11 @@ public class b {
     }
 
     protected b(a aVar) {
-        this.iEZ = rx.c.c.b(aVar);
+        this.iFa = rx.c.c.b(aVar);
     }
 
     protected b(a aVar, boolean z) {
-        this.iEZ = z ? rx.c.c.b(aVar) : aVar;
+        this.iFa = z ? rx.c.c.b(aVar) : aVar;
     }
 
     public final k subscribe() {
@@ -121,7 +121,7 @@ public class b {
     public final void a(c cVar) {
         requireNonNull(cVar);
         try {
-            rx.c.c.b(this, this.iEZ).call(cVar);
+            rx.c.c.b(this, this.iFa).call(cVar);
         } catch (NullPointerException e) {
             throw e;
         } catch (Throwable th) {

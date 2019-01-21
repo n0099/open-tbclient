@@ -7,12 +7,12 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
 public class n implements ai<com.facebook.imagepipeline.f.d> {
-    private final ai<com.facebook.imagepipeline.f.d> itW;
-    private final com.facebook.imagepipeline.c.l iut;
+    private final ai<com.facebook.imagepipeline.f.d> itX;
+    private final com.facebook.imagepipeline.c.l iuu;
 
     public n(ai<com.facebook.imagepipeline.f.d> aiVar, com.facebook.imagepipeline.c.l lVar) {
-        this.itW = aiVar;
-        this.iut = lVar;
+        this.itX = aiVar;
+        this.iuu = lVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
@@ -24,7 +24,7 @@ public class n implements ai<com.facebook.imagepipeline.f.d> {
         }
         ajVar.caq().de(ajVar.getId(), "DiskCacheProducer");
         AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-        this.iut.a(cap, ajVar.bVS(), atomicBoolean).a(b(jVar, ajVar));
+        this.iuu.a(cap, ajVar.bVS(), atomicBoolean).a(b(jVar, ajVar));
         a(atomicBoolean, ajVar);
     }
 
@@ -41,7 +41,7 @@ public class n implements ai<com.facebook.imagepipeline.f.d> {
                     jVar.bUx();
                 } else if (gVar.bf()) {
                     caq.a(id, "DiskCacheProducer", gVar.bg(), null);
-                    n.this.itW.a(jVar, ajVar);
+                    n.this.itX.a(jVar, ajVar);
                 } else {
                     com.facebook.imagepipeline.f.d result = gVar.getResult();
                     if (result != null) {
@@ -51,7 +51,7 @@ public class n implements ai<com.facebook.imagepipeline.f.d> {
                         result.close();
                     } else {
                         caq.a(id, "DiskCacheProducer", n.a(caq, id, false, 0));
-                        n.this.itW.a(jVar, ajVar);
+                        n.this.itX.a(jVar, ajVar);
                     }
                 }
                 return null;
@@ -68,7 +68,7 @@ public class n implements ai<com.facebook.imagepipeline.f.d> {
         if (ajVar.car().getValue() >= ImageRequest.RequestLevel.DISK_CACHE.getValue()) {
             jVar.e(null, true);
         } else {
-            this.itW.a(jVar, ajVar);
+            this.itX.a(jVar, ajVar);
         }
     }
 

@@ -41,16 +41,16 @@ public class a extends com.baidu.tbadk.a.a {
     /* loaded from: classes3.dex */
     private class C0304a extends BdAsyncTask<Object, Integer, h> {
         private String ama;
-        private HashMap<String, String> fpn;
-        private d fpo;
+        private HashMap<String, String> fpo;
+        private d fpp;
         private volatile x mNetwork = null;
         private String postUrl;
 
         public C0304a(String str, String str2, HashMap<String, String> hashMap, d dVar) {
             this.ama = str;
             this.postUrl = str2;
-            this.fpn = hashMap;
-            this.fpo = dVar;
+            this.fpo = hashMap;
+            this.fpp = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,11 +61,11 @@ public class a extends com.baidu.tbadk.a.a {
             h hVar = new h();
             try {
                 this.mNetwork = new x(this.postUrl);
-                Set<String> keySet = this.fpn.keySet();
+                Set<String> keySet = this.fpo.keySet();
                 if (keySet.size() > 0) {
                     for (String str : keySet) {
                         if (!"url".equalsIgnoreCase(str)) {
-                            this.mNetwork.x(str, this.fpn.get(str));
+                            this.mNetwork.x(str, this.fpo.get(str));
                         }
                     }
                 }
@@ -111,8 +111,8 @@ public class a extends com.baidu.tbadk.a.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(h hVar) {
-            if (this.fpo != null) {
-                this.fpo.m(hVar);
+            if (this.fpp != null) {
+                this.fpp.m(hVar);
             }
         }
 
@@ -120,8 +120,8 @@ public class a extends com.baidu.tbadk.a.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.fpo != null) {
-                this.fpo.m(null);
+            if (this.fpp != null) {
+                this.fpp.m(null);
             }
         }
 
@@ -132,8 +132,8 @@ public class a extends com.baidu.tbadk.a.a {
                 this.mNetwork = null;
             }
             super.cancel(true);
-            if (this.fpo != null) {
-                this.fpo.m(null);
+            if (this.fpp != null) {
+                this.fpp.m(null);
             }
         }
     }

@@ -17,7 +17,7 @@ public class TalkBallFragmentStatic {
                     if (data instanceof ad) {
                         a aVar = new a();
                         aVar.Oh().type = 12;
-                        aVar.Oh().aFU = e.j.frs_tab_talkball;
+                        aVar.Oh().aFV = e.j.frs_tab_talkball;
                         aVar.a((ad) data);
                     }
                 }

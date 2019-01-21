@@ -4,35 +4,35 @@ import android.graphics.Bitmap;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class g extends a {
-    private boolean aET;
     private boolean aEU;
     private boolean aEV;
-    private int aEZ;
+    private boolean aEW;
+    private int aFa;
     private int procType;
 
     public g(boolean z, boolean z2, boolean z3, int i) {
-        this.aET = true;
-        this.aEU = false;
+        this.aEU = true;
         this.aEV = false;
+        this.aEW = false;
         this.procType = 0;
-        this.aEZ = 0;
-        this.aET = z;
-        this.aEU = z2;
-        this.aEV = z3;
+        this.aFa = 0;
+        this.aEU = z;
+        this.aEV = z2;
+        this.aEW = z3;
         this.procType = i;
         int aO = com.baidu.adp.lib.util.l.aO(TbadkCoreApplication.getInst());
-        this.aEZ = aO <= 0 ? 200 : aO;
-        if (this.aEZ > 480) {
-            this.aEZ = 480;
+        this.aFa = aO <= 0 ? 200 : aO;
+        if (this.aFa > 480) {
+            this.aFa = 480;
         }
-        if (this.aEZ > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f)) {
-            this.aEZ = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f);
+        if (this.aFa > com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f)) {
+            this.aFa = com.baidu.adp.lib.util.l.dip2px(TbadkCoreApplication.getInst(), 320.0f);
         }
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public int getWidth() {
-        return this.aEZ;
+        return this.aFa;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
@@ -42,22 +42,22 @@ public class g extends a {
 
     @Override // com.baidu.tbadk.core.util.d.a
     public int getHeight() {
-        return this.aEZ;
+        return this.aFa;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean isFromCDN() {
-        return this.aET;
+        return this.aEU;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean EI() {
-        return this.aEV;
+        return this.aEW;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
     public boolean EJ() {
-        return this.aEU;
+        return this.aEV;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a

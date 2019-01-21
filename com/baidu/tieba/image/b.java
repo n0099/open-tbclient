@@ -20,28 +20,28 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b {
-    private ImageView aTr;
-    private DragImageView.d aVK;
-    private TbImageView dxB;
-    private TextView eTm;
-    private RelativeLayout fkq;
-    public TbImageView fkr;
-    public LinearLayout fks;
-    public TextView fkt;
-    public boolean fku = false;
-    private UrlDragImageView fkv;
+    private ImageView aTs;
+    private DragImageView.d aVL;
+    private TbImageView dxC;
+    private TextView eTn;
+    private RelativeLayout fkr;
+    public TbImageView fks;
+    public LinearLayout fkt;
+    public TextView fku;
+    public boolean fkv = false;
+    private UrlDragImageView fkw;
     private Context mContext;
 
     public b(ViewGroup viewGroup) {
-        this.fkq = (RelativeLayout) LayoutInflater.from(viewGroup.getContext()).inflate(e.h.big_image_ad, (ViewGroup) null);
-        this.dxB = (TbImageView) this.fkq.findViewById(e.g.big_image_ad_image);
-        this.eTm = (TextView) this.fkq.findViewById(e.g.big_image_ad_button);
-        this.fkr = (TbImageView) this.fkq.findViewById(e.g.big_image_ad_label);
-        this.fks = (LinearLayout) this.fkq.findViewById(e.g.big_image_ad_source_container);
-        this.fkt = (TextView) this.fkq.findViewById(e.g.big_image_ad_source);
-        this.aTr = (ImageView) this.fkq.findViewById(e.g.big_image_close_btn);
+        this.fkr = (RelativeLayout) LayoutInflater.from(viewGroup.getContext()).inflate(e.h.big_image_ad, (ViewGroup) null);
+        this.dxC = (TbImageView) this.fkr.findViewById(e.g.big_image_ad_image);
+        this.eTn = (TextView) this.fkr.findViewById(e.g.big_image_ad_button);
+        this.fks = (TbImageView) this.fkr.findViewById(e.g.big_image_ad_label);
+        this.fkt = (LinearLayout) this.fkr.findViewById(e.g.big_image_ad_source_container);
+        this.fku = (TextView) this.fkr.findViewById(e.g.big_image_ad_source);
+        this.aTs = (ImageView) this.fkr.findViewById(e.g.big_image_close_btn);
         this.mContext = viewGroup.getContext();
-        this.aTr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.image.b.1
+        this.aTs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.image.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (b.this.mContext instanceof Activity) {
@@ -53,84 +53,84 @@ public class b {
     }
 
     public View getView() {
-        return this.fkq;
+        return this.fkr;
     }
 
     public void setDragToExitListener(DragImageView.d dVar) {
-        this.aVK = dVar;
+        this.aVL = dVar;
     }
 
     public void aXz() {
-        this.dxB.setVisibility(4);
-        this.fkv = new UrlDragImageView(this.mContext);
-        this.fkv.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-        this.fkv.setIsCanDrag(true);
-        this.fkv.setCanScale(false);
-        this.fkv.setDragToExitListener(new DragImageView.d() { // from class: com.baidu.tieba.image.b.2
+        this.dxC.setVisibility(4);
+        this.fkw = new UrlDragImageView(this.mContext);
+        this.fkw.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
+        this.fkw.setIsCanDrag(true);
+        this.fkw.setCanScale(false);
+        this.fkw.setDragToExitListener(new DragImageView.d() { // from class: com.baidu.tieba.image.b.2
             @Override // com.baidu.tbadk.widget.DragImageView.d
             public void Rd() {
-                b.this.fkr.setVisibility(8);
-                b.this.aTr.setVisibility(8);
-                if (b.this.aVK != null) {
-                    b.this.aVK.Rd();
+                b.this.fks.setVisibility(8);
+                b.this.aTs.setVisibility(8);
+                if (b.this.aVL != null) {
+                    b.this.aVL.Rd();
                 }
             }
 
             @Override // com.baidu.tbadk.widget.DragImageView.d
             public void Re() {
-                b.this.fkr.setVisibility(8);
-                b.this.aTr.setVisibility(8);
-                if (b.this.aVK != null) {
-                    b.this.aVK.Re();
+                b.this.fks.setVisibility(8);
+                b.this.aTs.setVisibility(8);
+                if (b.this.aVL != null) {
+                    b.this.aVL.Re();
                 }
             }
 
             @Override // com.baidu.tbadk.widget.DragImageView.d
             public void Rf() {
-                b.this.fkr.setVisibility(0);
-                b.this.aTr.setVisibility(0);
+                b.this.fks.setVisibility(0);
+                b.this.aTs.setVisibility(0);
             }
         });
-        this.fkq.addView(this.fkv, 0);
+        this.fkr.addView(this.fkw, 0);
     }
 
     public UrlDragImageView aXA() {
-        return this.fkv;
+        return this.fkw;
     }
 
     public TbImageView aXB() {
-        return this.dxB;
+        return this.dxC;
     }
 
     public TextView aXC() {
-        return this.eTm;
+        return this.eTn;
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void aXD() {
-        this.eTm.setText(e.j.pause_load);
-        this.eTm.setBackgroundResource(e.f.button_fenfa_xiazaizhong);
-        al.b(this.eTm, e.d.common_color_10049, 1, 0);
+        this.eTn.setText(e.j.pause_load);
+        this.eTn.setBackgroundResource(e.f.button_fenfa_xiazaizhong);
+        al.b(this.eTn, e.d.common_color_10049, 1, 0);
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void re(String str) {
-        this.eTm.setText(str);
-        this.eTm.setBackgroundResource(e.f.button_fenfa_download_selector);
-        al.b(this.eTm, e.f.button_fenfa_download_text_selector, 1, 0);
+        this.eTn.setText(str);
+        this.eTn.setBackgroundResource(e.f.button_fenfa_download_selector);
+        al.b(this.eTn, e.f.button_fenfa_download_text_selector, 1, 0);
     }
 
     @SuppressLint({"ResourceAsColor"})
     public void aXE() {
-        this.eTm.setText(e.j.setup_text);
-        this.eTm.setBackgroundResource(e.f.button_fenfa_download_selector);
-        al.b(this.eTm, e.f.button_fenfa_download_text_selector, 1, 0);
+        this.eTn.setText(e.j.setup_text);
+        this.eTn.setBackgroundResource(e.f.button_fenfa_download_selector);
+        al.b(this.eTn, e.f.button_fenfa_download_text_selector, 1, 0);
     }
 
     public void aXF() {
         int width = ((WindowManager) this.mContext.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay().getWidth();
-        ViewGroup.LayoutParams layoutParams = this.dxB.getLayoutParams();
-        double loadedHeight = this.dxB.getLoadedHeight() / this.dxB.getLoadedWidth();
+        ViewGroup.LayoutParams layoutParams = this.dxC.getLayoutParams();
+        double loadedHeight = this.dxC.getLoadedHeight() / this.dxC.getLoadedWidth();
         if (loadedHeight > 1.0d) {
             layoutParams.height = width;
             layoutParams.width = (int) (width / loadedHeight);
@@ -138,39 +138,39 @@ public class b {
             layoutParams.height = (int) (loadedHeight * width);
             layoutParams.width = width;
         }
-        this.dxB.setLayoutParams(layoutParams);
+        this.dxC.setLayoutParams(layoutParams);
     }
 
     public void v(final View.OnClickListener onClickListener) {
-        this.eTm.setOnClickListener(onClickListener);
-        this.dxB.setOnClickListener(onClickListener);
-        this.fkv.setOuterOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.image.b.3
-            private float fkx = 0.0f;
+        this.eTn.setOnClickListener(onClickListener);
+        this.dxC.setOnClickListener(onClickListener);
+        this.fkw.setOuterOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.image.b.3
             private float fky = 0.0f;
             private float fkz = 0.0f;
+            private float fkA = 0.0f;
 
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
                     case 0:
-                        b.this.fku = false;
-                        this.fkx = motionEvent.getX();
-                        this.fky = motionEvent.getY();
-                        this.fkz = 0.0f;
+                        b.this.fkv = false;
+                        this.fky = motionEvent.getX();
+                        this.fkz = motionEvent.getY();
+                        this.fkA = 0.0f;
                         break;
                     case 1:
-                        b.this.fku = 10.0f < this.fkz;
-                        if (!b.this.fku && b.this.f(b.this.dxB, (int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
-                            onClickListener.onClick(b.this.dxB);
+                        b.this.fkv = 10.0f < this.fkA;
+                        if (!b.this.fkv && b.this.f(b.this.dxC, (int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
+                            onClickListener.onClick(b.this.dxC);
                             break;
                         }
                         break;
                     case 2:
-                        float x = motionEvent.getX() - this.fkx;
-                        float y = motionEvent.getY() - this.fky;
-                        this.fkz = (float) (Math.sqrt((x * x) + (y * y)) + this.fkz);
-                        this.fkx = motionEvent.getX();
-                        this.fky = motionEvent.getY();
+                        float x = motionEvent.getX() - this.fky;
+                        float y = motionEvent.getY() - this.fkz;
+                        this.fkA = (float) (Math.sqrt((x * x) + (y * y)) + this.fkA);
+                        this.fky = motionEvent.getX();
+                        this.fkz = motionEvent.getY();
                         break;
                 }
                 return false;

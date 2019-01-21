@@ -5,7 +5,7 @@ import rx.d;
 import rx.g;
 /* loaded from: classes2.dex */
 public final class g<T> implements d.a<T> {
-    final rx.d<? extends T> iFW;
+    final rx.d<? extends T> iFX;
     final rx.g scheduler;
     final long time;
     final TimeUnit unit;
@@ -16,7 +16,7 @@ public final class g<T> implements d.a<T> {
     }
 
     public g(rx.d<? extends T> dVar, long j, TimeUnit timeUnit, rx.g gVar) {
-        this.iFW = dVar;
+        this.iFX = dVar;
         this.time = j;
         this.unit = timeUnit;
         this.scheduler = gVar;
@@ -29,7 +29,7 @@ public final class g<T> implements d.a<T> {
             @Override // rx.functions.a
             public void call() {
                 if (!jVar.isUnsubscribed()) {
-                    g.this.iFW.unsafeSubscribe(rx.b.g.b(jVar));
+                    g.this.iFX.unsafeSubscribe(rx.b.g.b(jVar));
                 }
             }
         }, this.time, this.unit);

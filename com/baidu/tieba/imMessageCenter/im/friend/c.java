@@ -12,11 +12,11 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes4.dex */
 class c extends BaseAdapter {
-    private final TbPageContextSupport bfT;
-    private TbCheckBox.a ffU;
-    private boolean ffW;
+    private final TbPageContextSupport bfU;
+    private TbCheckBox.a ffV;
+    private boolean ffX;
     private List<com.baidu.tbadk.coreExtra.relationship.a> mData;
-    private b ffV = null;
+    private b ffW = null;
     private ViewGroup mParent = null;
 
     /* loaded from: classes4.dex */
@@ -25,12 +25,12 @@ class c extends BaseAdapter {
     }
 
     public c(TbPageContextSupport tbPageContextSupport, boolean z) {
-        this.bfT = tbPageContextSupport;
-        this.ffW = z;
+        this.bfU = tbPageContextSupport;
+        this.ffX = z;
     }
 
     public void a(b bVar) {
-        this.ffV = bVar;
+        this.ffW = bVar;
     }
 
     public void setData(List<com.baidu.tbadk.coreExtra.relationship.a> list) {
@@ -38,7 +38,7 @@ class c extends BaseAdapter {
     }
 
     public void a(TbCheckBox.a aVar) {
-        this.ffU = aVar;
+        this.ffV = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -87,38 +87,38 @@ class c extends BaseAdapter {
         } else {
             aVar2 = (a) obj;
         }
-        if (this.ffV != null) {
-            this.ffV.a(aVar2.rootView, aVar);
+        if (this.ffW != null) {
+            this.ffW.a(aVar2.rootView, aVar);
         }
         a(aVar, aVar2, aVar.Kr());
-        aVar2.clZ.setText(aVar.Kt());
-        if (this.ffW) {
-            aVar2.ffX.setVisibility(8);
+        aVar2.cma.setText(aVar.Kt());
+        if (this.ffX) {
+            aVar2.ffY.setVisibility(8);
         } else {
-            aVar2.ffX.setTagData(aVar);
+            aVar2.ffY.setTagData(aVar);
         }
-        if (this.bfT instanceof InviteFriendListActivity) {
-            ((InviteFriendListActivity) this.bfT).getLayoutMode().onModeChanged(aVar2.rootView);
+        if (this.bfU instanceof InviteFriendListActivity) {
+            ((InviteFriendListActivity) this.bfU).getLayoutMode().onModeChanged(aVar2.rootView);
         }
         return aVar2;
     }
 
     private void a(com.baidu.tbadk.coreExtra.relationship.a aVar, a aVar2, String str) {
         if (aVar != null) {
-            aVar2.ffC.setTag(str);
-            aVar2.ffC.startLoad(str, 12, false);
+            aVar2.ffD.setTag(str);
+            aVar2.ffD.startLoad(str, 12, false);
         }
     }
 
     private a aWs() {
         a aVar = new a();
-        aVar.rootView = LayoutInflater.from(this.bfT.getPageContext().getContext()).inflate(e.h.invite_friend_list_item, (ViewGroup) null);
-        aVar.ffC = (HeadImageView) aVar.rootView.findViewById(e.g.photo);
-        aVar.ffC.setIsRound(false);
-        aVar.clZ = (TextView) aVar.rootView.findViewById(e.g.txt_user_name);
-        aVar.ffX = (TbCheckBox) aVar.rootView.findViewById(e.g.ckb_select);
-        if (this.ffU != null) {
-            aVar.ffX.setStatedChangedListener(this.ffU);
+        aVar.rootView = LayoutInflater.from(this.bfU.getPageContext().getContext()).inflate(e.h.invite_friend_list_item, (ViewGroup) null);
+        aVar.ffD = (HeadImageView) aVar.rootView.findViewById(e.g.photo);
+        aVar.ffD.setIsRound(false);
+        aVar.cma = (TextView) aVar.rootView.findViewById(e.g.txt_user_name);
+        aVar.ffY = (TbCheckBox) aVar.rootView.findViewById(e.g.ckb_select);
+        if (this.ffV != null) {
+            aVar.ffY.setStatedChangedListener(this.ffV);
         }
         aVar.rootView.setTag(aVar);
         return aVar;
@@ -126,9 +126,9 @@ class c extends BaseAdapter {
 
     /* loaded from: classes4.dex */
     public class a {
-        public TextView clZ;
-        public HeadImageView ffC;
-        public TbCheckBox ffX;
+        public TextView cma;
+        public HeadImageView ffD;
+        public TbCheckBox ffY;
         public View rootView;
 
         public a() {

@@ -6,14 +6,14 @@ import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes2.dex */
 public class r implements ai<com.facebook.imagepipeline.f.d> {
-    private final com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, PooledByteBuffer> ilL;
-    private final com.facebook.imagepipeline.c.f iqF;
-    private final ai<com.facebook.imagepipeline.f.d> itW;
+    private final com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, PooledByteBuffer> ilM;
+    private final com.facebook.imagepipeline.c.f iqG;
+    private final ai<com.facebook.imagepipeline.f.d> itX;
 
     public r(com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, PooledByteBuffer> tVar, com.facebook.imagepipeline.c.f fVar, ai<com.facebook.imagepipeline.f.d> aiVar) {
-        this.ilL = tVar;
-        this.iqF = fVar;
-        this.itW = aiVar;
+        this.ilM = tVar;
+        this.iqG = fVar;
+        this.itX = aiVar;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [97=4] */
@@ -22,8 +22,8 @@ public class r implements ai<com.facebook.imagepipeline.f.d> {
         String id = ajVar.getId();
         al caq = ajVar.caq();
         caq.de(id, "EncodedMemoryCacheProducer");
-        com.facebook.cache.common.b c = this.iqF.c(ajVar.cap(), ajVar.bVS());
-        com.facebook.common.references.a<PooledByteBuffer> aH = this.ilL.aH(c);
+        com.facebook.cache.common.b c = this.iqG.c(ajVar.cap(), ajVar.bVS());
+        com.facebook.common.references.a<PooledByteBuffer> aH = this.ilM.aH(c);
         try {
             if (aH != null) {
                 com.facebook.imagepipeline.f.d dVar = new com.facebook.imagepipeline.f.d(aH);
@@ -36,9 +36,9 @@ public class r implements ai<com.facebook.imagepipeline.f.d> {
                 caq.a(id, "EncodedMemoryCacheProducer", caq.zE(id) ? ImmutableMap.of("cached_value_found", ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE) : null);
                 jVar.e(null, true);
             } else {
-                a aVar = new a(jVar, this.ilL, c);
+                a aVar = new a(jVar, this.ilM, c);
                 caq.a(id, "EncodedMemoryCacheProducer", caq.zE(id) ? ImmutableMap.of("cached_value_found", ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE) : null);
-                this.itW.a(aVar, ajVar);
+                this.itX.a(aVar, ajVar);
             }
         } finally {
             com.facebook.common.references.a.c((com.facebook.common.references.a<?>) aH);
@@ -47,13 +47,13 @@ public class r implements ai<com.facebook.imagepipeline.f.d> {
 
     /* loaded from: classes2.dex */
     private static class a extends m<com.facebook.imagepipeline.f.d, com.facebook.imagepipeline.f.d> {
-        private final com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, PooledByteBuffer> ilL;
-        private final com.facebook.cache.common.b iuy;
+        private final com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, PooledByteBuffer> ilM;
+        private final com.facebook.cache.common.b iuz;
 
         public a(j<com.facebook.imagepipeline.f.d> jVar, com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, PooledByteBuffer> tVar, com.facebook.cache.common.b bVar) {
             super(jVar);
-            this.ilL = tVar;
-            this.iuy = bVar;
+            this.ilM = tVar;
+            this.iuz = bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -67,7 +67,7 @@ public class r implements ai<com.facebook.imagepipeline.f.d> {
             com.facebook.common.references.a<PooledByteBuffer> bZx = dVar.bZx();
             if (bZx != null) {
                 try {
-                    com.facebook.common.references.a<PooledByteBuffer> a = this.ilL.a(dVar.bZz() != null ? dVar.bZz() : this.iuy, bZx);
+                    com.facebook.common.references.a<PooledByteBuffer> a = this.ilM.a(dVar.bZz() != null ? dVar.bZz() : this.iuz, bZx);
                     if (a != null) {
                         try {
                             com.facebook.imagepipeline.f.d dVar2 = new com.facebook.imagepipeline.f.d(a);

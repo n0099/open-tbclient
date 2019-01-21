@@ -10,7 +10,6 @@ import com.baidu.tbadk.core.util.v;
 /* loaded from: classes6.dex */
 public class k extends c {
     public bb threadData;
-    public static String dbv = "";
     public static String dbw = "";
     public static String dbx = "";
     public static String dby = "";
@@ -21,21 +20,22 @@ public class k extends c {
     public static String dbD = "";
     public static String dbE = "";
     public static String dbF = "";
+    public static String dbG = "";
     public static final BdUniqueId TYPE = BdUniqueId.gen();
-    public static final BdUniqueId dbG = BdUniqueId.gen();
-    public static final BdUniqueId atJ = BdUniqueId.gen();
-    public static final BdUniqueId atP = BdUniqueId.gen();
     public static final BdUniqueId dbH = BdUniqueId.gen();
-    public boolean dbI = false;
-    public boolean isLinkThread = false;
+    public static final BdUniqueId atK = BdUniqueId.gen();
+    public static final BdUniqueId atQ = BdUniqueId.gen();
+    public static final BdUniqueId dbI = BdUniqueId.gen();
     public boolean dbJ = false;
-    public boolean bao = true;
+    public boolean isLinkThread = false;
+    public boolean dbK = false;
+    public boolean bap = true;
 
     public static boolean S(bb bbVar) {
         if (bbVar == null) {
             return false;
         }
-        return bbVar.getType() == bb.atI || bbVar.getType() == bb.atK || bbVar.getType() == bb.atJ || bbVar.getType() == bb.atP || bbVar.getType() == bb.atR;
+        return bbVar.getType() == bb.atJ || bbVar.getType() == bb.atL || bbVar.getType() == bb.atK || bbVar.getType() == bb.atQ || bbVar.getType() == bb.atS;
     }
 
     @Override // com.baidu.adp.widget.ListView.h
@@ -43,17 +43,17 @@ public class k extends c {
         if (this.threadData == null) {
             return TYPE;
         }
-        if (this.dbI) {
-            return dbG;
+        if (this.dbJ) {
+            return dbH;
         }
         if (this.isLinkThread) {
-            return atJ;
+            return atK;
         }
         if (this.threadData.isShareThread) {
-            return atP;
+            return atQ;
         }
-        if (this.threadData.getType() == bb.atR) {
-            return dbH;
+        if (this.threadData.getType() == bb.atS) {
+            return dbI;
         }
         return TYPE;
     }
@@ -76,7 +76,7 @@ public class k extends c {
 
     public am ark() {
         bb aaq;
-        if (this.dbI) {
+        if (this.dbJ) {
             am amVar = new am("c11003");
             if (aaq() != null && (aaq = aaq()) != null) {
                 amVar.aB("tid", aaq.getTid());
@@ -86,7 +86,7 @@ public class k extends c {
             }
             return amVar;
         } else if (arj()) {
-            am nb = nb(dbA);
+            am nb = nb(dbB);
             if (nb != null && aaq() != null) {
                 bb aaq2 = aaq();
                 nb.y("obj_name", aaq2.Bk() != null && (aaq2.Bk().bEU() != null || aaq2.Bk().SF() != null) ? 1 : 0);
@@ -96,7 +96,7 @@ public class k extends c {
             }
             return nb;
         } else {
-            am nb2 = nb(dbv);
+            am nb2 = nb(dbw);
             if (nb2 != null) {
                 nb2.aB("ab_tag", arb()).aB("ab_action", "show");
                 if (aaq() != null) {
@@ -104,7 +104,7 @@ public class k extends c {
                     boolean z = (aaq3.Bk() == null || (aaq3.Bk().bEU() == null && aaq3.Bk().SF() == null)) ? false : true;
                     nb2.y("obj_name", z ? 1 : 0);
                     if (z && aaq3.Bk().bEU() != null && aaq3.Bk().bEU().Sx() != null && aaq3.Bk().bEU().Sx().size() > 0) {
-                        nb2.y("obj_to", aaq3.Bk().hqi ? 2 : 1);
+                        nb2.y("obj_to", aaq3.Bk().hqj ? 2 : 1);
                     }
                     if (aaq3.zT() != null) {
                         nb2.y("ab_type", aaq3.zT().hadConcerned() ? 1 : 0);
@@ -142,7 +142,7 @@ public class k extends c {
                 boolean z = (aaq.Bk() == null || (aaq.Bk().bEU() == null && aaq.Bk().SF() == null)) ? false : true;
                 nb.y("obj_name", z ? 1 : 0);
                 if (z && aaq.Bk().bEU() != null && aaq.Bk().bEU().Sx() != null && aaq.Bk().bEU().Sx().size() > 0) {
-                    nb.y("obj_to", aaq.Bk().hqi ? 2 : 1);
+                    nb.y("obj_to", aaq.Bk().hqj ? 2 : 1);
                 }
             }
         }
@@ -163,9 +163,9 @@ public class k extends c {
 
     public am kR(int i) {
         if (arj()) {
-            return nb(dbB);
+            return nb(dbC);
         }
-        am nb = nb(dbw);
+        am nb = nb(dbx);
         if (nb != null) {
             nb.aB("ab_tag", arb()).aB("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
             if (i != -1) {
@@ -179,9 +179,9 @@ public class k extends c {
 
     public am arm() {
         if (arj()) {
-            return nb(dbC);
+            return nb(dbD);
         }
-        am ab = ab(dbx, 0);
+        am ab = ab(dby, 0);
         if (ab != null) {
             ab.aB("ab_tag", arb()).aB("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
             return ab;
@@ -190,18 +190,6 @@ public class k extends c {
     }
 
     public am arn() {
-        if (arj()) {
-            return nb(dbD);
-        }
-        am nb = nb(dby);
-        if (nb != null) {
-            nb.aB("ab_tag", arb()).aB("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
-            return nb;
-        }
-        return nb;
-    }
-
-    public am aro() {
         if (arj()) {
             return nb(dbE);
         }
@@ -213,8 +201,20 @@ public class k extends c {
         return nb;
     }
 
+    public am aro() {
+        if (arj()) {
+            return nb(dbF);
+        }
+        am nb = nb(dbA);
+        if (nb != null) {
+            nb.aB("ab_tag", arb()).aB("ab_action", AiAppsUBCStatistic.TYPE_CLICK);
+            return nb;
+        }
+        return nb;
+    }
+
     public am arp() {
-        return nb(dbF);
+        return nb(dbG);
     }
 
     public am ng(String str) {

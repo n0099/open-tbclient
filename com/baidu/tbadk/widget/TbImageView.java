@@ -864,7 +864,7 @@ public class TbImageView extends BDImageView implements View.OnClickListener, Ru
     public void startLogPerf() {
         if (!this.canLogPerf) {
             this.canLogPerf = true;
-        } else if (this.mPerfLog != null && this.mPerfLog.bgA) {
+        } else if (this.mPerfLog != null && this.mPerfLog.bgB) {
             this.mPerfLog.Pz();
         }
     }

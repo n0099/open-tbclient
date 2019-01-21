@@ -19,20 +19,20 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes6.dex */
 public class d extends BaseAdapter {
-    private com.baidu.tieba.pb.pb.main.emotion.a fXB;
-    private List<String> gjj;
+    private com.baidu.tieba.pb.pb.main.emotion.a fXC;
+    private List<String> gjk;
     private List<EmotionImageData> mList;
     private Context mContext = BdBaseApplication.getInst().getApp();
-    private Set<String> fOi = new HashSet();
-    private int aAo = l.h(this.mContext, e.C0210e.ds116);
-    private int ffF = (int) (((l.aO(this.mContext) - l.h(this.mContext, e.C0210e.ds88)) - (this.aAo * 4)) * 0.333d);
+    private Set<String> fOj = new HashSet();
+    private int aAp = l.h(this.mContext, e.C0210e.ds116);
+    private int ffG = (int) (((l.aO(this.mContext) - l.h(this.mContext, e.C0210e.ds88)) - (this.aAp * 4)) * 0.333d);
 
     public d(List<EmotionImageData> list) {
         this.mList = list;
     }
 
     public void a(com.baidu.tieba.pb.pb.main.emotion.a aVar) {
-        this.fXB = aVar;
+        this.fXC = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -56,14 +56,14 @@ public class d extends BaseAdapter {
         if (view == null) {
             aVar = new a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(e.h.list_search_emotion_item, (ViewGroup) null);
-            aVar.gjn = (EmotionView) view.findViewById(e.g.emotion_view1);
-            aVar.gjo = (EmotionView) view.findViewById(e.g.emotion_view2);
-            aVar.gjp = (EmotionView) view.findViewById(e.g.emotion_view3);
-            aVar.gjq = (EmotionView) view.findViewById(e.g.emotion_view4);
+            aVar.gjo = (EmotionView) view.findViewById(e.g.emotion_view1);
+            aVar.gjp = (EmotionView) view.findViewById(e.g.emotion_view2);
+            aVar.gjq = (EmotionView) view.findViewById(e.g.emotion_view3);
+            aVar.gjr = (EmotionView) view.findViewById(e.g.emotion_view4);
             aVar.initView();
-            y(aVar.gjo, this.ffF);
-            y(aVar.gjp, this.ffF);
-            y(aVar.gjq, this.ffF);
+            y(aVar.gjp, this.ffG);
+            y(aVar.gjq, this.ffG);
+            y(aVar.gjr, this.ffG);
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -75,16 +75,16 @@ public class d extends BaseAdapter {
                 EmotionImageData emotionImageData = this.mList.get(i3);
                 switch (i3 - i2) {
                     case 0:
-                        a(aVar.gjn, emotionImageData);
-                        continue;
-                    case 1:
                         a(aVar.gjo, emotionImageData);
                         continue;
-                    case 2:
+                    case 1:
                         a(aVar.gjp, emotionImageData);
                         continue;
-                    case 3:
+                    case 2:
                         a(aVar.gjq, emotionImageData);
+                        continue;
+                    case 3:
+                        a(aVar.gjr, emotionImageData);
                         continue;
                 }
             }
@@ -93,7 +93,7 @@ public class d extends BaseAdapter {
     }
 
     public void removeListener() {
-        this.fXB = null;
+        this.fXC = null;
     }
 
     private void a(EmotionView emotionView, EmotionImageData emotionImageData) {
@@ -101,9 +101,9 @@ public class d extends BaseAdapter {
             emotionView.setTag(emotionView.getId(), emotionImageData);
             emotionView.axi();
             emotionView.a(emotionImageData);
-            if (this.fOi != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
-                if (v.I(this.gjj) || !this.gjj.contains(emotionImageData.getThumbUrl())) {
-                    this.fOi.add(emotionImageData.getThumbUrl() + emotionView.getLoadProcType());
+            if (this.fOj != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
+                if (v.I(this.gjk) || !this.gjk.contains(emotionImageData.getThumbUrl())) {
+                    this.fOj.add(emotionImageData.getThumbUrl() + emotionView.getLoadProcType());
                 }
             }
         }
@@ -117,8 +117,8 @@ public class d extends BaseAdapter {
                 public void onClick(View view) {
                     Object tag = view.getTag(view.getId());
                     if (tag != null && (tag instanceof EmotionImageData)) {
-                        if (d.this.fXB != null && (view instanceof EmotionView)) {
-                            d.this.fXB.a((EmotionImageData) tag, ((EmotionView) view).getIsGif());
+                        if (d.this.fXC != null && (view instanceof EmotionView)) {
+                            d.this.fXC.a((EmotionImageData) tag, ((EmotionView) view).getIsGif());
                         }
                         TiebaStatic.log("c12180");
                     }
@@ -133,8 +133,8 @@ public class d extends BaseAdapter {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Boolean doInBackground(Void... voidArr) {
-                if (d.this.fOi != null) {
-                    for (String str : d.this.fOi) {
+                if (d.this.fOj != null) {
+                    for (String str : d.this.fOj) {
                         if (!TextUtils.isEmpty(str)) {
                             com.baidu.tbadk.imageManager.c.NM().iu(str);
                         }
@@ -155,24 +155,24 @@ public class d extends BaseAdapter {
     }
 
     public void dq(List<String> list) {
-        this.gjj = list;
+        this.gjk = list;
     }
 
     /* loaded from: classes6.dex */
     class a {
-        public EmotionView gjn;
         public EmotionView gjo;
         public EmotionView gjp;
         public EmotionView gjq;
+        public EmotionView gjr;
 
         a() {
         }
 
         public void initView() {
-            d.this.l(this.gjn);
             d.this.l(this.gjo);
             d.this.l(this.gjp);
             d.this.l(this.gjq);
+            d.this.l(this.gjr);
         }
     }
 }

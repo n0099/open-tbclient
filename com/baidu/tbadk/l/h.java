@@ -5,7 +5,7 @@ import com.tencent.open.SocialConstants;
 public class h extends g {
     public String NV;
     public long NW;
-    public boolean bgA;
+    public boolean bgB;
     public boolean isSuccess;
 
     public void Py() {

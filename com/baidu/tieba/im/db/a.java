@@ -19,13 +19,13 @@ import java.util.List;
 /* loaded from: classes.dex */
 public abstract class a {
     private String HEAD;
-    private Class<? extends ChatMessage> eQU;
-    List<String> eQV = null;
+    private Class<? extends ChatMessage> eQV;
+    List<String> eQW = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(String str, Class<? extends ChatMessage> cls) {
         this.HEAD = str;
-        this.eQU = cls;
+        this.eQV = cls;
     }
 
     public int qd(String str) {
@@ -268,8 +268,8 @@ public abstract class a {
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
                         try {
-                            ChatMessage newInstance = this.eQU.newInstance();
-                            newInstance.setGroupId(String.valueOf(com.baidu.tieba.im.sendmessage.a.fbY));
+                            ChatMessage newInstance = this.eQV.newInstance();
+                            newInstance.setGroupId(String.valueOf(com.baidu.tieba.im.sendmessage.a.fbZ));
                             newInstance.setContent(cursor.getString(cursor.getColumnIndex("content")));
                             newInstance.setTime(cursor.getLong(cursor.getColumnIndex("create_time")));
                             newInstance.setExtra(cursor.getString(cursor.getColumnIndex("ext")));
@@ -376,12 +376,12 @@ public abstract class a {
         }
         String valueOf = String.valueOf(j);
         String str = this.HEAD + valueOf;
-        if (this.eQV == null) {
-            this.eQV = aRy();
+        if (this.eQW == null) {
+            this.eQW = aRy();
         }
-        if (!this.eQV.contains(valueOf)) {
+        if (!this.eQW.contains(valueOf)) {
             qj(valueOf);
-            this.eQV.add(valueOf);
+            this.eQW.add(valueOf);
         }
         SQLiteStatement sQLiteStatement = null;
         try {
@@ -523,18 +523,18 @@ public abstract class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.eQV == null) {
-            this.eQV = aRy();
+        if (this.eQW == null) {
+            this.eQW = aRy();
         }
-        if (this.eQV != null && this.eQV.contains(str)) {
-            Iterator<String> it = this.eQV.iterator();
+        if (this.eQW != null && this.eQW.contains(str)) {
+            Iterator<String> it = this.eQW.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 String next = it.next();
                 if (next.equals(str)) {
-                    this.eQV.remove(next);
+                    this.eQW.remove(next);
                     break;
                 }
             }
@@ -546,18 +546,18 @@ public abstract class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (this.eQV == null) {
-            this.eQV = aRy();
+        if (this.eQW == null) {
+            this.eQW = aRy();
         }
-        if (this.eQV != null && this.eQV.contains(str)) {
-            Iterator<String> it = this.eQV.iterator();
+        if (this.eQW != null && this.eQW.contains(str)) {
+            Iterator<String> it = this.eQW.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
                 String next = it.next();
                 if (next.equals(str)) {
-                    this.eQV.remove(next);
+                    this.eQW.remove(next);
                     break;
                 }
             }
@@ -605,7 +605,7 @@ public abstract class a {
     }
 
     public void aRz() {
-        this.eQV = null;
+        this.eQW = null;
     }
 
     public boolean an(String str, int i) {

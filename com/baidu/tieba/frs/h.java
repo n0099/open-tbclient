@@ -15,37 +15,37 @@ import com.baidu.tbadk.core.data.bb;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public abstract class h<T, V extends q.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected static final int dKZ;
     protected static final int dLa;
     protected static final int dLb;
-    protected com.baidu.tieba.tbadkCore.l dLc;
-    protected d dLd;
-    protected com.baidu.adp.widget.ListView.j dLe;
-    protected int dLf;
-    protected f dLg;
-    private boolean dLh;
+    protected static final int dLc;
+    protected com.baidu.tieba.tbadkCore.l dLd;
+    protected d dLe;
+    protected com.baidu.adp.widget.ListView.j dLf;
+    protected int dLg;
+    protected f dLh;
     private boolean dLi;
-    protected com.baidu.tieba.card.ad dLj;
+    private boolean dLj;
+    protected com.baidu.tieba.card.ad dLk;
     protected boolean mIsFromCDN;
     protected TbPageContext<?> mPageContext;
     protected int mSkinType;
 
     static {
         Resources resources = TbadkCoreApplication.getInst().getContext().getResources();
-        dKZ = resources.getDimensionPixelSize(e.C0210e.ds8);
-        dLa = resources.getDimensionPixelSize(e.C0210e.ds16);
-        dLb = resources.getDimensionPixelSize(e.C0210e.ds1);
+        dLa = resources.getDimensionPixelSize(e.C0210e.ds8);
+        dLb = resources.getDimensionPixelSize(e.C0210e.ds16);
+        dLc = resources.getDimensionPixelSize(e.C0210e.ds1);
     }
 
     public void c(com.baidu.tieba.card.ad adVar) {
-        this.dLj = adVar;
+        this.dLk = adVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId, bdUniqueId2);
         this.mIsFromCDN = false;
-        this.dLi = false;
+        this.dLj = false;
         a(tbPageContext, bdUniqueId2);
     }
 
@@ -53,7 +53,7 @@ public abstract class h<T, V extends q.a> extends com.baidu.adp.widget.ListView.
     public h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId);
         this.mIsFromCDN = false;
-        this.dLi = false;
+        this.dLj = false;
         a(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
     }
 
@@ -68,12 +68,12 @@ public abstract class h<T, V extends q.a> extends com.baidu.adp.widget.ListView.
     public void release() {
         this.mContext = null;
         this.mPageContext = null;
-        this.dLd = null;
+        this.dLe = null;
         this.mAdapterItemClickListener = null;
         this.mAdapterItemLongClickListener = null;
-        if (this.dLg != null) {
-            this.dLg.destory();
-            this.dLg = null;
+        if (this.dLh != null) {
+            this.dLh.destory();
+            this.dLh = null;
         }
     }
 
@@ -81,7 +81,7 @@ public abstract class h<T, V extends q.a> extends com.baidu.adp.widget.ListView.
     @Override // com.baidu.adp.widget.ListView.a
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.dLe = (com.baidu.adp.widget.ListView.j) viewGroup;
+        this.dLf = (com.baidu.adp.widget.ListView.j) viewGroup;
         if (t instanceof bb) {
             ((bb) t).setResource(2);
             return null;
@@ -94,23 +94,23 @@ public abstract class h<T, V extends q.a> extends com.baidu.adp.widget.ListView.
     }
 
     public void b(com.baidu.tieba.tbadkCore.l lVar) {
-        this.dLc = lVar;
+        this.dLd = lVar;
     }
 
     public void a(d dVar) {
-        this.dLd = dVar;
+        this.dLe = dVar;
     }
 
     public void mh(int i) {
-        this.dLf = i;
+        this.dLg = i;
     }
 
     public void a(f fVar) {
-        this.dLg = fVar;
+        this.dLh = fVar;
     }
 
     public boolean aBJ() {
-        return this.dLh;
+        return this.dLi;
     }
 
     public View o(ViewGroup viewGroup, int i) {

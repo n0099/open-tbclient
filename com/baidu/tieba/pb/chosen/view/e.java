@@ -16,16 +16,16 @@ import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 /* loaded from: classes3.dex */
 public class e {
     private Context context;
-    private View fTi;
-    private TextView fTj;
-    private ImageView fTk;
-    private TextView fTl;
+    private View fTj;
+    private TextView fTk;
+    private ImageView fTl;
     private TextView fTm;
-    private a fTn;
-    public boolean fTo;
-    private Animation fTq;
-    private long fTp = 0;
-    private boolean fTr = false;
+    private TextView fTn;
+    private a fTo;
+    public boolean fTp;
+    private Animation fTr;
+    private long fTq = 0;
+    private boolean fTs = false;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -36,42 +36,42 @@ public class e {
 
     public e(Context context) {
         this.context = context;
-        this.fTi = LayoutInflater.from(context).inflate(e.h.chosen_pb_post_info, (ViewGroup) null);
-        this.fTj = (TextView) this.fTi.findViewById(e.g.chosen_post_info_copyright);
-        this.fTk = (ImageView) this.fTi.findViewById(e.g.chosen_post_info_praise_icon);
-        this.fTl = (TextView) this.fTi.findViewById(e.g.chosen_post_info_praise_num);
-        this.fTm = (TextView) this.fTi.findViewById(e.g.chosen_post_info_original_post);
+        this.fTj = LayoutInflater.from(context).inflate(e.h.chosen_pb_post_info, (ViewGroup) null);
+        this.fTk = (TextView) this.fTj.findViewById(e.g.chosen_post_info_copyright);
+        this.fTl = (ImageView) this.fTj.findViewById(e.g.chosen_post_info_praise_icon);
+        this.fTm = (TextView) this.fTj.findViewById(e.g.chosen_post_info_praise_num);
+        this.fTn = (TextView) this.fTj.findViewById(e.g.chosen_post_info_original_post);
     }
 
     public View bhp() {
-        return this.fTi;
+        return this.fTj;
     }
 
     public void a(a aVar) {
-        this.fTn = aVar;
+        this.fTo = aVar;
     }
 
     public void so(int i) {
-        if (this.fTj != null) {
-            this.fTj.setText(i);
+        if (this.fTk != null) {
+            this.fTk.setText(i);
         }
     }
 
     public void F(View.OnClickListener onClickListener) {
-        if (this.fTm != null) {
-            this.fTm.setOnClickListener(onClickListener);
+        if (this.fTn != null) {
+            this.fTn.setOnClickListener(onClickListener);
         }
     }
 
     public void cX(long j) {
         if (j >= 0) {
-            this.fTp = j;
-            if (this.fTl != null) {
-                this.fTl.setVisibility(0);
-                this.fTl.setText(this.context.getString(e.j.chosen_pb_praise_num, ao.V(j)));
+            this.fTq = j;
+            if (this.fTm != null) {
+                this.fTm.setVisibility(0);
+                this.fTm.setText(this.context.getString(e.j.chosen_pb_praise_num, ao.V(j)));
             }
-            if (this.fTl != null && this.fTl.getVisibility() == 8) {
-                this.fTl.setVisibility(0);
+            if (this.fTm != null && this.fTm.getVisibility() == 8) {
+                this.fTm.setVisibility(0);
             }
         }
     }
@@ -81,14 +81,14 @@ public class e {
             so(e.j.chosen_pb_copyright);
             cX(excellentPbThreadInfo.zan.zansum.longValue());
             kx(excellentPbThreadInfo.zan.is_zan.booleanValue());
-            this.fTk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
+            this.fTl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (!e.this.fTr && ba.bJ(e.this.context)) {
-                        e.this.fTr = true;
-                        e.this.fTk.startAnimation(e.this.bhr());
-                        if (e.this.fTn != null) {
-                            e.this.fTn.kt(e.this.fTo);
+                    if (!e.this.fTs && ba.bJ(e.this.context)) {
+                        e.this.fTs = true;
+                        e.this.fTl.startAnimation(e.this.bhr());
+                        if (e.this.fTo != null) {
+                            e.this.fTo.kt(e.this.fTp);
                         }
                     }
                 }
@@ -96,8 +96,8 @@ public class e {
             F(new View.OnClickListener() { // from class: com.baidu.tieba.pb.chosen.view.e.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (e.this.fTn != null) {
-                        e.this.fTn.q(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
+                    if (e.this.fTo != null) {
+                        e.this.fTo.q(excellentPbThreadInfo.forum.forum_id.longValue(), excellentPbThreadInfo.thread_id + "");
                     }
                 }
             });
@@ -105,34 +105,34 @@ public class e {
     }
 
     public void bhq() {
-        this.fTr = false;
+        this.fTs = false;
     }
 
     public void kw(boolean z) {
         kx(z);
         if (z) {
-            this.fTp++;
+            this.fTq++;
         } else {
-            this.fTp--;
+            this.fTq--;
         }
-        cX(this.fTp);
+        cX(this.fTq);
     }
 
     private void kx(boolean z) {
-        this.fTo = z;
+        this.fTp = z;
         if (z) {
-            al.c(this.fTk, e.f.btn_zambia_big_s);
+            al.c(this.fTl, e.f.btn_zambia_big_s);
         } else {
-            al.c(this.fTk, e.f.btn_zambia_big_n);
+            al.c(this.fTl, e.f.btn_zambia_big_n);
         }
-        this.fTk.setVisibility(0);
+        this.fTl.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public Animation bhr() {
-        if (this.fTq == null) {
-            this.fTq = AnimationUtils.loadAnimation(this.context, e.a.praise_animation_scale3);
+        if (this.fTr == null) {
+            this.fTr = AnimationUtils.loadAnimation(this.context, e.a.praise_animation_scale3);
         }
-        return this.fTq;
+        return this.fTr;
     }
 }

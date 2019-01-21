@@ -15,12 +15,12 @@ import android.widget.TextView;
 import com.baidu.tieba.e;
 /* loaded from: classes4.dex */
 public class ImageProblemItemView extends FrameLayout {
-    protected LinearLayout aVi;
-    protected TextView aVj;
+    protected LinearLayout aVj;
+    protected TextView aVk;
     protected ImageView ahZ;
     protected TextView ajh;
-    protected LinearLayout fmy;
-    protected TextView fmz;
+    protected TextView fmA;
+    protected LinearLayout fmz;
     protected Context mContext;
 
     public ImageProblemItemView(Context context, AttributeSet attributeSet) {
@@ -37,20 +37,20 @@ public class ImageProblemItemView extends FrameLayout {
     }
 
     public void displayTip() {
-        if (this.aVj != null) {
-            this.aVj.setVisibility(0);
+        if (this.aVk != null) {
+            this.aVk.setVisibility(0);
         }
     }
 
     public void hideTip() {
-        if (this.aVj != null) {
-            this.aVj.setVisibility(8);
+        if (this.aVk != null) {
+            this.aVk.setVisibility(8);
         }
     }
 
     public void setTipColor(int i) {
-        if (this.aVj != null) {
-            this.aVj.setTextColor(i);
+        if (this.aVk != null) {
+            this.aVk.setTextColor(i);
         }
     }
 
@@ -68,19 +68,19 @@ public class ImageProblemItemView extends FrameLayout {
 
     public void setHelpText(String str) {
         if (TextUtils.isEmpty(str)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fmy.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fmz.getLayoutParams();
             layoutParams.bottomMargin = (int) getResources().getDimension(e.C0210e.ds26);
-            this.fmy.setLayoutParams(layoutParams);
-            this.fmz.setText("");
-            this.fmz.setVisibility(8);
+            this.fmz.setLayoutParams(layoutParams);
+            this.fmA.setText("");
+            this.fmA.setVisibility(8);
             return;
         }
-        this.fmy.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.fmy.getLayoutParams();
-        layoutParams2.bottomMargin = (int) getResources().getDimension(e.C0210e.ds10);
-        this.fmy.setLayoutParams(layoutParams2);
-        this.fmz.setText(str);
         this.fmz.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.fmz.getLayoutParams();
+        layoutParams2.bottomMargin = (int) getResources().getDimension(e.C0210e.ds10);
+        this.fmz.setLayoutParams(layoutParams2);
+        this.fmA.setText(str);
+        this.fmA.setVisibility(0);
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -103,25 +103,25 @@ public class ImageProblemItemView extends FrameLayout {
     }
 
     public void setTip(String str) {
-        this.aVj.setText(str);
+        this.aVk.setText(str);
     }
 
     public CharSequence getTip() {
-        return this.aVj.getText();
+        return this.aVk.getText();
     }
 
     public void setTipBackground(Drawable drawable) {
-        this.aVj.setBackgroundDrawable(drawable);
+        this.aVk.setBackgroundDrawable(drawable);
     }
 
     protected void KO() {
         LayoutInflater.from(this.mContext).inflate(e.h.image_problem_item_view, (ViewGroup) this, true);
-        this.aVi = (LinearLayout) findViewById(e.g.container);
+        this.aVj = (LinearLayout) findViewById(e.g.container);
         this.ajh = (TextView) findViewById(e.g.text);
-        this.aVj = (TextView) findViewById(e.g.tip);
+        this.aVk = (TextView) findViewById(e.g.tip);
         this.ahZ = (ImageView) findViewById(e.g.arrow2);
-        this.fmy = (LinearLayout) findViewById(e.g.ll_container);
-        this.fmz = (TextView) findViewById(e.g.tv_help);
+        this.fmz = (LinearLayout) findViewById(e.g.ll_container);
+        this.fmA = (TextView) findViewById(e.g.tv_help);
     }
 
     protected void c(AttributeSet attributeSet) {
@@ -137,14 +137,14 @@ public class ImageProblemItemView extends FrameLayout {
             this.ajh.setTextColor(color);
         }
         if (string2 != null) {
-            this.aVj.setText(string2);
+            this.aVk.setText(string2);
         }
         if (color2 > -1) {
-            this.aVj.setTextColor(color2);
+            this.aVk.setTextColor(color2);
         }
         obtainStyledAttributes.recycle();
-        this.aVi.setClickable(false);
-        this.aVi.setFocusable(false);
+        this.aVj.setClickable(false);
+        this.aVj.setFocusable(false);
         this.ahZ.setVisibility(4);
     }
 }

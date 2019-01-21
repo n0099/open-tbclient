@@ -4,19 +4,19 @@ import android.os.Looper;
 import rx.g;
 /* loaded from: classes2.dex */
 public final class a {
-    private static final a iFB = new a();
-    private final g iFC;
+    private static final a iFC = new a();
+    private final g iFD;
 
     private a() {
         g cev = rx.a.a.a.ces().cet().cev();
         if (cev != null) {
-            this.iFC = cev;
+            this.iFD = cev;
         } else {
-            this.iFC = new b(Looper.getMainLooper());
+            this.iFD = new b(Looper.getMainLooper());
         }
     }
 
     public static g cew() {
-        return iFB.iFC;
+        return iFC.iFD;
     }
 }

@@ -46,7 +46,7 @@ public class e {
             }
             JSONObject jSONObject = new JSONObject(content);
             String optString = jSONObject.optString("eventId");
-            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject("eventParam")) == null || optJSONObject.optLong("groupId") != com.baidu.tieba.im.sendmessage.a.fbY.longValue()) {
+            if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject("eventParam")) == null || optJSONObject.optLong("groupId") != com.baidu.tieba.im.sendmessage.a.fbZ.longValue()) {
                 return -1L;
             }
             return com.baidu.tieba.im.util.d.cH(optJSONObject.optLong("readMsgId"));

@@ -5,7 +5,7 @@ import java.io.Closeable;
 @com.facebook.common.internal.d
 /* loaded from: classes2.dex */
 public class NativeMemoryChunk implements Closeable {
-    private final long itt;
+    private final long itu;
     private boolean mClosed;
     private final int mSize;
 
@@ -34,13 +34,13 @@ public class NativeMemoryChunk implements Closeable {
     public NativeMemoryChunk(int i) {
         com.facebook.common.internal.g.checkArgument(i > 0);
         this.mSize = i;
-        this.itt = nativeAllocate(this.mSize);
+        this.itu = nativeAllocate(this.mSize);
         this.mClosed = false;
     }
 
     public NativeMemoryChunk() {
         this.mSize = 0;
-        this.itt = 0L;
+        this.itu = 0L;
         this.mClosed = true;
     }
 
@@ -48,7 +48,7 @@ public class NativeMemoryChunk implements Closeable {
     public synchronized void close() {
         if (!this.mClosed) {
             this.mClosed = true;
-            nativeFree(this.itt);
+            nativeFree(this.itu);
         }
     }
 
@@ -66,7 +66,7 @@ public class NativeMemoryChunk implements Closeable {
         com.facebook.common.internal.g.checkState(!isClosed());
         ch = ch(i, i3);
         A(i, bArr.length, i2, ch);
-        nativeCopyFromByteArray(this.itt + i, bArr, i2, ch);
+        nativeCopyFromByteArray(this.itu + i, bArr, i2, ch);
         return ch;
     }
 
@@ -76,7 +76,7 @@ public class NativeMemoryChunk implements Closeable {
         com.facebook.common.internal.g.checkState(!isClosed());
         ch = ch(i, i3);
         A(i, bArr.length, i2, ch);
-        nativeCopyToByteArray(this.itt + i, bArr, i2, ch);
+        nativeCopyToByteArray(this.itu + i, bArr, i2, ch);
         return ch;
     }
 
@@ -86,18 +86,18 @@ public class NativeMemoryChunk implements Closeable {
             com.facebook.common.internal.g.checkState(!isClosed());
             com.facebook.common.internal.g.checkArgument(i >= 0);
             com.facebook.common.internal.g.checkArgument(i < this.mSize);
-            nativeReadByte = nativeReadByte(this.itt + i);
+            nativeReadByte = nativeReadByte(this.itu + i);
         }
         return nativeReadByte;
     }
 
     public void a(int i, NativeMemoryChunk nativeMemoryChunk, int i2, int i3) {
         com.facebook.common.internal.g.checkNotNull(nativeMemoryChunk);
-        if (nativeMemoryChunk.itt == this.itt) {
-            Log.w("NativeMemoryChunk", "Copying from NativeMemoryChunk " + Integer.toHexString(System.identityHashCode(this)) + " to NativeMemoryChunk " + Integer.toHexString(System.identityHashCode(nativeMemoryChunk)) + " which share the same address " + Long.toHexString(this.itt));
+        if (nativeMemoryChunk.itu == this.itu) {
+            Log.w("NativeMemoryChunk", "Copying from NativeMemoryChunk " + Integer.toHexString(System.identityHashCode(this)) + " to NativeMemoryChunk " + Integer.toHexString(System.identityHashCode(nativeMemoryChunk)) + " which share the same address " + Long.toHexString(this.itu));
             com.facebook.common.internal.g.checkArgument(false);
         }
-        if (nativeMemoryChunk.itt < this.itt) {
+        if (nativeMemoryChunk.itu < this.itu) {
             synchronized (nativeMemoryChunk) {
                 synchronized (this) {
                     b(i, nativeMemoryChunk, i2, i3);
@@ -116,12 +116,12 @@ public class NativeMemoryChunk implements Closeable {
         com.facebook.common.internal.g.checkState(!isClosed());
         com.facebook.common.internal.g.checkState(nativeMemoryChunk.isClosed() ? false : true);
         A(i, nativeMemoryChunk.mSize, i2, i3);
-        nativeMemcpy(nativeMemoryChunk.itt + i2, this.itt + i, i3);
+        nativeMemcpy(nativeMemoryChunk.itu + i2, this.itu + i, i3);
     }
 
     protected void finalize() throws Throwable {
         if (!isClosed()) {
-            Log.w("NativeMemoryChunk", "finalize: Chunk " + Integer.toHexString(System.identityHashCode(this)) + " still active. Underlying address = " + Long.toHexString(this.itt));
+            Log.w("NativeMemoryChunk", "finalize: Chunk " + Integer.toHexString(System.identityHashCode(this)) + " still active. Underlying address = " + Long.toHexString(this.itu));
             try {
                 close();
             } finally {

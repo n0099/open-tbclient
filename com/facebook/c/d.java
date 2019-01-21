@@ -9,45 +9,45 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class d {
-    private static d ipo;
-    private int ipp;
+    private static d ipp;
+    private int ipq;
     @Nullable
-    private List<c.a> ipq;
-    private final c.a ipr = new a();
+    private List<c.a> ipr;
+    private final c.a ips = new a();
 
     private d() {
         bWY();
     }
 
     public void eu(@Nullable List<c.a> list) {
-        this.ipq = list;
+        this.ipr = list;
         bWY();
     }
 
     public c q(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.ipp];
-        int a = a(this.ipp, inputStream, bArr);
-        if (this.ipq != null) {
-            for (c.a aVar : this.ipq) {
+        byte[] bArr = new byte[this.ipq];
+        int a = a(this.ipq, inputStream, bArr);
+        if (this.ipr != null) {
+            for (c.a aVar : this.ipr) {
                 c j = aVar.j(bArr, a);
-                if (j != null && j != c.ipm) {
+                if (j != null && j != c.ipn) {
                     return j;
                 }
             }
         }
-        c j2 = this.ipr.j(bArr, a);
+        c j2 = this.ips.j(bArr, a);
         if (j2 == null) {
-            return c.ipm;
+            return c.ipn;
         }
         return j2;
     }
 
     private void bWY() {
-        this.ipp = this.ipr.getHeaderSize();
-        if (this.ipq != null) {
-            for (c.a aVar : this.ipq) {
-                this.ipp = Math.max(this.ipp, aVar.getHeaderSize());
+        this.ipq = this.ips.getHeaderSize();
+        if (this.ipr != null) {
+            for (c.a aVar : this.ipr) {
+                this.ipq = Math.max(this.ipq, aVar.getHeaderSize());
             }
         }
     }
@@ -70,10 +70,10 @@ public class d {
     public static synchronized d bWZ() {
         d dVar;
         synchronized (d.class) {
-            if (ipo == null) {
-                ipo = new d();
+            if (ipp == null) {
+                ipp = new d();
             }
-            dVar = ipo;
+            dVar = ipp;
         }
         return dVar;
     }

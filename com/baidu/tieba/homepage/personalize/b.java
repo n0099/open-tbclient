@@ -29,13 +29,13 @@ import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes6.dex */
 public class b {
-    private BdUniqueId bes;
-    private final List<h> dIa;
-    private final l exV;
-    private List<ThreadInfo> exX;
-    private a exY;
-    private LongSparseArray<ThreadInfo> exW = new LongSparseArray<>();
-    private CustomMessageListener exZ = new CustomMessageListener(2921030) { // from class: com.baidu.tieba.homepage.personalize.b.1
+    private BdUniqueId beu;
+    private final List<h> dIb;
+    private final l exW;
+    private List<ThreadInfo> exY;
+    private a exZ;
+    private LongSparseArray<ThreadInfo> exX = new LongSparseArray<>();
+    private CustomMessageListener eya = new CustomMessageListener(2921030) { // from class: com.baidu.tieba.homepage.personalize.b.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -44,14 +44,14 @@ public class b {
                 long d = com.baidu.adp.lib.g.b.d(postWriteCallBackData.getPostId(), 0L);
                 long d2 = com.baidu.adp.lib.g.b.d(postWriteCallBackData.getThreadId(), 0L);
                 if (d != 0 && d2 != 0) {
-                    com.baidu.adp.lib.g.e.jG().removeCallbacks(b.this.exY);
-                    b.this.exY = new a(d2, d);
-                    com.baidu.adp.lib.g.e.jG().postDelayed(b.this.exY, 500L);
+                    com.baidu.adp.lib.g.e.jG().removeCallbacks(b.this.exZ);
+                    b.this.exZ = new a(d2, d);
+                    com.baidu.adp.lib.g.e.jG().postDelayed(b.this.exZ, 500L);
                 }
             }
         }
     };
-    private final com.baidu.adp.framework.listener.a dij = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.homepage.personalize.b.2
+    private final com.baidu.adp.framework.listener.a dik = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.homepage.personalize.b.2
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
@@ -63,14 +63,14 @@ public class b {
             }
         }
     };
-    private final CustomMessageListener edS = new CustomMessageListener(2921031) { // from class: com.baidu.tieba.homepage.personalize.b.3
+    private final CustomMessageListener edT = new CustomMessageListener(2921031) { // from class: com.baidu.tieba.homepage.personalize.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (!StringUtils.isNull(str) && !v.I(b.this.dIa) && !v.I(b.this.exX)) {
-                    Iterator it = b.this.dIa.iterator();
+                if (!StringUtils.isNull(str) && !v.I(b.this.dIb) && !v.I(b.this.exY)) {
+                    Iterator it = b.this.dIb.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
@@ -80,14 +80,14 @@ public class b {
                             com.baidu.tieba.card.data.c cVar = (com.baidu.tieba.card.data.c) hVar;
                             if (cVar.aaq() != null && cVar.aaq().getTid() != null && cVar.aaq().getTid().equals(str)) {
                                 it.remove();
-                                com.baidu.tieba.homepage.personalize.model.b.cp(b.this.dIa);
-                                b.this.exV.al(new ArrayList(b.this.dIa));
+                                com.baidu.tieba.homepage.personalize.model.b.cp(b.this.dIb);
+                                b.this.exW.al(new ArrayList(b.this.dIb));
                                 break;
                             }
                         }
                     }
                     long d = com.baidu.adp.lib.g.b.d(str, 0L);
-                    Iterator it2 = b.this.exX.iterator();
+                    Iterator it2 = b.this.exY.iterator();
                     while (it2.hasNext()) {
                         ThreadInfo threadInfo = (ThreadInfo) it2.next();
                         if (threadInfo != null && threadInfo.tid != null && threadInfo.tid.longValue() == d) {
@@ -101,25 +101,25 @@ public class b {
     };
 
     public b(List<h> list, l lVar) {
-        this.dIa = list;
-        this.exV = lVar;
+        this.dIb = list;
+        this.exW = lVar;
     }
 
     public void h(BdUniqueId bdUniqueId) {
-        this.bes = bdUniqueId;
-        this.exZ.setTag(bdUniqueId);
-        this.exZ.setSelfListener(false);
-        this.dij.setTag(bdUniqueId);
-        this.dij.getHttpMessageListener().setSelfListener(true);
-        this.dij.getSocketMessageListener().setSelfListener(true);
-        this.edS.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.exZ);
-        MessageManager.getInstance().registerListener(this.dij);
-        MessageManager.getInstance().registerListener(this.edS);
+        this.beu = bdUniqueId;
+        this.eya.setTag(bdUniqueId);
+        this.eya.setSelfListener(false);
+        this.dik.setTag(bdUniqueId);
+        this.dik.getHttpMessageListener().setSelfListener(true);
+        this.dik.getSocketMessageListener().setSelfListener(true);
+        this.edT.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.eya);
+        MessageManager.getInstance().registerListener(this.dik);
+        MessageManager.getInstance().registerListener(this.edT);
     }
 
     public void cm(List<ThreadInfo> list) {
-        this.exX = list;
+        this.exY = list;
     }
 
     public void cn(List<ThreadInfo> list) {
@@ -127,7 +127,7 @@ public class b {
             Iterator<ThreadInfo> it = list.iterator();
             while (it.hasNext()) {
                 ThreadInfo next = it.next();
-                if (next != null && this.exW.get(next.tid.longValue()) != null) {
+                if (next != null && this.exX.get(next.tid.longValue()) != null) {
                     it.remove();
                 }
             }
@@ -155,7 +155,7 @@ public class b {
                 i = 2;
             }
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-            requestGetMyPostNetMessage.setTag(b.this.bes);
+            requestGetMyPostNetMessage.setTag(b.this.beu);
             requestGetMyPostNetMessage.setParams(this.threadId, this.postId, 0L, aO, aQ, f, i);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
         }
@@ -163,7 +163,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, GetMyPostResIdl getMyPostResIdl) {
-        if (i == 0 && !v.I(this.dIa) && !v.I(this.exX) && this.exV != null && getMyPostResIdl != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
+        if (i == 0 && !v.I(this.dIb) && !v.I(this.exY) && this.exW != null && getMyPostResIdl != null && getMyPostResIdl.data != null && getMyPostResIdl.data.thread_info != null) {
             ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
             User.Builder builder2 = new User.Builder(builder.author);
             a(builder2, getMyPostResIdl.data.user_info);
@@ -173,11 +173,11 @@ public class b {
             bb bbVar = new bb();
             bbVar.a(build);
             if (k.S(bbVar)) {
-                this.dIa.add(this.dIa.get(0) instanceof g ? 1 : 0, com.baidu.tieba.homepage.personalize.model.d.ai(bbVar));
-                com.baidu.tieba.homepage.personalize.model.b.cp(this.dIa);
-                this.exV.al(new ArrayList(this.dIa));
-                this.exX.add(0, build);
-                this.exW.put(build.tid.longValue(), build);
+                this.dIb.add(this.dIb.get(0) instanceof g ? 1 : 0, com.baidu.tieba.homepage.personalize.model.d.ai(bbVar));
+                com.baidu.tieba.homepage.personalize.model.b.cp(this.dIb);
+                this.exW.al(new ArrayList(this.dIb));
+                this.exY.add(0, build);
+                this.exX.put(build.tid.longValue(), build);
             }
         }
     }
@@ -196,8 +196,8 @@ public class b {
     }
 
     public void onDestroy() {
-        if (this.exY != null) {
-            com.baidu.adp.lib.g.e.jG().removeCallbacks(this.exY);
+        if (this.exZ != null) {
+            com.baidu.adp.lib.g.e.jG().removeCallbacks(this.exZ);
         }
     }
 }

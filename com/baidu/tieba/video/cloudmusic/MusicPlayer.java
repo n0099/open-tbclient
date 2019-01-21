@@ -7,9 +7,9 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import java.io.IOException;
 /* loaded from: classes5.dex */
 public class MusicPlayer {
-    private static MusicPlayer hFd = null;
-    private MediaPlayer hFc;
-    private MusicPlayerState hFe = MusicPlayerState.WAIT;
+    private static MusicPlayer hFe = null;
+    private MediaPlayer hFd;
+    private MusicPlayerState hFf = MusicPlayerState.WAIT;
 
     /* loaded from: classes5.dex */
     public enum MusicPlayerState {
@@ -32,38 +32,38 @@ public class MusicPlayer {
     public static synchronized MusicPlayer bJB() {
         MusicPlayer musicPlayer;
         synchronized (MusicPlayer.class) {
-            if (hFd == null) {
-                hFd = new MusicPlayer();
+            if (hFe == null) {
+                hFe = new MusicPlayer();
             }
-            musicPlayer = hFd;
+            musicPlayer = hFe;
         }
         return musicPlayer;
     }
 
     public void a(String str, final CloudMusicData.MusicTagList.MusicList musicList, a aVar) {
-        if (this.hFe != MusicPlayerState.PAUSE) {
-            if (this.hFc == null) {
-                this.hFc = new MediaPlayer();
-                this.hFc.setAudioStreamType(3);
+        if (this.hFf != MusicPlayerState.PAUSE) {
+            if (this.hFd == null) {
+                this.hFd = new MediaPlayer();
+                this.hFd.setAudioStreamType(3);
             }
             try {
-                this.hFc.reset();
-                this.hFc.setDataSource(str);
-                this.hFc.prepare();
-                this.hFe = MusicPlayerState.WAIT;
-                this.hFc.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
+                this.hFd.reset();
+                this.hFd.setDataSource(str);
+                this.hFd.prepare();
+                this.hFf = MusicPlayerState.WAIT;
+                this.hFd.setOnPreparedListener(new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.video.cloudmusic.MusicPlayer.1
                     @Override // android.media.MediaPlayer.OnPreparedListener
                     public void onPrepared(MediaPlayer mediaPlayer) {
                         com.baidu.tieba.video.cloudmusic.data.a.bJE().a(musicList);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921307));
-                        MusicPlayer.this.hFc.setLooping(true);
-                        MusicPlayer.this.hFc.start();
-                        MusicPlayer.this.hFe = MusicPlayerState.PREPARED;
+                        MusicPlayer.this.hFd.setLooping(true);
+                        MusicPlayer.this.hFd.start();
+                        MusicPlayer.this.hFf = MusicPlayerState.PREPARED;
                     }
                 });
             } catch (IOException e) {
                 e.printStackTrace();
-                this.hFe = MusicPlayerState.ERROR;
+                this.hFf = MusicPlayerState.ERROR;
                 if (aVar != null) {
                     aVar.bJz();
                 }
@@ -72,27 +72,27 @@ public class MusicPlayer {
     }
 
     public void bJC() {
-        if (this.hFc != null && this.hFc.isPlaying()) {
-            this.hFc.pause();
+        if (this.hFd != null && this.hFd.isPlaying()) {
+            this.hFd.pause();
         }
-        this.hFe = MusicPlayerState.PAUSE;
+        this.hFf = MusicPlayerState.PAUSE;
     }
 
     public void bJD() {
-        if (this.hFc != null) {
-            this.hFc.start();
-            this.hFc.seekTo(0);
+        if (this.hFd != null) {
+            this.hFd.start();
+            this.hFd.seekTo(0);
         }
-        this.hFe = MusicPlayerState.RESUME;
+        this.hFf = MusicPlayerState.RESUME;
     }
 
     public void Vh() {
-        if (this.hFc != null) {
-            if (this.hFc.isPlaying()) {
-                this.hFc.stop();
+        if (this.hFd != null) {
+            if (this.hFd.isPlaying()) {
+                this.hFd.stop();
             }
-            this.hFc.release();
-            this.hFc = null;
+            this.hFd.release();
+            this.hFd = null;
         }
     }
 }

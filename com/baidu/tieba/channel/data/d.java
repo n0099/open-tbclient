@@ -3,61 +3,61 @@ package com.baidu.tieba.channel.data;
 import tbclient.GetChannelInfo.DataRes;
 /* loaded from: classes3.dex */
 public class d {
-    private int dek = 1;
-    private g del;
-    private ChannelInfo dem;
-    private ChannelHomeVideoList<h> den;
+    private int del = 1;
+    private g dem;
+    private ChannelInfo den;
+    private ChannelHomeVideoList<h> deo;
 
     public g arz() {
-        return this.del;
-    }
-
-    public boolean arA() {
-        return this.den == null || this.den.size() == 0;
-    }
-
-    public void a(g gVar) {
-        this.del = gVar;
-    }
-
-    public ChannelInfo arB() {
         return this.dem;
     }
 
-    public void a(ChannelInfo channelInfo) {
-        this.dem = channelInfo;
+    public boolean arA() {
+        return this.deo == null || this.deo.size() == 0;
     }
 
-    public ChannelHomeVideoList<h> arC() {
+    public void a(g gVar) {
+        this.dem = gVar;
+    }
+
+    public ChannelInfo arB() {
         return this.den;
     }
 
+    public void a(ChannelInfo channelInfo) {
+        this.den = channelInfo;
+    }
+
+    public ChannelHomeVideoList<h> arC() {
+        return this.deo;
+    }
+
     public void a(ChannelHomeVideoList<h> channelHomeVideoList) {
-        this.den = channelHomeVideoList;
+        this.deo = channelHomeVideoList;
     }
 
     public boolean isHost() {
-        return this.dek == 0;
+        return this.del == 0;
     }
 
     public void kW(int i) {
-        this.dek = i;
+        this.del = i;
     }
 
     public boolean arD() {
-        return this.del != null && this.del.isHasMore();
+        return this.dem != null && this.dem.isHasMore();
     }
 
     public void b(ChannelHomeVideoList<h> channelHomeVideoList) {
-        if (this.den != null && channelHomeVideoList != null) {
-            this.den.addAll(channelHomeVideoList);
+        if (this.deo != null && channelHomeVideoList != null) {
+            this.deo.addAll(channelHomeVideoList);
             checkBigVideoType();
         }
     }
 
     public void checkBigVideoType() {
-        if (this.den != null) {
-            this.den.checkBigVideoType();
+        if (this.deo != null) {
+            this.deo.checkBigVideoType();
         }
     }
 

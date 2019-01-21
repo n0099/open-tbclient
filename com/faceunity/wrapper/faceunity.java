@@ -1,9 +1,9 @@
 package com.faceunity.wrapper;
 /* loaded from: classes.dex */
 public class faceunity {
-    private static boolean hSs = false;
-    static int[] ixb = new int[2];
-    static int[] ixc = new int[1];
+    private static boolean hSt = false;
+    static int[] ixc = new int[2];
+    static int[] ixd = new int[1];
 
     public static native int fuAvatarBindItems(int i, int[] iArr, int[] iArr2);
 

@@ -5,76 +5,76 @@ import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes2.dex */
 public abstract class f implements Framedata {
-    private Framedata.Opcode iEF;
-    private ByteBuffer iEG = org.java_websocket.e.b.cei();
-    private boolean iEE = true;
-    private boolean iEH = false;
+    private Framedata.Opcode iEG;
+    private ByteBuffer iEH = org.java_websocket.e.b.cei();
+    private boolean iEF = true;
     private boolean iEI = false;
     private boolean iEJ = false;
     private boolean iEK = false;
+    private boolean iEL = false;
 
     public abstract void cdW() throws InvalidDataException;
 
     public f(Framedata.Opcode opcode) {
-        this.iEF = opcode;
+        this.iEG = opcode;
     }
 
     @Override // org.java_websocket.framing.Framedata
     public boolean cea() {
-        return this.iEI;
-    }
-
-    @Override // org.java_websocket.framing.Framedata
-    public boolean ceb() {
         return this.iEJ;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean cec() {
+    public boolean ceb() {
         return this.iEK;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public boolean cdZ() {
-        return this.iEE;
+    public boolean cec() {
+        return this.iEL;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public Framedata.Opcode ced() {
+    public boolean cdZ() {
         return this.iEF;
     }
 
     @Override // org.java_websocket.framing.Framedata
-    public ByteBuffer cdY() {
+    public Framedata.Opcode ced() {
         return this.iEG;
     }
 
+    @Override // org.java_websocket.framing.Framedata
+    public ByteBuffer cdY() {
+        return this.iEH;
+    }
+
     public String toString() {
-        return "Framedata{ optcode:" + ced() + ", fin:" + cdZ() + ", rsv1:" + cea() + ", rsv2:" + ceb() + ", rsv3:" + cec() + ", payloadlength:[pos:" + this.iEG.position() + ", len:" + this.iEG.remaining() + "], payload:" + (this.iEG.remaining() > 1000 ? "(too big to display)" : new String(this.iEG.array())) + '}';
+        return "Framedata{ optcode:" + ced() + ", fin:" + cdZ() + ", rsv1:" + cea() + ", rsv2:" + ceb() + ", rsv3:" + cec() + ", payloadlength:[pos:" + this.iEH.position() + ", len:" + this.iEH.remaining() + "], payload:" + (this.iEH.remaining() > 1000 ? "(too big to display)" : new String(this.iEH.array())) + '}';
     }
 
     public void t(ByteBuffer byteBuffer) {
-        this.iEG = byteBuffer;
+        this.iEH = byteBuffer;
     }
 
     public void pm(boolean z) {
-        this.iEE = z;
+        this.iEF = z;
     }
 
     public void pn(boolean z) {
-        this.iEI = z;
-    }
-
-    public void po(boolean z) {
         this.iEJ = z;
     }
 
-    public void pp(boolean z) {
+    public void po(boolean z) {
         this.iEK = z;
     }
 
+    public void pp(boolean z) {
+        this.iEL = z;
+    }
+
     public void pq(boolean z) {
-        this.iEH = z;
+        this.iEI = z;
     }
 
     public static f b(Framedata.Opcode opcode) {
@@ -108,10 +108,10 @@ public abstract class f implements Framedata {
             return false;
         }
         f fVar = (f) obj;
-        if (this.iEE == fVar.iEE && this.iEH == fVar.iEH && this.iEI == fVar.iEI && this.iEJ == fVar.iEJ && this.iEK == fVar.iEK && this.iEF == fVar.iEF) {
-            if (this.iEG != null) {
-                z = this.iEG.equals(fVar.iEG);
-            } else if (fVar.iEG != null) {
+        if (this.iEF == fVar.iEF && this.iEI == fVar.iEI && this.iEJ == fVar.iEJ && this.iEK == fVar.iEK && this.iEL == fVar.iEL && this.iEG == fVar.iEG) {
+            if (this.iEH != null) {
+                z = this.iEH.equals(fVar.iEH);
+            } else if (fVar.iEH != null) {
                 z = false;
             }
             return z;
@@ -120,6 +120,6 @@ public abstract class f implements Framedata {
     }
 
     public int hashCode() {
-        return (((this.iEJ ? 1 : 0) + (((this.iEI ? 1 : 0) + (((this.iEH ? 1 : 0) + (((this.iEG != null ? this.iEG.hashCode() : 0) + ((((this.iEE ? 1 : 0) * 31) + this.iEF.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.iEK ? 1 : 0);
+        return (((this.iEK ? 1 : 0) + (((this.iEJ ? 1 : 0) + (((this.iEI ? 1 : 0) + (((this.iEH != null ? this.iEH.hashCode() : 0) + ((((this.iEF ? 1 : 0) * 31) + this.iEG.hashCode()) * 31)) * 31)) * 31)) * 31)) * 31) + (this.iEL ? 1 : 0);
     }
 }

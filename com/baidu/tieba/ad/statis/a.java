@@ -7,11 +7,11 @@ public class a implements com.baidu.tieba.p.a {
     /* renamed from: com.baidu.tieba.ad.statis.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     private static class C0186a {
-        private static a bCS = new a();
+        private static a bCT = new a();
     }
 
     public static a WM() {
-        return C0186a.bCS;
+        return C0186a.bCT;
     }
 
     @Override // com.baidu.tieba.p.a

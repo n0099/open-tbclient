@@ -19,8 +19,8 @@ import com.baidu.tieba.video.editvideo.data.MusicData;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class c extends BaseAdapter {
-    public int hFZ;
-    public String hGa;
+    public int hGa;
+    public String hGb;
     private List<MusicData> mList;
     private e mPageContext;
 
@@ -31,7 +31,7 @@ public class c extends BaseAdapter {
     public void setData(List<MusicData> list) {
         if (list != null) {
             this.mList = list;
-            wY(this.hGa);
+            wY(this.hGb);
             notifyDataSetChanged();
         }
     }
@@ -63,16 +63,16 @@ public class c extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.mPageContext.getPageActivity()).inflate(e.h.layout_music_item, (ViewGroup) null);
             aVar = new a();
-            aVar.hFj = (TbImageView) view.findViewById(e.g.music_image);
-            aVar.hFm = (TextView) view.findViewById(e.g.music_title);
-            aVar.hFl = view.findViewById(e.g.music_loading);
-            aVar.hFj.setDrawerType(1);
-            aVar.hFj.setIsRound(true);
-            aVar.hFj.setDefaultBgResource(e.d.transparent);
-            aVar.hFj.setDefaultErrorResource(e.f.bg_video_cloudmusic);
-            aVar.hFj.setDefaultResource(e.f.bg_video_cloudmusic);
-            aVar.hFj.setBorderWidth(l.h(this.mPageContext.getPageActivity(), e.C0210e.ds4));
-            aVar.hFj.setBorderColor(al.getColor(e.d.cp_link_tip_a));
+            aVar.hFk = (TbImageView) view.findViewById(e.g.music_image);
+            aVar.hFn = (TextView) view.findViewById(e.g.music_title);
+            aVar.hFm = view.findViewById(e.g.music_loading);
+            aVar.hFk.setDrawerType(1);
+            aVar.hFk.setIsRound(true);
+            aVar.hFk.setDefaultBgResource(e.d.transparent);
+            aVar.hFk.setDefaultErrorResource(e.f.bg_video_cloudmusic);
+            aVar.hFk.setDefaultResource(e.f.bg_video_cloudmusic);
+            aVar.hFk.setBorderWidth(l.h(this.mPageContext.getPageActivity(), e.C0210e.ds4));
+            aVar.hFk.setBorderColor(al.getColor(e.d.cp_link_tip_a));
             view.setTag(aVar);
         } else {
             aVar = (a) view.getTag();
@@ -81,23 +81,23 @@ public class c extends BaseAdapter {
         if (musicData != null) {
             switch (musicData.editMusicType) {
                 case 1:
-                    aVar.hFj.startLoad(String.valueOf(e.f.icon_video_mute), 24, false);
+                    aVar.hFk.startLoad(String.valueOf(e.f.icon_video_mute), 24, false);
                     break;
                 case 2:
-                    aVar.hFj.startLoad(String.valueOf(e.f.icon_video_cloudmusic), 24, false);
+                    aVar.hFk.startLoad(String.valueOf(e.f.icon_video_cloudmusic), 24, false);
                     break;
                 default:
-                    aVar.hFj.startLoad(musicData.img, 10, false);
+                    aVar.hFk.startLoad(musicData.img, 10, false);
                     break;
             }
-            aVar.hFl.setVisibility(4);
-            aVar.hFm.setTextColor(al.getColor(e.d.cp_cont_j));
-            aVar.hFm.setText(musicData.name);
-            b(aVar.hFm, l.h(this.mPageContext.getPageActivity(), e.C0210e.ds120), musicData.name);
-            if (i == this.hFZ) {
-                aVar.hFj.setDrawBorder(true);
+            aVar.hFm.setVisibility(4);
+            aVar.hFn.setTextColor(al.getColor(e.d.cp_cont_j));
+            aVar.hFn.setText(musicData.name);
+            b(aVar.hFn, l.h(this.mPageContext.getPageActivity(), e.C0210e.ds120), musicData.name);
+            if (i == this.hGa) {
+                aVar.hFk.setDrawBorder(true);
             } else {
-                aVar.hFj.setDrawBorder(false);
+                aVar.hFk.setDrawBorder(false);
             }
             if (i == 0) {
                 view.setPadding(l.h(this.mPageContext.getPageActivity(), e.C0210e.ds34), l.h(this.mPageContext.getPageActivity(), e.C0210e.ds44), 0, 0);
@@ -118,12 +118,12 @@ public class c extends BaseAdapter {
     }
 
     public void wJ(int i) {
-        this.hFZ = i;
+        this.hGa = i;
         notifyDataSetChanged();
     }
 
     public void wY(String str) {
-        this.hGa = str;
+        this.hGb = str;
         if (!TextUtils.isEmpty(str) && this.mList != null) {
             int i = -1;
             for (int i2 = 0; i2 < this.mList.size(); i2++) {
@@ -134,12 +134,12 @@ public class c extends BaseAdapter {
             if (i == -1) {
                 i = 1;
             }
-            this.hFZ = i;
+            this.hGa = i;
         }
     }
 
     public int bJS() {
-        return this.hFZ;
+        return this.hGa;
     }
 
     public void b(TextView textView, int i, String str) {
@@ -157,9 +157,9 @@ public class c extends BaseAdapter {
 
     /* loaded from: classes5.dex */
     public class a {
-        public TbImageView hFj;
-        public View hFl;
-        public TextView hFm;
+        public TbImageView hFk;
+        public View hFm;
+        public TextView hFn;
 
         public a() {
         }

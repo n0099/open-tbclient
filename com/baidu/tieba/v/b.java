@@ -9,7 +9,7 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
     public static final String FILE_SEP = File.separator;
-    private a hQz;
+    private a hQA;
     private String mPath;
     private String mUrl;
 
@@ -21,7 +21,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.hQz = aVar;
+        this.hQA = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,11 +50,11 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.hQz != null) {
+        if (this.hQA != null) {
             if (!ao.isEmpty(str)) {
-                this.hQz.a(true, str, this.mUrl);
+                this.hQA.a(true, str, this.mUrl);
             } else {
-                this.hQz.a(false, null, null);
+                this.hQA.a(false, null, null);
             }
         }
     }

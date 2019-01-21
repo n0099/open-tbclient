@@ -21,7 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static Pattern aDD = Pattern.compile("(#\\([^#\\)\\(]+\\))");
+    private static Pattern aDE = Pattern.compile("(#\\([^#\\)\\(]+\\))");
 
     public static String O(String str, boolean z) {
         String str2 = null;
@@ -195,7 +195,7 @@ public class e {
             if (qS == null) {
                 return null;
             }
-            Matcher matcher = aDD.matcher(qS);
+            Matcher matcher = aDE.matcher(qS);
             while (matcher.find()) {
                 String group = matcher.group();
                 qS = qS.replace(group, group.replace("#(", "[").replace(")", "]"));
@@ -470,7 +470,7 @@ public class e {
             return null;
         }
         com.baidu.tieba.im.data.d dVar = new com.baidu.tieba.im.data.d();
-        dVar.eQT = split[0];
+        dVar.eQU = split[0];
         dVar.taskId = split[1];
         return dVar;
     }

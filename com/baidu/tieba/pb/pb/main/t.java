@@ -20,18 +20,18 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.tbadkCore.location.LocationModel;
 /* loaded from: classes6.dex */
 public class t extends com.baidu.tbadk.editortools.d {
-    private LocationModel baE;
-    private int baK;
-    private LocationModel.a baR;
-    private LocationModel.b baS;
+    private LocationModel baF;
+    private int baL;
+    private LocationModel.a baS;
+    private LocationModel.b baT;
     private BaseActivity<?> mContext;
     private PbEditorData.ThreadData mThreadData;
     private VoiceData.VoiceModel mVoiceModel;
 
     public t(EditorTools editorTools) {
         super(editorTools);
-        this.baK = 0;
-        this.baR = new LocationModel.a() { // from class: com.baidu.tieba.pb.pb.main.t.1
+        this.baL = 0;
+        this.baS = new LocationModel.a() { // from class: com.baidu.tieba.pb.pb.main.t.1
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void Nf() {
                 t.this.mContext.showToast(e.j.no_network_guide);
@@ -57,7 +57,7 @@ public class t extends com.baidu.tbadk.editortools.d {
                 }
             }
         };
-        this.baS = new LocationModel.b() { // from class: com.baidu.tieba.pb.pb.main.t.2
+        this.baT = new LocationModel.b() { // from class: com.baidu.tieba.pb.pb.main.t.2
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.b
             public void Ng() {
                 t.this.b(0, false, null);
@@ -109,12 +109,12 @@ public class t extends com.baidu.tbadk.editortools.d {
             this.mContext.showToast(e.j.location_system_permission_prompt);
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
             MT();
-        } else if (this.baE.bFB()) {
+        } else if (this.baF.bFB()) {
             MQ();
         } else {
-            this.baE.nB(false);
+            this.baF.nB(false);
             b(1, true, null);
-            this.baE.bFz();
+            this.baF.bFz();
         }
     }
 
@@ -125,9 +125,9 @@ public class t extends com.baidu.tbadk.editortools.d {
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 if (com.baidu.adp.lib.util.j.kV()) {
                     t.this.b(1, true, null);
-                    t.this.baE.amP();
+                    t.this.baF.amP();
                 } else {
-                    t.this.baR.Nf();
+                    t.this.baS.Nf();
                 }
                 aVar2.dismiss();
             }
@@ -142,13 +142,13 @@ public class t extends com.baidu.tbadk.editortools.d {
     }
 
     public void MU() {
-        if (this.baE.amL()) {
-            if (this.baE.bFB()) {
-                this.baR.a(com.baidu.tieba.tbadkCore.location.c.bFx().getLocationData());
+        if (this.baF.amL()) {
+            if (this.baF.bFB()) {
+                this.baS.a(com.baidu.tieba.tbadkCore.location.c.bFx().getLocationData());
                 return;
             }
             if (com.baidu.adp.lib.util.l.ll()) {
-                this.baE.bFz();
+                this.baF.bFz();
             }
             b(0, true, null);
             return;
@@ -157,13 +157,13 @@ public class t extends com.baidu.tbadk.editortools.d {
     }
 
     public void c(BaseActivity baseActivity) {
-        this.baE = new LocationModel(baseActivity);
-        this.baE.a(this.baR);
-        this.baE.a(this.baS);
+        this.baF = new LocationModel(baseActivity);
+        this.baF.a(this.baS);
+        this.baF.a(this.baT);
         if (!StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble()) && Mp() != null) {
             Mp().b(new com.baidu.tbadk.editortools.a(2, 12, " "));
         }
-        if (!this.baE.amL() && Mp() != null) {
+        if (!this.baF.amL() && Mp() != null) {
             Mp().b(new com.baidu.tbadk.editortools.a(20, 8, null));
         }
     }
@@ -177,12 +177,12 @@ public class t extends com.baidu.tbadk.editortools.d {
     }
 
     public int MY() {
-        return this.baK;
+        return this.baL;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(int i, boolean z, String str) {
-        this.baK = i;
+        this.baL = i;
         if (Mp() != null) {
             Mp().b(new com.baidu.tbadk.editortools.a(19, 8, new com.baidu.tbadk.editortools.d.a(i, z, str)));
         }

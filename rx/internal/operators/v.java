@@ -3,7 +3,7 @@ package rx.internal.operators;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class v<T> implements d.a<T> {
-    final rx.d<T> iFW;
+    final rx.d<T> iFX;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -11,11 +11,11 @@ public final class v<T> implements d.a<T> {
     }
 
     public v(rx.d<T> dVar) {
-        this.iFW = dVar;
+        this.iFX = dVar;
     }
 
     public void call(rx.j<? super T> jVar) {
-        new a(jVar).c(this.iFW);
+        new a(jVar).c(this.iFX);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

@@ -1,12 +1,12 @@
 package com.baidu.tieba.frs.gametab;
 /* loaded from: classes6.dex */
 public class a {
-    private int eaT;
+    private int eaU;
     private int tabId;
 
     public a(int i, int i2) {
         this.tabId = i;
-        this.eaT = i2;
+        this.eaU = i2;
     }
 
     public int getTabId() {
@@ -14,6 +14,6 @@ public class a {
     }
 
     public boolean aGC() {
-        return 1 == this.eaT;
+        return 1 == this.eaU;
     }
 }

@@ -13,11 +13,11 @@ import android.widget.TextView;
 import com.baidu.tieba.e;
 /* loaded from: classes4.dex */
 public class InvoiceInfoItemView extends RelativeLayout {
-    private TextView bID;
-    private EditText bIE;
-    private View bIF;
-    private String bIG;
-    private boolean bIH;
+    private TextView bIE;
+    private EditText bIF;
+    private View bIG;
+    private String bIH;
+    private boolean bII;
     private Context mContext;
     private String mErrorMessage;
     private RelativeLayout mRootView;
@@ -40,71 +40,71 @@ public class InvoiceInfoItemView extends RelativeLayout {
         inflate(context, e.h.invoice_info_item_view, this);
         this.mRootView = (RelativeLayout) findViewById(e.g.item_root_view);
         this.mRootView.setBackgroundDrawable(getResources().getDrawable(e.d.invoice_edit_view_bg));
-        this.bID = (TextView) findViewById(e.g.invoice_info_desc);
-        this.bIE = (EditText) findViewById(e.g.invoice_info_content);
-        this.bIF = findViewById(e.g.divider_line);
-        this.bID.setTextColor(getResources().getColor(e.d.invoice_info_desc));
-        this.bIE.setTextColor(getResources().getColor(e.d.invoice_info_content));
-        this.bIE.setHintTextColor(getResources().getColor(e.d.invoice_info_content_hint));
-        this.bIF.setBackgroundDrawable(getResources().getDrawable(e.d.invoice_info_item_divider_line));
+        this.bIE = (TextView) findViewById(e.g.invoice_info_desc);
+        this.bIF = (EditText) findViewById(e.g.invoice_info_content);
+        this.bIG = findViewById(e.g.divider_line);
+        this.bIE.setTextColor(getResources().getColor(e.d.invoice_info_desc));
+        this.bIF.setTextColor(getResources().getColor(e.d.invoice_info_content));
+        this.bIF.setHintTextColor(getResources().getColor(e.d.invoice_info_content_hint));
+        this.bIG.setBackgroundDrawable(getResources().getDrawable(e.d.invoice_info_item_divider_line));
     }
 
     public InvoiceInfoItemView a(a aVar) {
         if (aVar != null) {
-            this.bIH = aVar.bIH;
-            this.bID.setText(aVar.mDesc);
-            this.bIE.setHint(aVar.bIJ);
-            if (!aVar.bIK) {
-                this.bIE.setSingleLine();
+            this.bII = aVar.bII;
+            this.bIE.setText(aVar.mDesc);
+            this.bIF.setHint(aVar.bIK);
+            if (!aVar.bIL) {
+                this.bIF.setSingleLine();
             } else {
-                aVar.bII |= 131072;
+                aVar.bIJ |= 131072;
             }
-            this.bIE.setInputType(aVar.bII);
-            if (!TextUtils.isEmpty(aVar.bIL)) {
-                this.bIE.setKeyListener(DigitsKeyListener.getInstance(aVar.bIL));
+            this.bIF.setInputType(aVar.bIJ);
+            if (!TextUtils.isEmpty(aVar.bIM)) {
+                this.bIF.setKeyListener(DigitsKeyListener.getInstance(aVar.bIM));
             }
-            this.bIG = aVar.bIG;
+            this.bIH = aVar.bIH;
             this.mErrorMessage = aVar.mErrorMessage;
         }
         return this;
     }
 
     public String getContent() {
-        if (this.bIE != null) {
-            return this.bIE.getText().toString().trim();
+        if (this.bIF != null) {
+            return this.bIF.getText().toString().trim();
         }
         return null;
     }
 
     public void setContent(CharSequence charSequence) {
-        if (this.bIE != null) {
-            this.bIE.setText(charSequence);
+        if (this.bIF != null) {
+            this.bIF.setText(charSequence);
         }
     }
 
     public boolean Zb() {
-        return this.bIH;
+        return this.bII;
     }
 
     public void setTextChangedListener(TextWatcher textWatcher) {
-        if (this.bIE != null && textWatcher != null) {
-            this.bIE.addTextChangedListener(textWatcher);
+        if (this.bIF != null && textWatcher != null) {
+            this.bIF.addTextChangedListener(textWatcher);
         }
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        private String bIG;
-        private boolean bIH = false;
-        private int bII = 1;
-        private String bIJ;
-        private boolean bIK;
-        private String bIL;
+        private String bIH;
+        private boolean bII = false;
+        private int bIJ = 1;
+        private String bIK;
+        private boolean bIL;
+        private String bIM;
         private String mDesc;
         private String mErrorMessage;
 
         public a dB(boolean z) {
-            this.bIH = z;
+            this.bII = z;
             return this;
         }
 
@@ -114,17 +114,17 @@ public class InvoiceInfoItemView extends RelativeLayout {
         }
 
         public a hX(int i) {
-            this.bII = i;
+            this.bIJ = i;
             return this;
         }
 
         public a kT(String str) {
-            this.bIJ = str;
+            this.bIK = str;
             return this;
         }
 
         public a kU(String str) {
-            this.bIG = str;
+            this.bIH = str;
             return this;
         }
 
@@ -134,12 +134,12 @@ public class InvoiceInfoItemView extends RelativeLayout {
         }
 
         public a dC(boolean z) {
-            this.bIK = z;
+            this.bIL = z;
             return this;
         }
 
         public a kW(String str) {
-            this.bIL = str;
+            this.bIM = str;
             return this;
         }
     }

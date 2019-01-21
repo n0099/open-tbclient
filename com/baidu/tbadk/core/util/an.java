@@ -7,15 +7,15 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.File;
 /* loaded from: classes.dex */
 public class an {
-    private static an aCN;
+    private static an aCO;
 
     public static synchronized an DZ() {
         an anVar;
         synchronized (an.class) {
-            if (aCN == null) {
-                aCN = new an();
+            if (aCO == null) {
+                aCO = new an();
             }
-            anVar = aCN;
+            anVar = aCO;
         }
         return anVar;
     }

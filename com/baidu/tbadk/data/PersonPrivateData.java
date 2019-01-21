@@ -6,41 +6,41 @@ import org.json.JSONObject;
 import tbclient.PrivSets;
 /* loaded from: classes.dex */
 public class PersonPrivateData extends OrmObject {
-    private int aXO = 1;
     private int aXP = 1;
     private int aXQ = 1;
     private int aXR = 1;
     private int aXS = 1;
     private int aXT = 1;
+    private int aXU = 1;
 
     public int LQ() {
-        return this.aXP;
+        return this.aXQ;
     }
 
     public int LR() {
-        return this.aXT;
+        return this.aXU;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aXO = jSONObject.optInt(Headers.LOCATION, 1);
-            this.aXP = jSONObject.optInt("like", 1);
-            this.aXQ = jSONObject.optInt("group", 1);
-            this.aXR = jSONObject.optInt("post", 1);
-            this.aXS = jSONObject.optInt("friend", 1);
-            this.aXT = jSONObject.optInt("live", 1);
+            this.aXP = jSONObject.optInt(Headers.LOCATION, 1);
+            this.aXQ = jSONObject.optInt("like", 1);
+            this.aXR = jSONObject.optInt("group", 1);
+            this.aXS = jSONObject.optInt("post", 1);
+            this.aXT = jSONObject.optInt("friend", 1);
+            this.aXU = jSONObject.optInt("live", 1);
         }
     }
 
     public void a(PrivSets privSets) {
         if (privSets != null) {
             try {
-                this.aXO = privSets.location.intValue();
-                this.aXP = privSets.like.intValue();
-                this.aXQ = privSets.group.intValue();
-                this.aXR = privSets.post.intValue();
-                this.aXS = privSets.friend.intValue();
-                this.aXT = privSets.live.intValue();
+                this.aXP = privSets.location.intValue();
+                this.aXQ = privSets.like.intValue();
+                this.aXR = privSets.group.intValue();
+                this.aXS = privSets.post.intValue();
+                this.aXT = privSets.friend.intValue();
+                this.aXU = privSets.live.intValue();
             } catch (Exception e) {
                 e.printStackTrace();
             }

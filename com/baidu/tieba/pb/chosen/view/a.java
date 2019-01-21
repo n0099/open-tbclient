@@ -26,7 +26,7 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.pb.chosen.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public static class C0283a {
-        TbImageView foX;
+        TbImageView foY;
     }
 
     public a(Context context) {
@@ -114,7 +114,7 @@ public class a extends BaseAdapter {
         if (view == null || !(view.getTag() instanceof C0283a)) {
             view = LayoutInflater.from(this.context).inflate(e.h.chosen_pb_image_item, (ViewGroup) null);
             c0283a = new C0283a();
-            c0283a.foX = (TbImageView) view.findViewById(e.g.pb_chosen_list_image);
+            c0283a.foY = (TbImageView) view.findViewById(e.g.pb_chosen_list_image);
             view.setTag(c0283a);
         } else {
             c0283a = (C0283a) view.getTag();
@@ -122,11 +122,11 @@ public class a extends BaseAdapter {
         com.baidu.tieba.pb.b.a.d item = getItem(i);
         if (item instanceof com.baidu.tieba.pb.b.a.e) {
             com.baidu.tieba.pb.b.a.e eVar = (com.baidu.tieba.pb.b.a.e) item;
-            if (StringUtils.isNull(eVar.gnE) || "1".equals(eVar.gnE)) {
-                c0283a.foX.setVisibility(8);
+            if (StringUtils.isNull(eVar.gnF) || "1".equals(eVar.gnF)) {
+                c0283a.foY.setVisibility(8);
             } else {
-                c0283a.foX.setVisibility(0);
-                ViewGroup.LayoutParams layoutParams = c0283a.foX.getLayoutParams();
+                c0283a.foY.setVisibility(0);
+                ViewGroup.LayoutParams layoutParams = c0283a.foY.getLayoutParams();
                 int i2 = this.maxWidth;
                 int ta = eVar.ta(i2);
                 if (layoutParams == null) {
@@ -135,8 +135,8 @@ public class a extends BaseAdapter {
                     layoutParams.height = ta;
                     layoutParams.width = i2;
                 }
-                c0283a.foX.setLayoutParams(layoutParams);
-                c0283a.foX.startLoad(eVar.SQ(), 17, false);
+                c0283a.foY.setLayoutParams(layoutParams);
+                c0283a.foY.startLoad(eVar.SQ(), 17, false);
             }
         }
         return view;

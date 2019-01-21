@@ -13,18 +13,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class f {
-    private static f bEV;
+    private static f bEW;
 
     private f() {
     }
 
     public static f Xl() {
         synchronized (f.class) {
-            if (bEV == null) {
-                bEV = new f();
+            if (bEW == null) {
+                bEW = new f();
             }
         }
-        return bEV;
+        return bEW;
     }
 
     private ContentValues b(com.baidu.tbadk.coreExtra.relationship.a aVar) {
@@ -117,7 +117,7 @@ public class f {
         if (Xp != null && !TextUtils.isEmpty(currentAccount)) {
             Xp.beginTransaction();
             try {
-                for (String str : com.baidu.tbadk.coreExtra.relationship.c.aSA) {
+                for (String str : com.baidu.tbadk.coreExtra.relationship.c.aSB) {
                     ArrayList arrayList2 = new ArrayList();
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar.hn(str);
@@ -165,7 +165,7 @@ public class f {
         if (Xp != null && !TextUtils.isEmpty(currentAccount)) {
             Xp.beginTransaction();
             try {
-                for (String str : com.baidu.tbadk.coreExtra.relationship.c.aSA) {
+                for (String str : com.baidu.tbadk.coreExtra.relationship.c.aSB) {
                     ArrayList arrayList2 = new ArrayList();
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar.hn(str);

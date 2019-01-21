@@ -23,23 +23,23 @@ import com.baidu.tieba.e;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AutoBannerView extends RelativeLayout {
-    private com.baidu.tbadk.f.a aTt;
-    private final d<com.baidu.tieba.frs.worldcup.talkball.b.a> ayi;
-    private CoverFlowView<com.baidu.tieba.frs.worldcup.talkball.b.a> dAd;
-    private d<com.baidu.tieba.frs.worldcup.talkball.b.a> emV;
+    private com.baidu.tbadk.f.a aTu;
+    private final d<com.baidu.tieba.frs.worldcup.talkball.b.a> ayj;
+    private CoverFlowView<com.baidu.tieba.frs.worldcup.talkball.b.a> dAe;
+    private d<com.baidu.tieba.frs.worldcup.talkball.b.a> emW;
     private List<com.baidu.tieba.frs.worldcup.talkball.b.a> mData;
     private RelativeLayout mTitleLayout;
     private TextView mTitleView;
 
     public AutoBannerView(Context context) {
         super(context);
-        this.dAd = null;
+        this.dAe = null;
         this.mData = null;
-        this.ayi = new d<com.baidu.tieba.frs.worldcup.talkball.b.a>() { // from class: com.baidu.tieba.frs.worldcup.talkball.view.AutoBannerView.2
+        this.ayj = new d<com.baidu.tieba.frs.worldcup.talkball.b.a>() { // from class: com.baidu.tieba.frs.worldcup.talkball.view.AutoBannerView.2
             @Override // com.baidu.tbadk.core.flow.a.d
             public void i(int i, String str) {
-                if (AutoBannerView.this.emV != null && AutoBannerView.this.checkIndex(i)) {
-                    AutoBannerView.this.emV.i(i, str);
+                if (AutoBannerView.this.emW != null && AutoBannerView.this.checkIndex(i)) {
+                    AutoBannerView.this.emW.i(i, str);
                 }
                 AutoBannerView.this.pk(str);
             }
@@ -47,8 +47,8 @@ public class AutoBannerView extends RelativeLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.core.flow.a.d
             public void a(int i, com.baidu.tieba.frs.worldcup.talkball.b.a aVar) {
-                if (AutoBannerView.this.emV != null && AutoBannerView.this.checkIndex(i)) {
-                    AutoBannerView.this.emV.a(i, aVar);
+                if (AutoBannerView.this.emW != null && AutoBannerView.this.checkIndex(i)) {
+                    AutoBannerView.this.emW.a(i, aVar);
                 }
                 if (aVar != null && AutoBannerView.this.mTitleView != null) {
                     AutoBannerView.this.mTitleView.setText(aVar.getTitle());
@@ -59,7 +59,7 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     private void initUI() {
-        this.dAd = new CoverFlowView<>(getContext());
+        this.dAe = new CoverFlowView<>(getContext());
         b bVar = new b() { // from class: com.baidu.tieba.frs.worldcup.talkball.view.AutoBannerView.1
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public e Cd() {
@@ -112,15 +112,15 @@ public class AutoBannerView extends RelativeLayout {
                 return relativeLayout;
             }
         };
-        this.dAd.setIndicatorNoOffet(true);
-        this.dAd.setDisableParentEvent(false);
-        this.dAd.setCoverFlowFactory(bVar);
-        this.dAd.setCallback(this.ayi);
-        addView(this.dAd);
+        this.dAe.setIndicatorNoOffet(true);
+        this.dAe.setDisableParentEvent(false);
+        this.dAe.setCoverFlowFactory(bVar);
+        this.dAe.setCallback(this.ayj);
+        addView(this.dAe);
     }
 
     public CoverFlowView getCoverFlowView() {
-        return this.dAd;
+        return this.dAe;
     }
 
     public com.baidu.tieba.frs.worldcup.talkball.b.a oh(int i) {
@@ -144,43 +144,43 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void FS() {
-        if (this.dAd != null) {
-            this.dAd.Cg();
+        if (this.dAe != null) {
+            this.dAe.Cg();
         }
     }
 
     public void FR() {
-        if (this.dAd != null) {
-            this.dAd.Cf();
+        if (this.dAe != null) {
+            this.dAe.Cf();
         }
     }
 
     public void bX(List<com.baidu.tieba.frs.worldcup.talkball.b.a> list) {
         this.mData = list;
-        this.dAd.setData(list);
+        this.dAe.setData(list);
     }
 
     public void setIWindowChangedListener(com.baidu.tbadk.f.a aVar) {
-        this.aTt = aVar;
+        this.aTu = aVar;
     }
 
     public void setOutOnCoverViewCallback(d<com.baidu.tieba.frs.worldcup.talkball.b.a> dVar) {
-        this.emV = dVar;
+        this.emW = dVar;
     }
 
     public void onChangeSkinType(int i) {
         al.b(this.mTitleView, e.d.cp_cont_i, 1, i);
         al.d(this.mTitleLayout, e.f.bg_frs_auto_banner_mask, i);
-        if (this.dAd != null) {
-            this.dAd.onChangeSkinType();
+        if (this.dAe != null) {
+            this.dAe.onChangeSkinType();
         }
     }
 
     @Override // android.view.View
     protected void onWindowVisibilityChanged(int i) {
         super.onWindowVisibilityChanged(i);
-        if (this.aTt != null) {
-            this.aTt.a(this, i == 0, null);
+        if (this.aTu != null) {
+            this.aTu.a(this, i == 0, null);
         }
     }
 }

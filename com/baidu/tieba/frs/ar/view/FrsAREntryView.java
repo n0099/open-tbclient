@@ -18,8 +18,8 @@ import com.baidu.tieba.e;
 import tbclient.ForumArIno;
 /* loaded from: classes3.dex */
 public class FrsAREntryView extends View {
-    private AnimationDrawable beN;
-    private ForumArIno dRv;
+    private AnimationDrawable beO;
+    private ForumArIno dRw;
     private String forumName;
 
     public FrsAREntryView(Context context) {
@@ -48,17 +48,17 @@ public class FrsAREntryView extends View {
         animationDrawable.addFrame(getResources().getDrawable(e.f.frs_ar_entrance_anim_7), 100);
         animationDrawable.addFrame(getResources().getDrawable(e.f.frs_ar_entrance_anim_8), 100);
         animationDrawable.addFrame(getResources().getDrawable(e.f.frs_ar_entrance_anim_9), 100);
-        this.beN = animationDrawable;
+        this.beO = animationDrawable;
         setBackgroundDrawable(animationDrawable);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.ar.view.FrsAREntryView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (FrsAREntryView.this.dRv != null) {
+                if (FrsAREntryView.this.dRw != null) {
                     am amVar = new am("c12836");
                     amVar.aB(ImageViewerConfig.FORUM_NAME, FrsAREntryView.this.forumName == null ? "" : FrsAREntryView.this.forumName);
-                    amVar.y(VideoPlayActivityConfig.OBJ_ID, FrsAREntryView.this.dRv.ar_id.intValue());
+                    amVar.y(VideoPlayActivityConfig.OBJ_ID, FrsAREntryView.this.dRw.ar_id.intValue());
                     TiebaStatic.log(amVar);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsArActivityConfig(FrsAREntryView.this.getContext(), FrsAREntryView.this.forumName, String.valueOf(FrsAREntryView.this.dRv.ar_id), String.valueOf(FrsAREntryView.this.dRv.ar_type), FrsAREntryView.this.dRv.title)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FrsArActivityConfig(FrsAREntryView.this.getContext(), FrsAREntryView.this.forumName, String.valueOf(FrsAREntryView.this.dRw.ar_id), String.valueOf(FrsAREntryView.this.dRw.ar_type), FrsAREntryView.this.dRw.title)));
                 }
             }
         });
@@ -75,11 +75,11 @@ public class FrsAREntryView extends View {
     }
 
     public void aEr() {
-        this.beN.start();
+        this.beO.start();
     }
 
     public void setForumArIno(ForumArIno forumArIno) {
-        this.dRv = forumArIno;
+        this.dRw = forumArIno;
     }
 
     public void setForumName(String str) {

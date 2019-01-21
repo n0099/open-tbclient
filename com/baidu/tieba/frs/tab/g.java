@@ -12,19 +12,19 @@ import com.baidu.tieba.frs.tab.e;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class g implements a {
-    private TabMenuPopView.a dPy = new TabMenuPopView.a() { // from class: com.baidu.tieba.frs.tab.g.1
+    private TabMenuPopView.a dPz = new TabMenuPopView.a() { // from class: com.baidu.tieba.frs.tab.g.1
         @Override // com.baidu.tieba.frs.TabMenuPopView.a
         public void a(View view, at atVar) {
-            if (g.this.efG != null) {
-                g.this.efG.dismissMenu();
+            if (g.this.efH != null) {
+                g.this.efH.dismissMenu();
             }
-            g.this.efI.nA(atVar.dOM);
+            g.this.efJ.nA(atVar.dON);
         }
     };
-    private List<at> dRO;
-    private e efG;
-    private e.b efI;
-    private TabMenuPopView efJ;
+    private List<at> dRP;
+    private e efH;
+    private e.b efJ;
+    private TabMenuPopView efK;
     private View mContentView;
     private Context mContext;
     private View mTopLine;
@@ -33,26 +33,26 @@ public class g implements a {
     public void a(Context context, e eVar) {
         if (context != null && eVar != null) {
             this.mContext = context;
-            this.efG = eVar;
-            this.efI = eVar.aIb();
+            this.efH = eVar;
+            this.efJ = eVar.aIb();
             this.mContentView = LayoutInflater.from(this.mContext).inflate(e.h.tab_menu_multline_view, (ViewGroup) null);
             this.mTopLine = this.mContentView.findViewById(e.g.top_line);
-            this.efJ = (TabMenuPopView) this.mContentView.findViewById(e.g.categorycontainer);
-            this.efJ.setOnItemClickCallBack(this.dPy);
+            this.efK = (TabMenuPopView) this.mContentView.findViewById(e.g.categorycontainer);
+            this.efK.setOnItemClickCallBack(this.dPz);
         }
     }
 
     @Override // com.baidu.tieba.frs.tab.a
     public void setData(List<at> list) {
         if (list != null) {
-            this.dRO = list;
+            this.dRP = list;
             at atVar = new at();
-            atVar.dOM = 0;
+            atVar.dON = 0;
             atVar.name = this.mContext.getResources().getString(e.j.all);
             atVar.isSelected = false;
             al.j(this.mContentView, e.d.cp_bg_line_d);
             al.j(this.mTopLine, e.d.cp_bg_line_b);
-            this.efJ.setData(this.dRO, atVar);
+            this.efK.setData(this.dRP, atVar);
         }
     }
 

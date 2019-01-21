@@ -23,70 +23,70 @@ import com.baidu.tieba.channel.data.ChannelInfo;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class c implements View.OnClickListener {
-    private NoNetworkView bPl;
-    private ChannelEditActivity dfb;
-    private TbImageView dfc;
-    private ImageView dfd;
-    private TextView dfe;
+    private NoNetworkView bPm;
+    private ChannelEditActivity dfc;
+    private TbImageView dfd;
+    private ImageView dfe;
     private TextView dff;
-    private HeadImageView dfg;
-    private TextView dfh;
+    private TextView dfg;
+    private HeadImageView dfh;
     private TextView dfi;
-    private EditText dfj;
-    private TextView dfk;
+    private TextView dfj;
+    private EditText dfk;
+    private TextView dfl;
     private Context mContext;
     private NavigationBar mNavigationBar;
     private View mRootView;
     private final WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
-    private com.baidu.tbadk.core.dialog.a dfl = null;
+    private com.baidu.tbadk.core.dialog.a dfm = null;
 
     public c(ChannelEditActivity channelEditActivity) {
-        this.dfb = channelEditActivity;
-        this.dfb.setIsAddSwipeBackLayout(true);
-        this.dfb.setSwipeBackEnabled(true);
-        this.dfb.setUseStyleImmersiveSticky(true);
-        this.mContext = this.dfb.getPageContext().getPageActivity();
+        this.dfc = channelEditActivity;
+        this.dfc.setIsAddSwipeBackLayout(true);
+        this.dfc.setSwipeBackEnabled(true);
+        this.dfc.setUseStyleImmersiveSticky(true);
+        this.mContext = this.dfc.getPageContext().getPageActivity();
         initViews();
     }
 
     public void initViews() {
-        this.dfb.setContentView(e.h.channel_edit_layout);
-        this.mRootView = this.dfb.findViewById(e.g.channel_edit_rootview);
+        this.dfc.setContentView(e.h.channel_edit_layout);
+        this.mRootView = this.dfc.findViewById(e.g.channel_edit_rootview);
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(e.g.channel_edit_navigation_bar);
         this.mNavigationBar.showBottomLine(false);
         this.mNavigationBar.getBarBgView().setVisibility(8);
         this.mNavigationBar.getTopCoverBgView().setVisibility(0);
-        this.dfd = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, e.h.channel_home_nav_right_item, (View.OnClickListener) null);
-        this.dfd.setOnClickListener(this);
-        this.dfe = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.adp.lib.voice.h.getString(e.j.channel_navigation_bar_save));
-        this.dfe.setTextSize(0, this.mContext.getResources().getDimension(e.C0210e.ds28));
+        this.dfe = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, e.h.channel_home_nav_right_item, (View.OnClickListener) null);
         this.dfe.setOnClickListener(this);
-        this.bPl = (NoNetworkView) this.mRootView.findViewById(e.g.channel_edit_no_network_view);
-        this.dfc = (TbImageView) this.mRootView.findViewById(e.g.channel_edit_top_bg);
-        this.dfc.setDefaultErrorResource(e.f.bg_avatar_weiba_head);
-        this.dfc.setDefaultBgResource(e.f.bg_avatar_weiba_head);
-        this.dfc.setOnClickListener(this);
-        this.dff = (TextView) this.mRootView.findViewById(e.g.channel_edit_channel_cover);
+        this.dff = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, com.baidu.adp.lib.voice.h.getString(e.j.channel_navigation_bar_save));
+        this.dff.setTextSize(0, this.mContext.getResources().getDimension(e.C0210e.ds28));
         this.dff.setOnClickListener(this);
-        this.dfg = (HeadImageView) this.mRootView.findViewById(e.g.channel_show_channel_img);
-        this.dfg.setIsRound(false);
-        this.dfg.setRadius(0);
-        this.dfg.setDrawBorder(true);
-        this.dfg.setBorderWidth(this.mContext.getResources().getDimensionPixelSize(e.C0210e.ds1));
-        this.dfg.setBorderColor(this.mContext.getResources().getColor(e.d.white_alpha40));
-        this.dfg.setDefaultErrorResource(e.f.avatar_channel_poto_defaul160);
+        this.bPm = (NoNetworkView) this.mRootView.findViewById(e.g.channel_edit_no_network_view);
+        this.dfd = (TbImageView) this.mRootView.findViewById(e.g.channel_edit_top_bg);
+        this.dfd.setDefaultErrorResource(e.f.bg_avatar_weiba_head);
+        this.dfd.setDefaultBgResource(e.f.bg_avatar_weiba_head);
+        this.dfd.setOnClickListener(this);
+        this.dfg = (TextView) this.mRootView.findViewById(e.g.channel_edit_channel_cover);
         this.dfg.setOnClickListener(this);
-        this.dfh = (TextView) this.mRootView.findViewById(e.g.channel_edit_channel_avatar);
+        this.dfh = (HeadImageView) this.mRootView.findViewById(e.g.channel_show_channel_img);
+        this.dfh.setIsRound(false);
+        this.dfh.setRadius(0);
+        this.dfh.setDrawBorder(true);
+        this.dfh.setBorderWidth(this.mContext.getResources().getDimensionPixelSize(e.C0210e.ds1));
+        this.dfh.setBorderColor(this.mContext.getResources().getColor(e.d.white_alpha40));
+        this.dfh.setDefaultErrorResource(e.f.avatar_channel_poto_defaul160);
         this.dfh.setOnClickListener(this);
-        this.dfi = (TextView) this.mRootView.findViewById(e.g.channel_edit_channel_name);
-        this.dfj = (EditText) this.mRootView.findViewById(e.g.channel_edit_channel_desc);
-        this.dfk = (TextView) this.mRootView.findViewById(e.g.channel_desc_text_number);
-        this.dfj.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.channel.view.c.1
+        this.dfi = (TextView) this.mRootView.findViewById(e.g.channel_edit_channel_avatar);
+        this.dfi.setOnClickListener(this);
+        this.dfj = (TextView) this.mRootView.findViewById(e.g.channel_edit_channel_name);
+        this.dfk = (EditText) this.mRootView.findViewById(e.g.channel_edit_channel_desc);
+        this.dfl = (TextView) this.mRootView.findViewById(e.g.channel_desc_text_number);
+        this.dfk.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.channel.view.c.1
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 String replaceAll = editable.toString().replaceAll("\\s*", "");
                 BdLog.d(editable.toString());
-                if (!replaceAll.equals(c.this.dfb.arv().getDescription())) {
+                if (!replaceAll.equals(c.this.dfc.arv().getDescription())) {
                     ChannelEditActivity.isChanged = true;
                 }
             }
@@ -97,15 +97,15 @@ public class c implements View.OnClickListener {
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if (c.this.dfj.getText() != null) {
-                    c.this.dfk.setText(c.this.mContext.getResources().getString(e.j.channel_desc_text_num, Integer.valueOf(c.this.dfj.getText().length())));
+                if (c.this.dfk.getText() != null) {
+                    c.this.dfl.setText(c.this.mContext.getResources().getString(e.j.channel_desc_text_num, Integer.valueOf(c.this.dfk.getText().length())));
                     if (charSequence != null) {
                         String charSequence2 = charSequence.toString();
                         if (charSequence2.contains("\n")) {
-                            c.this.dfj.setText(charSequence2.replaceAll("\\n", ""));
-                            EditText editText = c.this.dfj;
-                            if (i > c.this.dfj.getText().length()) {
-                                i = c.this.dfj.getText().length();
+                            c.this.dfk.setText(charSequence2.replaceAll("\\n", ""));
+                            EditText editText = c.this.dfk;
+                            if (i > c.this.dfk.getText().length()) {
+                                i = c.this.dfk.getText().length();
                             }
                             editText.setSelection(i);
                         }
@@ -117,64 +117,64 @@ public class c implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.dff || view == this.dfc) {
+        if (view == this.dfg || view == this.dfd) {
             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(this.mContext, this.writeImagesInfo.toJsonString());
             albumActivityConfig.setRequestCode(25007);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
-        } else if (view == this.dfh || view == this.dfg) {
+        } else if (view == this.dfi || view == this.dfh) {
             AlbumActivityConfig albumActivityConfig2 = new AlbumActivityConfig(this.mContext, this.writeImagesInfo.toJsonString());
             albumActivityConfig2.setRequestCode(25006);
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig2));
-        } else if (view == this.dfd) {
+        } else if (view == this.dfe) {
             if (ChannelEditActivity.isChanged) {
-                this.dfl = new com.baidu.tbadk.core.dialog.a(this.dfb.getActivity());
-                this.dfl.eK(com.baidu.adp.lib.voice.h.getString(e.j.channel_save_info));
-                this.dfl.a(this.mContext.getString(e.j.alert_yes_button), new a.b() { // from class: com.baidu.tieba.channel.view.c.2
+                this.dfm = new com.baidu.tbadk.core.dialog.a(this.dfc.getActivity());
+                this.dfm.eK(com.baidu.adp.lib.voice.h.getString(e.j.channel_save_info));
+                this.dfm.a(this.mContext.getString(e.j.alert_yes_button), new a.b() { // from class: com.baidu.tieba.channel.view.c.2
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                         aVar.dismiss();
-                        c.this.dfb.aru();
+                        c.this.dfc.aru();
                     }
                 });
-                this.dfl.b(this.mContext.getString(e.j.cancel), new a.b() { // from class: com.baidu.tieba.channel.view.c.3
+                this.dfm.b(this.mContext.getString(e.j.cancel), new a.b() { // from class: com.baidu.tieba.channel.view.c.3
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                         aVar.dismiss();
-                        c.this.dfb.finish();
+                        c.this.dfc.finish();
                     }
                 });
-                this.dfl.b(this.dfb.getPageContext());
-                this.dfl.BS();
+                this.dfm.b(this.dfc.getPageContext());
+                this.dfm.BS();
                 return;
             }
-            this.dfb.finish();
-        } else if (view == this.dfe) {
-            this.dfb.aru();
+            this.dfc.finish();
+        } else if (view == this.dff) {
+            this.dfc.aru();
         }
     }
 
     public String getDescription() {
-        return this.dfj.getText().toString();
+        return this.dfk.getText().toString();
     }
 
     public void c(ChannelInfo channelInfo) {
         if (channelInfo != null) {
-            this.dfc.startLoad(channelInfo.getChannelCover(), 10, this.dfc.getWidth(), this.dfc.getHeight(), false);
-            this.dfg.startLoad(channelInfo.getChannelAvatar(), 10, this.dfg.getWidth(), this.dfg.getHeight(), false);
-            this.dfi.setText(channelInfo.getChannelName());
-            this.dfj.setText(channelInfo.getDescription());
+            this.dfd.startLoad(channelInfo.getChannelCover(), 10, this.dfd.getWidth(), this.dfd.getHeight(), false);
+            this.dfh.startLoad(channelInfo.getChannelAvatar(), 10, this.dfh.getWidth(), this.dfh.getHeight(), false);
+            this.dfj.setText(channelInfo.getChannelName());
+            this.dfk.setText(channelInfo.getDescription());
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.dfb.getLayoutMode().setNightMode(i == 1);
-        this.dfb.getLayoutMode().onModeChanged(this.mRootView);
-        this.mNavigationBar.onChangeSkinType(this.dfb.getPageContext(), i);
-        this.bPl.onChangeSkinType(this.dfb.getPageContext(), i);
+        this.dfc.getLayoutMode().setNightMode(i == 1);
+        this.dfc.getLayoutMode().onModeChanged(this.mRootView);
+        this.mNavigationBar.onChangeSkinType(this.dfc.getPageContext(), i);
+        this.bPm.onChangeSkinType(this.dfc.getPageContext(), i);
         this.mNavigationBar.getBackground().mutate().setAlpha(0);
-        al.a(this.dfd, e.f.icon_return_bg, e.f.icon_return_bg);
-        al.c(this.dfe, e.d.cp_cont_g, 1);
-        this.dfg.setBorderColor(al.getColor(e.d.cp_bg_line_a_alpha80));
+        al.a(this.dfe, e.f.icon_return_bg, e.f.icon_return_bg);
+        al.c(this.dff, e.d.cp_cont_g, 1);
+        this.dfh.setBorderColor(al.getColor(e.d.cp_bg_line_a_alpha80));
     }
 
     public void onResume() {

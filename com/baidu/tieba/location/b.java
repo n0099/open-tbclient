@@ -22,19 +22,19 @@ import java.util.List;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class b implements com.baidu.adp.lib.d.b {
-    private static b fwj;
+    private static b fwk;
     private int errorCode;
     private Context mContext;
     private LocationManager mLocationManager;
-    private a fwk = null;
-    private a.b fwe = null;
-    private Address fwl = null;
+    private a fwl = null;
+    private a.b fwf = null;
+    private Address fwm = null;
     private long Cg = 0;
     private Handler mHandler = null;
-    private boolean fwh = false;
-    private Runnable fwm = null;
+    private boolean fwi = false;
     private Runnable fwn = null;
-    private final LocationListener fwo = new LocationListener() { // from class: com.baidu.tieba.location.b.1
+    private Runnable fwo = null;
+    private final LocationListener fwp = new LocationListener() { // from class: com.baidu.tieba.location.b.1
         @Override // android.location.LocationListener
         public void onStatusChanged(String str, int i, Bundle bundle) {
         }
@@ -52,16 +52,16 @@ public class b implements com.baidu.adp.lib.d.b {
             if (b.this.mHandler.hasMessages(0)) {
                 b.this.mHandler.removeMessages(0);
             }
+            b.this.mHandler.removeCallbacks(b.this.fwo);
             b.this.mHandler.removeCallbacks(b.this.fwn);
-            b.this.mHandler.removeCallbacks(b.this.fwm);
-            if (b.this.fwk == null) {
-                b.this.fwk = new a();
-                b.this.fwk.setSelfExecute(true);
-                b.this.fwk.execute(location);
+            if (b.this.fwl == null) {
+                b.this.fwl = new a();
+                b.this.fwl.setSelfExecute(true);
+                b.this.fwl.execute(location);
             }
         }
     };
-    private final LocationListener fwp = new LocationListener() { // from class: com.baidu.tieba.location.b.2
+    private final LocationListener fwq = new LocationListener() { // from class: com.baidu.tieba.location.b.2
         @Override // android.location.LocationListener
         public void onStatusChanged(String str, int i, Bundle bundle) {
         }
@@ -79,25 +79,25 @@ public class b implements com.baidu.adp.lib.d.b {
             if (b.this.mHandler.hasMessages(0)) {
                 b.this.mHandler.removeMessages(0);
             }
+            b.this.mHandler.removeCallbacks(b.this.fwo);
             b.this.mHandler.removeCallbacks(b.this.fwn);
-            b.this.mHandler.removeCallbacks(b.this.fwm);
-            if (b.this.fwk == null) {
-                b.this.fwk = new a();
-                b.this.fwk.setSelfExecute(true);
-                b.this.fwk.execute(location);
+            if (b.this.fwl == null) {
+                b.this.fwl = new a();
+                b.this.fwl.setSelfExecute(true);
+                b.this.fwl.execute(location);
             }
         }
     };
 
     public static b baL() {
-        if (fwj == null) {
+        if (fwk == null) {
             synchronized (b.class) {
-                if (fwj == null) {
-                    fwj = new b();
+                if (fwk == null) {
+                    fwk = new b();
                 }
             }
         }
-        return fwj;
+        return fwk;
     }
 
     private b() {
@@ -106,30 +106,30 @@ public class b implements com.baidu.adp.lib.d.b {
     @Override // com.baidu.adp.lib.d.b
     public void a(a.b bVar) {
         this.mContext = TbadkCoreApplication.getInst().getContext();
-        this.fwe = bVar;
+        this.fwf = bVar;
         try {
             this.mLocationManager = (LocationManager) this.mContext.getSystemService(Headers.LOCATION);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
-        this.fwm = new Runnable() { // from class: com.baidu.tieba.location.b.3
+        this.fwn = new Runnable() { // from class: com.baidu.tieba.location.b.3
             @Override // java.lang.Runnable
             public void run() {
                 if (b.this.mLocationManager != null && ab.bC(b.this.mContext)) {
                     try {
-                        b.this.mLocationManager.requestLocationUpdates("network", ErrDef.Feature.WEIGHT, 100.0f, b.this.fwo);
+                        b.this.mLocationManager.requestLocationUpdates("network", ErrDef.Feature.WEIGHT, 100.0f, b.this.fwp);
                     } catch (Exception e2) {
                         BdLog.e(e2.getMessage());
                     }
                 }
             }
         };
-        this.fwn = new Runnable() { // from class: com.baidu.tieba.location.b.4
+        this.fwo = new Runnable() { // from class: com.baidu.tieba.location.b.4
             @Override // java.lang.Runnable
             public void run() {
                 if (b.this.mLocationManager != null && ab.bC(b.this.mContext)) {
                     try {
-                        b.this.mLocationManager.requestLocationUpdates("gps", ErrDef.Feature.WEIGHT, 100.0f, b.this.fwp);
+                        b.this.mLocationManager.requestLocationUpdates("gps", ErrDef.Feature.WEIGHT, 100.0f, b.this.fwq);
                     } catch (Exception e2) {
                         BdLog.e(e2.getMessage());
                     }
@@ -146,7 +146,7 @@ public class b implements com.baidu.adp.lib.d.b {
                 switch (message.what) {
                     case 0:
                         b.this.stopLocation();
-                        b.this.fwe.a(b.this.errorCode, "", null, b.this.Cg, b.this.fwh);
+                        b.this.fwf.a(b.this.errorCode, "", null, b.this.Cg, b.this.fwi);
                         return false;
                     default:
                         return false;
@@ -158,27 +158,27 @@ public class b implements com.baidu.adp.lib.d.b {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [252=4] */
     @Override // com.baidu.adp.lib.d.b
     public void ah(boolean z) {
-        if (this.fwe == null) {
+        if (this.fwf == null) {
             return;
         }
         try {
             if (this.mLocationManager != null) {
-                this.mLocationManager.removeUpdates(this.fwo);
+                this.mLocationManager.removeUpdates(this.fwp);
                 this.errorCode = 4;
-                this.fwh = z;
+                this.fwi = z;
                 if (!ab.bC(this.mContext) || (!this.mLocationManager.isProviderEnabled("gps") && !this.mLocationManager.isProviderEnabled("network"))) {
                     this.errorCode = 3;
                     this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(0), com.baidu.adp.lib.d.a.iW().iX());
                     return;
                 }
                 if (ab.bC(this.mContext) && this.mLocationManager.isProviderEnabled("gps")) {
-                    this.mHandler.post(this.fwn);
+                    this.mHandler.post(this.fwo);
                 } else {
                     this.errorCode = 1;
                 }
                 if (!z) {
                     if (ab.bC(this.mContext) && this.mLocationManager.isProviderEnabled("network")) {
-                        this.mHandler.post(this.fwm);
+                        this.mHandler.post(this.fwn);
                     } else {
                         this.errorCode = 2;
                     }
@@ -198,19 +198,19 @@ public class b implements com.baidu.adp.lib.d.b {
         if (this.mHandler.hasMessages(0)) {
             this.mHandler.removeMessages(0);
         }
+        this.mHandler.removeCallbacks(this.fwo);
         this.mHandler.removeCallbacks(this.fwn);
-        this.mHandler.removeCallbacks(this.fwm);
         if (this.mLocationManager != null) {
             try {
-                this.mLocationManager.removeUpdates(this.fwo);
                 this.mLocationManager.removeUpdates(this.fwp);
+                this.mLocationManager.removeUpdates(this.fwq);
             } catch (Exception e) {
                 BdLog.detailException(e);
             }
         }
-        if (this.fwk != null) {
-            this.fwk.cancel();
-            this.fwk = null;
+        if (this.fwl != null) {
+            this.fwl.cancel();
+            this.fwl = null;
         }
     }
 
@@ -257,12 +257,12 @@ public class b implements com.baidu.adp.lib.d.b {
         /* renamed from: a */
         public void onPostExecute(Address address) {
             super.onPostExecute(address);
-            b.this.fwk = null;
+            b.this.fwl = null;
             if (address != null) {
                 b.this.stopLocation();
                 b.this.Cg = System.currentTimeMillis();
-                b.this.fwl = address;
-                b.this.fwe.a(0, "", b.this.fwl, b.this.Cg, b.this.fwh);
+                b.this.fwm = address;
+                b.this.fwf.a(0, "", b.this.fwm, b.this.Cg, b.this.fwi);
                 com.baidu.tieba.recapp.d.a.bwJ().pY(String.valueOf(address.getLatitude()));
                 com.baidu.tieba.recapp.d.a.bwJ().pX(String.valueOf(address.getLongitude()));
                 com.baidu.tieba.recapp.d.a.bwJ().dg(System.currentTimeMillis());
@@ -273,7 +273,7 @@ public class b implements com.baidu.adp.lib.d.b {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreCancel() {
             super.onPreCancel();
-            b.this.fwk = null;
+            b.this.fwl = null;
         }
     }
 
@@ -282,19 +282,19 @@ public class b implements com.baidu.adp.lib.d.b {
         if (this.mHandler.hasMessages(0)) {
             this.mHandler.removeMessages(0);
         }
+        this.mHandler.removeCallbacks(this.fwo);
         this.mHandler.removeCallbacks(this.fwn);
-        this.mHandler.removeCallbacks(this.fwm);
         if (this.mLocationManager != null) {
             try {
-                this.mLocationManager.removeUpdates(this.fwo);
                 this.mLocationManager.removeUpdates(this.fwp);
+                this.mLocationManager.removeUpdates(this.fwq);
             } catch (Throwable th) {
                 BdLog.detailException(th);
             }
         }
-        if (this.fwk != null) {
-            this.fwk.cancel();
-            this.fwk = null;
+        if (this.fwl != null) {
+            this.fwl.cancel();
+            this.fwl = null;
         }
     }
 }

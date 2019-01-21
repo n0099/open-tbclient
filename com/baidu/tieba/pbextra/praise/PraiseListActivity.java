@@ -18,8 +18,8 @@ import java.util.List;
 /* loaded from: classes3.dex */
 public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements View.OnClickListener, AdapterView.OnItemClickListener, d.a {
     public int pageType = 0;
-    private e gtr = null;
-    private d gts = null;
+    private e gts = null;
+    private d gtt = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -29,62 +29,62 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         if (bundle != null) {
             this.pageType = bundle.getInt(IntentConfig.LIST_TYPE, 0);
             boolean z2 = bundle.getBoolean(PraiseListActivityConfig.IS_AUTHOR);
-            this.gts = new d(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
-            this.gts.tl(bundle.getInt("KeyIntentPraiseId"));
+            this.gtt = new d(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
+            this.gtt.tl(bundle.getInt("KeyIntentPraiseId"));
             z = z2;
         } else if (getIntent() != null) {
             this.pageType = getIntent().getIntExtra(IntentConfig.LIST_TYPE, 0);
             boolean booleanExtra = getIntent().getBooleanExtra(PraiseListActivityConfig.IS_AUTHOR, false);
-            this.gts = new d(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
+            this.gtt = new d(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
             z = booleanExtra;
         } else {
             z = false;
         }
-        if (this.gts == null) {
-            this.gts = new d();
+        if (this.gtt == null) {
+            this.gtt = new d();
         }
-        this.gts.setIsAuthor(z);
-        this.gtr = new e(this, this.gts.bpG());
-        this.gtr.lX(false);
-        this.gts.tn(this.pageType);
+        this.gtt.setIsAuthor(z);
+        this.gts = new e(this, this.gtt.bpG());
+        this.gts.lX(false);
+        this.gtt.tn(this.pageType);
     }
 
     @Override // android.app.Activity
     protected void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        this.gts.e(bundle, IntentConfig.IS_FROM_PB);
-        this.gts.f(bundle, "thread_id");
-        this.gts.g(bundle, "post_id");
-        this.gts.h(bundle, IntentConfig.POST_DESC);
-        this.gts.i(bundle, "KeyIntentPraiseId");
+        this.gtt.e(bundle, IntentConfig.IS_FROM_PB);
+        this.gtt.f(bundle, "thread_id");
+        this.gtt.g(bundle, "post_id");
+        this.gtt.h(bundle, IntentConfig.POST_DESC);
+        this.gtt.i(bundle, "KeyIntentPraiseId");
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.gtr.bpJ()) {
+        if (view == this.gts.bpJ()) {
             bpE();
-            if (this.gts.bnM()) {
+            if (this.gtt.bnM()) {
                 finish();
                 return;
             }
-            o.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.gts.getThreadId(), null, "praise_list"));
-        } else if (view == this.gtr.bpK() && !this.gtr.Fv()) {
-            this.gtr.lX(true);
-            this.gts.tn(this.pageType);
+            o.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.gtt.getThreadId(), null, "praise_list"));
+        } else if (view == this.gts.bpK() && !this.gts.Fv()) {
+            this.gts.lX(true);
+            this.gtt.tn(this.pageType);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        a tm = this.gts.tm(i);
+        a tm = this.gtt.tm(i);
         if (tm != null) {
             o.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), tm.getUserId(), tm.getShowName(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
         }
     }
 
     private void bpE() {
-        if (this.gts != null) {
-            this.gts.bpF();
+        if (this.gtt != null) {
+            this.gtt.bpF();
         }
     }
 
@@ -93,15 +93,15 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
         if (k.isEmpty(str)) {
             str = getResources().getString(e.j.neterror);
         }
-        this.gtr.bpI();
-        this.gtr.aN(str, this.pageType);
+        this.gts.bpI();
+        this.gts.aN(str, this.pageType);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.gtr.aSJ();
+        this.gts.aSJ();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -114,7 +114,7 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        this.gtr.a(getLayoutMode(), i);
+        this.gts.a(getLayoutMode(), i);
     }
 
     public void changSkinType(View view) {
@@ -124,6 +124,6 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
 
     @Override // com.baidu.tieba.pbextra.praise.d.a
     public void a(int i, List<a> list, int i2, int i3) {
-        this.gtr.b(i, list, i2, i3);
+        this.gts.b(i, list, i2, i3);
     }
 }

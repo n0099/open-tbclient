@@ -36,7 +36,7 @@ import com.baidu.ubc.q;
 import com.baidu.webkit.sdk.WebViewFactory;
 /* loaded from: classes4.dex */
 public class AiAppAbTestStatic {
-    public static int bFR = 0;
+    public static int bFS = 0;
 
     static {
         XU();
@@ -56,17 +56,17 @@ public class AiAppAbTestStatic {
                         aVar.a(new a.InterfaceC0160a() { // from class: com.baidu.tieba.aiapps.apps.abtest.AiAppAbTestStatic.1.1
                             @Override // com.baidu.tbadk.core.util.b.a.InterfaceC0160a
                             public void EH() {
-                                if (AiAppAbTestStatic.bFR == 0) {
+                                if (AiAppAbTestStatic.bFS == 0) {
                                     try {
                                         BdSailorWebView bdSailorWebView = new BdSailorWebView(TbadkCoreApplication.getInst());
-                                        AiAppAbTestStatic.bFR = 1;
+                                        AiAppAbTestStatic.bFS = 1;
                                         bdSailorWebView.destroy();
                                     } catch (Exception e) {
-                                        AiAppAbTestStatic.bFR = -1;
+                                        AiAppAbTestStatic.bFS = -1;
                                         return;
                                     }
                                 }
-                                if (AiAppAbTestStatic.bFR < 0) {
+                                if (AiAppAbTestStatic.bFS < 0) {
                                     l.showToast(TbadkCoreApplication.getInst(), e.j.ai_apps_not_support);
                                     return;
                                 }
@@ -76,16 +76,16 @@ public class AiAppAbTestStatic {
                         aVar.B(fX);
                         return null;
                     }
-                    if (AiAppAbTestStatic.bFR == 0) {
+                    if (AiAppAbTestStatic.bFS == 0) {
                         try {
                             BdSailorWebView bdSailorWebView = new BdSailorWebView(TbadkCoreApplication.getInst());
-                            AiAppAbTestStatic.bFR = 1;
+                            AiAppAbTestStatic.bFS = 1;
                             bdSailorWebView.destroy();
                         } catch (Exception e) {
-                            AiAppAbTestStatic.bFR = -1;
+                            AiAppAbTestStatic.bFS = -1;
                         }
                     }
-                    if (AiAppAbTestStatic.bFR < 0) {
+                    if (AiAppAbTestStatic.bFS < 0) {
                         l.showToast(TbadkCoreApplication.getInst(), e.j.ai_apps_not_support);
                         return null;
                     }

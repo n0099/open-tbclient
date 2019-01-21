@@ -22,15 +22,15 @@ import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class c {
-    private static c doX = null;
+    private static c doY = null;
     private Wire wire = new Wire(new Class[0]);
-    private Map<String, a> doY = null;
-    private Runnable doZ = new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.c.1
+    private Map<String, a> doZ = null;
+    private Runnable dpa = new Runnable() { // from class: com.baidu.tieba.dnsproxy.a.c.1
         @Override // java.lang.Runnable
         public void run() {
             final Map map;
             synchronized (c.class) {
-                map = c.this.doY;
+                map = c.this.doZ;
             }
             if (map != null) {
                 y.a(new x<Void>() { // from class: com.baidu.tieba.dnsproxy.a.c.1.1
@@ -48,7 +48,7 @@ public class c {
                         }
                         c.this.I(builder.build(true).toByteArray());
                         synchronized (c.class) {
-                            c.this.doY = null;
+                            c.this.doZ = null;
                         }
                         return null;
                     }
@@ -58,14 +58,14 @@ public class c {
     };
 
     public static final c avr() {
-        if (doX == null) {
+        if (doY == null) {
             synchronized (c.class) {
-                if (doX == null) {
-                    doX = new c();
+                if (doY == null) {
+                    doY = new c();
                 }
             }
         }
-        return doX;
+        return doY;
     }
 
     private c() {
@@ -180,16 +180,16 @@ public class c {
 
     public void avt() {
         e.jG().removeMessages(0, this);
-        e.jG().post(this.doZ);
+        e.jG().post(this.dpa);
     }
 
     public void t(Map<String, a> map) {
         if (TbadkCoreApplication.getInst().isMainProcess(false) && map != null) {
             synchronized (c.class) {
-                this.doY = map;
+                this.doZ = map;
             }
             if (!e.jG().hasMessages(0, this)) {
-                Message obtain = Message.obtain(e.jG(), this.doZ);
+                Message obtain = Message.obtain(e.jG(), this.dpa);
                 obtain.what = 0;
                 obtain.obj = this;
                 e.jG().sendMessageDelayed(obtain, StatisticConfig.MIN_UPLOAD_INTERVAL);

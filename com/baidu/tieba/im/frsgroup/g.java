@@ -13,11 +13,11 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.im.data.GroupPermData;
 /* loaded from: classes3.dex */
 public class g extends com.baidu.tieba.frs.h<h, i> {
-    private View.OnClickListener aIr;
+    private View.OnClickListener aIs;
 
     public g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.aIr = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.g.1
+        this.aIs = new View.OnClickListener() { // from class: com.baidu.tieba.im.frsgroup.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getTag() instanceof Integer) {
@@ -40,7 +40,7 @@ public class g extends com.baidu.tieba.frs.h<h, i> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: bf */
     public i onCreateViewHolder(ViewGroup viewGroup) {
-        return new i(LayoutInflater.from(this.mContext).inflate(e.h.net_refresh_view_layout, (ViewGroup) null), this.aIr);
+        return new i(LayoutInflater.from(this.mContext).inflate(e.h.net_refresh_view_layout, (ViewGroup) null), this.aIs);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,7 +52,7 @@ public class g extends com.baidu.tieba.frs.h<h, i> {
         this.mPageContext.getLayoutMode().onModeChanged(view);
         if (hVar != null) {
             iVar.a(hVar.aSq(), hVar.aSm(), hVar.aSn(), hVar.aSo());
-            iVar.eTm.setTag(Integer.valueOf(i));
+            iVar.eTn.setTag(Integer.valueOf(i));
         }
         return view;
     }

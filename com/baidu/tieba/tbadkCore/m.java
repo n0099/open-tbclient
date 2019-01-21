@@ -3,11 +3,11 @@ package com.baidu.tieba.tbadkCore;
 import tbclient.FrsPage.GconAccount;
 /* loaded from: classes.dex */
 public class m {
-    private boolean hoq;
+    private boolean hor;
     private String menu_name;
 
     public boolean bEd() {
-        return this.hoq;
+        return this.hor;
     }
 
     public String bEe() {
@@ -16,7 +16,7 @@ public class m {
 
     public void a(GconAccount gconAccount) {
         if (gconAccount != null) {
-            this.hoq = gconAccount.has_account.intValue() == 1;
+            this.hor = gconAccount.has_account.intValue() == 1;
             this.menu_name = gconAccount.menu_name;
         }
     }

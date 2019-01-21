@@ -4,10 +4,10 @@ import java.util.List;
 import tbclient.RedpacketRain;
 /* loaded from: classes.dex */
 public class m {
-    private String bBS;
-    private String fQo;
-    private String hqD;
-    private List<String> hqE;
+    private String bBT;
+    private String fQp;
+    private String hqE;
+    private List<String> hqF;
     private long mEndTime;
     private long mStartTime;
     private int mType;
@@ -16,10 +16,10 @@ public class m {
         if (redpacketRain != null) {
             this.mStartTime = redpacketRain.start_time.longValue() * 1000;
             this.mEndTime = redpacketRain.end_time.longValue() * 1000;
-            this.bBS = redpacketRain.jump_url;
-            this.hqD = redpacketRain.float_url;
-            this.hqE = redpacketRain.dynamic_img;
-            this.fQo = redpacketRain.activity_id;
+            this.bBT = redpacketRain.jump_url;
+            this.hqE = redpacketRain.float_url;
+            this.hqF = redpacketRain.dynamic_img;
+            this.fQp = redpacketRain.activity_id;
             this.mType = redpacketRain.show_type.intValue();
         }
     }
@@ -33,19 +33,19 @@ public class m {
     }
 
     public String Wy() {
-        return this.bBS;
+        return this.bBT;
     }
 
     public String bFf() {
-        return this.hqD;
-    }
-
-    public List<String> bFg() {
         return this.hqE;
     }
 
+    public List<String> bFg() {
+        return this.hqF;
+    }
+
     public String bFh() {
-        return this.fQo;
+        return this.fQp;
     }
 
     public void setStartTime(long j) {
@@ -57,19 +57,19 @@ public class m {
     }
 
     public void vX(String str) {
-        this.bBS = str;
+        this.bBT = str;
     }
 
     public void vY(String str) {
-        this.hqD = str;
+        this.hqE = str;
     }
 
     public void dP(List<String> list) {
-        this.hqE = list;
+        this.hqF = list;
     }
 
     public void vZ(String str) {
-        this.fQo = str;
+        this.fQp = str;
     }
 
     public int getType() {

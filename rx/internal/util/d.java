@@ -4,39 +4,39 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class d {
-    final int iQg;
-    Object[] iQh;
+    final int iQh;
     Object[] iQi;
-    int iQj;
+    Object[] iQj;
+    int iQk;
     volatile int size;
 
     public d(int i) {
-        this.iQg = i;
+        this.iQh = i;
     }
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.iQh = new Object[this.iQg + 1];
-            this.iQi = this.iQh;
-            this.iQh[0] = obj;
-            this.iQj = 1;
+            this.iQi = new Object[this.iQh + 1];
+            this.iQj = this.iQi;
+            this.iQi[0] = obj;
+            this.iQk = 1;
             this.size = 1;
-        } else if (this.iQj == this.iQg) {
-            Object[] objArr = new Object[this.iQg + 1];
+        } else if (this.iQk == this.iQh) {
+            Object[] objArr = new Object[this.iQh + 1];
             objArr[0] = obj;
-            this.iQi[this.iQg] = objArr;
-            this.iQi = objArr;
-            this.iQj = 1;
+            this.iQj[this.iQh] = objArr;
+            this.iQj = objArr;
+            this.iQk = 1;
             this.size++;
         } else {
-            this.iQi[this.iQj] = obj;
-            this.iQj++;
+            this.iQj[this.iQk] = obj;
+            this.iQk++;
             this.size++;
         }
     }
 
     public Object[] cfK() {
-        return this.iQh;
+        return this.iQi;
     }
 
     public int size() {
@@ -44,7 +44,7 @@ public class d {
     }
 
     List<Object> cfL() {
-        int i = this.iQg;
+        int i = this.iQh;
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;

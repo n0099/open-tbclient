@@ -19,8 +19,8 @@ public class a {
 
     /* loaded from: classes.dex */
     public static class b {
-        public String bjm;
-        public int dbk;
+        public String bjn;
+        public int dbl;
         public String mPid;
     }
 
@@ -61,37 +61,37 @@ public class a {
     /* renamed from: com.baidu.tieba.tbadkCore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public static class C0316a {
-        private final boolean aso;
-        private final am foV;
-        private final String hqO;
+        private final boolean asp;
+        private final am foW;
         private final String hqP;
         private final String hqQ;
+        private final String hqR;
         private final String key;
         private final String page;
 
         private C0316a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
-            this.hqO = str2;
+            this.hqP = str2;
             this.page = str3;
-            this.hqP = str4;
-            this.hqQ = str5;
-            this.aso = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.foV = bFj();
+            this.hqQ = str4;
+            this.hqR = str5;
+            this.asp = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
+            this.foW = bFj();
         }
 
         private am bFj() {
             am amVar = new am(this.key);
-            if (!StringUtils.isNull(this.hqO)) {
-                amVar = amVar.aB("line", this.hqO);
+            if (!StringUtils.isNull(this.hqP)) {
+                amVar = amVar.aB("line", this.hqP);
             }
             if (!StringUtils.isNull(this.page)) {
                 amVar = amVar.aB(SystemScreenshotManager.PAGE, this.page);
             }
-            if (!StringUtils.isNull(this.hqP)) {
-                amVar = amVar.aB("locate", this.hqP);
-            }
             if (!StringUtils.isNull(this.hqQ)) {
-                return amVar.aB(WebSocketAction.PARAM_KEY_TASK, this.hqQ);
+                amVar = amVar.aB("locate", this.hqQ);
+            }
+            if (!StringUtils.isNull(this.hqR)) {
+                return amVar.aB(WebSocketAction.PARAM_KEY_TASK, this.hqR);
             }
             return amVar;
         }
@@ -99,34 +99,34 @@ public class a {
         /* JADX INFO: Access modifiers changed from: private */
         public am e(String str, String str2, String str3, String str4, String str5) {
             if (!StringUtils.isNull(str)) {
-                this.foV.aB(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
+                this.foW.aB(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, str);
             }
             if (!StringUtils.isNull(str2)) {
-                this.foV.aB(VideoPlayActivityConfig.OBJ_ID, str2);
+                this.foW.aB(VideoPlayActivityConfig.OBJ_ID, str2);
             }
             if (!StringUtils.isNull(str3)) {
-                this.foV.aB(ImageViewerConfig.FORUM_ID, str3);
+                this.foW.aB(ImageViewerConfig.FORUM_ID, str3);
             }
             if (!StringUtils.isNull(str4)) {
-                this.foV.aB(ImageViewerConfig.FORUM_NAME, str4);
+                this.foW.aB(ImageViewerConfig.FORUM_NAME, str4);
             }
             if (!StringUtils.isNull(str5)) {
-                this.foV.aB("tid", str5);
+                this.foW.aB("tid", str5);
             }
-            this.foV.y("obj_cpid", 0).y("obj_good_id", 0).aB("obj_throw_type", "BY_POST").aB("client_type", "MOBILE_APP").aB("user_timestamp", String.valueOf(System.currentTimeMillis())).aB("os", HttpConstants.OS_TYPE_VALUE).aB(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE).aB("log_ver", "1.1");
-            return this.foV;
+            this.foW.y("obj_cpid", 0).y("obj_good_id", 0).aB("obj_throw_type", "BY_POST").aB("client_type", "MOBILE_APP").aB("user_timestamp", String.valueOf(System.currentTimeMillis())).aB("os", HttpConstants.OS_TYPE_VALUE).aB(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE).aB("log_ver", "1.1");
+            return this.foW;
         }
 
         public C0316a cO(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                this.foV.aB(str, str2);
+                this.foW.aB(str, str2);
             }
             return this;
         }
 
         public void save() {
-            TiebaStatic.log(this.foV);
-            if (!this.aso) {
+            TiebaStatic.log(this.foW);
+            if (!this.asp) {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new IllegalArgumentException();
                 }
@@ -135,7 +135,7 @@ public class a {
         }
 
         public void delete(String str) {
-            this.foV.delete(str);
+            this.foW.delete(str);
         }
     }
 }

@@ -3,8 +3,8 @@ package kotlin.b;
 import kotlin.jvm.internal.o;
 /* loaded from: classes2.dex */
 public final class c extends kotlin.b.a {
-    public static final a iCS = new a(null);
-    private static final c iCR = new c(1, 0);
+    public static final a iCT = new a(null);
+    private static final c iCS = new c(1, 0);
 
     public c(int i, int i2) {
         super(i, i2, 1);
@@ -51,7 +51,7 @@ public final class c extends kotlin.b.a {
         }
 
         public final c cdv() {
-            return c.iCR;
+            return c.iCS;
         }
     }
 }

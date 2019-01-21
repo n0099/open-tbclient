@@ -14,12 +14,12 @@ import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class a extends BaseAdapter {
-    private TbCheckBox.a ffU;
-    private AtListActivity iaY;
-    private boolean iba;
+    private TbCheckBox.a ffV;
+    private AtListActivity iaZ;
+    private boolean ibb;
     private final Context mContext;
     private ArrayList<MetaData> mData;
-    private b iaZ = null;
+    private b iba = null;
     private ViewGroup mParent = null;
 
     /* loaded from: classes3.dex */
@@ -29,14 +29,14 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(b bVar) {
-        this.iaZ = bVar;
+        this.iba = bVar;
     }
 
     public a(AtListActivity atListActivity, boolean z) {
-        this.iba = true;
-        this.iaY = atListActivity;
-        this.mContext = this.iaY.getPageContext().getContext();
-        this.iba = z;
+        this.ibb = true;
+        this.iaZ = atListActivity;
+        this.mContext = this.iaZ.getPageContext().getContext();
+        this.ibb = z;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -46,7 +46,7 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(TbCheckBox.a aVar) {
-        this.ffU = aVar;
+        this.ffV = aVar;
     }
 
     @Override // android.widget.Adapter
@@ -98,33 +98,33 @@ public class a extends BaseAdapter {
         } else {
             c0343a = (C0343a) obj;
         }
-        if (this.iaZ != null) {
-            this.iaZ.a(c0343a.rootView, metaData);
+        if (this.iba != null) {
+            this.iba.a(c0343a.rootView, metaData);
         }
         String portrait = metaData.getPortrait();
-        c0343a.clZ.setText(metaData.getName_show());
-        c0343a.ffX.setTagData(metaData);
-        c0343a.ffC.setTag(portrait);
-        if (this.iba) {
-            c0343a.ffX.setVisibility(0);
+        c0343a.cma.setText(metaData.getName_show());
+        c0343a.ffY.setTagData(metaData);
+        c0343a.ffD.setTag(portrait);
+        if (this.ibb) {
+            c0343a.ffY.setVisibility(0);
         } else {
-            c0343a.ffX.setVisibility(8);
+            c0343a.ffY.setVisibility(8);
         }
-        c0343a.ffC.startLoad(portrait, 12, false);
-        this.iaY.getPageContext().getLayoutMode().setNightMode(skinType == 1);
-        this.iaY.getPageContext().getLayoutMode().onModeChanged(c0343a.rootView);
+        c0343a.ffD.startLoad(portrait, 12, false);
+        this.iaZ.getPageContext().getLayoutMode().setNightMode(skinType == 1);
+        this.iaZ.getPageContext().getLayoutMode().onModeChanged(c0343a.rootView);
         return c0343a;
     }
 
     private C0343a bQn() {
         C0343a c0343a = new C0343a();
         c0343a.rootView = LayoutInflater.from(this.mContext).inflate(e.h.invite_friend_list_item, (ViewGroup) null);
-        c0343a.ffC = (HeadImageView) c0343a.rootView.findViewById(e.g.photo);
-        c0343a.ffC.setIsRound(false);
-        c0343a.clZ = (TextView) c0343a.rootView.findViewById(e.g.txt_user_name);
-        c0343a.ffX = (TbCheckBox) c0343a.rootView.findViewById(e.g.ckb_select);
-        if (this.ffU != null) {
-            c0343a.ffX.setStatedChangedListener(this.ffU);
+        c0343a.ffD = (HeadImageView) c0343a.rootView.findViewById(e.g.photo);
+        c0343a.ffD.setIsRound(false);
+        c0343a.cma = (TextView) c0343a.rootView.findViewById(e.g.txt_user_name);
+        c0343a.ffY = (TbCheckBox) c0343a.rootView.findViewById(e.g.ckb_select);
+        if (this.ffV != null) {
+            c0343a.ffY.setStatedChangedListener(this.ffV);
         }
         c0343a.rootView.setTag(c0343a);
         return c0343a;
@@ -134,9 +134,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.write.write.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public class C0343a {
-        public TextView clZ;
-        public HeadImageView ffC;
-        public TbCheckBox ffX;
+        public TextView cma;
+        public HeadImageView ffD;
+        public TbCheckBox ffY;
         public View rootView;
 
         private C0343a() {

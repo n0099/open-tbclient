@@ -8,20 +8,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class e {
-    private static e aFm;
-    private int aFn = 3;
+    private static e aFn;
+    private int aFo = 3;
     private boolean isWifi = true;
     private int mSize = 0;
 
     public static e EP() {
-        if (aFm == null) {
+        if (aFn == null) {
             synchronized (e.class) {
-                if (aFm == null) {
-                    aFm = new e();
+                if (aFn == null) {
+                    aFn = new e();
                 }
             }
         }
-        return aFm;
+        return aFn;
     }
 
     private e() {
@@ -42,7 +42,7 @@ public class e {
     }
 
     public int EQ() {
-        return this.aFn;
+        return this.aFo;
     }
 
     public int getSize() {
@@ -67,10 +67,10 @@ public class e {
     private void parseJson(String str) throws JSONException {
         if (!TextUtils.isEmpty(str)) {
             JSONObject jSONObject = new JSONObject(str);
-            this.aFn = jSONObject.optInt("num", 3);
+            this.aFo = jSONObject.optInt("num", 3);
             this.isWifi = jSONObject.optInt("is_wifi", 1) == 1;
             this.mSize = jSONObject.optInt(ChooseVideoAction.CB_KEY_SIZE, 512000);
-            g.log("PreLoadVideoSwitchManager parseJson:   num: " + this.aFn + " size: " + this.mSize + " isWifi " + this.isWifi);
+            g.log("PreLoadVideoSwitchManager parseJson:   num: " + this.aFo + " size: " + this.mSize + " isWifi " + this.isWifi);
         }
     }
 }

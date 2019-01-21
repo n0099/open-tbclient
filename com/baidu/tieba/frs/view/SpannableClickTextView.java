@@ -12,7 +12,7 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 /* loaded from: classes3.dex */
 public class SpannableClickTextView extends TextView {
-    private boolean eaP;
+    private boolean eaQ;
 
     public SpannableClickTextView(Context context) {
         super(context);
@@ -28,7 +28,7 @@ public class SpannableClickTextView extends TextView {
 
     @Override // android.view.View
     public boolean performClick() {
-        if (this.eaP) {
+        if (this.eaQ) {
             return true;
         }
         return super.performClick();
@@ -36,7 +36,7 @@ public class SpannableClickTextView extends TextView {
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.eaP = false;
+        this.eaQ = false;
         return super.onTouchEvent(motionEvent);
     }
 
@@ -46,7 +46,7 @@ public class SpannableClickTextView extends TextView {
 
     /* loaded from: classes3.dex */
     private static class a extends LinkMovementMethod {
-        private static a elE;
+        private static a elF;
 
         private a() {
         }
@@ -69,7 +69,7 @@ public class SpannableClickTextView extends TextView {
                         Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
                     }
                     if (textView instanceof SpannableClickTextView) {
-                        ((SpannableClickTextView) textView).eaP = true;
+                        ((SpannableClickTextView) textView).eaQ = true;
                     }
                     return true;
                 }
@@ -81,10 +81,10 @@ public class SpannableClickTextView extends TextView {
         }
 
         public static a aJr() {
-            if (elE == null) {
-                elE = new a();
+            if (elF == null) {
+                elF = new a();
             }
-            return elE;
+            return elF;
         }
     }
 }

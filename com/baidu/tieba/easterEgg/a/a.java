@@ -8,26 +8,26 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a {
-    private String dpJ = "";
-    private HashMap<String, String> dpK;
+    private String dpK = "";
+    private HashMap<String, String> dpL;
     private boolean isOpen;
 
     public void V(JSONObject jSONObject) {
         JSONObject optJSONObject;
         JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
         if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("hotmonitor")) != null) {
-            this.dpJ = optJSONObject.optString(SelectForumActivityConfig.KEY_SHARE_LINK);
+            this.dpK = optJSONObject.optString(SelectForumActivityConfig.KEY_SHARE_LINK);
             this.isOpen = optJSONObject.optInt("open", 0) == 1;
             JSONArray optJSONArray = optJSONObject.optJSONArray("config");
             if (optJSONArray != null && optJSONArray.length() != 0) {
-                this.dpK = new HashMap<>();
+                this.dpL = new HashMap<>();
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
                     if (optJSONObject3 != null) {
                         String optString = optJSONObject3.optString(NotificationCompat.CATEGORY_EVENT);
                         String optString2 = optJSONObject3.optString("rule");
                         if (!ao.isEmpty(optString) && !ao.isEmpty(optString2)) {
-                            this.dpK.put(optString, optString2);
+                            this.dpL.put(optString, optString2);
                         }
                     }
                 }
@@ -40,10 +40,10 @@ public class a {
     }
 
     public HashMap<String, String> avE() {
-        return this.dpK;
+        return this.dpL;
     }
 
     public String avF() {
-        return this.dpJ;
+        return this.dpK;
     }
 }

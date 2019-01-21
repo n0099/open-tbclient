@@ -12,29 +12,30 @@ import com.baidu.tieba.e;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes6.dex */
 public class a {
-    private PostData aFA;
-    private boolean aFB;
-    private final View.OnClickListener aFC = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.a.1
+    protected ImageView aFA;
+    private PostData aFB;
+    private boolean aFC;
+    private final View.OnClickListener aFD = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             a.this.updateUI();
         }
     };
-    private CustomMessageListener aFD = new CustomMessageListener(2016529) { // from class: com.baidu.tbadk.core.view.a.2
+    private CustomMessageListener aFE = new CustomMessageListener(2016529) { // from class: com.baidu.tbadk.core.view.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             PostData postData;
-            if ((customResponsedMessage.getData() instanceof PostData) && a.this.aFA != null && !TextUtils.isEmpty(a.this.aFA.getId()) && (postData = (PostData) customResponsedMessage.getData()) != null && a.this.aFA.getId().equals(postData.getId())) {
-                a.this.aFA.C(postData.Bf());
-                a.this.aFA.D(postData.Bg());
-                a.this.aFA.nz(postData.aEn());
-                a.this.aFA.cY(postData.Bi());
+            if ((customResponsedMessage.getData() instanceof PostData) && a.this.aFB != null && !TextUtils.isEmpty(a.this.aFB.getId()) && (postData = (PostData) customResponsedMessage.getData()) != null && a.this.aFB.getId().equals(postData.getId())) {
+                a.this.aFB.C(postData.Bf());
+                a.this.aFB.D(postData.Bg());
+                a.this.aFB.nz(postData.aEn());
+                a.this.aFB.cY(postData.Bi());
                 a.this.updateUI();
             }
         }
     };
-    private CustomMessageListener aFE = new CustomMessageListener(2156670) { // from class: com.baidu.tbadk.core.view.a.3
+    private CustomMessageListener aFF = new CustomMessageListener(2156670) { // from class: com.baidu.tbadk.core.view.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -44,62 +45,61 @@ public class a {
             }
         }
     };
-    protected PostPraiseView aFx;
-    protected PostDisPraiseView aFy;
-    protected ImageView aFz;
+    protected PostPraiseView aFy;
+    protected PostDisPraiseView aFz;
 
     public a(PostPraiseView postPraiseView, PostDisPraiseView postDisPraiseView, ImageView imageView) {
-        this.aFx = postPraiseView;
-        this.aFy = postDisPraiseView;
-        this.aFz = imageView;
+        this.aFy = postPraiseView;
+        this.aFz = postDisPraiseView;
+        this.aFA = imageView;
         setFrom(5);
     }
 
     public void bz(boolean z) {
-        this.aFB = z;
+        this.aFC = z;
     }
 
     public void ES() {
         if (com.baidu.tbadk.util.a.Qb().Gt()) {
-            if (this.aFx != null) {
-                this.aFx.aFU = e.j.action_like;
-                this.aFx.aFX = e.f.selector_comment_and_prise_item_text_color;
-                this.aFx.aFY = e.d.cp_cont_h;
-                this.aFx.aFV = e.f.icon_card_like_n;
-                this.aFx.aFW = e.f.icon_card_like_s;
-                this.aFx.setAfterClickListener(this.aFC);
-                this.aFx.setVisibility(0);
-            }
             if (this.aFy != null) {
-                this.aFy.aFU = e.j.action_dislike;
-                this.aFy.aFX = e.d.cp_cont_j;
-                this.aFy.aFY = e.d.cp_link_tip_a;
-                this.aFy.aFV = e.f.icon_card_dislike_n;
-                this.aFy.aFW = e.f.icon_card_dislike_s;
-                this.aFy.setAfterClickListener(this.aFC);
+                this.aFy.aFV = e.j.action_like;
+                this.aFy.aFY = e.f.selector_comment_and_prise_item_text_color;
+                this.aFy.aFZ = e.d.cp_cont_h;
+                this.aFy.aFW = e.f.icon_card_like_n;
+                this.aFy.aFX = e.f.icon_card_like_s;
+                this.aFy.setAfterClickListener(this.aFD);
                 this.aFy.setVisibility(0);
             }
             if (this.aFz != null) {
-                this.aFz.setVisibility(8);
+                this.aFz.aFV = e.j.action_dislike;
+                this.aFz.aFY = e.d.cp_cont_j;
+                this.aFz.aFZ = e.d.cp_link_tip_a;
+                this.aFz.aFW = e.f.icon_card_dislike_n;
+                this.aFz.aFX = e.f.icon_card_dislike_s;
+                this.aFz.setAfterClickListener(this.aFD);
+                this.aFz.setVisibility(0);
+            }
+            if (this.aFA != null) {
+                this.aFA.setVisibility(8);
                 return;
             }
             return;
         }
-        if (this.aFx != null) {
-            this.aFx.aFU = e.j.action_praise_default;
-            this.aFx.aFX = e.f.selector_comment_and_prise_item_text_color;
-            this.aFx.aFY = e.d.cp_cont_h;
-            this.aFx.aFV = ET() ? e.f.icon_home_card_like_n_xmas : e.f.icon_home_card_like_n;
-            this.aFx.aFW = ET() ? e.f.icon_home_card_like_s_xmas : e.f.icon_home_card_like_s;
-            this.aFx.setVisibility(this.aFB ? 8 : 0);
-            this.aFx.setAfterClickListener(this.aFC);
-        }
         if (this.aFy != null) {
-            this.aFy.setAfterClickListener(this.aFC);
-            this.aFy.setVisibility(8);
+            this.aFy.aFV = e.j.action_praise_default;
+            this.aFy.aFY = e.f.selector_comment_and_prise_item_text_color;
+            this.aFy.aFZ = e.d.cp_cont_h;
+            this.aFy.aFW = ET() ? e.f.icon_home_card_like_n_xmas : e.f.icon_home_card_like_n;
+            this.aFy.aFX = ET() ? e.f.icon_home_card_like_s_xmas : e.f.icon_home_card_like_s;
+            this.aFy.setVisibility(this.aFC ? 8 : 0);
+            this.aFy.setAfterClickListener(this.aFD);
         }
         if (this.aFz != null) {
-            this.aFz.setVisibility(this.aFB ? 8 : 0);
+            this.aFz.setAfterClickListener(this.aFD);
+            this.aFz.setVisibility(8);
+        }
+        if (this.aFA != null) {
+            this.aFA.setVisibility(this.aFC ? 8 : 0);
         }
     }
 
@@ -109,39 +109,39 @@ public class a {
     }
 
     public void setFrom(int i) {
-        if (this.aFx != null) {
-            this.aFx.setFrom(i);
-        }
         if (this.aFy != null) {
             this.aFy.setFrom(i);
+        }
+        if (this.aFz != null) {
+            this.aFz.setFrom(i);
         }
     }
 
     public void a(PostData postData) {
-        if (this.aFA == null) {
-            this.aFA = postData;
-        }
-        if (this.aFx != null) {
-            this.aFx.a(postData);
+        if (this.aFB == null) {
+            this.aFB = postData;
         }
         if (this.aFy != null) {
             this.aFy.a(postData);
         }
+        if (this.aFz != null) {
+            this.aFz.a(postData);
+        }
     }
 
     public void updateUI() {
-        if (this.aFx != null) {
-            this.aFx.updateUI();
-        }
         if (this.aFy != null) {
             this.aFy.updateUI();
+        }
+        if (this.aFz != null) {
+            this.aFz.updateUI();
         }
     }
 
     public void h(BdUniqueId bdUniqueId) {
+        this.aFF.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.aFF);
         this.aFE.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.aFE);
-        this.aFD.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.aFD);
     }
 }

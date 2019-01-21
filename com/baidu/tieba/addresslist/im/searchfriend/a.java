@@ -17,24 +17,24 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class a {
-    private EditText bEL;
-    private TextView bEM;
-    private ImageView bEN;
-    private InterfaceC0191a bEO;
-    private View.OnClickListener bEP = new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.1
+    private EditText bEM;
+    private TextView bEN;
+    private ImageView bEO;
+    private InterfaceC0191a bEP;
+    private View.OnClickListener bEQ = new View.OnClickListener() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (view == a.this.bEM) {
-                String a = k.a(a.this.bEL.getText(), null);
+            if (view == a.this.bEN) {
+                String a = k.a(a.this.bEM.getText(), null);
                 if (!StringUtils.isNULL(a)) {
                     if (a.trim().length() != 0) {
                         a.this.kw(a.trim());
-                        a.this.bEM.setClickable(false);
+                        a.this.bEN.setClickable(false);
                     } else if (a.length() > 0) {
                         a.this.mPageContext.showToast(e.j.input_content);
                     }
                 }
-            } else if (view == a.this.bEN) {
+            } else if (view == a.this.bEO) {
                 a.this.kv("");
             }
         }
@@ -50,21 +50,21 @@ public class a {
     }
 
     public void dv(boolean z) {
-        this.bEM.setClickable(z);
+        this.bEN.setClickable(z);
     }
 
     public void kv(String str) {
-        this.bEL.setText(str);
+        this.bEM.setText(str);
     }
 
     public a(TbPageContext<?> tbPageContext, View view) {
         this.mPageContext = tbPageContext;
         this.context = this.mPageContext.getPageActivity();
-        this.bEL = (EditText) view.findViewById(e.g.new_search_friend_input);
-        this.bEM = (TextView) view.findViewById(e.g.new_search_friend_search);
-        this.bEN = (ImageView) view.findViewById(e.g.new_search_friend_del);
-        this.bEM.setOnClickListener(this.bEP);
-        this.bEN.setOnClickListener(this.bEP);
+        this.bEM = (EditText) view.findViewById(e.g.new_search_friend_input);
+        this.bEN = (TextView) view.findViewById(e.g.new_search_friend_search);
+        this.bEO = (ImageView) view.findViewById(e.g.new_search_friend_del);
+        this.bEN.setOnClickListener(this.bEQ);
+        this.bEO.setOnClickListener(this.bEQ);
         this.mTextWatcher = new TextWatcher() { // from class: com.baidu.tieba.addresslist.im.searchfriend.a.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -77,38 +77,38 @@ public class a {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (TextUtils.isEmpty(editable)) {
-                    a.this.bEN.setVisibility(8);
+                    a.this.bEO.setVisibility(8);
                 } else {
-                    a.this.bEN.setVisibility(0);
+                    a.this.bEO.setVisibility(0);
                 }
             }
         };
-        this.bEL.addTextChangedListener(this.mTextWatcher);
+        this.bEM.addTextChangedListener(this.mTextWatcher);
         ey(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void Xh() {
-        this.bEL.removeTextChangedListener(this.mTextWatcher);
+        this.bEM.removeTextChangedListener(this.mTextWatcher);
     }
 
     public void Xi() {
-        l.b(this.context, this.bEL);
+        l.b(this.context, this.bEM);
     }
 
     public void a(InterfaceC0191a interfaceC0191a) {
-        this.bEO = interfaceC0191a;
+        this.bEP = interfaceC0191a;
     }
 
     public void ey(int i) {
-        al.c(this.bEM, e.d.cp_cont_g, 1);
-        this.bEL.setHintTextColor(al.getColor(e.d.cp_cont_e));
-        al.c(this.bEN, e.f.icon_search_close);
+        al.c(this.bEN, e.d.cp_cont_g, 1);
+        this.bEM.setHintTextColor(al.getColor(e.d.cp_cont_e));
+        al.c(this.bEO, e.f.icon_search_close);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void kw(String str) {
-        if (this.bEO != null) {
-            this.bEO.ku(str);
+        if (this.bEP != null) {
+            this.bEP.ku(str);
         }
     }
 }

@@ -10,19 +10,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b extends AiAppsNaViewModel {
-    public String bJF;
-    public boolean bJG;
-    public boolean bJX;
-    public String bJY;
-    public int bJZ;
-    public String bKa;
+    public String bJG;
+    public boolean bJH;
+    public boolean bJY;
+    public String bJZ;
+    public int bKa;
     public String bKb;
-    public boolean bKc;
+    public String bKc;
     public boolean bKd;
     public boolean bKe;
-    private boolean bKf;
+    public boolean bKf;
     private boolean bKg;
     private boolean bKh;
+    private boolean bKi;
     public int duration;
     public boolean mAutoPlay;
     public boolean mLoop;
@@ -36,22 +36,22 @@ public class b extends AiAppsNaViewModel {
             bVar2.updateFromJson(jSONObject, bVar);
             bVar2.mPlayerId = jSONObject.optString("videoId", bVar.mPlayerId);
             bVar2.mAutoPlay = jSONObject.optBoolean("autoplay", bVar.mAutoPlay);
-            bVar2.bJX = jSONObject.optBoolean("muted", bVar.bJX);
-            bVar2.bJF = jSONObject.optString("objectFit", bVar.bJF);
-            bVar2.bJZ = jSONObject.optInt("initialTime", bVar.bJZ);
-            bVar2.bJY = jSONObject.optString("poster", bVar.bJY);
+            bVar2.bJY = jSONObject.optBoolean("muted", bVar.bJY);
+            bVar2.bJG = jSONObject.optString("objectFit", bVar.bJG);
+            bVar2.bKa = jSONObject.optInt("initialTime", bVar.bKa);
+            bVar2.bJZ = jSONObject.optString("poster", bVar.bJZ);
             bVar2.mPos = jSONObject.optInt("position", bVar.mPos);
-            bVar2.bJG = jSONObject.optBoolean("fullScreen", bVar.bJG);
-            bVar2.bKa = N(jSONObject);
-            bVar2.bKb = jSONObject.optString("danmuList", bVar.bKb);
-            bVar2.bKc = jSONObject.optBoolean("enableDanmu", bVar.bKc);
-            bVar2.bKd = jSONObject.optBoolean("danmuBtn", bVar.bKd);
+            bVar2.bJH = jSONObject.optBoolean("fullScreen", bVar.bJH);
+            bVar2.bKb = N(jSONObject);
+            bVar2.bKc = jSONObject.optString("danmuList", bVar.bKc);
+            bVar2.bKd = jSONObject.optBoolean("enableDanmu", bVar.bKd);
+            bVar2.bKe = jSONObject.optBoolean("danmuBtn", bVar.bKe);
             bVar2.mLoop = jSONObject.optBoolean("loop", bVar.mLoop);
-            bVar2.bKe = jSONObject.optBoolean("controls", bVar.bKe);
+            bVar2.bKf = jSONObject.optBoolean("controls", bVar.bKf);
             bVar2.mSrc = kX(jSONObject.optString(ImageCoverViewModel.KEY_SRC, bVar.mSrc));
-            bVar2.bKf = jSONObject.optBoolean("showPlayBtn", bVar.bKf);
-            bVar2.bKg = jSONObject.optBoolean("showMuteBtn", bVar.bKg);
-            bVar2.bKh = jSONObject.optBoolean("showCenterPlayBtn", bVar.bKh);
+            bVar2.bKg = jSONObject.optBoolean("showPlayBtn", bVar.bKg);
+            bVar2.bKh = jSONObject.optBoolean("showMuteBtn", bVar.bKh);
+            bVar2.bKi = jSONObject.optBoolean("showCenterPlayBtn", bVar.bKi);
         }
         return bVar2;
     }
@@ -59,19 +59,19 @@ public class b extends AiAppsNaViewModel {
     public b() {
         super("viewId", "video");
         this.mPlayerId = "";
-        this.bJX = false;
-        this.bJY = "";
-        this.bJZ = 0;
+        this.bJY = false;
+        this.bJZ = "";
+        this.bKa = 0;
         this.duration = 0;
         this.mAutoPlay = false;
         this.mLoop = false;
-        this.bJF = "";
+        this.bJG = "";
         this.mPos = 0;
-        this.bKa = "";
         this.bKb = "";
-        this.bKc = false;
+        this.bKc = "";
         this.bKd = false;
-        this.bKe = true;
+        this.bKe = false;
+        this.bKf = true;
         this.mSrc = "";
     }
 
@@ -100,6 +100,6 @@ public class b extends AiAppsNaViewModel {
     }
 
     public String toString() {
-        return "VideoPlayerParams{mPlayerId='" + this.mPlayerId + "', mSlaveId='" + this.slaveId + "', mMuted=" + this.bJX + "', mObjectFit='" + this.bJF + "', mControl=" + this.bKe + '}';
+        return "VideoPlayerParams{mPlayerId='" + this.mPlayerId + "', mSlaveId='" + this.slaveId + "', mMuted=" + this.bJY + "', mObjectFit='" + this.bJG + "', mControl=" + this.bKf + '}';
     }
 }

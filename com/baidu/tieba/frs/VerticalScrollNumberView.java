@@ -8,10 +8,10 @@ import com.baidu.tbadk.widget.ScrollTextView;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class VerticalScrollNumberView extends LinearLayout {
-    private int dPB;
     private int dPC;
     private int dPD;
     private int dPE;
+    private int dPF;
     private Context mContext;
 
     public VerticalScrollNumberView(Context context) {
@@ -34,10 +34,10 @@ public class VerticalScrollNumberView extends LinearLayout {
 
     private void init(Context context) {
         this.mContext = context;
-        this.dPB = com.baidu.adp.lib.util.l.h(this.mContext, e.C0210e.ds30);
-        this.dPC = com.baidu.adp.lib.util.l.h(this.mContext, e.C0210e.ds40);
-        this.dPD = com.baidu.adp.lib.util.l.h(this.mContext, e.C0210e.ds2);
-        this.dPE = com.baidu.adp.lib.util.l.h(this.mContext, e.C0210e.ds8);
+        this.dPC = com.baidu.adp.lib.util.l.h(this.mContext, e.C0210e.ds30);
+        this.dPD = com.baidu.adp.lib.util.l.h(this.mContext, e.C0210e.ds40);
+        this.dPE = com.baidu.adp.lib.util.l.h(this.mContext, e.C0210e.ds2);
+        this.dPF = com.baidu.adp.lib.util.l.h(this.mContext, e.C0210e.ds8);
     }
 
     public void setData(int i) {
@@ -54,10 +54,10 @@ public class VerticalScrollNumberView extends LinearLayout {
             if (getChildAt(childCount) instanceof ScrollTextView) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 if (i4 == 2) {
-                    layoutParams.setMargins(this.dPE, 0, 0, 0);
+                    layoutParams.setMargins(this.dPF, 0, 0, 0);
                     i4 = 0;
                 } else {
-                    layoutParams.setMargins(this.dPD, 0, 0, 0);
+                    layoutParams.setMargins(this.dPE, 0, 0, 0);
                     i4++;
                 }
                 getChildAt(childCount).setLayoutParams(layoutParams);
@@ -77,8 +77,8 @@ public class VerticalScrollNumberView extends LinearLayout {
         scrollTextView.setMaxLines(1);
         scrollTextView.setContinuousScrolling(false);
         scrollTextView.setSpeed((float) ((Math.random() * 5.0d) + 10.0d));
-        scrollTextView.setWidth(this.dPB);
-        scrollTextView.setHeight(this.dPC);
+        scrollTextView.setWidth(this.dPC);
+        scrollTextView.setHeight(this.dPD);
         addView(scrollTextView);
     }
 }

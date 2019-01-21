@@ -2,7 +2,7 @@ package com.baidu.tieba.VideoCache;
 /* loaded from: classes6.dex */
 public class d {
     private long ZG;
-    private long bAt;
+    private long bAu;
     private String fileName;
 
     public String getFileName() {
@@ -14,11 +14,11 @@ public class d {
     }
 
     public long VF() {
-        return this.bAt;
+        return this.bAu;
     }
 
     public void aR(long j) {
-        this.bAt = j;
+        this.bAu = j;
     }
 
     public long VG() {

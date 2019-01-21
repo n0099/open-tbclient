@@ -27,37 +27,37 @@ public final class CachedObservable<T> extends rx.d<T> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.internal.util.d implements rx.e<T> {
-        static final ReplayProducer<?>[] iFZ = new ReplayProducer[0];
-        final rx.d<? extends T> iFW;
-        final rx.subscriptions.d iFX;
-        volatile ReplayProducer<?>[] iFY;
-        volatile boolean iGa;
-        boolean iGb;
+        static final ReplayProducer<?>[] iGa = new ReplayProducer[0];
+        final rx.d<? extends T> iFX;
+        final rx.subscriptions.d iFY;
+        volatile ReplayProducer<?>[] iFZ;
+        volatile boolean iGb;
+        boolean iGc;
 
         public a(rx.d<? extends T> dVar, int i) {
             super(i);
-            this.iFW = dVar;
-            this.iFY = iFZ;
-            this.iFX = new rx.subscriptions.d();
+            this.iFX = dVar;
+            this.iFZ = iGa;
+            this.iFY = new rx.subscriptions.d();
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: rx.internal.operators.CachedObservable$ReplayProducer<?>[] */
         /* JADX WARN: Multi-variable type inference failed */
         public void a(ReplayProducer<T> replayProducer) {
-            synchronized (this.iFX) {
-                ReplayProducer<?>[] replayProducerArr = this.iFY;
+            synchronized (this.iFY) {
+                ReplayProducer<?>[] replayProducerArr = this.iFZ;
                 int length = replayProducerArr.length;
                 ReplayProducer<?>[] replayProducerArr2 = new ReplayProducer[length + 1];
                 System.arraycopy(replayProducerArr, 0, replayProducerArr2, 0, length);
                 replayProducerArr2[length] = replayProducer;
-                this.iFY = replayProducerArr2;
+                this.iFZ = replayProducerArr2;
             }
         }
 
         public void b(ReplayProducer<T> replayProducer) {
             int i = 0;
-            synchronized (this.iFX) {
-                ReplayProducer<?>[] replayProducerArr = this.iFY;
+            synchronized (this.iFY) {
+                ReplayProducer<?>[] replayProducerArr = this.iFZ;
                 int length = replayProducerArr.length;
                 while (true) {
                     if (i >= length) {
@@ -71,13 +71,13 @@ public final class CachedObservable<T> extends rx.d<T> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        this.iFY = iFZ;
+                        this.iFZ = iGa;
                         return;
                     }
                     ReplayProducer<?>[] replayProducerArr2 = new ReplayProducer[length - 1];
                     System.arraycopy(replayProducerArr, 0, replayProducerArr2, 0, i);
                     System.arraycopy(replayProducerArr, i + 1, replayProducerArr2, i, (length - i) - 1);
-                    this.iFY = replayProducerArr2;
+                    this.iFZ = replayProducerArr2;
                 }
             }
         }
@@ -99,14 +99,14 @@ public final class CachedObservable<T> extends rx.d<T> {
                     a.this.onCompleted();
                 }
             };
-            this.iFX.g(jVar);
-            this.iFW.unsafeSubscribe(jVar);
-            this.iGa = true;
+            this.iFY.g(jVar);
+            this.iFX.unsafeSubscribe(jVar);
+            this.iGb = true;
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            if (!this.iGb) {
+            if (!this.iGc) {
                 add(NotificationLite.aY(t));
                 ceC();
             }
@@ -114,26 +114,26 @@ public final class CachedObservable<T> extends rx.d<T> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (!this.iGb) {
-                this.iGb = true;
+            if (!this.iGc) {
+                this.iGc = true;
                 add(NotificationLite.M(th));
-                this.iFX.unsubscribe();
+                this.iFY.unsubscribe();
                 ceC();
             }
         }
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.iGb) {
-                this.iGb = true;
+            if (!this.iGc) {
+                this.iGc = true;
                 add(NotificationLite.ceF());
-                this.iFX.unsubscribe();
+                this.iFY.unsubscribe();
                 ceC();
             }
         }
 
         void ceC() {
-            for (ReplayProducer<?> replayProducer : this.iFY) {
+            for (ReplayProducer<?> replayProducer : this.iFZ) {
                 replayProducer.replay();
             }
         }

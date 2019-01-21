@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class DLauncher extends RelativeLayout implements g {
-    private TextView aYH;
-    private int aYI;
+    private TextView aYI;
+    private int aYJ;
     private int mIcon;
     private int mId;
     private int mSkinType;
@@ -24,20 +24,20 @@ public class DLauncher extends RelativeLayout implements g {
         if (i > 0 && i2 > 0) {
             setLayoutParams(new AbsListView.LayoutParams(-1, getResources().getDimensionPixelSize(e.C0210e.ds230)));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, context.getResources().getDimensionPixelSize(e.C0210e.ds144));
-            this.aYH = new TextView(context);
+            this.aYI = new TextView(context);
             setName(str);
             setIcon(i);
             setToolId(i2);
             layoutParams.addRule(13);
-            this.aYH.setGravity(17);
-            this.aYH.setTextSize(0, context.getResources().getDimensionPixelSize(e.C0210e.fontsize24));
-            this.aYI = context.getResources().getDimensionPixelSize(e.C0210e.ds12);
-            addView(this.aYH, layoutParams);
+            this.aYI.setGravity(17);
+            this.aYI.setTextSize(0, context.getResources().getDimensionPixelSize(e.C0210e.fontsize24));
+            this.aYJ = context.getResources().getDimensionPixelSize(e.C0210e.ds12);
+            addView(this.aYI, layoutParams);
         }
     }
 
     public void setName(String str) {
-        this.aYH.setText(str);
+        this.aYI.setText(str);
     }
 
     public void setIcon(int i) {
@@ -59,8 +59,8 @@ public class DLauncher extends RelativeLayout implements g {
         super.onLayout(z, i, i2, i3, i4);
         if (this.mTip != null) {
             if (getVisibility() == 0) {
-                int right = this.aYH.getRight() - (this.mTip.getMeasuredWidth() / 2);
-                int top = this.aYH.getTop() - (this.mTip.getMeasuredHeight() / 2);
+                int right = this.aYI.getRight() - (this.mTip.getMeasuredWidth() / 2);
+                int top = this.aYI.getTop() - (this.mTip.getMeasuredHeight() / 2);
                 this.mTip.layout(right, top, this.mTip.getMeasuredWidth() + right, this.mTip.getMeasuredHeight() + top);
                 return;
             }
@@ -126,14 +126,14 @@ public class DLauncher extends RelativeLayout implements g {
     public void onChangeSkinType(int i) {
         this.mSkinType = i;
         al.d(this, e.f.btn_editor_selector, i);
-        al.b(this.aYH, e.d.cp_cont_f, 1, i);
-        if (TextUtils.isEmpty(this.aYH.getText())) {
-            al.d(this.aYH, this.mIcon, i);
+        al.b(this.aYI, e.d.cp_cont_f, 1, i);
+        if (TextUtils.isEmpty(this.aYI.getText())) {
+            al.d(this.aYI, this.mIcon, i);
         } else {
             Drawable y = al.y(i, this.mIcon);
             if (y != null) {
                 y.setBounds(0, 0, getResources().getDimensionPixelSize(e.C0210e.ds70), getResources().getDimensionPixelSize(e.C0210e.ds72));
-                this.aYH.setCompoundDrawables(null, y, null, null);
+                this.aYI.setCompoundDrawables(null, y, null, null);
             }
         }
         if (this.mTip != null) {

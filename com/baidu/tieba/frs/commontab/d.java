@@ -41,7 +41,7 @@ public class d implements j {
                         bbVar.a(threadInfo);
                         bbVar.setCurrentPage(3);
                         bbVar.AD();
-                        if (bbVar.getType() == bb.atL || bbVar.getType() == bb.atQ) {
+                        if (bbVar.getType() == bb.atM || bbVar.getType() == bb.atR) {
                             this.threadList.add(bbVar);
                         }
                     }

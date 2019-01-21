@@ -39,7 +39,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class j {
-    public static boolean eMs = com.baidu.tbadk.util.i.Qj();
+    public static boolean eMt = com.baidu.tbadk.util.i.Qj();
 
     public static void a(Context context, TbRichTextView tbRichTextView, ChatMessage chatMessage, String str, int i) {
         if (chatMessage != null) {

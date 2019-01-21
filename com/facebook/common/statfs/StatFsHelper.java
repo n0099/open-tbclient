@@ -16,16 +16,16 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class StatFsHelper {
-    private static StatFsHelper ikJ;
-    private static final long ikK = TimeUnit.MINUTES.toMillis(2);
-    private volatile File ikM;
-    private volatile File ikO;
+    private static StatFsHelper ikK;
+    private static final long ikL = TimeUnit.MINUTES.toMillis(2);
+    private volatile File ikN;
+    private volatile File ikP;
     @GuardedBy("lock")
-    private long ikP;
-    private volatile StatFs ikL = null;
-    private volatile StatFs ikN = null;
-    private volatile boolean ijF = false;
-    private final Lock ikQ = new ReentrantLock();
+    private long ikQ;
+    private volatile StatFs ikM = null;
+    private volatile StatFs ikO = null;
+    private volatile boolean ijG = false;
+    private final Lock ikR = new ReentrantLock();
 
     /* loaded from: classes2.dex */
     public enum StorageType {
@@ -36,10 +36,10 @@ public class StatFsHelper {
     public static synchronized StatFsHelper bUV() {
         StatFsHelper statFsHelper;
         synchronized (StatFsHelper.class) {
-            if (ikJ == null) {
-                ikJ = new StatFsHelper();
+            if (ikK == null) {
+                ikK = new StatFsHelper();
             }
-            statFsHelper = ikJ;
+            statFsHelper = ikK;
         }
         return statFsHelper;
     }
@@ -48,17 +48,17 @@ public class StatFsHelper {
     }
 
     private void bUW() {
-        if (!this.ijF) {
-            this.ikQ.lock();
+        if (!this.ijG) {
+            this.ikR.lock();
             try {
-                if (!this.ijF) {
-                    this.ikM = Environment.getDataDirectory();
-                    this.ikO = Environment.getExternalStorageDirectory();
+                if (!this.ijG) {
+                    this.ikN = Environment.getDataDirectory();
+                    this.ikP = Environment.getExternalStorageDirectory();
                     bUY();
-                    this.ijF = true;
+                    this.ijG = true;
                 }
             } finally {
-                this.ikQ.unlock();
+                this.ikR.unlock();
             }
         }
     }
@@ -75,7 +75,7 @@ public class StatFsHelper {
         long availableBlocks;
         bUW();
         bUX();
-        StatFs statFs = storageType == StorageType.INTERNAL ? this.ikL : this.ikN;
+        StatFs statFs = storageType == StorageType.INTERNAL ? this.ikM : this.ikO;
         if (statFs != null) {
             if (Build.VERSION.SDK_INT >= 18) {
                 blockSize = statFs.getBlockSizeLong();
@@ -90,22 +90,22 @@ public class StatFsHelper {
     }
 
     private void bUX() {
-        if (this.ikQ.tryLock()) {
+        if (this.ikR.tryLock()) {
             try {
-                if (SystemClock.uptimeMillis() - this.ikP > ikK) {
+                if (SystemClock.uptimeMillis() - this.ikQ > ikL) {
                     bUY();
                 }
             } finally {
-                this.ikQ.unlock();
+                this.ikR.unlock();
             }
         }
     }
 
     @GuardedBy("lock")
     private void bUY() {
-        this.ikL = a(this.ikL, this.ikM);
-        this.ikN = a(this.ikN, this.ikO);
-        this.ikP = SystemClock.uptimeMillis();
+        this.ikM = a(this.ikM, this.ikN);
+        this.ikO = a(this.ikO, this.ikP);
+        this.ikQ = SystemClock.uptimeMillis();
     }
 
     private StatFs a(@Nullable StatFs statFs, @Nullable File file) {

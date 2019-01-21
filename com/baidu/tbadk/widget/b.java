@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.e;
 /* loaded from: classes.dex */
 public class b {
-    protected final Paint bln = new Paint();
     protected final Paint blo = new Paint();
-    private int blp;
+    protected final Paint blp = new Paint();
     private int blq;
     private int blr;
     private int bls;
     private int blt;
     private int blu;
     private int blv;
+    private int blw;
     protected final View view;
 
     private Context getContext() {
@@ -27,26 +27,26 @@ public class b {
     }
 
     public b(View view) {
-        this.blp = 16;
         this.blq = 16;
-        this.blr = -1;
-        this.bls = 1711276032;
-        this.blt = 20;
-        this.blu = 16;
-        this.blv = 32;
+        this.blr = 16;
+        this.bls = -1;
+        this.blt = 1711276032;
+        this.blu = 20;
+        this.blv = 16;
+        this.blw = 32;
         this.view = view;
-        this.bls = getContext().getResources().getColor(e.d.black_alpha40);
+        this.blt = getContext().getResources().getColor(e.d.black_alpha40);
+        this.blp.setColor(this.blt);
+        this.blp.setAntiAlias(true);
+        this.blu = (int) getContext().getResources().getDimension(e.C0210e.tbfontsize26);
+        this.bls = getContext().getResources().getColor(e.d.cp_cont_i);
         this.blo.setColor(this.bls);
+        this.blo.setTextSize(this.blu);
         this.blo.setAntiAlias(true);
-        this.blt = (int) getContext().getResources().getDimension(e.C0210e.tbfontsize26);
-        this.blr = getContext().getResources().getColor(e.d.cp_cont_i);
-        this.bln.setColor(this.blr);
-        this.bln.setTextSize(this.blt);
-        this.bln.setAntiAlias(true);
-        this.blp = l.h(getContext(), e.C0210e.tbds20);
         this.blq = l.h(getContext(), e.C0210e.tbds20);
-        this.blu = l.h(getContext(), e.C0210e.ds16);
-        this.blv = l.h(getContext(), e.C0210e.tbds40);
+        this.blr = l.h(getContext(), e.C0210e.tbds20);
+        this.blv = l.h(getContext(), e.C0210e.ds16);
+        this.blw = l.h(getContext(), e.C0210e.tbds40);
     }
 
     public void c(Canvas canvas, String str) {
@@ -60,14 +60,14 @@ public class b {
             int right = this.view.getRight();
             int top = this.view.getTop();
             int bottom = this.view.getBottom();
-            float measureText = this.bln.measureText(str);
-            float f = this.blv + measureText;
-            float f2 = this.blt + this.blu;
-            canvas.translate((((right - left) - paddingRight) - f) - this.blq, (((bottom - top) - paddingBottom) - f2) - this.blp);
+            float measureText = this.blo.measureText(str);
+            float f = this.blw + measureText;
+            float f2 = this.blu + this.blv;
+            canvas.translate((((right - left) - paddingRight) - f) - this.blr, (((bottom - top) - paddingBottom) - f2) - this.blq);
             RectF rectF = new RectF(0.0f, 0.0f, f, f2);
-            canvas.drawRoundRect(rectF, rectF.height() / 2.0f, rectF.height() / 2.0f, this.blo);
-            Paint.FontMetrics fontMetrics = this.bln.getFontMetrics();
-            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.bln);
+            canvas.drawRoundRect(rectF, rectF.height() / 2.0f, rectF.height() / 2.0f, this.blp);
+            Paint.FontMetrics fontMetrics = this.blo.getFontMetrics();
+            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.blo);
             canvas.restoreToCount(save);
         }
     }
@@ -79,33 +79,33 @@ public class b {
     }
 
     public void setTagPaddingDis(int i, int i2) {
-        this.blq = i;
-        this.blp = i2;
+        this.blr = i;
+        this.blq = i2;
         invalidate();
     }
 
     public void gs(int i) {
-        this.blr = i;
-        this.bln.setColor(i);
+        this.bls = i;
+        this.blo.setColor(i);
         invalidate();
     }
 
     public void setTagTextSize(int i) {
-        this.blt = i;
-        this.bln.setTextSize(i);
+        this.blu = i;
+        this.blo.setTextSize(i);
         invalidate();
     }
 
     public float jk(String str) {
-        return l.b(this.bln, str).height() + this.blu;
+        return l.b(this.blo, str).height() + this.blv;
     }
 
     public float jl(String str) {
-        return l.a(this.bln, str) + this.blv;
+        return l.a(this.blo, str) + this.blw;
     }
 
     public void O(int i, int i2) {
-        this.blv = i;
-        this.blu = i2;
+        this.blw = i;
+        this.blv = i2;
     }
 }

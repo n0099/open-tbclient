@@ -5,70 +5,70 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 public class f {
-    private static final f iSb = new f();
-    static final b iSg = new b() { // from class: rx.c.f.1
+    private static final f iSc = new f();
+    static final b iSh = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> iSc = new AtomicReference<>();
-    private final AtomicReference<d> iSd = new AtomicReference<>();
-    private final AtomicReference<h> iSe = new AtomicReference<>();
-    private final AtomicReference<a> iSf = new AtomicReference<>();
-    private final AtomicReference<g> iFz = new AtomicReference<>();
+    private final AtomicReference<b> iSd = new AtomicReference<>();
+    private final AtomicReference<d> iSe = new AtomicReference<>();
+    private final AtomicReference<h> iSf = new AtomicReference<>();
+    private final AtomicReference<a> iSg = new AtomicReference<>();
+    private final AtomicReference<g> iFA = new AtomicReference<>();
 
     @Deprecated
     public static f cgp() {
-        return iSb;
+        return iSc;
     }
 
     f() {
     }
 
     public b cgq() {
-        if (this.iSc.get() == null) {
+        if (this.iSd.get() == null) {
             Object a = a(b.class, System.getProperties());
             if (a == null) {
-                this.iSc.compareAndSet(null, iSg);
+                this.iSd.compareAndSet(null, iSh);
             } else {
-                this.iSc.compareAndSet(null, (b) a);
-            }
-        }
-        return this.iSc.get();
-    }
-
-    public d cgr() {
-        if (this.iSd.get() == null) {
-            Object a = a(d.class, System.getProperties());
-            if (a == null) {
-                this.iSd.compareAndSet(null, e.cgo());
-            } else {
-                this.iSd.compareAndSet(null, (d) a);
+                this.iSd.compareAndSet(null, (b) a);
             }
         }
         return this.iSd.get();
     }
 
-    public h cgs() {
+    public d cgr() {
         if (this.iSe.get() == null) {
-            Object a = a(h.class, System.getProperties());
+            Object a = a(d.class, System.getProperties());
             if (a == null) {
-                this.iSe.compareAndSet(null, i.cgC());
+                this.iSe.compareAndSet(null, e.cgo());
             } else {
-                this.iSe.compareAndSet(null, (h) a);
+                this.iSe.compareAndSet(null, (d) a);
             }
         }
         return this.iSe.get();
     }
 
-    public a cgt() {
+    public h cgs() {
         if (this.iSf.get() == null) {
-            Object a = a(a.class, System.getProperties());
+            Object a = a(h.class, System.getProperties());
             if (a == null) {
-                this.iSf.compareAndSet(null, new a() { // from class: rx.c.f.2
-                });
+                this.iSf.compareAndSet(null, i.cgC());
             } else {
-                this.iSf.compareAndSet(null, (a) a);
+                this.iSf.compareAndSet(null, (h) a);
             }
         }
         return this.iSf.get();
+    }
+
+    public a cgt() {
+        if (this.iSg.get() == null) {
+            Object a = a(a.class, System.getProperties());
+            if (a == null) {
+                this.iSg.compareAndSet(null, new a() { // from class: rx.c.f.2
+                });
+            } else {
+                this.iSg.compareAndSet(null, (a) a);
+            }
+        }
+        return this.iSg.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -114,14 +114,14 @@ public class f {
     }
 
     public g cgu() {
-        if (this.iFz.get() == null) {
+        if (this.iFA.get() == null) {
             Object a = a(g.class, System.getProperties());
             if (a == null) {
-                this.iFz.compareAndSet(null, g.cgB());
+                this.iFA.compareAndSet(null, g.cgB());
             } else {
-                this.iFz.compareAndSet(null, (g) a);
+                this.iFA.compareAndSet(null, (g) a);
             }
         }
-        return this.iFz.get();
+        return this.iFA.get();
     }
 }

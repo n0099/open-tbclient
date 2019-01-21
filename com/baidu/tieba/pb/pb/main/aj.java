@@ -9,17 +9,17 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tbadkCore.data.PostData;
 /* loaded from: classes6.dex */
 public class aj {
-    private boolean gbT;
-    private boolean gbV;
-    private com.baidu.tieba.pb.data.d gcj;
-    private String geT;
-    private boolean geU;
+    private boolean gbU;
+    private boolean gbW;
+    private com.baidu.tieba.pb.data.d gck;
+    private String geU;
     private boolean geV;
-    private Parcelable geW;
-    private boolean geX;
-    private PostData geY;
+    private boolean geW;
+    private Parcelable geX;
+    private boolean geY;
     private PostData geZ;
-    private int gfa;
+    private PostData gfa;
+    private int gfb;
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2005016) { // from class: com.baidu.tieba.pb.pb.main.aj.1
@@ -64,106 +64,106 @@ public class aj {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes6.dex */
     public static class a {
-        private static aj gfb = new aj();
+        private static aj gfc = new aj();
     }
 
     public static aj blF() {
-        return a.gfb;
+        return a.gfc;
     }
 
     private aj() {
-        this.geT = null;
-        this.geU = false;
-        this.gcj = null;
+        this.geU = null;
         this.geV = false;
-        this.geW = null;
-        this.gbV = true;
-        this.gbT = false;
-        this.geX = false;
+        this.gck = null;
+        this.geW = false;
+        this.geX = null;
+        this.gbW = true;
+        this.gbU = false;
+        this.geY = false;
     }
 
     public void U(String str, boolean z) {
-        this.geU = false;
+        this.geV = false;
         if (z) {
             str = null;
         }
         if (str == null || str.length() < 1) {
             reset();
-            this.geT = null;
-        } else if (!str.equals(this.geT)) {
+            this.geU = null;
+        } else if (!str.equals(this.geU)) {
             reset();
-            this.geT = str;
+            this.geU = str;
         } else {
-            this.geU = true;
+            this.geV = true;
         }
     }
 
     public com.baidu.tieba.pb.data.d getPbData() {
-        if (!this.geU) {
-            this.geV = false;
+        if (!this.geV) {
+            this.geW = false;
             return null;
-        } else if (this.gcj != null && this.gcj.bhB() != null && this.gcj.bhB().size() > 0) {
-            this.geV = true;
-            com.baidu.tieba.pb.data.d dVar = this.gcj;
-            this.gcj = null;
+        } else if (this.gck != null && this.gck.bhB() != null && this.gck.bhB().size() > 0) {
+            this.geW = true;
+            com.baidu.tieba.pb.data.d dVar = this.gck;
+            this.gck = null;
             return dVar;
         } else {
-            this.geV = false;
-            this.gcj = null;
+            this.geW = false;
+            this.gck = null;
             return null;
         }
     }
 
     public Parcelable blG() {
-        if (this.geV) {
-            this.geV = false;
-            Parcelable parcelable = this.geW;
-            this.geW = null;
+        if (this.geW) {
+            this.geW = false;
+            Parcelable parcelable = this.geX;
+            this.geX = null;
             return parcelable;
         }
-        this.geW = null;
+        this.geX = null;
         return null;
     }
 
     public int blH() {
-        return this.gfa;
+        return this.gfb;
     }
 
     public void sN(int i) {
-        this.gfa = i;
+        this.gfb = i;
     }
 
     public PostData blI() {
-        return this.geZ;
+        return this.gfa;
     }
 
     public void k(PostData postData) {
-        this.geZ = postData;
+        this.gfa = postData;
     }
 
     public PostData blJ() {
-        return this.geY;
+        return this.geZ;
     }
 
     public void l(PostData postData) {
-        this.geY = postData;
+        this.geZ = postData;
     }
 
     public boolean bku() {
-        return this.gbV;
+        return this.gbW;
     }
 
     public boolean blK() {
-        return this.gbT;
+        return this.gbU;
     }
 
     public boolean blL() {
-        return this.geX;
+        return this.geY;
     }
 
     public boolean a(com.baidu.tieba.pb.data.d dVar, Parcelable parcelable, boolean z, boolean z2, boolean z3) {
-        this.geU = false;
-        if (this.geT == null) {
+        this.geV = false;
+        if (this.geU == null) {
             reset();
             return false;
         } else if (dVar == null) {
@@ -179,41 +179,41 @@ public class aj {
             reset();
             return false;
         } else {
-            this.gcj = dVar;
-            this.geV = false;
-            this.geW = parcelable;
-            this.gbV = z;
-            this.gbT = z2;
-            this.geX = z3;
+            this.gck = dVar;
+            this.geW = false;
+            this.geX = parcelable;
+            this.gbW = z;
+            this.gbU = z2;
+            this.geY = z3;
             return true;
         }
     }
 
     public void reset() {
-        this.geU = false;
-        this.gcj = null;
         this.geV = false;
-        this.geW = null;
+        this.gck = null;
+        this.geW = false;
+        this.geX = null;
     }
 
     public void a(int i, CustomResponsedMessage<?> customResponsedMessage) {
-        if (customResponsedMessage != null && this.gcj != null && this.gcj.bhx() != null) {
+        if (customResponsedMessage != null && this.gck != null && this.gck.bhx() != null) {
             Object data = customResponsedMessage.getData();
-            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.g.b.d(this.gcj.bhx().getId(), 0L)) {
-                this.gcj.bhx().setLike(i);
+            if ((data instanceof Long) && ((Long) data).longValue() == com.baidu.adp.lib.g.b.d(this.gck.bhx().getId(), 0L)) {
+                this.gck.bhx().setLike(i);
             }
         }
     }
 
     public void a(com.baidu.tbadk.data.l lVar) {
-        if (lVar != null && this.gcj != null && this.gcj.bhB() != null && this.gcj.bhB().size() > 0) {
+        if (lVar != null && this.gck != null && this.gck.bhB() != null && this.gck.bhB().size() > 0) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (!StringUtils.isNull(currentAccount)) {
-                int size = this.gcj.bhB().size();
+                int size = this.gck.bhB().size();
                 for (int i = 0; i < size; i++) {
-                    if (this.gcj.bhB().get(i) != null && this.gcj.bhB().get(i).zT() != null && currentAccount.equals(this.gcj.bhB().get(i).zT().getUserId()) && this.gcj.bhB().get(i).zT().getPendantData() != null) {
-                        this.gcj.bhB().get(i).zT().getPendantData().es(lVar.yF());
-                        this.gcj.bhB().get(i).zT().getPendantData().ap(lVar.LW());
+                    if (this.gck.bhB().get(i) != null && this.gck.bhB().get(i).zT() != null && currentAccount.equals(this.gck.bhB().get(i).zT().getUserId()) && this.gck.bhB().get(i).zT().getPendantData() != null) {
+                        this.gck.bhB().get(i).zT().getPendantData().es(lVar.yF());
+                        this.gck.bhB().get(i).zT().getPendantData().ap(lVar.LW());
                     }
                 }
             }

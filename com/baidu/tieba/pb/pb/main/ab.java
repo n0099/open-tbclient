@@ -1,15 +1,14 @@
 package com.baidu.tieba.pb.pb.main;
 /* loaded from: classes6.dex */
 public class ab {
-    public String geb;
-    public boolean gec;
+    public String gec;
     public boolean ged;
-    public boolean gdN = false;
+    public boolean gee;
     public boolean gdO = false;
-    public boolean fUH = false;
     public boolean gdP = false;
-    public boolean qZ = false;
+    public boolean fUI = false;
     public boolean gdQ = false;
+    public boolean qZ = false;
     public boolean gdR = false;
     public boolean gdS = false;
     public boolean gdT = false;
@@ -20,5 +19,6 @@ public class ab {
     public boolean gdY = false;
     public boolean gdZ = false;
     public boolean gea = false;
+    public boolean geb = false;
     public boolean isHostOnly = false;
 }

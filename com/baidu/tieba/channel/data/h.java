@@ -8,15 +8,15 @@ import org.json.JSONObject;
 import tbclient.ChannelVideoInfo;
 /* loaded from: classes3.dex */
 public class h implements com.baidu.adp.widget.ListView.h {
-    private int bsr;
+    private int bss;
     private long createTime;
-    private int der;
-    private long det;
-    private int deu;
+    private int det;
+    private long deu;
     private int dev;
     private int dew;
-    private String dex;
-    private int dey;
+    private int dex;
+    private String dey;
+    private int dez;
     private int forumId;
     private String forumName;
     private BdUniqueId mType;
@@ -57,11 +57,11 @@ public class h implements com.baidu.adp.widget.ListView.h {
     }
 
     public int arH() {
-        return this.bsr;
+        return this.bss;
     }
 
     public void kY(int i) {
-        this.bsr = i;
+        this.bss = i;
     }
 
     public void setVideoUrl(String str) {
@@ -85,11 +85,11 @@ public class h implements com.baidu.adp.widget.ListView.h {
     }
 
     public void kZ(int i) {
-        this.der = i;
+        this.det = i;
     }
 
     public void bD(long j) {
-        this.det = j;
+        this.deu = j;
     }
 
     public String getThumbnailUrl() {
@@ -101,19 +101,19 @@ public class h implements com.baidu.adp.widget.ListView.h {
     }
 
     public void la(int i) {
-        this.deu = i;
-    }
-
-    public void lb(int i) {
         this.dev = i;
     }
 
+    public void lb(int i) {
+        this.dew = i;
+    }
+
     public boolean Au() {
-        return this.dew == 1;
+        return this.dex == 1;
     }
 
     public void lc(int i) {
-        this.dew = i;
+        this.dex = i;
     }
 
     public long getCreateTime() {
@@ -125,7 +125,7 @@ public class h implements com.baidu.adp.widget.ListView.h {
     }
 
     public int arI() {
-        return this.dey;
+        return this.dez;
     }
 
     public void setType(BdUniqueId bdUniqueId) {
@@ -134,7 +134,7 @@ public class h implements com.baidu.adp.widget.ListView.h {
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        return this.mType == null ? a.C0208a.dee : this.mType;
+        return this.mType == null ? a.C0208a.def : this.mType;
     }
 
     public static ChannelHomeVideoList<h> bd(List<ChannelVideoInfo> list) {
@@ -181,17 +181,17 @@ public class h implements com.baidu.adp.widget.ListView.h {
         this.forumName = jSONObject.optString("forum_name");
         this.createTime = jSONObject.optLong("create_time");
         this.title = jSONObject.optString("title");
-        this.dex = jSONObject.optString("play_time");
-        this.bsr = jSONObject.optInt("play_count");
+        this.dey = jSONObject.optString("play_time");
+        this.bss = jSONObject.optInt("play_count");
         this.videoUrl = jSONObject.optString(WebVideoActivityConfig.KEY_VIDEO_URL);
         this.videoDuration = jSONObject.optInt(WebVideoActivityConfig.KEY_VIDEO_DURATION);
         this.videoWidth = jSONObject.optInt("video_width");
         this.videoHeight = jSONObject.optInt("video_height");
-        this.der = jSONObject.optInt("video_length");
-        this.det = jSONObject.optInt("video_type");
+        this.det = jSONObject.optInt("video_length");
+        this.deu = jSONObject.optInt("video_type");
         this.thumbnailUrl = jSONObject.optString("thumbnail_url");
-        this.deu = jSONObject.optInt("thumbnail_width");
-        this.dev = jSONObject.optInt("thumbnail_height");
-        this.dey = jSONObject.optInt("already_add");
+        this.dev = jSONObject.optInt("thumbnail_width");
+        this.dew = jSONObject.optInt("thumbnail_height");
+        this.dez = jSONObject.optInt("already_add");
     }
 }

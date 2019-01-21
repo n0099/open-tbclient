@@ -25,21 +25,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class c {
-    private static com.baidu.poly.a bKu = null;
-    private static volatile c bKv;
+    private static com.baidu.poly.a bKv = null;
+    private static volatile c bKw;
     private Context mContext;
 
     public static synchronized c cl(Context context) {
         c cVar;
         synchronized (c.class) {
-            if (bKv == null) {
+            if (bKw == null) {
                 synchronized (c.class) {
-                    if (bKv == null) {
-                        bKv = new c(context.getApplicationContext());
+                    if (bKw == null) {
+                        bKw = new c(context.getApplicationContext());
                     }
                 }
             }
-            cVar = bKv;
+            cVar = bKw;
         }
         return cVar;
     }
@@ -195,15 +195,15 @@ public final class c {
     }
 
     private static com.baidu.poly.a F(Activity activity) {
-        if (bKu != null) {
-            return bKu;
+        if (bKv != null) {
+            return bKv;
         }
-        bKu = new a.C0110a().a(new com.baidu.poly.d.b.a(activity)).bK(a.b.ONLINE).bn(activity);
-        return bKu;
+        bKv = new a.C0110a().a(new com.baidu.poly.d.b.a(activity)).bK(a.b.ONLINE).bn(activity);
+        return bKv;
     }
 
     public static com.baidu.poly.a Zt() {
-        return bKu;
+        return bKv;
     }
 
     public boolean isWxAppInstalledAndSupported(Context context) {

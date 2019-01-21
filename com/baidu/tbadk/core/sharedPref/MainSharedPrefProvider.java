@@ -85,9 +85,9 @@ public class MainSharedPrefProvider extends ContentProvider {
         if (str == null || str.length() == 0) {
             return false;
         }
-        int length = a.azJ.length;
+        int length = a.azK.length;
         for (int i = 0; i < length; i++) {
-            if (a.azJ[i].equals(str)) {
+            if (a.azK[i].equals(str)) {
                 return true;
             }
         }

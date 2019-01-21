@@ -23,15 +23,15 @@ import java.net.URLDecoder;
 class f implements Runnable {
     private static final String TAG = f.class.getSimpleName();
     private Socket Hn;
-    private byte[] bAy;
-    private h bAz;
+    private h bAA;
+    private byte[] bAz;
     private Context mContext;
 
     public f(Context context) {
-        this.bAy = null;
+        this.bAz = null;
         this.mContext = context;
         try {
-            this.bAy = new byte[1048576];
+            this.bAz = new byte[1048576];
         } catch (OutOfMemoryError e) {
             e.printStackTrace();
         }
@@ -42,22 +42,22 @@ class f implements Runnable {
     }
 
     public void a(h hVar) {
-        this.bAz = hVar;
+        this.bAA = hVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         j.log(TAG, "test run in " + this);
-        if (this.bAz == null) {
+        if (this.bAA == null) {
             j.log(TAG, "test run out 1" + this);
             return;
         }
         try {
-            b(this.bAz);
-            if (this.bAz.VK().contains("/video_cache/pre_load?origin_url=")) {
-                a(this.bAz, this.Hn, true);
+            b(this.bAA);
+            if (this.bAA.VK().contains("/video_cache/pre_load?origin_url=")) {
+                a(this.bAA, this.Hn, true);
             } else {
-                a(this.bAz, this.Hn, false);
+                a(this.bAA, this.Hn, false);
             }
             c(this.Hn);
         } catch (Exception e) {
@@ -167,7 +167,7 @@ class f implements Runnable {
         if (jP == null || jP.isEmpty()) {
             return 0;
         }
-        File file = new File(i.bAK + jP);
+        File file = new File(i.bAL + jP);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -357,11 +357,11 @@ class f implements Runnable {
                         e.VH().v(cVar);
                     }
                     cVar.d(hVar.VN(), hVar.VO());
-                    if (this.bAy != null) {
+                    if (this.bAz != null) {
                         while (cVar.canRead()) {
-                            int read = cVar.read(this.bAy, 1048576);
+                            int read = cVar.read(this.bAz, 1048576);
                             if (read > 0) {
-                                printStream.write(this.bAy, 0, read);
+                                printStream.write(this.bAz, 0, read);
                                 if (printStream.checkError()) {
                                     break;
                                 }

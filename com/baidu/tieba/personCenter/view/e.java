@@ -36,14 +36,14 @@ import com.baidu.tieba.personCenter.data.h;
 import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes5.dex */
 public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.f> {
-    private TextView bQR;
-    private View euT;
+    private TextView bQS;
+    private View euU;
     private TextView gwA;
-    private com.baidu.tieba.personCenter.data.f gwB;
-    private ImageView gwi;
-    private ImageView gwx;
+    private TextView gwB;
+    private com.baidu.tieba.personCenter.data.f gwC;
+    private ImageView gwj;
     private ImageView gwy;
-    private TextView gwz;
+    private ImageView gwz;
     private int mSkinType;
     private UserData mUserData;
 
@@ -51,27 +51,27 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.gwx = (ImageView) view.findViewById(e.g.function_icon);
-        this.gwy = (ImageView) view.findViewById(e.g.function_right_arrow);
-        this.bQR = (TextView) view.findViewById(e.g.function_title);
-        this.euT = view.findViewById(e.g.function_item_bottom_divider);
-        this.gwi = (ImageView) view.findViewById(e.g.function_red_tip);
-        this.gwz = (TextView) view.findViewById(e.g.function_desc);
-        this.gwA = (TextView) view.findViewById(e.g.tbean_num);
+        this.gwy = (ImageView) view.findViewById(e.g.function_icon);
+        this.gwz = (ImageView) view.findViewById(e.g.function_right_arrow);
+        this.bQS = (TextView) view.findViewById(e.g.function_title);
+        this.euU = view.findViewById(e.g.function_item_bottom_divider);
+        this.gwj = (ImageView) view.findViewById(e.g.function_red_tip);
+        this.gwA = (TextView) view.findViewById(e.g.function_desc);
+        this.gwB = (TextView) view.findViewById(e.g.tbean_num);
         view.setOnClickListener(this);
-        this.gwA.setOnClickListener(this);
+        this.gwB.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            this.gwy.setImageDrawable(al.y(i, e.f.icon_arrow_gray_right_n));
-            al.h(this.bQR, e.d.cp_cont_b);
-            al.j(this.euT, e.d.cp_bg_line_e);
+            this.gwz.setImageDrawable(al.y(i, e.f.icon_arrow_gray_right_n));
+            al.h(this.bQS, e.d.cp_cont_b);
+            al.j(this.euU, e.d.cp_bg_line_e);
             al.i(getView(), e.f.person_center_action_item_selector);
-            this.gwi.setImageDrawable(al.y(i, e.f.person_center_red_tip_shape));
-            al.h(this.gwz, e.d.cp_cont_d);
-            al.h(this.gwA, e.d.cp_cont_b);
+            this.gwj.setImageDrawable(al.y(i, e.f.person_center_red_tip_shape));
+            al.h(this.gwA, e.d.cp_cont_d);
+            al.h(this.gwB, e.d.cp_cont_b);
             this.mSkinType = i;
         }
     }
@@ -85,69 +85,69 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.personCenter.data.f fVar) {
         if (fVar != null) {
-            this.gwB = fVar;
-            this.mUserData = fVar.fTJ;
-            this.bQR.setText(fVar.title);
+            this.gwC = fVar;
+            this.mUserData = fVar.fTK;
+            this.bQS.setText(fVar.title);
             if (fVar.iconId != 0) {
-                this.gwx.setVisibility(0);
-                this.gwx.setImageDrawable(al.y(TbadkCoreApplication.getInst().getSkinType(), fVar.iconId));
+                this.gwy.setVisibility(0);
+                this.gwy.setImageDrawable(al.y(TbadkCoreApplication.getInst().getSkinType(), fVar.iconId));
             } else {
-                this.gwx.setVisibility(8);
+                this.gwy.setVisibility(8);
             }
             b(fVar);
-            a(fVar.gvN);
+            a(fVar.gvO);
             d(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     private void b(com.baidu.tieba.personCenter.data.f fVar) {
         LinearLayout.LayoutParams layoutParams;
-        if (this.euT.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            layoutParams = (LinearLayout.LayoutParams) this.euT.getLayoutParams();
+        if (this.euU.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            layoutParams = (LinearLayout.LayoutParams) this.euU.getLayoutParams();
         } else {
             layoutParams = new LinearLayout.LayoutParams(-1, -2);
         }
-        if (fVar.gvM) {
+        if (fVar.gvN) {
             layoutParams.height = (int) getContext().getResources().getDimension(e.C0210e.ds12);
         } else {
             layoutParams.height = (int) getContext().getResources().getDimension(e.C0210e.ds1);
         }
-        this.euT.setLayoutParams(layoutParams);
+        this.euU.setLayoutParams(layoutParams);
     }
 
     private void a(h hVar) {
         if (hVar != null) {
-            if (hVar.gvR) {
-                this.gwi.setVisibility(0);
-            } else {
-                this.gwi.setVisibility(8);
-            }
-            if (!StringUtils.isNull(hVar.gvU)) {
-                this.gwz.setVisibility(0);
-                this.gwz.setText(hVar.gvU);
-            } else {
-                this.gwz.setVisibility(8);
-            }
             if (hVar.gvS) {
+                this.gwj.setVisibility(0);
+            } else {
+                this.gwj.setVisibility(8);
+            }
+            if (!StringUtils.isNull(hVar.gvV)) {
                 this.gwA.setVisibility(0);
-                this.gwA.setText(ao.ad(hVar.gvT));
-                this.gwA.setCompoundDrawablesWithIntrinsicBounds(this.mContext.getResources().getDrawable(e.f.icon_huobi_tdou), (Drawable) null, (Drawable) null, (Drawable) null);
+                this.gwA.setText(hVar.gvV);
+            } else {
+                this.gwA.setVisibility(8);
+            }
+            if (hVar.gvT) {
+                this.gwB.setVisibility(0);
+                this.gwB.setText(ao.ad(hVar.gvU));
+                this.gwB.setCompoundDrawablesWithIntrinsicBounds(this.mContext.getResources().getDrawable(e.f.icon_huobi_tdou), (Drawable) null, (Drawable) null, (Drawable) null);
                 return;
             }
-            this.gwA.setVisibility(8);
+            this.gwB.setVisibility(8);
             return;
         }
-        this.gwi.setVisibility(8);
-        this.gwz.setVisibility(8);
+        this.gwj.setVisibility(8);
         this.gwA.setVisibility(8);
+        this.gwB.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != null) {
             if (view.getId() == getView().getId()) {
-                if (this.gwB.type == 36 && "游戏".equals(this.gwB.title) && this.cVF != null) {
-                    this.cVF.a(view, this.gwB);
+                if (this.gwC.type == 36 && "游戏".equals(this.gwC.title) && this.cVG != null) {
+                    this.cVG.a(view, this.gwC);
                     return;
                 } else {
                     bqe();
@@ -159,7 +159,7 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
     }
 
     private void bqe() {
-        switch (this.gwB.type) {
+        switch (this.gwC.type) {
             case 10:
                 com.baidu.tieba.o.a.bxf().c(1, false, true);
                 TiebaStatic.log(new am("c12523").y("obj_locate", 13));
@@ -170,8 +170,8 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
                 return;
             case 11:
                 TiebaStatic.log(new am("c12523").y("obj_locate", 16));
-                if (!StringUtils.isNull(this.gwB.aoW)) {
-                    ay.Es().c(this.mTbPageContext, new String[]{this.gwB.aoW});
+                if (!StringUtils.isNull(this.gwC.aoX)) {
+                    ay.Es().c(this.mTbPageContext, new String[]{this.gwC.aoX});
                     return;
                 }
                 return;
@@ -241,19 +241,19 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
                 return;
             case 33:
                 TiebaStatic.log(new am("c12523").y("obj_locate", 21));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonMoreActivityConfig(this.mTbPageContext.getPageActivity(), this.gwB.gvO)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonMoreActivityConfig(this.mTbPageContext.getPageActivity(), this.gwC.gvP)));
                 return;
             case 36:
-                TiebaStatic.log(new am("c12524").y("obj_locate", this.gwB.itemId));
-                tR(this.gwB.aoW);
+                TiebaStatic.log(new am("c12524").y("obj_locate", this.gwC.itemId));
+                tR(this.gwC.aoX);
                 return;
             case 37:
                 TiebaStatic.log(new am("c12523").y("obj_locate", 24));
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("key_has_borrow_cash_clicked", true);
-                if (this.gwB.gvN != null) {
-                    this.gwB.gvN.gvR = false;
+                if (this.gwC.gvO != null) {
+                    this.gwC.gvO.gvS = false;
                 }
-                this.gwi.setVisibility(8);
+                this.gwj.setVisibility(8);
                 if (TbadkCoreApplication.getInst().appResponseToCmd(2001447)) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2001447, "https://icash.baidu.com/cloan/index?na=postbarapp&CH=postbarapp&fr=solely_bdbar_and&hideShare=1"));
                     return;
@@ -280,10 +280,10 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
             case 41:
                 TiebaStatic.log(new am("c12523").y("obj_locate", 25));
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("key_baidu_financial_has_clicked", true);
-                if (this.gwB.gvN != null) {
-                    this.gwB.gvN.gvR = false;
+                if (this.gwC.gvO != null) {
+                    this.gwC.gvO.gvS = false;
                 }
-                this.gwi.setVisibility(8);
+                this.gwj.setVisibility(8);
                 if (TbadkCoreApplication.getInst().appResponseToCmd(2001451)) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2001451));
                     return;
@@ -293,17 +293,17 @@ public class e extends com.baidu.tieba.card.a<com.baidu.tieba.personCenter.data.
                 }
             case 42:
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("key_has_my_redpacket_clicked", true);
-                if (this.gwB.gvN != null) {
-                    this.gwB.gvN.gvR = false;
+                if (this.gwC.gvO != null) {
+                    this.gwC.gvO.gvS = false;
                 }
-                this.gwi.setVisibility(8);
+                this.gwj.setVisibility(8);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MyRedPacketActivityConfig(this.mTbPageContext.getPageActivity())));
                 return;
         }
     }
 
     private void bM(View view) {
-        if (view == this.gwA) {
+        if (view == this.gwB) {
             BuyTBeanActivityConfig buyTBeanActivityConfig = new BuyTBeanActivityConfig(this.mTbPageContext.getPageActivity(), 0L);
             buyTBeanActivityConfig.setReferPageAndClickZone("personal_center_V8.9", "T_recharge_V8.9");
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, buyTBeanActivityConfig));

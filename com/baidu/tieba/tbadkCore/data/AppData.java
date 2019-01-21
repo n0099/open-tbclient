@@ -204,7 +204,7 @@ public class AppData extends OrmObject {
             if (this.legoCard.getCardType() == 12) {
                 return 12;
             }
-            if (!bb.atV.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
+            if (!bb.atW.get() || !TbadkCoreApplication.getInst().isRecAppExist()) {
                 return 31;
             }
             if (this.url_type == 3) {

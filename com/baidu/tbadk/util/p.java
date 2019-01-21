@@ -25,8 +25,8 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class p {
-    private static String bjp = "native_crash_log.log";
-    private static List<String> bjq = new ArrayList();
+    private static String bjq = "native_crash_log.log";
+    private static List<String> bjr = new ArrayList();
     private static BroadcastReceiver JW = new BroadcastReceiver() { // from class: com.baidu.tbadk.util.p.1
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
@@ -38,7 +38,7 @@ public class p {
             }
         }
     };
-    private static BdNativeCrash.NativeCrashCallback bjr = new BdNativeCrash.NativeCrashCallback() { // from class: com.baidu.tbadk.util.p.2
+    private static BdNativeCrash.NativeCrashCallback bjs = new BdNativeCrash.NativeCrashCallback() { // from class: com.baidu.tbadk.util.p.2
         @Override // com.baidu.adp.lib.crash.BdNativeCrash.NativeCrashCallback
         public void onNativeCrashed(int i, int i2, int i3, String str, String str2) {
             aa aaVar = new aa();
@@ -51,16 +51,16 @@ public class p {
         @Override // com.baidu.adp.lib.crash.BdNativeCrash.NativeCrashCallback
         public boolean onSoFound(String str) {
             try {
-                if (p.bjq.indexOf(str) >= 0) {
+                if (p.bjr.indexOf(str) >= 0) {
                     return false;
                 }
                 if (!p.iX(str) && !p.iY(str) && !p.aN(str, TbadkCoreApplication.getInst().getApp().getApplicationInfo().sourceDir)) {
-                    p.bjq.add(str);
+                    p.bjr.add(str);
                     return false;
                 }
                 return true;
             } catch (Throwable th) {
-                p.bjq.add(str);
+                p.bjr.add(str);
                 return false;
             }
         }
@@ -69,7 +69,7 @@ public class p {
     public static void Qr() {
         if (BdNativeCrash.mbLibLoaded) {
             BdNativeCrash.getInstance().initCrash(TbConfig.getTempDirName(), TbConfig.FATAL_ERROR_NATIVE_DIR);
-            BdNativeCrash.getInstance().setCrashCallback(bjr);
+            BdNativeCrash.getInstance().setCrashCallback(bjs);
             Qs();
         }
     }
@@ -88,7 +88,7 @@ public class p {
             }
             try {
                 int Ec = ao.Ec();
-                byte[] bn = com.baidu.adp.lib.util.f.bn(bjp);
+                byte[] bn = com.baidu.adp.lib.util.f.bn(bjq);
                 String str2 = null;
                 if (bn != null) {
                     str2 = new String(bn);
@@ -119,7 +119,7 @@ public class p {
                     com.baidu.adp.plugin.b.a.mN().bP("native_crash_count_overrun");
                     return;
                 }
-                com.baidu.adp.lib.util.f.e(bjp, ((i3 + 1) + ":" + Ec).getBytes());
+                com.baidu.adp.lib.util.f.e(bjq, ((i3 + 1) + ":" + Ec).getBytes());
             } catch (Throwable th2) {
             }
         }

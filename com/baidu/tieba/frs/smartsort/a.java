@@ -12,22 +12,22 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
-    private static volatile a eeF;
-    private boolean eeD = false;
-    private final HashMap<String, ArrayList<d>> eeE = new HashMap<>();
+    private static volatile a eeG;
+    private boolean eeE = false;
+    private final HashMap<String, ArrayList<d>> eeF = new HashMap<>();
 
     private a() {
     }
 
     public static a aHN() {
-        if (eeF == null) {
+        if (eeG == null) {
             synchronized (a.class) {
-                if (eeF == null) {
-                    eeF = new a();
+                if (eeG == null) {
+                    eeG = new a();
                 }
             }
         }
-        return eeF;
+        return eeG;
     }
 
     public String aHO() {
@@ -43,7 +43,7 @@ public class a {
     public synchronized void o(String str, long j) {
         if (!TextUtils.isEmpty(str)) {
             String aHO = aHO();
-            ArrayList<d> arrayList = this.eeE.get(aHO);
+            ArrayList<d> arrayList = this.eeF.get(aHO);
             ArrayList<d> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
             d pb = pb(str);
             boolean z = false;
@@ -80,8 +80,8 @@ public class a {
                 }
             }
             if (!v.I(arrayList2)) {
-                this.eeE.put(str, arrayList2);
-                if (!this.eeD) {
+                this.eeF.put(str, arrayList2);
+                if (!this.eeE) {
                     aHP();
                 } else {
                     pc(jSONArray.toString());
@@ -93,7 +93,7 @@ public class a {
     private synchronized d pb(String str) {
         d dVar;
         if (!TextUtils.isEmpty(str)) {
-            ArrayList<d> arrayList = this.eeE.get(aHO());
+            ArrayList<d> arrayList = this.eeF.get(aHO());
             if (arrayList != null) {
                 int i = 0;
                 while (true) {
@@ -144,9 +144,9 @@ public class a {
                     String str = (String) aHQ.get("frs_smart_sort_last_time");
                     if (str != null) {
                         ArrayList pd = a.this.pd(str);
-                        a.this.eeE.put(a.this.aHO(), pd);
+                        a.this.eeF.put(a.this.aHO(), pd);
                     }
-                    a.this.eeD = true;
+                    a.this.eeE = true;
                     return null;
                 }
                 return null;

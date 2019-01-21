@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
-    private AlphaAnimation gpk;
+    private AlphaAnimation gpl;
 
     public PbFirstFloorUserLikeButton(Context context) {
         super(context);
@@ -35,16 +35,16 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void bL(boolean z) {
-        this.aLM = z;
+        this.aLN = z;
         if (z) {
             setVisibility(8);
             setClickable(false);
-            setText(this.aLK);
+            setText(this.aLL);
             setPadding(0, 0, 0, 0);
         } else {
             setVisibility(0);
             setClickable(true);
-            setText(this.aLL);
+            setText(this.aLM);
             setPadding(getResources().getDimensionPixelSize(e.C0210e.tbds18), 0, getResources().getDimensionPixelSize(e.C0210e.tbds12), 0);
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -58,14 +58,14 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.baidu.tbadk.core.view.userLike.b
     public void a(boolean z, int i, boolean z2) {
         if (z2) {
-            this.aLM = z;
+            this.aLN = z;
             if (getVisibility() != 8) {
                 if (z) {
-                    if (this.gpk == null) {
-                        this.gpk = new AlphaAnimation(1.0f, 0.0f);
-                        this.gpk.setDuration(500L);
-                        this.gpk.setFillAfter(true);
-                        this.gpk.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton.1
+                    if (this.gpl == null) {
+                        this.gpl = new AlphaAnimation(1.0f, 0.0f);
+                        this.gpl.setDuration(500L);
+                        this.gpl.setFillAfter(true);
+                        this.gpl.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton.1
                             @Override // android.view.animation.Animation.AnimationListener
                             public void onAnimationStart(Animation animation) {
                             }
@@ -81,10 +81,10 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
                             }
                         });
                     } else {
-                        this.gpk.cancel();
+                        this.gpl.cancel();
                     }
                     if (isShown()) {
-                        startAnimation(this.gpk);
+                        startAnimation(this.gpl);
                         return;
                     } else {
                         setVisibility(8);
@@ -93,7 +93,7 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
                 }
                 setVisibility(0);
                 setClickable(true);
-                setText(this.aLL);
+                setText(this.aLM);
                 setPadding(getResources().getDimensionPixelSize(e.C0210e.tbds18), 0, getResources().getDimensionPixelSize(e.C0210e.tbds12), 0);
                 onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
                 return;
@@ -106,7 +106,7 @@ public class PbFirstFloorUserLikeButton extends EntelechyUserLikeButton {
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
         al.c(this, e.d.cp_cont_g, 1);
-        if (this.aLM) {
+        if (this.aLN) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
             setBackgroundDrawable(null);
             return;

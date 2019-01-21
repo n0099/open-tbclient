@@ -5,35 +5,35 @@ import com.baidu.searchbox.ng.ai.apps.media.audio.AiAppsAudioPlayer;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 /* loaded from: classes.dex */
 public class d extends b implements p {
-    public String dbr = "";
+    public String dbs = "";
     public int mPn = 0;
     public String mPageType = "";
-    public AdvertAppInfo dbq = null;
+    public AdvertAppInfo dbr = null;
 
     @Override // com.baidu.adp.widget.ListView.h
     public BdUniqueId getType() {
-        if (this.dbq != null && this.dbq.getType() == AdvertAppInfo.apB) {
-            return AdvertAppInfo.apH;
+        if (this.dbr != null && this.dbr.getType() == AdvertAppInfo.apC) {
+            return AdvertAppInfo.apI;
         }
-        if (this.dbq != null && this.dbq.legoCard != null) {
-            BdUniqueId bdUniqueId = AdvertAppInfo.apK;
-            switch (this.dbq.legoCard.getGoodsStyle()) {
+        if (this.dbr != null && this.dbr.legoCard != null) {
+            BdUniqueId bdUniqueId = AdvertAppInfo.apL;
+            switch (this.dbr.legoCard.getGoodsStyle()) {
                 case 2:
                 case 8:
-                    return AdvertAppInfo.apL;
+                    return AdvertAppInfo.apM;
                 case 3:
                 case 4:
                 case 5:
                 default:
                     return bdUniqueId;
                 case 6:
-                    return AdvertAppInfo.apM;
-                case 7:
                     return AdvertAppInfo.apN;
-                case 9:
-                    return AdvertAppInfo.apP;
-                case 10:
+                case 7:
                     return AdvertAppInfo.apO;
+                case 9:
+                    return AdvertAppInfo.apQ;
+                case 10:
+                    return AdvertAppInfo.apP;
             }
         }
         return null;
@@ -41,7 +41,7 @@ public class d extends b implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        return com.baidu.adp.lib.g.b.l(this.dbq != null ? this.dbq.adPosition : AiAppsAudioPlayer.ERROR_UNKNOWN, -1);
+        return com.baidu.adp.lib.g.b.l(this.dbr != null ? this.dbr.adPosition : AiAppsAudioPlayer.ERROR_UNKNOWN, -1);
     }
 
     @Override // com.baidu.tieba.card.data.p
@@ -58,6 +58,6 @@ public class d extends b implements p {
     }
 
     public AdvertAppInfo arh() {
-        return this.dbq;
+        return this.dbr;
     }
 }

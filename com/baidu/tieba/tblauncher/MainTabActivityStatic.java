@@ -32,8 +32,8 @@ import java.net.URLDecoder;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public class MainTabActivityStatic {
-    private static int hvK = 0;
-    private static boolean hvL = false;
+    private static int hvL = 0;
+    private static boolean hvM = false;
 
     static {
         aBt();
@@ -128,9 +128,9 @@ public class MainTabActivityStatic {
         if (responsedMessage != null && (responsedMessage instanceof NewsRemindMessage) && (newsRemindMessage = (NewsRemindMessage) responsedMessage) != null) {
             int a = a(newsRemindMessage);
             boolean b = b(newsRemindMessage);
-            if (a != hvK || b != hvL) {
-                hvK = a;
-                hvL = b;
+            if (a != hvL || b != hvM) {
+                hvL = a;
+                hvM = b;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921002, new Pair(Integer.valueOf(a), Boolean.valueOf(b))));
             }
         }

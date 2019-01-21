@@ -36,8 +36,8 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         View inflate = LayoutInflater.from(context).inflate(e.h.daily_title_view, (ViewGroup) null);
         inflate.setLayoutParams(generateLayoutParamsByParent(viewGroup));
         a aVar = new a(inflate);
-        aVar.bzG = inflate.findViewById(e.g.divider_line);
-        aVar.evB = (TextView) inflate.findViewById(e.g.daily_title);
+        aVar.bzH = inflate.findViewById(e.g.divider_line);
+        aVar.evC = (TextView) inflate.findViewById(e.g.daily_title);
         return aVar;
     }
 
@@ -58,14 +58,14 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, length, 33);
             spannableStringBuilder.setSpan(new AbsoluteSizeSpan(this.tbds34), length, length + length2, 33);
             spannableStringBuilder.setSpan(new ForegroundColorSpan(color2), length, length + length2, 33);
-            aVar.evB.setText(spannableStringBuilder);
-            al.h(aVar.evB, e.d.cp_cont_b);
-            al.j(aVar.evB, e.d.cp_bg_line_d);
+            aVar.evC.setText(spannableStringBuilder);
+            al.h(aVar.evC, e.d.cp_cont_b);
+            al.j(aVar.evC, e.d.cp_bg_line_d);
             if (dVar.aLG()) {
-                aVar.bzG.setVisibility(0);
-                al.j(aVar.bzG, e.d.cp_bg_line_e);
+                aVar.bzH.setVisibility(0);
+                al.j(aVar.bzH, e.d.cp_bg_line_e);
             } else {
-                aVar.bzG.setVisibility(8);
+                aVar.bzH.setVisibility(8);
             }
             return aVar.getView();
         }
@@ -75,8 +75,8 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
     public static class a extends q.a {
-        public View bzG;
-        public TextView evB;
+        public View bzH;
+        public TextView evC;
 
         public a(View view) {
             super(view);

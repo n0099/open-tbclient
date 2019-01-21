@@ -23,19 +23,19 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
-    private LinearLayout aKk;
-    private NoNetworkView dHC;
+    private LinearLayout aKl;
+    private NoNetworkView dHD;
     private NavigationBar mNavigationBar;
     private View.OnClickListener mOnClickListener = null;
-    private a etf = null;
-    private b etg = null;
-    private String esM = null;
-    private EditText esF = null;
+    private a etg = null;
+    private b eth = null;
+    private String esN = null;
     private EditText esG = null;
+    private EditText esH = null;
     private ImageView mImage = null;
-    private TextView eth = null;
     private TextView eti = null;
-    private String esP = null;
+    private TextView etj = null;
+    private String esQ = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -49,9 +49,9 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
     }
 
     private void initData() {
-        this.esP = getIntent().getStringExtra("barname");
-        if (this.esP == null) {
-            this.esP = "";
+        this.esQ = getIntent().getStringExtra("barname");
+        if (this.esQ == null) {
+            this.esQ = "";
         }
     }
 
@@ -59,7 +59,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.home.CreateForumActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == CreateForumActivity.this.eti) {
+                if (view == CreateForumActivity.this.etj) {
                     CreateForumActivity.this.aLe();
                     TiebaStatic.log("c11223");
                     return;
@@ -67,30 +67,30 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
                 CreateForumActivity.this.aLd();
             }
         };
-        this.aKk = (LinearLayout) findViewById(e.g.root_view);
+        this.aKl = (LinearLayout) findViewById(e.g.root_view);
         this.mNavigationBar = (NavigationBar) findViewById(e.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         this.mNavigationBar.setTitleText(e.j.create_bar);
-        this.dHC = (NoNetworkView) this.aKk.findViewById(e.g.view_no_network);
-        this.esF = (EditText) findViewById(e.g.edit_forum_name);
-        this.esF.setText(this.esP);
-        this.esG = (EditText) findViewById(e.g.edit_vcode);
-        this.esG.setFocusable(true);
-        this.eth = (TextView) findViewById(e.g.refresh_vcode);
-        this.eth.setOnClickListener(this.mOnClickListener);
+        this.dHD = (NoNetworkView) this.aKl.findViewById(e.g.view_no_network);
+        this.esG = (EditText) findViewById(e.g.edit_forum_name);
+        this.esG.setText(this.esQ);
+        this.esH = (EditText) findViewById(e.g.edit_vcode);
+        this.esH.setFocusable(true);
+        this.eti = (TextView) findViewById(e.g.refresh_vcode);
+        this.eti.setOnClickListener(this.mOnClickListener);
         this.mImage = (ImageView) findViewById(e.g.image);
         this.mImage.setOnClickListener(this.mOnClickListener);
-        this.eti = (TextView) findViewById(e.g.text_create);
-        this.eti.setOnClickListener(this.mOnClickListener);
+        this.etj = (TextView) findViewById(e.g.text_create);
+        this.etj.setOnClickListener(this.mOnClickListener);
         findViewById(e.g.body_view).setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.home.CreateForumActivity.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 0) {
-                    if (CreateForumActivity.this.esF.hasFocus()) {
-                        l.b(CreateForumActivity.this.getPageContext().getPageActivity(), CreateForumActivity.this.esF);
-                    }
                     if (CreateForumActivity.this.esG.hasFocus()) {
                         l.b(CreateForumActivity.this.getPageContext().getPageActivity(), CreateForumActivity.this.esG);
+                    }
+                    if (CreateForumActivity.this.esH.hasFocus()) {
+                        l.b(CreateForumActivity.this.getPageContext().getPageActivity(), CreateForumActivity.this.esH);
                         return false;
                     }
                     return false;
@@ -101,27 +101,27 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
     }
 
     private void aLc() {
-        if (this.etg == null) {
-            this.etg = new b();
-            this.etg.execute(new String[0]);
+        if (this.eth == null) {
+            this.eth = new b();
+            this.eth.execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aLd() {
-        if (this.etg == null && this.etf == null) {
-            this.etg = new b();
-            this.etg.setPriority(3);
-            this.etg.execute(new String[0]);
+        if (this.eth == null && this.etg == null) {
+            this.eth = new b();
+            this.eth.setPriority(3);
+            this.eth.execute(new String[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aLe() {
-        if (this.etf == null) {
-            this.etf = new a(this.esF.getText().toString().trim(), this.esG.getText().toString().trim());
-            this.etf.setPriority(3);
-            this.etf.execute(new String[0]);
+        if (this.etg == null) {
+            this.etg = new a(this.esG.getText().toString().trim(), this.esH.getText().toString().trim());
+            this.etg.setPriority(3);
+            this.etg.execute(new String[0]);
         }
     }
 
@@ -129,31 +129,31 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        if (this.etf != null) {
-            this.etf.cancel();
-        }
         if (this.etg != null) {
             this.etg.cancel();
+        }
+        if (this.eth != null) {
+            this.eth.cancel();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void changeSkinType(int i) {
         super.changeSkinType(i);
-        getLayoutMode().onModeChanged(this.aKk);
-        com.baidu.tbadk.o.a.a(getPageContext(), this.aKk);
+        getLayoutMode().onModeChanged(this.aKl);
+        com.baidu.tbadk.o.a.a(getPageContext(), this.aKl);
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         }
-        if (this.dHC != null && this.dHC.getVisibility() == 0) {
-            this.dHC.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+        if (this.dHD != null && this.dHD.getVisibility() == 0) {
+            this.dHD.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
-        private String esP;
+        private String esQ;
         private x mNetwork = null;
         private String mVcode;
 
@@ -163,13 +163,13 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
             if (this.mNetwork != null) {
                 this.mNetwork.jg();
             }
-            CreateForumActivity.this.etf = null;
+            CreateForumActivity.this.etg = null;
         }
 
         public a(String str, String str2) {
-            this.esP = null;
+            this.esQ = null;
             this.mVcode = null;
-            this.esP = str;
+            this.esQ = str;
             this.mVcode = str2;
         }
 
@@ -180,9 +180,9 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
             try {
                 this.mNetwork = new x(TbConfig.SERVER_ADDRESS + "c/c/forum/create");
                 this.mNetwork.Dw().Eu().mIsNeedTbs = true;
-                this.mNetwork.x("kw", this.esP);
+                this.mNetwork.x("kw", this.esQ);
                 this.mNetwork.x("vcode", this.mVcode);
-                this.mNetwork.x("vcode_md5", CreateForumActivity.this.esM);
+                this.mNetwork.x("vcode_md5", CreateForumActivity.this.esN);
                 this.mNetwork.x("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
                 this.mNetwork.CY();
                 return null;
@@ -197,9 +197,9 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
-            CreateForumActivity.this.etf = null;
+            CreateForumActivity.this.etg = null;
             if (this.mNetwork.Dw().Ev().isRequestSuccess()) {
-                CreateForumSuccessActivity.aw(CreateForumActivity.this.getPageContext().getPageActivity(), this.esP);
+                CreateForumSuccessActivity.aw(CreateForumActivity.this.getPageContext().getPageActivity(), this.esQ);
                 CreateForumActivity.this.finish();
                 return;
             }
@@ -234,7 +234,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
             if (this.mNetwork != null) {
                 this.mNetwork.jg();
             }
-            CreateForumActivity.this.etg = null;
+            CreateForumActivity.this.eth = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -254,7 +254,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
                     if (xVar.getVcode_pic_url() == null || xVar.getVcode_pic_url().length() <= 0) {
                         return null;
                     }
-                    CreateForumActivity.this.esM = xVar.getVcode_md5();
+                    CreateForumActivity.this.esN = xVar.getVcode_md5();
                     if (this.mCanceled) {
                         return null;
                     }
@@ -273,7 +273,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute((b) bitmap);
-            CreateForumActivity.this.etg = null;
+            CreateForumActivity.this.eth = null;
             if (bitmap != null) {
                 CreateForumActivity.this.mImage.setImageBitmap(bitmap);
             }
@@ -283,7 +283,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPreExecute() {
             super.onPreExecute();
-            CreateForumActivity.this.esM = null;
+            CreateForumActivity.this.esN = null;
             CreateForumActivity.this.mImage.setImageDrawable(null);
         }
     }

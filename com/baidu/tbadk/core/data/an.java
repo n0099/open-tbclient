@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.data;
 import tbclient.PbPage.NewsInfo;
 /* loaded from: classes.dex */
 public class an {
-    public String asQ;
-    public int asR;
-    public String asS;
+    public String asR;
+    public int asS;
+    public String asT;
     public String buttonText;
     public int position = 0;
     public String subtitle;
@@ -13,11 +13,11 @@ public class an {
 
     public void a(NewsInfo newsInfo) {
         if (newsInfo != null) {
-            this.asQ = newsInfo.news_link;
+            this.asR = newsInfo.news_link;
             this.summary = newsInfo.summary;
             this.position = newsInfo.position.intValue();
-            this.asR = newsInfo.news_type.intValue();
-            this.asS = newsInfo.news_icon;
+            this.asS = newsInfo.news_type.intValue();
+            this.asT = newsInfo.news_icon;
             this.subtitle = newsInfo.subtitle;
             this.buttonText = newsInfo.button_text;
         }

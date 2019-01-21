@@ -1,8 +1,8 @@
 package com.facebook.imagepipeline.memory;
 /* loaded from: classes2.dex */
 public class b {
-    public static final int itk = bZJ();
-    private static a itl;
+    public static final int itl = bZJ();
+    private static a itm;
 
     private static int bZJ() {
         int min = (int) Math.min(Runtime.getRuntime().maxMemory(), 2147483647L);
@@ -10,9 +10,9 @@ public class b {
     }
 
     public static a bZK() {
-        if (itl == null) {
-            itl = new a(384, itk);
+        if (itm == null) {
+            itm = new a(384, itl);
         }
-        return itl;
+        return itm;
     }
 }

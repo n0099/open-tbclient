@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.view.g;
 import com.baidu.tieba.e;
 /* loaded from: classes6.dex */
 public class a implements com.baidu.tieba.ueg.a {
-    private BdUniqueId aCu;
-    private HttpMessageListener aCw = new HttpMessageListener(CmdConfigHttp.CMD_UEG_REPORT) { // from class: com.baidu.tieba.pb.pb.report.a.2
+    private BdUniqueId aCv;
+    private HttpMessageListener aCx = new HttpMessageListener(CmdConfigHttp.CMD_UEG_REPORT) { // from class: com.baidu.tieba.pb.pb.report.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -36,38 +36,38 @@ public class a implements com.baidu.tieba.ueg.a {
                 if (StringUtils.isNull(errorString)) {
                     errorString = a.this.mContext.getString(e.j.neterror);
                 }
-                a.this.gls.f(errorString);
+                a.this.glt.f(errorString);
             }
         }
     };
-    private b glr = new b();
-    private g gls = new g();
+    private b gls = new b();
+    private g glt = new g();
     private Context mContext;
     private d mWaitingDialog;
 
     public a(Context context) {
         this.mContext = context;
-        this.gls.aHF = 1000L;
+        this.glt.aHG = 1000L;
     }
 
     @Override // com.baidu.tieba.ueg.a
     public void o(BdUniqueId bdUniqueId) {
-        this.aCu = bdUniqueId;
-        this.glr.setTag(bdUniqueId);
-        this.aCw.setTag(bdUniqueId);
-        this.aCw.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.aCw);
+        this.aCv = bdUniqueId;
+        this.gls.setTag(bdUniqueId);
+        this.aCx.setTag(bdUniqueId);
+        this.aCx.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.aCx);
     }
 
     public void tF(String str) {
         showLoadingDialog();
-        this.glr.tF(str);
+        this.gls.tF(str);
     }
 
     @Override // com.baidu.tieba.ueg.a
     public void mz(String str) {
         showLoadingDialog();
-        this.glr.mz(str);
+        this.gls.mz(str);
     }
 
     private void showLoadingDialog() {
@@ -84,7 +84,7 @@ public class a implements com.baidu.tieba.ueg.a {
                 this.mWaitingDialog.d(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.pb.pb.report.a.1
                     @Override // android.content.DialogInterface.OnCancelListener
                     public void onCancel(DialogInterface dialogInterface) {
-                        MessageManager.getInstance().removeMessage(a.this.aCu);
+                        MessageManager.getInstance().removeMessage(a.this.aCv);
                     }
                 });
             } else {

@@ -24,15 +24,15 @@ import com.baidu.tieba.frs.gamesubpb.a;
 import com.baidu.tieba.frs.gamesubpb.model.d;
 /* loaded from: classes3.dex */
 public class SpannableTextView extends TextView {
-    private long bPY;
-    private a.InterfaceC0225a dZP;
-    private int eaJ;
+    private long bPZ;
+    private a.InterfaceC0225a dZQ;
     private int eaK;
     private int eaL;
     private int eaM;
     private int eaN;
     private int eaO;
-    private boolean eaP;
+    private int eaP;
+    private boolean eaQ;
 
     public SpannableTextView(Context context) {
         super(context);
@@ -50,8 +50,8 @@ public class SpannableTextView extends TextView {
     }
 
     private void init() {
-        this.bPY = com.baidu.adp.lib.g.b.d(TbadkCoreApplication.getCurrentAccount(), -1L);
-        this.eaO = (l.aO(getContext()) - (getResources().getDimensionPixelSize(e.C0210e.ds34) * 2)) - 20;
+        this.bPZ = com.baidu.adp.lib.g.b.d(TbadkCoreApplication.getCurrentAccount(), -1L);
+        this.eaP = (l.aO(getContext()) - (getResources().getDimensionPixelSize(e.C0210e.ds34) * 2)) - 20;
         onChangeSkinType();
     }
 
@@ -61,7 +61,7 @@ public class SpannableTextView extends TextView {
     }
 
     public void setClickListener(a.InterfaceC0225a interfaceC0225a) {
-        this.dZP = interfaceC0225a;
+        this.dZQ = interfaceC0225a;
     }
 
     private SpannableString g(d dVar) {
@@ -71,19 +71,19 @@ public class SpannableTextView extends TextView {
         int length2 = ": ".length();
         String str2 = dVar.userName;
         int length3 = str2 != null ? str2.length() : 0;
-        String str3 = dVar.eap ? dVar.userName + "  楼主: " : dVar.userName + ": ";
+        String str3 = dVar.eaq ? dVar.userName + "  楼主: " : dVar.userName + ": ";
         String str4 = dVar.content;
         int length4 = str4 != null ? str4.length() : 0;
-        if ((oL(new StringBuilder().append(str3).append(str4).toString()) % this.eaO) + oL(new StringBuilder().append("|").append(dVar.eah).toString()) >= this.eaO) {
-            str = "\n" + dVar.eah;
+        if ((oL(new StringBuilder().append(str3).append(str4).toString()) % this.eaP) + oL(new StringBuilder().append("|").append(dVar.eai).toString()) >= this.eaP) {
+            str = "\n" + dVar.eai;
         } else {
-            str = " " + dVar.eah;
+            str = " " + dVar.eai;
         }
         int length5 = str != null ? str.length() : 0;
-        boolean equals = String.valueOf(this.bPY).equals(dVar.userId);
+        boolean equals = String.valueOf(this.bPZ).equals(dVar.userId);
         String str5 = "|  删除";
         if (equals) {
-            if (oL("|  删除") + (oL(new StringBuilder().append(str3).append(str4).append(str).toString()) % this.eaO) >= this.eaO) {
+            if (oL("|  删除") + (oL(new StringBuilder().append(str3).append(str4).append(str).toString()) % this.eaP) >= this.eaP) {
                 str5 = "\n删除";
             } else {
                 str5 = "  删除";
@@ -98,19 +98,19 @@ public class SpannableTextView extends TextView {
         SpannableString spannableString = new SpannableString(append.append(str5).append(equals ? "|" : "").toString());
         int i2 = 0 + length3;
         spannableString.setSpan(new c(dVar), 0, i2, 17);
-        if (dVar.eap) {
+        if (dVar.eaq) {
             i = i2 + length;
-            spannableString.setSpan(new ForegroundColorSpan(this.eaK), i2, i, 17);
+            spannableString.setSpan(new ForegroundColorSpan(this.eaL), i2, i, 17);
         } else {
             i = i2;
         }
         int i3 = i + length2 + length4;
         int i4 = i3 + length5;
-        spannableString.setSpan(new ForegroundColorSpan(this.eaL), i3, i4, 17);
+        spannableString.setSpan(new ForegroundColorSpan(this.eaM), i3, i4, 17);
         if (equals) {
             int i5 = i4 + length6;
             spannableString.setSpan(new b(dVar), i4, i5, 17);
-            spannableString.setSpan(new ForegroundColorSpan(this.eaN), i5, i5 + length7, 17);
+            spannableString.setSpan(new ForegroundColorSpan(this.eaO), i5, i5 + length7, 17);
         }
         return spannableString;
     }
@@ -127,22 +127,22 @@ public class SpannableTextView extends TextView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class c extends ClickableSpan {
-        private d eaR;
+        private d eaS;
 
         public c(d dVar) {
-            this.eaR = dVar;
+            this.eaS = dVar;
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
-            textPaint.setColor(SpannableTextView.this.eaJ);
+            textPaint.setColor(SpannableTextView.this.eaK);
             textPaint.setUnderlineText(false);
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            if (SpannableTextView.this.dZP != null) {
-                SpannableTextView.this.dZP.a(this.eaR);
+            if (SpannableTextView.this.dZQ != null) {
+                SpannableTextView.this.dZQ.a(this.eaS);
             }
         }
     }
@@ -150,29 +150,29 @@ public class SpannableTextView extends TextView {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class b extends ClickableSpan {
-        private d eaR;
+        private d eaS;
 
         public b(d dVar) {
-            this.eaR = dVar;
+            this.eaS = dVar;
         }
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
-            textPaint.setColor(SpannableTextView.this.eaM);
+            textPaint.setColor(SpannableTextView.this.eaN);
             textPaint.setUnderlineText(false);
         }
 
         @Override // android.text.style.ClickableSpan
         public void onClick(View view) {
-            if (SpannableTextView.this.dZP != null) {
-                SpannableTextView.this.dZP.b(this.eaR);
+            if (SpannableTextView.this.dZQ != null) {
+                SpannableTextView.this.dZQ.b(this.eaS);
             }
         }
     }
 
     @Override // android.view.View
     public boolean performClick() {
-        if (this.eaP) {
+        if (this.eaQ) {
             return true;
         }
         return super.performClick();
@@ -180,22 +180,22 @@ public class SpannableTextView extends TextView {
 
     @Override // android.widget.TextView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.eaP = false;
+        this.eaQ = false;
         return super.onTouchEvent(motionEvent);
     }
 
     public void onChangeSkinType() {
-        this.eaJ = al.getColor(e.d.cp_link_tip_c);
-        this.eaK = al.getColor(e.d.cp_link_tip_a);
-        this.eaL = al.getColor(e.d.cp_cont_d);
-        this.eaM = al.getColor(e.d.cp_link_tip_c);
-        this.eaN = al.getColor(e.d.cp_bg_line_d);
+        this.eaK = al.getColor(e.d.cp_link_tip_c);
+        this.eaL = al.getColor(e.d.cp_link_tip_a);
+        this.eaM = al.getColor(e.d.cp_cont_d);
+        this.eaN = al.getColor(e.d.cp_link_tip_c);
+        this.eaO = al.getColor(e.d.cp_bg_line_d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public static class a extends LinkMovementMethod {
-        private static a eaQ;
+        private static a eaR;
 
         private a() {
         }
@@ -218,7 +218,7 @@ public class SpannableTextView extends TextView {
                         Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
                     }
                     if (textView instanceof SpannableTextView) {
-                        ((SpannableTextView) textView).eaP = true;
+                        ((SpannableTextView) textView).eaQ = true;
                     }
                     return true;
                 }
@@ -230,10 +230,10 @@ public class SpannableTextView extends TextView {
         }
 
         public static a aGB() {
-            if (eaQ == null) {
-                eaQ = new a();
+            if (eaR == null) {
+                eaR = new a();
             }
-            return eaQ;
+            return eaR;
         }
     }
 }

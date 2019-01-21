@@ -5,17 +5,17 @@ import android.text.TextUtils;
 import com.baidu.tieba.face.SearchEmotionModel;
 /* loaded from: classes6.dex */
 public class b {
-    private SearchEmotionModel.a duv;
-    private SearchEmotionModel gkc;
-    private String gkd;
-    private Runnable gke = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
+    private SearchEmotionModel.a duw;
+    private SearchEmotionModel gkd;
+    private String gke;
+    private Runnable gkf = new Runnable() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.b.1
         @Override // java.lang.Runnable
         public void run() {
-            if (!TextUtils.isEmpty(b.this.gkd) && b.this.duv != null) {
-                if (b.this.gkc == null) {
-                    b.this.gkc = new SearchEmotionModel();
+            if (!TextUtils.isEmpty(b.this.gke) && b.this.duw != null) {
+                if (b.this.gkd == null) {
+                    b.this.gkd = new SearchEmotionModel();
                 }
-                b.this.gkc.a(b.this.gkd, 0, 30, b.this.duv);
+                b.this.gkd.a(b.this.gke, 0, 30, b.this.duw);
             }
         }
     };
@@ -23,22 +23,22 @@ public class b {
 
     public void tE(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.gkd = "";
+            this.gke = "";
             return;
         }
-        this.mHandler.removeCallbacks(this.gke);
-        this.mHandler.postDelayed(this.gke, 300L);
-        this.gkd = str;
+        this.mHandler.removeCallbacks(this.gkf);
+        this.mHandler.postDelayed(this.gkf, 300L);
+        this.gke = str;
     }
 
     public void a(SearchEmotionModel.a aVar) {
-        this.duv = aVar;
+        this.duw = aVar;
     }
 
     public void aEp() {
-        if (this.gkc != null) {
-            this.gkc.cancelLoadData();
+        if (this.gkd != null) {
+            this.gkd.cancelLoadData();
         }
-        this.mHandler.removeCallbacks(this.gke);
+        this.mHandler.removeCallbacks(this.gkf);
     }
 }

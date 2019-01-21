@@ -9,7 +9,7 @@ import tbclient.HotThread.Pic;
 import tbclient.HotThread.tinfo;
 /* loaded from: classes3.dex */
 public class d implements com.baidu.tbadk.mvc.b.a {
-    private ArrayList<String> dgL;
+    private ArrayList<String> dgM;
     private String forumId;
     private String forumName;
     private int index;
@@ -17,20 +17,20 @@ public class d implements com.baidu.tbadk.mvc.b.a {
 
     public d(int i, tinfo tinfoVar) {
         if (tinfoVar != null) {
-            this.dgL = new ArrayList<>();
+            this.dgM = new ArrayList<>();
             this.index = i;
             this.forumId = String.valueOf(tinfoVar.forum_id);
             this.forumName = tinfoVar.forum_name;
             this.threadId = String.valueOf(tinfoVar.thread_id);
             for (Pic pic : tinfoVar.pics) {
                 if (pic != null && !StringUtils.isNull(pic.big_pic)) {
-                    this.dgL.add(pic.big_pic);
+                    this.dgM.add(pic.big_pic);
                 }
             }
         }
     }
 
     public CustomMessage<ImageViewerConfig> cp(Context context) {
-        return new CustomMessage<>(2010000, new ImageViewerConfig(context).createConfig(this.dgL, this.index, this.forumName, this.forumId, this.threadId, true, this.dgL.get(this.dgL.size() - 1), false));
+        return new CustomMessage<>(2010000, new ImageViewerConfig(context).createConfig(this.dgM, this.index, this.forumName, this.forumId, this.threadId, true, this.dgM.get(this.dgM.size() - 1), false));
     }
 }

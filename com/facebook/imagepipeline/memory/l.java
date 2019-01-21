@@ -7,13 +7,13 @@ import javax.annotation.concurrent.ThreadSafe;
 /* loaded from: classes2.dex */
 public class l implements PooledByteBuffer {
     @GuardedBy("this")
-    com.facebook.common.references.a<NativeMemoryChunk> itu;
+    com.facebook.common.references.a<NativeMemoryChunk> itv;
     private final int mSize;
 
     public l(com.facebook.common.references.a<NativeMemoryChunk> aVar, int i) {
         com.facebook.common.internal.g.checkNotNull(aVar);
         com.facebook.common.internal.g.checkArgument(i >= 0 && i <= aVar.get().getSize());
-        this.itu = aVar.clone();
+        this.itv = aVar.clone();
         this.mSize = i;
     }
 
@@ -30,7 +30,7 @@ public class l implements PooledByteBuffer {
             bUU();
             com.facebook.common.internal.g.checkArgument(i >= 0);
             com.facebook.common.internal.g.checkArgument(i < this.mSize);
-            yi = this.itu.get().yi(i);
+            yi = this.itv.get().yi(i);
         }
         return yi;
     }
@@ -39,18 +39,18 @@ public class l implements PooledByteBuffer {
     public synchronized void b(int i, byte[] bArr, int i2, int i3) {
         bUU();
         com.facebook.common.internal.g.checkArgument(i + i3 <= this.mSize);
-        this.itu.get().d(i, bArr, i2, i3);
+        this.itv.get().d(i, bArr, i2, i3);
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized boolean isClosed() {
-        return !com.facebook.common.references.a.a(this.itu);
+        return !com.facebook.common.references.a.a(this.itv);
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() {
-        com.facebook.common.references.a.c((com.facebook.common.references.a<?>) this.itu);
-        this.itu = null;
+        com.facebook.common.references.a.c((com.facebook.common.references.a<?>) this.itv);
+        this.itv = null;
     }
 
     synchronized void bUU() {

@@ -13,21 +13,21 @@ import java.util.ArrayList;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private View.OnClickListener csv = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.a.1
+    private View.OnClickListener csw = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.friend.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Object tag = view.getTag();
             if (tag != null && (tag instanceof BlackListItemData)) {
-                a.this.ffA.a(view, (BlackListItemData) tag);
+                a.this.ffB.a(view, (BlackListItemData) tag);
             }
         }
     };
-    private IMBlackListActivity ffA;
+    private IMBlackListActivity ffB;
     private ArrayList<BlackListItemData> mData;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(IMBlackListActivity iMBlackListActivity) {
-        this.ffA = iMBlackListActivity;
+        this.ffB = iMBlackListActivity;
     }
 
     public void setData(ArrayList<BlackListItemData> arrayList) {
@@ -78,13 +78,13 @@ public class a extends BaseAdapter {
 
     private C0256a aWj() {
         C0256a c0256a = new C0256a();
-        c0256a.rootView = LayoutInflater.from(this.ffA.getPageContext().getContext()).inflate(e.h.im_black_list_item, (ViewGroup) null);
-        c0256a.ffC = (HeadImageView) c0256a.rootView.findViewById(e.g.header_view);
-        c0256a.ffC.setIsRound(true);
-        c0256a.clZ = (TextView) c0256a.rootView.findViewById(e.g.user_name);
-        c0256a.ffD = (Button) c0256a.rootView.findViewById(e.g.remove_button);
+        c0256a.rootView = LayoutInflater.from(this.ffB.getPageContext().getContext()).inflate(e.h.im_black_list_item, (ViewGroup) null);
+        c0256a.ffD = (HeadImageView) c0256a.rootView.findViewById(e.g.header_view);
+        c0256a.ffD.setIsRound(true);
+        c0256a.cma = (TextView) c0256a.rootView.findViewById(e.g.user_name);
+        c0256a.ffE = (Button) c0256a.rootView.findViewById(e.g.remove_button);
         c0256a.rootView.setTag(c0256a);
-        c0256a.ffD.setOnClickListener(this.csv);
+        c0256a.ffE.setOnClickListener(this.csw);
         return c0256a;
     }
 
@@ -96,16 +96,16 @@ public class a extends BaseAdapter {
             c0256a = (C0256a) obj;
         }
         a(c0256a, blackListItemData.aRs());
-        c0256a.clZ.setText(blackListItemData.Kt());
-        c0256a.ffD.setTag(blackListItemData);
-        this.ffA.getLayoutMode().onModeChanged(c0256a.rootView);
+        c0256a.cma.setText(blackListItemData.Kt());
+        c0256a.ffE.setTag(blackListItemData);
+        this.ffB.getLayoutMode().onModeChanged(c0256a.rootView);
         return c0256a;
     }
 
     private void a(C0256a c0256a, String str) {
         if (str != null) {
-            c0256a.ffC.setTag(str);
-            c0256a.ffC.startLoad(str, 12, false);
+            c0256a.ffD.setTag(str);
+            c0256a.ffD.startLoad(str, 12, false);
         }
     }
 
@@ -113,9 +113,9 @@ public class a extends BaseAdapter {
     /* renamed from: com.baidu.tieba.imMessageCenter.im.friend.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public class C0256a {
-        public TextView clZ;
-        public HeadImageView ffC;
-        public Button ffD;
+        public TextView cma;
+        public HeadImageView ffD;
+        public Button ffE;
         public View rootView;
 
         private C0256a() {

@@ -13,19 +13,19 @@ import java.nio.channels.FileChannel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
 public class a {
-    private static final int fIE = L(new byte[]{102, 114, 101, 101});
-    private static final int fIF = L(new byte[]{106, 117, 110, 107});
-    private static final int fIG = L(new byte[]{109, 100, 97, 116});
-    private static final int fIH = L(new byte[]{109, 111, 111, 118});
-    private static final int fII = L(new byte[]{112, 110, 111, 116});
-    private static final int fIJ = L(new byte[]{115, 107, 105, 112});
-    private static final int fIK = L(new byte[]{119, 105, 100, 101});
-    private static final int fIL = L(new byte[]{80, 73, 67, 84});
-    private static final int fIM = L(new byte[]{102, 116, 121, 112});
-    private static final int fIN = L(new byte[]{117, 117, 105, 100});
-    private static final int fIO = L(new byte[]{99, 109, 111, 118});
-    private static final int fIP = L(new byte[]{115, 116, 99, 111});
-    private static final int fIQ = L(new byte[]{99, 111, 54, 52});
+    private static final int fIF = L(new byte[]{102, 114, 101, 101});
+    private static final int fIG = L(new byte[]{106, 117, 110, 107});
+    private static final int fIH = L(new byte[]{109, 100, 97, 116});
+    private static final int fII = L(new byte[]{109, 111, 111, 118});
+    private static final int fIJ = L(new byte[]{112, 110, 111, 116});
+    private static final int fIK = L(new byte[]{115, 107, 105, 112});
+    private static final int fIL = L(new byte[]{119, 105, 100, 101});
+    private static final int fIM = L(new byte[]{80, 73, 67, 84});
+    private static final int fIN = L(new byte[]{102, 116, 121, 112});
+    private static final int fIO = L(new byte[]{117, 117, 105, 100});
+    private static final int fIP = L(new byte[]{99, 109, 111, 118});
+    private static final int fIQ = L(new byte[]{115, 116, 99, 111});
+    private static final int fIR = L(new byte[]{99, 111, 54, 52});
 
     /* renamed from: com.baidu.tieba.k.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
@@ -140,14 +140,14 @@ public class a {
             }
             long rY = rY(order.getInt());
             i = order.getInt();
-            if (i == fIM) {
+            if (i == fIN) {
                 int cQ = cQ(rY);
                 ByteBuffer order2 = ByteBuffer.allocate(cQ).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
                 order2.put(order);
                 if (fileChannel.read(order2) >= cQ - 8) {
                     order2.flip();
-                    if ((i == fIE && i != fIF && i != fIG && i != fIH && i != fII && i != fIJ && i != fIK && i != fIL && i != fIN && i != fIM) || rY < 8) {
+                    if ((i == fIF && i != fIG && i != fIH && i != fII && i != fIJ && i != fIK && i != fIL && i != fIM && i != fIO && i != fIN) || rY < 8) {
                         break;
                     }
                     i2 = i;
@@ -165,12 +165,12 @@ public class a {
                 } else {
                     fileChannel.position((fileChannel.position() + rY) - 8);
                 }
-                if (i == fIE) {
+                if (i == fIF) {
                 }
                 i2 = i;
             }
         }
-        return i != fIH ? 0 : 1;
+        return i != fII ? 0 : 1;
     }
 
     public static void a(String str, String str2, final InterfaceC0261a interfaceC0261a) {
@@ -267,7 +267,7 @@ public class a {
             }
             j2 = rY(order.getInt());
             i2 = order.getInt();
-            if (i2 == fIM) {
+            if (i2 == fIN) {
                 int cQ = cQ(j2);
                 byteBuffer2 = ByteBuffer.allocate(cQ).order(ByteOrder.BIG_ENDIAN);
                 order.rewind();
@@ -281,7 +281,7 @@ public class a {
                 }
                 byteBuffer2.flip();
                 j3 = fileChannel.position();
-                if (i2 == fIE && i2 != fIF && i2 != fIG && i2 != fIH && i2 != fII && i2 != fIJ && i2 != fIK && i2 != fIL && i2 != fIN && i2 != fIM) {
+                if (i2 == fIF && i2 != fIG && i2 != fIH && i2 != fII && i2 != fIJ && i2 != fIK && i2 != fIL && i2 != fIM && i2 != fIO && i2 != fIN) {
                     long j6 = j3;
                     byteBuffer = byteBuffer2;
                     i = i2;
@@ -309,13 +309,13 @@ public class a {
                 } else {
                     fileChannel.position((fileChannel.position() + j2) - 8);
                 }
-                if (i2 == fIE) {
+                if (i2 == fIF) {
                 }
                 if (j2 < 8) {
                 }
             }
         }
-        if (i != fIH) {
+        if (i != fII) {
             return false;
         }
         int cQ2 = cQ(j2);
@@ -324,13 +324,13 @@ public class a {
         if (!a(fileChannel, order2, size)) {
             throw new RuntimeException("failed to read moov atom");
         }
-        if (order2.getInt(12) == fIO) {
+        if (order2.getInt(12) == fIP) {
             throw new RuntimeException("this utility does not support compressed moov atoms yet");
         }
         while (order2.remaining() >= 8) {
             int position = order2.position();
             int i3 = order2.getInt(position + 4);
-            if (i3 != fIP && i3 != fIQ) {
+            if (i3 != fIQ && i3 != fIR) {
                 order2.position(order2.position() + 1);
             } else if (rY(order2.getInt(position)) > order2.remaining()) {
                 throw new RuntimeException("bad atom size");
@@ -340,7 +340,7 @@ public class a {
                     throw new RuntimeException("malformed atom");
                 }
                 int cQ3 = cQ(order2.getInt());
-                if (i3 == fIP) {
+                if (i3 == fIQ) {
                     if (order2.remaining() < cQ3 * 4) {
                         throw new RuntimeException("bad atom size/element count");
                     }
@@ -353,7 +353,7 @@ public class a {
                         order2.putInt(i6);
                     }
                     continue;
-                } else if (i3 != fIQ) {
+                } else if (i3 != fIR) {
                     continue;
                 } else if (order2.remaining() < cQ3 * 8) {
                     throw new RuntimeException("bad atom size/element count");

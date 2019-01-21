@@ -60,21 +60,21 @@ public class c extends RecyclerView.Adapter<b> {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
-        private int dbk;
-        private g enF;
+        private int dbl;
+        private g enG;
 
         public a(g gVar, int i) {
-            this.enF = gVar;
-            this.dbk = i;
+            this.enG = gVar;
+            this.dbl = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.enF != null) {
+            if (this.enG != null) {
                 PbActivityConfig pbActivityConfig = new PbActivityConfig(c.this.mPageContext.getPageActivity());
-                pbActivityConfig.createNormalCfg(this.enF.getThreadId(), this.enF.aJM(), "frs_page");
+                pbActivityConfig.createNormalCfg(this.enG.getThreadId(), this.enG.aJM(), "frs_page");
                 c.this.mPageContext.sendMessage(new CustomMessage(2004001, pbActivityConfig));
-                TiebaStatic.log(new am("c13088").y("obj_locate", this.dbk).aB("obj_name", c.this.mTopicName).aB(ImageViewerConfig.FORUM_ID, c.this.mForumId).aB("obj_param1", this.enF.aJM()));
+                TiebaStatic.log(new am("c13088").y("obj_locate", this.dbl).aB("obj_name", c.this.mTopicName).aB(ImageViewerConfig.FORUM_ID, c.this.mForumId).aB("obj_param1", this.enG.aJM()));
             }
         }
     }
@@ -91,15 +91,15 @@ public class c extends RecyclerView.Adapter<b> {
 
     /* loaded from: classes3.dex */
     public static class b extends RecyclerView.ViewHolder {
-        private com.baidu.tieba.frs.worldcup.videotopic.b.b enH;
+        private com.baidu.tieba.frs.worldcup.videotopic.b.b enI;
 
         public b(com.baidu.tieba.frs.worldcup.videotopic.b.b bVar) {
             super(bVar.getView());
-            this.enH = bVar;
+            this.enI = bVar;
         }
 
         public com.baidu.tieba.frs.worldcup.videotopic.b.b aJY() {
-            return this.enH;
+            return this.enI;
         }
     }
 }

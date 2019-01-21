@@ -23,16 +23,16 @@ import java.util.concurrent.TimeUnit;
 public class i extends e {
     private TextView dVA;
     private TextView dVB;
-    private RelativeLayout dVy;
-    private TextView dVz;
+    private TextView dVC;
+    private RelativeLayout dVz;
 
     public i(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
         View view = getView();
-        this.dVy = (RelativeLayout) view.findViewById(e.g.lottery_info_layout);
-        this.dVz = (TextView) view.findViewById(e.g.lottery_time_tv);
-        this.dVA = (TextView) view.findViewById(e.g.lottery_join_count_tv);
-        this.dVB = (TextView) view.findViewById(e.g.lottery_btn);
+        this.dVz = (RelativeLayout) view.findViewById(e.g.lottery_info_layout);
+        this.dVA = (TextView) view.findViewById(e.g.lottery_time_tv);
+        this.dVB = (TextView) view.findViewById(e.g.lottery_join_count_tv);
+        this.dVC = (TextView) view.findViewById(e.g.lottery_btn);
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.e, com.baidu.tieba.card.a
@@ -51,29 +51,29 @@ public class i extends e {
                 bbVar.n(arrayList);
             }
             super.a(bbVar);
-            this.cYB.setImageClickListener(new com.baidu.tbadk.widget.layout.c() { // from class: com.baidu.tieba.frs.entelechy.view.i.1
+            this.cYC.setImageClickListener(new com.baidu.tbadk.widget.layout.c() { // from class: com.baidu.tieba.frs.entelechy.view.i.1
                 @Override // com.baidu.tbadk.widget.layout.c
                 public void b(View view, int i, boolean z) {
-                    if (i.this.aFI != null && i.this.aef()) {
-                        ay.Es().c(i.this.mTbPageContext, new String[]{i.this.aFI.getActUrl()});
+                    if (i.this.aFJ != null && i.this.aef()) {
+                        ay.Es().c(i.this.mTbPageContext, new String[]{i.this.aFJ.getActUrl()});
                     }
                 }
             });
             com.baidu.tbadk.core.data.a aVar = (com.baidu.tbadk.core.data.a) v.d(bbVar.Af(), 0);
             if (aVar != null) {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd");
-                this.dVz.setText(StringUtils.string(getContext().getResources().getString(e.j.lottery_time), "  ", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(aVar.yl()))), Constants.ACCEPT_TIME_SEPARATOR_SERVER, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(aVar.ym())))));
-                this.dVA.setText(String.format(getContext().getResources().getString(e.j.lottery_join_num), String.valueOf(aVar.yn())));
-                this.dVB.setText(e.j.lottery_btn_text);
-                this.cbx.setCommentNumEnable(false);
+                this.dVA.setText(StringUtils.string(getContext().getResources().getString(e.j.lottery_time), "  ", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(aVar.yl()))), Constants.ACCEPT_TIME_SEPARATOR_SERVER, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(aVar.ym())))));
+                this.dVB.setText(String.format(getContext().getResources().getString(e.j.lottery_join_num), String.valueOf(aVar.yn())));
+                this.dVC.setText(e.j.lottery_btn_text);
+                this.cby.setCommentNumEnable(false);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.e
     protected void fs(boolean z) {
-        if (this.aFI != null && aef()) {
-            ay.Es().c(this.mTbPageContext, new String[]{this.aFI.getActUrl()});
+        if (this.aFJ != null && aef()) {
+            ay.Es().c(this.mTbPageContext, new String[]{this.aFJ.getActUrl()});
         }
     }
 
@@ -88,11 +88,11 @@ public class i extends e {
     @Override // com.baidu.tieba.frs.entelechy.view.e, com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            al.j(this.dVy, e.d.cp_bg_line_e);
-            al.h(this.dVz, e.d.cp_cont_f);
+            al.j(this.dVz, e.d.cp_bg_line_e);
             al.h(this.dVA, e.d.cp_cont_f);
-            al.h(this.dVB, e.d.cp_link_tip_a);
-            al.i(this.dVB, e.f.bg_card_frs_lottery_btn);
+            al.h(this.dVB, e.d.cp_cont_f);
+            al.h(this.dVC, e.d.cp_link_tip_a);
+            al.i(this.dVC, e.f.bg_card_frs_lottery_btn);
         }
         super.d(tbPageContext, i);
     }

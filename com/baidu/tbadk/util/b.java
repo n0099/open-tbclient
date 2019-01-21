@@ -5,7 +5,7 @@ import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.atomData.SignAllForumAdvertActivityConfig;
 /* loaded from: classes.dex */
 public class b {
-    private static b biY = null;
+    private static b biZ = null;
 
     private b() {
     }
@@ -13,10 +13,10 @@ public class b {
     public static synchronized b Qc() {
         b bVar;
         synchronized (b.class) {
-            if (biY == null) {
-                biY = new b();
+            if (biZ == null) {
+                biZ = new b();
             }
-            bVar = biY;
+            bVar = biZ;
         }
         return bVar;
     }

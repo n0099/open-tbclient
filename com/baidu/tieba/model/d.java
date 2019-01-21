@@ -44,7 +44,7 @@ public class d {
             arrayList.add(new BasicNameValuePair("cert_id", bdx[0]));
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("bduss", bVar.El);
-            jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, bVar.aoR);
+            jSONObject.put(ISapiAccount.SAPI_ACCOUNT_PTOKEN, bVar.aoS);
             jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
             jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
             arrayList.add(new BasicNameValuePair("userinfo", new com.baidu.tbadk.core.a.c().encrypt(bdx[1], jSONObject.toString())));
@@ -53,7 +53,7 @@ public class d {
             xVar.Dw().Eu().mIsNeedAddCommenParam = false;
             xVar.Dw().Eu().mIsUseCurrentBDUSS = false;
             xVar.p(arrayList);
-            xVar.Dw().Eu().Ex().aEu = true;
+            xVar.Dw().Eu().Ex().aEv = true;
             xVar.Dw().Eu().Ex().mIsBaiduServer = false;
             String CY = xVar.CY();
             if (xVar.Dw().Ev().isRequestSuccess() && !ao.isEmpty(CY)) {
@@ -61,8 +61,8 @@ public class d {
                 if ("0".equals(jSONObject2.optString("errno"))) {
                     bVar2 = new a.b();
                     bVar2.El = jSONObject2.optString("bduss");
-                    bVar2.aoR = jSONObject2.optString(ISapiAccount.SAPI_ACCOUNT_PTOKEN);
-                    bVar2.aoS = jSONObject2.optString("uname");
+                    bVar2.aoS = jSONObject2.optString(ISapiAccount.SAPI_ACCOUNT_PTOKEN);
+                    bVar2.aoT = jSONObject2.optString("uname");
                     return bVar2;
                 }
             }

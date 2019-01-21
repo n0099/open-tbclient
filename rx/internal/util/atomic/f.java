@@ -8,15 +8,15 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 import rx.internal.util.a.h;
 /* loaded from: classes2.dex */
 public final class f<T> implements Queue<T> {
-    static final int iQG = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
-    private static final Object iQM = new Object();
+    static final int iQH = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
+    private static final Object iQN = new Object();
     final AtomicLong consumerIndex;
-    long iQE;
-    int iQH;
+    long iQF;
     int iQI;
-    AtomicReferenceArray<Object> iQJ;
-    int iQK;
-    AtomicReferenceArray<Object> iQL;
+    int iQJ;
+    AtomicReferenceArray<Object> iQK;
+    int iQL;
+    AtomicReferenceArray<Object> iQM;
     final AtomicLong producerIndex;
 
     public f(int i) {
@@ -25,12 +25,12 @@ public final class f<T> implements Queue<T> {
         this.producerIndex = new AtomicLong();
         this.consumerIndex = new AtomicLong();
         AtomicReferenceArray<Object> atomicReferenceArray = new AtomicReferenceArray<>(zI + 1);
-        this.iQJ = atomicReferenceArray;
-        this.iQI = i2;
+        this.iQK = atomicReferenceArray;
+        this.iQJ = i2;
         zG(zI);
-        this.iQL = atomicReferenceArray;
-        this.iQK = i2;
-        this.iQE = i2 - 1;
+        this.iQM = atomicReferenceArray;
+        this.iQL = i2;
+        this.iQF = i2 - 1;
         dT(0L);
     }
 
@@ -39,16 +39,16 @@ public final class f<T> implements Queue<T> {
         if (t == null) {
             throw new NullPointerException();
         }
-        AtomicReferenceArray<Object> atomicReferenceArray = this.iQJ;
+        AtomicReferenceArray<Object> atomicReferenceArray = this.iQK;
         long cgb = cgb();
-        int i = this.iQI;
+        int i = this.iQJ;
         int u = u(cgb, i);
-        if (cgb < this.iQE) {
+        if (cgb < this.iQF) {
             return a(atomicReferenceArray, t, cgb, u);
         }
-        int i2 = this.iQH;
+        int i2 = this.iQI;
         if (a(atomicReferenceArray, u(i2 + cgb, i)) == null) {
-            this.iQE = (i2 + cgb) - 1;
+            this.iQF = (i2 + cgb) - 1;
             return a(atomicReferenceArray, t, cgb, u);
         } else if (a(atomicReferenceArray, u(1 + cgb, i)) != null) {
             return a(atomicReferenceArray, t, cgb, u);
@@ -66,12 +66,12 @@ public final class f<T> implements Queue<T> {
 
     private void a(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i, T t, long j2) {
         AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
-        this.iQJ = atomicReferenceArray2;
-        this.iQE = (j + j2) - 1;
+        this.iQK = atomicReferenceArray2;
+        this.iQF = (j + j2) - 1;
         dT(j + 1);
         a(atomicReferenceArray2, i, t);
         a(atomicReferenceArray, atomicReferenceArray2);
-        a(atomicReferenceArray, i, iQM);
+        a(atomicReferenceArray, i, iQN);
     }
 
     private void a(AtomicReferenceArray<Object> atomicReferenceArray, AtomicReferenceArray<Object> atomicReferenceArray2) {
@@ -84,12 +84,12 @@ public final class f<T> implements Queue<T> {
 
     @Override // java.util.Queue
     public T poll() {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.iQL;
+        AtomicReferenceArray<Object> atomicReferenceArray = this.iQM;
         long cgc = cgc();
-        int i = this.iQK;
+        int i = this.iQL;
         int u = u(cgc, i);
         T t = (T) a(atomicReferenceArray, u);
-        boolean z = t == iQM;
+        boolean z = t == iQN;
         if (t != null && !z) {
             dU(cgc + 1);
             a(atomicReferenceArray, u, (Object) null);
@@ -102,7 +102,7 @@ public final class f<T> implements Queue<T> {
     }
 
     private T a(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i) {
-        this.iQL = atomicReferenceArray;
+        this.iQM = atomicReferenceArray;
         int u = u(j, i);
         T t = (T) a(atomicReferenceArray, u);
         if (t == null) {
@@ -115,11 +115,11 @@ public final class f<T> implements Queue<T> {
 
     @Override // java.util.Queue
     public T peek() {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.iQL;
+        AtomicReferenceArray<Object> atomicReferenceArray = this.iQM;
         long cgc = cgc();
-        int i = this.iQK;
+        int i = this.iQL;
         T t = (T) a(atomicReferenceArray, u(cgc, i));
-        if (t == iQM) {
+        if (t == iQN) {
             return b(a(atomicReferenceArray), cgc, i);
         }
         return t;
@@ -135,7 +135,7 @@ public final class f<T> implements Queue<T> {
     }
 
     private T b(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i) {
-        this.iQL = atomicReferenceArray;
+        this.iQM = atomicReferenceArray;
         return (T) a(atomicReferenceArray, u(j, i));
     }
 
@@ -158,7 +158,7 @@ public final class f<T> implements Queue<T> {
     }
 
     private void zG(int i) {
-        this.iQH = Math.min(i / 4, iQG);
+        this.iQI = Math.min(i / 4, iQH);
     }
 
     private long cga() {

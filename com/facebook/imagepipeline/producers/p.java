@@ -9,16 +9,16 @@ public class p {
             return 1;
         }
         float c = c(imageRequest, dVar);
-        if (dVar.bZy() == com.facebook.c.b.ipd) {
+        if (dVar.bZy() == com.facebook.c.b.ipe) {
             aN = aO(c);
         } else {
             aN = aN(c);
         }
         int max = Math.max(dVar.getHeight(), dVar.getWidth());
         com.facebook.imagepipeline.common.c cbf = imageRequest.cbf();
-        float f = cbf != null ? cbf.iqY : 2048.0f;
+        float f = cbf != null ? cbf.iqZ : 2048.0f;
         while (max / aN > f) {
-            if (dVar.bZy() == com.facebook.c.b.ipd) {
+            if (dVar.bZy() == com.facebook.c.b.ipe) {
                 aN *= 2;
             } else {
                 aN++;

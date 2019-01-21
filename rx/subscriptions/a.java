@@ -4,19 +4,19 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class a implements k {
-    static final rx.functions.a iSP = new rx.functions.a() { // from class: rx.subscriptions.a.1
+    static final rx.functions.a iSQ = new rx.functions.a() { // from class: rx.subscriptions.a.1
         @Override // rx.functions.a
         public void call() {
         }
     };
-    final AtomicReference<rx.functions.a> iSO;
+    final AtomicReference<rx.functions.a> iSP;
 
     public a() {
-        this.iSO = new AtomicReference<>();
+        this.iSP = new AtomicReference<>();
     }
 
     private a(rx.functions.a aVar) {
-        this.iSO = new AtomicReference<>(aVar);
+        this.iSP = new AtomicReference<>(aVar);
     }
 
     public static a cgL() {
@@ -29,13 +29,13 @@ public final class a implements k {
 
     @Override // rx.k
     public boolean isUnsubscribed() {
-        return this.iSO.get() == iSP;
+        return this.iSP.get() == iSQ;
     }
 
     @Override // rx.k
     public void unsubscribe() {
         rx.functions.a andSet;
-        if (this.iSO.get() != iSP && (andSet = this.iSO.getAndSet(iSP)) != null && andSet != iSP) {
+        if (this.iSP.get() != iSQ && (andSet = this.iSP.getAndSet(iSQ)) != null && andSet != iSQ) {
             andSet.call();
         }
     }

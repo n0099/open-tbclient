@@ -12,9 +12,9 @@ import com.baidu.tieba.recapp.lego.model.FormCard;
 import com.baidu.tieba.recapp.lego.view.form.FormItemBaseView;
 /* loaded from: classes3.dex */
 public class VerificationCodeView extends FormItemBaseView {
-    private EditText gUm;
-    private Button gUn;
-    private a gUo;
+    private EditText gUn;
+    private Button gUo;
+    private a gUp;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -23,25 +23,25 @@ public class VerificationCodeView extends FormItemBaseView {
 
     public VerificationCodeView(Context context) {
         super(context);
-        this.gUm = null;
         this.gUn = null;
         this.gUo = null;
+        this.gUp = null;
         init();
     }
 
     public VerificationCodeView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gUm = null;
         this.gUn = null;
         this.gUo = null;
+        this.gUp = null;
         init();
     }
 
     public VerificationCodeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gUm = null;
         this.gUn = null;
         this.gUo = null;
+        this.gUp = null;
         init();
     }
 
@@ -51,67 +51,67 @@ public class VerificationCodeView extends FormItemBaseView {
     }
 
     private void bwH() {
-        this.gUn = new Button(this.mContext);
-        this.gUn.setId(1);
-        this.gUn.setTextColor(this.gTY);
-        this.gUn.setTextSize(0, this.mFontSize);
-        this.gUn.setBackgroundColor(this.gUa);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, this.gTR);
+        this.gUo = new Button(this.mContext);
+        this.gUo.setId(1);
+        this.gUo.setTextColor(this.gTZ);
+        this.gUo.setTextSize(0, this.mFontSize);
+        this.gUo.setBackgroundColor(this.gUb);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, this.gTS);
         layoutParams.addRule(11);
         layoutParams.addRule(15);
-        addView(this.gUn, layoutParams);
-        this.gUn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.form.VerificationCodeView.1
+        addView(this.gUo, layoutParams);
+        this.gUo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.form.VerificationCodeView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (VerificationCodeView.this.gUo != null) {
-                    VerificationCodeView.this.gUo.bwx();
+                if (VerificationCodeView.this.gUp != null) {
+                    VerificationCodeView.this.gUp.bwx();
                 }
             }
         });
     }
 
     private void bwI() {
-        this.gUm = new EditText(this.mContext);
-        this.gUm.setTextColor(this.gTU);
-        this.gUm.setHintTextColor(this.gTV);
-        this.gUm.setTextSize(0, this.mFontSize);
-        this.gUm.setGravity(19);
-        int paddingBottom = this.gUm.getPaddingBottom();
-        this.gUm.setPadding(this.gTO, this.gUm.getPaddingTop(), this.gUm.getPaddingRight(), paddingBottom);
-        this.gUm.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.recapp.lego.view.form.VerificationCodeView.2
+        this.gUn = new EditText(this.mContext);
+        this.gUn.setTextColor(this.gTV);
+        this.gUn.setHintTextColor(this.gTW);
+        this.gUn.setTextSize(0, this.mFontSize);
+        this.gUn.setGravity(19);
+        int paddingBottom = this.gUn.getPaddingBottom();
+        this.gUn.setPadding(this.gTP, this.gUn.getPaddingTop(), this.gUn.getPaddingRight(), paddingBottom);
+        this.gUn.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.recapp.lego.view.form.VerificationCodeView.2
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (z || VerificationCodeView.this.bwu()) {
-                    VerificationCodeView.this.a(VerificationCodeView.this.gUm, FormItemBaseView.DrawableType.ORDINARY_FRAME);
+                    VerificationCodeView.this.a(VerificationCodeView.this.gUn, FormItemBaseView.DrawableType.ORDINARY_FRAME);
                 } else {
-                    VerificationCodeView.this.a(VerificationCodeView.this.gUm, FormItemBaseView.DrawableType.ERROR_FRAME);
+                    VerificationCodeView.this.a(VerificationCodeView.this.gUn, FormItemBaseView.DrawableType.ERROR_FRAME);
                 }
             }
         });
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.gTR);
-        layoutParams.addRule(0, this.gUn.getId());
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.gTS);
+        layoutParams.addRule(0, this.gUo.getId());
         layoutParams.addRule(15);
-        a(this.gUm, FormItemBaseView.DrawableType.ORDINARY_FRAME);
-        addView(this.gUm, layoutParams);
+        a(this.gUn, FormItemBaseView.DrawableType.ORDINARY_FRAME);
+        addView(this.gUn, layoutParams);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
     public boolean a(FormCard.b bVar) {
         if (super.a(bVar)) {
             FormCard.h hVar = (FormCard.h) bVar;
-            if (!TextUtils.isEmpty(hVar.gQP)) {
-                this.gUn.setText(hVar.gQP);
-                this.gUn.setTextSize(0, this.mFontSize);
-                this.gUn.getLayoutParams().height = this.gTR;
-                this.gUn.setPadding(this.gTO, 0, this.gTO, 0);
+            if (!TextUtils.isEmpty(hVar.gQQ)) {
+                this.gUo.setText(hVar.gQQ);
+                this.gUo.setTextSize(0, this.mFontSize);
+                this.gUo.getLayoutParams().height = this.gTS;
+                this.gUo.setPadding(this.gTP, 0, this.gTP, 0);
             }
             if (!TextUtils.isEmpty(hVar.content)) {
-                this.gUm.setHint(hVar.content);
-                this.gUm.setTextSize(0, this.mFontSize);
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.gUm.getLayoutParams();
-                marginLayoutParams.height = this.gTR;
-                marginLayoutParams.rightMargin = this.gTO;
-                this.gUm.setPadding(this.gTO, 0, 0, 0);
+                this.gUn.setHint(hVar.content);
+                this.gUn.setTextSize(0, this.mFontSize);
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.gUn.getLayoutParams();
+                marginLayoutParams.height = this.gTS;
+                marginLayoutParams.rightMargin = this.gTP;
+                this.gUn.setPadding(this.gTP, 0, 0, 0);
             }
             return true;
         }
@@ -120,11 +120,11 @@ public class VerificationCodeView extends FormItemBaseView {
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
     protected void reset() {
-        this.gUm.setText("");
+        this.gUn.setText("");
     }
 
     public void setListener(a aVar) {
-        this.gUo = aVar;
+        this.gUp = aVar;
     }
 
     public void setVerificationInfo(String str) {

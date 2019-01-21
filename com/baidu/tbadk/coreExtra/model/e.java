@@ -6,17 +6,16 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class e {
-    private String aRQ;
     private String aRR;
     private String aRS;
     private String aRT;
-    private String aRW;
+    private String aRU;
     private String aRX;
     private String aRY;
     private String aRZ;
     private String aSa;
     private String aSb;
-    private int aRy = 0;
+    private String aSc;
     private int aRz = 0;
     private int aRA = 0;
     private int aRB = 0;
@@ -32,18 +31,19 @@ public class e {
     private int aRL = 0;
     private int aRM = 0;
     private int aRN = 0;
-    private boolean aRO = true;
+    private int aRO = 0;
     private boolean aRP = true;
-    private HashMap<String, String> aRU = new HashMap<>();
+    private boolean aRQ = true;
     private HashMap<String, String> aRV = new HashMap<>();
-    private List<a> aSc = new ArrayList();
+    private HashMap<String, String> aRW = new HashMap<>();
+    private List<a> aSd = new ArrayList();
 
     /* loaded from: classes.dex */
     public static class a {
-        public String aSd;
         public String aSe;
-        public int aSf;
-        public String aSg;
+        public String aSf;
+        public int aSg;
+        public String aSh;
         public String content;
         public String gid;
         public String title;
@@ -72,198 +72,198 @@ public class e {
     }
 
     public int JB() {
-        return this.aRy;
-    }
-
-    public void fa(int i) {
-        this.aRy = i;
-    }
-
-    public int JC() {
-        return this.aRB;
-    }
-
-    public void fb(int i) {
-        this.aRB = i;
-    }
-
-    public int JD() {
-        return this.aRC;
-    }
-
-    public int JE() {
-        return this.aRE;
-    }
-
-    public void fc(int i) {
-        this.aRE = i;
-    }
-
-    public int JF() {
-        return this.aRI;
-    }
-
-    public void fd(int i) {
-        this.aRI = i;
-    }
-
-    public int JG() {
-        return this.aRH;
-    }
-
-    public void fe(int i) {
-        this.aRH = i;
-    }
-
-    public int JH() {
-        return this.aRy;
-    }
-
-    public int JI() {
-        return this.aRA;
-    }
-
-    public void ff(int i) {
-        this.aRA = i;
-    }
-
-    public boolean JJ() {
-        return this.aRO;
-    }
-
-    public void cf(boolean z) {
-        this.aRO = z;
-    }
-
-    public String JK() {
-        return this.aRQ;
-    }
-
-    public void hc(String str) {
-        this.aRQ = str;
-    }
-
-    public String JL() {
-        return this.aRW;
-    }
-
-    public void hd(String str) {
-        this.aRW = str;
-    }
-
-    public void he(String str) {
-        this.aRX = str;
-    }
-
-    public int JM() {
         return this.aRz;
     }
 
-    public void fg(int i) {
+    public void fa(int i) {
         this.aRz = i;
     }
 
-    public void hf(String str) {
-        this.aRY = str;
+    public int JC() {
+        return this.aRC;
     }
 
-    public String JN() {
-        return this.aSa;
+    public void fb(int i) {
+        this.aRC = i;
     }
 
-    public String JO() {
-        return this.aSb;
-    }
-
-    public HashMap<String, String> JP() {
-        return this.aRU;
-    }
-
-    public int JQ() {
+    public int JD() {
         return this.aRD;
     }
 
-    public void fh(int i) {
-        this.aRD = i;
-    }
-
-    public int JR() {
+    public int JE() {
         return this.aRF;
     }
 
-    public void fi(int i) {
+    public void fc(int i) {
         this.aRF = i;
     }
 
-    public int JS() {
+    public int JF() {
         return this.aRJ;
     }
 
-    public void fj(int i) {
+    public void fd(int i) {
         this.aRJ = i;
     }
 
-    public void hg(String str) {
+    public int JG() {
+        return this.aRI;
+    }
+
+    public void fe(int i) {
+        this.aRI = i;
+    }
+
+    public int JH() {
+        return this.aRz;
+    }
+
+    public int JI() {
+        return this.aRB;
+    }
+
+    public void ff(int i) {
+        this.aRB = i;
+    }
+
+    public boolean JJ() {
+        return this.aRP;
+    }
+
+    public void cf(boolean z) {
+        this.aRP = z;
+    }
+
+    public String JK() {
+        return this.aRR;
+    }
+
+    public void hc(String str) {
         this.aRR = str;
     }
 
-    public void hh(String str) {
-        this.aRS = str;
+    public String JL() {
+        return this.aRX;
     }
 
-    public int JT() {
-        return this.aRG;
+    public void hd(String str) {
+        this.aRX = str;
     }
 
-    public void fk(int i) {
-        this.aRG = i;
+    public void he(String str) {
+        this.aRY = str;
     }
 
-    public String JU() {
-        return this.aRT;
+    public int JM() {
+        return this.aRA;
     }
 
-    public void hi(String str) {
-        this.aRT = str;
+    public void fg(int i) {
+        this.aRA = i;
     }
 
-    public HashMap<String, String> JV() {
-        return this.aRV;
-    }
-
-    public String JW() {
-        return this.aRZ;
-    }
-
-    public void hj(String str) {
+    public void hf(String str) {
         this.aRZ = str;
     }
 
-    public int JX() {
-        return this.aRL;
+    public String JN() {
+        return this.aSb;
     }
 
-    public void fl(int i) {
-        this.aRL = i;
-    }
-
-    public int JY() {
-        return this.aRM;
-    }
-
-    public void fm(int i) {
-        this.aRM = i;
-    }
-
-    public List<a> JZ() {
+    public String JO() {
         return this.aSc;
     }
 
-    public int Ka() {
+    public HashMap<String, String> JP() {
+        return this.aRV;
+    }
+
+    public int JQ() {
+        return this.aRE;
+    }
+
+    public void fh(int i) {
+        this.aRE = i;
+    }
+
+    public int JR() {
+        return this.aRG;
+    }
+
+    public void fi(int i) {
+        this.aRG = i;
+    }
+
+    public int JS() {
+        return this.aRK;
+    }
+
+    public void fj(int i) {
+        this.aRK = i;
+    }
+
+    public void hg(String str) {
+        this.aRS = str;
+    }
+
+    public void hh(String str) {
+        this.aRT = str;
+    }
+
+    public int JT() {
+        return this.aRH;
+    }
+
+    public void fk(int i) {
+        this.aRH = i;
+    }
+
+    public String JU() {
+        return this.aRU;
+    }
+
+    public void hi(String str) {
+        this.aRU = str;
+    }
+
+    public HashMap<String, String> JV() {
+        return this.aRW;
+    }
+
+    public String JW() {
+        return this.aSa;
+    }
+
+    public void hj(String str) {
+        this.aSa = str;
+    }
+
+    public int JX() {
+        return this.aRM;
+    }
+
+    public void fl(int i) {
+        this.aRM = i;
+    }
+
+    public int JY() {
         return this.aRN;
     }
 
-    public void fn(int i) {
+    public void fm(int i) {
         this.aRN = i;
+    }
+
+    public List<a> JZ() {
+        return this.aSd;
+    }
+
+    public int Ka() {
+        return this.aRO;
+    }
+
+    public void fn(int i) {
+        this.aRO = i;
     }
 }

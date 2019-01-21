@@ -9,8 +9,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class l extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.o> {
-    private TbImageView gDU;
-    private TextView gDV;
+    private TbImageView gDV;
+    private TextView gDW;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -19,16 +19,16 @@ public class l extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
         this.mRootView = getView();
         this.mPageContext = tbPageContext;
         this.mRootView.setTag(this);
-        this.gDU = (TbImageView) this.mRootView.findViewById(e.g.gift_pic);
-        this.gDV = (TextView) this.mRootView.findViewById(e.g.gift_num_text);
+        this.gDV = (TbImageView) this.mRootView.findViewById(e.g.gift_pic);
+        this.gDW = (TextView) this.mRootView.findViewById(e.g.gift_num_text);
     }
 
     @Override // com.baidu.tieba.card.a
     public void d(TbPageContext<?> tbPageContext, int i) {
         al.j(this.mRootView, e.d.cp_bg_line_d);
-        al.i(this.gDU, e.f.item_gift_selector);
-        al.j(this.gDV, e.d.common_color_10294);
-        al.h(this.gDV, e.d.cp_link_tip_a);
+        al.i(this.gDV, e.f.item_gift_selector);
+        al.j(this.gDW, e.d.common_color_10294);
+        al.h(this.gDW, e.d.cp_link_tip_a);
     }
 
     @Override // com.baidu.tieba.card.a
@@ -44,19 +44,19 @@ public class l extends com.baidu.tieba.card.a<com.baidu.tieba.personPolymeric.c.
             return;
         }
         d(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        this.gDU.startLoad(oVar.picUrl, 10, false);
+        this.gDV.startLoad(oVar.picUrl, 10, false);
         this.mRootView.setOnClickListener(this);
         if (oVar.giftNum > 0) {
-            this.gDV.setVisibility(0);
+            this.gDW.setVisibility(0);
             if (oVar.giftNum > 99) {
-                this.gDV.setText("99");
+                this.gDW.setText("99");
                 return;
             } else {
-                this.gDV.setText(String.valueOf(oVar.giftNum));
+                this.gDW.setText(String.valueOf(oVar.giftNum));
                 return;
             }
         }
-        this.gDV.setVisibility(8);
+        this.gDW.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener

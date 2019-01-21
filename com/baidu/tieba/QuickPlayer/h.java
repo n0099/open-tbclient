@@ -9,9 +9,9 @@ import android.view.Surface;
 import java.lang.reflect.Field;
 /* loaded from: classes5.dex */
 public class h extends MediaPlayer {
-    private b byW;
-    private Handler byY;
-    private Handler.Callback byZ;
+    private b byX;
+    private Handler byZ;
+    private Handler.Callback bza;
 
     /* loaded from: classes5.dex */
     public interface b {
@@ -25,12 +25,12 @@ public class h extends MediaPlayer {
                 declaredField.setAccessible(true);
                 Object obj = declaredField.get(this);
                 if (obj instanceof Handler) {
-                    this.byY = (Handler) obj;
+                    this.byZ = (Handler) obj;
                     Field declaredField2 = Handler.class.getDeclaredField("mCallback");
                     declaredField2.setAccessible(true);
                     Object obj2 = declaredField2.get(obj);
                     if (obj2 instanceof Handler.Callback) {
-                        this.byZ = (Handler.Callback) obj2;
+                        this.bza = (Handler.Callback) obj2;
                     }
                     declaredField2.set(obj, new a());
                 }
@@ -49,8 +49,8 @@ public class h extends MediaPlayer {
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             try {
-                if ((h.this.byZ == null || !h.this.byZ.handleMessage(message)) && h.this.byY != null) {
-                    h.this.byY.handleMessage(message);
+                if ((h.this.bza == null || !h.this.bza.handleMessage(message)) && h.this.byZ != null) {
+                    h.this.byZ.handleMessage(message);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -64,8 +64,8 @@ public class h extends MediaPlayer {
     public void n(Throwable th) {
         if (th != null) {
             String o = com.baidu.tieba.j.a.o(th);
-            if (this.byW != null) {
-                this.byW.handleOppoError(o);
+            if (this.byX != null) {
+                this.byX.handleOppoError(o);
             }
         }
     }
@@ -78,6 +78,6 @@ public class h extends MediaPlayer {
     }
 
     public void a(b bVar) {
-        this.byW = bVar;
+        this.byX = bVar;
     }
 }

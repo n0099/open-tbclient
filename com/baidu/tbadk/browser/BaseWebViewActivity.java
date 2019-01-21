@@ -22,7 +22,6 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.BdToken.f;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
@@ -110,7 +109,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             BaseWebViewActivity.this.refresh();
         }
     };
-    private final CustomMessageListener webviewLoginListener = new CustomMessageListener(2921024) { // from class: com.baidu.tbadk.browser.BaseWebViewActivity.7
+    private final CustomMessageListener webviewLoginListener = new CustomMessageListener(2921024) { // from class: com.baidu.tbadk.browser.BaseWebViewActivity.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -167,7 +166,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             this.mView.ef(this.mUrlTitle);
         }
         if (!this.mView.xj() && UtilHelper.canUseStyleImmersiveSticky()) {
-            ba.a(this.mView.ano, e.d.cp_link_tip_b, false);
+            ba.a(this.mView.anp, e.d.cp_link_tip_b, false);
         }
         if (!this.mIsTranslucent) {
             adjustResizeForSoftInput();
@@ -198,20 +197,8 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         Map<String, String> gb;
         Intent intent = getIntent();
         if (intent != null) {
-            Uri data = intent.getData();
             String dataString = intent.getDataString();
-            if (com.baidu.tbadk.BdToken.f.e(data)) {
-                com.baidu.tbadk.BdToken.f.vJ().d(data, new f.a() { // from class: com.baidu.tbadk.browser.BaseWebViewActivity.4
-                    @Override // com.baidu.tbadk.BdToken.f.a
-                    public void n(HashMap<String, Object> hashMap) {
-                        if (hashMap != null && (hashMap.get(com.baidu.tbadk.BdToken.f.PARAM_URL) instanceof String)) {
-                            BaseWebViewActivity.this.mUrl = (String) hashMap.get(com.baidu.tbadk.BdToken.f.PARAM_URL);
-                        }
-                    }
-                });
-                this.mIsShowNavBar = true;
-                this.mEnableJs = true;
-            } else if (!StringUtils.isNull(dataString) && dataString.startsWith("com.baidu.tieba://tbwebview")) {
+            if (!StringUtils.isNull(dataString) && dataString.startsWith("com.baidu.tieba://tbwebview")) {
                 String decode = Uri.decode(intent.getData().getEncodedPath());
                 if (!StringUtils.isNull(decode)) {
                     if (decode.startsWith("//")) {
@@ -491,7 +478,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         if (!TextUtils.isEmpty(str4)) {
             dVar.imageUri = Uri.parse(str4);
         }
-        dVar.aSI = true;
+        dVar.aSJ = true;
         dVar.extData = this.mUrl;
         Bundle bundle = new Bundle();
         bundle.putString("obj_url", dVar.linkUrl);
@@ -528,10 +515,10 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                         dVar.topic = optString5;
                     }
                     if (!ao.isEmpty(optString6)) {
-                        dVar.aSV = optString6;
+                        dVar.aSW = optString6;
                     }
                     if (!ao.isEmpty(optString7)) {
-                        dVar.aSW = optString7;
+                        dVar.aSX = optString7;
                     }
                     dVar.shareType = jSONObject.optInt("shareimg");
                     String optString8 = jSONObject.optString("extdata");
@@ -543,7 +530,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                             if (!StringUtils.isNull(optString9) && !StringUtils.isNull(optString10)) {
                                 JSONObject jSONObject3 = new JSONObject();
                                 jSONObject3.put(optString9, optString10);
-                                dVar.aSX = jSONObject3.toString();
+                                dVar.aSY = jSONObject3.toString();
                             }
                         } catch (JSONException e) {
                         }
@@ -641,7 +628,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             this.mTimer.purge();
         }
         this.mTimer = new Timer();
-        this.mTimer.schedule(new TimerTask() { // from class: com.baidu.tbadk.browser.BaseWebViewActivity.5
+        this.mTimer.schedule(new TimerTask() { // from class: com.baidu.tbadk.browser.BaseWebViewActivity.4
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
                 Message message = new Message();
@@ -714,7 +701,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             this.mJsInterfaces = new HashMap<>();
         }
         if (!this.mJsInterfaces.containsKey("TbJsBridge")) {
-            this.mJsInterfaces.put("TbJsBridge", new a() { // from class: com.baidu.tbadk.browser.BaseWebViewActivity.6
+            this.mJsInterfaces.put("TbJsBridge", new a() { // from class: com.baidu.tbadk.browser.BaseWebViewActivity.5
                 @Override // com.baidu.tbadk.browser.BaseWebViewActivity.a
                 public Object a(TbPageContext<?> tbPageContext) {
                     return new TbJsBridge(tbPageContext);
@@ -737,9 +724,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             if (ek.El != null) {
                 str3 = ek.El;
             }
-            if (ek.aoR != null) {
+            if (ek.aoS != null) {
                 str = str3;
-                str2 = ek.aoR;
+                str2 = ek.aoS;
                 ac.a aVar = new ac.a(str, str2);
                 if (this.mCookieInfo == null && (this.mCookieInfo == null || !this.mCookieInfo.equals(aVar))) {
                     z = true;

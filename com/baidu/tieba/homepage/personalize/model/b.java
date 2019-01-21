@@ -77,7 +77,7 @@ public class b {
                         for (DislikeReason dislikeReason : list2) {
                             sparseArray.put(dislikeReason.dislike_id.intValue(), dislikeReason.dislike_reason);
                         }
-                        cVar.asE = sparseArray;
+                        cVar.asF = sparseArray;
                         cVar.setExtra(threadPersonalized.extra);
                     }
                 }

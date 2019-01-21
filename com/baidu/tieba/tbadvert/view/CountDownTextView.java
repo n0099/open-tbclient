@@ -7,9 +7,9 @@ import android.widget.TextView;
 import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
 public class CountDownTextView extends TextView {
-    private int bFF;
-    private final Runnable bFH;
-    private b htF;
+    private int bFG;
+    private final Runnable bFI;
+    private b htG;
     private Handler mHandler;
     private String mText;
 
@@ -20,15 +20,15 @@ public class CountDownTextView extends TextView {
 
     /* loaded from: classes3.dex */
     private static class a implements Runnable {
-        private final WeakReference<CountDownTextView> bFe;
+        private final WeakReference<CountDownTextView> bFf;
 
         private a(CountDownTextView countDownTextView) {
-            this.bFe = new WeakReference<>(countDownTextView);
+            this.bFf = new WeakReference<>(countDownTextView);
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            CountDownTextView countDownTextView = this.bFe.get();
+            CountDownTextView countDownTextView = this.bFf.get();
             if (countDownTextView != null) {
                 countDownTextView.hO(1);
             }
@@ -37,15 +37,15 @@ public class CountDownTextView extends TextView {
 
     public CountDownTextView(Context context) {
         super(context);
-        this.bFF = 0;
+        this.bFG = 0;
         this.mText = "";
-        this.htF = null;
+        this.htG = null;
         this.mHandler = new Handler();
-        this.bFH = new a();
+        this.bFI = new a();
     }
 
     public void setTimeoutListener(b bVar) {
-        this.htF = bVar;
+        this.htG = bVar;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -73,7 +73,7 @@ public class CountDownTextView extends TextView {
     public void O(String str, int i) {
         this.mText = str;
         if (i > 0) {
-            this.bFF = i;
+            this.bFG = i;
         }
     }
 
@@ -83,18 +83,18 @@ public class CountDownTextView extends TextView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hO(int i) {
-        this.bFF -= i;
-        if (this.bFF == 0) {
-            if (this.htF != null) {
-                this.htF.ak(this);
+        this.bFG -= i;
+        if (this.bFG == 0) {
+            if (this.htG != null) {
+                this.htG.ak(this);
             }
             this.mHandler.removeCallbacksAndMessages(null);
             return;
         }
-        if (this.bFF > 0) {
-            setText(String.format("%s %s", this.mText, Integer.valueOf(this.bFF)));
+        if (this.bFG > 0) {
+            setText(String.format("%s %s", this.mText, Integer.valueOf(this.bFG)));
         }
-        this.mHandler.removeCallbacks(this.bFH);
-        this.mHandler.postDelayed(this.bFH, 1000L);
+        this.mHandler.removeCallbacks(this.bFI);
+        this.mHandler.postDelayed(this.bFI, 1000L);
     }
 }

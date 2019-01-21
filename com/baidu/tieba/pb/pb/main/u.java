@@ -17,8 +17,8 @@ import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class u extends com.baidu.tbadk.editortools.c {
-    private com.baidu.tbadk.editortools.b gbA;
-    private boolean gbB = false;
+    private com.baidu.tbadk.editortools.b gbB;
+    private boolean gbC = false;
     private PbEditorData.ThreadData mThreadData;
 
     @Override // com.baidu.tbadk.editortools.c
@@ -26,7 +26,7 @@ public class u extends com.baidu.tbadk.editortools.c {
         EditorTools editorTools = new EditorTools(context);
         editorTools.setIsFromPb(true);
         editorTools.setBarMaxLauCount(5);
-        if (this.gbB) {
+        if (this.gbC) {
             editorTools.setBarLauncherType(2);
         } else {
             editorTools.setBarLauncherType(3);
@@ -48,8 +48,8 @@ public class u extends com.baidu.tbadk.editortools.c {
                 @Override // com.baidu.tbadk.editortools.b
                 public void a(com.baidu.tbadk.editortools.a aVar) {
                     if (tVar != null && tVar.Mp() != null && aVar != null) {
-                        if (u.this.gbA != null) {
-                            u.this.gbA.a(aVar);
+                        if (u.this.gbB != null) {
+                            u.this.gbB.a(aVar);
                         }
                         switch (aVar.code) {
                             case 16:
@@ -127,14 +127,14 @@ public class u extends com.baidu.tbadk.editortools.c {
         EditorTools Mp = dVar.Mp();
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
-        if (!this.gbB) {
+        if (!this.gbC) {
             arrayList.add(10);
         }
         arrayList.add(6);
         arrayList.add(9);
-        if (!this.gbB) {
+        if (!this.gbC) {
             com.baidu.tbadk.editortools.imagetool.d dVar2 = new com.baidu.tbadk.editortools.imagetool.d(Mp.getContext(), 3);
-            dVar2.aZI = e.f.new_pbeditor_image_button;
+            dVar2.aZJ = e.f.new_pbeditor_image_button;
             Mp.b(dVar2);
         }
         String str = "";
@@ -142,39 +142,39 @@ public class u extends com.baidu.tbadk.editortools.c {
             str = this.mThreadData.getForumName();
         }
         if (com.baidu.tieba.tbadkCore.voice.c.bGd() && com.baidu.tieba.tbadkCore.p.a(str, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, Mp.getContext()), com.baidu.tbadk.editortools.k.class)) != null && (kVar2 = (com.baidu.tbadk.editortools.k) runTask.getData()) != null) {
-            kVar2.aZI = e.f.new_pbeditor_voice_button;
-            kVar2.aZK = 4;
+            kVar2.aZJ = e.f.new_pbeditor_voice_button;
+            kVar2.aZL = 4;
             Mp.b(kVar2);
         }
         com.baidu.tbadk.editortools.a.a aVar = new com.baidu.tbadk.editortools.a.a(Mp.getContext(), 5);
-        aVar.aZI = e.f.new_pbeditor_at_button;
+        aVar.aZJ = e.f.new_pbeditor_at_button;
         Mp.b(aVar);
-        if (!this.gbB) {
+        if (!this.gbC) {
             CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, Mp.getContext()), com.baidu.tbadk.editortools.k.class);
             if (runTask2 != null && runTask2.getData() != null) {
                 com.baidu.tbadk.editortools.k kVar3 = (com.baidu.tbadk.editortools.k) runTask2.getData();
-                kVar3.aZK = 9;
-                kVar3.aZI = e.f.icon_post_more_bubble_n;
+                kVar3.aZL = 9;
+                kVar3.aZJ = e.f.icon_post_more_bubble_n;
                 Mp.b(kVar3);
             }
             CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, Mp.getContext()), com.baidu.tbadk.editortools.k.class);
             if (runTask3 != null && runTask3.getData() != null) {
                 com.baidu.tbadk.editortools.k kVar4 = (com.baidu.tbadk.editortools.k) runTask3.getData();
-                kVar4.aZK = 10;
-                kVar4.aZI = e.f.icon_post_more_tail_n;
+                kVar4.aZL = 10;
+                kVar4.aZJ = e.f.icon_post_more_tail_n;
                 Mp.b(kVar4);
             }
         }
-        if (!"PbChosenActivity".equals(Mp.getContext().getClass().getSimpleName()) && !this.gbB) {
+        if (!"PbChosenActivity".equals(Mp.getContext().getClass().getSimpleName()) && !this.gbC) {
             com.baidu.tbadk.editortools.b.a aVar2 = new com.baidu.tbadk.editortools.b.a(Mp.getContext(), 5);
-            aVar2.aZI = e.f.new_pbeditor_gift_button;
+            aVar2.aZJ = e.f.new_pbeditor_gift_button;
             Mp.b(aVar2);
         }
-        if (!this.gbB) {
+        if (!this.gbC) {
             CustomResponsedMessage runTask4 = MessageManager.getInstance().runTask(new CustomMessage<>(2016556, Mp.getContext()), com.baidu.tbadk.editortools.k.class);
             if (runTask4 != null && (kVar = (com.baidu.tbadk.editortools.k) runTask4.getData()) != null) {
-                kVar.aZK = 6;
-                kVar.aZI = e.f.icon_post_more_location;
+                kVar.aZL = 6;
+                kVar.aZJ = e.f.icon_post_more_location;
                 Mp.b(kVar);
             }
             arrayList.add(8);
@@ -183,11 +183,11 @@ public class u extends com.baidu.tbadk.editortools.c {
         com.baidu.tbadk.editortools.k fL = Mp.fL(5);
         if (fL != null) {
             fL.cw(false);
-            fL.aZK = 1;
-            fL.aZI = e.f.new_pbeditor_face_button;
+            fL.aZL = 1;
+            fL.aZJ = e.f.new_pbeditor_face_button;
         }
         Mp.Mq();
-        if (this.gbB) {
+        if (this.gbC) {
             Mp.b(new com.baidu.tbadk.editortools.a(35, 5, false));
         }
     }
@@ -203,7 +203,7 @@ public class u extends com.baidu.tbadk.editortools.c {
     }
 
     public void b(com.baidu.tbadk.editortools.b bVar) {
-        this.gbA = bVar;
+        this.gbB = bVar;
     }
 
     public void setThreadData(PbEditorData.ThreadData threadData) {
@@ -211,6 +211,6 @@ public class u extends com.baidu.tbadk.editortools.c {
     }
 
     public void kW(boolean z) {
-        this.gbB = z;
+        this.gbC = z;
     }
 }

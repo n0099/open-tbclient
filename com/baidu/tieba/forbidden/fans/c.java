@@ -12,29 +12,29 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c {
-    private al dGV;
-    private ArrayList<com.baidu.tieba.forbidden.fans.a> dGW;
-    private a dGX;
-    private HttpMessageListener dGY = new HttpMessageListener(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.c.1
+    private al dGW;
+    private ArrayList<com.baidu.tieba.forbidden.fans.a> dGX;
+    private a dGY;
+    private HttpMessageListener dGZ = new HttpMessageListener(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS) { // from class: com.baidu.tieba.forbidden.fans.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof GetForbiddenFansResponse) {
                 GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
-                c.this.dGV = getForbiddenFansResponse.getPageData();
-                if (c.this.dGW == null) {
-                    c.this.dGW = new ArrayList();
+                c.this.dGW = getForbiddenFansResponse.getPageData();
+                if (c.this.dGX == null) {
+                    c.this.dGX = new ArrayList();
                 }
-                if (c.this.dGV != null) {
-                    if (c.this.dGV.za() == 1) {
-                        c.this.dGW.clear();
+                if (c.this.dGW != null) {
+                    if (c.this.dGW.za() == 1) {
+                        c.this.dGX.clear();
                     }
                     if (getForbiddenFansResponse.getFansList() != null) {
-                        c.this.dGW.addAll(getForbiddenFansResponse.getFansList());
+                        c.this.dGX.addAll(getForbiddenFansResponse.getFansList());
                     }
                 }
-                if (c.this.dGX != null) {
-                    c.this.dGX.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), c.this.dGW);
+                if (c.this.dGY != null) {
+                    c.this.dGY.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), c.this.dGX);
                 }
             }
         }
@@ -52,7 +52,7 @@ public class c {
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
         tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.dGY);
+        MessageManager.getInstance().registerListener(this.dGZ);
     }
 
     public void aAr() {
@@ -63,8 +63,8 @@ public class c {
     }
 
     public void aAs() {
-        if (this.dGV == null || this.dGV.zc() == 1) {
-            int za = this.dGV != null ? this.dGV.za() + 1 : 1;
+        if (this.dGW == null || this.dGW.zc() == 1) {
+            int za = this.dGW != null ? this.dGW.za() + 1 : 1;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
             httpMessage.addParam("rn", 20);
             httpMessage.addParam(Config.PACKAGE_NAME, za);
@@ -73,14 +73,14 @@ public class c {
     }
 
     public boolean hasMore() {
-        return this.dGV != null && this.dGV.zc() == 1;
+        return this.dGW != null && this.dGW.zc() == 1;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.dGY);
+        MessageManager.getInstance().unRegisterListener(this.dGZ);
     }
 
     public void a(a aVar) {
-        this.dGX = aVar;
+        this.dGY = aVar;
     }
 }

@@ -5,41 +5,41 @@ import com.baidu.tieba.video.cloudmusic.data.CloudMusicData;
 import com.baidu.tieba.video.cloudmusic.model.CloudMusicModel;
 /* loaded from: classes5.dex */
 public class b implements c.a {
-    private final CloudMusicModel hEZ;
-    private final c.b hFa;
+    private final CloudMusicModel hFa;
+    private final c.b hFb;
 
     public b(CloudMusicModel cloudMusicModel, c.b bVar) {
-        this.hEZ = cloudMusicModel;
-        this.hFa = bVar;
+        this.hFa = cloudMusicModel;
+        this.hFb = bVar;
         bVar.a(this);
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
     public void bJA() {
-        this.hFa.nY(true);
-        this.hEZ.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
+        this.hFb.nY(true);
+        this.hFa.a(new com.baidu.tieba.video.cloudmusic.model.a<CloudMusicData>() { // from class: com.baidu.tieba.video.cloudmusic.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.video.cloudmusic.model.a
             /* renamed from: b */
             public void al(CloudMusicData cloudMusicData) {
-                b.this.hFa.nY(false);
+                b.this.hFb.nY(false);
                 if (cloudMusicData != null) {
-                    b.this.hFa.nZ(false);
+                    b.this.hFb.nZ(false);
                     if (cloudMusicData.tag_list.isEmpty()) {
-                        b.this.hFa.nZ(true);
+                        b.this.hFb.nZ(true);
                         return;
                     } else {
-                        b.this.hFa.a(cloudMusicData);
+                        b.this.hFb.a(cloudMusicData);
                         return;
                     }
                 }
-                b.this.hFa.nZ(true);
+                b.this.hFb.nZ(true);
             }
         });
     }
 
     @Override // com.baidu.tieba.video.cloudmusic.c.a
     public void aEp() {
-        this.hEZ.cancelLoadData();
+        this.hFa.cancelLoadData();
     }
 }

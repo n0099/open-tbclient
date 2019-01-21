@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private boolean aNH = false;
+    private boolean aNI = false;
 
     public boolean Gt() {
-        return this.aNH;
+        return this.aNI;
     }
 
     public void parseJson(JSONObject jSONObject) {
@@ -24,7 +24,7 @@ public class a {
 
     private void B(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aNH = true;
+            this.aNI = true;
         }
     }
 

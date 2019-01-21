@@ -26,24 +26,24 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private final int aYv = 5;
-    private a gQd = null;
-    private HashMap<String, f> gQf = new HashMap<>();
-    private static d gQc = null;
-    private static DownloadData aYx = null;
+    private final int aYw = 5;
+    private a gQe = null;
+    private HashMap<String, f> gQg = new HashMap<>();
+    private static d gQd = null;
+    private static DownloadData aYy = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private static HashMap<String, Integer> gQe = new HashMap<>();
+    private static HashMap<String, Integer> gQf = new HashMap<>();
 
     private d() {
     }
 
     public static d bwa() {
         synchronized (d.class) {
-            if (gQc == null) {
-                gQc = new d();
+            if (gQd == null) {
+                gQd = new d();
             }
         }
-        return gQc;
+        return gQd;
     }
 
     public void a(String str, String str2, String str3, int i, int i2, String[] strArr, boolean z, boolean z2, boolean z3, String str4, DownloadStaticsData downloadStaticsData, String str5) {
@@ -81,12 +81,12 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Mi() {
-        if (aYx == null && !mTaskList.isEmpty()) {
-            aYx = mTaskList.get(0);
-            if (aYx != null) {
-                this.gQd = new a();
-                this.gQd.setPriority(3);
-                this.gQd.execute(aYx);
+        if (aYy == null && !mTaskList.isEmpty()) {
+            aYy = mTaskList.get(0);
+            if (aYy != null) {
+                this.gQe = new a();
+                this.gQe.setPriority(3);
+                this.gQe.execute(aYy);
             }
         }
     }
@@ -121,10 +121,10 @@ public class d {
 
     /* loaded from: classes.dex */
     private class b extends BdAsyncTask<ArrayList<AdvertAppInfo>, List<DownloadData>, List<DownloadData>> {
-        ArrayList<AdvertAppInfo> aYz;
+        ArrayList<AdvertAppInfo> aYA;
 
         private b() {
-            this.aYz = null;
+            this.aYA = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -137,12 +137,12 @@ public class d {
             if (arrayList == null) {
                 return linkedList;
             }
-            this.aYz = arrayList;
+            this.aYA = arrayList;
             Iterator<AdvertAppInfo> it = arrayList.iterator();
             while (it.hasNext()) {
                 AdvertAppInfo next = it.next();
-                String str = next.apX;
-                if (l.fd(d.this.getFileOfUrl(next.apW)) != null) {
+                String str = next.apY;
+                if (l.fd(d.this.getFileOfUrl(next.apX)) != null) {
                     DownloadData downloadData = new DownloadData(str);
                     downloadData.setStatus(3);
                     linkedList.add(downloadData);
@@ -161,15 +161,15 @@ public class d {
                 list = new LinkedList<>();
             }
             for (DownloadData downloadData : e.bwc().nx()) {
-                Iterator<AdvertAppInfo> it = this.aYz.iterator();
+                Iterator<AdvertAppInfo> it = this.aYA.iterator();
                 while (it.hasNext()) {
-                    if (TextUtils.equals(it.next().apX, downloadData.getId())) {
+                    if (TextUtils.equals(it.next().apY, downloadData.getId())) {
                         list.add(downloadData);
                     }
                 }
             }
             d.this.P(list);
-            this.aYz = null;
+            this.aYA = null;
         }
     }
 
@@ -230,7 +230,7 @@ public class d {
         /* renamed from: e */
         public void onPostExecute(DownloadData downloadData) {
             super.onPostExecute(downloadData);
-            d.this.gQd = null;
+            d.this.gQe = null;
             if (downloadData != null) {
                 if (downloadData.getStatus() == 3) {
                     d.this.b(downloadData);
@@ -246,7 +246,7 @@ public class d {
                         if (downloadData.isNeedNotify()) {
                             String string = TbadkCoreApplication.getInst().getApp().getResources().getString(e.j.download_will_begin);
                             f fVar = new f(downloadData, 0);
-                            d.this.gQf.put(downloadData.getUrl(), fVar);
+                            d.this.gQg.put(downloadData.getUrl(), fVar);
                             NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), downloadData.getUser_name() + string, 0, string, downloadData.getUser_name(), d.this.hL(downloadData.getAction()), false, fVar.bwd(), false);
                         }
                     } else {
@@ -256,7 +256,7 @@ public class d {
                         d.this.c(downloadData);
                     }
                 }
-                DownloadData unused = d.aYx = null;
+                DownloadData unused = d.aYy = null;
                 if (!d.mTaskList.isEmpty()) {
                     d.mTaskList.remove(0);
                     d.this.Mi();
@@ -269,7 +269,7 @@ public class d {
         if (downloadData != null && downloadData.isNeedNotify()) {
             int aK = aK(downloadData.getId(), downloadData.getName());
             String str = aK + "%";
-            f fVar = this.gQf.get(downloadData.getUrl());
+            f fVar = this.gQg.get(downloadData.getUrl());
             f fVar2 = fVar == null ? new f(downloadData, aK) : fVar;
             int status = getStatus(downloadData);
             if (status == 1) {
@@ -287,7 +287,7 @@ public class d {
 
     public void i(DownloadData downloadData) {
         if (downloadData != null) {
-            f fVar = this.gQf.get(downloadData.getUrl());
+            f fVar = this.gQg.get(downloadData.getUrl());
             f fVar2 = fVar == null ? new f(downloadData, aK(downloadData.getId(), downloadData.getName())) : fVar;
             fVar2.bwe();
             NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, aK(downloadData.getId(), downloadData.getName()) + "%", downloadData.getUser_name(), hL(downloadData.getAction()), false, fVar2.bwd(), false);
@@ -296,7 +296,7 @@ public class d {
 
     public void j(DownloadData downloadData) {
         if (downloadData != null) {
-            f fVar = this.gQf.get(downloadData.getUrl());
+            f fVar = this.gQg.get(downloadData.getUrl());
             int aK = aK(downloadData.getId(), downloadData.getName());
             if (fVar == null) {
                 fVar = new f(downloadData, aK);
@@ -308,7 +308,7 @@ public class d {
     public void k(DownloadData downloadData) {
         if (downloadData != null) {
             j(downloadData);
-            f fVar = this.gQf.get(downloadData.getUrl());
+            f fVar = this.gQg.get(downloadData.getUrl());
             if (fVar != null) {
                 NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, aK(downloadData.getId(), downloadData.getName()) + "%", downloadData.getUser_name(), hL(downloadData.getAction()), false, fVar.bwd(), false);
             }
@@ -396,7 +396,7 @@ public class d {
                 int aK = aK(downloadData.getId(), downloadData.getName());
                 String str3 = aK + "%";
                 if (downloadData != null && aK >= 0) {
-                    f fVar = this.gQf.get(downloadData.getUrl());
+                    f fVar = this.gQg.get(downloadData.getUrl());
                     f fVar2 = fVar == null ? new f(downloadData, aK) : fVar;
                     fVar2.bwf();
                     NotificationHelper.showProgressNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId(), null, 0, str3, downloadData.getUser_name(), hL(downloadData.getAction()), false, fVar2.bwd(), false);
@@ -445,11 +445,11 @@ public class d {
     }
 
     public static Integer uS(String str) {
-        if (gQe.containsKey(str)) {
-            return gQe.get(str);
+        if (gQf.containsKey(str)) {
+            return gQf.get(str);
         }
         Integer valueOf = Integer.valueOf(BdUniqueId.gen().getId());
-        gQe.put(str, valueOf);
+        gQf.put(str, valueOf);
         return valueOf;
     }
 }

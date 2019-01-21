@@ -9,7 +9,7 @@ import rx.k;
 /* loaded from: classes2.dex */
 public class h implements k {
     public static final int SIZE;
-    public volatile Object iQo;
+    public volatile Object iQp;
     private Queue<Object> queue;
     private final int size;
 
@@ -80,8 +80,8 @@ public class h implements k {
     }
 
     public void onCompleted() {
-        if (this.iQo == null) {
-            this.iQo = NotificationLite.ceF();
+        if (this.iQp == null) {
+            this.iQp = NotificationLite.ceF();
         }
     }
 
@@ -96,9 +96,9 @@ public class h implements k {
             Queue<Object> queue = this.queue;
             if (queue != null) {
                 Object poll = queue.poll();
-                obj = this.iQo;
+                obj = this.iQp;
                 if (poll == null && obj != null && queue.peek() == null) {
-                    this.iQo = null;
+                    this.iQp = null;
                 } else {
                     obj = poll;
                 }
@@ -115,7 +115,7 @@ public class h implements k {
                 obj = null;
             } else {
                 Object peek = queue.peek();
-                obj = this.iQo;
+                obj = this.iQp;
                 if (peek != null || obj == null || queue.peek() != null) {
                     obj = peek;
                 }

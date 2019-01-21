@@ -47,27 +47,27 @@ import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b {
-    private i dda;
-    private ChannelHomeModel ddb;
-    private a ddc;
-    private long ddd;
-    private int dde = -1;
-    private boolean ddf = false;
-    private d ddg = null;
+    private i ddb;
+    private ChannelHomeModel ddc;
+    private a ddd;
+    private long dde;
+    private int ddf = -1;
+    private boolean ddg = false;
+    private d ddh = null;
     private int mPn = 1;
-    private HttpMessageListener ddh = new HttpMessageListener(CmdConfigHttp.CMD_CHANNEL_VIDEO_SET_TOP) { // from class: com.baidu.tieba.channel.activity.ChannelHomeActivity.1
+    private HttpMessageListener ddi = new HttpMessageListener(CmdConfigHttp.CMD_CHANNEL_VIDEO_SET_TOP) { // from class: com.baidu.tieba.channel.activity.ChannelHomeActivity.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             ChannelHomeActivity.this.closeLoadingDialog();
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChannelVideoSetTopHttpResponseMessage)) {
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
-                    if (ChannelHomeActivity.this.ddg != null) {
+                    if (ChannelHomeActivity.this.ddh != null) {
                         h hVar = (h) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra();
-                        ChannelHomeVideoList<h> arC = ChannelHomeActivity.this.ddg.arC();
+                        ChannelHomeVideoList<h> arC = ChannelHomeActivity.this.ddh.arC();
                         if (hVar != null && arC != null) {
                             arC.setTopAndRemoveOldTop(hVar);
-                            ChannelHomeActivity.this.dda.h(ChannelHomeActivity.this.ddg);
+                            ChannelHomeActivity.this.ddb.h(ChannelHomeActivity.this.ddh);
                             return;
                         }
                         return;
@@ -78,7 +78,7 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
             }
         }
     };
-    private HttpMessageListener ddi = new HttpMessageListener(CmdConfigHttp.CMD_CHANNEL_REMOVE_VIDEO) { // from class: com.baidu.tieba.channel.activity.ChannelHomeActivity.2
+    private HttpMessageListener ddj = new HttpMessageListener(CmdConfigHttp.CMD_CHANNEL_REMOVE_VIDEO) { // from class: com.baidu.tieba.channel.activity.ChannelHomeActivity.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
@@ -86,21 +86,21 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
             ChannelHomeActivity.this.closeLoadingDialog();
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChannelVideoRemoveHttpResponseMessage)) {
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
-                    if (ChannelHomeActivity.this.ddg != null && ChannelHomeActivity.this.ddg.arB() != null) {
+                    if (ChannelHomeActivity.this.ddh != null && ChannelHomeActivity.this.ddh.arB() != null) {
                         h hVar = (h) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra();
-                        ChannelHomeVideoList<h> arC = ChannelHomeActivity.this.ddg.arC();
+                        ChannelHomeVideoList<h> arC = ChannelHomeActivity.this.ddh.arC();
                         if (hVar != null && arC != null) {
                             arC.remove(hVar);
                             arC.checkBigVideoType();
-                            ChannelInfo arB = ChannelHomeActivity.this.ddg.arB();
-                            if (ChannelHomeActivity.this.ddg.arB().getVideoCount() - 1 > 0) {
-                                i = ChannelHomeActivity.this.ddg.arB().getVideoCount() - 1;
+                            ChannelInfo arB = ChannelHomeActivity.this.ddh.arB();
+                            if (ChannelHomeActivity.this.ddh.arB().getVideoCount() - 1 > 0) {
+                                i = ChannelHomeActivity.this.ddh.arB().getVideoCount() - 1;
                             } else {
                                 i = 0;
                             }
                             arB.setVideoCount(i);
-                            ChannelHomeActivity.this.dda.h(ChannelHomeActivity.this.ddg);
-                            ChannelHomeActivity.this.dda.f(ChannelHomeActivity.this.ddg);
+                            ChannelHomeActivity.this.ddb.h(ChannelHomeActivity.this.ddh);
+                            ChannelHomeActivity.this.ddb.f(ChannelHomeActivity.this.ddh);
                             return;
                         }
                         return;
@@ -111,18 +111,18 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
             }
         }
     };
-    private com.baidu.adp.framework.listener.a ddj = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CHANNEL_GET_INFO, 309437) { // from class: com.baidu.tieba.channel.activity.ChannelHomeActivity.3
+    private com.baidu.adp.framework.listener.a ddk = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CHANNEL_GET_INFO, 309437) { // from class: com.baidu.tieba.channel.activity.ChannelHomeActivity.3
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage responsedMessage) {
-            ChannelHomeActivity.this.ddb.fF(false);
-            ChannelHomeActivity.this.dda.hideLoadingView();
+            ChannelHomeActivity.this.ddc.fF(false);
+            ChannelHomeActivity.this.ddb.hideLoadingView();
             if (responsedMessage != null) {
                 if ((responsedMessage instanceof ChannelInfoGetSocketResponseMessage) || (responsedMessage instanceof ChannelInfoGetHttpResponseMessage)) {
                     if (responsedMessage.getError() != 0) {
                         ChannelHomeActivity.this.showToast(TextUtils.isEmpty(responsedMessage.getErrorString()) ? ChannelHomeActivity.this.getResources().getString(e.j.neterror) : responsedMessage.getErrorString());
-                        if (!ChannelHomeActivity.this.ddf) {
-                            ChannelHomeActivity.this.dda.showErrorView();
-                            ChannelHomeActivity.this.dda.abA();
+                        if (!ChannelHomeActivity.this.ddg) {
+                            ChannelHomeActivity.this.ddb.showErrorView();
+                            ChannelHomeActivity.this.ddb.abA();
                             return;
                         }
                         return;
@@ -135,43 +135,43 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
                     }
                     if (dVar != null) {
                         if (ChannelHomeActivity.this.mPn != 1) {
-                            if (ChannelHomeActivity.this.ddg != null) {
+                            if (ChannelHomeActivity.this.ddh != null) {
                                 if (dVar.arz() != null) {
-                                    ChannelHomeActivity.this.ddg.a(dVar.arz());
+                                    ChannelHomeActivity.this.ddh.a(dVar.arz());
                                 }
-                                ChannelHomeActivity.this.ddg.b(dVar.arC());
-                                ChannelHomeActivity.this.dda.h(ChannelHomeActivity.this.ddg);
+                                ChannelHomeActivity.this.ddh.b(dVar.arC());
+                                ChannelHomeActivity.this.ddb.h(ChannelHomeActivity.this.ddh);
                                 return;
                             }
                             return;
                         }
                         dVar.checkBigVideoType();
-                        ChannelHomeActivity.this.ddg = dVar;
-                        if (ChannelHomeActivity.this.ddd == 0 && dVar.arB() != null) {
-                            ChannelHomeActivity.this.ddd = dVar.arB().getChannelId();
+                        ChannelHomeActivity.this.ddh = dVar;
+                        if (ChannelHomeActivity.this.dde == 0 && dVar.arB() != null) {
+                            ChannelHomeActivity.this.dde = dVar.arB().getChannelId();
                         }
-                        ChannelHomeActivity.this.dda.g(dVar);
-                        if (!ChannelHomeActivity.this.ddf) {
+                        ChannelHomeActivity.this.ddb.g(dVar);
+                        if (!ChannelHomeActivity.this.ddg) {
                             ChannelHomeActivity.this.a(dVar);
-                            ChannelHomeActivity.this.ddf = true;
+                            ChannelHomeActivity.this.ddg = true;
                         }
                     }
                 }
             }
         }
     };
-    private HttpMessageListener ddk = new HttpMessageListener(CmdConfigHttp.CMD_CHANNEL_VIDEO_UNSET_TOP) { // from class: com.baidu.tieba.channel.activity.ChannelHomeActivity.4
+    private HttpMessageListener ddl = new HttpMessageListener(CmdConfigHttp.CMD_CHANNEL_VIDEO_UNSET_TOP) { // from class: com.baidu.tieba.channel.activity.ChannelHomeActivity.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             ChannelHomeActivity.this.closeLoadingDialog();
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChannelVideoUnSetTopHttpResponseMessage)) {
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
-                    ChannelHomeVideoList<h> arC = ChannelHomeActivity.this.ddg.arC();
+                    ChannelHomeVideoList<h> arC = ChannelHomeActivity.this.ddh.arC();
                     if (arC != null) {
                         arC.unSetTop();
                         arC.checkBigVideoType();
-                        ChannelHomeActivity.this.dda.h(ChannelHomeActivity.this.ddg);
+                        ChannelHomeActivity.this.ddb.h(ChannelHomeActivity.this.ddh);
                         return;
                     }
                     return;
@@ -180,14 +180,14 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
             }
         }
     };
-    private CustomMessageListener ddl = new CustomMessageListener(2016513) { // from class: com.baidu.tieba.channel.activity.ChannelHomeActivity.5
+    private CustomMessageListener ddm = new CustomMessageListener(2016513) { // from class: com.baidu.tieba.channel.activity.ChannelHomeActivity.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.core.b.a)) {
                 com.baidu.tbadk.core.b.a aVar = (com.baidu.tbadk.core.b.a) customResponsedMessage.getData();
-                if (aVar.apk != null) {
-                    if (aVar.apj == ChannelHomeActivity.this.getUniqueId()) {
+                if (aVar.apl != null) {
+                    if (aVar.apk == ChannelHomeActivity.this.getUniqueId()) {
                         ChannelHomeActivity.this.closeLoadingDialog();
                     }
                     if (aVar instanceof a.C0156a) {
@@ -201,7 +201,7 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
             }
         }
     };
-    private CustomMessageListener ddm = new CustomMessageListener(0) { // from class: com.baidu.tieba.channel.activity.ChannelHomeActivity.6
+    private CustomMessageListener ddn = new CustomMessageListener(0) { // from class: com.baidu.tieba.channel.activity.ChannelHomeActivity.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -209,11 +209,11 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
             if (customResponsedMessage != null) {
                 if (customResponsedMessage.getCmd() == 2016511) {
                     ChannelHomeActivity.this.mPn = 1;
-                    ChannelHomeActivity.this.ddb.a(ChannelHomeActivity.this.ddd, ChannelHomeActivity.this.mPn, 20);
+                    ChannelHomeActivity.this.ddc.a(ChannelHomeActivity.this.dde, ChannelHomeActivity.this.mPn, 20);
                 } else if (customResponsedMessage.getCmd() == 2016512 && (data = customResponsedMessage.getData()) != null && (data instanceof ChannelInfo)) {
                     ChannelInfo channelInfo = (ChannelInfo) data;
-                    ChannelHomeActivity.this.ddg.a(channelInfo);
-                    ChannelHomeActivity.this.dda.f(channelInfo);
+                    ChannelHomeActivity.this.ddh.a(channelInfo);
+                    ChannelHomeActivity.this.ddb.f(channelInfo);
                 }
             }
         }
@@ -224,61 +224,61 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         initData();
-        this.dda = new i(this);
-        this.ddb = new ChannelHomeModel(this);
-        this.ddc = new com.baidu.tieba.channel.b.a(this);
+        this.ddb = new i(this);
+        this.ddc = new ChannelHomeModel(this);
+        this.ddd = new com.baidu.tieba.channel.b.a(this);
         art();
         arw();
-        this.ddb.a(this.ddd, this.mPn, 20);
-        this.dda.showLoadingView();
+        this.ddc.a(this.dde, this.mPn, 20);
+        this.ddb.showLoadingView();
     }
 
     private void arw() {
-        registerListener(2016511, this.ddm);
-        registerListener(2016512, this.ddm);
+        registerListener(2016511, this.ddn);
+        registerListener(2016512, this.ddn);
     }
 
     private void art() {
-        registerListener(this.ddh);
         registerListener(this.ddi);
         registerListener(this.ddj);
         registerListener(this.ddk);
         registerListener(this.ddl);
+        registerListener(this.ddm);
     }
 
     private void initData() {
-        this.ddd = getIntent().getLongExtra("channel_id", 0L);
-        this.dde = getIntent().getIntExtra(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, -1);
+        this.dde = getIntent().getLongExtra("channel_id", 0L);
+        this.ddf = getIntent().getIntExtra(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.dda.onPause();
+        this.ddb.onPause();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.dda.onResume();
+        this.ddb.onResume();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.dda.onDestroy();
+        this.ddb.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.dda.onChangeSkinType(i);
-        if (this.ddc != null) {
-            this.ddc.onChangeSkinType(i);
+        this.ddb.onChangeSkinType(i);
+        if (this.ddd != null) {
+            this.ddd.onChangeSkinType(i);
         }
     }
 
@@ -294,8 +294,8 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
                 return;
             case 3:
             case 5:
-                if (aef() && this.ddg != null && this.ddg.arB() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2016513, a.C0156a.a(this.ddg.arB().getChannelId(), getUniqueId())));
+                if (aef() && this.ddh != null && this.ddh.arB() != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2016513, a.C0156a.a(this.ddh.arB().getChannelId(), getUniqueId())));
                     kS(4);
                     return;
                 }
@@ -322,83 +322,83 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
                 }
                 return;
             case 10:
-                sendMessage(new CustomMessage(2002001, new ChannelAddVideoActivityConfig(getBaseContext(), this.ddd)));
+                sendMessage(new CustomMessage(2002001, new ChannelAddVideoActivityConfig(getBaseContext(), this.dde)));
                 kS(5);
                 return;
             case 11:
-                if (this.ddg != null && this.ddg.arB() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelEditActivityConfig(getPageContext().getPageActivity(), this.ddg.arB())));
+                if (this.ddh != null && this.ddh.arB() != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ChannelEditActivityConfig(getPageContext().getPageActivity(), this.ddh.arB())));
                     kS(3);
                     return;
                 }
                 return;
             case 12:
-                if (this.ddg != null && this.ddg.arB() != null) {
-                    this.ddg.arB().isPushOpen();
-                    this.ddc.b(this.ddg);
-                    this.ddc.showPopWindow();
+                if (this.ddh != null && this.ddh.arB() != null) {
+                    this.ddh.arB().isPushOpen();
+                    this.ddd.b(this.ddh);
+                    this.ddd.showPopWindow();
                     return;
                 }
                 return;
             case 13:
-                if (obj != null && (obj instanceof h) && this.ddg != null && this.ddg.arB() != null) {
+                if (obj != null && (obj instanceof h) && this.ddh != null && this.ddh.arB() != null) {
                     showLoadingDialog(getResources().getString(e.j.Waiting));
-                    this.ddb.b(this.ddg.arB().getChannelId(), (h) obj);
+                    this.ddc.b(this.ddh.arB().getChannelId(), (h) obj);
                     return;
                 }
                 return;
             case 14:
-                if (obj != null && (obj instanceof h) && this.ddg != null && this.ddg.arB() != null) {
+                if (obj != null && (obj instanceof h) && this.ddh != null && this.ddh.arB() != null) {
                     showLoadingDialog(getResources().getString(e.j.Waiting));
-                    this.ddb.a(this.ddg.arB().getChannelId(), (h) obj);
+                    this.ddc.a(this.ddh.arB().getChannelId(), (h) obj);
                     return;
                 }
                 return;
             case 15:
-                if (obj != null && (obj instanceof h) && this.ddg != null && this.ddg.arB() != null) {
+                if (obj != null && (obj instanceof h) && this.ddh != null && this.ddh.arB() != null) {
                     showLoadingDialog(getResources().getString(e.j.Waiting));
-                    this.ddb.c(this.ddg.arB().getChannelId(), (h) obj);
+                    this.ddc.c(this.ddh.arB().getChannelId(), (h) obj);
                     return;
                 }
                 return;
             case 16:
             case 17:
-                if (this.ddg != null && this.ddg.arB() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2016513, a.c.b(this.ddg.arB().getChannelId(), getUniqueId())));
+                if (this.ddh != null && this.ddh.arB() != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2016513, a.c.b(this.ddh.arB().getChannelId(), getUniqueId())));
                     kS(5);
                     return;
                 }
                 return;
             case 18:
-                if (this.ddg != null && this.ddg.arB() != null) {
-                    long channelId = this.ddg.arB().getChannelId();
-                    boolean isPushOpen = this.ddg.arB().isPushOpen();
+                if (this.ddh != null && this.ddh.arB() != null) {
+                    long channelId = this.ddh.arB().getChannelId();
+                    boolean isPushOpen = this.ddh.arB().isPushOpen();
                     boolean booleanValue = (obj == null || !(obj instanceof Boolean)) ? false : ((Boolean) obj).booleanValue();
                     a.b a = a.b.a(channelId, isPushOpen ? false : true, getUniqueId());
-                    a.apl = booleanValue;
+                    a.apm = booleanValue;
                     MessageManager.getInstance().sendMessage(new CustomMessage(2016513, a));
                     kS(isPushOpen ? 7 : 6);
                     return;
                 }
                 return;
             case 19:
-                if (this.ddg != null && this.ddg.arB() != null) {
-                    nj(this.ddg.arB().getChannelCover());
+                if (this.ddh != null && this.ddh.arB() != null) {
+                    nj(this.ddh.arB().getChannelCover());
                     kS(1);
                     return;
                 }
                 return;
             case 20:
-                if (this.ddg != null && this.ddg.arB() != null) {
-                    nj(this.ddg.arB().getChannelAvatar());
+                if (this.ddh != null && this.ddh.arB() != null) {
+                    nj(this.ddh.arB().getChannelAvatar());
                     kS(2);
                     return;
                 }
                 return;
             case 21:
-                if (this.ddg != null && this.ddg.arB() != null) {
-                    sendMessage(new CustomMessage(2002001, new ChannelFansActivityConfig(getBaseContext(), this.ddd)));
-                    if (this.ddg.isHost()) {
+                if (this.ddh != null && this.ddh.arB() != null) {
+                    sendMessage(new CustomMessage(2002001, new ChannelFansActivityConfig(getBaseContext(), this.dde)));
+                    if (this.ddh.isHost()) {
                         kS(4);
                         return;
                     }
@@ -419,22 +419,22 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        this.dda.hideErrorView();
-        this.dda.showLoadingView();
+        this.ddb.hideErrorView();
+        this.ddb.showLoadingView();
         this.mPn = 1;
-        this.ddb.a(this.ddd, this.mPn, 20);
+        this.ddc.a(this.dde, this.mPn, 20);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(a.b bVar) {
-        HttpResponsedMessage httpResponsedMessage = bVar.apk;
+        HttpResponsedMessage httpResponsedMessage = bVar.apl;
         if (httpResponsedMessage != null && (httpResponsedMessage instanceof ChannelUpdatePushHttpResponseMessage)) {
             if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
                 showToast(TextUtils.isEmpty(httpResponsedMessage.getErrorString()) ? getResources().getString(e.j.neterror) : httpResponsedMessage.getErrorString());
-            } else if (this.ddg != null && this.ddg.arB() != null) {
+            } else if (this.ddh != null && this.ddh.arB() != null) {
                 boolean z = bVar.isOpen;
                 if (z) {
-                    if (bVar.apl) {
+                    if (bVar.apm) {
                         Toast.makeText(getPageContext().getPageActivity(), getPageContext().getResources().getString(e.j.channel_need_push), 1).show();
                     } else {
                         showToast(e.j.success_open_channel_push);
@@ -442,57 +442,57 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
                 } else {
                     showToast(e.j.success_close_channel_push);
                 }
-                this.ddg.arB().setPushOpenOrClose(z);
+                this.ddh.arB().setPushOpenOrClose(z);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tbadk.core.b.a aVar) {
-        HttpResponsedMessage httpResponsedMessage = aVar.apk;
+        HttpResponsedMessage httpResponsedMessage = aVar.apl;
         if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
             showToast(TextUtils.isEmpty(httpResponsedMessage.getErrorString()) ? getResources().getString(e.j.neterror) : httpResponsedMessage.getErrorString());
-        } else if (this.ddg != null && this.ddg.arB() != null) {
-            this.ddg.arB().setFansCount(this.ddg.arB().getFansCount() + (-1) > 0 ? this.ddg.arB().getFansCount() - 1 : 0);
-            this.ddg.arB().setIsSubscribe(0);
-            this.ddg.arB().setPushOpenOrClose(false);
-            this.dda.e(this.ddg);
+        } else if (this.ddh != null && this.ddh.arB() != null) {
+            this.ddh.arB().setFansCount(this.ddh.arB().getFansCount() + (-1) > 0 ? this.ddh.arB().getFansCount() - 1 : 0);
+            this.ddh.arB().setIsSubscribe(0);
+            this.ddh.arB().setPushOpenOrClose(false);
+            this.ddb.e(this.ddh);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.baidu.tbadk.core.b.a aVar) {
-        HttpResponsedMessage httpResponsedMessage = aVar.apk;
+        HttpResponsedMessage httpResponsedMessage = aVar.apl;
         if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
             showToast(TextUtils.isEmpty(httpResponsedMessage.getErrorString()) ? getResources().getString(e.j.neterror) : httpResponsedMessage.getErrorString());
-        } else if (this.ddg != null && this.ddg.arB() != null) {
-            this.ddg.arB().setFansCount(this.ddg.arB().getFansCount() + 1);
-            this.ddg.arB().setIsSubscribe(1);
-            this.dda.e(this.ddg);
-            if (aVar.apj == getUniqueId()) {
-                com.baidu.tieba.channel.c.b.a((BaseActivity) this, this.ddg.arB().isPushOpen(), true, (b) this);
+        } else if (this.ddh != null && this.ddh.arB() != null) {
+            this.ddh.arB().setFansCount(this.ddh.arB().getFansCount() + 1);
+            this.ddh.arB().setIsSubscribe(1);
+            this.ddb.e(this.ddh);
+            if (aVar.apk == getUniqueId()) {
+                com.baidu.tieba.channel.c.b.a((BaseActivity) this, this.ddh.arB().isPushOpen(), true, (b) this);
             }
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (this.ddg != null && this.ddg.arD() && !this.ddb.arM()) {
-            this.dda.arU();
+        if (this.ddh != null && this.ddh.arD() && !this.ddc.arM()) {
+            this.ddb.arU();
             this.mPn++;
-            this.ddb.a(this.ddd, this.mPn, 20);
+            this.ddc.a(this.dde, this.mPn, 20);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(d dVar) {
-        TiebaStatic.logPagePV(new am("c11935").y("obj_type", dVar.isHost() ? 1 : 2).y(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.dde).i(VideoPlayActivityConfig.OBJ_ID, dVar.arB().getChannelId()));
+        TiebaStatic.logPagePV(new am("c11935").y("obj_type", dVar.isHost() ? 1 : 2).y(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, this.ddf).i(VideoPlayActivityConfig.OBJ_ID, dVar.arB().getChannelId()));
     }
 
     private void kS(int i) {
-        if (this.ddg != null && this.ddg.arB() != null) {
-            ChannelInfo arB = this.ddg.arB();
-            am amVar = new am(this.ddg.isHost() ? "c11937" : "c11936");
+        if (this.ddh != null && this.ddh.arB() != null) {
+            ChannelInfo arB = this.ddh.arB();
+            am amVar = new am(this.ddh.isHost() ? "c11937" : "c11936");
             amVar.i(VideoPlayActivityConfig.OBJ_ID, arB.getChannelId());
             amVar.y("obj_locate", i);
             TiebaStatic.log(amVar);
@@ -515,9 +515,9 @@ public class ChannelHomeActivity extends BaseActivity implements BdListView.e, b
         if (i2 == -1) {
             switch (i) {
                 case 3:
-                    this.dda.showLoadingView();
+                    this.ddb.showLoadingView();
                     this.mPn = 1;
-                    this.ddb.a(this.ddd, this.mPn, 20);
+                    this.ddc.a(this.dde, this.mPn, 20);
                     return;
                 default:
                     return;

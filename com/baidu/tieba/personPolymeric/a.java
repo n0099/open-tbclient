@@ -18,8 +18,8 @@ import com.baidu.tieba.view.f;
 import com.baidu.tieba.view.g;
 /* loaded from: classes3.dex */
 public class a implements f {
-    private ImageView gzJ;
     private ImageView gzK;
+    private ImageView gzL;
     private NavigationBar mNavigationBar;
     private UserData mUserData;
 
@@ -27,54 +27,54 @@ public class a implements f {
     public void a(Context context, NavigationBar navigationBar) {
         this.mNavigationBar = navigationBar;
         this.mNavigationBar.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
+        this.gzL = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.view_topbar_icon, (View.OnClickListener) null);
+        if (this.gzL.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gzL.getLayoutParams();
+            layoutParams.rightMargin = context.getResources().getDimensionPixelSize(e.C0210e.ds4);
+            this.gzL.setLayoutParams(layoutParams);
+        }
         this.gzK = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.view_topbar_icon, (View.OnClickListener) null);
         if (this.gzK.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gzK.getLayoutParams();
-            layoutParams.rightMargin = context.getResources().getDimensionPixelSize(e.C0210e.ds4);
-            this.gzK.setLayoutParams(layoutParams);
-        }
-        this.gzJ = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, e.h.view_topbar_icon, (View.OnClickListener) null);
-        if (this.gzJ.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gzJ.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gzK.getLayoutParams();
             layoutParams2.rightMargin = context.getResources().getDimensionPixelSize(e.C0210e.ds14);
-            this.gzJ.setLayoutParams(layoutParams2);
+            this.gzK.setLayoutParams(layoutParams2);
         }
         if (TbadkCoreApplication.isLogin()) {
-            this.gzJ.setVisibility(0);
+            this.gzK.setVisibility(0);
             return;
         }
-        this.gzJ.setVisibility(8);
-        if (this.gzK.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.gzK.getLayoutParams();
+        this.gzK.setVisibility(8);
+        if (this.gzL.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.gzL.getLayoutParams();
             layoutParams3.rightMargin = context.getResources().getDimensionPixelSize(e.C0210e.ds14);
-            this.gzK.setLayoutParams(layoutParams3);
+            this.gzL.setLayoutParams(layoutParams3);
         }
     }
 
     @Override // com.baidu.tieba.view.f
     public void setOnViewResponseListener(final g gVar) {
-        if (this.gzJ != null) {
-            this.gzJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.1
+        if (this.gzK != null) {
+            this.gzK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (j.kV()) {
                         TiebaStatic.log(new am("c12503").aB("obj_locate", "2"));
                         b bVar = new b();
-                        bVar.duk = 9;
+                        bVar.dul = 9;
                         gVar.a(view, bVar);
                     }
                 }
             });
         }
-        if (this.gzK != null) {
-            this.gzK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.2
+        if (this.gzL != null) {
+            this.gzL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     TiebaStatic.log(new am("c12503").aB("obj_locate", "1"));
                     b bVar = new b();
-                    bVar.duk = 42;
-                    bVar.dul = new Bundle();
-                    bVar.dul.putSerializable(UserData.TYPE_USER, a.this.mUserData);
+                    bVar.dul = 42;
+                    bVar.dum = new Bundle();
+                    bVar.dum.putSerializable(UserData.TYPE_USER, a.this.mUserData);
                     gVar.a(view, bVar);
                 }
             });
@@ -92,13 +92,13 @@ public class a implements f {
     @Override // com.baidu.tieba.view.f
     public void c(float f, boolean z) {
         float f2;
-        if (this.gzJ != null) {
+        if (this.gzK != null) {
             if (z) {
-                al.c(this.gzJ, e.f.selector_topbar_more_black);
-                al.c(this.gzK, e.f.selector_topbar_chat_black);
+                al.c(this.gzK, e.f.selector_topbar_more_black);
+                al.c(this.gzL, e.f.selector_topbar_chat_black);
             } else {
-                al.c(this.gzJ, e.f.selector_topbar_more_white);
-                al.c(this.gzK, e.f.selector_topbar_chat_white);
+                al.c(this.gzK, e.f.selector_topbar_more_white);
+                al.c(this.gzL, e.f.selector_topbar_chat_white);
             }
             if (f < 0.5f) {
                 f2 = 1.0f - (f * 2.0f);
@@ -106,22 +106,22 @@ public class a implements f {
                 f2 = (f * 2.0f) - 1.0f;
             }
             if (f2 >= 0.0f && f2 <= 1.0f) {
-                this.gzJ.setAlpha(f2);
                 this.gzK.setAlpha(f2);
+                this.gzL.setAlpha(f2);
             }
         }
     }
 
     @Override // com.baidu.tieba.view.f
     public void onChangeSkinType(int i) {
-        if (this.gzJ != null) {
+        if (this.gzK != null) {
             if (this.mNavigationBar.getBarBgView().getAlpha() < 0.5f) {
-                al.c(this.gzJ, e.f.selector_topbar_more_white);
-                al.c(this.gzK, e.f.selector_topbar_chat_white);
+                al.c(this.gzK, e.f.selector_topbar_more_white);
+                al.c(this.gzL, e.f.selector_topbar_chat_white);
                 return;
             }
-            al.c(this.gzJ, e.f.selector_topbar_more_black);
-            al.c(this.gzK, e.f.selector_topbar_chat_black);
+            al.c(this.gzK, e.f.selector_topbar_more_black);
+            al.c(this.gzL, e.f.selector_topbar_chat_black);
         }
     }
 

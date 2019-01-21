@@ -29,24 +29,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class InvoiceListActivity extends TbAiAppsBaseActivity {
-    private CommonEmptyView bHg;
-    private RecyclerView bIM;
-    private a bIN;
-    private LinearLayout bIO;
-    private View bIP;
-    private Button bIQ;
-    private RelativeLayout bIR;
-    private String bIT;
+    private CommonEmptyView bHh;
+    private RecyclerView bIN;
+    private a bIO;
+    private LinearLayout bIP;
+    private View bIQ;
+    private Button bIR;
+    private RelativeLayout bIS;
     private String bIU;
+    private String bIV;
     private RecyclerView.LayoutManager mLayoutManager;
-    private int bIS = 0;
+    private int bIT = 0;
     private String mSource = "source_setting";
-    private d.c bIV = new d.c() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.3
+    private d.c bIW = new d.c() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.3
         @Override // com.baidu.tieba.aiapps.apps.invoice.d.c
         public void as(List<InvoiceInfo> list) {
-            if (InvoiceListActivity.this.bIN != null) {
+            if (InvoiceListActivity.this.bIO != null) {
                 InvoiceListActivity.this.removeLoadingView();
-                InvoiceListActivity.this.bIN.al(list);
+                InvoiceListActivity.this.bIO.al(list);
                 InvoiceListActivity.this.Zc();
             }
         }
@@ -75,8 +75,8 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
     private void G(Intent intent) {
         if (intent != null) {
             this.mSource = intent.getStringExtra("source");
-            this.bIT = intent.getStringExtra("ai_app_id");
-            this.bIU = intent.getStringExtra("ai_app_key");
+            this.bIU = intent.getStringExtra("ai_app_id");
+            this.bIV = intent.getStringExtra("ai_app_key");
         }
     }
 
@@ -84,31 +84,31 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
         AiAppsBdActionBar XT = XT();
         XT.setTitle(getString(e.j.invoice_info_activity_title));
         if (intent != null) {
-            this.bIS = intent.getIntExtra("bar_position", 0);
+            this.bIT = intent.getIntExtra("bar_position", 0);
         }
         if (XT != null) {
-            XT.setLeftFirstViewVisibility(this.bIS == 0);
+            XT.setLeftFirstViewVisibility(this.bIT == 0);
         }
     }
 
     private void initView() {
-        this.bIR = (RelativeLayout) findViewById(e.g.root_container);
-        this.bIM = (RecyclerView) findViewById(e.g.invoice_list_view);
-        this.bIQ = (Button) findViewById(e.g.new_invoice_info_btn);
-        this.bHg = (CommonEmptyView) findViewById(e.g.empty_view);
-        this.bIO = (LinearLayout) findViewById(e.g.new_invoice_info_area);
-        this.bIP = findViewById(e.g.new_invoice_info_divider_line);
-        this.bIM.setBackgroundDrawable(getResources().getDrawable(e.d.invoice_list_bg));
-        this.bIO.setBackgroundDrawable(getResources().getDrawable(e.d.invoice_create_new_btn_area));
-        this.bIP.setBackgroundDrawable(getResources().getDrawable(e.d.invoice_create_new_divider_line));
-        this.bIQ.setTextColor(getResources().getColor(e.d.invoice_create_new_btn_text));
-        this.bIQ.setBackgroundDrawable(getResources().getDrawable(e.f.invoice_create_new_btn_bg));
-        this.bIN = new a(this);
+        this.bIS = (RelativeLayout) findViewById(e.g.root_container);
+        this.bIN = (RecyclerView) findViewById(e.g.invoice_list_view);
+        this.bIR = (Button) findViewById(e.g.new_invoice_info_btn);
+        this.bHh = (CommonEmptyView) findViewById(e.g.empty_view);
+        this.bIP = (LinearLayout) findViewById(e.g.new_invoice_info_area);
+        this.bIQ = findViewById(e.g.new_invoice_info_divider_line);
+        this.bIN.setBackgroundDrawable(getResources().getDrawable(e.d.invoice_list_bg));
+        this.bIP.setBackgroundDrawable(getResources().getDrawable(e.d.invoice_create_new_btn_area));
+        this.bIQ.setBackgroundDrawable(getResources().getDrawable(e.d.invoice_create_new_divider_line));
+        this.bIR.setTextColor(getResources().getColor(e.d.invoice_create_new_btn_text));
+        this.bIR.setBackgroundDrawable(getResources().getDrawable(e.f.invoice_create_new_btn_bg));
+        this.bIO = new a(this);
         this.mLayoutManager = new LinearLayoutManager(this);
-        this.bIM.setLayoutManager(this.mLayoutManager);
-        this.bIM.setAdapter(this.bIN);
+        this.bIN.setLayoutManager(this.mLayoutManager);
+        this.bIN.setAdapter(this.bIO);
         Zc();
-        this.bIN.a(new a.b() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.1
+        this.bIO.a(new a.b() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.1
             @Override // com.baidu.tieba.aiapps.apps.invoice.ui.a.b
             public void a(View view, InvoiceInfo invoiceInfo) {
                 InvoiceListActivity.this.g(invoiceInfo);
@@ -124,7 +124,7 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
                 InvoiceListActivity.this.j(invoiceInfo);
             }
         });
-        this.bIQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.2
+        this.bIR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 InvoiceListActivity.this.Zf();
@@ -135,13 +135,13 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Zc() {
-        if (this.bHg != null) {
-            this.bHg.setTitle(getString(e.j.invoice_empty_title));
-            this.bHg.setIcon(e.f.empty_icon_document);
-            if (this.bIN != null && this.bIN.getItemCount() > 0) {
-                this.bHg.setVisibility(8);
+        if (this.bHh != null) {
+            this.bHh.setTitle(getString(e.j.invoice_empty_title));
+            this.bHh.setIcon(e.f.empty_icon_document);
+            if (this.bIO != null && this.bIO.getItemCount() > 0) {
+                this.bHh.setVisibility(8);
             } else {
-                this.bHg.setVisibility(0);
+                this.bHh.setVisibility(0);
             }
         }
     }
@@ -158,9 +158,9 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
     private void Ze() {
         showLoadingView();
         if (TextUtils.equals(this.mSource, "source_ai_app")) {
-            com.baidu.tieba.aiapps.apps.invoice.e.YW().a(this, this.bIT, this.bIU, this.bIV);
+            com.baidu.tieba.aiapps.apps.invoice.e.YW().a(this, this.bIU, this.bIV, this.bIW);
         } else {
-            com.baidu.tieba.aiapps.apps.invoice.e.YW().a(this.bIV);
+            com.baidu.tieba.aiapps.apps.invoice.e.YW().a(this.bIW);
         }
     }
 
@@ -177,12 +177,12 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
     }
 
     private void showLoadingView() {
-        LoadingViewHelper.showLoadingView(this, this.bIR);
+        LoadingViewHelper.showLoadingView(this, this.bIS);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void removeLoadingView() {
-        LoadingViewHelper.removeLoadingView(this.bIR);
+        LoadingViewHelper.removeLoadingView(this.bIS);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -203,11 +203,11 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
         try {
             jSONObject.put("type", invoiceInfo.mType + "");
             jSONObject.put("title", invoiceInfo.mTitle);
-            jSONObject.put("taxNumber", invoiceInfo.bHV);
-            jSONObject.put("companyAddress", invoiceInfo.bHW);
-            jSONObject.put("telephone", invoiceInfo.bHX);
-            jSONObject.put("bankName", invoiceInfo.bHY);
-            jSONObject.put("bankAccount", invoiceInfo.bHZ);
+            jSONObject.put("taxNumber", invoiceInfo.bHW);
+            jSONObject.put("companyAddress", invoiceInfo.bHX);
+            jSONObject.put("telephone", invoiceInfo.bHY);
+            jSONObject.put("bankName", invoiceInfo.bHZ);
+            jSONObject.put("bankAccount", invoiceInfo.bIa);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -221,9 +221,9 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
                 @Override // com.baidu.tieba.aiapps.apps.invoice.d.InterfaceC0198d
                 public void be(long j) {
                     AiAppsLog.i(ChooseInvoiceAction.MODULE_TAG, "修改默认发票成功");
-                    if (InvoiceListActivity.this.bIN != null) {
+                    if (InvoiceListActivity.this.bIO != null) {
                         InvoiceListActivity.this.removeLoadingView();
-                        InvoiceListActivity.this.bIN.bg(invoiceInfo.mId);
+                        InvoiceListActivity.this.bIO.bg(invoiceInfo.mId);
                     }
                 }
 
@@ -266,11 +266,11 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
                 @Override // com.baidu.tieba.aiapps.apps.invoice.d.b
                 public void bd(long j) {
                     AiAppsLog.i(ChooseInvoiceAction.MODULE_TAG, "删除发票成功");
-                    if (InvoiceListActivity.this.bIN != null) {
+                    if (InvoiceListActivity.this.bIO != null) {
                         InvoiceListActivity.this.removeLoadingView();
-                        InvoiceListActivity.this.bIN.bf(invoiceInfo.mId);
+                        InvoiceListActivity.this.bIO.bf(invoiceInfo.mId);
                         if (invoiceInfo.mIsDefault == 1) {
-                            InvoiceListActivity.this.bIN.bg(j);
+                            InvoiceListActivity.this.bIO.bg(j);
                         }
                         InvoiceListActivity.this.Zc();
                     }
@@ -293,7 +293,7 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void l(InvoiceInfo invoiceInfo) {
         Intent intent = new Intent(this, InvoiceEditActivity.class);
-        intent.putExtra("bar_position", this.bIS);
+        intent.putExtra("bar_position", this.bIT);
         intent.putExtra("type", 0);
         intent.putExtra("invoice", invoiceInfo);
         startActivityForResult(intent, 10002);
@@ -302,7 +302,7 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void Zf() {
         Intent intent = new Intent(this, InvoiceEditActivity.class);
-        intent.putExtra("bar_position", this.bIS);
+        intent.putExtra("bar_position", this.bIT);
         intent.putExtra("type", 1);
         startActivityForResult(intent, 10001);
     }
@@ -318,15 +318,15 @@ public class InvoiceListActivity extends TbAiAppsBaseActivity {
             switch (i) {
                 case 10001:
                     UniversalToast.makeText(this, e.j.invoice_toast_create_success).showToast();
-                    if (this.bIN != null && invoiceInfo != null) {
-                        this.bIN.m(invoiceInfo);
+                    if (this.bIO != null && invoiceInfo != null) {
+                        this.bIO.m(invoiceInfo);
                         Zc();
                         break;
                     }
                     break;
                 case 10002:
-                    if (this.bIN != null && invoiceInfo != null) {
-                        this.bIN.n(invoiceInfo);
+                    if (this.bIO != null && invoiceInfo != null) {
+                        this.bIO.n(invoiceInfo);
                         break;
                     }
                     break;

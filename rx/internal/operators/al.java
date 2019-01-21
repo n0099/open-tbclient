@@ -5,7 +5,7 @@ import rx.d;
 import rx.g;
 /* loaded from: classes2.dex */
 public final class al<T> implements d.b<T, T> {
-    final long iJd;
+    final long iJe;
     final rx.g scheduler;
     final TimeUnit unit;
 
@@ -15,7 +15,7 @@ public final class al<T> implements d.b<T, T> {
     }
 
     public al(long j, TimeUnit timeUnit, rx.g gVar) {
-        this.iJd = j;
+        this.iJe = j;
         this.unit = timeUnit;
         this.scheduler = gVar;
     }
@@ -31,38 +31,38 @@ public final class al<T> implements d.b<T, T> {
     /* loaded from: classes2.dex */
     public class AnonymousClass1 extends rx.j<T> {
         boolean done;
-        final /* synthetic */ rx.j iGJ;
-        final /* synthetic */ g.a iHI;
+        final /* synthetic */ rx.j iGK;
+        final /* synthetic */ g.a iHJ;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         AnonymousClass1(rx.j jVar, g.a aVar, rx.j jVar2) {
             super(jVar);
-            this.iHI = aVar;
-            this.iGJ = jVar2;
+            this.iHJ = aVar;
+            this.iGK = jVar2;
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.iHI.a(new rx.functions.a() { // from class: rx.internal.operators.al.1.1
+            this.iHJ.a(new rx.functions.a() { // from class: rx.internal.operators.al.1.1
                 @Override // rx.functions.a
                 public void call() {
                     if (!AnonymousClass1.this.done) {
                         AnonymousClass1.this.done = true;
-                        AnonymousClass1.this.iGJ.onCompleted();
+                        AnonymousClass1.this.iGK.onCompleted();
                     }
                 }
-            }, al.this.iJd, al.this.unit);
+            }, al.this.iJe, al.this.unit);
         }
 
         @Override // rx.e
         public void onError(final Throwable th) {
-            this.iHI.a(new rx.functions.a() { // from class: rx.internal.operators.al.1.2
+            this.iHJ.a(new rx.functions.a() { // from class: rx.internal.operators.al.1.2
                 @Override // rx.functions.a
                 public void call() {
                     if (!AnonymousClass1.this.done) {
                         AnonymousClass1.this.done = true;
-                        AnonymousClass1.this.iGJ.onError(th);
-                        AnonymousClass1.this.iHI.unsubscribe();
+                        AnonymousClass1.this.iGK.onError(th);
+                        AnonymousClass1.this.iHJ.unsubscribe();
                     }
                 }
             });
@@ -70,16 +70,16 @@ public final class al<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onNext(final T t) {
-            this.iHI.a(new rx.functions.a() { // from class: rx.internal.operators.al.1.3
+            this.iHJ.a(new rx.functions.a() { // from class: rx.internal.operators.al.1.3
                 /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: rx.j */
                 /* JADX WARN: Multi-variable type inference failed */
                 @Override // rx.functions.a
                 public void call() {
                     if (!AnonymousClass1.this.done) {
-                        AnonymousClass1.this.iGJ.onNext(t);
+                        AnonymousClass1.this.iGK.onNext(t);
                     }
                 }
-            }, al.this.iJd, al.this.unit);
+            }, al.this.iJe, al.this.unit);
         }
     }
 }

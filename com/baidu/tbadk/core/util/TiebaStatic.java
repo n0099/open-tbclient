@@ -78,10 +78,10 @@ public class TiebaStatic {
     }
 
     public static void net(com.baidu.tbadk.core.util.a.a aVar) {
-        if (aVar != null && aVar.Ew().aDY.CJ <= 180000) {
+        if (aVar != null && aVar.Ew().aDZ.CJ <= 180000) {
             try {
-                if (aVar.Ew().aDY.CJ >= 0 && aVar.Ew().aDY.connectTime >= 0 && aVar.Ew().aDY.CH >= 0) {
-                    int i = aVar.Ev().aDW;
+                if (aVar.Ew().aDZ.CJ >= 0 && aVar.Ew().aDZ.connectTime >= 0 && aVar.Ew().aDZ.CH >= 0) {
+                    int i = aVar.Ev().aDX;
                     if (!aVar.Ev().Dz()) {
                         i = aVar.Ev().De;
                     }
@@ -90,10 +90,10 @@ public class TiebaStatic {
                     if (i != 0) {
                         str = aVar.Ev().mErrorString;
                     }
-                    if (aVar.Eu().aDU) {
-                        BdStatisticsManager.getInstance().imgNet(i == 0 ? null : aVar.Eu().Ey(), Eq, aVar.Ew().aDY.CG, aVar.Ew().aDY.CF, aVar.Ew().aDY.CJ, aVar.Ew().aDY.connectTime, aVar.Ew().aDY.CH, aVar.Ew().aDY.CI, i, str, new Object[0]);
+                    if (aVar.Eu().aDV) {
+                        BdStatisticsManager.getInstance().imgNet(i == 0 ? null : aVar.Eu().Ey(), Eq, aVar.Ew().aDZ.CG, aVar.Ew().aDZ.CF, aVar.Ew().aDZ.CJ, aVar.Ew().aDZ.connectTime, aVar.Ew().aDZ.CH, aVar.Ew().aDZ.CI, i, str, new Object[0]);
                     } else {
-                        BdStatisticsManager.getInstance().net(aVar.Eu().Ey(), Eq, aVar.Ew().aDY.CG, aVar.Ew().aDY.CF, aVar.Ew().aDY.CJ, aVar.Ew().aDY.connectTime, aVar.Ew().aDY.CH, aVar.Ew().aDY.CI, i, str, new Object[0]);
+                        BdStatisticsManager.getInstance().net(aVar.Eu().Ey(), Eq, aVar.Ew().aDZ.CG, aVar.Ew().aDZ.CF, aVar.Ew().aDZ.CJ, aVar.Ew().aDZ.connectTime, aVar.Ew().aDZ.CH, aVar.Ew().aDZ.CI, i, str, new Object[0]);
                     }
                 }
             } catch (Exception e) {

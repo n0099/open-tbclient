@@ -27,9 +27,9 @@ public class Flow implements Parcelable {
             return new Flow(parcel);
         }
     };
-    private int igk;
-    private int ign;
-    private HashMap<String, Slot> igo;
+    private int igl;
+    private int igo;
+    private HashMap<String, Slot> igp;
     private String mId;
     private long mStartTime;
     private boolean mValid;
@@ -37,38 +37,38 @@ public class Flow implements Parcelable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public Flow() {
         this.mValid = true;
-        this.igo = new HashMap<>();
+        this.igp = new HashMap<>();
         this.mId = "";
-        this.ign = -1;
-        this.igk = 0;
+        this.igo = -1;
+        this.igl = 0;
         this.mStartTime = System.currentTimeMillis();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Flow(String str, int i, int i2) {
         this.mValid = true;
-        this.igo = new HashMap<>();
+        this.igp = new HashMap<>();
         this.mId = str;
-        this.ign = i;
-        this.igk = i2;
+        this.igo = i;
+        this.igl = i2;
         this.mStartTime = System.currentTimeMillis();
     }
 
     private Flow(Parcel parcel) {
         this.mValid = true;
-        this.igo = new HashMap<>();
+        this.igp = new HashMap<>();
         this.mId = parcel.readString();
-        this.ign = parcel.readInt();
-        this.igk = parcel.readInt();
+        this.igo = parcel.readInt();
+        this.igl = parcel.readInt();
         this.mStartTime = parcel.readLong();
         this.mValid = parcel.readByte() != 0;
-        this.igo = parcel.readHashMap(HashMap.class.getClassLoader());
+        this.igp = parcel.readHashMap(HashMap.class.getClassLoader());
     }
 
     public final void db(String str, String str2) {
         if (this.mValid) {
             if (com.baidu.pyramid.runtime.multiprocess.a.uP()) {
-                d.bSn().a(this.mId, str, this.ign, str2, this.igk);
+                d.bSn().a(this.mId, str, this.igo, str2, this.igl);
                 return;
             }
             try {
@@ -82,7 +82,7 @@ public class Flow implements Parcelable {
     public final void e(String str, String str2, long j) {
         if (this.mValid) {
             if (com.baidu.pyramid.runtime.multiprocess.a.uP()) {
-                d.bSn().a(this.mId, str, this.ign, str2, j, this.igk);
+                d.bSn().a(this.mId, str, this.igo, str2, j, this.igl);
                 return;
             }
             try {
@@ -96,7 +96,7 @@ public class Flow implements Parcelable {
     public final void setValue(String str) {
         if (this.mValid) {
             if (com.baidu.pyramid.runtime.multiprocess.a.uP()) {
-                d.bSn().n(this.mId, this.ign, str);
+                d.bSn().n(this.mId, this.igo, str);
                 return;
             }
             try {
@@ -120,7 +120,7 @@ public class Flow implements Parcelable {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                d.bSn().n(this.mId, this.ign, jSONObject.toString());
+                d.bSn().n(this.mId, this.igo, jSONObject.toString());
                 return;
             }
             try {
@@ -135,8 +135,8 @@ public class Flow implements Parcelable {
         if (this.mValid) {
             if (com.baidu.pyramid.runtime.multiprocess.a.uP()) {
                 JSONArray jSONArray = new JSONArray();
-                if (this.igo != null && (r3 = this.igo.entrySet().iterator()) != null) {
-                    for (Map.Entry<String, Slot> entry : this.igo.entrySet()) {
+                if (this.igp != null && (r3 = this.igp.entrySet().iterator()) != null) {
+                    for (Map.Entry<String, Slot> entry : this.igp.entrySet()) {
                         Slot value = entry.getValue();
                         if (value.bSN() && !value.bSO()) {
                             value.setEnd(System.currentTimeMillis());
@@ -147,7 +147,7 @@ public class Flow implements Parcelable {
                         }
                     }
                 }
-                d.bSn().a(this.mId, this.ign, jSONArray);
+                d.bSn().a(this.mId, this.igo, jSONArray);
                 return;
             }
             try {
@@ -161,7 +161,7 @@ public class Flow implements Parcelable {
     public final void cancel() {
         if (this.mValid) {
             if (com.baidu.pyramid.runtime.multiprocess.a.uP()) {
-                d.bSn().bc(this.mId, this.ign);
+                d.bSn().bc(this.mId, this.igo);
                 return;
             }
             try {
@@ -174,9 +174,9 @@ public class Flow implements Parcelable {
 
     public final void i(String str, JSONObject jSONObject) {
         if (this.mValid && !TextUtils.isEmpty(str)) {
-            Slot slot = this.igo.get(str);
+            Slot slot = this.igp.get(str);
             if (slot == null) {
-                this.igo.put(str, new Slot(str, System.currentTimeMillis(), jSONObject));
+                this.igp.put(str, new Slot(str, System.currentTimeMillis(), jSONObject));
                 return;
             }
             slot.az(jSONObject);
@@ -185,7 +185,7 @@ public class Flow implements Parcelable {
 
     public final void yA(String str) {
         Slot slot;
-        if (this.mValid && !TextUtils.isEmpty(str) && (slot = this.igo.get(str)) != null && slot.bSN()) {
+        if (this.mValid && !TextUtils.isEmpty(str) && (slot = this.igp.get(str)) != null && slot.bSN()) {
             slot.setEnd(System.currentTimeMillis());
             slot.clean();
         }
@@ -197,12 +197,12 @@ public class Flow implements Parcelable {
     }
 
     public int getHandle() {
-        return this.ign;
+        return this.igo;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int bSC() {
-        return this.igk;
+        return this.igl;
     }
 
     public boolean bSG() {
@@ -226,10 +226,10 @@ public class Flow implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(this.mId);
-        parcel.writeInt(this.ign);
-        parcel.writeInt(this.igk);
+        parcel.writeInt(this.igo);
+        parcel.writeInt(this.igl);
         parcel.writeLong(this.mStartTime);
         parcel.writeByte((byte) (this.mValid ? 1 : 0));
-        parcel.writeMap(this.igo);
+        parcel.writeMap(this.igp);
     }
 }

@@ -5,10 +5,10 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes2.dex */
 public final class c<E> extends a<E> {
-    private static final Integer iQD = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
+    private static final Integer iQE = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
     final AtomicLong consumerIndex;
-    long iQE;
-    final int iQF;
+    long iQF;
+    final int iQG;
     final AtomicLong producerIndex;
 
     @Override // rx.internal.util.atomic.a, java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
@@ -25,7 +25,7 @@ public final class c<E> extends a<E> {
         super(i);
         this.producerIndex = new AtomicLong();
         this.consumerIndex = new AtomicLong();
-        this.iQF = Math.min(i / 4, iQD.intValue());
+        this.iQG = Math.min(i / 4, iQE.intValue());
     }
 
     @Override // java.util.Queue
@@ -33,14 +33,14 @@ public final class c<E> extends a<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        AtomicReferenceArray<E> atomicReferenceArray = this.iQA;
+        AtomicReferenceArray<E> atomicReferenceArray = this.iQB;
         int i = this.mask;
         long j = this.producerIndex.get();
         int t = t(j, i);
-        if (j >= this.iQE) {
-            int i2 = this.iQF;
+        if (j >= this.iQF) {
+            int i2 = this.iQG;
             if (a(atomicReferenceArray, t(i2 + j, i)) == null) {
-                this.iQE = i2 + j;
+                this.iQF = i2 + j;
             } else if (a(atomicReferenceArray, t) != null) {
                 return false;
             }
@@ -54,7 +54,7 @@ public final class c<E> extends a<E> {
     public E poll() {
         long j = this.consumerIndex.get();
         int dS = dS(j);
-        AtomicReferenceArray<E> atomicReferenceArray = this.iQA;
+        AtomicReferenceArray<E> atomicReferenceArray = this.iQB;
         E a = a(atomicReferenceArray, dS);
         if (a == null) {
             return null;

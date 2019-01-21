@@ -5,16 +5,16 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes2.dex */
 public class aa implements l {
-    private final e iqD;
     private final e iqE;
-    private final f iqF;
-    private final int iqG;
+    private final e iqF;
+    private final f iqG;
+    private final int iqH;
 
     public aa(e eVar, e eVar2, f fVar, int i) {
-        this.iqD = eVar;
-        this.iqE = eVar2;
-        this.iqF = fVar;
-        this.iqG = i;
+        this.iqE = eVar;
+        this.iqF = eVar2;
+        this.iqG = fVar;
+        this.iqH = i;
     }
 
     /* JADX DEBUG: Type inference failed for r0v5. Raw type applied. Possible types: bolts.g<TContinuationResult>, bolts.g<com.facebook.imagepipeline.f.d> */
@@ -23,15 +23,15 @@ public class aa implements l {
     public bolts.g<com.facebook.imagepipeline.f.d> a(ImageRequest imageRequest, Object obj, final AtomicBoolean atomicBoolean) {
         e eVar;
         final e eVar2;
-        final com.facebook.cache.common.b c = this.iqF.c(imageRequest, obj);
-        boolean i = this.iqE.i(c);
-        boolean i2 = this.iqD.i(c);
+        final com.facebook.cache.common.b c = this.iqG.c(imageRequest, obj);
+        boolean i = this.iqF.i(c);
+        boolean i2 = this.iqE.i(c);
         if (i || !i2) {
-            eVar = this.iqE;
-            eVar2 = this.iqD;
-        } else {
-            eVar = this.iqD;
+            eVar = this.iqF;
             eVar2 = this.iqE;
+        } else {
+            eVar = this.iqE;
+            eVar2 = this.iqF;
         }
         return eVar.a(c, atomicBoolean).b(new bolts.f<com.facebook.imagepipeline.f.d, bolts.g<com.facebook.imagepipeline.f.d>>() { // from class: com.facebook.imagepipeline.c.aa.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -48,13 +48,13 @@ public class aa implements l {
 
     @Override // com.facebook.imagepipeline.c.l
     public void a(com.facebook.imagepipeline.f.d dVar, ImageRequest imageRequest, Object obj) {
-        com.facebook.cache.common.b c = this.iqF.c(imageRequest, obj);
+        com.facebook.cache.common.b c = this.iqG.c(imageRequest, obj);
         switch (a(imageRequest, dVar)) {
             case DEFAULT:
-                this.iqD.a(c, dVar);
+                this.iqE.a(c, dVar);
                 return;
             case SMALL:
-                this.iqE.a(c, dVar);
+                this.iqF.a(c, dVar);
                 return;
             default:
                 return;
@@ -64,7 +64,7 @@ public class aa implements l {
     @Override // com.facebook.imagepipeline.c.l
     public ImageRequest.CacheChoice a(ImageRequest imageRequest, com.facebook.imagepipeline.f.d dVar) {
         int size = dVar.getSize();
-        return (size < 0 || size >= this.iqG) ? ImageRequest.CacheChoice.DEFAULT : ImageRequest.CacheChoice.SMALL;
+        return (size < 0 || size >= this.iqH) ? ImageRequest.CacheChoice.DEFAULT : ImageRequest.CacheChoice.SMALL;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

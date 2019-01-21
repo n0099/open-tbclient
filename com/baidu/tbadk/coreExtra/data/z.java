@@ -7,22 +7,21 @@ import com.baidu.tbadk.core.util.ao;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class z {
-    private String aPA;
     private String aPB;
-    private int aPC;
+    private String aPC;
     private int aPD;
     private int aPE;
     private int aPF;
-    private long aPG;
-    private s aPH;
-    private String aPI;
-    private String aPM;
-    private String aPO;
-    private int aPP;
-    private long aPQ;
+    private int aPG;
+    private long aPH;
+    private s aPI;
+    private String aPJ;
+    private String aPN;
+    private String aPP;
+    private int aPQ;
     private long aPR;
-    private u aPT;
-    private String aPg;
+    private long aPS;
+    private u aPU;
     private String aPh;
     private String aPi;
     private String aPj;
@@ -30,66 +29,67 @@ public class z {
     private String aPl;
     private String aPm;
     private String aPn;
-    private long aPo;
-    private int aPp;
+    private String aPo;
+    private long aPp;
     private int aPq;
-    private long aPr;
-    private int aPs;
-    private String aPu;
+    private int aPr;
+    private long aPs;
+    private int aPt;
     private String aPv;
     private String aPw;
-    public int aPy;
+    private String aPx;
+    public int aPz;
     private b activityPrizeData;
     private String infoIconUrl;
     private String infoTargetUrl;
     private long infoTimeStamp;
     private long lastUpdateTime;
     private String uegVoiceWarning;
-    private int aPt = 0;
-    private int aPx = 2;
-    private String aPz = "";
-    private int aPJ = 0;
+    private int aPu = 0;
+    private int aPy = 2;
+    private String aPA = "";
     private int aPK = 0;
     private int aPL = 0;
-    private int aPN = 0;
-    private boolean aPS = false;
+    private int aPM = 0;
+    private int aPO = 0;
+    private boolean aPT = false;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.aPg = jSONObject.optString("drop_pic");
-                this.aPh = jSONObject.optString("drop_pic_md5");
-                this.aPi = jSONObject.optString("drop_pic_num");
-                this.aPj = jSONObject.optString("drop_bg_color_day");
-                this.aPk = jSONObject.optString("drop_bg_color_night");
-                this.aPl = jSONObject.optString("apply_vip_live_room_pid");
-                this.aPu = jSONObject.optString("max_cache");
-                this.aPv = jSONObject.optString("frs_max_cache");
-                this.aPw = jSONObject.optString("frs_pn");
-                this.aPm = jSONObject.optString("tail_link");
-                this.aPn = jSONObject.optString("bubble_link");
-                this.aPo = jSONObject.optLong("use_duration");
-                this.aPp = jSONObject.optInt("xiaoying_time");
+                this.aPh = jSONObject.optString("drop_pic");
+                this.aPi = jSONObject.optString("drop_pic_md5");
+                this.aPj = jSONObject.optString("drop_pic_num");
+                this.aPk = jSONObject.optString("drop_bg_color_day");
+                this.aPl = jSONObject.optString("drop_bg_color_night");
+                this.aPm = jSONObject.optString("apply_vip_live_room_pid");
+                this.aPv = jSONObject.optString("max_cache");
+                this.aPw = jSONObject.optString("frs_max_cache");
+                this.aPx = jSONObject.optString("frs_pn");
+                this.aPn = jSONObject.optString("tail_link");
+                this.aPo = jSONObject.optString("bubble_link");
+                this.aPp = jSONObject.optLong("use_duration");
+                this.aPq = jSONObject.optInt("xiaoying_time");
                 this.lastUpdateTime = jSONObject.optLong("last_update_time", 0L);
-                this.aPB = jSONObject.optString("url_analyze_text");
-                this.aPq = jSONObject.optInt("new_resign", 0);
-                this.aPr = jSONObject.optLong("personalized_cache_seconds", 43200L);
-                this.aPs = jSONObject.optInt("personalized_max_count", 300);
+                this.aPC = jSONObject.optString("url_analyze_text");
+                this.aPr = jSONObject.optInt("new_resign", 0);
+                this.aPs = jSONObject.optLong("personalized_cache_seconds", 43200L);
+                this.aPt = jSONObject.optInt("personalized_max_count", 300);
                 this.infoIconUrl = jSONObject.optString("info_icon_url");
                 this.infoTimeStamp = jSONObject.optLong("info_time_stamp", 0L);
                 this.infoTargetUrl = jSONObject.optString("info_target_url");
-                this.aPx = jSONObject.optInt("localvideo_open", 2);
-                this.aPy = jSONObject.optInt("card_show_statistic", 200);
-                this.aPz = jSONObject.optString("clean_smart_frs_cookie");
+                this.aPy = jSONObject.optInt("localvideo_open", 2);
+                this.aPz = jSONObject.optInt("card_show_statistic", 200);
+                this.aPA = jSONObject.optString("clean_smart_frs_cookie");
                 com.baidu.tbadk.pageStayDuration.e.Pk().gi(jSONObject.optInt("statlog_path_max", 3));
-                this.aPt = jSONObject.optInt("photo_cache_num", 30);
+                this.aPu = jSONObject.optInt("photo_cache_num", 30);
                 this.uegVoiceWarning = jSONObject.optString("ueg_voice_warning");
-                this.aPA = jSONObject.optString("nickname_activity_link");
-                this.aPC = jSONObject.optInt("android_tab_show", 7);
-                this.aPD = jSONObject.optInt("ribao_switch", 0);
-                this.aPE = jSONObject.optInt("default_page", 0);
-                this.aPF = jSONObject.optInt("remember_page", 0);
-                this.aPG = jSONObject.optLong("android_new_log_upload_interval", 0L);
+                this.aPB = jSONObject.optString("nickname_activity_link");
+                this.aPD = jSONObject.optInt("android_tab_show", 7);
+                this.aPE = jSONObject.optInt("ribao_switch", 0);
+                this.aPF = jSONObject.optInt("default_page", 0);
+                this.aPG = jSONObject.optInt("remember_page", 0);
+                this.aPH = jSONObject.optLong("android_new_log_upload_interval", 0L);
                 JSONObject optJSONObject = jSONObject.optJSONObject("laxin_config");
                 if (optJSONObject != null) {
                     this.activityPrizeData = new b();
@@ -98,8 +98,8 @@ public class z {
                 }
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("nani_video");
                 if (optJSONObject2 != null) {
-                    this.aPH = new s();
-                    this.aPH.parse(optJSONObject2);
+                    this.aPI = new s();
+                    this.aPI.parse(optJSONObject2);
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("index_tab_text");
                 if (optJSONObject3 != null && !StringUtils.isNull(optJSONObject3.toString())) {
@@ -121,32 +121,32 @@ public class z {
                     }
                 }
                 com.baidu.tieba.im.db.n.qc(jSONObject.optInt("android_max_stranger"));
-                this.aPJ = jSONObject.optInt("style_ab_switch", 0);
-                this.aPK = jSONObject.optInt("abstract_ab_switch", 0);
-                this.aPI = jSONObject.optString("android_splash_video");
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_config", this.aPI);
-                this.aPL = jSONObject.optInt("android_smart_frs_cache_time", -1);
-                this.aPM = jSONObject.optString("shoubai_regex", "");
-                if (!ao.isEmpty(this.aPM)) {
-                    com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_baidu_password_re", this.aPM);
+                this.aPK = jSONObject.optInt("style_ab_switch", 0);
+                this.aPL = jSONObject.optInt("abstract_ab_switch", 0);
+                this.aPJ = jSONObject.optString("android_splash_video");
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_video_splash_config", this.aPJ);
+                this.aPM = jSONObject.optInt("android_smart_frs_cache_time", -1);
+                this.aPN = jSONObject.optString("shoubai_regex", "");
+                if (!ao.isEmpty(this.aPN)) {
+                    com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_baidu_password_re", this.aPN);
                 }
-                this.aPO = jSONObject.optString("redpacket_pop", "");
-                if (!ao.isEmpty(this.aPO)) {
-                    com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_redpacket_pop", this.aPO);
+                this.aPP = jSONObject.optString("redpacket_pop", "");
+                if (!ao.isEmpty(this.aPP)) {
+                    com.baidu.tbadk.core.sharedPref.b.getInstance().putString("key_redpacket_pop", this.aPP);
                 }
-                this.aPP = jSONObject.optInt("android_video_slide_guide_count", 0);
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_video_guide_max_count", this.aPP);
-                this.aPN = jSONObject.optInt("android_show_ba_concern", 0);
-                com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_concern_tab_tips_switch", this.aPN);
-                this.aPQ = jSONObject.optInt("dialog_pull_time", 60) * ao.aCP;
-                this.aPR = jSONObject.optInt("android_dialog_lock_show_time", 300) * 1000;
-                this.aPS = jSONObject.optInt("android_show_lock_perm_dialog", 0) == 1;
+                this.aPQ = jSONObject.optInt("android_video_slide_guide_count", 0);
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_video_guide_max_count", this.aPQ);
+                this.aPO = jSONObject.optInt("android_show_ba_concern", 0);
+                com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_concern_tab_tips_switch", this.aPO);
+                this.aPR = jSONObject.optInt("dialog_pull_time", 60) * ao.aCQ;
+                this.aPS = jSONObject.optInt("android_dialog_lock_show_time", 300) * 1000;
+                this.aPT = jSONObject.optInt("android_show_lock_perm_dialog", 0) == 1;
                 String optString5 = jSONObject.optString("android_spring_shake", "");
                 if (!StringUtils.isNull(optString5)) {
-                    if (this.aPT == null) {
-                        this.aPT = new u();
+                    if (this.aPU == null) {
+                        this.aPU = new u();
                     }
-                    this.aPT.parserJson(optString5);
+                    this.aPU.parserJson(optString5);
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putString("shake_data", optString5);
                 }
             } catch (Exception e) {
@@ -156,55 +156,55 @@ public class z {
     }
 
     public String Ht() {
-        return this.aPl;
-    }
-
-    public String Hu() {
-        return this.aPg;
-    }
-
-    public String Hv() {
-        return this.aPh;
-    }
-
-    public String Hw() {
-        return this.aPi;
-    }
-
-    public String Hx() {
-        return this.aPj;
-    }
-
-    public String Hy() {
-        return this.aPk;
-    }
-
-    public String Hz() {
-        return this.aPu;
-    }
-
-    public String HA() {
-        return this.aPv;
-    }
-
-    public String HB() {
-        return this.aPw;
-    }
-
-    public String HC() {
         return this.aPm;
     }
 
-    public String HD() {
+    public String Hu() {
+        return this.aPh;
+    }
+
+    public String Hv() {
+        return this.aPi;
+    }
+
+    public String Hw() {
+        return this.aPj;
+    }
+
+    public String Hx() {
+        return this.aPk;
+    }
+
+    public String Hy() {
+        return this.aPl;
+    }
+
+    public String Hz() {
+        return this.aPv;
+    }
+
+    public String HA() {
+        return this.aPw;
+    }
+
+    public String HB() {
+        return this.aPx;
+    }
+
+    public String HC() {
         return this.aPn;
     }
 
-    public long HE() {
+    public String HD() {
         return this.aPo;
     }
 
-    public int HF() {
+    public long HE() {
         return this.aPp;
+    }
+
+    public int HF() {
+        return this.aPq;
     }
 
     public long HG() {
@@ -212,31 +212,31 @@ public class z {
     }
 
     public int HH() {
-        return this.aPC;
-    }
-
-    public int HI() {
         return this.aPD;
     }
 
-    public int HJ() {
+    public int HI() {
         return this.aPE;
     }
 
-    public int HK() {
+    public int HJ() {
         return this.aPF;
     }
 
-    public long HL() {
-        return this.aPr;
+    public int HK() {
+        return this.aPG;
     }
 
-    public int HM() {
+    public long HL() {
         return this.aPs;
     }
 
+    public int HM() {
+        return this.aPt;
+    }
+
     public int HN() {
-        return this.aPq;
+        return this.aPr;
     }
 
     public String HO() {
@@ -252,15 +252,15 @@ public class z {
     }
 
     public String HR() {
-        return this.aPz;
+        return this.aPA;
     }
 
     public boolean HS() {
-        return this.aPx == 1;
+        return this.aPy == 1;
     }
 
     public int HT() {
-        return this.aPt;
+        return this.aPu;
     }
 
     public String getUegVoiceWarning() {
@@ -268,15 +268,15 @@ public class z {
     }
 
     public String HU() {
-        return this.aPA;
-    }
-
-    public String HV() {
         return this.aPB;
     }
 
+    public String HV() {
+        return this.aPC;
+    }
+
     public long HW() {
-        return this.aPG;
+        return this.aPH;
     }
 
     public b getActivityPrizeData() {
@@ -284,34 +284,34 @@ public class z {
     }
 
     public int HX() {
-        return this.aPJ;
-    }
-
-    public int HY() {
         return this.aPK;
     }
 
-    public s HZ() {
-        return this.aPH;
-    }
-
-    public int Ia() {
+    public int HY() {
         return this.aPL;
     }
 
-    public long Ib() {
-        return this.aPQ;
+    public s HZ() {
+        return this.aPI;
     }
 
-    public long Ic() {
+    public int Ia() {
+        return this.aPM;
+    }
+
+    public long Ib() {
         return this.aPR;
     }
 
-    public boolean Id() {
+    public long Ic() {
         return this.aPS;
     }
 
-    public u Ie() {
+    public boolean Id() {
         return this.aPT;
+    }
+
+    public u Ie() {
+        return this.aPU;
     }
 }

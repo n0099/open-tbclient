@@ -1,19 +1,19 @@
 package kotlin.jvm.internal;
 /* loaded from: classes2.dex */
 public final class r implements l {
-    private final String eEG;
-    private final Class<?> iCI;
+    private final String eEH;
+    private final Class<?> iCJ;
 
     public r(Class<?> cls, String str) {
         p.j(cls, "jClass");
         p.j(str, "moduleName");
-        this.iCI = cls;
-        this.eEG = str;
+        this.iCJ = cls;
+        this.eEH = str;
     }
 
     @Override // kotlin.jvm.internal.l
     public Class<?> cdk() {
-        return this.iCI;
+        return this.iCJ;
     }
 
     public boolean equals(Object obj) {

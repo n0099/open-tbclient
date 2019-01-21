@@ -4,8 +4,8 @@ import java.util.Iterator;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class cn<T1, T2, R> implements d.b<R, T1> {
-    final Iterable<? extends T2> iOv;
-    final rx.functions.g<? super T1, ? super T2, ? extends R> iOw;
+    final Iterable<? extends T2> iOw;
+    final rx.functions.g<? super T1, ? super T2, ? extends R> iOx;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
@@ -13,13 +13,13 @@ public final class cn<T1, T2, R> implements d.b<R, T1> {
     }
 
     public cn(Iterable<? extends T2> iterable, rx.functions.g<? super T1, ? super T2, ? extends R> gVar) {
-        this.iOv = iterable;
-        this.iOw = gVar;
+        this.iOw = iterable;
+        this.iOx = gVar;
     }
 
     /* JADX DEBUG: Type inference failed for r0v4. Raw type applied. Possible types: rx.j<T1>, rx.j<? super T1> */
     public rx.j<? super T1> call(final rx.j<? super R> jVar) {
-        final Iterator<? extends T2> it = this.iOv.iterator();
+        final Iterator<? extends T2> it = this.iOw.iterator();
         try {
             if (!it.hasNext()) {
                 jVar.onCompleted();
@@ -50,7 +50,7 @@ public final class cn<T1, T2, R> implements d.b<R, T1> {
                 public void onNext(T1 t1) {
                     if (!this.done) {
                         try {
-                            jVar.onNext(cn.this.iOw.j(t1, (Object) it.next()));
+                            jVar.onNext(cn.this.iOx.j(t1, (Object) it.next()));
                             if (!it.hasNext()) {
                                 onCompleted();
                             }

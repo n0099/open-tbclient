@@ -29,18 +29,18 @@ import java.util.List;
 import tbclient.RecommendForumListForBottle.ForumInfo;
 /* loaded from: classes3.dex */
 public class d extends com.baidu.adp.widget.ListView.a<e, a> {
-    private com.baidu.tieba.likedForum.a cnm;
-    private a.InterfaceC0264a cnp;
-    private List<TransmitForumData> hUL;
-    private n hZq;
+    private com.baidu.tieba.likedForum.a cnn;
+    private a.InterfaceC0264a cnq;
+    private List<TransmitForumData> hUM;
+    private n hZr;
     private ArrayList<HotTopicBussinessData> mForumList;
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean bI(long j) {
-        if (this.hUL == null) {
+        if (this.hUM == null) {
             return false;
         }
-        for (TransmitForumData transmitForumData : this.hUL) {
+        for (TransmitForumData transmitForumData : this.hUM) {
             if (transmitForumData != null && transmitForumData.forumId == j) {
                 return true;
             }
@@ -65,7 +65,7 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public d(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, List<TransmitForumData> list) {
         super(context, bdUniqueId, bdUniqueId2);
-        this.hZq = new n() { // from class: com.baidu.tieba.write.transmit.d.1
+        this.hZr = new n() { // from class: com.baidu.tieba.write.transmit.d.1
             @Override // com.baidu.adp.widget.ListView.n
             public void a(View view, h hVar, BdUniqueId bdUniqueId3, ViewGroup viewGroup, int i, long j) {
                 if (!j.kV()) {
@@ -76,12 +76,12 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
                     d.this.bIM();
                     return;
                 }
-                d.this.cnm = new com.baidu.tieba.likedForum.a(d.this.mPageId);
-                d.this.cnm.a(d.this.cnp);
-                d.this.cnm.OP();
+                d.this.cnn = new com.baidu.tieba.likedForum.a(d.this.mPageId);
+                d.this.cnn.a(d.this.cnq);
+                d.this.cnn.OP();
             }
         };
-        this.cnp = new a.InterfaceC0264a() { // from class: com.baidu.tieba.write.transmit.d.2
+        this.cnq = new a.InterfaceC0264a() { // from class: com.baidu.tieba.write.transmit.d.2
             @Override // com.baidu.tieba.likedForum.a.InterfaceC0264a
             public void a(boolean z, int i, String str, List<ForumInfo> list2) {
                 ArrayList arrayList = new ArrayList();
@@ -106,8 +106,8 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
                 }
             }
         };
-        setOnAdapterItemClickListener(this.hZq);
-        this.hUL = list;
+        setOnAdapterItemClickListener(this.hZr);
+        this.hUM = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -123,26 +123,26 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, e eVar, a aVar) {
-        al.h(aVar.hZs, e.d.cp_link_tip_a);
-        al.c(aVar.dBa, e.f.icon_post_add_ba_n);
+        al.h(aVar.hZt, e.d.cp_link_tip_a);
+        al.c(aVar.dBb, e.f.icon_post_add_ba_n);
         return view;
     }
 
     /* loaded from: classes3.dex */
     public static class a extends q.a {
-        public ImageView dBa;
-        public TextView hZs;
+        public ImageView dBb;
+        public TextView hZt;
 
         public a(View view) {
             super(view);
-            this.hZs = (TextView) view.findViewById(e.g.select_by_self);
-            this.dBa = (ImageView) view.findViewById(e.g.add_icon);
+            this.hZt = (TextView) view.findViewById(e.g.select_by_self);
+            this.dBb = (ImageView) view.findViewById(e.g.add_icon);
         }
     }
 
     public void destroy() {
-        if (this.cnm != null) {
-            this.cnm.destroy();
+        if (this.cnn != null) {
+            this.cnn.destroy();
         }
     }
 }
