@@ -7,7 +7,7 @@ public class au extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "forum_mask_stat";
+        return "redirect_interception";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -17,7 +17,7 @@ public class au extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int iH() {
-        return 0;
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -28,5 +28,9 @@ public class au extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected int iJ() {
         return 10;
+    }
+
+    public static boolean jJ() {
+        return com.baidu.adp.lib.b.d.iQ().aO("redirect_interception") == 1;
     }
 }

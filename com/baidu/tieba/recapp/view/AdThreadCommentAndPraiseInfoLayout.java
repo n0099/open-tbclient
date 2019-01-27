@@ -25,7 +25,7 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
 import com.baidu.tbadk.coreExtra.c.d;
-import com.baidu.tbadk.p.ax;
+import com.baidu.tbadk.p.ay;
 import com.baidu.tieba.e;
 import com.baidu.tieba.imMessageCenter.mention.FeedData;
 import com.baidu.tieba.recapp.c.a;
@@ -178,7 +178,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         if (this.aFJ != null && this.mContext != null && this.gWi != null) {
             a(this.gWi.getThreadData(), "share", 0);
             a(this.gWi.getThreadData(), "2", "1");
-            if (ax.jJ() || ba.bJ(this.mContext)) {
+            if (ay.jJ() || ba.bJ(this.mContext)) {
                 final d dVar = new d();
                 dVar.title = this.gWi.getTitle();
                 dVar.content = this.gWi.getAbstract();

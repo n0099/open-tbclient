@@ -3,9 +3,8 @@ package rx.internal.operators;
 import java.util.concurrent.TimeoutException;
 import rx.d;
 import rx.g;
-/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
-public class cb<T> implements d.b<T, T> {
+class cb<T> implements d.b<T, T> {
     final rx.d<? extends T> iGJ;
     final a<T> iNq;
     final b<T> iNr;

@@ -116,7 +116,6 @@ import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tbadk.editortools.pb.PbEditorData;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.imageManager.d;
-import com.baidu.tbadk.p.ax;
 import com.baidu.tbadk.util.PageType;
 import com.baidu.tbadk.widget.ForeDrawableImageView;
 import com.baidu.tbadk.widget.TbImageView;
@@ -1620,7 +1619,7 @@ public class PbActivity extends BaseActivity<PbActivity> implements View.OnTouch
                                                             return;
                                                         }
                                                     }
-                                                } else if (ax.jJ() || PbActivity.this.checkUpIsLogin()) {
+                                                } else if (com.baidu.tbadk.p.ay.jJ() || PbActivity.this.checkUpIsLogin()) {
                                                     if (PbActivity.this.fWK != null) {
                                                         com.baidu.tbadk.core.util.am amVar = new com.baidu.tbadk.core.util.am("c12386");
                                                         amVar.aB("tid", PbActivity.this.fWK.bkt());
@@ -1643,7 +1642,7 @@ public class PbActivity extends BaseActivity<PbActivity> implements View.OnTouch
                                                                     TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11678").aB(ImageViewerConfig.FORUM_ID, PbActivity.this.fWK.getPbData().getForumId()));
                                                                 }
                                                                 TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11939"));
-                                                                if (ax.jJ()) {
+                                                                if (com.baidu.tbadk.p.ay.jJ()) {
                                                                     PbActivity.this.sx(2);
                                                                 } else {
                                                                     PbActivity.this.fWN.showLoadingDialog();

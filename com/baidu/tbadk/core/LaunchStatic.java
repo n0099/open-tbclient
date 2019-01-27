@@ -36,7 +36,7 @@ import com.baidu.tbadk.core.util.d.v;
 import com.baidu.tbadk.core.util.d.w;
 import com.baidu.tbadk.core.util.d.x;
 import com.baidu.tbadk.coreExtra.InitUserNameDialogActivity;
-import com.baidu.tbadk.p.ba;
+import com.baidu.tbadk.p.bb;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.UpdateDialog;
 import com.baidu.tieba.im.memorycache.ImMemoryCacheRegister;
@@ -51,7 +51,7 @@ public class LaunchStatic {
         initRegisterTask();
         initRegisterListeners();
         xQ();
-        ba.PX();
+        bb.PX();
         com.baidu.tieba.tbadkCore.location.b.init();
         com.baidu.tieba.im.widget.b.aVR();
         com.baidu.tieba.im.b.init();

@@ -21,8 +21,9 @@ public class PermissionCheck {
     private static LBSAuthManagerListener f = null;
     private static c g = null;
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
-    private static class a implements LBSAuthManagerListener {
+    public static class a implements LBSAuthManagerListener {
         private a() {
         }
 

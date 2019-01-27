@@ -2354,4 +2354,20 @@ public class UtilHelper {
         String str = Build.MODEL;
         return str.contains("MI 8") || str.contains("MI8");
     }
+
+    public static boolean isOppoDevice() {
+        String str = Build.BRAND;
+        if (ao.isEmpty(str)) {
+            return false;
+        }
+        return str.contains("OPPO") || str.contains("oppo") || str.contains("Oppo");
+    }
+
+    public static boolean isVivoDevice() {
+        String str = Build.BRAND;
+        if (ao.isEmpty(str)) {
+            return false;
+        }
+        return str.contains("VIVO") || str.contains("vivo") || str.contains("Vivo");
+    }
 }

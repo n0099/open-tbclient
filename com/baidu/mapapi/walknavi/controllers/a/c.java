@@ -2,8 +2,9 @@ package com.baidu.mapapi.walknavi.controllers.a;
 
 import android.view.MotionEvent;
 import com.baidu.mapapi.map.BaiduMap;
+/* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes4.dex */
-class c implements BaiduMap.OnMapTouchListener {
+public class c implements BaiduMap.OnMapTouchListener {
     final /* synthetic */ a a;
 
     /* JADX INFO: Access modifiers changed from: package-private */

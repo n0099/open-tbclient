@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util.e;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.searchbox.ng.ai.apps.media.chooser.action.ChooseVideoAction;
-import com.baidu.tbadk.p.bj;
+import com.baidu.tbadk.p.bk;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -34,7 +34,7 @@ public class e {
     }
 
     public boolean isOpen() {
-        if (bj.jJ()) {
+        if (bk.jJ()) {
             return !this.isWifi || j.kW();
         }
         g.log("PreLoadVideoSwitchManager isOpen switch close ");

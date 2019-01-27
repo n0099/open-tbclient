@@ -4,7 +4,7 @@ import android.database.Cursor;
 import android.text.TextUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.p.az;
+import com.baidu.tbadk.p.ba;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -13,7 +13,7 @@ public class n {
     private static int eRw = 500;
 
     public static void aRV() {
-        if (!az.jJ()) {
+        if (!ba.jJ()) {
             com.baidu.tbadk.core.d.a.a("StrangeClean", -1L, -1, "cleanMessageCenter", -1, "witch is close", new Object[0]);
             return;
         }
