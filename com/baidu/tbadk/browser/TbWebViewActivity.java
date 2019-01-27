@@ -51,6 +51,7 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.data.i;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tbadk.p.au;
 import com.baidu.tbadk.util.k;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.e;
@@ -605,6 +606,8 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     /* loaded from: classes.dex */
     protected class b extends WebViewClient {
+        public boolean mIsPageLoading;
+
         protected b() {
         }
 
@@ -612,6 +615,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
             if (TbWebViewActivity.this.mWebView != null) {
+                this.mIsPageLoading = false;
                 TbWebViewActivity.this.mUrl = str;
                 TbWebViewActivity.this.mWebView.loadUrl("javascript:window.local_obj.getIfFullScreen(document.getElementsByName(\"fc_fullscreen\")[0].content);");
                 String title = TbWebViewActivity.this.mWebView.getTitle();
@@ -636,6 +640,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         public void onReceivedError(WebView webView, int i, String str, String str2) {
             super.onReceivedError(webView, i, str, str2);
             if (TbWebViewActivity.this.mWebView != null) {
+                this.mIsPageLoading = false;
                 TbWebViewActivity.this.mWebView.stopLoading();
                 TbWebViewActivity.this.stopLoadTimer();
                 TbWebViewActivity.this.onReceivedError(i);
@@ -646,6 +651,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
             if (TbWebViewActivity.this.mWebView != null) {
+                this.mIsPageLoading = true;
                 TbWebViewActivity.this.mUrl = str;
                 TbWebViewActivity.this.showProgressBar();
                 TbWebViewActivity.this.startLoadTimer();
@@ -657,6 +663,9 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (au.jJ() && this.mIsPageLoading && Build.VERSION.SDK_INT >= 26 && (UtilHelper.isOppoDevice() || UtilHelper.isVivoDevice())) {
                 return false;
             }
             int b = ay.Es().b(TbWebViewActivity.this.getPageContext(), new String[]{str, TbWebViewActivity.this.mUrl});

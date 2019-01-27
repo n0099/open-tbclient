@@ -7,7 +7,7 @@ public class av extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_gif_autoplay";
+        return "forum_mask_stat";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -28,9 +28,5 @@ public class av extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
     protected int iJ() {
         return 10;
-    }
-
-    public static boolean jJ() {
-        return com.baidu.adp.lib.b.d.iQ().aO("android_gif_autoplay") == 1;
     }
 }

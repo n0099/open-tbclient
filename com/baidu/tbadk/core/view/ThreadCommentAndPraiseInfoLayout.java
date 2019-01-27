@@ -35,10 +35,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.ay;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.p.ax;
+import com.baidu.tbadk.p.ay;
 import com.baidu.tieba.card.ae;
 import com.baidu.tieba.e;
 import java.text.MessageFormat;
@@ -423,7 +422,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     }
 
     protected void O(View view) {
-        if ((ax.jJ() || ba.bJ(this.mContext)) && this.aFJ != null) {
+        if ((ay.jJ() || ba.bJ(this.mContext)) && this.aFJ != null) {
             FB();
             FD();
             if (this.aJb != null && this.aFJ.zY()) {
@@ -861,7 +860,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                 public void a(com.baidu.tbadk.core.dialog.b bVar2, int i, View view) {
                     String str = (String) v.d(ThreadCommentAndPraiseInfoLayout.this.aJM, i);
                     if (!StringUtils.isNull(str)) {
-                        ay.Es().c(ThreadCommentAndPraiseInfoLayout.this.mPageContext, new String[]{str});
+                        com.baidu.tbadk.core.util.ay.Es().c(ThreadCommentAndPraiseInfoLayout.this.mPageContext, new String[]{str});
                     }
                     bVar2.dismiss();
                 }

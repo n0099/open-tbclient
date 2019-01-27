@@ -407,8 +407,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             z = z && "1".equals(parse.getQueryParameter(KEY_FOR_NATIVE_CHECK));
         }
         if (z) {
-            Intent intent = new Intent();
-            intent.setData(parse);
+            Intent intent = new Intent("android.intent.action.VIEW", parse);
             try {
                 if (context.getPackageManager().resolveActivity(intent, 65536) == null) {
                     intent = null;

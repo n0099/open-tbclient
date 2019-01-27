@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tbadk.p.av;
+import com.baidu.tbadk.p.aw;
 import com.baidu.tieba.e;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
@@ -201,7 +201,7 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
         this.haB = (TbSettingTextTipView) this.hay.findViewById(e.g.font_size);
         this.haB.setBottomLineVisibility(true);
         this.haC = (TbSettingTextTipView) this.hay.findViewById(e.g.video_auto_play);
-        if (av.jJ()) {
+        if (aw.jJ()) {
             this.haC.setText(e.j.video_gif_auto_play);
         } else {
             this.haC.setText(e.j.video_auto_play);
@@ -260,7 +260,7 @@ public class c extends com.baidu.adp.base.c<BrowseSettingActivity> {
         this.haK.add(new com.baidu.tbadk.core.dialog.g(this.hay.getPageContext().getString(e.j.video_auto_play_always), null, videoAutoPlay == 2));
         this.haK.add(new com.baidu.tbadk.core.dialog.g(this.hay.getPageContext().getString(e.j.video_auto_play_in_wifi), null, videoAutoPlay == 0));
         this.haK.add(new com.baidu.tbadk.core.dialog.g(this.hay.getPageContext().getString(e.j.close), null, videoAutoPlay == 1));
-        if (av.jJ()) {
+        if (aw.jJ()) {
             this.haG.dk(e.j.video_gif_auto_play);
         } else {
             this.haG.dk(e.j.video_auto_play);

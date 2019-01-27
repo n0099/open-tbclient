@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.util.ao;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.coreExtra.c.d;
-import com.baidu.tbadk.p.ax;
+import com.baidu.tbadk.p.ay;
 import com.baidu.tieba.e;
 /* loaded from: classes3.dex */
 public class b implements a {
@@ -37,7 +37,7 @@ public class b implements a {
     @Override // com.baidu.tieba.videoEasterEgg.b.a
     public void bMK() {
         if (this.mPageContext != null) {
-            if (ax.jJ() || ba.bJ(this.mPageContext.getPageActivity())) {
+            if (ay.jJ() || ba.bJ(this.mPageContext.getPageActivity())) {
                 FD();
             }
         }

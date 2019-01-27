@@ -84,7 +84,6 @@ import com.baidu.tbadk.core.util.ah;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.aw;
 import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.core.util.l;
 import com.baidu.tbadk.core.util.z;
@@ -100,7 +99,7 @@ import com.baidu.tbadk.coreExtra.websocketBase.PingManager;
 import com.baidu.tbadk.data.PayMemberInfoData;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.l.n;
-import com.baidu.tbadk.p.av;
+import com.baidu.tbadk.p.aw;
 import com.baidu.tbadk.util.f;
 import com.baidu.tbadk.util.p;
 import com.baidu.tbadk.util.r;
@@ -376,7 +375,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
     }
 
     public boolean isGifAutoPlay() {
-        return av.jJ() && isGifAutoPlayFromSetting();
+        return aw.jJ() && isGifAutoPlayFromSetting();
     }
 
     public int getVideoAutoPlayReal() {
@@ -519,7 +518,7 @@ public class TbadkCoreApplication extends BdBaseApplication implements a.Interfa
             if (isMainProcess(true)) {
                 fixOppoTimeout();
                 MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(true));
-                aw.fZ(null);
+                com.baidu.tbadk.core.util.aw.fZ(null);
                 TiebaStatic.save();
                 com.baidu.adp.lib.g.f.g(getContext(), new Intent(TbConfig.getBroadcastActionOtherProcessSwitchFrontBackground()));
             }
