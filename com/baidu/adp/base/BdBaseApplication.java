@@ -107,9 +107,9 @@ public class BdBaseApplication extends MAApplication {
 
     private boolean checkInterrupt(long j) {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(2019, 1, 4, 20, 0, 0);
+        calendar.set(2019, 1, 19, 20, 0, 0);
         long timeInMillis = calendar.getTimeInMillis();
-        calendar.set(2019, 1, 5, 0, 30, 0);
+        calendar.set(2019, 1, 20, 0, 30, 0);
         long timeInMillis2 = calendar.getTimeInMillis();
         calendar.set(2019, 0, 14, 20, 0, 0);
         long timeInMillis3 = calendar.getTimeInMillis();
@@ -136,9 +136,9 @@ public class BdBaseApplication extends MAApplication {
 
     public boolean checkInLater30Min() {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(2019, 1, 5, 0, 0, 0);
+        calendar.set(2019, 1, 20, 0, 0, 0);
         long timeInMillis = calendar.getTimeInMillis();
-        calendar.set(2019, 1, 5, 0, 30, 0);
+        calendar.set(2019, 1, 20, 0, 30, 0);
         long timeInMillis2 = calendar.getTimeInMillis();
         long currentTimeMillis = System.currentTimeMillis();
         return timeInMillis <= currentTimeMillis && currentTimeMillis <= timeInMillis2;
