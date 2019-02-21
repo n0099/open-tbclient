@@ -127,23 +127,6 @@ public class a extends com.baidu.platform.comapi.walknavi.g.b.b implements View.
         this.n.setOnScrollChangeListener(new d(this));
     }
 
-    /* renamed from: com.baidu.platform.comapi.bikenavi.widget.a$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
-    static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] a = new int[com.baidu.platform.comapi.wnplatform.n.b.values().length];
-
-        static {
-            try {
-                a[com.baidu.platform.comapi.wnplatform.n.b.TOP.ordinal()] = 1;
-            } catch (NoSuchFieldError e) {
-            }
-            try {
-                a[com.baidu.platform.comapi.wnplatform.n.b.BOTTOM.ordinal()] = 2;
-            } catch (NoSuchFieldError e2) {
-            }
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z) {
         if (z) {
