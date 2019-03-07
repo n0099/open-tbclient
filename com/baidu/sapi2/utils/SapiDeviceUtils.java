@@ -6,9 +6,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.base.debug.Log;
-import com.baidu.webkit.internal.ETAG;
 import java.io.FileInputStream;
 import java.net.NetworkInterface;
 import java.net.URLEncoder;
@@ -16,6 +14,7 @@ import java.util.Collections;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class SapiDeviceUtils {
     static String a = "js52je)927!hsm^%3m";
@@ -119,14 +118,14 @@ public class SapiDeviceUtils {
                     return sb.toString().toLowerCase();
                 }
             }
-            return Config.DEF_MAC_ID;
+            return "02:00:00:00:00:00";
         }
         return ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
     }
 
     public static String getOSVersion() {
         try {
-            return URLEncoder.encode(TextUtils.isEmpty(Build.VERSION.RELEASE) ? "" : Build.VERSION.RELEASE, "UTF-8");
+            return URLEncoder.encode(TextUtils.isEmpty(Build.VERSION.RELEASE) ? "" : Build.VERSION.RELEASE, HTTP.UTF_8);
         } catch (Exception e) {
             return "";
         }
@@ -134,7 +133,7 @@ public class SapiDeviceUtils {
 
     public static String getBrandName() {
         try {
-            return URLEncoder.encode(TextUtils.isEmpty(Build.BRAND) ? "" : Build.BRAND, "UTF-8");
+            return URLEncoder.encode(TextUtils.isEmpty(Build.BRAND) ? "" : Build.BRAND, HTTP.UTF_8);
         } catch (Exception e) {
             return "";
         }
@@ -142,7 +141,7 @@ public class SapiDeviceUtils {
 
     public static String getBrandMode() {
         try {
-            return URLEncoder.encode(TextUtils.isEmpty(Build.MODEL) ? "" : Build.MODEL, "UTF-8");
+            return URLEncoder.encode(TextUtils.isEmpty(Build.MODEL) ? "" : Build.MODEL, HTTP.UTF_8);
         } catch (Exception e) {
             return "";
         }
@@ -197,7 +196,7 @@ public class SapiDeviceUtils {
             }
             int i6 = length % 3;
             for (int i7 = 0; i7 < i6; i7++) {
-                sb.append(ETAG.EQUAL);
+                sb.append("=");
             }
             return sb.toString();
         }

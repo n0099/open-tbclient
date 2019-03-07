@@ -1,19 +1,21 @@
 package org.java_websocket.d;
+
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
 public class b implements a {
-    private final String iEQ;
+    private final String jUB;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.iEQ = str;
+        this.jUB = str;
     }
 
     @Override // org.java_websocket.d.a
-    public boolean Ah(String str) {
-        for (String str2 : str.replaceAll(" ", "").split(",")) {
-            if (this.iEQ.equals(str2)) {
+    public boolean Gk(String str) {
+        for (String str2 : str.replaceAll(" ", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
+            if (this.jUB.equals(str2)) {
                 return true;
             }
         }
@@ -21,18 +23,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String ceg() {
-        return this.iEQ;
+    public String cDl() {
+        return this.jUB;
     }
 
     @Override // org.java_websocket.d.a
-    public a ceh() {
-        return new b(ceg());
+    public a cDm() {
+        return new b(cDl());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return ceg();
+        return cDl();
     }
 
     public boolean equals(Object obj) {
@@ -42,10 +44,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.iEQ.equals(((b) obj).iEQ);
+        return this.jUB.equals(((b) obj).jUB);
     }
 
     public int hashCode() {
-        return this.iEQ.hashCode();
+        return this.jUB.hashCode();
     }
 }

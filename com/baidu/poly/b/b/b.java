@@ -1,21 +1,20 @@
 package com.baidu.poly.b.b;
 
-import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes2.dex */
 public class b {
-    public static String dr(String str) {
+    public static String dd(String str) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(str.getBytes());
-            return bytesToHexString(messageDigest.digest());
+            return D(messageDigest.digest());
         } catch (NoSuchAlgorithmException e) {
             return String.valueOf(str.hashCode());
         }
     }
 
-    private static String bytesToHexString(byte[] bArr) {
+    private static String D(byte[] bArr) {
         StringBuilder sb = new StringBuilder();
         for (byte b : bArr) {
             String hexString = Integer.toHexString(b & 255);

@@ -1,6 +1,5 @@
 package com.baidu.android.common.security;
 
-import com.baidu.ar.util.IoUtils;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.Key;
@@ -139,10 +138,10 @@ public final class RSAUtil {
     }
 
     public static String getPrivateKey(Map<String, Object> map) throws Exception {
-        return Base64.encode(((Key) map.get(PRIVATE_KEY)).getEncoded(), IoUtils.UTF_8);
+        return Base64.encode(((Key) map.get(PRIVATE_KEY)).getEncoded(), "utf-8");
     }
 
     public static String getPublicKey(Map<String, Object> map) throws UnsupportedEncodingException {
-        return Base64.encode(((Key) map.get(PUBLIC_KEY)).getEncoded(), IoUtils.UTF_8);
+        return Base64.encode(((Key) map.get(PUBLIC_KEY)).getEncoded(), "utf-8");
     }
 }

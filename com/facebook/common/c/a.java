@@ -1,167 +1,167 @@
 package com.facebook.common.c;
 /* loaded from: classes2.dex */
 public class a {
-    private static c ikf = b.bUC();
+    private static c jzH = b.ctA();
 
     public static boolean isLoggable(int i) {
-        return ikf.isLoggable(i);
+        return jzH.isLoggable(i);
     }
 
     public static void d(Class<?> cls, String str) {
-        if (ikf.isLoggable(2)) {
-            ikf.v(r(cls), str);
+        if (jzH.isLoggable(2)) {
+            jzH.v(u(cls), str);
         }
     }
 
     public static void a(Class<?> cls, String str, Object obj) {
-        if (ikf.isLoggable(2)) {
-            ikf.v(r(cls), m(str, obj));
+        if (jzH.isLoggable(2)) {
+            jzH.v(u(cls), l(str, obj));
         }
     }
 
     public static void a(Class<?> cls, String str, Object obj, Object obj2) {
-        if (ikf.isLoggable(2)) {
-            ikf.v(r(cls), m(str, obj, obj2));
+        if (jzH.isLoggable(2)) {
+            jzH.v(u(cls), l(str, obj, obj2));
         }
     }
 
     public static void a(Class<?> cls, String str, Object obj, Object obj2, Object obj3) {
         if (isLoggable(2)) {
-            d(cls, m(str, obj, obj2, obj3));
+            d(cls, l(str, obj, obj2, obj3));
         }
     }
 
     public static void a(Class<?> cls, String str, Object obj, Object obj2, Object obj3, Object obj4) {
-        if (ikf.isLoggable(2)) {
-            ikf.v(r(cls), m(str, obj, obj2, obj3, obj4));
+        if (jzH.isLoggable(2)) {
+            jzH.v(u(cls), l(str, obj, obj2, obj3, obj4));
         }
     }
 
     public static void v(String str, String str2, Object... objArr) {
-        if (ikf.isLoggable(2)) {
-            ikf.v(str, m(str2, objArr));
+        if (jzH.isLoggable(2)) {
+            jzH.v(str, l(str2, objArr));
         }
     }
 
     public static void c(Class<?> cls, String str, Object... objArr) {
-        if (ikf.isLoggable(2)) {
-            ikf.v(r(cls), m(str, objArr));
+        if (jzH.isLoggable(2)) {
+            jzH.v(u(cls), l(str, objArr));
         }
     }
 
     public static void b(Class<?> cls, String str, Object obj) {
-        if (ikf.isLoggable(3)) {
-            ikf.d(r(cls), m(str, obj));
+        if (jzH.isLoggable(3)) {
+            jzH.d(u(cls), l(str, obj));
         }
     }
 
     public static void e(Class<?> cls, String str) {
-        if (ikf.isLoggable(4)) {
-            ikf.i(r(cls), str);
+        if (jzH.isLoggable(4)) {
+            jzH.i(u(cls), str);
         }
     }
 
     public static void f(Class<?> cls, String str) {
-        if (ikf.isLoggable(5)) {
-            ikf.w(r(cls), str);
+        if (jzH.isLoggable(5)) {
+            jzH.w(u(cls), str);
         }
     }
 
     public static void w(String str, String str2, Object... objArr) {
-        if (ikf.isLoggable(5)) {
-            ikf.w(str, m(str2, objArr));
+        if (jzH.isLoggable(5)) {
+            jzH.w(str, l(str2, objArr));
         }
     }
 
     public static void a(String str, Throwable th, String str2, Object... objArr) {
-        if (ikf.isLoggable(5)) {
-            ikf.w(str, m(str2, objArr), th);
+        if (jzH.isLoggable(5)) {
+            jzH.w(str, l(str2, objArr), th);
         }
     }
 
     public static void d(Class<?> cls, String str, Object... objArr) {
-        if (ikf.isLoggable(5)) {
-            ikf.w(r(cls), m(str, objArr));
+        if (jzH.isLoggable(5)) {
+            jzH.w(u(cls), l(str, objArr));
         }
     }
 
     public static void a(Class<?> cls, Throwable th, String str, Object... objArr) {
         if (isLoggable(5)) {
-            a(cls, m(str, objArr), th);
+            a(cls, l(str, objArr), th);
         }
     }
 
     public static void a(Class<?> cls, String str, Throwable th) {
-        if (ikf.isLoggable(5)) {
-            ikf.w(r(cls), str, th);
+        if (jzH.isLoggable(5)) {
+            jzH.w(u(cls), str, th);
         }
     }
 
     public static void e(String str, String str2) {
-        if (ikf.isLoggable(6)) {
-            ikf.e(str, str2);
+        if (jzH.isLoggable(6)) {
+            jzH.e(str, str2);
         }
     }
 
     public static void g(Class<?> cls, String str) {
-        if (ikf.isLoggable(6)) {
-            ikf.e(r(cls), str);
+        if (jzH.isLoggable(6)) {
+            jzH.e(u(cls), str);
         }
     }
 
     public static void b(String str, Throwable th, String str2, Object... objArr) {
-        if (ikf.isLoggable(6)) {
-            ikf.e(str, m(str2, objArr), th);
+        if (jzH.isLoggable(6)) {
+            jzH.e(str, l(str2, objArr), th);
         }
     }
 
     public static void e(Class<?> cls, String str, Object... objArr) {
-        if (ikf.isLoggable(6)) {
-            ikf.e(r(cls), m(str, objArr));
+        if (jzH.isLoggable(6)) {
+            jzH.e(u(cls), l(str, objArr));
         }
     }
 
     public static void b(Class<?> cls, Throwable th, String str, Object... objArr) {
-        if (ikf.isLoggable(6)) {
-            ikf.e(r(cls), m(str, objArr), th);
+        if (jzH.isLoggable(6)) {
+            jzH.e(u(cls), l(str, objArr), th);
         }
     }
 
     public static void e(String str, String str2, Throwable th) {
-        if (ikf.isLoggable(6)) {
-            ikf.e(str, str2, th);
+        if (jzH.isLoggable(6)) {
+            jzH.e(str, str2, th);
         }
     }
 
     public static void b(Class<?> cls, String str, Throwable th) {
-        if (ikf.isLoggable(6)) {
-            ikf.e(r(cls), str, th);
+        if (jzH.isLoggable(6)) {
+            jzH.e(u(cls), str, th);
         }
     }
 
     public static void f(String str, String str2, Object... objArr) {
-        if (ikf.isLoggable(6)) {
-            ikf.dc(str, m(str2, objArr));
+        if (jzH.isLoggable(6)) {
+            jzH.el(str, l(str2, objArr));
         }
     }
 
     public static void f(Class<?> cls, String str, Object... objArr) {
-        if (ikf.isLoggable(6)) {
-            ikf.dc(r(cls), m(str, objArr));
+        if (jzH.isLoggable(6)) {
+            jzH.el(u(cls), l(str, objArr));
         }
     }
 
     public static void c(Class<?> cls, String str, Throwable th) {
-        if (ikf.isLoggable(6)) {
-            ikf.f(r(cls), str, th);
+        if (jzH.isLoggable(6)) {
+            jzH.f(u(cls), str, th);
         }
     }
 
-    private static String m(String str, Object... objArr) {
+    private static String l(String str, Object... objArr) {
         return String.format(null, str, objArr);
     }
 
-    private static String r(Class<?> cls) {
+    private static String u(Class<?> cls) {
         return cls.getSimpleName();
     }
 }

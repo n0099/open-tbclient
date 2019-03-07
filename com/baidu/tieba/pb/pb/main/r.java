@@ -1,8 +1,8 @@
 package com.baidu.tieba.pb.pb.main;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class r {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface a {
     }
 }

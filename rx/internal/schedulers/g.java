@@ -16,48 +16,48 @@ import rx.internal.util.RxThreadFactory;
 import rx.k;
 /* loaded from: classes2.dex */
 public class g extends g.a implements k {
-    private static final boolean iPA;
-    private static volatile Object iPE;
+    private static final boolean jZW;
+    private static volatile Object kaa;
     private final ScheduledExecutorService executor;
     volatile boolean isUnsubscribed;
-    private static final Object iPF = new Object();
-    private static final ConcurrentHashMap<ScheduledThreadPoolExecutor, ScheduledThreadPoolExecutor> iPC = new ConcurrentHashMap<>();
-    private static final AtomicReference<ScheduledExecutorService> iPD = new AtomicReference<>();
-    public static final int iPB = Integer.getInteger("rx.scheduler.jdk6.purge-frequency-millis", 1000).intValue();
+    private static final Object kab = new Object();
+    private static final ConcurrentHashMap<ScheduledThreadPoolExecutor, ScheduledThreadPoolExecutor> jZY = new ConcurrentHashMap<>();
+    private static final AtomicReference<ScheduledExecutorService> jZZ = new AtomicReference<>();
+    public static final int jZX = Integer.getInteger("rx.scheduler.jdk6.purge-frequency-millis", 1000).intValue();
 
     static {
         boolean z = Boolean.getBoolean("rx.scheduler.jdk6.purge-force");
-        int cfO = rx.internal.util.g.cfO();
-        iPA = !z && (cfO == 0 || cfO >= 21);
+        int cEr = rx.internal.util.f.cEr();
+        jZW = !z && (cEr == 0 || cEr >= 21);
     }
 
     public static void a(ScheduledThreadPoolExecutor scheduledThreadPoolExecutor) {
         while (true) {
-            if (iPD.get() != null) {
+            if (jZZ.get() != null) {
                 break;
             }
             ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, new RxThreadFactory("RxSchedulerPurge-"));
-            if (iPD.compareAndSet(null, newScheduledThreadPool)) {
+            if (jZZ.compareAndSet(null, newScheduledThreadPool)) {
                 newScheduledThreadPool.scheduleAtFixedRate(new Runnable() { // from class: rx.internal.schedulers.g.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        g.cfI();
+                        g.cEl();
                     }
-                }, iPB, iPB, TimeUnit.MILLISECONDS);
+                }, jZX, jZX, TimeUnit.MILLISECONDS);
                 break;
             }
             newScheduledThreadPool.shutdownNow();
         }
-        iPC.putIfAbsent(scheduledThreadPoolExecutor, scheduledThreadPoolExecutor);
+        jZY.putIfAbsent(scheduledThreadPoolExecutor, scheduledThreadPoolExecutor);
     }
 
     public static void a(ScheduledExecutorService scheduledExecutorService) {
-        iPC.remove(scheduledExecutorService);
+        jZY.remove(scheduledExecutorService);
     }
 
-    static void cfI() {
+    static void cEl() {
         try {
-            Iterator<ScheduledThreadPoolExecutor> it = iPC.keySet().iterator();
+            Iterator<ScheduledThreadPoolExecutor> it = jZY.keySet().iterator();
             while (it.hasNext()) {
                 ScheduledThreadPoolExecutor next = it.next();
                 if (!next.isShutdown()) {
@@ -67,22 +67,22 @@ public class g extends g.a implements k {
                 }
             }
         } catch (Throwable th) {
-            rx.exceptions.a.J(th);
+            rx.exceptions.a.L(th);
             rx.c.c.onError(th);
         }
     }
 
     public static boolean b(ScheduledExecutorService scheduledExecutorService) {
         Method c;
-        if (iPA) {
+        if (jZW) {
             if (scheduledExecutorService instanceof ScheduledThreadPoolExecutor) {
-                Object obj = iPE;
-                if (obj == iPF) {
+                Object obj = kaa;
+                if (obj == kab) {
                     return false;
                 }
                 if (obj == null) {
                     c = c(scheduledExecutorService);
-                    iPE = c != null ? c : iPF;
+                    kaa = c != null ? c : kab;
                 } else {
                     c = (Method) obj;
                 }
@@ -127,18 +127,18 @@ public class g extends g.a implements k {
     }
 
     @Override // rx.g.a
-    public k a(rx.functions.a aVar) {
+    public k c(rx.functions.a aVar) {
         return a(aVar, 0L, null);
     }
 
     @Override // rx.g.a
     public k a(rx.functions.a aVar, long j, TimeUnit timeUnit) {
-        return this.isUnsubscribed ? rx.subscriptions.e.cgS() : b(aVar, j, timeUnit);
+        return this.isUnsubscribed ? rx.subscriptions.e.cFt() : b(aVar, j, timeUnit);
     }
 
     public ScheduledAction b(rx.functions.a aVar, long j, TimeUnit timeUnit) {
         Future<?> schedule;
-        ScheduledAction scheduledAction = new ScheduledAction(rx.c.c.g(aVar));
+        ScheduledAction scheduledAction = new ScheduledAction(rx.c.c.i(aVar));
         if (j <= 0) {
             schedule = this.executor.submit(scheduledAction);
         } else {
@@ -150,7 +150,7 @@ public class g extends g.a implements k {
 
     public ScheduledAction a(rx.functions.a aVar, long j, TimeUnit timeUnit, rx.subscriptions.b bVar) {
         Future<?> schedule;
-        ScheduledAction scheduledAction = new ScheduledAction(rx.c.c.g(aVar), bVar);
+        ScheduledAction scheduledAction = new ScheduledAction(rx.c.c.i(aVar), bVar);
         bVar.add(scheduledAction);
         if (j <= 0) {
             schedule = this.executor.submit(scheduledAction);
@@ -161,10 +161,10 @@ public class g extends g.a implements k {
         return scheduledAction;
     }
 
-    public ScheduledAction a(rx.functions.a aVar, long j, TimeUnit timeUnit, rx.internal.util.j jVar) {
+    public ScheduledAction a(rx.functions.a aVar, long j, TimeUnit timeUnit, rx.internal.util.i iVar) {
         Future<?> schedule;
-        ScheduledAction scheduledAction = new ScheduledAction(rx.c.c.g(aVar), jVar);
-        jVar.add(scheduledAction);
+        ScheduledAction scheduledAction = new ScheduledAction(rx.c.c.i(aVar), iVar);
+        iVar.add(scheduledAction);
         if (j <= 0) {
             schedule = this.executor.submit(scheduledAction);
         } else {

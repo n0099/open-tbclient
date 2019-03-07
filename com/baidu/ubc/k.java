@@ -7,17 +7,17 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class k {
-    private long SG;
-    private int ifN;
-    private JSONArray ifP;
-    private JSONObject igk;
-    private int igl;
-    private String igm;
-    private boolean ign = false;
+    private long Vm;
+    private long aEo;
+    private int bpm;
+    private JSONObject bpn;
+    private String bpo;
+    private boolean bpp = false;
+    private JSONArray bpr;
     private String mCategory;
     private String mContent;
-    private long mEndTime;
     private String mId;
+    private int mOption;
     private String mState;
 
     public k() {
@@ -25,9 +25,16 @@ public class k {
 
     public k(String str, int i, String str2, int i2) {
         this.mId = str;
-        this.ifN = i;
+        this.bpm = i;
         this.mContent = str2;
-        this.igl = i2;
+        this.mOption = i2;
+    }
+
+    public k(String str, int i, JSONObject jSONObject, int i2) {
+        this.mId = str;
+        this.bpm = i;
+        this.bpn = jSONObject;
+        this.mOption = i2;
     }
 
     public String getId() {
@@ -38,12 +45,12 @@ public class k {
         this.mId = str;
     }
 
-    public int bSB() {
-        return this.ifN;
+    public int Td() {
+        return this.bpm;
     }
 
-    public void xV(int i) {
-        this.ifN = i;
+    public void fq(int i) {
+        this.bpm = i;
     }
 
     public String getContent() {
@@ -54,40 +61,40 @@ public class k {
         this.mContent = str;
     }
 
-    public JSONObject bSE() {
-        return this.igk;
+    public JSONObject Tf() {
+        return this.bpn;
     }
 
-    public long bSH() {
-        return this.SG;
+    public long Ti() {
+        return this.Vm;
     }
 
-    public void ds(long j) {
-        this.SG = j;
+    public void X(long j) {
+        this.Vm = j;
     }
 
     public long getEndTime() {
-        return this.mEndTime;
+        return this.aEo;
     }
 
     public void setEndTime(long j) {
-        this.mEndTime = j;
+        this.aEo = j;
     }
 
     public String getState() {
         return this.mState;
     }
 
-    public void yB(String str) {
+    public void jO(String str) {
         this.mState = str;
     }
 
-    public int bSC() {
-        return this.igl;
+    public int getOption() {
+        return this.mOption;
     }
 
-    public String bSD() {
-        return this.igm;
+    public String Te() {
+        return this.bpo;
     }
 
     public String getCategory() {
@@ -98,35 +105,35 @@ public class k {
         this.mCategory = str;
     }
 
-    public boolean bSy() {
-        return this.ign;
+    public boolean Ta() {
+        return this.bpp;
     }
 
-    public void oO(boolean z) {
-        this.ign = z;
+    public void cV(boolean z) {
+        this.bpp = z;
     }
 
-    public void yC(String str) {
-        this.igm = str;
+    public void jP(String str) {
+        this.bpo = str;
     }
 
-    public void bSF() {
-        if (e.bSo().ys(this.mId)) {
-            this.igm = o.bSQ().ZC();
+    public void Th() {
+        if (e.crL().jI(this.mId)) {
+            this.bpo = UBC.getUBCContext().Fp();
         }
     }
 
-    public void yD(String str) {
+    public void jQ(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.ifP = new JSONArray(str);
+                this.bpr = new JSONArray(str);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public JSONArray bSI() {
-        return this.ifP;
+    public JSONArray Tj() {
+        return this.bpr;
     }
 }

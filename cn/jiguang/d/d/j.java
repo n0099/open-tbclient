@@ -14,22 +14,22 @@ public class j implements cn.jiguang.api.b {
             if (a.code == 0) {
                 switch (a.getCommand()) {
                     case 19:
-                        cn.jiguang.d.b.d.bO().a(a, j);
+                        cn.jiguang.d.b.d.bN().a(a, j);
                         break;
                     case 25:
-                        cn.jiguang.a.c.a.a(context, cn.jiguang.d.b.d.bO().bP(), j, a);
+                        cn.jiguang.a.c.a.a(context, cn.jiguang.d.b.d.bN().bO(), j, a);
                         break;
                     case 26:
                         if (a.code != 0) {
-                            i.bX().a(context, a.getRid().longValue());
+                            i.bW().a(context, a.getRid().longValue());
                             break;
                         } else {
-                            i.bX().b(context, a.getRid().longValue());
+                            i.bW().b(context, a.getRid().longValue());
                             break;
                         }
                     case 30:
                     case 32:
-                        cn.jiguang.d.f.a.cf().a(a.code, a.getCommand());
+                        cn.jiguang.d.f.a.ce().a(a.code, a.getCommand());
                         break;
                 }
             } else {
@@ -37,7 +37,7 @@ public class j implements cn.jiguang.api.b {
             }
         }
         if (a != null) {
-            return a.getHead().cc().longValue();
+            return a.getHead().cb().longValue();
         }
         return -1L;
     }
@@ -45,9 +45,9 @@ public class j implements cn.jiguang.api.b {
     @Override // cn.jiguang.api.b
     public void dispatchTimeOutMessage(Context context, long j, long j2, int i) {
         if (i == 26) {
-            i.bX().c(context, j2);
+            i.bW().c(context, j2);
         } else if (i == 32 || i == 30) {
-            cn.jiguang.d.f.a.cf().a(context, i);
+            cn.jiguang.d.f.a.ce().a(context, i);
         }
     }
 
@@ -75,7 +75,7 @@ public class j implements cn.jiguang.api.b {
         if (bundle != null) {
             String string = bundle.getString("action");
             if (!TextUtils.isEmpty(string) && string.equals("asm")) {
-                cn.jiguang.d.f.a.cf().a(context, bundle);
+                cn.jiguang.d.f.a.ce().a(context, bundle);
                 return;
             }
         }

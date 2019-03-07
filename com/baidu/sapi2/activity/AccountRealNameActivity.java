@@ -25,7 +25,7 @@ public class AccountRealNameActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
             init();
             setupViews();
         } catch (Throwable th) {
@@ -48,11 +48,11 @@ public class AccountRealNameActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(a.f.sapi_sdk_title_real_name);
+        setTitleText(a.g.sapi_sdk_title_real_name);
         this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.AccountRealNameActivity.1
             @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
             public boolean onBack() {
-                if (AccountRealNameActivity.this.sapiWebView.canGoBack()) {
+                if (AccountRealNameActivity.this.sapiWebView != null && AccountRealNameActivity.this.sapiWebView.canGoBack()) {
                     AccountRealNameActivity.this.sapiWebView.goBack();
                     return false;
                 }
@@ -87,13 +87,17 @@ public class AccountRealNameActivity extends BaseActivity {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.sapi2.callback.SapiCallback
                 public void onSuccess(GetTplStokenResult getTplStokenResult) {
-                    AccountRealNameActivity.this.sapiWebView.loadAccountRealName(getTplStokenResult.tplStokenMap.get("pp"), AccountRealNameActivity.this.sence);
+                    if (AccountRealNameActivity.this.sapiWebView != null) {
+                        AccountRealNameActivity.this.sapiWebView.loadAccountRealName(getTplStokenResult.tplStokenMap.get("pp"), AccountRealNameActivity.this.sence);
+                    }
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.sapi2.callback.SapiCallback
                 public void onFailure(GetTplStokenResult getTplStokenResult) {
-                    AccountRealNameActivity.this.sapiWebView.loadAccountRealName(null, AccountRealNameActivity.this.sence);
+                    if (AccountRealNameActivity.this.sapiWebView != null) {
+                        AccountRealNameActivity.this.sapiWebView.loadAccountRealName(null, AccountRealNameActivity.this.sence);
+                    }
                 }
 
                 @Override // com.baidu.sapi2.callback.SapiCallback
@@ -106,7 +110,7 @@ public class AccountRealNameActivity extends BaseActivity {
             }, this.bduss, arrayList);
             return;
         }
-        Toast.makeText(this, getString(a.f.sapi_sdk_account_center_please_relogin), 1).show();
+        Toast.makeText(this, getString(a.g.sapi_sdk_account_center_please_relogin), 1).show();
         finishActivity();
     }
 
@@ -141,7 +145,7 @@ public class AccountRealNameActivity extends BaseActivity {
     }
 
     private void goBack() {
-        if (this.sapiWebView.canGoBack()) {
+        if (this.sapiWebView != null && this.sapiWebView.canGoBack()) {
             this.sapiWebView.back();
         } else {
             onClose();

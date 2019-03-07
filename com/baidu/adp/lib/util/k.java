@@ -1,8 +1,6 @@
 package com.baidu.adp.lib.util;
 
 import android.annotation.SuppressLint;
-import com.baidu.ar.util.IoUtils;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppDateTimeUtil;
 import java.lang.Character;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
@@ -11,16 +9,16 @@ import java.util.Date;
 @SuppressLint({"SimpleDateFormat"})
 /* loaded from: classes.dex */
 public class k {
-    protected static SimpleDateFormat Gh = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    protected static SimpleDateFormat Gi = new SimpleDateFormat("yyyy年");
-    protected static SimpleDateFormat Gj = new SimpleDateFormat("HH:mm");
-    protected static SimpleDateFormat Gk = new SimpleDateFormat("M月d日");
-    protected static SimpleDateFormat Gl = new SimpleDateFormat("M月d日 HH:mm");
-    protected static SimpleDateFormat Gm = new SimpleDateFormat(AiAppDateTimeUtil.DATE_FORMAT);
-    protected static SimpleDateFormat Gn = new SimpleDateFormat("yyyy-MM-dd E");
-    protected static SimpleDateFormat Go = new SimpleDateFormat("yy-M-d");
-    protected static SimpleDateFormat Gp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-    protected static SimpleDateFormat Gq = new SimpleDateFormat("MM-dd");
+    protected static SimpleDateFormat Gg = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    protected static SimpleDateFormat Gh = new SimpleDateFormat("yyyy年");
+    protected static SimpleDateFormat Gi = new SimpleDateFormat("HH:mm");
+    protected static SimpleDateFormat Gj = new SimpleDateFormat("M月d日");
+    protected static SimpleDateFormat Gk = new SimpleDateFormat("M月d日 HH:mm");
+    protected static SimpleDateFormat Gl = new SimpleDateFormat("yyyy-MM-dd");
+    protected static SimpleDateFormat Gm = new SimpleDateFormat("yyyy-MM-dd E");
+    protected static SimpleDateFormat Gn = new SimpleDateFormat("yy-M-d");
+    protected static SimpleDateFormat Go = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+    protected static SimpleDateFormat Gp = new SimpleDateFormat("MM-dd");
 
     public static String a(CharSequence charSequence, String str) {
         if (charSequence instanceof String) {
@@ -31,13 +29,21 @@ public class k {
 
     public static String a(Date date) {
         String format;
-        synchronized (Gl) {
-            format = Gl.format(date);
+        synchronized (Gk) {
+            format = Gk.format(date);
         }
         return format;
     }
 
     public static String b(Date date) {
+        String format;
+        synchronized (Gi) {
+            format = Gi.format(date);
+        }
+        return format;
+    }
+
+    public static String c(Date date) {
         String format;
         synchronized (Gj) {
             format = Gj.format(date);
@@ -45,18 +51,10 @@ public class k {
         return format;
     }
 
-    public static String c(Date date) {
-        String format;
-        synchronized (Gk) {
-            format = Gk.format(date);
-        }
-        return format;
-    }
-
     public static String d(Date date) {
         String format;
-        synchronized (Gm) {
-            format = Gm.format(date);
+        synchronized (Gl) {
+            format = Gl.format(date);
         }
         return format;
     }
@@ -83,7 +81,7 @@ public class k {
             return null;
         }
         try {
-            return URLEncoder.encode(str, IoUtils.UTF_8);
+            return URLEncoder.encode(str, "utf-8");
         } catch (Exception e) {
             e.printStackTrace();
             return "";
@@ -92,7 +90,7 @@ public class k {
 
     public static String by(String str) {
         try {
-            return URLDecoder.decode(str, IoUtils.UTF_8);
+            return URLDecoder.decode(str, "utf-8");
         } catch (Exception e) {
             e.printStackTrace();
             return null;

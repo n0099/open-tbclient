@@ -9,6 +9,9 @@ import javax.annotation.Nullable;
 import okhttp3.Headers;
 import okhttp3.internal.Util;
 import okhttp3.internal.http.HttpMethod;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpHead;
+import org.apache.http.client.methods.HttpPut;
 /* loaded from: classes2.dex */
 public final class Request {
     @Nullable
@@ -171,7 +174,7 @@ public final class Request {
         }
 
         public Builder head() {
-            return method("HEAD", null);
+            return method(HttpHead.METHOD_NAME, null);
         }
 
         public Builder post(RequestBody requestBody) {
@@ -179,7 +182,7 @@ public final class Request {
         }
 
         public Builder delete(@Nullable RequestBody requestBody) {
-            return method("DELETE", requestBody);
+            return method(HttpDelete.METHOD_NAME, requestBody);
         }
 
         public Builder delete() {
@@ -187,7 +190,7 @@ public final class Request {
         }
 
         public Builder put(RequestBody requestBody) {
-            return method("PUT", requestBody);
+            return method(HttpPut.METHOD_NAME, requestBody);
         }
 
         public Builder patch(RequestBody requestBody) {

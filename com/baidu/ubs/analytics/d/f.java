@@ -1,8 +1,5 @@
 package com.baidu.ubs.analytics.d;
-
-import com.baidu.ar.util.SystemInfoUtil;
-import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class f {
     public static String encode(String str) {
         if (str != null && str.length() != 0) {
@@ -29,12 +26,12 @@ public final class f {
             if (str.length() % 3 == 1) {
                 sb2.append("==");
             } else if (str.length() % 3 == 2) {
-                sb2.append(ETAG.EQUAL);
+                sb2.append("=");
             }
             for (int i2 = 76; i2 < sb2.length(); i2 += 76) {
-                sb2.insert(i2, SystemInfoUtil.LINE_END);
+                sb2.insert(i2, "\r\n");
             }
-            sb2.append(SystemInfoUtil.LINE_END);
+            sb2.append("\r\n");
             return String.valueOf(sb2);
         }
         return str;

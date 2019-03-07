@@ -1,6 +1,5 @@
 package okio;
 
-import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
@@ -16,19 +15,19 @@ public final class HashingSink extends ForwardingSink {
     private final MessageDigest messageDigest;
 
     public static HashingSink md5(Sink sink) {
-        return new HashingSink(sink, AiAppEncryptUtils.ENCRYPT_MD5);
+        return new HashingSink(sink, "MD5");
     }
 
     public static HashingSink sha1(Sink sink) {
-        return new HashingSink(sink, AiAppEncryptUtils.ENCRYPT_SHA1);
+        return new HashingSink(sink, "SHA-1");
     }
 
     public static HashingSink sha256(Sink sink) {
-        return new HashingSink(sink, AiAppEncryptUtils.ENCRYPT_SHA256);
+        return new HashingSink(sink, "SHA-256");
     }
 
     public static HashingSink sha512(Sink sink) {
-        return new HashingSink(sink, AiAppEncryptUtils.ENCRYPT_SHA512);
+        return new HashingSink(sink, "SHA-512");
     }
 
     public static HashingSink hmacSha1(Sink sink, ByteString byteString) {

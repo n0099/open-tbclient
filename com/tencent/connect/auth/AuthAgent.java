@@ -33,11 +33,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.adp.plugin.install.PluginInstallerService;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.ar.parser.ARResourceKey;
-import com.baidu.fsg.face.base.d.h;
-import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
-import com.baidu.searchbox.ng.ai.apps.setting.oauth.ScopeInfo;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
+import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
@@ -48,6 +46,7 @@ import com.tencent.open.b.d;
 import com.tencent.open.utils.HttpUtils;
 import com.tencent.open.utils.e;
 import com.tencent.open.utils.g;
+import com.tencent.open.utils.h;
 import com.tencent.open.utils.i;
 import com.tencent.open.utils.j;
 import com.tencent.open.web.security.JniInterface;
@@ -59,7 +58,7 @@ import java.lang.ref.WeakReference;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class AuthAgent extends BaseApi {
     public static final String SECURE_LIB_ARM64_FILE_NAME = "libwbsafeedit_64";
     public static final String SECURE_LIB_ARM_FILE_NAME = "libwbsafeedit";
@@ -76,12 +75,12 @@ public class AuthAgent extends BaseApi {
         SECURE_LIB_NAME = SECURE_LIB_FILE_NAME + PluginInstallerService.APK_LIB_SUFFIX;
         String str = Build.CPU_ABI;
         if (str != null && !str.equals("")) {
-            if (str.equalsIgnoreCase(h.d)) {
+            if (str.equalsIgnoreCase(PassBiometricUtil.CPU_TYPE_ARM64_V8A)) {
                 SECURE_LIB_FILE_NAME = SECURE_LIB_ARM64_FILE_NAME;
                 SECURE_LIB_NAME = SECURE_LIB_FILE_NAME + PluginInstallerService.APK_LIB_SUFFIX;
                 f.c("openSDK_LOG.AuthAgent", "is arm64-v8a architecture");
                 return;
-            } else if (str.equalsIgnoreCase(h.c)) {
+            } else if (str.equalsIgnoreCase(PassBiometricUtil.CPU_TYPE_X86)) {
                 SECURE_LIB_FILE_NAME = SECURE_LIB_X86_FILE_NAME;
                 SECURE_LIB_NAME = SECURE_LIB_FILE_NAME + PluginInstallerService.APK_LIB_SUFFIX;
                 f.c("openSDK_LOG.AuthAgent", "is x86 architecture");
@@ -108,7 +107,7 @@ public class AuthAgent extends BaseApi {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class c implements IUiListener {
         private final IUiListener b;
         private final boolean c;
@@ -204,14 +203,14 @@ public class AuthAgent extends BaseApi {
         a2.putString("scope", this.d);
         a2.putString("client_id", this.b.getAppId());
         if (isOEM) {
-            a2.putString(Constants.PARAM_PLATFORM_ID, "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + HttpConstants.OS_TYPE_VALUE + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
+            a2.putString(Constants.PARAM_PLATFORM_ID, "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + "android" + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
         } else {
             a2.putString(Constants.PARAM_PLATFORM_ID, Constants.DEFAULT_PF);
         }
         String str = (System.currentTimeMillis() / 1000) + "";
-        a2.putString("sign", com.tencent.open.utils.h.b(e.a(), str));
-        a2.putString("time", str);
-        a2.putString("display", ScopeInfo.SCOPE_ID_MOBILE);
+        a2.putString(SapiUtils.KEY_QR_LOGIN_SIGN, h.b(e.a(), str));
+        a2.putString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, str);
+        a2.putString("display", "mobile");
         a2.putString(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, "token");
         a2.putString(WBConstants.AUTH_PARAMS_REDIRECT_URL, "auth://tauth.qq.com/");
         a2.putString("cancel_display", "1");
@@ -224,7 +223,7 @@ public class AuthAgent extends BaseApi {
             @Override // java.lang.Runnable
             public void run() {
                 final Activity activity;
-                com.tencent.open.utils.h.a(AuthAgent.SECURE_LIB_FILE_NAME, AuthAgent.SECURE_LIB_NAME, 3);
+                h.a(AuthAgent.SECURE_LIB_FILE_NAME, AuthAgent.SECURE_LIB_NAME, 3);
                 JniInterface.loadSo();
                 if (AuthAgent.this.e != null && (activity = (Activity) AuthAgent.this.e.get()) != null) {
                     activity.runOnUiThread(new Runnable() { // from class: com.tencent.connect.auth.AuthAgent.1.1
@@ -263,12 +262,12 @@ public class AuthAgent extends BaseApi {
             a2.putString("scope", this.d);
             a2.putString("client_id", this.b.getAppId());
             if (isOEM) {
-                a2.putString(Constants.PARAM_PLATFORM_ID, "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + HttpConstants.OS_TYPE_VALUE + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
+                a2.putString(Constants.PARAM_PLATFORM_ID, "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + "android" + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
             } else {
                 a2.putString(Constants.PARAM_PLATFORM_ID, Constants.DEFAULT_PF);
             }
             a2.putString("need_pay", "1");
-            a2.putString(Constants.KEY_APP_NAME, com.tencent.open.utils.h.a(e.a()));
+            a2.putString(Constants.KEY_APP_NAME, h.a(e.a()));
             b2.putExtra(Constants.KEY_ACTION, "action_login");
             b2.putExtra(Constants.KEY_PARAMS, a2);
             b2.putExtra("appid", this.b.getAppId());
@@ -320,7 +319,7 @@ public class AuthAgent extends BaseApi {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class a implements IUiListener {
         IUiListener a;
 
@@ -336,10 +335,10 @@ public class AuthAgent extends BaseApi {
             }
             JSONObject jSONObject = (JSONObject) obj;
             try {
-                int i = jSONObject.getInt(ARResourceKey.HTTP_RET);
+                int i = jSONObject.getInt("ret");
                 String string = i == 0 ? "success" : jSONObject.getString("msg");
                 if (this.a != null) {
-                    this.a.onComplete(new JSONObject().put(ARResourceKey.HTTP_RET, i).put("msg", string));
+                    this.a.onComplete(new JSONObject().put("ret", i).put("msg", string));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -363,7 +362,7 @@ public class AuthAgent extends BaseApi {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class b implements IUiListener {
         IUiListener a;
         private final String c = "sendinstall";
@@ -398,7 +397,7 @@ public class AuthAgent extends BaseApi {
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes3.dex */
         private abstract class a implements View.OnClickListener {
             Dialog d;
 
@@ -502,7 +501,7 @@ public class AuthAgent extends BaseApi {
 
         private View a(Context context, Drawable drawable, String str, View.OnClickListener onClickListener, View.OnClickListener onClickListener2) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) context.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay().getMetrics(displayMetrics);
+            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
             float f = displayMetrics.density;
             RelativeLayout relativeLayout = new RelativeLayout(context);
             ImageView imageView = new ImageView(context);

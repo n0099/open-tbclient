@@ -12,16 +12,16 @@ import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes3.dex */
 public class LoopADView extends LinearLayout {
-    private a gSJ;
-    private int gSK;
-    private int gSL;
-    private Resources gSM;
-    private AdCard.d[] gSN;
-    private int gSO;
+    private a ikl;
+    private int ikm;
+    private int ikn;
+    private Resources iko;
+    private AdCard.d[] ikp;
+    private int ikq;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -33,15 +33,15 @@ public class LoopADView extends LinearLayout {
 
     /* loaded from: classes3.dex */
     public interface a {
+        String BD(String str);
+
         void b(TbImageView tbImageView, AdCard.b bVar);
 
         void reset();
-
-        String uY(String str);
     }
 
     public void setBussinessType(int i) {
-        this.gSO = i;
+        this.ikq = i;
     }
 
     public LoopADView(Context context) {
@@ -55,13 +55,13 @@ public class LoopADView extends LinearLayout {
     public LoopADView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = null;
-        this.gSJ = null;
-        this.gSK = 0;
-        this.gSL = 0;
-        this.gSM = null;
-        this.gSN = null;
+        this.ikl = null;
+        this.ikm = 0;
+        this.ikn = 0;
+        this.iko = null;
+        this.ikp = null;
         this.mContext = context.getApplicationContext();
-        this.gSM = this.mContext.getResources();
+        this.iko = this.mContext.getResources();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
         layoutParams.gravity = 17;
         setLayoutParams(layoutParams);
@@ -69,36 +69,36 @@ public class LoopADView extends LinearLayout {
     }
 
     public void a(AdCard.d[] dVarArr, int i, int i2, int i3, int i4) {
-        if (dVarArr != null && dVarArr.length > 0 && i3 <= i2 && dVarArr != this.gSN) {
-            this.gSN = dVarArr;
+        if (dVarArr != null && dVarArr.length > 0 && i3 <= i2 && dVarArr != this.ikp) {
+            this.ikp = dVarArr;
             if (i2 == 0 || i3 == 0) {
-                if (this.gSO == 2 || this.gSO == 1) {
-                    i2 = (int) this.gSM.getDimension(e.C0210e.ds570);
-                    i3 = (int) this.gSM.getDimension(e.C0210e.ds302);
-                } else if (this.gSO == 4) {
-                    i2 = (int) this.gSM.getDimension(e.C0210e.ds500);
-                    i3 = (int) this.gSM.getDimension(e.C0210e.ds265);
+                if (this.ikq == 2 || this.ikq == 1) {
+                    i2 = (int) this.iko.getDimension(d.e.ds570);
+                    i3 = (int) this.iko.getDimension(d.e.ds302);
+                } else if (this.ikq == 4) {
+                    i2 = (int) this.iko.getDimension(d.e.ds500);
+                    i3 = (int) this.iko.getDimension(d.e.ds265);
                 }
             }
-            b(i2, i3, i4);
-            if (this.gSJ != null) {
-                this.gSJ.reset();
+            c(i2, i3, i4);
+            if (this.ikl != null) {
+                this.ikl.reset();
             }
             reset();
             a(dVarArr, i);
         }
     }
 
-    private void b(float f, float f2, int i) {
+    private void c(float f, float f2, int i) {
         float f3 = f / f2;
         float f4 = 0.0f;
-        if (this.gSO == 1 || this.gSO == 2) {
-            f4 = this.gSM.getDimension(e.C0210e.ds40);
-        } else if (this.gSO == 4) {
-            f4 = this.gSM.getDimension(e.C0210e.ds40) + this.gSM.getDimension(e.C0210e.ds60) + this.gSM.getDimension(e.C0210e.ds16);
+        if (this.ikq == 1 || this.ikq == 2) {
+            f4 = this.iko.getDimension(d.e.ds40);
+        } else if (this.ikq == 4) {
+            f4 = this.iko.getDimension(d.e.ds40) + this.iko.getDimension(d.e.ds60) + this.iko.getDimension(d.e.ds16);
         }
-        this.gSK = (int) (((int) ((l.aS(this.mContext)[0] - f4) - ((int) this.gSM.getDimension(e.C0210e.ds4)))) * 0.75f);
-        this.gSL = (int) (this.gSK / f3);
+        this.ikm = (int) (((int) ((l.aS(this.mContext)[0] - f4) - ((int) this.iko.getDimension(d.e.ds4)))) * 0.75f);
+        this.ikn = (int) (this.ikm / f3);
     }
 
     private void a(AdCard.d[] dVarArr, int i) {
@@ -111,7 +111,7 @@ public class LoopADView extends LinearLayout {
         }
         try {
             for (AdCard.d dVar : dVarArr) {
-                View inflate = LayoutInflater.from(this.mContext).inflate(e.h.loop_ad_item, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.mContext).inflate(d.h.loop_ad_item, (ViewGroup) null);
                 if (inflate != null) {
                     if (!z) {
                         inflate.setPadding(0, 0, 0, 0);
@@ -130,12 +130,12 @@ public class LoopADView extends LinearLayout {
 
     private void a(View view, AdCard.d dVar, int i, ItemType itemType) {
         if (view != null && dVar != null) {
-            TbImageView tbImageView = (TbImageView) view.findViewById(e.g.loop_image_view);
-            TextView textView = (TextView) view.findViewById(e.g.loop_text_view);
-            h(tbImageView, this.gSK, this.gSL);
-            h(view, this.gSK, -2);
-            if (this.gSJ != null) {
-                this.gSJ.b(tbImageView, dVar.gQG);
+            TbImageView tbImageView = (TbImageView) view.findViewById(d.g.loop_image_view);
+            TextView textView = (TextView) view.findViewById(d.g.loop_text_view);
+            j(tbImageView, this.ikm, this.ikn);
+            j(view, this.ikm, -2);
+            if (this.ikl != null) {
+                this.ikl.b(tbImageView, dVar.iik);
             }
             tbImageView.startLoad(dVar.pic, i, false);
             if (itemType == ItemType.WITHOUT_BOTTOM_TITLE) {
@@ -143,8 +143,8 @@ public class LoopADView extends LinearLayout {
                 textView.setVisibility(8);
             } else if (itemType == ItemType.WITH_BOTTOM_TITLE) {
                 textView.setVisibility(0);
-                if (this.gSJ != null) {
-                    textView.setText(this.gSJ.uY(dVar.title));
+                if (this.ikl != null) {
+                    textView.setText(this.ikl.BD(dVar.title));
                 }
             }
         }
@@ -159,25 +159,25 @@ public class LoopADView extends LinearLayout {
         return true;
     }
 
-    public void aXt() {
+    public void bxV() {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
             if (childAt != null) {
-                al.c((TextView) childAt.findViewById(e.g.loop_text_view), e.d.cp_cont_b, 1);
+                al.d((TextView) childAt.findViewById(d.g.loop_text_view), d.C0236d.cp_cont_b, 1);
             }
         }
     }
 
     public void setOnClickCallbackListener(a aVar) {
-        this.gSJ = aVar;
+        this.ikl = aVar;
     }
 
     private void reset() {
         removeAllViews();
     }
 
-    private void h(View view, int i, int i2) {
+    private void j(View view, int i, int i2) {
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.width = i;

@@ -7,13 +7,13 @@ import android.content.pm.PackageManager;
 import android.os.SystemClock;
 import cn.jiguang.d.d.aa;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.searchbox.ng.ai.apps.aps.AiAppsApsUtils;
 import java.io.UnsupportedEncodingException;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,7 +26,7 @@ public class k {
             String replaceAll = Pattern.compile("\n|\r|\r\n|\n\r|\t").matcher(str).replaceAll("");
             try {
                 byte[] bytes = replaceAll.getBytes();
-                return bytes.length > 30 ? replaceAll.substring(0, new String(bytes, 0, 30, "UTF-8").length()) : replaceAll;
+                return bytes.length > 30 ? replaceAll.substring(0, new String(bytes, 0, 30, HTTP.UTF_8).length()) : replaceAll;
             } catch (UnsupportedEncodingException e) {
                 return replaceAll;
             }
@@ -69,7 +69,7 @@ public class k {
                         }
                     }
                     try {
-                        jSONObject.put(AiAppsApsUtils.APP_NAME, a3);
+                        jSONObject.put("app_name", a3);
                         jSONObject.put(PushConstants.PACKAGE_NAME, applicationInfo.packageName);
                         jSONObject.put("service_list", jSONArray2);
                         jSONArray.put(jSONObject);

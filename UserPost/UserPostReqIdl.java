@@ -2,7 +2,7 @@ package UserPost;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class UserPostReqIdl extends Message {
     @ProtoField(tag = 1)
     public final DataReq data;
@@ -16,7 +16,7 @@ public final class UserPostReqIdl extends Message {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder extends Message.Builder<UserPostReqIdl> {
         public DataReq data;
 

@@ -2,7 +2,6 @@ package com.airbnb.lottie.model.a;
 
 import com.airbnb.lottie.model.a.m;
 import com.airbnb.lottie.model.a.n;
-import com.baidu.mobstat.Config;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -16,24 +15,24 @@ public class b extends o<Float, Float> {
     }
 
     @Override // com.airbnb.lottie.model.a.m
-    public com.airbnb.lottie.a.b.a<Float, Float> dG() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.pS) : new com.airbnb.lottie.a.b.c(this.pE);
+    public com.airbnb.lottie.a.b.a<Float, Float> dF() {
+        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.pN) : new com.airbnb.lottie.a.b.c(this.pz);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.model.a.o
-    /* renamed from: dH */
-    public Float dI() {
-        return (Float) this.pS;
+    /* renamed from: dG */
+    public Float dH() {
+        return (Float) this.pN;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.airbnb.lottie.model.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0011b implements m.a<Float> {
-        static final C0011b qC = new C0011b();
+    public static class C0009b implements m.a<Float> {
+        static final C0009b qy = new C0009b();
 
-        private C0011b() {
+        private C0009b() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -47,7 +46,7 @@ public class b extends o<Float, Float> {
     /* loaded from: classes2.dex */
     public static final class a {
         /* JADX INFO: Access modifiers changed from: package-private */
-        public static b dJ() {
+        public static b dI() {
             return new b();
         }
 
@@ -56,12 +55,12 @@ public class b extends o<Float, Float> {
         }
 
         public static b a(JSONObject jSONObject, com.airbnb.lottie.e eVar, boolean z) {
-            float cL = z ? eVar.cL() : 1.0f;
-            if (jSONObject != null && jSONObject.has(Config.EVENT_HEAT_X)) {
+            float cK = z ? eVar.cK() : 1.0f;
+            if (jSONObject != null && jSONObject.has("x")) {
                 eVar.V("Lottie doesn't support expressions.");
             }
-            n.a ea = n.a(jSONObject, cL, eVar, C0011b.qC).ea();
-            return new b(ea.pE, (Float) ea.pS);
+            n.a dZ = n.a(jSONObject, cK, eVar, C0009b.qy).dZ();
+            return new b(dZ.pz, (Float) dZ.pN);
         }
     }
 }

@@ -5,20 +5,20 @@ import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.card.data.p;
 import tbclient.Personalized.CardForum;
 import tbclient.Personalized.PersonalForum;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b extends com.baidu.tieba.card.data.g implements p {
-    private CardForum eAo;
+    private CardForum fNn;
 
     public void a(CardForum cardForum) {
         if (cardForum != null) {
-            this.eAo = cardForum;
+            this.fNn = cardForum;
             this.mGroupTitle = cardForum.card_title;
             if (cardForum.position != null) {
-                setYuelaouLocate(ari() + cardForum.position.intValue());
+                setYuelaouLocate(aQX() + cardForum.position.intValue());
             } else {
-                setYuelaouLocate(ari() + 0);
+                setYuelaouLocate(aQX() + 0);
             }
-            if (v.H(cardForum.forum_list) > 0) {
+            if (v.S(cardForum.forum_list) > 0) {
                 for (PersonalForum personalForum : cardForum.forum_list) {
                     if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
                         com.baidu.tieba.card.data.e eVar = new com.baidu.tieba.card.data.e();
@@ -35,35 +35,35 @@ public class b extends com.baidu.tieba.card.data.g implements p {
 
     @Override // com.baidu.tieba.card.data.p
     public int getPosition() {
-        if (this.eAo != null) {
-            return this.eAo.position.intValue();
+        if (this.fNn != null) {
+            return this.fNn.position.intValue();
         }
         return 0;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean arg() {
+    public boolean aQV() {
         return true;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void fB(boolean z) {
+    public void hT(boolean z) {
         this.showTopDivider = z;
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public void fC(boolean z) {
+    public void hU(boolean z) {
         this.showBottomDivider = z;
     }
 
-    public boolean Xu() {
-        if (v.H(getDataList()) > 0) {
+    public boolean axu() {
+        if (v.S(getDataList()) > 0) {
             return true;
         }
         return false;
     }
 
-    public static boolean oW(int i) {
+    public static boolean sF(int i) {
         return i == 1;
     }
 }

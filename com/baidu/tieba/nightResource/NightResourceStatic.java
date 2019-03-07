@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class NightResourceStatic {
     static {
         CustomMessageTask customMessageTask = new CustomMessageTask(2001281, new CustomMessageTask.CustomRunnable<Boolean>() { // from class: com.baidu.tieba.nightResource.NightResourceStatic.1

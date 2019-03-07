@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.channel.commonutils.logger.b;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.am;
@@ -21,7 +20,7 @@ public class PingReceiver extends BroadcastReceiver {
             b.c("Ping XMChannelService on timer");
             try {
                 Intent intent2 = new Intent(context, XMPushService.class);
-                intent2.putExtra(ETAG.KEY_TIME_STAMP, System.currentTimeMillis());
+                intent2.putExtra("time_stamp", System.currentTimeMillis());
                 intent2.setAction("com.xiaomi.push.timer");
                 context.startService(intent2);
             } catch (Exception e) {

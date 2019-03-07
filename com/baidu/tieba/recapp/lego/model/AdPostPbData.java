@@ -1,7 +1,7 @@
 package com.baidu.tieba.recapp.lego.model;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.ng.ai.apps.scheme.actions.GetSwanHistoryAction;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -34,8 +34,8 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
         this.id = jSONObject.optString("id");
         this.fid = jSONObject.optLong(ImageViewerConfig.FORUM_ID, 0L);
         this.name = jSONObject.optString("name");
-        this.style = jSONObject.optString("style");
-        this.scheme = jSONObject.optString(GetSwanHistoryAction.KEY_SCHEME);
+        this.style = jSONObject.optString(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
+        this.scheme = jSONObject.optString("scheme");
         this.buttonText = jSONObject.optString("button_text");
         this.tagName = jSONObject.optString("tag_name");
         this.title = jSONObject.optString("title");
@@ -47,42 +47,42 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
         JSONObject optJSONObject = jSONObject.optJSONObject("button_click");
         if (optJSONObject != null) {
             this.buttonClick = new PostAdBaseData.a.b();
-            this.buttonClick.scheme = optJSONObject.optString(GetSwanHistoryAction.KEY_SCHEME);
-            this.buttonClick.abo = optJSONObject.optString("als_stat");
-            this.buttonClick.abp = optJSONObject.optString("url_stat");
+            this.buttonClick.scheme = optJSONObject.optString("scheme");
+            this.buttonClick.adq = optJSONObject.optString("als_stat");
+            this.buttonClick.adr = optJSONObject.optString("url_stat");
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("ext_data");
         if (optJSONObject2 != null) {
             this.extraData = new PostAdBaseData.a.c();
             JSONObject optJSONObject3 = optJSONObject2.optJSONObject("ad_download");
             if (optJSONObject3 != null) {
-                this.extraData.gQT = new PostAdBaseData.a.C0308a();
-                this.extraData.gQT.packageName = optJSONObject3.optString("pkgname");
-                this.extraData.gQT.downloadUrl = optJSONObject3.optString("download_url");
+                this.extraData.iiw = new PostAdBaseData.a.C0303a();
+                this.extraData.iiw.packageName = optJSONObject3.optString("pkgname");
+                this.extraData.iiw.downloadUrl = optJSONObject3.optString("download_url");
             }
         }
     }
 
     public boolean isDownload() {
-        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.gQT == null) ? false : true;
+        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.iiw == null) ? false : true;
     }
 
     public String apkDownloadUrl() {
-        if (this.extraData == null || this.extraData.gQT == null) {
+        if (this.extraData == null || this.extraData.iiw == null) {
             return null;
         }
-        return this.extraData.gQT.downloadUrl;
+        return this.extraData.iiw.downloadUrl;
     }
 
     public String apkDownloadPackage() {
-        if (this.extraData == null || this.extraData.gQT == null) {
+        if (this.extraData == null || this.extraData.iiw == null) {
             return null;
         }
-        return this.extraData.gQT.packageName;
+        return this.extraData.iiw.packageName;
     }
 
     public AdvertAppInfo toAppData() {
-        if (this.extraData == null || this.extraData.gQT == null) {
+        if (this.extraData == null || this.extraData.iiw == null) {
             return null;
         }
         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
@@ -93,23 +93,23 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
     private void h(AdvertAppInfo advertAppInfo) {
         if (advertAppInfo != null) {
             if ("apk_download".equals(this.style)) {
-                advertAppInfo.apV = 3;
+                advertAppInfo.Uw = 3;
             }
-            if (TextUtils.isEmpty(advertAppInfo.apT)) {
-                advertAppInfo.apT = this.id;
+            if (TextUtils.isEmpty(advertAppInfo.bwB)) {
+                advertAppInfo.bwB = this.id;
             }
             if (advertAppInfo.getFid() == 0) {
                 advertAppInfo.setFid(this.fid);
             }
-            advertAppInfo.apX = apkDownloadUrl();
+            advertAppInfo.bwE = apkDownloadUrl();
             advertAppInfo.extensionInfo = this.extInfo;
-            advertAppInfo.apY = apkDownloadPackage();
-            advertAppInfo.apU = !TextUtils.isEmpty(this.name) ? this.name : apkDownloadPackage();
-            if (advertAppInfo.aqe == null) {
-                advertAppInfo.aqe = new AdvertAppInfo.a();
+            advertAppInfo.bwF = apkDownloadPackage();
+            advertAppInfo.bwC = !TextUtils.isEmpty(this.name) ? this.name : apkDownloadPackage();
+            if (advertAppInfo.bwL == null) {
+                advertAppInfo.bwL = new AdvertAppInfo.a();
             }
-            advertAppInfo.aqe.userPortrait = this.portrait;
-            advertAppInfo.aqe.userName = this.title;
+            advertAppInfo.bwL.userPortrait = this.portrait;
+            advertAppInfo.bwL.userName = this.title;
         }
     }
 

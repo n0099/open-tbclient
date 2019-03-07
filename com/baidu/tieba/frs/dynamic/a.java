@@ -1,9 +1,9 @@
 package com.baidu.tieba.frs.dynamic;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.h;
+import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.bb;
+import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.mvc.b.c;
 import com.squareup.wire.Message;
@@ -15,15 +15,15 @@ import tbclient.StarTrends.DataRes;
 import tbclient.StarTrends.StarTrendsResIdl;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a implements c {
     public static final Wire WIRE = new Wire(new Class[0]);
     public boolean hasMore;
-    public ArrayList<h> threadList = new ArrayList<>();
+    public ArrayList<m> threadList = new ArrayList<>();
     public HashMap<String, MetaData> userMap = new HashMap<>();
-    public int dSA = 0;
+    public int mErrorNo = 0;
 
-    public StarTrendsResIdl J(byte[] bArr) {
+    public StarTrendsResIdl Q(byte[] bArr) {
         if (bArr == null) {
             return null;
         }
@@ -42,7 +42,7 @@ public class a implements c {
 
     private void a(DataRes dataRes) {
         if (dataRes != null) {
-            if (!v.I(dataRes.user_list)) {
+            if (!v.T(dataRes.user_list)) {
                 for (User user : dataRes.user_list) {
                     if (user != null) {
                         MetaData metaData = new MetaData();
@@ -54,16 +54,16 @@ public class a implements c {
                     }
                 }
             }
-            if (!v.I(dataRes.thread_list)) {
+            if (!v.T(dataRes.thread_list)) {
                 for (ThreadInfo threadInfo : dataRes.thread_list) {
                     if (threadInfo != null) {
-                        bb bbVar = new bb();
-                        bbVar.setUserMap(this.userMap);
-                        bbVar.a(threadInfo);
-                        bbVar.setCurrentPage(3);
-                        bbVar.AD();
-                        if (bbVar.getType() == bb.atJ || bbVar.getType() == bb.atL || bbVar.getType() == bb.atQ || bbVar.getType() == bb.atM || bbVar.getType() == bb.atR || bbVar.getType() == bb.atS) {
-                            this.threadList.add(bbVar);
+                        bg bgVar = new bg();
+                        bgVar.setUserMap(this.userMap);
+                        bgVar.a(threadInfo);
+                        bgVar.setCurrentPage(3);
+                        bgVar.ZH();
+                        if (bgVar.getType() == bg.bAO || bgVar.getType() == bg.bBa || bgVar.getType() == bg.bBf || bgVar.getType() == bg.bBb || bgVar.getType() == bg.bBg || bgVar.getType() == bg.bBh) {
+                            this.threadList.add(bgVar);
                         }
                     }
                 }
@@ -73,12 +73,12 @@ public class a implements c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Op() {
+    public byte[] toCacheByteArray() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public boolean F(byte[] bArr) {
+    public boolean initByByteArray(byte[] bArr) {
         return false;
     }
 
@@ -88,10 +88,10 @@ public class a implements c {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void I(JSONObject jSONObject) {
+    public void initByJson(JSONObject jSONObject) {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void a(Message message) {
+    public void initByProtobuf(Message message) {
     }
 }

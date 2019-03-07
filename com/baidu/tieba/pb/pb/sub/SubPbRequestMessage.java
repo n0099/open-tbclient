@@ -3,10 +3,10 @@ package com.baidu.tieba.pb.pb.sub;
 import android.content.Context;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.q;
+import com.baidu.tbadk.util.s;
 import tbclient.PbFloor.DataReq;
 import tbclient.PbFloor.PbFloorReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SubPbRequestMessage extends NetMessage {
     private int is_comm_reverse;
     private long kz;
@@ -47,7 +47,7 @@ public class SubPbRequestMessage extends NetMessage {
         builder.st_type = this.stType;
         builder.is_comm_reverse = Integer.valueOf(this.is_comm_reverse);
         if (z) {
-            q.bindCommonParamsToProtobufData(builder, true);
+            s.bindCommonParamsToProtobufData(builder, true);
         }
         PbFloorReqIdl.Builder builder2 = new PbFloorReqIdl.Builder();
         builder2.data = builder.build(false);

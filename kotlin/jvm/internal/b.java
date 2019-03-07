@@ -3,23 +3,23 @@ package kotlin.jvm.internal;
 import java.util.NoSuchElementException;
 /* loaded from: classes2.dex */
 final class b extends kotlin.collections.l {
-    private final byte[] iCA;
     private int index;
+    private final byte[] jSl;
 
     public b(byte[] bArr) {
-        p.j(bArr, com.baidu.fsg.base.statistics.b.j);
-        this.iCA = bArr;
+        p.k(bArr, "array");
+        this.jSl = bArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.iCA.length;
+        return this.index < this.jSl.length;
     }
 
     @Override // kotlin.collections.l
     public byte nextByte() {
         try {
-            byte[] bArr = this.iCA;
+            byte[] bArr = this.jSl;
             int i = this.index;
             this.index = i + 1;
             return bArr[i];

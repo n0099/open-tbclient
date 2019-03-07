@@ -10,63 +10,63 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private final int bol;
-    private final RectF bop;
-    private final int boq;
-    private final int bor;
-    private a bou;
-    private final Rect bov;
-    private final RectF bon = new RectF();
-    private final Rect boo = new Rect();
-    private float bos = 1.0f;
-    private final List<a> bot = new ArrayList();
+    private final int cyM;
+    private final RectF cyQ;
+    private final int cyR;
+    private final int cyS;
+    private a cyV;
+    private final Rect cyW;
+    private final RectF cyO = new RectF();
+    private final Rect cyP = new Rect();
+    private float cyT = 1.0f;
+    private final List<a> cyU = new ArrayList();
     private final Matrix mMatrix = new Matrix();
 
     public b(int i, int i2, int[] iArr) {
-        this.bor = i2;
-        this.boq = i;
-        this.bop = new RectF(0.0f, 0.0f, i, i2);
-        this.bov = new Rect(0, 0, iArr[0], iArr[1]);
-        this.bol = i / 2;
+        this.cyS = i2;
+        this.cyR = i;
+        this.cyQ = new RectF(0.0f, 0.0f, i, i2);
+        this.cyW = new Rect(0, 0, iArr[0], iArr[1]);
+        this.cyM = i / 2;
     }
 
     public int getBlockSize() {
-        return this.bol;
+        return this.cyM;
     }
 
-    public Rect RF() {
-        return this.bov;
+    public Rect arA() {
+        return this.cyW;
     }
 
     public Rect a(a aVar) {
         if (aVar == null) {
             return null;
         }
-        return aVar.RD();
+        return aVar.ary();
     }
 
-    public Point[] RG() {
-        RI();
-        int RE = RE();
-        int i = (this.boo.top / RE) / this.bol;
-        int i2 = (this.boo.left / RE) / this.bol;
+    public Point[] arB() {
+        arD();
+        int arz = arz();
+        int i = (this.cyP.top / arz) / this.cyM;
+        int i2 = (this.cyP.left / arz) / this.cyM;
         Point point = new Point();
         point.y = i;
         point.x = i2;
         Point point2 = new Point();
-        point2.y = (((this.boo.bottom / RE) / this.bol) * RE) + 1;
-        point2.x = (RE * ((this.boo.right / RE) / this.bol)) + 1;
+        point2.y = (((this.cyP.bottom / arz) / this.cyM) * arz) + 1;
+        point2.x = (arz * ((this.cyP.right / arz) / this.cyM)) + 1;
         return new Point[]{point, point2};
     }
 
-    public a RH() {
-        return new a(this.bol);
+    public a arC() {
+        return new a(this.cyM);
     }
 
-    public Rect RI() {
-        this.mMatrix.mapRect(this.bon, this.bop);
-        a(this.boo, this.bon);
-        return this.boo;
+    public Rect arD() {
+        this.mMatrix.mapRect(this.cyO, this.cyQ);
+        a(this.cyP, this.cyO);
+        return this.cyP;
     }
 
     private void a(Rect rect, RectF rectF) {
@@ -74,49 +74,49 @@ public class b {
     }
 
     public int getRealWidth() {
-        return this.boq;
+        return this.cyR;
     }
 
-    public int RJ() {
-        return this.bor;
+    public int arE() {
+        return this.cyS;
     }
 
-    public List<a> RK() {
-        return this.bot;
+    public List<a> arF() {
+        return this.cyU;
     }
 
-    public void ac(float f) {
-        this.bos = f;
+    public void ap(float f) {
+        this.cyT = f;
     }
 
-    public float RL() {
-        return this.bos;
+    public float arG() {
+        return this.cyT;
     }
 
-    public int RE() {
+    public int arz() {
         int i = 1;
-        while (i < Math.round(this.bos)) {
+        while (i < Math.round(this.cyT)) {
             i *= 2;
         }
         return i;
     }
 
-    public void k(Bitmap bitmap) {
+    public void r(Bitmap bitmap) {
         if (bitmap != null) {
-            this.bou = new a(bitmap);
-            this.bou.i(0, 0, this.boq, this.bor);
+            this.cyV = new a(bitmap);
+            this.cyV.m(0, 0, this.cyR, this.cyS);
         }
     }
 
-    public a RM() {
-        return this.bou;
+    public a arH() {
+        return this.cyV;
     }
 
-    public void r(float f, float f2) {
+    public void u(float f, float f2) {
         this.mMatrix.postTranslate(f, f2);
     }
 
-    public void ad(float f) {
+    public void aq(float f) {
         this.mMatrix.postScale(f, f);
     }
 
@@ -124,31 +124,31 @@ public class b {
         this.mMatrix.postScale(f, f, f2, f3);
     }
 
-    public boolean r(int i, int i2, int i3) {
-        if (i3 == RE()) {
-            return s(i, i2, i3).intersect(this.boo);
+    public boolean u(int i, int i2, int i3) {
+        if (i3 == arz()) {
+            return v(i, i2, i3).intersect(this.cyP);
         }
         return false;
     }
 
-    public Rect s(int i, int i2, int i3) {
-        int i4 = this.bol * i3 * i2;
-        int i5 = this.bol * i3 * i;
-        return new Rect(i4, i5, (this.bol * i3) + i4, (this.bol * i3) + i5);
+    public Rect v(int i, int i2, int i3) {
+        int i4 = this.cyM * i3 * i2;
+        int i5 = this.cyM * i3 * i;
+        return new Rect(i4, i5, (this.cyM * i3) + i4, (this.cyM * i3) + i5);
     }
 
-    public void g(Rect rect) {
+    public void h(Rect rect) {
         if (rect.left < 0) {
             rect.left = 0;
         }
         if (rect.top < 0) {
             rect.top = 0;
         }
-        if (rect.right > this.bov.right) {
-            rect.right = this.bov.right;
+        if (rect.right > this.cyW.right) {
+            rect.right = this.cyW.right;
         }
-        if (rect.bottom > this.bov.bottom) {
-            rect.bottom = this.bov.bottom;
+        if (rect.bottom > this.cyW.bottom) {
+            rect.bottom = this.cyW.bottom;
         }
     }
 }

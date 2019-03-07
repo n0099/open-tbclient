@@ -7,7 +7,7 @@ public interface b {
 
     int getCmd();
 
-    void gp();
+    void gm();
 
-    void gq();
+    void gn();
 }

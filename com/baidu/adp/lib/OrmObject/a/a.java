@@ -177,7 +177,7 @@ public class a {
         return linkedList;
     }
 
-    public static final Field c(Class<?> cls, String str) {
+    public static final Field b(Class<?> cls, String str) {
         Field field = null;
         while (cls != Object.class && field == null) {
             try {
@@ -190,11 +190,11 @@ public class a {
     }
 
     public static final Object c(Object obj, String str) {
-        Field c = c(obj.getClass(), str);
-        if (c != null) {
+        Field b = b(obj.getClass(), str);
+        if (b != null) {
             try {
-                c.setAccessible(true);
-                return c.get(obj);
+                b.setAccessible(true);
+                return b.get(obj);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (IllegalArgumentException e2) {
@@ -205,11 +205,11 @@ public class a {
     }
 
     public static final boolean a(Object obj, String str, Object obj2) {
-        Field c = c(obj.getClass(), str);
-        if (c != null) {
+        Field b = b(obj.getClass(), str);
+        if (b != null) {
             try {
-                c.setAccessible(true);
-                c.set(obj, obj2);
+                b.setAccessible(true);
+                b.set(obj, obj2);
                 return true;
             } catch (IllegalAccessException e) {
                 e.printStackTrace();

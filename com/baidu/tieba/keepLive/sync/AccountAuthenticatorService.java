@@ -9,7 +9,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
-/* loaded from: classes4.dex */
+import com.baidu.tbadk.TbConfig;
+/* loaded from: classes3.dex */
 public class AccountAuthenticatorService extends Service {
     private a accountAuthenticator;
 
@@ -17,7 +18,7 @@ public class AccountAuthenticatorService extends Service {
     public void onCreate() {
         this.accountAuthenticator = new a(this);
         try {
-            Thread.sleep(5000L);
+            Thread.sleep(TbConfig.NOTIFY_SOUND_INTERVAL);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -31,7 +32,7 @@ public class AccountAuthenticatorService extends Service {
         return null;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     private static class a extends AbstractAccountAuthenticator {
         final Context context;
 

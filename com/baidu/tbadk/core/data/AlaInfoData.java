@@ -2,7 +2,8 @@ package com.baidu.tbadk.core.data;
 
 import android.util.SparseArray;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.webkit.internal.ETAG;
+import com.baidu.ubc.UBC;
+import com.tencent.open.SocialConstants;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -21,7 +22,7 @@ public class AlaInfoData implements Serializable {
     public int duration;
     public long group_id;
     public String hls_url;
-    public c label;
+    public e label;
     public String label_name;
     public long live_id;
     public int live_status;
@@ -51,7 +52,7 @@ public class AlaInfoData implements Serializable {
             try {
                 this.live_id = jSONObject.optLong("live_id");
                 this.cover = jSONObject.optString("cover");
-                this.session_id = jSONObject.optString(ETAG.KEY_STATISTICS_SEESIONID);
+                this.session_id = jSONObject.optString("session_id");
                 this.rtmp_url = jSONObject.optString("rtmp_url");
                 this.hls_url = jSONObject.optString("hls_url");
                 this.group_id = jSONObject.optLong("group_id");
@@ -59,13 +60,13 @@ public class AlaInfoData implements Serializable {
                 this.media_pic = jSONObject.optString("media_pic");
                 this.media_id = jSONObject.optString("media_id");
                 this.media_subtitle = jSONObject.optString("media_subtitle");
-                this.description = jSONObject.optString("description");
+                this.description = jSONObject.optString(SocialConstants.PARAM_COMMENT);
                 this.user_info = new AlaUserInfoData();
                 this.user_info.parserJson(jSONObject.optJSONObject("user_info"));
                 this.share_info = new AlaShareInfoData();
                 this.share_info.parserJson(jSONObject.optJSONObject("share_info"));
                 this.live_status = jSONObject.optInt("live_status");
-                this.duration = jSONObject.optInt("duration");
+                this.duration = jSONObject.optInt(UBC.CONTENT_KEY_DURATION);
                 this.audience_count = jSONObject.optInt("audience_count");
                 this.live_type = jSONObject.optInt("live_type");
                 this.screen_direction = jSONObject.optInt("screen_direction");
@@ -75,7 +76,7 @@ public class AlaInfoData implements Serializable {
                 this.thread_id = jSONObject.optLong("thread_id");
                 JSONObject optJSONObject = jSONObject.optJSONObject("label");
                 if (optJSONObject != null) {
-                    this.label = new c();
+                    this.label = new e();
                     this.label.parserJson(optJSONObject);
                 }
                 JSONArray optJSONArray = jSONObject.optJSONArray("stage_dislike_info");

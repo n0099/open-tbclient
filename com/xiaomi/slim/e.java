@@ -1,6 +1,5 @@
 package com.xiaomi.slim;
 
-import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import com.xiaomi.smack.l;
 import java.io.ByteArrayInputStream;
 import java.io.InputStreamReader;
@@ -37,7 +36,7 @@ public class e {
                 return com.xiaomi.smack.util.a.b(this.a);
             }
             if (!this.a.getName().equals("stream")) {
-                if (this.a.getName().equals(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR)) {
+                if (this.a.getName().equals("error")) {
                     throw new l(com.xiaomi.smack.util.a.c(this.a));
                 }
                 if (this.a.getName().equals("warning")) {

@@ -1,27 +1,27 @@
 package com.baidu.tieba.j;
 /* loaded from: classes.dex */
 public interface f {
-    void ch(String str, String str2);
+    void df(String str);
 
-    void ci(String str, String str2);
+    void dp(String str, String str2);
 
-    void dt(String str);
+    void dq(String str, String str2);
 
     void e(String str, int i, int i2, String str2);
 
-    void h(String str, int i, String str2);
-
-    void i(String str, int i, String str2);
-
-    void j(String str, int i, String str2);
-
     void k(String str, int i, String str2);
 
-    void sp(String str);
+    void l(String str, int i, String str2);
 
-    void sq(String str);
+    void m(String str, int i, String str2);
 
-    boolean ss(String str);
+    void n(String str, int i, String str2);
 
-    boolean st(String str);
+    void yT(String str);
+
+    void yU(String str);
+
+    boolean yV(String str);
+
+    boolean yW(String str);
 }

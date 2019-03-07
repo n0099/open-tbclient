@@ -19,8 +19,6 @@ import com.baidu.android.pushservice.e.z;
 import com.baidu.android.pushservice.h.o;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.message.PublicMsg;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes3.dex */
 public class i {
     private static i c;
@@ -52,7 +50,7 @@ public class i {
         if (!TextUtils.isEmpty(lVar.i) && com.baidu.android.pushservice.b.b.a(this.a).b(lVar.e, lVar.i) && !TextUtils.isEmpty(f)) {
             Intent intent2 = new Intent();
             intent2.putExtra("method", lVar.a);
-            intent2.putExtra("error_msg", 0);
+            intent2.putExtra(PushConstants.EXTRA_ERROR_CODE, 0);
             intent2.putExtra("content", f.getBytes());
             intent2.putExtra("bind_status", intExtra);
             if (a.b() > 0) {
@@ -117,8 +115,8 @@ public class i {
 
     private boolean g(Intent intent) {
         com.baidu.android.pushservice.b.f c2;
-        String stringExtra = intent.getStringExtra(ETAG.KEY_PACKAGE_NAME);
-        String stringExtra2 = intent.getStringExtra(HttpConstants.HTTP_APP_ID);
+        String stringExtra = intent.getStringExtra("package_name");
+        String stringExtra2 = intent.getStringExtra("app_id");
         if (TextUtils.isEmpty(stringExtra2) && (c2 = com.baidu.android.pushservice.b.b.a(this.a).c(stringExtra)) != null) {
             stringExtra2 = c2.a();
         }
@@ -244,7 +242,7 @@ public class i {
     private void v(Intent intent) {
         l lVar = new l(intent);
         com.baidu.android.pushservice.g.a.a("RegistrationService", "<<< METHOD_SEND_MSG_TO_USER ", this.a);
-        a(new w(lVar, this.a, intent.getStringExtra(HttpConstants.HTTP_APP_ID), intent.getStringExtra("user_id"), intent.getStringExtra("push_ msg_key"), intent.getStringExtra("push_ msg")));
+        a(new w(lVar, this.a, intent.getStringExtra("app_id"), intent.getStringExtra("user_id"), intent.getStringExtra("push_ msg_key"), intent.getStringExtra("push_ msg")));
     }
 
     private void w(Intent intent) {
@@ -282,16 +280,16 @@ public class i {
         } else if ("com.baidu.android.pushservice.action.privatenotification.CLICK".equals(action) || "com.baidu.android.pushservice.action.privatenotification.DELETE".equals(action)) {
             PublicMsg publicMsg = (PublicMsg) intent.getParcelableExtra("public_msg");
             if (m.b(this.a, publicMsg)) {
-                publicMsg.handlePrivateNotification(this.a, action, intent.getStringExtra("msg_id"), intent.getStringExtra(HttpConstants.HTTP_APP_ID), intent.getByteArrayExtra("baidu_message_secur_info"), intent.getByteArrayExtra("baidu_message_body"));
+                publicMsg.handlePrivateNotification(this.a, action, intent.getStringExtra("msg_id"), intent.getStringExtra("app_id"), intent.getByteArrayExtra("baidu_message_secur_info"), intent.getByteArrayExtra("baidu_message_body"));
                 return true;
             }
             return true;
         } else if ("com.baidu.android.pushservice.action.passthrough.notification.CLICK".equals(action) || "com.baidu.android.pushservice.action.passthrough.notification.DELETE".equals(action) || "com.baidu.android.pushservice.action.passthrough.notification.NOTIFIED".equals(action)) {
             m.b("push_passthrough: receive  click delete and notified action", this.a);
-            com.baidu.android.pushservice.h.k.a(this.a, intent.hasExtra("msg_id") ? intent.getStringExtra("msg_id") : null, intent.hasExtra(HttpConstants.HTTP_APP_ID) ? intent.getStringExtra(HttpConstants.HTTP_APP_ID) : null, action);
+            com.baidu.android.pushservice.h.k.a(this.a, intent.hasExtra("msg_id") ? intent.getStringExtra("msg_id") : null, intent.hasExtra("app_id") ? intent.getStringExtra("app_id") : null, action);
             return true;
         } else if ("com.baidu.android.pushservice.action.media.CLICK".equals(action) || "com.baidu.android.pushservice.action.media.DELETE".equals(action)) {
-            ((PublicMsg) intent.getParcelableExtra("public_msg")).handleRichMediaNotification(this.a, action, intent.getStringExtra(HttpConstants.HTTP_APP_ID));
+            ((PublicMsg) intent.getParcelableExtra("public_msg")).handleRichMediaNotification(this.a, action, intent.getStringExtra("app_id"));
             return true;
         } else if ("com.baidu.android.pushservice.action.lightapp.notification.CLICK".equals(action) || "com.baidu.android.pushservice.action.lightapp.notification.DELETE".equals(action)) {
             return true;

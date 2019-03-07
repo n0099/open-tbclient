@@ -1,0 +1,57 @@
+package com.baidu.swan.apps.v.c;
+
+import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.swan.apps.c;
+/* loaded from: classes2.dex */
+public class a {
+    private static final boolean DEBUG = c.DEBUG;
+
+    @NonNull
+    public static Uri a(int i, @NonNull String str, @Nullable String str2, @NonNull String str3) {
+        Uri build;
+        Uri.Builder builder = new Uri.Builder();
+        String str4 = "swan";
+        switch (i) {
+            case 0:
+                str4 = "swan";
+                break;
+            case 1:
+                str4 = "swangame";
+                break;
+        }
+        builder.scheme(SchemeConfig.getSchemeHead()).authority(str4).path(str);
+        String eM = eM(str2);
+        if (TextUtils.isEmpty(eM)) {
+            builder.appendQueryParameter("_baiduboxapp", str3);
+            build = builder.build();
+        } else if (!eM.contains("?")) {
+            builder.appendEncodedPath(eM).appendQueryParameter("_baiduboxapp", str3);
+            build = builder.build();
+        } else {
+            builder.appendEncodedPath(eM);
+            Uri.Builder buildUpon = Uri.parse(builder.toString()).buildUpon();
+            buildUpon.appendQueryParameter("_baiduboxapp", str3);
+            build = buildUpon.build();
+        }
+        if (DEBUG) {
+            Log.d("SwanAppLaunchUtils", "generateLaunchScheme: " + build.toString());
+        }
+        return build;
+    }
+
+    public static String eM(String str) {
+        if (!TextUtils.isEmpty(str)) {
+            String replaceAll = str.replaceAll("^//*|/*/$", "");
+            if (DEBUG && !TextUtils.equals(str, replaceAll)) {
+                Log.d("SwanAppLaunchUtils", "trimHeadAndTailSeparator: before: " + str + "  after: " + replaceAll);
+            }
+            return replaceAll;
+        }
+        return str;
+    }
+}

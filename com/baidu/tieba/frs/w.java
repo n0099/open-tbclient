@@ -1,12 +1,19 @@
 package com.baidu.tieba.frs;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.q;
-/* loaded from: classes6.dex */
-public class w extends q.a {
-    public com.baidu.tbadk.k.f dOM;
+import android.util.SparseArray;
+/* loaded from: classes.dex */
+public class w {
+    private static w fcD = new w();
+    private SparseArray<x> fcC = new SparseArray<>();
 
-    public w(View view) {
-        super(view);
+    private w() {
+    }
+
+    public static w bej() {
+        return fcD;
+    }
+
+    public x qp(int i) {
+        return this.fcC.get(i);
     }
 }

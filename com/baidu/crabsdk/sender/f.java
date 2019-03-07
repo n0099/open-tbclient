@@ -12,12 +12,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.Deflater;
 import java.util.zip.DeflaterOutputStream;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONStringer;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class f {
-    public static synchronized List<String> X(Context context, String str) {
+    public static synchronized List<String> W(Context context, String str) {
         ArrayList arrayList;
         synchronized (f.class) {
             arrayList = new ArrayList();
@@ -52,17 +53,17 @@ public final class f {
         deflaterOutputStream2 = null;
         FileOutputStream fileOutputStream2 = null;
         synchronized (f.class) {
-            com.baidu.crabsdk.c.a.cH("writeFile: " + str);
+            com.baidu.crabsdk.c.a.cv("writeFile: " + str);
             e.i(str);
             if (com.baidu.crabsdk.a.G) {
                 String c = com.baidu.crabsdk.c.d.c(com.baidu.crabsdk.a.d, str);
                 try {
-                    str2 = com.baidu.crabsdk.c.d.Z(str2, c);
+                    str2 = com.baidu.crabsdk.c.d.S(str2, c);
                 } catch (Exception e) {
                     com.baidu.crabsdk.c.a.f("crash content AES failed!", e);
                 }
                 try {
-                    e.b("key_" + str, com.baidu.crabsdk.c.e.cP(c));
+                    e.b("key_" + str, com.baidu.crabsdk.c.e.cD(c));
                 } catch (Exception e2) {
                     e.b("key_" + str, "NoEncrypt_" + c);
                     e2.printStackTrace();
@@ -71,7 +72,7 @@ public final class f {
             try {
                 fileOutputStream = context.openFileOutput(str, 0);
                 try {
-                    byte[] bytes = str2.getBytes("UTF-8");
+                    byte[] bytes = str2.getBytes(HTTP.UTF_8);
                     if (com.baidu.crabsdk.a.H) {
                         deflaterOutputStream = new DeflaterOutputStream(fileOutputStream, new Deflater(9, true));
                         try {
@@ -167,7 +168,7 @@ public final class f {
         }
     }
 
-    public static synchronized List<String> bi(Context context) {
+    public static synchronized List<String> bc(Context context) {
         ArrayList arrayList;
         synchronized (f.class) {
             arrayList = new ArrayList();
@@ -192,7 +193,7 @@ public final class f {
         return arrayList;
     }
 
-    public static synchronized List<String> bj(Context context) {
+    public static synchronized List<String> bd(Context context) {
         ArrayList arrayList;
         synchronized (f.class) {
             arrayList = new ArrayList();
@@ -232,7 +233,7 @@ public final class f {
         }
     }
 
-    public static byte[] cR(String str) {
+    public static byte[] cH(String str) {
         ByteArrayOutputStream byteArrayOutputStream;
         FileInputStream fileInputStream;
         Throwable th;
@@ -321,19 +322,19 @@ public final class f {
         return bArr;
     }
 
-    public static String cS(String str) {
+    public static String cI(String str) {
         if (str == null) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
         try {
-            com.baidu.crabsdk.c.a.cI("开始遍历..." + str);
+            com.baidu.crabsdk.c.a.cw("开始遍历..." + str);
             File[] listFiles = new File(str).listFiles();
             if (listFiles != null && listFiles.length > 0) {
                 for (File file : listFiles) {
                     sb.append(file.getName()).append("$");
                 }
-                com.baidu.crabsdk.c.a.cI(sb.toString());
+                com.baidu.crabsdk.c.a.cw(sb.toString());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -353,7 +354,7 @@ public final class f {
         if (map == null) {
             return "";
         }
-        if (map.containsKey("screenshot") && map.get("screenshot") != null && com.baidu.crabsdk.c.c.rv() > 7) {
+        if (map.containsKey("screenshot") && map.get("screenshot") != null && com.baidu.crabsdk.c.c.rW() > 7) {
             map.put("screenshot", Base64.encodeToString((byte[]) map.get("screenshot"), 0));
         }
         JSONObject jSONObject = new JSONObject();

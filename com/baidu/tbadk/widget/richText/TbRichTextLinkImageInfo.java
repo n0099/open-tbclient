@@ -2,11 +2,12 @@ package com.baidu.tbadk.widget.richText;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
+import com.xiaomi.mipush.sdk.Constants;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class TbRichTextLinkImageInfo extends OrmObject {
-    private boolean bse;
-    private boolean bsf;
+    private boolean cCU;
+    private boolean cCV;
     private String cdn_src;
     private String link;
     private int mHeight;
@@ -17,8 +18,8 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         this.mHeight = 1;
         this.cdn_src = null;
         this.link = null;
-        this.bse = false;
-        this.bsf = true;
+        this.cCU = false;
+        this.cCV = true;
     }
 
     public TbRichTextLinkImageInfo(PbContent pbContent) {
@@ -26,14 +27,14 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         this.mHeight = 1;
         this.cdn_src = null;
         this.link = null;
-        this.bse = false;
-        this.bsf = true;
+        this.cCU = false;
+        this.cCV = true;
         this.cdn_src = pbContent.cdn_src;
         this.link = pbContent.link;
         String str = pbContent.bsize;
         if (str != null) {
             try {
-                String[] split = str.split(",");
+                String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 this.mWidth = Integer.valueOf(split[0]).intValue();
                 this.mHeight = Integer.valueOf(split[1]).intValue();
             } catch (Exception e) {
@@ -47,7 +48,7 @@ public class TbRichTextLinkImageInfo extends OrmObject {
             this.mHeight = 1;
         }
         if (this.cdn_src != null && this.cdn_src.indexOf(".baidu.com") != -1) {
-            this.bse = true;
+            this.cCU = true;
         }
     }
 
@@ -59,7 +60,7 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         return this.mHeight;
     }
 
-    public String Td() {
+    public String atc() {
         return this.cdn_src;
     }
 
@@ -67,7 +68,7 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         return this.link;
     }
 
-    public boolean SU() {
-        return this.bsf;
+    public boolean asT() {
+        return this.cCV;
     }
 }

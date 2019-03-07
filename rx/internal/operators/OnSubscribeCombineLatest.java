@@ -12,43 +12,31 @@ import rx.exceptions.CompositeException;
 /* loaded from: classes2.dex */
 public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
     final int bufferSize;
-    final rx.functions.o<? extends R> combiner;
+    final rx.functions.h<? extends R> combiner;
     final boolean delayError;
-    final rx.d<? extends T>[] iGu;
-    final Iterable<? extends rx.d<? extends T>> iGv;
+    final rx.d<? extends T>[] jVN;
+    final Iterable<? extends rx.d<? extends T>> jVO;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
         call((rx.j) ((rx.j) obj));
     }
 
-    public OnSubscribeCombineLatest(Iterable<? extends rx.d<? extends T>> iterable, rx.functions.o<? extends R> oVar) {
-        this(null, iterable, oVar, rx.internal.util.h.SIZE, false);
-    }
-
-    public OnSubscribeCombineLatest(rx.d<? extends T>[] dVarArr, Iterable<? extends rx.d<? extends T>> iterable, rx.functions.o<? extends R> oVar, int i, boolean z) {
-        this.iGu = dVarArr;
-        this.iGv = iterable;
-        this.combiner = oVar;
-        this.bufferSize = i;
-        this.delayError = z;
-    }
-
     public void call(rx.j<? super R> jVar) {
         int length;
         rx.d<? extends T>[] dVarArr;
         rx.d<? extends T>[] dVarArr2;
-        rx.d<? extends T>[] dVarArr3 = this.iGu;
+        rx.d<? extends T>[] dVarArr3 = this.jVN;
         if (dVarArr3 == null) {
-            if (this.iGv instanceof List) {
-                List list = (List) this.iGv;
+            if (this.jVO instanceof List) {
+                List list = (List) this.jVO;
                 rx.d<? extends T>[] dVarArr4 = (rx.d[]) list.toArray(new rx.d[list.size()]);
                 length = dVarArr4.length;
                 dVarArr = dVarArr4;
             } else {
                 int i = 0;
                 rx.d<? extends T>[] dVarArr5 = new rx.d[8];
-                for (rx.d<? extends T> dVar : this.iGv) {
+                for (rx.d<? extends T> dVar : this.jVO) {
                     if (i == dVarArr5.length) {
                         dVarArr2 = new rx.d[(i >> 2) + i];
                         System.arraycopy(dVarArr5, 0, dVarArr2, 0, i);
@@ -82,7 +70,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
         final rx.j<? super R> actual;
         final int bufferSize;
         volatile boolean cancelled;
-        final rx.functions.o<? extends R> combiner;
+        final rx.functions.h<? extends R> combiner;
         int complete;
         final boolean delayError;
         volatile boolean done;
@@ -92,9 +80,9 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
         final AtomicLong requested;
         final a<T, R>[] subscribers;
 
-        public LatestCoordinator(rx.j<? super R> jVar, rx.functions.o<? extends R> oVar, int i, int i2, boolean z) {
+        public LatestCoordinator(rx.j<? super R> jVar, rx.functions.h<? extends R> hVar, int i, int i2, boolean z) {
             this.actual = jVar;
-            this.combiner = oVar;
+            this.combiner = hVar;
             this.bufferSize = i2;
             this.delayError = z;
             this.latest = new Object[i];
@@ -115,7 +103,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
             this.actual.add(this);
             this.actual.setProducer(this);
             for (int i2 = 0; i2 < length && !this.cancelled; i2++) {
-                dVarArr[i2].subscribe((rx.j<? super Object>) aVarArr[i2]);
+                dVarArr[i2].b(aVarArr[i2]);
             }
         }
 
@@ -172,7 +160,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
                     this.complete = i6;
                     i2 = i6;
                 } else {
-                    this.latest[i] = NotificationLite.bb(obj);
+                    this.latest[i] = NotificationLite.bs(obj);
                     i2 = i5;
                 }
                 z = i4 == length;
@@ -190,7 +178,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
                 }
             }
             if (!z && obj != null) {
-                aVar.dH(1L);
+                aVar.ek(1L);
             } else {
                 drain();
             }
@@ -232,7 +220,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
                                 }
                                 try {
                                     jVar.onNext((R) this.combiner.call(objArr));
-                                    aVar.dH(1L);
+                                    aVar.ek(1L);
                                     j3 = 1 + j;
                                 } catch (Throwable th) {
                                     this.cancelled = true;
@@ -312,11 +300,11 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
     /* loaded from: classes2.dex */
     public static final class a<T, R> extends rx.j<T> {
         boolean done;
-        final LatestCoordinator<T, R> iGw;
         final int index;
+        final LatestCoordinator<T, R> jVP;
 
         public a(LatestCoordinator<T, R> latestCoordinator, int i) {
-            this.iGw = latestCoordinator;
+            this.jVP = latestCoordinator;
             this.index = i;
             request(latestCoordinator.bufferSize);
         }
@@ -324,7 +312,7 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
         @Override // rx.e
         public void onNext(T t) {
             if (!this.done) {
-                this.iGw.combine(NotificationLite.aY(t), this.index);
+                this.jVP.combine(NotificationLite.bp(t), this.index);
             }
         }
 
@@ -334,20 +322,20 @@ public final class OnSubscribeCombineLatest<T, R> implements d.a<R> {
                 rx.c.c.onError(th);
                 return;
             }
-            this.iGw.onError(th);
+            this.jVP.onError(th);
             this.done = true;
-            this.iGw.combine(null, this.index);
+            this.jVP.combine(null, this.index);
         }
 
         @Override // rx.e
         public void onCompleted() {
             if (!this.done) {
                 this.done = true;
-                this.iGw.combine(null, this.index);
+                this.jVP.combine(null, this.index);
             }
         }
 
-        public void dH(long j) {
+        public void ek(long j) {
             request(j);
         }
     }

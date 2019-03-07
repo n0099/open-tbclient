@@ -15,6 +15,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.RestrictTo;
 import android.support.v4.util.Preconditions;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
@@ -47,7 +48,7 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
     private float mRotationCount;
     private static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();
     private static final Interpolator MATERIAL_INTERPOLATOR = new FastOutSlowInInterpolator();
-    private static final int[] COLORS = {-16777216};
+    private static final int[] COLORS = {ViewCompat.MEASURED_STATE_MASK};
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
@@ -282,19 +283,21 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             applyFinishTranslation(f, ring);
         } else if (f != 1.0f || z) {
             float startingRotation = ring.getStartingRotation();
-            if (f < 0.5f) {
+            if (f < SHRINK_OFFSET) {
+                float f2 = f / SHRINK_OFFSET;
                 interpolation = ring.getStartingStartTrim();
-                startingStartTrim = (MATERIAL_INTERPOLATOR.getInterpolation(f / 0.5f) * 0.79f) + MIN_PROGRESS_ARC + interpolation;
+                startingStartTrim = (MATERIAL_INTERPOLATOR.getInterpolation(f2) * 0.79f) + MIN_PROGRESS_ARC + interpolation;
             } else {
+                float f3 = (f - SHRINK_OFFSET) / SHRINK_OFFSET;
                 startingStartTrim = ring.getStartingStartTrim() + 0.79f;
-                interpolation = startingStartTrim - (((1.0f - MATERIAL_INTERPOLATOR.getInterpolation((f - 0.5f) / 0.5f)) * 0.79f) + MIN_PROGRESS_ARC);
+                interpolation = startingStartTrim - (((1.0f - MATERIAL_INTERPOLATOR.getInterpolation(f3)) * 0.79f) + MIN_PROGRESS_ARC);
             }
-            float f2 = startingRotation + (RING_ROTATION * f);
-            float f3 = GROUP_FULL_ROTATION * (this.mRotationCount + f);
+            float f4 = startingRotation + (RING_ROTATION * f);
+            float f5 = GROUP_FULL_ROTATION * (this.mRotationCount + f);
             ring.setStartTrim(interpolation);
             ring.setEndTrim(startingStartTrim);
-            ring.setRotation(f2);
-            setRotation(f3);
+            ring.setRotation(f4);
+            setRotation(f5);
         }
     }
 

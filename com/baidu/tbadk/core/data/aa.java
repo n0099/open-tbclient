@@ -1,36 +1,26 @@
 package com.baidu.tbadk.core.data;
-
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
-import tbclient.FrsPage.Classify;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class aa {
-    private String class_name = null;
-    private int aso = 0;
-
-    public String yI() {
-        return this.class_name;
-    }
-
-    public int yJ() {
-        return this.aso;
-    }
-
-    public void parserJson(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.aso = jSONObject.optInt("class_id", 0);
-                this.class_name = jSONObject.optString("class_name");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public void a(Classify classify) {
-        if (classify != null) {
-            this.aso = classify.class_id.intValue();
-            this.class_name = classify.class_name;
-        }
-    }
+    public int accountType;
+    public long beginTime;
+    public long byR;
+    public long byS;
+    public int byT;
+    public String byU;
+    public long byV;
+    public long byW;
+    public int byX;
+    public int byY;
+    public int byZ;
+    public String desc;
+    public long endTime;
+    public int giftCount;
+    public int id;
+    public String name;
+    public long postId;
+    public int sendCount;
+    public long threadId;
+    public String thumbnailUrl;
+    public long toUserId;
+    public String toUserName;
 }

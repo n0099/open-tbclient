@@ -3,54 +3,54 @@ package com.baidu.adp.plugin.util;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes.dex */
 public class f implements Comparable<f> {
-    int Mt;
-    int Mu;
-    int mDay;
-    int mMinute;
-    int mMonth;
-    int mYear;
+    int MB;
+    int MC;
+    int MD;
+    int ME;
+    int MF;
+    int MG;
 
     public final void set(int i, int i2, int i3, int i4, int i5, int i6) {
-        this.mYear = i;
-        this.mMonth = i2;
-        this.mDay = i3;
-        this.Mt = i4;
-        this.mMinute = i5;
-        this.Mu = i6;
+        this.MB = i;
+        this.MC = i2;
+        this.MD = i3;
+        this.ME = i4;
+        this.MF = i5;
+        this.MG = i6;
     }
 
     public String toString() {
-        return this.mYear + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mMonth + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.mDay + " " + this.Mt + ":" + this.mMinute + ":" + this.Mu;
+        return this.MB + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.MC + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.MD + " " + this.ME + ":" + this.MF + ":" + this.MG;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(f fVar) {
-        if (this.mYear - fVar.mYear > 0) {
+        if (this.MB - fVar.MB > 0) {
             return 1;
         }
-        if (this.mYear - fVar.mYear < 0) {
+        if (this.MB - fVar.MB < 0) {
             return -1;
         }
-        if (this.mMonth - fVar.mMonth <= 0) {
-            if (this.mMonth - fVar.mMonth < 0) {
+        if (this.MC - fVar.MC <= 0) {
+            if (this.MC - fVar.MC < 0) {
                 return -1;
             }
-            if (this.mDay - fVar.mDay <= 0) {
-                if (this.mDay - fVar.mDay < 0) {
+            if (this.MD - fVar.MD <= 0) {
+                if (this.MD - fVar.MD < 0) {
                     return -1;
                 }
-                if (this.Mt - fVar.Mt <= 0) {
-                    if (this.Mt - fVar.Mt < 0) {
+                if (this.ME - fVar.ME <= 0) {
+                    if (this.ME - fVar.ME < 0) {
                         return -1;
                     }
-                    if (this.mMinute - fVar.mMinute <= 0) {
-                        if (this.mMinute - fVar.mMinute < 0) {
+                    if (this.MF - fVar.MF <= 0) {
+                        if (this.MF - fVar.MF < 0) {
                             return -1;
                         }
-                        if (this.Mu - fVar.Mu <= 0) {
-                            return this.Mu - fVar.Mu < 0 ? -1 : 0;
+                        if (this.MG - fVar.MG <= 0) {
+                            return this.MG - fVar.MG < 0 ? -1 : 0;
                         }
                         return 1;
                     }

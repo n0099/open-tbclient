@@ -16,6 +16,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Adapter;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     public static final long INVALID_COL_ID = Long.MIN_VALUE;
@@ -36,12 +37,12 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     @ViewDebug.ExportedProperty(category = "scrolling")
     protected int mFirstPosition;
     protected boolean mInLayout;
-    @ViewDebug.ExportedProperty(category = "list")
+    @ViewDebug.ExportedProperty(category = IntentConfig.LIST)
     protected int mItemCount;
     private int mLayoutWidth;
     protected boolean mNeedSync;
     protected long mNextSelectedColId;
-    @ViewDebug.ExportedProperty(category = "list")
+    @ViewDebug.ExportedProperty(category = IntentConfig.LIST)
     protected int mNextSelectedPosition;
     protected int mOldItemCount;
     protected long mOldSelectedColId;
@@ -50,7 +51,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     d mOnItemLongClickListener;
     e mOnItemSelectedListener;
     protected long mSelectedColId;
-    @ViewDebug.ExportedProperty(category = "list")
+    @ViewDebug.ExportedProperty(category = IntentConfig.LIST)
     protected int mSelectedPosition;
     private AdapterView<T>.f mSelectionNotifier;
     protected int mSpecificLeft;
@@ -396,7 +397,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
 
     /* loaded from: classes.dex */
     class b extends DataSetObserver {
-        private Parcelable mInstanceState = null;
+        private Parcelable aKi = null;
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public b() {
@@ -407,9 +408,9 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             AdapterView.this.mDataChanged = true;
             AdapterView.this.mOldItemCount = AdapterView.this.mItemCount;
             AdapterView.this.mItemCount = AdapterView.this.getAdapter().getCount();
-            if (AdapterView.this.getAdapter().hasStableIds() && this.mInstanceState != null && AdapterView.this.mOldItemCount == 0 && AdapterView.this.mItemCount > 0) {
-                AdapterView.this.onRestoreInstanceState(this.mInstanceState);
-                this.mInstanceState = null;
+            if (AdapterView.this.getAdapter().hasStableIds() && this.aKi != null && AdapterView.this.mOldItemCount == 0 && AdapterView.this.mItemCount > 0) {
+                AdapterView.this.onRestoreInstanceState(this.aKi);
+                this.aKi = null;
             } else {
                 AdapterView.this.rememberSyncState();
             }
@@ -421,7 +422,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         public void onInvalidated() {
             AdapterView.this.mDataChanged = true;
             if (AdapterView.this.getAdapter().hasStableIds()) {
-                this.mInstanceState = AdapterView.this.onSaveInstanceState();
+                this.aKi = AdapterView.this.onSaveInstanceState();
             }
             AdapterView.this.mOldItemCount = AdapterView.this.mItemCount;
             AdapterView.this.mItemCount = 0;

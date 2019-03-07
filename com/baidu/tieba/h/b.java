@@ -2,54 +2,54 @@ package com.baidu.tieba.h;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.h;
+import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Esport;
 import tbclient.EsportRank;
 /* loaded from: classes.dex */
-public class b implements h {
-    public static final BdUniqueId eoj = BdUniqueId.gen();
-    private int dbl;
-    private List<a> eok;
-    private String eol;
-    private String eom;
+public class b implements m {
+    public static final BdUniqueId fAJ = BdUniqueId.gen();
+    private int ekX;
+    private List<a> fAK;
+    private String fAL;
+    private String fAM;
 
     public void a(Esport esport) {
         if (esport != null) {
-            this.dbl = esport.floor_no.intValue();
+            this.ekX = esport.floor_no.intValue();
             if (esport._static != null) {
-                this.eol = esport._static.img;
-                this.eom = esport._static.url;
+                this.fAL = esport._static.img;
+                this.fAM = esport._static.url;
             }
-            this.eok = new ArrayList();
-            if (!StringUtils.isNull(this.eol)) {
+            this.fAK = new ArrayList();
+            if (!StringUtils.isNull(this.fAL)) {
                 a aVar = new a();
-                aVar.pq(this.eol);
-                aVar.pr(this.eom);
-                this.eok.add(aVar);
+                aVar.vT(this.fAL);
+                aVar.vU(this.fAM);
+                this.fAK.add(aVar);
             }
-            if (!v.I(esport.billboard)) {
+            if (!v.T(esport.billboard)) {
                 for (EsportRank esportRank : esport.billboard) {
                     a aVar2 = new a();
                     aVar2.a(esportRank);
-                    this.eok.add(aVar2);
+                    this.fAK.add(aVar2);
                 }
             }
         }
     }
 
-    public int aKl() {
-        return this.dbl;
+    public int bks() {
+        return this.ekX;
     }
 
-    public List<a> aKm() {
-        return this.eok;
+    public List<a> bkt() {
+        return this.fAK;
     }
 
-    @Override // com.baidu.adp.widget.ListView.h
+    @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return eoj;
+        return fAJ;
     }
 }

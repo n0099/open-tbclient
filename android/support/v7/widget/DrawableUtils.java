@@ -14,8 +14,7 @@ import android.support.annotation.RestrictTo;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.graphics.drawable.DrawableWrapper;
 import android.util.Log;
-import com.baidu.searchbox.ng.ai.apps.impl.map.model.element.MarkerModel;
-import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import java.lang.reflect.Field;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
@@ -56,19 +55,19 @@ public class DrawableUtils {
                                 }
                                 break;
                             case 115029:
-                                if (name.equals(AiAppsNaViewModel.POSITION_KEY_TOP)) {
+                                if (name.equals("top")) {
                                     c = 1;
                                     break;
                                 }
                                 break;
                             case 3317767:
-                                if (name.equals("left")) {
+                                if (name.equals(CustomDialogData.POS_LEFT)) {
                                     c = 0;
                                     break;
                                 }
                                 break;
                             case 108511772:
-                                if (name.equals(MarkerModel.SubBase.RIGHT)) {
+                                if (name.equals("right")) {
                                     c = 2;
                                     break;
                                 }

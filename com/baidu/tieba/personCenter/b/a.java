@@ -10,13 +10,13 @@ import com.baidu.tieba.personCenter.data.g;
 import com.baidu.tieba.personCenter.data.i;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private com.baidu.tieba.personCenter.a.c guV;
-    private d gvl;
-    private com.baidu.tieba.personCenter.a.a gvm;
-    private com.baidu.tieba.personCenter.a.b gvn;
-    private e gvo;
+    private d hLB;
+    private com.baidu.tieba.personCenter.a.a hLC;
+    private com.baidu.tieba.personCenter.a.b hLD;
+    private e hLE;
+    private com.baidu.tieba.personCenter.a.c hLl;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -26,16 +26,16 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.gvl = new d(tbPageContext, g.gvR);
-        this.gvm = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.c.gvB);
-        this.gvn = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.d.gvC);
-        this.gvo = new e(tbPageContext, i.gvW);
-        this.guV = new com.baidu.tieba.personCenter.a.c(tbPageContext, f.gvQ);
-        this.mAdapters.add(this.gvl);
-        this.mAdapters.add(this.gvm);
-        this.mAdapters.add(this.gvn);
-        this.mAdapters.add(this.gvo);
-        this.mAdapters.add(this.guV);
+        this.hLB = new d(tbPageContext, g.hMh);
+        this.hLC = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.c.hLR);
+        this.hLD = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.d.hLS);
+        this.hLE = new e(tbPageContext, i.hMl);
+        this.hLl = new com.baidu.tieba.personCenter.a.c(tbPageContext, f.hMg);
+        this.mAdapters.add(this.hLB);
+        this.mAdapters.add(this.hLC);
+        this.mAdapters.add(this.hLD);
+        this.mAdapters.add(this.hLE);
+        this.mAdapters.add(this.hLl);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
@@ -45,11 +45,11 @@ public class a {
         }
     }
 
-    public void bpV() {
-        this.gvm.bpV();
+    public void bQq() {
+        this.hLC.bQq();
     }
 
-    public void bpW() {
-        this.gvm.destroy();
+    public void bQr() {
+        this.hLC.destroy();
     }
 }

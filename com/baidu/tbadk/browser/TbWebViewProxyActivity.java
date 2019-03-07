@@ -20,10 +20,10 @@ public class TbWebViewProxyActivity extends BaseActivity {
         Intent intent = getIntent();
         if (intent != null) {
             Uri data = intent.getData();
-            if (com.baidu.tbadk.BdToken.f.e(data)) {
-                com.baidu.tbadk.BdToken.f.vJ().d(data, new f.a() { // from class: com.baidu.tbadk.browser.TbWebViewProxyActivity.1
+            if (com.baidu.tbadk.BdToken.f.m(data)) {
+                com.baidu.tbadk.BdToken.f.Uk().d(data, new f.a() { // from class: com.baidu.tbadk.browser.TbWebViewProxyActivity.1
                     @Override // com.baidu.tbadk.BdToken.f.a
-                    public void n(HashMap<String, Object> hashMap) {
+                    public void o(HashMap<String, Object> hashMap) {
                         if (hashMap != null && (hashMap.get(com.baidu.tbadk.BdToken.f.PARAM_URL) instanceof String)) {
                             TbWebViewProxyActivity.this.mUrl = (String) hashMap.get(com.baidu.tbadk.BdToken.f.PARAM_URL);
                         }

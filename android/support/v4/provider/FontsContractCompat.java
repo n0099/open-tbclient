@@ -28,6 +28,7 @@ import android.support.v4.util.LruCache;
 import android.support.v4.util.Preconditions;
 import android.support.v4.util.SimpleArrayMap;
 import android.widget.TextView;
+import com.baidu.tbadk.TbConfig;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -205,7 +206,7 @@ public class FontsContractCompat {
             return this.mTtcIndex;
         }
 
-        @IntRange(from = 1, to = 1000)
+        @IntRange(from = 1, to = TbConfig.APP_ENTER_BACKGROUND_INTERVAL)
         public int getWeight() {
             return this.mWeight;
         }

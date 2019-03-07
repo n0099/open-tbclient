@@ -29,6 +29,7 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public final class Http2Codec implements HttpCodec {
     private final Interceptor.Chain chain;
@@ -98,7 +99,7 @@ public final class Http2Codec implements HttpCodec {
         ArrayList arrayList = new ArrayList(headers.size() + 4);
         arrayList.add(new Header(Header.TARGET_METHOD, request.method()));
         arrayList.add(new Header(Header.TARGET_PATH, RequestLine.requestPath(request.url())));
-        String header = request.header("Host");
+        String header = request.header(HTTP.TARGET_HOST);
         if (header != null) {
             arrayList.add(new Header(Header.TARGET_AUTHORITY, header));
         }

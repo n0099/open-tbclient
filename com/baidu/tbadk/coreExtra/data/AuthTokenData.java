@@ -1,6 +1,7 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,7 +15,7 @@ public class AuthTokenData implements Serializable {
             return null;
         }
         AuthTokenData authTokenData = new AuthTokenData();
-        authTokenData.D(jSONObject);
+        authTokenData.aN(jSONObject);
         return authTokenData;
     }
 
@@ -23,13 +24,13 @@ public class AuthTokenData implements Serializable {
             return null;
         }
         AuthTokenData authTokenData = new AuthTokenData();
-        authTokenData.gP(str);
+        authTokenData.nB(str);
         return authTokenData;
     }
 
-    private void D(JSONObject jSONObject) {
+    private void aN(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.errorCode = jSONObject.optInt("error_code");
+            this.errorCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
             JSONObject optJSONObject = jSONObject.optJSONObject("info");
             if (optJSONObject != null) {
                 this.authToken = optJSONObject.optString("pass_token");
@@ -37,11 +38,11 @@ public class AuthTokenData implements Serializable {
         }
     }
 
-    private void gP(String str) {
+    private void nB(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.errorCode = jSONObject.optInt("error_code");
+                this.errorCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject != null) {
                     this.authToken = optJSONObject.optString("pass_token");

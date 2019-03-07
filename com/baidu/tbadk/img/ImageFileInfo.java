@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.k;
-import com.baidu.searchbox.ng.ai.apps.canvas.action.draw.DaRotate;
 import com.baidu.tbadk.album.MediaFileInfo;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.img.ImageUploadResult;
@@ -16,6 +15,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ImageFileInfo extends MediaFileInfo {
+    public static final int IMAGE_TYPE_EMOTION = 1;
+    public static final int IMAGE_TYPE_NORMAL = 0;
     private String _cacheKey_all;
     private String _cacheKey_page;
     private String albumId;
@@ -29,6 +30,7 @@ public class ImageFileInfo extends MediaFileInfo {
     private boolean isOrginalBitmapShared;
     private boolean isTempFile;
     public int mCount = 0;
+    private int mImageType = 0;
     private String modifyTime;
     private Bitmap orginalBitmap;
     private LinkedList<ImageOperation> pageActionsList;
@@ -38,12 +40,15 @@ public class ImageFileInfo extends MediaFileInfo {
     public int width;
 
     public String toCachedKey(boolean z) {
+        if (getImageType() == 1) {
+            return com.baidu.adp.lib.f.c.jB().k(this.filePath, 20);
+        }
         if (z) {
             if (this._cacheKey_all == null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("persist_");
                 sb.append(this.filePath);
-                if (v.H(this.persistActionsList) > 0) {
+                if (v.S(this.persistActionsList) > 0) {
                     Iterator<ImageOperation> it = this.persistActionsList.iterator();
                     while (it.hasNext()) {
                         ImageOperation next = it.next();
@@ -52,7 +57,7 @@ public class ImageFileInfo extends MediaFileInfo {
                         }
                     }
                 }
-                if (v.H(this.pageActionsList) > 0) {
+                if (v.S(this.pageActionsList) > 0) {
                     Iterator<ImageOperation> it2 = this.pageActionsList.iterator();
                     while (it2.hasNext()) {
                         ImageOperation next2 = it2.next();
@@ -123,6 +128,7 @@ public class ImageFileInfo extends MediaFileInfo {
             this.isGif = jSONObject.optBoolean("isGif", false);
             this.isLong = jSONObject.optBoolean("isLong", false);
             this.isFromCamera = jSONObject.optBoolean("isFromCamera", false);
+            this.mImageType = jSONObject.optInt("imageType", 0);
         }
     }
 
@@ -154,6 +160,7 @@ public class ImageFileInfo extends MediaFileInfo {
             jSONObject.put("isGif", this.isGif);
             jSONObject.put("isLong", this.isLong);
             jSONObject.put("isFromCamera", this.isFromCamera);
+            jSONObject.put("imageType", this.mImageType);
             return jSONObject;
         } catch (JSONException e) {
             BdLog.e(e.getMessage());
@@ -337,7 +344,7 @@ public class ImageFileInfo extends MediaFileInfo {
             Iterator<ImageOperation> it = getPageActionsList().iterator();
             while (it.hasNext()) {
                 ImageOperation next = it.next();
-                if (DaRotate.ACTION_TYPE.equals(next.actionName)) {
+                if ("rotate".equals(next.actionName)) {
                     if (imageFileInfo != null) {
                         imageFileInfo.setIsGif(false);
                     }
@@ -372,11 +379,20 @@ public class ImageFileInfo extends MediaFileInfo {
         imageFileInfo.setIsGif(isGif());
         imageFileInfo.setIsLong(isLong());
         imageFileInfo.setIsFromCamera(isFromCamera());
+        imageFileInfo.setImageType(getImageType());
         return imageFileInfo;
     }
 
     @Override // com.baidu.tbadk.album.MediaFileInfo
     public int getType() {
         return 0;
+    }
+
+    public void setImageType(int i) {
+        this.mImageType = i;
+    }
+
+    public int getImageType() {
+        return this.mImageType;
     }
 }

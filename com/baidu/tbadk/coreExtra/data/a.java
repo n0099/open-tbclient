@@ -4,42 +4,42 @@ import android.text.TextUtils;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    private boolean aNI = false;
+    private boolean bWh = false;
 
-    public boolean Gt() {
-        return this.aNI;
+    public boolean afN() {
+        return this.bWh;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
                 JSONObject optJSONObject = jSONObject.optJSONObject("zan_or_cai_smallflow");
-                B(optJSONObject);
-                C(optJSONObject);
+                aL(optJSONObject);
+                aM(optJSONObject);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void B(JSONObject jSONObject) {
+    private void aL(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.aNI = true;
+            this.bWh = true;
         }
     }
 
-    public void Gu() {
+    public void afO() {
         try {
             String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("praise_abtest_switch_json", null);
             if (!TextUtils.isEmpty(string)) {
-                B(new JSONObject(string));
+                aL(new JSONObject(string));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void C(JSONObject jSONObject) {
+    public void aM(JSONObject jSONObject) {
         if (jSONObject != null) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putString("praise_abtest_switch_json", jSONObject.toString());
         } else {

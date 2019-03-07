@@ -5,7 +5,7 @@ import rx.g;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class e extends rx.g {
-    public static final e iPx = new e();
+    public static final e jZT = new e();
 
     private e() {
     }
@@ -17,30 +17,30 @@ public final class e extends rx.g {
 
     /* loaded from: classes2.dex */
     final class a extends g.a implements k {
-        final rx.subscriptions.a iPy = new rx.subscriptions.a();
+        final rx.subscriptions.a jZU = new rx.subscriptions.a();
 
         a() {
         }
 
         @Override // rx.g.a
         public k a(rx.functions.a aVar, long j, TimeUnit timeUnit) {
-            return a(new i(aVar, this, e.this.now() + timeUnit.toMillis(j)));
+            return c(new i(aVar, this, e.this.now() + timeUnit.toMillis(j)));
         }
 
         @Override // rx.g.a
-        public k a(rx.functions.a aVar) {
+        public k c(rx.functions.a aVar) {
             aVar.call();
-            return rx.subscriptions.e.cgS();
+            return rx.subscriptions.e.cFt();
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.iPy.unsubscribe();
+            this.jZU.unsubscribe();
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.iPy.isUnsubscribed();
+            return this.jZU.isUnsubscribed();
         }
     }
 }

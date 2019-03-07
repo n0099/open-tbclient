@@ -1,6 +1,5 @@
 package cn.jiguang.d.h;
 
-import com.baidu.ar.util.IoUtils;
 import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
 import java.util.Map;
@@ -12,7 +11,7 @@ public final class h {
     public static int a(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                return jSONObject.toString().getBytes(IoUtils.UTF_8).length;
+                return jSONObject.toString().getBytes("utf-8").length;
             } catch (UnsupportedEncodingException e) {
             }
         }

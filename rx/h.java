@@ -1,15 +1,17 @@
 package rx;
 
 import java.util.concurrent.TimeUnit;
+import rx.d;
 import rx.functions.Actions;
-import rx.internal.operators.co;
-import rx.internal.operators.cp;
-import rx.internal.operators.cs;
-import rx.internal.operators.ct;
+import rx.g;
+import rx.internal.operators.o;
+import rx.internal.operators.p;
+import rx.internal.operators.s;
+import rx.internal.operators.t;
 import rx.schedulers.Schedulers;
 /* loaded from: classes2.dex */
 public class h<T> {
-    final a<T> iFu;
+    final a<T> jUV;
 
     /* loaded from: classes2.dex */
     public interface a<T> extends rx.functions.b<i<? super T>> {
@@ -17,7 +19,7 @@ public class h<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(a<T> aVar) {
-        this.iFu = rx.c.c.b(aVar);
+        this.jUV = rx.c.c.b(aVar);
     }
 
     public static <T> h<T> a(a<T> aVar) {
@@ -25,28 +27,28 @@ public class h<T> {
     }
 
     private static <T> d<T> a(h<T> hVar) {
-        return d.create(new ct(hVar.iFu));
+        return d.a((d.a) new t(hVar.jUV));
     }
 
-    public static <T> h<T> aW(T t) {
-        return rx.internal.util.i.bq(t);
+    public static <T> h<T> bn(T t) {
+        return rx.internal.util.h.bA(t);
     }
 
-    public final h<T> a(g gVar) {
-        if (this instanceof rx.internal.util.i) {
-            return ((rx.internal.util.i) this).c(gVar);
+    public final h<T> c(g gVar) {
+        if (this instanceof rx.internal.util.h) {
+            return ((rx.internal.util.h) this).f(gVar);
         }
         if (gVar == null) {
             throw new NullPointerException("scheduler is null");
         }
-        return a((a) new cs(this.iFu, gVar));
+        return a(new s(this.jUV, gVar));
     }
 
-    public final k subscribe() {
-        return subscribe(Actions.cez(), Actions.ceA());
+    public final k cDp() {
+        return a(Actions.cDK(), Actions.cDL());
     }
 
-    public final k subscribe(final rx.functions.b<? super T> bVar, final rx.functions.b<Throwable> bVar2) {
+    public final k a(final rx.functions.b<? super T> bVar, final rx.functions.b<Throwable> bVar2) {
         if (bVar == null) {
             throw new IllegalArgumentException("onSuccess can not be null");
         }
@@ -79,31 +81,69 @@ public class h<T> {
             throw new IllegalArgumentException("te is null");
         }
         try {
-            rx.c.c.a(this, this.iFu).call(iVar);
-            return rx.c.c.d(iVar);
+            rx.c.c.a(this, this.jUV).call(iVar);
+            return rx.c.c.c(iVar);
         } catch (Throwable th) {
-            rx.exceptions.a.J(th);
+            rx.exceptions.a.L(th);
             try {
-                iVar.onError(rx.c.c.X(th));
-                return rx.subscriptions.e.cgR();
+                iVar.onError(rx.c.c.W(th));
+                return rx.subscriptions.e.cFs();
             } catch (Throwable th2) {
-                rx.exceptions.a.J(th2);
+                rx.exceptions.a.L(th2);
                 RuntimeException runtimeException = new RuntimeException("Error occurred attempting to subscribe [" + th.getMessage() + "] and then again while trying to pass to onError.", th2);
-                rx.c.c.X(runtimeException);
+                rx.c.c.W(runtimeException);
                 throw runtimeException;
             }
         }
     }
 
-    public final d<T> cer() {
+    public final h<T> d(final g gVar) {
+        return this instanceof rx.internal.util.h ? ((rx.internal.util.h) this).f(gVar) : a(new a<T>() { // from class: rx.h.2
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // rx.functions.b
+            /* renamed from: b */
+            public void call(final i<? super T> iVar) {
+                final g.a createWorker = gVar.createWorker();
+                iVar.add(createWorker);
+                createWorker.c(new rx.functions.a() { // from class: rx.h.2.1
+                    @Override // rx.functions.a
+                    public void call() {
+                        i<T> iVar2 = new i<T>() { // from class: rx.h.2.1.1
+                            @Override // rx.i
+                            public void onSuccess(T t) {
+                                try {
+                                    iVar.onSuccess(t);
+                                } finally {
+                                    createWorker.unsubscribe();
+                                }
+                            }
+
+                            @Override // rx.i
+                            public void onError(Throwable th) {
+                                try {
+                                    iVar.onError(th);
+                                } finally {
+                                    createWorker.unsubscribe();
+                                }
+                            }
+                        };
+                        iVar.add(iVar2);
+                        h.this.a(iVar2);
+                    }
+                });
+            }
+        });
+    }
+
+    public final d<T> cDC() {
         return a(this);
     }
 
-    public final h<T> a(final rx.functions.b<Throwable> bVar) {
+    public final h<T> d(final rx.functions.b<Throwable> bVar) {
         if (bVar == null) {
             throw new IllegalArgumentException("onError is null");
         }
-        return a((a) new cp(this, Actions.cez(), new rx.functions.b<Throwable>() { // from class: rx.h.2
+        return a(new p(this, Actions.cDK(), new rx.functions.b<Throwable>() { // from class: rx.h.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(Throwable th) {
@@ -112,18 +152,18 @@ public class h<T> {
         }));
     }
 
-    public final h<T> b(rx.functions.b<? super T> bVar) {
+    public final h<T> e(rx.functions.b<? super T> bVar) {
         if (bVar == null) {
             throw new IllegalArgumentException("onSuccess is null");
         }
-        return a((a) new cp(this, bVar, Actions.cez()));
+        return a(new p(this, bVar, Actions.cDK()));
     }
 
-    public final h<T> a(long j, TimeUnit timeUnit, g gVar) {
-        return a((a) new co(this.iFu, j, timeUnit, gVar));
+    public final h<T> b(long j, TimeUnit timeUnit, g gVar) {
+        return a(new o(this.jUV, j, timeUnit, gVar));
     }
 
     public final h<T> a(long j, TimeUnit timeUnit) {
-        return a(j, timeUnit, Schedulers.computation());
+        return b(j, timeUnit, Schedulers.computation());
     }
 }

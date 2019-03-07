@@ -1,21 +1,62 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.BdUniqueId;
+import tbclient.SimpleForum;
 /* loaded from: classes.dex */
-public class bc extends com.baidu.tieba.card.data.b {
-    public int awn;
-    public int awo;
-    public int awp;
-    public int awq;
-    public String stType;
-    public bb threadData;
+public class bc implements com.baidu.tbadk.core.view.commonLike.forum.b {
+    private String avatar;
+    private boolean bAw;
+    private boolean bAx;
+    public v bAy;
+    private String forumId;
+    private int forumLevel;
+    public String forumName;
+    public boolean isBrandForum;
 
-    public bc(bb bbVar) {
-        this.threadData = bbVar;
+    @Override // com.baidu.tbadk.core.view.commonLike.forum.b
+    public String getForumId() {
+        return this.forumId;
     }
 
-    @Override // com.baidu.adp.widget.ListView.h
-    public BdUniqueId getType() {
-        return null;
+    @Override // com.baidu.tbadk.core.view.commonLike.forum.b
+    public String getForumName() {
+        return this.forumName;
+    }
+
+    @Override // com.baidu.tbadk.core.view.commonLike.forum.b
+    public void dj(boolean z) {
+        this.bAx = z;
+    }
+
+    public boolean Yg() {
+        return this.bAx;
+    }
+
+    public String getAvatar() {
+        return this.avatar;
+    }
+
+    @Override // com.baidu.tbadk.core.view.commonLike.a
+    public boolean getIsLike() {
+        return this.bAw;
+    }
+
+    @Override // com.baidu.tbadk.core.view.commonLike.a
+    public void setIsLike(boolean z) {
+        this.bAw = z;
+    }
+
+    public void parserProtobuf(SimpleForum simpleForum) {
+        if (simpleForum != null) {
+            this.forumId = String.valueOf(simpleForum.id);
+            this.forumName = simpleForum.name;
+            this.avatar = simpleForum.avatar;
+            this.bAw = simpleForum.is_liked.intValue() == 1;
+            this.forumLevel = simpleForum.level_id.intValue();
+            if (simpleForum.multi_forum_perm != null) {
+                this.bAy = new v();
+                this.bAy.a(simpleForum.multi_forum_perm);
+            }
+            this.isBrandForum = simpleForum.is_brand_forum.intValue() == 1;
+        }
     }
 }

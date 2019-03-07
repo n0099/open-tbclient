@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 import okhttp3.Headers;
 import okhttp3.HttpUrl;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     protected int connectionTimeout;
@@ -204,7 +203,7 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
 
     public T userAgent(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.headersBuilder.set(HTTP.USER_AGENT, str);
+            this.headersBuilder.set("User-Agent", str);
         }
         return this;
     }

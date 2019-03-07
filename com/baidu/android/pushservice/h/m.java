@@ -10,10 +10,8 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushService;
 import com.baidu.android.pushservice.PushSettings;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.ar.util.IoUtils;
-import com.baidu.fsg.base.utils.PhoneUtils;
-import com.baidu.searchbox.ng.ai.apps.system.bluetooth.utils.AiAppsBluetoothConstants;
+import com.baidu.pass.biometrics.base.utils.PhoneUtils;
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -42,7 +40,7 @@ public final class m {
             HashMap hashMap = new HashMap();
             hashMap.put("stats", str2);
             hashMap.put("pbVer", str3);
-            hashMap.put("os", HttpConstants.OS_TYPE_VALUE);
+            hashMap.put("os", "android");
             InputStream inputStream2 = null;
             long j = 1000;
             int i = 0;
@@ -160,7 +158,7 @@ public final class m {
             return null;
         }
         try {
-            return com.baidu.android.pushservice.k.b.a(bArr, IoUtils.UTF_8);
+            return com.baidu.android.pushservice.k.b.a(bArr, "utf-8");
         } catch (UnsupportedEncodingException e3) {
             return null;
         }
@@ -173,7 +171,7 @@ public final class m {
         try {
             JSONObject jSONObject = new JSONObject(str);
             int i = jSONObject.getInt("config_type");
-            int i2 = jSONObject.getInt(AiAppsBluetoothConstants.KEY_INTERVAL);
+            int i2 = jSONObject.getInt("interval");
             if (i == 0) {
                 if (i2 > 0) {
                     PushSettings.b(this.b, i2 * 1000);
@@ -229,8 +227,8 @@ public final class m {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            int i = jSONObject.getInt("error_code");
-            jSONObject.getString("error_msg");
+            int i = jSONObject.getInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
+            jSONObject.getString(PushConstants.EXTRA_ERROR_CODE);
             if (i == 50009) {
                 PushSettings.a(this.b, 1);
             }

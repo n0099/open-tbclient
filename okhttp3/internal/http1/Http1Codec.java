@@ -2,7 +2,6 @@ package okhttp3.internal.http1;
 
 import android.support.v4.media.session.PlaybackStateCompat;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.ar.util.SystemInfoUtil;
 import java.io.EOFException;
 import java.io.IOException;
 import java.net.ProtocolException;
@@ -114,12 +113,12 @@ public final class Http1Codec implements HttpCodec {
         if (this.state != 0) {
             throw new IllegalStateException("state: " + this.state);
         }
-        this.sink.writeUtf8(str).writeUtf8(SystemInfoUtil.LINE_END);
+        this.sink.writeUtf8(str).writeUtf8("\r\n");
         int size = headers.size();
         for (int i = 0; i < size; i++) {
-            this.sink.writeUtf8(headers.name(i)).writeUtf8(": ").writeUtf8(headers.value(i)).writeUtf8(SystemInfoUtil.LINE_END);
+            this.sink.writeUtf8(headers.name(i)).writeUtf8(": ").writeUtf8(headers.value(i)).writeUtf8("\r\n");
         }
-        this.sink.writeUtf8(SystemInfoUtil.LINE_END);
+        this.sink.writeUtf8("\r\n");
         this.state = 1;
     }
 
@@ -288,9 +287,9 @@ public final class Http1Codec implements HttpCodec {
             }
             if (j != 0) {
                 Http1Codec.this.sink.writeHexadecimalUnsignedLong(j);
-                Http1Codec.this.sink.writeUtf8(SystemInfoUtil.LINE_END);
+                Http1Codec.this.sink.writeUtf8("\r\n");
                 Http1Codec.this.sink.write(buffer, j);
-                Http1Codec.this.sink.writeUtf8(SystemInfoUtil.LINE_END);
+                Http1Codec.this.sink.writeUtf8("\r\n");
             }
         }
 

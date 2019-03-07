@@ -17,11 +17,11 @@ public final class w implements Runnable {
         String e;
         try {
             e = s.e(this.a);
-            File[] e2 = cn.jiguang.d.h.f.e(e, true);
-            if (e2 == null || e2.length <= 0) {
+            File[] c = cn.jiguang.d.h.f.c(e, true);
+            if (c == null || c.length <= 0) {
                 return;
             }
-            for (File file : e2) {
+            for (File file : c) {
                 s.d(this.a, file);
             }
         } catch (Throwable th) {

@@ -21,7 +21,7 @@ public class AuthWidgetActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
             this.authUrl = getIntent().getStringExtra(EXTRA_PARAM_AUTH_URL);
             if (TextUtils.isEmpty(this.authUrl)) {
                 this.result.setResultCode(-204);
@@ -124,7 +124,7 @@ public class AuthWidgetActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void goBack() {
-        if (this.sapiWebView.canGoBack()) {
+        if (this.sapiWebView != null && this.sapiWebView.canGoBack()) {
             this.sapiWebView.goBack();
             return;
         }

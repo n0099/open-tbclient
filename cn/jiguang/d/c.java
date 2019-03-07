@@ -58,7 +58,7 @@ public final class c implements Runnable {
         aa.a(context3);
         Bundle bundle = new Bundle();
         bundle.putString("action", "cn.jpush.android.intent.REPORT");
-        bundle.putString("report", com.baidu.fsg.base.statistics.b.o);
+        bundle.putString("report", "crash_log");
         bundle.putString("report.extra.info", "");
         cn.jiguang.api.e.b(context3, a.a, bundle);
     }

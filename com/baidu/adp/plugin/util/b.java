@@ -17,35 +17,35 @@ public class b {
             z = false;
         }
         if (!z) {
-            Object field = getField(classLoader, DexClassLoader.class, "mDexs");
-            if (field == null) {
+            Object a = a(classLoader, DexClassLoader.class, "mDexs");
+            if (a == null) {
                 return null;
             }
             try {
-                return (DexFile) Array.get(field, 0);
+                return (DexFile) Array.get(a, 0);
             } catch (Exception e2) {
             }
         } else {
-            Object C = C(getPathList(classLoader));
-            if (C == null) {
+            Object A = A(z(classLoader));
+            if (A == null) {
                 return null;
             }
             try {
-                return (DexFile) getField(Array.get(C, 0), Class.forName("dalvik.system.DexPathList$Element"), "dexFile");
+                return (DexFile) a(Array.get(A, 0), Class.forName("dalvik.system.DexPathList$Element"), "dexFile");
             } catch (Exception e3) {
             }
         }
         return null;
     }
 
-    private static Object C(Object obj) {
+    private static Object A(Object obj) {
         if (obj == null) {
             return null;
         }
-        return getField(obj, obj.getClass(), "dexElements");
+        return a(obj, obj.getClass(), "dexElements");
     }
 
-    private static Object getField(Object obj, Class<?> cls, String str) {
+    private static Object a(Object obj, Class<?> cls, String str) {
         try {
             Field declaredField = cls.getDeclaredField(str);
             declaredField.setAccessible(true);
@@ -55,9 +55,9 @@ public class b {
         }
     }
 
-    private static Object getPathList(Object obj) {
+    private static Object z(Object obj) {
         try {
-            return getField(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList");
+            return a(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList");
         } catch (ClassNotFoundException | Exception e) {
             return null;
         }

@@ -21,7 +21,6 @@ import android.view.View;
 import android.view.ViewDebug;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 /* loaded from: classes2.dex */
 public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.ItemInvoker, MenuView {
     static final int GENERATED_ITEM_PADDING = 4;
@@ -357,7 +356,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
                 View childAt4 = getChildAt(i32);
                 LayoutParams layoutParams5 = (LayoutParams) childAt4.getLayoutParams();
                 if (layoutParams5.expanded) {
-                    childAt4.measure(View.MeasureSpec.makeMeasureSpec(layoutParams5.extraPixels + (layoutParams5.cellsUsed * i14), AiAppsFileUtils.GB), childMeasureSpec);
+                    childAt4.measure(View.MeasureSpec.makeMeasureSpec(layoutParams5.extraPixels + (layoutParams5.cellsUsed * i14), 1073741824), childMeasureSpec);
                 }
                 i31 = i32 + 1;
             }
@@ -394,7 +393,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         }
         layoutParams.expandable = z;
         layoutParams.cellsUsed = i5;
-        view.measure(View.MeasureSpec.makeMeasureSpec(i5 * i, AiAppsFileUtils.GB), makeMeasureSpec);
+        view.measure(View.MeasureSpec.makeMeasureSpec(i5 * i, 1073741824), makeMeasureSpec);
         return i5;
     }
 

@@ -6,7 +6,6 @@ import android.view.View;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.appsearchlib.Info;
-import com.baidu.searchbox.ng.ai.apps.scheme.AiAppUnitedSchemeUtilsDispatcher;
 import com.baidu.tbadk.core.atomData.EmotionImageActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -18,30 +17,30 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     @Override // com.baidu.tieba.im.chat.MsglistActivity
+    protected abstract boolean T(Bundle bundle);
+
+    @Override // com.baidu.tieba.im.chat.MsglistActivity
     protected abstract void initView();
 
-    @Override // com.baidu.tieba.im.chat.MsglistActivity
-    protected abstract boolean v(Bundle bundle);
-
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public void aOU() {
-        super.aOU();
+    public void bpz() {
+        super.bpz();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Q(Intent intent) {
+    public void ah(Intent intent) {
         UserData userData = (UserData) intent.getSerializableExtra("user");
         c(userData);
-        ((CommonPersonalMsglistModel) this.eMv).setUser(userData);
+        ((CommonPersonalMsglistModel) this.gcw).setUser(userData);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void x(Bundle bundle) {
+    public void V(Bundle bundle) {
         if (bundle != null && bundle.getString("user") != null) {
             UserData userData = (UserData) OrmObject.objectWithJsonStr(bundle.getString("user"), UserData.class);
             c(userData);
-            ((CommonPersonalMsglistModel) this.eMv).setUser(userData);
+            ((CommonPersonalMsglistModel) this.gcw).setUser(userData);
         }
     }
 
@@ -49,31 +48,31 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putSerializable("user", OrmObject.jsonStrWithObject(((CommonPersonalMsglistModel) this.eMv).getUser()));
+        bundle.putSerializable("user", OrmObject.jsonStrWithObject(((CommonPersonalMsglistModel) this.gcw).getUser()));
     }
 
     protected void c(UserData userData) {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean aOW() {
+    public boolean bpB() {
         UserData user;
-        return (!(this.eMv instanceof CommonPersonalMsglistModel) || (user = ((CommonPersonalMsglistModel) this.eMv).getUser()) == null || user.getUserIdLong() == 0) ? false : true;
+        return (!(this.gcw instanceof CommonPersonalMsglistModel) || (user = ((CommonPersonalMsglistModel) this.gcw).getUser()) == null || user.getUserIdLong() == 0) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void w(Bundle bundle) throws Exception {
-        this.eMv.setIsAcceptNotify(bundle.getBoolean(IntentConfig.IS_ACCEPT_NOTIFY, true));
-        x(bundle);
+    public void U(Bundle bundle) throws Exception {
+        this.gcw.setIsAcceptNotify(bundle.getBoolean(IntentConfig.IS_ACCEPT_NOTIFY, true));
+        V(bundle);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aOV() {
+    public void bpA() {
         Intent intent = getIntent();
         boolean booleanExtra = intent.getBooleanExtra(IntentConfig.IS_ACCEPT_NOTIFY, true);
-        if (this.eMv != null) {
-            this.eMv.setIsAcceptNotify(booleanExtra);
-            Q(intent);
+        if (this.gcw != null) {
+            this.gcw.setIsAcceptNotify(booleanExtra);
+            ah(intent);
         }
     }
 
@@ -84,7 +83,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         super.a(view, i, i2, j);
         switch (i) {
             case 7:
-                if (aPG() && this.eMv != null && (msg = this.eMv.getMsg(i2)) != null && com.baidu.tieba.im.util.e.u(msg) && (content = msg.getContent()) != null) {
+                if (bql() && this.gcw != null && (msg = this.gcw.getMsg(i2)) != null && com.baidu.tieba.im.util.e.u(msg) && (content = msg.getContent()) != null) {
                     JSONObject jSONObject = null;
                     try {
                         JSONArray jSONArray = new JSONArray(content);
@@ -100,7 +99,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
                     }
                     if (jSONObject != null) {
                         String optString = jSONObject.optString("url_d");
-                        sendMessage(new CustomMessage(2902011, new EmotionImageActivityConfig(getPageContext().getContext(), jSONObject.optString(Info.kBaiduPIDKey), jSONObject.optString("packet_name"), jSONObject.optString(AiAppUnitedSchemeUtilsDispatcher.PARAM_TOAST_ICON_KEY), jSONObject.optString("url_s"), optString, jSONObject.optString("face_name"), 2, jSONObject.optInt("size_width"), jSONObject.optInt("size_height"))));
+                        sendMessage(new CustomMessage(2902011, new EmotionImageActivityConfig(getPageContext().getContext(), jSONObject.optString(Info.kBaiduPIDKey), jSONObject.optString("packet_name"), jSONObject.optString("icon"), jSONObject.optString("url_s"), optString, jSONObject.optString("face_name"), 2, jSONObject.optInt("size_width"), jSONObject.optInt("size_height"))));
                         return;
                     }
                     return;
@@ -113,7 +112,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity
-    public String[] u(int i, boolean z) {
-        return super.u(i, true);
+    public String[] A(int i, boolean z) {
+        return super.A(i, true);
     }
 }

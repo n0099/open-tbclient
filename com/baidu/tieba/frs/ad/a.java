@@ -1,55 +1,55 @@
 package com.baidu.tieba.frs.ad;
 
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.adp.widget.ListView.h;
-import com.baidu.adp.widget.ListView.n;
+import com.baidu.adp.widget.ListView.s;
+import com.baidu.tieba.frs.h;
 import com.baidu.tieba.frs.l;
 import com.baidu.tieba.frs.m;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private FrsADFragment dPG;
-    private BdTypeRecyclerView dPH;
-    private d dPI;
-    private l dPJ;
+    private FrsADFragment fdB;
+    private BdTypeRecyclerView fdC;
+    private d fdD;
+    private l fdE;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
 
     public a(FrsADFragment frsADFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.dPG = frsADFragment;
-        this.dPH = bdTypeRecyclerView;
+        this.fdB = frsADFragment;
+        this.fdC = bdTypeRecyclerView;
         initAdapters();
     }
 
     private void initAdapters() {
-        this.dPI = new d(this.dPG.getPageContext(), c.dPV, this.dPG.getUniqueId());
-        this.dPJ = new l(this.dPG.getPageContext(), m.dOe);
-        this.mAdapters.add(this.dPI);
-        this.mAdapters.add(this.dPJ);
-        this.dPH.addAdapters(this.mAdapters);
+        this.fdD = new d(this.fdB.getPageContext(), c.fdR, this.fdB.getUniqueId());
+        this.fdE = new l(this.fdB.getPageContext(), m.fbK);
+        this.mAdapters.add(this.fdD);
+        this.mAdapters.add(this.fdE);
+        this.fdC.addAdapters(this.mAdapters);
     }
 
-    public void setData(ArrayList<h> arrayList) {
-        this.dPH.setData(arrayList);
+    public void setData(ArrayList<com.baidu.adp.widget.ListView.m> arrayList) {
+        this.fdC.setData(arrayList);
     }
 
     public void notifyDataSetChanged() {
-        this.dPH.getAdapter().notifyDataSetChanged();
+        this.fdC.getAdapter().notifyDataSetChanged();
     }
 
     public void onDestory() {
         for (com.baidu.adp.widget.ListView.a aVar : this.mAdapters) {
-            if (aVar instanceof com.baidu.tieba.frs.h) {
-                ((com.baidu.tieba.frs.h) aVar).release();
+            if (aVar instanceof h) {
+                ((h) aVar).release();
             }
         }
     }
 
-    public void setOnAdapterItemClickListener(n nVar) {
+    public void setOnAdapterItemClickListener(s sVar) {
         if (this.mAdapters != null && this.mAdapters.size() != 0) {
             for (com.baidu.adp.widget.ListView.a aVar : this.mAdapters) {
-                if (aVar != null && (aVar instanceof com.baidu.tieba.frs.h)) {
-                    aVar.setOnAdapterItemClickListener(nVar);
+                if (aVar != null && (aVar instanceof h)) {
+                    aVar.setOnAdapterItemClickListener(sVar);
                 }
             }
         }

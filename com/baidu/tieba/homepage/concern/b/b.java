@@ -1,39 +1,39 @@
 package com.baidu.tieba.homepage.concern.b;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.h;
+import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.bb;
-/* loaded from: classes6.dex */
-public class b extends com.baidu.tieba.card.data.b implements h {
-    public static final BdUniqueId euB = BdUniqueId.gen();
-    public static final BdUniqueId euC = BdUniqueId.gen();
-    public bb dAw;
-    public c euD;
-    public int euE;
+import com.baidu.tbadk.core.data.bg;
+/* loaded from: classes4.dex */
+public class b extends com.baidu.tieba.card.data.b implements m {
+    public static final BdUniqueId fGZ = BdUniqueId.gen();
+    public static final BdUniqueId fHa = BdUniqueId.gen();
+    public bg eNQ;
+    public c fHb;
+    public int fHc;
     public boolean isLinkThread = false;
     public MetaData metaData;
 
-    public void aLv() {
+    public void blx() {
         this.metaData = new MetaData();
-        this.metaData.setPortrait(this.euD.getPortrait());
-        this.metaData.setName_show(this.euD.getName());
-        this.metaData.setUserId(this.euD.getUserId());
-        this.metaData.setIsBigV(this.euD.isGod());
-        this.metaData.setIsLike(this.euD.getIsLike());
-        this.metaData.setFansNum(this.euD.getFansNum());
+        this.metaData.setPortrait(this.fHb.getPortrait());
+        this.metaData.setName_show(this.fHb.getName());
+        this.metaData.setUserId(this.fHb.getUserId());
+        this.metaData.setIsBigV(this.fHb.isGod());
+        this.metaData.setIsLike(this.fHb.getIsLike());
+        this.metaData.setFansNum(this.fHb.getFansNum());
     }
 
-    @Override // com.baidu.adp.widget.ListView.h
+    @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return this.isLinkThread ? euC : euB;
+        return this.isLinkThread ? fHa : fGZ;
     }
 
-    public int aLw() {
-        return this.euE;
+    public int bly() {
+        return this.fHc;
     }
 
-    public void oA(int i) {
-        this.euE = i;
+    public void sj(int i) {
+        this.fHc = i;
     }
 }

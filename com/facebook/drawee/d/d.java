@@ -4,11 +4,11 @@ import android.net.Uri;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public interface d {
-    d aC(Object obj);
+    d C(Uri uri);
+
+    d aR(Object obj);
 
     d b(@Nullable a aVar);
 
-    a bWc();
-
-    d u(Uri uri);
+    a cva();
 }

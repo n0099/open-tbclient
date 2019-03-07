@@ -14,7 +14,7 @@ import com.baidu.tieba.keepLive.startActivity.ScreenBroadcastListener;
 import com.baidu.tieba.keepLive.startActivity.ScreenManager;
 import com.baidu.tieba.keepLive.sync.SyncService;
 import com.baidu.tieba.keepLive.util.RomTypeUtil;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class KeepLiveUtil {
     private static final String ENABLED_NOTIFICATION_LISTENERS = "enabled_notification_listeners";
     public static final String NEEDSHOWNOTIFICATION = "needShowBindSystemNotification";
@@ -44,7 +44,7 @@ public class KeepLiveUtil {
                             KeepLiveUtil.mKeepLiveContext = context2;
                         }
                         if (Build.VERSION.SDK_INT >= 23) {
-                            a.b(0, 0, 0, 1, 5);
+                            a.c(0, 0, 0, 1, 5);
                             BdSocketLinkService.startService(false, "restart");
                         } else {
                             GuardServiceObserver.startNativeServiceForUnder23(context2);

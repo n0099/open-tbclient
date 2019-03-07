@@ -2,14 +2,22 @@ package com.baidu.tieba.enterForum.home;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.q;
+import com.baidu.tbadk.data.VisitedForumData;
+import com.baidu.tbadk.util.s;
+import java.util.Iterator;
+import java.util.LinkedList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import tbclient.ForumRecommend.DataReq;
 import tbclient.ForumRecommend.ForumRecommendReqIdl;
 /* loaded from: classes4.dex */
 public class forumRecommendRequestMessage extends NetMessage {
     private Integer like_forum;
+    private LinkedList<VisitedForumData> mForumData;
     private Integer recommend;
+    private Integer sortType;
     private Integer topic;
+    private String visit_history;
 
     public forumRecommendRequestMessage() {
         super(CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
@@ -19,8 +27,24 @@ public class forumRecommendRequestMessage extends NetMessage {
         return this.like_forum;
     }
 
+    public String get_visit_history() {
+        return this.visit_history;
+    }
+
     public void set_like_forum(Integer num) {
         this.like_forum = num;
+    }
+
+    public Integer get_sortType() {
+        return this.sortType;
+    }
+
+    public void set_sortType(Integer num) {
+        this.sortType = num;
+    }
+
+    public void set_visit_history(String str) {
+        this.visit_history = str;
     }
 
     public Integer get_topic() {
@@ -39,6 +63,10 @@ public class forumRecommendRequestMessage extends NetMessage {
         this.recommend = num;
     }
 
+    public void setForumData(LinkedList<VisitedForumData> linkedList) {
+        this.mForumData = linkedList;
+    }
+
     @Override // com.baidu.adp.framework.message.NetMessage
     public Object encode(boolean z) {
         try {
@@ -46,8 +74,21 @@ public class forumRecommendRequestMessage extends NetMessage {
             builder.like_forum = get_like_forum();
             builder.topic = get_topic();
             builder.recommend = get_recommend();
+            builder.sort_type = get_sortType();
+            JSONArray jSONArray = new JSONArray();
+            if (this.mForumData != null) {
+                Iterator<VisitedForumData> it = this.mForumData.iterator();
+                while (it.hasNext()) {
+                    VisitedForumData next = it.next();
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("forum_id", com.baidu.adp.lib.g.b.d(next.getForumId(), 0L));
+                    jSONObject.put("visit_time", next.alD());
+                    jSONArray.put(jSONObject);
+                }
+            }
+            builder.visit_history = jSONArray.toString();
             if (z) {
-                q.bindCommonParamsToProtobufData(builder, true);
+                s.bindCommonParamsToProtobufData(builder, true);
             }
             ForumRecommendReqIdl.Builder builder2 = new ForumRecommendReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import com.baidu.ar.constants.HttpConstants;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -65,7 +64,7 @@ public class ag {
             HttpURLConnection httpURLConnection3 = (HttpURLConnection) new URL(str).openConnection();
             try {
                 httpURLConnection3.setConnectTimeout(8000);
-                httpURLConnection3.setReadTimeout(HttpConstants.HTTP_CONNECT_TIMEOUT);
+                httpURLConnection3.setReadTimeout(20000);
                 httpURLConnection3.connect();
                 int contentLength = httpURLConnection3.getContentLength();
                 if (contentLength > 102400) {

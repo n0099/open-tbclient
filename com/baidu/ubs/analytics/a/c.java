@@ -4,18 +4,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 final class c {
-    private SQLiteDatabase igR = f.bTj().getDatabase();
+    private SQLiteDatabase jww = f.csf().getDatabase();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void b(a aVar) {
-        this.igR.execSQL("INSERT INTO tb_ab_click_log(_eventId,_parameter,_sessionId,_timeStamp,_pagerName,_productLine) VALUES (?,?,?,?,?,?);", new String[]{aVar.G(), aVar.H(), aVar.I(), aVar.F(), aVar.E(), aVar.D()});
+        this.jww.execSQL("INSERT INTO tb_ab_click_log(_eventId,_parameter,_sessionId,_timeStamp,_pagerName,_productLine) VALUES (?,?,?,?,?,?);", new String[]{aVar.G(), aVar.H(), aVar.I(), aVar.F(), aVar.E(), aVar.D()});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<a> bTi() {
-        Cursor rawQuery = this.igR.rawQuery("SELECT * FROM tb_ab_click_log order by _id ", null);
+    public final List<a> cse() {
+        Cursor rawQuery = this.jww.rawQuery("SELECT * FROM tb_ab_click_log order by _id ", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {
             a aVar = new a();
@@ -34,6 +34,6 @@ final class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(int i) {
-        this.igR.execSQL("delete from tb_ab_click_log where _id <= " + i);
+        this.jww.execSQL("delete from tb_ab_click_log where _id <= " + i);
     }
 }

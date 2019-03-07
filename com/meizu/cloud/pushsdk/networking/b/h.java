@@ -1,6 +1,5 @@
 package com.meizu.cloud.pushsdk.networking.b;
 
-import com.baidu.searchbox.ng.ai.apps.scheme.actions.UploadFileAction;
 import com.meizu.cloud.pushsdk.networking.okio.ByteString;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ public final class h extends j {
     public static final g b = g.a("multipart/alternative");
     public static final g c = g.a("multipart/digest");
     public static final g d = g.a("multipart/parallel");
-    public static final g e = g.a(UploadFileAction.PARAMS_UPLOADFILE_CONTENT_TYPE);
+    public static final g e = g.a("multipart/form-data");
     private static final byte[] f = {58, 32};
     private static final byte[] g = {13, 10};
     private static final byte[] h = {45, 45};

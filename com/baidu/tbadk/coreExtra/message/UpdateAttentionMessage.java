@@ -4,19 +4,19 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.util.a.c;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
 
     /* loaded from: classes.dex */
     public static class a {
-        public boolean Jr;
-        public c aDR;
-        public JSONObject aPV;
-        public boolean aPW;
-        public String aPX;
-        public BlockPopInfoData aPY;
+        public boolean Jy;
+        public c bLM;
+        public JSONObject bYv;
+        public boolean bYw;
+        public String bYx;
+        public BlockPopInfoData bYy;
         public String errorString;
         public boolean isAttention;
         public String showMsg;
@@ -25,12 +25,12 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         public boolean isShowMessage = false;
         public int status = 0;
 
-        public void t(String str, boolean z) {
+        public void N(String str, boolean z) {
             boolean z2 = true;
             if (str != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    this.aPV = jSONObject;
+                    this.bYv = jSONObject;
                     JSONObject optJSONObject = jSONObject.optJSONObject("info");
                     if (optJSONObject != null) {
                         this.status = jSONObject.optInt("status");
@@ -40,7 +40,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
                         }
                         this.isShowMessage = z2;
                         this.showMsg = optJSONObject.optString("toast_text");
-                        E(optJSONObject);
+                        aO(optJSONObject);
                     }
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
@@ -48,18 +48,18 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             }
         }
 
-        private void E(JSONObject jSONObject) {
+        private void aO(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.aPX = jSONObject.optString("block_dealurl");
+                this.bYx = jSONObject.optString("block_dealurl");
                 String optString = jSONObject.optString("block_content");
                 String optString2 = jSONObject.optString("block_confirm");
                 String optString3 = jSONObject.optString("block_cancel");
-                if (!ao.isEmpty(optString) && !ao.isEmpty(this.aPX) && !ao.isEmpty(optString2) && !ao.isEmpty(optString3)) {
-                    this.aPY = new BlockPopInfoData();
-                    this.aPY.block_info = optString;
-                    this.aPY.ahead_url = this.aPX;
-                    this.aPY.ahead_info = optString2;
-                    this.aPY.ok_info = optString3;
+                if (!ap.isEmpty(optString) && !ap.isEmpty(this.bYx) && !ap.isEmpty(optString2) && !ap.isEmpty(optString3)) {
+                    this.bYy = new BlockPopInfoData();
+                    this.bYy.block_info = optString;
+                    this.bYy.ahead_url = this.bYx;
+                    this.bYy.ahead_info = optString2;
+                    this.bYy.ok_info = optString3;
                 }
             }
         }
@@ -73,7 +73,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
         if (getData() == null || !(getData() instanceof a)) {
             return false;
         }
-        return getData().Jr;
+        return getData().Jy;
     }
 
     public boolean isAttention() {

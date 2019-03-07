@@ -8,17 +8,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b extends c {
-    public static final String iiC = null;
+    public static final String jyg = null;
     private String appKey;
     private String content;
-    private String iiD;
-    private String iiE;
-    private String iiF;
+    private String jyh;
+    private String jyi;
+    private String jyj;
     private String params;
     private int responseCode = -2;
-    private int xH;
+    private int xE;
 
-    public static List<e> r(String str, String str2, String str3, String str4) {
+    public static List<e> v(String str, String str2, String str3, String str4) {
         ArrayList arrayList;
         JSONException e;
         if (TextUtils.isEmpty(str)) {
@@ -32,7 +32,7 @@ public class b extends c {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     e eVar = new e();
                     eVar.setContent(jSONObject.getString(str4));
-                    eVar.zo(jSONObject.getString(str3));
+                    eVar.Fq(jSONObject.getString(str3));
                     arrayList.add(eVar);
                 } catch (JSONException e2) {
                     e = e2;
@@ -49,12 +49,16 @@ public class b extends c {
         return arrayList;
     }
 
-    public void H(int i) {
-        this.responseCode = i;
+    public void BQ(int i) {
+        this.xE = i;
+    }
+
+    public void Fm(String str) {
+        this.jyh = str;
     }
 
     public int getCommand() {
-        return this.xH;
+        return this.xE;
     }
 
     public String getContent() {
@@ -70,6 +74,10 @@ public class b extends c {
         return 4105;
     }
 
+    public void q(int i) {
+        this.responseCode = i;
+    }
+
     public void setAppKey(String str) {
         this.appKey = str;
     }
@@ -79,14 +87,6 @@ public class b extends c {
     }
 
     public String toString() {
-        return "type:4105,messageID:" + this.iiG + ",taskID:" + this.iiH + ",appPackage:" + this.appPackage + ",appKey:" + this.appKey + ",appSecret:" + this.iiD + ",registerID:" + this.iiE + ",sdkVersion:" + this.iiF + ",command:" + this.xH + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
-    }
-
-    public void ye(int i) {
-        this.xH = i;
-    }
-
-    public void zk(String str) {
-        this.iiD = str;
+        return "type:4105,messageID:" + this.jyk + ",taskID:" + this.jyl + ",appPackage:" + this.appPackage + ",appKey:" + this.appKey + ",appSecret:" + this.jyh + ",registerID:" + this.jyi + ",sdkVersion:" + this.jyj + ",command:" + this.xE + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
     }
 }

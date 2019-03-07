@@ -2,8 +2,6 @@ package com.baidu.android.pushservice.f;
 
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.webkit.internal.ABTestConstants;
-import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -20,12 +18,14 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpPut;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class b {
     static {
         if (Build.VERSION.SDK_INT <= 8) {
-            System.setProperty("http.keepAlive", ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE);
+            System.setProperty("http.keepAlive", "false");
         }
     }
 
@@ -111,16 +111,16 @@ public class b {
             }
             Map.Entry<String, String> next = it.next();
             if (i2 != 0) {
-                stringBuffer.append(ETAG.ITEM_SEPARATOR);
+                stringBuffer.append("&");
             }
             String key = next.getKey();
             if (!TextUtils.isEmpty(key)) {
-                stringBuffer.append(key).append(ETAG.EQUAL);
+                stringBuffer.append(key).append("=");
                 String value = next.getValue();
                 if (TextUtils.isEmpty(value)) {
-                    stringBuffer.append(URLEncoder.encode("", "UTF-8"));
+                    stringBuffer.append(URLEncoder.encode("", HTTP.UTF_8));
                 } else {
-                    stringBuffer.append(URLEncoder.encode(value, "UTF-8"));
+                    stringBuffer.append(URLEncoder.encode(value, HTTP.UTF_8));
                 }
             }
             i = i2 + 1;
@@ -133,11 +133,11 @@ public class b {
             try {
                 httpURLConnection.setConnectTimeout(30000);
                 httpURLConnection.setReadTimeout(30000);
-                if ("POST".equals(str2) || "PUT".equals(str2)) {
+                if ("POST".equals(str2) || HttpPut.METHOD_NAME.equals(str2)) {
                     httpURLConnection.setDoOutput(true);
                     httpURLConnection.setDoInput(true);
                     httpURLConnection.setUseCaches(false);
-                } else if ("DELETE".equals(str2)) {
+                } else if (HttpDelete.METHOD_NAME.equals(str2)) {
                     httpURLConnection.setDoOutput(true);
                 } else if ("GET".equals(str2)) {
                     httpURLConnection.setDoOutput(false);
@@ -146,7 +146,7 @@ public class b {
                 httpURLConnection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
                 httpURLConnection.setRequestProperty("Accept-Encoding", "gzip");
                 if (!TextUtils.isEmpty(str3)) {
-                    httpURLConnection.setRequestProperty(HTTP.USER_AGENT, str3);
+                    httpURLConnection.setRequestProperty("User-Agent", str3);
                 }
                 if (httpURLConnection instanceof HttpsURLConnection) {
                 }
@@ -161,7 +161,7 @@ public class b {
     }
 
     private static void a(String str, HashMap<String, String> hashMap, HttpURLConnection httpURLConnection) throws IOException {
-        if (("POST".equals(str) || "PUT".equals(str) || "DELETE".equals(str)) && !a(httpURLConnection, hashMap)) {
+        if (("POST".equals(str) || HttpPut.METHOD_NAME.equals(str) || HttpDelete.METHOD_NAME.equals(str)) && !a(httpURLConnection, hashMap)) {
             throw new IOException("failed to writeRequestParams");
         }
     }
@@ -204,7 +204,7 @@ public class b {
                 dataOutputStream = null;
             }
             try {
-                dataOutputStream.write(a(hashMap).getBytes("UTF-8"));
+                dataOutputStream.write(a(hashMap).getBytes(HTTP.UTF_8));
                 dataOutputStream.flush();
                 a(dataOutputStream, outputStream);
                 return z;

@@ -1,9 +1,9 @@
 package com.baidu.tbadk.album;
 
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class g {
-    public List<a> amF;
-    public List<MediaFileInfo> amG;
-    public List<VideoFileInfo> amH;
+    public List<a> btl;
+    public List<MediaFileInfo> btm;
+    public List<VideoFileInfo> btn;
 }

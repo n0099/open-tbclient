@@ -6,7 +6,6 @@ import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.h.o;
 import com.baidu.android.pushservice.j.m;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.sina.weibo.sdk.utils.WbAuthConstants;
 import java.io.File;
 import java.io.FileInputStream;
@@ -83,7 +82,7 @@ public final class h {
     }
 
     public static String b() {
-        return SapiUtils.COOKIE_HTTPS_URL_PREFIX + g;
+        return "https://" + g;
     }
 
     public static String b(Context context, boolean z) {

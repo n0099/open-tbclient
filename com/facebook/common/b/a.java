@@ -6,10 +6,10 @@ import java.util.concurrent.AbstractExecutorService;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
 public class a extends AbstractExecutorService {
-    private static final a ijW = new a();
+    private static final a jzy = new a();
 
-    public static a bUv() {
-        return ijW;
+    public static a ctt() {
+        return jzy;
     }
 
     private a() {

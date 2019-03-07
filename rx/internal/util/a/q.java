@@ -10,67 +10,67 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.iCp;
+        E[] eArr = this.jSa;
         long j = this.producerIndex;
-        long dV = dV(j);
-        if (b(eArr, dV) != null) {
+        long es = es(j);
+        if (b(eArr, es) != null) {
             return false;
         }
-        b(eArr, dV, e);
-        dT(1 + j);
+        b(eArr, es, e);
+        eq(1 + j);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex;
-        long dV = dV(j);
-        E[] eArr = this.iCp;
-        E b = b(eArr, dV);
+        long es = es(j);
+        E[] eArr = this.jSa;
+        E b = b(eArr, es);
         if (b == null) {
             return null;
         }
-        b(eArr, dV, null);
-        dU(j + 1);
+        b(eArr, es, null);
+        er(j + 1);
         return b;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return dW(dV(this.consumerIndex));
+        return et(es(this.consumerIndex));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long cfZ = cfZ();
+        long cEC = cEC();
         while (true) {
-            long cga = cga();
-            long cfZ2 = cfZ();
-            if (cfZ == cfZ2) {
-                return (int) (cga - cfZ2);
+            long cED = cED();
+            long cEC2 = cEC();
+            if (cEC == cEC2) {
+                return (int) (cED - cEC2);
             }
-            cfZ = cfZ2;
+            cEC = cEC2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return cga() == cfZ();
+        return cED() == cEC();
     }
 
-    private void dT(long j) {
-        ae.iRb.putOrderedLong(this, iQV, j);
+    private void eq(long j) {
+        ae.kby.putOrderedLong(this, kbs, j);
     }
 
-    private void dU(long j) {
-        ae.iRb.putOrderedLong(this, iQU, j);
+    private void er(long j) {
+        ae.kby.putOrderedLong(this, kbr, j);
     }
 
-    private long cga() {
-        return ae.iRb.getLongVolatile(this, iQV);
+    private long cED() {
+        return ae.kby.getLongVolatile(this, kbs);
     }
 
-    private long cfZ() {
-        return ae.iRb.getLongVolatile(this, iQU);
+    private long cEC() {
+        return ae.kby.getLongVolatile(this, kbr);
     }
 }

@@ -3,12 +3,12 @@ package com.baidu.tieba.frs.dynamic;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.mvc.b.e;
 import com.baidu.tbadk.mvc.b.h;
-import com.baidu.tbadk.util.q;
+import com.baidu.tbadk.util.s;
 import java.util.HashMap;
 import tbclient.CommonReq;
 import tbclient.StarTrends.DataReq;
 import tbclient.StarTrends.StarTrendsReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class FrsDynamicRequestData extends OrmObject implements e, h {
     public CommonReq common;
     public long forumId;
@@ -19,12 +19,12 @@ public class FrsDynamicRequestData extends OrmObject implements e, h {
     public int scrW;
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String Oq() {
+    public String anW() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean Or() {
+    public boolean anX() {
         return false;
     }
 
@@ -39,17 +39,17 @@ public class FrsDynamicRequestData extends OrmObject implements e, h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> Ot() {
+    public HashMap<String, Object> anZ() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> Ou() {
+    public HashMap<String, String> aoa() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
-    public Object cG(boolean z) {
+    public Object eW(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         builder.forum_id = Long.valueOf(this.forumId);
         builder.scr_w = Integer.valueOf(this.scrW);
@@ -58,7 +58,7 @@ public class FrsDynamicRequestData extends OrmObject implements e, h {
         builder.q_type = Integer.valueOf(this.qType);
         builder.last_thread_id = Long.valueOf(this.lastThreadId);
         builder.rn = 30;
-        q.bindCommonParamsToProtobufData(builder, true, false, true);
+        s.bindCommonParamsToProtobufData(builder, true, false, true);
         StarTrendsReqIdl.Builder builder2 = new StarTrendsReqIdl.Builder();
         builder2.data = builder.build(false);
         return builder2.build(false);

@@ -1,7 +1,5 @@
 package okio;
 
-import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.io.Closeable;
 import java.io.EOFException;
 import java.io.IOException;
@@ -1167,7 +1165,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
             z = true;
         }
         if (j2 < 100000000) {
-            if (j2 < ErrDef.Feature.WEIGHT) {
+            if (j2 < 10000) {
                 if (j2 < 100) {
                     i = j2 < 10 ? 1 : 2;
                 } else {
@@ -1176,7 +1174,7 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
             } else if (j2 < 1000000) {
                 i = j2 < 100000 ? 5 : 6;
             } else {
-                i = j2 < ErrDef.Platform.WEIGHT ? 7 : 8;
+                i = j2 < 10000000 ? 7 : 8;
             }
         } else if (j2 < 1000000000000L) {
             if (j2 < 10000000000L) {
@@ -1574,19 +1572,19 @@ public final class Buffer implements Cloneable, ByteChannel, BufferedSink, Buffe
     }
 
     public ByteString md5() {
-        return digest(AiAppEncryptUtils.ENCRYPT_MD5);
+        return digest("MD5");
     }
 
     public ByteString sha1() {
-        return digest(AiAppEncryptUtils.ENCRYPT_SHA1);
+        return digest("SHA-1");
     }
 
     public ByteString sha256() {
-        return digest(AiAppEncryptUtils.ENCRYPT_SHA256);
+        return digest("SHA-256");
     }
 
     public ByteString sha512() {
-        return digest(AiAppEncryptUtils.ENCRYPT_SHA512);
+        return digest("SHA-512");
     }
 
     private ByteString digest(String str) {

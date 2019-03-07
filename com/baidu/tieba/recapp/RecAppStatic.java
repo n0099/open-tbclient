@@ -8,24 +8,23 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.ng.ai.apps.scheme.actions.GetSwanHistoryAction;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bb;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.tbadk.core.data.bg;
 import com.baidu.tieba.recapp.activity.AdDebugActivity;
 import com.baidu.tieba.recapp.activity.AdDebugActivityConfig;
 import com.baidu.tieba.recapp.activity.WebVideoActivity;
 import com.baidu.tieba.recapp.activity.WebVideoActivityConfig;
 import com.baidu.tieba.recapp.h;
-import com.baidu.webkit.sdk.WebView;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class RecAppStatic {
     static {
-        r.gPr.set(new t());
+        r.igW.set(new t());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        com.baidu.tieba.ad.a.WE().a(new h.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
+        com.baidu.tieba.ad.a.awE().a(new h.a() { // from class: com.baidu.tieba.recapp.RecAppStatic.1
             @Override // com.baidu.tieba.recapp.h.a
             public int e(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
@@ -33,14 +32,14 @@ public class RecAppStatic {
                 }
                 Uri parse = Uri.parse(strArr[0]);
                 if ("button_action".equalsIgnoreCase(parse.getAuthority())) {
-                    String queryParameter = parse.getQueryParameter(GetSwanHistoryAction.KEY_SCHEME);
+                    String queryParameter = parse.getQueryParameter("scheme");
                     if (!TextUtils.isEmpty(queryParameter)) {
-                        if (queryParameter.startsWith(WebView.SCHEME_TEL)) {
+                        if (queryParameter.startsWith("tel:")) {
                             if (context instanceof Activity) {
                                 com.baidu.tbadk.core.util.b.a aVar = new com.baidu.tbadk.core.util.b.a();
-                                aVar.EG();
-                                aVar.c((Activity) context, "android.permission.CALL_PHONE");
-                                if (aVar.B((Activity) context)) {
+                                aVar.adQ();
+                                aVar.e((Activity) context, "android.permission.CALL_PHONE");
+                                if (aVar.Y((Activity) context)) {
                                     return 0;
                                 }
                             }
@@ -50,7 +49,7 @@ public class RecAppStatic {
                             context.startActivity(intent);
                             return 0;
                         }
-                        String queryParameter2 = parse.getQueryParameter("params");
+                        String queryParameter2 = parse.getQueryParameter(LegoListActivityConfig.PARAMS);
                         if (!TextUtils.isEmpty(queryParameter2)) {
                             Intent intent2 = new Intent("android.intent.action.VIEW", Uri.parse(queryParameter));
                             intent2.addFlags(268435456);
@@ -74,9 +73,9 @@ public class RecAppStatic {
                 return 3;
             }
         });
-        com.baidu.tieba.InjectPlugin.a.e.Un().a(1, new f());
-        com.baidu.tieba.InjectPlugin.a.e.Un().a(2, new d());
-        bb.atV.set(true);
+        com.baidu.tieba.InjectPlugin.a.e.aum().a(1, new f());
+        com.baidu.tieba.InjectPlugin.a.e.aum().a(2, new d());
+        bg.bBm.set(true);
         final TbadkCoreApplication inst = TbadkCoreApplication.getInst();
         inst.RegisterIntent(WebVideoActivityConfig.class, WebVideoActivity.class);
         inst.RegisterIntent(AdDebugActivityConfig.class, AdDebugActivity.class);
@@ -89,8 +88,8 @@ public class RecAppStatic {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbadkCoreApplication.SWITCH_PROCESS_NOTIFICATION_KEY);
         inst.registerReceiver(broadcastReceiver, intentFilter);
-        b.bvD().bvG();
-        b.bvD().bvE();
+        b.bWq().bWt();
+        b.bWq().bWr();
         com.baidu.c.a.a.init(TbadkCoreApplication.getInst());
         com.baidu.c.a.a.a(new p());
         com.baidu.c.a.a.a(new q());

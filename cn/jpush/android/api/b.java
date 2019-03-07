@@ -1,10 +1,8 @@
 package cn.jpush.android.api;
-
-import com.baidu.baiduarsdk.ArBridge;
 /* loaded from: classes3.dex */
 public final class b {
     public static int a = 0;
-    public static int b = ArBridge.MessageType.MSG_TYPE_MODEL_LOAD_PROGRESS;
+    public static int b = 6001;
     public static int c = 6002;
     public static int d = 6003;
     public static int e = 6004;

@@ -1,122 +1,33 @@
 package rx.internal.operators;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class OnSubscribeAmb<T> implements d.a<T> {
-    final Iterable<? extends rx.d<? extends T>> iGj;
+    final Iterable<? extends rx.d<? extends T>> jVG;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
         call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> d.a<T> a(rx.d<? extends T> dVar, rx.d<? extends T> dVar2) {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(dVar);
-        arrayList.add(dVar2);
-        return g(arrayList);
-    }
-
-    public static <T> d.a<T> a(rx.d<? extends T> dVar, rx.d<? extends T> dVar2, rx.d<? extends T> dVar3) {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(dVar);
-        arrayList.add(dVar2);
-        arrayList.add(dVar3);
-        return g(arrayList);
-    }
-
-    public static <T> d.a<T> a(rx.d<? extends T> dVar, rx.d<? extends T> dVar2, rx.d<? extends T> dVar3, rx.d<? extends T> dVar4) {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(dVar);
-        arrayList.add(dVar2);
-        arrayList.add(dVar3);
-        arrayList.add(dVar4);
-        return g(arrayList);
-    }
-
-    public static <T> d.a<T> a(rx.d<? extends T> dVar, rx.d<? extends T> dVar2, rx.d<? extends T> dVar3, rx.d<? extends T> dVar4, rx.d<? extends T> dVar5) {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(dVar);
-        arrayList.add(dVar2);
-        arrayList.add(dVar3);
-        arrayList.add(dVar4);
-        arrayList.add(dVar5);
-        return g(arrayList);
-    }
-
-    public static <T> d.a<T> a(rx.d<? extends T> dVar, rx.d<? extends T> dVar2, rx.d<? extends T> dVar3, rx.d<? extends T> dVar4, rx.d<? extends T> dVar5, rx.d<? extends T> dVar6) {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(dVar);
-        arrayList.add(dVar2);
-        arrayList.add(dVar3);
-        arrayList.add(dVar4);
-        arrayList.add(dVar5);
-        arrayList.add(dVar6);
-        return g(arrayList);
-    }
-
-    public static <T> d.a<T> a(rx.d<? extends T> dVar, rx.d<? extends T> dVar2, rx.d<? extends T> dVar3, rx.d<? extends T> dVar4, rx.d<? extends T> dVar5, rx.d<? extends T> dVar6, rx.d<? extends T> dVar7) {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(dVar);
-        arrayList.add(dVar2);
-        arrayList.add(dVar3);
-        arrayList.add(dVar4);
-        arrayList.add(dVar5);
-        arrayList.add(dVar6);
-        arrayList.add(dVar7);
-        return g(arrayList);
-    }
-
-    public static <T> d.a<T> a(rx.d<? extends T> dVar, rx.d<? extends T> dVar2, rx.d<? extends T> dVar3, rx.d<? extends T> dVar4, rx.d<? extends T> dVar5, rx.d<? extends T> dVar6, rx.d<? extends T> dVar7, rx.d<? extends T> dVar8) {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(dVar);
-        arrayList.add(dVar2);
-        arrayList.add(dVar3);
-        arrayList.add(dVar4);
-        arrayList.add(dVar5);
-        arrayList.add(dVar6);
-        arrayList.add(dVar7);
-        arrayList.add(dVar8);
-        return g(arrayList);
-    }
-
-    public static <T> d.a<T> a(rx.d<? extends T> dVar, rx.d<? extends T> dVar2, rx.d<? extends T> dVar3, rx.d<? extends T> dVar4, rx.d<? extends T> dVar5, rx.d<? extends T> dVar6, rx.d<? extends T> dVar7, rx.d<? extends T> dVar8, rx.d<? extends T> dVar9) {
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(dVar);
-        arrayList.add(dVar2);
-        arrayList.add(dVar3);
-        arrayList.add(dVar4);
-        arrayList.add(dVar5);
-        arrayList.add(dVar6);
-        arrayList.add(dVar7);
-        arrayList.add(dVar8);
-        arrayList.add(dVar9);
-        return g(arrayList);
-    }
-
-    public static <T> d.a<T> g(Iterable<? extends rx.d<? extends T>> iterable) {
-        return new OnSubscribeAmb(iterable);
-    }
-
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.j<T> {
-        private final Selection<T> iGq;
-        private boolean iGr;
+        private final Selection<T> jVL;
+        private boolean jVM;
         private final rx.j<? super T> subscriber;
 
         a(long j, rx.j<? super T> jVar, Selection<T> selection) {
             this.subscriber = jVar;
-            this.iGq = selection;
+            this.jVL = selection;
             request(j);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void dH(long j) {
+        public void ek(long j) {
             request(j);
         }
 
@@ -142,18 +53,18 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
         }
 
         private boolean isSelected() {
-            if (this.iGr) {
+            if (this.jVM) {
                 return true;
             }
-            if (this.iGq.get() == this) {
-                this.iGr = true;
+            if (this.jVL.get() == this) {
+                this.jVM = true;
                 return true;
-            } else if (this.iGq.compareAndSet(null, this)) {
-                this.iGq.unsubscribeOthers(this);
-                this.iGr = true;
+            } else if (this.jVL.compareAndSet(null, this)) {
+                this.jVL.unsubscribeOthers(this);
+                this.jVM = true;
                 return true;
             } else {
-                this.iGq.unsubscribeLosers();
+                this.jVL.unsubscribeLosers();
                 return false;
             }
         }
@@ -184,13 +95,9 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
         }
     }
 
-    private OnSubscribeAmb(Iterable<? extends rx.d<? extends T>> iterable) {
-        this.iGj = iterable;
-    }
-
     public void call(rx.j<? super T> jVar) {
         final Selection selection = new Selection();
-        jVar.add(rx.subscriptions.e.j(new rx.functions.a() { // from class: rx.internal.operators.OnSubscribeAmb.1
+        jVar.add(rx.subscriptions.e.l(new rx.functions.a() { // from class: rx.internal.operators.OnSubscribeAmb.1
             @Override // rx.functions.a
             public void call() {
                 a<T> aVar = selection.get();
@@ -200,7 +107,7 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
                 OnSubscribeAmb.m(selection.ambSubscribers);
             }
         }));
-        for (rx.d<? extends T> dVar : this.iGj) {
+        for (rx.d<? extends T> dVar : this.jVG) {
             if (jVar.isUnsubscribed()) {
                 break;
             }
@@ -211,7 +118,7 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
                 selection.unsubscribeOthers(aVar2);
                 return;
             }
-            dVar.unsafeSubscribe(aVar);
+            dVar.a((rx.j<? super Object>) aVar);
         }
         if (jVar.isUnsubscribed()) {
             m(selection.ambSubscribers);
@@ -221,16 +128,16 @@ public final class OnSubscribeAmb<T> implements d.a<T> {
             public void request(long j) {
                 a<T> aVar3 = selection.get();
                 if (aVar3 != null) {
-                    aVar3.dH(j);
+                    aVar3.ek(j);
                     return;
                 }
                 for (a<T> aVar4 : selection.ambSubscribers) {
                     if (!aVar4.isUnsubscribed()) {
                         if (selection.get() == aVar4) {
-                            aVar4.dH(j);
+                            aVar4.ek(j);
                             return;
                         }
-                        aVar4.dH(j);
+                        aVar4.ek(j);
                     }
                 }
             }

@@ -5,15 +5,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c {
-    private static c aeA = null;
+    private static c d = null;
     private boolean a = false;
     private String b = null;
-    private a aez = null;
+    private a c = null;
     private int e = -1;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class a extends BroadcastReceiver {
         public a() {
         }
@@ -66,33 +66,33 @@ public class c {
     private c() {
     }
 
-    public static synchronized c tz() {
+    public static synchronized c a() {
         c cVar;
         synchronized (c.class) {
-            if (aeA == null) {
-                aeA = new c();
+            if (d == null) {
+                d = new c();
             }
-            cVar = aeA;
+            cVar = d;
         }
         return cVar;
     }
 
     public void b() {
-        this.aez = new a();
+        this.c = new a();
         try {
-            com.baidu.location.f.getServiceContext().registerReceiver(this.aez, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            com.baidu.location.f.getServiceContext().registerReceiver(this.c, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         } catch (Exception e) {
         }
     }
 
     public void c() {
-        if (this.aez != null) {
+        if (this.c != null) {
             try {
-                com.baidu.location.f.getServiceContext().unregisterReceiver(this.aez);
+                com.baidu.location.f.getServiceContext().unregisterReceiver(this.c);
             } catch (Exception e) {
             }
         }
-        this.aez = null;
+        this.c = null;
     }
 
     public String d() {

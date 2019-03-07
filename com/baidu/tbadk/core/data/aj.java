@@ -1,53 +1,70 @@
 package com.baidu.tbadk.core.data;
+
+import android.util.SparseArray;
+import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class aj {
-    private long asJ;
-    private String asK;
-    private String content;
-    private String link;
-    private String stat;
-    private long taskId;
+    public SparseArray<String> bzs = null;
+    public SparseArray<String> bzt = null;
+    public int bzu;
+    public JSONArray bzv;
+    public String extra;
+    private String fid;
+    public String source;
+    public int threadType;
+    private String tid;
+    private String type;
+    public String weight;
 
-    public aj() {
-        this.asJ = -1L;
-        this.link = null;
-        this.content = null;
-        this.asK = null;
-        this.stat = "";
-        this.taskId = -1L;
+    public String getTid() {
+        return this.tid;
     }
 
-    public aj(long j, long j2, String str, String str2, String str3) {
-        this.asJ = -1L;
-        this.link = null;
-        this.content = null;
-        this.asK = null;
-        this.stat = "";
-        this.taskId = -1L;
-        this.asJ = j;
-        this.taskId = j2;
-        this.link = str;
-        this.content = str2;
-        this.stat = str3;
+    public void setTid(String str) {
+        this.tid = str;
     }
 
-    public String getStat() {
-        return this.stat;
+    public String getFid() {
+        return this.fid;
     }
 
-    public long yV() {
-        return this.asJ;
+    public void setFid(String str) {
+        this.fid = str;
     }
 
-    public long getTaskId() {
-        return this.taskId;
+    public void setFid(long j) {
+        this.fid = String.valueOf(j);
     }
 
-    public String getLink() {
-        return this.link;
+    public String getType() {
+        return this.type;
     }
 
-    public String getContent() {
-        return this.content;
+    public void setType(String str) {
+        this.type = str;
+    }
+
+    public SparseArray<String> XA() {
+        return this.bzs;
+    }
+
+    public void b(SparseArray<String> sparseArray) {
+        this.bzs = sparseArray;
+    }
+
+    public void gg(int i) {
+        this.bzu = i;
+    }
+
+    public int XB() {
+        return this.bzu;
+    }
+
+    public void w(JSONArray jSONArray) {
+        this.bzv = jSONArray;
+    }
+
+    public JSONArray XC() {
+        return this.bzv;
     }
 }

@@ -4,19 +4,19 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c implements g {
-    private final int RV;
-    private final int RW;
-    private final int RX;
-    private final String RY;
-    private HashMap RZ;
+    private final int Tc;
+    private final int Td;
+    private final int Te;
+    private final String Tf;
+    private HashMap Tg;
     private int floor;
     private final String tabName;
 
     private c(int i, int i2, int i3, String str, String str2, int i4) {
-        this.RV = i;
-        this.RW = i2;
-        this.RX = i3;
-        this.RY = str;
+        this.Tc = i;
+        this.Td = i2;
+        this.Te = i3;
+        this.Tf = str;
         this.tabName = str2;
         this.floor = i4;
     }
@@ -26,27 +26,27 @@ public class c implements g {
     }
 
     @Override // com.baidu.afd.g
-    public int pt() {
-        return this.RV;
+    public int pM() {
+        return this.Tc;
     }
 
     @Override // com.baidu.afd.g
-    public int pu() {
-        return this.RW;
+    public int pN() {
+        return this.Td;
     }
 
     @Override // com.baidu.afd.g
-    public int pv() {
+    public int pO() {
         return this.floor;
     }
 
     @Override // com.baidu.afd.g
-    public Map<String, String> pw() {
-        return this.RZ;
+    public Map<String, String> pP() {
+        return this.Tg;
     }
 
     @Override // com.baidu.afd.g
-    public void m(HashMap hashMap) {
-        this.RZ = hashMap;
+    public void l(HashMap hashMap) {
+        this.Tg = hashMap;
     }
 }

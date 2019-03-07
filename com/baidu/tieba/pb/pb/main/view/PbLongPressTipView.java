@@ -7,42 +7,42 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.e;
-/* loaded from: classes6.dex */
+import com.baidu.tieba.d;
+/* loaded from: classes4.dex */
 public class PbLongPressTipView extends LinearLayout {
-    private ImageView aHL;
-    private LinearLayout aKl;
+    private LinearLayout bFu;
+    private ImageView bPS;
     private Context context;
-    private TextView dxe;
-    private TextView gkL;
+    private TextView eBo;
+    private TextView eKx;
 
     public PbLongPressTipView(Context context) {
         super(context);
         this.context = context;
-        cr(context);
+        aX(context);
     }
 
     public PbLongPressTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.context = context;
-        cr(context);
+        aX(context);
     }
 
     public PbLongPressTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.context = context;
-        cr(context);
+        aX(context);
     }
 
-    private void cr(Context context) {
-        LayoutInflater.from(context).inflate(e.h.pb_long_press_tip_view, this);
+    private void aX(Context context) {
+        LayoutInflater.from(context).inflate(d.h.pb_long_press_tip_view, this);
         setOrientation(1);
-        this.aKl = (LinearLayout) findViewById(e.g.pb_long_tip_content);
-        this.aHL = (ImageView) findViewById(e.g.pb_long_tip_image);
-        this.dxe = (TextView) findViewById(e.g.long_hint_title);
-        this.gkL = (TextView) findViewById(e.g.long_hint_text);
-        al.c(this.dxe, e.d.cp_cont_b, 1);
-        al.c(this.gkL, e.d.common_color_10037, 1);
-        al.c(this.aHL, e.f.pic_pb_popup_longpress);
+        this.bFu = (LinearLayout) findViewById(d.g.pb_long_tip_content);
+        this.bPS = (ImageView) findViewById(d.g.pb_long_tip_image);
+        this.eKx = (TextView) findViewById(d.g.long_hint_title);
+        this.eBo = (TextView) findViewById(d.g.long_hint_text);
+        al.d(this.eKx, d.C0236d.cp_cont_b, 1);
+        al.d(this.eBo, d.C0236d.common_color_10037, 1);
+        al.c(this.bPS, d.f.pic_pb_popup_longpress);
     }
 }

@@ -240,7 +240,7 @@ public class AudioAttributesCompat {
         }
 
         public Builder setFlags(int i) {
-            this.mFlags = (i & 1023) | this.mFlags;
+            this.mFlags = (i & AudioAttributesCompat.FLAG_ALL) | this.mFlags;
             return this;
         }
 

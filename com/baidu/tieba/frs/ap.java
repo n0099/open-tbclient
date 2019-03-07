@@ -1,14 +1,10 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.data.GodUserData;
-/* loaded from: classes3.dex */
-public class ap implements com.baidu.tieba.horizonalList.widget.c {
-    public MetaData metaData = new MetaData();
-
-    public ap() {
-        if (this.metaData.getGodUserData() == null) {
-            this.metaData.setGodUserData(new GodUserData());
-        }
-    }
+/* loaded from: classes.dex */
+public class ap extends am {
+    public int errCode;
+    public String errMsg;
+    public boolean isLocal = true;
+    public boolean hasMore = true;
+    public boolean fdd = true;
+    public boolean fde = true;
 }

@@ -1,32 +1,31 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import org.json.JSONObject;
-import tbclient.BookThread;
+import tbclient.FrsPage.Badges;
 /* loaded from: classes.dex */
 public class j {
-    public String aqR;
-    public long aqS;
-    public int aqT;
-
-    public void a(BookThread bookThread) {
-        if (bookThread != null) {
-            this.aqR = bookThread.book_id;
-            this.aqS = bookThread.chapter_id.longValue();
-            this.aqT = bookThread.book_type.intValue();
-        }
-    }
+    private String badge_url;
+    private int bxD;
+    private String webview;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.aqR = jSONObject.optString("book_id", "0");
-                this.aqS = jSONObject.optLong(MangaBrowserActivityConfig.CHAPTER_ID, 0L);
-                this.aqT = jSONObject.optInt("book_type", 0);
+                this.bxD = jSONObject.optInt("badge_id", 0);
+                this.badge_url = jSONObject.optString("badge_url", "");
+                this.webview = jSONObject.optString("webview");
             } catch (Exception e) {
-                BdLog.e(e.toString());
+                BdLog.e(e.getMessage());
             }
+        }
+    }
+
+    public void a(Badges badges) {
+        if (badges != null) {
+            this.bxD = badges.badge_id.intValue();
+            this.badge_url = badges.badge_url;
+            this.webview = badges.webview;
         }
     }
 }

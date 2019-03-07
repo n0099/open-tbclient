@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.DailyPage.DailyPageResIdl;
 import tbclient.DailyPage.DataRes;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DailyPageHttpResMessage extends HttpResponsedMessage {
     private DataRes mData;
 

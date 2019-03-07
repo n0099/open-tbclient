@@ -3,9 +3,8 @@ package com.baidu.tieba.frs.ad;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import com.baidu.tbadk.widget.TbImageView;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class FrsADImageView extends TbImageView {
     public FrsADImageView(Context context) {
         super(context);
@@ -24,7 +23,7 @@ public class FrsADImageView extends TbImageView {
     public void onMeasure(int i, int i2) {
         int size = View.MeasureSpec.getSize(i);
         if (size > 0) {
-            i2 = View.MeasureSpec.makeMeasureSpec((int) (size * 0.5625f), AiAppsFileUtils.GB);
+            i2 = View.MeasureSpec.makeMeasureSpec((int) (size * 0.5625f), 1073741824);
         }
         super.onMeasure(i, i2);
     }

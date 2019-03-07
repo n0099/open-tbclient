@@ -1,6 +1,4 @@
 package com.baidu.android.pushservice;
-
-import com.baidu.ar.base.MsgField;
 /* loaded from: classes3.dex */
 public final class PushConstants {
     public static final String ACTION_MESSAGE = "com.baidu.android.pushservice.action.MESSAGE";
@@ -69,7 +67,7 @@ public final class PushConstants {
                 return "Application Is Not Approved, Can Not Use The Push Service";
             case 30699:
                 return "Requests Are Too Frequent To Be Temporarily Rejected";
-            case MsgField.IMSG_TRACKED_TARGET_BITMAP_RES /* 40002 */:
+            case 40002:
                 return "Get lightapp info fail";
             case 110001:
                 return "User blacked this app";

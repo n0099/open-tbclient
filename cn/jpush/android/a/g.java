@@ -5,9 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import cn.jpush.android.api.JPushMessage;
-import com.baidu.ar.audio.AudioParams;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -108,7 +105,7 @@ public final class g {
             if (longValue < 0) {
                 a.clear();
                 c2 = 2;
-            } else if (longValue > ErrDef.Feature.WEIGHT) {
+            } else if (longValue > 10000) {
                 while (a.size() >= 3) {
                     a.poll();
                 }
@@ -131,19 +128,19 @@ public final class g {
         long by = cn.jiguang.api.e.by();
         long uid = cn.jiguang.api.e.getUid();
         int sid = cn.jiguang.api.e.getSid();
-        cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
-        bVar.C(0);
-        bVar.B(1);
-        bVar.B(26);
-        bVar.j(by);
-        bVar.i(sid);
-        bVar.j(uid);
-        bVar.B(7);
-        bVar.B(1);
-        bVar.e(string != null ? string.getBytes() : new byte[0]);
+        cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(20480);
+        bVar.l(0);
+        bVar.k(1);
+        bVar.k(26);
+        bVar.h(by);
+        bVar.g(sid);
+        bVar.h(uid);
+        bVar.k(7);
+        bVar.k(1);
+        bVar.f(string != null ? string.getBytes() : new byte[0]);
         bVar.l(bVar.current(), 0);
         byte[] byteArray = bVar.toByteArray();
         this.b.put(Long.valueOf(by), new h(this, i, string));
-        cn.jiguang.api.e.b(context, cn.jpush.android.a.a, HttpConstants.HTTP_CONNECT_TIMEOUT, byteArray);
+        cn.jiguang.api.e.b(context, cn.jpush.android.a.a, 20000, byteArray);
     }
 }

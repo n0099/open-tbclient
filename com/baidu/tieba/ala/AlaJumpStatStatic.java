@@ -9,7 +9,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.l.n;
+import com.baidu.tbadk.o.n;
 /* loaded from: classes.dex */
 public class AlaJumpStatStatic {
     static {
@@ -20,7 +20,7 @@ public class AlaJumpStatStatic {
             public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
                 Object data;
                 if (customMessage != null && customMessageTask == null && (data = customMessage.getData()) != null) {
-                    AlaJumpStatStatic.d(data, data.getClass().getSimpleName());
+                    AlaJumpStatStatic.e(data, data.getClass().getSimpleName());
                 }
                 return customMessage;
             }
@@ -34,7 +34,7 @@ public class AlaJumpStatStatic {
                 if (customMessage != null && (data = customMessage.getData()) != null) {
                     String simpleName = data.getClass().getSimpleName();
                     if (("AlaLiveRoomActivityConfig".equals(simpleName) || "AlaMasterLiveRoomActivityConfig".equals(simpleName) || "AlaWriteShareInBarActivityConfig".equals(simpleName) || "AlaLiveFloatWindowActivityConfig".equals(simpleName) || "AlaPersonCenterActivityConfig".equals(simpleName)) && TbadkCoreApplication.getInst().getIntentClass(data.getClass()) == null) {
-                        AlaJumpStatStatic.d(data, simpleName);
+                        AlaJumpStatStatic.e(data, simpleName);
                     }
                 }
                 return customMessage;
@@ -43,11 +43,11 @@ public class AlaJumpStatStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void d(Object obj, String str) {
+    public static final void e(Object obj, String str) {
         com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
         statsItem.append("workflow", "ala_jump_fail");
         statsItem.append("config", str);
-        statsItem.f("startTime", Long.valueOf(System.currentTimeMillis() - n.PJ().PI()));
+        statsItem.f("startTime", Long.valueOf(System.currentTimeMillis() - n.apr().apq()));
         if (obj instanceof AlaLiveRoomActivityConfig) {
             AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = (AlaLiveRoomActivityConfig) obj;
             statsItem.append("fromType", alaLiveRoomActivityConfig.getIntent().getStringExtra(AlaLiveRoomActivityConfig.LIVE_FROM_TYPE));

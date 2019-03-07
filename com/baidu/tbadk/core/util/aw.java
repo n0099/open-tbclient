@@ -1,55 +1,45 @@
 package com.baidu.tbadk.core.util;
 
-import android.text.TextUtils;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.util.HashMap;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class aw {
-    private static final HashMap<String, String> aDA = new HashMap<>();
-    private static String aDy;
-    private static String aDz;
+public class aw extends com.baidu.adp.base.a.d {
+    public aw() {
+        super(m.FK + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_DATABASE_NAME, 11);
+    }
 
-    public static void fZ(String str) {
-        aDz = str;
-        if (TextUtils.isEmpty(str)) {
-            aDy = str;
-            return;
+    @Override // com.baidu.adp.base.a.a
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        if (i <= 9) {
+            T(sQLiteDatabase);
         }
-        int lastIndexOf = str.lastIndexOf(".");
-        if (lastIndexOf != -1 && lastIndexOf + 1 < str.length()) {
-            str = str.substring(lastIndexOf + 1, str.length());
-        }
-        String str2 = "";
-        if (aDA != null) {
-            str2 = aDA.get(str);
-        }
-        if (str2 == null) {
-            str2 = ga(str);
-            if (aDA != null) {
-                aDA.put(str, str2);
+        if (i < 11) {
+            b(sQLiteDatabase, "ALTER TABLE pb_photo ADD stamp Integer");
+            b(sQLiteDatabase, "ALTER TABLE friend_photo ADD stamp Integer");
+            if (i > 9) {
+                b(sQLiteDatabase, "ALTER TABLE user_icon ADD stamp Integer");
             }
         }
-        if (str2 != null) {
-            aDy = str2 + System.currentTimeMillis();
-        }
     }
 
-    private static String ga(String str) {
-        if (!TextUtils.isEmpty(str)) {
-            int length = str.length();
-            if ((str.toLowerCase().endsWith(PushConstants.INTENT_ACTIVITY_NAME) || str.toLowerCase().endsWith("fragment")) && length - 8 >= 0) {
-                return str.substring(0, length - 8);
-            }
-            return str;
-        }
-        return str;
+    @Override // com.baidu.adp.base.a.d
+    public void d(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "CREATE TABLE if not exists pb_photo(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
+        b(sQLiteDatabase, "CREATE INDEX if not exists pb_photo_index ON pb_photo(date)");
+        b(sQLiteDatabase, "CREATE TABLE if not exists friend_photo(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
+        b(sQLiteDatabase, "CREATE INDEX if not exists friend_photo_index ON friend_photo(date)");
+        T(sQLiteDatabase);
     }
 
-    public static String Eq() {
-        return aDy;
+    @Override // com.baidu.adp.base.a.d
+    public void e(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS pb_photo");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS friend_photo");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS user_icon");
     }
 
-    public static String Er() {
-        return aDz;
+    private void T(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "CREATE TABLE if not exists user_icon(key varchar(50) Primary Key,image blob,date Integer,stamp Integer)");
+        b(sQLiteDatabase, "CREATE INDEX if not exists user_icon_index ON user_icon(date)");
     }
 }

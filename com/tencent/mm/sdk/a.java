@@ -5,29 +5,29 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import com.baidu.fsg.base.armor.RimArmor;
+import com.baidu.ubc.UBC;
 import com.tencent.mm.sdk.c.a;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class a implements SharedPreferences {
     private final ContentResolver a;
-    private final String[] b = {"_id", RimArmor.KEY, "type", "value"};
+    private final String[] b = {"_id", "key", "type", UBC.CONTENT_KEY_VALUE};
     private final HashMap<String, Object> c = new HashMap<>();
-    private SharedPreferences$EditorC0376a d = null;
+    private SharedPreferences$EditorC0352a d = null;
 
     /* renamed from: com.tencent.mm.sdk.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    private static class SharedPreferences$EditorC0376a implements SharedPreferences.Editor {
+    /* loaded from: classes3.dex */
+    private static class SharedPreferences$EditorC0352a implements SharedPreferences.Editor {
         private ContentResolver a;
         private Map<String, Object> e = new HashMap();
         private Set<String> f = new HashSet();
         private boolean g = false;
 
-        public SharedPreferences$EditorC0376a(ContentResolver contentResolver) {
+        public SharedPreferences$EditorC0352a(ContentResolver contentResolver) {
             this.a = contentResolver;
         }
 
@@ -79,7 +79,7 @@ public final class a implements SharedPreferences {
                     z = false;
                 } else {
                     contentValues.put("type", Integer.valueOf(i));
-                    contentValues.put("value", value.toString());
+                    contentValues.put(UBC.CONTENT_KEY_VALUE, value.toString());
                     z = true;
                 }
                 if (z) {
@@ -146,7 +146,7 @@ public final class a implements SharedPreferences {
             if (query == null) {
                 return null;
             }
-            Object a = query.moveToFirst() ? a.C0380a.a(query.getInt(query.getColumnIndex("type")), query.getString(query.getColumnIndex("value"))) : null;
+            Object a = query.moveToFirst() ? a.C0356a.a(query.getInt(query.getColumnIndex("type")), query.getString(query.getColumnIndex(UBC.CONTENT_KEY_VALUE))) : null;
             query.close();
             return a;
         } catch (Exception e) {
@@ -163,7 +163,7 @@ public final class a implements SharedPreferences {
     @Override // android.content.SharedPreferences
     public final SharedPreferences.Editor edit() {
         if (this.d == null) {
-            this.d = new SharedPreferences$EditorC0376a(this.a);
+            this.d = new SharedPreferences$EditorC0352a(this.a);
         }
         return this.d;
     }
@@ -175,11 +175,11 @@ public final class a implements SharedPreferences {
             if (query == null) {
                 return null;
             }
-            int columnIndex = query.getColumnIndex(RimArmor.KEY);
+            int columnIndex = query.getColumnIndex("key");
             int columnIndex2 = query.getColumnIndex("type");
-            int columnIndex3 = query.getColumnIndex("value");
+            int columnIndex3 = query.getColumnIndex(UBC.CONTENT_KEY_VALUE);
             while (query.moveToNext()) {
-                this.c.put(query.getString(columnIndex), a.C0380a.a(query.getInt(columnIndex2), query.getString(columnIndex3)));
+                this.c.put(query.getString(columnIndex), a.C0356a.a(query.getInt(columnIndex2), query.getString(columnIndex3)));
             }
             query.close();
             return this.c;

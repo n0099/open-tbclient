@@ -7,23 +7,23 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 /* loaded from: classes.dex */
 public class e extends com.baidu.adp.a.a.a implements Runnable {
-    private int vO;
-    private a vP;
+    private int vK;
+    private a vL;
 
-    public a gk() throws IOException {
+    public a gh() throws IOException {
         a aVar = new a();
-        aVar.vR = ag("/proc/uid_stat/" + this.vO + "/tcp_rcv");
-        aVar.vS = ag("/proc/uid_stat/" + this.vO + "/tcp_snd");
-        aVar.vQ = d.c(aVar.vR + aVar.vS);
+        aVar.vN = ag("/proc/uid_stat/" + this.vK + "/tcp_rcv");
+        aVar.vO = ag("/proc/uid_stat/" + this.vK + "/tcp_snd");
+        aVar.vM = d.c(aVar.vN + aVar.vO);
         return aVar;
     }
 
-    public a gl() throws IOException {
-        a gk = gk();
-        this.vP.vR = d.c(gk.vR - d.gj().vR);
-        this.vP.vS = d.c(gk.vS - d.gj().vS);
-        this.vP.vQ = d.c(gk.vQ - d.gj().vQ);
-        return this.vP;
+    public a gi() throws IOException {
+        a gh = gh();
+        this.vL.vN = d.c(gh.vN - d.gg().vN);
+        this.vL.vO = d.c(gh.vO - d.gg().vO);
+        this.vL.vM = d.c(gh.vM - d.gg().vM);
+        return this.vL;
     }
 
     public double ag(String str) {
@@ -57,13 +57,13 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
         super.start();
         while (true) {
             try {
-                d.a(gl());
+                d.a(gi());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
-            if (!gh()) {
+            if (!ge()) {
                 return;
             }
             Thread.sleep(500L);
@@ -72,9 +72,9 @@ public class e extends com.baidu.adp.a.a.a implements Runnable {
 
     /* loaded from: classes.dex */
     public class a {
-        double vQ = 0.0d;
-        double vR = 0.0d;
-        double vS = 0.0d;
+        double vM = 0.0d;
+        double vN = 0.0d;
+        double vO = 0.0d;
 
         public a() {
         }

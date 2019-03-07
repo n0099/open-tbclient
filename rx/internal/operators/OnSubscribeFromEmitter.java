@@ -8,24 +8,21 @@ import rx.Emitter;
 import rx.d;
 import rx.exceptions.MissingBackpressureException;
 import rx.internal.subscriptions.CancellableSubscription;
+import rx.internal.util.a.ae;
+import rx.internal.util.a.y;
 /* loaded from: classes2.dex */
 public final class OnSubscribeFromEmitter<T> implements d.a<T> {
-    final rx.functions.b<Emitter<T>> iGY;
-    final Emitter.BackpressureMode iGZ;
+    final rx.functions.b<Emitter<T>> jWc;
+    final Emitter.BackpressureMode jWd;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
         call((rx.j) ((rx.j) obj));
     }
 
-    public OnSubscribeFromEmitter(rx.functions.b<Emitter<T>> bVar, Emitter.BackpressureMode backpressureMode) {
-        this.iGY = bVar;
-        this.iGZ = backpressureMode;
-    }
-
     public void call(rx.j<? super T> jVar) {
         BaseEmitter latestEmitter;
-        switch (this.iGZ) {
+        switch (this.jWd) {
             case NONE:
                 latestEmitter = new NoneEmitter(jVar);
                 break;
@@ -39,12 +36,12 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
                 latestEmitter = new LatestEmitter(jVar);
                 break;
             default:
-                latestEmitter = new BufferEmitter(jVar, rx.internal.util.h.SIZE);
+                latestEmitter = new BufferEmitter(jVar, rx.internal.util.g.SIZE);
                 break;
         }
         jVar.add(latestEmitter);
         jVar.setProducer(latestEmitter);
-        this.iGY.call(latestEmitter);
+        this.jWc.call(latestEmitter);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -106,7 +103,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
         }
 
         public final void setSubscription(rx.k kVar) {
-            this.serial.g(kVar);
+            this.serial.f(kVar);
         }
 
         public final void setCancellation(rx.functions.d dVar) {
@@ -230,13 +227,13 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
 
         public BufferEmitter(rx.j<? super T> jVar, int i) {
             super(jVar);
-            this.queue = rx.internal.util.a.ae.cge() ? new rx.internal.util.a.y<>(i) : new rx.internal.util.atomic.f<>(i);
+            this.queue = ae.cEH() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
             this.wip = new AtomicInteger();
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            this.queue.offer(NotificationLite.aY(t));
+            this.queue.offer(NotificationLite.bp(t));
             drain();
         }
 
@@ -293,7 +290,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
                         } else if (z2) {
                             break;
                         } else {
-                            jVar.onNext((Object) NotificationLite.bb(poll));
+                            jVar.onNext((Object) NotificationLite.bs(poll));
                             j2 = 1 + j2;
                         }
                     }
@@ -341,7 +338,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            this.queue.set(NotificationLite.aY(t));
+            this.queue.set(NotificationLite.bp(t));
             drain();
         }
 
@@ -398,7 +395,7 @@ public final class OnSubscribeFromEmitter<T> implements d.a<T> {
                         } else if (z2) {
                             break;
                         } else {
-                            jVar.onNext((Object) NotificationLite.bb(andSet));
+                            jVar.onNext((Object) NotificationLite.bs(andSet));
                             j2++;
                         }
                     }

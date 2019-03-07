@@ -16,15 +16,15 @@ public class AfdSyncResponseMessage extends JsonHttpResponsedMessage {
         int error = getError();
         if (statusCode == 200 && error == 0 && jSONObject != null) {
             try {
-                this.adModel = f.e(jSONObject, "1517888290046");
+                this.adModel = f.f(jSONObject, "1517888290046");
                 return;
             } catch (ParseError e) {
                 e.printStackTrace();
-                this.adModel = a.R("", "1517888290046");
-                this.adModel.Sh = e;
+                this.adModel = a.Q("", "1517888290046");
+                this.adModel.To = e;
                 return;
             }
         }
-        this.adModel = a.R("", "1517888290046");
+        this.adModel = a.Q("", "1517888290046");
     }
 }

@@ -3,21 +3,20 @@ package com.facebook.drawee.drawable;
 import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import com.baidu.searchbox.ng.ai.apps.impl.map.model.element.MarkerModel;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class n {
 
     /* loaded from: classes2.dex */
     public interface b {
-        public static final b iob = i.ioj;
-        public static final b ioc = h.ioj;
-        public static final b iod = f.ioj;
-        public static final b ioe = g.ioj;
-        public static final b iof = c.ioj;
-        public static final b iog = e.ioj;
-        public static final b ioh = d.ioj;
-        public static final b ioi = j.ioj;
+        public static final b jDB = i.jDJ;
+        public static final b jDC = h.jDJ;
+        public static final b jDD = f.jDJ;
+        public static final b jDE = g.jDJ;
+        public static final b jDF = c.jDJ;
+        public static final b jDG = e.jDJ;
+        public static final b jDH = d.jDJ;
+        public static final b jDI = j.jDJ;
 
         Matrix a(Matrix matrix, Rect rect, int i, int i2, float f, float f2);
     }
@@ -28,7 +27,7 @@ public class n {
     }
 
     @Nullable
-    public static m l(Drawable drawable) {
+    public static m m(Drawable drawable) {
         if (drawable == null) {
             return null;
         }
@@ -36,15 +35,15 @@ public class n {
             return (m) drawable;
         }
         if (drawable instanceof com.facebook.drawee.drawable.c) {
-            return l(((com.facebook.drawee.drawable.c) drawable).getDrawable());
+            return m(((com.facebook.drawee.drawable.c) drawable).getDrawable());
         }
         if (drawable instanceof com.facebook.drawee.drawable.a) {
             com.facebook.drawee.drawable.a aVar = (com.facebook.drawee.drawable.a) drawable;
             int numberOfLayers = aVar.getNumberOfLayers();
             for (int i2 = 0; i2 < numberOfLayers; i2++) {
-                m l = l(aVar.getDrawable(i2));
-                if (l != null) {
-                    return l;
+                m m = m(aVar.getDrawable(i2));
+                if (m != null) {
+                    return m;
                 }
             }
         }
@@ -64,7 +63,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class i extends a {
-        public static final b ioj = new i();
+        public static final b jDJ = new i();
 
         private i() {
         }
@@ -82,7 +81,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class h extends a {
-        public static final b ioj = new h();
+        public static final b jDJ = new h();
 
         private h() {
         }
@@ -101,7 +100,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class f extends a {
-        public static final b ioj = new f();
+        public static final b jDJ = new f();
 
         private f() {
         }
@@ -121,7 +120,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class g extends a {
-        public static final b ioj = new g();
+        public static final b jDJ = new g();
 
         private g() {
         }
@@ -141,7 +140,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class c extends a {
-        public static final b ioj = new c();
+        public static final b jDJ = new c();
 
         private c() {
         }
@@ -152,13 +151,13 @@ public class n {
         }
 
         public String toString() {
-            return MarkerModel.SubBase.CENTER;
+            return "center";
         }
     }
 
     /* loaded from: classes2.dex */
     private static class e extends a {
-        public static final b ioj = new e();
+        public static final b jDJ = new e();
 
         private e() {
         }
@@ -178,7 +177,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class d extends a {
-        public static final b ioj = new d();
+        public static final b jDJ = new d();
 
         private d() {
         }
@@ -206,7 +205,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class j extends a {
-        public static final b ioj = new j();
+        public static final b jDJ = new j();
 
         private j() {
         }

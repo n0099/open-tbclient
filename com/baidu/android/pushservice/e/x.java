@@ -2,6 +2,7 @@ package com.baidu.android.pushservice.e;
 
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.android.pushservice.PushConstants;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class x extends c {
@@ -17,7 +18,7 @@ public class x extends c {
     public void a(Intent intent) {
         super.a(intent);
         if (intent != null) {
-            intent.getIntExtra("error_msg", -1);
+            intent.getIntExtra(PushConstants.EXTRA_ERROR_CODE, -1);
         }
     }
 

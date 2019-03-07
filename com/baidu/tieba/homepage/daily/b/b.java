@@ -1,48 +1,48 @@
 package com.baidu.tieba.homepage.daily.b;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.h;
+import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GodBanner;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b {
-    private List<a> evF;
-    private List<h> mDataList = new ArrayList();
+    private List<a> fIe;
+    private List<m> mDataList = new ArrayList();
 
-    public List<a> aLC() {
-        return this.evF;
+    public List<a> blE() {
+        return this.fIe;
     }
 
-    public List<h> getDataList() {
+    public List<m> getDataList() {
         return this.mDataList;
     }
 
-    public List<a> ck(List<GodBanner> list) {
-        if (this.evF == null) {
-            this.evF = new ArrayList();
+    public List<a> cv(List<GodBanner> list) {
+        if (this.fIe == null) {
+            this.fIe = new ArrayList();
         }
-        this.evF.clear();
-        if (v.I(list)) {
+        this.fIe.clear();
+        if (v.T(list)) {
             return null;
         }
         for (GodBanner godBanner : list) {
             if (godBanner != null && !StringUtils.isNull(godBanner.pic_url)) {
                 a aVar = new a();
-                aVar.es(godBanner.pic_url);
-                aVar.pB(godBanner.link_url);
+                aVar.lf(godBanner.pic_url);
+                aVar.we(godBanner.link_url);
                 aVar.setTitle(godBanner.intro);
-                this.evF.add(aVar);
-                if (v.H(this.evF) == 5) {
+                this.fIe.add(aVar);
+                if (v.S(this.fIe) == 5) {
                     break;
                 }
             }
         }
-        return this.evF;
+        return this.fIe;
     }
 
-    public boolean Pd() {
-        return v.I(this.evF) && v.I(this.mDataList);
+    public boolean aoJ() {
+        return v.T(this.fIe) && v.T(this.mDataList);
     }
 }

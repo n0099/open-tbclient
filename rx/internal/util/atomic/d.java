@@ -8,115 +8,115 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 import rx.internal.util.a.h;
 /* loaded from: classes2.dex */
 public final class d<T> implements Queue<T> {
-    static final int iQH = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
-    private static final Object iQN = new Object();
+    static final int kbe = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
+    private static final Object kbk = new Object();
     final AtomicLong consumerIndex;
-    long iQF;
-    int iQI;
-    int iQJ;
-    AtomicReferenceArray<Object> iQK;
-    int iQL;
-    AtomicReferenceArray<Object> iQM;
+    long kbc;
+    int kbf;
+    int kbg;
+    AtomicReferenceArray<Object> kbh;
+    int kbi;
+    AtomicReferenceArray<Object> kbj;
     final AtomicLong producerIndex;
 
     public d(int i) {
-        int zI = h.zI(i);
-        int i2 = zI - 1;
-        AtomicReferenceArray<Object> atomicReferenceArray = new AtomicReferenceArray<>(zI + 1);
-        this.iQK = atomicReferenceArray;
-        this.iQJ = i2;
-        zG(zI);
-        this.iQM = atomicReferenceArray;
-        this.iQL = i2;
-        this.iQF = i2 - 1;
+        int Dt = h.Dt(i);
+        int i2 = Dt - 1;
+        AtomicReferenceArray<Object> atomicReferenceArray = new AtomicReferenceArray<>(Dt + 1);
+        this.kbh = atomicReferenceArray;
+        this.kbg = i2;
+        Dr(Dt);
+        this.kbj = atomicReferenceArray;
+        this.kbi = i2;
+        this.kbc = i2 - 1;
         this.producerIndex = new AtomicLong();
         this.consumerIndex = new AtomicLong();
     }
 
     @Override // java.util.Queue
     public boolean offer(T t) {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.iQK;
-        long cgb = cgb();
-        int i = this.iQJ;
-        int u = u(cgb, i);
-        if (cgb < this.iQF) {
-            return a(atomicReferenceArray, t, cgb, u);
+        AtomicReferenceArray<Object> atomicReferenceArray = this.kbh;
+        long cEE = cEE();
+        int i = this.kbg;
+        int z = z(cEE, i);
+        if (cEE < this.kbc) {
+            return a(atomicReferenceArray, t, cEE, z);
         }
-        int i2 = this.iQI;
-        if (a(atomicReferenceArray, u(i2 + cgb, i)) == null) {
-            this.iQF = (i2 + cgb) - 1;
-            return a(atomicReferenceArray, t, cgb, u);
-        } else if (a(atomicReferenceArray, u(1 + cgb, i)) == null) {
-            return a(atomicReferenceArray, t, cgb, u);
+        int i2 = this.kbf;
+        if (a(atomicReferenceArray, z(i2 + cEE, i)) == null) {
+            this.kbc = (i2 + cEE) - 1;
+            return a(atomicReferenceArray, t, cEE, z);
+        } else if (a(atomicReferenceArray, z(1 + cEE, i)) == null) {
+            return a(atomicReferenceArray, t, cEE, z);
         } else {
-            a(atomicReferenceArray, cgb, u, t, i);
+            a(atomicReferenceArray, cEE, z, t, i);
             return true;
         }
     }
 
     private boolean a(AtomicReferenceArray<Object> atomicReferenceArray, T t, long j, int i) {
         a(atomicReferenceArray, i, t);
-        dT(1 + j);
+        eq(1 + j);
         return true;
     }
 
     private void a(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i, T t, long j2) {
         AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
-        this.iQK = atomicReferenceArray2;
-        this.iQF = (j + j2) - 1;
+        this.kbh = atomicReferenceArray2;
+        this.kbc = (j + j2) - 1;
         a(atomicReferenceArray2, i, t);
         a(atomicReferenceArray, atomicReferenceArray2);
-        a(atomicReferenceArray, i, iQN);
-        dT(j + 1);
+        a(atomicReferenceArray, i, kbk);
+        eq(j + 1);
     }
 
     private void a(AtomicReferenceArray<Object> atomicReferenceArray, AtomicReferenceArray<Object> atomicReferenceArray2) {
-        a(atomicReferenceArray, zH(atomicReferenceArray.length() - 1), atomicReferenceArray2);
+        a(atomicReferenceArray, Ds(atomicReferenceArray.length() - 1), atomicReferenceArray2);
     }
 
     private AtomicReferenceArray<Object> a(AtomicReferenceArray<Object> atomicReferenceArray) {
-        return (AtomicReferenceArray) a(atomicReferenceArray, zH(atomicReferenceArray.length() - 1));
+        return (AtomicReferenceArray) a(atomicReferenceArray, Ds(atomicReferenceArray.length() - 1));
     }
 
     @Override // java.util.Queue
     public T poll() {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.iQM;
-        long cgc = cgc();
-        int i = this.iQL;
-        int u = u(cgc, i);
-        T t = (T) a(atomicReferenceArray, u);
-        boolean z = t == iQN;
-        if (t != null && !z) {
-            a(atomicReferenceArray, u, (Object) null);
-            dU(1 + cgc);
+        AtomicReferenceArray<Object> atomicReferenceArray = this.kbj;
+        long cEF = cEF();
+        int i = this.kbi;
+        int z = z(cEF, i);
+        T t = (T) a(atomicReferenceArray, z);
+        boolean z2 = t == kbk;
+        if (t != null && !z2) {
+            a(atomicReferenceArray, z, (Object) null);
+            er(1 + cEF);
             return t;
-        } else if (z) {
-            return a(a(atomicReferenceArray), cgc, i);
+        } else if (z2) {
+            return a(a(atomicReferenceArray), cEF, i);
         } else {
             return null;
         }
     }
 
     private T a(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i) {
-        this.iQM = atomicReferenceArray;
-        int u = u(j, i);
-        T t = (T) a(atomicReferenceArray, u);
+        this.kbj = atomicReferenceArray;
+        int z = z(j, i);
+        T t = (T) a(atomicReferenceArray, z);
         if (t == null) {
             return null;
         }
-        a(atomicReferenceArray, u, (Object) null);
-        dU(1 + j);
+        a(atomicReferenceArray, z, (Object) null);
+        er(1 + j);
         return t;
     }
 
     @Override // java.util.Queue
     public T peek() {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.iQM;
-        long cgc = cgc();
-        int i = this.iQL;
-        T t = (T) a(atomicReferenceArray, u(cgc, i));
-        if (t == iQN) {
-            return b(a(atomicReferenceArray), cgc, i);
+        AtomicReferenceArray<Object> atomicReferenceArray = this.kbj;
+        long cEF = cEF();
+        int i = this.kbi;
+        T t = (T) a(atomicReferenceArray, z(cEF, i));
+        if (t == kbk) {
+            return b(a(atomicReferenceArray), cEF, i);
         }
         return t;
     }
@@ -131,61 +131,61 @@ public final class d<T> implements Queue<T> {
     }
 
     private T b(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i) {
-        this.iQM = atomicReferenceArray;
-        return (T) a(atomicReferenceArray, u(j, i));
+        this.kbj = atomicReferenceArray;
+        return (T) a(atomicReferenceArray, z(j, i));
     }
 
     @Override // java.util.Collection
     public int size() {
-        long cfZ = cfZ();
+        long cEC = cEC();
         while (true) {
-            long cga = cga();
-            long cfZ2 = cfZ();
-            if (cfZ == cfZ2) {
-                return (int) (cga - cfZ2);
+            long cED = cED();
+            long cEC2 = cEC();
+            if (cEC == cEC2) {
+                return (int) (cED - cEC2);
             }
-            cfZ = cfZ2;
+            cEC = cEC2;
         }
     }
 
     @Override // java.util.Collection
     public boolean isEmpty() {
-        return cga() == cfZ();
+        return cED() == cEC();
     }
 
-    private void zG(int i) {
-        this.iQI = Math.min(i / 4, iQH);
+    private void Dr(int i) {
+        this.kbf = Math.min(i / 4, kbe);
     }
 
-    private long cga() {
+    private long cED() {
         return this.producerIndex.get();
     }
 
-    private long cfZ() {
+    private long cEC() {
         return this.consumerIndex.get();
     }
 
-    private long cgb() {
+    private long cEE() {
         return this.producerIndex.get();
     }
 
-    private long cgc() {
+    private long cEF() {
         return this.consumerIndex.get();
     }
 
-    private void dT(long j) {
+    private void eq(long j) {
         this.producerIndex.lazySet(j);
     }
 
-    private void dU(long j) {
+    private void er(long j) {
         this.consumerIndex.lazySet(j);
     }
 
-    private static int u(long j, int i) {
-        return zH(((int) j) & i);
+    private static int z(long j, int i) {
+        return Ds(((int) j) & i);
     }
 
-    private static int zH(int i) {
+    private static int Ds(int i) {
         return i;
     }
 
@@ -258,24 +258,24 @@ public final class d<T> implements Queue<T> {
     }
 
     public boolean l(T t, T t2) {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.iQK;
-        long cga = cga();
-        int i = this.iQJ;
-        if (a(atomicReferenceArray, u(cga + 2, i)) == null) {
-            int u = u(cga, i);
-            a(atomicReferenceArray, u + 1, t2);
-            a(atomicReferenceArray, u, t);
-            dT(cga + 2);
+        AtomicReferenceArray<Object> atomicReferenceArray = this.kbh;
+        long cED = cED();
+        int i = this.kbg;
+        if (a(atomicReferenceArray, z(cED + 2, i)) == null) {
+            int z = z(cED, i);
+            a(atomicReferenceArray, z + 1, t2);
+            a(atomicReferenceArray, z, t);
+            eq(cED + 2);
             return true;
         }
         AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
-        this.iQK = atomicReferenceArray2;
-        int u2 = u(cga, i);
-        a(atomicReferenceArray2, u2 + 1, t2);
-        a(atomicReferenceArray2, u2, t);
+        this.kbh = atomicReferenceArray2;
+        int z2 = z(cED, i);
+        a(atomicReferenceArray2, z2 + 1, t2);
+        a(atomicReferenceArray2, z2, t);
         a(atomicReferenceArray, atomicReferenceArray2);
-        a(atomicReferenceArray, u2, iQN);
-        dT(cga + 2);
+        a(atomicReferenceArray, z2, kbk);
+        eq(cED + 2);
         return true;
     }
 }

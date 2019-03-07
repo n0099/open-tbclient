@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import cn.jiguang.api.SdkType;
 import cn.jiguang.api.e;
 import cn.jiguang.d.a.d;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -12,10 +13,10 @@ import java.util.UUID;
 /* loaded from: classes3.dex */
 public final class b implements Runnable {
     private Context b;
-    final /* synthetic */ a mn;
+    final /* synthetic */ a mq;
 
     public b(a aVar, Context context) {
-        this.mn = aVar;
+        this.mq = aVar;
         this.b = context;
     }
 
@@ -41,25 +42,25 @@ public final class b implements Runnable {
         String str8;
         try {
             new ArrayList();
-            this.mn.d = d.r(this.b);
+            this.mq.d = d.r(this.b);
             long af = d.af(this.b);
             boolean z = false;
-            str = this.mn.d;
+            str = this.mq.d;
             if (TextUtils.isEmpty(str) || af < 0) {
                 z = true;
-                this.mn.d = UUID.randomUUID().toString();
+                this.mq.d = UUID.randomUUID().toString();
                 af = System.currentTimeMillis();
                 d.h(this.b, af);
                 Context context = this.b;
-                str2 = this.mn.d;
+                str2 = this.mq.d;
                 d.f(context, str2);
             }
             boolean z2 = z;
             long j7 = af;
-            b = this.mn.b(this.b);
+            b = this.mq.b(this.b);
             if (b.isEmpty()) {
-                this.mn.h = false;
-                a.b(this.mn, this.b);
+                this.mq.h = false;
+                a.b(this.mq, this.b);
                 return;
             }
             int v = cn.jiguang.d.a.a.v();
@@ -79,22 +80,22 @@ public final class b implements Runnable {
                 }
             }
             if (arrayList.size() == 0) {
-                this.mn.h = false;
-                a.b(this.mn, this.b);
+                this.mq.h = false;
+                a.b(this.mq, this.b);
                 return;
             }
             String str9 = "";
             long j8 = -1;
-            this.mn.ml = new long[arrayList.size()];
+            this.mq.mo = new long[arrayList.size()];
             String str10 = "";
             int i3 = 0;
             while (i3 < arrayList.size()) {
-                jArr2 = this.mn.ml;
+                jArr2 = this.mq.mo;
                 j = ((c) arrayList.get(i3)).d;
                 jArr2[i3] = j;
                 StringBuilder append = new StringBuilder().append(str10);
                 j2 = ((c) arrayList.get(i3)).d;
-                str10 = append.append(j2).append(",").toString();
+                str10 = append.append(j2).append(Constants.ACCEPT_TIME_SEPARATOR_SP).toString();
                 str6 = ((c) arrayList.get(i3)).c;
                 if (!TextUtils.isEmpty(str6)) {
                     j4 = ((c) arrayList.get(i3)).h;
@@ -120,9 +121,9 @@ public final class b implements Runnable {
             }
             if (!TextUtils.isEmpty(str9)) {
                 if (z2) {
-                    this.mn.d = str9;
+                    this.mq.d = str9;
                     Context context2 = this.b;
-                    str5 = this.mn.d;
+                    str5 = this.mq.d;
                     d.f(context2, str5);
                     d.h(this.b, j8);
                 } else {
@@ -130,27 +131,27 @@ public final class b implements Runnable {
                         d.f(this.b, str9);
                         d.h(this.b, j8);
                     } else {
-                        str4 = this.mn.d;
+                        str4 = this.mq.d;
                         if (!str4.equals(str9)) {
                             d.h(this.b, System.currentTimeMillis());
                         }
                     }
-                    this.mn.d = str9;
+                    this.mq.d = str9;
                 }
             }
             long by = e.by();
             int sid = e.getSid();
             long c = d.c(this.b);
-            str3 = this.mn.d;
-            jArr = this.mn.ml;
+            str3 = this.mq.d;
+            jArr = this.mq.mo;
             byte[] a = cn.jiguang.d.e.a.a.b.a(by, sid, c, str3, jArr);
-            cn.jiguang.d.b.d.bO();
+            cn.jiguang.d.b.d.bN();
             cn.jiguang.d.b.d.a(a, SdkType.JCORE.name(), 0);
-            this.mn.h = false;
-            a.b(this.mn, this.b);
+            this.mq.h = false;
+            a.b(this.mq, this.b);
         } catch (Throwable th) {
-            this.mn.h = false;
-            a.b(this.mn, this.b);
+            this.mq.h = false;
+            a.b(this.mq, this.b);
         }
     }
 }

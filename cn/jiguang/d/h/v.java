@@ -24,7 +24,7 @@ final class v extends ThreadPoolExecutor {
         return new v(0, 30, new SynchronousQueue(), new u(str, 0), 0);
     }
 
-    public static v i(String str, int i, int i2) {
+    public static v h(String str, int i, int i2) {
         return new v(1, 1, i2 < 0 ? new LinkedBlockingDeque() : new LinkedBlockingDeque(i2), new u(str, i), i);
     }
 

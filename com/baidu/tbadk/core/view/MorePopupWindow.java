@@ -10,7 +10,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.view.KeyEventDealContainerView;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class MorePopupWindow extends PopupWindow {
     private Activity mActivity;
@@ -144,7 +144,7 @@ public class MorePopupWindow extends PopupWindow {
     }
 
     public void showWindowInLeftCenterOfHost(View view, boolean z) {
-        setAnimationStyle(e.k.pop_window_anim);
+        setAnimationStyle(d.k.pop_window_anim);
         setFocusable(z);
         com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(this, view, this.mShowLeftCenterXOff, (-this.mWindowHeight) + ((this.mWindowHeight - view.getHeight()) / 2));
     }
@@ -155,7 +155,7 @@ public class MorePopupWindow extends PopupWindow {
             int measuredWidth = this.mContentView.getMeasuredWidth();
             int measuredHeight = this.mContentView.getMeasuredHeight();
             setWidth(measuredWidth);
-            this.mWindowHeight = measuredHeight + ((int) this.mActivity.getResources().getDimension(e.C0210e.ds4));
+            this.mWindowHeight = measuredHeight + ((int) this.mActivity.getResources().getDimension(d.e.ds4));
             setHeight(this.mWindowHeight);
             int[] aS = com.baidu.adp.lib.util.l.aS(this.mActivity);
             if (aS != null && aS.length > 1 && aS[0] > measuredWidth) {

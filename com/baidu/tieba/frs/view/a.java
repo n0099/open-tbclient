@@ -14,112 +14,112 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import java.util.List;
 import tbclient.FrsPage.RecmForumInfo;
-/* loaded from: classes6.dex */
-public class a extends com.baidu.tbadk.k.a {
-    protected TbImageView bec;
-    protected TextView bed;
-    private BdListView ejf;
-    private C0232a ejg;
-    private TextView ejh;
-    private View mDivider;
+/* loaded from: classes4.dex */
+public class a extends com.baidu.tbadk.m.a {
+    private View aLa;
+    protected TbImageView cnx;
+    protected TextView cny;
+    private BdListView fyp;
+    private C0249a fyq;
+    private TextView fyr;
     private com.baidu.adp.base.e mPageContext;
     private TextView mTitleView;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class b {
         public View divider;
-        public TextView ejl;
-        public TextView ejm;
-        public TextView ejn;
-        public ImageView ejo;
-        public TbImageView ejp;
-        public TextView ejq;
-        public TextView ejr;
-        public ImageView ejs;
+        public TextView fyA;
+        public TextView fyB;
+        public ImageView fyC;
+        public TextView fyv;
+        public TextView fyw;
+        public TextView fyx;
+        public ImageView fyy;
+        public TbImageView fyz;
         public View rootView;
     }
 
     public a(com.baidu.adp.base.e eVar, View.OnClickListener onClickListener) {
-        super(LayoutInflater.from(eVar.getContext()).inflate(e.h.forbid_detail_view_layout, (ViewGroup) null));
+        super(LayoutInflater.from(eVar.getContext()).inflate(d.h.forbid_detail_view_layout, (ViewGroup) null));
         this.mPageContext = eVar;
-        this.bec = (TbImageView) this.attachedView.findViewById(e.g.net_refresh_image);
-        this.bed = (TextView) this.attachedView.findViewById(e.g.net_refresh_desc);
-        this.mDivider = this.attachedView.findViewById(e.g.divider);
-        this.ejf = (BdListView) this.attachedView.findViewById(e.g.recommend_bar_listview);
+        this.cnx = (TbImageView) this.attachedView.findViewById(d.g.net_refresh_image);
+        this.cny = (TextView) this.attachedView.findViewById(d.g.net_refresh_desc);
+        this.aLa = this.attachedView.findViewById(d.g.divider);
+        this.fyp = (BdListView) this.attachedView.findViewById(d.g.recommend_bar_listview);
         this.attachedView.setOnClickListener(null);
-        this.mTitleView = (TextView) this.attachedView.findViewById(e.g.content_title);
-        this.ejh = (TextView) this.attachedView.findViewById(e.g.local_tip_tv);
+        this.mTitleView = (TextView) this.attachedView.findViewById(d.g.content_title);
+        this.fyr = (TextView) this.attachedView.findViewById(d.g.local_tip_tv);
     }
 
-    public void iC(String str) {
+    public void po(String str) {
         if (str == null) {
-            this.bed.setVisibility(8);
+            this.cny.setVisibility(8);
             return;
         }
-        this.bed.setVisibility(0);
-        this.bed.setText(str);
+        this.cny.setVisibility(0);
+        this.cny.setText(str);
     }
 
-    public void bU(List<RecmForumInfo> list) {
+    public void cj(List<RecmForumInfo> list) {
         if (list != null) {
-            this.ejg = new C0232a(list);
-            this.ejf.setAdapter((ListAdapter) this.ejg);
+            this.fyq = new C0249a(list);
+            this.fyp.setAdapter((ListAdapter) this.fyq);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.k.a
+    @Override // com.baidu.tbadk.m.a
     public void onViewAttached() {
         super.onViewAttached();
         onChangeSkinType();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tbadk.k.a
+    @Override // com.baidu.tbadk.m.a
     public void onViewDettached() {
         super.onViewDettached();
-        this.bec.setImageResource(0);
+        this.cnx.setImageResource(0);
     }
 
     public void onChangeSkinType() {
         if (isViewAttached()) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            al.c(this.bec, e.f.pic_emotion_01);
-            al.b(this.bed, e.d.cp_cont_d, 1, skinType);
-            al.j(this.attachedView, e.d.cp_bg_line_d);
-            al.j(this.mDivider, e.d.cp_bg_line_c);
-            al.b(this.mTitleView, e.d.cp_cont_d, 1, skinType);
-            al.b(this.ejh, e.d.cp_cont_f, 1, skinType);
-            if (this.ejg != null) {
-                this.ejg.notifyDataSetChanged();
+            al.c(this.cnx, d.f.new_pic_emotion_01);
+            al.c(this.cny, d.C0236d.cp_cont_d, 1, skinType);
+            al.l(this.attachedView, d.C0236d.cp_bg_line_d);
+            al.l(this.aLa, d.C0236d.cp_bg_line_c);
+            al.c(this.mTitleView, d.C0236d.cp_cont_d, 1, skinType);
+            al.c(this.fyr, d.C0236d.cp_cont_f, 1, skinType);
+            if (this.fyq != null) {
+                this.fyq.notifyDataSetChanged();
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.frs.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C0232a extends BaseAdapter {
-        private List<RecmForumInfo> eji;
+    /* loaded from: classes4.dex */
+    public class C0249a extends BaseAdapter {
+        private List<RecmForumInfo> fys;
 
-        public C0232a(List<RecmForumInfo> list) {
-            this.eji = list;
+        public C0249a(List<RecmForumInfo> list) {
+            this.fys = list;
         }
 
         @Override // android.widget.Adapter
         public int getCount() {
-            return this.eji.size();
+            return this.fys.size();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
-        /* renamed from: nZ */
+        /* renamed from: rQ */
         public RecmForumInfo getItem(int i) {
-            return this.eji.get(i);
+            return this.fys.get(i);
         }
 
         @Override // android.widget.Adapter
@@ -131,45 +131,45 @@ public class a extends com.baidu.tbadk.k.a {
         public View getView(final int i, View view, ViewGroup viewGroup) {
             b bVar;
             if (view == null) {
-                view = LayoutInflater.from(a.this.mPageContext.getPageActivity()).inflate(e.h.recommend_view, (ViewGroup) null);
+                view = LayoutInflater.from(a.this.mPageContext.getPageActivity()).inflate(d.h.recommend_view, (ViewGroup) null);
                 b bVar2 = new b();
-                bVar2.rootView = view.findViewById(e.g.root_view);
-                bVar2.ejl = (TextView) view.findViewById(e.g.forum_name);
-                bVar2.ejn = (TextView) view.findViewById(e.g.follow_tv);
-                bVar2.ejm = (TextView) view.findViewById(e.g.thread_tv);
-                bVar2.ejo = (ImageView) view.findViewById(e.g.arrow_item_img);
-                bVar2.ejp = (TbImageView) view.findViewById(e.g.headview);
-                bVar2.ejq = (TextView) view.findViewById(e.g.follow_title);
-                bVar2.ejr = (TextView) view.findViewById(e.g.thread_title);
-                bVar2.divider = view.findViewById(e.g.divider_line);
-                bVar2.ejs = (ImageView) view.findViewById(e.g.content_img);
+                bVar2.rootView = view.findViewById(d.g.root_view);
+                bVar2.fyv = (TextView) view.findViewById(d.g.forum_name);
+                bVar2.fyx = (TextView) view.findViewById(d.g.follow_tv);
+                bVar2.fyw = (TextView) view.findViewById(d.g.thread_tv);
+                bVar2.fyy = (ImageView) view.findViewById(d.g.arrow_item_img);
+                bVar2.fyz = (TbImageView) view.findViewById(d.g.headview);
+                bVar2.fyA = (TextView) view.findViewById(d.g.follow_title);
+                bVar2.fyB = (TextView) view.findViewById(d.g.thread_title);
+                bVar2.divider = view.findViewById(d.g.divider_line);
+                bVar2.fyC = (ImageView) view.findViewById(d.g.content_img);
                 view.setTag(bVar2);
                 bVar = bVar2;
             } else {
                 bVar = (b) view.getTag();
             }
             if (getItem(i) != null) {
-                bVar.ejl.setText(ao.d(getItem(i).forum_name, 14, "..."));
-                bVar.ejp.startLoad(getItem(i).avatar, 10, false);
-                bVar.ejn.setText(ao.Q(getItem(i).member_count.intValue()));
-                bVar.ejm.setText(ao.Q(getItem(i).post_num.intValue()));
+                bVar.fyv.setText(ap.g(getItem(i).forum_name, 14, "..."));
+                bVar.fyz.startLoad(getItem(i).avatar, 10, false);
+                bVar.fyx.setText(ap.as(getItem(i).member_count.intValue()));
+                bVar.fyw.setText(ap.as(getItem(i).post_num.intValue()));
                 bVar.rootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.a.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (!StringUtils.isNull(C0232a.this.getItem(i).forum_name)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(a.this.mPageContext.getContext()).createNormalCfg(C0232a.this.getItem(i).forum_name, null)));
+                        if (!StringUtils.isNull(C0249a.this.getItem(i).forum_name)) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(a.this.mPageContext.getContext()).createNormalCfg(C0249a.this.getItem(i).forum_name, null)));
                         }
                     }
                 });
-                al.h(bVar.ejl, e.d.cp_cont_b);
-                al.h(bVar.ejn, e.d.cp_cont_d);
-                al.h(bVar.ejm, e.d.cp_cont_d);
-                al.h(bVar.ejr, e.d.cp_cont_d);
-                al.h(bVar.ejq, e.d.cp_cont_d);
-                al.i(bVar.divider, e.d.cp_bg_line_c);
-                al.c(bVar.ejo, e.f.icon_arrow_gray_right_n);
-                al.i(view, e.f.addresslist_item_bg);
-                al.i(bVar.ejs, e.f.picture_content_frame);
+                al.j(bVar.fyv, d.C0236d.cp_cont_b);
+                al.j(bVar.fyx, d.C0236d.cp_cont_d);
+                al.j(bVar.fyw, d.C0236d.cp_cont_d);
+                al.j(bVar.fyB, d.C0236d.cp_cont_d);
+                al.j(bVar.fyA, d.C0236d.cp_cont_d);
+                al.k(bVar.divider, d.C0236d.cp_bg_line_c);
+                al.c(bVar.fyy, d.f.icon_arrow_gray_right_n);
+                al.k(view, d.f.addresslist_item_bg);
+                al.k(bVar.fyC, d.f.picture_content_frame);
             }
             return view;
         }

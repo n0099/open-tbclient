@@ -4,61 +4,61 @@ import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
 /* loaded from: classes2.dex */
 public class q {
-    private i ipA;
-    private com.facebook.common.memory.j ipO;
-    private c ipv;
-    private com.facebook.common.memory.g ipy;
-    private final p itG;
-    private k itH;
-    private com.facebook.common.memory.a itI;
+    private c jFb;
+    private com.facebook.common.memory.g jFe;
+    private i jFg;
+    private com.facebook.common.memory.j jFu;
+    private final p jJo;
+    private k jJp;
+    private com.facebook.common.memory.a jJq;
 
     public q(p pVar) {
-        this.itG = (p) com.facebook.common.internal.g.checkNotNull(pVar);
+        this.jJo = (p) com.facebook.common.internal.g.checkNotNull(pVar);
     }
 
-    public c cag() {
-        if (this.ipv == null) {
-            this.ipv = new c(this.itG.bYj(), this.itG.bZX(), this.itG.bZY());
+    public c czl() {
+        if (this.jFb == null) {
+            this.jFb = new c(this.jJo.cxk(), this.jJo.czc(), this.jJo.czd());
         }
-        return this.ipv;
+        return this.jFb;
     }
 
-    public i cah() {
-        if (this.ipA == null) {
-            this.ipA = new i(this.itG.bYj(), this.itG.cab());
+    public i czm() {
+        if (this.jFg == null) {
+            this.jFg = new i(this.jJo.cxk(), this.jJo.czg());
         }
-        return this.ipA;
+        return this.jFg;
     }
 
-    public int cai() {
-        return this.itG.cab().itO;
+    public int czn() {
+        return this.jJo.czg().jJw;
     }
 
-    public k caj() {
-        if (this.itH == null) {
-            this.itH = new k(this.itG.bYj(), this.itG.bZZ(), this.itG.caa());
+    public k czo() {
+        if (this.jJp == null) {
+            this.jJp = new k(this.jJo.cxk(), this.jJo.cze(), this.jJo.czf());
         }
-        return this.itH;
+        return this.jJp;
     }
 
-    public com.facebook.common.memory.g cak() {
-        if (this.ipy == null) {
-            this.ipy = new m(caj(), cal());
+    public com.facebook.common.memory.g czp() {
+        if (this.jFe == null) {
+            this.jFe = new m(czo(), czq());
         }
-        return this.ipy;
+        return this.jFe;
     }
 
-    public com.facebook.common.memory.j cal() {
-        if (this.ipO == null) {
-            this.ipO = new com.facebook.common.memory.j(cam());
+    public com.facebook.common.memory.j czq() {
+        if (this.jFu == null) {
+            this.jFu = new com.facebook.common.memory.j(czr());
         }
-        return this.ipO;
+        return this.jFu;
     }
 
-    public com.facebook.common.memory.a cam() {
-        if (this.itI == null) {
-            this.itI = new j(this.itG.bYj(), this.itG.cac(), this.itG.cad());
+    public com.facebook.common.memory.a czr() {
+        if (this.jJq == null) {
+            this.jJq = new j(this.jJo.cxk(), this.jJo.czh(), this.jJo.czi());
         }
-        return this.itI;
+        return this.jJq;
     }
 }

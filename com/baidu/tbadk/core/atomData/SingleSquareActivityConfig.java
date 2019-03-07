@@ -1,8 +1,6 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
-import com.baidu.ar.util.IoUtils;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
@@ -25,12 +23,12 @@ public class SingleSquareActivityConfig extends IntentConfig {
         StringBuilder sb = new StringBuilder();
         sb.append(PAGE_NAME);
         try {
-            sb.append(URLEncoder.encode("|", IoUtils.UTF_8));
+            sb.append(URLEncoder.encode("|", "utf-8"));
         } catch (Exception e) {
             e.printStackTrace();
             sb.append("|");
         }
-        sb.append(str + BaseRequestAction.SPLITE + str2);
+        sb.append(str + "_" + str2);
         return sb.toString();
     }
 }

@@ -54,7 +54,7 @@ public class RequestEngine {
             if (iRequestParam.getMethod() == IRequestParam.RequestType.POST) {
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-                httpURLConnection.setRequestProperty("Charset", "UTF-8");
+                httpURLConnection.setRequestProperty("Charset", HTTP.UTF_8);
                 httpURLConnection.setUseCaches(false);
                 if (iRequestParam.getPostBundle().getByteArray(RequestParam.KEY_PARAM_BODY_BYTE_ARRAY) != null) {
                     bundle.putString("Content-Type", "application/octet-stream");

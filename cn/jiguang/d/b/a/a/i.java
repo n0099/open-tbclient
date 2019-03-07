@@ -8,10 +8,10 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public abstract class i {
-    final cn.jiguang.d.b.a.d lk;
+    final cn.jiguang.d.b.a.d lm;
 
     public i(cn.jiguang.d.b.a.d dVar) {
-        this.lk = dVar;
+        this.lm = dVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:16:0x006d  */
@@ -35,14 +35,14 @@ public abstract class i {
         }
         try {
             try {
-                byte[] c = this.lk.c();
+                byte[] c = this.lm.c();
                 DatagramPacket datagramPacket = new DatagramPacket(c, c.length, inetAddress, i);
                 long currentTimeMillis = System.currentTimeMillis();
                 try {
                     byte[] a = cn.jiguang.d.d.g.a(datagramSocket, datagramPacket);
                     long currentTimeMillis2 = (System.currentTimeMillis() - currentTimeMillis) / 1000;
                     cn.jiguang.d.a.a.a(currentTimeMillis);
-                    cn.jiguang.d.b.j L = cn.jiguang.d.d.g.L(new String(cn.jiguang.d.b.a.d.f(a).b));
+                    cn.jiguang.d.b.j L = cn.jiguang.d.d.g.L(new String(cn.jiguang.d.b.a.d.g(a).b));
                     if (L == null) {
                         throw new cn.jiguang.d.b.a.e(5, "Can not parse sis info from host: " + hostAddress);
                     }
@@ -50,12 +50,12 @@ public abstract class i {
                     cn.jiguang.e.c.b("SisPolicy", "Get sis info succeed with host: " + hostAddress + " type:" + str);
                     cn.jiguang.d.a.a.e();
                     cn.jiguang.d.a.a.a(L.g());
-                    this.lk.c(cn.jiguang.d.b.a.a.a(L));
+                    this.lm.c(cn.jiguang.d.b.a.a.a(L));
                     cn.jiguang.d.b.a.a b = cn.jiguang.d.b.a.a.b(L);
                     if (b.a()) {
                         throw new cn.jiguang.d.b.a.e(5, "sis address is Empty from host:" + hostAddress);
                     }
-                    this.lk.c(new cn.jiguang.d.b.a.c(hostAddress, i));
+                    this.lm.c(new cn.jiguang.d.b.a.c(hostAddress, i));
                     return b;
                 } catch (Exception e2) {
                     long currentTimeMillis3 = (System.currentTimeMillis() - j3) / 1000;
@@ -83,10 +83,10 @@ public abstract class i {
                             } catch (Throwable th3) {
                                 th = th3;
                                 if (i2 == 0) {
-                                    this.lk.a(hostAddress, i, j2, j, i2);
-                                    this.lk.a(hostAddress, i, i2);
+                                    this.lm.a(hostAddress, i, j2, j, i2);
+                                    this.lm.a(hostAddress, i, i2);
                                 } else {
-                                    this.lk.c(new cn.jiguang.d.b.a.c(hostAddress, i));
+                                    this.lm.c(new cn.jiguang.d.b.a.c(hostAddress, i));
                                 }
                                 throw th;
                             }
@@ -169,7 +169,7 @@ public abstract class i {
             java.lang.StringBuilder r7 = r7.append(r0)     // Catch: java.lang.Throwable -> L99
             java.lang.String r7 = r7.toString()     // Catch: java.lang.Throwable -> L99
             cn.jiguang.e.c.a(r6, r7)     // Catch: java.lang.Throwable -> L99
-            cn.jiguang.d.b.a.d r6 = r9.lk     // Catch: java.lang.Throwable -> L99
+            cn.jiguang.d.b.a.d r6 = r9.lm     // Catch: java.lang.Throwable -> L99
             boolean r6 = r6.a(r1)     // Catch: java.lang.Throwable -> L99
             if (r6 != 0) goto L14
             int r1 = r1.b     // Catch: java.lang.Throwable -> L80
@@ -245,7 +245,7 @@ public abstract class i {
         }
         Iterator<Map.Entry<cn.jiguang.d.b.a.c, String>> b = aVar.b();
         while (b.hasNext()) {
-            if (this.lk.bM().d()) {
+            if (this.lm.bM().d()) {
                 return 2;
             }
             Map.Entry<cn.jiguang.d.b.a.c, String> next = b.next();
@@ -254,24 +254,24 @@ public abstract class i {
             if (!TextUtils.isEmpty(key.a) && key.b > 0) {
                 String str = key.a;
                 int i = key.b;
-                if (this.lk.b(key)) {
+                if (this.lm.b(key)) {
                     a = 1;
                     continue;
                 } else {
                     cn.jiguang.e.c.a("SisPolicy", "Open connection with " + value + " - ip:" + str + ", port:" + i);
                     long currentTimeMillis = System.currentTimeMillis();
-                    cn.jiguang.d.b.g bM = this.lk.bM();
+                    cn.jiguang.d.b.g bM = this.lm.bM();
                     if (bM.d()) {
                         a = -991;
                     } else {
-                        a = cn.jiguang.d.g.c.cg().ch().a(str, i);
+                        a = cn.jiguang.d.g.c.cf().cg().a(str, i);
                         if (a != 0 && !bM.d()) {
                             cn.jiguang.e.c.a("ConnectingHelper", "Open connection failed - ret:" + a);
                         }
                     }
                     if (a != 0) {
-                        this.lk.b(str, i, cn.jiguang.d.a.a.a(currentTimeMillis), (System.currentTimeMillis() - currentTimeMillis) / 1000, a);
-                        this.lk.h(str, i, a);
+                        this.lm.b(str, i, cn.jiguang.d.a.a.a(currentTimeMillis), (System.currentTimeMillis() - currentTimeMillis) / 1000, a);
+                        this.lm.b(str, i, a);
                         continue;
                     } else {
                         continue;

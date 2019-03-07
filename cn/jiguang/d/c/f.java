@@ -13,32 +13,32 @@ import java.util.List;
 public final class f {
     public static List<p> a(String str) {
         h hVar;
-        m bR;
+        m bQ;
         ArrayList arrayList = new ArrayList();
         if (TextUtils.isEmpty(str)) {
             return arrayList;
         }
         try {
-            String[] a = o.bT().a();
+            String[] a = o.bS().a();
             byte[] b = h.b(m.a(j.a(j.a(str), j.a), 33, 1)).b(SupportMenu.USER_MASK);
             for (String str2 : a) {
                 try {
                     hVar = new h(r.a(null, new InetSocketAddress(InetAddress.getByName(str2), 53), b, System.currentTimeMillis() + 1000));
-                    bR = hVar.bR();
+                    bQ = hVar.bQ();
                 } catch (UnknownHostException e) {
                     cn.jiguang.e.c.c("DNSSrvUtils", "Get default ports error at " + str2 + ", with UnknownHostException:" + e.getMessage());
                 } catch (IOException e2) {
                     cn.jiguang.e.c.c("DNSSrvUtils", "Get default ports error at " + str2 + ", with IOException:" + e2.getMessage());
                 }
-                if (bR == null) {
+                if (bQ == null) {
                     break;
                 }
-                l[] D = hVar.D(1);
-                for (l lVar : D) {
-                    if (lVar.b().e() == bR.e()) {
+                l[] m = hVar.m(1);
+                for (l lVar : m) {
+                    if (lVar.b().e() == bQ.e()) {
                         int d = lVar.b().d();
                         j b2 = lVar.b().b();
-                        if (d == bR.c() && b2.equals(bR.b())) {
+                        if (d == bQ.c() && b2.equals(bQ.b())) {
                             Iterator a2 = lVar.a();
                             while (a2.hasNext()) {
                                 p pVar = (p) a2.next();

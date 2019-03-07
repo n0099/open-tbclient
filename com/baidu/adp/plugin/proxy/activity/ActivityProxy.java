@@ -48,9 +48,8 @@ import com.baidu.adp.plugin.a.a;
 import com.baidu.adp.plugin.pluginBase.PluginBaseActivity;
 import com.baidu.adp.plugin.proxy.ContentResolverProxy;
 import com.baidu.adp.plugin.util.d;
-import com.baidu.adp.widget.ListView.k;
+import com.baidu.adp.widget.ListView.p;
 import com.baidu.megapp.ma.MAActivity;
-import com.baidu.searchbox.ng.ai.apps.media.audio.event.AudioStatusCallback;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes.dex */
@@ -292,7 +291,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
                 return this.mEntity.getResources();
             }
         } else {
-            Resources resources = g.gd().getResources();
+            Resources resources = g.fZ().getResources();
             if (resources != null) {
                 return resources;
             }
@@ -583,7 +582,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     @Override // android.app.Activity
     protected void onPause() {
         if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, AudioStatusCallback.ON_PAUSE, new Class[0], new Object[0]);
+            d.invokeMethod(this.mEntity, "onPause", new Class[0], new Object[0]);
         } else {
             super.onPause();
         }
@@ -684,7 +683,7 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     @Override // android.app.Activity
     protected void onStop() {
         if (this.mEntity != null) {
-            d.invokeMethod(this.mEntity, AudioStatusCallback.ON_STOP, new Class[0], new Object[0]);
+            d.invokeMethod(this.mEntity, "onStop", new Class[0], new Object[0]);
         } else {
             super.onStop();
         }
@@ -1604,9 +1603,9 @@ public class ActivityProxy extends MAActivity implements Handler.Callback, f, h,
     }
 
     @Override // com.baidu.adp.base.h
-    public void onPreLoad(k kVar) {
+    public void onPreLoad(p pVar) {
         if (this.mEntity != null) {
-            this.mEntity.onPreLoad(kVar);
+            this.mEntity.onPreLoad(pVar);
         }
     }
 

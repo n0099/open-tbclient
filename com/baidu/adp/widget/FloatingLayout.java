@@ -7,10 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.adp.R;
+import com.baidu.sapi2.utils.enums.ShareDirectionType;
 /* loaded from: classes.dex */
 public class FloatingLayout extends LinearLayout {
-    private int MQ;
-    private int MR;
+    private int Nb;
+    private int Nc;
     private int mUsedHeight;
     private int mUsedWidth;
 
@@ -31,7 +32,7 @@ public class FloatingLayout extends LinearLayout {
         } else if (getOrientation() == 0) {
             measureHorizontal(i, i2);
         }
-        setMeasuredDimension(this.MQ + getPaddingLeft() + getPaddingRight(), this.MR + getPaddingTop() + getPaddingBottom());
+        setMeasuredDimension(this.Nb + getPaddingLeft() + getPaddingRight(), this.Nc + getPaddingTop() + getPaddingBottom());
     }
 
     private void measureVertical(int i, int i2) {
@@ -56,7 +57,7 @@ public class FloatingLayout extends LinearLayout {
                 i3 = Math.max(childAt.getMeasuredWidth() + generateDefaultLayoutParams.leftMargin + generateDefaultLayoutParams.rightMargin, i6);
                 this.mUsedWidth = i3;
                 this.mUsedHeight = childAt.getMeasuredHeight() + generateDefaultLayoutParams.topMargin + generateDefaultLayoutParams.bottomMargin + this.mUsedHeight;
-                this.MR = Math.max(this.mUsedHeight, this.MR);
+                this.Nc = Math.max(this.mUsedHeight, this.Nc);
                 if ((generateDefaultLayoutParams.clear & 2) == 2) {
                     this.mUsedHeight = 0;
                     this.mUsedWidth = i3 + this.mUsedWidth;
@@ -69,7 +70,7 @@ public class FloatingLayout extends LinearLayout {
             i5++;
             i6 = i3;
         }
-        this.MQ = this.mUsedWidth;
+        this.Nb = this.mUsedWidth;
     }
 
     private void measureHorizontal(int i, int i2) {
@@ -97,7 +98,7 @@ public class FloatingLayout extends LinearLayout {
                 }
                 i5 = Math.max(measuredHeight, i3);
                 this.mUsedWidth += measuredWidth;
-                this.MQ = Math.max(this.MQ, this.mUsedWidth);
+                this.Nb = Math.max(this.Nb, this.mUsedWidth);
                 if ((generateDefaultLayoutParams.clear & 2) == 2) {
                     this.mUsedWidth = 0;
                     this.mUsedHeight += i5;
@@ -106,20 +107,20 @@ public class FloatingLayout extends LinearLayout {
             }
         }
         this.mUsedHeight += i5;
-        this.MR = this.mUsedHeight;
+        this.Nc = this.mUsedHeight;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int orientation = getOrientation();
         if (orientation == 0) {
-            nZ();
+            oe();
         } else if (orientation == 1) {
-            oa();
+            og();
         }
     }
 
-    private void nZ() {
+    private void oe() {
         int childCount = getChildCount();
         int measuredWidth = (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight();
         int paddingLeft = getPaddingLeft();
@@ -153,7 +154,7 @@ public class FloatingLayout extends LinearLayout {
         }
     }
 
-    private void oa() {
+    private void og() {
         a aVar;
         int childCount = getChildCount();
         int measuredHeight = (getMeasuredHeight() - getPaddingTop()) - getPaddingBottom();
@@ -198,7 +199,7 @@ public class FloatingLayout extends LinearLayout {
                     this.clear = 1;
                 } else if ("after".equals(string)) {
                     this.clear = 2;
-                } else if (com.baidu.sapi2.utils.enums.a.c.equals(string)) {
+                } else if (ShareDirectionType.BOTH.equals(string)) {
                     this.clear = 3;
                 }
             }
@@ -240,7 +241,7 @@ public class FloatingLayout extends LinearLayout {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.widget.LinearLayout, android.view.ViewGroup
-    /* renamed from: ob */
+    /* renamed from: oh */
     public a generateDefaultLayoutParams() {
         return new a(-2, -2, 0);
     }

@@ -1,6 +1,5 @@
 package okhttp3;
 
-import com.baidu.searchbox.ng.ai.apps.system.bluetooth.utils.AiAppsBluetoothConstants;
 import java.net.Proxy;
 import java.net.ProxySelector;
 import java.net.Socket;
@@ -422,22 +421,22 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
         }
 
         public Builder connectTimeout(long j, TimeUnit timeUnit) {
-            this.connectTimeout = Util.checkDuration(AiAppsBluetoothConstants.KEY_TIME_OUT, j, timeUnit);
+            this.connectTimeout = Util.checkDuration("timeout", j, timeUnit);
             return this;
         }
 
         public Builder readTimeout(long j, TimeUnit timeUnit) {
-            this.readTimeout = Util.checkDuration(AiAppsBluetoothConstants.KEY_TIME_OUT, j, timeUnit);
+            this.readTimeout = Util.checkDuration("timeout", j, timeUnit);
             return this;
         }
 
         public Builder writeTimeout(long j, TimeUnit timeUnit) {
-            this.writeTimeout = Util.checkDuration(AiAppsBluetoothConstants.KEY_TIME_OUT, j, timeUnit);
+            this.writeTimeout = Util.checkDuration("timeout", j, timeUnit);
             return this;
         }
 
         public Builder pingInterval(long j, TimeUnit timeUnit) {
-            this.pingInterval = Util.checkDuration(AiAppsBluetoothConstants.KEY_INTERVAL, j, timeUnit);
+            this.pingInterval = Util.checkDuration("interval", j, timeUnit);
             return this;
         }
 

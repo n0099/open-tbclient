@@ -1,11 +1,11 @@
 package com.xiaomi.smack;
 
-import com.baidu.mapapi.UIMsg;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Vector;
+import org.apache.http.protocol.HTTP;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 /* loaded from: classes3.dex */
@@ -17,7 +17,7 @@ public final class g {
     private static Vector<String> e = new Vector<>();
 
     static {
-        a = UIMsg.m_AppUI.MSG_APP_GPS;
+        a = 5000;
         b = 330000;
         try {
             for (ClassLoader classLoader : d()) {
@@ -28,7 +28,7 @@ public final class g {
                         inputStream = resources.nextElement().openStream();
                         XmlPullParser newPullParser = XmlPullParserFactory.newInstance().newPullParser();
                         newPullParser.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
-                        newPullParser.setInput(inputStream, "UTF-8");
+                        newPullParser.setInput(inputStream, HTTP.UTF_8);
                         int eventType = newPullParser.getEventType();
                         do {
                             if (eventType == 2) {

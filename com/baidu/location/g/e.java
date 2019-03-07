@@ -6,9 +6,7 @@ import android.net.NetworkInfo;
 import android.net.Proxy;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.ar.util.IoUtils;
 import com.baidu.sapi2.base.network.Apn;
-import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -18,7 +16,8 @@ import java.net.URL;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes6.dex */
+import org.apache.http.protocol.HTTP;
+/* loaded from: classes3.dex */
 public abstract class e {
     public String h = null;
     public int i = 3;
@@ -33,7 +32,7 @@ public abstract class e {
     private static int b = 80;
     protected static int p = 0;
 
-    private static int b(Context context, NetworkInfo networkInfo) {
+    private static int a(Context context, NetworkInfo networkInfo) {
         String lowerCase;
         if (networkInfo != null && networkInfo.getExtraInfo() != null && (lowerCase = networkInfo.getExtraInfo().toLowerCase()) != null) {
             if (lowerCase.startsWith(Apn.APN_CMWAP) || lowerCase.startsWith(Apn.APN_UNIWAP) || lowerCase.startsWith(Apn.APN_3GWAP)) {
@@ -81,7 +80,7 @@ public abstract class e {
                     String defaultHost = Proxy.getDefaultHost();
                     i = (defaultHost == null || defaultHost.length() <= 0) ? a.f : a.h;
                 } else {
-                    i = b(serviceContext, activeNetworkInfo);
+                    i = a(serviceContext, activeNetworkInfo);
                 }
             }
             return i;
@@ -133,9 +132,9 @@ public abstract class e {
                         StringBuffer stringBuffer = new StringBuffer();
                         for (Map.Entry<String, Object> entry : e.this.k.entrySet()) {
                             stringBuffer.append(entry.getKey());
-                            stringBuffer.append(ETAG.EQUAL);
+                            stringBuffer.append("=");
                             stringBuffer.append(entry.getValue());
-                            stringBuffer.append(ETAG.ITEM_SEPARATOR);
+                            stringBuffer.append("&");
                         }
                         if (stringBuffer.length() > 0) {
                             stringBuffer.deleteCharAt(stringBuffer.length() - 1);
@@ -149,10 +148,10 @@ public abstract class e {
                             httpURLConnection3.setConnectTimeout(a.b);
                             httpURLConnection3.setReadTimeout(a.b);
                             httpURLConnection3.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
-                            httpURLConnection3.setRequestProperty("Accept-Charset", "UTF-8");
+                            httpURLConnection3.setRequestProperty("Accept-Charset", HTTP.UTF_8);
                             httpURLConnection3.setRequestProperty("Accept-Encoding", "gzip");
                             if (!TextUtils.isEmpty(str)) {
-                                httpURLConnection3.setRequestProperty("Host", str);
+                                httpURLConnection3.setRequestProperty(HTTP.TARGET_HOST, str);
                             }
                             outputStream2 = httpURLConnection3.getOutputStream();
                             try {
@@ -175,7 +174,7 @@ public abstract class e {
                                                         }
                                                         byteArrayOutputStream.write(bArr, 0, read);
                                                     }
-                                                    e.this.j = new String(byteArrayOutputStream.toByteArray(), IoUtils.UTF_8);
+                                                    e.this.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
                                                     if (z) {
                                                         e.this.m = byteArrayOutputStream.toByteArray();
                                                     }
@@ -464,9 +463,9 @@ public abstract class e {
                             httpsURLConnection3.setRequestProperty("Accept-Encoding", "gzip");
                             for (Map.Entry<String, Object> entry : e.this.k.entrySet()) {
                                 stringBuffer.append(entry.getKey());
-                                stringBuffer.append(ETAG.EQUAL);
+                                stringBuffer.append("=");
                                 stringBuffer.append(entry.getValue());
-                                stringBuffer.append(ETAG.ITEM_SEPARATOR);
+                                stringBuffer.append("&");
                             }
                             if (stringBuffer.length() > 0) {
                                 stringBuffer.deleteCharAt(stringBuffer.length() - 1);
@@ -491,7 +490,7 @@ public abstract class e {
                                                     }
                                                     byteArrayOutputStream.write(bArr, 0, read);
                                                 }
-                                                e.this.j = new String(byteArrayOutputStream.toByteArray(), IoUtils.UTF_8);
+                                                e.this.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
                                                 e.this.a(true);
                                             } catch (Error e) {
                                                 byteArrayOutputStream3 = outputStream;
@@ -820,7 +819,7 @@ public abstract class e {
                             httpURLConnection3.setConnectTimeout(a.b);
                             httpURLConnection3.setReadTimeout(a.b);
                             httpURLConnection3.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
-                            httpURLConnection3.setRequestProperty("Accept-Charset", "UTF-8");
+                            httpURLConnection3.setRequestProperty("Accept-Charset", HTTP.UTF_8);
                             if (httpURLConnection3.getResponseCode() == 200) {
                                 inputStream = httpURLConnection3.getInputStream();
                                 try {
@@ -844,7 +843,7 @@ public abstract class e {
                                     }
                                     inputStream.close();
                                     byteArrayOutputStream3.close();
-                                    e.this.j = new String(byteArrayOutputStream3.toByteArray(), IoUtils.UTF_8);
+                                    e.this.j = new String(byteArrayOutputStream3.toByteArray(), "utf-8");
                                     e.this.a(true);
                                     httpURLConnection3.disconnect();
                                     inputStream3 = inputStream;

@@ -4,7 +4,6 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Build;
 import android.view.Window;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 /* loaded from: classes.dex */
 public class MenuKeyUtils {
     public static boolean hasSmartBar() {
@@ -34,7 +33,7 @@ public class MenuKeyUtils {
 
     public static void hideSoftMenuKey(Window window) {
         if (Build.VERSION.SDK_INT > 10) {
-            window.clearFlags(AiAppsFileUtils.GB);
+            window.clearFlags(1073741824);
         }
     }
 }

@@ -1,14 +1,16 @@
 package kotlin.text;
+
+import com.baidu.ubc.UBC;
 /* loaded from: classes2.dex */
 public final class e {
-    private final kotlin.b.c iDj;
+    private final kotlin.b.c jSU;
     private final String value;
 
     public boolean equals(Object obj) {
         if (this != obj) {
             if (obj instanceof e) {
                 e eVar = (e) obj;
-                if (!kotlin.jvm.internal.p.h(this.value, eVar.value) || !kotlin.jvm.internal.p.h(this.iDj, eVar.iDj)) {
+                if (!kotlin.jvm.internal.p.h(this.value, eVar.value) || !kotlin.jvm.internal.p.h(this.jSU, eVar.jSU)) {
                 }
             }
             return false;
@@ -19,18 +21,18 @@ public final class e {
     public int hashCode() {
         String str = this.value;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        kotlin.b.c cVar = this.iDj;
+        kotlin.b.c cVar = this.jSU;
         return hashCode + (cVar != null ? cVar.hashCode() : 0);
     }
 
     public String toString() {
-        return "MatchGroup(value=" + this.value + ", range=" + this.iDj + ")";
+        return "MatchGroup(value=" + this.value + ", range=" + this.jSU + ")";
     }
 
     public e(String str, kotlin.b.c cVar) {
-        kotlin.jvm.internal.p.j(str, "value");
-        kotlin.jvm.internal.p.j(cVar, "range");
+        kotlin.jvm.internal.p.k(str, UBC.CONTENT_KEY_VALUE);
+        kotlin.jvm.internal.p.k(cVar, "range");
         this.value = str;
-        this.iDj = cVar;
+        this.jSU = cVar;
     }
 }

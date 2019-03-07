@@ -8,11 +8,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d {
-    public List<d> acA = new ArrayList();
+    public List<d> aeA = new ArrayList();
     public String code;
     public String name;
 
-    public static d L(JSONObject jSONObject) {
+    public static d aU(JSONObject jSONObject) {
         if (jSONObject == null) {
             return null;
         }
@@ -22,9 +22,9 @@ public class d {
         JSONArray optJSONArray = jSONObject.optJSONArray("children");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             for (int i = 0; i < optJSONArray.length(); i++) {
-                d L = L(optJSONArray.optJSONObject(i));
-                if (L != null) {
-                    dVar.acA.add(L);
+                d aU = aU(optJSONArray.optJSONObject(i));
+                if (aU != null) {
+                    dVar.aeA.add(aU);
                 }
             }
         }
@@ -46,11 +46,11 @@ public class d {
         }
     }
 
-    public boolean Yz() {
-        return this.acA.size() > 0;
+    public boolean ayD() {
+        return this.aeA.size() > 0;
     }
 
-    public static String ao(List<d> list) {
+    public static String aB(List<d> list) {
         StringBuilder sb = new StringBuilder();
         if (list != null) {
             int i = 0;

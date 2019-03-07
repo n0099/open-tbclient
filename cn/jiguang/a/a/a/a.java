@@ -12,7 +12,7 @@ import java.util.HashMap;
 public final class a {
     private HashMap<String, Long> a = null;
     private File d = null;
-    private static a kn = null;
+    private static a kr = null;
     private static final Object c = new Object();
 
     private a() {
@@ -42,12 +42,12 @@ public final class a {
     }
 
     public static a bm() {
-        if (kn == null) {
+        if (kr == null) {
             synchronized (c) {
-                kn = new a();
+                kr = new a();
             }
         }
-        return kn;
+        return kr;
     }
 
     public final void a(Context context, String str) {

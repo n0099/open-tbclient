@@ -6,13 +6,14 @@ public class HttpManager extends AbstractHttpManager {
     public static volatile HttpManager httpManager;
     private static ExtraInfoDispatcher sExtraInfoDispatcher = new ExtraInfoDispatcher();
 
-    protected HttpManager(Context context) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public HttpManager(Context context) {
         super(context);
     }
 
     public static HttpManager newHttpManager(Context context) {
         HttpManager httpManager2 = new HttpManager(context);
-        httpManager2.setHttpDnsEnable(getDefault(context).dnsHelper().isHttpDnsEnable());
+        httpManager2.setHttpDnsEnable(getDefault(context).getHttpDnsEnable());
         return httpManager2;
     }
 

@@ -2,105 +2,122 @@ package com.baidu.tieba.homepage.framework.indicator;
 
 import android.content.Context;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.e;
-/* loaded from: classes6.dex */
+import com.baidu.tieba.d;
+/* loaded from: classes4.dex */
 public class a {
-    private int exl;
-    private int exm;
-    private int exn = -1;
-    private int exo;
-    private int exp;
-    private int exq;
+    private int fJJ;
+    private int fJK;
+    private int fJL;
+    private int fJM;
+    private int fJN;
+    private int fJO = 1;
 
     public a() {
-        this.exl = -1;
-        this.exm = -1;
-        this.exo = -1;
-        this.exp = -1;
-        this.exq = 1;
-        int i = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_default_page", 0);
-        this.exl = i == 0 ? 0 : 1;
-        this.exm = i == 0 ? 1 : 0;
-        this.exq = i != 0 ? 0 : 1;
+        int i = 1;
+        this.fJJ = -1;
+        this.fJK = -1;
+        this.fJL = -1;
+        this.fJM = -1;
+        this.fJN = -1;
+        this.fJJ = 0;
+        int bme = bme();
+        if ((bme & 16) > 0) {
+            this.fJM = 1;
+            i = 2;
+        }
+        if ((bme & 32) > 0) {
+            this.fJN = i;
+            i++;
+        }
         int i2 = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("ribao_switch", 0);
-        this.exo = i2 == 0 ? 2 : -1;
-        this.exp = i2 != 0 ? 2 : -1;
+        if ((bme & 1) > 0) {
+            this.fJK = i2 == 0 ? i : -1;
+            this.fJL = i2 != 0 ? i : -1;
+            int i3 = i + 1;
+        }
     }
 
-    public int oQ(int i) {
+    public int sz(int i) {
         switch (i) {
-            case 0:
-                return this.exl;
             case 1:
-                return this.exm;
+                return this.fJJ;
             case 2:
-                return this.exn;
-            case 3:
-                return this.exo;
-            case 4:
-                return this.exp;
             default:
                 return -1;
+            case 3:
+                return this.fJK;
+            case 4:
+                return this.fJL;
+            case 5:
+                return this.fJM;
+            case 6:
+                return this.fJN;
         }
     }
 
     public int getType(int i) {
-        if (i == this.exl) {
-            return 0;
-        }
-        if (i == this.exm) {
+        if (i == this.fJJ) {
             return 1;
         }
-        if (i == this.exn) {
-            return 2;
-        }
-        if (i == this.exo) {
+        if (i == this.fJK) {
             return 3;
         }
-        if (i == this.exp) {
+        if (i == this.fJL) {
             return 4;
+        }
+        if (i == this.fJM) {
+            return 5;
+        }
+        if (i == this.fJN) {
+            return 6;
         }
         return -1;
     }
 
-    public int aMb() {
-        return this.exq;
+    public int bmd() {
+        return this.fJO;
     }
 
-    public String p(Context context, int i) {
+    private int bme() {
+        return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("recommend_tab_show", 23);
+    }
+
+    public String v(Context context, int i) {
         if (context == null) {
             return null;
         }
-        if (i == this.exl) {
-            String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_concern", "");
+        if (i == this.fJJ) {
+            String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_rec", "");
             if (StringUtils.isNull(string)) {
-                return context.getString(e.j.tab_name_concern);
+                return context.getString(d.j.tab_name_recommend);
             }
             return string;
-        } else if (i == this.exm) {
-            String string2 = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_rec", "");
+        } else if (i == this.fJK) {
+            String string2 = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_video", "");
             if (StringUtils.isNull(string2)) {
-                return context.getString(e.j.tab_name_recommend);
+                return context.getString(d.j.tab_name_video_recommend);
             }
             return string2;
-        } else if (i == this.exn) {
-            return context.getString(e.j.tab_name_discover);
-        } else {
-            if (i == this.exo) {
-                String string3 = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_video", "");
-                if (StringUtils.isNull(string3)) {
-                    return context.getString(e.j.tab_name_video_recommend);
-                }
-                return string3;
-            } else if (i == this.exp) {
-                String string4 = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_daily", "");
-                if (StringUtils.isNull(string4)) {
-                    return context.getString(e.j.tab_name_daily);
-                }
-                return string4;
-            } else {
-                return null;
+        } else if (i == this.fJL) {
+            String string3 = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_daily", "");
+            if (StringUtils.isNull(string3)) {
+                return context.getString(d.j.tab_name_daily);
             }
+            return string3;
+        } else if (i == this.fJM) {
+            String string4 = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_topic", "");
+            if (StringUtils.isNull(string4)) {
+                return context.getString(d.j.tab_name_topic);
+            }
+            return string4;
+        } else if (i == this.fJN) {
+            String string5 = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_live", "");
+            if (StringUtils.isNull(string5)) {
+                return context.getString(d.j.tab_name_live);
+            }
+            return string5;
+        } else {
+            return null;
         }
     }
 }

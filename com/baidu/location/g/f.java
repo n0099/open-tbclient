@@ -1,6 +1,6 @@
 package com.baidu.location.g;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class f {
-    private static volatile f agf = null;
+    private static volatile f b = null;
     public static String a = g.g();
 }

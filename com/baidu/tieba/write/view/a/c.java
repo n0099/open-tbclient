@@ -8,17 +8,17 @@ import com.baidu.adp.base.e;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.HorizontalListView;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import com.baidu.tieba.write.write.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class c extends a {
-    private HorizontalListView hIz;
-    private d iaC;
+    private HorizontalListView iYL;
+    private d jrm;
     private View mRootView;
 
     public void a(com.baidu.tieba.write.write.c cVar) {
-        this.iaC.b(cVar);
+        this.jrm.b(cVar);
     }
 
     public c(e eVar) {
@@ -27,10 +27,10 @@ public class c extends a {
 
     @Override // com.baidu.tieba.write.view.a.a
     protected void initView() {
-        this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(e.h.pic_sticker_view, (ViewGroup) null);
-        this.hIz = (HorizontalListView) this.mRootView.findViewById(e.g.horizontal_list);
-        this.iaC = new d();
-        this.hIz.setAdapter((ListAdapter) this.iaC);
+        this.mRootView = LayoutInflater.from(this.mBdPageContext.getPageActivity()).inflate(d.h.pic_sticker_view, (ViewGroup) null);
+        this.iYL = (HorizontalListView) this.mRootView.findViewById(d.g.horizontal_list);
+        this.jrm = new com.baidu.tieba.write.write.d();
+        this.iYL.setAdapter((ListAdapter) this.jrm);
     }
 
     public View getRootView() {
@@ -38,17 +38,17 @@ public class c extends a {
     }
 
     public void onChangeSkinType() {
-        al.j(this.mRootView, e.d.cp_bg_line_d);
+        al.l(this.mRootView, d.C0236d.cp_bg_line_d);
     }
 
-    public void el(List<String> list) {
-        if (!v.I(list)) {
-            this.iaC.setData(list);
-            this.iaC.notifyDataSetChanged();
+    public void eq(List<String> list) {
+        if (!v.T(list)) {
+            this.jrm.setData(list);
+            this.jrm.notifyDataSetChanged();
         }
     }
 
-    public void bQk() {
-        this.iaC.notifyDataSetChanged();
+    public void cpU() {
+        this.jrm.notifyDataSetChanged();
     }
 }

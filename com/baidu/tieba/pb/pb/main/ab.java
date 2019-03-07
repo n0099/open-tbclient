@@ -1,24 +1,22 @@
 package com.baidu.tieba.pb.pb.main;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ab {
-    public String gec;
-    public boolean ged;
-    public boolean gee;
-    public boolean gdO = false;
-    public boolean gdP = false;
-    public boolean fUI = false;
-    public boolean gdQ = false;
-    public boolean qZ = false;
-    public boolean gdR = false;
-    public boolean gdS = false;
-    public boolean gdT = false;
-    public boolean gdU = false;
-    public boolean gdV = false;
-    public boolean gdW = false;
-    public boolean gdX = false;
-    public boolean gdY = false;
-    public boolean gdZ = false;
-    public boolean gea = false;
-    public boolean geb = false;
+    public String hul;
+    public boolean hum;
+    public boolean hun;
+    public boolean htY = false;
+    public boolean htZ = false;
+    public boolean qV = false;
+    public boolean hua = false;
+    public boolean hub = false;
+    public boolean huc = false;
+    public boolean hud = false;
+    public boolean hue = false;
+    public boolean huf = false;
+    public boolean hug = false;
+    public boolean huh = false;
+    public boolean hui = false;
+    public boolean huj = false;
+    public boolean huk = false;
     public boolean isHostOnly = false;
 }

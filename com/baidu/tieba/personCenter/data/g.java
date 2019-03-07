@@ -2,13 +2,13 @@ package com.baidu.tieba.personCenter.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.UserData;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class g extends com.baidu.tieba.card.data.b {
-    public static BdUniqueId gvR = BdUniqueId.gen();
-    public UserData fTK;
+    public static BdUniqueId hMh = BdUniqueId.gen();
+    public UserData userData;
 
-    @Override // com.baidu.adp.widget.ListView.h
+    @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gvR;
+        return hMh;
     }
 }

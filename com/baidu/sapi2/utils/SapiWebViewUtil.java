@@ -54,8 +54,8 @@ public class SapiWebViewUtil {
     }
 
     public static void setNoNetworkView(final Context context, SapiWebView sapiWebView) {
-        View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(a.e.layout_sapi_sdk_network_unavailable, (ViewGroup) null);
-        inflate.findViewById(a.d.btn_network_settings).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.sapi2.utils.SapiWebViewUtil.1
+        View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(a.f.layout_sapi_sdk_network_unavailable, (ViewGroup) null);
+        inflate.findViewById(a.e.btn_network_settings).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.sapi2.utils.SapiWebViewUtil.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Intent intent = new Intent("android.settings.SETTINGS");
@@ -67,8 +67,8 @@ public class SapiWebViewUtil {
     }
 
     public static void setTimeoutView(Context context, final SapiWebView sapiWebView) {
-        final View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(a.e.layout_sapi_sdk_loading_timeout, (ViewGroup) null);
-        inflate.findViewById(a.d.btn_retry).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.sapi2.utils.SapiWebViewUtil.2
+        final View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(a.f.layout_sapi_sdk_loading_timeout, (ViewGroup) null);
+        inflate.findViewById(a.e.btn_retry).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.sapi2.utils.SapiWebViewUtil.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 SapiWebView.this.post(new Runnable() { // from class: com.baidu.sapi2.utils.SapiWebViewUtil.2.1

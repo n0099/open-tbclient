@@ -3,68 +3,68 @@ package com.baidu.tbadk.widget.richText;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.ng.ai.apps.view.coverview.model.ImageCoverViewModel;
+import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONObject;
 import tbclient.PbContent;
 /* loaded from: classes.dex */
 public class TbRichTextImageInfo extends OrmObject {
-    private String bsc;
-    private String bsd;
-    private boolean bse;
-    private boolean bsf;
-    private String bsg;
-    private long bsh;
-    private boolean bsi;
-    private boolean bsj;
-    private String bsk;
-    private String bsl;
+    private String cCS;
+    private String cCT;
+    private boolean cCU;
+    private boolean cCV;
+    private String cCW;
+    private long cCX;
+    private boolean cCY;
+    private boolean cCZ;
+    private String cDa;
+    private String cDb;
     private int mHeight;
     private String mSrc;
     private int mWidth;
 
     public TbRichTextImageInfo() {
         this.mSrc = null;
-        this.bsc = null;
-        this.bsd = null;
+        this.cCS = null;
+        this.cCT = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.bse = false;
-        this.bsf = false;
-        this.bsg = null;
-        this.bsh = 0L;
-        this.bsi = false;
-        this.bsj = false;
-        this.bsl = null;
+        this.cCU = false;
+        this.cCV = false;
+        this.cCW = null;
+        this.cCX = 0L;
+        this.cCY = false;
+        this.cCZ = false;
+        this.cDb = null;
     }
 
     public TbRichTextImageInfo(PbContent pbContent) {
         this.mSrc = null;
-        this.bsc = null;
-        this.bsd = null;
+        this.cCS = null;
+        this.cCT = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.bse = false;
-        this.bsf = false;
-        this.bsg = null;
-        this.bsh = 0L;
-        this.bsi = false;
-        this.bsj = false;
-        this.bsl = null;
+        this.cCU = false;
+        this.cCV = false;
+        this.cCW = null;
+        this.cCX = 0L;
+        this.cCY = false;
+        this.cCZ = false;
+        this.cDb = null;
         if (pbContent != null) {
             this.mSrc = pbContent.src;
-            this.bsc = pbContent.cdn_src;
-            if (this.bsc == null || this.bsc.length() == 0) {
-                this.bsc = this.mSrc;
+            this.cCS = pbContent.cdn_src;
+            if (this.cCS == null || this.cCS.length() == 0) {
+                this.cCS = this.mSrc;
             }
-            this.bsd = pbContent.big_cdn_src;
-            this.bsl = pbContent.big_src;
-            if (StringUtils.isNull(this.bsd)) {
-                this.bsd = this.bsl;
+            this.cCT = pbContent.big_cdn_src;
+            this.cDb = pbContent.big_src;
+            if (StringUtils.isNull(this.cCT)) {
+                this.cCT = this.cDb;
             }
             String str = pbContent.bsize;
             if (str != null) {
                 try {
-                    String[] split = str.split(",");
+                    String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     this.mWidth = Integer.valueOf(split[0]).intValue();
                     this.mHeight = Integer.valueOf(split[1]).intValue();
                 } catch (Exception e) {
@@ -77,39 +77,39 @@ public class TbRichTextImageInfo extends OrmObject {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            if (this.bsc != null && this.bsc.indexOf(".baidu.com") != -1) {
-                this.bse = true;
+            if (this.cCS != null && this.cCS.indexOf(".baidu.com") != -1) {
+                this.cCU = true;
             }
-            this.bsg = pbContent.origin_src;
-            this.bsh = pbContent.origin_size.intValue();
-            this.bsi = pbContent.show_original_btn.intValue() == 1;
-            this.bsj = pbContent.is_long_pic.intValue() == 1;
-            this.bsk = pbContent.cdn_src_active;
+            this.cCW = pbContent.origin_src;
+            this.cCX = pbContent.origin_size.intValue();
+            this.cCY = pbContent.show_original_btn.intValue() == 1;
+            this.cCZ = pbContent.is_long_pic.intValue() == 1;
+            this.cDa = pbContent.cdn_src_active;
         }
     }
 
     public TbRichTextImageInfo(JSONObject jSONObject) {
         this.mSrc = null;
-        this.bsc = null;
-        this.bsd = null;
+        this.cCS = null;
+        this.cCT = null;
         this.mWidth = 1;
         this.mHeight = 1;
-        this.bse = false;
-        this.bsf = false;
-        this.bsg = null;
-        this.bsh = 0L;
-        this.bsi = false;
-        this.bsj = false;
-        this.bsl = null;
+        this.cCU = false;
+        this.cCV = false;
+        this.cCW = null;
+        this.cCX = 0L;
+        this.cCY = false;
+        this.cCZ = false;
+        this.cDb = null;
         if (jSONObject != null) {
-            this.mSrc = jSONObject.optString(ImageCoverViewModel.KEY_SRC);
-            this.bsc = jSONObject.optString("cdn_src", "");
-            if (this.bsc == null || this.bsc.length() == 0) {
-                this.bsc = this.mSrc;
+            this.mSrc = jSONObject.optString("src");
+            this.cCS = jSONObject.optString("cdn_src", "");
+            if (this.cCS == null || this.cCS.length() == 0) {
+                this.cCS = this.mSrc;
             }
-            this.bsd = jSONObject.optString("big_cdn_src", null);
+            this.cCT = jSONObject.optString("big_cdn_src", null);
             try {
-                String[] split = jSONObject.optString("bsize").split(",");
+                String[] split = jSONObject.optString("bsize").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 this.mWidth = Integer.valueOf(split[0]).intValue();
                 this.mHeight = Integer.valueOf(split[1]).intValue();
             } catch (Exception e) {
@@ -121,14 +121,14 @@ public class TbRichTextImageInfo extends OrmObject {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            if (this.bsc != null && this.bsc.indexOf(".baidu.com") != -1) {
-                this.bse = true;
+            if (this.cCS != null && this.cCS.indexOf(".baidu.com") != -1) {
+                this.cCU = true;
             }
         }
     }
 
-    public String SO() {
-        return this.bsd;
+    public String asO() {
+        return this.cCT;
     }
 
     public int getHeight() {
@@ -139,43 +139,43 @@ public class TbRichTextImageInfo extends OrmObject {
         return this.mWidth;
     }
 
-    public boolean SP() {
-        return this.bse;
+    public boolean asP() {
+        return this.cCU;
     }
 
-    public String SQ() {
+    public String Nx() {
         return this.mSrc;
     }
 
-    public String SR() {
-        return this.bsl;
+    public String asQ() {
+        return this.cDb;
     }
 
-    public String SS() {
-        return this.bsc;
+    public String asR() {
+        return this.cCS;
     }
 
-    public String ST() {
-        return this.bsk;
+    public String asS() {
+        return this.cDa;
     }
 
-    public boolean SU() {
-        return this.bsf;
+    public boolean asT() {
+        return this.cCV;
     }
 
-    public String SV() {
-        return this.bsg;
+    public String asU() {
+        return this.cCW;
     }
 
     public long getOriginalSize() {
-        return this.bsh;
+        return this.cCX;
     }
 
-    public boolean SW() {
-        return this.bsi;
+    public boolean asV() {
+        return this.cCY;
     }
 
-    public boolean SX() {
-        return this.bsj;
+    public boolean asW() {
+        return this.cCZ;
     }
 }

@@ -1,15 +1,16 @@
 package com.facebook.d;
 
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 class d {
-    private static final Class<?> iiR = d.class;
+    private static final Class<?> jyv = d.class;
 
     d() {
     }
 
-    public static int ze(int i) {
+    public static int CQ(int i) {
         switch (i) {
             case 0:
             case 1:
@@ -19,34 +20,34 @@ class d {
             case 5:
             case 7:
             default:
-                com.facebook.common.c.a.e(iiR, "Unsupported orientation");
+                com.facebook.common.c.a.e(jyv, "Unsupported orientation");
                 return 0;
             case 3:
-                return 180;
+                return SubsamplingScaleImageView.ORIENTATION_180;
             case 6:
                 return 90;
             case 8:
-                return 270;
+                return SubsamplingScaleImageView.ORIENTATION_270;
         }
     }
 
-    public static int g(InputStream inputStream, int i) throws IOException {
+    public static int h(InputStream inputStream, int i) throws IOException {
         a aVar = new a();
         int a2 = a(inputStream, i, aVar);
-        int i2 = aVar.iwm - 8;
+        int i2 = aVar.jLW - 8;
         if (a2 == 0 || i2 > a2) {
             return 0;
         }
         inputStream.skip(i2);
-        return b(inputStream, a(inputStream, a2 - i2, aVar.iwk, 274), aVar.iwk);
+        return b(inputStream, a(inputStream, a2 - i2, aVar.jLU, 274), aVar.jLU);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class a {
-        boolean iwk;
-        int iwl;
-        int iwm;
+        boolean jLU;
+        int jLV;
+        int jLW;
 
         private a() {
         }
@@ -56,17 +57,17 @@ class d {
         if (i <= 8) {
             return 0;
         }
-        aVar.iwl = c.a(inputStream, 4, false);
+        aVar.jLV = c.a(inputStream, 4, false);
         int i2 = i - 4;
-        if (aVar.iwl != 1229531648 && aVar.iwl != 1296891946) {
-            com.facebook.common.c.a.g(iiR, "Invalid TIFF header");
+        if (aVar.jLV != 1229531648 && aVar.jLV != 1296891946) {
+            com.facebook.common.c.a.g(jyv, "Invalid TIFF header");
             return 0;
         }
-        aVar.iwk = aVar.iwl == 1229531648;
-        aVar.iwm = c.a(inputStream, 4, aVar.iwk);
+        aVar.jLU = aVar.jLV == 1229531648;
+        aVar.jLW = c.a(inputStream, 4, aVar.jLU);
         int i3 = i2 - 4;
-        if (aVar.iwm < 8 || aVar.iwm - 8 > i3) {
-            com.facebook.common.c.a.g(iiR, "Invalid offset");
+        if (aVar.jLW < 8 || aVar.jLW - 8 > i3) {
+            com.facebook.common.c.a.g(jyv, "Invalid offset");
             return 0;
         }
         return i3;

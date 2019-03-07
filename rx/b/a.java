@@ -1,6 +1,24 @@
 package rx.b;
 
-import rx.k;
+import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes2.dex */
-public interface a<T> extends rx.e<T>, k {
+public final class a {
+    private static final rx.e<Object> kbA = new rx.e<Object>() { // from class: rx.b.a.1
+        @Override // rx.e
+        public final void onCompleted() {
+        }
+
+        @Override // rx.e
+        public final void onError(Throwable th) {
+            throw new OnErrorNotImplementedException(th);
+        }
+
+        @Override // rx.e
+        public final void onNext(Object obj) {
+        }
+    };
+
+    public static <T> rx.e<T> cEL() {
+        return (rx.e<T>) kbA;
+    }
 }

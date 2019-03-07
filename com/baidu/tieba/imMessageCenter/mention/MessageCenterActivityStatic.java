@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AgreeMeActivityConfig;
 import com.baidu.tbadk.core.atomData.AtMessageActivityConfig;
 import com.baidu.tbadk.core.atomData.MessageCenterActivityConfig;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.imMessageCenter.mention.agree.AgreeMeActivity;
 /* loaded from: classes4.dex */
 public class MessageCenterActivityStatic {
@@ -15,12 +15,12 @@ public class MessageCenterActivityStatic {
         TbadkCoreApplication.getInst().RegisterIntent(MessageCenterActivityConfig.class, MessageCenterActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AtMessageActivityConfig.class, AtMessageActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AgreeMeActivityConfig.class, AgreeMeActivity.class);
-        aNG();
+        bnf();
     }
 
-    private static void aNG() {
-        ay.Es().a(new ay.a() { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterActivityStatic.1
-            @Override // com.baidu.tbadk.core.util.ay.a
+    private static void bnf() {
+        ba.adD().a(new ba.a() { // from class: com.baidu.tieba.imMessageCenter.mention.MessageCenterActivityStatic.1
+            @Override // com.baidu.tbadk.core.util.ba.a
             public int a(TbPageContext<?> tbPageContext, String[] strArr) {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null) {
                     return 3;

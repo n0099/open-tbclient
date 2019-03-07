@@ -4,7 +4,7 @@ import android.content.Context;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.open.utils.f;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static Class<?> a = null;
     private static Class<?> b = null;

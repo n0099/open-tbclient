@@ -12,23 +12,24 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public final class d {
     private final Context a;
     private final long c;
     private byte[] f;
-    private final cn.jiguang.d.b.g ll;
-    private g lo;
-    private a lp;
-    private c lq;
-    private final a lm = new a();
-    private final a ln = new a();
-    private final LinkedList<f> lr = f.J(cn.jiguang.d.a.a.m());
+    private final cn.jiguang.d.b.g ln;
+    private g lr;
+    private a lt;
+    private c lu;
+    private final a lo = new a();
+    private final a lq = new a();
+    private final LinkedList<f> lv = f.J(cn.jiguang.d.a.a.m());
 
     public d(Context context, cn.jiguang.d.b.g gVar, long j) {
         this.a = context;
-        this.ll = gVar;
+        this.ln = gVar;
         this.c = j;
     }
 
@@ -52,7 +53,7 @@ public final class d {
             if (M == null) {
                 return -1;
             }
-            byte[] bArr2 = f(cn.jiguang.d.d.g.a(datagramSocket, new DatagramPacket(bArr, bArr.length, M, i))).b;
+            byte[] bArr2 = g(cn.jiguang.d.d.g.a(datagramSocket, new DatagramPacket(bArr, bArr.length, M, i))).b;
             if (bArr2 == null || bArr2.length == 0) {
                 throw new Exception("byte could not be empty");
             }
@@ -67,7 +68,7 @@ public final class d {
 
     private static byte[] a(String str, String str2) {
         byte[] bArr;
-        byte[] bytes = str2.getBytes("UTF-8");
+        byte[] bytes = str2.getBytes(HTTP.UTF_8);
         boolean z = true;
         try {
             byte[] a = x.a(bytes);
@@ -87,18 +88,18 @@ public final class d {
     }
 
     private g bL() {
-        if (this.lo == null) {
+        if (this.lr == null) {
             String b = cn.jiguang.d.a.b(this.a);
             long c = cn.jiguang.d.a.d.c(this.a);
             int a = k.a(this.a);
             String b2 = k.b(this.a);
             cn.jiguang.a.a.b.e R = cn.jiguang.a.a.b.f.R(this.a);
-            this.lo = new g(a, b, "1.2.5", c, b2, R.b(), R.c(), R.d());
+            this.lr = new g(a, b, "1.2.5", c, b2, R.b(), R.c(), R.d());
         }
-        return this.lo;
+        return this.lr;
     }
 
-    public static b f(byte[] bArr) {
+    public static b g(byte[] bArr) {
         if (bArr == null || bArr.length == 0) {
             throw new e(3, "response is empty!");
         }
@@ -134,11 +135,11 @@ public final class d {
     }
 
     private void h() {
-        while (this.lr.size() > 5) {
-            this.lr.removeFirst();
+        while (this.lv.size() > 5) {
+            this.lv.removeFirst();
         }
         JSONArray jSONArray = new JSONArray();
-        Iterator<f> it = this.lr.iterator();
+        Iterator<f> it = this.lv.iterator();
         while (it.hasNext()) {
             jSONArray.put(it.next().a());
         }
@@ -146,14 +147,14 @@ public final class d {
     }
 
     public final void a(String str, int i, int i2) {
-        this.lm.a(str, i, String.valueOf(i2));
+        this.lo.a(str, i, String.valueOf(i2));
     }
 
     public final void a(String str, int i, long j, long j2, int i2) {
         if (c.a(str, i)) {
             f fVar = new f();
             fVar.a = 1;
-            fVar.lt = new c(str, i);
+            fVar.lw = new c(str, i);
             fVar.d = j;
             fVar.e = j2;
             fVar.j = i2;
@@ -162,23 +163,27 @@ public final class d {
                 fVar.f = bL.a();
                 fVar.c = bL.b();
                 fVar.g = bL.c();
-                fVar.h = bL.bN();
+                fVar.h = bL.d();
                 fVar.i = bL.e();
             }
-            this.lr.add(fVar);
+            this.lv.add(fVar);
             h();
         }
     }
 
     public final boolean a(c cVar) {
-        return this.lm.a(cVar);
+        return this.lo.a(cVar);
+    }
+
+    public final void b(String str, int i, int i2) {
+        this.lq.a(str, i, String.valueOf(i2));
     }
 
     public final void b(String str, int i, long j, long j2, int i2) {
         if (c.a(str, i)) {
             f fVar = new f();
             fVar.a = 2;
-            fVar.lt = new c(str, i);
+            fVar.lw = new c(str, i);
             fVar.d = j;
             fVar.e = j2;
             fVar.j = i2;
@@ -190,71 +195,71 @@ public final class d {
                 fVar.h = R.c();
                 fVar.i = R.d();
             }
-            this.lr.add(fVar);
+            this.lv.add(fVar);
             h();
         }
     }
 
     public final boolean b(c cVar) {
-        return this.ln.a(cVar);
+        return this.lq.a(cVar);
     }
 
     public final a bJ() {
-        if (this.lp == null) {
-            this.lp = a.I(cn.jiguang.d.a.a.l());
+        if (this.lt == null) {
+            this.lt = a.I(cn.jiguang.d.a.a.l());
         }
-        if (this.lp == null || this.lp.a()) {
-            this.lp = new a();
-            LinkedHashMap<String, Integer> bE = cn.jiguang.d.a.ld.bE();
+        if (this.lt == null || this.lt.a()) {
+            this.lt = new a();
+            LinkedHashMap<String, Integer> bE = cn.jiguang.d.a.lf.bE();
             if (bE != null) {
                 for (String str : bE.keySet()) {
-                    this.lp.a(str, bE.get(str).intValue(), "hardcode_ip");
+                    this.lt.a(str, bE.get(str).intValue(), "hardcode_ip");
                 }
             }
-            if (!this.lp.a()) {
-                cn.jiguang.d.a.a.d(this.lp.toString());
+            if (!this.lt.a()) {
+                cn.jiguang.d.a.a.d(this.lt.toString());
             }
         }
-        return this.lp;
+        return this.lt;
     }
 
     public final a bK() {
-        this.lq = c.a(cn.jiguang.d.a.a.n());
+        this.lu = c.a(cn.jiguang.d.a.a.n());
         a aVar = new a();
-        for (Map.Entry<String, Integer> entry : cn.jiguang.d.a.ld.bD().entrySet()) {
+        for (Map.Entry<String, Integer> entry : cn.jiguang.d.a.lf.bD().entrySet()) {
             aVar.a(entry.getKey(), entry.getValue().intValue(), "hardcode_domain");
         }
-        if (this.lq != null) {
-            aVar.a(this.lq.a, this.lq.b, "last_good");
+        if (this.lu != null) {
+            aVar.a(this.lu.a, this.lu.b, "last_good");
         }
         return aVar;
     }
 
     public final cn.jiguang.d.b.g bM() {
-        return this.ll;
+        return this.ln;
     }
 
     public final void c(a aVar) {
-        if (aVar == null || aVar.equals(this.lp)) {
+        if (aVar == null || aVar.equals(this.lt)) {
             return;
         }
-        this.lp = aVar;
-        cn.jiguang.d.a.a.d(this.lp.toString());
+        this.lt = aVar;
+        cn.jiguang.d.a.a.d(this.lt.toString());
     }
 
     public final void c(c cVar) {
-        if (cVar.equals(this.lq)) {
+        if (cVar.equals(this.lu)) {
             return;
         }
-        this.lq = cVar;
-        cn.jiguang.d.a.a.f(this.lq.toString());
+        this.lu = cVar;
+        cn.jiguang.d.a.a.f(this.lu.toString());
     }
 
     public final byte[] c() {
         if (this.f == null) {
             bL();
             try {
-                this.f = a("UG", this.lo.f().toString());
+                this.f = a("UG", this.lr.f().toString());
             } catch (Exception e) {
                 throw new e(1, "Failed to package data - " + e.getMessage());
             }
@@ -299,7 +304,7 @@ public final class d {
             cn.jiguang.d.b.a.a r1 = r5.bK()     // Catch: java.lang.Throwable -> L65
             int r1 = r5.a(r1, r0, r2)     // Catch: java.lang.Throwable -> L65
             if (r1 == 0) goto L41
-            cn.jiguang.c.b r1 = cn.jiguang.d.a.ld     // Catch: java.lang.Throwable -> L65
+            cn.jiguang.c.b r1 = cn.jiguang.d.a.lf     // Catch: java.lang.Throwable -> L65
             java.lang.String r1 = r1.f()     // Catch: java.lang.Throwable -> L65
             java.util.List r1 = cn.jiguang.d.c.f.a(r1)     // Catch: java.lang.Throwable -> L65
             r3 = 0
@@ -346,9 +351,5 @@ public final class d {
             goto L4f
         */
         throw new UnsupportedOperationException("Method not decompiled: cn.jiguang.d.b.a.d.f():void");
-    }
-
-    public final void h(String str, int i, int i2) {
-        this.ln.a(str, i, String.valueOf(i2));
     }
 }

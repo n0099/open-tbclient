@@ -16,8 +16,8 @@ import cn.jpush.android.d.j;
 import cn.jpush.android.data.g;
 import cn.jpush.android.service.PushReceiver;
 import cn.jpush.android.ui.PopWinActivity;
-import com.baidu.searchbox.ng.ai.apps.network.NetworkDef;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
+import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
+import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
@@ -212,8 +212,8 @@ public final class c {
             if (bVar.a() && (bVar instanceof g)) {
                 g gVar = (g) bVar;
                 if (gVar.L != 0 && gVar.L != 4) {
-                    if (gVar.Q != null && gVar.Q.startsWith("file://")) {
-                        gVar.Q = gVar.Q.replaceFirst("file://", "");
+                    if (gVar.Q != null && gVar.Q.startsWith(SkiaImageDecoder.FILE_PREFIX)) {
+                        gVar.Q = gVar.Q.replaceFirst(SkiaImageDecoder.FILE_PREFIX, "");
                         intent.putExtra(JPushInterface.EXTRA_RICHPUSH_HTML_PATH, gVar.Q);
                     }
                     if (gVar.N != null && gVar.N.size() > 0) {
@@ -228,7 +228,7 @@ public final class c {
                             if (TextUtils.isEmpty(sb.toString())) {
                                 sb.append(b).append(next);
                             } else {
-                                sb.append(",").append(b).append(next);
+                                sb.append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(b).append(next);
                             }
                         }
                         intent.putExtra(JPushInterface.EXTRA_RICHPUSH_HTML_RES, sb.toString());
@@ -424,7 +424,7 @@ public final class c {
                         intent.putExtra(JPushInterface.EXTRA_NOTIFICATION_DEVELOPER_ARG0, developerArg0);
                     }
                     f.a("NotificationHelper", "notification intent component=" + intent.getComponent());
-                    activity = cn.jiguang.api.e.bB() ? PendingIntent.getActivity(context, 0, intent, AiAppsFileUtils.GB) : PendingIntent.getBroadcast(context, 0, intent, AiAppsFileUtils.GB);
+                    activity = cn.jiguang.api.e.bB() ? PendingIntent.getActivity(context, 0, intent, 1073741824) : PendingIntent.getBroadcast(context, 0, intent, 1073741824);
                 }
                 buildNotification.contentIntent = activity;
                 if (!JPushInterface.a(bVar.g)) {
@@ -476,7 +476,7 @@ public final class c {
             }
             if (2 == ((g) bVar).L) {
                 Intent intent = new Intent(context, PopWinActivity.class);
-                intent.putExtra(NetworkDef.Http.BODY, bVar);
+                intent.putExtra("body", bVar);
                 intent.addFlags(335544320);
                 return intent;
             }

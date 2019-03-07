@@ -39,7 +39,6 @@ import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
-import com.baidu.fsg.base.router.RouterCallback;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
@@ -2231,7 +2230,7 @@ public class MediaSessionCompat {
         RemoteControlClient.MetadataEditor buildRccMetadata(Bundle bundle) {
             RemoteControlClient.MetadataEditor buildRccMetadata = super.buildRccMetadata(bundle);
             if (((this.mState == null ? 0L : this.mState.getActions()) & 128) != 0) {
-                buildRccMetadata.addEditableKey(RouterCallback.CODE_ERROR);
+                buildRccMetadata.addEditableKey(268435457);
             }
             if (bundle != null) {
                 if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_YEAR)) {
@@ -2241,7 +2240,7 @@ public class MediaSessionCompat {
                     buildRccMetadata.putObject(101, (Object) bundle.getParcelable(MediaMetadataCompat.METADATA_KEY_RATING));
                 }
                 if (bundle.containsKey(MediaMetadataCompat.METADATA_KEY_USER_RATING)) {
-                    buildRccMetadata.putObject(RouterCallback.CODE_ERROR, (Object) bundle.getParcelable(MediaMetadataCompat.METADATA_KEY_USER_RATING));
+                    buildRccMetadata.putObject(268435457, (Object) bundle.getParcelable(MediaMetadataCompat.METADATA_KEY_USER_RATING));
                 }
             }
             return buildRccMetadata;

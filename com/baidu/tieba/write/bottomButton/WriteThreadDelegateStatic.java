@@ -11,8 +11,7 @@ import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.mainTab.b;
 import com.baidu.tbadk.mainTab.c;
-import com.baidu.tbadk.mainTab.d;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class WriteThreadDelegateStatic extends b {
     @Override // com.baidu.tbadk.mainTab.b
@@ -21,14 +20,14 @@ public class WriteThreadDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c Og() {
+    public c anK() {
         c cVar = new c();
-        cVar.beA = new WriteThreadFragment();
+        cVar.cod = new WriteThreadFragment();
         cVar.type = 9;
-        cVar.aFV = e.j.send;
-        cVar.aFW = e.f.icon_tabbar_add_n;
-        cVar.beB = e.f.icon_tabbar_chaticon_n;
-        cVar.beG = c.beC;
+        cVar.bOd = d.j.send;
+        cVar.bOe = d.f.icon_tabbar_add_n;
+        cVar.coe = d.f.icon_tabbar_chaticon_n;
+        cVar.coj = c.cof;
         return cVar;
     }
 
@@ -37,12 +36,12 @@ public class WriteThreadDelegateStatic extends b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c Oh;
+                c anL;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     WriteThreadDelegateStatic writeThreadDelegateStatic = new WriteThreadDelegateStatic();
-                    ((d) customResponsedMessage.getData()).a(writeThreadDelegateStatic);
-                    if (((d) customResponsedMessage.getData()).getContext() != null && (Oh = writeThreadDelegateStatic.Oh()) != null) {
-                        Oh.beA.setArguments(new Bundle());
+                    ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(writeThreadDelegateStatic);
+                    if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (anL = writeThreadDelegateStatic.anL()) != null) {
+                        anL.cod.setArguments(new Bundle());
                     }
                 }
             }
@@ -52,8 +51,8 @@ public class WriteThreadDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public TbFragmentTabIndicator bR(Context context) {
-        this.bel = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(e.h.maintab_bottom_indicator, (ViewGroup) null);
-        return this.bel;
+    public TbFragmentTabIndicator di(Context context) {
+        this.cnP = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(d.h.maintab_bottom_indicator, (ViewGroup) null);
+        return this.cnP;
     }
 }

@@ -1,18 +1,18 @@
 package com.baidu.tieba.a;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.ubs.analytics.SampleResult;
 import com.baidu.ubs.analytics.c;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c {
-    private boolean bBi = false;
+    private boolean cMo = false;
     private int mChannel;
 
     public c() {
-        Wg();
+        awg();
     }
 
     public void a(ArrayList<Integer> arrayList, b bVar) {
@@ -20,30 +20,30 @@ public class c {
             Iterator<Integer> it = arrayList.iterator();
             while (it.hasNext()) {
                 int intValue = it.next().intValue();
-                bVar.put(intValue, hD(intValue));
+                bVar.put(intValue, lt(intValue));
             }
         }
     }
 
-    private int hD(int i) {
+    private int lt(int i) {
         if (i == 1) {
-            return hE(i);
+            return lu(i);
         }
         if (this.mChannel == 1) {
-            return hG(i);
+            return lw(i);
         }
         if (this.mChannel == 0) {
-            return hE(i);
+            return lu(i);
         }
         return 0;
     }
 
-    private int hE(int i) {
-        String hF = hF(i);
-        return (!ao.isEmpty(hF) && com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(hF, 0) == 1) ? 1 : 0;
+    private int lu(int i) {
+        String lv = lv(i);
+        return (!ap.isEmpty(lv) && com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(lv, 0) == 1) ? 1 : 0;
     }
 
-    private String hF(int i) {
+    private String lv(int i) {
         if (i == 1) {
             return "key_card_show_type";
         }
@@ -53,53 +53,53 @@ public class c {
         return null;
     }
 
-    private int hG(int i) {
-        String hH = hH(i);
-        if (ao.isEmpty(hH)) {
+    private int lw(int i) {
+        String lx = lx(i);
+        if (ap.isEmpty(lx)) {
             return 0;
         }
-        SampleResult yM = com.baidu.ubs.analytics.a.yM(hH);
-        return (yM == SampleResult.T1 || yM == SampleResult.T2 || yM == SampleResult.T3 || yM == SampleResult.T4 || yM == SampleResult.T5) ? 1 : 0;
+        SampleResult EO = com.baidu.ubs.analytics.a.EO(lx);
+        return (EO == SampleResult.T1 || EO == SampleResult.T2 || EO == SampleResult.T3 || EO == SampleResult.T4 || EO == SampleResult.T5) ? 1 : 0;
     }
 
-    private String hH(int i) {
+    private String lx(int i) {
         if (i == 2) {
             return "46";
         }
         return null;
     }
 
-    private void Wg() {
+    private void awg() {
         this.mChannel = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_abtest_channel", 0);
-        Wh();
+        awh();
     }
 
-    public void hI(int i) {
+    public void ly(int i) {
         if (i == 1 || i == 0) {
             this.mChannel = i;
             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_abtest_channel", this.mChannel);
-            Wh();
+            awh();
         }
     }
 
-    private void Wh() {
-        if (!this.bBi && this.mChannel == 1) {
-            this.bBi = Wj();
-            if (!this.bBi) {
+    private void awh() {
+        if (!this.cMo && this.mChannel == 1) {
+            this.cMo = awj();
+            if (!this.cMo) {
                 this.mChannel = 0;
             }
         }
     }
 
-    public boolean Wi() {
-        return this.bBi;
+    public boolean awi() {
+        return this.cMo;
     }
 
-    public boolean Wj() {
+    public boolean awj() {
         boolean z = true;
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             try {
-                com.baidu.ubs.analytics.a.a(new c.a().dn(TbadkCoreApplication.getInst()).oS(false).dt(30L).xY(1).oT(false).du(15L).xZ(1000).bTf());
+                com.baidu.ubs.analytics.a.a(new c.a().eI(TbadkCoreApplication.getInst()).rn(false).dY(30L).BK(1).ro(false).dZ(15L).BL(1000).csb());
             } catch (Exception e) {
                 e.printStackTrace();
                 z = false;

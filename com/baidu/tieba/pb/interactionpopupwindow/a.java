@@ -11,76 +11,76 @@ import android.widget.EditText;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ba;
-import com.baidu.tieba.e;
+import com.baidu.tbadk.core.util.bc;
+import com.baidu.tieba.d;
 import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.tieba.pb.interactionpopupwindow.g;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes.dex */
 public abstract class a<V extends g, D extends IBaseDialogData> implements f {
-    private DialogInterface.OnCancelListener awU;
-    private AlertDialog awW;
-    protected V fUW;
-    protected D fUX;
+    private AlertDialog bEB;
+    private DialogInterface.OnCancelListener bEz;
+    protected V hlh;
+    protected D hli;
     protected Context mContext;
     private DialogInterface.OnKeyListener mOnKeyListener;
     protected TbPageContext mPageContext;
-    private int awK = -1;
-    private boolean fUU = true;
-    private boolean fUV = false;
+    private int bEo = -1;
+    private boolean hlf = true;
+    private boolean hlg = false;
 
     public a(TbPageContext tbPageContext, V v, D d) {
         this.mPageContext = tbPageContext;
         this.mContext = tbPageContext.getPageActivity();
-        this.fUW = v;
-        this.fUX = d;
+        this.hlh = v;
+        this.hli = d;
         a(d);
     }
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.f
     public void show() {
-        if (this.awW != null) {
-            com.baidu.adp.lib.g.g.a(this.awW, this.mPageContext.getPageActivity());
+        if (this.bEB != null) {
+            com.baidu.adp.lib.g.g.a(this.bEB, this.mPageContext.getPageActivity());
             return;
         }
-        if (this.fUV) {
-            this.awW = new AlertDialog.Builder(this.mContext, e.k.search_dialog).create();
+        if (this.hlg) {
+            this.bEB = new AlertDialog.Builder(this.mContext, d.k.search_dialog).create();
         } else {
-            this.awW = new AlertDialog.Builder(this.mContext).create();
+            this.bEB = new AlertDialog.Builder(this.mContext).create();
         }
-        this.awW.setCanceledOnTouchOutside(afC());
-        this.awW.setCancelable(afD());
-        this.awW.setOnKeyListener(this.mOnKeyListener);
-        if (this.awU != null) {
-            this.awW.setOnCancelListener(this.awU);
+        this.bEB.setCanceledOnTouchOutside(aGx());
+        this.bEB.setCancelable(aGy());
+        this.bEB.setOnKeyListener(this.mOnKeyListener);
+        if (this.bEz != null) {
+            this.bEB.setOnCancelListener(this.bEz);
         }
-        com.baidu.adp.lib.g.g.a(this.awW, this.mPageContext.getPageActivity());
-        if (this.awW.getWindow().getDecorView().getParent() != null) {
-            Window window = this.awW.getWindow();
-            if (this.awK == -1) {
-                this.awK = 17;
+        com.baidu.adp.lib.g.g.a(this.bEB, this.mPageContext.getPageActivity());
+        if (this.bEB.getWindow().getDecorView().getParent() != null) {
+            Window window = this.bEB.getWindow();
+            if (this.bEo == -1) {
+                this.bEo = 17;
             }
-            window.setGravity(this.awK);
-            window.setBackgroundDrawableResource(e.f.transparent_bg);
+            window.setGravity(this.bEo);
+            window.setBackgroundDrawableResource(d.f.transparent_bg);
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.dimAmount = 0.7f;
             attributes.width = -1;
             DisplayMetrics s = l.s(this.mPageContext.getPageActivity());
             if (s != null) {
-                int BR = BR();
+                int aaY = aaY();
                 if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
-                    attributes.width = s.heightPixels - (BR * 2);
+                    attributes.width = s.heightPixels - (aaY * 2);
                 } else {
-                    attributes.width = s.widthPixels - (BR * 2);
+                    attributes.width = s.widthPixels - (aaY * 2);
                 }
             }
             attributes.height = -2;
             window.setAttributes(attributes);
-            window.setContentView(this.fUW.getViewGroup());
+            window.setContentView(this.hlh.getViewGroup());
             final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            ba.a(this.fUW.getViewGroup(), false, new ba.a() { // from class: com.baidu.tieba.pb.interactionpopupwindow.a.1
-                @Override // com.baidu.tbadk.core.util.ba.a
-                public boolean H(View view) {
+            bc.a(this.hlh.getViewGroup(), false, new bc.a() { // from class: com.baidu.tieba.pb.interactionpopupwindow.a.1
+                @Override // com.baidu.tbadk.core.util.bc.a
+                public boolean aA(View view) {
                     if (view instanceof EditText) {
                         atomicBoolean.set(true);
                         return true;
@@ -96,32 +96,32 @@ public abstract class a<V extends g, D extends IBaseDialogData> implements f {
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.f
     public void dismiss() {
-        if (this.awW != null) {
-            com.baidu.adp.lib.g.g.b(this.awW, this.mPageContext.getPageActivity());
+        if (this.bEB != null) {
+            com.baidu.adp.lib.g.g.b(this.bEB, this.mPageContext.getPageActivity());
         }
     }
 
     @Override // com.baidu.tieba.pb.interactionpopupwindow.f
     public boolean isShowing() {
-        if (this.awW != null) {
-            return this.awW.isShowing();
+        if (this.bEB != null) {
+            return this.bEB.isShowing();
         }
         return false;
     }
 
-    public a sr(int i) {
-        this.awK = i;
+    public a vZ(int i) {
+        this.bEo = i;
         return this;
     }
 
-    public a kB(boolean z) {
-        this.fUV = z;
+    public a nb(boolean z) {
+        this.hlg = z;
         return this;
     }
 
     public void a(D d) {
-        if (this.fUW != null) {
-            this.fUW.a(d);
+        if (this.hlh != null) {
+            this.hlh.a(d);
         }
     }
 }

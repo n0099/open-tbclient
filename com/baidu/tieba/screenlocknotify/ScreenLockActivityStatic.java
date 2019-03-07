@@ -9,11 +9,11 @@ public class ScreenLockActivityStatic {
     static {
         TbadkApplication.getInst().RegisterIntent(ScreenLockActivityConfig.class, ScreenLockActivity.class);
         try {
-            a.bxr();
+            a.bYf();
             new IntentConfig(TbadkApplication.getInst()).startService(ScreenLockNotifyService.class);
         } catch (Exception e) {
             BdLog.e(e);
-            com.baidu.adp.plugin.b.a.mN().g("plugin_load", "screenlock_failed", null, e.getMessage() + "---" + e.getClass().getName());
+            com.baidu.adp.plugin.b.a.mS().g("plugin_load", "screenlock_failed", null, e.getMessage() + "---" + e.getClass().getName());
         }
     }
 }

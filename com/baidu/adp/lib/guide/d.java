@@ -17,7 +17,7 @@ public class d {
         void onShown();
     }
 
-    public d aw(int i) {
+    public d af(int i) {
         if (this.BS) {
             throw new BuildException("Already created. rebuild a new one.");
         }
@@ -39,7 +39,7 @@ public class d {
         return this;
     }
 
-    public d ax(int i) {
+    public d ag(int i) {
         if (this.BS) {
             throw new BuildException("Already created. rebuild a new one.");
         }
@@ -83,7 +83,7 @@ public class d {
     }
 
     public d ad(boolean z) {
-        this.BK.mOutsideTouchable = z;
+        this.BK.BB = z;
         return this;
     }
 

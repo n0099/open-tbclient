@@ -4,10 +4,10 @@ import android.view.MotionEvent;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public interface a {
+    void cuM();
+
     @Nullable
     b getHierarchy();
-
-    void onAttach();
 
     void onDetach();
 

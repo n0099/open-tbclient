@@ -7,28 +7,28 @@ public class InvoiceInfo implements Parcelable {
     public static final Parcelable.Creator<InvoiceInfo> CREATOR = new Parcelable.Creator<InvoiceInfo>() { // from class: com.baidu.tieba.aiapps.apps.invoice.model.InvoiceInfo.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: l */
+        /* renamed from: C */
         public InvoiceInfo createFromParcel(Parcel parcel) {
             return new InvoiceInfo(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: hW */
+        /* renamed from: lN */
         public InvoiceInfo[] newArray(int i) {
             return new InvoiceInfo[i];
         }
     };
-    @com.google.gson.a.c("tax_number")
-    public String bHW;
-    @com.google.gson.a.c("company_address")
-    public String bHX;
-    @com.google.gson.a.c("telephone")
-    public String bHY;
-    @com.google.gson.a.c("bank_name")
-    public String bHZ;
     @com.google.gson.a.c("bank_account")
-    public String bIa;
+    public String cTA;
+    @com.google.gson.a.c("tax_number")
+    public String cTw;
+    @com.google.gson.a.c("company_address")
+    public String cTx;
+    @com.google.gson.a.c("telephone")
+    public String cTy;
+    @com.google.gson.a.c("bank_name")
+    public String cTz;
     @com.google.gson.a.c("id")
     public long mId;
     @com.google.gson.a.c("is_default")
@@ -44,28 +44,28 @@ public class InvoiceInfo implements Parcelable {
     public InvoiceInfo(int i, String str, String str2, String str3, String str4, String str5, String str6) {
         this.mType = i;
         this.mTitle = str;
-        this.bHW = str2;
-        this.bHX = str3;
-        this.bHY = str4;
-        this.bHZ = str5;
-        this.bIa = str6;
+        this.cTw = str2;
+        this.cTx = str3;
+        this.cTy = str4;
+        this.cTz = str5;
+        this.cTA = str6;
     }
 
     public InvoiceInfo(int i, String str, String str2) {
         this.mType = i;
         this.mTitle = str;
-        this.bHY = str2;
+        this.cTy = str2;
     }
 
     private InvoiceInfo(Parcel parcel) {
         this.mId = parcel.readLong();
         this.mType = parcel.readInt();
         this.mTitle = parcel.readString();
-        this.bHW = parcel.readString();
-        this.bHX = parcel.readString();
-        this.bHY = parcel.readString();
-        this.bHZ = parcel.readString();
-        this.bIa = parcel.readString();
+        this.cTw = parcel.readString();
+        this.cTx = parcel.readString();
+        this.cTy = parcel.readString();
+        this.cTz = parcel.readString();
+        this.cTA = parcel.readString();
         this.mIsDefault = parcel.readInt();
     }
 
@@ -79,11 +79,11 @@ public class InvoiceInfo implements Parcelable {
         parcel.writeLong(this.mId);
         parcel.writeInt(this.mType);
         parcel.writeString(this.mTitle);
-        parcel.writeString(this.bHW);
-        parcel.writeString(this.bHX);
-        parcel.writeString(this.bHY);
-        parcel.writeString(this.bHZ);
-        parcel.writeString(this.bIa);
+        parcel.writeString(this.cTw);
+        parcel.writeString(this.cTx);
+        parcel.writeString(this.cTy);
+        parcel.writeString(this.cTz);
+        parcel.writeString(this.cTA);
         parcel.writeInt(this.mIsDefault);
     }
 

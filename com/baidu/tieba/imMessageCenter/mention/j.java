@@ -1,8 +1,7 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
-import com.baidu.tbadk.core.data.al;
+import com.baidu.tbadk.core.data.an;
 import com.baidu.tbadk.core.util.v;
 import com.squareup.wire.Message;
 import java.util.ArrayList;
@@ -14,21 +13,21 @@ import tbclient.ReplyMe.ReplyList;
 import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes4.dex */
 public class j implements com.baidu.tbadk.mvc.b.j {
-    protected boolean Jr;
-    protected ArrayList<FeedData> fio = new ArrayList<>();
-    protected al fip = new al();
-    protected h fiq = new h();
+    protected boolean Jy;
+    protected ArrayList<FeedData> gyp = new ArrayList<>();
+    protected an page = new an();
+    protected h gyq = new h();
 
-    public ArrayList<FeedData> aXj() {
-        return this.fio;
+    public ArrayList<FeedData> bxM() {
+        return this.gyp;
     }
 
-    public al zf() {
-        return this.fip;
+    public an getPage() {
+        return this.page;
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void I(JSONObject jSONObject) {
+    public void initByJson(JSONObject jSONObject) {
         try {
             JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
             JSONArray optJSONArray2 = optJSONArray == null ? jSONObject.optJSONArray("at_list") : optJSONArray;
@@ -36,23 +35,23 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.fio.add(feedData);
-                    if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.H(feedData.getPraiseList()) == 0) {
-                        this.fio.remove(feedData);
+                    this.gyp.add(feedData);
+                    if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.S(feedData.getPraiseList()) == 0) {
+                        this.gyp.remove(feedData);
                     }
                 }
             }
-            this.fiq.parserJson(jSONObject.optJSONObject("message"));
-            this.fip.parserJson(jSONObject.optJSONObject(SystemScreenshotManager.PAGE));
-            this.Jr = true;
+            this.gyq.parserJson(jSONObject.optJSONObject("message"));
+            this.page.parserJson(jSONObject.optJSONObject("page"));
+            this.Jy = true;
         } catch (Exception e) {
-            this.Jr = false;
+            this.Jy = false;
             BdLog.e(e.getMessage());
         }
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void a(Message message) {
+    public void initByProtobuf(Message message) {
         if (message instanceof ReplyMeResIdl) {
             DataRes dataRes = ((ReplyMeResIdl) message).data;
             try {
@@ -61,16 +60,16 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.fio.add(feedData);
-                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.H(feedData.getPraiseList()) == 0) {
-                            this.fio.remove(feedData);
+                        this.gyp.add(feedData);
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.S(feedData.getPraiseList()) == 0) {
+                            this.gyp.remove(feedData);
                         }
                     }
                 }
-                this.fip.a(dataRes.page);
-                this.Jr = true;
+                this.page.a(dataRes.page);
+                this.Jy = true;
             } catch (Exception e) {
-                this.Jr = false;
+                this.Jy = false;
                 BdLog.e(e.getMessage());
             }
         }

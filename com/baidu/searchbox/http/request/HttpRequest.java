@@ -1,7 +1,6 @@
 package com.baidu.searchbox.http.request;
 
 import android.os.Handler;
-import com.baidu.searchbox.dns.DnsHelper;
 import com.baidu.searchbox.http.AbstractHttpManager;
 import com.baidu.searchbox.http.Cancelable;
 import com.baidu.searchbox.http.RequestHandler;
@@ -25,7 +24,6 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
     protected int connectionTimeout;
     protected CookieManager cookieManager;
     protected Handler deliver;
-    protected DnsHelper dnsHelper;
     protected boolean enableRetry;
     protected Headers headers;
     protected AbstractHttpManager httpManager;
@@ -67,7 +65,6 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
         this.client = this.httpManager.getOkHttpClient();
         this.requestHandler = this.httpManager.getRequestHandler();
         this.networkStat = this.httpManager.getNetworkStat();
-        this.dnsHelper = this.httpManager.dnsHelper();
         this.deliver = this.httpManager.getDeliver();
         this.httpUrl = t.httpUrl;
         this.tag = t.tag;

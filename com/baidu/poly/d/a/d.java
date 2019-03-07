@@ -5,5 +5,5 @@ import com.baidu.poly.d.a;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public interface d {
-    void a(Activity activity, Map<String, String> map, a.C0115a c0115a);
+    void a(Activity activity, Map<String, String> map, a.C0054a c0054a);
 }

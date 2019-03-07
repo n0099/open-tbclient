@@ -1,7 +1,6 @@
 package com.sina.weibo.sdk.utils;
 
 import android.content.Context;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 /* loaded from: classes2.dex */
 public class NetworkHelper {
     public static boolean hasInternetPermission(Context context) {
@@ -17,7 +16,7 @@ public class NetworkHelper {
         sb.append("sdk");
         sb.append("__");
         try {
-            sb.append(context.getPackageManager().getPackageInfo(context.getPackageName(), 16).versionName.replaceAll("\\s+", BaseRequestAction.SPLITE));
+            sb.append(context.getPackageManager().getPackageInfo(context.getPackageName(), 16).versionName.replaceAll("\\s+", "_"));
         } catch (Exception e) {
             sb.append("unknown");
         }

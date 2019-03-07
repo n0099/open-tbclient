@@ -50,9 +50,9 @@ public class LoadingDialog extends Dialog {
         }
 
         public LoadingDialog createDialog() {
-            View inflate = LayoutInflater.from(this.context).inflate(a.e.layout_sapi_sdk_loading_dialog, (ViewGroup) null);
-            LoadingDialog loadingDialog = new LoadingDialog(this.context, a.g.sapi_sdk_loading_dialog);
-            TextView textView = (TextView) inflate.findViewById(a.d.tipTextView);
+            View inflate = LayoutInflater.from(this.context).inflate(a.f.layout_sapi_sdk_loading_dialog, (ViewGroup) null);
+            LoadingDialog loadingDialog = new LoadingDialog(this.context, a.h.sapi_sdk_loading_dialog);
+            TextView textView = (TextView) inflate.findViewById(a.e.tipTextView);
             if (this.isShowMessage) {
                 textView.setText(this.message);
             } else {

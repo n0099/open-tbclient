@@ -10,10 +10,10 @@ import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private static final Map<String, b> KC = new HashMap();
-    private static final Object KD = new Object();
-    private static DateFormat KE = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINESE);
-    private LinkedList<a> KF = new LinkedList<>();
+    private static final Map<String, b> KJ = new HashMap();
+    private static final Object KK = new Object();
+    private static DateFormat KL = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINESE);
+    private LinkedList<a> KM = new LinkedList<>();
     private long startTime;
     private String type;
 
@@ -21,24 +21,24 @@ public class b {
         if (TextUtils.isEmpty(str)) {
             str = "Default";
         }
-        if (!KC.containsKey(str)) {
-            synchronized (KD) {
-                if (!KC.containsKey(str)) {
+        if (!KJ.containsKey(str)) {
+            synchronized (KK) {
+                if (!KJ.containsKey(str)) {
                     b bVar = new b(str);
-                    KC.put(str, bVar);
+                    KJ.put(str, bVar);
                     return bVar;
                 }
             }
         }
-        return KC.get(str);
+        return KJ.get(str);
     }
 
-    public static b mQ() {
+    public static b mV() {
         return bQ("plugin_load");
     }
 
-    public static void J(String str, String str2) {
-        mQ().trace(str, str2);
+    public static void I(String str, String str2) {
+        mV().trace(str, str2);
     }
 
     b(String str) {
@@ -46,30 +46,30 @@ public class b {
     }
 
     public void trace(String str, String str2) {
-        mR();
-        mS();
-        this.KF.add(new a(str, str2));
+        mW();
+        mX();
+        this.KM.add(new a(str, str2));
     }
 
-    private void mR() {
+    private void mW() {
         if (this.startTime == 0) {
             this.startTime = System.currentTimeMillis();
         }
     }
 
-    private void mS() {
-        while (this.KF.size() >= 70) {
-            this.KF.poll();
+    private void mX() {
+        while (this.KM.size() >= 70) {
+            this.KM.poll();
         }
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("trace_" + this.type + "{begin@" + KE.format(new Date(this.startTime)) + "->");
-        for (int i = 0; i < this.KF.size(); i++) {
-            a aVar = this.KF.get(i);
-            sb.append(String.format("%s(%s)@%s", aVar.method, aVar.KG, KE.format(new Date(aVar.time))));
-            if (i < this.KF.size() - 1) {
+        sb.append("trace_" + this.type + "{begin@" + KL.format(new Date(this.startTime)) + "->");
+        for (int i = 0; i < this.KM.size(); i++) {
+            a aVar = this.KM.get(i);
+            sb.append(String.format("%s(%s)@%s", aVar.method, aVar.KN, KL.format(new Date(aVar.time))));
+            if (i < this.KM.size() - 1) {
                 sb.append("->");
             }
         }
@@ -80,13 +80,13 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public static class a {
-        private String KG;
+        private String KN;
         private String method;
         private long time;
 
         a(String str, String str2, long j) {
             this.method = str;
-            this.KG = str2;
+            this.KN = str2;
             this.time = j;
         }
 

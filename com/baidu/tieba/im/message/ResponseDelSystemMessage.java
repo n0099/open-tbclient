@@ -3,7 +3,7 @@ package com.baidu.tieba.im.message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import protobuf.DelGroupMsgs.DelGroupMsgsResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class ResponseDelSystemMessage extends SocketResponsedMessage {
     private long groupId;
 

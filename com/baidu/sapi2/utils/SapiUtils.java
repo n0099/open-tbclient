@@ -32,9 +32,6 @@ import android.webkit.CookieSyncManager;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.util.DeviceId;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.fsg.base.BaiduRimConstants;
-import com.baidu.mobstat.Config;
 import com.baidu.pass.gid.BaiduGIDManager;
 import com.baidu.pass.gid.utils.Event;
 import com.baidu.pass.gid.utils.GIDEvent;
@@ -45,12 +42,11 @@ import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.base.utils.EncodeUtils;
 import com.baidu.sapi2.base.utils.NetworkUtil;
+import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppRomUtils;
-import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -59,6 +55,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.URLDecoder;
@@ -77,9 +74,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.SimpleTimeZone;
 import java.util.regex.Pattern;
-import org.apache.http.NameValuePair;
-import org.apache.http.conn.util.InetAddressUtils;
-import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -202,7 +197,7 @@ public class SapiUtils {
         Location lastKnownLocation;
         LocationManager locationManager = (LocationManager) context.getSystemService(Headers.LOCATION);
         try {
-            return (checkRequestPermission("android.permission.ACCESS_FINE_LOCATION", context) && locationManager.isProviderEnabled("gps") && (lastKnownLocation = locationManager.getLastKnownLocation("gps")) != null) ? lastKnownLocation.getLongitude() + "," + lastKnownLocation.getLatitude() : "";
+            return (checkRequestPermission("android.permission.ACCESS_FINE_LOCATION", context) && locationManager.isProviderEnabled("gps") && (lastKnownLocation = locationManager.getLastKnownLocation("gps")) != null) ? lastKnownLocation.getLongitude() + Constants.ACCEPT_TIME_SEPARATOR_SP + lastKnownLocation.getLatitude() : "";
         } catch (Exception e2) {
             Log.e(e2);
         }
@@ -224,8 +219,15 @@ public class SapiUtils {
         return arrayList;
     }
 
+    @TargetApi(4)
     public static boolean isEmulator(Context context) {
-        return Config.NULL_DEVICE_ID.equals(SapiDeviceUtils.getIMEI(context)) || Build.FINGERPRINT.contains("test-keys") || Build.FINGERPRINT.startsWith("unknown") || Build.BRAND.startsWith("generic") || Build.BOARD.equals("unknown") || Build.SERIAL.equals("unknown");
+        String str = null;
+        if (Build.VERSION.SDK_INT <= 27 || context.getApplicationInfo().targetSdkVersion <= 27) {
+            str = Build.SERIAL;
+        } else if (checkRequestPermission("android.permission.READ_PHONE_STATE", context)) {
+            str = Build.getSerial();
+        }
+        return "000000000000000".equals(SapiDeviceUtils.getIMEI(context)) || Build.FINGERPRINT.contains("test-keys") || Build.FINGERPRINT.startsWith("unknown") || Build.BRAND.startsWith("generic") || Build.BOARD.equals("unknown") || "unknown".equals(str);
     }
 
     public static String getLocalIpAddress() {
@@ -236,7 +238,7 @@ public class SapiUtils {
                 Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
                 while (inetAddresses.hasMoreElements()) {
                     InetAddress nextElement = inetAddresses.nextElement();
-                    if (!nextElement.isLoopbackAddress() && (hostAddress = nextElement.getHostAddress()) != null && hostAddress.length() > 0 && InetAddressUtils.isIPv4Address(hostAddress)) {
+                    if (!nextElement.isLoopbackAddress() && (hostAddress = nextElement.getHostAddress()) != null && hostAddress.length() > 0 && (nextElement instanceof Inet4Address)) {
                         return hostAddress;
                     }
                 }
@@ -258,15 +260,15 @@ public class SapiUtils {
         return "";
     }
 
-    public static String createRequestParams(List<NameValuePair> list) {
+    public static String createRequestParams(List<PassNameValuePair> list) {
         StringBuilder sb = new StringBuilder();
         if (list != null) {
-            for (NameValuePair nameValuePair : list) {
-                if (!TextUtils.isEmpty(nameValuePair.getName()) && !TextUtils.isEmpty(nameValuePair.getValue())) {
+            for (PassNameValuePair passNameValuePair : list) {
+                if (!TextUtils.isEmpty(passNameValuePair.getName()) && !TextUtils.isEmpty(passNameValuePair.getValue())) {
                     if (TextUtils.isEmpty(sb.toString())) {
-                        sb.append(nameValuePair.getName()).append(ETAG.EQUAL).append(nameValuePair.getValue());
+                        sb.append(passNameValuePair.getName()).append("=").append(passNameValuePair.getValue());
                     } else {
-                        sb.append(ETAG.ITEM_SEPARATOR).append(nameValuePair.getName()).append(ETAG.EQUAL).append(nameValuePair.getValue());
+                        sb.append("&").append(passNameValuePair.getName()).append("=").append(passNameValuePair.getValue());
                     }
                 }
             }
@@ -332,17 +334,17 @@ public class SapiUtils {
                 case 13:
                     return "4G";
                 default:
-                    return AiAppRomUtils.UNKNOWN;
+                    return "UNKNOWN";
             }
         }
-        return AiAppRomUtils.UNKNOWN;
+        return "UNKNOWN";
     }
 
     public static boolean isRoot() {
         return (new File("/system/bin/su").exists() && a("/system/bin/su")) || (new File("/system/xbin/su").exists() && a("/system/xbin/su"));
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [561=5, 563=4, 564=4, 565=4, 569=4, 570=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [577=4, 578=4, 569=5, 571=4, 572=4, 573=4] */
     /* JADX WARN: Removed duplicated region for block: B:43:0x0085  */
     /* JADX WARN: Removed duplicated region for block: B:59:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
@@ -566,7 +568,7 @@ public class SapiUtils {
             for (String str3 : cookie.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {
                 String trim = str3.trim();
                 if (!TextUtils.isEmpty(trim)) {
-                    String[] split = trim.split(ETAG.EQUAL);
+                    String[] split = trim.split("=");
                     if (split.length == 2 && split[0].equals(str2)) {
                         return split[1];
                     }
@@ -594,14 +596,14 @@ public class SapiUtils {
         try {
             ArrayList arrayList = new ArrayList();
             for (String str : getAuthorizedDomains(context)) {
-                arrayList.add(new BasicNameValuePair(COOKIE_URL_PREFIX + str, buildBDUSSCookie(str, "")));
+                arrayList.add(new PassNameValuePair(COOKIE_URL_PREFIX + str, buildBDUSSCookie(str, "")));
             }
             for (String str2 : getAuthorizedDomainsForPtoken(context)) {
-                arrayList.add(new BasicNameValuePair(COOKIE_URL_PREFIX + str2, buildPtokenCookie(str2, "")));
-                arrayList.add(new BasicNameValuePair(COOKIE_HTTPS_URL_PREFIX + str2, buildPtokenCookie(str2, "")));
+                arrayList.add(new PassNameValuePair(COOKIE_URL_PREFIX + str2, buildPtokenCookie(str2, "")));
+                arrayList.add(new PassNameValuePair("https://" + str2, buildPtokenCookie(str2, "")));
             }
             for (String str3 : getAuthorizedDomainsForPtoken(context)) {
-                arrayList.add(new BasicNameValuePair(COOKIE_HTTPS_URL_PREFIX + str3, buildStokenCookie(str3, "")));
+                arrayList.add(new PassNameValuePair("https://" + str3, buildStokenCookie(str3, "")));
             }
             syncCookies(context, arrayList);
             return true;
@@ -613,7 +615,7 @@ public class SapiUtils {
     private static String a(String str, String str2, String str3, Date date, boolean z) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(c, Locale.US);
         simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-        return str2 + ETAG.EQUAL + str3 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(date) + ";httponly" + (z ? ";secure" : "");
+        return str2 + "=" + str3 + ";domain=" + str + ";path=/;expires=" + simpleDateFormat.format(date) + ";httponly" + (z ? ";secure" : "");
     }
 
     public static String buildDeviceInfoCookie(String str, String str2, String str3) {
@@ -663,7 +665,7 @@ public class SapiUtils {
         return "cuid=" + str2 + ";domain=" + str + ";path=/;httponly";
     }
 
-    public static void syncCookies(Context context, List<NameValuePair> list) {
+    public static void syncCookies(Context context, List<PassNameValuePair> list) {
         CookieSyncManager.createInstance(context);
         CookieManager cookieManager = CookieManager.getInstance();
         cookieManager.setAcceptCookie(true);
@@ -673,18 +675,18 @@ public class SapiUtils {
         }
         List<String> cuidAuthorizedDomains = getCuidAuthorizedDomains(context);
         if (confignation.getEnvironment() != Domain.DOMAIN_ONLINE) {
-            String replaceAll = confignation.environment.getWap(getDefaultHttpsEnabled()).replace("http://", "").replace(COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "");
-            String replaceAll2 = confignation.environment.getURL(getDefaultHttpsEnabled()).replace("http://", "").replace(COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "");
+            String replaceAll = confignation.environment.getWap(getDefaultHttpsEnabled()).replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
+            String replaceAll2 = confignation.environment.getURL(getDefaultHttpsEnabled()).replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
             cuidAuthorizedDomains.add(replaceAll);
             cuidAuthorizedDomains.add(replaceAll2);
         }
         for (String str : cuidAuthorizedDomains) {
-            cookieManager.setCookie(COOKIE_HTTPS_URL_PREFIX + str, buildCuidCookie(str, confignation.clientId));
+            cookieManager.setCookie("https://" + str, buildCuidCookie(str, confignation.clientId));
         }
         if (list != null) {
-            for (NameValuePair nameValuePair : list) {
-                if (!TextUtils.isEmpty(nameValuePair.getName()) && !TextUtils.isEmpty(nameValuePair.getValue())) {
-                    cookieManager.setCookie(nameValuePair.getName(), nameValuePair.getValue());
+            for (PassNameValuePair passNameValuePair : list) {
+                if (!TextUtils.isEmpty(passNameValuePair.getName()) && !TextUtils.isEmpty(passNameValuePair.getValue())) {
+                    cookieManager.setCookie(passNameValuePair.getName(), passNameValuePair.getValue());
                 }
             }
         }
@@ -772,17 +774,17 @@ public class SapiUtils {
     }
 
     public static boolean isQrLoginSchema(String str) {
-        if (!TextUtils.isEmpty(str) && str.contains("error") && str.contains("sign") && str.contains("cmd") && str.contains(KEY_QR_LOGIN_LP)) {
+        if (!TextUtils.isEmpty(str) && str.contains(b) && str.contains(KEY_QR_LOGIN_SIGN) && str.contains("cmd") && str.contains(KEY_QR_LOGIN_LP)) {
             HashMap hashMap = new HashMap();
-            for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
-                String[] split = str2.split(ETAG.EQUAL);
+            for (String str2 : str.split("&")) {
+                String[] split = str2.split("=");
                 if (split.length > 1) {
                     hashMap.put(split[0], split[1]);
                 } else if (split.length == 1) {
                     hashMap.put(split[0], "");
                 }
             }
-            return (TextUtils.isEmpty((CharSequence) hashMap.get("error")) || TextUtils.isEmpty((CharSequence) hashMap.get("sign")) || TextUtils.isEmpty((CharSequence) hashMap.get("cmd")) || TextUtils.isEmpty((CharSequence) hashMap.get(KEY_QR_LOGIN_LP))) ? false : true;
+            return (TextUtils.isEmpty((CharSequence) hashMap.get(b)) || TextUtils.isEmpty((CharSequence) hashMap.get(KEY_QR_LOGIN_SIGN)) || TextUtils.isEmpty((CharSequence) hashMap.get("cmd")) || TextUtils.isEmpty((CharSequence) hashMap.get(KEY_QR_LOGIN_LP))) ? false : true;
         }
         return false;
     }
@@ -807,14 +809,14 @@ public class SapiUtils {
         HashMap hashMap = new HashMap();
         if (isQrLoginSchema(str)) {
             Map<String, String> urlParamsToMap = urlParamsToMap(str);
-            if ("pc".equals(urlParamsToMap.get(KEY_QR_LOGIN_LP))) {
+            if (QR_LOGIN_LP_PC.equals(urlParamsToMap.get(KEY_QR_LOGIN_LP))) {
                 HashMap hashMap2 = new HashMap();
                 if (ServiceManager.getInstance().getIsAccountManager().getSession() == null) {
                     hashMap2.put("islogin", "0");
                 } else {
                     hashMap2.put("islogin", "1");
                 }
-                hashMap2.put("client", HttpConstants.OS_TYPE_VALUE);
+                hashMap2.put("client", "android");
                 StatService.onEvent(StatService.STAT_ENENT_QR_LOGIN_ENTER, hashMap2, false);
             }
             return urlParamsToMap;
@@ -826,7 +828,7 @@ public class SapiUtils {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        for (String str2 : new String[]{"ucenter/qrlivingnav", "url", BaiduRimConstants.TPL_INIT_KEY}) {
+        for (String str2 : new String[]{"ucenter/qrlivingnav", "url", "tpl"}) {
             if (!str.contains(str2)) {
                 return null;
             }
@@ -875,6 +877,7 @@ public class SapiUtils {
         hashMap.put("slient_share", 7);
         hashMap.put(ShareCallPacking.LOGIN_TYPE_SHARE_V1_CHOICE, 8);
         hashMap.put(ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE, 9);
+        hashMap.put("oneKeyLogin", 12);
         if (hashMap.containsKey(string)) {
             return ((Integer) hashMap.get(string)).intValue();
         }
@@ -902,16 +905,16 @@ public class SapiUtils {
                 case 10003:
                     event = GIDEvent.BUSINESS_ACCOUNT_REG;
                     break;
-                case 10004:
+                case SapiGIDEvent.BUSINESS_GET_GID /* 10004 */:
                     event = GIDEvent.BUSINESS_GET_GID;
                     break;
-                case 10005:
+                case SapiGIDEvent.BUSINESS_LOGOUT /* 10005 */:
                     event = GIDEvent.BUSINESS_LOGOUT;
                     break;
-                case 10006:
+                case SapiGIDEvent.SYSTEM_SCREEN_ON /* 10006 */:
                     event = GIDEvent.SYSTEM_SCREEN_ON;
                     break;
-                case 11001:
+                case SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE /* 11001 */:
                     event = GIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE;
                     break;
                 case 11002:
@@ -976,16 +979,16 @@ public class SapiUtils {
         while (it.hasNext()) {
             String str3 = (String) it.next();
             sb.append(str3);
-            sb.append(ETAG.EQUAL);
+            sb.append("=");
             try {
                 String str4 = map.get(str3);
                 if (!TextUtils.isEmpty(str4)) {
-                    sb.append(URLEncoder.encode(str4, "UTF-8"));
+                    sb.append(URLEncoder.encode(str4, HTTP.UTF_8));
                 }
             } catch (UnsupportedEncodingException e2) {
                 Log.e(e2);
             }
-            sb.append(ETAG.ITEM_SEPARATOR);
+            sb.append("&");
         }
         sb.append("sign_key=").append(str);
         return MD5Util.toMd5(sb.toString().getBytes(), false);
@@ -1035,8 +1038,8 @@ public class SapiUtils {
                     Log.e(e2);
                 }
             }
-            for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
-                String[] split = str2.split(ETAG.EQUAL);
+            for (String str2 : str.split("&")) {
+                String[] split = str2.split("=");
                 if (split.length == 2) {
                     hashMap.put(split[0], split[1]);
                 }
@@ -1054,19 +1057,19 @@ public class SapiUtils {
             String key = entry.getKey();
             String value = entry.getValue();
             if (sb.length() > 0) {
-                sb.append(ETAG.ITEM_SEPARATOR);
+                sb.append("&");
             } else {
                 sb.append("?");
             }
             if (value == null) {
                 try {
-                    sb.append(key).append(ETAG.EQUAL);
+                    sb.append(key).append("=");
                 } catch (Exception e2) {
-                    sb.append(key).append(ETAG.EQUAL).append((Object) value);
+                    sb.append(key).append("=").append((Object) value);
                     e2.printStackTrace();
                 }
             } else {
-                sb.append(key).append(ETAG.EQUAL).append(URLEncoder.encode(value.toString(), "UTF-8"));
+                sb.append(key).append("=").append(URLEncoder.encode(value.toString(), HTTP.UTF_8));
             }
         }
         return sb.toString();

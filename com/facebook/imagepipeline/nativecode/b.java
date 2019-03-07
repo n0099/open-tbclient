@@ -9,5 +9,5 @@ public interface b {
 
     boolean d(com.facebook.c.c cVar);
 
-    void g(InputStream inputStream, OutputStream outputStream) throws IOException;
+    void h(InputStream inputStream, OutputStream outputStream) throws IOException;
 }

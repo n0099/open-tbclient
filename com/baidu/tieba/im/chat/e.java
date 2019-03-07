@@ -3,61 +3,61 @@ package com.baidu.tieba.im.chat;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.lib.c.b;
+import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
-    protected long eLA;
-    private boolean eLB;
-    private boolean eLC;
-    protected int eLD;
-    protected com.baidu.adp.lib.c.a eLt;
-    protected com.baidu.adp.lib.c.b eLu;
+    protected long gbB;
+    private boolean gbC;
+    private boolean gbD;
+    protected int gbE;
+    protected com.baidu.adp.lib.c.a gbu;
+    protected b gbv;
     protected TbPageContext<MsglistActivity<?>> mPageContext;
 
     public e(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.eLt = null;
-        this.eLu = null;
-        this.eLA = 0L;
-        this.eLB = false;
-        this.eLC = false;
+        this.gbu = null;
+        this.gbv = null;
+        this.gbB = 0L;
+        this.gbC = false;
+        this.gbD = false;
         this.mPageContext = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
-        this.eLt = aVar;
+        this.gbu = aVar;
     }
 
-    public void setOnItemViewLongClickListener(com.baidu.adp.lib.c.b bVar) {
-        this.eLu = bVar;
+    public void setOnItemViewLongClickListener(b bVar) {
+        this.gbv = bVar;
     }
 
-    private void aPy() {
-        this.eLA = System.currentTimeMillis() / 1000;
+    private void bqd() {
+        this.gbB = System.currentTimeMillis() / 1000;
     }
 
-    public boolean aPz() {
-        return this.eLB;
+    public boolean bqe() {
+        return this.gbC;
     }
 
-    /* renamed from: if  reason: not valid java name */
-    public void m20if(boolean z) {
-        this.eLB = z;
+    public void kF(boolean z) {
+        this.gbC = z;
     }
 
-    public boolean aPA() {
-        return this.eLC;
+    public boolean bqf() {
+        return this.gbD;
     }
 
-    public void ig(boolean z) {
-        this.eLC = z;
+    public void kG(boolean z) {
+        this.gbD = z;
     }
 
-    public void pP(int i) {
-        this.eLD = i;
+    public void tz(int i) {
+        this.gbE = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -68,21 +68,21 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        aPy();
+        bqd();
         return view;
     }
 
     /* loaded from: classes.dex */
-    public static class a<T> extends q.a {
-        private T eLE;
+    public static class a<T> extends v.a {
+        private T gbF;
 
         public a(View view, T t) {
             super(view);
-            this.eLE = t;
+            this.gbF = t;
         }
 
-        public T aPB() {
-            return this.eLE;
+        public T bqg() {
+            return this.gbF;
         }
     }
 }

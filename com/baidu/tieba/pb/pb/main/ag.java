@@ -5,21 +5,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import com.baidu.tieba.pb.pb.main.af;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ag extends k<ad, af> {
-    private com.baidu.tieba.pb.data.d fYZ;
-    private af.a geE;
+    private com.baidu.tieba.pb.data.d hpr;
+    private af.a huM;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ag(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
-        this.geE = new af.a() { // from class: com.baidu.tieba.pb.pb.main.ag.1
+        this.huM = new af.a() { // from class: com.baidu.tieba.pb.pb.main.ag.1
             @Override // com.baidu.tieba.pb.pb.main.af.a
             public void b(ad adVar) {
                 if (adVar != null) {
-                    com.baidu.tieba.pb.c.a.a(ag.this.fYZ, adVar, adVar.locate, 5);
+                    com.baidu.tieba.pb.c.a.a(ag.this.hpr, adVar, adVar.locate, 5);
                 }
             }
         };
@@ -28,9 +28,9 @@ public class ag extends k<ad, af> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bo */
+    /* renamed from: bA */
     public af onCreateViewHolder(ViewGroup viewGroup) {
-        return new af(this.fYK.getPageContext(), LayoutInflater.from(this.mContext).inflate(e.h.pb_page_news, viewGroup, false), this.geE);
+        return new af(this.hpc.getPageContext(), LayoutInflater.from(this.mContext).inflate(d.h.pb_page_news, viewGroup, false), this.huM);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -41,7 +41,7 @@ public class ag extends k<ad, af> {
         super.onFillViewHolder(i, view, viewGroup, adVar, afVar);
         if (adVar != null) {
             adVar.locate = i + 1;
-            com.baidu.tieba.pb.c.a.a(this.fYK.getUniqueId(), this.fYZ, adVar, adVar.locate, 5);
+            com.baidu.tieba.pb.c.a.a(this.hpc.getUniqueId(), this.hpr, adVar, adVar.locate, 5);
             afVar.a(adVar);
             afVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -49,6 +49,6 @@ public class ag extends k<ad, af> {
     }
 
     public void b(com.baidu.tieba.pb.data.d dVar) {
-        this.fYZ = dVar;
+        this.hpr = dVar;
     }
 }

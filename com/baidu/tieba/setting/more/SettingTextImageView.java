@@ -12,83 +12,83 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class SettingTextImageView extends FrameLayout {
-    private LinearLayout aVj;
-    private ImageView ahZ;
-    private TextView ajh;
-    private HeadImageView hcB;
+    private ImageView agD;
+    private TextView ahH;
+    private LinearLayout ceE;
+    private HeadImageView iur;
     private Context mContext;
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        KN();
+        akr();
         c(attributeSet);
-        fv(TbadkCoreApplication.getInst().getSkinType());
+        jg(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SettingTextImageView(Context context) {
         super(context);
         this.mContext = context;
-        KN();
-        fv(TbadkCoreApplication.getInst().getSkinType());
+        akr();
+        jg(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void fv(int i) {
-        al.c(this.ajh, e.d.common_color_10039, 1);
-        al.b(this.ahZ, e.f.icon_arrow_gray_right_n, i);
-        this.hcB.invalidate();
+    public void jg(int i) {
+        al.d(this.ahH, d.C0236d.common_color_10039, 1);
+        al.b(this.agD, d.f.icon_arrow_gray_right_n, i);
+        this.iur.invalidate();
     }
 
-    public void bzO() {
-        if (this.hcB != null) {
-            this.hcB.setVisibility(8);
+    public void caC() {
+        if (this.iur != null) {
+            this.iur.setVisibility(8);
         }
     }
 
-    public void bzP() {
-        if (this.hcB != null) {
-            this.hcB.setVisibility(0);
+    public void caD() {
+        if (this.iur != null) {
+            this.iur.setVisibility(0);
         }
     }
 
     public void setText(String str) {
-        this.ajh.setText(str);
+        this.ahH.setText(str);
     }
 
     public void setIcon(String str, boolean z) {
         if (z) {
-            this.hcB.startLoad(str, 26, false);
+            this.iur.startLoad(str, 26, false);
         } else {
-            this.hcB.startLoad(str, 12, false);
+            this.iur.startLoad(str, 12, false);
         }
     }
 
     public void recycle() {
     }
 
-    private void KN() {
-        LayoutInflater.from(this.mContext).inflate(e.h.setting_text_image_view, (ViewGroup) this, true);
-        this.aVj = (LinearLayout) findViewById(e.g.container);
-        this.ajh = (TextView) findViewById(e.g.text);
-        this.hcB = (HeadImageView) findViewById(e.g.icon);
-        this.ahZ = (ImageView) findViewById(e.g.arrow);
+    private void akr() {
+        LayoutInflater.from(this.mContext).inflate(d.h.setting_text_image_view, (ViewGroup) this, true);
+        this.ceE = (LinearLayout) findViewById(d.g.container);
+        this.ahH = (TextView) findViewById(d.g.text);
+        this.iur = (HeadImageView) findViewById(d.g.icon);
+        this.agD = (ImageView) findViewById(d.g.arrow);
     }
 
     private void c(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, e.l.TbSettingView);
-        String string = obtainStyledAttributes.getString(e.l.TbSettingView_settingText);
-        int color = obtainStyledAttributes.getColor(e.l.TbSettingView_settingTextColor, -1);
+        TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, d.l.TbSettingView);
+        String string = obtainStyledAttributes.getString(d.l.TbSettingView_settingText);
+        int color = obtainStyledAttributes.getColor(d.l.TbSettingView_settingTextColor, -1);
         obtainStyledAttributes.recycle();
         if (string != null) {
-            this.ajh.setText(string);
+            this.ahH.setText(string);
         }
         if (color > -1) {
-            this.ajh.setTextColor(color);
+            this.ahH.setTextColor(color);
         }
-        this.aVj.setClickable(false);
-        this.aVj.setFocusable(false);
+        this.ceE.setClickable(false);
+        this.ceE.setFocusable(false);
     }
 }

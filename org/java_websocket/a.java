@@ -1,5 +1,6 @@
 package org.java_websocket;
 
+import android.support.v4.view.PointerIconCompat;
 import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,11 +9,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 /* loaded from: classes2.dex */
 public abstract class a extends b {
-    private int connectionLostTimeout = 60;
     private Timer connectionLostTimer;
     private TimerTask connectionLostTimerTask;
     private boolean reuseAddr;
     private boolean tcpNoDelay;
+    private int connectionLostTimeout = 60;
+    private boolean websocketRunning = false;
 
     protected abstract Collection<WebSocket> getConnections();
 
@@ -23,11 +25,26 @@ public abstract class a extends b {
     public void setConnectionLostTimeout(int i) {
         this.connectionLostTimeout = i;
         if (this.connectionLostTimeout <= 0) {
-            stopConnectionLostTimer();
-        }
-        if (this.connectionLostTimer != null || this.connectionLostTimerTask != null) {
+            if (c.DEBUG) {
+                System.out.println("Connection lost timer stopped");
+            }
+            cancelConnectionLostTimer();
+        } else if (this.websocketRunning) {
             if (c.DEBUG) {
                 System.out.println("Connection lost timer restarted");
+            }
+            try {
+                Iterator it = new ArrayList(getConnections()).iterator();
+                while (it.hasNext()) {
+                    WebSocket webSocket = (WebSocket) it.next();
+                    if (webSocket instanceof c) {
+                        ((c) webSocket).cCO();
+                    }
+                }
+            } catch (Exception e) {
+                if (c.DEBUG) {
+                    System.out.println("Exception during connection lost restart: " + e.getMessage());
+                }
             }
             restartConnectionLostTimer();
         }
@@ -36,6 +53,7 @@ public abstract class a extends b {
     /* JADX INFO: Access modifiers changed from: protected */
     public void stopConnectionLostTimer() {
         if (this.connectionLostTimer != null || this.connectionLostTimerTask != null) {
+            this.websocketRunning = false;
             if (c.DEBUG) {
                 System.out.println("Connection lost timer stopped");
             }
@@ -55,6 +73,7 @@ public abstract class a extends b {
         if (c.DEBUG) {
             System.out.println("Connection lost timer started");
         }
+        this.websocketRunning = true;
         restartConnectionLostTimer();
     }
 
@@ -62,31 +81,37 @@ public abstract class a extends b {
         cancelConnectionLostTimer();
         this.connectionLostTimer = new Timer("WebSocketTimer");
         this.connectionLostTimerTask = new TimerTask() { // from class: org.java_websocket.a.1
-            private ArrayList<WebSocket> iDX = new ArrayList<>();
+            private ArrayList<WebSocket> jTI = new ArrayList<>();
 
             @Override // java.util.TimerTask, java.lang.Runnable
             public void run() {
-                this.iDX.clear();
-                this.iDX.addAll(a.this.getConnections());
-                long currentTimeMillis = System.currentTimeMillis() - (a.this.connectionLostTimeout * TbConfig.POST_IMAGE_SMALL);
-                Iterator<WebSocket> it = this.iDX.iterator();
-                while (it.hasNext()) {
-                    WebSocket next = it.next();
-                    if (next instanceof c) {
-                        c cVar = (c) next;
-                        if (cVar.cdI() < currentTimeMillis) {
-                            if (c.DEBUG) {
-                                System.out.println("Closing connection due to no pong received: " + next.toString());
+                this.jTI.clear();
+                try {
+                    this.jTI.addAll(a.this.getConnections());
+                    long currentTimeMillis = System.currentTimeMillis() - (a.this.connectionLostTimeout * TbConfig.POST_IMAGE_SMALL);
+                    Iterator<WebSocket> it = this.jTI.iterator();
+                    while (it.hasNext()) {
+                        WebSocket next = it.next();
+                        if (next instanceof c) {
+                            c cVar = (c) next;
+                            if (cVar.cCN() < currentTimeMillis) {
+                                if (c.DEBUG) {
+                                    System.out.println("Closing connection due to no pong received: " + next.toString());
+                                }
+                                cVar.closeConnection(PointerIconCompat.TYPE_CELL, "The connection was closed because the other endpoint did not respond with a pong in time. For more information check: https://github.com/TooTallNate/Java-WebSocket/wiki/Lost-connection-detection");
+                            } else if (cVar.isOpen()) {
+                                cVar.sendPing();
+                            } else if (c.DEBUG) {
+                                System.out.println("Trying to ping a non open connection: " + next.toString());
                             }
-                            cVar.closeConnection(1006, "The connection was closed because the other endpoint did not respond with a pong in time. For more information check: https://github.com/TooTallNate/Java-WebSocket/wiki/Lost-connection-detection");
-                        } else if (cVar.isOpen()) {
-                            cVar.sendPing();
-                        } else if (c.DEBUG) {
-                            System.out.println("Trying to ping a non open connection: " + next.toString());
                         }
                     }
+                } catch (Exception e) {
+                    if (c.DEBUG) {
+                        System.out.println("Exception during connection lost ping: " + e.getMessage());
+                    }
                 }
-                this.iDX.clear();
+                this.jTI.clear();
             }
         };
         this.connectionLostTimer.scheduleAtFixedRate(this.connectionLostTimerTask, this.connectionLostTimeout * 1000, this.connectionLostTimeout * 1000);

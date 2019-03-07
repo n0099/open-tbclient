@@ -8,133 +8,134 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tieba.e;
-/* loaded from: classes6.dex */
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.d;
+/* loaded from: classes4.dex */
 public class a {
-    private View.OnClickListener aTJ;
-    private ViewGroup amV;
-    private GodReplyLeaderboardTipView fWe;
-    private int aMk = 3;
-    private final int[] fWd = new int[2];
-    private int fWf = Integer.MIN_VALUE;
-    private int fWg = Integer.MIN_VALUE;
-    private boolean fWh = false;
+    private ViewGroup btB;
+    private View.OnClickListener ccA;
+    private GodReplyLeaderboardTipView hmp;
+    private int bUJ = 3;
+    private final int[] hmo = new int[2];
+    private int hmq = Integer.MIN_VALUE;
+    private int hmr = Integer.MIN_VALUE;
+    private boolean hms = false;
 
-    public void J(View.OnClickListener onClickListener) {
-        this.aTJ = onClickListener;
+    public void K(View.OnClickListener onClickListener) {
+        this.ccA = onClickListener;
     }
 
     public void showTip(View view) {
         Context context;
         if (view != null && (context = view.getContext()) != null && (context instanceof Activity)) {
-            if (this.amV == null) {
-                this.amV = (RelativeLayout) ((Activity) context).findViewById(e.g.pb_layout);
+            if (this.btB == null) {
+                this.btB = (RelativeLayout) ((Activity) context).findViewById(d.g.pb_layout);
             }
-            if (this.amV != null) {
-                view.getLocationOnScreen(this.fWd);
+            if (this.btB != null) {
+                view.getLocationOnScreen(this.hmo);
                 int dip2px = l.dip2px(context, 160.0f);
                 int dip2px2 = l.dip2px(context, 36.0f);
-                if (this.fWe == null) {
-                    this.fWe = new GodReplyLeaderboardTipView(context);
+                if (this.hmp == null) {
+                    this.hmp = new GodReplyLeaderboardTipView(context);
                 }
-                this.fWe.animate().cancel();
-                this.fWe.setAlpha(0.0f);
-                this.fWe.animate().alpha(1.0f).setListener(null).start();
-                this.fWe.setOnClickListener(this.aTJ);
-                this.fWe.onChangeSkinType(this.aMk);
-                if (this.fWe.getParent() != null && this.fWe.getParent() != this.amV) {
-                    ((ViewGroup) this.fWe.getParent()).removeView(this.fWe);
+                this.hmp.animate().cancel();
+                this.hmp.setAlpha(0.0f);
+                this.hmp.animate().alpha(1.0f).setListener(null).start();
+                this.hmp.setOnClickListener(this.ccA);
+                this.hmp.onChangeSkinType(this.bUJ);
+                if (this.hmp.getParent() != null && this.hmp.getParent() != this.btB) {
+                    ((ViewGroup) this.hmp.getParent()).removeView(this.hmp);
                 }
-                if (this.fWe.getParent() == null) {
+                if (this.hmp.getParent() == null) {
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dip2px, dip2px2);
-                    layoutParams.rightMargin = cR(context);
-                    layoutParams.topMargin = this.fWd[1] + view.getHeight() + cQ(context);
+                    layoutParams.rightMargin = en(context);
+                    layoutParams.topMargin = this.hmo[1] + view.getHeight() + em(context);
                     layoutParams.addRule(11);
-                    int childCount = this.amV.getChildCount();
+                    int childCount = this.btB.getChildCount();
                     int i = -1;
                     for (int i2 = 0; i2 < childCount; i2++) {
-                        View childAt = this.amV.getChildAt(i2);
-                        if (childAt != null && childAt.getId() == e.g.new_pb_list) {
+                        View childAt = this.btB.getChildAt(i2);
+                        if (childAt != null && childAt.getId() == d.g.new_pb_list) {
                             i = i2 + 1;
                         }
                     }
-                    if (i > -1 && i <= this.amV.getChildCount()) {
-                        this.amV.addView(this.fWe, i, layoutParams);
+                    if (i > -1 && i <= this.btB.getChildCount()) {
+                        this.btB.addView(this.hmp, i, layoutParams);
                     }
                 }
-                this.fWe.setVisibility(0);
+                this.hmp.setVisibility(0);
             }
         }
     }
 
     public void hideTip() {
-        if (this.fWe != null) {
-            this.fWe.animate().cancel();
-            this.fWe.animate().alpha(0.0f).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.usertips.a.1
+        if (this.hmp != null) {
+            this.hmp.animate().cancel();
+            this.hmp.animate().alpha(0.0f).setListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.pb.pb.godreply.usertips.a.1
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationCancel(Animator animator) {
-                    a.this.biM();
+                    a.this.bJj();
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
-                    a.this.biM();
+                    a.this.bJj();
                 }
             }).start();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void biM() {
-        if (this.fWe != null && this.fWe.getParent() != null && this.fWe.getParent() == this.amV) {
-            this.fWe.setVisibility(4);
+    public void bJj() {
+        if (this.hmp != null && this.hmp.getParent() != null && this.hmp.getParent() == this.btB) {
+            this.hmp.setVisibility(4);
         }
     }
 
-    public void bu(View view) {
-        if (biN()) {
+    public void cj(View view) {
+        if (bJk()) {
             Context context = view.getContext();
-            view.getLocationOnScreen(this.fWd);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fWe.getLayoutParams();
-            layoutParams.rightMargin = cR(context);
-            layoutParams.topMargin = this.fWd[1] + view.getHeight() + cQ(context);
+            view.getLocationOnScreen(this.hmo);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hmp.getLayoutParams();
+            layoutParams.rightMargin = en(context);
+            layoutParams.topMargin = this.hmo[1] + view.getHeight() + em(context);
             layoutParams.addRule(11);
-            this.fWe.setLayoutParams(layoutParams);
-            if (layoutParams.topMargin + this.fWe.getHeight() < l.aS(context)[1] && !this.fWh) {
+            this.hmp.setLayoutParams(layoutParams);
+            if (layoutParams.topMargin + this.hmp.getHeight() < l.aS(context)[1] && !this.hms) {
                 b.l(context, true);
-                this.fWh = true;
-                this.fWe.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.usertips.a.2
+                this.hms = true;
+                this.hmp.postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.usertips.a.2
                     @Override // java.lang.Runnable
                     public void run() {
                         a.this.hideTip();
                     }
-                }, 5000L);
+                }, TbConfig.NOTIFY_SOUND_INTERVAL);
             }
         }
     }
 
-    public boolean biN() {
-        return this.fWe != null && this.fWe.getParent() != null && this.fWe.getParent() == this.amV && this.fWe.getVisibility() == 0;
+    public boolean bJk() {
+        return this.hmp != null && this.hmp.getParent() != null && this.hmp.getParent() == this.btB && this.hmp.getVisibility() == 0;
     }
 
     public void onChangeSkinType(int i) {
-        this.aMk = i;
-        if (this.fWe != null) {
-            this.fWe.onChangeSkinType(i);
+        this.bUJ = i;
+        if (this.hmp != null) {
+            this.hmp.onChangeSkinType(i);
         }
     }
 
-    private int cQ(Context context) {
-        if (this.fWf == Integer.MIN_VALUE) {
-            this.fWf = -l.dip2px(context, 5.0f);
+    private int em(Context context) {
+        if (this.hmq == Integer.MIN_VALUE) {
+            this.hmq = -l.dip2px(context, 5.0f);
         }
-        return this.fWf;
+        return this.hmq;
     }
 
-    private int cR(Context context) {
-        if (this.fWg == Integer.MIN_VALUE) {
-            this.fWg = l.dip2px(context, 17.0f);
+    private int en(Context context) {
+        if (this.hmr == Integer.MIN_VALUE) {
+            this.hmr = l.dip2px(context, 17.0f);
         }
-        return this.fWg;
+        return this.hmr;
     }
 }

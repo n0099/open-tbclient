@@ -1,31 +1,31 @@
 package com.baidu.tbadk.core.voice.a;
 
 import com.baidu.adp.lib.util.s;
-import com.baidu.tbadk.core.util.l;
+import com.baidu.tbadk.core.util.m;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    public static a gK(String str) {
+    public static a nw(String str) {
         a aVar = new a();
         if (str == null) {
             aVar.error_code = 6;
-            aVar.error_msg = a.eO(aVar.error_code);
-        } else if (!l.fa(l.getCacheDir() + "voice")) {
+            aVar.error_msg = a.iu(aVar.error_code);
+        } else if (!m.lN(m.acg() + "voice")) {
             aVar.error_code = 7;
-            aVar.error_msg = a.eO(aVar.error_code);
+            aVar.error_msg = a.iu(aVar.error_code);
         } else {
-            String i = s.i(l.fv(str));
-            if (i == null) {
+            String j = s.j(m.mi(str));
+            if (j == null) {
                 aVar.error_code = 5;
-                aVar.error_msg = a.eO(aVar.error_code);
+                aVar.error_msg = a.iu(aVar.error_code);
             } else {
-                String b = l.b(i, 1, true);
-                if (l.aA(str, b)) {
+                String b = m.b(j, 1, true);
+                if (m.bI(str, b)) {
                     aVar.path = b;
-                    aVar.md5 = i;
+                    aVar.md5 = j;
                 } else {
                     aVar.error_code = 1;
-                    aVar.error_msg = a.eO(aVar.error_code);
+                    aVar.error_msg = a.iu(aVar.error_code);
                 }
             }
         }
@@ -33,12 +33,12 @@ public class b {
     }
 
     public static boolean renameFile(String str, String str2) {
-        return l.aA(str, l.b(str2, 1, true));
+        return m.bI(str, m.b(str2, 1, true));
     }
 
-    public static synchronized void Gb() {
+    public static synchronized void afv() {
         synchronized (b.class) {
-            File file = new File(l.getCacheDir() + "voice");
+            File file = new File(m.acg() + "voice");
             if (file.exists() && file.isDirectory()) {
                 File[] listFiles = file.listFiles();
                 for (File file2 : listFiles) {

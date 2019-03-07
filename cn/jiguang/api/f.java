@@ -90,7 +90,7 @@ public abstract class f {
     public abstract String getName();
 
     public Long getRid() {
-        return this.head.cc();
+        return this.head.cb();
     }
 
     public int getSid() {

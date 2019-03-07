@@ -8,24 +8,24 @@ import com.baidu.tieba.im.chat.e;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public class MsgRightViewItemAdapter extends e<MsgrightView> {
-    private boolean eLM;
+    private boolean gbN;
 
     public MsgRightViewItemAdapter(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
-        this.eLM = false;
+        this.gbN = false;
     }
 
-    public void ii(boolean z) {
-        this.eLM = z;
+    public void kI(boolean z) {
+        this.gbN = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bc */
+    /* renamed from: bo */
     public e.a<MsgrightView> onCreateViewHolder(ViewGroup viewGroup) {
         MsgrightView msgrightView = new MsgrightView(this.mPageContext);
-        return new a(msgrightView.gb(), msgrightView);
+        return new a(msgrightView.fY(), msgrightView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,17 +34,17 @@ public class MsgRightViewItemAdapter extends e<MsgrightView> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, e.a<MsgrightView> aVar) {
         super.onFillViewHolder(i, view, viewGroup, chatMessage, aVar);
-        MsgrightView aPB = aVar.aPB();
-        aPB.pP(this.eLD);
-        aPB.ii(this.eLM);
+        MsgrightView bqg = aVar.bqg();
+        bqg.tz(this.gbE);
+        bqg.kI(this.gbN);
         chatMessage.getCacheData().setIs_left(0);
-        aPB.a(this.eLt);
-        aPB.setOnItemViewLongClickListener(this.eLu);
-        aPB.setPosition(i);
-        aPB.cp(this.eLA);
-        aPB.co(chatMessage.getCacheData().getLastMsgTime());
-        aPB.a(viewGroup, chatMessage);
-        aPB.b(viewGroup, chatMessage);
+        bqg.a(this.gbu);
+        bqg.setOnItemViewLongClickListener(this.gbv);
+        bqg.setPosition(i);
+        bqg.cU(this.gbB);
+        bqg.cT(chatMessage.getCacheData().getLastMsgTime());
+        bqg.a(viewGroup, chatMessage);
+        bqg.b(viewGroup, chatMessage);
         this.mPageContext.getLayoutMode().setNightMode(false);
         this.mPageContext.getLayoutMode().onModeChanged(view);
         return view;

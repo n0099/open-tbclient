@@ -18,7 +18,7 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.f.c;
 import com.baidu.adp.lib.util.l;
-import com.baidu.adp.widget.ListView.k;
+import com.baidu.adp.widget.ListView.p;
 /* loaded from: classes.dex */
 public abstract class PluginAdpBaseActivity extends PluginBaseActivity implements DialogInterface.OnClickListener, Handler.Callback, View.OnClickListener, View.OnLongClickListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, f, h {
     private static final int PRELOAD_DELAY = 100;
@@ -37,7 +37,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         this.mId = BdUniqueId.gen();
-        a.fW().l(getActivity());
+        a.fT().l(getActivity());
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
@@ -146,8 +146,8 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
         super.onDestroy();
         MessageManager.getInstance().unRegisterListener(this.mId);
         MessageManager.getInstance().removeMessage(this.mId);
-        c.jA().d(this.mId);
-        a.fW().m(getActivity());
+        c.jB().d(this.mId);
+        a.fT().m(getActivity());
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -155,7 +155,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onPause() {
         super.onPause();
-        c.jA().e(this.mId);
+        c.jB().e(this.mId);
         this.mHandler.removeCallbacks(this.preLoadRunnable);
     }
 
@@ -170,7 +170,7 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
     public void onStop() {
         super.onStop();
-        k onGetPreLoadListView = onGetPreLoadListView();
+        p onGetPreLoadListView = onGetPreLoadListView();
         if (onGetPreLoadListView != null) {
             onGetPreLoadListView.cancelRefresh();
         }
@@ -187,10 +187,10 @@ public abstract class PluginAdpBaseActivity extends PluginBaseActivity implement
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, com.baidu.adp.base.h
-    public void onPreLoad(k kVar) {
+    public void onPreLoad(p pVar) {
     }
 
-    public k onGetPreLoadListView() {
+    public p onGetPreLoadListView() {
         return null;
     }
 

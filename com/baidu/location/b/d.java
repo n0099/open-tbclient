@@ -1,22 +1,22 @@
 package com.baidu.location.b;
 
 import android.content.SharedPreferences;
-import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.location.Jni;
 import com.baidu.location.g.g;
+import com.baidu.tbadk.TbConfig;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.Locale;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class d {
-    private static d aeB = null;
+    private static d i = null;
     private static final String k = com.baidu.location.g.f.a + "/conlts.dat";
     private static int l = -1;
     private static int m = -1;
     private static int n = 0;
-    private a aeC = null;
+    private a j = null;
     public boolean a = true;
     public boolean b = true;
     public boolean c = false;
@@ -27,7 +27,7 @@ public class d {
     public boolean h = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class a extends com.baidu.location.g.e {
         String a = null;
         boolean b = false;
@@ -84,14 +84,21 @@ public class d {
     private d() {
     }
 
-    private void a(int i) {
-        this.a = (i & 1) == 1;
-        this.b = (i & 2) == 2;
-        this.c = (i & 4) == 4;
-        this.d = (i & 8) == 8;
-        this.f = (i & 65536) == 65536;
-        this.g = (i & 131072) == 131072;
-        if ((i & 16) == 16) {
+    public static d a() {
+        if (i == null) {
+            i = new d();
+        }
+        return i;
+    }
+
+    private void a(int i2) {
+        this.a = (i2 & 1) == 1;
+        this.b = (i2 & 2) == 2;
+        this.c = (i2 & 4) == 4;
+        this.d = (i2 & 8) == 8;
+        this.f = (i2 & 65536) == 65536;
+        this.g = (i2 & 131072) == 131072;
+        if ((i2 & 16) == 16) {
             this.e = false;
         }
     }
@@ -105,12 +112,12 @@ public class d {
             if (!jSONObject.has("ipen") || jSONObject.getInt("ipen") != 0) {
                 z = true;
             }
-            int i = jSONObject.has("ipvt") ? jSONObject.getInt("ipvt") : 14400000;
-            int i2 = jSONObject.has("ipvn") ? jSONObject.getInt("ipvn") : 10;
+            int i2 = jSONObject.has("ipvt") ? jSONObject.getInt("ipvt") : 14400000;
+            int i3 = jSONObject.has("ipvn") ? jSONObject.getInt("ipvn") : 10;
             SharedPreferences.Editor edit = com.baidu.location.f.getServiceContext().getSharedPreferences("MapCoreServicePre", 0).edit();
             edit.putBoolean("ipLocInfoUpload", z);
-            edit.putInt("ipValidTime", i);
-            edit.putInt("ipLocInfoUploadTimesPerDay", i2);
+            edit.putInt("ipValidTime", i2);
+            edit.putInt("ipLocInfoUploadTimesPerDay", i3);
             edit.commit();
         } catch (Exception e) {
         }
@@ -118,30 +125,30 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(byte[] bArr) {
-        int i = 0;
+        int i2 = 0;
         if (bArr != null) {
             try {
                 if (bArr.length < 640) {
                     g.x = false;
                     g.u = g.s + 0.025d;
-                    g.t = g.adn - 0.025d;
-                    i = 1;
+                    g.t = g.r - 0.025d;
+                    i2 = 1;
                 } else {
                     g.x = true;
                     g.t = Double.longBitsToDouble(((bArr[7] & 255) << 56) | ((bArr[6] & 255) << 48) | ((bArr[5] & 255) << 40) | ((bArr[4] & 255) << 32) | ((bArr[3] & 255) << 24) | ((bArr[2] & 255) << 16) | ((bArr[1] & 255) << 8) | (bArr[0] & 255));
                     g.u = Double.longBitsToDouble(((bArr[15] & 255) << 56) | ((bArr[14] & 255) << 48) | ((bArr[13] & 255) << 40) | ((bArr[12] & 255) << 32) | ((bArr[11] & 255) << 24) | ((bArr[10] & 255) << 16) | ((bArr[9] & 255) << 8) | (bArr[8] & 255));
-                    g.agn = new byte[625];
-                    while (i < 625) {
-                        g.agn[i] = bArr[i + 16];
-                        i++;
+                    g.w = new byte[625];
+                    while (i2 < 625) {
+                        g.w[i2] = bArr[i2 + 16];
+                        i2++;
                     }
-                    i = 1;
+                    i2 = 1;
                 }
             } catch (Exception e) {
                 return;
             }
         }
-        if (i != 0) {
+        if (i2 != 0) {
             g();
         }
     }
@@ -161,16 +168,16 @@ public class d {
                 if (parseInt > g.y) {
                     g.y = parseInt;
                     if (jSONObject.has("gps")) {
-                        String[] split = jSONObject.getString("gps").split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
+                        String[] split = jSONObject.getString("gps").split("\\|");
                         if (split.length > 10) {
                             if (split[0] != null && !split[0].equals("")) {
                                 g.z = Float.parseFloat(split[0]);
                             }
                             if (split[1] != null && !split[1].equals("")) {
-                                g.ago = Float.parseFloat(split[1]);
+                                g.A = Float.parseFloat(split[1]);
                             }
                             if (split[2] != null && !split[2].equals("")) {
-                                g.agp = Float.parseFloat(split[2]);
+                                g.B = Float.parseFloat(split[2]);
                             }
                             if (split[3] != null && !split[3].equals("")) {
                                 g.C = Float.parseFloat(split[3]);
@@ -199,47 +206,47 @@ public class d {
                         }
                     }
                     if (jSONObject.has("up")) {
-                        String[] split2 = jSONObject.getString("up").split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
+                        String[] split2 = jSONObject.getString("up").split("\\|");
                         if (split2.length > 3) {
                             if (split2[0] != null && !split2[0].equals("")) {
                                 g.K = Float.parseFloat(split2[0]);
                             }
                             if (split2[1] != null && !split2[1].equals("")) {
-                                g.agq = Float.parseFloat(split2[1]);
+                                g.L = Float.parseFloat(split2[1]);
                             }
                             if (split2[2] != null && !split2[2].equals("")) {
-                                g.agr = Float.parseFloat(split2[2]);
+                                g.M = Float.parseFloat(split2[2]);
                             }
                             if (split2[3] != null && !split2[3].equals("")) {
-                                g.ags = Float.parseFloat(split2[3]);
+                                g.N = Float.parseFloat(split2[3]);
                             }
                         }
                     }
                     if (jSONObject.has("wf")) {
-                        String[] split3 = jSONObject.getString("wf").split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
+                        String[] split3 = jSONObject.getString("wf").split("\\|");
                         if (split3.length > 3) {
                             if (split3[0] != null && !split3[0].equals("")) {
                                 g.O = Integer.parseInt(split3[0]);
                             }
                             if (split3[1] != null && !split3[1].equals("")) {
-                                g.agt = Float.parseFloat(split3[1]);
+                                g.P = Float.parseFloat(split3[1]);
                             }
                             if (split3[2] != null && !split3[2].equals("")) {
                                 g.Q = Integer.parseInt(split3[2]);
                             }
                             if (split3[3] != null && !split3[3].equals("")) {
-                                g.agu = Float.parseFloat(split3[3]);
+                                g.R = Float.parseFloat(split3[3]);
                             }
                         }
                     }
                     if (jSONObject.has("ab")) {
-                        String[] split4 = jSONObject.getString("ab").split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
+                        String[] split4 = jSONObject.getString("ab").split("\\|");
                         if (split4.length > 3) {
                             if (split4[0] != null && !split4[0].equals("")) {
-                                g.agv = Float.parseFloat(split4[0]);
+                                g.S = Float.parseFloat(split4[0]);
                             }
                             if (split4[1] != null && !split4[1].equals("")) {
-                                g.agw = Float.parseFloat(split4[1]);
+                                g.T = Float.parseFloat(split4[1]);
                             }
                             if (split4[2] != null && !split4[2].equals("")) {
                                 g.U = Integer.parseInt(split4[2]);
@@ -250,13 +257,13 @@ public class d {
                         }
                     }
                     if (jSONObject.has("zxd")) {
-                        String[] split5 = jSONObject.getString("zxd").split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
+                        String[] split5 = jSONObject.getString("zxd").split("\\|");
                         if (split5.length > 4) {
                             if (split5[0] != null && !split5[0].equals("")) {
-                                g.agC = Float.parseFloat(split5[0]);
+                                g.ar = Float.parseFloat(split5[0]);
                             }
                             if (split5[1] != null && !split5[1].equals("")) {
-                                g.agD = Float.parseFloat(split5[1]);
+                                g.as = Float.parseFloat(split5[1]);
                             }
                             if (split5[2] != null && !split5[2].equals("")) {
                                 g.at = Integer.parseInt(split5[2]);
@@ -270,7 +277,7 @@ public class d {
                         }
                     }
                     if (jSONObject.has("gpc")) {
-                        String[] split6 = jSONObject.getString("gpc").split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
+                        String[] split6 = jSONObject.getString("gpc").split("\\|");
                         if (split6.length > 5) {
                             if (split6[0] != null && !split6[0].equals("")) {
                                 if (Integer.parseInt(split6[0]) > 0) {
@@ -296,8 +303,8 @@ public class d {
                                 int parseInt2 = Integer.parseInt(split6[4]);
                                 if (parseInt2 > 0) {
                                     g.ak = parseInt2;
-                                    g.agy = g.ak * 1000 * 60;
-                                    g.al = g.agy >> 2;
+                                    g.ag = g.ak * 1000 * 60;
+                                    g.al = g.ag >> 2;
                                 } else {
                                     g.p = false;
                                 }
@@ -308,7 +315,7 @@ public class d {
                         }
                     }
                     if (jSONObject.has("shak")) {
-                        String[] split7 = jSONObject.getString("shak").split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
+                        String[] split7 = jSONObject.getString("shak").split("\\|");
                         if (split7.length > 2) {
                             if (split7[0] != null && !split7[0].equals("")) {
                                 g.ao = Integer.parseInt(split7[0]);
@@ -317,7 +324,7 @@ public class d {
                                 g.ap = Integer.parseInt(split7[1]);
                             }
                             if (split7[2] != null && !split7[2].equals("")) {
-                                g.agB = Float.parseFloat(split7[2]);
+                                g.aq = Float.parseFloat(split7[2]);
                             }
                         }
                     }
@@ -334,7 +341,7 @@ public class d {
         return z;
     }
 
-    private void b(int i) {
+    private void b(int i2) {
         File file = new File(k);
         if (!file.exists()) {
             i();
@@ -348,7 +355,7 @@ public class d {
             byte[] bytes = (com.baidu.location.g.b.d + (char) 0).getBytes();
             randomAccessFile.writeInt(bytes.length);
             randomAccessFile.write(bytes, 0, bytes.length);
-            randomAccessFile.writeInt(i);
+            randomAccessFile.writeInt(i2);
             if (readInt2 == n) {
                 randomAccessFile.seek(8L);
                 randomAccessFile.writeInt(readInt2 + 1);
@@ -360,7 +367,7 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str) {
-        int i;
+        int i2;
         m = -1;
         if (str != null) {
             try {
@@ -379,13 +386,13 @@ public class d {
             try {
                 j();
                 if (m != -1) {
-                    i = m;
+                    i2 = m;
                     b(m);
                 } else {
-                    i = l != -1 ? l : -1;
+                    i2 = l != -1 ? l : -1;
                 }
-                if (i != -1) {
-                    a(i);
+                if (i2 != -1) {
+                    a(i2);
                 }
             } catch (Exception e3) {
             }
@@ -393,16 +400,16 @@ public class d {
     }
 
     private void e() {
-        String str = "&ver=" + g.y + "&usr=" + com.baidu.location.g.b.tZ().b() + "&app=" + com.baidu.location.g.b.d + "&prod=" + com.baidu.location.g.b.e;
-        if (this.aeC == null) {
-            this.aeC = new a();
+        String str = "&ver=" + g.y + "&usr=" + com.baidu.location.g.b.a().b() + "&app=" + com.baidu.location.g.b.d + "&prod=" + com.baidu.location.g.b.e;
+        if (this.j == null) {
+            this.j = new a();
         }
-        this.aeC.a(str, false);
+        this.j.a(str, false);
     }
 
     private void f() {
         String str = com.baidu.location.g.f.a + "/config.dat";
-        byte[] bytes = String.format(Locale.CHINA, "{\"ver\":\"%d\",\"gps\":\"%.1f|%.1f|%.1f|%.1f|%d|%d|%d|%d|%d|%d|%d\",\"up\":\"%.1f|%.1f|%.1f|%.1f\",\"wf\":\"%d|%.1f|%d|%.1f\",\"ab\":\"%.2f|%.2f|%d|%d\",\"gpc\":\"%d|%d|%d|%d|%d|%d\",\"zxd\":\"%.1f|%.1f|%d|%d|%d\",\"shak\":\"%d|%d|%.1f\",\"dmx\":%d}", Integer.valueOf(g.y), Float.valueOf(g.z), Float.valueOf(g.ago), Float.valueOf(g.agp), Float.valueOf(g.C), Integer.valueOf(g.D), Integer.valueOf(g.E), Integer.valueOf(g.F), Integer.valueOf(g.G), Integer.valueOf(g.H), Integer.valueOf(g.I), Integer.valueOf(g.J), Float.valueOf(g.K), Float.valueOf(g.agq), Float.valueOf(g.agr), Float.valueOf(g.ags), Integer.valueOf(g.O), Float.valueOf(g.agt), Integer.valueOf(g.Q), Float.valueOf(g.agu), Float.valueOf(g.agv), Float.valueOf(g.agw), Integer.valueOf(g.U), Integer.valueOf(g.V), Integer.valueOf(g.aa ? 1 : 0), Integer.valueOf(g.ab ? 1 : 0), Integer.valueOf(g.ac), Integer.valueOf(g.ae), Long.valueOf(g.ak), Integer.valueOf(g.an), Float.valueOf(g.agC), Float.valueOf(g.agD), Integer.valueOf(g.at), Integer.valueOf(g.au), Integer.valueOf(g.av), Integer.valueOf(g.ao), Integer.valueOf(g.ap), Float.valueOf(g.agB), Integer.valueOf(g.am)).getBytes();
+        byte[] bytes = String.format(Locale.CHINA, "{\"ver\":\"%d\",\"gps\":\"%.1f|%.1f|%.1f|%.1f|%d|%d|%d|%d|%d|%d|%d\",\"up\":\"%.1f|%.1f|%.1f|%.1f\",\"wf\":\"%d|%.1f|%d|%.1f\",\"ab\":\"%.2f|%.2f|%d|%d\",\"gpc\":\"%d|%d|%d|%d|%d|%d\",\"zxd\":\"%.1f|%.1f|%d|%d|%d\",\"shak\":\"%d|%d|%.1f\",\"dmx\":%d}", Integer.valueOf(g.y), Float.valueOf(g.z), Float.valueOf(g.A), Float.valueOf(g.B), Float.valueOf(g.C), Integer.valueOf(g.D), Integer.valueOf(g.E), Integer.valueOf(g.F), Integer.valueOf(g.G), Integer.valueOf(g.H), Integer.valueOf(g.I), Integer.valueOf(g.J), Float.valueOf(g.K), Float.valueOf(g.L), Float.valueOf(g.M), Float.valueOf(g.N), Integer.valueOf(g.O), Float.valueOf(g.P), Integer.valueOf(g.Q), Float.valueOf(g.R), Float.valueOf(g.S), Float.valueOf(g.T), Integer.valueOf(g.U), Integer.valueOf(g.V), Integer.valueOf(g.aa ? 1 : 0), Integer.valueOf(g.ab ? 1 : 0), Integer.valueOf(g.ac), Integer.valueOf(g.ae), Long.valueOf(g.ak), Integer.valueOf(g.an), Float.valueOf(g.ar), Float.valueOf(g.as), Integer.valueOf(g.at), Integer.valueOf(g.au), Integer.valueOf(g.av), Integer.valueOf(g.ao), Integer.valueOf(g.ap), Float.valueOf(g.aq), Integer.valueOf(g.am)).getBytes();
         try {
             File file = new File(str);
             if (!file.exists()) {
@@ -454,8 +461,8 @@ public class d {
             randomAccessFile2.writeDouble(g.t);
             randomAccessFile2.writeDouble(g.u);
             randomAccessFile2.writeBoolean(g.x);
-            if (g.x && g.agn != null) {
-                randomAccessFile2.write(g.agn);
+            if (g.x && g.w != null) {
+                randomAccessFile2.write(g.w);
             }
             randomAccessFile2.close();
         } catch (Exception e) {
@@ -481,8 +488,8 @@ public class d {
                     g.u = randomAccessFile.readDouble();
                     g.x = randomAccessFile.readBoolean();
                     if (g.x) {
-                        g.agn = new byte[625];
-                        randomAccessFile.read(g.agn, 0, 625);
+                        g.w = new byte[625];
+                        randomAccessFile.read(g.w, 0, 625);
                     }
                 }
                 randomAccessFile.close();
@@ -517,7 +524,7 @@ public class d {
     }
 
     private void j() {
-        int i = 0;
+        int i2 = 0;
         try {
             File file = new File(k);
             if (file.exists()) {
@@ -534,41 +541,34 @@ public class d {
                 randomAccessFile.seek(128L);
                 byte[] bArr = new byte[readInt];
                 while (true) {
-                    if (i >= readInt2) {
+                    if (i2 >= readInt2) {
                         break;
                     }
-                    randomAccessFile.seek((readInt * i) + 128);
+                    randomAccessFile.seek((readInt * i2) + 128);
                     int readInt3 = randomAccessFile.readInt();
                     if (readInt3 > 0 && readInt3 < readInt) {
                         randomAccessFile.read(bArr, 0, readInt3);
                         if (bArr[readInt3 - 1] == 0) {
                             String str = new String(bArr, 0, readInt3 - 1);
-                            com.baidu.location.g.b.tZ();
+                            com.baidu.location.g.b.a();
                             if (str.equals(com.baidu.location.g.b.d)) {
                                 l = randomAccessFile.readInt();
-                                n = i;
+                                n = i2;
                                 break;
                             }
                         } else {
                             continue;
                         }
                     }
-                    i++;
+                    i2++;
                 }
-                if (i == readInt2) {
+                if (i2 == readInt2) {
                     n = readInt2;
                 }
                 randomAccessFile.close();
             }
         } catch (Exception e) {
         }
-    }
-
-    public static d tA() {
-        if (aeB == null) {
-            aeB = new d();
-        }
-        return aeB;
     }
 
     public void b() {
@@ -579,8 +579,8 @@ public class d {
     }
 
     public void d() {
-        if (System.currentTimeMillis() - com.baidu.location.g.c.ua().d() > 604800000) {
-            com.baidu.location.g.c.ua().c(System.currentTimeMillis());
+        if (System.currentTimeMillis() - com.baidu.location.g.c.a().d() > TbConfig.APP_OVERDUR_DRAFT_BOX) {
+            com.baidu.location.g.c.a().c(System.currentTimeMillis());
             e();
         }
     }

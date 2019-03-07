@@ -6,7 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class f extends com.google.gson.stream.b {
-    private static final Writer iyO = new Writer() { // from class: com.google.gson.internal.a.f.1
+    private final List<com.google.gson.i> jOB;
+    private String jOC;
+    private com.google.gson.i jOD;
+    private static final Writer jOz = new Writer() { // from class: com.google.gson.internal.a.f.1
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) {
             throw new AssertionError();
@@ -22,40 +25,37 @@ public final class f extends com.google.gson.stream.b {
             throw new AssertionError();
         }
     };
-    private static final com.google.gson.l iyP = new com.google.gson.l("closed");
-    private final List<com.google.gson.i> iyQ;
-    private String iyR;
-    private com.google.gson.i iyS;
+    private static final com.google.gson.l jOA = new com.google.gson.l("closed");
 
     public f() {
-        super(iyO);
-        this.iyQ = new ArrayList();
-        this.iyS = com.google.gson.j.ixv;
+        super(jOz);
+        this.jOB = new ArrayList();
+        this.jOD = com.google.gson.j.jNg;
     }
 
-    public com.google.gson.i cck() {
-        if (!this.iyQ.isEmpty()) {
-            throw new IllegalStateException("Expected one JSON element but was " + this.iyQ);
+    public com.google.gson.i cBp() {
+        if (!this.jOB.isEmpty()) {
+            throw new IllegalStateException("Expected one JSON element but was " + this.jOB);
         }
-        return this.iyS;
+        return this.jOD;
     }
 
-    private com.google.gson.i ccl() {
-        return this.iyQ.get(this.iyQ.size() - 1);
+    private com.google.gson.i cBq() {
+        return this.jOB.get(this.jOB.size() - 1);
     }
 
     private void c(com.google.gson.i iVar) {
-        if (this.iyR != null) {
-            if (!iVar.cbF() || ccD()) {
-                ((com.google.gson.k) ccl()).a(this.iyR, iVar);
+        if (this.jOC != null) {
+            if (!iVar.cAK() || cBI()) {
+                ((com.google.gson.k) cBq()).a(this.jOC, iVar);
             }
-            this.iyR = null;
-        } else if (this.iyQ.isEmpty()) {
-            this.iyS = iVar;
+            this.jOC = null;
+        } else if (this.jOB.isEmpty()) {
+            this.jOD = iVar;
         } else {
-            com.google.gson.i ccl = ccl();
-            if (ccl instanceof com.google.gson.f) {
-                ((com.google.gson.f) ccl).b(iVar);
+            com.google.gson.i cBq = cBq();
+            if (cBq instanceof com.google.gson.f) {
+                ((com.google.gson.f) cBq).b(iVar);
                 return;
             }
             throw new IllegalStateException();
@@ -63,89 +63,89 @@ public final class f extends com.google.gson.stream.b {
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b ccm() throws IOException {
+    public com.google.gson.stream.b cBr() throws IOException {
         com.google.gson.f fVar = new com.google.gson.f();
         c(fVar);
-        this.iyQ.add(fVar);
+        this.jOB.add(fVar);
         return this;
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b ccn() throws IOException {
-        if (this.iyQ.isEmpty() || this.iyR != null) {
+    public com.google.gson.stream.b cBs() throws IOException {
+        if (this.jOB.isEmpty() || this.jOC != null) {
             throw new IllegalStateException();
         }
-        if (ccl() instanceof com.google.gson.f) {
-            this.iyQ.remove(this.iyQ.size() - 1);
+        if (cBq() instanceof com.google.gson.f) {
+            this.jOB.remove(this.jOB.size() - 1);
             return this;
         }
         throw new IllegalStateException();
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b cco() throws IOException {
+    public com.google.gson.stream.b cBt() throws IOException {
         com.google.gson.k kVar = new com.google.gson.k();
         c(kVar);
-        this.iyQ.add(kVar);
+        this.jOB.add(kVar);
         return this;
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b ccp() throws IOException {
-        if (this.iyQ.isEmpty() || this.iyR != null) {
+    public com.google.gson.stream.b cBu() throws IOException {
+        if (this.jOB.isEmpty() || this.jOC != null) {
             throw new IllegalStateException();
         }
-        if (ccl() instanceof com.google.gson.k) {
-            this.iyQ.remove(this.iyQ.size() - 1);
+        if (cBq() instanceof com.google.gson.k) {
+            this.jOB.remove(this.jOB.size() - 1);
             return this;
         }
         throw new IllegalStateException();
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b zM(String str) throws IOException {
-        if (this.iyQ.isEmpty() || this.iyR != null) {
+    public com.google.gson.stream.b FP(String str) throws IOException {
+        if (this.jOB.isEmpty() || this.jOC != null) {
             throw new IllegalStateException();
         }
-        if (ccl() instanceof com.google.gson.k) {
-            this.iyR = str;
+        if (cBq() instanceof com.google.gson.k) {
+            this.jOC = str;
             return this;
         }
         throw new IllegalStateException();
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b zN(String str) throws IOException {
+    public com.google.gson.stream.b FQ(String str) throws IOException {
         if (str == null) {
-            return ccq();
+            return cBv();
         }
         c(new com.google.gson.l(str));
         return this;
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b ccq() throws IOException {
-        c(com.google.gson.j.ixv);
+    public com.google.gson.stream.b cBv() throws IOException {
+        c(com.google.gson.j.jNg);
         return this;
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b ph(boolean z) throws IOException {
+    public com.google.gson.stream.b rB(boolean z) throws IOException {
         c(new com.google.gson.l(Boolean.valueOf(z)));
         return this;
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b k(Boolean bool) throws IOException {
+    public com.google.gson.stream.b m(Boolean bool) throws IOException {
         if (bool == null) {
-            return ccq();
+            return cBv();
         }
         c(new com.google.gson.l(bool));
         return this;
     }
 
     @Override // com.google.gson.stream.b
-    public com.google.gson.stream.b dC(long j) throws IOException {
+    public com.google.gson.stream.b eh(long j) throws IOException {
         c(new com.google.gson.l(Long.valueOf(j)));
         return this;
     }
@@ -153,7 +153,7 @@ public final class f extends com.google.gson.stream.b {
     @Override // com.google.gson.stream.b
     public com.google.gson.stream.b b(Number number) throws IOException {
         if (number == null) {
-            return ccq();
+            return cBv();
         }
         if (!isLenient()) {
             double doubleValue = number.doubleValue();
@@ -171,9 +171,9 @@ public final class f extends com.google.gson.stream.b {
 
     @Override // com.google.gson.stream.b, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
-        if (!this.iyQ.isEmpty()) {
+        if (!this.jOB.isEmpty()) {
             throw new IOException("Incomplete document");
         }
-        this.iyQ.add(iyP);
+        this.jOB.add(jOA);
     }
 }

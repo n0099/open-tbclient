@@ -15,21 +15,21 @@ import android.content.res.XmlResourceParser;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
+import android.os.Message;
 import android.os.Process;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.ng.ai.apps.media.audio.AiAppsAudioPlayer;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
+import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.sofire.MyProvider;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.MyService;
 import com.baidu.sofire.ac.F;
 import com.baidu.sofire.ac.U;
+import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.rp.Report;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.SocialConstants;
 import java.io.BufferedReader;
@@ -47,10 +47,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.TimeZone;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class e {
+public final class e {
     public static String b;
     public static String c;
     public static boolean a = false;
@@ -62,38 +63,30 @@ public class e {
     private static int j = -1;
     public static Map<String, String> e = new HashMap();
 
-    public static void a(Throwable th) {
-        com.baidu.sofire.b.b(th);
+    public static void a() {
+        com.baidu.sofire.b.d();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:10:0x001c  */
-    /* JADX WARN: Removed duplicated region for block: B:17:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public static PublicKey a(PackageInfo packageInfo, String str) {
-        PublicKey publicKey;
+        PublicKey publicKey = null;
         if (packageInfo.signatures != null && packageInfo.signatures.length > 0 && packageInfo.signatures[0] != null) {
             try {
                 publicKey = d.a(packageInfo.signatures[0]);
             } catch (Throwable th) {
-                a(th);
+                com.baidu.sofire.b.d();
             }
-            if (publicKey != null) {
-                return d.a(str);
-            }
-            return publicKey;
         }
-        publicKey = null;
-        if (publicKey != null) {
+        if (publicKey == null) {
+            return d.a(str);
         }
+        return publicKey;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:30:0x00be -> B:5:0x0016). Please submit an issue!!! */
     public static String a(Class<?> cls) {
         try {
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
         }
         if (cls.getCanonicalName().equals(Integer.TYPE.getCanonicalName())) {
             return Integer.class.getCanonicalName();
@@ -126,7 +119,7 @@ public class e {
     public static Class<?> a(String str) {
         try {
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
         }
         if (str.contains(Integer.class.getCanonicalName())) {
             return Integer.TYPE;
@@ -165,10 +158,10 @@ public class e {
         try {
             b2 = b(context);
             if (TextUtils.isEmpty(g)) {
-                g = a(Process.myPid());
+                g = b(Process.myPid());
             }
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
         }
         if (!TextUtils.isEmpty(b2)) {
             return b2.equals(g);
@@ -179,16 +172,123 @@ public class e {
         return false;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0086 A[Catch: Throwable -> 0x00c1, TryCatch #0 {Throwable -> 0x00c1, blocks: (B:2:0x0000, B:4:0x0024, B:6:0x002c, B:8:0x0035, B:9:0x003e, B:10:0x0054, B:12:0x0086, B:14:0x008e, B:16:0x0097, B:17:0x00a0, B:18:0x00b5), top: B:23:0x0000 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private static String p(Context context) {
+        String str;
+        String hexString;
+        try {
+            StringBuilder sb = new StringBuilder();
+            sb.append(g.a(context)).append(":");
+            String hexString2 = Long.toHexString(System.currentTimeMillis() / 1000);
+            if (!TextUtils.isEmpty(hexString2)) {
+                int length = hexString2.length();
+                if (8 - length > 0) {
+                    StringBuilder sb2 = new StringBuilder();
+                    for (int i2 = 8 - length; i2 > 0; i2--) {
+                        sb2.append("0");
+                    }
+                    str = sb2.toString() + hexString2;
+                    String str2 = g(context)[0];
+                    hexString = Long.toHexString(Long.valueOf(str2).longValue());
+                    new StringBuilder("time ").append(str).append(" appkey").append(str2);
+                    com.baidu.sofire.b.a();
+                    if (!TextUtils.isEmpty(hexString)) {
+                        int length2 = hexString.length();
+                        if (16 - length2 > 0) {
+                            StringBuilder sb3 = new StringBuilder();
+                            for (int i3 = 16 - length2; i3 > 0; i3--) {
+                                sb3.append("0");
+                            }
+                            hexString = sb3.toString() + hexString;
+                        }
+                    }
+                    sb.append(str).append(hexString);
+                    return sb.toString();
+                }
+            }
+            str = hexString2;
+            String str22 = g(context)[0];
+            hexString = Long.toHexString(Long.valueOf(str22).longValue());
+            new StringBuilder("time ").append(str).append(" appkey").append(str22);
+            com.baidu.sofire.b.a();
+            if (!TextUtils.isEmpty(hexString)) {
+            }
+            sb.append(str).append(hexString);
+            return sb.toString();
+        } catch (Throwable th) {
+            com.baidu.sofire.b.d();
+            return "";
+        }
+    }
+
+    private static String a(byte[] bArr, int i2) {
+        try {
+            if (bArr != null) {
+                byte[] bytes = Long.toString(System.currentTimeMillis() / 1000).getBytes();
+                byte[] bArr2 = new byte[bArr.length + bytes.length + 4];
+                System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
+                System.arraycopy(bytes, 0, bArr2, bArr.length, bytes.length);
+                int[] iArr = new int[bArr2.length - 4];
+                iArr[0] = i2;
+                for (int i3 = 1; i3 < iArr.length; i3++) {
+                    iArr[i3] = ((iArr[i3 - 1] * 3) + 1) % 128;
+                }
+                for (int i4 = 0; i4 < iArr.length; i4++) {
+                    bArr2[i4] = (byte) (bArr2[i4] ^ ((byte) iArr[i4]));
+                }
+                System.arraycopy(new byte[]{(byte) (i2 >>> 24), (byte) ((i2 >> 16) & 255), (byte) ((i2 >> 8) & 255), (byte) (i2 & 255)}, 0, bArr2, bArr2.length - 4, 4);
+                return Base64.encodeToString(bArr2, 9).replace("\n", "");
+            }
+            com.baidu.sofire.b.a();
+            return "";
+        } catch (Throwable th) {
+            com.baidu.sofire.b.d();
+            return "";
+        }
+    }
+
+    public static String a(Context context, int i2) {
+        try {
+            String hexString = Integer.toHexString(i2);
+            if (!TextUtils.isEmpty(hexString)) {
+                int length = hexString.length();
+                if (4 - length > 0) {
+                    StringBuilder sb = new StringBuilder();
+                    for (int i3 = 4 - length; i3 > 0; i3--) {
+                        sb.append("0");
+                    }
+                    hexString = sb.toString() + hexString;
+                }
+            }
+            byte[] b2 = a.b("30212102dicudiab".getBytes(), (p(context) + hexString).toString().getBytes());
+            com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
+            int i4 = eVar.a.getInt("tk_sa_pu_cl", 0) + 1;
+            eVar.c.putInt("tk_sa_pu_cl", i4);
+            eVar.c.commit();
+            String a2 = a(b2, i4);
+            StringBuilder sb2 = new StringBuilder();
+            sb2.append(a2);
+            sb2.insert(sb2.length() - 2, "A");
+            return sb2.toString().replace("\n", "");
+        } catch (Throwable th) {
+            com.baidu.sofire.b.d();
+            return "";
+        }
+    }
+
     public static String b(Context context) {
         try {
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
         }
         if (!TextUtils.isEmpty(f) || j == 1) {
             return f;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(context.getPackageName()).append(".").append("sofire").append(".ac.provider");
+        sb.append(context.getPackageName()).append(".sofire.ac.provider");
         ProviderInfo resolveContentProvider = context.getPackageManager().resolveContentProvider(sb.toString(), 0);
         if (resolveContentProvider != null && !resolveContentProvider.multiprocess) {
             f = resolveContentProvider.processName;
@@ -225,32 +325,28 @@ public class e {
                     }
                 }
             } catch (Throwable th) {
-                a(th);
+                com.baidu.sofire.b.d();
                 z2 = false;
             }
         }
         return z2;
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(17:1|(2:2|3)|(3:58|59|(13:61|6|7|8|(3:47|48|(8:50|11|(3:13|(1:15)|40)(2:(1:44)|40)|16|(1:18)|(4:25|(1:(1:33)(1:(1:35)))(1:28)|(1:30)|31)|36|37))|10|11|(0)(0)|16|(0)|(6:20|25|(0)|(0)(0)|(0)|31)|36|37))|5|6|7|8|(0)|10|11|(0)(0)|16|(0)|(0)|36|37|(1:(0))) */
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x00be, code lost:
-        r0 = null;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x00d4, code lost:
-        r3 = move-exception;
-     */
+    /* JADX WARN: Can't wrap try/catch for region: R(19:1|(2:2|3)|(3:53|54|(15:56|6|7|8|(2:10|(10:12|13|(2:15|(6:17|18|(1:20)|(4:27|(1:(1:35)(1:(1:37)))(1:30)|(1:32)|33)|38|39))(7:(2:45|(1:47))|42|18|(0)|(6:22|27|(0)|(0)(0)|(0)|33)|38|39)|41|42|18|(0)|(0)|38|39))|51|13|(0)(0)|41|42|18|(0)|(0)|38|39))|5|6|7|8|(0)|51|13|(0)(0)|41|42|18|(0)|(0)|38|39|(1:(0))) */
     /* JADX WARN: Code restructure failed: missing block: B:47:0x00d5, code lost:
-        a(r3);
+        r9 = r3;
+        r3 = r0;
+        r0 = r9;
+        com.baidu.sofire.b.d();
      */
-    /* JADX WARN: Removed duplicated region for block: B:15:0x005f A[Catch: Throwable -> 0x00d4, TRY_ENTER, TRY_LEAVE, TryCatch #2 {Throwable -> 0x00d4, blocks: (B:15:0x005f, B:43:0x00c4), top: B:63:0x005d }] */
+    /* JADX WARN: Removed duplicated region for block: B:11:0x0054 A[Catch: Throwable -> 0x00bd, TRY_LEAVE, TryCatch #0 {Throwable -> 0x00bd, blocks: (B:9:0x0032, B:11:0x0054), top: B:55:0x0032 }] */
+    /* JADX WARN: Removed duplicated region for block: B:15:0x005f A[Catch: Throwable -> 0x00d4, TRY_ENTER, TRY_LEAVE, TryCatch #1 {Throwable -> 0x00d4, blocks: (B:15:0x005f, B:42:0x00c2), top: B:58:0x005d }] */
     /* JADX WARN: Removed duplicated region for block: B:20:0x0076  */
     /* JADX WARN: Removed duplicated region for block: B:22:0x0082  */
     /* JADX WARN: Removed duplicated region for block: B:32:0x00a6  */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00c2  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x00dd  */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x00e8  */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x0054 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:48:0x00d8 -> B:18:0x006e). Please submit an issue!!! */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00c0  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x00de  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00e9  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -258,11 +354,12 @@ public class e {
         ResolveInfo resolveInfo;
         boolean z3;
         ResolveInfo resolveInfo2;
-        ActivityInfo activityInfo;
         boolean z4;
         boolean z5;
-        ResolveInfo resolveService;
         boolean z6;
+        ResolveInfo resolveService;
+        boolean z7;
+        ActivityInfo activityInfo = null;
         try {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(context.getPackageName(), MyService.class.getCanonicalName()));
@@ -283,98 +380,100 @@ public class e {
                 if (activityInfo != null) {
                 }
                 z4 = false;
-                if (resolveInfo2 == null) {
+                if (resolveInfo2 != null) {
                 }
-                z3 = TextUtils.isEmpty(g);
-                if (z3) {
+                boolean z8 = z3;
+                z5 = z4;
+                z6 = z8;
+                if (TextUtils.isEmpty(g)) {
                 }
                 if (z2) {
                 }
-                return z4 & z5;
+                return z6 & z5;
             }
             if (str.equals(resolveService.serviceInfo.processName)) {
-                z6 = true;
-                z3 = z6;
+                z7 = true;
                 resolveInfo2 = resolveService;
+                z3 = z7;
                 Intent intent22 = new Intent();
                 ComponentName componentName2 = new ComponentName(context.getPackageName(), MyReceiver.class.getCanonicalName());
                 intent22.setComponent(componentName2);
                 activityInfo = context.getPackageManager().getReceiverInfo(componentName2, 0);
                 if (activityInfo != null) {
-                    try {
-                    } catch (Throwable th3) {
-                        ActivityInfo activityInfo2 = activityInfo;
-                        activityInfo = activityInfo2;
-                        z4 = false;
-                        if (resolveInfo2 == null) {
+                    if (str.equals(activityInfo.processName)) {
+                        z4 = true;
+                        if (resolveInfo2 != null) {
+                            if (str.equals(b(context, str, NotificationCompat.CATEGORY_SERVICE))) {
+                                z5 = z4;
+                                z6 = true;
+                                if (TextUtils.isEmpty(g)) {
+                                    g = b(Process.myPid());
+                                }
+                                if (z2 && g.equals(str) && (!z5 || !z6 || z)) {
+                                    HashMap hashMap = new HashMap();
+                                    if (z5 && !z6) {
+                                        hashMap.put("0", Integer.toString(2));
+                                    } else if (z6) {
+                                        hashMap.put("0", Integer.toString(1));
+                                    } else if (!z5) {
+                                        hashMap.put("0", Integer.toString(0));
+                                    }
+                                    if (z) {
+                                        hashMap.put("1", "0");
+                                    }
+                                    a(context, "1003140", hashMap);
+                                }
+                                return z6 & z5;
+                            }
+                        } else {
+                            if (activityInfo == null) {
+                                if (str.equals(b(context, str, SocialConstants.PARAM_RECEIVER))) {
+                                    z4 = true;
+                                }
+                            }
+                            boolean z82 = z3;
+                            z5 = z4;
+                            z6 = z82;
+                            if (TextUtils.isEmpty(g)) {
+                            }
+                            if (z2) {
+                                HashMap hashMap2 = new HashMap();
+                                if (z5) {
+                                }
+                                if (z6) {
+                                }
+                                if (z) {
+                                }
+                                a(context, "1003140", hashMap2);
+                            }
+                            return z6 & z5;
                         }
-                        z3 = TextUtils.isEmpty(g);
-                        if (z3) {
+                        boolean z822 = z3;
+                        z5 = z4;
+                        z6 = z822;
+                        if (TextUtils.isEmpty(g)) {
                         }
                         if (z2) {
                         }
-                        return z4 & z5;
-                    }
-                    if (str.equals(activityInfo.processName)) {
-                        z4 = true;
-                        if (resolveInfo2 == null) {
-                            if (str.equals(b(context, str, NotificationCompat.CATEGORY_SERVICE))) {
-                                z5 = z4;
-                                z4 = true;
-                            }
-                            z5 = z4;
-                            z4 = z3;
-                        } else {
-                            if (activityInfo == null && str.equals(b(context, str, SocialConstants.PARAM_RECEIVER))) {
-                                z4 = z3;
-                                z5 = true;
-                            }
-                            z5 = z4;
-                            z4 = z3;
-                        }
-                        z3 = TextUtils.isEmpty(g);
-                        if (z3) {
-                            g = a(Process.myPid());
-                        }
-                        if (z2 && g.equals(str) && (!z5 || !z4 || z)) {
-                            HashMap hashMap = new HashMap();
-                            if (z5 && !z4) {
-                                hashMap.put("0", Integer.toString(2));
-                            } else if (z4) {
-                                hashMap.put("0", Integer.toString(1));
-                            } else if (!z5) {
-                                hashMap.put("0", Integer.toString(0));
-                            }
-                            if (z) {
-                                hashMap.put("1", "0");
-                            }
-                            a(context, "1003140", hashMap);
-                        }
-                        return z4 & z5;
+                        return z6 & z5;
                     }
                 }
                 z4 = false;
-                if (resolveInfo2 == null) {
+                if (resolveInfo2 != null) {
                 }
-                z3 = TextUtils.isEmpty(g);
-                if (z3) {
+                boolean z8222 = z3;
+                z5 = z4;
+                z6 = z8222;
+                if (TextUtils.isEmpty(g)) {
                 }
                 if (z2) {
-                    HashMap hashMap2 = new HashMap();
-                    if (z5) {
-                    }
-                    if (z4) {
-                    }
-                    if (z) {
-                    }
-                    a(context, "1003140", hashMap2);
                 }
-                return z4 & z5;
+                return z6 & z5;
             }
         }
-        z6 = false;
-        z3 = z6;
+        z7 = false;
         resolveInfo2 = resolveService;
+        z3 = z7;
         Intent intent222 = new Intent();
         ComponentName componentName22 = new ComponentName(context.getPackageName(), MyReceiver.class.getCanonicalName());
         intent222.setComponent(componentName22);
@@ -382,35 +481,38 @@ public class e {
         if (activityInfo != null) {
         }
         z4 = false;
-        if (resolveInfo2 == null) {
+        if (resolveInfo2 != null) {
         }
-        z3 = TextUtils.isEmpty(g);
-        if (z3) {
+        boolean z82222 = z3;
+        z5 = z4;
+        z6 = z82222;
+        if (TextUtils.isEmpty(g)) {
         }
         if (z2) {
         }
-        return z4 & z5;
+        return z6 & z5;
     }
 
     public static boolean b(String str) {
         try {
             if (TextUtils.isEmpty(g)) {
-                g = a(Process.myPid());
+                g = b(Process.myPid());
             }
             return !str.equals(g);
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
             return false;
         }
     }
 
     private static String b(Context context, String str, String str2) {
         int next;
+        String str3;
         String canonicalName;
         try {
-            String str3 = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.sourceDir;
+            String str4 = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.sourceDir;
             AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-            XmlResourceParser openXmlResourceParser = assetManager.openXmlResourceParser(((Integer) AssetManager.class.getDeclaredMethod("addAssetPath", String.class).invoke(assetManager, str3)).intValue(), "AndroidManifest.xml");
+            XmlResourceParser openXmlResourceParser = assetManager.openXmlResourceParser(((Integer) AssetManager.class.getDeclaredMethod("addAssetPath", String.class).invoke(assetManager, str4)).intValue(), "AndroidManifest.xml");
             if (openXmlResourceParser != null) {
                 do {
                     next = openXmlResourceParser.next();
@@ -423,7 +525,29 @@ public class e {
                     if (attributeValue == null || attributeValue.length() == 0) {
                         return null;
                     }
-                    if (b(attributeValue, true) != null && !HttpConstants.OS_TYPE_VALUE.equals(attributeValue)) {
+                    int length = attributeValue.length();
+                    int i2 = 0;
+                    boolean z = true;
+                    boolean z2 = false;
+                    while (true) {
+                        if (i2 < length) {
+                            char charAt = attributeValue.charAt(i2);
+                            if ((charAt >= 'a' && charAt <= 'z') || (charAt >= 'A' && charAt <= 'Z')) {
+                                z = false;
+                            } else if (z || ((charAt < '0' || charAt > '9') && charAt != '_')) {
+                                if (charAt != '.') {
+                                    str3 = "bad character '" + charAt + "'";
+                                    break;
+                                }
+                                z = true;
+                                z2 = true;
+                            }
+                            i2++;
+                        } else {
+                            str3 = z2 ? null : "must have at least one '.' separator";
+                        }
+                    }
+                    if (str3 != null && !"android".equals(attributeValue)) {
                         return null;
                     }
                     if (str2.equals("provider")) {
@@ -433,7 +557,7 @@ public class e {
                     } else {
                         canonicalName = str2.equals(SocialConstants.PARAM_RECEIVER) ? MyReceiver.class.getCanonicalName() : null;
                     }
-                    com.baidu.sofire.b.a("Try Component Name :" + canonicalName);
+                    com.baidu.sofire.b.a();
                     while (true) {
                         int next2 = openXmlResourceParser.next();
                         if (next2 != 1) {
@@ -496,31 +620,9 @@ public class e {
                 return null;
             }
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
         }
         return null;
-    }
-
-    private static String b(String str, boolean z) {
-        int length = str.length();
-        boolean z2 = true;
-        boolean z3 = false;
-        for (int i2 = 0; i2 < length; i2++) {
-            char charAt = str.charAt(i2);
-            if ((charAt >= 'a' && charAt <= 'z') || (charAt >= 'A' && charAt <= 'Z')) {
-                z2 = false;
-            } else if (z2 || ((charAt < '0' || charAt > '9') && charAt != '_')) {
-                if (charAt != '.') {
-                    return "bad character '" + charAt + "'";
-                }
-                z2 = true;
-                z3 = true;
-            }
-        }
-        if (z3 || !z) {
-            return null;
-        }
-        return "must have at least one '.' separator";
     }
 
     public static void b(String str, String str2) {
@@ -537,126 +639,125 @@ public class e {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [583=4] */
-    public static void a(java.io.File r5, java.io.File r6) {
+    public static void a(java.io.File r6, java.io.File r7) {
         /*
-            r2 = 0
-            if (r5 == 0) goto Lb
+            r1 = 0
             if (r6 == 0) goto Lb
-            boolean r0 = a(r5)
+            if (r7 == 0) goto Lb
+            boolean r0 = a(r6)
             if (r0 != 0) goto Lc
         Lb:
             return
         Lc:
-            boolean r0 = r6.exists()
+            boolean r0 = r7.exists()
             if (r0 == 0) goto L15
-            r6.delete()
+            r7.delete()
         L15:
-            java.io.FileInputStream r3 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> Lc3
-            r3.<init>(r5)     // Catch: java.lang.Throwable -> Lc3
-            java.io.FileOutputStream r1 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> Lc7
-            r1.<init>(r6)     // Catch: java.lang.Throwable -> Lc7
-            r0 = 8192(0x2000, float:1.148E-41)
-            byte[] r0 = new byte[r0]     // Catch: java.lang.Throwable -> L2f
+            java.io.FileInputStream r2 = new java.io.FileInputStream     // Catch: java.lang.Throwable -> Lb4
+            r2.<init>(r6)     // Catch: java.lang.Throwable -> Lb4
+            java.io.FileOutputStream r0 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> Lb8
+            r0.<init>(r7)     // Catch: java.lang.Throwable -> Lb8
+            r1 = 8192(0x2000, float:1.148E-41)
+            byte[] r1 = new byte[r1]     // Catch: java.lang.Throwable -> L2f
         L23:
-            int r2 = r3.read(r0)     // Catch: java.lang.Throwable -> L2f
+            int r3 = r2.read(r1)     // Catch: java.lang.Throwable -> L2f
             r4 = -1
-            if (r2 == r4) goto L48
+            if (r3 == r4) goto L47
             r4 = 0
-            r1.write(r0, r4, r2)     // Catch: java.lang.Throwable -> L2f
+            r0.write(r1, r4, r3)     // Catch: java.lang.Throwable -> L2f
             goto L23
         L2f:
-            r0 = move-exception
-            r2 = r3
+            r1 = move-exception
+            r1 = r2
         L31:
-            a(r0)     // Catch: java.lang.Throwable -> Lc0
-            if (r2 == 0) goto L39
-            r2.close()     // Catch: java.lang.Throwable -> L92
+            com.baidu.sofire.b.d()     // Catch: java.lang.Throwable -> Lae
+            if (r1 == 0) goto L39
+            r1.close()     // Catch: java.lang.Throwable -> L82
         L39:
-            if (r1 == 0) goto Lb
-            r1.close()     // Catch: java.lang.Throwable -> L3f
+            if (r0 == 0) goto Lb
+            r0.close()     // Catch: java.lang.Throwable -> L3f
             goto Lb
         L3f:
             r0 = move-exception
-            java.lang.String r1 = r0.getMessage()
-            com.baidu.sofire.b.a(r1, r0)
+            r0.getMessage()
+            com.baidu.sofire.b.c()
             goto Lb
-        L48:
-            r1.flush()     // Catch: java.lang.Throwable -> L2f
-            java.lang.StringBuilder r0 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L2f
-            r0.<init>()     // Catch: java.lang.Throwable -> L2f
-            java.lang.String r2 = "copyFile Suc, srcFile="
-            java.lang.StringBuilder r0 = r0.append(r2)     // Catch: java.lang.Throwable -> L2f
-            java.lang.String r2 = r5.getAbsolutePath()     // Catch: java.lang.Throwable -> L2f
-            java.lang.StringBuilder r0 = r0.append(r2)     // Catch: java.lang.Throwable -> L2f
-            java.lang.String r2 = " > "
-            java.lang.StringBuilder r0 = r0.append(r2)     // Catch: java.lang.Throwable -> L2f
-            java.lang.String r2 = r6.getAbsolutePath()     // Catch: java.lang.Throwable -> L2f
-            java.lang.StringBuilder r0 = r0.append(r2)     // Catch: java.lang.Throwable -> L2f
-            java.lang.String r0 = r0.toString()     // Catch: java.lang.Throwable -> L2f
-            com.baidu.sofire.b.a(r0)     // Catch: java.lang.Throwable -> L2f
-            if (r3 == 0) goto L7a
-            r3.close()     // Catch: java.lang.Throwable -> L89
+        L47:
+            r0.flush()     // Catch: java.lang.Throwable -> L2f
+            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L2f
+            java.lang.String r3 = "copyFile Suc, srcFile="
+            r1.<init>(r3)     // Catch: java.lang.Throwable -> L2f
+            java.lang.String r3 = r6.getAbsolutePath()     // Catch: java.lang.Throwable -> L2f
+            java.lang.StringBuilder r1 = r1.append(r3)     // Catch: java.lang.Throwable -> L2f
+            java.lang.String r3 = " > "
+            java.lang.StringBuilder r1 = r1.append(r3)     // Catch: java.lang.Throwable -> L2f
+            java.lang.String r3 = r7.getAbsolutePath()     // Catch: java.lang.Throwable -> L2f
+            r1.append(r3)     // Catch: java.lang.Throwable -> L2f
+            com.baidu.sofire.b.a()     // Catch: java.lang.Throwable -> L2f
+            r2.close()     // Catch: java.lang.Throwable -> L7a
+        L6e:
+            r0.close()     // Catch: java.lang.Throwable -> L72
+            goto Lb
+        L72:
+            r0 = move-exception
+            r0.getMessage()
+            com.baidu.sofire.b.c()
+            goto Lb
         L7a:
-            if (r1 == 0) goto Lb
-            r1.close()     // Catch: java.lang.Throwable -> L80
-            goto Lb
-        L80:
-            r0 = move-exception
-            java.lang.String r1 = r0.getMessage()
-            com.baidu.sofire.b.a(r1, r0)
-            goto Lb
-        L89:
-            r0 = move-exception
-            java.lang.String r2 = r0.getMessage()
-            com.baidu.sofire.b.a(r2, r0)
-            goto L7a
-        L92:
-            r0 = move-exception
-            java.lang.String r2 = r0.getMessage()
-            com.baidu.sofire.b.a(r2, r0)
-            goto L39
-        L9b:
-            r0 = move-exception
-            r1 = r2
-            r3 = r2
-        L9e:
-            if (r3 == 0) goto La3
-            r3.close()     // Catch: java.lang.Throwable -> La9
-        La3:
-            if (r1 == 0) goto La8
-            r1.close()     // Catch: java.lang.Throwable -> Lb2
-        La8:
-            throw r0
-        La9:
-            r2 = move-exception
-            java.lang.String r3 = r2.getMessage()
-            com.baidu.sofire.b.a(r3, r2)
-            goto La3
-        Lb2:
             r1 = move-exception
-            java.lang.String r2 = r1.getMessage()
-            com.baidu.sofire.b.a(r2, r1)
-            goto La8
-        Lbb:
+            r1.getMessage()
+            com.baidu.sofire.b.c()
+            goto L6e
+        L82:
+            r1 = move-exception
+            r1.getMessage()
+            com.baidu.sofire.b.c()
+            goto L39
+        L8a:
             r0 = move-exception
-            r1 = r2
-            goto L9e
-        Lbe:
+            r2 = r1
+        L8c:
+            if (r2 == 0) goto L91
+            r2.close()     // Catch: java.lang.Throwable -> L97
+        L91:
+            if (r1 == 0) goto L96
+            r1.close()     // Catch: java.lang.Throwable -> L9f
+        L96:
+            throw r0
+        L97:
+            r2 = move-exception
+            r2.getMessage()
+            com.baidu.sofire.b.c()
+            goto L91
+        L9f:
+            r1 = move-exception
+            r1.getMessage()
+            com.baidu.sofire.b.c()
+            goto L96
+        La7:
             r0 = move-exception
-            goto L9e
-        Lc0:
+            goto L8c
+        La9:
+            r1 = move-exception
+            r5 = r1
+            r1 = r0
+            r0 = r5
+            goto L8c
+        Lae:
+            r2 = move-exception
+            r5 = r2
+            r2 = r1
+            r1 = r0
+            r0 = r5
+            goto L8c
+        Lb4:
             r0 = move-exception
-            r3 = r2
-            goto L9e
-        Lc3:
-            r0 = move-exception
-            r1 = r2
+            r0 = r1
             goto L31
-        Lc7:
+        Lb8:
             r0 = move-exception
+            r0 = r1
             r1 = r2
-            r2 = r3
             goto L31
         */
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.b.e.a(java.io.File, java.io.File):void");
@@ -684,25 +785,27 @@ public class e {
                             if (file2.isDirectory()) {
                                 d(file2.getAbsolutePath());
                             } else {
-                                com.baidu.sofire.b.a(file2.getAbsolutePath() + " d:" + file2.delete());
+                                new StringBuilder().append(file2.getAbsolutePath()).append(" d:").append(file2.delete());
+                                com.baidu.sofire.b.a();
                             }
                         }
                     }
-                    com.baidu.sofire.b.a(file.getAbsolutePath() + " d:" + file.delete());
+                    new StringBuilder().append(file.getAbsolutePath()).append(" d:").append(file.delete());
+                    com.baidu.sofire.b.a();
                 }
             }
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
         }
     }
 
     public static Object a(Object obj, String str, Class<?>[] clsArr, Object... objArr) {
         Method method;
         if (obj == null || TextUtils.isEmpty(str)) {
-            com.baidu.sofire.b.a("callMethodOfClass fail");
+            com.baidu.sofire.b.a();
             throw new NoSuchMethodException("object=" + obj + ", methodName=" + str);
         } else if (clsArr != null && objArr != null && clsArr.length != objArr.length) {
-            com.baidu.sofire.b.a("callMethodOfClass fail");
+            com.baidu.sofire.b.a();
             throw new NoSuchMethodException("paramTypes or args fail");
         } else {
             Method[] declaredMethods = obj.getClass().getDeclaredMethods();
@@ -720,7 +823,7 @@ public class e {
                 i2++;
             }
             if (method == null) {
-                com.baidu.sofire.b.a("callMethodOfClass fail");
+                com.baidu.sofire.b.a();
                 throw new NoSuchMethodException("cannot find method in target methodName=" + str);
             }
             return method.invoke(obj, objArr);
@@ -729,28 +832,28 @@ public class e {
 
     private static boolean a(Method method, String str, Class<?>[] clsArr) {
         if (str.equals(method.getName())) {
-            com.baidu.sofire.b.a("methodName=" + str);
+            com.baidu.sofire.b.a();
             Class<?>[] parameterTypes = method.getParameterTypes();
             if ((parameterTypes == null || parameterTypes.length == 0) && (clsArr == null || clsArr.length == 0)) {
-                com.baidu.sofire.b.a("suc");
+                com.baidu.sofire.b.a();
                 return true;
             } else if ((clsArr == null || clsArr.length == 0) && parameterTypes != null && parameterTypes.length > 0) {
-                com.baidu.sofire.b.a("fail");
+                com.baidu.sofire.b.a();
                 return false;
             } else if ((parameterTypes == null || parameterTypes.length == 0) && clsArr != null && clsArr.length > 0) {
-                com.baidu.sofire.b.a("fail");
+                com.baidu.sofire.b.a();
                 return false;
             } else if (parameterTypes.length != clsArr.length) {
-                com.baidu.sofire.b.a("fail");
+                com.baidu.sofire.b.a();
                 return false;
             } else {
                 for (int i2 = 0; i2 < parameterTypes.length; i2++) {
                     if (parameterTypes[i2] != clsArr[i2]) {
-                        com.baidu.sofire.b.a("fail");
+                        com.baidu.sofire.b.a();
                         return false;
                     }
                 }
-                com.baidu.sofire.b.a("suc");
+                com.baidu.sofire.b.a();
                 return true;
             }
         }
@@ -758,16 +861,18 @@ public class e {
     }
 
     public static void a(String str, boolean z) {
-        boolean c2 = c("771", str);
-        com.baidu.sofire.b.a(str + ",s=" + c2);
+        boolean d2 = d("771", str);
+        new StringBuilder().append(str).append(",s=").append(d2);
+        com.baidu.sofire.b.a();
         if (z) {
             String absolutePath = new File(str).getParentFile().getAbsolutePath();
-            c("771", absolutePath);
-            com.baidu.sofire.b.a(absolutePath + ",s=" + c2);
+            d("771", absolutePath);
+            new StringBuilder().append(absolutePath).append(",s=").append(d2);
+            com.baidu.sofire.b.a();
         }
     }
 
-    public static boolean c(String str, String str2) {
+    private static boolean d(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || !new File(str2).exists()) {
             return false;
         }
@@ -775,7 +880,7 @@ public class e {
             Runtime.getRuntime().exec("chmod " + str + " " + str2 + "\n").waitFor();
             return true;
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
             return false;
         }
     }
@@ -785,42 +890,46 @@ public class e {
             Report report = Report.getInstance(context);
             JSONObject jSONObject = new JSONObject();
             com.baidu.sofire.a.a a2 = com.baidu.sofire.a.a.a(context);
-            Map<Integer, String> c2 = a2.c();
-            jSONObject.put("0", c2.keySet());
-            jSONObject.put("1", c2.values());
-            com.baidu.sofire.b.a("getAliveData " + jSONObject.toString());
+            Map<Integer, String> b2 = a2.b();
+            jSONObject.put("0", b2.keySet());
+            jSONObject.put("1", b2.values());
+            new StringBuilder("getAliveData ").append(jSONObject.toString());
+            com.baidu.sofire.b.a();
             JSONObject jSONObject2 = new JSONObject();
             JSONObject jSONObject3 = new JSONObject();
             jSONObject3.put("1003003", jSONObject);
             jSONObject2.put("0", jSONObject3);
-            Map<Integer, String> d2 = a2.d();
+            Map<Integer, String> c2 = a2.c();
             JSONArray jSONArray = new JSONArray();
-            for (String str : d2.values()) {
+            for (String str : c2.values()) {
                 jSONArray.put(str);
             }
             jSONArray.put("com.baidu.sofire");
-            com.baidu.sofire.b.a("setAliveData = " + jSONArray.toString());
+            new StringBuilder("setAliveData = ").append(jSONArray.toString());
+            com.baidu.sofire.b.a();
             jSONObject2.put("2", jSONArray);
             report.w(jSONObject2.toString());
         } catch (Throwable th) {
-            com.baidu.sofire.b.a(th.getMessage(), th);
+            th.getMessage();
+            com.baidu.sofire.b.c();
         }
     }
 
     public static void d(Context context) {
-        com.baidu.sofire.b.a("v=3.1.8");
-        if (!TextUtils.isEmpty("3.1.8")) {
+        com.baidu.sofire.b.a();
+        if (!TextUtils.isEmpty("3.1.9.3")) {
             Report report = Report.getInstance(context);
             try {
                 c(context);
-                report.i("sofire", "com.baidu.sofire", "3.1.8", "1003003", "1003002");
+                report.i("sofire", "com.baidu.sofire", "3.1.9.3", "1003003", "1003002");
             } catch (Throwable th) {
-                com.baidu.sofire.b.a(th.getMessage(), th);
+                th.getMessage();
+                com.baidu.sofire.b.c();
             }
         }
     }
 
-    public static String e(Context context) {
+    public static String b() {
         try {
             return new String(F.getInstance().ad(Base64.decode(n.a, 0), "30212102dicudiab".getBytes()));
         } catch (Throwable th) {
@@ -840,7 +949,7 @@ public class e {
             }
             return str;
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
             return "";
         }
     }
@@ -854,9 +963,9 @@ public class e {
                 jSONObject2.put("0", System.currentTimeMillis());
                 jSONObject2.put("1", "");
                 jSONObject2.put("2", "");
-                String[] h2 = h(context);
-                if (h2 != null && h2.length == 2 && !TextUtils.isEmpty(h2[0]) && !TextUtils.isEmpty(h2[1])) {
-                    str2 = h2[0];
+                String[] g2 = g(context);
+                if (g2 != null && g2.length == 2 && !TextUtils.isEmpty(g2[0]) && !TextUtils.isEmpty(g2[1])) {
+                    str2 = g2[0];
                 } else {
                     str2 = "3";
                 }
@@ -866,7 +975,7 @@ public class e {
                 jSONObject2.put(Constants.VIA_SHARE_TYPE_INFO, 1);
                 jSONObject2.put("7", 0);
                 jSONObject2.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "sofire");
-                jSONObject2.put("9", "3.1.8");
+                jSONObject2.put("9", "3.1.9.3");
                 jSONObject2.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, str);
                 jSONObject.put("Common_section", jSONObject2);
                 if (map != null && map.size() > 0) {
@@ -876,10 +985,10 @@ public class e {
                 }
                 Report report = Report.getInstance(context);
                 String jSONObject3 = jSONObject.toString();
-                com.baidu.sofire.b.a("sendEventUDC:" + jSONObject3);
+                com.baidu.sofire.b.a();
                 report.s(jSONObject3);
             } catch (Throwable th) {
-                a(th);
+                com.baidu.sofire.b.d();
             }
         }
     }
@@ -897,34 +1006,37 @@ public class e {
                     try {
                         inputStream.close();
                     } catch (IOException e2) {
-                        com.baidu.sofire.b.a(e2.getMessage(), e2);
+                        e2.getMessage();
+                        com.baidu.sofire.b.c();
                     }
                 }
             } catch (IOException e3) {
-                com.baidu.sofire.b.a(e3.getMessage(), e3);
+                e3.getMessage();
+                com.baidu.sofire.b.c();
                 if (inputStream != null) {
                     try {
                         inputStream.close();
                     } catch (IOException e4) {
-                        com.baidu.sofire.b.a(e4.getMessage(), e4);
+                        e4.getMessage();
+                        com.baidu.sofire.b.c();
                     }
                 }
             }
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
         }
         return str3;
     }
 
-    public static boolean f(Context context) {
+    public static boolean e(Context context) {
         NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-        if (activeNetworkInfo == null) {
-            return false;
+        if (activeNetworkInfo != null && 1 == activeNetworkInfo.getType()) {
+            return true;
         }
-        return 1 == activeNetworkInfo.getType();
+        return false;
     }
 
-    public static boolean g(Context context) {
+    public static boolean f(Context context) {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo == null) {
@@ -932,51 +1044,47 @@ public class e {
             }
             return activeNetworkInfo.isConnected();
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
             return false;
         }
     }
 
-    public static String[] h(Context context) {
+    public static String[] g(Context context) {
         String[] split;
         String[] split2;
         String str = b;
         String str2 = c;
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            com.baidu.sofire.b.a("get key  key select in memory!");
+            com.baidu.sofire.b.a();
             return new String[]{str, str2};
         }
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            String c2 = new com.baidu.sofire.e(context).c();
-            if (!TextUtils.isEmpty(c2) && (split = c2.split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER)) != null && split.length == 2) {
-                com.baidu.sofire.b.a("get key  key select from Info");
-                String str3 = split[0];
-                String str4 = split[1];
+            String b2 = new com.baidu.sofire.e(context).b();
+            if (!TextUtils.isEmpty(b2) && (split = b2.split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER)) != null && split.length == 2) {
+                com.baidu.sofire.b.a();
                 return split;
             }
         }
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            String d2 = new com.baidu.sofire.e(context).d();
-            if (!TextUtils.isEmpty(d2) && (split2 = d2.split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER)) != null && split2.length == 2) {
-                com.baidu.sofire.b.a("get key  key select in mark");
-                String str5 = split2[0];
-                String str6 = split2[1];
+            String string = new com.baidu.sofire.e(context).a.getString("svi", "");
+            if (!TextUtils.isEmpty(string) && (split2 = string.split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER)) != null && split2.length == 2) {
+                com.baidu.sofire.b.a();
                 return split2;
             }
         }
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            com.baidu.sofire.b.a("get key  key select by default");
+            com.baidu.sofire.b.a();
             str = "3";
             str2 = "925fc15df8a49bed0b3eca8d2b44cb7b";
         }
         return new String[]{str, str2};
     }
 
-    public static String[] i(Context context) {
+    public static String[] h(Context context) {
         if (TextUtils.isEmpty(b) || TextUtils.isEmpty(c)) {
-            String c2 = new com.baidu.sofire.e(context).c();
-            if (!TextUtils.isEmpty(c2)) {
-                String[] split = c2.split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+            String b2 = new com.baidu.sofire.e(context).b();
+            if (!TextUtils.isEmpty(b2)) {
+                String[] split = b2.split(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                 if (split == null || split.length != 2) {
                     return new String[2];
                 }
@@ -989,7 +1097,7 @@ public class e {
         return new String[]{b, c};
     }
 
-    public static Map<String, Integer> f(String str) {
+    private static Map<String, Integer> g(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             Iterator<String> keys = jSONObject.keys();
@@ -1000,43 +1108,44 @@ public class e {
             }
             return hashMap;
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
             return null;
         }
     }
 
-    public static void g(String str) {
+    public static void f(String str) {
         Map<String, Integer> map;
         try {
-            if (com.baidu.sofire.core.d.a != null) {
-                com.baidu.sofire.e eVar = new com.baidu.sofire.e(com.baidu.sofire.core.d.a);
-                String e2 = eVar.e();
-                if (TextUtils.isEmpty(e2)) {
+            if (com.baidu.sofire.core.d.b != null) {
+                com.baidu.sofire.e eVar = new com.baidu.sofire.e(com.baidu.sofire.core.d.b);
+                String string = eVar.a.getString("ses_ic", "");
+                if (TextUtils.isEmpty(string)) {
                     map = new HashMap<>();
                     map.put(str, 1);
                 } else {
-                    Map<String, Integer> f2 = f(e2);
-                    if (f2 != null && f2.size() > 0) {
-                        if (f2.get(str) != null) {
-                            f2.put(str, Integer.valueOf(f2.get(str).intValue() + 1));
-                            map = f2;
+                    Map<String, Integer> g2 = g(string);
+                    if (g2 != null && g2.size() > 0) {
+                        if (g2.get(str) != null) {
+                            g2.put(str, Integer.valueOf(g2.get(str).intValue() + 1));
+                            map = g2;
                         } else {
-                            f2.put(str, 1);
+                            g2.put(str, 1);
                         }
                     }
-                    map = f2;
+                    map = g2;
                 }
                 if (map != null && map.size() > 0) {
-                    eVar.a(new JSONObject(map).toString());
+                    eVar.c.putString("ses_ic", new JSONObject(map).toString());
+                    eVar.c.commit();
                 }
             }
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
         }
     }
 
-    public static boolean a(Context context, int i2) {
-        if (i2 != 1 || f(context)) {
+    public static boolean b(Context context, int i2) {
+        if (i2 != 1 || e(context)) {
             return true;
         }
         IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
@@ -1048,35 +1157,36 @@ public class e {
         return false;
     }
 
-    public static void j(Context context) {
+    public static void i(Context context) {
         PublicKey a2;
         byte[] encoded;
         boolean z = false;
         try {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            String h2 = eVar.h();
-            long i2 = eVar.i();
-            if (!TextUtils.isEmpty(h2) || i2 != 0) {
+            String d2 = eVar.d();
+            long e2 = eVar.e();
+            if (!TextUtils.isEmpty(d2) || e2 != 0) {
                 String packageName = context.getPackageName();
-                JSONArray jSONArray = new JSONArray(h2);
+                JSONArray jSONArray = new JSONArray(d2);
                 String str = "";
                 String str2 = "";
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(packageName, 64);
                 if (packageInfo != null && (a2 = a(packageInfo, (str2 = packageInfo.applicationInfo.sourceDir))) != null && (encoded = a2.getEncoded()) != null) {
                     a(context, encoded);
                     str = o.a(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", ""));
-                    com.baidu.sofire.b.a("nsm=" + str);
+                    com.baidu.sofire.b.a();
                 }
-                for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i3);
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     String optString = optJSONObject.optString("p");
-                    String optString2 = optJSONObject.optString("s");
+                    String optString2 = optJSONObject.optString(NotifyType.SOUND);
                     if (packageName.equals(optString) && !TextUtils.isEmpty(str) && str.equalsIgnoreCase(optString2)) {
                         z = true;
                     }
                 }
-                com.baidu.sofire.b.a("Host Check:" + z);
-                eVar.b(z);
+                com.baidu.sofire.b.a();
+                eVar.c.putBoolean("hac", z);
+                eVar.c.commit();
                 if (!z) {
                     HashMap hashMap = new HashMap();
                     hashMap.put("0", packageName);
@@ -1095,7 +1205,7 @@ public class e {
                 }
             }
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
         }
     }
 
@@ -1103,12 +1213,12 @@ public class e {
         PublicKey a2;
         try {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            String h2 = eVar.h();
-            long i2 = eVar.i();
-            if (TextUtils.isEmpty(h2) && i2 == 0) {
+            String d2 = eVar.d();
+            long e2 = eVar.e();
+            if (TextUtils.isEmpty(d2) && e2 == 0) {
                 return false;
             }
-            JSONArray jSONArray = new JSONArray(h2);
+            JSONArray jSONArray = new JSONArray(d2);
             String str2 = "";
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
             if (packageInfo != null && (a2 = a(packageInfo, packageInfo.applicationInfo.sourceDir)) != null) {
@@ -1116,12 +1226,12 @@ public class e {
                 if (encoded != null) {
                     a(context, encoded);
                     str2 = o.a(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", ""));
-                    com.baidu.sofire.b.a("nsm=" + str2);
+                    com.baidu.sofire.b.a();
                 }
-                for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i3);
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     String optString = optJSONObject.optString("p");
-                    String optString2 = optJSONObject.optString("s");
+                    String optString2 = optJSONObject.optString(NotifyType.SOUND);
                     if (str.equals(optString) && !TextUtils.isEmpty(str2) && str2.equalsIgnoreCase(optString2)) {
                         return true;
                     }
@@ -1130,37 +1240,44 @@ public class e {
             }
             return true;
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
             return true;
         }
     }
 
     public static void a(Context context, byte[] bArr) {
         try {
-            String[] h2 = h(context);
-            if (h2 != null && h2.length == 2 && !TextUtils.isEmpty(h2[0]) && !TextUtils.isEmpty(h2[1]) && "200080".equals(h2[0]) && context.getPackageName().equals("com.baidu.BaiduMap") && bArr != null) {
-                for (int i2 = 0; i2 < bArr.length; i2++) {
-                    bArr[i2] = (byte) (bArr[i2] ^ 246);
-                }
+            String[] g2 = g(context);
+            if (g2 == null || g2.length != 2 || TextUtils.isEmpty(g2[0]) || TextUtils.isEmpty(g2[1]) || !"200080".equals(g2[0]) || !context.getPackageName().equals("com.baidu.BaiduMap") || bArr == null) {
+                return;
+            }
+            for (int i2 = 0; i2 < bArr.length; i2++) {
+                bArr[i2] = (byte) (bArr[i2] ^ 246);
             }
         } catch (Throwable th) {
         }
     }
 
-    public static void k(Context context) {
+    public static void j(Context context) {
         com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-        if (System.currentTimeMillis() - eVar.p() > 86400000) {
+        long currentTimeMillis = System.currentTimeMillis();
+        long j2 = eVar.a.getLong("se_ae_fd", 0L);
+        if (j2 == 0) {
+            j2 = System.currentTimeMillis();
+            eVar.j();
+        }
+        if (currentTimeMillis - j2 > 86400000) {
             HashMap hashMap = new HashMap();
-            hashMap.put("0", Integer.valueOf(eVar.t() + 1));
-            eVar.f(0);
-            eVar.q();
+            hashMap.put("0", Integer.valueOf(eVar.m() + 1));
+            eVar.c(0);
+            eVar.j();
             a(context, "1003119", hashMap);
             return;
         }
-        eVar.f(eVar.t() + 1);
+        eVar.c(eVar.m() + 1);
     }
 
-    public static boolean d(String str, String str2) {
+    public static boolean c(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return false;
         }
@@ -1179,12 +1296,12 @@ public class e {
         }
     }
 
-    public static int l(Context context) {
+    public static int k(Context context) {
         ConnectivityManager connectivityManager;
         try {
             connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
         }
         if (connectivityManager == null) {
             return -1;
@@ -1235,91 +1352,125 @@ public class e {
         return -1;
     }
 
-    public static String m(Context context) {
+    private static String q(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 16384).versionName;
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
             return "1.0.0";
         }
     }
 
-    public static JSONObject n(Context context) {
+    /* JADX WARN: Removed duplicated region for block: B:48:0x011b A[Catch: Throwable -> 0x0153, TryCatch #0 {Throwable -> 0x0153, blocks: (B:3:0x0005, B:6:0x000f, B:9:0x001c, B:11:0x0024, B:15:0x002e, B:18:0x003b, B:21:0x0048, B:24:0x0055, B:27:0x0062, B:30:0x006f, B:33:0x0086, B:36:0x0093, B:39:0x00aa, B:41:0x00cd, B:43:0x00d6, B:51:0x012b, B:46:0x00e2, B:48:0x011b, B:58:0x0149, B:54:0x0138), top: B:62:0x0005 }] */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x0149 A[Catch: Throwable -> 0x0153, TRY_LEAVE, TryCatch #0 {Throwable -> 0x0153, blocks: (B:3:0x0005, B:6:0x000f, B:9:0x001c, B:11:0x0024, B:15:0x002e, B:18:0x003b, B:21:0x0048, B:24:0x0055, B:27:0x0062, B:30:0x006f, B:33:0x0086, B:36:0x0093, B:39:0x00aa, B:41:0x00cd, B:43:0x00d6, B:51:0x012b, B:46:0x00e2, B:48:0x011b, B:58:0x0149, B:54:0x0138), top: B:62:0x0005 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static JSONObject l(Context context) {
+        String str;
+        String h2;
+        String str2;
+        TimeZone timeZone;
         JSONObject jSONObject = new JSONObject();
         try {
-            String str = Build.BOARD;
-            if (str == null) {
-                str = "";
-            }
-            jSONObject.put("0", str);
-            String str2 = Build.DEVICE;
-            if (str2 == null) {
-                str2 = "";
-            }
-            jSONObject.put("1", str2);
-            String b2 = g.b();
-            if (b2 == null) {
-                b2 = "";
-            }
-            jSONObject.put("2", b2);
-            String str3 = Build.HOST;
+            String str3 = Build.BOARD;
             if (str3 == null) {
                 str3 = "";
             }
-            jSONObject.put("3", str3);
-            String a2 = g.a();
-            if (a2 == null) {
-                a2 = "";
-            }
-            jSONObject.put("4", a2);
-            String str4 = Build.PRODUCT;
+            jSONObject.put("0", str3);
+            String str4 = Build.DEVICE;
             if (str4 == null) {
                 str4 = "";
             }
-            jSONObject.put("5", str4);
-            String str5 = Build.VERSION.CODENAME;
+            jSONObject.put("1", str4);
+            if (Build.VERSION.SDK_INT > 7) {
+                str = Build.HARDWARE;
+            } else {
+                str = "";
+            }
+            if (str == null) {
+                str = "";
+            }
+            jSONObject.put("2", str);
+            String str5 = Build.HOST;
             if (str5 == null) {
                 str5 = "";
             }
-            jSONObject.put(Constants.VIA_SHARE_TYPE_INFO, str5);
-            String str6 = Build.VERSION.INCREMENTAL;
+            jSONObject.put("3", str5);
+            String str6 = Build.DISPLAY;
             if (str6 == null) {
                 str6 = "";
             }
-            jSONObject.put("7", str6);
+            jSONObject.put("4", str6);
+            String str7 = Build.PRODUCT;
+            if (str7 == null) {
+                str7 = "";
+            }
+            jSONObject.put("5", str7);
+            String str8 = Build.VERSION.CODENAME;
+            if (str8 == null) {
+                str8 = "";
+            }
+            jSONObject.put(Constants.VIA_SHARE_TYPE_INFO, str8);
+            String str9 = Build.VERSION.INCREMENTAL;
+            if (str9 == null) {
+                str9 = "";
+            }
+            jSONObject.put("7", str9);
             jSONObject.put(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, g.a(context));
-            String c2 = g.c();
-            if (c2 == null) {
-                c2 = "";
+            String str10 = Build.MANUFACTURER;
+            if (str10 == null) {
+                str10 = "";
             }
-            jSONObject.put("9", c2);
-            String d2 = g.d();
-            if (d2 == null) {
-                d2 = "";
+            jSONObject.put("9", str10);
+            String str11 = Build.MODEL;
+            if (str11 == null) {
+                str11 = "";
             }
-            jSONObject.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, d2);
-            jSONObject.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, g.h(context));
-            String e2 = g.e();
-            if (e2 == null) {
-                e2 = "";
+            jSONObject.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, str11);
+            jSONObject.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, g.g(context));
+            String str12 = Build.VERSION.RELEASE;
+            if (str12 == null) {
+                str12 = "";
             }
-            jSONObject.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, e2);
+            jSONObject.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, str12);
             jSONObject.put(Constants.VIA_REPORT_TYPE_JOININ_GROUP, g.b(context));
             jSONObject.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, "");
-            jSONObject.put(Constants.VIA_REPORT_TYPE_WPA_STATE, g.i(context));
-            jSONObject.put(Constants.VIA_REPORT_TYPE_START_WAP, g.k(context));
-            jSONObject.put("17", g.l(context));
-            jSONObject.put("18", g.m(context));
-            jSONObject.put(Constants.VIA_ACT_TYPE_NINETEEN, g.n(context));
-            jSONObject.put("20", Build.VERSION.SDK_INT);
-            TimeZone timeZone = TimeZone.getDefault();
-            if (timeZone != null) {
-                jSONObject.put("21", timeZone.getID());
-            } else {
-                jSONObject.put("21", AiAppsAudioPlayer.ERROR_UNKNOWN);
-            }
+            h2 = g.h(context);
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
+        }
+        if (!TextUtils.isEmpty(h2)) {
+            if (h2.startsWith("46000") || h2.startsWith("46002")) {
+                str2 = "1";
+            } else if (h2.startsWith("46001")) {
+                str2 = "2";
+            } else if (h2.startsWith("46003")) {
+                str2 = "3";
+            }
+            jSONObject.put(Constants.VIA_REPORT_TYPE_WPA_STATE, str2);
+            jSONObject.put(Constants.VIA_REPORT_TYPE_START_WAP, g.i(context));
+            jSONObject.put(Constants.VIA_REPORT_TYPE_START_GROUP, g.j(context));
+            jSONObject.put("18", g.k(context));
+            jSONObject.put(Constants.VIA_ACT_TYPE_NINETEEN, g.l(context));
+            jSONObject.put("20", Build.VERSION.SDK_INT);
+            timeZone = TimeZone.getDefault();
+            if (timeZone == null) {
+                jSONObject.put(Constants.VIA_REPORT_TYPE_QQFAVORITES, timeZone.getID());
+            } else {
+                jSONObject.put(Constants.VIA_REPORT_TYPE_QQFAVORITES, LivenessStat.TYPE_STRING_DEFAULT);
+            }
+            return jSONObject;
+        }
+        str2 = "";
+        jSONObject.put(Constants.VIA_REPORT_TYPE_WPA_STATE, str2);
+        jSONObject.put(Constants.VIA_REPORT_TYPE_START_WAP, g.i(context));
+        jSONObject.put(Constants.VIA_REPORT_TYPE_START_GROUP, g.j(context));
+        jSONObject.put("18", g.k(context));
+        jSONObject.put(Constants.VIA_ACT_TYPE_NINETEEN, g.l(context));
+        jSONObject.put("20", Build.VERSION.SDK_INT);
+        timeZone = TimeZone.getDefault();
+        if (timeZone == null) {
         }
         return jSONObject;
     }
@@ -1328,17 +1479,18 @@ public class e {
         return a(context, aVar.a, aVar.c, z ? aVar.d : aVar.e, str);
     }
 
-    public static int o(Context context) {
+    public static int m(Context context) {
         NetworkInfo networkInfo;
         try {
             networkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
         } catch (Throwable th) {
-            com.baidu.sofire.b.a("sj-trigger info " + th.toString());
-            a(th);
+            new StringBuilder("sj-trigger info ").append(th.toString());
+            com.baidu.sofire.b.a();
             networkInfo = null;
+            com.baidu.sofire.b.d();
         }
         if (networkInfo == null) {
-            com.baidu.sofire.b.a("sj-trigger info == null");
+            com.baidu.sofire.b.a();
             return 0;
         } else if (1 == networkInfo.getType()) {
             return 2;
@@ -1347,44 +1499,33 @@ public class e {
         }
     }
 
-    public static String a(int i2) {
-        Throwable th;
-        String h2;
+    private static String b(int i2) {
         try {
-            h2 = h(String.format("/proc/%d/cmdline", Integer.valueOf(i2)));
-        } catch (Throwable th2) {
-            th = th2;
-        }
-        try {
+            String h2 = h(String.format("/proc/%d/cmdline", Integer.valueOf(i2)));
             if (!TextUtils.isEmpty(h2)) {
                 return h2.trim();
             }
             return h2;
-        } catch (Throwable th3) {
-            th = th3;
-            a(th);
+        } catch (Throwable th) {
+            com.baidu.sofire.b.d();
             return null;
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
-    public static String h(String str) {
+    private static String h(String str) {
         FileInputStream fileInputStream;
         String str2 = null;
         try {
             fileInputStream = new FileInputStream(str);
             try {
                 str2 = a(fileInputStream);
-            } catch (Throwable th) {
-                th = th;
                 try {
-                    a(th);
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (Throwable th2) {
-                        }
-                    }
+                    fileInputStream.close();
+                } catch (Throwable th) {
+                }
+            } catch (Throwable th2) {
+                try {
+                    com.baidu.sofire.b.d();
                     return str2;
                 } finally {
                     if (fileInputStream != null) {
@@ -1396,14 +1537,13 @@ public class e {
                 }
             }
         } catch (Throwable th4) {
-            th = th4;
             fileInputStream = null;
         }
         return str2;
     }
 
-    public static String a(InputStream inputStream) {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+    private static String a(InputStream inputStream) {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, HTTP.UTF_8));
         StringBuilder sb = new StringBuilder();
         boolean z = true;
         while (true) {
@@ -1428,7 +1568,7 @@ public class e {
         try {
             jSONObject3 = jSONObject.getJSONObject("Common_section");
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
         }
         String optString = jSONObject3.optString(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
         long optLong = jSONObject3.optLong("0");
@@ -1439,7 +1579,7 @@ public class e {
         try {
             jSONObject2.put("1", context.getApplicationInfo().loadLabel(context.getPackageManager()).toString());
             jSONObject2.put("2", context.getPackageName());
-            jSONObject2.put("3", m(context));
+            jSONObject2.put("3", q(context));
             jSONObject2.put("4", g.a(context));
             jSONObject2.put("5", optString);
             jSONObject2.put(Constants.VIA_SHARE_TYPE_INFO, optLong);
@@ -1448,29 +1588,30 @@ public class e {
             jSONObject2.put("9", optString4);
             jSONObject2.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ, optString5);
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            jSONObject2.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, eVar.ae());
-            jSONObject2.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, eVar.ad());
-            jSONObject2.put(Constants.VIA_REPORT_TYPE_JOININ_GROUP, eVar.u() ? 1 : 0);
-            if (l(context) == 4) {
+            jSONObject2.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, eVar.e.getString("re_a_cv", ""));
+            jSONObject2.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, eVar.e.getString("re_a_lc", ""));
+            jSONObject2.put(Constants.VIA_REPORT_TYPE_JOININ_GROUP, eVar.n() ? 1 : 0);
+            if (k(context) == 4) {
                 jSONObject2.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, 1);
             } else {
                 jSONObject2.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, 2);
             }
             jSONObject2.put("20", g.c(context));
-            jSONObject2.put("21", g.g(context));
+            jSONObject2.put(Constants.VIA_REPORT_TYPE_QQFAVORITES, g.f(context));
             jSONObject2.put(Constants.VIA_REPORT_TYPE_DATALINE, g.b(context));
-            String w = eVar.w();
-            if (TextUtils.isEmpty(w)) {
+            String string = eVar.b.getString("xygls", "");
+            if (TextUtils.isEmpty(string)) {
                 try {
-                    w = k.a(context);
-                    if (TextUtils.isEmpty(w)) {
-                        w = "";
+                    string = k.a(context);
+                    if (TextUtils.isEmpty(string)) {
+                        string = "";
                     }
-                    eVar.c(w);
+                    eVar.d.putString("xygls", string);
+                    eVar.d.commit();
                 } catch (Throwable th2) {
                 }
             }
-            jSONObject2.put(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, w);
+            jSONObject2.put(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, string);
             jSONObject2.put("25", com.baidu.sofire.rp.a.a(context));
             jSONObject2.put("26", com.baidu.sofire.rp.a.b(context));
             jSONObject2.put("27", com.baidu.sofire.rp.a.c(context));
@@ -1482,37 +1623,49 @@ public class e {
                 jSONObject2.put("module_section", new JSONArray().put(obj));
             }
         } catch (Throwable th3) {
-            a(th3);
+            com.baidu.sofire.b.d();
         }
         return jSONObject2;
     }
 
     public static void a(Context context, String str, String str2, String str3, String str4, String str5) {
-        f.a(context).a(false);
-        f.a(context).c();
-        com.baidu.sofire.rp.a.a aVar = new com.baidu.sofire.rp.a.a();
-        aVar.a = str;
-        aVar.b = str2;
-        aVar.c = str3;
-        aVar.d = str4;
-        aVar.e = str5;
+        int indexOf;
+        com.baidu.sofire.rp.a.a aVar;
+        f.a(context).a();
+        f a2 = f.a(context);
+        Message message = new Message();
+        message.what = 8;
+        a2.a.a(message);
+        com.baidu.sofire.rp.a.a aVar2 = new com.baidu.sofire.rp.a.a();
+        aVar2.a = str;
+        aVar2.b = str2;
+        aVar2.c = str3;
+        aVar2.d = str4;
+        aVar2.e = str5;
         if (!TextUtils.isEmpty(str4) && !TextUtils.isEmpty(str5)) {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            List<com.baidu.sofire.rp.a.a> P = eVar.P();
-            if (P == null) {
-                eVar.a(aVar);
-            } else if (!P.contains(aVar)) {
-                eVar.a(aVar);
+            List<com.baidu.sofire.rp.a.a> v = eVar.v();
+            if (v == null) {
+                eVar.a(aVar2);
+            } else if (!v.contains(aVar2)) {
+                eVar.a(aVar2);
             } else {
-                eVar.a(P, aVar);
-                f.a(context).a();
+                if (v != null && (indexOf = v.indexOf(aVar2)) != -1 && (aVar = v.get(indexOf)) != null) {
+                    eVar.f.putString("re_con", eVar.e.getString("re_con", "").replace(com.baidu.sofire.rp.a.a.a(aVar), com.baidu.sofire.rp.a.a.a(aVar2)));
+                    eVar.f.commit();
+                }
+                f.a(context).b();
                 return;
             }
-            if (!eVar.k(aVar.e)) {
-                f.a(context).a(aVar);
+            if (!eVar.e.getBoolean("re_net_ins_" + aVar2.e, false)) {
+                f a3 = f.a(context);
+                Message message2 = new Message();
+                message2.what = 3;
+                message2.obj = aVar2;
+                a3.a.a(message2);
             }
-            f.a(context).a();
             f.a(context).b();
+            f.a(context).c();
         }
     }
 
@@ -1521,7 +1674,7 @@ public class e {
             JSONObject jSONObject = new JSONObject(str);
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
             System.currentTimeMillis();
-            eVar.Q();
+            eVar.e.getInt("re_net_ty", 2);
             JSONObject optJSONObject = jSONObject.optJSONObject("Common_section");
             long optLong = optJSONObject.optLong("0");
             String optString = optJSONObject.optString(Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
@@ -1530,22 +1683,24 @@ public class e {
             int optInt3 = optJSONObject.optInt("7");
             int optInt4 = optJSONObject.optInt(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE);
             String optString2 = optJSONObject.optString(Constants.VIA_REPORT_TYPE_SET_AVATAR, "");
-            if (optInt2 == 0) {
-                optInt2 = 1;
-            }
+            int i2 = optInt2 != 0 ? optInt2 : 1;
             com.baidu.sofire.rp.c.a aVar = new com.baidu.sofire.rp.c.a();
             aVar.d = str;
             aVar.b = optString;
             aVar.g = optInt;
             aVar.c = 3;
             aVar.e = optLong;
-            aVar.f = optInt2;
+            aVar.f = i2;
             aVar.h = optInt3;
             aVar.i = optInt4;
             aVar.j = optString2;
-            f.a(context).a(aVar);
+            f a2 = f.a(context);
+            Message message = new Message();
+            message.what = 1;
+            message.obj = aVar;
+            a2.a.a(message);
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
         }
     }
 
@@ -1553,61 +1708,64 @@ public class e {
         com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
         try {
             JSONObject jSONObject = new JSONObject(str);
-            if (jSONObject != null) {
-                try {
-                    JSONObject optJSONObject = jSONObject.optJSONObject("0");
-                    if (optJSONObject != null) {
-                        String str2 = "";
-                        while (optJSONObject.keys().hasNext()) {
-                            str2 = String.valueOf(optJSONObject.keys().next());
-                            if (!TextUtils.isEmpty(str2)) {
-                                break;
-                            }
-                        }
+            try {
+                JSONObject optJSONObject = jSONObject.optJSONObject("0");
+                if (optJSONObject != null) {
+                    String str2 = "";
+                    while (optJSONObject.keys().hasNext()) {
+                        str2 = String.valueOf(optJSONObject.keys().next());
                         if (!TextUtils.isEmpty(str2)) {
-                            eVar.d(str2, optJSONObject.optString(str2));
+                            break;
                         }
                     }
-                } catch (Throwable th) {
-                    a(th);
+                    if (!TextUtils.isEmpty(str2)) {
+                        eVar.f.putString("al_da" + str2, optJSONObject.optString(str2));
+                        eVar.f.commit();
+                    }
                 }
-                try {
-                    JSONObject optJSONObject2 = jSONObject.optJSONObject("1");
-                    if (optJSONObject2 != null) {
-                        String str3 = "";
-                        while (optJSONObject2.keys().hasNext()) {
-                            str3 = String.valueOf(optJSONObject2.keys().next());
-                            if (!TextUtils.isEmpty(str3)) {
-                                break;
-                            }
-                        }
+            } catch (Throwable th) {
+                com.baidu.sofire.b.d();
+            }
+            try {
+                JSONObject optJSONObject2 = jSONObject.optJSONObject("1");
+                if (optJSONObject2 != null) {
+                    String str3 = "";
+                    while (optJSONObject2.keys().hasNext()) {
+                        str3 = String.valueOf(optJSONObject2.keys().next());
                         if (!TextUtils.isEmpty(str3)) {
-                            eVar.e(str3, optJSONObject2.optString(str3));
+                            break;
                         }
                     }
-                } catch (Throwable th2) {
-                    a(th2);
-                }
-                try {
-                    JSONArray optJSONArray = jSONObject.optJSONArray("2");
-                    if (optJSONArray != null) {
-                        com.baidu.sofire.b.a("setAliveData rp= " + optJSONArray.toString());
-                        eVar.m(optJSONArray.toString());
+                    if (!TextUtils.isEmpty(str3)) {
+                        eVar.f.putString("in_da" + str3, optJSONObject2.optString(str3));
+                        eVar.f.commit();
                     }
-                } catch (Throwable th3) {
-                    a(th3);
                 }
+            } catch (Throwable th2) {
+                com.baidu.sofire.b.d();
+            }
+            try {
+                JSONArray optJSONArray = jSONObject.optJSONArray("2");
+                if (optJSONArray != null) {
+                    new StringBuilder("setAliveData rp= ").append(optJSONArray.toString());
+                    com.baidu.sofire.b.a();
+                    eVar.f.putString("li_pk_s", optJSONArray.toString());
+                    eVar.f.commit();
+                }
+            } catch (Throwable th3) {
+                com.baidu.sofire.b.d();
             }
         } catch (Throwable th4) {
-            a(th4);
+            com.baidu.sofire.b.d();
         }
     }
 
-    public static String a() {
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r1v1 int), (r2v1 int), (wrap: int : 0x000f: INVOKE  (r0v1 int A[REMOVE]) = (r0v0 java.util.Calendar), (5 int) type: VIRTUAL call: java.util.Calendar.get(int):int)] */
+    public static String c() {
         Calendar calendar = Calendar.getInstance();
         int i2 = calendar.get(1);
         int i3 = calendar.get(2);
-        return i2 + "" + i3 + "" + calendar.get(5);
+        return new StringBuilder().append(i2).append(i3).append(calendar.get(5)).toString();
     }
 
     public static JSONObject a(Context context, String str, String str2, String str3, String str4) {
@@ -1617,9 +1775,9 @@ public class e {
             jSONObject2.put("0", System.currentTimeMillis());
             jSONObject2.put("1", "0");
             jSONObject2.put("2", "0");
-            String[] h2 = h(context);
-            if (h2 != null && h2.length == 2) {
-                jSONObject2.put("3", h2[0]);
+            String[] g2 = g(context);
+            if (g2 != null && g2.length == 2) {
+                jSONObject2.put("3", g2[0]);
             } else {
                 jSONObject2.put("3", "3");
             }
@@ -1634,7 +1792,7 @@ public class e {
             jSONObject.put("Common_section", jSONObject2);
             jSONObject.put("Module_section", jSONObject3);
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
         }
         return jSONObject;
     }
@@ -1645,12 +1803,12 @@ public class e {
         try {
             alarmManager.cancel(broadcast);
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
         }
         try {
             alarmManager.set(0, System.currentTimeMillis() + j2, broadcast);
         } catch (Throwable th2) {
-            a(th2);
+            com.baidu.sofire.b.d();
         }
     }
 
@@ -1659,16 +1817,16 @@ public class e {
         for (byte b2 : bArr) {
             String hexString = Integer.toHexString(b2 & 255);
             if (hexString.length() == 1) {
-                hexString = '0' + hexString;
+                hexString = "0" + hexString;
             }
             str = str + hexString.toUpperCase();
         }
         return str;
     }
 
-    public static void p(Context context) {
+    public static void n(Context context) {
         try {
-            String str = e(context) + "p/1/prt";
+            String str = b() + "p/1/prt";
             JSONObject jSONObject = new JSONObject();
             String packageName = context.getPackageName();
             jSONObject.put(PushConstants.URI_PACKAGE_NAME, packageName);
@@ -1679,9 +1837,8 @@ public class e {
                     byte[] encoded = a2.getEncoded();
                     if (encoded != null) {
                         a(context, encoded);
-                        String a3 = o.a(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", ""));
-                        jSONObject.put("sm", a3);
-                        com.baidu.sofire.b.a("nsm=" + a3);
+                        jSONObject.put("sm", o.a(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", "")));
+                        com.baidu.sofire.b.a();
                     }
                 } else {
                     jSONObject.put("sm", "");
@@ -1690,57 +1847,60 @@ public class e {
                 jSONObject.put("sm", "");
             }
             String jSONObject2 = jSONObject.toString();
-            com.baidu.sofire.b.a(jSONObject2);
-            String a4 = h.a(context, str, jSONObject2, false, true);
-            com.baidu.sofire.b.a("list:after java decrypt ResponseDataJsonString=" + a4);
-            if (a4 != null) {
-                JSONObject jSONObject3 = new JSONObject(a4);
+            com.baidu.sofire.b.a();
+            String a3 = h.a(context, str, jSONObject2, false);
+            com.baidu.sofire.b.a();
+            if (a3 != null) {
+                JSONObject jSONObject3 = new JSONObject(a3);
                 JSONArray optJSONArray = jSONObject3.optJSONArray("product");
-                long optLong = jSONObject3.optLong(Config.PLATFORM_TYPE);
+                long optLong = jSONObject3.optLong("pt");
                 if (optJSONArray != null && optLong > 0) {
                     new com.baidu.sofire.e(context).a(optJSONArray.toString(), optLong);
                 }
                 if (optLong > 0) {
-                    j(context);
+                    i(context);
                 }
             }
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
         }
     }
 
-    public static void q(Context context) {
+    public static void o(Context context) {
         try {
             e.clear();
-            String h2 = new com.baidu.sofire.e(context).h();
-            com.baidu.sofire.b.a("157:" + h2);
-            if (!TextUtils.isEmpty(h2)) {
-                JSONArray jSONArray = new JSONArray(h2);
+            String d2 = new com.baidu.sofire.e(context).d();
+            com.baidu.sofire.b.a();
+            if (!TextUtils.isEmpty(d2)) {
+                JSONArray jSONArray = new JSONArray(d2);
                 HashMap hashMap = new HashMap();
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     String optString = optJSONObject.optString("p");
-                    String optString2 = optJSONObject.optString("s");
-                    com.baidu.sofire.b.a("167:" + optString + BaseRequestAction.SPLITE + optString2);
+                    String optString2 = optJSONObject.optString(NotifyType.SOUND);
+                    new StringBuilder("167:").append(optString).append("_").append(optString2);
+                    com.baidu.sofire.b.a();
                     hashMap.put(optString, optString2);
                 }
                 for (PackageInfo packageInfo : context.getPackageManager().getInstalledPackages(64)) {
                     String str = packageInfo.packageName;
-                    com.baidu.sofire.b.a("174:" + str);
+                    com.baidu.sofire.b.a();
                     if (hashMap.keySet().contains(str) && !str.equals(context.getPackageName())) {
                         String str2 = (String) hashMap.get(str);
-                        com.baidu.sofire.b.a("179:" + str2);
+                        com.baidu.sofire.b.a();
                         String str3 = packageInfo.applicationInfo.sourceDir;
-                        com.baidu.sofire.b.a("181:" + str3);
+                        com.baidu.sofire.b.a();
                         PublicKey a2 = a(packageInfo, str3);
-                        com.baidu.sofire.b.a("194:" + (a2 == null));
+                        new StringBuilder("194:").append(a2 == null);
+                        com.baidu.sofire.b.a();
                         if (a2 != null) {
                             byte[] encoded = a2.getEncoded();
-                            com.baidu.sofire.b.a("197:" + (encoded == null));
+                            new StringBuilder("197:").append(encoded == null);
+                            com.baidu.sofire.b.a();
                             if (encoded != null) {
                                 a(context, encoded);
                                 String a3 = o.a(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", ""));
-                                com.baidu.sofire.b.a("nsm=" + a3);
+                                com.baidu.sofire.b.a();
                                 if (!TextUtils.isEmpty(a3) && a3.equals(str2)) {
                                     JSONObject jSONObject = new JSONObject();
                                     jSONObject.put(PushConstants.URI_PACKAGE_NAME, str);
@@ -1756,7 +1916,7 @@ public class e {
                 }
             }
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
         }
     }
 
@@ -1768,7 +1928,22 @@ public class e {
                 new U(context, 4, false).start();
             }
         } catch (Throwable th) {
-            a(th);
+            com.baidu.sofire.b.d();
+        }
+    }
+
+    public static boolean a(int i2) {
+        ApkInfo a2;
+        com.baidu.sofire.core.g a3;
+        try {
+            com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.d;
+            if (aVar == null || (a2 = aVar.a(i2)) == null || a2.initStatus != 1 || (a3 = com.baidu.sofire.core.g.a()) == null) {
+                return false;
+            }
+            return a3.d(a2.packageName) != null;
+        } catch (Throwable th) {
+            com.baidu.sofire.b.d();
+            return false;
         }
     }
 }

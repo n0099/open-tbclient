@@ -16,7 +16,6 @@ import cn.jiguang.d.d.l;
 import cn.jiguang.d.d.o;
 import cn.jiguang.g.h;
 import cn.jiguang.g.i;
-import com.baidu.ar.parser.ARResourceKey;
 import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
 public class PushReceiver extends BroadcastReceiver implements Runnable {
@@ -127,9 +126,9 @@ public class PushReceiver extends BroadcastReceiver implements Runnable {
                 } else if (NetworkInfo.State.DISCONNECTED == networkInfo.getState()) {
                     extras.putBoolean("connection-state", false);
                 }
-                l.bZ().d(context, "intent.CONNECTIVITY_CHANGE", extras);
+                l.bY().d(context, "intent.CONNECTIVITY_CHANGE", extras);
             } else if (action.equals("android.os.action.DEVICE_IDLE_MODE_CHANGED") || action.equals("android.os.action.POWER_SAVE_MODE_CHANGED")) {
-                PowerManager powerManager = (PowerManager) context.getSystemService(ARResourceKey.HTTP_POWER);
+                PowerManager powerManager = (PowerManager) context.getSystemService("power");
                 if (powerManager != null) {
                     try {
                         Class<?> cls = Class.forName("android.os.PowerManager");
@@ -151,7 +150,7 @@ public class PushReceiver extends BroadcastReceiver implements Runnable {
             } else if (action.equals("cn.jpush.android.intent.ACTION_REPORT_HISTORY")) {
                 aa.a(context);
             }
-            cn.jiguang.d.d.e.bU();
+            cn.jiguang.d.d.e.bT();
             cn.jiguang.d.d.e.b(context, intent.getStringExtra("sdktype"), intent);
         } catch (Throwable th2) {
             cn.jiguang.e.c.c(TAG, "onReceiver error:" + th2.getMessage());

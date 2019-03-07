@@ -6,24 +6,24 @@ import rx.internal.operators.NotificationLite;
 import rx.subjects.SubjectSubscriptionManager;
 /* loaded from: classes2.dex */
 public final class a<T> extends c<T, T> {
-    private static final Object[] iSw = new Object[0];
-    private final SubjectSubscriptionManager<T> iSx;
+    private static final Object[] kcu = new Object[0];
+    private final SubjectSubscriptionManager<T> kcv;
 
-    public static <T> a<T> cgG() {
+    public static <T> a<T> cFh() {
         return g(null, false);
     }
 
     private static <T> a<T> g(T t, boolean z) {
         final SubjectSubscriptionManager subjectSubscriptionManager = new SubjectSubscriptionManager();
         if (z) {
-            subjectSubscriptionManager.setLatest(NotificationLite.aY(t));
+            subjectSubscriptionManager.setLatest(NotificationLite.bp(t));
         }
         subjectSubscriptionManager.onAdded = new rx.functions.b<SubjectSubscriptionManager.b<T>>() { // from class: rx.subjects.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             /* renamed from: a */
             public void call(SubjectSubscriptionManager.b<T> bVar) {
-                bVar.bv(SubjectSubscriptionManager.this.getLatest());
+                bVar.bF(SubjectSubscriptionManager.this.getLatest());
             }
         };
         subjectSubscriptionManager.onTerminated = subjectSubscriptionManager.onAdded;
@@ -32,27 +32,27 @@ public final class a<T> extends c<T, T> {
 
     protected a(d.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
         super(aVar);
-        this.iSx = subjectSubscriptionManager;
+        this.kcv = subjectSubscriptionManager;
     }
 
     @Override // rx.e
     public void onCompleted() {
-        if (this.iSx.getLatest() == null || this.iSx.active) {
-            Object ceF = NotificationLite.ceF();
-            for (SubjectSubscriptionManager.b<T> bVar : this.iSx.terminate(ceF)) {
-                bVar.bu(ceF);
+        if (this.kcv.getLatest() == null || this.kcv.active) {
+            Object cDP = NotificationLite.cDP();
+            for (SubjectSubscriptionManager.b<T> bVar : this.kcv.terminate(cDP)) {
+                bVar.bE(cDP);
             }
         }
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        if (this.iSx.getLatest() == null || this.iSx.active) {
-            Object M = NotificationLite.M(th);
+        if (this.kcv.getLatest() == null || this.kcv.active) {
+            Object O = NotificationLite.O(th);
             ArrayList arrayList = null;
-            for (SubjectSubscriptionManager.b<T> bVar : this.iSx.terminate(M)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.kcv.terminate(O)) {
                 try {
-                    bVar.bu(M);
+                    bVar.bE(O);
                 } catch (Throwable th2) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
@@ -60,22 +60,17 @@ public final class a<T> extends c<T, T> {
                     arrayList.add(th2);
                 }
             }
-            rx.exceptions.a.eB(arrayList);
+            rx.exceptions.a.eF(arrayList);
         }
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        if (this.iSx.getLatest() == null || this.iSx.active) {
-            Object aY = NotificationLite.aY(t);
-            for (SubjectSubscriptionManager.b<T> bVar : this.iSx.next(aY)) {
-                bVar.bu(aY);
+        if (this.kcv.getLatest() == null || this.kcv.active) {
+            Object bp = NotificationLite.bp(t);
+            for (SubjectSubscriptionManager.b<T> bVar : this.kcv.next(bp)) {
+                bVar.bE(bp);
             }
         }
-    }
-
-    @Override // rx.subjects.c
-    public boolean hasObservers() {
-        return this.iSx.observers().length > 0;
     }
 }

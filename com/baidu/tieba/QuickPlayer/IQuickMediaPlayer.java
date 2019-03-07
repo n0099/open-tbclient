@@ -9,7 +9,7 @@ import android.os.RemoteException;
 import android.view.Surface;
 import com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public interface IQuickMediaPlayer extends IInterface {
     void forceUseSystemMediaPlayer(boolean z) throws RemoteException;
 
@@ -37,6 +37,8 @@ public interface IQuickMediaPlayer extends IInterface {
 
     boolean isLooping() throws RemoteException;
 
+    boolean isNewPlayer() throws RemoteException;
+
     boolean isPlayerReuse() throws RemoteException;
 
     boolean isPlaying() throws RemoteException;
@@ -61,7 +63,7 @@ public interface IQuickMediaPlayer extends IInterface {
 
     void start() throws RemoteException;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static abstract class Stub extends Binder implements IQuickMediaPlayer {
         private static final String DESCRIPTOR = "com.baidu.tieba.QuickPlayer.IQuickMediaPlayer";
         static final int TRANSACTION_forceUseSystemMediaPlayer = 1;
@@ -77,6 +79,7 @@ public interface IQuickMediaPlayer extends IInterface {
         static final int TRANSACTION_isExistInRemote = 17;
         static final int TRANSACTION_isIjkPlayer = 20;
         static final int TRANSACTION_isLooping = 15;
+        static final int TRANSACTION_isNewPlayer = 26;
         static final int TRANSACTION_isPlayerReuse = 25;
         static final int TRANSACTION_isPlaying = 10;
         static final int TRANSACTION_openVideo = 2;
@@ -267,6 +270,12 @@ public interface IQuickMediaPlayer extends IInterface {
                     parcel2.writeNoException();
                     parcel2.writeInt(isPlayerReuse ? 1 : 0);
                     return true;
+                case 26:
+                    parcel.enforceInterface(DESCRIPTOR);
+                    boolean isNewPlayer = isNewPlayer();
+                    parcel2.writeNoException();
+                    parcel2.writeInt(isNewPlayer ? 1 : 0);
+                    return true;
                 case 1598968902:
                     parcel2.writeString(DESCRIPTOR);
                     return true;
@@ -275,7 +284,7 @@ public interface IQuickMediaPlayer extends IInterface {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes3.dex */
         private static class Proxy implements IQuickMediaPlayer {
             private IBinder mRemote;
 
@@ -682,6 +691,21 @@ public interface IQuickMediaPlayer extends IInterface {
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
                     this.mRemote.transact(25, obtain, obtain2, 0);
+                    obtain2.readException();
+                    return obtain2.readInt() != 0;
+                } finally {
+                    obtain2.recycle();
+                    obtain.recycle();
+                }
+            }
+
+            @Override // com.baidu.tieba.QuickPlayer.IQuickMediaPlayer
+            public boolean isNewPlayer() throws RemoteException {
+                Parcel obtain = Parcel.obtain();
+                Parcel obtain2 = Parcel.obtain();
+                try {
+                    obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                    this.mRemote.transact(26, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {

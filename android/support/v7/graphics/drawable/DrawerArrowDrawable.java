@@ -13,7 +13,6 @@ import android.support.annotation.FloatRange;
 import android.support.annotation.RestrictTo;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v7.appcompat.R;
-import com.baidu.mapapi.map.WeightedLatLng;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes2.dex */
@@ -243,7 +242,7 @@ public class DrawerArrowDrawable extends Drawable {
         return -3;
     }
 
-    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
+    @FloatRange(from = 0.0d, to = 1.0d)
     public float getProgress() {
         return this.mProgress;
     }

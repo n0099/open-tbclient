@@ -2,38 +2,45 @@ package com.baidu.tieba.frs;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bb;
+import com.baidu.tbadk.core.data.bf;
+import com.baidu.tbadk.core.data.bg;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes6.dex */
-public class c implements af {
-    public static final AtomicReference<af> dKI = new AtomicReference<>(null);
-    private static final af dKJ = new c();
+/* loaded from: classes4.dex */
+public class c implements ad {
+    public static final AtomicReference<ad> eXZ = new AtomicReference<>(null);
+    private static final ad eYa = new c();
 
     private c() {
     }
 
-    public static af aBp() {
-        af afVar = dKI.get();
-        return afVar == null ? dKJ : afVar;
+    public static ad bbO() {
+        ad adVar = eXZ.get();
+        return adVar == null ? eYa : adVar;
     }
 
-    @Override // com.baidu.tieba.frs.af
-    public h<ICardInfo, ? extends q.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+    @Override // com.baidu.tieba.frs.ad
+    public h<ICardInfo, ? extends v.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         BdLog.e("Frs extra project not loaded.");
         return null;
     }
 
-    @Override // com.baidu.tieba.frs.af
-    public com.baidu.adp.widget.ListView.a<? extends bb, ? extends q.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+    @Override // com.baidu.tieba.frs.ad
+    public com.baidu.adp.widget.ListView.a<? extends bg, ? extends v.a> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
         BdLog.e("Frs extra project not loaded.");
         return null;
     }
 
-    @Override // com.baidu.tieba.frs.af
-    public com.baidu.adp.widget.ListView.a<? extends bb, ? extends q.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
+    @Override // com.baidu.tieba.frs.ad
+    public com.baidu.adp.widget.ListView.a<? extends bg, ? extends v.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
+        BdLog.e("Frs extra project not loaded.");
+        return null;
+    }
+
+    @Override // com.baidu.tieba.frs.ad
+    public com.baidu.adp.widget.ListView.a<? extends bf, ? extends v.a> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
         BdLog.e("Frs extra project not loaded.");
         return null;
     }

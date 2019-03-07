@@ -4,6 +4,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
+import android.util.Log;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -11,13 +12,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class a {
-    private static volatile int ajk = 0;
+    private static final boolean DEBUG = h.DEBUG;
+    private static volatile int ahK = 0;
     private static volatile String sProcessName;
 
-    public static int uO() {
-        int i = ajk;
+    public static int tQ() {
+        int i = ahK;
         if (i == 0) {
             String processName = getProcessName();
             String packageName = f.getAppContext().getPackageName();
@@ -26,13 +28,13 @@ public class a {
             } else {
                 i |= 4;
             }
-            ajk = i;
+            ahK = i;
         }
         return i;
     }
 
-    public static boolean uP() {
-        return (uO() & 2) != 0;
+    public static boolean tR() {
+        return (tQ() & 2) != 0;
     }
 
     public static String getProcessName() {
@@ -42,7 +44,7 @@ public class a {
                 str = sProcessName;
                 if (str == null) {
                     Context appContext = f.getAppContext();
-                    str = uR();
+                    str = tT();
                     if (str == null && (str = getProcessNameFromAm(appContext)) == null) {
                         str = appContext.getPackageName();
                     }
@@ -53,7 +55,7 @@ public class a {
         return str;
     }
 
-    public static int uQ() {
+    public static int tS() {
         Context appContext = f.getAppContext();
         int myPid = Process.myPid();
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) appContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
@@ -87,7 +89,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String uR() {
+    private static String tT() {
         BufferedReader bufferedReader;
         Exception exc;
         String str;
@@ -153,5 +155,8 @@ public class a {
     }
 
     private static void c(String str, Exception exc) {
+        if (DEBUG) {
+            Log.e(str, "", exc);
+        }
     }
 }

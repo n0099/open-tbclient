@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.a.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -15,6 +16,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 /* loaded from: classes.dex */
 public class ImageViewerConfig extends IntentConfig {
+    public static final String ABTEST = "abtest";
+    public static final String ACCOUNT_BDUSS = "account_bduss";
+    public static final String ACCOUNT_STOKEN = "account_stoken";
+    public static final String ACCOUNT_TBS = "account_tbs";
     public static final String ASSIST_URLS = "assist_urls";
     public static final String DATA_NOT_VALID = "data_not_valid";
     public static final String DATA_VALID = "data_valid";
@@ -32,8 +37,10 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String IS_CAN_DRAG = "is_can_drag";
     public static final String IS_DATA_VALID = "is_data_valid";
     public static final String IS_FROM_AI_APP = "is_from_ai_app";
+    public static final String IS_GODREPLY_IMAGE = "is_godreply_image";
     public static final String IS_HOT_SORT = "is_hot_sort";
     public static final String IS_IDENTIFY_IMAGE = "is_identify_image";
+    public static final String IS_LOGIN = "is_login";
     public static final String IS_PV = "is_pv";
     public static final String IS_SHOW_AD = "is_show_ad";
     public static final String IS_SHOW_HOST = "is_show_host";
@@ -69,6 +76,7 @@ public class ImageViewerConfig extends IntentConfig {
     public ImageViewerConfig createConfig(ArrayList<String> arrayList, int i, String str, String str2, String str3, boolean z, String str4, boolean z2, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap, boolean z3, boolean z4, boolean z5, int i2, boolean z6) {
         ImageUrlData imageUrlData;
         Intent intent = getIntent();
+        intent.putExtra(ABTEST, b.kl("picpage_content_clear"));
         intent.putExtra(START_ACTIVITY_TYPE, START_ACTIVITY_NORMAL);
         if (arrayList != null && arrayList.size() > 0) {
             intent.putExtra(IS_DATA_VALID, DATA_VALID);
@@ -111,9 +119,14 @@ public class ImageViewerConfig extends IntentConfig {
                 }
             }
             intent.putExtra(IMAGE_DATA_LIST, arrayList2);
+            TbadkCoreApplication.getInst();
+            intent.putExtra(IS_LOGIN, TbadkCoreApplication.isLogin());
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
                 intent.putExtra("user_id", currentAccountObj.getID());
+                intent.putExtra(ACCOUNT_BDUSS, currentAccountObj.getBDUSS());
+                intent.putExtra(ACCOUNT_STOKEN, currentAccountObj.getStoken());
+                intent.putExtra(ACCOUNT_TBS, currentAccountObj.getTbs());
             }
         } else {
             intent.putExtra(IS_DATA_VALID, DATA_NOT_VALID);

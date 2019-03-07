@@ -1,11 +1,11 @@
 package com.baidu.adp.lib.e;
 /* loaded from: classes.dex */
 public interface c<T> {
-    T jz();
+    T activateObject(T t);
 
-    void u(T t);
+    void destroyObject(T t);
 
-    T v(T t);
+    T makeObject();
 
-    T w(T t);
+    T passivateObject(T t);
 }

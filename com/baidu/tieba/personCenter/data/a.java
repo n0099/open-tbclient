@@ -1,22 +1,22 @@
 package com.baidu.tieba.personCenter.data;
 
 import tbclient.BannerImage;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a implements com.baidu.tbadk.core.flow.a.a {
-    private String emu;
+    private String fId;
     private String mImgUrl;
     private String mTitle;
 
     public void a(BannerImage bannerImage) {
         if (bannerImage != null) {
             this.mImgUrl = bannerImage.img_url;
-            this.emu = bannerImage.ahead_url;
+            this.fId = bannerImage.ahead_url;
             this.mTitle = bannerImage.title;
         }
     }
 
-    public String aJF() {
-        return this.emu;
+    public String bQu() {
+        return this.fId;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
@@ -25,7 +25,7 @@ public class a implements com.baidu.tbadk.core.flow.a.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String yA() {
-        return this.emu;
+    public String Xi() {
+        return this.fId;
     }
 }

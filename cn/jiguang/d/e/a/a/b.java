@@ -1,12 +1,11 @@
 package cn.jiguang.d.e.a.a;
 
-import com.baidu.ar.audio.AudioParams;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class b {
     public static byte[] a(int i, long j, byte[] bArr) {
-        cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
+        cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(20480);
         bVar.writeByteArray(bArr);
         bVar.b(i, 12);
         if (j != 0) {
@@ -16,13 +15,13 @@ public final class b {
     }
 
     public static byte[] a(long j, int i, long j2, String str, long[] jArr) {
-        cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
-        bVar.C(0);
-        bVar.B(0);
-        bVar.B(30);
-        bVar.j(j);
-        bVar.i(i);
-        bVar.j(j2);
+        cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(20480);
+        bVar.l(0);
+        bVar.k(0);
+        bVar.k(30);
+        bVar.h(j);
+        bVar.g(i);
+        bVar.h(j2);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("device_id", str);
@@ -34,7 +33,7 @@ public final class b {
                 }
             }
             jSONObject.put("uids", jSONArray);
-            bVar.e(jSONObject.toString().getBytes());
+            bVar.f(jSONObject.toString().getBytes());
             bVar.l(bVar.current(), 0);
             return bVar.toByteArray();
         } catch (Throwable th) {
@@ -52,13 +51,13 @@ public final class b {
     }
 
     public static byte[] b(long j, int i, long j2, String str, long[] jArr) {
-        cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
-        bVar.C(0);
-        bVar.B(0);
-        bVar.B(32);
-        bVar.j(j);
-        bVar.i(i);
-        bVar.j(j2);
+        cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(20480);
+        bVar.l(0);
+        bVar.k(0);
+        bVar.k(32);
+        bVar.h(j);
+        bVar.g(i);
+        bVar.h(j2);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("device_id", str);
@@ -67,7 +66,7 @@ public final class b {
                 jSONArray.put(jArr[0]);
             }
             jSONObject.put("uids", jSONArray);
-            bVar.e(jSONObject.toString().getBytes());
+            bVar.f(jSONObject.toString().getBytes());
             bVar.l(bVar.current(), 0);
             return bVar.toByteArray();
         } catch (Throwable th) {

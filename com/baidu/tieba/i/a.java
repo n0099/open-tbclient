@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.util.x;
 import java.net.URLEncoder;
 /* loaded from: classes.dex */
 public class a {
-    public static boolean oz(int i) {
+    public static boolean si(int i) {
         switch (i) {
             case 202001:
             case 205001:
@@ -24,28 +24,28 @@ public class a {
         if (xVar == null) {
             return false;
         }
-        if ((xVar.Dz() ? xVar.DA() : xVar.DB()) == 1990055) {
-            aKT();
+        if ((xVar.acK() ? xVar.acL() : xVar.acM()) == 1990055) {
+            bla();
             return true;
         }
         return false;
     }
 
-    public static void aKT() {
-        if (!l.lk()) {
+    public static void bla() {
+        if (!l.ln()) {
             TbadkCoreApplication.getInst().handler.post(new Runnable() { // from class: com.baidu.tieba.i.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    a.aKU();
+                    a.blb();
                 }
             });
         } else {
-            aKU();
+            blb();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static final void aKU() {
+    public static final void blb() {
         Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
         StringBuilder sb = new StringBuilder("https://wappass.baidu.com/passport/realnamewidget?tpl=tieba&adapter=3&nomenu=1");
         sb.append("&u=").append(URLEncoder.encode("http://tieba.baidu.com/?jump=finish_this_page"));

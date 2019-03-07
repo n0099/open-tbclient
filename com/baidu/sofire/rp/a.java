@@ -5,81 +5,57 @@ import android.text.TextUtils;
 import com.baidu.sofire.b.g;
 import com.baidu.sofire.e;
 /* loaded from: classes.dex */
-public class a {
+public final class a {
     public static String a(Context context) {
-        String str;
-        Throwable th;
-        e eVar;
+        String str = "";
         try {
-            eVar = new e(context);
-            str = eVar.x();
-        } catch (Throwable th2) {
-            str = "";
-            th = th2;
-        }
-        try {
+            e eVar = new e(context);
+            str = eVar.b.getString("rpiiem", "");
             if (TextUtils.isEmpty(str)) {
-                str = g.e(context);
+                str = g.d(context);
                 if (!TextUtils.isEmpty(str)) {
-                    eVar.d(str);
+                    eVar.d.putString("rpiiem", str);
+                    eVar.d.commit();
                 }
             }
-        } catch (Throwable th3) {
-            th = th3;
-            com.baidu.sofire.b.e.a(th);
-            return str;
+        } catch (Throwable th) {
+            com.baidu.sofire.b.e.a();
         }
         return str;
     }
 
     public static String b(Context context) {
-        String str;
-        Throwable th;
-        e eVar;
+        String str = "";
         try {
-            eVar = new e(context);
-            str = eVar.y();
-        } catch (Throwable th2) {
-            str = "";
-            th = th2;
-        }
-        try {
+            e eVar = new e(context);
+            str = eVar.b.getString("rpandid", "");
             if (TextUtils.isEmpty(str)) {
-                str = g.f(context);
+                str = g.e(context);
                 if (!TextUtils.isEmpty(str)) {
-                    eVar.e(str);
+                    eVar.d.putString("rpandid", str);
+                    eVar.d.commit();
                 }
             }
-        } catch (Throwable th3) {
-            th = th3;
-            com.baidu.sofire.b.e.a(th);
-            return str;
+        } catch (Throwable th) {
+            com.baidu.sofire.b.e.a();
         }
         return str;
     }
 
     public static String c(Context context) {
-        String str;
-        Throwable th;
-        e eVar;
+        String str = "";
         try {
-            eVar = new e(context);
-            str = eVar.z();
-        } catch (Throwable th2) {
-            str = "";
-            th = th2;
-        }
-        try {
+            e eVar = new e(context);
+            str = eVar.b.getString("rpmacadd", "");
             if (TextUtils.isEmpty(str)) {
-                str = g.f();
+                str = g.a();
                 if (!TextUtils.isEmpty(str)) {
-                    eVar.f(str);
+                    eVar.d.putString("rpmacadd", str);
+                    eVar.d.commit();
                 }
             }
-        } catch (Throwable th3) {
-            th = th3;
-            com.baidu.sofire.b.e.a(th);
-            return str;
+        } catch (Throwable th) {
+            com.baidu.sofire.b.e.a();
         }
         return str;
     }

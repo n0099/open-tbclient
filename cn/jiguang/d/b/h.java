@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
-import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
+import com.baidu.pass.biometrics.face.liveness.beans.BeanDataCache;
 import java.util.Deque;
 import java.util.Iterator;
 import java.util.Map;
@@ -14,19 +14,19 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.LinkedBlockingDeque;
 /* loaded from: classes3.dex */
 public final class h {
-    private static h lF;
+    private static h lI;
     private Handler d;
     private Context e;
     private Map<String, i> a = new ConcurrentHashMap();
-    private Deque<i> lD = new LinkedBlockingDeque();
-    private Deque<i> lE = new LinkedBlockingDeque();
+    private Deque<i> lG = new LinkedBlockingDeque();
+    private Deque<i> lH = new LinkedBlockingDeque();
 
     private synchronized i K(String str) {
         i iVar;
         iVar = null;
-        for (i iVar2 : this.lE) {
+        for (i iVar2 : this.lH) {
             if (str.equals(iVar2.a())) {
-                this.lE.remove(iVar2);
+                this.lH.remove(iVar2);
             } else {
                 iVar2 = iVar;
             }
@@ -38,7 +38,7 @@ public final class h {
     private synchronized void a(i iVar) {
         boolean z;
         if (iVar != null) {
-            Iterator<i> it = this.lE.iterator();
+            Iterator<i> it = this.lH.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -49,7 +49,7 @@ public final class h {
                 }
             }
             if (!z) {
-                this.lE.offerLast(iVar);
+                this.lH.offerLast(iVar);
             }
         }
     }
@@ -64,15 +64,15 @@ public final class h {
             return;
         }
         this.a.remove(iVar.a());
-        this.lD.remove(iVar);
+        this.lG.remove(iVar);
         this.d.removeMessages(7403, iVar);
     }
 
-    public static h bQ() {
-        if (lF == null) {
-            lF = new h();
+    public static h bP() {
+        if (lI == null) {
+            lI = new h();
         }
-        return lF;
+        return lI;
     }
 
     private void c(i iVar) {
@@ -92,10 +92,10 @@ public final class h {
                 cn.jiguang.e.c.c("RequestCacheManager", "sendCommandWithLoggedIn failed:sendData is null");
             } else if (g.a.get() == 0) {
                 cn.jiguang.e.c.c("RequestCacheManager", "sendCommandWithLoggedIn failed: tcp not connect");
-            } else if (cn.jiguang.d.g.c.cg().ch().i(a) == 6026) {
+            } else if (cn.jiguang.d.g.c.cf().cg().j(a) == 6026) {
                 c(iVar);
                 b(iVar);
-                cn.jiguang.d.d.e.bU().a(this.e, iVar.f, iVar.c, iVar.e, 6026);
+                cn.jiguang.d.d.e.bT().a(this.e, iVar.f, iVar.c, iVar.e, 6026);
                 return;
             }
         } catch (Throwable th) {
@@ -109,7 +109,7 @@ public final class h {
     public final void a(long j, String str, Object obj) {
         if (obj != null && (obj instanceof cn.jiguang.d.e.a.a.c)) {
             g.a.get();
-            i K = K(b(((cn.jiguang.d.e.a.a.c) obj).cc().longValue(), str));
+            i K = K(b(((cn.jiguang.d.e.a.a.c) obj).cb().longValue(), str));
             if (K != null) {
                 c(K);
                 i iVar = this.a.get(K.a());
@@ -140,7 +140,7 @@ public final class h {
         }
         Bundle bundle = new Bundle();
         bundle.putInt("request_timeout", i);
-        bundle.putByteArray(com.baidu.fsg.face.liveness.beans.c.a, bArr);
+        bundle.putByteArray(BeanDataCache.KEY, bArr);
         bundle.putString("request_sdktype", str);
         Message obtain = Message.obtain(this.d, 7401);
         obtain.setData(bundle);
@@ -150,11 +150,11 @@ public final class h {
     public final void b() {
         this.d.removeMessages(7404);
         while (true) {
-            i pollLast = this.lE.pollLast();
+            i pollLast = this.lH.pollLast();
             if (pollLast == null) {
                 return;
             }
-            this.lD.offerFirst(pollLast);
+            this.lG.offerFirst(pollLast);
         }
     }
 
@@ -177,12 +177,12 @@ public final class h {
 
     public final void c() {
         while (true) {
-            i pollFirst = this.lD.pollFirst();
+            i pollFirst = this.lG.pollFirst();
             if (pollFirst == null) {
                 return;
             }
             if (pollFirst.e == 2) {
-                this.lD.remove(pollFirst);
+                this.lG.remove(pollFirst);
                 this.a.remove(pollFirst.a());
             } else {
                 f(pollFirst);
@@ -198,16 +198,16 @@ public final class h {
             e(iVar);
             return;
         }
-        d.bO();
+        d.bN();
         if (d.d()) {
             iVar.a -= 10000;
             iVar.b++;
             f(iVar);
         } else {
-            this.lD.offerFirst(iVar);
+            this.lG.offerFirst(iVar);
         }
         if (iVar.b >= 2) {
-            this.d.sendEmptyMessageDelayed(1005, SystemScreenshotManager.DELAY_TIME);
+            this.d.sendEmptyMessageDelayed(1005, 2000L);
         }
     }
 
@@ -216,7 +216,7 @@ public final class h {
             return;
         }
         b(iVar);
-        cn.jiguang.d.d.e.bU();
+        cn.jiguang.d.d.e.bT();
         Context context = this.e;
         String str = iVar.f;
         long j = iVar.c;

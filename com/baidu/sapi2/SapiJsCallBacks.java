@@ -18,17 +18,19 @@ public class SapiJsCallBacks {
         NormalizeGuestAccountCallback C;
         WebviewPageFinishCallback D;
         RealNameStatusCallback E;
-        AuthorizationListener F;
-        Runnable G;
-        JsPromptResult H;
-        int I = 1;
-        boolean J = false;
-        boolean K;
-        String L;
-        SocialResponse M;
-        SapiAccountResponse N;
-        SapiWebView.FastRegAction O;
-        JoinLoginParams P;
+        LoginStatusChangeCallback F;
+        AuthorizationListener G;
+        Runnable H;
+        JsPromptResult I;
+        int J = 1;
+        boolean K = false;
+        boolean L;
+        String M;
+        SocialResponse N;
+        SapiAccountResponse O;
+        SapiWebView.FastRegAction P;
+        JoinLoginParams Q;
+        DirectedLoginParams R;
         Handler a;
         SapiWebView.NMLoginHandler b;
         SapiWebView.UniteVerifyHandler c;
@@ -58,9 +60,20 @@ public class SapiJsCallBacks {
     }
 
     /* loaded from: classes.dex */
+    public static class DirectedLoginParams {
+        public String displayname;
+        public String encryptedId;
+    }
+
+    /* loaded from: classes.dex */
     public static class JoinLoginParams {
         public LinkedHashMap<String, String> agreement;
         public boolean hasThirdAccount;
+    }
+
+    /* loaded from: classes.dex */
+    public interface LoginStatusChangeCallback {
+        void onChange();
     }
 
     /* loaded from: classes.dex */

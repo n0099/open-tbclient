@@ -33,7 +33,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 /* loaded from: classes2.dex */
@@ -110,7 +109,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
             this.mCollapsingTextHelper.setCollapsedTextAppearance(obtainStyledAttributes.getResourceId(R.styleable.CollapsingToolbarLayout_collapsedTitleTextAppearance, 0));
         }
         this.mScrimVisibleHeightTrigger = obtainStyledAttributes.getDimensionPixelSize(R.styleable.CollapsingToolbarLayout_scrimVisibleHeightTrigger, -1);
-        this.mScrimAnimationDuration = obtainStyledAttributes.getInt(R.styleable.CollapsingToolbarLayout_scrimAnimationDuration, 600);
+        this.mScrimAnimationDuration = obtainStyledAttributes.getInt(R.styleable.CollapsingToolbarLayout_scrimAnimationDuration, DEFAULT_SCRIM_ANIMATION_DURATION);
         setContentScrim(obtainStyledAttributes.getDrawable(R.styleable.CollapsingToolbarLayout_contentScrim));
         setStatusBarScrim(obtainStyledAttributes.getDrawable(R.styleable.CollapsingToolbarLayout_statusBarScrim));
         this.mToolbarId = obtainStyledAttributes.getResourceId(R.styleable.CollapsingToolbarLayout_toolbarId, -1);
@@ -270,7 +269,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         int mode = View.MeasureSpec.getMode(i2);
         int systemWindowInsetTop = this.mLastInsets != null ? this.mLastInsets.getSystemWindowInsetTop() : 0;
         if (mode == 0 && systemWindowInsetTop > 0) {
-            super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(systemWindowInsetTop + getMeasuredHeight(), AiAppsFileUtils.GB));
+            super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(systemWindowInsetTop + getMeasuredHeight(), 1073741824));
         }
     }
 
@@ -693,42 +692,42 @@ public class CollapsingToolbarLayout extends FrameLayout {
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
             this.mCollapseMode = 0;
-            this.mParallaxMult = 0.5f;
+            this.mParallaxMult = DEFAULT_PARALLAX_MULTIPLIER;
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.CollapsingToolbarLayout_Layout);
             this.mCollapseMode = obtainStyledAttributes.getInt(R.styleable.CollapsingToolbarLayout_Layout_layout_collapseMode, 0);
-            setParallaxMultiplier(obtainStyledAttributes.getFloat(R.styleable.CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier, 0.5f));
+            setParallaxMultiplier(obtainStyledAttributes.getFloat(R.styleable.CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier, DEFAULT_PARALLAX_MULTIPLIER));
             obtainStyledAttributes.recycle();
         }
 
         public LayoutParams(int i, int i2) {
             super(i, i2);
             this.mCollapseMode = 0;
-            this.mParallaxMult = 0.5f;
+            this.mParallaxMult = DEFAULT_PARALLAX_MULTIPLIER;
         }
 
         public LayoutParams(int i, int i2, int i3) {
             super(i, i2, i3);
             this.mCollapseMode = 0;
-            this.mParallaxMult = 0.5f;
+            this.mParallaxMult = DEFAULT_PARALLAX_MULTIPLIER;
         }
 
         public LayoutParams(ViewGroup.LayoutParams layoutParams) {
             super(layoutParams);
             this.mCollapseMode = 0;
-            this.mParallaxMult = 0.5f;
+            this.mParallaxMult = DEFAULT_PARALLAX_MULTIPLIER;
         }
 
         public LayoutParams(ViewGroup.MarginLayoutParams marginLayoutParams) {
             super(marginLayoutParams);
             this.mCollapseMode = 0;
-            this.mParallaxMult = 0.5f;
+            this.mParallaxMult = DEFAULT_PARALLAX_MULTIPLIER;
         }
 
         @RequiresApi(19)
         public LayoutParams(FrameLayout.LayoutParams layoutParams) {
             super(layoutParams);
             this.mCollapseMode = 0;
-            this.mParallaxMult = 0.5f;
+            this.mParallaxMult = DEFAULT_PARALLAX_MULTIPLIER;
         }
 
         public void setCollapseMode(int i) {

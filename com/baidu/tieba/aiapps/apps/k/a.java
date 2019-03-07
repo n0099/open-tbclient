@@ -1,43 +1,85 @@
 package com.baidu.tieba.aiapps.apps.k;
 
 import android.app.Activity;
-import android.content.Context;
-import com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPaymentIoc;
-import com.baidu.searchbox.ng.ai.apps.pay.callback.AliPayCallback;
-import com.baidu.searchbox.ng.ai.apps.pay.callback.BaiduPayCallback;
-import com.baidu.searchbox.ng.ai.apps.pay.callback.PolymerPayCallback;
-import com.baidu.searchbox.ng.ai.apps.scheme.actions.RequestPolymerPaymentAction;
-import org.json.JSONObject;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class a implements IAiAppPaymentIoc {
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPaymentIoc
-    public void baiduPay(Context context, String str, BaiduPayCallback baiduPayCallback) {
-        c.cl(context).a(context, str, baiduPayCallback);
+public class a extends ActivityDelegation implements com.baidu.swan.apps.a.a {
+    private com.baidu.tieba.aiapps.apps.k.a.a cVZ;
+    private Activity cWa;
+    private BdUniqueId mPageId = BdUniqueId.gen();
+    private CustomMessageListener cWb = new CustomMessageListener(2921393) { // from class: com.baidu.tieba.aiapps.apps.k.a.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (customResponsedMessage != null && customResponsedMessage.getData() != null) {
+                Object data = customResponsedMessage.getData();
+                if (data instanceof com.baidu.tbadk.pay.d) {
+                    com.baidu.tbadk.pay.d dVar = (com.baidu.tbadk.pay.d) data;
+                    if (getTag() == dVar.tag) {
+                        a.this.mResult.putInt("result_code", dVar.type);
+                        a.this.mResult.putString("result_msg", dVar.message);
+                        a.this.cVZ.H(a.this.mResult);
+                        a.this.finish();
+                    }
+                }
+            }
+        }
+    };
+
+    public void a(com.baidu.tieba.aiapps.apps.k.a.a aVar) {
+        this.cVZ = aVar;
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPaymentIoc
-    public void aliPay(Context context, String str, AliPayCallback aliPayCallback) {
-        c.cl(context).doAliPay(context, str, aliPayCallback);
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        this.cWb.setTag(this.mPageId);
+        MessageManager.getInstance().registerListener(this.cWb);
+        int i = this.mParams.getInt("type");
+        String string = this.mParams.getString("orderInfo");
+        com.baidu.tbadk.pay.d dVar = new com.baidu.tbadk.pay.d();
+        dVar.tag = this.mPageId;
+        dVar.type = i;
+        dVar.message = string;
+        dVar.params = (Map) this.mParams.getSerializable(LegoListActivityConfig.PARAMS);
+        if (getAgent() != null) {
+            dVar.context = getAgent();
+        } else if (this.cWa != null) {
+            dVar.context = this.cWa;
+        } else {
+            dVar.context = TbadkCoreApplication.getInst().getCurrentActivity();
+        }
+        CustomMessage customMessage = new CustomMessage(2921393, dVar);
+        customMessage.setTag(this.mPageId);
+        boolean sendMessage = MessageManager.getInstance().sendMessage(customMessage);
+        this.mResult.putInt("result_code", sendMessage ? 0 : 1);
+        this.mResult.putString("result_msg", "" + sendMessage);
+        return false;
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPaymentIoc
-    public boolean polymerPay(Context context, String str, Activity activity, String[] strArr, PolymerPayCallback polymerPayCallback) {
-        c.cl(context).a(activity, str, strArr, polymerPayCallback);
-        return true;
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public void finish() {
+        this.cVZ = null;
+        MessageManager.getInstance().unRegisterListener(this.cWb);
+        super.finish();
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPaymentIoc
-    public boolean removeWalletUI() {
-        com.baidu.poly.a Zt = c.Zt();
-        return Zt != null && Zt.finish();
+    @Override // com.baidu.swan.apps.a.a
+    public void onResult(int i) {
+        this.mResult.putInt("result_code", i);
+        this.mResult.putString("result_msg", "");
+        finish();
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPaymentIoc
-    public void doPolymerPayBySwan(Context context, JSONObject jSONObject, RequestPolymerPaymentAction.OnWalletPayBack onWalletPayBack) {
-    }
-
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppPaymentIoc
-    public boolean isWxAppInstalledAndSupported(Context context) {
-        return c.cl(context).isWxAppInstalledAndSupported(context);
+    public void ac(Activity activity) {
+        this.cWa = activity;
     }
 }

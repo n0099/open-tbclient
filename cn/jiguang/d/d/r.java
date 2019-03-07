@@ -12,11 +12,11 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class r {
     public static q a(File file, Set<String> set) {
-        q d = d(file);
-        if (d != null) {
-            d.b(cn.jiguang.d.h.h.a(d.cb(), set));
+        q e = e(file);
+        if (e != null) {
+            e.b(cn.jiguang.d.h.h.a(e.ca(), set));
         }
-        return d;
+        return e;
     }
 
     public static List<q> a(List<q> list, File file) {
@@ -26,15 +26,15 @@ public final class r {
         ArrayList arrayList = new ArrayList();
         for (q qVar : list) {
             File c = qVar.c();
-            if (cn.jiguang.d.h.h.h(qVar.cb())) {
+            if (cn.jiguang.d.h.h.h(qVar.ca())) {
                 cn.jiguang.d.h.f.a(c);
             } else {
                 if (qVar.g()) {
-                    cn.jiguang.d.h.h.a(qVar.cb(), qVar.e());
+                    cn.jiguang.d.h.h.a(qVar.ca(), qVar.e());
                     qVar.b(false);
                 }
                 if (qVar.f()) {
-                    cn.jiguang.d.h.f.b(qVar.c(), qVar.cb().toString());
+                    cn.jiguang.d.h.f.b(qVar.c(), qVar.ca().toString());
                     qVar.b();
                 }
                 if (!file.equals(c.getParentFile())) {
@@ -85,8 +85,8 @@ public final class r {
         boolean z = false;
         if (qVar.a() + qVar2.a() <= i) {
             try {
-                JSONArray jSONArray = qVar.cb().getJSONArray("content");
-                JSONArray jSONArray2 = qVar2.cb().getJSONArray("content");
+                JSONArray jSONArray = qVar.ca().getJSONArray("content");
+                JSONArray jSONArray2 = qVar2.ca().getJSONArray("content");
                 int i2 = 0;
                 while (i2 < jSONArray2.length()) {
                     jSONArray.put(jSONArray2.getJSONObject(i2));
@@ -104,13 +104,13 @@ public final class r {
         return z;
     }
 
-    public static q d(File file) {
-        String f = cn.jiguang.d.h.f.f(file);
-        if (TextUtils.isEmpty(f)) {
+    public static q e(File file) {
+        String g = cn.jiguang.d.h.f.g(file);
+        if (TextUtils.isEmpty(g)) {
             return null;
         }
         try {
-            JSONObject jSONObject = new JSONObject(f);
+            JSONObject jSONObject = new JSONObject(g);
             jSONObject.getJSONArray("content");
             return new q(file, jSONObject);
         } catch (JSONException e) {

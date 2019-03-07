@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.DailyPage.DailyPageResIdl;
 import tbclient.DailyPage.DataRes;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DailyPageSocketResMessage extends SocketResponsedMessage {
     private DataRes mData;
 

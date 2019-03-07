@@ -12,7 +12,6 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.Process;
 import android.util.Log;
-import com.baidu.fsg.base.armor.RimArmor;
 import com.baidu.location.LLSInterface;
 import com.baidu.location.a.g;
 import com.baidu.location.a.i;
@@ -26,10 +25,11 @@ import com.baidu.location.b.e;
 import com.baidu.location.d.d;
 import com.baidu.location.f;
 import com.baidu.location.g.b;
+import com.baidu.sapi2.utils.SapiUtils;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a extends Service implements LLSInterface {
-    static HandlerC0088a a = null;
+    static HandlerC0048a a = null;
     private static long f = 0;
     private Looper c;
     private HandlerThread d;
@@ -37,11 +37,11 @@ public class a extends Service implements LLSInterface {
     private boolean e = false;
 
     /* renamed from: com.baidu.location.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class HandlerC0088a extends Handler {
+    /* loaded from: classes3.dex */
+    public static class HandlerC0048a extends Handler {
         private final WeakReference<a> a;
 
-        public HandlerC0088a(Looper looper, a aVar) {
+        public HandlerC0048a(Looper looper, a aVar) {
             super(looper);
             this.a = new WeakReference<>(aVar);
         }
@@ -64,13 +64,13 @@ public class a extends Service implements LLSInterface {
                         aVar.c(message);
                         break;
                     case 22:
-                        j.tm().b(message);
+                        j.c().b(message);
                         break;
                     case 28:
-                        j.tm().a(true, true);
+                        j.c().a(true, true);
                         break;
                     case 41:
-                        j.tm().i();
+                        j.c().i();
                         break;
                     case 401:
                         try {
@@ -87,7 +87,7 @@ public class a extends Service implements LLSInterface {
                         }
                         break;
                     case 406:
-                        g.tk().e();
+                        g.a().e();
                         break;
                 }
             }
@@ -108,50 +108,50 @@ public class a extends Service implements LLSInterface {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Message message) {
         Log.d("baidu_location_service", "baidu location service register ...");
-        com.baidu.location.a.a.tf().a(message);
-        d.tI();
-        com.baidu.location.b.d.tA().d();
-        m.tr().c();
+        com.baidu.location.a.a.a().a(message);
+        d.a();
+        com.baidu.location.b.d.a().d();
+        m.b().c();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        i.tl().a(f.getServiceContext());
-        b.tZ();
-        q.tw().e();
-        g.tk().b();
-        com.baidu.location.e.d.tS().b();
-        com.baidu.location.e.b.tP().b();
-        j.tm().d();
-        com.baidu.location.d.a.tD().c();
-        c.tz().b();
-        com.baidu.location.b.d.tA().b();
-        e.tB().b();
-        com.baidu.location.b.a.tx().b();
-        com.baidu.location.e.f.tU().c();
+        i.a().a(f.getServiceContext());
+        b.a();
+        q.a().e();
+        g.a().b();
+        com.baidu.location.e.d.a().b();
+        com.baidu.location.e.b.a().b();
+        j.c().d();
+        com.baidu.location.d.a.a().c();
+        c.a().b();
+        com.baidu.location.b.d.a().b();
+        e.a().b();
+        com.baidu.location.b.a.a().b();
+        com.baidu.location.e.f.a().c();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(Message message) {
-        com.baidu.location.a.a.tf().b(message);
+        com.baidu.location.a.a.a().b(message);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c() {
-        com.baidu.location.e.f.tU().e();
-        d.tI().n();
-        com.baidu.location.e.d.tS().e();
-        q.tw().f();
-        com.baidu.location.b.d.tA().c();
-        c.tz().c();
-        com.baidu.location.b.b.ty().c();
-        com.baidu.location.b.a.tx().c();
-        com.baidu.location.a.b.tg().b();
-        com.baidu.location.e.b.tP().c();
-        j.tm().e();
-        g.tk().c();
+        com.baidu.location.e.f.a().e();
+        d.a().n();
+        com.baidu.location.e.d.a().e();
+        q.a().f();
+        com.baidu.location.b.d.a().c();
+        c.a().c();
+        com.baidu.location.b.b.a().c();
+        com.baidu.location.b.a.a().c();
+        com.baidu.location.a.b.a().b();
+        com.baidu.location.e.b.a().c();
+        j.c().e();
+        g.a().c();
         p.d();
-        com.baidu.location.a.a.tf().b();
+        com.baidu.location.a.a.a().b();
         Log.d("baidu_location_service", "baidu location service has stoped ...");
         if (this.e) {
             return;
@@ -161,7 +161,7 @@ public class a extends Service implements LLSInterface {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(Message message) {
-        com.baidu.location.a.a.tf().k(message);
+        com.baidu.location.a.a.a().c(message);
     }
 
     @Override // com.baidu.location.LLSInterface
@@ -174,8 +174,8 @@ public class a extends Service implements LLSInterface {
         Bundle extras = intent.getExtras();
         boolean z = false;
         if (extras != null) {
-            b.g = extras.getString(RimArmor.KEY);
-            b.f = extras.getString("sign");
+            b.g = extras.getString("key");
+            b.f = extras.getString(SapiUtils.KEY_QR_LOGIN_SIGN);
             this.e = extras.getBoolean("kill_process");
             z = extras.getBoolean("cache_exception");
         }
@@ -187,12 +187,12 @@ public class a extends Service implements LLSInterface {
     @Override // com.baidu.location.LLSInterface
     public void onCreate(Context context) {
         f = System.currentTimeMillis();
-        this.d = o.tu();
+        this.d = o.a();
         this.c = this.d.getLooper();
         if (this.c == null) {
-            a = new HandlerC0088a(Looper.getMainLooper(), this);
+            a = new HandlerC0048a(Looper.getMainLooper(), this);
         } else {
-            a = new HandlerC0088a(this.c, this);
+            a = new HandlerC0048a(this.c, this);
         }
         this.b = new Messenger(a);
         a.sendEmptyMessage(0);

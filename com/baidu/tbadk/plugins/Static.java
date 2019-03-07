@@ -2,18 +2,33 @@ package com.baidu.tbadk.plugins;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
-import com.baidu.adp.plugin.packageManager.pluginSettings.c;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
+import com.baidu.tbadk.core.atomData.LabelSettingActivityConfig;
+import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
+import com.baidu.tbadk.core.atomData.MembercenterActivityConfig;
+import com.baidu.tbadk.core.atomData.MyGiftListActivityConfig;
+import com.baidu.tbadk.core.atomData.PbHistoryActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonGroupActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonMoreActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.tbadk.core.atomData.PostSearchActivityConfig;
+import com.baidu.tbadk.core.atomData.SignAllForumActivityConfig;
 import com.baidu.tbadk.core.data.ExceptionData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import java.util.List;
 /* loaded from: classes.dex */
 public class Static {
-    public static final String[] bir = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
+    public static final String[] cso = {"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
 
     static {
         MessageManager.getInstance().registerListener(new CustomMessageListener(2001011) { // from class: com.baidu.tbadk.plugins.Static.1
@@ -25,6 +40,7 @@ public class Static {
                 }
             }
         });
+        apD();
         MessageManager.getInstance().registerListener(new CustomMessageListener(2016301) { // from class: com.baidu.tbadk.plugins.Static.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -34,7 +50,7 @@ public class Static {
                 if (customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ExceptionData)) {
                     boolean z = true;
                     ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-                    String[] strArr = Static.bir;
+                    String[] strArr = Static.cso;
                     int length = strArr.length;
                     int i = 0;
                     while (true) {
@@ -45,7 +61,7 @@ public class Static {
                         if (exceptionData == null || exceptionData.info == null || !exceptionData.info.contains(str) || exceptionData.info.contains("java.lang.OutOfMemoryError")) {
                             i++;
                         } else {
-                            com.baidu.adp.plugin.b.a.mN().bP("plugin_crash_inflate");
+                            com.baidu.adp.plugin.b.a.mS().bP("plugin_crash_inflate");
                             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("is_plugin_resource_open_local", false);
                             z = false;
                             break;
@@ -53,7 +69,7 @@ public class Static {
                     }
                     if (exceptionData.mExcep != null && exceptionData.mExcep.getCause() != null && exceptionData.mExcep.getCause().getStackTrace() != null && z && exceptionData != null && exceptionData.info != null) {
                         try {
-                            List<PluginSetting> pluginSettingsSortLoadPriorty = c.nG().nD().getPluginSettingsSortLoadPriorty();
+                            List<PluginSetting> pluginSettingsSortLoadPriorty = com.baidu.adp.plugin.packageManager.pluginSettings.c.nL().nI().getPluginSettingsSortLoadPriorty();
                             if (pluginSettingsSortLoadPriorty != null && !pluginSettingsSortLoadPriorty.isEmpty() && (stackTrace = exceptionData.mExcep.getCause().getStackTrace()) != null && stackTrace.length != 0) {
                                 for (PluginSetting pluginSetting : pluginSettingsSortLoadPriorty) {
                                     if (pluginSetting.isPatch && pluginSetting.enable && (plugin2 = PluginCenter.getInstance().getPlugin(pluginSetting.packageName)) != null && plugin2.getDexClassLoader() != null) {
@@ -75,5 +91,31 @@ public class Static {
                 }
             }
         });
+    }
+
+    private static void apD() {
+        MessageManager.getInstance().addMessageRule(new com.baidu.adp.framework.a.b(0) { // from class: com.baidu.tbadk.plugins.Static.3
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.a.f
+            /* renamed from: d */
+            public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+                if (customMessage != null && (customMessage.getData() instanceof IntentConfig) && Static.a(customMessage)) {
+                    return null;
+                }
+                return customMessage;
+            }
+        });
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public static boolean a(CustomMessage<?> customMessage) {
+        if (customMessage == null || !(customMessage.getData() instanceof IntentConfig)) {
+            return false;
+        }
+        IntentConfig intentConfig = (IntentConfig) customMessage.getData();
+        if (intentConfig instanceof LabelSettingActivityConfig) {
+            return !c.ay(intentConfig.getContext(), "com.baidu.tieba.pluginResource");
+        }
+        return ((intentConfig instanceof PbHistoryActivityConfig) || (intentConfig instanceof PostSearchActivityConfig) || (intentConfig instanceof SignAllForumActivityConfig) || (intentConfig instanceof PersonGroupActivityConfig)) ? !c.ay(intentConfig.getContext(), "com.baidu.tieba.pluginCore") : intentConfig instanceof AlaLiveRoomActivityConfig ? !c.ay(intentConfig.getContext(), "com.baidu.tieba.pluginAla") : ((intentConfig instanceof MyGiftListActivityConfig) || (intentConfig instanceof MembercenterActivityConfig) || (intentConfig instanceof PersonMoreActivityConfig) || (intentConfig instanceof PersonPolymericActivityConfig) || (intentConfig instanceof PersonChangeActivityConfig) || (intentConfig instanceof MemberPayActivityConfig) || (intentConfig instanceof GiftTabActivityConfig)) && !c.ay(intentConfig.getContext(), "com.baidu.tieba.pluginMember");
     }
 }

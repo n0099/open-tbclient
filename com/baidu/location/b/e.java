@@ -5,8 +5,6 @@ import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.location.Jni;
 import com.baidu.location.g.g;
-import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
-import com.baidu.webkit.internal.ETAG;
 import java.io.File;
 import java.io.OutputStream;
 import java.io.PrintWriter;
@@ -15,12 +13,20 @@ import java.io.StringWriter;
 import java.lang.Thread;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes6.dex */
+import org.apache.http.protocol.HTTP;
+/* loaded from: classes3.dex */
 public class e implements Thread.UncaughtExceptionHandler {
-    private static e aeE = null;
+    private static e a = null;
     private int b = 0;
 
     private e() {
+    }
+
+    public static e a() {
+        if (a == null) {
+            a = new e();
+        }
+        return a;
     }
 
     private String a(Throwable th) {
@@ -63,13 +69,13 @@ public class e implements Thread.UncaughtExceptionHandler {
                 URL url = new URL(g.e);
                 StringBuffer stringBuffer = new StringBuffer();
                 stringBuffer.append("e0");
-                stringBuffer.append(ETAG.EQUAL);
+                stringBuffer.append("=");
                 stringBuffer.append(str);
-                stringBuffer.append(ETAG.ITEM_SEPARATOR);
+                stringBuffer.append("&");
                 stringBuffer.append("e1");
-                stringBuffer.append(ETAG.EQUAL);
+                stringBuffer.append("=");
                 stringBuffer.append(str2);
-                stringBuffer.append(ETAG.ITEM_SEPARATOR);
+                stringBuffer.append("&");
                 if (stringBuffer.length() > 0) {
                     stringBuffer.deleteCharAt(stringBuffer.length() - 1);
                 }
@@ -81,7 +87,7 @@ public class e implements Thread.UncaughtExceptionHandler {
                 httpURLConnection.setConnectTimeout(com.baidu.location.g.a.b);
                 httpURLConnection.setReadTimeout(com.baidu.location.g.a.b);
                 httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
-                httpURLConnection.setRequestProperty("Accept-Charset", "UTF-8");
+                httpURLConnection.setRequestProperty("Accept-Charset", HTTP.UTF_8);
                 OutputStream outputStream = httpURLConnection.getOutputStream();
                 outputStream.write(stringBuffer.toString().getBytes());
                 outputStream.flush();
@@ -92,13 +98,6 @@ public class e implements Thread.UncaughtExceptionHandler {
             }
         }
         return false;
-    }
-
-    public static e tB() {
-        if (aeE == null) {
-            aeE = new e();
-        }
-        return aeE;
     }
 
     public void b() {
@@ -155,14 +154,14 @@ public class e implements Thread.UncaughtExceptionHandler {
             Process.killProcess(Process.myPid());
             return;
         }
-        if (System.currentTimeMillis() - com.baidu.location.f.a.a() < ErrDef.Feature.WEIGHT && 7.8f > com.baidu.location.f.getFrameVersion()) {
-            if (System.currentTimeMillis() - com.baidu.location.g.c.ua().c() < 40000) {
+        if (System.currentTimeMillis() - com.baidu.location.f.a.a() < 10000 && 7.8f > com.baidu.location.f.getFrameVersion()) {
+            if (System.currentTimeMillis() - com.baidu.location.g.c.a().c() < 40000) {
                 File file = new File(g.h() + File.separator + com.baidu.location.f.getJarFileName());
                 if (file.exists()) {
                     file.delete();
                 }
             } else {
-                com.baidu.location.g.c.ua().b(System.currentTimeMillis());
+                com.baidu.location.g.c.a().b(System.currentTimeMillis());
             }
         }
         try {
@@ -183,7 +182,7 @@ public class e implements Thread.UncaughtExceptionHandler {
             }
             if (str2.contains("com.baidu.location")) {
                 z2 = true;
-                String str4 = com.baidu.location.g.b.tZ().a(false) + com.baidu.location.a.a.tf().c();
+                String str4 = com.baidu.location.g.b.a().a(false) + com.baidu.location.a.a.a().c();
                 boolean z3 = z2;
                 str3 = str4 == null ? Jni.encode(str4) : null;
                 z = z3;
@@ -212,7 +211,7 @@ public class e implements Thread.UncaughtExceptionHandler {
             }
         }
         z2 = false;
-        String str42 = com.baidu.location.g.b.tZ().a(false) + com.baidu.location.a.a.tf().c();
+        String str42 = com.baidu.location.g.b.a().a(false) + com.baidu.location.a.a.a().c();
         boolean z32 = z2;
         str3 = str42 == null ? Jni.encode(str42) : null;
         z = z32;

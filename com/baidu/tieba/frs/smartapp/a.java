@@ -10,35 +10,35 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a extends BaseAdapter {
+    private ArrayList<b> aFH;
     private TbPageContext mContext;
-    private ArrayList<b> mData;
 
     public a(TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
     }
 
     public void setData(ArrayList<b> arrayList) {
-        this.mData = arrayList;
+        this.aFH = arrayList;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.mData == null) {
+        if (this.aFH == null) {
             return 0;
         }
-        return this.mData.size();
+        return this.aFH.size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.mData == null || i < 0 || i >= this.mData.size()) {
+        if (this.aFH == null || i < 0 || i >= this.aFH.size()) {
             return null;
         }
-        return this.mData.get(i);
+        return this.aFH.get(i);
     }
 
     @Override // android.widget.Adapter
@@ -51,40 +51,40 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0227a c0227a;
+        C0246a c0246a;
         if (view == null) {
-            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(e.h.frs_lite_program_list_fragment_item, viewGroup, false);
-            C0227a c0227a2 = new C0227a();
-            c0227a2.eep = (RelativeLayout) view.findViewById(e.g.card);
-            c0227a2.een = (HeadImageView) view.findViewById(e.g.portrait);
-            c0227a2.mTitle = (TextView) view.findViewById(e.g.title);
-            c0227a2.eeo = (TextView) view.findViewById(e.g.desc);
-            view.setTag(c0227a2);
-            c0227a = c0227a2;
+            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(d.h.frs_lite_program_list_fragment_item, viewGroup, false);
+            C0246a c0246a2 = new C0246a();
+            c0246a2.fsF = (RelativeLayout) view.findViewById(d.g.card);
+            c0246a2.fsD = (HeadImageView) view.findViewById(d.g.portrait);
+            c0246a2.mTitle = (TextView) view.findViewById(d.g.title);
+            c0246a2.fsE = (TextView) view.findViewById(d.g.desc);
+            view.setTag(c0246a2);
+            c0246a = c0246a2;
         } else {
-            c0227a = (C0227a) view.getTag();
+            c0246a = (C0246a) view.getTag();
         }
         b bVar = (b) getItem(i);
-        int h = l.h(this.mContext.getPageActivity(), e.C0210e.tbds136);
-        c0227a.een.setIsRound(true);
-        c0227a.een.startLoad(bVar.avatar, 10, h, h, false);
-        c0227a.mTitle.setText(bVar.name);
-        c0227a.eeo.setText(bVar.eer);
-        al.c(c0227a.mTitle, e.d.cp_cont_b, 1);
-        al.c(c0227a.eeo, e.d.cp_cont_d, 1);
-        al.i(c0227a.eep, e.f.lite_progrom_icorner_bg);
+        int h = l.h(this.mContext.getPageActivity(), d.e.tbds136);
+        c0246a.fsD.setIsRound(true);
+        c0246a.fsD.startLoad(bVar.avatar, 10, h, h, false);
+        c0246a.mTitle.setText(bVar.name);
+        c0246a.fsE.setText(bVar.fsH);
+        al.d(c0246a.mTitle, d.C0236d.cp_cont_b, 1);
+        al.d(c0246a.fsE, d.C0236d.cp_cont_d, 1);
+        al.k(c0246a.fsF, d.f.lite_progrom_icorner_bg);
         return view;
     }
 
     /* renamed from: com.baidu.tieba.frs.smartapp.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C0227a {
-        HeadImageView een;
-        TextView eeo;
-        RelativeLayout eep;
+    /* loaded from: classes4.dex */
+    public class C0246a {
+        HeadImageView fsD;
+        TextView fsE;
+        RelativeLayout fsF;
         TextView mTitle;
 
-        public C0227a() {
+        public C0246a() {
         }
     }
 }

@@ -5,13 +5,12 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.webkit.internal.ETAG;
 import java.net.URLEncoder;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a {
-    public static String t(String str, String str2, String str3) {
+    public static String G(String str, String str2, String str3) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -28,7 +27,7 @@ public class a {
             sb.append("/");
         }
         if (!TextUtils.isEmpty(Uri.parse(sb.toString()).getQuery())) {
-            sb.append(ETAG.ITEM_SEPARATOR);
+            sb.append("&");
         } else {
             if (!sb.toString().endsWith("/")) {
                 sb.append("/");
@@ -47,12 +46,12 @@ public class a {
         return sb.toString();
     }
 
-    public static final boolean u(String str, String str2, String str3) {
-        String t;
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str3) || (t = t(str, str2, str3)) == null || !t.startsWith("tiebaclient://")) {
+    public static final boolean H(String str, String str2, String str3) {
+        String G;
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str3) || (G = G(str, str2, str3)) == null || !G.startsWith("tiebaclient://")) {
             return false;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2921361, t));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2921361, G));
         return true;
     }
 }

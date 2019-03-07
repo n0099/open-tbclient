@@ -1,13 +1,12 @@
 package com.baidu.tieba.image;
 
 import android.content.Context;
-import com.baidu.searchbox.ng.ai.apps.aps.AiAppsApsUtils;
-import com.baidu.searchbox.ng.ai.apps.statistic.AiAppsUBCStatistic;
+import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
 /* loaded from: classes3.dex */
 public class c {
-    private AdvertAppInfo fki;
+    private AdvertAppInfo gAe;
     private Context mContext;
     private String mForumId;
     private String mPostId;
@@ -19,27 +18,34 @@ public class c {
     }
 
     public void d(AdvertAppInfo advertAppInfo) {
-        this.fki = advertAppInfo;
+        this.gAe = advertAppInfo;
     }
 
-    public void aXG() {
-        rg(AiAppsUBCStatistic.TYPE_CLICK);
-        com.baidu.tieba.recapp.report.c.bwO().a(com.baidu.tieba.recapp.report.f.c(this.fki, 2, 0));
+    public void byi() {
+        xL("click");
+        com.baidu.tieba.recapp.report.c.bXB().a(com.baidu.tieba.recapp.report.f.c(this.gAe, 2, 0));
     }
 
-    public void aXH() {
-        rg("show");
-        com.baidu.tieba.recapp.report.c.bwO().a(com.baidu.tieba.recapp.report.f.c(this.fki, 3, 0));
+    public void byj() {
+        xL("click");
+        com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(this.gAe, 2, 0);
+        c.BT("title");
+        com.baidu.tieba.recapp.report.c.bXB().a(c);
     }
 
-    public void aXI() {
+    public void byk() {
+        xL(SmsLoginView.StatEvent.LOGIN_SHOW);
+        com.baidu.tieba.recapp.report.c.bXB().a(com.baidu.tieba.recapp.report.f.c(this.gAe, 3, 0));
     }
 
-    public void rf(String str) {
-        TiebaStatic.eventStat(this.mContext, "pb_dl_app", null, 1, AiAppsApsUtils.APP_NAME, str);
+    public void byl() {
     }
 
-    public void rg(String str) {
-        com.baidu.tbadk.distribute.a.Mc().a(this.fki, this.mForumId, com.baidu.adp.lib.g.b.d(this.mPostId, 0L), "PB", str, 1);
+    public void xK(String str) {
+        TiebaStatic.eventStat(this.mContext, "pb_dl_app", null, 1, "app_name", str);
+    }
+
+    public void xL(String str) {
+        com.baidu.tbadk.distribute.a.alG().a(this.gAe, this.mForumId, com.baidu.adp.lib.g.b.d(this.mPostId, 0L), "PB", str, 1);
     }
 }

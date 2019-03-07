@@ -1,19 +1,19 @@
 package com.baidu.location.a;
 
 import android.os.Bundle;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class b {
     private static Object a = new Object();
-    private static b acP = null;
+    private static b b = null;
     private int c = -1;
 
-    public static b tg() {
+    public static b a() {
         b bVar;
         synchronized (a) {
-            if (acP == null) {
-                acP = new b();
+            if (b == null) {
+                b = new b();
             }
-            bVar = acP;
+            bVar = b;
         }
         return bVar;
     }
@@ -25,7 +25,7 @@ public class b {
             bundle.putInt("loctype", i);
             bundle.putInt("diagtype", i2);
             bundle.putByteArray("diagmessage", str.getBytes());
-            a.tf().a(bundle, 303);
+            a.a().a(bundle, 303);
         }
     }
 

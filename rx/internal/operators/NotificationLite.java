@@ -3,14 +3,14 @@ package rx.internal.operators;
 import java.io.Serializable;
 /* loaded from: classes2.dex */
 public final class NotificationLite {
-    private static final Object iGm = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
+    private static final Object jVH = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
         private static final long serialVersionUID = 1;
 
         public String toString() {
             return "Notification=>Completed";
         }
     };
-    private static final Object iGn = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
+    private static final Object jVI = new Serializable() { // from class: rx.internal.operators.NotificationLite.2
         private static final long serialVersionUID = 2;
 
         public String toString() {
@@ -32,26 +32,26 @@ public final class NotificationLite {
         }
     }
 
-    public static <T> Object aY(T t) {
+    public static <T> Object bp(T t) {
         if (t == null) {
-            return iGn;
+            return jVI;
         }
         return t;
     }
 
-    public static Object ceF() {
-        return iGm;
+    public static Object cDP() {
+        return jVH;
     }
 
-    public static Object M(Throwable th) {
+    public static Object O(Throwable th) {
         return new OnErrorSentinel(th);
     }
 
     public static <T> boolean a(rx.e<? super T> eVar, Object obj) {
-        if (obj == iGm) {
+        if (obj == jVH) {
             eVar.onCompleted();
             return true;
-        } else if (obj == iGn) {
+        } else if (obj == jVI) {
             eVar.onNext(null);
             return false;
         } else if (obj != null) {
@@ -66,24 +66,24 @@ public final class NotificationLite {
         }
     }
 
-    public static boolean aZ(Object obj) {
-        return obj == iGm;
+    public static boolean bq(Object obj) {
+        return obj == jVH;
     }
 
-    public static boolean ba(Object obj) {
+    public static boolean br(Object obj) {
         return obj instanceof OnErrorSentinel;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    public static <T> T bb(Object obj) {
-        if (obj == iGn) {
+    public static <T> T bs(Object obj) {
+        if (obj == jVI) {
             return null;
         }
         return obj;
     }
 
-    public static Throwable bc(Object obj) {
+    public static Throwable bt(Object obj) {
         return ((OnErrorSentinel) obj).e;
     }
 }

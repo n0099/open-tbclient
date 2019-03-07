@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.PowerManager;
 import android.util.Log;
 import android.util.SparseArray;
-import com.baidu.ar.parser.ARResourceKey;
 @Deprecated
 /* loaded from: classes2.dex */
 public abstract class WakefulBroadcastReceiver extends BroadcastReceiver {
@@ -27,7 +26,7 @@ public abstract class WakefulBroadcastReceiver extends BroadcastReceiver {
             if (startService == null) {
                 return null;
             }
-            PowerManager.WakeLock newWakeLock = ((PowerManager) context.getSystemService(ARResourceKey.HTTP_POWER)).newWakeLock(1, "wake:" + startService.flattenToShortString());
+            PowerManager.WakeLock newWakeLock = ((PowerManager) context.getSystemService("power")).newWakeLock(1, "wake:" + startService.flattenToShortString());
             newWakeLock.setReferenceCounted(false);
             newWakeLock.acquire(60000L);
             sActiveWakeLocks.put(i, newWakeLock);

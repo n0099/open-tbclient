@@ -5,32 +5,29 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
 /* loaded from: classes.dex */
-public class b {
+public final class b {
     public static int a = -1;
     private static int c = 0;
     static ThreadLocal<StringBuilder> b = new ThreadLocal<>();
 
-    public static void a(String str) {
+    public static void a() {
     }
 
-    public static void b(String str) {
+    public static void b() {
     }
 
-    public static void a(String str, Throwable th) {
+    public static void c() {
     }
 
     public static String a(Throwable th) {
         StringWriter stringWriter;
-        if (th == null) {
-            return "";
-        }
         for (Throwable th2 = th; th2 != null; th2 = th2.getCause()) {
+            if (th2 instanceof UnknownHostException) {
+                return "";
+            }
             try {
-                if (th2 instanceof UnknownHostException) {
-                    return "";
-                }
             } catch (Throwable th3) {
-                com.baidu.sofire.b.e.a(th3);
+                com.baidu.sofire.b.e.a();
                 return "";
             }
         }
@@ -39,16 +36,13 @@ public class b {
             try {
                 th.printStackTrace(new PrintWriter(stringWriter));
                 String stringWriter2 = stringWriter.toString();
-                if (stringWriter != null) {
-                    try {
-                        stringWriter.close();
-                        return stringWriter2;
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        return stringWriter2;
-                    }
+                try {
+                    stringWriter.close();
+                    return stringWriter2;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return stringWriter2;
                 }
-                return stringWriter2;
             } catch (Throwable th4) {
                 th = th4;
                 if (stringWriter != null) {
@@ -66,6 +60,6 @@ public class b {
         }
     }
 
-    public static void b(Throwable th) {
+    public static void d() {
     }
 }

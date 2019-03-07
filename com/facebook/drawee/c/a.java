@@ -5,75 +5,75 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 /* loaded from: classes2.dex */
 public class a {
-    float bXQ;
-    float bXR;
-    InterfaceC0359a ioM;
-    final float ioN;
-    boolean ioO;
-    boolean ioP;
-    long ioQ;
+    float dmQ;
+    float dmR;
+    InterfaceC0335a jEm;
+    final float jEn;
+    boolean jEo;
+    boolean jEp;
+    long jEq;
 
     /* renamed from: com.facebook.drawee.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0359a {
-        boolean bVQ();
+    public interface InterfaceC0335a {
+        boolean cuO();
     }
 
     public a(Context context) {
-        this.ioN = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.jEn = ViewConfiguration.get(context).getScaledTouchSlop();
         init();
     }
 
-    public static a dq(Context context) {
+    public static a eL(Context context) {
         return new a(context);
     }
 
     public void init() {
-        this.ioM = null;
+        this.jEm = null;
         reset();
     }
 
     public void reset() {
-        this.ioO = false;
-        this.ioP = false;
+        this.jEo = false;
+        this.jEp = false;
     }
 
-    public void a(InterfaceC0359a interfaceC0359a) {
-        this.ioM = interfaceC0359a;
+    public void a(InterfaceC0335a interfaceC0335a) {
+        this.jEm = interfaceC0335a;
     }
 
-    public boolean bWT() {
-        return this.ioO;
+    public boolean cvS() {
+        return this.jEo;
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.ioO = true;
-                this.ioP = true;
-                this.ioQ = motionEvent.getEventTime();
-                this.bXQ = motionEvent.getX();
-                this.bXR = motionEvent.getY();
+                this.jEo = true;
+                this.jEp = true;
+                this.jEq = motionEvent.getEventTime();
+                this.dmQ = motionEvent.getX();
+                this.dmR = motionEvent.getY();
                 break;
             case 1:
-                this.ioO = false;
-                if (Math.abs(motionEvent.getX() - this.bXQ) > this.ioN || Math.abs(motionEvent.getY() - this.bXR) > this.ioN) {
-                    this.ioP = false;
+                this.jEo = false;
+                if (Math.abs(motionEvent.getX() - this.dmQ) > this.jEn || Math.abs(motionEvent.getY() - this.dmR) > this.jEn) {
+                    this.jEp = false;
                 }
-                if (this.ioP && motionEvent.getEventTime() - this.ioQ <= ViewConfiguration.getLongPressTimeout() && this.ioM != null) {
-                    this.ioM.bVQ();
+                if (this.jEp && motionEvent.getEventTime() - this.jEq <= ViewConfiguration.getLongPressTimeout() && this.jEm != null) {
+                    this.jEm.cuO();
                 }
-                this.ioP = false;
+                this.jEp = false;
                 break;
             case 2:
-                if (Math.abs(motionEvent.getX() - this.bXQ) > this.ioN || Math.abs(motionEvent.getY() - this.bXR) > this.ioN) {
-                    this.ioP = false;
+                if (Math.abs(motionEvent.getX() - this.dmQ) > this.jEn || Math.abs(motionEvent.getY() - this.dmR) > this.jEn) {
+                    this.jEp = false;
                     break;
                 }
                 break;
             case 3:
-                this.ioO = false;
-                this.ioP = false;
+                this.jEo = false;
+                this.jEp = false;
                 break;
         }
         return true;

@@ -12,44 +12,44 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import com.baidu.tieba.homepage.daily.b.e;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class d extends BaseAdapter {
-    private List<e.a> evN;
-    private int ewh;
-    private int ewi;
+    private int fII;
+    private int fIJ;
+    private List<e.a> fIm;
     private Context mContext;
 
     public d(Context context) {
         this.mContext = context;
-        this.ewh = ((((l.aO(context) - (l.h(context, e.C0210e.tbds44) * 2)) - l.h(context, e.C0210e.tbds60)) / 2) - l.h(context, e.C0210e.tbds104)) - l.h(context, e.C0210e.tbds26);
+        this.fII = ((((l.aO(context) - (l.h(context, d.e.tbds44) * 2)) - l.h(context, d.e.tbds60)) / 2) - l.h(context, d.e.tbds104)) - l.h(context, d.e.tbds26);
     }
 
     public void setData(List<e.a> list) {
         if (list != null) {
-            this.evN = list;
+            this.fIm = list;
             notifyDataSetChanged();
         }
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return v.H(this.evN);
+        return v.S(this.fIm);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
-    /* renamed from: oC */
+    /* renamed from: sl */
     public e.a getItem(int i) {
-        return (e.a) v.d(this.evN, i);
+        return (e.a) v.c(this.fIm, i);
     }
 
-    public String aLJ() {
-        e.a aVar = (e.a) v.d(this.evN, 0);
+    public String blL() {
+        e.a aVar = (e.a) v.c(this.fIm, 0);
         if (aVar != null) {
-            return aVar.aLJ();
+            return aVar.blL();
         }
         return null;
     }
@@ -63,11 +63,11 @@ public class d extends BaseAdapter {
     public View getView(int i, View view, ViewGroup viewGroup) {
         a aVar;
         if (view == null || !(view.getTag() instanceof a)) {
-            view = LayoutInflater.from(this.mContext).inflate(e.h.daily_topic_item_view, (ViewGroup) null);
+            view = LayoutInflater.from(this.mContext).inflate(d.h.daily_topic_item_view, (ViewGroup) null);
             a aVar2 = new a();
-            aVar2.ewj = (TbImageView) view.findViewById(e.g.topic_pic);
-            aVar2.ewb = (TextView) view.findViewById(e.g.topic_title);
-            aVar2.ewk = (TextView) view.findViewById(e.g.topic_abstract);
+            aVar2.fIK = (TbImageView) view.findViewById(d.g.topic_pic);
+            aVar2.fIC = (TextView) view.findViewById(d.g.topic_title);
+            aVar2.fIL = (TextView) view.findViewById(d.g.topic_abstract);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
@@ -75,26 +75,26 @@ public class d extends BaseAdapter {
         }
         e.a item = getItem(i);
         if (item != null) {
-            aVar.ewj.startLoad(item.aLH(), 10, false);
-            aVar.ewb.setText(this.mContext.getString(e.j.daily_topic_name, b(aVar.ewb.getPaint(), item.zl(), this.ewh)));
-            aVar.ewk.setText(item.aLI());
+            aVar.fIK.startLoad(item.blJ(), 10, false);
+            aVar.fIC.setText(this.mContext.getString(d.j.daily_topic_name, b(aVar.fIC.getPaint(), item.Ya(), this.fII)));
+            aVar.fIL.setText(item.blK());
         }
         aVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return view;
     }
 
     public String b(TextPaint textPaint, String str, int i) {
-        if (this.ewi <= 0) {
-            this.ewi = i - l.c(textPaint, "##");
+        if (this.fIJ <= 0) {
+            this.fIJ = i - l.c(textPaint, "##");
         }
-        return l.a(textPaint, str, this.ewi);
+        return l.a(textPaint, str, this.fIJ);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     private static class a {
-        public TextView ewb;
-        public TbImageView ewj;
-        public TextView ewk;
+        public TextView fIC;
+        public TbImageView fIK;
+        public TextView fIL;
         private int mSkinType;
 
         private a() {
@@ -104,9 +104,9 @@ public class d extends BaseAdapter {
         public void onChangeSkinType(int i) {
             if (i != this.mSkinType) {
                 this.mSkinType = i;
-                this.ewj.setBorderColor(al.getColor(e.d.black_alpha15));
-                al.h(this.ewb, e.d.cp_cont_b);
-                al.h(this.ewk, e.d.cp_cont_d);
+                this.fIK.setBorderColor(al.getColor(d.C0236d.black_alpha15));
+                al.j(this.fIC, d.C0236d.cp_cont_b);
+                al.j(this.fIL, d.C0236d.cp_cont_d);
             }
         }
     }

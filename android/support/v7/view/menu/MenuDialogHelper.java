@@ -2,6 +2,7 @@ package android.support.v7.view.menu;
 
 import android.content.DialogInterface;
 import android.os.IBinder;
+import android.support.v4.view.PointerIconCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.appcompat.R;
 import android.support.v7.view.menu.MenuPresenter;
@@ -37,7 +38,7 @@ class MenuDialogHelper implements DialogInterface.OnClickListener, DialogInterfa
         this.mDialog = builder.create();
         this.mDialog.setOnDismissListener(this);
         WindowManager.LayoutParams attributes = this.mDialog.getWindow().getAttributes();
-        attributes.type = 1003;
+        attributes.type = PointerIconCompat.TYPE_HELP;
         if (iBinder != null) {
             attributes.token = iBinder;
         }

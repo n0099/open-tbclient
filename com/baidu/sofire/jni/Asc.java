@@ -17,7 +17,7 @@ public class Asc {
         try {
             System.loadLibrary("fire");
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 }

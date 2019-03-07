@@ -4,13 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
-import com.baidu.searchbox.dns.DnsHelper;
 import com.baidu.searchbox.http.RequestHandler;
-import com.baidu.searchbox.http.dns.HttpDns;
-import com.baidu.searchbox.http.interceptor.AllRequestsInterceptor;
-import com.baidu.searchbox.http.interceptor.ConnReuseProbeInterceptor;
-import com.baidu.searchbox.http.interceptor.ExpTraceInterceptor;
-import com.baidu.searchbox.http.interceptor.UserAgentInterceptor;
 import com.baidu.searchbox.http.request.DeleteRequest;
 import com.baidu.searchbox.http.request.GetRequest;
 import com.baidu.searchbox.http.request.HeadRequest;
@@ -24,9 +18,7 @@ import com.baidu.searchbox.http.request.PostMultiPartFormRequest;
 import com.baidu.searchbox.http.request.PostStringRequest;
 import com.baidu.searchbox.http.request.PutBodyRequest;
 import com.baidu.searchbox.http.request.PutFormRequest;
-import com.baidu.searchbox.http.statistics.NetworkInfoRecord;
 import com.baidu.searchbox.http.statistics.NetworkStat;
-import com.baidu.searchbox.http.statistics.NetworkStatImpl;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.net.ProxySelector;
 import java.util.ArrayList;
@@ -34,6 +26,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import okhttp3.Call;
 import okhttp3.ConnectionPool;
+import okhttp3.Dns;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -42,20 +35,29 @@ public abstract class AbstractHttpManager {
     private static final String TAG = "HttpManager";
     private static List<Class<? extends Interceptor>> sExternalInterceptorClass;
     private static List<Class<? extends Interceptor>> sExternalNetworkInterceptorClass;
+    private static ProductUserAgentHandler sProductUserAgent;
     private static ProxySelector sProxySelector;
     protected Context context;
-    private DnsHelper dnsHelper;
-    private HttpDns httpDns;
+    protected Handler deliver;
     private NetworkStat<Request> networkStat;
-    protected Handler deliver = new Handler(Looper.getMainLooper());
-    private RequestHandler requestHandler = new RequestHandler.Default();
-    protected OkHttpClient okHttpClient = initClient();
+    protected OkHttpClient okHttpClient;
+    private RequestHandler requestHandler;
+    private IHttpDns sHttpDns;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public AbstractHttpManager(Context context) {
+        if (HttpRuntime.getHttpContext() != null) {
+            HttpRuntime.getHttpContext().init();
+        }
         this.context = context.getApplicationContext();
-        this.dnsHelper = new DnsHelper(context, false);
-        this.httpDns = new HttpDns(this.dnsHelper, false);
+        this.deliver = new Handler(Looper.getMainLooper());
+        this.requestHandler = new RequestHandler.Default();
+        this.sHttpDns = HttpRuntime.getHttpContext().getNewHttpDns();
+        this.okHttpClient = initClient();
+    }
+
+    public IHttpDns getHttpDns() {
+        return this.sHttpDns;
     }
 
     public static void setGlobalProxySelector(ProxySelector proxySelector) {
@@ -103,23 +105,16 @@ public abstract class AbstractHttpManager {
     }
 
     public void setHttpDnsEnable(boolean z) {
-        this.httpDns.setHttpDnsEnable(z);
-    }
-
-    public DnsHelper dnsHelper() {
-        return this.dnsHelper;
-    }
-
-    public void prefetchDnsResult(String str) {
-        this.dnsHelper.forceUpdateDomain(str);
-    }
-
-    public void setNetworkInfoRecord(NetworkInfoRecord networkInfoRecord) {
-        if (networkInfoRecord != null) {
-            setNetworkStat(new NetworkStatImpl(this.context, networkInfoRecord));
-        } else {
-            setNetworkStat(null);
+        if (this.sHttpDns != null) {
+            this.sHttpDns.setHttpDnsEnable(z);
         }
+    }
+
+    public boolean getHttpDnsEnable() {
+        if (this.sHttpDns != null) {
+            return this.sHttpDns.getHttpDnsEnable();
+        }
+        return false;
     }
 
     public void setNetworkStat(NetworkStat<Request> networkStat) {
@@ -205,10 +200,14 @@ public abstract class AbstractHttpManager {
         return this.okHttpClient;
     }
 
-    protected OkHttpClient initClient() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public OkHttpClient initClient() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         try {
-            builder.connectTimeout(StatisticConfig.MIN_UPLOAD_INTERVAL, TimeUnit.MILLISECONDS).readTimeout(StatisticConfig.MIN_UPLOAD_INTERVAL, TimeUnit.MILLISECONDS).writeTimeout(StatisticConfig.MIN_UPLOAD_INTERVAL, TimeUnit.MILLISECONDS).dns(this.httpDns).connectionPool(new ConnectionPool(10, 5L, TimeUnit.MINUTES)).addInterceptor(new ExpTraceInterceptor(this.context)).addNetworkInterceptor(new UserAgentInterceptor(this.context)).addNetworkInterceptor(new ConnReuseProbeInterceptor()).addNetworkInterceptor(new AllRequestsInterceptor());
+            builder.connectTimeout(StatisticConfig.MIN_UPLOAD_INTERVAL, TimeUnit.MILLISECONDS).readTimeout(StatisticConfig.MIN_UPLOAD_INTERVAL, TimeUnit.MILLISECONDS).writeTimeout(StatisticConfig.MIN_UPLOAD_INTERVAL, TimeUnit.MILLISECONDS).connectionPool(new ConnectionPool(10, 5L, TimeUnit.MINUTES));
+            if (this.sHttpDns != null && (this.sHttpDns instanceof Dns)) {
+                builder.dns((Dns) this.sHttpDns);
+            }
             addStaticInterceptor(builder);
             addFreeCardProxySelector(builder);
         } catch (IllegalArgumentException e) {
@@ -254,5 +253,13 @@ public abstract class AbstractHttpManager {
 
     public void setRequestHandler(RequestHandler requestHandler) {
         this.requestHandler = requestHandler;
+    }
+
+    public static void setProductUserAgent(ProductUserAgentHandler productUserAgentHandler) {
+        sProductUserAgent = productUserAgentHandler;
+    }
+
+    public static ProductUserAgentHandler getProductUserAgent() {
+        return sProductUserAgent;
     }
 }

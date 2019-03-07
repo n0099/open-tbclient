@@ -13,30 +13,30 @@ import com.baidu.location.LocationClient;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a {
     private ArrayList<BDNotifyListener> a;
-    private BDLocation aeJ;
-    private LocationClient aeK;
-    private PendingIntent aeL;
-    private AlarmManager aeM;
     private float b;
+    private BDLocation c;
     private long d;
+    private LocationClient e;
     private Context f;
     private int g;
     private long h;
     private boolean i;
+    private PendingIntent j;
+    private AlarmManager k;
 
     private void a(long j) {
         try {
-            if (this.aeL != null) {
-                this.aeM.cancel(this.aeL);
+            if (this.j != null) {
+                this.k.cancel(this.j);
             }
-            this.aeL = PendingIntent.getBroadcast(this.f, 0, new Intent("android.com.baidu.location.TIMER.NOTIFY"), 134217728);
-            if (this.aeL == null) {
+            this.j = PendingIntent.getBroadcast(this.f, 0, new Intent("android.com.baidu.location.TIMER.NOTIFY"), 134217728);
+            if (this.j == null) {
                 return;
             }
-            this.aeM.set(0, System.currentTimeMillis() + j, this.aeL);
+            this.k.set(0, System.currentTimeMillis() + j, this.j);
         } catch (Exception e) {
         }
     }
@@ -99,19 +99,19 @@ public class a {
             bDNotifyListener.mLongitudeC = coorEncrypt[0];
             bDNotifyListener.mLatitudeC = coorEncrypt[1];
         }
-        if (this.aeJ == null || System.currentTimeMillis() - this.d > ReportUserInfoModel.TIME_INTERVAL) {
-            this.aeK.requestNotifyLocation();
+        if (this.c == null || System.currentTimeMillis() - this.d > ReportUserInfoModel.TIME_INTERVAL) {
+            this.e.requestNotifyLocation();
         } else {
             float[] fArr = new float[1];
-            Location.distanceBetween(this.aeJ.getLatitude(), this.aeJ.getLongitude(), bDNotifyListener.mLatitudeC, bDNotifyListener.mLongitudeC, fArr);
-            float radius = (fArr[0] - bDNotifyListener.mRadius) - this.aeJ.getRadius();
+            Location.distanceBetween(this.c.getLatitude(), this.c.getLongitude(), bDNotifyListener.mLatitudeC, bDNotifyListener.mLongitudeC, fArr);
+            float radius = (fArr[0] - bDNotifyListener.mRadius) - this.c.getRadius();
             if (radius > 0.0f) {
                 if (radius < this.b) {
                     this.b = radius;
                 }
             } else if (bDNotifyListener.Notified < 3) {
                 bDNotifyListener.Notified++;
-                bDNotifyListener.onNotify(this.aeJ, fArr[0]);
+                bDNotifyListener.onNotify(this.c, fArr[0]);
                 if (bDNotifyListener.Notified < 3) {
                     this.i = true;
                 }

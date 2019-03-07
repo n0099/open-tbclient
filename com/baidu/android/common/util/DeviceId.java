@@ -24,11 +24,7 @@ import com.baidu.android.common.security.AESUtil;
 import com.baidu.android.common.security.Base64;
 import com.baidu.android.common.security.MD5Util;
 import com.baidu.android.common.security.SHA1Util;
-import com.baidu.ar.util.IoUtils;
-import com.baidu.ar.util.SystemInfoUtil;
-import com.baidu.fsg.face.base.b.c;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.CharArrayWriter;
@@ -219,7 +215,7 @@ public final class DeviceId {
                         if (bundle != null) {
                             String string = bundle.getString(META_KEY_GLAXY_DATA);
                             if (!TextUtils.isEmpty(string)) {
-                                byte[] decode = Base64.decode(string.getBytes(IoUtils.UTF_8));
+                                byte[] decode = Base64.decode(string.getBytes("utf-8"));
                                 JSONObject jSONObject = new JSONObject(new String(decode));
                                 CUIDBuddyInfo cUIDBuddyInfo = new CUIDBuddyInfo();
                                 cUIDBuddyInfo.priority = jSONObject.getInt(LogFactory.PRIORITY_KEY);
@@ -298,7 +294,7 @@ public final class DeviceId {
             return null;
         }
         try {
-            return Base64.encode(AESUtil.encrypt(AES_KEY, AES_KEY, str.getBytes()), IoUtils.UTF_8);
+            return Base64.encode(AESUtil.encrypt(AES_KEY, AES_KEY, str.getBytes()), "utf-8");
         } catch (UnsupportedEncodingException e) {
             handleThrowable(e);
             return "";
@@ -357,8 +353,8 @@ public final class DeviceId {
             List<CUIDBuddyInfo> collectBuddyInfos2 = collectBuddyInfos(new Intent(ACTION_GLAXY_CUID), z);
             if (collectBuddyInfos2 != null) {
                 File filesDir = this.mContext.getFilesDir();
-                if (c.g.equals(filesDir.getName())) {
-                    str2 = c.g;
+                if ("files".equals(filesDir.getName())) {
+                    str2 = "files";
                 } else {
                     Log.e(TAG, "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath());
                     str2 = filesDir.getName();
@@ -519,10 +515,10 @@ public final class DeviceId {
                     break;
                 }
                 sb.append(readLine);
-                sb.append(SystemInfoUtil.LINE_END);
+                sb.append("\r\n");
             }
             bufferedReader.close();
-            split = new String(AESUtil.decrypt(AES_KEY, AES_KEY, Base64.decode(sb.toString().getBytes()))).split(ETAG.EQUAL);
+            split = new String(AESUtil.decrypt(AES_KEY, AES_KEY, Base64.decode(sb.toString().getBytes()))).split("=");
         } catch (FileNotFoundException e) {
             str2 = str;
         } catch (IOException e2) {
@@ -783,7 +779,7 @@ public final class DeviceId {
             }
             file2.mkdirs();
             FileWriter fileWriter = new FileWriter(file3, false);
-            fileWriter.write(Base64.encode(AESUtil.encrypt(AES_KEY, AES_KEY, (str + ETAG.EQUAL + str2).getBytes()), IoUtils.UTF_8));
+            fileWriter.write(Base64.encode(AESUtil.encrypt(AES_KEY, AES_KEY, (str + "=" + str2).getBytes()), "utf-8"));
             fileWriter.flush();
             fileWriter.close();
         } catch (IOException e) {

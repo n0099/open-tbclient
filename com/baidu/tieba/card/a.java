@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.card.data.b;
 /* loaded from: classes.dex */
 public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.OnClickListener {
-    protected ad<T> cVG;
     public int currentPageType;
+    protected ab<T> efx;
     public Context mContext;
     private String mFrom;
     public int mSkinType;
@@ -20,9 +20,9 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
 
     public abstract void a(T t);
 
-    public abstract void d(TbPageContext<?> tbPageContext, int i);
-
     public abstract int getLayout();
+
+    public abstract void onChangeSkinType(TbPageContext<?> tbPageContext, int i);
 
     public a(TbPageContext<?> tbPageContext) {
         this.mSkinType = 3;
@@ -68,6 +68,9 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
         return this.mTbPageContext;
     }
 
+    public void onPause() {
+    }
+
     public void onDestroy() {
     }
 
@@ -77,12 +80,12 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
         }
     }
 
-    public void b(ad<T> adVar) {
-        this.cVG = adVar;
+    public void d(ab<T> abVar) {
+        this.efx = abVar;
     }
 
-    public ad<T> aqp() {
-        return this.cVG;
+    public ab<T> aQh() {
+        return this.efx;
     }
 
     public void setPreloadSizeReadyCallback(com.baidu.adp.widget.a.b bVar) {

@@ -9,17 +9,18 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.data.aj;
+import com.baidu.tbadk.core.data.al;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.data.IconData;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.data.MsgLocalData;
 import com.baidu.tieba.im.data.VoiceMsgData;
 import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.memorycache.b;
 import com.baidu.tieba.im.message.MemoryNotifyUpdataGroupMessage;
 import com.baidu.tieba.im.message.RequestPersonalMsgReadMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
@@ -29,6 +30,8 @@ import com.baidu.tieba.im.message.chat.OfficialChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 import com.baidu.tieba.im.message.chat.SystemMessage;
 import com.baidu.tieba.im.message.chat.YYMessage;
+import com.baidu.tieba.im.sendmessage.a;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -43,7 +46,7 @@ import protobuf.UserInfo;
 /* loaded from: classes.dex */
 public class MessageUtils {
     public static void createPersonalChatMessage(int i, String str, long j, String str2, String str3, String str4) {
-        createPersonalChatMessage(com.baidu.tieba.im.memorycache.b.aUa().aC(String.valueOf(j), 2), i, str, j, str2, str3, str4);
+        createPersonalChatMessage(b.buF().aX(String.valueOf(j), 2), i, str, j, str2, str3, str4);
     }
 
     public static void createPersonalChatMessage(long j, int i, String str, long j2, String str2, String str3, String str4) {
@@ -81,12 +84,12 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             personalChatMessage.setLocalData(msgLocalData);
-            com.baidu.tieba.im.sendmessage.a.aVs().r(personalChatMessage);
+            a.bvX().r(personalChatMessage);
         }
     }
 
     public static void createGroupChatMessage(int i, String str, long j) {
-        createGroupChatMessage(com.baidu.tieba.im.memorycache.b.aUa().aC(String.valueOf(j), 1), i, str, j);
+        createGroupChatMessage(b.buF().aX(String.valueOf(j), 1), i, str, j);
     }
 
     public static void createGroupChatMessage(long j, int i, String str, long j2) {
@@ -118,16 +121,16 @@ public class MessageUtils {
             msgLocalData.setRetry(0L);
             msgLocalData.setUpload_offset(null);
             groupChatMessage.setLocalData(msgLocalData);
-            com.baidu.tieba.im.sendmessage.a.aVs().r(groupChatMessage);
+            a.bvX().r(groupChatMessage);
         }
     }
 
     public static void sendHasReadMessage(String str, int i) {
-        ImMessageCenterPojo ay;
-        if (!StringUtils.isNull(str) && i == 2 && (ay = com.baidu.tieba.im.memorycache.b.aUa().ay(str, 2)) != null) {
-            long pulled_msgId = ay.getPulled_msgId();
-            if (pulled_msgId > ay.getSent_msgId()) {
-                RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(d.cI(pulled_msgId), Long.parseLong(str));
+        ImMessageCenterPojo aT;
+        if (!StringUtils.isNull(str) && i == 2 && (aT = b.buF().aT(str, 2)) != null) {
+            long pulled_msgId = aT.getPulled_msgId();
+            if (pulled_msgId > aT.getSent_msgId()) {
+                RequestPersonalMsgReadMessage requestPersonalMsgReadMessage = new RequestPersonalMsgReadMessage(d.dn(pulled_msgId), Long.parseLong(str));
                 if (!MessageManager.getInstance().getSocketClient().a(requestPersonalMsgReadMessage)) {
                     MessageManager.getInstance().sendMessage(requestPersonalMsgReadMessage);
                 }
@@ -210,8 +213,8 @@ public class MessageUtils {
         int i;
         VoiceMsgData z;
         if (list != null && linkedList != null && hashMap != null && hashMap2 != null && chatMessage != null && msgInfo != null) {
-            long cH = d.cH(msgInfo.msgId.longValue());
-            chatMessage.setMsgId(cH);
+            long dm = d.dm(msgInfo.msgId.longValue());
+            chatMessage.setMsgId(dm);
             chatMessage.setSid(msgInfo.sid.longValue());
             chatMessage.setGroupId(String.valueOf(msgInfo.groupId));
             chatMessage.setMsgType(msgInfo.msgType.intValue());
@@ -220,7 +223,7 @@ public class MessageUtils {
             if (TbadkCoreApplication.isLogin() && String.valueOf(longValue3).equals(TbadkCoreApplication.getCurrentAccount())) {
                 chatMessage.setRecordId(msgInfo.recordId.longValue());
             } else {
-                chatMessage.setRecordId(cH);
+                chatMessage.setRecordId(dm);
             }
             UserData userData = new UserData();
             chatMessage.setUserInfo(userData);
@@ -306,14 +309,14 @@ public class MessageUtils {
                     if (groupMsgData != null && groupMsgData.getGroupInfo() != null && l != null) {
                         groupMsgData.getGroupInfo().setGroupId(l.longValue());
                     }
-                    if (!com.baidu.tieba.im.push.c.aUW().cC(chatMessage.getMsgId())) {
-                        long gid = com.baidu.tieba.im.push.c.aUW().getGid();
+                    if (!com.baidu.tieba.im.push.c.bvB().dh(chatMessage.getMsgId())) {
+                        long gid = com.baidu.tieba.im.push.c.bvB().getGid();
                         if (msgInfo.groupId != null) {
-                            if (gid == 0 || msgInfo.groupId.longValue() == com.baidu.tieba.im.push.c.aUW().getGid()) {
-                                Long aUX = com.baidu.tieba.im.push.c.aUW().aUX();
-                                if (aUX == null || msgInfo.msgId == null || aUX.longValue() < msgInfo.msgId.longValue()) {
+                            if (gid == 0 || msgInfo.groupId.longValue() == com.baidu.tieba.im.push.c.bvB().getGid()) {
+                                Long bvC = com.baidu.tieba.im.push.c.bvB().bvC();
+                                if (bvC == null || msgInfo.msgId == null || bvC.longValue() < msgInfo.msgId.longValue()) {
                                     chatMessage.setIsPushForOperateAccount(true);
-                                    com.baidu.tieba.im.push.c.aUW().k(msgInfo.groupId.longValue(), chatMessage.getMsgId());
+                                    com.baidu.tieba.im.push.c.bvB().q(msgInfo.groupId.longValue(), chatMessage.getMsgId());
                                 } else {
                                     return;
                                 }
@@ -334,7 +337,7 @@ public class MessageUtils {
                         linkedList.remove(0);
                         linkedList.add(chatMessage);
                     }
-                    if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().cw(4)) {
+                    if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().fY(4)) {
                         if (hashMap2.get(String.valueOf(longValue2)) == null) {
                             GroupMsgData groupMsgData2 = new GroupMsgData(2012123);
                             groupMsgData2.getGroupInfo().setUserType(i);
@@ -344,13 +347,13 @@ public class MessageUtils {
                             groupMsgData2.setListMessageData(new LinkedList<>());
                             hashMap2.put(String.valueOf(longValue2), groupMsgData2);
                             am amVar = new am("official_message_receive");
-                            amVar.i("msg_id", msgInfo.msgId.longValue());
-                            amVar.i("official_id", msgInfo.userId.longValue());
+                            amVar.k("msg_id", msgInfo.msgId.longValue());
+                            amVar.k("official_id", msgInfo.userId.longValue());
                             if (msgInfo.userInfo != null) {
-                                amVar.y("official_type", msgInfo.userInfo.userType.intValue());
+                                amVar.T("official_type", msgInfo.userInfo.userType.intValue());
                             }
-                            amVar.i("operate_time", System.currentTimeMillis() / 1000);
-                            amVar.i("task_id", getTaskId(msgInfo));
+                            amVar.k("operate_time", System.currentTimeMillis() / 1000);
+                            amVar.k("task_id", getTaskId(msgInfo));
                             TiebaStatic.log(amVar);
                         }
                         hashMap2.get(String.valueOf(longValue2)).getListMessage().add(chatMessage);
@@ -369,7 +372,7 @@ public class MessageUtils {
                         linkedList.remove(0);
                         linkedList.add(chatMessage);
                     }
-                    if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().cw(2)) {
+                    if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().fY(2)) {
                         if (hashMap.get(String.valueOf(longValue)) == null) {
                             GroupMsgData groupMsgData3 = new GroupMsgData(2012121);
                             groupMsgData3.getGroupInfo().setCustomType(2);
@@ -414,7 +417,7 @@ public class MessageUtils {
             imMessageCenterPojo.setCustomGroupType(i);
             imMessageCenterPojo.setGid(String.valueOf(j));
             if (bundle.containsKey("lastMid")) {
-                imMessageCenterPojo.setPulled_msgId(d.cH(bundle.getLong("lastMid") - 1));
+                imMessageCenterPojo.setPulled_msgId(d.dm(bundle.getLong("lastMid") - 1));
             }
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryNotifyUpdataGroupMessage(imMessageCenterPojo));
         }
@@ -446,12 +449,12 @@ public class MessageUtils {
         }
         NewpushRepair.Builder builder = new NewpushRepair.Builder();
         for (int i = 0; i < longSparseArray.size(); i++) {
-            NewpushGroupRepair cA = com.baidu.tieba.im.push.a.aUU().cA(longSparseArray.keyAt(i));
-            if (cA != null) {
+            NewpushGroupRepair df = com.baidu.tieba.im.push.a.bvz().df(longSparseArray.keyAt(i));
+            if (df != null) {
                 if (builder.groups == null) {
                     builder.groups = new ArrayList();
                 }
-                builder.groups.add(cA);
+                builder.groups.add(df);
             }
         }
         if (builder.groups == null || builder.groups.size() <= 0) {
@@ -460,9 +463,9 @@ public class MessageUtils {
         return builder.build(false);
     }
 
-    public static aj generatePushNotifyData(MsgInfo msgInfo) {
+    public static al generatePushNotifyData(MsgInfo msgInfo) {
         String str;
-        if (msgInfo == null || ao.isEmpty(msgInfo.content)) {
+        if (msgInfo == null || ap.isEmpty(msgInfo.content)) {
             return null;
         }
         String str2 = "";
@@ -479,11 +482,11 @@ public class MessageUtils {
             BdLog.e(e);
             str = "";
         }
-        String str4 = (msgInfo.userInfo == null || ao.isEmpty(msgInfo.userInfo.userName)) ? str2 : TbadkCoreApplication.getInst().getString(e.j.chosen_pb_original_bar, new Object[]{msgInfo.userInfo.userName}) + " : " + str2;
-        if (ao.isEmpty(str4) || ao.isEmpty(str)) {
+        String str4 = (msgInfo.userInfo == null || ap.isEmpty(msgInfo.userInfo.userName)) ? str2 : TbadkCoreApplication.getInst().getString(d.j.chosen_pb_original_bar, new Object[]{msgInfo.userInfo.userName}) + " : " + str2;
+        if (ap.isEmpty(str4) || ap.isEmpty(str)) {
             return null;
         }
-        return new aj(0L, msgInfo.taskId.longValue(), str, str4, msgInfo.stat);
+        return new al(0L, msgInfo.taskId.longValue(), str, str4, msgInfo.stat);
     }
 
     public static void generatePushData(List<GroupMsgData> list, int i, List<MsgInfo> list2, Long l) {
@@ -492,7 +495,7 @@ public class MessageUtils {
             HashMap hashMap2 = new HashMap();
             GroupMsgData obtainGroupData = obtainGroupData(i);
             if (obtainGroupData != null) {
-                if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().cw(obtainGroupData.getGroupInfo().getCustomType())) {
+                if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().fY(obtainGroupData.getGroupInfo().getCustomType())) {
                     list.add(obtainGroupData);
                     LinkedList<ChatMessage> linkedList = new LinkedList<>();
                     obtainGroupData.setListMessageData(linkedList);
@@ -520,7 +523,7 @@ public class MessageUtils {
             String taskId = imMessageCenterPojo.getTaskId();
             StringBuffer stringBuffer = new StringBuffer();
             for (CommonMsgPojo commonMsgPojo : list) {
-                stringBuffer.append(commonMsgPojo.getTaskId()).append(",");
+                stringBuffer.append(commonMsgPojo.getTaskId()).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
             }
             if (stringBuffer.length() > 0) {
                 stringBuffer.deleteCharAt(stringBuffer.length() - 1);
@@ -529,8 +532,8 @@ public class MessageUtils {
                 imMessageCenterPojo.setTaskId(stringBuffer.toString());
                 return;
             }
-            String str = (taskId + ",") + stringBuffer.toString();
-            String[] split = str.split(",");
+            String str = (taskId + Constants.ACCEPT_TIME_SEPARATOR_SP) + stringBuffer.toString();
+            String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split == null || split.length == 0) {
                 imMessageCenterPojo.setTaskId("");
             } else if (split.length <= 25) {
@@ -538,7 +541,7 @@ public class MessageUtils {
             } else {
                 StringBuffer stringBuffer2 = new StringBuffer();
                 for (int length = split.length - 25; length < split.length; length++) {
-                    stringBuffer2.append(split[length]).append(",");
+                    stringBuffer2.append(split[length]).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
                 stringBuffer2.deleteCharAt(stringBuffer2.length() - 1);
                 imMessageCenterPojo.setTaskId(stringBuffer2.toString());

@@ -4,27 +4,27 @@ import android.graphics.PointF;
 import java.util.Collections;
 /* loaded from: classes2.dex */
 public class m extends a<PointF, PointF> {
-    private final PointF pK;
-    private final a<Float, Float> pQ;
-    private final a<Float, Float> pR;
+    private final PointF pF;
+    private final a<Float, Float> pL;
+    private final a<Float, Float> pM;
 
     public m(a<Float, Float> aVar, a<Float, Float> aVar2) {
         super(Collections.emptyList());
-        this.pK = new PointF();
-        this.pQ = aVar;
-        this.pR = aVar2;
+        this.pF = new PointF();
+        this.pL = aVar;
+        this.pM = aVar2;
     }
 
     @Override // com.airbnb.lottie.a.b.a
     public void setProgress(float f) {
-        this.pQ.setProgress(f);
-        this.pR.setProgress(f);
-        this.pK.set(this.pQ.getValue().floatValue(), this.pR.getValue().floatValue());
+        this.pL.setProgress(f);
+        this.pM.setProgress(f);
+        this.pF.set(this.pL.getValue().floatValue(), this.pM.getValue().floatValue());
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.py.size()) {
-                this.py.get(i2).dd();
+            if (i2 < this.pr.size()) {
+                this.pr.get(i2).dc();
                 i = i2 + 1;
             } else {
                 return;
@@ -34,7 +34,7 @@ public class m extends a<PointF, PointF> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.a.b.a
-    /* renamed from: dx */
+    /* renamed from: dw */
     public PointF getValue() {
         return a(null, 0.0f);
     }
@@ -44,6 +44,6 @@ public class m extends a<PointF, PointF> {
     @Override // com.airbnb.lottie.a.b.a
     /* renamed from: e */
     public PointF a(com.airbnb.lottie.a.a<PointF> aVar, float f) {
-        return this.pK;
+        return this.pF;
     }
 }

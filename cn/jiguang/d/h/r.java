@@ -16,6 +16,6 @@ final class r extends s {
 
     @Override // cn.jiguang.d.h.s
     final ExecutorService a() {
-        return v.i(this.a, this.b, this.c);
+        return v.h(this.a, this.b, this.c);
     }
 }

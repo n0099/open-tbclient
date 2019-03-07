@@ -5,8 +5,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.e;
-/* loaded from: classes6.dex */
+import com.baidu.tieba.d;
+/* loaded from: classes4.dex */
 public class ae extends k<com.baidu.tieba.pb.data.g, com.baidu.tieba.pb.pb.a.c> {
     /* JADX INFO: Access modifiers changed from: protected */
     public ae(PbActivity pbActivity, BdUniqueId bdUniqueId) {
@@ -16,9 +16,9 @@ public class ae extends k<com.baidu.tieba.pb.data.g, com.baidu.tieba.pb.pb.a.c> 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bn */
+    /* renamed from: bz */
     public com.baidu.tieba.pb.pb.a.c onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tieba.pb.pb.a.c(LayoutInflater.from(this.mContext).inflate(e.h.pb_no_data_item_layout, viewGroup, false), this.mContext);
+        return new com.baidu.tieba.pb.pb.a.c(LayoutInflater.from(this.mContext).inflate(d.h.pb_no_data_item_layout, viewGroup, false), this.mContext);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,8 +28,9 @@ public class ae extends k<com.baidu.tieba.pb.data.g, com.baidu.tieba.pb.pb.a.c> 
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.pb.data.g gVar, com.baidu.tieba.pb.pb.a.c cVar) {
         super.onFillViewHolder(i, view, viewGroup, gVar, cVar);
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.fYK.getLayoutMode().setNightMode(this.mSkinType == 1);
-        this.fYK.getLayoutMode().onModeChanged(view);
+        cVar.mTextView.setText(gVar.hkF);
+        com.baidu.tbadk.core.util.al.c(cVar.cyi, d.f.pic_emotion_gray_03);
+        com.baidu.tbadk.core.util.al.j(cVar.mTextView, d.C0236d.cp_cont_d);
         return view;
     }
 }

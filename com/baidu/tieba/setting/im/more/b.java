@@ -2,7 +2,7 @@ package com.baidu.tieba.setting.im.more;
 /* loaded from: classes3.dex */
 public class b extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void aq(int i) {
+    protected void Z(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a

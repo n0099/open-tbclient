@@ -45,7 +45,6 @@ import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
@@ -575,10 +574,10 @@ public class TabLayout extends HorizontalScrollView {
         int dpToPx = dpToPx(getDefaultHeight()) + getPaddingTop() + getPaddingBottom();
         switch (View.MeasureSpec.getMode(i2)) {
             case Integer.MIN_VALUE:
-                i2 = View.MeasureSpec.makeMeasureSpec(Math.min(dpToPx, View.MeasureSpec.getSize(i2)), AiAppsFileUtils.GB);
+                i2 = View.MeasureSpec.makeMeasureSpec(Math.min(dpToPx, View.MeasureSpec.getSize(i2)), 1073741824);
                 break;
             case 0:
-                i2 = View.MeasureSpec.makeMeasureSpec(dpToPx, AiAppsFileUtils.GB);
+                i2 = View.MeasureSpec.makeMeasureSpec(dpToPx, 1073741824);
                 break;
         }
         int size = View.MeasureSpec.getSize(i);
@@ -605,7 +604,7 @@ public class TabLayout extends HorizontalScrollView {
                     break;
             }
             if (z) {
-                childAt.measure(View.MeasureSpec.makeMeasureSpec(getMeasuredWidth(), AiAppsFileUtils.GB), getChildMeasureSpec(i2, getPaddingTop() + getPaddingBottom(), childAt.getLayoutParams().height));
+                childAt.measure(View.MeasureSpec.makeMeasureSpec(getMeasuredWidth(), 1073741824), getChildMeasureSpec(i2, getPaddingTop() + getPaddingBottom(), childAt.getLayoutParams().height));
             }
         }
     }

@@ -12,62 +12,61 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.view.d;
-import com.baidu.tbadk.core.view.g;
-import com.baidu.tieba.e;
-/* loaded from: classes6.dex */
+import com.baidu.tbadk.core.view.e;
+import com.baidu.tieba.d;
+/* loaded from: classes4.dex */
 public class a implements com.baidu.tieba.ueg.a {
-    private BdUniqueId aCv;
-    private HttpMessageListener aCx = new HttpMessageListener(CmdConfigHttp.CMD_UEG_REPORT) { // from class: com.baidu.tieba.pb.pb.report.a.2
+    private BdUniqueId Zq;
+    private HttpMessageListener bKq = new HttpMessageListener(CmdConfigHttp.CMD_UEG_REPORT) { // from class: com.baidu.tieba.pb.pb.report.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof UEGReportResponsedMessage) {
                 if (a.this.mWaitingDialog != null) {
-                    a.this.mWaitingDialog.bB(false);
+                    a.this.mWaitingDialog.dJ(false);
                 }
                 UEGReportResponsedMessage uEGReportResponsedMessage = (UEGReportResponsedMessage) httpResponsedMessage;
                 String url = uEGReportResponsedMessage.getUrl();
                 if (!StringUtils.isNull(url)) {
-                    a.this.tG(url);
+                    a.this.Al(url);
                     return;
                 }
                 String errorString = uEGReportResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString)) {
-                    errorString = a.this.mContext.getString(e.j.neterror);
+                    errorString = a.this.mContext.getString(d.j.neterror);
                 }
-                a.this.glt.f(errorString);
+                a.this.hBt.j(errorString);
             }
         }
     };
-    private b gls = new b();
-    private g glt = new g();
+    private b hBs = new b();
+    private e hBt = new e();
     private Context mContext;
-    private d mWaitingDialog;
+    private com.baidu.tbadk.core.view.b mWaitingDialog;
 
     public a(Context context) {
         this.mContext = context;
-        this.glt.aHG = 1000L;
+        this.hBt.bPN = 1000L;
     }
 
     @Override // com.baidu.tieba.ueg.a
-    public void o(BdUniqueId bdUniqueId) {
-        this.aCv = bdUniqueId;
-        this.gls.setTag(bdUniqueId);
-        this.aCx.setTag(bdUniqueId);
-        this.aCx.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.aCx);
+    public void p(BdUniqueId bdUniqueId) {
+        this.Zq = bdUniqueId;
+        this.hBs.setTag(bdUniqueId);
+        this.bKq.setTag(bdUniqueId);
+        this.bKq.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.bKq);
     }
 
-    public void tF(String str) {
+    public void Ak(String str) {
         showLoadingDialog();
-        this.gls.tF(str);
+        this.hBs.Ak(str);
     }
 
     @Override // com.baidu.tieba.ueg.a
-    public void mz(String str) {
+    public void ti(String str) {
         showLoadingDialog();
-        this.gls.mz(str);
+        this.hBs.ti(str);
     }
 
     private void showLoadingDialog() {
@@ -80,22 +79,22 @@ public class a implements com.baidu.tieba.ueg.a {
                 tbPageContext = (TbPageContext) aK;
             }
             if (tbPageContext != null) {
-                this.mWaitingDialog = new d(tbPageContext);
-                this.mWaitingDialog.d(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.pb.pb.report.a.1
+                this.mWaitingDialog = new com.baidu.tbadk.core.view.b(tbPageContext);
+                this.mWaitingDialog.e(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.pb.pb.report.a.1
                     @Override // android.content.DialogInterface.OnCancelListener
                     public void onCancel(DialogInterface dialogInterface) {
-                        MessageManager.getInstance().removeMessage(a.this.aCv);
+                        MessageManager.getInstance().removeMessage(a.this.Zq);
                     }
                 });
             } else {
                 return;
             }
         }
-        this.mWaitingDialog.bB(true);
+        this.mWaitingDialog.dJ(true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void tG(String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.mContext, this.mContext.getString(e.j.pb_web_view_report_title), str, true)));
+    public void Al(String str) {
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.mContext, this.mContext.getString(d.j.pb_web_view_report_title), str, true)));
     }
 }

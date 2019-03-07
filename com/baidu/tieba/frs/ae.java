@@ -1,56 +1,19 @@
 package com.baidu.tieba.frs;
+/* loaded from: classes3.dex */
+public interface ae {
+    void aBu();
 
-import android.content.Context;
-import java.util.LinkedList;
-import java.util.List;
-/* loaded from: classes.dex */
-public class ae {
-    private final List<com.baidu.tbadk.mainTab.b> dKR = new LinkedList();
-    private String forumGameLabel;
-    private String forumId;
-    private String forumName;
-    private Context mContext;
+    void aBv();
 
-    public ae(Context context) {
-        this.mContext = context;
-    }
+    void aBw();
 
-    public void b(com.baidu.tbadk.mainTab.b bVar) {
-        if (bVar != null && bVar.Oh() != null) {
-            for (com.baidu.tbadk.mainTab.b bVar2 : this.dKR) {
-                if (bVar2 != null && bVar2.Oh() != null && bVar2.Oh().type == bVar.Oh().type) {
-                    return;
-                }
-            }
-            this.dKR.add(bVar);
-        }
-    }
+    void aeK();
 
-    public List<com.baidu.tbadk.mainTab.b> aBD() {
-        return this.dKR;
-    }
+    void setHeaderViewHeight(int i);
 
-    public void setForumName(String str) {
-        this.forumName = str;
-    }
+    void setRecommendFrsNavigationAnimDispatcher(com.baidu.tbadk.util.x xVar);
 
-    public String getForumName() {
-        return this.forumName;
-    }
+    void setVideoThreadId(String str);
 
-    public void setForumId(String str) {
-        this.forumId = str;
-    }
-
-    public String getForumId() {
-        return this.forumId;
-    }
-
-    public void setForumGameLabel(String str) {
-        this.forumGameLabel = str;
-    }
-
-    public String getForumGameLabel() {
-        return this.forumGameLabel;
-    }
+    void showFloatingView();
 }

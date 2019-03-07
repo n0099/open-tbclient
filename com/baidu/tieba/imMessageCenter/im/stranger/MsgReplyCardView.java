@@ -6,91 +6,91 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.chat.g;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.imMessageCenter.im.stranger.a;
 /* loaded from: classes4.dex */
 public class MsgReplyCardView extends g {
-    private LinearLayout fgG;
-    private TextView fgH;
-    private TextView fgI;
-    private TextView fgJ;
-    private TextView fgK;
+    private LinearLayout gwM;
+    private TextView gwN;
+    private TextView gwO;
+    private TextView gwP;
+    private TextView gwQ;
 
     public MsgReplyCardView(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, e.h.msg_reply_card_view);
+        super(tbPageContext, d.h.msg_reply_card_view);
         init();
     }
 
     private void init() {
-        this.fgG = (LinearLayout) findViewById(e.g.reply_card);
-        this.fgH = (TextView) findViewById(e.g.reply_title);
-        this.fgI = (TextView) findViewById(e.g.reply_content);
-        this.fgJ = (TextView) findViewById(e.g.reply_quote_content);
-        this.fgK = (TextView) findViewById(e.g.reply_frs_name);
-        this.fgG.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.MsgReplyCardView.1
+        this.gwM = (LinearLayout) findViewById(d.g.reply_card);
+        this.gwN = (TextView) findViewById(d.g.reply_title);
+        this.gwO = (TextView) findViewById(d.g.reply_content);
+        this.gwP = (TextView) findViewById(d.g.reply_quote_content);
+        this.gwQ = (TextView) findViewById(d.g.reply_frs_name);
+        this.gwM.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.im.stranger.MsgReplyCardView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                MsgReplyCardView.this.eLt.a(view, 14, MsgReplyCardView.this.mPosition, 0L);
+                MsgReplyCardView.this.gbu.a(view, 14, MsgReplyCardView.this.mPosition, 0L);
             }
         });
     }
 
     public void a(TbPageContext<?> tbPageContext, ChatMessage chatMessage, View view) {
         if (chatMessage != null) {
-            a.C0258a rd = a.rd(chatMessage.getContent());
+            a.C0263a xI = a.xI(chatMessage.getContent());
             String valueOf = String.valueOf(chatMessage.getUserId());
-            this.fgH.setText(a(rd, valueOf));
-            this.fgI.setText(rd.fgq);
-            this.fgJ.setText(b(rd, valueOf));
-            this.fgK.setText(rd.aSM + this.mContext.getString(e.j.forum));
+            this.gwN.setText(a(xI, valueOf));
+            this.gwO.setText(xI.gww);
+            this.gwP.setText(b(xI, valueOf));
+            this.gwQ.setText(xI.cbs + this.mContext.getString(d.j.forum));
         }
     }
 
-    private String a(a.C0258a c0258a, String str) {
+    private String a(a.C0263a c0263a, String str) {
         String string;
-        String qN;
+        String ux;
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            string = qN(c0258a.fgM);
-            qN = this.mContext.getString(e.j.you);
+            string = ux(c0263a.gwS);
+            ux = this.mContext.getString(d.j.you);
         } else {
-            string = this.mContext.getString(e.j.you);
-            qN = qN(c0258a.fgM);
+            string = this.mContext.getString(d.j.you);
+            ux = ux(c0263a.gwS);
         }
-        return String.format(this.mContext.getString(e.j.add_friend_card_title), string, getType(c0258a.type), qN);
+        return String.format(this.mContext.getString(d.j.add_friend_card_title), string, getType(c0263a.type), ux);
     }
 
-    private String b(a.C0258a c0258a, String str) {
-        String qN;
+    private String b(a.C0263a c0263a, String str) {
+        String ux;
         StringBuilder sb = new StringBuilder();
         if (!TextUtils.isEmpty(str) && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            qN = this.mContext.getString(e.j.me);
+            ux = this.mContext.getString(d.j.me);
         } else {
-            qN = qN(c0258a.fgM);
+            ux = ux(c0263a.gwS);
         }
-        if (c0258a.type == 1) {
-            sb.append(String.format(this.mContext.getString(e.j.add_friend_card_quote_comment), qN));
-            sb.append(c0258a.fgQ);
+        if (c0263a.type == 1) {
+            sb.append(String.format(this.mContext.getString(d.j.add_friend_card_quote_comment), ux));
+            sb.append(c0263a.gwW);
         } else {
-            sb.append(String.format(this.mContext.getString(e.j.add_friend_card_quote_thread), qN));
-            sb.append(c0258a.title);
+            sb.append(String.format(this.mContext.getString(d.j.add_friend_card_quote_thread), ux));
+            sb.append(c0263a.title);
         }
         return sb.toString();
     }
 
-    private String qN(int i) {
+    private String ux(int i) {
         if (i == 1) {
-            return this.mContext.getResources().getString(e.j.he);
+            return this.mContext.getResources().getString(d.j.he);
         }
         if (i == 2) {
-            return this.mContext.getResources().getString(e.j.she);
+            return this.mContext.getResources().getString(d.j.she);
         }
-        return this.mContext.getResources().getString(e.j.ta);
+        return this.mContext.getResources().getString(d.j.ta);
     }
 
     private String getType(int i) {
-        return i == 1 ? this.mContext.getResources().getString(e.j.add_friend_card_title_comment) : this.mContext.getResources().getString(e.j.topic_thread);
+        return i == 1 ? this.mContext.getResources().getString(d.j.add_friend_card_title_comment) : this.mContext.getResources().getString(d.j.topic_thread);
     }
 }

@@ -5,7 +5,7 @@ import cn.jiguang.h.b;
 import cn.jiguang.h.c;
 import cn.jiguang.h.d;
 import cn.jpush.android.d.f;
-import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
+import com.baidu.tbadk.TbConfig;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -17,9 +17,7 @@ import org.apache.http.protocol.HTTP;
 public final class a {
     public static c a(String str, int i, long j) {
         c cVar = null;
-        if (j < 200 || j > 60000) {
-            j = SystemScreenshotManager.DELAY_TIME;
-        }
+        j = (j < 200 || j > 60000) ? 2000L : 2000L;
         int i2 = 0;
         while (true) {
             try {
@@ -47,7 +45,7 @@ public final class a {
 
     public static byte[] a(String str, int i, long j, int i2) {
         byte[] bArr = null;
-        for (int i3 = 0; i3 < 4 && (bArr = b(str, 5, 5000L)) == null; i3++) {
+        for (int i3 = 0; i3 < 4 && (bArr = b(str, 5, TbConfig.NOTIFY_SOUND_INTERVAL)) == null; i3++) {
         }
         return bArr;
     }
@@ -77,9 +75,7 @@ public final class a {
         byte[] bArr2;
         int i4 = 0;
         i = (i <= 0 || i > 10) ? 1 : 1;
-        if (j < 200 || j > 60000) {
-            j = SystemScreenshotManager.DELAY_TIME;
-        }
+        j = (j < 200 || j > 60000) ? 2000L : 2000L;
         int i5 = -1;
         int i6 = 0;
         InputStream inputStream2 = null;
@@ -211,7 +207,7 @@ public final class a {
                     bArr2 = null;
                     break;
                 }
-                bArr2 = d.f(inputStream2);
+                bArr2 = d.g(inputStream2);
                 break;
             }
             if (inputStream2 != null) {

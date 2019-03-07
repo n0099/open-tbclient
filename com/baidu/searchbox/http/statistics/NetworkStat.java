@@ -1,12 +1,9 @@
 package com.baidu.searchbox.http.statistics;
 
-import com.baidu.searchbox.dns.DnsParseResult;
 import okhttp3.Headers;
 /* loaded from: classes2.dex */
 public interface NetworkStat<T> {
     void onConnect(T t, long j, String str);
-
-    void onDnsParse(T t, long j, long j2, DnsParseResult dnsParseResult);
 
     void onException(T t, Exception exc);
 

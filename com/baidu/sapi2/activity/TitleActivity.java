@@ -16,9 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.d.a.a;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
@@ -27,7 +25,6 @@ import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.views.ViewUtility;
-import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public abstract class TitleActivity extends Activity implements View.OnClickListener {
@@ -45,6 +42,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
     private PassportViewManager viewManager;
     protected boolean useTitle = true;
     public boolean executeSubClassMethod = true;
+    protected boolean useSDKTitle = true;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void init() {
@@ -55,20 +53,21 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setupViews() {
+        ViewUtility.enableStatusBarTint(this, -1);
         if (this.useTitle) {
-            this.mTitle = (TextView) findViewById(a.d.title);
-            this.mLeftBtnLayout = (LinearLayout) findViewById(a.d.title_left_btn_layout);
-            this.mLeftBtnTv = (TextView) findViewById(a.d.title_btn_left_tv);
-            this.mLeftBtnIv = (ImageView) findViewById(a.d.title_btn_left_iv);
-            this.mRightBtn = (Button) findViewById(a.d.title_btn_right);
-            this.mTitleLayout = (RelativeLayout) findViewById(a.d.sapi_title_layout);
-            this.mTitleBgLayout = (RelativeLayout) findViewById(a.d.sapi_title_bg_layout);
-            this.mRightBtnClose = (ImageView) findViewById(a.d.title_right_close);
+            this.mTitle = (TextView) findViewById(a.e.title);
+            this.mLeftBtnLayout = (LinearLayout) findViewById(a.e.title_left_btn_layout);
+            this.mLeftBtnTv = (TextView) findViewById(a.e.title_btn_left_tv);
+            this.mLeftBtnIv = (ImageView) findViewById(a.e.title_btn_left_iv);
+            this.mRightBtn = (Button) findViewById(a.e.title_btn_right);
+            this.mTitleLayout = (RelativeLayout) findViewById(a.e.sapi_title_layout);
+            this.mTitleBgLayout = (RelativeLayout) findViewById(a.e.sapi_title_bg_layout);
+            this.mRightBtnClose = (ImageView) findViewById(a.e.title_right_close);
             if (SapiAccountManager.getInstance().getConfignation().showBottomBack) {
                 if (this.bottomBackView == null) {
-                    this.bottomBackView = ((ViewStub) findViewById(a.d.stub_bottom_back)).inflate();
+                    this.bottomBackView = ((ViewStub) findViewById(a.e.stub_bottom_back)).inflate();
                 }
-                this.mBottomBackBtnIv = (ImageView) this.bottomBackView.findViewById(a.d.sapi_bottom_back);
+                this.mBottomBackBtnIv = (ImageView) this.bottomBackView.findViewById(a.e.sapi_bottom_back);
                 this.mBottomBackBtnIv.setOnClickListener(this);
                 this.mRightBtnClose.setOnClickListener(this);
                 ViewUtility.setViewClickAlpha(this.mBottomBackBtnIv, 0.2f);
@@ -79,7 +78,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             this.mRightBtn.setOnClickListener(this);
         }
         if (SapiAccountManager.getInstance().getSapiConfiguration().isNightMode) {
-            ((ViewGroup) this.mTitleBgLayout.getRootView()).addView(((LayoutInflater) getSystemService("layout_inflater")).inflate(a.e.layout_sapi_sdk_night_mode_mask, (ViewGroup) null), new AbsoluteLayout.LayoutParams(-1, -1, 0, 0));
+            ((ViewGroup) this.mTitleBgLayout.getRootView()).addView(((LayoutInflater) getSystemService("layout_inflater")).inflate(a.f.layout_sapi_sdk_night_mode_mask, (ViewGroup) null), new AbsoluteLayout.LayoutParams(-1, -1, 0, 0));
         }
     }
 
@@ -247,13 +246,23 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
     }
 
     protected void openAnim() {
+        int i;
+        int i2;
         SapiWebDTO webDTO = getWebDTO();
-        int i = (webDTO == null || webDTO.openEnterAnimId == 0) ? 0 : webDTO.openEnterAnimId;
-        if (i == 0 && SapiAccountManager.getInstance().getConfignation().activityOpenAnimId != 0) {
+        if (webDTO != null && webDTO.openEnterAnimId != 0) {
+            i = webDTO.openEnterAnimId;
+        } else if (SapiAccountManager.getInstance().getConfignation().activityOpenAnimId == 0) {
+            i = 0;
+        } else {
             i = SapiAccountManager.getInstance().getConfignation().activityOpenAnimId;
         }
+        if (webDTO != null && webDTO.openExitAnimId != 0) {
+            i2 = webDTO.openExitAnimId;
+        } else {
+            i2 = a.C0038a.sapi_sdk_hold;
+        }
         if (i != 0) {
-            overridePendingTransition(i, 0);
+            overridePendingTransition(i, i2);
         }
     }
 
@@ -273,9 +282,9 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
     /* JADX INFO: Access modifiers changed from: protected */
     public void reportWebviewError(Throwable th) {
         HashMap hashMap = new HashMap();
-        hashMap.put(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, Log.getStackTraceString(th));
-        hashMap.put(Config.DEVICE_PART, Build.MODEL);
-        hashMap.put(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE);
+        hashMap.put("error", Log.getStackTraceString(th));
+        hashMap.put("device", Build.MODEL);
+        hashMap.put("os_version", Build.VERSION.RELEASE);
         StatService.onEvent("webview_init_error", hashMap, false);
     }
 

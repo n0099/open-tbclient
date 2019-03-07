@@ -5,211 +5,236 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.ViewGroup;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.ng.ai.apps.console.AiAppsLog;
-import com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppVideoIoc;
-import com.baidu.searchbox.ng.ai.apps.media.AiAppsPlayerContext;
-import com.baidu.searchbox.ng.ai.apps.media.AiAppsPlayerManager;
-import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel;
-import com.baidu.searchbox.ng.ai.apps.runtime.AiApp;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsUtils;
-import com.baidu.searchbox.ng.ai.apps.view.container.AiAppsNAViewContainer;
-import com.baidu.searchbox.ng.ai.apps.view.container.util.NAViewFinder;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.an.aa;
+import com.baidu.swan.apps.u.b.v;
+import com.baidu.swan.apps.view.container.SwanAppNAViewContainer;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class a implements IAiAppVideoIoc {
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppVideoIoc
-    public boolean open(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
+public class a implements v {
+    @Override // com.baidu.swan.apps.u.b.v
+    public boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (optParamsAsJo == null) {
-            AiAppsLog.e("AiAppVideoIocImpl", "json object is null");
+            com.baidu.swan.apps.console.c.e("AiAppVideoIocImpl", "json object is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        com.baidu.tieba.aiapps.apps.media.video.view.a M = M(optParamsAsJo);
-        if (M == null) {
+        com.baidu.tieba.aiapps.apps.media.video.view.a aV = aV(optParamsAsJo);
+        if (aV == null) {
             com.baidu.tieba.aiapps.apps.media.video.view.a aVar = new com.baidu.tieba.aiapps.apps.media.video.view.a((Activity) context, false);
-            AiAppsPlayerManager.addPlayerContext(aVar);
-            M = aVar;
+            com.baidu.swan.apps.media.b.a(aVar);
+            aV = aVar;
         }
-        b a = b.a(optParamsAsJo, M.Zn());
-        a(context, M, a);
-        b Zn = M.Zn();
-        M.a(a);
+        c a = c.a(optParamsAsJo, aV.azF());
+        a(context, aV, a);
+        c azF = aV.azF();
+        aV.a(a);
         if (a.isAutoPlay()) {
-            if (!TextUtils.equals(Zn.mSrc, a.mSrc)) {
-                if (M.bsq()) {
-                    M.stopPlay();
-                    M.bsg();
+            if (!TextUtils.equals(azF.mSrc, a.mSrc)) {
+                if (aV.ql()) {
+                    aV.stopPlay();
+                    aV.bSB();
                 }
-            } else if (M.hasStart()) {
+            } else if (aV.hasStart()) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 return true;
             }
-            M.ba(a.mSrc, null);
+            aV.cf(a.mSrc, null);
         } else {
-            M.setVideoUrl(a.mSrc, null);
+            aV.setVideoUrl(a.mSrc, null);
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppVideoIoc
-    public boolean update(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
+    @Override // com.baidu.swan.apps.u.b.v
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (optParamsAsJo == null) {
-            AiAppsLog.e("AiAppVideoIocImpl", "json object is null");
+            com.baidu.swan.apps.console.c.e("AiAppVideoIocImpl", "json object is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        com.baidu.tieba.aiapps.apps.media.video.view.a M = M(optParamsAsJo);
-        if (M == null) {
-            AiAppsLog.e("AiAppVideoIocImpl", "videoView object is null");
+        com.baidu.tieba.aiapps.apps.media.video.view.a aV = aV(optParamsAsJo);
+        if (aV == null) {
+            com.baidu.swan.apps.console.c.e("AiAppVideoIocImpl", "videoView object is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        b a = b.a(optParamsAsJo, M.Zn());
-        b Zn = M.Zn();
-        M.a(a);
-        if (!TextUtils.equals(Zn.mSrc, a.mSrc)) {
-            if (M.bsq()) {
-                M.stopPlay();
+        c a = c.a(optParamsAsJo, aV.azF());
+        c azF = aV.azF();
+        aV.a(a);
+        if (!TextUtils.equals(azF.mSrc, a.mSrc)) {
+            if (aV.ql()) {
+                aV.stopPlay();
             }
-            M.ba(a.mSrc, null);
+            aV.cf(a.mSrc, null);
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppVideoIoc
-    public boolean play(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
+    @Override // com.baidu.swan.apps.u.b.v
+    public boolean f(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (optParamsAsJo == null) {
-            AiAppsLog.e("AiAppVideoIocImpl", "json object is null");
+            com.baidu.swan.apps.console.c.e("AiAppVideoIocImpl", "json object is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        com.baidu.tieba.aiapps.apps.media.video.view.a M = M(optParamsAsJo);
-        if (M == null) {
-            AiAppsLog.e("AiAppVideoIocImpl", "videoView object is null");
+        com.baidu.tieba.aiapps.apps.media.video.view.a aV = aV(optParamsAsJo);
+        if (aV == null) {
+            com.baidu.swan.apps.console.c.e("AiAppVideoIocImpl", "videoView object is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        b a = b.a(optParamsAsJo, M.Zn());
-        b Zn = M.Zn();
-        if (M.hasStart() && TextUtils.equals(a.mSrc, Zn.mSrc)) {
+        c a = c.a(optParamsAsJo, aV.azF());
+        c azF = aV.azF();
+        if (aV.hasStart() && TextUtils.equals(a.mSrc, azF.mSrc)) {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
             return true;
         }
-        M.a(a);
-        M.ba(a.mSrc, null);
+        aV.a(a);
+        aV.cf(a.mSrc, null);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppVideoIoc
-    public boolean pause(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
+    @Override // com.baidu.swan.apps.u.b.v
+    public boolean j(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (optParamsAsJo == null) {
-            AiAppsLog.e("AiAppVideoIocImpl", "json object is null");
+            com.baidu.swan.apps.console.c.e("AiAppVideoIocImpl", "json object is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        com.baidu.tieba.aiapps.apps.media.video.view.a M = M(optParamsAsJo);
-        if (M == null) {
-            AiAppsLog.e("AiAppVideoIocImpl", "videoView object is null");
+        com.baidu.tieba.aiapps.apps.media.video.view.a aV = aV(optParamsAsJo);
+        if (aV == null) {
+            com.baidu.swan.apps.console.c.e("AiAppVideoIocImpl", "videoView object is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        M.pausePlay();
+        aV.pausePlay();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppVideoIoc
-    public boolean seekTo(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
+    @Override // com.baidu.swan.apps.u.b.v
+    public boolean l(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (optParamsAsJo == null) {
-            AiAppsLog.e("AiAppVideoIocImpl", "json object is null");
+            com.baidu.swan.apps.console.c.e("AiAppVideoIocImpl", "json object is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        com.baidu.tieba.aiapps.apps.media.video.view.a M = M(optParamsAsJo);
-        if (M == null) {
-            AiAppsLog.e("AiAppVideoIocImpl", "videoView object is null");
+        com.baidu.tieba.aiapps.apps.media.video.view.a aV = aV(optParamsAsJo);
+        if (aV == null) {
+            com.baidu.swan.apps.console.c.e("AiAppVideoIocImpl", "videoView object is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        M.getVideoView().seekTo(b.a(optParamsAsJo, M.Zn()).mPos);
+        aV.getVideoView().seekTo(c.a(optParamsAsJo, aV.azF()).mPos);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppVideoIoc
-    public boolean setFullScreen(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
+    @Override // com.baidu.swan.apps.u.b.v
+    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (optParamsAsJo == null) {
-            AiAppsLog.e("AiAppVideoIocImpl", "json object is null");
+            com.baidu.swan.apps.console.c.e("AiAppVideoIocImpl", "json object is null");
             return false;
         }
-        com.baidu.tieba.aiapps.apps.media.video.view.a M = M(optParamsAsJo);
-        if (M == null) {
-            AiAppsLog.e("AiAppVideoIocImpl", "videoView object is null");
+        com.baidu.tieba.aiapps.apps.media.video.view.a aV = aV(optParamsAsJo);
+        if (aV == null) {
+            com.baidu.swan.apps.console.c.e("AiAppVideoIocImpl", "videoView object is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
             return false;
         }
-        M.dI(optParamsAsJo.optBoolean("fullScreen", false));
+        aV.ga(optParamsAsJo.optBoolean("fullScreen", false));
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         return true;
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppVideoIoc
-    public boolean sendDanmu(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, AiApp aiApp) {
+    @Override // com.baidu.swan.apps.u.b.v
+    public boolean n(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         return false;
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppVideoIoc
-    public boolean onKeyBack() {
+    @Override // com.baidu.swan.apps.u.b.v
+    public boolean Dw() {
         return false;
     }
 
-    private void a(Context context, com.baidu.tieba.aiapps.apps.media.video.view.a aVar, b bVar) {
-        AiAppsNAViewContainer aiAppsNAViewContainer;
-        if (aVar != null && aVar.bsC() != null) {
-            AiAppsNAViewContainer findNAViewById = NAViewFinder.findNAViewById(bVar.slaveId, bVar.id, AiAppsUtils.getCurrentNAViewRoot(bVar.slaveId));
-            if (aVar.bsC().getParent() != null) {
-                ((ViewGroup) aVar.bsC().getParent()).removeView(aVar.bsC());
+    private void a(Context context, com.baidu.tieba.aiapps.apps.media.video.view.a aVar, c cVar) {
+        SwanAppNAViewContainer swanAppNAViewContainer;
+        if (aVar != null && aVar.bSW() != null) {
+            SwanAppNAViewContainer a = com.baidu.swan.apps.view.container.c.b.a(cVar.aBC, cVar.id, aa.hM(cVar.aBC));
+            if (aVar.bSW().getParent() != null) {
+                ((ViewGroup) aVar.bSW().getParent()).removeView(aVar.bSW());
             }
-            if (findNAViewById == null) {
-                aiAppsNAViewContainer = new AiAppsNAViewContainer(context);
-                aiAppsNAViewContainer.insertView(aVar.bsC(), bVar);
+            if (a == null) {
+                swanAppNAViewContainer = new SwanAppNAViewContainer(context);
+                swanAppNAViewContainer.a(aVar.bSW(), cVar);
             } else {
-                AiAppsNaViewModel cloneModel = bVar.cloneModel();
-                findNAViewById.removeView();
-                cloneModel.slaveId = findNAViewById.getSlaveId();
-                cloneModel.parentId = findNAViewById.getParentId();
-                cloneModel.id = findNAViewById.getViewId();
-                cloneModel.position.setTop(cloneModel.position.getTop());
-                cloneModel.position.setHeight(cloneModel.position.getHeight());
-                findNAViewById.insertView(aVar.bsC(), cloneModel);
-                aiAppsNAViewContainer = findNAViewById;
+                com.baidu.swan.apps.model.a.a.a EM = cVar.EM();
+                a.MK();
+                EM.aBC = a.getSlaveId();
+                EM.aBD = a.getParentId();
+                EM.id = a.getViewId();
+                EM.aBE.setTop(EM.aBE.getTop());
+                EM.aBE.setHeight(EM.aBE.getHeight());
+                a.a(aVar.bSW(), EM);
+                swanAppNAViewContainer = a;
             }
-            aVar.a(aiAppsNAViewContainer);
+            aVar.e(swanAppNAViewContainer);
         }
     }
 
-    private com.baidu.tieba.aiapps.apps.media.video.view.a M(JSONObject jSONObject) {
+    private com.baidu.tieba.aiapps.apps.media.video.view.a aV(JSONObject jSONObject) {
         String optString = jSONObject.optString("videoId");
         if (StringUtils.isNULL(optString)) {
-            AiAppsLog.e("AiAppVideoIocImpl", "player id is invalid or context is null");
+            com.baidu.swan.apps.console.c.e("AiAppVideoIocImpl", "player id is invalid or context is null");
             return null;
         }
-        AiAppsPlayerContext playerContext = AiAppsPlayerManager.getPlayerContext(optString);
-        if (playerContext instanceof com.baidu.tieba.aiapps.apps.media.video.view.a) {
-            return (com.baidu.tieba.aiapps.apps.media.video.view.a) playerContext;
+        com.baidu.swan.apps.media.a eQ = com.baidu.swan.apps.media.b.eQ(optString);
+        if (eQ instanceof com.baidu.tieba.aiapps.apps.media.video.view.a) {
+            return (com.baidu.tieba.aiapps.apps.media.video.view.a) eQ;
         }
         return null;
+    }
+
+    @Override // com.baidu.swan.apps.u.b.v
+    public boolean e(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
+        JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+        if (optParamsAsJo == null) {
+            com.baidu.swan.apps.console.c.e("AiAppVideoIocImpl", "json object is null");
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
+            return false;
+        }
+        com.baidu.tieba.aiapps.apps.media.video.view.a aV = aV(optParamsAsJo);
+        if (aV == null) {
+            com.baidu.swan.apps.console.c.e("AiAppVideoIocImpl", "videoView object is null");
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001));
+            return false;
+        }
+        c a = c.a(optParamsAsJo, aV.azF());
+        if (!a.isValid()) {
+            com.baidu.swan.apps.console.c.e("AiAppVideoIocImpl", "param is invalid");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+            return false;
+        }
+        com.baidu.swan.apps.view.container.a hR = com.baidu.swan.apps.view.container.c.c.hR(a.aBC);
+        SwanAppNAViewContainer a2 = com.baidu.swan.apps.view.container.c.b.a(a, hR);
+        if (hR != null && a2 != null) {
+            com.baidu.swan.apps.view.container.c.c.b(a2, hR);
+            com.baidu.swan.apps.view.container.c.c.d(a2, hR);
+        }
+        aV.onDestroy();
+        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        return true;
     }
 }

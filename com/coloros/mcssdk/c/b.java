@@ -8,13 +8,13 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 /* loaded from: classes3.dex */
 public abstract class b {
-    public static String b(String str, String str2) {
-        Cipher cipher = Cipher.getInstance("DES");
-        cipher.init(2, zh(str2));
-        return new String(cipher.doFinal(Base64.decode(str, 0)), Charset.defaultCharset()).trim();
+    private static Key Fj(String str) {
+        return SecretKeyFactory.getInstance("DES").generateSecret(new DESKeySpec(Base64.decode(str, 0)));
     }
 
-    private static Key zh(String str) {
-        return SecretKeyFactory.getInstance("DES").generateSecret(new DESKeySpec(Base64.decode(str, 0)));
+    public static String b(String str, String str2) {
+        Cipher cipher = Cipher.getInstance("DES");
+        cipher.init(2, Fj(str2));
+        return new String(cipher.doFinal(Base64.decode(str, 0)), Charset.defaultCharset()).trim();
     }
 }

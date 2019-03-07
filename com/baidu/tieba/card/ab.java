@@ -1,7 +1,18 @@
 package com.baidu.tieba.card;
-/* loaded from: classes6.dex */
-public interface ab {
-    void iK(int i);
 
-    void setForumName(String str);
+import android.view.View;
+import com.baidu.tieba.card.data.b;
+/* loaded from: classes.dex */
+public class ab<T extends com.baidu.tieba.card.data.b> {
+    public Object Zv;
+
+    public void a(View view, T t) {
+    }
+
+    public boolean a(View view, T t, String str) {
+        return false;
+    }
+
+    public void a(View view, T t, Object obj) {
+    }
 }

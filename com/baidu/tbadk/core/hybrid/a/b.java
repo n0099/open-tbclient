@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.hybrid.a;
 
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.tbadk.core.hybrid.l;
 import com.baidu.tbadk.core.hybrid.n;
 import com.baidu.tbadk.core.hybrid.o;
@@ -16,7 +17,7 @@ public class b extends n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String xc() {
+    public String VJ() {
         return "TBHY_EXT_FocusFeed";
     }
 
@@ -24,12 +25,12 @@ public class b extends n {
     protected void appointNotice(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             int optInt = jSONObject.optInt("activityId");
-            int optInt2 = jSONObject.optInt("state");
+            int optInt2 = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_STATE);
             String optString = jSONObject.optString("curNum");
             g gVar = new g();
             gVar.setActivityId(optInt);
-            gVar.fC(optInt2);
-            gVar.hI(optString);
+            gVar.jn(optInt2);
+            gVar.ow(optString);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016492, gVar));
         }
     }

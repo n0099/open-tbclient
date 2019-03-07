@@ -1,6 +1,5 @@
 package okhttp3.internal.http;
 
-import com.baidu.searchbox.ng.ai.apps.system.bluetooth.utils.AiAppsBluetoothConstants;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -54,7 +53,7 @@ public final class RealInterceptorChain implements Interceptor.Chain {
 
     @Override // okhttp3.Interceptor.Chain
     public Interceptor.Chain withConnectTimeout(int i, TimeUnit timeUnit) {
-        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, Util.checkDuration(AiAppsBluetoothConstants.KEY_TIME_OUT, i, timeUnit), this.readTimeout, this.writeTimeout);
+        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, Util.checkDuration("timeout", i, timeUnit), this.readTimeout, this.writeTimeout);
     }
 
     @Override // okhttp3.Interceptor.Chain
@@ -64,7 +63,7 @@ public final class RealInterceptorChain implements Interceptor.Chain {
 
     @Override // okhttp3.Interceptor.Chain
     public Interceptor.Chain withReadTimeout(int i, TimeUnit timeUnit) {
-        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, Util.checkDuration(AiAppsBluetoothConstants.KEY_TIME_OUT, i, timeUnit), this.writeTimeout);
+        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, Util.checkDuration("timeout", i, timeUnit), this.writeTimeout);
     }
 
     @Override // okhttp3.Interceptor.Chain
@@ -74,7 +73,7 @@ public final class RealInterceptorChain implements Interceptor.Chain {
 
     @Override // okhttp3.Interceptor.Chain
     public Interceptor.Chain withWriteTimeout(int i, TimeUnit timeUnit) {
-        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, this.readTimeout, Util.checkDuration(AiAppsBluetoothConstants.KEY_TIME_OUT, i, timeUnit));
+        return new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, this.readTimeout, Util.checkDuration("timeout", i, timeUnit));
     }
 
     public StreamAllocation streamAllocation() {

@@ -1,6 +1,5 @@
 package com.xiaomi.xmpush.thrift;
 
-import com.baidu.searchbox.ng.ai.apps.impl.map.model.element.CoordinateModel;
 import java.io.Serializable;
 import java.util.BitSet;
 import java.util.Collections;
@@ -13,16 +12,16 @@ import java.util.Map;
 public class l implements Serializable, Cloneable, org.apache.thrift.a<l, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> c;
     private static final org.apache.thrift.protocol.j d = new org.apache.thrift.protocol.j("Location");
-    private static final org.apache.thrift.protocol.b e = new org.apache.thrift.protocol.b(CoordinateModel.LONGITUDE, (byte) 4, 1);
-    private static final org.apache.thrift.protocol.b f = new org.apache.thrift.protocol.b(CoordinateModel.LATITUDE, (byte) 4, 2);
+    private static final org.apache.thrift.protocol.b e = new org.apache.thrift.protocol.b("longitude", (byte) 4, 1);
+    private static final org.apache.thrift.protocol.b f = new org.apache.thrift.protocol.b("latitude", (byte) 4, 2);
     public double a;
     public double b;
     private BitSet g = new BitSet(2);
 
     /* loaded from: classes3.dex */
     public enum a {
-        LONGITUDE(1, CoordinateModel.LONGITUDE),
-        LATITUDE(2, CoordinateModel.LATITUDE);
+        LONGITUDE(1, "longitude"),
+        LATITUDE(2, "latitude");
         
         private static final Map<String, a> c = new HashMap();
         private final short d;
@@ -48,8 +47,8 @@ public class l implements Serializable, Cloneable, org.apache.thrift.a<l, a> {
 
     static {
         EnumMap enumMap = new EnumMap(a.class);
-        enumMap.put((EnumMap) a.LONGITUDE, (a) new org.apache.thrift.meta_data.b(CoordinateModel.LONGITUDE, (byte) 1, new org.apache.thrift.meta_data.c((byte) 4)));
-        enumMap.put((EnumMap) a.LATITUDE, (a) new org.apache.thrift.meta_data.b(CoordinateModel.LATITUDE, (byte) 1, new org.apache.thrift.meta_data.c((byte) 4)));
+        enumMap.put((EnumMap) a.LONGITUDE, (a) new org.apache.thrift.meta_data.b("longitude", (byte) 1, new org.apache.thrift.meta_data.c((byte) 4)));
+        enumMap.put((EnumMap) a.LATITUDE, (a) new org.apache.thrift.meta_data.b("latitude", (byte) 1, new org.apache.thrift.meta_data.c((byte) 4)));
         c = Collections.unmodifiableMap(enumMap);
         org.apache.thrift.meta_data.b.a(l.class, c);
     }

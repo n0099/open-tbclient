@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import java.lang.reflect.Field;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
@@ -226,7 +225,7 @@ public class ListViewCompat extends ListView {
                 view2.setLayoutParams(layoutParams);
             }
             if (layoutParams.height > 0) {
-                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(layoutParams.height, AiAppsFileUtils.GB);
+                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(layoutParams.height, 1073741824);
             } else {
                 makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
             }

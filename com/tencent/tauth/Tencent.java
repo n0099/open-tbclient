@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class Tencent {
     public static final int REQUEST_LOGIN = 10001;
     private static Tencent b;

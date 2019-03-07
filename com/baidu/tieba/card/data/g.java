@@ -3,16 +3,16 @@ package com.baidu.tieba.card.data;
 import com.baidu.adp.BdUniqueId;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class g extends a {
-    public static final BdUniqueId dbv = BdUniqueId.gen();
-    private String cXH;
+    public static final BdUniqueId elh = BdUniqueId.gen();
+    private String eht;
     private List<com.baidu.tieba.horizonalList.widget.c> mList = new ArrayList();
     private String stType;
 
-    @Override // com.baidu.adp.widget.ListView.h
+    @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return dbv;
+        return elh;
     }
 
     public void b(com.baidu.tieba.horizonalList.widget.c cVar) {
@@ -31,11 +31,11 @@ public class g extends a {
         this.stType = str;
     }
 
-    public String ari() {
-        return this.cXH;
+    public String aQX() {
+        return this.eht;
     }
 
     public void setYuelaouLocate(String str) {
-        this.cXH = str;
+        this.eht = str;
     }
 }

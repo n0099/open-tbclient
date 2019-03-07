@@ -4,7 +4,6 @@ import android.content.Context;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.k.a;
 import com.baidu.android.pushservice.k.b;
-import com.baidu.ar.util.IoUtils;
 /* loaded from: classes3.dex */
 public class BaiduAppSSOJni {
     private static final String TAG = "BaiduAppSSOJni";
@@ -28,7 +27,7 @@ public class BaiduAppSSOJni {
         try {
             byte[] decrypted = getDecrypted(context, str, b.a(str2.getBytes()));
             if (decrypted != null && decrypted.length > 0) {
-                return new String(decrypted, IoUtils.UTF_8);
+                return new String(decrypted, "utf-8");
             }
         } catch (Exception e) {
         }
@@ -44,7 +43,7 @@ public class BaiduAppSSOJni {
             if (key == null) {
                 return null;
             }
-            String str2 = new String(key, IoUtils.UTF_8);
+            String str2 = new String(key, "utf-8");
             if (str2.length() > 0) {
                 return a.b(str2.substring(16), str2.substring(0, 16), bArr);
             }
@@ -59,7 +58,7 @@ public class BaiduAppSSOJni {
 
     public static String getEncrypted(Context context, String str, String str2) {
         try {
-            return b.a(getEncrypted(context, str, str2.getBytes()), IoUtils.UTF_8);
+            return b.a(getEncrypted(context, str, str2.getBytes()), "utf-8");
         } catch (Exception e) {
             return null;
         }
@@ -74,7 +73,7 @@ public class BaiduAppSSOJni {
             if (key == null) {
                 return null;
             }
-            String str2 = new String(key, IoUtils.UTF_8);
+            String str2 = new String(key, "utf-8");
             if (str2.length() > 0) {
                 return a.a(str2.substring(16), str2.substring(0, 16), bArr);
             }

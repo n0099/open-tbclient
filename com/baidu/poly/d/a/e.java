@@ -2,53 +2,27 @@ package com.baidu.poly.d.a;
 
 import android.app.Activity;
 import com.baidu.poly.d.a;
-import com.baidu.searchbox.ng.ai.apps.ioc.AiAppsRuntime;
-import com.baidu.searchbox.ng.ai.apps.pay.callback.WeChatPayCallback;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class e extends c {
     private static final String TAG = e.class.getSimpleName();
-    private static e aiE;
+    private static e ahf;
 
     private e() {
     }
 
-    public static e uI() {
-        if (aiE == null) {
+    public static e tK() {
+        if (ahf == null) {
             synchronized (e.class) {
-                if (aiE == null) {
-                    aiE = new e();
+                if (ahf == null) {
+                    ahf = new e();
                 }
             }
         }
-        return aiE;
+        return ahf;
     }
 
     @Override // com.baidu.poly.d.a.c, com.baidu.poly.d.a.d
-    public void a(Activity activity, Map<String, String> map, final a.C0115a c0115a) {
-        AiAppsRuntime.getPolymerPayRuntime().doWeChatPay(activity, l(map), new WeChatPayCallback() { // from class: com.baidu.poly.d.a.e.1
-            @Override // com.baidu.searchbox.ng.ai.apps.pay.callback.WeChatPayCallback
-            public void onWeChatPayResult(int i, String str) {
-                if (c0115a != null) {
-                    switch (i) {
-                        case 0:
-                            c0115a.onResult(0, str);
-                            return;
-                        case 1:
-                            c0115a.onResult(1, str);
-                            return;
-                        case 2:
-                            c0115a.onResult(2, str);
-                            return;
-                        case 3:
-                            c0115a.onResult(3, str);
-                            return;
-                        default:
-                            c0115a.onResult(3, str);
-                            return;
-                    }
-                }
-            }
-        });
+    public void a(Activity activity, Map<String, String> map, a.C0054a c0054a) {
     }
 }

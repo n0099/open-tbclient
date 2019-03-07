@@ -19,13 +19,13 @@ final class FilesKt__UtilsKt$copyRecursively$2 extends Lambda implements kotlin.
     @Override // kotlin.jvm.a.c
     public /* bridge */ /* synthetic */ kotlin.e invoke(File file, IOException iOException) {
         invoke2(file, iOException);
-        return kotlin.e.iCd;
+        return kotlin.e.jRO;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final void invoke2(File file, IOException iOException) {
-        p.j(file, "f");
-        p.j(iOException, "e");
+        p.k(file, "f");
+        p.k(iOException, "e");
         if (p.h((OnErrorAction) this.$onError.invoke(file, iOException), OnErrorAction.TERMINATE)) {
             throw new TerminateException(file);
         }

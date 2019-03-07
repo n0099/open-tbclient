@@ -7,10 +7,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public final class h extends o<Object> {
-    public static final p iyB = new p() { // from class: com.google.gson.internal.a.h.1
+    public static final p jOm = new p() { // from class: com.google.gson.internal.a.h.1
         @Override // com.google.gson.p
         public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-            if (aVar.ccr() == Object.class) {
+            if (aVar.cBw() == Object.class) {
                 return new h(dVar);
             }
             return null;
@@ -24,7 +24,7 @@ public final class h extends o<Object> {
 
     @Override // com.google.gson.o
     public Object b(com.google.gson.stream.a aVar) throws IOException {
-        switch (aVar.ccf()) {
+        switch (aVar.cBk()) {
             case BEGIN_ARRAY:
                 ArrayList arrayList = new ArrayList();
                 aVar.beginArray();
@@ -58,15 +58,15 @@ public final class h extends o<Object> {
     @Override // com.google.gson.o
     public void a(com.google.gson.stream.b bVar, Object obj) throws IOException {
         if (obj == null) {
-            bVar.ccq();
+            bVar.cBv();
             return;
         }
-        o t = this.gson.t(obj.getClass());
-        if (t instanceof h) {
-            bVar.cco();
-            bVar.ccp();
+        o w = this.gson.w(obj.getClass());
+        if (w instanceof h) {
+            bVar.cBt();
+            bVar.cBu();
             return;
         }
-        t.a(bVar, obj);
+        w.a(bVar, obj);
     }
 }

@@ -17,7 +17,7 @@ final class SequencesKt__SequencesKt$flatten$1 extends Lambda implements kotlin.
     /* JADX WARN: Multi-variable type inference failed */
     @Override // kotlin.jvm.a.b
     public final Iterator<T> invoke(c<? extends T> cVar) {
-        p.j(cVar, AdvanceSetting.NETWORK_TYPE);
+        p.k(cVar, AdvanceSetting.NETWORK_TYPE);
         return cVar.iterator();
     }
 }

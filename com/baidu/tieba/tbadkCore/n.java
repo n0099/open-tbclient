@@ -1,11 +1,11 @@
 package com.baidu.tieba.tbadkCore;
 
-import com.baidu.tieba.tbadkCore.d;
-/* loaded from: classes6.dex */
+import com.baidu.tieba.tbadkCore.e;
+/* loaded from: classes3.dex */
 public interface n {
-    void a(int i, boolean z, d.a aVar);
+    void a(int i, boolean z, e.b bVar);
 
-    void b(i iVar);
+    void b(j jVar);
 
-    void mm(int i);
+    void pX(int i);
 }

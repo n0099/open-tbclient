@@ -16,8 +16,7 @@ import com.baidu.android.pushservice.j.k;
 import com.baidu.android.pushservice.j.l;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
-import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.webkit.internal.ETAG;
+import com.baidu.tbadk.TbConfig;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -130,7 +129,7 @@ public class f {
         }
         jSONObject.put("user_id", str5);
         JSONObject jSONObject2 = new JSONObject();
-        jSONObject2.put(StatisticConstants.REQUEST_ID, str);
+        jSONObject2.put("request_id", str);
         jSONObject2.put("response_params", jSONObject);
         return jSONObject2.toString();
     }
@@ -156,7 +155,7 @@ public class f {
         if (z) {
             SharedPreferences sharedPreferences = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0);
             boolean z2 = sharedPreferences.getBoolean("bind_status", false);
-            String string = sharedPreferences.getString(StatisticConstants.REQUEST_ID, "");
+            String string = sharedPreferences.getString("request_id", "");
             String string2 = sharedPreferences.getString("appid", "");
             String string3 = sharedPreferences.getString("channel_id", "");
             String string4 = sharedPreferences.getString("new_channel_id", "");
@@ -171,7 +170,7 @@ public class f {
             if (z2 && a2 && str2 != null && !b2) {
                 Intent intent = new Intent();
                 intent.putExtra("method", PushConstants.METHOD_BIND);
-                intent.putExtra("error_msg", 0);
+                intent.putExtra(PushConstants.EXTRA_ERROR_CODE, 0);
                 intent.putExtra("content", str2.getBytes());
                 intent.putExtra("bind_status", 0);
                 com.baidu.android.pushservice.g.a.a("PushManagerHandler", "new startWork> sendResult to " + context.getPackageName() + " ,method:" + PushConstants.METHOD_BIND + " ,errorCode : 0 ,content : " + new String(str2), context.getApplicationContext());
@@ -527,7 +526,7 @@ public class f {
                     return stringExtra;
                 }
                 for (int i2 = 0; i2 < split.length; i2++) {
-                    if (split[i2].contains("S.bdpush_hwsigninfo") && (split2 = split[i2].split(ETAG.EQUAL)) != null && 1 < split2.length) {
+                    if (split[i2].contains("S.bdpush_hwsigninfo") && (split2 = split[i2].split("=")) != null && 1 < split2.length) {
                         return split2[1];
                     }
                 }
@@ -630,7 +629,7 @@ public class f {
                     if (!TextUtils.isEmpty(fragment) && (split = fragment.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) != null && split.length > 0) {
                         while (true) {
                             if (i2 < split.length) {
-                                if (split[i2].contains("S.bdpush_hwmsgid") && (split2 = split[i2].split(ETAG.EQUAL)) != null && 1 < split2.length) {
+                                if (split[i2].contains("S.bdpush_hwmsgid") && (split2 = split[i2].split("=")) != null && 1 < split2.length) {
                                     stringExtra2 = split2[1];
                                     intent.putExtra("bdpush_hwmsgid", stringExtra2);
                                     break;
@@ -688,7 +687,7 @@ public class f {
         }
         Intent intent = new Intent();
         intent.putExtra("method", PushConstants.METHOD_BIND);
-        intent.putExtra("error_msg", i2);
+        intent.putExtra(PushConstants.EXTRA_ERROR_CODE, i2);
         intent.putExtra("content", str2.getBytes());
         intent.putExtra("bind_status", 0);
         m.b(context, intent, PushConstants.ACTION_RECEIVE, context.getPackageName());
@@ -723,7 +722,7 @@ public class f {
         Intent intent = new Intent();
         intent.setAction(PushConstants.ACTION_RECEIVE);
         intent.putExtra("method", "method_unbind");
-        intent.putExtra("error_msg", 0);
+        intent.putExtra(PushConstants.EXTRA_ERROR_CODE, 0);
         intent.putExtra("content", PushConstants.a(0).getBytes());
         intent.setFlags(32);
         intent.setPackage(context.getPackageName());
@@ -747,7 +746,7 @@ public class f {
         String a2 = PushConstants.a(30602);
         intent.setAction(PushConstants.ACTION_RECEIVE);
         intent.putExtra("method", PushConstants.METHOD_BIND);
-        intent.putExtra("error_msg", 30602);
+        intent.putExtra(PushConstants.EXTRA_ERROR_CODE, 30602);
         intent.putExtra("content", a2.getBytes());
         intent.setFlags(32);
         m.b(context, intent, intent.getAction(), context.getPackageName());
@@ -790,7 +789,7 @@ public class f {
                 f.c(context, str);
             }
         };
-        j.postDelayed(m, 5000L);
+        j.postDelayed(m, TbConfig.NOTIFY_SOUND_INTERVAL);
     }
 
     private static void p(Context context) {
@@ -812,7 +811,7 @@ public class f {
             com.baidu.android.pushservice.g.a.b("PushManagerHandler", "errorCode:10011", context.getApplicationContext());
             Intent intent = new Intent();
             intent.putExtra("method", PushConstants.METHOD_BIND);
-            intent.putExtra("error_msg", 10011);
+            intent.putExtra(PushConstants.EXTRA_ERROR_CODE, 10011);
             intent.putExtra("content", "errorCode:10011".getBytes());
             intent.putExtra("bind_status", 0);
             m.b(context, intent, PushConstants.ACTION_RECEIVE, context.getPackageName());

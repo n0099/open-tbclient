@@ -24,22 +24,22 @@ public class b extends Drawable {
     private final BitmapShader mBitmapShader;
     private final int mBitmapWidth;
     private final Paint mBorderPaint;
-    private final RectF mBounds = new RectF();
+    private final RectF IS = new RectF();
     private final RectF mDrawableRect = new RectF();
-    private final RectF mBitmapRect = new RectF();
+    private final RectF Oj = new RectF();
     private final RectF mBorderRect = new RectF();
     private final Matrix mShaderMatrix = new Matrix();
     private float mCornerRadius = 0.0f;
-    private boolean NY = false;
+    private boolean Ok = false;
     private float mBorderWidth = 0.0f;
-    private ColorStateList NZ = ColorStateList.valueOf(0);
-    private ImageView.ScaleType mScaleType = ImageView.ScaleType.FIT_XY;
+    private ColorStateList Ol = ColorStateList.valueOf(0);
+    private ImageView.ScaleType Om = ImageView.ScaleType.FIT_XY;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(Bitmap bitmap) {
         this.mBitmapWidth = bitmap.getWidth();
         this.mBitmapHeight = bitmap.getHeight();
-        this.mBitmapRect.set(0.0f, 0.0f, this.mBitmapWidth, this.mBitmapHeight);
+        this.Oj.set(0.0f, 0.0f, this.mBitmapWidth, this.mBitmapHeight);
         this.mBitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         this.mBitmapShader.setLocalMatrix(this.mShaderMatrix);
         this.mBitmapPaint = new Paint();
@@ -49,11 +49,11 @@ public class b extends Drawable {
         this.mBorderPaint = new Paint();
         this.mBorderPaint.setStyle(Paint.Style.STROKE);
         this.mBorderPaint.setAntiAlias(true);
-        this.mBorderPaint.setColor(this.NZ.getColorForState(getState(), 0));
+        this.mBorderPaint.setColor(this.Ol.getColorForState(getState(), 0));
         this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
     }
 
-    public static Bitmap drawableToBitmap(Drawable drawable) {
+    public static Bitmap b(Drawable drawable) {
         if (drawable instanceof BitmapDrawable) {
             return ((BitmapDrawable) drawable).getBitmap();
         }
@@ -69,21 +69,21 @@ public class b extends Drawable {
         return null;
     }
 
-    public static Drawable b(Drawable drawable) {
+    public static Drawable c(Drawable drawable) {
         if (drawable != null && !(drawable instanceof b) && !(drawable instanceof ColorDrawable)) {
             if (drawable instanceof LayerDrawable) {
                 LayerDrawable layerDrawable = (LayerDrawable) drawable;
                 int numberOfLayers = layerDrawable.getNumberOfLayers();
                 for (int i = 0; i < numberOfLayers; i++) {
-                    layerDrawable.setDrawableByLayerId(layerDrawable.getId(i), b(layerDrawable.getDrawable(i)));
+                    layerDrawable.setDrawableByLayerId(layerDrawable.getId(i), c(layerDrawable.getDrawable(i)));
                 }
                 return layerDrawable;
             } else if (drawable instanceof StateListDrawable) {
                 return (StateListDrawable) drawable;
             } else {
-                Bitmap drawableToBitmap = drawableToBitmap(drawable);
-                if (drawableToBitmap != null && !drawableToBitmap.isRecycled()) {
-                    return new b(drawableToBitmap);
+                Bitmap b = b(drawable);
+                if (b != null && !b.isRecycled()) {
+                    return new b(b);
                 }
                 Log.w("BdRoundedDrawable", "Failed to create bitmap from drawable!");
                 return drawable;
@@ -94,12 +94,12 @@ public class b extends Drawable {
 
     @Override // android.graphics.drawable.Drawable
     public boolean isStateful() {
-        return this.NZ.isStateful();
+        return this.Ol.isStateful();
     }
 
     @Override // android.graphics.drawable.Drawable
     protected boolean onStateChange(int[] iArr) {
-        int colorForState = this.NZ.getColorForState(iArr, 0);
+        int colorForState = this.Ol.getColorForState(iArr, 0);
         if (this.mBorderPaint.getColor() != colorForState) {
             this.mBorderPaint.setColor(colorForState);
             return true;
@@ -112,17 +112,17 @@ public class b extends Drawable {
         float width;
         float f;
         float f2 = 0.0f;
-        this.mBorderRect.set(this.mBounds);
+        this.mBorderRect.set(this.IS);
         this.mDrawableRect.set(this.mBorderWidth, this.mBorderWidth, this.mBorderRect.width() - this.mBorderWidth, this.mBorderRect.height() - this.mBorderWidth);
-        switch (AnonymousClass1.$SwitchMap$android$widget$ImageView$ScaleType[this.mScaleType.ordinal()]) {
+        switch (AnonymousClass1.$SwitchMap$android$widget$ImageView$ScaleType[this.Om.ordinal()]) {
             case 1:
-                this.mBorderRect.set(this.mBounds);
+                this.mBorderRect.set(this.IS);
                 this.mDrawableRect.set(this.mBorderWidth, this.mBorderWidth, this.mBorderRect.width() - this.mBorderWidth, this.mBorderRect.height() - this.mBorderWidth);
                 this.mShaderMatrix.set(null);
                 this.mShaderMatrix.setTranslate((int) (((this.mDrawableRect.width() - this.mBitmapWidth) * 0.5f) + 0.5f), (int) (((this.mDrawableRect.height() - this.mBitmapHeight) * 0.5f) + 0.5f));
                 break;
             case 2:
-                this.mBorderRect.set(this.mBounds);
+                this.mBorderRect.set(this.IS);
                 this.mDrawableRect.set(this.mBorderWidth, this.mBorderWidth, this.mBorderRect.width() - this.mBorderWidth, this.mBorderRect.height() - this.mBorderWidth);
                 this.mShaderMatrix.set(null);
                 if (this.mBitmapWidth * this.mDrawableRect.height() > this.mDrawableRect.width() * this.mBitmapHeight) {
@@ -138,44 +138,44 @@ public class b extends Drawable {
                 break;
             case 3:
                 this.mShaderMatrix.set(null);
-                if (this.mBitmapWidth <= this.mBounds.width() && this.mBitmapHeight <= this.mBounds.height()) {
+                if (this.mBitmapWidth <= this.IS.width() && this.mBitmapHeight <= this.IS.height()) {
                     min = 1.0f;
                 } else {
-                    min = Math.min(this.mBounds.width() / this.mBitmapWidth, this.mBounds.height() / this.mBitmapHeight);
+                    min = Math.min(this.IS.width() / this.mBitmapWidth, this.IS.height() / this.mBitmapHeight);
                 }
                 this.mShaderMatrix.setScale(min, min);
-                this.mShaderMatrix.postTranslate((int) (((this.mBounds.width() - (this.mBitmapWidth * min)) * 0.5f) + 0.5f), (int) (((this.mBounds.height() - (this.mBitmapHeight * min)) * 0.5f) + 0.5f));
-                this.mBorderRect.set(this.mBitmapRect);
+                this.mShaderMatrix.postTranslate((int) (((this.IS.width() - (this.mBitmapWidth * min)) * 0.5f) + 0.5f), (int) (((this.IS.height() - (this.mBitmapHeight * min)) * 0.5f) + 0.5f));
+                this.mBorderRect.set(this.Oj);
                 this.mShaderMatrix.mapRect(this.mBorderRect);
                 this.mDrawableRect.set(this.mBorderRect.left + this.mBorderWidth, this.mBorderRect.top + this.mBorderWidth, this.mBorderRect.right - this.mBorderWidth, this.mBorderRect.bottom - this.mBorderWidth);
-                this.mShaderMatrix.setRectToRect(this.mBitmapRect, this.mDrawableRect, Matrix.ScaleToFit.FILL);
+                this.mShaderMatrix.setRectToRect(this.Oj, this.mDrawableRect, Matrix.ScaleToFit.FILL);
                 break;
             case 4:
-                this.mBorderRect.set(this.mBitmapRect);
-                this.mShaderMatrix.setRectToRect(this.mBitmapRect, this.mBounds, Matrix.ScaleToFit.CENTER);
+                this.mBorderRect.set(this.Oj);
+                this.mShaderMatrix.setRectToRect(this.Oj, this.IS, Matrix.ScaleToFit.CENTER);
                 this.mShaderMatrix.mapRect(this.mBorderRect);
                 this.mDrawableRect.set(this.mBorderRect.left + this.mBorderWidth, this.mBorderRect.top + this.mBorderWidth, this.mBorderRect.right - this.mBorderWidth, this.mBorderRect.bottom - this.mBorderWidth);
-                this.mShaderMatrix.setRectToRect(this.mBitmapRect, this.mDrawableRect, Matrix.ScaleToFit.FILL);
+                this.mShaderMatrix.setRectToRect(this.Oj, this.mDrawableRect, Matrix.ScaleToFit.FILL);
                 break;
             case 5:
-                this.mBorderRect.set(this.mBitmapRect);
-                this.mShaderMatrix.setRectToRect(this.mBitmapRect, this.mBounds, Matrix.ScaleToFit.END);
+                this.mBorderRect.set(this.Oj);
+                this.mShaderMatrix.setRectToRect(this.Oj, this.IS, Matrix.ScaleToFit.END);
                 this.mShaderMatrix.mapRect(this.mBorderRect);
                 this.mDrawableRect.set(this.mBorderRect.left + this.mBorderWidth, this.mBorderRect.top + this.mBorderWidth, this.mBorderRect.right - this.mBorderWidth, this.mBorderRect.bottom - this.mBorderWidth);
-                this.mShaderMatrix.setRectToRect(this.mBitmapRect, this.mDrawableRect, Matrix.ScaleToFit.FILL);
+                this.mShaderMatrix.setRectToRect(this.Oj, this.mDrawableRect, Matrix.ScaleToFit.FILL);
                 break;
             case 6:
-                this.mBorderRect.set(this.mBitmapRect);
-                this.mShaderMatrix.setRectToRect(this.mBitmapRect, this.mBounds, Matrix.ScaleToFit.START);
+                this.mBorderRect.set(this.Oj);
+                this.mShaderMatrix.setRectToRect(this.Oj, this.IS, Matrix.ScaleToFit.START);
                 this.mShaderMatrix.mapRect(this.mBorderRect);
                 this.mDrawableRect.set(this.mBorderRect.left + this.mBorderWidth, this.mBorderRect.top + this.mBorderWidth, this.mBorderRect.right - this.mBorderWidth, this.mBorderRect.bottom - this.mBorderWidth);
-                this.mShaderMatrix.setRectToRect(this.mBitmapRect, this.mDrawableRect, Matrix.ScaleToFit.FILL);
+                this.mShaderMatrix.setRectToRect(this.Oj, this.mDrawableRect, Matrix.ScaleToFit.FILL);
                 break;
             default:
-                this.mBorderRect.set(this.mBounds);
+                this.mBorderRect.set(this.IS);
                 this.mDrawableRect.set(this.mBorderWidth + 0.0f, 0.0f + this.mBorderWidth, this.mBorderRect.width() - this.mBorderWidth, this.mBorderRect.height() - this.mBorderWidth);
                 this.mShaderMatrix.set(null);
-                this.mShaderMatrix.setRectToRect(this.mBitmapRect, this.mDrawableRect, Matrix.ScaleToFit.FILL);
+                this.mShaderMatrix.setRectToRect(this.Oj, this.mDrawableRect, Matrix.ScaleToFit.FILL);
                 break;
         }
         this.mBorderRect.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
@@ -223,13 +223,13 @@ public class b extends Drawable {
     @Override // android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        this.mBounds.set(rect);
+        this.IS.set(rect);
         updateShaderMatrix();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (this.NY) {
+        if (this.Ok) {
             if (this.mBorderWidth > 0.0f) {
                 canvas.drawOval(this.mBorderRect, this.mBorderPaint);
                 canvas.drawOval(this.mDrawableRect, this.mBitmapPaint);
@@ -276,7 +276,7 @@ public class b extends Drawable {
         return this;
     }
 
-    public b bg(int i) {
+    public b aQ(int i) {
         this.mBorderWidth = i;
         this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
         return this;
@@ -286,13 +286,13 @@ public class b extends Drawable {
         if (colorStateList == null) {
             colorStateList = ColorStateList.valueOf(0);
         }
-        this.NZ = colorStateList;
-        this.mBorderPaint.setColor(this.NZ.getColorForState(getState(), 0));
+        this.Ol = colorStateList;
+        this.mBorderPaint.setColor(this.Ol.getColorForState(getState(), 0));
         return this;
     }
 
-    public b au(boolean z) {
-        this.NY = z;
+    public b av(boolean z) {
+        this.Ok = z;
         return this;
     }
 
@@ -300,8 +300,8 @@ public class b extends Drawable {
         if (scaleType == null) {
             scaleType = ImageView.ScaleType.FIT_XY;
         }
-        if (this.mScaleType != scaleType) {
-            this.mScaleType = scaleType;
+        if (this.Om != scaleType) {
+            this.Om = scaleType;
             updateShaderMatrix();
         }
         return this;

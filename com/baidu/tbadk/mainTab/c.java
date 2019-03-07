@@ -3,15 +3,15 @@ package com.baidu.tbadk.mainTab;
 import android.support.v4.app.Fragment;
 /* loaded from: classes.dex */
 public class c {
-    public static int beC = 1;
-    public static int beD = 2;
-    public static int beE = 3;
-    public static int beF = 4;
-    public int aFV;
-    public int aFW;
-    public Fragment beA;
-    public int beB;
-    public int beG = beC;
-    public int nk;
+    public static int cof = 1;
+    public static int cog = 2;
+    public static int coh = 3;
+    public static int coi = 4;
+    public int bOd;
+    public int bOe;
+    public Fragment cod;
+    public int coe;
+    public int coj = cof;
+    public int nf;
     public int type;
 }

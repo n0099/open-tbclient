@@ -4,35 +4,26 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.HorizontalScrollView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class FiltersView extends HorizontalScrollView {
-    private int aTM;
-    private int aTN;
-    private Runnable aTO;
-    private ImageView[] aTP;
-    private View aTQ;
-    private View aTR;
-    private a aTS;
-    private boolean aTT;
-    private String aTU;
+    private int ccG;
+    private int ccH;
+    private Runnable ccI;
+    private View ccJ;
+    private View ccK;
+    private String ccL;
     private Context mContext;
-
-    /* loaded from: classes.dex */
-    public interface a {
-    }
 
     public FiltersView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aTM = 0;
-        this.aTN = 0;
-        this.aTO = new Runnable() { // from class: com.baidu.tbadk.coreExtra.view.FiltersView.1
+        this.ccG = 0;
+        this.ccH = 0;
+        this.ccI = new Runnable() { // from class: com.baidu.tbadk.coreExtra.view.FiltersView.1
             @Override // java.lang.Runnable
             public void run() {
                 int i;
-                if (FiltersView.this.aTQ != null) {
+                if (FiltersView.this.ccJ != null) {
                     int childCount = ((LinearLayout) FiltersView.this.getChildAt(0)).getChildCount();
                     int i2 = 0;
                     while (true) {
@@ -41,14 +32,14 @@ public class FiltersView extends HorizontalScrollView {
                             break;
                         }
                         View childAt = ((LinearLayout) FiltersView.this.getChildAt(0)).getChildAt(i2);
-                        if (childAt != FiltersView.this.aTQ) {
+                        if (childAt != FiltersView.this.ccJ) {
                             i2++;
                         } else {
                             i = childAt.getRight();
                             break;
                         }
                     }
-                    FiltersView.this.aTQ = null;
+                    FiltersView.this.ccJ = null;
                     int width = i - FiltersView.this.getWidth();
                     if (width > 0) {
                         FiltersView.this.scrollBy(width, 0);
@@ -57,61 +48,20 @@ public class FiltersView extends HorizontalScrollView {
             }
         };
         this.mContext = null;
-        this.aTP = null;
-        this.aTQ = null;
-        this.aTR = null;
-        this.aTS = null;
-        this.aTT = true;
-        this.aTU = "normal";
+        this.ccJ = null;
+        this.ccK = null;
+        this.ccL = "normal";
     }
 
     @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.aTQ != null) {
-            post(this.aTO);
+        if (this.ccJ != null) {
+            post(this.ccI);
         }
     }
 
     public String getSelectedFilter() {
-        return this.aTR != null ? (String) ((View) this.aTR.getTag()).getTag() : "normal";
-    }
-
-    public void setCanbeClick(boolean z) {
-        this.aTT = z;
-    }
-
-    public static int ht(String str) {
-        if (TbadkCoreApplication.getMotuFilterImageMap() == null || TbadkCoreApplication.getMotuFilterImageMap().size() == 0) {
-            return 0;
-        }
-        if (str == null || str.equals("normal")) {
-            return TbadkCoreApplication.getMotuFilterImageMap().get("normal").intValue();
-        }
-        if (str.equals("clvivid")) {
-            return TbadkCoreApplication.getMotuFilterImageMap().get("clvivid").intValue();
-        }
-        if (str.equals("cllomoscenery")) {
-            return TbadkCoreApplication.getMotuFilterImageMap().get("cllomoscenery").intValue();
-        }
-        if (str.equals("clcaisefupian")) {
-            return TbadkCoreApplication.getMotuFilterImageMap().get("clcaisefupian").intValue();
-        }
-        if (str.equals("clm3")) {
-            return TbadkCoreApplication.getMotuFilterImageMap().get("clm3").intValue();
-        }
-        if (str.equals("cqiuse")) {
-            return TbadkCoreApplication.getMotuFilterImageMap().get("cqiuse").intValue();
-        }
-        if (str.equals("clzaoan")) {
-            return TbadkCoreApplication.getMotuFilterImageMap().get("clzaoan").intValue();
-        }
-        if (str.equals("clfuguscenery")) {
-            return TbadkCoreApplication.getMotuFilterImageMap().get("clfuguscenery").intValue();
-        }
-        if (str.equals("clheibai")) {
-            return TbadkCoreApplication.getMotuFilterImageMap().get("clheibai").intValue();
-        }
-        return TbadkCoreApplication.getMotuFilterImageMap().get("normal").intValue();
+        return this.ccK != null ? (String) ((View) this.ccK.getTag()).getTag() : "normal";
     }
 }

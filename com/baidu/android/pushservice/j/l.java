@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.webkit.internal.GlobalConstants;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -136,7 +135,7 @@ public class l {
         String packageName = context.getPackageName();
         a = m.v(context);
         boolean z = false;
-        if (!GlobalConstants.SEARCHBOX_PACKAGE_NAME.equals(packageName) || packageName.equals(a)) {
+        if (!"com.baidu.searchbox".equals(packageName) || packageName.equals(a)) {
             packageName = u;
         } else {
             z = true;

@@ -5,7 +5,7 @@ import com.baidu.tieba.im.data.GroupPermData;
 import com.squareup.wire.Wire;
 import protobuf.GroupPermission;
 import protobuf.QueryUserPermission.QueryUserPermissionResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class ResponseUserPermissionMessage extends SocketResponsedMessage {
     private GroupPermData groupPermData;
 

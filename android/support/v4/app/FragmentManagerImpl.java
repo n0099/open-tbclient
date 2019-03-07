@@ -40,7 +40,6 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.ScaleAnimation;
-import com.baidu.fsg.base.utils.ResUtils;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.reflect.Field;
@@ -518,7 +517,7 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
             return new AnimationOrAnimator(onCreateAnimator);
         }
         if (nextAnim != 0) {
-            boolean equals = ResUtils.ANIM.equals(this.mHost.getContext().getResources().getResourceTypeName(nextAnim));
+            boolean equals = "anim".equals(this.mHost.getContext().getResources().getResourceTypeName(nextAnim));
             if (!equals) {
                 z2 = false;
             } else {
@@ -2648,12 +2647,12 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
 
     public static int reverseTransit(int i) {
         switch (i) {
-            case 4097:
+            case FragmentTransaction.TRANSIT_FRAGMENT_OPEN /* 4097 */:
                 return 8194;
-            case 4099:
-                return 4099;
+            case FragmentTransaction.TRANSIT_FRAGMENT_FADE /* 4099 */:
+                return FragmentTransaction.TRANSIT_FRAGMENT_FADE;
             case 8194:
-                return 4097;
+                return FragmentTransaction.TRANSIT_FRAGMENT_OPEN;
             default:
                 return 0;
         }
@@ -2661,9 +2660,9 @@ public final class FragmentManagerImpl extends FragmentManager implements Layout
 
     public static int transitToStyleIndex(int i, boolean z) {
         switch (i) {
-            case 4097:
+            case FragmentTransaction.TRANSIT_FRAGMENT_OPEN /* 4097 */:
                 return z ? 1 : 2;
-            case 4099:
+            case FragmentTransaction.TRANSIT_FRAGMENT_FADE /* 4099 */:
                 return z ? 5 : 6;
             case 8194:
                 return z ? 3 : 4;

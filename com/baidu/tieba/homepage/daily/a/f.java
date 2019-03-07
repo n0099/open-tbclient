@@ -5,39 +5,39 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.data.bb;
+import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.card.ad;
-import com.baidu.tieba.card.o;
-import com.baidu.tieba.card.v;
-/* loaded from: classes6.dex */
-public class f extends com.baidu.adp.widget.ListView.a<bb, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c>> {
-    private ad<bb> cbm;
-    private com.baidu.tieba.homepage.daily.view.c evD;
+import com.baidu.tieba.card.ab;
+import com.baidu.tieba.card.n;
+import com.baidu.tieba.card.t;
+/* loaded from: classes4.dex */
+public class f extends com.baidu.adp.widget.ListView.a<bg, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c>> {
+    private ab<bg> dqn;
+    private com.baidu.tieba.homepage.daily.view.c fIb;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public f(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.cbm = new ad<bb>() { // from class: com.baidu.tieba.homepage.daily.a.f.1
+        this.dqn = new ab<bg>() { // from class: com.baidu.tieba.homepage.daily.a.f.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.card.ad
-            public void a(View view, bb bbVar) {
+            @Override // com.baidu.tieba.card.ab
+            public void a(View view, bg bgVar) {
                 int i = 2;
-                if (view != null && bbVar != null && f.this.evD != null && f.this.evD.getView() != null) {
+                if (view != null && bgVar != null && f.this.fIb != null && f.this.fIb.getView() != null) {
                     am amVar = new am("c13175");
-                    amVar.y("obj_type", 2);
-                    amVar.aB("tid", bbVar.getTid());
-                    amVar.i(ImageViewerConfig.FORUM_ID, bbVar.getFid());
-                    if (view.getId() != f.this.evD.aLL() && view.getId() != f.this.evD.aLM()) {
-                        if (view.getId() == f.this.evD.aLN()) {
+                    amVar.T("obj_type", 2);
+                    amVar.bJ("tid", bgVar.getTid());
+                    amVar.k(ImageViewerConfig.FORUM_ID, bgVar.getFid());
+                    if (view.getId() != f.this.fIb.blN() && view.getId() != f.this.fIb.blO()) {
+                        if (view.getId() == f.this.fIb.blP()) {
                             i = 3;
                         }
                     } else {
                         i = 1;
                     }
-                    amVar.y("obj_locate", i);
+                    amVar.T("obj_locate", i);
                     TiebaStatic.log(amVar);
                 }
             }
@@ -48,32 +48,32 @@ public class f extends com.baidu.adp.widget.ListView.a<bb, com.baidu.tieba.card.
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aa */
+    /* renamed from: ao */
     public com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c> onCreateViewHolder(ViewGroup viewGroup) {
-        this.evD = new com.baidu.tieba.homepage.daily.view.c(this.mPageContext);
-        this.evD.setTag(this.mPageId);
-        this.evD.setShareReportFrom(7);
-        this.evD.oB(11);
-        this.evD.setStType(o.zH());
-        this.evD.currentPageType = 16;
-        return new com.baidu.tieba.card.a.a<>(this.evD);
+        this.fIb = new com.baidu.tieba.homepage.daily.view.c(this.mPageContext);
+        this.fIb.setTag(this.mPageId);
+        this.fIb.setShareReportFrom(7);
+        this.fIb.sk(11);
+        this.fIb.setStType(n.YE());
+        this.fIb.currentPageType = 16;
+        return new com.baidu.tieba.card.a.a<>(this.fIb);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bb bbVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c> aVar) {
-        if (bbVar == null || aVar == null || aVar.arr() == null) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bg bgVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c> aVar) {
+        if (bgVar == null || aVar == null || aVar.aRi() == null) {
             return null;
         }
         am amVar = new am("c13176");
-        amVar.y("obj_type", 2);
-        amVar.aB("tid", bbVar.getTid());
-        amVar.i(ImageViewerConfig.FORUM_ID, bbVar.getFid());
-        v.aqP().a(amVar);
-        aVar.arr().b(this.cbm);
-        aVar.arr().a(bbVar);
+        amVar.T("obj_type", 2);
+        amVar.bJ("tid", bgVar.getTid());
+        amVar.k(ImageViewerConfig.FORUM_ID, bgVar.getFid());
+        t.aQF().b(amVar);
+        aVar.aRi().d(this.dqn);
+        aVar.aRi().a(bgVar);
         return aVar.getView();
     }
 }

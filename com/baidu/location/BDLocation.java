@@ -6,18 +6,16 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.appsearchlib.Info;
-import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.location.Address;
 import com.baidu.location.g.g;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.baidu.webkit.internal.ETAG;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class BDLocation implements Parcelable {
     public static final String BDLOCATION_BD09LL_TO_GCJ02 = "bd09ll2gcj";
     public static final String BDLOCATION_BD09_TO_GCJ02 = "bd092gcj";
@@ -431,16 +429,16 @@ public final class BDLocation implements Parcelable {
             try {
                 JSONObject jSONObject2 = new JSONObject(str);
                 JSONObject jSONObject3 = jSONObject2.getJSONObject("result");
-                int parseInt = Integer.parseInt(jSONObject3.getString(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR));
+                int parseInt = Integer.parseInt(jSONObject3.getString("error"));
                 setLocType(parseInt);
-                setTime(jSONObject3.getString("time"));
+                setTime(jSONObject3.getString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME));
                 if (parseInt == 61) {
                     JSONObject jSONObject4 = jSONObject2.getJSONObject("content");
-                    JSONObject jSONObject5 = jSONObject4.getJSONObject(Config.EVENT_HEAT_POINT);
+                    JSONObject jSONObject5 = jSONObject4.getJSONObject("point");
                     setLatitude(Double.parseDouble(jSONObject5.getString("y")));
-                    setLongitude(Double.parseDouble(jSONObject5.getString(Config.EVENT_HEAT_X)));
+                    setLongitude(Double.parseDouble(jSONObject5.getString("x")));
                     setRadius(Float.parseFloat(jSONObject4.getString("radius")));
-                    setSpeed(Float.parseFloat(jSONObject4.getString("s")));
+                    setSpeed(Float.parseFloat(jSONObject4.getString(NotifyType.SOUND)));
                     setDirection(Float.parseFloat(jSONObject4.getString("d")));
                     setSatelliteNumber(Integer.parseInt(jSONObject4.getString("n")));
                     if (jSONObject4.has("h")) {
@@ -471,17 +469,17 @@ public final class BDLocation implements Parcelable {
                         return;
                     }
                     JSONObject jSONObject6 = jSONObject2.getJSONObject("content");
-                    JSONObject jSONObject7 = jSONObject6.getJSONObject(Config.EVENT_HEAT_POINT);
+                    JSONObject jSONObject7 = jSONObject6.getJSONObject("point");
                     setLatitude(Double.parseDouble(jSONObject7.getString("y")));
-                    setLongitude(Double.parseDouble(jSONObject7.getString(Config.EVENT_HEAT_X)));
+                    setLongitude(Double.parseDouble(jSONObject7.getString("x")));
                     setRadius(Float.parseFloat(jSONObject6.getString("radius")));
                     a(Boolean.valueOf(Boolean.parseBoolean(jSONObject6.getString("isCellChanged"))));
                     setCoorType("gcj02");
                 } else {
                     JSONObject jSONObject8 = jSONObject2.getJSONObject("content");
-                    JSONObject jSONObject9 = jSONObject8.getJSONObject(Config.EVENT_HEAT_POINT);
+                    JSONObject jSONObject9 = jSONObject8.getJSONObject("point");
                     setLatitude(Double.parseDouble(jSONObject9.getString("y")));
-                    setLongitude(Double.parseDouble(jSONObject9.getString(Config.EVENT_HEAT_X)));
+                    setLongitude(Double.parseDouble(jSONObject9.getString("x")));
                     setRadius(Float.parseFloat(jSONObject8.getString("radius")));
                     if (jSONObject8.has("sema")) {
                         JSONObject jSONObject10 = jSONObject8.getJSONObject("sema");
@@ -498,7 +496,7 @@ public final class BDLocation implements Parcelable {
                             ArrayList arrayList = new ArrayList();
                             for (int i = 0; i < jSONArray.length(); i++) {
                                 JSONObject jSONObject11 = jSONArray.getJSONObject(i);
-                                arrayList.add(new Poi(jSONObject11.getString(Info.kBaiduPIDKey), jSONObject11.getString("pname"), jSONObject11.getDouble(Config.PRINCIPAL_PART)));
+                                arrayList.add(new Poi(jSONObject11.getString(Info.kBaiduPIDKey), jSONObject11.getString("pname"), jSONObject11.getDouble("pr")));
                             }
                             this.L = arrayList;
                         }
@@ -543,7 +541,7 @@ public final class BDLocation implements Parcelable {
                             }
                         } else {
                             try {
-                                String[] split = jSONObject8.getString("addr").split(",");
+                                String[] split = jSONObject8.getString("addr").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                                 int length = split.length;
                                 r7 = length > 0 ? split[0] : null;
                                 r6 = length > 1 ? split[1] : null;
@@ -634,9 +632,9 @@ public final class BDLocation implements Parcelable {
                             }
                             if (jSONObject12.has("ret_fields")) {
                                 try {
-                                    String[] split2 = jSONObject12.getString("ret_fields").split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
+                                    String[] split2 = jSONObject12.getString("ret_fields").split("\\|");
                                     for (String str3 : split2) {
-                                        String[] split3 = str3.split(ETAG.EQUAL);
+                                        String[] split3 = str3.split("=");
                                         this.O.putString(split3[0], split3[1]);
                                     }
                                 } catch (Exception e5) {

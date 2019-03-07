@@ -4,9 +4,9 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.bb;
+import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.view.ThreadUserInfoLayout;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
     public ConcernThreadUserInfoLayout(Context context) {
         super(context);
@@ -20,27 +20,27 @@ public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
         super(context, attributeSet, i);
     }
 
-    @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout, com.baidu.tbadk.core.view.f
-    public boolean setData(bb bbVar) {
-        if (super.setData(bbVar)) {
-            this.aKW.setVisibility(8);
+    @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout, com.baidu.tbadk.core.view.d
+    public boolean setData(bg bgVar) {
+        if (super.setData(bgVar)) {
+            this.Zz.setVisibility(8);
             return true;
         }
         return false;
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
-    protected void r(bb bbVar) {
-        if (bbVar == null || StringUtils.isNull(bbVar.As())) {
-            this.aKZ.setVisibility(8);
+    protected void g(bg bgVar) {
+        if (bgVar == null || StringUtils.isNull(bgVar.WS())) {
+            this.ZC.setVisibility(8);
             return;
         }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aKZ.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ZC.getLayoutParams();
         if (layoutParams != null && layoutParams.bottomMargin != 0) {
             layoutParams.bottomMargin = 0;
-            this.aKZ.setLayoutParams(layoutParams);
+            this.ZC.setLayoutParams(layoutParams);
         }
-        this.aKZ.setText(bbVar.As());
-        this.aKZ.setVisibility(0);
+        this.ZC.setText(bgVar.WS());
+        this.ZC.setVisibility(0);
     }
 }

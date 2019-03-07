@@ -11,13 +11,14 @@ import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 /* loaded from: classes.dex */
-public class b {
+public final class b {
     public static void a(Context context, boolean z) {
         long currentTimeMillis;
         try {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
-            long I = 3600000 * eVar.I();
-            com.baidu.sofire.b.a("sjh-alarm gap " + eVar.I());
+            long s = 3600000 * eVar.s();
+            new StringBuilder("sjh-alarm gap ").append(eVar.s());
+            com.baidu.sofire.b.a();
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
             Intent intent = new Intent("com.baidu.action.SOFIRE.VIEW");
             intent.setClass(context, MyService.class);
@@ -29,21 +30,22 @@ public class b {
             intent.putExtra("target_method", "handleWork");
             intent.putExtra("from", 6);
             PendingIntent service = PendingIntent.getService(context, 1000, intent, 134217728);
-            if (z) {
-                currentTimeMillis = eVar.a();
+            if (!z) {
+                currentTimeMillis = ((System.currentTimeMillis() + s) - KeepJobService.JOB_CHECK_PERIODIC) + ((long) (1200000.0d * Math.random()));
+                eVar.a(currentTimeMillis);
+            } else {
+                currentTimeMillis = eVar.a.getLong("npuct", 0L);
                 if (currentTimeMillis <= 0) {
-                    currentTimeMillis = System.currentTimeMillis() + I;
+                    currentTimeMillis = System.currentTimeMillis() + s;
                     eVar.a(currentTimeMillis);
                 }
-            } else {
-                currentTimeMillis = ((System.currentTimeMillis() + I) - KeepJobService.JOB_CHECK_PERIODIC) + ((long) (1200000.0d * Math.random()));
-                eVar.a(currentTimeMillis);
             }
-            com.baidu.sofire.b.a("b=" + z + ", n=" + currentTimeMillis + ", t=" + I + ", c=" + System.currentTimeMillis());
+            new StringBuilder("b=").append(z).append(", n=").append(currentTimeMillis).append(", t=").append(s).append(", c=").append(System.currentTimeMillis());
+            com.baidu.sofire.b.a();
             alarmManager.cancel(service);
             alarmManager.set(0, currentTimeMillis, service);
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 
@@ -73,13 +75,14 @@ public class b {
                     break;
             }
             long currentTimeMillis = j + System.currentTimeMillis();
-            com.baidu.sofire.b.a("n=" + currentTimeMillis + ", c=" + System.currentTimeMillis());
+            new StringBuilder("n=").append(currentTimeMillis).append(", c=").append(System.currentTimeMillis());
+            com.baidu.sofire.b.a();
             alarmManager.cancel(service);
             if (!z) {
                 alarmManager.set(0, currentTimeMillis, service);
             }
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 }

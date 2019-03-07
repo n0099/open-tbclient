@@ -6,9 +6,9 @@ import java.util.HashMap;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class a<K, V> extends b<K, V> {
-    private HashMap<K, b.c<K, V>> mHashMap = new HashMap<>();
+    private HashMap<K, b.c<K, V>> jk = new HashMap<>();
 
     public boolean contains(K k) {
-        return this.mHashMap.containsKey(k);
+        return this.jk.containsKey(k);
     }
 }

@@ -4,7 +4,7 @@ public class g<T> extends AbstractDataSource<T> {
     private g() {
     }
 
-    public static <T> g<T> bVo() {
+    public static <T> g<T> cul() {
         return new g<>();
     }
 
@@ -17,17 +17,17 @@ public class g<T> extends AbstractDataSource<T> {
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.facebook.datasource.g<T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public boolean at(T t) {
+    public boolean aI(T t) {
         return super.a((g<T>) com.facebook.common.internal.g.checkNotNull(t), true);
     }
 
     @Override // com.facebook.datasource.AbstractDataSource
-    public boolean t(Throwable th) {
-        return super.t((Throwable) com.facebook.common.internal.g.checkNotNull(th));
+    public boolean u(Throwable th) {
+        return super.u((Throwable) com.facebook.common.internal.g.checkNotNull(th));
     }
 
     @Override // com.facebook.datasource.AbstractDataSource
-    public boolean aF(float f) {
-        return super.aF(f);
+    public boolean aS(float f) {
+        return super.aS(f);
     }
 }

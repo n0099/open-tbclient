@@ -20,12 +20,11 @@ import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
 import android.text.TextUtils;
-import com.baidu.mobstat.Config;
+import com.baidu.appsearchlib.Info;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.passhost.hostsdk.service.ThreadPoolService;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.sapi2.passhost.pluginsdk.service.TPRunnable;
-import com.baidu.webkit.internal.ETAG;
 import java.lang.reflect.Method;
 import java.util.Iterator;
 import java.util.List;
@@ -63,7 +62,7 @@ public class SapiBDLocManager {
         } catch (Exception e2) {
             str = null;
         }
-        this.m = ETAG.ITEM_SEPARATOR + packageName + ETAG.ITEM_SEPARATOR + str;
+        this.m = "&" + packageName + "&" + str;
         this.i = (WifiManager) this.b.getSystemService("wifi");
     }
 
@@ -148,7 +147,7 @@ public class SapiBDLocManager {
             str = str + str2;
         }
         if (str.equals("Z")) {
-            return b(str + "t" + System.currentTimeMillis() + this.m);
+            return b(str + Info.kBaiduTimeKey + System.currentTimeMillis() + this.m);
         }
         return null;
     }
@@ -452,7 +451,7 @@ public class SapiBDLocManager {
                         if (i4 < i) {
                             stringBuffer.append("h");
                             stringBuffer.append(replace);
-                            stringBuffer.append(Config.MODEL);
+                            stringBuffer.append("m");
                             stringBuffer.append(StrictMath.abs(i5));
                             i2 = i4 + 1;
                             z2 = false;

@@ -1,15 +1,16 @@
 package com.baidu.tieba.personCenter.data;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.m;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class i extends com.baidu.tieba.card.data.b implements com.baidu.adp.widget.ListView.h {
-    public static BdUniqueId gvW = BdUniqueId.gen();
-    public List<a> gvD = new ArrayList();
+/* loaded from: classes4.dex */
+public class i extends com.baidu.tieba.card.data.b implements m {
+    public static BdUniqueId hMl = BdUniqueId.gen();
+    public List<a> hLT = new ArrayList();
 
-    @Override // com.baidu.adp.widget.ListView.h
+    @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gvW;
+        return hMl;
     }
 }

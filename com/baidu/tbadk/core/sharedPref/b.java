@@ -5,17 +5,18 @@ import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Process;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.compatible.EditorHelper;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
     private static b spHelper = null;
@@ -29,12 +30,12 @@ public class b {
 
     protected b() {
         mProcessMap = new HashMap<>();
-        mProcessMap.put(a.azA, TbConfig.SETTINGFILE);
-        mProcessMap.put(a.azB, "remote_settings");
-        mProcessMap.put(a.azC, "bdservice_settings");
-        mProcessMap.put(a.azD, a.azG);
-        mProcessMap.put(a.azE, a.azH);
-        mProcessMap.put(a.azF, a.azI);
+        mProcessMap.put(a.bHs, TbConfig.SETTINGFILE);
+        mProcessMap.put(a.bHt, "remote_settings");
+        mProcessMap.put(a.bHu, "bdservice_settings");
+        mProcessMap.put(a.bHv, a.bHy);
+        mProcessMap.put(a.bHw, a.bHz);
+        mProcessMap.put(a.bHx, a.bHA);
         mContentResolver = TbadkCoreApplication.getInst().getContentResolver();
     }
 
@@ -159,6 +160,35 @@ public class b {
         return this.mSP.getString(str, str2);
     }
 
+    public void putMap(Map map) {
+        SharedPreferences.Editor edit;
+        this.mSP = getSharedPreferences();
+        if (this.mSP != null && (edit = this.mSP.edit()) != null) {
+            for (Map.Entry entry : map.entrySet()) {
+                if (entry != null) {
+                    String valueOf = String.valueOf(entry.getKey());
+                    Object value = entry.getValue();
+                    if (value instanceof String) {
+                        edit.putString(valueOf, (String) value);
+                    } else if (value instanceof Integer) {
+                        edit.putInt(valueOf, ((Integer) value).intValue());
+                    } else if (value instanceof Long) {
+                        edit.putLong(valueOf, ((Long) value).longValue());
+                    } else if (value instanceof Boolean) {
+                        edit.putBoolean(valueOf, ((Boolean) value).booleanValue());
+                    } else if (value instanceof Float) {
+                        edit.putFloat(valueOf, ((Float) value).floatValue());
+                    }
+                }
+            }
+            if (Build.VERSION.SDK_INT >= 9) {
+                edit.apply();
+            } else {
+                edit.commit();
+            }
+        }
+    }
+
     public void putBoolean(String str, boolean z) {
         if (checkIsCommon(str)) {
             putValue(str, z);
@@ -221,9 +251,9 @@ public class b {
         if (str == null || str.length() == 0 || !IS_CHECK_COMMON_SHAREDPRE) {
             return false;
         }
-        int length = a.azJ.length;
+        int length = a.bHB.length;
         for (int i = 0; i < length; i++) {
-            if (str.equals(a.azJ[i])) {
+            if (str.equals(a.bHB[i])) {
                 return true;
             }
         }
@@ -306,7 +336,7 @@ public class b {
                 }
             }
         }
-        return a.azA;
+        return a.bHs;
     }
 
     public void migrateToNewVersion() {
@@ -347,7 +377,7 @@ public class b {
     }
 
     protected void setValue(final Uri uri, final ContentValues contentValues) {
-        if (l.lk()) {
+        if (l.ln()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tbadk.core.sharedPref.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
@@ -381,7 +411,7 @@ public class b {
     }
 
     protected void deleteValue(final Uri uri) {
-        if (l.lk()) {
+        if (l.ln()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tbadk.core.sharedPref.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
@@ -406,6 +436,6 @@ public class b {
     }
 
     public static String getSharedPrefKeyWithAccount(String str) {
-        return str + BaseRequestAction.SPLITE + TbadkCoreApplication.getCurrentAccount();
+        return str + "_" + TbadkCoreApplication.getCurrentAccount();
     }
 }

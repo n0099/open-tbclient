@@ -50,7 +50,7 @@ public final class q {
         return this.a;
     }
 
-    public final JSONObject cb() {
+    public final JSONObject ca() {
         return this.b;
     }
 

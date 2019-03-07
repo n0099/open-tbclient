@@ -9,11 +9,11 @@ public final class a {
         long j2;
         do {
             j2 = atomicLong.get();
-        } while (!atomicLong.compareAndSet(j2, r(j2, j)));
+        } while (!atomicLong.compareAndSet(j2, w(j2, j)));
         return j2;
     }
 
-    public static long q(long j, long j2) {
+    public static long v(long j, long j2) {
         long j3 = j * j2;
         if (((j | j2) >>> 31) != 0 && j2 != 0 && j3 / j2 != j) {
             return Long.MAX_VALUE;
@@ -21,7 +21,7 @@ public final class a {
         return j3;
     }
 
-    public static long r(long j, long j2) {
+    public static long w(long j, long j2) {
         long j3 = j + j2;
         if (j3 < 0) {
             return Long.MAX_VALUE;
@@ -30,11 +30,11 @@ public final class a {
     }
 
     public static <T> void a(AtomicLong atomicLong, Queue<T> queue, rx.j<? super T> jVar) {
-        a(atomicLong, queue, jVar, UtilityFunctions.cfU());
+        a(atomicLong, queue, jVar, UtilityFunctions.cEx());
     }
 
     public static <T> boolean a(AtomicLong atomicLong, long j, Queue<T> queue, rx.j<? super T> jVar) {
-        return a(atomicLong, j, queue, jVar, UtilityFunctions.cfU());
+        return a(atomicLong, j, queue, jVar, UtilityFunctions.cEx());
     }
 
     public static <T, R> void a(AtomicLong atomicLong, Queue<T> queue, rx.j<? super R> jVar, rx.functions.f<? super T, ? extends R> fVar) {
@@ -62,7 +62,7 @@ public final class a {
         do {
             j2 = atomicLong.get();
             j3 = Long.MIN_VALUE & j2;
-        } while (!atomicLong.compareAndSet(j2, r(Long.MAX_VALUE & j2, j) | j3));
+        } while (!atomicLong.compareAndSet(j2, w(Long.MAX_VALUE & j2, j) | j3));
         if (j2 != Long.MIN_VALUE) {
             return j3 == 0;
         }

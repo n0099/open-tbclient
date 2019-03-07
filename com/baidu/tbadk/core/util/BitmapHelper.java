@@ -18,7 +18,8 @@ import android.util.SparseArray;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -383,7 +384,7 @@ public class BitmapHelper {
             if (r10 > 0) goto L16
         L11:
             monitor-exit(r4)     // Catch: java.lang.Throwable -> L64
-            com.baidu.adp.lib.util.n.h(r0)
+            com.baidu.adp.lib.util.n.i(r0)
         L15:
             return r0
         L16:
@@ -392,7 +393,7 @@ public class BitmapHelper {
             boolean r2 = r5.exists()     // Catch: java.lang.Throwable -> L64
             if (r2 != 0) goto L26
             monitor-exit(r4)     // Catch: java.lang.Throwable -> L64
-            com.baidu.adp.lib.util.n.h(r0)
+            com.baidu.adp.lib.util.n.i(r0)
             goto L15
         L26:
             android.graphics.BitmapFactory$Options r6 = new android.graphics.BitmapFactory$Options     // Catch: java.lang.Throwable -> L64
@@ -405,7 +406,7 @@ public class BitmapHelper {
             android.graphics.BitmapFactory.decodeStream(r2, r3, r6)     // Catch: java.lang.Throwable -> L79
             android.graphics.Bitmap$Config r3 = com.baidu.tbadk.TbConfig.BitmapConfig     // Catch: java.lang.Throwable -> L79
             r6.inPreferredConfig = r3     // Catch: java.lang.Throwable -> L79
-            com.baidu.adp.lib.util.n.h(r2)     // Catch: java.lang.Throwable -> L79
+            com.baidu.adp.lib.util.n.i(r2)     // Catch: java.lang.Throwable -> L79
         L3e:
             int r3 = r6.outWidth     // Catch: java.lang.Throwable -> L79
             int r7 = r1 * 2
@@ -427,7 +428,7 @@ public class BitmapHelper {
             r1 = 0
             android.graphics.Bitmap r1 = android.graphics.BitmapFactory.decodeStream(r3, r1, r6)     // Catch: java.lang.Throwable -> L7b
             monitor-exit(r4)     // Catch: java.lang.Throwable -> L7b
-            com.baidu.adp.lib.util.n.h(r3)
+            com.baidu.adp.lib.util.n.i(r3)
             r0 = r1
             goto L15
         L64:
@@ -439,14 +440,14 @@ public class BitmapHelper {
         L68:
             r1 = move-exception
         L69:
-            com.baidu.adp.lib.util.n.h(r2)
+            com.baidu.adp.lib.util.n.i(r2)
             goto L15
         L6d:
             r1 = move-exception
             r2 = r0
             r0 = r1
         L70:
-            com.baidu.adp.lib.util.n.h(r2)
+            com.baidu.adp.lib.util.n.i(r2)
             throw r0
         L74:
             r0 = move-exception
@@ -500,7 +501,7 @@ public class BitmapHelper {
             r1 = 0
             android.graphics.Bitmap r1 = android.graphics.BitmapFactory.decodeStream(r2, r1, r4)     // Catch: java.lang.Throwable -> L49
             monitor-exit(r3)     // Catch: java.lang.Throwable -> L49
-            com.baidu.adp.lib.util.n.h(r2)
+            com.baidu.adp.lib.util.n.i(r2)
             r0 = r1
             goto L9
         L34:
@@ -512,14 +513,14 @@ public class BitmapHelper {
         L38:
             r1 = move-exception
         L39:
-            com.baidu.adp.lib.util.n.h(r2)
+            com.baidu.adp.lib.util.n.i(r2)
             goto L9
         L3d:
             r1 = move-exception
             r2 = r0
             r0 = r1
         L40:
-            com.baidu.adp.lib.util.n.h(r2)
+            com.baidu.adp.lib.util.n.i(r2)
             throw r0
         L44:
             r0 = move-exception
@@ -554,7 +555,7 @@ public class BitmapHelper {
             if (r0 > 0) goto L12
         Lc:
             monitor-exit(r3)     // Catch: java.lang.Throwable -> L46
-            com.baidu.adp.lib.util.n.h(r1)
+            com.baidu.adp.lib.util.n.i(r1)
             r0 = r1
         L11:
             return r0
@@ -567,7 +568,7 @@ public class BitmapHelper {
             if (r2 != 0) goto L29
         L23:
             monitor-exit(r3)     // Catch: java.lang.Throwable -> L46
-            com.baidu.adp.lib.util.n.h(r1)
+            com.baidu.adp.lib.util.n.i(r1)
             r0 = r1
             goto L11
         L29:
@@ -584,7 +585,7 @@ public class BitmapHelper {
             r0 = 0
             android.graphics.Bitmap r0 = android.graphics.BitmapFactory.decodeStream(r2, r0, r5)     // Catch: java.lang.Throwable -> L5b
             monitor-exit(r3)     // Catch: java.lang.Throwable -> L5b
-            com.baidu.adp.lib.util.n.h(r2)
+            com.baidu.adp.lib.util.n.i(r2)
             goto L11
         L46:
             r0 = move-exception
@@ -595,13 +596,13 @@ public class BitmapHelper {
         L4a:
             r0 = move-exception
         L4b:
-            com.baidu.adp.lib.util.n.h(r2)
+            com.baidu.adp.lib.util.n.i(r2)
             r0 = r1
             goto L11
         L50:
             r0 = move-exception
         L51:
-            com.baidu.adp.lib.util.n.h(r1)
+            com.baidu.adp.lib.util.n.i(r1)
             throw r0
         L55:
             r0 = move-exception
@@ -628,19 +629,19 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream fu = l.fu(str);
-                BitmapFactory.decodeStream(fu, null, options);
+                InputStream mh = m.mh(str);
+                BitmapFactory.decodeStream(mh, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.n.h(fu);
+                com.baidu.adp.lib.util.n.i(mh);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream fu2 = l.fu(str);
-                        decodeStream = BitmapFactory.decodeStream(fu2, null, options);
-                        com.baidu.adp.lib.util.n.h(fu2);
+                        InputStream mh2 = m.mh(str);
+                        decodeStream = BitmapFactory.decodeStream(mh2, null, options);
+                        com.baidu.adp.lib.util.n.i(mh2);
                     }
                 }
             }
@@ -660,19 +661,19 @@ public class BitmapHelper {
             synchronized (lockForSyncImageDecoder) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
-                InputStream x = l.x(new File(str));
-                BitmapFactory.decodeStream(x, null, options);
+                InputStream F = m.F(new File(str));
+                BitmapFactory.decodeStream(F, null, options);
                 options.inPreferredConfig = TbConfig.BitmapConfig;
-                com.baidu.adp.lib.util.n.h(x);
+                com.baidu.adp.lib.util.n.i(F);
                 while (true) {
                     if (options.outWidth / (i2 * 2) > i || options.outHeight / (i2 * 2) > i) {
                         i2 *= 2;
                     } else {
                         options.inJustDecodeBounds = false;
                         options.inSampleSize = i2;
-                        InputStream x2 = l.x(new File(str));
-                        decodeStream = BitmapFactory.decodeStream(x2, null, options);
-                        com.baidu.adp.lib.util.n.h(x2);
+                        InputStream F2 = m.F(new File(str));
+                        decodeStream = BitmapFactory.decodeStream(F2, null, options);
+                        com.baidu.adp.lib.util.n.i(F2);
                     }
                 }
             }
@@ -1123,7 +1124,7 @@ public class BitmapHelper {
         try {
             switch (new ExifInterface(str).getAttributeInt("Orientation", 1)) {
                 case 3:
-                    return 180;
+                    return SubsamplingScaleImageView.ORIENTATION_180;
                 case 4:
                 case 5:
                 case 7:
@@ -1132,7 +1133,7 @@ public class BitmapHelper {
                 case 6:
                     return 90;
                 case 8:
-                    return 270;
+                    return SubsamplingScaleImageView.ORIENTATION_270;
             }
         } catch (IOException e) {
             return 0;
@@ -1174,41 +1175,41 @@ public class BitmapHelper {
     public static int getGradeResourceIdInEnterForum(int i) {
         switch (i) {
             case 1:
-                return e.f.icon_level_01;
+                return d.f.icon_level_01;
             case 2:
-                return e.f.icon_level_02;
+                return d.f.icon_level_02;
             case 3:
-                return e.f.icon_level_03;
+                return d.f.icon_level_03;
             case 4:
-                return e.f.icon_level_04;
+                return d.f.icon_level_04;
             case 5:
-                return e.f.icon_level_05;
+                return d.f.icon_level_05;
             case 6:
-                return e.f.icon_level_06;
+                return d.f.icon_level_06;
             case 7:
-                return e.f.icon_level_07;
+                return d.f.icon_level_07;
             case 8:
-                return e.f.icon_level_08;
+                return d.f.icon_level_08;
             case 9:
-                return e.f.icon_level_09;
+                return d.f.icon_level_09;
             case 10:
-                return e.f.icon_level_10;
+                return d.f.icon_level_10;
             case 11:
-                return e.f.icon_level_11;
+                return d.f.icon_level_11;
             case 12:
-                return e.f.icon_level_12;
+                return d.f.icon_level_12;
             case 13:
-                return e.f.icon_level_13;
+                return d.f.icon_level_13;
             case 14:
-                return e.f.icon_level_14;
+                return d.f.icon_level_14;
             case 15:
-                return e.f.icon_level_15;
+                return d.f.icon_level_15;
             case 16:
-                return e.f.icon_level_16;
+                return d.f.icon_level_16;
             case 17:
-                return e.f.icon_level_17;
+                return d.f.icon_level_17;
             case 18:
-                return e.f.icon_level_18;
+                return d.f.icon_level_18;
             default:
                 return 0;
         }

@@ -7,9 +7,7 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
-import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.ar.util.IoUtils;
-import com.baidu.webkit.internal.ETAG;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -36,8 +34,8 @@ public class d extends c {
                     String d = d.d(context);
                     HashMap hashMap = new HashMap();
                     com.baidu.android.pushservice.e.b.a(hashMap);
-                    hashMap.put(StatisticConstants.DEVICE_TYPE, "3");
-                    hashMap.put("params", d);
+                    hashMap.put("device_type", "3");
+                    hashMap.put(LegoListActivityConfig.PARAMS, d);
                     int i = 0;
                     do {
                         i++;
@@ -110,7 +108,7 @@ public class d extends c {
         jSONObject.put("channel_id", a);
         jSONObject.put("cuid", a2);
         jSONObject.put("aksinfo", c);
-        return com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptR(jSONObject.toString().getBytes(), 2), IoUtils.UTF_8);
+        return com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptR(jSONObject.toString().getBytes(), 2), "utf-8");
     }
 
     @Override // com.baidu.android.pushservice.message.a.c
@@ -130,7 +128,7 @@ public class d extends c {
                     int i3 = 0;
                     while (i3 < length) {
                         JSONObject jSONObject2 = (JSONObject) jSONArray.get(i3);
-                        String string2 = jSONObject2.getString(ETAG.KEY_PACKAGE_NAME);
+                        String string2 = jSONObject2.getString("package_name");
                         if (q.contains(string2)) {
                             String string3 = jSONObject2.getString("apikey");
                             if (!TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !com.baidu.android.pushservice.j.m.x(this.a, string2)) {

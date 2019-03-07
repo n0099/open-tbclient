@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public abstract class c implements d {
-    public static List<com.coloros.mcssdk.e.c> j(Context context, Intent intent) {
+    public static List<com.coloros.mcssdk.e.c> k(Context context, Intent intent) {
         int i;
         com.coloros.mcssdk.e.c a;
         if (intent == null) {
@@ -20,7 +20,7 @@ public abstract class c implements d {
         }
         com.coloros.mcssdk.c.c.a("MessageParser--getMessageByIntent--type:" + i);
         ArrayList arrayList = new ArrayList();
-        for (d dVar : com.coloros.mcssdk.a.bTJ().bTH()) {
+        for (d dVar : com.coloros.mcssdk.a.csH().csF()) {
             if (dVar != null && (a = dVar.a(context, i, intent)) != null) {
                 arrayList.add(a);
             }

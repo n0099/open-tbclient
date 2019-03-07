@@ -30,7 +30,7 @@ final class ConsoleKt$stdin$2 extends Lambda implements kotlin.jvm.a.a<BufferedR
 
             @Override // java.io.InputStream
             public int read(byte[] bArr) {
-                p.j(bArr, "b");
+                p.k(bArr, "b");
                 return System.in.read(bArr);
             }
 
@@ -61,7 +61,7 @@ final class ConsoleKt$stdin$2 extends Lambda implements kotlin.jvm.a.a<BufferedR
 
             @Override // java.io.InputStream
             public int read(byte[] bArr, int i, int i2) {
-                p.j(bArr, "b");
+                p.k(bArr, "b");
                 return System.in.read(bArr, i, i2);
             }
         }));

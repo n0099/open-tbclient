@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.ar.constants.HttpConstants;
 /* loaded from: classes3.dex */
 public class g extends c {
     public g(Context context) {
@@ -36,7 +35,7 @@ public class g extends c {
                         intent.putExtra("bd.message.rate.GET", System.currentTimeMillis());
                         intent.putExtra("bd.message.rate.MH", true);
                     }
-                    intent.putExtra(HttpConstants.HTTP_APP_ID, e);
+                    intent.putExtra("app_id", e);
                     intent.putExtra("msg_id", h);
                     intent.putExtra("message", bArr);
                     intent.putExtra("message_string", str);

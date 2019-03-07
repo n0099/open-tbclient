@@ -1,9 +1,10 @@
 package com.baidu.tieba.im.message;
 
+import com.baidu.adp.lib.g.b;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import protobuf.AddGroup.AddGroupReqIdl;
 import protobuf.AddGroup.DataReq;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class RequestAddGroupMessage extends TbSocketMessage {
     private String business;
     private int flag;
@@ -117,10 +118,10 @@ public class RequestAddGroupMessage extends TbSocketMessage {
         builder.intro = getIntro();
         builder.portrait = getPortrait();
         builder.position = getPosition();
-        builder.lng = Double.valueOf(com.baidu.adp.lib.g.b.a(getLng(), 0.0d));
+        builder.lng = Double.valueOf(b.a(getLng(), 0.0d));
         builder.groupType = Integer.valueOf(getGroupType());
         builder.flag = Integer.valueOf(getFlag());
-        builder.lat = Double.valueOf(com.baidu.adp.lib.g.b.a(getLat(), 0.0d));
+        builder.lat = Double.valueOf(b.a(getLat(), 0.0d));
         builder.forumId = Integer.valueOf(getForumId());
         AddGroupReqIdl.Builder builder2 = new AddGroupReqIdl.Builder();
         builder2.data = builder.build(false);

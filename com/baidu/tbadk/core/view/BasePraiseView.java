@@ -23,28 +23,27 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.baidu.tbadk.core.data.bb;
+import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.e;
-/* loaded from: classes6.dex */
+import com.baidu.tieba.d;
+/* loaded from: classes3.dex */
 public abstract class BasePraiseView<T> extends LinearLayout {
-    protected View.OnClickListener aFD;
-    protected int aFT;
-    protected int aFU;
-    public int aFV;
-    public int aFW;
-    public int aFX;
-    public int aFY;
-    public int aFZ;
-    protected TextView aGa;
-    protected ImageView aGb;
-    protected ScaleAnimation aGc;
     protected int agreeType;
-    protected long avK;
-    protected long avL;
+    protected long bDh;
+    protected long bDi;
+    protected ScaleAnimation bNL;
+    protected View.OnClickListener bNt;
+    protected int bOc;
+    public int bOd;
+    public int bOe;
+    public int bOf;
+    public int bOg;
+    public int bOh;
+    protected TextView bOi;
+    protected ImageView bOj;
     protected T mData;
     protected String mForumId;
     protected int mFrom;
@@ -52,10 +51,11 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     protected String mPostId;
     private int mSkinType;
     protected String mThreadId;
+    protected int objType;
+
+    public abstract void GR();
 
     public abstract long getNum();
-
-    public abstract void updateUI();
 
     public BasePraiseView(Context context) {
         this(context, null);
@@ -65,42 +65,42 @@ public abstract class BasePraiseView<T> extends LinearLayout {
         super(context, attributeSet);
         this.mSkinType = 3;
         this.agreeType = 2;
-        this.aFT = 3;
-        this.aFU = 1;
+        this.objType = 3;
+        this.bOc = 1;
         this.mFrom = 2;
-        this.aFV = e.j.action_praise_default;
-        this.aFW = e.f.icon_card_like_n;
-        this.aFX = e.f.icon_card_like_s;
-        this.aFY = e.d.cp_cont_j;
-        this.aFZ = e.d.cp_cont_h;
+        this.bOd = d.j.action_praise_default;
+        this.bOe = d.f.icon_card_like_n;
+        this.bOf = d.f.icon_card_like_s;
+        this.bOg = d.C0236d.cp_cont_j;
+        this.bOh = d.C0236d.cp_cont_h;
         this.mThreadId = "";
         this.mForumId = "";
         this.mPostId = "";
         setOrientation(0);
         setGravity(17);
         initView(context);
-        EU();
+        aeg();
     }
 
     protected void initView(Context context) {
         if (context != null) {
-            View inflate = View.inflate(context, e.h.praise_view, this);
-            this.aGa = (TextView) inflate.findViewById(e.g.thread_info_praise_num);
-            this.aGb = (ImageView) inflate.findViewById(e.g.thread_info_praise_img);
+            View inflate = View.inflate(context, d.h.praise_view, this);
+            this.bOi = (TextView) inflate.findViewById(d.g.thread_info_praise_num);
+            this.bOj = (ImageView) inflate.findViewById(d.g.thread_info_praise_img);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void EU() {
+    public void aeg() {
         this.agreeType = 2;
-        this.aFV = e.j.action_praise_default;
-        this.aFY = e.d.cp_cont_j;
-        this.aFZ = e.d.cp_cont_h;
-        this.aFW = e.f.icon_card_like_n;
-        this.aFX = e.f.icon_card_like_s;
+        this.bOd = d.j.action_praise_default;
+        this.bOg = d.C0236d.cp_cont_j;
+        this.bOh = d.C0236d.cp_cont_h;
+        this.bOe = d.f.icon_card_like_n;
+        this.bOf = d.f.icon_card_like_s;
     }
 
-    public StateListDrawable createStateDrawable(int i, int i2) {
+    public StateListDrawable W(int i, int i2) {
         Drawable drawable = al.getDrawable(i);
         Drawable drawable2 = al.getDrawable(i2);
         StateListDrawable stateListDrawable = new StateListDrawable();
@@ -116,27 +116,27 @@ public abstract class BasePraiseView<T> extends LinearLayout {
         return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{16842910, 16842908}, new int[0]}, new int[]{color2, color2, color});
     }
 
-    public void a(int i, bb bbVar) {
+    public void a(int i, bg bgVar) {
         com.baidu.tbadk.data.j jVar = new com.baidu.tbadk.data.j();
-        jVar.aXY = i;
-        jVar.aXZ = bbVar;
+        jVar.chs = i;
+        jVar.cht = bgVar;
         jVar.forumId = this.mForumId;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, jVar));
     }
 
-    public void dZ(int i) {
-        if (this.aGb != null && i == 0) {
-            this.aGb.startAnimation(getScaleAnimation());
+    public void hE(int i) {
+        if (this.bOj != null && i == 0) {
+            this.bOj.startAnimation(getScaleAnimation());
         }
     }
 
-    public void ea(int i) {
+    public void hD(int i) {
         if (this.mData != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
             httpMessage.addParam("z_id", FH.gz(TbadkCoreApplication.getInst()));
             httpMessage.addParam("thread_id", this.mThreadId);
             httpMessage.addParam("op_type", i);
-            httpMessage.addParam("obj_type", this.aFT);
+            httpMessage.addParam("obj_type", this.objType);
             httpMessage.addParam("agree_type", this.agreeType);
             httpMessage.addParam("forum_id", this.mForumId);
             if (!TextUtils.isEmpty(this.mPostId)) {
@@ -150,22 +150,22 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public Animation getScaleAnimation() {
-        if (this.aGc == null) {
-            this.aGc = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
-            this.aGc.setDuration(200L);
+        if (this.bNL == null) {
+            this.bNL = new ScaleAnimation(1.3f, 1.0f, 1.3f, 1.0f, 1, 1.0f, 1, 1.0f);
+            this.bNL.setDuration(200L);
         }
-        return this.aGc;
+        return this.bNL;
     }
 
     public void onChangeSkinType(int i) {
         if (this.mData == null && this.mSkinType != i) {
-            updateUI();
+            GR();
             this.mSkinType = i;
         }
     }
 
     public void setDisPraiseFrom(int i) {
-        this.aFU = i;
+        this.bOc = i;
     }
 
     public void setFrom(int i) {
@@ -173,7 +173,7 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public void setObjType(int i) {
-        this.aFT = i;
+        this.objType = i;
     }
 
     public void setForumId(String str) {
@@ -190,12 +190,12 @@ public abstract class BasePraiseView<T> extends LinearLayout {
 
     public void setViewEnabled(boolean z) {
         setClickable(z);
-        this.aGb.setEnabled(z);
-        this.aGa.setEnabled(z);
+        this.bOj.setEnabled(z);
+        this.bOi.setEnabled(z);
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.aFD = onClickListener;
+        this.bNt = onClickListener;
     }
 
     public TbPageContext<?> getTbPageContext() {
@@ -219,34 +219,34 @@ public abstract class BasePraiseView<T> extends LinearLayout {
     }
 
     public ImageView getImageView() {
-        return this.aGb;
+        return this.bOj;
     }
 
     public TextView getTextView() {
-        return this.aGa;
+        return this.bOi;
     }
 
-    public void bA(boolean z) {
+    public void dI(boolean z) {
         am amVar = new am("c13271");
-        amVar.aB("uid", TbadkCoreApplication.getCurrentAccount());
-        amVar.aB(ImageViewerConfig.FORUM_ID, this.mForumId);
-        amVar.aB("tid", this.mThreadId);
-        amVar.aB("post_id", this.mPostId);
-        amVar.y("obj_type", getObjType());
-        amVar.y("obj_locate", getObjLocate());
-        amVar.y(VideoPlayActivityConfig.OBJ_ID, z ? 1 : 0);
-        amVar.y("obj_param1", com.baidu.tbadk.util.a.Qb().Gt() ? 1 : 0);
+        amVar.bJ("uid", TbadkCoreApplication.getCurrentAccount());
+        amVar.bJ(ImageViewerConfig.FORUM_ID, this.mForumId);
+        amVar.bJ("tid", this.mThreadId);
+        amVar.bJ("post_id", this.mPostId);
+        amVar.T("obj_type", getObjType());
+        amVar.T("obj_locate", getObjLocate());
+        amVar.T(VideoPlayActivityConfig.OBJ_ID, z ? 1 : 0);
+        amVar.T("obj_param1", com.baidu.tbadk.util.a.apM().afN() ? 1 : 0);
         TiebaStatic.log(amVar);
     }
 
     private int getObjLocate() {
-        return this.aFU;
+        return this.bOc;
     }
 
     private int getObjType() {
-        if (this.aFT == 1) {
+        if (this.objType == 1) {
             return 2;
         }
-        return this.aFT == 2 ? 3 : 1;
+        return this.objType == 2 ? 3 : 1;
     }
 }

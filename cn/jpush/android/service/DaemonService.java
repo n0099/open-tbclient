@@ -46,7 +46,7 @@ public class DaemonService extends Service implements Runnable {
                 str2 = bundle.getString("from_uid");
                 str3 = bundle.getString("awake_sequence");
             }
-            cn.jiguang.d.i.f.ck().cl().a(this, i, z, str, str2, str3);
+            cn.jiguang.d.i.f.cj().ck().a(this, i, z, str, str2, str3);
         }
     }
 

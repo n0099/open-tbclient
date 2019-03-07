@@ -6,42 +6,42 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import tbclient.SimpleUser;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b {
-    private BaseActivity bBW;
-    private LinearLayout bCb;
-    private TbSettingTextTipView bCc;
-    private TbSettingTextTipView bCd;
+    private BaseActivity cNd;
+    private LinearLayout cNi;
+    private TbSettingTextTipView cNj;
+    private TbSettingTextTipView cNk;
     private final View.OnClickListener mOnClickListener;
     private LinearLayout mRootLayout;
 
     public b(BaseActivity baseActivity, View.OnClickListener onClickListener) {
-        this.bBW = baseActivity;
+        this.cNd = baseActivity;
         this.mOnClickListener = onClickListener;
-        KN();
+        akr();
     }
 
-    private void KN() {
-        this.mRootLayout = (LinearLayout) LayoutInflater.from(this.bBW).inflate(e.h.account_safe_activity, (ViewGroup) null);
-        this.bCb = (LinearLayout) this.mRootLayout.findViewById(e.g.content_container);
-        this.bCc = (TbSettingTextTipView) this.mRootLayout.findViewById(e.g.bar_record);
-        this.bCd = (TbSettingTextTipView) this.mRootLayout.findViewById(e.g.account_status);
-        this.bCc.KP();
-        this.bCd.KP();
-        this.bCc.setOnClickListener(this.mOnClickListener);
-        this.bCd.setOnClickListener(this.mOnClickListener);
+    private void akr() {
+        this.mRootLayout = (LinearLayout) LayoutInflater.from(this.cNd).inflate(d.h.account_safe_activity, (ViewGroup) null);
+        this.cNi = (LinearLayout) this.mRootLayout.findViewById(d.g.content_container);
+        this.cNj = (TbSettingTextTipView) this.mRootLayout.findViewById(d.g.bar_record);
+        this.cNk = (TbSettingTextTipView) this.mRootLayout.findViewById(d.g.account_status);
+        this.cNj.akt();
+        this.cNk.akt();
+        this.cNj.setOnClickListener(this.mOnClickListener);
+        this.cNk.setOnClickListener(this.mOnClickListener);
     }
 
-    public void fv(int i) {
-        this.bBW.getLayoutMode().setNightMode(i == 1);
-        this.bBW.getLayoutMode().onModeChanged(this.mRootLayout);
+    public void jg(int i) {
+        this.cNd.getLayoutMode().setNightMode(i == 1);
+        this.cNd.getLayoutMode().onModeChanged(this.mRootLayout);
     }
 
     public void a(SimpleUser simpleUser) {
         if (simpleUser != null) {
-            this.bCd.setTip(simpleUser.block_msg);
+            this.cNk.setTip(simpleUser.block_msg);
         }
     }
 
@@ -51,6 +51,6 @@ public class b {
 
     public void release() {
         this.mRootLayout.removeAllViews();
-        this.bBW = null;
+        this.cNd = null;
     }
 }

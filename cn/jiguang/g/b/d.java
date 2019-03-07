@@ -7,7 +7,6 @@ import android.content.SharedPreferences;
 import android.content.pm.ProviderInfo;
 import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.fsg.base.armor.RimArmor;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -20,7 +19,7 @@ public final class d {
     private final String a;
     private String b;
     private SharedPreferences c;
-    private ContentResolver mN;
+    private ContentResolver mM;
 
     private d(Context context, String str) {
         this.a = str;
@@ -69,7 +68,7 @@ public final class d {
                     this.c = X2.getSharedPreferences(this.a, 0);
                     if (e.booleanValue()) {
                         this.b = "content://" + X2.getPackageName() + ".DataProvider/" + this.a;
-                        this.mN = X2.getContentResolver();
+                        this.mM = X2.getContentResolver();
                     }
                     return true;
                 }
@@ -98,7 +97,7 @@ public final class d {
         if (a((Context) null)) {
             if (e.booleanValue()) {
                 try {
-                    return c.a(this.mN, this.b, aVar);
+                    return c.a(this.mM, this.b, aVar);
                 } catch (Throwable th) {
                     return b.a(this.c, aVar);
                 }
@@ -126,7 +125,7 @@ public final class d {
         if (a((Context) null)) {
             if (e.booleanValue()) {
                 try {
-                    return c.b(this.mN, this.b, aVar);
+                    return c.b(this.mM, this.b, aVar);
                 } catch (Throwable th) {
                     return b.b(this.c, aVar);
                 }
@@ -140,7 +139,7 @@ public final class d {
         if (a((Context) null)) {
             if (e.booleanValue()) {
                 try {
-                    String type = this.mN.getType(Uri.parse(this.b).buildUpon().appendQueryParameter(RimArmor.KEY, str).appendQueryParameter("type", String.valueOf(a.b(t))).build());
+                    String type = this.mM.getType(Uri.parse(this.b).buildUpon().appendQueryParameter("key", str).appendQueryParameter("type", String.valueOf(a.b(t))).build());
                     if (type != null) {
                         t = t == null ? type : t instanceof Integer ? Integer.valueOf(type) : t instanceof Boolean ? Boolean.valueOf(type) : t instanceof Long ? Long.valueOf(type) : t instanceof Float ? Float.valueOf(type) : t instanceof String ? type : t instanceof HashSet ? null : null;
                     }
@@ -158,7 +157,7 @@ public final class d {
         if (a((Context) null)) {
             if (e.booleanValue()) {
                 try {
-                    return c.a(this.mN, this.b, str, t);
+                    return c.a(this.mM, this.b, str, t);
                 } catch (Throwable th) {
                     return b.b(this.c, str, t);
                 }

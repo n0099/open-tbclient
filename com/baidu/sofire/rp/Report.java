@@ -1,6 +1,7 @@
 package com.baidu.sofire.rp;
 
 import android.content.Context;
+import android.os.Message;
 import com.baidu.sofire.b;
 import com.baidu.sofire.b.e;
 import com.baidu.sofire.b.f;
@@ -28,33 +29,37 @@ public class Report {
         try {
             e.a(this.b, str, str2, str3, str4, str5);
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 
     public void s(String str) {
         try {
-            b.a("send log : " + str);
+            b.a();
             e.b(this.b, str);
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 
     public void sr(String str) {
         try {
-            b.a("send log : " + str);
-            f.a(this.b).a(str);
+            b.a();
+            f a2 = f.a(this.b);
+            Message message = new Message();
+            message.what = 11;
+            message.obj = str;
+            a2.a.a(message);
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 
     public void r(boolean z) {
         try {
-            f.a(this.b).a(z);
+            f.a(this.b).a();
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 
@@ -62,23 +67,29 @@ public class Report {
         try {
             e.c(this.b, str);
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 
     public void n() {
         try {
-            f.a(this.b).d();
+            f a2 = f.a(this.b);
+            Message message = new Message();
+            message.what = 6;
+            a2.a.a(message);
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 
     public void fr() {
         try {
-            f.a(this.b).e();
+            f a2 = f.a(this.b);
+            Message message = new Message();
+            message.what = 9;
+            a2.a.a(message);
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 }

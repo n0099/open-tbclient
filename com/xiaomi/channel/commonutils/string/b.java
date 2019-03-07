@@ -9,11 +9,12 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class b {
     public static String a(String str) {
         try {
-            return String.valueOf(a.a(MessageDigest.getInstance("SHA1").digest(str.getBytes("UTF-8"))));
+            return String.valueOf(a.a(MessageDigest.getInstance("SHA1").digest(str.getBytes(HTTP.UTF_8))));
         } catch (UnsupportedEncodingException e) {
             com.xiaomi.channel.commonutils.logger.b.a("CloudCoder.hash4SHA1 ", e);
             throw new IllegalStateException("failed to SHA1");

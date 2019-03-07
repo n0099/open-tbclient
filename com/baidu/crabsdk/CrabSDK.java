@@ -23,17 +23,19 @@ import com.baidu.crabsdk.b.r;
 import com.baidu.crabsdk.b.s;
 import com.baidu.crabsdk.b.t;
 import com.baidu.crabsdk.sender.NativeCrashHandler;
-import com.baidu.searchbox.ng.ai.apps.media.audio.AiAppsAudioPlayer;
+import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import com.baidu.sapi2.base.network.Apn;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.sina.weibo.sdk.statistic.LogBuilder;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class CrabSDK {
     private static Application R;
-    public static String NDK_VERSION = AiAppsAudioPlayer.ERROR_UNKNOWN;
+    public static String NDK_VERSION = LivenessStat.TYPE_STRING_DEFAULT;
     public static String FILE_PATH = "/sdcard";
     public static int CURRENT_PID = 0;
     private static boolean S = false;
@@ -46,7 +48,7 @@ public class CrabSDK {
         try {
             NativeCrashHandler.ae().ag();
         } catch (Exception e) {
-            com.baidu.crabsdk.c.a.cK("callAfterNativeMethod error!");
+            com.baidu.crabsdk.c.a.cy("callAfterNativeMethod error!");
         }
     }
 
@@ -63,12 +65,12 @@ public class CrabSDK {
                     }
                 }
             }
-            com.baidu.crabsdk.c.a.cI("java堆栈信息是：\n" + sb.toString());
+            com.baidu.crabsdk.c.a.cw("java堆栈信息是：\n" + sb.toString());
             JSONObject jSONObject = new JSONObject();
             try {
                 str = q.L();
             } catch (Exception e) {
-                str = "N/A";
+                str = Apn.APN_UNKNOWN;
                 com.baidu.crabsdk.c.a.f("StorageCollector in callBeforeNativeMethod Error!!", e);
             }
             try {
@@ -81,7 +83,7 @@ public class CrabSDK {
                 jSONObject.put("usersCustom", s.P());
                 jSONObject.put("batteryRate", g.w());
                 if (stackTrace == null) {
-                    jSONObject.put("javaLine", "N/A");
+                    jSONObject.put("javaLine", Apn.APN_UNKNOWN);
                 } else if (stackTrace.length < 4) {
                     jSONObject.put("javaLine", stackTrace[stackTrace.length - 1]);
                 } else {
@@ -89,10 +91,10 @@ public class CrabSDK {
                 }
                 jSONObject.put("errorTrace", sb.toString());
                 jSONObject.put("CUID", h.g(application));
-                jSONObject.put("channel", a.b);
+                jSONObject.put(LogBuilder.KEY_CHANNEL, a.b);
                 jSONObject.put("myAppCPUStat", e.v());
                 jSONObject.put("curPage", com.baidu.crabsdk.b.a.q());
-                jSONObject.put("startupTime", com.baidu.crabsdk.b.a.rp());
+                jSONObject.put("startupTime", com.baidu.crabsdk.b.a.rP());
                 jSONObject.put("pageHistory", com.baidu.crabsdk.b.a.p());
                 jSONObject.put("logcat", "");
                 jSONObject.put("sysMemInfo", l.A());
@@ -102,7 +104,7 @@ public class CrabSDK {
                 com.baidu.crabsdk.c.a.f("callBeforeNativeMethod JSON Format Error!!", e2);
             }
             try {
-                NativeCrashHandler.ae().q(com.baidu.crabsdk.c.d.cN(jSONObject.toString()));
+                NativeCrashHandler.ae().q(com.baidu.crabsdk.c.d.cB(jSONObject.toString()));
             } catch (Exception e3) {
                 com.baidu.crabsdk.c.a.f("call native method nRequiredVarParams error!!", e3);
             }
@@ -116,12 +118,12 @@ public class CrabSDK {
     }
 
     public static void disableBlockCatch() {
-        if (b.rk() == null) {
-            com.baidu.crabsdk.c.a.cK("Block Monitor has never been enabled!");
+        if (b.rK() == null) {
+            com.baidu.crabsdk.c.a.cy("Block Monitor has never been enabled!");
             return;
         }
-        b.rk().stop();
-        c.bg(R);
+        b.rK().stop();
+        c.ba(R);
         c.stop();
     }
 
@@ -140,13 +142,13 @@ public class CrabSDK {
 
     public static void enableBlockCatch(int i) {
         if (Build.VERSION.SDK_INT < 16) {
-            com.baidu.crabsdk.c.a.cK("ERROR! BlockCatch only can be enabled when SDK_INT >= 16");
+            com.baidu.crabsdk.c.a.cy("ERROR! BlockCatch only can be enabled when SDK_INT >= 16");
             return;
         }
         setUploadLimitOfBlockInOneday(i);
-        if (com.baidu.crabsdk.sender.e.rE()) {
-            b.be(R).start();
-            c.bg(R);
+        if (com.baidu.crabsdk.sender.e.sf()) {
+            b.aY(R).start();
+            c.ba(R);
             c.start();
         }
     }
@@ -157,24 +159,24 @@ public class CrabSDK {
     }
 
     public static HashMap<String, String> getUsersCustomKV() {
-        return s.rt();
+        return s.rU();
     }
 
     public static void init(Application application, String str) {
         long currentTimeMillis = System.currentTimeMillis();
-        com.baidu.crabsdk.c.a.cK("crab init begin: " + currentTimeMillis);
+        com.baidu.crabsdk.c.a.cy("crab init begin: " + currentTimeMillis);
         a.d = str;
         if (application == null) {
-            com.baidu.crabsdk.c.a.cK("crab init error caused by applcation null value");
+            com.baidu.crabsdk.c.a.cy("crab init error caused by applcation null value");
             return;
         }
         R = application;
         FILE_PATH = application.getFilesDir().getAbsolutePath();
-        com.baidu.crabsdk.c.a.cJ("FILE_PATH IS : " + FILE_PATH);
+        com.baidu.crabsdk.c.a.cx("FILE_PATH IS : " + FILE_PATH);
         initData(R, str);
         long currentTimeMillis2 = System.currentTimeMillis();
         a.J = false;
-        com.baidu.crabsdk.c.a.cK("crab init end: " + currentTimeMillis2 + ", cost: " + (currentTimeMillis2 - currentTimeMillis) + "ms");
+        com.baidu.crabsdk.c.a.cy("crab init end: " + currentTimeMillis2 + ", cost: " + (currentTimeMillis2 - currentTimeMillis) + "ms");
     }
 
     public static void initAnrCollector(Application application, String str) {
@@ -206,10 +208,10 @@ public class CrabSDK {
         boolean z;
         int myPid = Process.myPid();
         CURRENT_PID = myPid;
-        com.baidu.crabsdk.c.a.cH("CrabSDK.init from " + R.getPackageName() + " with pid " + myPid);
+        com.baidu.crabsdk.c.a.cv("CrabSDK.init from " + R.getPackageName() + " with pid " + myPid);
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) application.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
         if (runningAppProcesses == null || runningAppProcesses.size() == 0) {
-            com.baidu.crabsdk.c.a.cH("getRunningAppProcesses error!!");
+            com.baidu.crabsdk.c.a.cv("getRunningAppProcesses error!!");
             return;
         }
         Iterator<ActivityManager.RunningAppProcessInfo> it = runningAppProcesses.iterator();
@@ -222,11 +224,11 @@ public class CrabSDK {
             if (next.pid == myPid) {
                 if (next.processName.equals(application.getPackageName())) {
                     S = true;
-                    com.baidu.crabsdk.c.a.cH("Main process " + next.processName + ".");
+                    com.baidu.crabsdk.c.a.cv("Main process " + next.processName + ".");
                     z = true;
                 } else {
                     S = false;
-                    com.baidu.crabsdk.c.a.cH("Sub process " + next.processName + ".");
+                    com.baidu.crabsdk.c.a.cv("Sub process " + next.processName + ".");
                     z = true;
                 }
             }
@@ -234,7 +236,7 @@ public class CrabSDK {
         if (z) {
             initCrashSwitch(application);
             initCollector(application);
-            com.baidu.crabsdk.sender.c.rz().d(application);
+            com.baidu.crabsdk.sender.c.sa().d(application);
             initAnrCollector(application, str);
         }
     }
@@ -268,15 +270,15 @@ public class CrabSDK {
 
     public static void resumeAnrWatchThread() {
         try {
-            Thread rr = com.baidu.crabsdk.b.c.rr();
-            if (rr == null) {
+            Thread rR = com.baidu.crabsdk.b.c.rR();
+            if (rR == null) {
                 initAnrCollector(R, a.d);
-                com.baidu.crabsdk.c.a.cJ("ANR watch thread is null, init anrCollector again");
+                com.baidu.crabsdk.c.a.cx("ANR watch thread is null, init anrCollector again");
             } else if (a.I) {
                 com.baidu.crabsdk.c.a.v("ANR watch thread is running");
             } else {
                 a.I = true;
-                new Thread(rr).start();
+                new Thread(rR).start();
             }
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("resumeAnrWatchThread->Exception", e);
@@ -296,7 +298,7 @@ public class CrabSDK {
             com.baidu.crabsdk.a.a.U = i;
             return;
         }
-        com.baidu.crabsdk.c.a.cK("You Are Strongly Recommended To Set Threshold Not Less Than 1000ms!!");
+        com.baidu.crabsdk.c.a.cy("You Are Strongly Recommended To Set Threshold Not Less Than 1000ms!!");
         com.baidu.crabsdk.a.a.U = 1000;
     }
 
@@ -405,9 +407,9 @@ public class CrabSDK {
     }
 
     public static void setUsersCustomKV(String str, String str2) {
-        HashMap<String, String> rt = s.rt();
-        rt.put(str, str2);
-        setUsersCustomKV(rt);
+        HashMap<String, String> rU = s.rU();
+        rU.put(str, str2);
+        setUsersCustomKV(rU);
     }
 
     public static void setUsersCustomKV(HashMap<String, String> hashMap) {
@@ -435,7 +437,7 @@ public class CrabSDK {
     }
 
     private static void uploadRecord(Application application) {
-        if (!com.baidu.crabsdk.sender.e.rB() || a.D) {
+        if (!com.baidu.crabsdk.sender.e.sc() || a.D) {
             return;
         }
         com.baidu.crabsdk.sender.h.a(true, (Context) application);

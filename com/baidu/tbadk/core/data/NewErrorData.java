@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -22,7 +21,7 @@ public class NewErrorData implements Serializable {
     public void parserJson(String str) {
         if (str != null) {
             try {
-                parserJson(new JSONObject(str).optJSONObject(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR));
+                parserJson(new JSONObject(str).optJSONObject("error"));
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }

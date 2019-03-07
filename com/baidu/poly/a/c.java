@@ -4,9 +4,9 @@ import com.baidu.poly.a.c;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public abstract class c<T extends c> {
-    private Map<String, String> map = com.baidu.poly.util.b.uE();
+    private Map<String, String> map = com.baidu.poly.util.b.tG();
 
-    public T ah(String str, String str2) {
+    public T U(String str, String str2) {
         this.map.put(str, str2);
         return this;
     }
@@ -15,7 +15,7 @@ public abstract class c<T extends c> {
         return this.map.get(str);
     }
 
-    public Map<String, String> ut() {
+    public Map<String, String> tv() {
         return this.map;
     }
 }

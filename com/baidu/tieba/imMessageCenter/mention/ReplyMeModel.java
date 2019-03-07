@@ -6,18 +6,18 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class ReplyMeModel extends BdBaseModel {
-    private BdUniqueId fiv;
-    private a fiw;
-    private com.baidu.adp.framework.listener.c fiy;
+    private BdUniqueId gyv;
+    private a gyw;
+    private com.baidu.adp.framework.listener.c gyx;
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes4.dex */
     public interface a {
-        void a(long j, long j2, long j3, String str);
+        void a(long j, long j2, long j3, String str, long j4);
     }
 
     static {
@@ -26,9 +26,9 @@ public class ReplyMeModel extends BdBaseModel {
 
     public ReplyMeModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.fiv = BdUniqueId.gen();
+        this.gyv = BdUniqueId.gen();
         this.mPageContext = tbPageContext;
-        aXl();
+        bxO();
     }
 
     public void a(long j, int i, String str, String str2) {
@@ -41,13 +41,13 @@ public class ReplyMeModel extends BdBaseModel {
         sendMessage(checkPostRequestMessage);
     }
 
-    public void aXl() {
-        this.fiy = new com.baidu.adp.framework.listener.c(303010) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
+    public void bxO() {
+        this.gyx = new com.baidu.adp.framework.listener.c(303010) { // from class: com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-                if (socketResponsedMessage == null || !(socketResponsedMessage instanceof CheckPostResponseMessage)) {
-                    ReplyMeModel.this.mPageContext.showToast(e.j.neterror);
+                if (!(socketResponsedMessage instanceof CheckPostResponseMessage)) {
+                    ReplyMeModel.this.mPageContext.showToast(d.j.neterror);
                     return;
                 }
                 CheckPostResponseMessage checkPostResponseMessage = (CheckPostResponseMessage) socketResponsedMessage;
@@ -56,7 +56,7 @@ public class ReplyMeModel extends BdBaseModel {
                         ReplyMeModel.this.mPageContext.showToast(checkPostResponseMessage.getErrorString());
                         return;
                     } else {
-                        ReplyMeModel.this.mPageContext.showToast(e.j.neterror);
+                        ReplyMeModel.this.mPageContext.showToast(d.j.neterror);
                         return;
                     }
                 }
@@ -65,20 +65,24 @@ public class ReplyMeModel extends BdBaseModel {
                 long quoteId = checkPostResponseMessage.getQuoteId();
                 long repostId = checkPostResponseMessage.getRepostId();
                 String forumName = checkPostResponseMessage.getForumName();
+                long j = 0;
+                if (checkPostResponseMessage.getOrginalMessage() instanceof CheckPostRequestMessage) {
+                    j = ((CheckPostRequestMessage) checkPostResponseMessage.getOrginalMessage()).getTid();
+                }
                 if (postState == 1) {
-                    if (ReplyMeModel.this.fiw != null) {
-                        ReplyMeModel.this.fiw.a(forumId, quoteId, repostId, forumName);
+                    if (ReplyMeModel.this.gyw != null) {
+                        ReplyMeModel.this.gyw.a(forumId, quoteId, repostId, forumName, j);
                     }
                 } else if (postState == 0) {
-                    ReplyMeModel.this.mPageContext.showToast(e.j.thread_delete_tip);
+                    ReplyMeModel.this.mPageContext.showToast(d.j.thread_delete_tip);
                 } else if (postState == -1) {
-                    ReplyMeModel.this.mPageContext.showToast(e.j.thread_shield_tip);
+                    ReplyMeModel.this.mPageContext.showToast(d.j.thread_shield_tip);
                 }
             }
         };
-        this.fiy.setTag(this.mPageContext.getUniqueId());
-        this.fiy.setSelfListener(true);
-        this.mPageContext.registerListener(this.fiy);
+        this.gyx.setTag(this.mPageContext.getUniqueId());
+        this.gyx.setSelfListener(true);
+        this.mPageContext.registerListener(this.gyx);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -92,12 +96,12 @@ public class ReplyMeModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.fiw = aVar;
+        this.gyw = aVar;
     }
 
     public void onDestroy() {
-        if (this.fiy != null) {
-            MessageManager.getInstance().unRegisterListener(this.fiy);
+        if (this.gyx != null) {
+            MessageManager.getInstance().unRegisterListener(this.gyx);
         }
     }
 }

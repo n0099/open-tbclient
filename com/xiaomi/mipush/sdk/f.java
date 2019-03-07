@@ -1,7 +1,7 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
-import com.baidu.searchbox.ng.ai.apps.media.audio.AiAppsAudioPlayer;
+import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.xiaomi.xmpush.thrift.ae;
 import com.xiaomi.xmpush.thrift.aq;
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ public class f {
 
     private void a(com.xiaomi.xmpush.thrift.j jVar) {
         byte[] a2 = aq.a(jVar);
-        ae aeVar = new ae(AiAppsAudioPlayer.ERROR_UNKNOWN, false);
+        ae aeVar = new ae(LivenessStat.TYPE_STRING_DEFAULT, false);
         aeVar.c(com.xiaomi.xmpush.thrift.o.GeoPackageUninstalled.N);
         aeVar.a(a2);
         u.a(this.c).a(aeVar, com.xiaomi.xmpush.thrift.a.Notification, true, null);
@@ -51,7 +51,7 @@ public class f {
 
     private void a(com.xiaomi.xmpush.thrift.j jVar, boolean z) {
         byte[] a2 = aq.a(jVar);
-        ae aeVar = new ae(AiAppsAudioPlayer.ERROR_UNKNOWN, false);
+        ae aeVar = new ae(LivenessStat.TYPE_STRING_DEFAULT, false);
         aeVar.c(z ? com.xiaomi.xmpush.thrift.o.GeoRegsiterResult.N : com.xiaomi.xmpush.thrift.o.GeoUnregsiterResult.N);
         aeVar.a(a2);
         u.a(this.c).a(aeVar, com.xiaomi.xmpush.thrift.a.Notification, true, null);
@@ -111,7 +111,7 @@ public class f {
         if (com.xiaomi.push.service.h.a(this.c) && com.xiaomi.push.service.h.b(this.c) && com.xiaomi.channel.commonutils.android.b.f(this.c, aeVar.i)) {
             com.xiaomi.xmpush.thrift.s a2 = a();
             byte[] a3 = aq.a(a2);
-            ae aeVar2 = new ae(AiAppsAudioPlayer.ERROR_UNKNOWN, false);
+            ae aeVar2 = new ae(LivenessStat.TYPE_STRING_DEFAULT, false);
             aeVar2.c(com.xiaomi.xmpush.thrift.o.GeoUpload.N);
             aeVar2.a(a3);
             u.a(this.c).a(aeVar2, com.xiaomi.xmpush.thrift.a.Notification, true, null);

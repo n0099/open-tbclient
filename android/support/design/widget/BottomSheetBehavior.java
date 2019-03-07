@@ -527,7 +527,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         if (this.mSkipCollapsed) {
             return true;
         }
-        return view.getTop() >= this.mMaxOffset && Math.abs((((float) view.getTop()) + (HIDE_FRICTION * f)) - ((float) this.mMaxOffset)) / ((float) this.mPeekHeight) > 0.5f;
+        return view.getTop() >= this.mMaxOffset && Math.abs((((float) view.getTop()) + (HIDE_FRICTION * f)) - ((float) this.mMaxOffset)) / ((float) this.mPeekHeight) > HIDE_THRESHOLD;
     }
 
     @VisibleForTesting

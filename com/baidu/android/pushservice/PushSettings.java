@@ -8,7 +8,7 @@ import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.j.l;
 import com.baidu.android.pushservice.j.m;
-import com.baidu.searchbox.ng.ai.apps.ar.model.ARCameraAttr;
+import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes3.dex */
 public class PushSettings {
     private static int a = -1;
@@ -82,21 +82,21 @@ public class PushSettings {
         String a2 = com.baidu.android.pushservice.j.j.a(context, "com.baidu.pushservice.le");
         if (TextUtils.isEmpty(a2)) {
             if (z) {
-                com.baidu.android.pushservice.j.j.a(context, "com.baidu.pushservice.le", context.getPackageName() + ",");
+                com.baidu.android.pushservice.j.j.a(context, "com.baidu.pushservice.le", context.getPackageName() + Constants.ACCEPT_TIME_SEPARATOR_SP);
                 return;
             }
             return;
         }
         StringBuilder sb = new StringBuilder();
-        for (String str : a2.trim().split(",")) {
+        for (String str : a2.trim().split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
             if (str.equals(context.getPackageName())) {
                 z2 = true;
                 i = z ? 0 : i + 1;
             }
-            sb.append(str + ",");
+            sb.append(str + Constants.ACCEPT_TIME_SEPARATOR_SP);
         }
         if (!z2) {
-            sb.append(context.getPackageName() + ",");
+            sb.append(context.getPackageName() + Constants.ACCEPT_TIME_SEPARATOR_SP);
         }
         com.baidu.android.pushservice.j.j.a(context, "com.baidu.pushservice.le", sb.toString());
     }
@@ -126,10 +126,10 @@ public class PushSettings {
             return;
         }
         StringBuilder sb = new StringBuilder();
-        String[] split = a2.trim().split(",");
+        String[] split = a2.trim().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
         for (String str2 : split) {
             if (!str2.equals(str)) {
-                sb.append(str2 + ",");
+                sb.append(str2 + Constants.ACCEPT_TIME_SEPARATOR_SP);
             }
         }
         com.baidu.android.pushservice.j.j.a(context, "com.baidu.pushservice.le", sb.toString());
@@ -185,7 +185,7 @@ public class PushSettings {
     public static void h(Context context) {
         if (context == null) {
         }
-        com.baidu.android.pushservice.j.j.a(context, "com.baidu.pushservice.lms", ARCameraAttr.FlashType.FLASH_OFF);
+        com.baidu.android.pushservice.j.j.a(context, "com.baidu.pushservice.lms", "off");
     }
 
     public static void i(Context context) {
@@ -203,7 +203,7 @@ public class PushSettings {
             return;
         }
         StringBuilder sb = new StringBuilder();
-        String[] split = a2.trim().split(",");
+        String[] split = a2.trim().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
         PackageManager packageManager = context.getPackageManager();
         for (String str : split) {
             PackageInfo packageInfo = null;
@@ -212,7 +212,7 @@ public class PushSettings {
             } catch (Exception e2) {
             }
             if (packageInfo != null) {
-                sb.append(str + ",");
+                sb.append(str + Constants.ACCEPT_TIME_SEPARATOR_SP);
             }
         }
         com.baidu.android.pushservice.j.j.a(context, "com.baidu.pushservice.le", sb.toString());

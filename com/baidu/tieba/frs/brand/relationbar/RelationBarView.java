@@ -7,21 +7,19 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.widget.layout.ForbidParentSwipeBackLinearLayout;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import java.util.List;
 import tbclient.OriForumInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
-    private a dRX;
+    private a ffY;
     private RecyclerView mRecyclerView;
     private int mSkinType;
-    private TextView mTitleView;
 
     public RelationBarView(Context context) {
         super(context);
@@ -42,35 +40,34 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(e.h.frs_brand_relation_bar_layout, (ViewGroup) this, true);
+        LayoutInflater.from(context).inflate(d.h.frs_brand_relation_bar_layout, (ViewGroup) this, true);
         setOrientation(1);
-        this.mTitleView = (TextView) findViewById(e.g.frs_brand_bar_title);
-        this.mRecyclerView = (RecyclerView) findViewById(e.g.frs_brand_bar_list);
-        this.dRX = new a(context);
-        this.mRecyclerView.setAdapter(this.dRX);
+        this.mRecyclerView = (RecyclerView) findViewById(d.g.frs_brand_bar_list);
+        this.ffY = new a(context);
+        this.mRecyclerView.setAdapter(this.ffY);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
         this.mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        this.mRecyclerView.addItemDecoration(new c(l.h(context, e.C0210e.tbds44), l.h(context, e.C0210e.tbds22), l.h(context, e.C0210e.tbds44)));
+        int h = l.h(context, d.e.tbds44);
+        this.mRecyclerView.addItemDecoration(new c(h, l.h(context, d.e.tbds26), h));
         onChangeSkinType();
     }
 
     public void setData(List<OriForumInfo> list) {
-        if (v.I(list)) {
+        if (v.T(list)) {
             setVisibility(8);
             return;
         }
         setVisibility(0);
-        this.dRX.setData(list);
-        this.dRX.notifyDataSetChanged();
+        this.ffY.setData(list);
+        this.ffY.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            al.j(this, e.d.cp_bg_line_e);
-            al.h(this.mTitleView, e.d.cp_cont_f);
-            this.dRX.notifyDataSetChanged();
+            al.l(this, d.C0236d.cp_bg_line_e);
+            this.ffY.notifyDataSetChanged();
         }
     }
 }

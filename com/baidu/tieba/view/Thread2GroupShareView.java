@@ -9,61 +9,61 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public final class Thread2GroupShareView extends LinearLayout {
-    private LinearLayout aKl;
-    private TbImageView eII;
-    private EditText ekN;
-    private TextView ele;
-    private ShareFromPBMsgData fdX;
+    private LinearLayout bFu;
+    private TbImageView fYI;
+    private TextView fYJ;
+    private EditText fzZ;
+    private ShareFromPBMsgData gud;
     private TextView title;
 
     public EditText getChatMsgView() {
-        return this.ekN;
+        return this.fzZ;
     }
 
-    public void M(String str, boolean z) {
-        if (this.eII != null) {
-            this.eII.startLoad(str, z ? 17 : 18, false);
+    public void af(String str, boolean z) {
+        if (this.fYI != null) {
+            this.fYI.startLoad(str, z ? 17 : 18, false);
         }
     }
 
     public Thread2GroupShareView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        cr(context);
+        aX(context);
     }
 
     public Thread2GroupShareView(Context context) {
         super(context);
-        cr(context);
+        aX(context);
     }
 
-    private void cr(Context context) {
-        LayoutInflater.from(context).inflate(e.h.thread_to_group_share_view, this);
+    private void aX(Context context) {
+        LayoutInflater.from(context).inflate(d.h.thread_to_group_share_view, this);
         setOrientation(1);
-        this.aKl = (LinearLayout) findViewById(e.g.share_content);
-        this.title = (TextView) findViewById(e.g.share_title_view);
-        this.ekN = (EditText) findViewById(e.g.chat_msg);
-        this.eII = (TbImageView) findViewById(e.g.chat_group_img);
-        this.ele = (TextView) findViewById(e.g.chat_group_desc);
-        al.c(this.title, e.d.cp_cont_b, 1);
-        al.c(this.ekN, e.d.cp_cont_b, 2);
-        al.c(this.ele, e.d.cp_cont_f, 1);
-        this.ekN.setHintTextColor(al.getColor(e.d.cp_cont_e));
-        this.ekN.setPadding(context.getResources().getDimensionPixelSize(e.C0210e.ds20), 0, 0, 0);
-        aJl();
+        this.bFu = (LinearLayout) findViewById(d.g.share_content);
+        this.title = (TextView) findViewById(d.g.share_title_view);
+        this.fzZ = (EditText) findViewById(d.g.chat_msg);
+        this.fYI = (TbImageView) findViewById(d.g.chat_group_img);
+        this.fYJ = (TextView) findViewById(d.g.chat_group_desc);
+        al.d(this.title, d.C0236d.cp_cont_b, 1);
+        al.d(this.fzZ, d.C0236d.cp_cont_b, 2);
+        al.d(this.fYJ, d.C0236d.cp_cont_f, 1);
+        this.fzZ.setHintTextColor(al.getColor(d.C0236d.cp_cont_e));
+        this.fzZ.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
+        bkh();
     }
 
-    public void aJl() {
-        this.aKl.setFocusable(true);
-        this.aKl.setFocusableInTouchMode(true);
-        this.aKl.requestFocus();
+    public void bkh() {
+        this.bFu.setFocusable(true);
+        this.bFu.setFocusableInTouchMode(true);
+        this.bFu.requestFocus();
     }
 
     public String getLeaveMsg() {
-        if (this.ekN != null) {
-            return com.baidu.adp.lib.util.k.a(this.ekN.getText(), null);
+        if (this.fzZ != null) {
+            return com.baidu.adp.lib.util.k.a(this.fzZ.getText(), null);
         }
         return null;
     }
@@ -76,13 +76,13 @@ public final class Thread2GroupShareView extends LinearLayout {
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.fdX = shareFromPBMsgData;
-        updateUI();
+        this.gud = shareFromPBMsgData;
+        GR();
     }
 
-    private void updateUI() {
-        this.title.setText(this.fdX.getTitle());
-        this.eII.setTag(this.fdX.getImageUrl());
-        this.ele.setText(this.fdX.getContent());
+    private void GR() {
+        this.title.setText(this.gud.getTitle());
+        this.fYI.setTag(this.gud.getImageUrl());
+        this.fYJ.setText(this.gud.getContent());
     }
 }

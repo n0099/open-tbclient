@@ -1,19 +1,35 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.AwardUser;
+import com.baidu.adp.lib.util.BdLog;
+import org.json.JSONObject;
+import tbclient.AppCode;
 /* loaded from: classes.dex */
 public class g {
-    private String aqM;
-    private int aqO;
-    private long mUserId;
-    private String mUserName;
+    private String button_text;
+    private String game_icon;
+    private String post_url;
 
-    public void a(AwardUser awardUser) {
-        if (awardUser != null) {
-            this.mUserId = awardUser.user_id.longValue();
-            this.mUserName = awardUser.user_name;
-            this.aqM = awardUser.award_name;
-            this.aqO = awardUser.award_time.intValue();
+    public String getPostUrl() {
+        return this.post_url;
+    }
+
+    public void a(AppCode appCode) {
+        if (appCode != null) {
+            this.game_icon = appCode.game_icon;
+            this.post_url = appCode.post_url;
+            this.button_text = appCode.button_text;
+        }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.game_icon = jSONObject.optString("game_icon");
+                this.post_url = jSONObject.optString("post_url");
+                this.button_text = jSONObject.optString("button_text");
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
         }
     }
 }

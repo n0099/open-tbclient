@@ -1,15 +1,15 @@
 package cn.jiguang.a.c;
 /* loaded from: classes3.dex */
 public final class b {
-    private static b kY;
+    private static b la;
 
     private b() {
     }
 
     public static b bt() {
-        if (kY == null) {
-            kY = new b();
+        if (la == null) {
+            la = new b();
         }
-        return kY;
+        return la;
     }
 }

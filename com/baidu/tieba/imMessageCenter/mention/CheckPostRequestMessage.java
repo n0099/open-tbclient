@@ -42,6 +42,10 @@ public class CheckPostRequestMessage extends TbSocketMessage {
         this.tid = j;
     }
 
+    public long getTid() {
+        return this.tid;
+    }
+
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
     protected Object encode() {
         ReqData.Builder builder = new ReqData.Builder();

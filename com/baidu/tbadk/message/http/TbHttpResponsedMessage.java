@@ -5,7 +5,6 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.network.http.d;
 import com.baidu.adp.lib.network.http.e;
 import com.baidu.adp.lib.util.j;
-import com.baidu.ar.util.IoUtils;
 import com.baidu.tbadk.core.util.aa;
 /* loaded from: classes.dex */
 public class TbHttpResponsedMessage extends HttpResponsedMessage {
@@ -30,7 +29,7 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
         int indexOf;
         String contentType = getContentType();
         if (contentType == null || (indexOf = contentType.indexOf("charset")) == -1) {
-            return IoUtils.UTF_8;
+            return "utf-8";
         }
         int indexOf2 = contentType.indexOf(32, indexOf);
         if (indexOf2 == -1) {
@@ -53,15 +52,15 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
 
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage
     public void logStatInBackground(int i, e eVar) {
-        if (eVar.jr().size() > 0) {
-            d dVar = eVar.jr().get(eVar.jr().size() - 1);
-            aa.aBM.addAndGet(eVar.jr().size() - 1);
+        if (eVar.jt().size() > 0) {
+            d dVar = eVar.jt().get(eVar.jt().size() - 1);
+            aa.bJH.addAndGet(eVar.jt().size() - 1);
             aa.a aVar = new aa.a();
             aVar.mMode = getMode(j.netType());
-            aVar.mSize = dVar.CG;
-            aVar.mTime = dVar.CJ;
-            aVar.aBO = dVar.CI;
-            aVar.aBN = eVar.jp().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
+            aVar.aSN = dVar.CF;
+            aVar.mTime = dVar.CI;
+            aVar.bJJ = dVar.CH;
+            aVar.bJI = eVar.jr().getMethod() == HttpMessageTask.HTTP_METHOD.POST ? 1 : 2;
             aa.a(aVar);
         }
     }

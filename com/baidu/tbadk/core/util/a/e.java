@@ -5,12 +5,12 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import org.apache.http.client.methods.HttpGet;
 /* loaded from: classes.dex */
 public abstract class e {
-    private static e aEb = null;
-    public boolean aEa = false;
+    private static e bLV = null;
+    public boolean bLU = false;
 
     public abstract String getAllIPListCanUsed();
 
-    public abstract com.baidu.tbadk.g.a getCDNImageTimeData();
+    public abstract com.baidu.tbadk.i.a getCDNImageTimeData();
 
     public abstract String getCachedCdnIp(int i);
 
@@ -26,22 +26,22 @@ public abstract class e {
 
     public abstract void result(String str, String str2, boolean z, boolean z2, boolean z3);
 
-    public abstract void setCDNImageTimeData(com.baidu.tbadk.g.a aVar);
+    public abstract void setCDNImageTimeData(com.baidu.tbadk.i.a aVar);
 
     public abstract void setIpDisableTime(int i);
 
     public static e getInstance() {
-        if (aEb == null) {
+        if (bLV == null) {
             synchronized (e.class) {
-                if (aEb == null) {
+                if (bLV == null) {
                     CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016102, e.class);
                     if (runTask != null && runTask.getData() != null) {
-                        aEb = (e) runTask.getData();
+                        bLV = (e) runTask.getData();
                     }
-                    return aEb;
+                    return bLV;
                 }
             }
         }
-        return aEb;
+        return bLV;
     }
 }

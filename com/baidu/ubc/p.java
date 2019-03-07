@@ -1,6 +1,5 @@
 package com.baidu.ubc;
 /* loaded from: classes2.dex */
 public class p {
-    public static void yF(String str) {
-    }
+    private static final String TAG = p.class.getSimpleName();
 }

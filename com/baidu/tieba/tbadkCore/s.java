@@ -1,28 +1,40 @@
 package com.baidu.tieba.tbadkCore;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bb;
+import com.baidu.tbadk.core.data.bg;
 /* loaded from: classes.dex */
-public class s extends bb {
-    public static final BdUniqueId hoy = BdUniqueId.gen();
+public class s extends bg {
+    public static final BdUniqueId iFe = BdUniqueId.gen();
     private String fortune_desc;
-    private m hoA;
-    private boolean hoz;
+    private boolean iFf;
+    private m iFg;
 
-    public boolean bEk() {
-        return this.hoz;
+    public boolean cdI() {
+        return this.iFf;
     }
 
-    public String bEl() {
+    public void pS(boolean z) {
+        this.iFf = z;
+    }
+
+    public String cdJ() {
         return this.fortune_desc;
     }
 
-    public m bEm() {
-        return this.hoA;
+    public void Ct(String str) {
+        this.fortune_desc = str;
     }
 
-    @Override // com.baidu.tbadk.core.data.bb, com.baidu.adp.widget.ListView.h
+    public m cdK() {
+        return this.iFg;
+    }
+
+    public void a(m mVar) {
+        this.iFg = mVar;
+    }
+
+    @Override // com.baidu.tbadk.core.data.bg, com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return hoy;
+        return iFe;
     }
 }

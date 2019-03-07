@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class PbNewLocationInfoView extends TextView {
     private int mState;
@@ -20,7 +20,7 @@ public class PbNewLocationInfoView extends TextView {
         setMaxEms(8);
         setSingleLine(true);
         setEllipsize(TextUtils.TruncateAt.END);
-        setTextSize(0, l.h(context, e.C0210e.ds24));
+        setTextSize(0, l.h(context, d.e.ds24));
         setState(0, null);
     }
 
@@ -28,17 +28,17 @@ public class PbNewLocationInfoView extends TextView {
         this.mState = i;
         if (i == 1) {
             if (str == null) {
-                str = getResources().getString(e.j.location_loading);
+                str = getResources().getString(d.j.location_loading);
             }
             setText(str);
         } else if (i == 2) {
             if (str == null) {
-                str = getResources().getString(e.j.location_default);
+                str = getResources().getString(d.j.location_default);
             }
             setText(str);
         } else {
             if (str == null) {
-                str = getResources().getString(e.j.location_default);
+                str = getResources().getString(d.j.location_default);
             }
             setText(str);
         }
@@ -49,6 +49,6 @@ public class PbNewLocationInfoView extends TextView {
     }
 
     public void onChangeSkinType() {
-        setTextColor(al.getColor(e.d.cp_cont_f));
+        setTextColor(al.getColor(d.C0236d.cp_cont_f));
     }
 }

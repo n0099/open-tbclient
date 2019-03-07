@@ -3,57 +3,57 @@ package com.baidu.tieba.recapp.a;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.adp.base.d;
-import com.baidu.tbadk.a.e;
-import com.baidu.tbadk.a.f;
+import com.baidu.tbadk.b.e;
+import com.baidu.tbadk.b.f;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class b implements e {
-    private final HashMap<String, f> fpm;
+    private final HashMap<String, f> gFq;
 
     private b() {
-        this.fpm = new HashMap<>();
+        this.gFq = new HashMap<>();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.recapp.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0305b {
-        private static b gPy = new b();
+    public static class C0300b {
+        private static b ihc = new b();
     }
 
-    public static b bvU() {
-        return C0305b.gPy;
+    public static b bWH() {
+        return C0300b.ihc;
     }
 
     public void a(Object obj, String str, HashMap<String, String> hashMap, d dVar) {
         if (str != null) {
-            a uQ = a.uQ(str);
-            f fVar = this.fpm.get(uQ.getKey());
-            if (fVar != null && uQ.isValid()) {
+            a Bv = a.Bv(str);
+            f fVar = this.gFq.get(Bv.getKey());
+            if (fVar != null && Bv.isValid()) {
                 if (hashMap != null && !hashMap.isEmpty()) {
-                    uQ.getParams().putAll(hashMap);
+                    Bv.getParams().putAll(hashMap);
                 }
-                fVar.a(obj, uQ.getParams(), str, dVar);
+                fVar.a(obj, Bv.getParams(), str, dVar);
             }
         }
     }
 
     public void a(String str, f fVar) {
-        this.fpm.put(str, fVar);
+        this.gFq.put(str, fVar);
     }
 
-    public void a(com.baidu.tbadk.a.a aVar) {
+    public void a(com.baidu.tbadk.b.a aVar) {
         a(aVar.key(), aVar);
     }
 
     /* loaded from: classes3.dex */
     public static class a {
-        private boolean asp;
+        private boolean bzd;
+        HashMap<String, String> gFr;
         String key;
-        HashMap<String, String> params;
 
         public boolean isValid() {
-            return this.asp;
+            return this.bzd;
         }
 
         public String getKey() {
@@ -61,26 +61,26 @@ public class b implements e {
         }
 
         public HashMap<String, String> getParams() {
-            return this.params;
+            return this.gFr;
         }
 
         private a(String str) {
-            this.asp = false;
+            this.bzd = false;
             Uri parse = Uri.parse(str);
-            this.asp = TextUtils.isEmpty(parse.getScheme()) ? false : true;
-            if (this.asp) {
+            this.bzd = TextUtils.isEmpty(parse.getScheme()) ? false : true;
+            if (this.bzd) {
                 this.key = parse.getAuthority() + parse.getPath();
-                this.params = new HashMap<>();
+                this.gFr = new HashMap<>();
                 for (String str2 : parse.getQueryParameterNames()) {
-                    this.params.put(str2, parse.getQueryParameter(str2));
+                    this.gFr.put(str2, parse.getQueryParameter(str2));
                 }
                 return;
             }
             this.key = "";
-            this.params = new HashMap<>();
+            this.gFr = new HashMap<>();
         }
 
-        public static a uQ(String str) {
+        public static a Bv(String str) {
             return new a(str);
         }
     }

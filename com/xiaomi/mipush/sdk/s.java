@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.xiaomi.mipush.sdk.PushMessageHandler;
 import com.xiaomi.push.service.ac;
 import com.xiaomi.push.service.ah;
@@ -102,7 +101,7 @@ public class s {
                 }
             } else if (am.c.equals(str3) && (str2 = map.get("web_uri")) != null) {
                 String trim = str2.trim();
-                String str5 = (trim.startsWith("http://") || trim.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) ? trim : "http://" + trim;
+                String str5 = (trim.startsWith("http://") || trim.startsWith("https://")) ? trim : "http://" + trim;
                 try {
                     String protocol = new URL(str5).getProtocol();
                     if (HttpHost.DEFAULT_SCHEME_NAME.equals(protocol) || "https".equals(protocol)) {
@@ -389,13 +388,13 @@ public class s {
                                 MiPushClient.reInitialize(this.b, com.xiaomi.xmpush.thrift.t.RegIdExpired);
                                 break;
                             } else if ("client_info_update_ok".equalsIgnoreCase(aeVar.e)) {
-                                if (aeVar.i() != null && aeVar.i().containsKey("app_version")) {
-                                    a.a(this.b).a(aeVar.i().get("app_version"));
+                                if (aeVar.i() != null && aeVar.i().containsKey(Constants.EXTRA_KEY_APP_VERSION)) {
+                                    a.a(this.b).a(aeVar.i().get(Constants.EXTRA_KEY_APP_VERSION));
                                     break;
                                 }
                             } else if ("awake_app".equalsIgnoreCase(aeVar.e)) {
                                 if (aeVar.i() != null && aeVar.i().containsKey("packages")) {
-                                    MiPushClient.awakeApps(this.b, aeVar.i().get("packages").split(","));
+                                    MiPushClient.awakeApps(this.b, aeVar.i().get("packages").split(Constants.ACCEPT_TIME_SEPARATOR_SP));
                                     break;
                                 }
                             } else if (com.xiaomi.xmpush.thrift.o.NormalClientConfigUpdate.N.equalsIgnoreCase(aeVar.e)) {
@@ -567,7 +566,7 @@ public class s {
         synchronized (d) {
             SharedPreferences j = a.a(context).j();
             if (c == null) {
-                String[] split = j.getString("pref_msg_ids", "").split(",");
+                String[] split = j.getString("pref_msg_ids", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 c = new LinkedList();
                 for (String str2 : split) {
                     c.add(str2);
@@ -580,7 +579,7 @@ public class s {
                 if (c.size() > 25) {
                     c.poll();
                 }
-                String a2 = com.xiaomi.channel.commonutils.string.d.a(c, ",");
+                String a2 = com.xiaomi.channel.commonutils.string.d.a(c, Constants.ACCEPT_TIME_SEPARATOR_SP);
                 SharedPreferences.Editor edit = j.edit();
                 edit.putString("pref_msg_ids", a2);
                 edit.commit();

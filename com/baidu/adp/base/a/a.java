@@ -7,11 +7,11 @@ public interface a {
 
     /* renamed from: com.baidu.adp.base.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0014a {
+    public interface InterfaceC0012a {
         void c(SQLiteDatabase sQLiteDatabase);
     }
 
-    void a(InterfaceC0014a interfaceC0014a);
+    void a(InterfaceC0012a interfaceC0012a);
 
     boolean aL(Context context);
 

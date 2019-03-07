@@ -11,38 +11,38 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.IOException;
 /* loaded from: classes3.dex */
 public class a implements MediaController.MediaPlayerControl {
-    private MediaPlayer Wm;
-    private MediaPlayer.OnErrorListener bCA;
-    private MediaPlayer.OnCompletionListener bCB;
-    private InterfaceC0185a bCy;
-    private MediaPlayer.OnPreparedListener bCz;
+    private String akL;
+    private MediaPlayer bsl;
+    private InterfaceC0219a cNF;
+    private MediaPlayer.OnPreparedListener cNG;
+    private MediaPlayer.OnErrorListener cNH;
+    private MediaPlayer.OnCompletionListener cNI;
     private int mLastPosition;
     private Surface mSurface;
-    private String mVideoPath;
     private int mCurrentState = 0;
-    private MediaPlayer.OnPreparedListener bCC = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.ad.play.a.1
+    private MediaPlayer.OnPreparedListener cNJ = new MediaPlayer.OnPreparedListener() { // from class: com.baidu.tieba.ad.play.a.1
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
             a.this.mCurrentState = 2;
             a.this.start();
-            a.this.bCz.onPrepared(mediaPlayer);
+            a.this.cNG.onPrepared(mediaPlayer);
         }
     };
-    private MediaPlayer.OnCompletionListener bCD = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.ad.play.a.2
+    private MediaPlayer.OnCompletionListener cNK = new MediaPlayer.OnCompletionListener() { // from class: com.baidu.tieba.ad.play.a.2
         @Override // android.media.MediaPlayer.OnCompletionListener
         public void onCompletion(MediaPlayer mediaPlayer) {
             a.this.mCurrentState = 5;
-            if (a.this.bCB != null) {
-                a.this.bCB.onCompletion(mediaPlayer);
+            if (a.this.cNI != null) {
+                a.this.cNI.onCompletion(mediaPlayer);
             }
         }
     };
-    private MediaPlayer.OnErrorListener bCE = new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.ad.play.a.3
+    private MediaPlayer.OnErrorListener cNL = new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.ad.play.a.3
         @Override // android.media.MediaPlayer.OnErrorListener
         public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
             a.this.mCurrentState = -1;
-            if (a.this.bCA != null) {
-                a.this.bCA.onError(mediaPlayer, i, i2);
+            if (a.this.cNH != null) {
+                a.this.cNH.onError(mediaPlayer, i, i2);
                 return true;
             }
             return true;
@@ -53,25 +53,25 @@ public class a implements MediaController.MediaPlayerControl {
         public void handleMessage(Message message) {
             super.handleMessage(message);
             if (message.what == 200) {
-                a.this.WI();
+                a.this.awI();
             }
         }
     };
-    private Runnable bCF = new Runnable() { // from class: com.baidu.tieba.ad.play.a.5
+    private Runnable cNM = new Runnable() { // from class: com.baidu.tieba.ad.play.a.5
         @Override // java.lang.Runnable
         public void run() {
-            if (a.this.bCE != null) {
-                if (a.this.Wm != null) {
-                    a.this.Wm.stop();
+            if (a.this.cNL != null) {
+                if (a.this.bsl != null) {
+                    a.this.bsl.stop();
                 }
-                a.this.bCE.onError(a.this.Wm, 0, 0);
+                a.this.cNL.onError(a.this.bsl, 0, 0);
             }
         }
     };
 
     /* renamed from: com.baidu.tieba.ad.play.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0185a {
+    public interface InterfaceC0219a {
         void onLoading();
 
         void onPlay();
@@ -82,38 +82,38 @@ public class a implements MediaController.MediaPlayerControl {
     }
 
     public void setVideoPath(String str) {
-        this.mVideoPath = str;
+        this.akL = str;
         try {
-            this.Wm = new MediaPlayer();
-            this.Wm.setOnPreparedListener(this.bCC);
-            this.Wm.setOnCompletionListener(this.bCD);
-            this.Wm.setOnErrorListener(this.bCE);
-            this.Wm.setDataSource(this.mVideoPath);
-            this.Wm.setSurface(this.mSurface);
-            this.Wm.setAudioStreamType(3);
-            this.Wm.prepareAsync();
+            this.bsl = new MediaPlayer();
+            this.bsl.setOnPreparedListener(this.cNJ);
+            this.bsl.setOnCompletionListener(this.cNK);
+            this.bsl.setOnErrorListener(this.cNL);
+            this.bsl.setDataSource(this.akL);
+            this.bsl.setSurface(this.mSurface);
+            this.bsl.setAudioStreamType(3);
+            this.bsl.prepareAsync();
             this.mLastPosition = 0;
             this.mCurrentState = 1;
         } catch (IOException e) {
             this.mCurrentState = -1;
-            this.bCE.onError(this.Wm, 1, 0);
+            this.cNL.onError(this.bsl, 1, 0);
         } catch (IllegalArgumentException e2) {
             this.mCurrentState = -1;
-            this.bCE.onError(this.Wm, 1, 0);
+            this.cNL.onError(this.bsl, 1, 0);
         } catch (IllegalStateException e3) {
             this.mCurrentState = -1;
-            this.bCE.onError(this.Wm, 1, 0);
+            this.cNL.onError(this.bsl, 1, 0);
         } catch (Exception e4) {
             e4.printStackTrace();
         }
     }
 
     public void reset() {
-        if (this.Wm != null) {
+        if (this.bsl != null) {
             try {
-                this.Wm.stop();
-                this.Wm.reset();
-                setVideoPath(this.mVideoPath);
+                this.bsl.stop();
+                this.bsl.reset();
+                setVideoPath(this.akL);
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -124,9 +124,9 @@ public class a implements MediaController.MediaPlayerControl {
     public void start() {
         if (isInPlaybackState()) {
             try {
-                this.Wm.start();
+                this.bsl.start();
                 this.mCurrentState = 3;
-                WI();
+                awI();
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -137,8 +137,8 @@ public class a implements MediaController.MediaPlayerControl {
     public void pause() {
         if (isInPlaybackState()) {
             try {
-                if (this.Wm.isPlaying()) {
-                    this.Wm.pause();
+                if (this.bsl.isPlaying()) {
+                    this.bsl.pause();
                     this.mCurrentState = 4;
                 }
             } catch (Exception e) {
@@ -151,7 +151,7 @@ public class a implements MediaController.MediaPlayerControl {
     public int getDuration() {
         if (isInPlaybackState()) {
             try {
-                return this.Wm.getDuration();
+                return this.bsl.getDuration();
             } catch (Exception e) {
                 BdLog.e(e);
                 return 0;
@@ -164,7 +164,7 @@ public class a implements MediaController.MediaPlayerControl {
     public int getCurrentPosition() {
         if (isInPlaybackState()) {
             try {
-                return this.Wm.getCurrentPosition();
+                return this.bsl.getCurrentPosition();
             } catch (Exception e) {
                 BdLog.e(e);
                 return 0;
@@ -177,7 +177,7 @@ public class a implements MediaController.MediaPlayerControl {
     public void seekTo(int i) {
         if (isInPlaybackState()) {
             try {
-                this.Wm.seekTo(i);
+                this.bsl.seekTo(i);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -187,11 +187,11 @@ public class a implements MediaController.MediaPlayerControl {
 
     @Override // android.widget.MediaController.MediaPlayerControl
     public boolean isPlaying() {
-        if (this.Wm == null) {
+        if (this.bsl == null) {
             return false;
         }
         try {
-            return this.Wm.isPlaying();
+            return this.bsl.isPlaying();
         } catch (Exception e) {
             BdLog.e(e);
             return false;
@@ -221,7 +221,7 @@ public class a implements MediaController.MediaPlayerControl {
     @Override // android.widget.MediaController.MediaPlayerControl
     public int getAudioSessionId() {
         try {
-            return this.Wm.getAudioSessionId();
+            return this.bsl.getAudioSessionId();
         } catch (Exception e) {
             BdLog.e(e);
             return 0;
@@ -229,53 +229,53 @@ public class a implements MediaController.MediaPlayerControl {
     }
 
     public void onDestroy() {
-        if (this.Wm != null) {
+        if (this.bsl != null) {
             try {
-                this.Wm.stop();
-                this.Wm.release();
+                this.bsl.stop();
+                this.bsl.release();
             } catch (Exception e) {
                 BdLog.e(e);
             }
         }
         this.mHandler.removeMessages(200);
-        e.jG().removeCallbacks(this.bCF);
+        e.jH().removeCallbacks(this.cNM);
     }
 
     public void a(MediaPlayer.OnPreparedListener onPreparedListener) {
-        this.bCz = onPreparedListener;
+        this.cNG = onPreparedListener;
     }
 
     public void setOnErrorListener(MediaPlayer.OnErrorListener onErrorListener) {
-        this.bCA = onErrorListener;
+        this.cNH = onErrorListener;
     }
 
     public void a(MediaPlayer.OnCompletionListener onCompletionListener) {
-        this.bCB = onCompletionListener;
+        this.cNI = onCompletionListener;
     }
 
-    public void a(InterfaceC0185a interfaceC0185a) {
-        this.bCy = interfaceC0185a;
+    public void a(InterfaceC0219a interfaceC0219a) {
+        this.cNF = interfaceC0219a;
     }
 
     private boolean isInPlaybackState() {
-        return (this.Wm == null || this.mCurrentState == -1 || this.mCurrentState == 0 || this.mCurrentState == 1) ? false : true;
+        return (this.bsl == null || this.mCurrentState == -1 || this.mCurrentState == 0 || this.mCurrentState == 1) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void WI() {
+    public void awI() {
         this.mHandler.removeMessages(200);
-        if (this.Wm != null && this.bCy != null) {
-            int currentPosition = this.Wm.getCurrentPosition();
+        if (this.bsl != null && this.cNF != null) {
+            int currentPosition = this.bsl.getCurrentPosition();
             if (currentPosition != this.mLastPosition) {
                 this.mLastPosition = currentPosition;
                 if (this.mCurrentState == 3) {
-                    this.bCy.onPlay();
-                    e.jG().removeCallbacks(this.bCF);
+                    this.cNF.onPlay();
+                    e.jH().removeCallbacks(this.cNM);
                 }
             } else if (this.mCurrentState == 3) {
-                this.bCy.onLoading();
-                e.jG().removeCallbacks(this.bCF);
-                e.jG().postDelayed(this.bCF, 6000L);
+                this.cNF.onLoading();
+                e.jH().removeCallbacks(this.cNM);
+                e.jH().postDelayed(this.cNM, 6000L);
             }
             this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(200), 1000L);
         }

@@ -1,22 +1,24 @@
 package com.baidu.tieba.aiapps.apps.j;
 
-import android.app.Activity;
 import android.content.Context;
-import com.baidu.searchbox.ng.ai.apps.download.DownloadActionCallback;
-import com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppDownloadIoc;
+import android.support.annotation.NonNull;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.swan.apps.c;
+import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
+import com.baidu.swan.apps.u.b.d;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class a implements IAiAppDownloadIoc {
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppDownloadIoc
-    public boolean downloadApp(Context context, String str, String str2, DownloadActionCallback downloadActionCallback) {
+public class a implements d {
+    public static final boolean DEBUG = c.DEBUG;
+
+    @Override // com.baidu.swan.apps.u.b.d
+    public boolean g(Context context, JSONObject jSONObject) {
         return false;
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppDownloadIoc
-    public Object registerDownloadTips(Activity activity, boolean z, boolean z2) {
-        return null;
-    }
-
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppDownloadIoc
-    public void unRegisterDownloadTips(Object obj) {
+    @Override // com.baidu.swan.apps.u.b.d
+    public boolean a(@NonNull Context context, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull JSONObject jSONObject, @NonNull CallbackHandler callbackHandler) {
+        return false;
     }
 }

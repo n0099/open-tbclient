@@ -1,6 +1,5 @@
 package com.baidu.adp.lib.e;
 
-import com.baidu.webkit.internal.ETAG;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -53,7 +52,7 @@ public class a<K, V> {
         return put;
     }
 
-    public synchronized boolean aC(int i) {
+    public synchronized boolean al(int i) {
         if (this.size + i > this.maxSize * 0.8d) {
             trimToSize(this.size - i);
         }
@@ -111,7 +110,7 @@ public class a<K, V> {
     private int safeSizeOf(K k, V v) {
         int sizeOf = sizeOf(k, v);
         if (sizeOf < 0) {
-            throw new IllegalStateException("Negative size: " + k + ETAG.EQUAL + v);
+            throw new IllegalStateException("Negative size: " + k + "=" + v);
         }
         return sizeOf;
     }
@@ -140,7 +139,7 @@ public class a<K, V> {
         return this.maxSize;
     }
 
-    public final void aD(int i) {
+    public final void am(int i) {
         synchronized (this) {
             this.maxSize = i;
             trimToSize(i);

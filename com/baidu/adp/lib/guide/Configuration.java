@@ -23,12 +23,12 @@ public class Configuration implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: av */
+        /* renamed from: ae */
         public Configuration[] newArray(int i) {
             return new Configuration[i];
         }
     };
-    boolean mOutsideTouchable;
+    boolean BB;
     View mTargetView = null;
     int mAlpha = 255;
     int BC = -1;

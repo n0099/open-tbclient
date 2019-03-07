@@ -11,18 +11,18 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a extends BaseAdapter {
-    private View.OnClickListener aIs;
+    private View.OnClickListener bQJ;
     private BaseActivity mContext;
     private List<AccountData> mData = null;
-    private boolean bBC = false;
+    private boolean cMJ = false;
 
     public a(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         this.mContext = baseActivity;
-        this.aIs = onClickListener;
+        this.bQJ = onClickListener;
     }
 
     public void setData(List<AccountData> list) {
@@ -67,46 +67,46 @@ public class a extends BaseAdapter {
         View view3;
         Exception exc;
         View view4;
-        C0184a c0184a;
+        C0218a c0218a;
         View view5;
         try {
             try {
                 if (view != null) {
-                    c0184a = (C0184a) view.getTag();
+                    c0218a = (C0218a) view.getTag();
                     view5 = view;
                 } else if (getItemViewType(i) == 0) {
-                    view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(e.h.account_item, viewGroup, false);
-                    c0184a = new C0184a();
-                    c0184a.bBD = (TextView) view5.findViewById(e.g.account);
-                    c0184a.bBF = (ImageView) view5.findViewById(e.g.active);
-                    c0184a.bBG = (TextView) view5.findViewById(e.g.delete);
-                    c0184a.mLine = view5.findViewById(e.g.account_item_line);
-                    c0184a.bBG.setOnClickListener(this.aIs);
-                    view5.setTag(c0184a);
+                    view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(d.h.account_item, viewGroup, false);
+                    c0218a = new C0218a();
+                    c0218a.cMK = (TextView) view5.findViewById(d.g.account);
+                    c0218a.cMM = (ImageView) view5.findViewById(d.g.active);
+                    c0218a.cMN = (TextView) view5.findViewById(d.g.delete);
+                    c0218a.mLine = view5.findViewById(d.g.account_item_line);
+                    c0218a.cMN.setOnClickListener(this.bQJ);
+                    view5.setTag(c0218a);
                 } else {
-                    view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(e.h.account_add_item, viewGroup, false);
-                    c0184a = new C0184a();
-                    c0184a.bBE = (TextView) view5.findViewById(e.g.add_text);
-                    view5.setTag(c0184a);
+                    view5 = LayoutInflater.from(this.mContext.getPageContext().getContext()).inflate(d.h.account_add_item, viewGroup, false);
+                    c0218a = new C0218a();
+                    c0218a.cML = (TextView) view5.findViewById(d.g.add_text);
+                    view5.setTag(c0218a);
                 }
                 if (getItemViewType(i) == 0) {
                     AccountData accountData = (AccountData) getItem(i);
-                    c0184a.bBF.setVisibility(8);
-                    c0184a.bBG.setVisibility(8);
-                    c0184a.bBG.setTag(accountData);
+                    c0218a.cMM.setVisibility(8);
+                    c0218a.cMN.setVisibility(8);
+                    c0218a.cMN.setTag(accountData);
                     if (accountData != null) {
-                        c0184a.bBD.setText(accountData.getAccountNameShow());
+                        c0218a.cMK.setText(accountData.getAccountNameShow());
                         if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                            c0184a.bBF.setVisibility(0);
+                            c0218a.cMM.setVisibility(0);
                         }
-                        if (this.bBC) {
-                            c0184a.bBG.setVisibility(0);
+                        if (this.cMJ) {
+                            c0218a.cMN.setVisibility(0);
                         }
                     }
                     if (i == getCount() - 2) {
-                        c0184a.mLine.setVisibility(8);
+                        c0218a.mLine.setVisibility(8);
                     } else {
-                        c0184a.mLine.setVisibility(0);
+                        c0218a.mLine.setVisibility(0);
                     }
                 }
                 this.mContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
@@ -149,12 +149,12 @@ public class a extends BaseAdapter {
         }
     }
 
-    public void dt(boolean z) {
-        this.bBC = z;
+    public void fJ(boolean z) {
+        this.cMJ = z;
     }
 
-    public boolean Ws() {
-        return this.bBC;
+    public boolean aws() {
+        return this.cMJ;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -171,15 +171,15 @@ public class a extends BaseAdapter {
     }
 
     /* renamed from: com.baidu.tieba.account.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    private class C0184a {
-        TextView bBD;
-        TextView bBE;
-        ImageView bBF;
-        TextView bBG;
+    /* loaded from: classes4.dex */
+    private class C0218a {
+        TextView cMK;
+        TextView cML;
+        ImageView cMM;
+        TextView cMN;
         View mLine;
 
-        private C0184a() {
+        private C0218a() {
         }
     }
 }

@@ -1,6 +1,5 @@
 package okhttp3;
 
-import com.baidu.ar.util.MsgConstants;
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.Collections;
@@ -126,7 +125,7 @@ public final class Response implements Closeable {
                 return true;
             case 304:
             case 305:
-            case MsgConstants.TRACK_MODEL_SHOWING /* 306 */:
+            case 306:
             default:
                 return false;
         }

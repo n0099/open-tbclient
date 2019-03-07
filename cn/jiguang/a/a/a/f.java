@@ -4,24 +4,24 @@ final class f implements Runnable {
     final /* synthetic */ byte[] a;
     final /* synthetic */ int b;
     final /* synthetic */ int c;
-    final /* synthetic */ g kp;
-    final /* synthetic */ d kq;
+    final /* synthetic */ g kt;
+    final /* synthetic */ d ku;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(d dVar, byte[] bArr, int i, int i2, g gVar) {
-        this.kq = dVar;
+        this.ku = dVar;
         this.a = bArr;
         this.b = i;
         this.c = i2;
-        this.kp = gVar;
+        this.kt = gVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        this.kq.b(this.a, this.b, this.c);
-        if (this.kp != null) {
-            this.kp.a();
+        this.ku.b(this.a, this.b, this.c);
+        if (this.kt != null) {
+            this.kt.a();
         }
-        this.kq.a.quit();
+        this.ku.a.quit();
     }
 }

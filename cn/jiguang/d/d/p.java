@@ -8,13 +8,13 @@ import android.os.Message;
 /* loaded from: classes3.dex */
 public final class p extends Handler {
     final /* synthetic */ Context a;
-    final /* synthetic */ o mg;
+    final /* synthetic */ o mj;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p(o oVar, Looper looper, Context context) {
         super(looper);
-        this.mg = oVar;
+        this.mj = oVar;
         this.a = context;
     }
 
@@ -22,7 +22,7 @@ public final class p extends Handler {
     public final void handleMessage(Message message) {
         switch (message.what) {
             case 8000:
-                this.mg.d(this.a);
+                this.mj.d(this.a);
                 return;
             default:
                 return;

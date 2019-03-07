@@ -8,9 +8,10 @@ import com.airbnb.lottie.model.a.j;
 import com.airbnb.lottie.model.a.k;
 import com.airbnb.lottie.model.a.l;
 import com.airbnb.lottie.model.content.Mask;
-import com.baidu.mobstat.Config;
+import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.TbConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -21,31 +22,31 @@ import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class Layer {
     private static final String TAG = Layer.class.getSimpleName();
-    private final com.airbnb.lottie.e np;
-    private final String oc;
-    private final float ou;
-    private final List<Mask> pJ;
-    private final List<com.airbnb.lottie.model.content.b> qv;
-    private final l rA;
-    private final List<com.airbnb.lottie.a.a<Float>> sA;
-    private final MatteType sB;
-    private final long sk;
-    private final LayerType sl;
-    private final long sm;
+    private final String nX;
+    private final com.airbnb.lottie.e nj;
+    private final float on;
+    private final List<Mask> pE;
+    private final List<com.airbnb.lottie.model.content.b> qr;
+    private final l rw;
+    private final long sg;
+    private final LayerType sh;
+    private final long si;
     @Nullable
-    private final String so;
+    private final String sj;
+    private final int sk;
+    private final int sl;
+    private final int sm;
+    private final float so;
     private final int sq;
     private final int sr;
-    private final int ss;
-    private final float su;
-    private final int sv;
-    private final int sw;
     @Nullable
-    private final j sx;
+    private final j ss;
     @Nullable
-    private final k sy;
+    private final k su;
     @Nullable
-    private final com.airbnb.lottie.model.a.b sz;
+    private final com.airbnb.lottie.model.a.b sv;
+    private final List<com.airbnb.lottie.a.a<Float>> sw;
+    private final MatteType sx;
 
     /* loaded from: classes2.dex */
     public enum LayerType {
@@ -68,134 +69,134 @@ public class Layer {
     }
 
     private Layer(List<com.airbnb.lottie.model.content.b> list, com.airbnb.lottie.e eVar, String str, long j, LayerType layerType, long j2, @Nullable String str2, List<Mask> list2, l lVar, int i, int i2, int i3, float f, float f2, int i4, int i5, @Nullable j jVar, @Nullable k kVar, List<com.airbnb.lottie.a.a<Float>> list3, MatteType matteType, @Nullable com.airbnb.lottie.model.a.b bVar) {
-        this.qv = list;
-        this.np = eVar;
-        this.oc = str;
-        this.sk = j;
-        this.sl = layerType;
-        this.sm = j2;
-        this.so = str2;
-        this.pJ = list2;
-        this.rA = lVar;
-        this.sq = i;
-        this.sr = i2;
-        this.ss = i3;
-        this.su = f;
-        this.ou = f2;
-        this.sv = i4;
-        this.sw = i5;
-        this.sx = jVar;
-        this.sy = kVar;
-        this.sA = list3;
-        this.sB = matteType;
-        this.sz = bVar;
+        this.qr = list;
+        this.nj = eVar;
+        this.nX = str;
+        this.sg = j;
+        this.sh = layerType;
+        this.si = j2;
+        this.sj = str2;
+        this.pE = list2;
+        this.rw = lVar;
+        this.sk = i;
+        this.sl = i2;
+        this.sm = i3;
+        this.so = f;
+        this.on = f2;
+        this.sq = i4;
+        this.sr = i5;
+        this.ss = jVar;
+        this.su = kVar;
+        this.sw = list3;
+        this.sx = matteType;
+        this.sv = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public com.airbnb.lottie.e cT() {
-        return this.np;
+    public com.airbnb.lottie.e cS() {
+        return this.nj;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public float eL() {
-        return this.su;
+    public float eK() {
+        return this.so;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public float cY() {
-        return this.ou;
+    public float cX() {
+        return this.on;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public List<com.airbnb.lottie.a.a<Float>> eM() {
-        return this.sA;
+    public List<com.airbnb.lottie.a.a<Float>> eL() {
+        return this.sw;
     }
 
     public long getId() {
-        return this.sk;
+        return this.sg;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String getName() {
-        return this.oc;
+        return this.nX;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
     public String getRefId() {
-        return this.so;
+        return this.sj;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int eN() {
-        return this.sv;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int eO() {
-        return this.sw;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public List<Mask> du() {
-        return this.pJ;
-    }
-
-    public LayerType eP() {
-        return this.sl;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public MatteType eQ() {
-        return this.sB;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public long eR() {
-        return this.sm;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public List<com.airbnb.lottie.model.content.b> dF() {
-        return this.qv;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public l ez() {
-        return this.rA;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int getSolidColor() {
-        return this.ss;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int eS() {
-        return this.sr;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public int eT() {
+    public int eM() {
         return this.sq;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    @Nullable
-    public j eU() {
+    public int eN() {
+        return this.sr;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public List<Mask> dt() {
+        return this.pE;
+    }
+
+    public LayerType eO() {
+        return this.sh;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public MatteType eP() {
         return this.sx;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    @Nullable
-    public k eV() {
-        return this.sy;
+    public long eQ() {
+        return this.si;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public List<com.airbnb.lottie.model.content.b> dE() {
+        return this.qr;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public l ey() {
+        return this.rw;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public int getSolidColor() {
+        return this.sm;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public int eR() {
+        return this.sl;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public int eS() {
+        return this.sk;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Nullable
-    public com.airbnb.lottie.model.a.b eW() {
-        return this.sz;
+    public j eT() {
+        return this.ss;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @Nullable
+    public k eU() {
+        return this.su;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    @Nullable
+    public com.airbnb.lottie.model.a.b eV() {
+        return this.sv;
     }
 
     public String toString() {
@@ -205,25 +206,25 @@ public class Layer {
     public String toString(String str) {
         StringBuilder sb = new StringBuilder();
         sb.append(str).append(getName()).append("\n");
-        Layer l = this.np.l(eR());
-        if (l != null) {
-            sb.append("\t\tParents: ").append(l.getName());
-            Layer l2 = this.np.l(l.eR());
-            while (l2 != null) {
-                sb.append("->").append(l2.getName());
-                l2 = this.np.l(l2.eR());
+        Layer j = this.nj.j(eQ());
+        if (j != null) {
+            sb.append("\t\tParents: ").append(j.getName());
+            Layer j2 = this.nj.j(j.eQ());
+            while (j2 != null) {
+                sb.append("->").append(j2.getName());
+                j2 = this.nj.j(j2.eQ());
             }
             sb.append(str).append("\n");
         }
-        if (!du().isEmpty()) {
-            sb.append(str).append("\tMasks: ").append(du().size()).append("\n");
+        if (!dt().isEmpty()) {
+            sb.append(str).append("\tMasks: ").append(dt().size()).append("\n");
         }
-        if (eT() != 0 && eS() != 0) {
-            sb.append(str).append("\tBackground: ").append(String.format(Locale.US, "%dx%d %X\n", Integer.valueOf(eT()), Integer.valueOf(eS()), Integer.valueOf(getSolidColor())));
+        if (eS() != 0 && eR() != 0) {
+            sb.append(str).append("\tBackground: ").append(String.format(Locale.US, "%dx%d %X\n", Integer.valueOf(eS()), Integer.valueOf(eR()), Integer.valueOf(getSolidColor())));
         }
-        if (!this.qv.isEmpty()) {
+        if (!this.qr.isEmpty()) {
             sb.append(str).append("\tShapes:\n");
-            for (com.airbnb.lottie.model.content.b bVar : this.qv) {
+            for (com.airbnb.lottie.model.content.b bVar : this.qr) {
                 sb.append(str).append("\t\t").append(bVar).append("\n");
             }
         }
@@ -234,14 +235,14 @@ public class Layer {
     public static class a {
         public static Layer k(com.airbnb.lottie.e eVar) {
             Rect bounds = eVar.getBounds();
-            return new Layer(Collections.emptyList(), eVar, "root", -1L, LayerType.PreComp, -1L, null, Collections.emptyList(), l.a.dZ(), 0, 0, 0, 0.0f, 0.0f, bounds.width(), bounds.height(), null, null, Collections.emptyList(), MatteType.None, null);
+            return new Layer(Collections.emptyList(), eVar, "root", -1L, LayerType.PreComp, -1L, null, Collections.emptyList(), l.a.dY(), 0, 0, 0, 0.0f, 0.0f, bounds.width(), bounds.height(), null, null, Collections.emptyList(), MatteType.None, null);
         }
 
         public static Layer C(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
             LayerType layerType;
             String optString = jSONObject.optString("nm");
             String optString2 = jSONObject.optString("refId");
-            if (optString.endsWith(".ai") || jSONObject.optString(Config.CELL_LOCATION, "").equals("ai")) {
+            if (optString.endsWith(".ai") || jSONObject.optString("cl", "").equals("ai")) {
                 eVar.V("Convert your Illustrator layers to shape layers.");
             }
             long optLong = jSONObject.optLong("ind");
@@ -250,7 +251,7 @@ public class Layer {
             int i3 = 0;
             int i4 = 0;
             int i5 = 0;
-            int optInt = jSONObject.optInt(Config.EXCEPTION_CRASH_CHANNEL, -1);
+            int optInt = jSONObject.optInt("ty", -1);
             if (optInt < LayerType.Unknown.ordinal()) {
                 layerType = LayerType.values()[optInt];
             } else {
@@ -263,9 +264,9 @@ public class Layer {
             LayerType layerType2 = layerType;
             long optLong2 = jSONObject.optLong("parent", -1L);
             if (layerType2 == LayerType.Solid) {
-                i = (int) (jSONObject.optInt(TbConfig.SW_APID) * eVar.cL());
-                i2 = (int) (jSONObject.optInt("sh") * eVar.cL());
-                i3 = Color.parseColor(jSONObject.optString(Config.STAT_SDK_CHANNEL));
+                i = (int) (jSONObject.optInt(TbConfig.SW_APID) * eVar.cK());
+                i2 = (int) (jSONObject.optInt("sh") * eVar.cK());
+                i3 = Color.parseColor(jSONObject.optString("sc"));
             }
             l n = l.a.n(jSONObject.optJSONObject("ks"), eVar);
             MatteType matteType = MatteType.values()[jSONObject.optInt(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP)];
@@ -288,10 +289,10 @@ public class Layer {
             }
             j jVar = null;
             k kVar = null;
-            JSONObject optJSONObject = jSONObject.optJSONObject("t");
+            JSONObject optJSONObject = jSONObject.optJSONObject(Info.kBaiduTimeKey);
             if (optJSONObject != null) {
                 jVar = j.a.l(optJSONObject.optJSONObject("d"), eVar);
-                kVar = k.a.m(optJSONObject.optJSONArray(Config.APP_VERSION_CODE).optJSONObject(0), eVar);
+                kVar = k.a.m(optJSONObject.optJSONArray("a").optJSONObject(0), eVar);
             }
             if (jSONObject.has("ef")) {
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("ef");
@@ -302,10 +303,10 @@ public class Layer {
                 eVar.V("Lottie doesn't support layer effects. If you are using them for  fills, strokes, trim paths etc. then try adding them directly as contents  in your shape. Found: " + Arrays.toString(strArr));
             }
             float optDouble = (float) jSONObject.optDouble("sr", 1.0d);
-            float optDouble2 = ((float) jSONObject.optDouble("st")) / eVar.cK();
+            float optDouble2 = ((float) jSONObject.optDouble(TimeDisplaySetting.START_SHOW_TIME)) / eVar.cJ();
             if (layerType2 == LayerType.PreComp) {
-                i4 = (int) (jSONObject.optInt(Config.DEVICE_WIDTH) * eVar.cL());
-                i5 = (int) (jSONObject.optInt("h") * eVar.cL());
+                i4 = (int) (jSONObject.optInt("w") * eVar.cK());
+                i5 = (int) (jSONObject.optInt("h") * eVar.cK());
             }
             float optLong3 = ((float) jSONObject.optLong("ip")) / optDouble;
             float optLong4 = ((float) jSONObject.optLong("op")) / optDouble;
@@ -313,9 +314,9 @@ public class Layer {
             if (optLong3 > 0.0f) {
                 arrayList3.add(new com.airbnb.lottie.a.a(eVar, Float.valueOf(0.0f), Float.valueOf(0.0f), null, 0.0f, Float.valueOf(optLong3)));
             }
-            float cF = (optLong4 > 0.0f ? optLong4 : (float) eVar.cF()) + 1.0f;
-            arrayList3.add(new com.airbnb.lottie.a.a(eVar, Float.valueOf(1.0f), Float.valueOf(1.0f), null, optLong3, Float.valueOf(cF)));
-            arrayList3.add(new com.airbnb.lottie.a.a(eVar, Float.valueOf(0.0f), Float.valueOf(0.0f), null, cF, Float.valueOf(Float.MAX_VALUE)));
+            float cE = (optLong4 > 0.0f ? optLong4 : (float) eVar.cE()) + 1.0f;
+            arrayList3.add(new com.airbnb.lottie.a.a(eVar, Float.valueOf(1.0f), Float.valueOf(1.0f), null, optLong3, Float.valueOf(cE)));
+            arrayList3.add(new com.airbnb.lottie.a.a(eVar, Float.valueOf(0.0f), Float.valueOf(0.0f), null, cE, Float.valueOf(Float.MAX_VALUE)));
             com.airbnb.lottie.model.a.b bVar = null;
             if (jSONObject.has("tm")) {
                 bVar = b.a.a(jSONObject.optJSONObject("tm"), eVar, false);

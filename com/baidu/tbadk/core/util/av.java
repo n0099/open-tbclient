@@ -1,27 +1,177 @@
 package com.baidu.tbadk.core.util;
 
-import android.util.Log;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class av {
-    private static String[] aDx = {"com.baidu.tieba.launcherGuide.tblauncher.GuideActivityStatic", "com.baidu.tieba.imMessageCenter.mention.TiebaRuningTaskStatic", "com.baidu.tieba.imMessageCenter.mention.MessageCenterActivityStatic", "com.baidu.tieba.imMessageCenter.im.stranger.PersonalMsglistAdapterStatic", "com.baidu.tieba.imMessageCenter.im.stranger.StrangerListActivityStatic", "com.baidu.tieba.imMessageCenter.im.selectfriend.SelectFriendActivityStatic", "com.baidu.tieba.imMessageCenter.im.friend.IMBlackListActivityStatic", "com.baidu.tieba.imMessageCenter.im.friend.InviteFriendListActivityStatic", "com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic", "com.baidu.tieba.imMessageCenter.im.chat.PersonalMsgImageActivityStatic", "com.baidu.tieba.imMessageCenter.im.chat.personaltalk.TaskRegisterStatic", "com.baidu.tieba.imMessageCenter.im.chat.personaltalk.PersonalTalkSettingActivityStatic", "com.baidu.tieba.imMessageCenter.im.chat.notify.ImMessageCenterDelegateStatic", "com.baidu.tieba.imMessageCenter.im.addFriend.AddFriendActivityStatic", "com.baidu.tieba.keepLive.KeepLiveStatic", "com.baidu.tieba.discover.DiscoverDelegateStatic", "com.baidu.tieba.discover.DiscoverFragmentStatic", "com.baidu.tieba.VideoPlatformStatic", "com.baidu.tieba.pluginCenter.PluginCenterActivityStatic", "com.baidu.tieba.videoplay.VideoPlayActivityStatic", "com.baidu.tieba.aiapps.apps.abtest.AiAppAbTestStatic", "com.baidu.tieba.imageProblem.cdnOptimize.Static", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic", "com.baidu.tieba.enterForum.home.CoreSearchRequestStatic", "com.baidu.tieba.frs.FRSWorldCupStatic", "com.baidu.tieba.frs.worldcup.TalkBallFragmentStatic", "com.baidu.tieba.channel.ChannelStatic", "com.baidu.tieba.setting.more.SettingStatic", "com.baidu.tieba.setting.usermutelist.UserMuteListActivityStatic", "com.baidu.tieba.pushdialog.PushDialogStatic", "com.baidu.tieba.write.write.WriteActivityStatic", "com.baidu.tieba.write.accountAccess.AccountAccessActivityStatic", "com.baidu.tieba.write.WriteHelperStatic", "com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic", "com.baidu.tieba.write.bottomButton.WriteThreadFrsDeleagteStatic", "com.baidu.tieba.im.messageCenter.FramworkMessageCenterHelperStatic", "com.baidu.tieba.im.forum.detail.ForumDetailActivityStatic", "com.baidu.tieba.im.recommend.detail.RecommendDetailActivityStatic", "com.baidu.tieba.im.message.RequestSendPVTJMessageStatic", "com.baidu.tieba.im.chat.officialBar.OfficialStatic", "com.baidu.tieba.im.chat.officialBar.OfficialMsglistAdapterStatic", "com.baidu.tieba.im.chat.officialBar.OfficialBarChatActivityStatic", "com.baidu.tieba.im.chat.officialBar.OfficialBarTipActivityStatic", "com.baidu.tieba.im.chat.GroupMsglistAdapterStatic", "com.baidu.tieba.im.chat.photolive.MsgPhotoLiveCardStatic", "com.baidu.tieba.im.model.OfficialBarTipModelStatic", "com.baidu.tieba.im.validate.ValidateStatic", "com.baidu.tieba.im.validate.ValidateActivityStatic", "com.baidu.tieba.im.groupUpdates.UpdatesStatic", "com.baidu.tieba.im.groupUpdates.UpdatesActivityStatic", "com.baidu.tieba.im.TiebaIMActivityStatic", "com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic", "com.baidu.tieba.InjectPlugin.FrsFeedAd.FrsFeedAdStatic", "com.baidu.tieba.easterEgg.EasterEggStatic", "com.baidu.tieba.recapp.lego.RecAppLegoStatic", "com.baidu.tieba.recapp.RecAppStatic", "com.baidu.tieba.ad.browser.AdStatic", "com.baidu.tieba.ad.browser.AdTbWebViewActivityStatic", "com.baidu.tieba.addresslist.relationship.RelationshipStatic", "com.baidu.tieba.addresslist.im.newFriend.NewFriendDbManagerStatic", "com.baidu.tieba.addresslist.im.searchfriend.SearchFriendActivityStatic", "com.baidu.tieba.addresslist.TaskRegisterStatic", "com.baidu.tieba.yunpush.PushStatic", "com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic", "com.baidu.tieba.dnsproxy.DnsProxySwitchStatic", "com.baidu.tieba.dnsproxy.DnsProxyStatic", "com.baidu.tieba.frs.ar.Static", "com.baidu.tieba.qrcode.activity.QRCodeStatic", "com.baidu.tieba.sharewrite.WriteShareActivityStatic", "com.baidu.tieba.sharesdk.ShareStatic", "com.baidu.tieba.godRecommends.GodRecommendStatic", "com.baidu.tieba.godSquare.GodSquareActivityStatic", "com.baidu.tieba.image.ImageViewerActivityStatic", "com.baidu.tieba.screenlocknotify.ScreenLockActivityStatic", "com.baidu.tieba.post.PersonPostActivityStatic", "com.baidu.tieba.personPolymeric.PersonInfoActivityStatic", "com.baidu.tieba.personPolymeric.PersonPolymericActivityStatic", "com.baidu.tieba.personExtra.PersonExtraStatic", "com.baidu.tieba.JPushStatic", "com.baidu.tieba.interestlabel.statics.InterestLabelStatic", "com.baidu.tieba.forumMember.member.FrsMemberStatic", "com.baidu.tieba.forumMember.bawu.BawuTeamInfoStatic", "com.baidu.tieba.forumMember.tbtitle.TbTitleActivityStatic", "com.baidu.tieba.im.groupInfo.GroupInfoActivityStatic", "com.baidu.tieba.im.groupInfo.Static", "com.baidu.tieba.group.GroupActivityStatic", "com.baidu.tieba.group.GroupStatic", "com.baidu.tieba.homeExtra.HomeExtraStatic", "com.baidu.tieba.myCollection.history.PbHistoryStatic", "com.baidu.tieba.myCollection.history.PbHistoryActivityStatic", "com.baidu.tieba.myCollection.ThreadDelegateStatic", "com.baidu.tieba.myCollection.baseEditMark.Static", "com.baidu.tieba.myCollection.runing.TiebaRuningTaskStatic", "com.baidu.tieba.myCollection.EditMarkActivityStatic", "com.baidu.tieba.myCollection.baseHistory.Static", "com.baidu.tieba.myCollection.EditMarkStatic", "com.baidu.tieba.frs.FRSExtraStatic", "com.baidu.tieba.frs.gamepaltform.GamePlatformStatic", "com.baidu.tieba.frs.frsfeedforums.FrsMoreFeedForumsActivityStatic", "com.baidu.tieba.frs.gamerecommend.FrsGameRecommendStatic", "com.baidu.tieba.frs.game.strategy.FrsGameStrategyFragmentDelegateStatic", "com.baidu.tieba.frs.gameshare.Static", "com.baidu.tieba.frs.gametabs.SpecialFrsWebManagerStatic", "com.baidu.tieba.videoEasterEgg.VideoEasterEggActivityStatic", "com.baidu.tieba.postsearch.PostSearchActivityStatic", "com.baidu.tieba.forumsearch.controller.ForumSearchStatic", "com.baidu.tieba.mainentrance.SquareSearchActivityStatic", "com.baidu.tieba.tbadvert.TbAdvertStatic", "com.baidu.tieba.supplementSign.SupplementSignStatic", "com.baidu.tieba.signall.SignAllForumStatic", "com.baidu.tieba.SignStatic", "com.baidu.audiorecorder.lib.voice.RecorderManagerStatic", "com.baidu.tieba.pbextra.praise.PraiseListActivityStatic", "com.baidu.tieba.pbextra.PbExtraStatic", "com.baidu.tieba.pbextra.PushThreadActivityStatic", "com.baidu.tieba.home.CreateBarActivityStatic", "com.baidu.tieba.tblauncherInterestGuide.NewUserGuideActivityStatic", "com.baidu.tieba.location.LocationProvidersStatic", "com.baidu.tieba.location.selectpoi.SearchLocationActivityStatic", "com.baidu.tieba.pb.chosen.RecommendsStatic", "com.baidu.tbadk.coreExtra.messageCenter.Static", "com.baidu.tbadk.commonReceiver.ReceiverStatic", "com.baidu.tbadk.pageStayDuration.PageStayDurationSwitchStatic", "com.baidu.tbadk.core.util.TiebaStatic", "com.baidu.tbadk.core.LaunchStatic", "com.baidu.tbadk.plugins.Static", "com.baidu.tieba.tbadkCore.tiebaStatMsg.Static", "com.baidu.tieba.tbadkCore.tiebaSwitchMsg.Static", "com.baidu.tieba.ala.AlaJumpStatStatic", "com.baidu.tieba.im.db.Static", "com.baidu.tieba.im.AddMsgRecordStatic", "com.baidu.tieba.play.VCacheSwitchStatic", "com.baidu.tieba.play.CustomPlayerSwitchStatic", "com.baidu.tieba.likedForum.LikedForumStatic", "com.baidu.tieba.homepage.HomePageStatic", "com.baidu.tieba.quickWebView.QuickWebViewStatic", "com.baidu.tieba.LogoActivityStatic", "com.baidu.adp.lib.stats.BdStatisticsSwitchStatic", "com.baidu.tieba.homepage.framework.RecommendFrsStatic", "com.baidu.tieba.homepage.framework.RecommendFrsDelegateStatic", "com.baidu.tieba.frs.FrsActivityStatic", "com.baidu.tieba.frs.SideBarViewAddDeskEntranceSwitchStatic", "com.baidu.tieba.frs.SideBarViewShareEntranceSwitchStatic", "com.baidu.tieba.VideoCacheClient.VCacheClientStatic", "com.baidu.tieba.CrabSdkStatic", "com.baidu.tieba.thirdparty.TencentMMSwitchStatic", "com.baidu.tieba.passaccount.framework.PassManagerStatic", "com.baidu.tbadk.TbLaunchStatic", "com.baidu.tieba.card.CardFromStatic", "com.baidu.tieba.im.Static", "com.baidu.tieba.pb.pb.main.PbActivityStatic", "com.baidu.tieba.pb.pb.main.PbNormalLikeButtonSwitchStatic", "com.baidu.tieba.nightResource.NightResourceStatic", "com.baidu.tieba.emotion.PlugInFaceProviderStatic", "com.baidu.tieba.tblauncher.MainTabActivityStatic", "com.baidu.tieba.tblauncher.ClientStartStatic", "com.baidu.tieba.personCenter.PersonCenterFragmentStatic", "com.baidu.tieba.personCenter.PersonInfoDelegateStatic", "com.baidu.tieba.emotion.BasePlugInFaceProviderStatic", "com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic", "com.baidu.tieba.video.localvideo.LocalVideoActivityStatic", "com.baidu.tieba.video.Static", "com.baidu.tieba.account.AccountActivityStatic", "com.baidu.tieba.QuickPlayer.QuickPlayerStatic"};
+public class av extends com.baidu.adp.base.a.c {
+    public av(Context context) {
+        super(context, TbConfig.PHONE_DATEBASE_NAME, 19);
+    }
 
-    public static boolean loadStaticClasses() {
-        String[] strArr;
+    @Override // com.baidu.adp.base.a.c
+    public void d(SQLiteDatabase sQLiteDatabase) {
         try {
-            if (aDx.length <= 0) {
-                return false;
-            }
-            for (String str : aDx) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Class.forName(str);
-                Log.e("TiebaStaticClassesArray", str + " " + (System.currentTimeMillis() - currentTimeMillis));
-            }
-            return true;
-        } catch (Throwable th) {
-            BdLog.e(th);
-            Log.e("TiebaStaticClassesArray", "init class failed. " + th.getMessage());
-            return false;
+            b(sQLiteDatabase, "CREATE TABLE if not exists cash_data(type int,account varchar(30),data TEXT)");
+            b(sQLiteDatabase, "CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255), personal_gid int, gender int, member_iconurl varchar(255),stoken varchar(255))");
+            b(sQLiteDatabase, "CREATE TABLE if not exists search_data(key, account, time)");
+            b(sQLiteDatabase, "CREATE TABLE if not exists search_post_data(key, account, time)");
+            b(sQLiteDatabase, "CREATE TABLE if not exists mark_data(id,floor,time,title,sequence,hostmode,postid,account,authorname,replynum,subPost int,forumName varchar(30),forumId varchar(30),threadId varchar(30))");
+            b(sQLiteDatabase, "CREATE TABLE if not exists draft_box(account varchar(30),type int,forum_id varchar(20),forum_name TEXT,thread_id varchar(30),floor_id TEXT,title TEXT,content TEXT, time long)");
+            b(sQLiteDatabase, "CREATE TABLE if not exists setting(account varchar(30),frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone,msg_chat_switch,nodisturb_switch,nodisturb_start_time varchar(30),nodisturb_end_time varchar(30),remind_light,stranger_chat_switch int)");
+            b(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
+            b(sQLiteDatabase, "CREATE TABLE if not exists frs_image_forums(forum_name)");
+            b(sQLiteDatabase, "CREATE TABLE if not exists user_graffiti(pk INTEGER PRIMARY KEY AUTOINCREMENT, uid varchar(30), file_name varchar(128), md5 varchar(128))");
+            K(sQLiteDatabase);
+            L(sQLiteDatabase);
+            M(sQLiteDatabase);
+            P(sQLiteDatabase);
+            Q(sQLiteDatabase);
+            R(sQLiteDatabase);
+        } catch (Exception e) {
+            TiebaStatic.printDBExceptionLog(e, "DatabaseHelper.createTables", new Object[0]);
         }
+    }
+
+    @Override // com.baidu.adp.base.a.c
+    public void e(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS cash_data;");
+        b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='cash_data';");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS account_data;");
+        b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='account_data';");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS search_data;");
+        b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='search_data';");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS search_post_data;");
+        b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='search_post_data';");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS mark_data;");
+        b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='mark_data';");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS draft_box;");
+        b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='draft_box';");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS setting;");
+        b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='setting';");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS chunk_upload_data;");
+        b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='chunk_upload_data';");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS frs_image_forums;");
+        b(sQLiteDatabase, "DROP INDEX IF EXISTS idx_c_msgs_of;");
+        b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='frs_image_forums';");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS chat_msgs;");
+        b(sQLiteDatabase, "DROP INDEX IF EXISTS idx_c_rfs_ost;");
+        b(sQLiteDatabase, "update sqlite_sequence SET seq=0 where name='chat_msgs';");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS user_emotions");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS emotion_group");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS emotions");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS local_game");
+        b(sQLiteDatabase, "DROP TABLE IF EXISTS user_graffiti");
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper, com.baidu.adp.base.a.a
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        if (i == 1) {
+            b(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
+        }
+        if (i < 3) {
+            b(sQLiteDatabase, "ALTER TABLE mark_data ADD subPost int");
+            b(sQLiteDatabase, "ALTER TABLE mark_data ADD forumName varchar(30)");
+            b(sQLiteDatabase, "ALTER TABLE mark_data ADD forumId varchar(30)");
+            b(sQLiteDatabase, "ALTER TABLE mark_data ADD threadId varchar(30)");
+        }
+        if (i < 4) {
+            b(sQLiteDatabase, "ALTER TABLE setting ADD remind_tone");
+        }
+        if (i < 5) {
+            b(sQLiteDatabase, "CREATE TABLE if not exists frs_image_forums(forum_name)");
+        }
+        if (i < 6) {
+            b(sQLiteDatabase, "CREATE TABLE if not exists search_post_data(key, account, time)");
+        }
+        if (i < 7) {
+            K(sQLiteDatabase);
+        }
+        if (i < 8) {
+            b(sQLiteDatabase, "ALTER TABLE setting ADD msg_chat_switch DEFAULT 1");
+            b(sQLiteDatabase, "ALTER TABLE setting ADD nodisturb_switch");
+            b(sQLiteDatabase, "ALTER TABLE setting ADD nodisturb_start_time varchar(30)");
+            b(sQLiteDatabase, "ALTER TABLE setting ADD nodisturb_end_time varchar(30)");
+        }
+        if (i < 9) {
+            b(sQLiteDatabase, "ALTER TABLE account_data ADD portrait varchar(255)");
+        }
+        if (i < 10) {
+            b(sQLiteDatabase, "ALTER TABLE account_data ADD personal_gid int");
+        }
+        if (i < 11) {
+            L(sQLiteDatabase);
+        }
+        if (i < 12) {
+            M(sQLiteDatabase);
+        }
+        if (i < 13) {
+            b(sQLiteDatabase, "ALTER TABLE setting ADD stranger_chat_switch int");
+            N(sQLiteDatabase);
+        }
+        if (i < 14) {
+            O(sQLiteDatabase);
+        }
+        if (i < 15) {
+            b(sQLiteDatabase, "ALTER TABLE account_data ADD stoken varchar(255)");
+        }
+        if (i < 16) {
+            P(sQLiteDatabase);
+        }
+        if (i < 17) {
+            Q(sQLiteDatabase);
+        }
+        if (i < 18) {
+            R(sQLiteDatabase);
+        }
+        if (i < 19) {
+            S(sQLiteDatabase);
+        }
+    }
+
+    protected void K(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "CREATE TABLE if not exists chat_msgs(pk INTEGER primary key autoincrement, msgId bigint,ownerId varchar(32), friendId varchar(32), msgType int(11) default 0, status int(11) default 0, localTime bigint(21) default 0, serverTime bigint(21) default 0, msgContent text)");
+        b(sQLiteDatabase, "CREATE INDEX if not exists idx_c_msgs_of ON chat_msgs(ownerId, friendId, msgId)");
+        b(sQLiteDatabase, "CREATE TABLE if not exists chat_recent_friends(pk varchar(64) primary key, unReadCount int(11) default 0 ,ownerId varchar(32), friendId varchar(32), ownerName varchar(64), friendName varchar(64), friendPortrait varchar(64), status int(11) default 0, localTime bigint(21) default 0, serverTime bigint(21) default 0, msgContent text)");
+        b(sQLiteDatabase, "CREATE INDEX if not exists idx_c_rfs_ost ON chat_recent_friends(ownerId, serverTime)");
+    }
+
+    protected void L(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, " CREATE TABLE if not exists user_emotions(id INTEGER primary key autoincrement, uid varchar(128), groupId varchar(64), updateTime bigint(21) default 0)");
+        b(sQLiteDatabase, "CREATE INDEX if not exists idx_ue_uid ON user_emotions(uid)");
+        b(sQLiteDatabase, "CREATE TABLE if not exists emotion_group(groupId varchar(64) primary key, groupName varchar(128), groupDesc text, emotionsCount int(11) default 0, width  int(11) default 0, height  int(11) default 0, status  int(11) default 0, bytesLength int(11) default 0, bytesReceived int(11) default 0, downloadUrl varchar(512), downloadTime bigint(21) default 0)");
+        b(sQLiteDatabase, "CREATE INDEX if not exists idx_eg_gids ON emotion_group(groupId, status)");
+        b(sQLiteDatabase, "CREATE TABLE if not exists emotions(sharpText varchar(512) primary key, groupId varchar(64), orderId int(11) default 0)");
+        b(sQLiteDatabase, "CREATE INDEX if not exists idx_e_gido ON emotions(groupId, orderId)");
+    }
+
+    protected void M(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "CREATE TABLE if not exists local_game(gameId varchar(64) primary key, gameName varchar(128), gameType int default 0, iconUrl varchar(128), gameLink  varchar(2),packageName varchar(64), launcherActivity  varchar(64),downloadTime varchar(64),installTime varchar(64))");
+        b(sQLiteDatabase, "ALTER TABLE setting ADD remind_light int(11) default 1");
+    }
+
+    protected void N(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "ALTER TABLE account_data ADD gender int");
+        b(sQLiteDatabase, "ALTER TABLE account_data ADD member_iconurl varchar(255)");
+    }
+
+    protected void O(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "CREATE TABLE if not exists user_graffiti(pk INTEGER PRIMARY KEY AUTOINCREMENT, uid varchar(30), file_name varchar(128), md5 varchar(128))");
+    }
+
+    protected void P(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "CREATE TABLE if not exists user_collect_emotion(pid varchar(30), uid varchar(30), sharp_text varchar(256), order_id int, width int, height int, pic_url varchar(512), thumbnail varchar(512), backup TEXT, primary key(pid, uid))");
+    }
+
+    protected void Q(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "ALTER TABLE setting ADD zan_me_switch int");
+    }
+
+    protected void R(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "ALTER TABLE account_data ADD name_show varchar(255)");
+    }
+
+    protected void S(SQLiteDatabase sQLiteDatabase) {
+        b(sQLiteDatabase, "CREATE TABLE if not exists activity_mission_info(id INTEGER primary key autoincrement, activityid INTEGER, missionid INTEGER, activitysource TEXT, calltype INTEGER, tasktype INTEGER, browsetimepage TEXT, browsetime INTEGER, threadnum INTEGER, forumnum INTEGER, cleartype INTEGER, cleartime INTEGER, specificcleartime INTEGER, tid INTEGER, fid INTEGER, threadtext TEXT, threadimg TEXT, threadforum INTEGER)");
     }
 }

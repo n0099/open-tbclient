@@ -12,7 +12,7 @@ public abstract class b {
         return i;
     }
 
-    public static int j(String str, int i, int i2) {
+    public static int i(String str, int i, int i2) {
         if (str != null) {
             try {
                 return Integer.parseInt(str, i2);
@@ -56,7 +56,7 @@ public abstract class b {
         return d;
     }
 
-    public static boolean g(String str, boolean z) {
+    public static boolean e(String str, boolean z) {
         if (str != null) {
             try {
                 return Boolean.parseBoolean(str);

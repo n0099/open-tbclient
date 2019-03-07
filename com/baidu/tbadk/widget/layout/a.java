@@ -1,90 +1,41 @@
 package com.baidu.tbadk.widget.layout;
 
+import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.util.v;
-import com.baidu.tieba.e;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
+import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes.dex */
-public class a implements b {
-    @Override // com.baidu.tbadk.widget.layout.b
-    public int gF(int i) {
-        if (i < 4) {
-            return 1;
-        }
-        if (i >= 4 && i < 7) {
-            return 2;
-        }
-        return 3;
+public class a extends f {
+    private static final int czD = l.h(TbadkCoreApplication.getInst(), d.e.tbds20);
+    private int czE;
+    ConstrainImageLayout.a czF;
+
+    public a(int i) {
+        super(i);
+        this.czE = 0;
+        this.czF = new ConstrainImageLayout.a() { // from class: com.baidu.tbadk.widget.layout.a.1
+            @Override // com.baidu.tbadk.widget.layout.ConstrainImageLayout.a
+            public void a(TbImageView tbImageView, int i2) {
+                tbImageView.setRadius(a.czD);
+                tbImageView.clearCornerFlag();
+                tbImageView.setDrawCorner(true);
+                if (i2 == 0) {
+                    tbImageView.addCornerFlags(5);
+                }
+                if (i2 == a.this.czE - 1) {
+                    tbImageView.addCornerFlags(10);
+                }
+            }
+        };
     }
 
-    @Override // com.baidu.tbadk.widget.layout.b
+    @Override // com.baidu.tbadk.widget.layout.f, com.baidu.tbadk.widget.layout.c
     public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
-        if (v.H(list) > 0) {
-            if (i == 0) {
-                return a(constrainImageLayout, list, i2);
-            }
-            if (i == 1) {
-                return b(constrainImageLayout, list, i2);
-            }
-            if (i == 2) {
-                return c(constrainImageLayout, list, i2);
-            }
-            return i2;
-        }
-        return i2;
-    }
-
-    private int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
-        if (constrainImageLayout == null || v.I(list)) {
-            return i;
-        }
-        int H = v.H(list);
-        int i2 = H - 3;
-        if (H == 1) {
-            constrainImageLayout.setUrls(list, i);
-            return 0;
-        } else if (H == 2 || H == 4 || H == 5) {
-            int i3 = i + 2;
-            constrainImageLayout.setUrls(v.b(list, i, i3), i);
-            return i3;
-        } else {
-            int i4 = i + 3;
-            constrainImageLayout.setUrls(v.b(list, i, i4), i);
-            return i4;
-        }
-    }
-
-    private int b(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
-        if (constrainImageLayout == null || v.I(list)) {
-            return i;
-        }
-        if (v.H(list) == 4) {
-            int i2 = i + 2;
-            constrainImageLayout.setUrls(v.b(list, i, i2), i);
-            return i2;
-        }
-        int i3 = i + 3;
-        constrainImageLayout.setUrls(v.b(list, i, i3), i);
-        return i3;
-    }
-
-    private int c(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i) {
-        if (constrainImageLayout == null || v.I(list)) {
-            return i;
-        }
-        int H = v.H(list);
-        constrainImageLayout.setImageMaxChildCount(3);
-        int i2 = H - 9;
-        if (i2 > 0) {
-            int i3 = i + 3;
-            List<MediaData> b = v.b(list, i, i3);
-            constrainImageLayout.setExtraCenterText(TbadkCoreApplication.getInst().getString(e.j.constrain_image_extra_text, new Object[]{Integer.valueOf(i2)}));
-            constrainImageLayout.setUrls(b, i, true);
-            return i3;
-        }
-        constrainImageLayout.setUrls(v.b(list, i, H), i);
-        constrainImageLayout.setExtraCenterText(null);
-        return H;
+        this.czE = list.size() < this.cAQ ? list.size() : this.cAQ;
+        constrainImageLayout.setTbImageViewConfiguration(this.czF);
+        return super.a(constrainImageLayout, list, i, i2);
     }
 }

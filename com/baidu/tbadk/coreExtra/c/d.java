@@ -7,7 +7,7 @@ import android.os.Bundle;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.util.l;
+import com.baidu.tbadk.core.util.m;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,76 +15,78 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class d {
-    public static final String aTf = l.FL + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
-    public String aSM;
-    public String aSR;
-    public String aSS;
-    public int aSV;
-    public String aSW;
-    public String aSX;
-    public String aSY;
-    private Bundle aTa;
-    public int awo;
+    public static final String cbP = m.FK + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME + "/SHARED_IMAGE";
+    public int bDT;
+    public int cbF;
+    public String cbG;
+    public String cbH;
+    public String cbI;
+    private Bundle cbK;
+    public String cbs;
+    public Bundle cbv;
+    public String cby;
+    public String cbz;
     public String fid;
     public OriginalThreadInfo originalThreadInfo;
     public String tid;
     public String topic;
     public String uid;
-    public boolean aSD = false;
-    public boolean aSE = false;
-    public boolean aSF = false;
-    public boolean aSG = false;
-    public boolean aSH = false;
-    public boolean aSI = false;
-    public boolean aSJ = false;
-    public boolean aSK = false;
-    public String aSL = "";
-    public int aST = 0;
-    public int aSU = 3;
+    public boolean cbh = false;
+    public boolean cbi = false;
+    public boolean cbj = false;
+    public boolean cbk = false;
+    public boolean cbl = false;
+    public boolean cbm = false;
+    public boolean cbn = false;
+    public boolean cbo = false;
+    public boolean cbp = false;
+    public boolean cbq = false;
+    public String cbr = "";
+    public int cbA = 0;
+    public int cbB = 3;
+    public int cbC = 0;
+    public int cbD = 0;
+    public int cbE = 0;
     public int shareType = 0;
-    public boolean aTb = true;
-    public boolean aTc = true;
-    public boolean aTd = true;
-    public int aTe = 0;
+    public boolean cbL = true;
+    public boolean cbM = true;
+    public boolean cbN = true;
+    public int cbO = 0;
     public String title = null;
     public String content = null;
     public String linkUrl = null;
-    public String aSN = null;
+    public String cbt = null;
     public Uri imageUri = null;
-    public Location aSP = null;
-    private WeakReference<Bitmap> aSZ = null;
-    public String aSQ = null;
+    public Location cbw = null;
+    private WeakReference<Bitmap> cbJ = null;
+    public String cbx = null;
     public String extData = null;
-    public String aSO = null;
+    public String cbu = null;
 
-    public Bundle Kw() {
-        return this.aTa;
+    public Bundle ajT() {
+        return this.cbK;
     }
 
-    public void k(Bundle bundle) {
-        this.aTa = bundle;
+    public void D(Bundle bundle) {
+        this.cbK = bundle;
     }
 
-    public void hq(String str) {
-        this.aSO = str;
-    }
-
-    public Bitmap Kx() {
+    public Bitmap ajU() {
         Bitmap bitmap;
-        if (this.aSZ == null || (bitmap = this.aSZ.get()) == null || bitmap.isRecycled()) {
+        if (this.cbJ == null || (bitmap = this.cbJ.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         return bitmap;
     }
 
-    public void g(Bitmap bitmap) {
-        this.aSZ = new WeakReference<>(bitmap);
+    public void n(Bitmap bitmap) {
+        this.cbJ = new WeakReference<>(bitmap);
     }
 
-    public byte[] Ky() {
+    public byte[] ajV() {
         Bitmap bitmap;
         byte[] bArr;
-        if (this.aSZ == null || (bitmap = this.aSZ.get()) == null || bitmap.isRecycled()) {
+        if (this.cbJ == null || (bitmap = this.cbJ.get()) == null || bitmap.isRecycled()) {
             return null;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -101,17 +103,17 @@ public class d {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [216=4, 217=4, 219=4, 220=4] */
-    public void Kz() {
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [232=4, 233=4, 235=4, 236=4] */
+    public void ajW() {
         FileOutputStream fileOutputStream = null;
-        if (this.aSZ == null) {
+        if (this.cbJ == null) {
             return;
         }
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
-                if (l.hA()) {
-                    File file = new File(aTf);
+                if (m.hy()) {
+                    File file = new File(cbP);
                     if (file.exists()) {
                         file.delete();
                     }
@@ -119,14 +121,14 @@ public class d {
                     if (parentFile != null && !parentFile.exists()) {
                         parentFile.mkdirs();
                     }
-                    byte[] Ky = Ky();
-                    if (Ky != null) {
+                    byte[] ajV = ajV();
+                    if (ajV != null) {
                         FileOutputStream fileOutputStream3 = new FileOutputStream(file);
                         try {
-                            fileOutputStream3.write(Ky);
+                            fileOutputStream3.write(ajV);
                             fileOutputStream3.close();
                             this.imageUri = Uri.fromFile(file);
-                            this.aSZ = null;
+                            this.cbJ = null;
                             if (fileOutputStream3 != null) {
                                 try {
                                     fileOutputStream3.close();

@@ -1,71 +1,77 @@
 package rx.internal.operators;
 
-import rx.d;
-import rx.exceptions.OnErrorThrowable;
+import java.util.concurrent.TimeUnit;
+import rx.g;
+import rx.h;
 /* loaded from: classes2.dex */
-public final class o<T, R> implements d.a<R> {
-    final rx.d<T> iFX;
-    final rx.functions.f<? super T, ? extends R> iHt;
+public final class o<T> implements h.a<T> {
+    final h.a<T> jYT;
+    final long jYU;
+    final rx.g scheduler;
+    final TimeUnit unit;
 
+    public o(h.a<T> aVar, long j, TimeUnit timeUnit, rx.g gVar) {
+        this.jYT = aVar;
+        this.scheduler = gVar;
+        this.jYU = j;
+        this.unit = timeUnit;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((rx.j) ((rx.j) obj));
-    }
-
-    public o(rx.d<T> dVar, rx.functions.f<? super T, ? extends R> fVar) {
-        this.iFX = dVar;
-        this.iHt = fVar;
-    }
-
-    public void call(rx.j<? super R> jVar) {
-        a aVar = new a(jVar, this.iHt);
-        jVar.add(aVar);
-        this.iFX.unsafeSubscribe(aVar);
+    /* renamed from: b */
+    public void call(rx.i<? super T> iVar) {
+        g.a createWorker = this.scheduler.createWorker();
+        a aVar = new a(iVar, createWorker, this.jYU, this.unit);
+        iVar.add(createWorker);
+        iVar.add(aVar);
+        this.jYT.call(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public static final class a<T, R> extends rx.j<T> {
-        final rx.j<? super R> actual;
-        boolean done;
-        final rx.functions.f<? super T, ? extends R> iGx;
+    public static final class a<T> extends rx.i<T> implements rx.functions.a {
+        final rx.i<? super T> actual;
+        Throwable error;
+        final long jYU;
+        final g.a jYV;
+        final TimeUnit unit;
+        T value;
 
-        public a(rx.j<? super R> jVar, rx.functions.f<? super T, ? extends R> fVar) {
-            this.actual = jVar;
-            this.iGx = fVar;
+        public a(rx.i<? super T> iVar, g.a aVar, long j, TimeUnit timeUnit) {
+            this.actual = iVar;
+            this.jYV = aVar;
+            this.jYU = j;
+            this.unit = timeUnit;
         }
 
-        @Override // rx.e
-        public void onNext(T t) {
-            try {
-                this.actual.onNext(this.iGx.call(t));
-            } catch (Throwable th) {
-                rx.exceptions.a.J(th);
-                unsubscribe();
-                onError(OnErrorThrowable.addValueAsLastCause(th, t));
-            }
+        @Override // rx.i
+        public void onSuccess(T t) {
+            this.value = t;
+            this.jYV.a(this, this.jYU, this.unit);
         }
 
-        @Override // rx.e
+        @Override // rx.i
         public void onError(Throwable th) {
-            if (this.done) {
-                rx.c.c.onError(th);
-                return;
-            }
-            this.done = true;
-            this.actual.onError(th);
+            this.error = th;
+            this.jYV.a(this, this.jYU, this.unit);
         }
 
-        @Override // rx.e
-        public void onCompleted() {
-            if (!this.done) {
-                this.actual.onCompleted();
+        @Override // rx.functions.a
+        public void call() {
+            try {
+                Throwable th = this.error;
+                if (th != null) {
+                    this.error = null;
+                    this.actual.onError(th);
+                } else {
+                    T t = this.value;
+                    this.value = null;
+                    this.actual.onSuccess(t);
+                }
+            } finally {
+                this.jYV.unsubscribe();
             }
-        }
-
-        @Override // rx.j
-        public void setProducer(rx.f fVar) {
-            this.actual.setProducer(fVar);
         }
     }
 }

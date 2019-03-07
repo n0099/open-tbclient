@@ -10,11 +10,11 @@ public interface af<FETCH_STATE extends s> {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void B(Throwable th);
+        void C(Throwable th);
 
-        void bUx();
+        void ctv();
 
-        void e(InputStream inputStream, int i) throws IOException;
+        void f(InputStream inputStream, int i) throws IOException;
     }
 
     void a(FETCH_STATE fetch_state, int i);

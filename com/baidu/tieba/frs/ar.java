@@ -1,10 +1,7 @@
 package com.baidu.tieba.frs;
 /* loaded from: classes.dex */
-public class ar extends ao {
-    public int errCode;
-    public String errMsg;
-    public boolean isLocal = true;
-    public boolean hasMore = true;
-    public boolean dPp = true;
-    public boolean dPq = true;
+public class ar {
+    public int fcB;
+    public boolean isSelected;
+    public String name;
 }

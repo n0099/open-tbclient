@@ -6,10 +6,9 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.ar.util.SystemInfoUtil;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.sapi2.base.network.Apn;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -30,7 +29,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
 import org.apache.http.HttpHost;
-import org.apache.http.cookie.SM;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class d {
@@ -108,7 +106,7 @@ public class d {
                 try {
                     HttpURLConnection b2 = b(context, b(str));
                     b2.setConnectTimeout(10000);
-                    b2.setReadTimeout(15000);
+                    b2.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
                     if (str2 == null) {
                         str2 = "GET";
                     }
@@ -243,12 +241,12 @@ public class d {
             HttpURLConnection.setFollowRedirects(true);
             HttpURLConnection b2 = b(context, url2);
             b2.setConnectTimeout(10000);
-            b2.setReadTimeout(15000);
+            b2.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
             if (!TextUtils.isEmpty(str)) {
-                b2.setRequestProperty(HTTP.USER_AGENT, str);
+                b2.setRequestProperty("User-Agent", str);
             }
             if (str2 != null) {
-                b2.setRequestProperty(SM.COOKIE, str2);
+                b2.setRequestProperty("Cookie", str2);
             }
             if (map != null) {
                 for (String str3 : map.keySet()) {
@@ -282,7 +280,7 @@ public class d {
     }
 
     public static String a(Context context, URL url) {
-        return a(context, url, false, null, "UTF-8", null);
+        return a(context, url, false, null, HTTP.UTF_8, null);
     }
 
     public static String a(Context context, URL url, boolean z, String str, String str2, String str3) {
@@ -345,7 +343,7 @@ public class d {
         try {
             try {
                 HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                httpURLConnection.setReadTimeout(15000);
+                httpURLConnection.setReadTimeout(BdStatisticsManager.INIT_UPLOAD_TIME_INTERVAL);
                 httpURLConnection.setConnectTimeout(10000);
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.setDoOutput(true);
@@ -362,8 +360,8 @@ public class d {
                 dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                 try {
                     dataOutputStream.writeBytes("--*****\r\n");
-                    dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + str2 + "\";filename=\"" + file.getName() + "\"" + SystemInfoUtil.LINE_END);
-                    dataOutputStream.writeBytes(SystemInfoUtil.LINE_END);
+                    dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + str2 + "\";filename=\"" + file.getName() + "\"\r\n");
+                    dataOutputStream.writeBytes("\r\n");
                     name = new FileInputStream(file);
                     try {
                         byte[] bArr = new byte[1024];
@@ -375,11 +373,11 @@ public class d {
                             dataOutputStream.write(bArr, 0, read);
                             dataOutputStream.flush();
                         }
-                        dataOutputStream.writeBytes(SystemInfoUtil.LINE_END);
+                        dataOutputStream.writeBytes("\r\n");
                         dataOutputStream.writeBytes("--");
                         dataOutputStream.writeBytes("*****");
                         dataOutputStream.writeBytes("--");
-                        dataOutputStream.writeBytes(SystemInfoUtil.LINE_END);
+                        dataOutputStream.writeBytes("\r\n");
                         dataOutputStream.flush();
                         StringBuffer stringBuffer = new StringBuffer();
                         BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(new a(httpURLConnection.getInputStream())));
@@ -485,10 +483,10 @@ public class d {
         for (Map.Entry<String, String> entry : map.entrySet()) {
             if (entry.getKey() != null && entry.getValue() != null) {
                 try {
-                    stringBuffer.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
-                    stringBuffer.append(ETAG.EQUAL);
-                    stringBuffer.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
-                    stringBuffer.append(ETAG.ITEM_SEPARATOR);
+                    stringBuffer.append(URLEncoder.encode(entry.getKey(), HTTP.UTF_8));
+                    stringBuffer.append("=");
+                    stringBuffer.append(URLEncoder.encode(entry.getValue(), HTTP.UTF_8));
+                    stringBuffer.append("&");
                 } catch (UnsupportedEncodingException e) {
                     Log.d("com.xiaomi.common.Network", "Failed to convert from params map to string: " + e.toString());
                     Log.d("com.xiaomi.common.Network", "map: " + map.toString());

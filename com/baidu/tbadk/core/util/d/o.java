@@ -9,7 +9,7 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a> {
     @Override // com.baidu.adp.lib.f.e
-    public boolean jD() {
+    public boolean jE() {
         return true;
     }
 
@@ -17,8 +17,8 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(gu(str), com.baidu.tbadk.imageManager.c.NM().iw(gu(str)), i, i2);
-        if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.ot() == null || checkIsValidPicMemoryCache.ot().isRecycled()) {
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(nf(str), com.baidu.tbadk.imageManager.c.anq().pi(nf(str)), i, i2);
+        if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.oy() == null || checkIsValidPicMemoryCache.oy().isRecycled()) {
             return null;
         }
         return checkIsValidPicMemoryCache;
@@ -31,16 +31,16 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         if (StringUtils.isNull(str)) {
             return null;
         }
-        return p(str, i, i2);
+        return o(str, i, i2);
     }
 
     @Override // com.baidu.adp.lib.f.e
     public void a(String str, Object obj, int i, int i2, Object... objArr) {
         if (obj != null && (obj instanceof com.baidu.adp.widget.ImageView.a)) {
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
-            aVar.be(i);
-            aVar.bf(i2);
-            com.baidu.tbadk.imageManager.c.NM().c(gu(str), aVar);
+            aVar.aO(i);
+            aVar.aP(i2);
+            com.baidu.tbadk.imageManager.c.anq().c(nf(str), aVar);
         }
     }
 
@@ -52,16 +52,16 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public BdAsyncTaskParallel jE() {
+    public BdAsyncTaskParallel jF() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public int jF() {
+    public int jG() {
         return 1;
     }
 
-    public com.baidu.adp.widget.ImageView.a p(String str, int i, int i2) {
+    public com.baidu.adp.widget.ImageView.a o(String str, int i, int i2) {
         try {
             File file = new File(str);
             if (file != null && file.exists()) {
@@ -72,7 +72,7 @@ public class o implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         return null;
     }
 
-    public String gu(String str) {
+    public String nf(String str) {
         return "videoThumb_" + str;
     }
 }

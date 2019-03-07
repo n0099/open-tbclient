@@ -13,8 +13,6 @@ import android.text.TextUtils;
 import cn.jiguang.api.SdkType;
 import cn.jiguang.d.d.aa;
 import cn.jiguang.g.i;
-import com.baidu.fsg.base.BaiduRimConstants;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -157,7 +155,7 @@ public final class e extends a {
             d next = it.next();
             try {
                 JSONObject jSONObject = new JSONObject();
-                String packageName = next.cj().getPackageName();
+                String packageName = next.ci().getPackageName();
                 Object a = a(this.b, packageName);
                 jSONObject.put("target_package", packageName);
                 jSONObject.put("awake_sequence", a);
@@ -178,8 +176,8 @@ public final class e extends a {
         JSONObject jSONObject3 = new JSONObject();
         try {
             jSONObject3.put("package", str);
-            jSONObject3.put(BaiduRimConstants.ACTION_TARGET, jSONArray);
-            jSONObject3.put(Config.DEVICE_PART, Build.MODEL);
+            jSONObject3.put("target", jSONArray);
+            jSONObject3.put("device", Build.MODEL);
             jSONObject3.put("os", Build.VERSION.RELEASE);
             return jSONObject3;
         } catch (JSONException e) {

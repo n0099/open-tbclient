@@ -3,52 +3,52 @@ package com.facebook.imagepipeline.producers;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public abstract class ao<T> extends com.facebook.common.b.e<T> {
-    private final String ZV;
-    private final al iua;
-    private final j<T> iut;
-    private final String ivE;
+    private final al jJI;
+    private final j<T> jKb;
+    private final String jLa;
+    private final String jLn;
 
     @Override // com.facebook.common.b.e
-    protected abstract void an(T t);
+    protected abstract void aC(T t);
 
     public ao(j<T> jVar, al alVar, String str, String str2) {
-        this.iut = jVar;
-        this.iua = alVar;
-        this.ivE = str;
-        this.ZV = str2;
-        this.iua.de(this.ZV, this.ivE);
+        this.jKb = jVar;
+        this.jJI = alVar;
+        this.jLn = str;
+        this.jLa = str2;
+        this.jJI.em(this.jLa, this.jLn);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.e
     public void onSuccess(T t) {
-        this.iua.a(this.ZV, this.ivE, this.iua.zE(this.ZV) ? aM(t) : null);
-        this.iut.e(t, true);
+        this.jJI.a(this.jLa, this.jLn, this.jJI.FH(this.jLa) ? bb(t) : null);
+        this.jKb.e(t, true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.e
     public void onFailure(Exception exc) {
-        this.iua.a(this.ZV, this.ivE, exc, this.iua.zE(this.ZV) ? k(exc) : null);
-        this.iut.B(exc);
+        this.jJI.a(this.jLa, this.jLn, exc, this.jJI.FH(this.jLa) ? o(exc) : null);
+        this.jKb.C(exc);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.e
-    public void bUx() {
-        this.iua.b(this.ZV, this.ivE, this.iua.zE(this.ZV) ? caZ() : null);
-        this.iut.bUx();
+    public void ctv() {
+        this.jJI.b(this.jLa, this.jLn, this.jJI.FH(this.jLa) ? cAe() : null);
+        this.jKb.ctv();
     }
 
-    protected Map<String, String> aM(T t) {
+    protected Map<String, String> bb(T t) {
         return null;
     }
 
-    protected Map<String, String> k(Exception exc) {
+    protected Map<String, String> o(Exception exc) {
         return null;
     }
 
-    protected Map<String, String> caZ() {
+    protected Map<String, String> cAe() {
         return null;
     }
 }

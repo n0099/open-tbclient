@@ -1,5 +1,6 @@
 package cn.jiguang.d.b.a;
 
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -32,12 +33,12 @@ public final class g {
         return this.d;
     }
 
-    public final double bN() {
-        return this.g;
-    }
-
     public final double c() {
         return this.f;
+    }
+
+    public final double d() {
+        return this.g;
     }
 
     public final long e() {
@@ -66,7 +67,7 @@ public final class g {
             if (z) {
                 jSONObject.put("lat", this.f);
                 jSONObject.put("lng", this.g);
-                jSONObject.put("time", this.h);
+                jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, this.h);
             }
         } catch (JSONException e) {
             e.printStackTrace();

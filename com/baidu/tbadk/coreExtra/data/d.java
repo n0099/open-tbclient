@@ -1,57 +1,56 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.searchbox.ng.ai.apps.system.bluetooth.utils.AiAppsBluetoothConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class d {
-    private int aNW;
-    private long aNX;
-    private long aNY;
-    private String aNZ;
+    private int bWv;
+    private long bWw;
+    private long bWx;
+    private String bWy;
     private String name;
     private String text_color;
     private String text_color_pressed;
     private String url;
-    private int aNT = 1;
-    private int aNV = 0;
-    private int aOa = 0;
-    private int aOb = 1;
-    private int aOc = 0;
-    private int aOd = 0;
-    private int aOe = 300;
-    private int aOf = 1;
-    public int aOg = 4;
-    public int aOh = 4;
-    public int aOi = 7;
-    private g aNU = new g();
+    private int bWs = 1;
+    private int bWu = 0;
+    private int bWz = 0;
+    private int bWA = 1;
+    private int bWB = 0;
+    private int bWC = 0;
+    private int bWD = 300;
+    private int bWE = 1;
+    public int bWF = 4;
+    public int bWG = 4;
+    public int bWH = 7;
+    private g bWt = new g();
 
     public void parserJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
-            this.aNT = jSONObject.optInt("als_control", 1);
-            this.aNV = jSONObject.optInt("not_use_lego_patch", 0);
-            this.aOb = jSONObject.optInt("ad_video_not_autoplay", 1);
-            this.aOd = jSONObject.optInt("lp_video_not_autoplay", 0);
-            this.aNU.parserJson(jSONObject);
+            this.bWs = jSONObject.optInt("als_control", 1);
+            this.bWu = jSONObject.optInt("not_use_lego_patch", 0);
+            this.bWA = jSONObject.optInt("ad_video_not_autoplay", 1);
+            this.bWC = jSONObject.optInt("lp_video_not_autoplay", 0);
+            this.bWt.parserJson(jSONObject);
             JSONObject optJSONObject = jSONObject.optJSONObject("log_feed_control");
             if (optJSONObject != null) {
-                this.aNW = optJSONObject.optInt("log_feed_switch", 0);
-                this.aNX = optJSONObject.optLong("start_time", -1L);
-                this.aNY = optJSONObject.optLong("end_time", -1L);
-                this.aNZ = optJSONObject.optString("ext_info");
+                this.bWv = optJSONObject.optInt("log_feed_switch", 0);
+                this.bWw = optJSONObject.optLong("start_time", -1L);
+                this.bWx = optJSONObject.optLong("end_time", -1L);
+                this.bWy = optJSONObject.optString("ext_info");
             }
-            this.aOa = jSONObject.optInt("ad_collect_switch", 0);
+            this.bWz = jSONObject.optInt("ad_collect_switch", 0);
             JSONObject optJSONObject2 = jSONObject.optJSONObject("splash");
             if (optJSONObject2 != null) {
-                this.aOe = optJSONObject2.optInt(AiAppsBluetoothConstants.KEY_INTERVAL, 300);
+                this.bWD = optJSONObject2.optInt("interval", 300);
             }
-            this.aOf = jSONObject.optInt("video_page_style", 1);
-            this.aOc = jSONObject.optInt("ad_download_lib", 0);
+            this.bWE = jSONObject.optInt("video_page_style", 1);
+            this.bWB = jSONObject.optInt("ad_download_lib", 0);
             JSONObject optJSONObject3 = jSONObject.optJSONObject("afd_sync_config");
             if (optJSONObject3 != null) {
-                this.aOg = optJSONObject3.optInt("first_floor");
-                this.aOh = optJSONObject3.optInt("prefetch_step");
-                this.aOi = optJSONObject3.optInt("step");
+                this.bWF = optJSONObject3.optInt("first_floor");
+                this.bWG = optJSONObject3.optInt("prefetch_step");
+                this.bWH = optJSONObject3.optInt("step");
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("action_control");
             if (optJSONObject4 != null) {
@@ -63,48 +62,48 @@ public class d {
         }
     }
 
-    public g GF() {
-        return this.aNU;
+    public g afY() {
+        return this.bWt;
     }
 
-    public boolean GG() {
-        return this.aNT > 0;
+    public boolean afZ() {
+        return this.bWs > 0;
     }
 
-    public boolean GH() {
-        if (this.aNW == 1) {
+    public boolean aga() {
+        if (this.bWv == 1) {
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            return this.aNX < currentTimeMillis && currentTimeMillis < this.aNY;
+            return this.bWw < currentTimeMillis && currentTimeMillis < this.bWx;
         }
         return false;
     }
 
-    public boolean GI() {
-        return this.aOb == 1;
+    public boolean agb() {
+        return this.bWA == 1;
     }
 
-    public boolean GJ() {
-        return this.aOd == 1;
+    public boolean agc() {
+        return this.bWC == 1;
     }
 
-    public String GK() {
-        return this.aNZ;
+    public String agd() {
+        return this.bWy;
     }
 
-    public boolean GL() {
-        return this.aOa == 1;
+    public boolean age() {
+        return this.bWz == 1;
     }
 
-    public int GM() {
-        return this.aOe;
+    public int agf() {
+        return this.bWD;
     }
 
-    public int GN() {
-        return this.aOf;
+    public int agg() {
+        return this.bWE;
     }
 
-    public boolean GO() {
-        return this.aOc == 0;
+    public boolean agh() {
+        return this.bWB == 0;
     }
 
     public String getUrl() {

@@ -10,14 +10,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class InvoiceInfoItemView extends RelativeLayout {
-    private TextView bIE;
-    private EditText bIF;
-    private View bIG;
-    private String bIH;
-    private boolean bII;
+    private TextView cUd;
+    private EditText cUe;
+    private View cUf;
+    private String cUg;
+    private boolean cUh;
     private Context mContext;
     private String mErrorMessage;
     private RelativeLayout mRootView;
@@ -37,109 +37,109 @@ public class InvoiceInfoItemView extends RelativeLayout {
 
     private void init(Context context) {
         this.mContext = context;
-        inflate(context, e.h.invoice_info_item_view, this);
-        this.mRootView = (RelativeLayout) findViewById(e.g.item_root_view);
-        this.mRootView.setBackgroundDrawable(getResources().getDrawable(e.d.invoice_edit_view_bg));
-        this.bIE = (TextView) findViewById(e.g.invoice_info_desc);
-        this.bIF = (EditText) findViewById(e.g.invoice_info_content);
-        this.bIG = findViewById(e.g.divider_line);
-        this.bIE.setTextColor(getResources().getColor(e.d.invoice_info_desc));
-        this.bIF.setTextColor(getResources().getColor(e.d.invoice_info_content));
-        this.bIF.setHintTextColor(getResources().getColor(e.d.invoice_info_content_hint));
-        this.bIG.setBackgroundDrawable(getResources().getDrawable(e.d.invoice_info_item_divider_line));
+        inflate(context, d.h.invoice_info_item_view, this);
+        this.mRootView = (RelativeLayout) findViewById(d.g.item_root_view);
+        this.mRootView.setBackgroundDrawable(getResources().getDrawable(d.C0236d.invoice_edit_view_bg));
+        this.cUd = (TextView) findViewById(d.g.invoice_info_desc);
+        this.cUe = (EditText) findViewById(d.g.invoice_info_content);
+        this.cUf = findViewById(d.g.divider_line);
+        this.cUd.setTextColor(getResources().getColor(d.C0236d.invoice_info_desc));
+        this.cUe.setTextColor(getResources().getColor(d.C0236d.invoice_info_content));
+        this.cUe.setHintTextColor(getResources().getColor(d.C0236d.invoice_info_content_hint));
+        this.cUf.setBackgroundDrawable(getResources().getDrawable(d.C0236d.invoice_info_item_divider_line));
     }
 
     public InvoiceInfoItemView a(a aVar) {
         if (aVar != null) {
-            this.bII = aVar.bII;
-            this.bIE.setText(aVar.mDesc);
-            this.bIF.setHint(aVar.bIK);
-            if (!aVar.bIL) {
-                this.bIF.setSingleLine();
+            this.cUh = aVar.cUh;
+            this.cUd.setText(aVar.aVE);
+            this.cUe.setHint(aVar.cUj);
+            if (!aVar.cUk) {
+                this.cUe.setSingleLine();
             } else {
-                aVar.bIJ |= 131072;
+                aVar.cUi |= 131072;
             }
-            this.bIF.setInputType(aVar.bIJ);
-            if (!TextUtils.isEmpty(aVar.bIM)) {
-                this.bIF.setKeyListener(DigitsKeyListener.getInstance(aVar.bIM));
+            this.cUe.setInputType(aVar.cUi);
+            if (!TextUtils.isEmpty(aVar.cUl)) {
+                this.cUe.setKeyListener(DigitsKeyListener.getInstance(aVar.cUl));
             }
-            this.bIH = aVar.bIH;
+            this.cUg = aVar.cUg;
             this.mErrorMessage = aVar.mErrorMessage;
         }
         return this;
     }
 
     public String getContent() {
-        if (this.bIF != null) {
-            return this.bIF.getText().toString().trim();
+        if (this.cUe != null) {
+            return this.cUe.getText().toString().trim();
         }
         return null;
     }
 
     public void setContent(CharSequence charSequence) {
-        if (this.bIF != null) {
-            this.bIF.setText(charSequence);
+        if (this.cUe != null) {
+            this.cUe.setText(charSequence);
         }
     }
 
-    public boolean Zb() {
-        return this.bII;
+    public boolean azl() {
+        return this.cUh;
     }
 
     public void setTextChangedListener(TextWatcher textWatcher) {
-        if (this.bIF != null && textWatcher != null) {
-            this.bIF.addTextChangedListener(textWatcher);
+        if (this.cUe != null && textWatcher != null) {
+            this.cUe.addTextChangedListener(textWatcher);
         }
     }
 
     /* loaded from: classes4.dex */
     public static class a {
-        private String bIH;
-        private boolean bII = false;
-        private int bIJ = 1;
-        private String bIK;
-        private boolean bIL;
-        private String bIM;
-        private String mDesc;
+        private String aVE;
+        private String cUg;
+        private boolean cUh = false;
+        private int cUi = 1;
+        private String cUj;
+        private boolean cUk;
+        private String cUl;
         private String mErrorMessage;
 
-        public a dB(boolean z) {
-            this.bII = z;
+        public a fT(boolean z) {
+            this.cUh = z;
             return this;
         }
 
-        public a kS(String str) {
-            this.mDesc = str;
+        public a rA(String str) {
+            this.aVE = str;
             return this;
         }
 
-        public a hX(int i) {
-            this.bIJ = i;
+        public a lO(int i) {
+            this.cUi = i;
             return this;
         }
 
-        public a kT(String str) {
-            this.bIK = str;
+        public a rB(String str) {
+            this.cUj = str;
             return this;
         }
 
-        public a kU(String str) {
-            this.bIH = str;
+        public a rC(String str) {
+            this.cUg = str;
             return this;
         }
 
-        public a kV(String str) {
+        public a rD(String str) {
             this.mErrorMessage = str;
             return this;
         }
 
-        public a dC(boolean z) {
-            this.bIL = z;
+        public a fU(boolean z) {
+            this.cUk = z;
             return this;
         }
 
-        public a kW(String str) {
-            this.bIM = str;
+        public a rE(String str) {
+            this.cUl = str;
             return this;
         }
     }

@@ -6,6 +6,7 @@ public class CheckUserFaceIdResult extends SapiResult {
     public static final int STATUS_UNREGISTER = 2;
     public String authWidgetURL;
     public String authsid;
+    public boolean faceLoginSwitch;
     public String livingUname;
     public int status;
 }

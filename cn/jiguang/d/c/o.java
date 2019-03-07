@@ -1,6 +1,7 @@
 package cn.jiguang.d.c;
 
 import com.meizu.cloud.pushsdk.constants.MeizuConstants;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
@@ -18,15 +19,15 @@ import java.util.StringTokenizer;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes3.dex */
 public class o {
-    private static o lV;
+    private static o lY;
     private String[] a = null;
-    private j[] lU = null;
+    private j[] lX = null;
     private int c = -1;
 
     static {
         o oVar = new o();
         synchronized (o.class) {
-            lV = oVar;
+            lY = oVar;
         }
     }
 
@@ -34,7 +35,7 @@ public class o {
         if (c() || d()) {
             return;
         }
-        if (this.a == null || this.lU == null) {
+        if (this.a == null || this.lX == null) {
             String property = System.getProperty("os.name");
             String property2 = System.getProperty("java.vendor");
             if (property.indexOf("Windows") == -1) {
@@ -127,7 +128,7 @@ public class o {
                         }
                         try {
                             if (j.a(nextToken, (j) null).b() != 1) {
-                                b(nextToken, arrayList2);
+                                c(nextToken, arrayList2);
                                 boolean z6 = z2;
                                 z3 = z;
                                 z4 = z6;
@@ -142,7 +143,7 @@ public class o {
                             nextToken = stringTokenizer.nextToken();
                         }
                         if (!nextToken.equals(":")) {
-                            b(nextToken, arrayList2);
+                            c(nextToken, arrayList2);
                             z3 = z;
                             z4 = true;
                         }
@@ -151,7 +152,7 @@ public class o {
                             nextToken = stringTokenizer.nextToken();
                         }
                         if (!nextToken.equals(":")) {
-                            b(nextToken, arrayList2);
+                            c(nextToken, arrayList2);
                             z3 = z;
                             z4 = true;
                         }
@@ -192,10 +193,10 @@ public class o {
         if (this.a == null && list.size() > 0) {
             this.a = (String[]) list.toArray(new String[0]);
         }
-        if (this.lU != null || list2.size() <= 0) {
+        if (this.lX != null || list2.size() <= 0) {
             return;
         }
-        this.lU = (j[]) list2.toArray(new j[0]);
+        this.lX = (j[]) list2.toArray(new j[0]);
     }
 
     private void b(String str) {
@@ -217,7 +218,7 @@ public class o {
                         StringTokenizer stringTokenizer2 = new StringTokenizer(readLine);
                         stringTokenizer2.nextToken();
                         if (stringTokenizer2.hasMoreTokens() && arrayList2.isEmpty()) {
-                            b(stringTokenizer2.nextToken(), arrayList2);
+                            c(stringTokenizer2.nextToken(), arrayList2);
                         }
                     } else if (readLine.startsWith("search")) {
                         if (!arrayList2.isEmpty()) {
@@ -226,7 +227,7 @@ public class o {
                         StringTokenizer stringTokenizer3 = new StringTokenizer(readLine);
                         stringTokenizer3.nextToken();
                         while (stringTokenizer3.hasMoreTokens()) {
-                            b(stringTokenizer3.nextToken(), arrayList2);
+                            c(stringTokenizer3.nextToken(), arrayList2);
                         }
                     } else if (readLine.startsWith("options")) {
                         StringTokenizer stringTokenizer4 = new StringTokenizer(readLine);
@@ -251,7 +252,15 @@ public class o {
         }
     }
 
-    private static void b(String str, List list) {
+    public static synchronized o bS() {
+        o oVar;
+        synchronized (o.class) {
+            oVar = lY;
+        }
+        return oVar;
+    }
+
+    private static void c(String str, List list) {
         try {
             j a = j.a(str, j.a);
             if (list.contains(a)) {
@@ -262,33 +271,25 @@ public class o {
         }
     }
 
-    public static synchronized o bT() {
-        o oVar;
-        synchronized (o.class) {
-            oVar = lV;
-        }
-        return oVar;
-    }
-
     private boolean c() {
         ArrayList arrayList = new ArrayList(0);
         ArrayList arrayList2 = new ArrayList(0);
         String property = System.getProperty("dns.server");
         if (property != null) {
-            StringTokenizer stringTokenizer = new StringTokenizer(property, ",");
+            StringTokenizer stringTokenizer = new StringTokenizer(property, Constants.ACCEPT_TIME_SEPARATOR_SP);
             while (stringTokenizer.hasMoreTokens()) {
                 a(stringTokenizer.nextToken(), arrayList);
             }
         }
         String property2 = System.getProperty("dns.search");
         if (property2 != null) {
-            StringTokenizer stringTokenizer2 = new StringTokenizer(property2, ",");
+            StringTokenizer stringTokenizer2 = new StringTokenizer(property2, Constants.ACCEPT_TIME_SEPARATOR_SP);
             while (stringTokenizer2.hasMoreTokens()) {
-                b(stringTokenizer2.nextToken(), arrayList2);
+                c(stringTokenizer2.nextToken(), arrayList2);
             }
         }
         a(arrayList, arrayList2);
-        return (this.a == null || this.lU == null) ? false : true;
+        return (this.a == null || this.lX == null) ? false : true;
     }
 
     private boolean d() {
@@ -311,7 +312,7 @@ public class o {
             }
             if (list2.size() > 0) {
                 for (String str2 : list2) {
-                    b(str2, arrayList2);
+                    c(str2, arrayList2);
                 }
             }
             a(arrayList, arrayList2);

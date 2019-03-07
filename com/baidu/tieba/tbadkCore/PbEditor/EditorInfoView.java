@@ -4,12 +4,12 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class EditorInfoView extends TextView {
-    private int aMk;
-    protected int hoB;
-    protected int hoC;
+    private int bUJ;
+    protected int iFh;
+    protected int iFi;
 
     public EditorInfoView(Context context) {
         this(context, null);
@@ -21,25 +21,25 @@ public class EditorInfoView extends TextView {
 
     public EditorInfoView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aMk = 3;
-        this.hoB = (int) context.getResources().getDimension(e.C0210e.ds18);
-        this.hoC = (int) context.getResources().getDimension(e.C0210e.ds6);
-        setPadding(this.hoB, this.hoC, this.hoB, this.hoC);
+        this.bUJ = 3;
+        this.iFh = (int) context.getResources().getDimension(d.e.ds18);
+        this.iFi = (int) context.getResources().getDimension(d.e.ds6);
+        setPadding(this.iFh, this.iFi, this.iFh, this.iFi);
         setGravity(16);
         setSingleLine(true);
-        setTextSize(0, context.getResources().getDimension(e.C0210e.ds24));
+        setTextSize(0, context.getResources().getDimension(d.e.ds24));
     }
 
     @Override // android.widget.TextView, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(e.C0210e.ds48));
+        setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(d.e.ds48));
     }
 
     public void onChangeSkinType(int i) {
-        if (i != this.aMk) {
-            al.h(this, e.d.cp_cont_f);
-            this.aMk = i;
+        if (i != this.bUJ) {
+            al.j(this, d.C0236d.cp_cont_f);
+            this.bUJ = i;
         }
     }
 }

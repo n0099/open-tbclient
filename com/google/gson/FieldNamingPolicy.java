@@ -1,6 +1,5 @@
 package com.google.gson;
 
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Field;
 import java.util.Locale;
@@ -27,7 +26,7 @@ public enum FieldNamingPolicy implements c {
     LOWER_CASE_WITH_UNDERSCORES { // from class: com.google.gson.FieldNamingPolicy.4
         @Override // com.google.gson.c
         public String translateName(Field field) {
-            return separateCamelCase(field.getName(), BaseRequestAction.SPLITE).toLowerCase(Locale.ENGLISH);
+            return separateCamelCase(field.getName(), "_").toLowerCase(Locale.ENGLISH);
         }
     },
     LOWER_CASE_WITH_DASHES { // from class: com.google.gson.FieldNamingPolicy.5

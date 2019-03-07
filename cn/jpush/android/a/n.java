@@ -7,9 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import cn.jpush.android.api.TagAliasCallback;
 import cn.jpush.android.service.ServiceInterface;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
+import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -150,7 +148,7 @@ public final class n {
                     cn.jpush.android.d.f.a("TagAliasHelper", "action:setAliasAndTags - alias:" + str + ", tags:" + b);
                     try {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("platform", Config.APP_VERSION_CODE);
+                        jSONObject.put("platform", "a");
                         if (str != null) {
                             jSONObject.put("alias", str);
                         }
@@ -206,7 +204,7 @@ public final class n {
     private static JSONObject a(int i) {
         String str;
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("platform", Config.APP_VERSION_CODE);
+        jSONObject.put("platform", "a");
         switch (i) {
             case 1:
                 str = "add";
@@ -298,7 +296,7 @@ public final class n {
             if (longValue < 0) {
                 a.clear();
                 c = 2;
-            } else if (longValue > ErrDef.Feature.WEIGHT) {
+            } else if (longValue > 10000) {
                 while (a.size() >= 10) {
                     a.poll();
                 }
@@ -339,7 +337,7 @@ public final class n {
     public static void a(Context context, cn.jpush.a.c cVar) {
         cn.jpush.android.d.f.a("TagAliasHelper", "tagalias:" + cVar);
         if (cVar != null) {
-            f.a(context).a(cVar, HttpConstants.HTTP_CONNECT_TIMEOUT);
+            f.a(context).a(cVar, 20000);
         }
     }
 
@@ -405,7 +403,7 @@ public final class n {
                 cn.jpush.android.d.f.d("TagAliasHelper", "Invalid tag: " + str2);
                 i = i2;
             } else {
-                str = str == null ? str2 : str + "," + str2;
+                str = str == null ? str2 : str + Constants.ACCEPT_TIME_SEPARATOR_SP + str2;
                 i = i2 + 1;
                 if (i >= 1000) {
                     return str;
@@ -419,7 +417,7 @@ public final class n {
 
     private static boolean b(Context context, String str, long j, int i) {
         if (str != null) {
-            String replaceAll = str.replaceAll(",", "");
+            String replaceAll = str.replaceAll(Constants.ACCEPT_TIME_SEPARATOR_SP, "");
             boolean z = i != 0;
             int length = !TextUtils.isEmpty(replaceAll) ? replaceAll.getBytes().length + 0 : 0;
             if (!(z ? length <= 5000 : length <= 7000)) {

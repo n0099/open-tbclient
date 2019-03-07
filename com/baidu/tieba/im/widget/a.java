@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
-import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -16,7 +15,7 @@ public class a<T> {
     /* JADX WARN: Type inference failed for: r1v3, types: [com.baidu.tbadk.data.ShareFromFrsMsgData, T] */
     /* JADX WARN: Type inference failed for: r1v4, types: [com.baidu.tbadk.data.ShareFromGameCenterMsgData, T] */
     /* JADX WARN: Type inference failed for: r2v10, types: [T, com.baidu.tbadk.data.ShareFromPBMsgData] */
-    public int bX(String str, String str2) {
+    public int df(String str, String str2) {
         int i = -1;
         if (str != null) {
             try {
@@ -34,7 +33,7 @@ public class a<T> {
                         if (TextUtils.isEmpty(optString4)) {
                             ?? r2 = (T) new ShareFromPBMsgData();
                             r2.setContent(optJSONObject.optString("themeContent"));
-                            r2.setForumName(optJSONObject.optString(TbTitleActivityConfig.FORUM_NAME));
+                            r2.setForumName(optJSONObject.optString("forumName"));
                             r2.setImageUrl(optJSONObject.optString("themeImageUrl"));
                             r2.setPostId(optJSONObject.optString("postID"));
                             r2.setThreadId(optJSONObject.optString("themeID"));
@@ -46,7 +45,7 @@ public class a<T> {
                         } else {
                             ?? r1 = (T) new ShareFromGameCenterMsgData();
                             r1.setContent(optJSONObject.optString("themeContent"));
-                            r1.setForumName(optJSONObject.optString(TbTitleActivityConfig.FORUM_NAME));
+                            r1.setForumName(optJSONObject.optString("forumName"));
                             r1.setImageUrl(optJSONObject.optString("themeImageUrl"));
                             r1.setPostId(optJSONObject.optString("postID"));
                             r1.setThreadId(optJSONObject.optString("themeID"));
@@ -61,7 +60,7 @@ public class a<T> {
                         }
                     } else if (4 == this.subType) {
                         ?? r12 = (T) new ShareFromFrsMsgData();
-                        r12.setName(optJSONObject.optString(TbTitleActivityConfig.FORUM_NAME));
+                        r12.setName(optJSONObject.optString("forumName"));
                         r12.setImageUrl(optJSONObject.optString("themeImageUrl"));
                         r12.setMemberNum(optJSONObject.optInt("memberNum"));
                         r12.setPostNum(optJSONObject.optInt("postNum"));
@@ -79,7 +78,7 @@ public class a<T> {
         return this.subType;
     }
 
-    public T aVQ() {
+    public T bwv() {
         return this.payload;
     }
 }

@@ -27,8 +27,8 @@ public class b extends g {
     /* loaded from: classes2.dex */
     static class a extends g.a {
         private final Handler handler;
-        private final rx.a.a.b iFE = rx.a.a.a.ces().cet();
-        private volatile boolean iFF;
+        private final rx.a.a.b jVk = rx.a.a.a.cDD().cDE();
+        private volatile boolean jVl;
 
         a(Handler handler) {
             this.handler = handler;
@@ -36,33 +36,33 @@ public class b extends g {
 
         @Override // rx.k
         public void unsubscribe() {
-            this.iFF = true;
+            this.jVl = true;
             this.handler.removeCallbacksAndMessages(this);
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.iFF;
+            return this.jVl;
         }
 
         @Override // rx.g.a
         public k a(rx.functions.a aVar, long j, TimeUnit timeUnit) {
-            if (this.iFF) {
-                return e.cgS();
+            if (this.jVl) {
+                return e.cFt();
             }
-            RunnableC0405b runnableC0405b = new RunnableC0405b(this.iFE.b(aVar), this.handler);
-            Message obtain = Message.obtain(this.handler, runnableC0405b);
+            RunnableC0380b runnableC0380b = new RunnableC0380b(this.jVk.d(aVar), this.handler);
+            Message obtain = Message.obtain(this.handler, runnableC0380b);
             obtain.obj = this;
             this.handler.sendMessageDelayed(obtain, timeUnit.toMillis(j));
-            if (this.iFF) {
-                this.handler.removeCallbacks(runnableC0405b);
-                return e.cgS();
+            if (this.jVl) {
+                this.handler.removeCallbacks(runnableC0380b);
+                return e.cFt();
             }
-            return runnableC0405b;
+            return runnableC0380b;
         }
 
         @Override // rx.g.a
-        public k a(rx.functions.a aVar) {
+        public k c(rx.functions.a aVar) {
             return a(aVar, 0L, TimeUnit.MILLISECONDS);
         }
     }
@@ -70,12 +70,12 @@ public class b extends g {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: rx.a.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class RunnableC0405b implements Runnable, k {
+    public static final class RunnableC0380b implements Runnable, k {
         private final rx.functions.a action;
         private final Handler handler;
-        private volatile boolean iFF;
+        private volatile boolean jVl;
 
-        RunnableC0405b(rx.functions.a aVar, Handler handler) {
+        RunnableC0380b(rx.functions.a aVar, Handler handler) {
             this.action = aVar;
             this.handler = handler;
         }
@@ -91,7 +91,7 @@ public class b extends g {
                 } else {
                     illegalStateException = new IllegalStateException("Fatal Exception thrown on Scheduler.Worker thread.", th);
                 }
-                f.cgp().cgq().C(illegalStateException);
+                f.cEQ().cER().D(illegalStateException);
                 Thread currentThread = Thread.currentThread();
                 currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, illegalStateException);
             }
@@ -99,13 +99,13 @@ public class b extends g {
 
         @Override // rx.k
         public void unsubscribe() {
-            this.iFF = true;
+            this.jVl = true;
             this.handler.removeCallbacks(this);
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.iFF;
+            return this.jVl;
         }
     }
 }

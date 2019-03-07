@@ -1,7 +1,6 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
-import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.push.service.ak;
 import java.util.Locale;
@@ -55,7 +54,7 @@ public class n {
         bVar.h = "5";
         bVar.d = "XMPUSH-PASS";
         bVar.e = false;
-        bVar.f = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s:%7$s:%8$s", ETAG.KEY_SDK_VER, 26, "cpvn", "3_2_2", "cpvc", 30202, "aapn", b(context) ? com.xiaomi.channel.commonutils.android.b.d(context) : "");
+        bVar.f = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s:%7$s:%8$s", "sdk_ver", 26, "cpvn", "3_2_2", "cpvc", 30202, "aapn", b(context) ? com.xiaomi.channel.commonutils.android.b.d(context) : "");
         bVar.g = String.format("%1$s:%2$s,%3$s:%4$s,%5$s:%6$s,sync:1", "appid", b(context) ? "1000271" : this.d, "locale", Locale.getDefault().toString(), Constants.EXTRA_KEY_MIID, k.a(context).c());
         if (a(context)) {
             bVar.g += String.format(",%1$s:%2$s", "ab", str);

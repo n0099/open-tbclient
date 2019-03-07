@@ -6,33 +6,33 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import com.baidu.tieba.pb.pb.main.PbActivity;
 import com.baidu.tieba.pb.pb.main.k;
 import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class d extends k<PostData, a> {
-    private View.OnClickListener dhQ;
+    private View.OnClickListener erP;
 
     public d(PbActivity pbActivity, BdUniqueId bdUniqueId) {
         super(pbActivity, bdUniqueId);
     }
 
     public void setOnClickListener(View.OnClickListener onClickListener) {
-        this.dhQ = onClickListener;
+        this.erP = onClickListener;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: bj */
+    /* renamed from: bv */
     public a onCreateViewHolder(ViewGroup viewGroup) {
-        View inflate = LayoutInflater.from(this.mContext).inflate(e.h.pb_reply_load_more_item, viewGroup, false);
-        inflate.findViewById(e.g.tv_pb_reply_more).setOnClickListener(this.dhQ);
+        View inflate = LayoutInflater.from(this.mContext).inflate(d.h.pb_reply_load_more_item, viewGroup, false);
+        inflate.findViewById(d.g.tv_pb_reply_more).setOnClickListener(this.erP);
         a aVar = new a(inflate);
-        aVar.KD();
+        aVar.akb();
         return aVar;
     }
 
@@ -45,31 +45,31 @@ public class d extends k<PostData, a> {
         return aVar.getView();
     }
 
-    /* loaded from: classes6.dex */
-    public static class a extends q.a {
-        private TextView fVp;
+    /* loaded from: classes4.dex */
+    public static class a extends v.a {
+        private TextView hlA;
 
         public a(View view) {
             super(view);
-            this.fVp = (TextView) view.findViewById(e.g.tv_pb_reply_more);
+            this.hlA = (TextView) view.findViewById(d.g.tv_pb_reply_more);
         }
 
         public void setData(PostData postData) {
             if (postData != null) {
-                if (postData.hqd) {
-                    Drawable drawable = al.getDrawable(e.f.icon_emotion_smallarrow_n);
+                if (postData.iGI) {
+                    Drawable drawable = al.getDrawable(d.f.icon_emotion_smallarrow_n);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    this.fVp.setCompoundDrawables(null, null, drawable, null);
+                    this.hlA.setCompoundDrawables(null, null, drawable, null);
                     return;
                 }
-                Drawable drawable2 = al.getDrawable(e.f.icon_emotion_smallarrow_down);
+                Drawable drawable2 = al.getDrawable(d.f.icon_emotion_smallarrow_down);
                 drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-                this.fVp.setCompoundDrawables(null, null, drawable2, null);
+                this.hlA.setCompoundDrawables(null, null, drawable2, null);
             }
         }
 
-        public void KD() {
-            al.h(this.fVp, e.d.cp_cont_d);
+        public void akb() {
+            al.j(this.hlA, d.C0236d.cp_cont_d);
         }
     }
 }

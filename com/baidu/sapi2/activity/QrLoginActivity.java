@@ -25,7 +25,7 @@ public class QrLoginActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
             init();
             setupViews();
         } catch (Throwable th) {
@@ -54,11 +54,11 @@ public class QrLoginActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitle(a.f.sapi_sdk_title_qr_login);
+        setTitle(a.g.sapi_sdk_title_qr_login);
         this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.QrLoginActivity.1
             @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
             public boolean onBack() {
-                if (QrLoginActivity.this.sapiWebView.canGoBack()) {
+                if (QrLoginActivity.this.sapiWebView != null && QrLoginActivity.this.sapiWebView.canGoBack()) {
                     QrLoginActivity.this.sapiWebView.goBack();
                     return false;
                 }
@@ -128,7 +128,7 @@ public class QrLoginActivity extends BaseActivity {
     }
 
     private void goBack() {
-        if (this.sapiWebView.canGoBack()) {
+        if (this.sapiWebView != null && this.sapiWebView.canGoBack()) {
             this.sapiWebView.back();
         } else {
             onClose();

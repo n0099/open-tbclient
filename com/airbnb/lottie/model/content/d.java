@@ -5,61 +5,62 @@ import android.support.annotation.Nullable;
 import com.airbnb.lottie.model.a.c;
 import com.airbnb.lottie.model.a.d;
 import com.airbnb.lottie.model.a.f;
-import com.baidu.mobstat.Config;
+import com.baidu.appsearchlib.Info;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d implements b {
     private final String name;
-    private final com.airbnb.lottie.model.a.d qT;
-    private final GradientType rc;
-    private final Path.FillType rd;
-    private final com.airbnb.lottie.model.a.c re;
-    private final com.airbnb.lottie.model.a.f rf;
-    private final com.airbnb.lottie.model.a.f rg;
+    private final com.airbnb.lottie.model.a.d qP;
+    private final GradientType qY;
+    private final Path.FillType qZ;
+    private final com.airbnb.lottie.model.a.c ra;
+    private final com.airbnb.lottie.model.a.f rb;
+    private final com.airbnb.lottie.model.a.f rc;
     @Nullable
-    private final com.airbnb.lottie.model.a.b rh;
+    private final com.airbnb.lottie.model.a.b rd;
     @Nullable
-    private final com.airbnb.lottie.model.a.b ri;
+    private final com.airbnb.lottie.model.a.b re;
 
     private d(String str, GradientType gradientType, Path.FillType fillType, com.airbnb.lottie.model.a.c cVar, com.airbnb.lottie.model.a.d dVar, com.airbnb.lottie.model.a.f fVar, com.airbnb.lottie.model.a.f fVar2, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2) {
-        this.rc = gradientType;
-        this.rd = fillType;
-        this.re = cVar;
-        this.qT = dVar;
-        this.rf = fVar;
-        this.rg = fVar2;
+        this.qY = gradientType;
+        this.qZ = fillType;
+        this.ra = cVar;
+        this.qP = dVar;
+        this.rb = fVar;
+        this.rc = fVar2;
         this.name = str;
-        this.rh = bVar;
-        this.ri = bVar2;
+        this.rd = bVar;
+        this.re = bVar2;
     }
 
     public String getName() {
         return this.name;
     }
 
-    public GradientType ee() {
-        return this.rc;
+    public GradientType ed() {
+        return this.qY;
     }
 
     public Path.FillType getFillType() {
-        return this.rd;
+        return this.qZ;
     }
 
-    public com.airbnb.lottie.model.a.c ef() {
-        return this.re;
+    public com.airbnb.lottie.model.a.c ee() {
+        return this.ra;
     }
 
-    public com.airbnb.lottie.model.a.d dV() {
-        return this.qT;
+    public com.airbnb.lottie.model.a.d dU() {
+        return this.qP;
+    }
+
+    public com.airbnb.lottie.model.a.f ef() {
+        return this.rb;
     }
 
     public com.airbnb.lottie.model.a.f eg() {
-        return this.rf;
-    }
-
-    public com.airbnb.lottie.model.a.f eh() {
-        return this.rg;
+        return this.rc;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -74,20 +75,20 @@ public class d implements b {
         public static d p(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
             String optString = jSONObject.optString("nm");
             JSONObject optJSONObject = jSONObject.optJSONObject("g");
-            if (optJSONObject != null && optJSONObject.has(Config.APP_KEY)) {
+            if (optJSONObject != null && optJSONObject.has("k")) {
                 int optInt = optJSONObject.optInt("p");
-                optJSONObject = optJSONObject.optJSONObject(Config.APP_KEY);
+                optJSONObject = optJSONObject.optJSONObject("k");
                 try {
                     optJSONObject.put("p", optInt);
                 } catch (JSONException e) {
                 }
             }
             com.airbnb.lottie.model.a.c f = optJSONObject != null ? c.a.f(optJSONObject, eVar) : null;
-            JSONObject optJSONObject2 = jSONObject.optJSONObject(Config.OS);
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("o");
             com.airbnb.lottie.model.a.d g = optJSONObject2 != null ? d.a.g(optJSONObject2, eVar) : null;
             Path.FillType fillType = jSONObject.optInt("r", 1) == 1 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD;
-            GradientType gradientType = jSONObject.optInt("t", 1) == 1 ? GradientType.Linear : GradientType.Radial;
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("s");
+            GradientType gradientType = jSONObject.optInt(Info.kBaiduTimeKey, 1) == 1 ? GradientType.Linear : GradientType.Radial;
+            JSONObject optJSONObject3 = jSONObject.optJSONObject(NotifyType.SOUND);
             com.airbnb.lottie.model.a.f i = optJSONObject3 != null ? f.a.i(optJSONObject3, eVar) : null;
             JSONObject optJSONObject4 = jSONObject.optJSONObject("e");
             return new d(optString, gradientType, fillType, f, g, i, optJSONObject4 != null ? f.a.i(optJSONObject4, eVar) : null, null, null);

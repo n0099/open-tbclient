@@ -1,7 +1,6 @@
 package com.xiaomi.smack.util;
 
 import android.text.TextUtils;
-import com.baidu.webkit.internal.ETAG;
 import java.util.Random;
 /* loaded from: classes3.dex */
 public class d {
@@ -115,7 +114,7 @@ public class d {
     }
 
     public static final String b(String str) {
-        return a(a(a(a(a(str, "&lt;", "<"), "&gt;", ">"), "&quot;", "\""), "&apos;", "'"), "&amp;", ETAG.ITEM_SEPARATOR);
+        return a(a(a(a(a(str, "&lt;", "<"), "&gt;", ">"), "&quot;", "\""), "&apos;", "'"), "&amp;", "&");
     }
 
     public static String c(String str) {

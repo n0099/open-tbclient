@@ -5,70 +5,70 @@ import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 public class f {
-    private static final f iSc = new f();
-    static final b iSh = new b() { // from class: rx.c.f.1
+    private static final f kca = new f();
+    static final b kcf = new b() { // from class: rx.c.f.1
     };
-    private final AtomicReference<b> iSd = new AtomicReference<>();
-    private final AtomicReference<d> iSe = new AtomicReference<>();
-    private final AtomicReference<h> iSf = new AtomicReference<>();
-    private final AtomicReference<a> iSg = new AtomicReference<>();
-    private final AtomicReference<g> iFA = new AtomicReference<>();
+    private final AtomicReference<b> kcb = new AtomicReference<>();
+    private final AtomicReference<d> kcc = new AtomicReference<>();
+    private final AtomicReference<h> kcd = new AtomicReference<>();
+    private final AtomicReference<a> kce = new AtomicReference<>();
+    private final AtomicReference<g> jVg = new AtomicReference<>();
 
     @Deprecated
-    public static f cgp() {
-        return iSc;
+    public static f cEQ() {
+        return kca;
     }
 
     f() {
     }
 
-    public b cgq() {
-        if (this.iSd.get() == null) {
+    public b cER() {
+        if (this.kcb.get() == null) {
             Object a = a(b.class, System.getProperties());
             if (a == null) {
-                this.iSd.compareAndSet(null, iSh);
+                this.kcb.compareAndSet(null, kcf);
             } else {
-                this.iSd.compareAndSet(null, (b) a);
+                this.kcb.compareAndSet(null, (b) a);
             }
         }
-        return this.iSd.get();
+        return this.kcb.get();
     }
 
-    public d cgr() {
-        if (this.iSe.get() == null) {
+    public d cES() {
+        if (this.kcc.get() == null) {
             Object a = a(d.class, System.getProperties());
             if (a == null) {
-                this.iSe.compareAndSet(null, e.cgo());
+                this.kcc.compareAndSet(null, e.cEP());
             } else {
-                this.iSe.compareAndSet(null, (d) a);
+                this.kcc.compareAndSet(null, (d) a);
             }
         }
-        return this.iSe.get();
+        return this.kcc.get();
     }
 
-    public h cgs() {
-        if (this.iSf.get() == null) {
+    public h cET() {
+        if (this.kcd.get() == null) {
             Object a = a(h.class, System.getProperties());
             if (a == null) {
-                this.iSf.compareAndSet(null, i.cgC());
+                this.kcd.compareAndSet(null, i.cFd());
             } else {
-                this.iSf.compareAndSet(null, (h) a);
+                this.kcd.compareAndSet(null, (h) a);
             }
         }
-        return this.iSf.get();
+        return this.kcd.get();
     }
 
-    public a cgt() {
-        if (this.iSg.get() == null) {
+    public a cEU() {
+        if (this.kce.get() == null) {
             Object a = a(a.class, System.getProperties());
             if (a == null) {
-                this.iSg.compareAndSet(null, new a() { // from class: rx.c.f.2
+                this.kce.compareAndSet(null, new a() { // from class: rx.c.f.2
                 });
             } else {
-                this.iSg.compareAndSet(null, (a) a);
+                this.kce.compareAndSet(null, (a) a);
             }
         }
-        return this.iSg.get();
+        return this.kce.get();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:33:0x0154 A[RETURN, SYNTHETIC] */
@@ -113,15 +113,15 @@ public class f {
         }
     }
 
-    public g cgu() {
-        if (this.iFA.get() == null) {
+    public g cEV() {
+        if (this.jVg.get() == null) {
             Object a = a(g.class, System.getProperties());
             if (a == null) {
-                this.iFA.compareAndSet(null, g.cgB());
+                this.jVg.compareAndSet(null, g.cFc());
             } else {
-                this.iFA.compareAndSet(null, (g) a);
+                this.jVg.compareAndSet(null, (g) a);
             }
         }
-        return this.iFA.get();
+        return this.jVg.get();
     }
 }

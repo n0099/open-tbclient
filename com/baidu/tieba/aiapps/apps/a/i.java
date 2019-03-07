@@ -1,17 +1,16 @@
 package com.baidu.tieba.aiapps.apps.a;
+/* loaded from: classes2.dex */
+public class i {
+    private static volatile h cRt;
 
-import android.os.Bundle;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-/* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
-public class i extends ProviderDelegation {
-    i() {
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        Bundle bundle2 = new Bundle();
-        bundle2.putBoolean("result", b.isLogin(getAgent().getContext()));
-        return bundle2;
+    public static synchronized h ayc() {
+        h hVar;
+        synchronized (i.class) {
+            if (cRt == null) {
+                cRt = new h();
+            }
+            hVar = cRt;
+        }
+        return hVar;
     }
 }

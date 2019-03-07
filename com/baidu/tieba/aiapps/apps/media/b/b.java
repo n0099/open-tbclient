@@ -1,68 +1,56 @@
 package com.baidu.tieba.aiapps.apps.media.b;
 
-import android.support.annotation.NonNull;
-import android.text.TextUtils;
-import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel;
-import com.baidu.searchbox.ng.ai.apps.view.container.AiAppsNAViewType;
-import com.baidu.searchbox.ng.ai.apps.view.coverview.model.ImageCoverViewModel;
+import android.util.Log;
+import android.util.SparseArray;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.sapi2.scheme.SapiScheme;
+import com.baidu.sapi2.utils.SapiGIDEvent;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class b extends AiAppsNaViewModel {
-    public boolean bJB;
-    public boolean bJC;
-    public int bJD;
-    public int bJE;
-    public String bJF;
-    public String bJG;
-    public boolean bJH;
-    public boolean mAutoPlay;
-    public int mDirection;
-    public String mPlayerId;
-    public String mSrc;
+public final class b {
+    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final SparseArray<Integer> cVk = new SparseArray<>(32);
 
-    public b() {
-        super("liveId", AiAppsNAViewType.LIVEPLAYER);
-        this.bJB = false;
-        this.bJC = false;
-        this.bJD = 1;
-        this.bJE = 3;
-        this.bJF = "vertical";
-        this.bJG = "contain";
-        this.mAutoPlay = false;
-        this.bJH = false;
-        this.mDirection = 0;
+    static {
+        cVk.put(10015, 2001);
+        cVk.put(10013, Integer.valueOf((int) BaseActivity.EXTRA_PARAM_FROM_PASS_SDK_ENTER));
+        cVk.put(904, 2003);
+        cVk.put(10012, 2004);
+        cVk.put(SapiGIDEvent.BUSINESS_GET_GID, 2006);
+        cVk.put(701, 2007);
+        cVk.put(SapiGIDEvent.BUSINESS_LOGOUT, 2008);
+        cVk.put(SapiGIDEvent.SYSTEM_SCREEN_ON, 2009);
+        cVk.put(10007, -2301);
+        cVk.put(10008, 2101);
+        cVk.put(923, 2103);
+        cVk.put(10009, 2105);
+        cVk.put(10010, 2106);
+        cVk.put(10003, 2107);
+        cVk.put(10011, 2108);
+        cVk.put(10014, Integer.valueOf((int) SapiScheme.REQUEST_CODE_START_SC_APP_VERIFY));
+        cVk.put(3002, 3002);
+        cVk.put(3003, 3003);
+        cVk.put(3004, 3005);
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel, com.baidu.searchbox.ng.ai.apps.model.IModel
-    public boolean isValid() {
-        return !TextUtils.isEmpty(this.mPlayerId) && this.bJD <= this.bJE;
-    }
-
-    public String toString() {
-        return "LivePlayerParams{mPlayerId='" + this.mPlayerId + "', mSlaveId='" + this.slaveId + "', mMuted=" + this.bJB + ", mBackgroundMuted=" + this.bJC + ", mMinCacheS=" + this.bJD + ", mMaxCacheS=" + this.bJE + ", mOrientation='" + this.bJF + "', mObjectFit='" + this.bJG + "', mSrc='" + this.mSrc + "', mAutoPlay=" + this.mAutoPlay + '}';
-    }
-
-    public static b a(JSONObject jSONObject, @NonNull b bVar) {
-        if (jSONObject == null) {
-            return Zj();
+    public static int lP(int i) {
+        if (cVk.indexOfKey(i) < 0) {
+            if (DEBUG) {
+                Log.e("LiveStatusCodeAdapter", "Please check sStatusCodeMap already putted correct K,V pair. what: " + i);
+            }
+            return 100;
         }
-        b bVar2 = new b();
-        bVar2.updateFromJson(jSONObject, bVar);
-        bVar2.mPlayerId = jSONObject.optString("liveId");
-        bVar2.mSrc = jSONObject.optString(ImageCoverViewModel.KEY_SRC, bVar.mSrc);
-        bVar2.mAutoPlay = jSONObject.optBoolean("autoplay", bVar.mAutoPlay);
-        bVar2.bJB = jSONObject.optBoolean("muted", bVar.bJB);
-        bVar2.bJC = jSONObject.optBoolean("backgroundMute", bVar.bJC);
-        bVar2.bJF = jSONObject.optString("orientation", bVar.bJF);
-        bVar2.bJG = jSONObject.optString("objectFit", bVar.bJG);
-        bVar2.bJD = jSONObject.optInt("minCache", bVar.bJD);
-        bVar2.bJE = jSONObject.optInt("maxCache", bVar.bJE);
-        bVar2.bJH = jSONObject.optBoolean("fullScreen", bVar.bJH);
-        bVar2.mDirection = jSONObject.optInt("direction", bVar.mDirection);
-        return bVar2;
+        return cVk.get(i).intValue();
     }
 
-    public static b Zj() {
-        return new b();
+    public static String lQ(int i) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("code", i);
+            return jSONObject.toString();
+        } catch (JSONException e) {
+            return null;
+        }
     }
 }

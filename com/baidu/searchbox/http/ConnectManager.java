@@ -5,8 +5,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Proxy;
 import com.baidu.sapi2.base.network.Apn;
-import com.baidu.searchbox.ng.ai.apps.network.AiAppNetworkUtils;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 /* loaded from: classes2.dex */
 public class ConnectManager {
     private static final boolean DEBUG = false;
@@ -132,7 +130,7 @@ public class ConnectManager {
     public static String getNetworkInfo(Context context) {
         NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
         if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
-            return AiAppNetworkUtils.NETWORK_TYPE_CELL_UN_CONNECTED;
+            return "no";
         }
         if (activeNetworkInfo.getType() == 1) {
             return "wifi";
@@ -168,8 +166,8 @@ public class ConnectManager {
                     sb.append(activeNetworkInfo.getTypeName());
                     break;
             }
-            return sb.append(BaseRequestAction.SPLITE).append(lowerCase).append(BaseRequestAction.SPLITE).append(subtypeName).toString();
+            return sb.append("_").append(lowerCase).append("_").append(subtypeName).toString();
         }
-        return activeNetworkInfo.getTypeName() + BaseRequestAction.SPLITE + activeNetworkInfo.getSubtypeName();
+        return activeNetworkInfo.getTypeName() + "_" + activeNetworkInfo.getSubtypeName();
     }
 }

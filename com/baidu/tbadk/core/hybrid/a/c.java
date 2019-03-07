@@ -19,22 +19,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c extends n {
-    private l azq;
+    private l bHi;
 
     public c(l lVar) {
         super(lVar);
-        this.azq = lVar;
+        this.bHi = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String xc() {
+    public String VJ() {
         return "TBHY_COMMON_Image";
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    @o(Cz = false, value = "scanBigImages")
-    public void sanBigImages(JSONObject jSONObject) throws JSONException {
+    @o(abJ = false, value = "scanBigImages")
+    protected void sanBigImages(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             JSONArray optJSONArray = jSONObject.optJSONArray("imageUrls");
             int optInt = jSONObject.optInt("clickIndex");
@@ -57,7 +56,7 @@ public class c extends n {
                     }
                 }
             }
-            sendMessage(new CustomMessage(2010000, new ImageViewerConfig(this.azq.getContext()).createConfig(arrayList, optInt, "", "", "", true, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true)));
+            sendMessage(new CustomMessage(2010000, new ImageViewerConfig(this.bHi.getContext()).createConfig(arrayList, optInt, "", "", "", true, arrayList.size() > 0 ? arrayList.get(0) : "", true, concurrentHashMap, true)));
         }
     }
 
@@ -80,7 +79,7 @@ public class c extends n {
             }
         }
         writeImagesInfo.setChosedFiles(linkedList);
-        writeImagesInfo.setMaxImagesAllowed(10);
+        writeImagesInfo.setMaxImagesAllowed(9);
         AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(getContext(), writeImagesInfo.toJsonString(), true, true);
         albumActivityConfig.getIntent().putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, 5);
         albumActivityConfig.setRequestCode(IEventCenterService.EventId.EventMode.SAPIACCOUNT_LOGIN);

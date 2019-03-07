@@ -4,7 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class VideoCacheService extends Service {
     private static final String TAG = VideoCacheService.class.getSimpleName();
     private n mHttpServer;
@@ -12,7 +12,7 @@ public class VideoCacheService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        j.log(TAG, "onCreate");
+        j.as(TAG, "onCreate");
         this.mHttpServer = new n(this);
     }
 
@@ -29,10 +29,10 @@ public class VideoCacheService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        j.log(TAG, "onDestroy");
+        j.as(TAG, "onDestroy");
         if (this.mHttpServer != null) {
             this.mHttpServer.destroy();
         }
-        l.VR().destroy();
+        l.avR().destroy();
     }
 }

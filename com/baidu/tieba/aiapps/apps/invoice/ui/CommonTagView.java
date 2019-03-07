@@ -6,18 +6,19 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsUIUtils;
-import com.baidu.tieba.e;
+import com.baidu.swan.apps.an.x;
+import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class CommonTagView extends TextView {
-    private boolean IW;
-    private boolean bId;
+    private boolean Jd;
+    private int Oo;
+    private boolean cTD;
     private int mBorderColor;
     private int mBorderWidth;
     private Context mContext;
-    private int mCornerRadius;
     private Paint mPaint;
     private RectF mRectF;
 
@@ -31,22 +32,22 @@ public class CommonTagView extends TextView {
 
     public CommonTagView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.IW = true;
-        this.bId = true;
+        this.Jd = true;
+        this.cTD = true;
         b(context, attributeSet, i);
     }
 
     private void b(Context context, AttributeSet attributeSet, int i) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, e.l.CommonTagView);
-        this.mBorderWidth = obtainStyledAttributes.getDimensionPixelOffset(e.l.CommonTagView_borderWidth, 1);
-        this.mBorderColor = obtainStyledAttributes.getColor(e.l.CommonTagView_tgViewBorderColor, -16777216);
-        this.mCornerRadius = obtainStyledAttributes.getDimensionPixelOffset(e.l.CommonTagView_cornerRadius, 3);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.l.CommonTagView);
+        this.mBorderWidth = obtainStyledAttributes.getDimensionPixelOffset(d.l.CommonTagView_borderWidth, 1);
+        this.mBorderColor = obtainStyledAttributes.getColor(d.l.CommonTagView_tgViewBorderColor, ViewCompat.MEASURED_STATE_MASK);
+        this.Oo = obtainStyledAttributes.getDimensionPixelOffset(d.l.CommonTagView_cornerRadius, 3);
         obtainStyledAttributes.recycle();
-        setPadding(getPaddingLeft() == 0 ? AiAppsUIUtils.dip2px(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? AiAppsUIUtils.dip2px(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? AiAppsUIUtils.dip2px(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? AiAppsUIUtils.dip2px(context, 1.0f) : getPaddingBottom());
-        ck(context);
+        setPadding(getPaddingLeft() == 0 ? x.dip2px(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? x.dip2px(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? x.dip2px(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? x.dip2px(context, 1.0f) : getPaddingBottom());
+        dI(context);
     }
 
-    private void ck(Context context) {
+    private void dI(Context context) {
         this.mContext = context;
         this.mPaint = new Paint();
         this.mRectF = new RectF();
@@ -55,11 +56,11 @@ public class CommonTagView extends TextView {
     @Override // android.widget.TextView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (this.IW) {
+        if (this.Jd) {
             this.mPaint.setStyle(Paint.Style.STROKE);
             this.mPaint.setAntiAlias(true);
             this.mPaint.setStrokeWidth(this.mBorderWidth);
-            if (this.bId && this.mBorderColor != getCurrentTextColor()) {
+            if (this.cTD && this.mBorderColor != getCurrentTextColor()) {
                 this.mBorderColor = getCurrentTextColor();
             }
             this.mPaint.setColor(this.mBorderColor);
@@ -67,7 +68,7 @@ public class CommonTagView extends TextView {
             this.mRectF.top = this.mBorderWidth * 0.5f;
             this.mRectF.right = getMeasuredWidth() - (this.mBorderWidth * 0.5f);
             this.mRectF.bottom = getMeasuredHeight() - (this.mBorderWidth * 0.5f);
-            canvas.drawRoundRect(this.mRectF, this.mCornerRadius, this.mCornerRadius, this.mPaint);
+            canvas.drawRoundRect(this.mRectF, this.Oo, this.Oo, this.mPaint);
         }
     }
 }

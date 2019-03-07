@@ -1,6 +1,5 @@
 package okio;
 
-import com.baidu.searchbox.ng.ai.apps.system.bluetooth.utils.AiAppsBluetoothConstants;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
@@ -107,7 +106,7 @@ public class Timeout {
                 j = System.nanoTime() - nanoTime;
             }
             if (j >= timeoutNanos) {
-                throw new InterruptedIOException(AiAppsBluetoothConstants.KEY_TIME_OUT);
+                throw new InterruptedIOException("timeout");
             }
         } catch (InterruptedException e) {
             throw new InterruptedIOException("interrupted");

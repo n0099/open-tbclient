@@ -6,10 +6,10 @@ import cn.jpush.android.service.PushService;
 public final class a implements Runnable {
     private final int b;
     private final Intent c;
-    private final PushService mQ;
+    private final PushService mP;
 
     public a(PushService pushService, int i, Intent intent) {
-        this.mQ = pushService;
+        this.mP = pushService;
         this.b = i;
         this.c = intent;
     }
@@ -18,13 +18,13 @@ public final class a implements Runnable {
     public final void run() {
         switch (this.b) {
             case 1:
-                this.mQ.runCreate();
+                this.mP.runCreate();
                 return;
             case 2:
-                this.mQ.runStart(this.c);
+                this.mP.runStart(this.c);
                 return;
             case 3:
-                this.mQ.runDestroy();
+                this.mP.runDestroy();
                 return;
             default:
                 return;

@@ -14,23 +14,23 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.data.ay;
-import com.baidu.tbadk.core.data.bb;
+import com.baidu.tbadk.core.data.bc;
+import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.commonLike.forum.ForumLikeBotton;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ThreadForumUserInfoLayout extends RelativeLayout {
-    private bb aFJ;
-    private View.OnClickListener aJb;
-    private TbImageView aKo;
-    private TextView aKp;
-    private TextView aKq;
-    private ForumLikeBotton aKr;
-    private com.baidu.tbadk.core.view.commonLike.forum.a aKs;
-    private View.OnClickListener aKt;
+    private bg XR;
+    private View.OnClickListener bRy;
+    private TbImageView bSW;
+    private TextView bSX;
+    private TextView bSY;
+    private ForumLikeBotton bSZ;
+    private com.baidu.tbadk.core.view.commonLike.forum.a bTa;
+    private View.OnClickListener bTb;
     private int mSkinType;
 
     public ThreadForumUserInfoLayout(Context context) {
@@ -44,13 +44,13 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
     public ThreadForumUserInfoLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mSkinType = 3;
-        this.aKt = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadForumUserInfoLayout.1
+        this.bTb = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.ThreadForumUserInfoLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ThreadForumUserInfoLayout.this.aFJ != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(ThreadForumUserInfoLayout.this.getContext()).createNormalCfg(ThreadForumUserInfoLayout.this.aFJ.By() != null ? ThreadForumUserInfoLayout.this.aFJ.By().getForumName() : ThreadForumUserInfoLayout.this.aFJ.zZ(), com.baidu.tieba.card.o.zH())));
-                    if (ThreadForumUserInfoLayout.this.aJb != null) {
-                        ThreadForumUserInfoLayout.this.aJb.onClick(view);
+                if (ThreadForumUserInfoLayout.this.XR != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(ThreadForumUserInfoLayout.this.getContext()).createNormalCfg(ThreadForumUserInfoLayout.this.XR.aaE() != null ? ThreadForumUserInfoLayout.this.XR.aaE().getForumName() : ThreadForumUserInfoLayout.this.XR.YW(), com.baidu.tieba.card.n.YE())));
+                    if (ThreadForumUserInfoLayout.this.bRy != null) {
+                        ThreadForumUserInfoLayout.this.bRy.onClick(view);
                     }
                 }
             }
@@ -59,117 +59,117 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
     }
 
     private void init(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(e.h.thread_forum_user_info_layout, (ViewGroup) this, true);
-        this.aKo = (TbImageView) inflate.findViewById(e.g.forum_avatar);
-        this.aKp = (TextView) inflate.findViewById(e.g.forum_name);
-        this.aKp.setOnClickListener(this.aKt);
-        this.aKq = (TextView) inflate.findViewById(e.g.user_name_and_reply_time);
-        this.aKr = (ForumLikeBotton) inflate.findViewById(e.g.like_button);
+        View inflate = LayoutInflater.from(context).inflate(d.h.thread_forum_user_info_layout, (ViewGroup) this, true);
+        this.bSW = (TbImageView) inflate.findViewById(d.g.forum_avatar);
+        this.bSX = (TextView) inflate.findViewById(d.g.forum_name);
+        this.bSX.setOnClickListener(this.bTb);
+        this.bSY = (TextView) inflate.findViewById(d.g.user_name_and_reply_time);
+        this.bSZ = (ForumLikeBotton) inflate.findViewById(d.g.like_button);
         if (context instanceof TbPageContextSupport) {
-            this.aKs = new com.baidu.tbadk.core.view.commonLike.forum.a(((TbPageContextSupport) context).getPageContext(), this.aKr);
+            this.bTa = new com.baidu.tbadk.core.view.commonLike.forum.a(((TbPageContextSupport) context).getPageContext(), this.bSZ);
         }
         setGravity(16);
         initHeaderImg();
     }
 
     private void initHeaderImg() {
-        if (this.aKo != null) {
-            this.aKo.setDefaultResource(e.f.icon_default_ba_120);
-            this.aKo.setDefaultBgResource(e.d.cp_bg_line_e);
-            this.aKo.setOnClickListener(this.aKt);
+        if (this.bSW != null) {
+            this.bSW.setDefaultResource(d.f.icon_default_ba_120);
+            this.bSW.setDefaultBgResource(d.C0236d.cp_bg_line_e);
+            this.bSW.setOnClickListener(this.bTb);
         }
     }
 
-    public void setData(bb bbVar) {
-        if (bbVar != null) {
-            this.aFJ = bbVar;
-            a(bbVar.By());
-            b(bbVar.By());
-            j(bbVar);
-            c(bbVar.By());
+    public void setData(bg bgVar) {
+        if (bgVar != null) {
+            this.XR = bgVar;
+            a(bgVar.aaE());
+            b(bgVar.aaE());
+            y(bgVar);
+            c(bgVar.aaE());
         }
     }
 
-    private void a(ay ayVar) {
-        if (ayVar == null || StringUtils.isNull(ayVar.getAvatar())) {
-            this.aKo.setVisibility(4);
+    private void a(bc bcVar) {
+        if (bcVar == null || StringUtils.isNull(bcVar.getAvatar())) {
+            this.bSW.setVisibility(4);
             return;
         }
-        this.aKo.setVisibility(0);
-        this.aKo.startLoad(ayVar.getAvatar(), 10, false);
-        this.aKo.setBorderColor(al.getColor(e.d.black_alpha15));
+        this.bSW.setVisibility(0);
+        this.bSW.startLoad(bcVar.getAvatar(), 10, false);
+        this.bSW.setBorderColor(al.getColor(d.C0236d.black_alpha15));
     }
 
-    public void b(ay ayVar) {
-        if (ayVar == null || StringUtils.isNull(ayVar.getForumName())) {
-            this.aKp.setVisibility(4);
+    public void b(bc bcVar) {
+        if (bcVar == null || StringUtils.isNull(bcVar.getForumName())) {
+            this.bSX.setVisibility(4);
             return;
         }
-        this.aKp.setText(ao.d(ayVar.getForumName(), 14, "...") + getResources().getString(e.j.forum));
-        this.aKp.setVisibility(0);
+        this.bSX.setText(ap.g(bcVar.getForumName(), 14, "...") + getResources().getString(d.j.forum));
+        this.bSX.setVisibility(0);
     }
 
-    public void j(bb bbVar) {
-        if (bbVar != null && !StringUtils.isNull(this.aFJ.zT().getName_show())) {
-            this.aKq.setText(getContext().getString(e.j.user_name_and_publish, gG(this.aFJ.zT().getName_show())));
-            this.aKq.setVisibility(0);
+    public void y(bg bgVar) {
+        if (bgVar != null && !StringUtils.isNull(this.XR.YR().getName_show())) {
+            this.bSY.setText(getContext().getString(d.j.user_name_and_publish, ns(this.XR.YR().getName_show())));
+            this.bSY.setVisibility(0);
         }
     }
 
-    public void c(ay ayVar) {
+    public void c(bc bcVar) {
         int i = 8;
-        if (ayVar == null) {
-            this.aKr.setVisibility(8);
+        if (bcVar == null) {
+            this.bSZ.setVisibility(8);
             return;
         }
-        this.aKs.a(ayVar);
-        this.aKr.setVisibility((!ayVar.getIsLike() || ayVar.zr()) ? 0 : 0);
+        this.bTa.a(bcVar);
+        this.bSZ.setVisibility((!bcVar.getIsLike() || bcVar.Yg()) ? 0 : 0);
     }
 
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
-        this.aJb = onClickListener;
+        this.bRy = onClickListener;
     }
 
     public void setLikeButtonAfterClickListener(View.OnClickListener onClickListener) {
-        if (this.aKs != null) {
-            this.aKs.setLikeButtonAfterClickListener(onClickListener);
+        if (this.bTa != null) {
+            this.bTa.setLikeButtonAfterClickListener(onClickListener);
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        if (this.aKo != null) {
-            this.aKo.setPageId(bdUniqueId);
+        if (this.bSW != null) {
+            this.bSW.setPageId(bdUniqueId);
         }
-        if (this.aKs != null) {
-            this.aKs.setPageUniqueId(bdUniqueId);
+        if (this.bTa != null) {
+            this.bTa.setPageUniqueId(bdUniqueId);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            al.h(this.aKp, e.d.cp_cont_f);
-            al.h(this.aKq, e.d.cp_cont_d);
+            al.j(this.bSX, d.C0236d.cp_cont_f);
+            al.j(this.bSY, d.C0236d.cp_cont_d);
         }
     }
 
-    protected String gG(String str) {
-        return ao.d(str, 14, "...");
+    protected String ns(String str) {
+        return ap.g(str, 14, "...");
     }
 
     public TbImageView getHeaderImg() {
-        return this.aKo;
+        return this.bSW;
     }
 
     public TextView getUserName() {
-        return this.aKq;
+        return this.bSY;
     }
 
     public TextView getForumName() {
-        return this.aKp;
+        return this.bSX;
     }
 
     public ForumLikeBotton getLikeButton() {
-        return this.aKr;
+        return this.bSZ;
     }
 }

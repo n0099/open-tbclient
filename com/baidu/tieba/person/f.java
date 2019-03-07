@@ -7,22 +7,22 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.e;
-/* loaded from: classes5.dex */
+import com.baidu.tieba.d;
+/* loaded from: classes4.dex */
 public class f extends com.baidu.adp.base.c {
-    TextView cLX;
-    TextView gdD;
-    TextView gtV;
-    TextView gtW;
-    TextView gtX;
-    View gtY;
-    View gtZ;
-    View gua;
-    View gub;
-    View guc;
-    TextView gud;
-    View gue;
-    TextView mCancelView;
+    TextView bjI;
+    TextView dZy;
+    TextView hKk;
+    TextView hKl;
+    TextView hKm;
+    View hKn;
+    View hKo;
+    View hKp;
+    View hKq;
+    View hKr;
+    TextView hKs;
+    View hKt;
+    TextView htP;
     TbPageContext mPageContext;
     View mView;
 
@@ -33,114 +33,114 @@ public class f extends com.baidu.adp.base.c {
     }
 
     private void a(TbPageContext tbPageContext, View.OnClickListener onClickListener) {
-        this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(e.h.person_info_more_view, (ViewGroup) null);
-        this.gtV = (TextView) this.mView.findViewById(e.g.person_info_more_view_item_friend);
-        this.gtV.setOnClickListener(onClickListener);
-        this.gdD = (TextView) this.mView.findViewById(e.g.person_info_more_view_item_report);
-        this.gdD.setOnClickListener(onClickListener);
-        this.gtW = (TextView) this.mView.findViewById(e.g.person_info_more_view_item_black);
-        this.gtW.setOnClickListener(onClickListener);
-        this.gtX = (TextView) this.mView.findViewById(e.g.person_info_more_view_item_mute);
-        this.gtY = this.mView.findViewById(e.g.person_info_more_view_item_line_mute);
-        this.gtX.setOnClickListener(onClickListener);
-        this.mCancelView = (TextView) this.mView.findViewById(e.g.person_info_more_view_item_cancel);
-        this.mCancelView.setOnClickListener(onClickListener);
-        this.cLX = (TextView) this.mView.findViewById(e.g.person_info_more_view_item_username);
-        this.gtZ = this.mView.findViewById(e.g.person_info_more_view_item_line_username);
-        this.gua = this.mView.findViewById(e.g.person_info_more_view_item_line_friend);
-        this.gub = this.mView.findViewById(e.g.person_info_more_view_item_line_report);
-        this.guc = this.mView.findViewById(e.g.person_info_more_view_item_line_black);
-        this.gud = (TextView) this.mView.findViewById(e.g.person_info_item_remove_fans_view);
-        this.gue = this.mView.findViewById(e.g.person_info_line_remove_fans_view);
-        this.gud.setOnClickListener(onClickListener);
+        this.mView = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(d.h.person_info_more_view, (ViewGroup) null);
+        this.hKk = (TextView) this.mView.findViewById(d.g.person_info_more_view_item_friend);
+        this.hKk.setOnClickListener(onClickListener);
+        this.htP = (TextView) this.mView.findViewById(d.g.person_info_more_view_item_report);
+        this.htP.setOnClickListener(onClickListener);
+        this.hKl = (TextView) this.mView.findViewById(d.g.person_info_more_view_item_black);
+        this.hKl.setOnClickListener(onClickListener);
+        this.hKm = (TextView) this.mView.findViewById(d.g.person_info_more_view_item_mute);
+        this.hKn = this.mView.findViewById(d.g.person_info_more_view_item_line_mute);
+        this.hKm.setOnClickListener(onClickListener);
+        this.bjI = (TextView) this.mView.findViewById(d.g.person_info_more_view_item_cancel);
+        this.bjI.setOnClickListener(onClickListener);
+        this.dZy = (TextView) this.mView.findViewById(d.g.person_info_more_view_item_username);
+        this.hKo = this.mView.findViewById(d.g.person_info_more_view_item_line_username);
+        this.hKp = this.mView.findViewById(d.g.person_info_more_view_item_line_friend);
+        this.hKq = this.mView.findViewById(d.g.person_info_more_view_item_line_report);
+        this.hKr = this.mView.findViewById(d.g.person_info_more_view_item_line_black);
+        this.hKs = (TextView) this.mView.findViewById(d.g.person_info_item_remove_fans_view);
+        this.hKt = this.mView.findViewById(d.g.person_info_line_remove_fans_view);
+        this.hKs.setOnClickListener(onClickListener);
     }
 
-    public void i(boolean z, boolean z2, boolean z3) {
+    public void h(boolean z, boolean z2, boolean z3) {
         if (z) {
-            this.gtV.setText(e.j.remove_friend);
+            this.hKk.setText(d.j.remove_friend);
         } else {
-            this.gtV.setText(e.j.frs_recommend_friend_item_add);
+            this.hKk.setText(d.j.frs_recommend_friend_item_add);
         }
         if (z2) {
-            this.gtW.setText(e.j.remove_block_chat);
+            this.hKl.setText(d.j.remove_block_chat);
         } else {
-            this.gtW.setText(e.j.block_chat_message);
+            this.hKl.setText(d.j.block_chat_message);
         }
         if (z3) {
-            this.gud.setVisibility(0);
-            this.gue.setVisibility(0);
+            this.hKs.setVisibility(0);
+            this.hKt.setVisibility(0);
             return;
         }
-        this.gud.setVisibility(8);
-        this.gue.setVisibility(8);
+        this.hKs.setVisibility(8);
+        this.hKt.setVisibility(8);
     }
 
     public View getView() {
         return this.mView;
     }
 
-    public View bpL() {
-        return this.gtV;
+    public View bQg() {
+        return this.hKk;
     }
 
-    public View bpM() {
-        return this.gtW;
+    public View bQh() {
+        return this.hKl;
     }
 
-    public View bpN() {
-        return this.gtX;
+    public View bQi() {
+        return this.hKm;
     }
 
-    public View bpO() {
-        return this.gdD;
+    public View bQj() {
+        return this.htP;
     }
 
-    public View bpP() {
-        return this.gud;
+    public View bQk() {
+        return this.hKs;
     }
 
-    public void to(int i) {
-        this.gtX.setVisibility(0);
-        this.guc.setVisibility(0);
+    public void wY(int i) {
+        this.hKm.setVisibility(0);
+        this.hKr.setVisibility(0);
         if (i == 0) {
-            this.gtX.setText(this.mPageContext.getResources().getString(e.j.mute));
+            this.hKm.setText(this.mPageContext.getResources().getString(d.j.mute));
         } else if (i == 1) {
-            this.gtX.setText(this.mPageContext.getResources().getString(e.j.un_mute));
+            this.hKm.setText(this.mPageContext.getResources().getString(d.j.un_mute));
         }
     }
 
     public void setUserName(String str) {
         if (TextUtils.isEmpty(str)) {
-            this.cLX.setVisibility(8);
-            this.gtZ.setVisibility(8);
+            this.dZy.setVisibility(8);
+            this.hKo.setVisibility(8);
             return;
         }
-        this.cLX.setVisibility(0);
-        this.gtZ.setVisibility(0);
-        this.cLX.setText(String.format(this.mPageContext.getResources().getString(e.j.more_info_username), str));
+        this.dZy.setVisibility(0);
+        this.hKo.setVisibility(0);
+        this.dZy.setText(String.format(this.mPageContext.getResources().getString(d.j.more_info_username), str));
     }
 
     public void onChangeSkinType() {
-        al.i(this.mView, e.d.cp_bg_line_d_alpha90);
-        al.h(this.gtW, e.d.cp_link_tip_a);
-        al.i(this.gtW, e.f.more_pop_item_bg_selector);
-        al.h(this.gtV, e.d.cp_link_tip_a);
-        al.i(this.gtV, e.f.more_pop_item_bg_selector);
-        al.h(this.gdD, e.d.cp_link_tip_a);
-        al.i(this.gdD, e.f.more_pop_item_bg_selector);
-        al.h(this.gtX, e.d.cp_link_tip_a);
-        al.i(this.gtX, e.f.more_pop_item_bg_selector);
-        al.j(this.gua, e.d.cp_bg_line_b);
-        al.j(this.gub, e.d.cp_bg_line_b);
-        al.j(this.guc, e.d.cp_bg_line_b);
-        al.j(this.gtZ, e.d.cp_bg_line_b);
-        al.j(this.gtY, e.d.cp_bg_line_b);
-        al.i(this.mCancelView, e.f.person_more_pop_item_bg_selector);
-        al.h(this.mCancelView, e.f.person_more_pop_cancel_text_selector);
-        al.i(this.cLX, e.f.more_pop_item_bg_selector);
-        al.h(this.cLX, e.d.cp_cont_d);
-        al.h(this.gud, e.d.cp_link_tip_a);
-        al.i(this.gud, e.f.more_pop_item_bg_selector);
-        al.j(this.gue, e.d.cp_bg_line_b);
+        al.k(this.mView, d.C0236d.cp_bg_line_d_alpha90);
+        al.j(this.hKl, d.C0236d.cp_link_tip_a);
+        al.k(this.hKl, d.f.more_pop_item_bg_selector);
+        al.j(this.hKk, d.C0236d.cp_link_tip_a);
+        al.k(this.hKk, d.f.more_pop_item_bg_selector);
+        al.j(this.htP, d.C0236d.cp_link_tip_a);
+        al.k(this.htP, d.f.more_pop_item_bg_selector);
+        al.j(this.hKm, d.C0236d.cp_link_tip_a);
+        al.k(this.hKm, d.f.more_pop_item_bg_selector);
+        al.l(this.hKp, d.C0236d.cp_bg_line_b);
+        al.l(this.hKq, d.C0236d.cp_bg_line_b);
+        al.l(this.hKr, d.C0236d.cp_bg_line_b);
+        al.l(this.hKo, d.C0236d.cp_bg_line_b);
+        al.l(this.hKn, d.C0236d.cp_bg_line_b);
+        al.k(this.bjI, d.f.person_more_pop_item_bg_selector);
+        al.j(this.bjI, d.f.person_more_pop_cancel_text_selector);
+        al.k(this.dZy, d.f.more_pop_item_bg_selector);
+        al.j(this.dZy, d.C0236d.cp_cont_d);
+        al.j(this.hKs, d.C0236d.cp_link_tip_a);
+        al.k(this.hKs, d.f.more_pop_item_bg_selector);
+        al.l(this.hKt, d.C0236d.cp_bg_line_b);
     }
 }

@@ -12,6 +12,8 @@ public class MediaData extends OrmObject implements Serializable {
     private long postId;
     public String small_pic_url;
     private int e_type = -1;
+    public int picWidth = 0;
+    public int picHeight = 0;
     private int type = -1;
     private String pic_url = null;
     private String video_url = null;
@@ -151,6 +153,8 @@ public class MediaData extends OrmObject implements Serializable {
                 this.origin_pic = jSONObject.optString("origin_pic");
                 this.smartCropCenterPointWidthRatio = jSONObject.optDouble("wth_mid_loc");
                 this.smartCropCenterPointHeightRatio = jSONObject.optDouble("hth_mid_loc");
+                this.picWidth = jSONObject.optInt("width", 0);
+                this.picHeight = jSONObject.optInt("height", 0);
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -179,6 +183,8 @@ public class MediaData extends OrmObject implements Serializable {
             this.origin_pic = media.origin_pic;
             this.smartCropCenterPointWidthRatio = media.wth_mid_loc.doubleValue();
             this.smartCropCenterPointHeightRatio = media.hth_mid_loc.doubleValue();
+            this.picWidth = media.width.intValue();
+            this.picHeight = media.height.intValue();
         }
     }
 }

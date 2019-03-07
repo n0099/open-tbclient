@@ -5,7 +5,6 @@ import com.baidu.sapi2.scheme.SapiScheme;
 import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
-import com.baidu.searchbox.ng.ai.apps.scheme.actions.OpenAppAction;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -24,89 +23,99 @@ public final class SapiOptions {
     private static final String E = "extrajson_limit_len";
     private static final String F = "vehicle_system_pkgs";
     private static final String G = "share_direction";
-    private static final String H = "reset_file_exec_per";
+    private static final String H = "pass_httpclient_async_cookie";
+    private static final String I = "reset_file_exec_per";
+    private static final String J = "cm_oauth_gray";
+    private static final String K = "sid_key";
     private static final String a = "fast_reg_sms_num";
     private static final String b = "global_share_strategy";
     private static final String c = "specific_share_strategy";
     private static final String d = "default_https_enabled";
     private static final String e = "sofire_sdk_enabled";
-    private static final String f = "plugins_enabled";
-    private static final String g = "plugins_suffix";
-    private static final String h = "authorized_packages";
-    private static final String i = "sc_authorized_packages";
-    private static final String j = "authorized_domains";
-    private static final String k = "cuid_authorized_domains";
-    private static final String l = "cache";
-    private static final String m = "enabled";
-    private static final String n = "version";
-    private static final String o = "modules";
-    private static final String p = "id";
-    private static final String q = "download_url";
-    private static final String r = "hash";
-    private static final String s = "login_cookie_di_keys";
-    private static final String t = "pre_fetch_tpl_list";
-    private static final String u = "config_type";
-    private static final String v = "config_step";
-    private static final String w = "share_inter_storage_gray";
-    private static final String x = "sms_face_login_enabled";
+    private static final String f = "plugin_load_model_v2_enable";
+    private static final String g = "plugins_enabled";
+    private static final String h = "plugins_suffix";
+    private static final String i = "authorized_packages";
+    private static final String j = "sc_authorized_packages";
+    private static final String k = "authorized_domains";
+    private static final String l = "cuid_authorized_domains";
+    private static final String m = "cache";
+    private static final String n = "enabled";
+    private static final String o = "version";
+    private static final String p = "modules";
+    private static final String q = "id";
+    private static final String r = "download_url";
+    private static final String s = "hash";
+    private static final String t = "login_cookie_di_keys";
+    private static final String u = "pre_fetch_tpl_list";
+    private static final String v = "config_type";
+    private static final String w = "config_step";
+    private static final String x = "share_inter_storage_gray";
     private static final String y = "share_livinguname_enabled";
     private static final String z = "face_login_check_enabled";
-    private LoginShareStrategy K;
-    private boolean M;
-    private boolean N;
+    private LoginShareStrategy N;
+    private boolean P;
+    private boolean Q;
+    public int chinaMobileOauthGray;
     public boolean faceLoginCheckEnabled;
     public int faceLoginCheckFreq;
+    public boolean httpClientAsyncCookie;
     public int loginStatExtraLimitLen;
     public boolean resetFileExecPer;
     public int shareAccountGray;
     public boolean shareCommonStorageEnable;
     public boolean shareFaceLoginEnable;
-    public int shareInterGray;
     public boolean shareLivingunameEnabled;
-    public boolean smsFaceLoginEnable;
-    private boolean L = true;
-    private Map<String, LoginShareStrategy> O = new HashMap();
-    private Map<String, String> P = new HashMap();
-    private Map<String, String> Q = new HashMap();
-    private Map<String, String> R = new HashMap();
-    private Map<String, String> S = new HashMap();
-    private List<String> T = new ArrayList();
-    private List<String> U = new ArrayList();
-    private List<String> V = new ArrayList();
-    private List<String> W = new ArrayList();
+    public String sidKeys;
+    private boolean O = true;
+    private boolean R = true;
+    private Map<String, LoginShareStrategy> S = new HashMap();
+    private Map<String, String> T = new HashMap();
+    private Map<String, String> U = new HashMap();
+    private Map<String, String> V = new HashMap();
+    private Map<String, String> W = new HashMap();
+    private List<String> X = new ArrayList();
+    private List<String> Y = new ArrayList();
+    private List<String> Z = new ArrayList();
+    private List<String> aa = new ArrayList();
     public List<Integer> diExceptIndex = new ArrayList();
     public Map<String, String> shareDirection = new HashMap();
     public int configType = 0;
     public int configStep = 300;
-    private Cache I = new Cache();
-    private String J = SapiEnv.FAST_REG_SMS_NUMBER;
+    public int shareInterGray = 100;
+    private Cache L = new Cache();
+    private String M = SapiEnv.FAST_REG_SMS_NUMBER;
 
     public String getFastRegSmsNum() {
-        return this.J;
-    }
-
-    public LoginShareStrategy getGlobalShareStrategy() {
-        return this.K;
-    }
-
-    public boolean getDefaultHttpsEnabled() {
-        return this.L;
-    }
-
-    public boolean getSofireSdkEnabled() {
         return this.M;
     }
 
-    public boolean getPluginsEnabled() {
+    public LoginShareStrategy getGlobalShareStrategy() {
         return this.N;
     }
 
-    public Map<String, LoginShareStrategy> getSpecificShareStrategy() {
+    public boolean getDefaultHttpsEnabled() {
         return this.O;
     }
 
-    public Map<String, String> getPluginsSuffix() {
+    public boolean getSofireSdkEnabled() {
+        return this.P;
+    }
+
+    public boolean getPluginsEnabled() {
+        return this.Q;
+    }
+
+    public boolean getPluginLoadModeV2Enable() {
+        return this.R;
+    }
+
+    public Map<String, LoginShareStrategy> getSpecificShareStrategy() {
         return this.S;
+    }
+
+    public Map<String, String> getPluginsSuffix() {
+        return this.W;
     }
 
     public int getLoginStatExtraLimitLen() {
@@ -114,83 +123,90 @@ public final class SapiOptions {
     }
 
     public Map<String, String> getAuthorizedPackages() {
-        return !this.P.isEmpty() ? this.P : b();
+        return !this.T.isEmpty() ? this.T : b();
     }
 
     public Map<String, String> getSCAuthorizedPackages() {
-        return !this.Q.isEmpty() ? this.Q : a();
+        return !this.U.isEmpty() ? this.U : a();
     }
 
     public Map<String, String> getVehicleSystemPackages() {
-        return this.R.isEmpty() ? c() : this.R;
+        return this.V.isEmpty() ? c() : this.V;
     }
 
     public List<String> getAuthorizedDomains() {
-        return !this.T.isEmpty() ? this.T : h();
+        return !this.X.isEmpty() ? this.X : h();
     }
 
     public List<String> getCuidAuthorizedDomains() {
-        return !this.U.isEmpty() ? this.U : i();
+        return !this.Y.isEmpty() ? this.Y : i();
+    }
+
+    public boolean getHttpAsyncCookie() {
+        return this.httpClientAsyncCookie;
     }
 
     public List<String> getLoginCookieDiKeys() {
-        return this.V;
+        return this.Z;
     }
 
     public List<String> getPreFetchTplList() {
-        return this.W;
+        return this.aa;
     }
 
     public Cache getCache() {
-        return this.I;
+        return this.L;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setCache(Cache cache) {
-        this.I = cache;
+        this.L = cache;
     }
 
     public String toJSON() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(l, this.I.a());
-            jSONObject.put(a, this.J);
-            jSONObject.put(v, this.configStep);
-            jSONObject.put(u, this.configType);
-            jSONObject.put(x, this.smsFaceLoginEnable);
+            jSONObject.put(m, this.L.a());
+            jSONObject.put(a, this.M);
+            jSONObject.put(w, this.configStep);
+            jSONObject.put(v, this.configType);
             jSONObject.put(y, this.shareLivingunameEnabled);
             jSONObject.put(z, this.faceLoginCheckEnabled);
             jSONObject.put(C, this.shareCommonStorageEnable);
             jSONObject.put(D, this.faceLoginCheckFreq);
             jSONObject.put(B, this.shareAccountGray);
-            jSONObject.put(w, this.shareInterGray);
-            if (this.K != null) {
-                jSONObject.put(b, this.K.getStrValue());
+            jSONObject.put(x, this.shareInterGray);
+            if (this.N != null) {
+                jSONObject.put(b, this.N.getStrValue());
             }
-            jSONObject.put(d, this.L);
-            jSONObject.put(e, this.M);
-            jSONObject.put(f, this.N);
+            jSONObject.put(d, this.O);
+            jSONObject.put(e, this.P);
+            jSONObject.put(g, this.Q);
+            jSONObject.put(f, this.R);
+            jSONObject.put("cm_oauth_gray", this.chinaMobileOauthGray);
             JSONObject jSONObject2 = new JSONObject();
-            for (Map.Entry<String, LoginShareStrategy> entry : this.O.entrySet()) {
+            for (Map.Entry<String, LoginShareStrategy> entry : this.S.entrySet()) {
                 jSONObject2.put(entry.getKey(), entry.getValue().getStrValue());
             }
             jSONObject.put(c, jSONObject2);
-            a(jSONObject, h, this.P);
-            a(jSONObject, F, this.R);
-            a(jSONObject, i, this.Q);
-            a(jSONObject, g, this.S);
+            a(jSONObject, i, this.T);
+            a(jSONObject, F, this.V);
+            a(jSONObject, j, this.U);
+            a(jSONObject, h, this.W);
             a(jSONObject, G, this.shareDirection);
-            a(jSONObject, j, this.T);
-            a(jSONObject, k, this.U);
-            a(jSONObject, s, this.V);
-            a(jSONObject, t, this.W);
+            a(jSONObject, k, this.X);
+            a(jSONObject, l, this.Y);
+            a(jSONObject, t, this.Z);
+            a(jSONObject, u, this.aa);
             JSONArray jSONArray = new JSONArray();
             for (Integer num : this.diExceptIndex) {
                 jSONArray.put(num);
             }
             jSONObject.put(A, jSONArray);
             jSONObject.put(E, this.loginStatExtraLimitLen);
-            jSONObject.put(H, this.resetFileExecPer);
+            jSONObject.put(H, this.httpClientAsyncCookie);
+            jSONObject.put(I, this.resetFileExecPer);
+            jSONObject.put(K, this.sidKeys);
             return jSONObject.toString();
         } catch (Throwable th) {
             return null;
@@ -215,41 +231,42 @@ public final class SapiOptions {
 
     public static SapiOptions fromJSON(JSONObject jSONObject) {
         SapiOptions sapiOptions = new SapiOptions();
-        sapiOptions.I = Cache.a(jSONObject.optJSONObject(l));
-        sapiOptions.J = jSONObject.optString(a, SapiEnv.FAST_REG_SMS_NUMBER);
-        sapiOptions.configType = jSONObject.optInt(u, 0);
-        sapiOptions.configStep = jSONObject.optInt(v, 300);
-        sapiOptions.smsFaceLoginEnable = jSONObject.optBoolean(x);
+        sapiOptions.L = Cache.a(jSONObject.optJSONObject(m));
+        sapiOptions.M = jSONObject.optString(a, SapiEnv.FAST_REG_SMS_NUMBER);
+        sapiOptions.configType = jSONObject.optInt(v, 0);
+        sapiOptions.configStep = jSONObject.optInt(w, 300);
         sapiOptions.faceLoginCheckEnabled = jSONObject.optBoolean(z, true);
         sapiOptions.shareLivingunameEnabled = jSONObject.optBoolean(y);
         sapiOptions.shareCommonStorageEnable = jSONObject.optBoolean(C);
         sapiOptions.faceLoginCheckFreq = jSONObject.optInt(D, 24);
-        sapiOptions.L = jSONObject.optBoolean(d, true);
-        sapiOptions.M = jSONObject.optBoolean(e);
-        sapiOptions.N = jSONObject.optBoolean(f);
+        sapiOptions.O = jSONObject.optBoolean(d, true);
+        sapiOptions.P = jSONObject.optBoolean(e);
+        sapiOptions.Q = jSONObject.optBoolean(g);
+        sapiOptions.R = jSONObject.optBoolean(f, true);
         sapiOptions.shareAccountGray = jSONObject.optInt(B, 0);
-        sapiOptions.shareInterGray = jSONObject.optInt(w, 0);
+        sapiOptions.shareInterGray = jSONObject.optInt(x, 0);
+        sapiOptions.chinaMobileOauthGray = jSONObject.optInt("cm_oauth_gray", 0);
         String optString = jSONObject.optString(b);
         if (!TextUtils.isEmpty(optString)) {
-            sapiOptions.K = LoginShareStrategy.mapStrToValue(optString);
+            sapiOptions.N = LoginShareStrategy.mapStrToValue(optString);
         }
         JSONObject optJSONObject = jSONObject.optJSONObject(c);
         if (optJSONObject != null) {
             Iterator<String> keys = optJSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
-                sapiOptions.O.put(next, LoginShareStrategy.mapStrToValue(optJSONObject.optString(next)));
+                sapiOptions.S.put(next, LoginShareStrategy.mapStrToValue(optJSONObject.optString(next)));
             }
         }
-        a(jSONObject.optJSONObject(h), sapiOptions.P);
-        a(jSONObject.optJSONObject(F), sapiOptions.R);
-        a(jSONObject.optJSONObject(i), sapiOptions.Q);
-        a(jSONObject.optJSONObject(g), sapiOptions.S);
+        a(jSONObject.optJSONObject(i), sapiOptions.T);
+        a(jSONObject.optJSONObject(F), sapiOptions.V);
+        a(jSONObject.optJSONObject(j), sapiOptions.U);
+        a(jSONObject.optJSONObject(h), sapiOptions.W);
         a(jSONObject.optJSONObject(G), sapiOptions.shareDirection);
-        a(jSONObject.optJSONArray(j), sapiOptions.T);
-        a(jSONObject.optJSONArray(k), sapiOptions.U);
-        a(jSONObject.optJSONArray(s), sapiOptions.V);
-        a(jSONObject.optJSONArray(t), sapiOptions.W);
+        a(jSONObject.optJSONArray(k), sapiOptions.X);
+        a(jSONObject.optJSONArray(l), sapiOptions.Y);
+        a(jSONObject.optJSONArray(t), sapiOptions.Z);
+        a(jSONObject.optJSONArray(u), sapiOptions.aa);
         JSONArray optJSONArray = jSONObject.optJSONArray(A);
         if (optJSONArray != null) {
             int length = optJSONArray.length();
@@ -258,7 +275,9 @@ public final class SapiOptions {
             }
         }
         sapiOptions.loginStatExtraLimitLen = jSONObject.optInt(E, 100);
-        sapiOptions.resetFileExecPer = jSONObject.optBoolean(H, false);
+        sapiOptions.httpClientAsyncCookie = jSONObject.optBoolean(H, false);
+        sapiOptions.resetFileExecPer = jSONObject.optBoolean(I, false);
+        sapiOptions.sidKeys = jSONObject.optString(K, "");
         return sapiOptions;
     }
 
@@ -315,8 +334,8 @@ public final class SapiOptions {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("id", this.id);
-                    jSONObject.put("download_url", this.downloadUrl);
-                    jSONObject.put(SapiOptions.r, this.hash);
+                    jSONObject.put(SapiOptions.r, this.downloadUrl);
+                    jSONObject.put(SapiOptions.s, this.hash);
                     return jSONObject;
                 } catch (Throwable th) {
                     return null;
@@ -326,8 +345,8 @@ public final class SapiOptions {
             static Module a(JSONObject jSONObject) {
                 Module module = new Module();
                 module.id = jSONObject.optString("id");
-                module.downloadUrl = jSONObject.optString("download_url");
-                module.hash = jSONObject.optString(SapiOptions.r);
+                module.downloadUrl = jSONObject.optString(SapiOptions.r);
+                module.hash = jSONObject.optString(SapiOptions.s);
                 return module;
             }
 
@@ -361,13 +380,13 @@ public final class SapiOptions {
         JSONObject a() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(SapiOptions.m, this.b);
+                jSONObject.put(SapiOptions.n, this.b);
                 jSONObject.put("version", this.c);
                 JSONArray jSONArray = new JSONArray();
                 for (Module module : getModules()) {
                     jSONArray.put(module.a());
                 }
-                jSONObject.put(SapiOptions.o, jSONArray);
+                jSONObject.put(SapiOptions.p, jSONArray);
                 return jSONObject;
             } catch (Throwable th) {
                 return null;
@@ -378,9 +397,9 @@ public final class SapiOptions {
             Cache cache = new Cache();
             if (jSONObject != null) {
                 try {
-                    cache.b = jSONObject.optBoolean(SapiOptions.m, true);
+                    cache.b = jSONObject.optBoolean(SapiOptions.n, true);
                     cache.c = jSONObject.optLong("version") + "";
-                    JSONArray optJSONArray = jSONObject.optJSONArray(SapiOptions.o);
+                    JSONArray optJSONArray = jSONObject.optJSONArray(SapiOptions.p);
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         cache.getModules().add(Module.a(optJSONArray.getJSONObject(i)));
                     }
@@ -427,7 +446,7 @@ public final class SapiOptions {
         hashMap.put("com.baidu.sapi2.(.*)", "de308d7973b5171883333a97253327e4");
         hashMap.put("com.baidu.tieba(.*)", "673004cf2f6efdec2385c8116c1e8c14");
         hashMap.put("com.baidu.searchbox(.*)", "c2b0b497d0389e6de1505e7fd8f4d539");
-        hashMap.put(OpenAppAction.APPSEARCH_PACKAGE_NAME, "c2b0b497d0389e6de1505e7fd8f4d539");
+        hashMap.put("com.baidu.appsearch", "c2b0b497d0389e6de1505e7fd8f4d539");
         hashMap.put("com.baidu.(.*)input(.*)", "c2b0b497d0389e6de1505e7fd8f4d539");
         hashMap.put("com.baidu.BaiduMap(.*)", "c2b0b497d0389e6de1505e7fd8f4d539");
         hashMap.put("com.baidu.browser.(.+)", "c2b0b497d0389e6de1505e7fd8f4d539");
@@ -504,7 +523,7 @@ public final class SapiOptions {
         hashMap.put("com.baidu.BaiduMap(.*)", 5);
         hashMap.put("com.baidu.tieba(.*)", 6);
         hashMap.put("com.baidu.netdisk(.*)", 7);
-        hashMap.put(OpenAppAction.APPSEARCH_PACKAGE_NAME, 8);
+        hashMap.put("com.baidu.appsearch", 8);
         return hashMap;
     }
 
@@ -528,8 +547,8 @@ public final class SapiOptions {
     public List<String> g() {
         ArrayList arrayList = new ArrayList();
         SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
-        String replaceAll = confignation.environment.getWap(SapiUtils.getDefaultHttpsEnabled()).replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "");
-        String replaceAll2 = confignation.environment.getURL(SapiUtils.getDefaultHttpsEnabled()).replace("http://", "").replace(SapiUtils.COOKIE_HTTPS_URL_PREFIX, "").replaceAll("(:[0-9]{1,4})?", "");
+        String replaceAll = confignation.environment.getWap(SapiUtils.getDefaultHttpsEnabled()).replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
+        String replaceAll2 = confignation.environment.getURL(SapiUtils.getDefaultHttpsEnabled()).replace("http://", "").replace("https://", "").replaceAll("(:[0-9]{1,4})?", "");
         arrayList.add(replaceAll);
         arrayList.add(replaceAll2);
         return arrayList;
@@ -562,8 +581,9 @@ public final class SapiOptions {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static List<String> j() {
-        ArrayList arrayList = new ArrayList(1);
+        ArrayList arrayList = new ArrayList();
         arrayList.add("com.baidu.BaiduMap(.*)");
+        arrayList.add("cn.opda.a.phonoalbumshoushou(.*)");
         return arrayList;
     }
 }

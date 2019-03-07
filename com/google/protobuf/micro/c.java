@@ -3,6 +3,7 @@ package com.google.protobuf.micro;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class c {
     private final byte[] a;
@@ -70,7 +71,7 @@ public final class c {
 
     public static int b(String str) {
         try {
-            byte[] bytes = str.getBytes("UTF-8");
+            byte[] bytes = str.getBytes(HTTP.UTF_8);
             return bytes.length + h(bytes.length);
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException("UTF-8 not supported.");
@@ -239,7 +240,7 @@ public final class c {
     }
 
     public void a(String str) {
-        byte[] bytes = str.getBytes("UTF-8");
+        byte[] bytes = str.getBytes(HTTP.UTF_8);
         g(bytes.length);
         a(bytes);
     }

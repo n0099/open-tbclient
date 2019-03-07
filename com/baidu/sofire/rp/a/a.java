@@ -3,7 +3,7 @@ package com.baidu.sofire.rp.a;
 import com.baidu.sofire.b.e;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a {
+public final class a {
     public String a;
     public String b;
     public String c;
@@ -19,7 +19,7 @@ public class a {
             jSONObject.put("3", aVar.e);
             jSONObject.put("4", aVar.b);
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
         return jSONObject.toString();
     }
@@ -35,16 +35,16 @@ public class a {
             aVar.b = jSONObject.optString("4");
             return aVar;
         } catch (Exception e) {
-            e.a(e);
+            e.a();
             return null;
         }
     }
 
-    public int hashCode() {
+    public final int hashCode() {
         return (((this.e == null ? 0 : this.e.hashCode()) + (((this.d == null ? 0 : this.d.hashCode()) + 31) * 31)) * 31) + (this.b != null ? this.b.hashCode() : 0);
     }
 
-    public boolean equals(Object obj) {
+    public final boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }

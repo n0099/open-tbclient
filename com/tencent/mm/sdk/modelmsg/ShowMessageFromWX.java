@@ -4,10 +4,10 @@ import android.os.Bundle;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
 import com.tencent.mm.sdk.modelmsg.WXMediaMessage;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class ShowMessageFromWX {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class Req extends BaseReq {
         public WXMediaMessage message;
 
@@ -45,7 +45,7 @@ public class ShowMessageFromWX {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class Resp extends BaseResp {
         public Resp() {
         }

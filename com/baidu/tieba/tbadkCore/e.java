@@ -1,16 +1,22 @@
 package com.baidu.tieba.tbadkCore;
+/* loaded from: classes3.dex */
+public class e {
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bb;
-import java.util.List;
-/* loaded from: classes.dex */
-public class e extends com.baidu.tieba.card.data.b implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId hmj = BdUniqueId.gen();
-    public List<bb> hmk;
-    public int hml = -1;
+    /* loaded from: classes3.dex */
+    public static class a {
+        public int cur_score;
+        public String iDW;
+        public int level;
+        public int levelup_score;
+    }
 
-    @Override // com.baidu.adp.widget.ListView.h
-    public BdUniqueId getType() {
-        return hmj;
+    /* loaded from: classes3.dex */
+    public static class b {
+        public boolean iDX = false;
+        public boolean isSuccess = false;
+        public int errorCode = 0;
+        public String errorMsg = "";
+        public long iDY = 0;
+        public boolean isWifi = false;
     }
 }

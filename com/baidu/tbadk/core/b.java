@@ -1,207 +1,207 @@
 package com.baidu.tbadk.core;
 /* loaded from: classes.dex */
 public class b {
-    private String aob;
-    private int aoc;
-    private int aod;
-    private int aoe;
-    private int aof;
-    private int aog;
-    private int aoh;
-    private int aoi;
-    private int aoj;
-    private int aok;
-    private int aol;
-    private int aom;
-    private int aon;
-    private int aoo;
-    private int aop;
-    private int aoq;
-    private int aor;
-    private int aos;
-    private int aot;
-    private int aou;
-    private int aov;
-    private StringBuffer aow = new StringBuffer();
+    private String buK;
+    private int buL;
+    private int buM;
+    private int buN;
+    private int buO;
+    private int buP;
+    private int buQ;
+    private int buR;
+    private int buS;
+    private int buT;
+    private int buU;
+    private int buV;
+    private int buW;
+    private int buX;
+    private int buY;
+    private int buZ;
+    private int bva;
+    private int bvb;
+    private int bvc;
+    private int bvd;
+    private int bve;
+    private StringBuffer bvf = new StringBuffer();
     private String id;
 
     public String toString() {
-        return "BDLayoutInfo [TAG=" + this.aow.toString() + "]";
+        return "BDLayoutInfo [TAG=" + this.bvf.toString() + "]";
     }
 
-    public void eh(String str) {
-        this.aow.append(str).append(" || ");
+    public void kR(String str) {
+        this.bvf.append(str).append(" || ");
     }
 
-    public int xv() {
-        return this.aoq;
+    public int Wc() {
+        return this.buZ;
     }
 
-    public void cc(int i) {
-        this.aoq = i;
+    public void fE(int i) {
+        this.buZ = i;
     }
 
-    public int xw() {
-        return this.aor;
+    public int Wd() {
+        return this.bva;
     }
 
-    public void cd(int i) {
-        this.aor = i;
+    public void fF(int i) {
+        this.bva = i;
     }
 
-    public int xx() {
-        return this.aoo;
+    public int We() {
+        return this.buX;
     }
 
-    public void ce(int i) {
-        this.aoo = i;
+    public void fG(int i) {
+        this.buX = i;
     }
 
-    public int xy() {
-        return this.aop;
+    public int Wf() {
+        return this.buY;
     }
 
-    public void cf(int i) {
-        this.aop = i;
+    public void fH(int i) {
+        this.buY = i;
     }
 
-    public int xz() {
-        return this.aom;
+    public int Wg() {
+        return this.buV;
     }
 
-    public void cg(int i) {
-        this.aom = i;
+    public void fI(int i) {
+        this.buV = i;
     }
 
-    public int xA() {
-        return this.aon;
+    public int Wh() {
+        return this.buW;
     }
 
-    public void ch(int i) {
-        this.aon = i;
+    public void fJ(int i) {
+        this.buW = i;
     }
 
     public String getId() {
         return this.id;
     }
 
-    public int xB() {
-        return this.aos;
+    public int Wi() {
+        return this.bvb;
     }
 
-    public void ci(int i) {
-        this.aos = i;
+    public void fK(int i) {
+        this.bvb = i;
     }
 
-    public int xC() {
-        return this.aot;
+    public int Wj() {
+        return this.bvc;
     }
 
-    public void cj(int i) {
-        this.aot = i;
+    public void fL(int i) {
+        this.bvc = i;
     }
 
     public void setId(String str) {
         this.id = str;
     }
 
-    public void ei(String str) {
-        this.aob = str;
+    public void kS(String str) {
+        this.buK = str;
     }
 
-    public int xD() {
-        return this.aoc;
+    public int Wk() {
+        return this.buL;
     }
 
-    public void ck(int i) {
-        this.aoc = i;
+    public void fM(int i) {
+        this.buL = i;
     }
 
-    public int xE() {
-        return this.aod;
+    public int Wl() {
+        return this.buM;
     }
 
-    public void cl(int i) {
-        this.aod = i;
+    public void fN(int i) {
+        this.buM = i;
     }
 
-    public int xF() {
-        return this.aog;
+    public int Wm() {
+        return this.buP;
     }
 
-    public void cm(int i) {
-        this.aog = i;
+    public void fO(int i) {
+        this.buP = i;
     }
 
-    public int xG() {
-        return this.aoh;
+    public int Wn() {
+        return this.buQ;
     }
 
-    public void cn(int i) {
-        this.aoh = i;
+    public void fP(int i) {
+        this.buQ = i;
     }
 
-    public int xH() {
-        return this.aoe;
+    public int Wo() {
+        return this.buN;
     }
 
-    public void co(int i) {
-        this.aoe = i;
+    public void fQ(int i) {
+        this.buN = i;
     }
 
-    public int xI() {
-        return this.aof;
+    public int Wp() {
+        return this.buO;
     }
 
-    public void cp(int i) {
-        this.aof = i;
+    public void fR(int i) {
+        this.buO = i;
     }
 
-    public int xJ() {
-        return this.aoj;
+    public int Wq() {
+        return this.buS;
     }
 
-    public int xK() {
-        return this.aoi;
+    public int Wr() {
+        return this.buR;
     }
 
-    public void cq(int i) {
-        this.aoi = i;
+    public void fS(int i) {
+        this.buR = i;
     }
 
-    public void cr(int i) {
-        this.aoj = i;
+    public void fT(int i) {
+        this.buS = i;
     }
 
-    public int xL() {
-        return this.aol;
+    public int Ws() {
+        return this.buU;
     }
 
-    public void cs(int i) {
-        this.aol = i;
+    public void fU(int i) {
+        this.buU = i;
     }
 
-    public int xM() {
-        return this.aok;
+    public int Wt() {
+        return this.buT;
     }
 
-    public void ct(int i) {
-        this.aok = i;
+    public void fV(int i) {
+        this.buT = i;
     }
 
-    public int xN() {
-        return this.aou;
+    public int Wu() {
+        return this.bvd;
     }
 
-    public void cu(int i) {
-        this.aou = i;
+    public void fW(int i) {
+        this.bvd = i;
     }
 
-    public int xO() {
-        return this.aov;
+    public int Wv() {
+        return this.bve;
     }
 
-    public void cv(int i) {
-        this.aov = i;
+    public void fX(int i) {
+        this.bve = i;
     }
 }

@@ -7,11 +7,6 @@ public final class OnSubscribeRange implements d.a<Integer> {
     private final int endIndex;
     private final int startIndex;
 
-    public OnSubscribeRange(int i, int i2) {
-        this.startIndex = i;
-        this.endIndex = i2;
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
     public void call(rx.j<? super Integer> jVar) {

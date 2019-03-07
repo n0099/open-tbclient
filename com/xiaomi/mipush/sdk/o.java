@@ -1,7 +1,7 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
-import com.baidu.searchbox.ng.ai.apps.media.audio.AiAppsAudioPlayer;
+import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.xiaomi.channel.commonutils.misc.f;
 import com.xiaomi.push.service.ah;
 import com.xiaomi.push.service.ai;
@@ -26,7 +26,7 @@ public class o extends f.a {
         com.xiaomi.xmpush.thrift.y yVar = new com.xiaomi.xmpush.thrift.y();
         yVar.a(ai.a(a, com.xiaomi.xmpush.thrift.f.MISC_CONFIG));
         yVar.b(ai.a(a, com.xiaomi.xmpush.thrift.f.PLUGIN_CONFIG));
-        ae aeVar = new ae(AiAppsAudioPlayer.ERROR_UNKNOWN, false);
+        ae aeVar = new ae(LivenessStat.TYPE_STRING_DEFAULT, false);
         aeVar.c(com.xiaomi.xmpush.thrift.o.DailyCheckClientConfig.N);
         aeVar.a(aq.a(yVar));
         u.a(this.a).a((u) aeVar, com.xiaomi.xmpush.thrift.a.Notification, (com.xiaomi.xmpush.thrift.r) null);

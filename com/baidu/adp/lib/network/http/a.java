@@ -7,7 +7,7 @@ public abstract class a {
 
     public abstract String aP(String str);
 
-    public static final a iZ() {
+    public static final a jb() {
         return Cr;
     }
 

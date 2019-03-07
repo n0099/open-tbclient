@@ -2,57 +2,57 @@ package com.baidu.tieba.VideoCache;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private List<d> bzY = new ArrayList();
-    private long bzZ = 0;
+    private List<d> cLe = new ArrayList();
+    private long cLf = 0;
 
-    public List<d> Vw() {
-        return this.bzY;
+    public List<d> avw() {
+        return this.cLe;
     }
 
-    public long Vx() {
-        return this.bzZ;
+    public long avx() {
+        return this.cLf;
     }
 
     public void a(d dVar) {
-        if (this.bzY != null) {
-            this.bzY.add(dVar);
+        if (this.cLe != null) {
+            this.cLe.add(dVar);
             if (dVar != null) {
-                this.bzZ += dVar.VG();
+                this.cLf += dVar.avG();
             }
         }
     }
 
     public void b(d dVar) {
-        if (this.bzY != null) {
-            this.bzY.remove(dVar);
+        if (this.cLe != null) {
+            this.cLe.remove(dVar);
             if (dVar != null) {
-                this.bzZ -= dVar.VG();
+                this.cLf -= dVar.avG();
             }
         }
     }
 
     public void remove(int i) {
-        if (this.bzY != null) {
-            d dVar = this.bzY.get(i);
+        if (this.cLe != null) {
+            d dVar = this.cLe.get(i);
             if (dVar != null) {
-                this.bzZ -= dVar.VG();
+                this.cLf -= dVar.avG();
             }
-            this.bzY.remove(i);
+            this.cLe.remove(i);
         }
     }
 
-    public int Vy() {
-        if (this.bzY != null) {
-            return this.bzY.size();
+    public int avy() {
+        if (this.cLe != null) {
+            return this.cLe.size();
         }
         return 0;
     }
 
-    public d hy(int i) {
-        if (this.bzY != null) {
-            return this.bzY.get(i);
+    public d lo(int i) {
+        if (this.cLe != null) {
+            return this.cLe.get(i);
         }
         return null;
     }

@@ -4,70 +4,70 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class j {
-    private String SB;
-    private int ifN;
-    private JSONObject igk;
-    private int igl;
-    private String igm;
-    private boolean ign;
+    private String Vh;
+    private String aDt;
+    private int bpm;
+    private JSONObject bpn;
+    private String bpo;
+    private boolean bpp;
     private String mCategory;
     private String mContent;
-    private String mFlowId;
     private String mId;
+    private int mOption;
     private long mTime;
 
     public j(String str, String str2, int i) {
         this.mContent = "";
-        this.ign = false;
-        this.SB = "";
+        this.bpp = false;
+        this.Vh = "";
         this.mId = str;
-        this.mFlowId = str;
-        this.ifN = -1;
+        this.aDt = str;
+        this.bpm = -1;
         this.mContent = str2;
-        this.igl = i;
-        if ((this.igl & 2) == 0) {
+        this.mOption = i;
+        if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
     }
 
     public j(String str, JSONObject jSONObject, int i) {
         this.mContent = "";
-        this.ign = false;
-        this.SB = "";
+        this.bpp = false;
+        this.Vh = "";
         this.mId = str;
-        this.mFlowId = str;
-        this.ifN = -1;
-        this.igk = jSONObject;
-        this.igl = i;
-        if ((this.igl & 2) == 0) {
+        this.aDt = str;
+        this.bpm = -1;
+        this.bpn = jSONObject;
+        this.mOption = i;
+        if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
     }
 
     public j(String str, String str2, int i, String str3, int i2) {
         this.mContent = "";
-        this.ign = false;
-        this.SB = "";
+        this.bpp = false;
+        this.Vh = "";
         this.mId = str2;
-        this.mFlowId = str;
-        this.ifN = i;
+        this.aDt = str;
+        this.bpm = i;
         this.mContent = str3;
-        this.igl = i2;
-        if ((this.igl & 2) == 0) {
+        this.mOption = i2;
+        if ((this.mOption & 2) == 0) {
             this.mTime = System.currentTimeMillis();
         }
     }
 
     public j(String str, String str2, int i, String str3, long j, int i2) {
         this.mContent = "";
-        this.ign = false;
-        this.SB = "";
+        this.bpp = false;
+        this.Vh = "";
         this.mId = str2;
-        this.mFlowId = str;
-        this.ifN = i;
+        this.aDt = str;
+        this.bpm = i;
         this.mContent = str3;
-        this.igl = i2;
-        if ((this.igl & 2) == 0) {
+        this.mOption = i2;
+        if ((this.mOption & 2) == 0) {
             if (j > 0) {
                 this.mTime = j;
             } else {
@@ -80,12 +80,12 @@ public class j {
         return this.mId;
     }
 
-    public String bSA() {
-        return this.mFlowId;
+    public String Tc() {
+        return this.aDt;
     }
 
-    public int bSB() {
-        return this.ifN;
+    public int Td() {
+        return this.bpm;
     }
 
     public String getContent() {
@@ -96,12 +96,12 @@ public class j {
         return this.mTime;
     }
 
-    public int bSC() {
-        return this.igl;
+    public int getOption() {
+        return this.mOption;
     }
 
-    public String bSD() {
-        return this.igm;
+    public String Te() {
+        return this.bpo;
     }
 
     public String getCategory() {
@@ -112,29 +112,29 @@ public class j {
         this.mCategory = str;
     }
 
-    public JSONObject bSE() {
-        return this.igk;
+    public JSONObject Tf() {
+        return this.bpn;
     }
 
     public String getFileName() {
-        return this.SB;
+        return this.Vh;
     }
 
-    public void jD(String str) {
-        this.SB = str;
+    public void qo(String str) {
+        this.Vh = str;
     }
 
-    public boolean bSy() {
-        return this.ign;
+    public boolean Ta() {
+        return this.bpp;
     }
 
-    public void oO(boolean z) {
-        this.ign = z;
+    public void cV(boolean z) {
+        this.bpp = z;
     }
 
-    public void bSF() {
-        if (this.mId != null && this.mId.equals(this.mFlowId) && e.bSo().ys(this.mId)) {
-            this.igm = o.bSQ().ZC();
+    public void Th() {
+        if (this.mId != null && this.mId.equals(this.aDt) && e.crL().jI(this.mId)) {
+            this.bpo = UBC.getUBCContext().Fp();
         }
     }
 }

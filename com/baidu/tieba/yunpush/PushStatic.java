@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
 /* loaded from: classes3.dex */
 public class PushStatic {
-    private static CustomMessageListener ieZ = new CustomMessageListener(0) { // from class: com.baidu.tieba.yunpush.PushStatic.1
+    private static CustomMessageListener jvJ = new CustomMessageListener(0) { // from class: com.baidu.tieba.yunpush.PushStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -19,46 +19,46 @@ public class PushStatic {
                 new Thread(new Runnable() { // from class: com.baidu.tieba.yunpush.PushStatic.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        PushStatic.bRZ();
+                        PushStatic.crI();
                     }
                 }).start();
             }
         }
     };
 
-    private static void bRX() {
-        dk(TbadkApplication.getInst());
+    private static void crG() {
+        eG(TbadkApplication.getInst());
     }
 
-    private static void bRY() {
-        dl(TbadkCoreApplication.getInst());
+    private static void crH() {
+        eH(TbadkCoreApplication.getInst());
     }
 
-    private static void dk(Context context) {
+    private static void eG(Context context) {
         PushManager.enableHuaweiProxy(context, true);
         PushManager.enableXiaomiProxy(context, true, "2882303761517130520", "5651713089520");
         PushManager.enableMeizuProxy(context, true, "111848", "39e9cd05b2294f848dd1c10993e76b59");
         PushManager.startWork(context, 0, a.getMetaValue(context, "api_key"));
     }
 
-    private static void dl(Context context) {
+    private static void eH(Context context) {
         if (b.getInstance().getBoolean(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
             PushManager.stopWork(context);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bRZ() {
+    public static void crI() {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
             if (TbadkCoreApplication.getInst().isBaiduYunPushAvailable()) {
-                bRX();
+                crG();
             } else {
-                bRY();
+                crH();
             }
         }
     }
 
     static {
-        MessageManager.getInstance().registerListener(2007015, ieZ);
+        MessageManager.getInstance().registerListener(2007015, jvJ);
     }
 }

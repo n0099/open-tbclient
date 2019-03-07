@@ -1,7 +1,7 @@
 package com.baidu.tbadk.getUserInfo;
 
 import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.tbadk.util.q;
+import com.baidu.tbadk.util.s;
 import tbclient.GetUserInfo.DataReq;
 import tbclient.GetUserInfo.GetUserInfoReqIdl;
 /* loaded from: classes.dex */
@@ -29,7 +29,7 @@ public class GetUserInfoRequstData extends NetMessage {
     protected Object encode(boolean z) {
         DataReq.Builder builder = new DataReq.Builder();
         if (z) {
-            q.bindCommonParamsToProtobufData(builder, true);
+            s.bindCommonParamsToProtobufData(builder, true);
         }
         GetUserInfoReqIdl.Builder builder2 = new GetUserInfoReqIdl.Builder();
         builder.uid = Long.valueOf(this.mUid);

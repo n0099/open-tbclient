@@ -32,7 +32,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 /* loaded from: classes2.dex */
 public class NavigationView extends ScrimInsetsFrameLayout {
     private static final int[] CHECKED_STATE_SET = {16842912};
@@ -145,10 +144,10 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     protected void onMeasure(int i, int i2) {
         switch (View.MeasureSpec.getMode(i)) {
             case Integer.MIN_VALUE:
-                i = View.MeasureSpec.makeMeasureSpec(Math.min(View.MeasureSpec.getSize(i), this.mMaxWidth), AiAppsFileUtils.GB);
+                i = View.MeasureSpec.makeMeasureSpec(Math.min(View.MeasureSpec.getSize(i), this.mMaxWidth), 1073741824);
                 break;
             case 0:
-                i = View.MeasureSpec.makeMeasureSpec(this.mMaxWidth, AiAppsFileUtils.GB);
+                i = View.MeasureSpec.makeMeasureSpec(this.mMaxWidth, 1073741824);
                 break;
         }
         super.onMeasure(i, i2);

@@ -1,90 +1,93 @@
 package rx.internal.util;
 
-import rx.g;
-import rx.h;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
+import rx.k;
 /* loaded from: classes2.dex */
-public final class i<T> extends rx.h<T> {
-    final T value;
+public final class i implements k {
+    private volatile boolean jVl;
+    private List<k> kaX;
 
-    public static <T> i<T> bq(T t) {
-        return new i<>(t);
+    public i() {
     }
 
-    protected i(final T t) {
-        super(new h.a<T>() { // from class: rx.internal.util.i.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // rx.functions.b
-            /* renamed from: b */
-            public void call(rx.i<? super T> iVar) {
-                iVar.onSuccess((Object) t);
+    public i(k... kVarArr) {
+        this.kaX = new LinkedList(Arrays.asList(kVarArr));
+    }
+
+    public i(k kVar) {
+        this.kaX = new LinkedList();
+        this.kaX.add(kVar);
+    }
+
+    @Override // rx.k
+    public boolean isUnsubscribed() {
+        return this.jVl;
+    }
+
+    public void add(k kVar) {
+        if (!kVar.isUnsubscribed()) {
+            if (!this.jVl) {
+                synchronized (this) {
+                    if (!this.jVl) {
+                        List list = this.kaX;
+                        if (list == null) {
+                            list = new LinkedList();
+                            this.kaX = list;
+                        }
+                        list.add(kVar);
+                        return;
+                    }
+                }
             }
-        });
-        this.value = t;
-    }
-
-    public rx.h<T> c(rx.g gVar) {
-        return gVar instanceof rx.internal.schedulers.b ? a((h.a) new a((rx.internal.schedulers.b) gVar, this.value)) : a((h.a) new b(gVar, this.value));
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
-    public static final class a<T> implements h.a<T> {
-        private final rx.internal.schedulers.b iQy;
-        private final T value;
-
-        a(rx.internal.schedulers.b bVar, T t) {
-            this.iQy = bVar;
-            this.value = t;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // rx.functions.b
-        /* renamed from: b */
-        public void call(rx.i<? super T> iVar) {
-            iVar.add(this.iQy.e(new c(iVar, this.value)));
+            kVar.unsubscribe();
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
-    public static final class b<T> implements h.a<T> {
-        private final rx.g scheduler;
-        private final T value;
-
-        b(rx.g gVar, T t) {
-            this.scheduler = gVar;
-            this.value = t;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // rx.functions.b
-        /* renamed from: b */
-        public void call(rx.i<? super T> iVar) {
-            g.a createWorker = this.scheduler.createWorker();
-            iVar.add(createWorker);
-            createWorker.a(new c(iVar, this.value));
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
-    public static final class c<T> implements rx.functions.a {
-        private final rx.i<? super T> iQz;
-        private final T value;
-
-        c(rx.i<? super T> iVar, T t) {
-            this.iQz = iVar;
-            this.value = t;
-        }
-
-        /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
-        @Override // rx.functions.a
-        public void call() {
-            try {
-                this.iQz.onSuccess((T) this.value);
-            } catch (Throwable th) {
-                this.iQz.onError(th);
+    public void a(k kVar) {
+        if (!this.jVl) {
+            synchronized (this) {
+                List<k> list = this.kaX;
+                if (!this.jVl && list != null) {
+                    boolean remove = list.remove(kVar);
+                    if (remove) {
+                        kVar.unsubscribe();
+                    }
+                }
             }
+        }
+    }
+
+    @Override // rx.k
+    public void unsubscribe() {
+        if (!this.jVl) {
+            synchronized (this) {
+                if (!this.jVl) {
+                    this.jVl = true;
+                    List<k> list = this.kaX;
+                    this.kaX = null;
+                    n(list);
+                }
+            }
+        }
+    }
+
+    private static void n(Collection<k> collection) {
+        if (collection != null) {
+            ArrayList arrayList = null;
+            for (k kVar : collection) {
+                try {
+                    kVar.unsubscribe();
+                } catch (Throwable th) {
+                    ArrayList arrayList2 = arrayList == null ? new ArrayList() : arrayList;
+                    arrayList2.add(th);
+                    arrayList = arrayList2;
+                }
+            }
+            rx.exceptions.a.eF(arrayList);
         }
     }
 }

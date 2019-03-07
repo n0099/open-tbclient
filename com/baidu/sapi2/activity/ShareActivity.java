@@ -13,9 +13,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.ar.constants.HttpConstants;
 import com.baidu.d.a.a;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -55,6 +53,7 @@ public class ShareActivity extends Activity {
     private TextView title;
     private ImageView toIcon;
     private TextView toName;
+    private WebAuthListener webAuthListener;
     private boolean hasOpenLoginPage = false;
     private long lastInvokeTime = 0;
     private ShareResult shareResult = new ShareResult();
@@ -62,7 +61,7 @@ public class ShareActivity extends Activity {
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(a.e.layout_sapi_sdk_share_activity);
+        setContentView(a.f.layout_sapi_sdk_share_activity);
         if (checkSapiInit()) {
             SapiStatUtil.statShareV2Oauth();
             if (checkCallingPermission()) {
@@ -85,6 +84,12 @@ public class ShareActivity extends Activity {
             return;
         }
         getUserInfo();
+    }
+
+    @Override // android.app.Activity
+    protected void onDestroy() {
+        super.onDestroy();
+        this.webAuthListener = null;
     }
 
     private boolean checkCallingPermission() {
@@ -116,21 +121,22 @@ public class ShareActivity extends Activity {
     }
 
     private void initView() {
-        this.leftBtnIv = (ImageView) findViewById(a.d.title_btn_left_iv);
-        this.title = (TextView) findViewById(a.d.title);
-        this.fromIcon = (ImageView) findViewById(a.d.sapi_share_accout_from_icon);
-        this.toIcon = (ImageView) findViewById(a.d.sapi_share_accout_to_icon);
-        this.fromName = (TextView) findViewById(a.d.sapi_share_accout_from_name);
-        this.toName = (TextView) findViewById(a.d.sapi_share_accout_to_name);
-        this.prompt = (TextView) findViewById(a.d.sapi_share_account_prompt);
-        this.portrait = (CircleImageView) findViewById(a.d.sapi_share_account_portrait);
-        this.displayName = (TextView) findViewById(a.d.sapi_share_account_displayname);
+        ViewUtility.enableStatusBarTint(this, -1);
+        this.leftBtnIv = (ImageView) findViewById(a.e.title_btn_left_iv);
+        this.title = (TextView) findViewById(a.e.title);
+        this.fromIcon = (ImageView) findViewById(a.e.sapi_share_accout_from_icon);
+        this.toIcon = (ImageView) findViewById(a.e.sapi_share_accout_to_icon);
+        this.fromName = (TextView) findViewById(a.e.sapi_share_accout_from_name);
+        this.toName = (TextView) findViewById(a.e.sapi_share_accout_to_name);
+        this.prompt = (TextView) findViewById(a.e.sapi_share_account_prompt);
+        this.portrait = (CircleImageView) findViewById(a.e.sapi_share_account_portrait);
+        this.displayName = (TextView) findViewById(a.e.sapi_share_account_displayname);
         this.leftBtnIv.setOnClickListener(new GoBackOnClick());
-        findViewById(a.d.sapi_share_account_ok_btn).setOnClickListener(new OkBtnOnclick());
+        findViewById(a.e.sapi_share_account_ok_btn).setOnClickListener(new OkBtnOnclick());
         this.title.setText("百度帐号登录");
         this.currentAppName = setAppIconAndNameByPkg(getPackageName(), this.fromIcon, this.fromName);
         setAppIconAndNameByPkg(getCallingPackage(), this.toIcon, this.toName);
-        this.prompt.setText(getString(a.f.sapi_sdk_share_account_prompt));
+        this.prompt.setText(getString(a.g.sapi_sdk_share_account_prompt));
         String stringExtra = getIntent().getStringExtra("android.intent.extra.TEXT");
         if (!TextUtils.isEmpty(stringExtra)) {
             this.loadImageAsyncTask = ImageUtil.loadImage(stringExtra, new ImageUtil.ImageLoaderListener() { // from class: com.baidu.sapi2.activity.ShareActivity.1
@@ -190,7 +196,7 @@ public class ShareActivity extends Activity {
             SapiAccount currentAccount = SapiContext.getInstance(this).getCurrentAccount();
             currentAccount.app = SapiUtils.getAppName(this);
             bundle.putParcelable(SHARE_ACCOUNT, currentAccount);
-            bundle.putInt(ShareCallPacking.EXTRA_SDK_VERSION, 202);
+            bundle.putInt(ShareCallPacking.EXTRA_SDK_VERSION, 200);
             bundle.putString("PKG", getPackageName());
             if (SapiContext.getInstance(this).shareLivingunameEnable()) {
                 bundle.putString("FACE_LOGIN_UID", SapiContext.getInstance(this).getFaceLoginUid());
@@ -251,7 +257,7 @@ public class ShareActivity extends Activity {
         WebLoginDTO.Config config = new WebLoginDTO.Config();
         config.fastLoginFeatureList = new ArrayList();
         webLoginDTO.config = config;
-        PassportSDK.getInstance().startLogin(this, new WebAuthListener() { // from class: com.baidu.sapi2.activity.ShareActivity.2
+        this.webAuthListener = new WebAuthListener() { // from class: com.baidu.sapi2.activity.ShareActivity.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onSuccess(WebAuthResult webAuthResult) {
@@ -265,7 +271,8 @@ public class ShareActivity extends Activity {
                 LoginActivity.supportShareLogin = true;
                 SapiAccountManager.getInstance().getConfignation().supportFaceLogin = z;
             }
-        }, webLoginDTO);
+        };
+        PassportSDK.getInstance().startLogin(this, this.webAuthListener, webLoginDTO);
     }
 
     private void getUserInfo() {
@@ -286,7 +293,9 @@ public class ShareActivity extends Activity {
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onStart() {
                 ShareActivity.this.loadingDialog = new LoadingDialog.Builder(ShareActivity.this).setMessage("正在加载中...").setCancelable(false).setCancelOutside(false).createDialog();
-                ShareActivity.this.loadingDialog.show();
+                if (!ShareActivity.this.isFinishing() && !ShareActivity.this.loadingDialog.isShowing()) {
+                    ShareActivity.this.loadingDialog.show();
+                }
             }
 
             @Override // com.baidu.sapi2.callback.SapiCallback
@@ -309,7 +318,7 @@ public class ShareActivity extends Activity {
             public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
                 if (ShareActivity.this.hasOpenLoginPage) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put(Config.DEVICE_PART, Build.MODEL);
+                    hashMap.put("device", Build.MODEL);
                     hashMap.put("uid", currentAccount.uid);
                     hashMap.put("bduss", currentAccount.bduss);
                     StatService.onEvent("share_bduss_expired", hashMap, false);
@@ -325,11 +334,11 @@ public class ShareActivity extends Activity {
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onFailure(GetUserInfoResult getUserInfoResult) {
                 HashMap hashMap = new HashMap();
-                hashMap.put(Config.DEVICE_PART, Build.MODEL);
+                hashMap.put("device", Build.MODEL);
                 hashMap.put("code", getUserInfoResult.getResultCode() + "");
                 hashMap.put("msg", getUserInfoResult.getResultMsg());
                 hashMap.put("has_active_network", SapiUtils.hasActiveNetwork(ShareActivity.this) + "");
-                hashMap.put(HttpConstants.NETWORK_TYPE, SapiUtils.getNetworkClass(ShareActivity.this));
+                hashMap.put("network_type", SapiUtils.getNetworkClass(ShareActivity.this));
                 StatService.onEvent("share_bduss_expired", hashMap, true);
                 if (ShareActivity.this.hasOpenLoginPage) {
                     SapiStatUtil.statShareV2ActiveLoginSuc();

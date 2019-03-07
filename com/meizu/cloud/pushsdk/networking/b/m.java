@@ -9,11 +9,12 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.regex.Pattern;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class m {
     public static final byte[] a = new byte[0];
     public static final String[] b = new String[0];
-    public static final Charset c = Charset.forName("UTF-8");
+    public static final Charset c = Charset.forName(HTTP.UTF_8);
     public static final TimeZone d = TimeZone.getTimeZone("GMT");
     private static final Pattern e = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
 

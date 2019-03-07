@@ -1,64 +1,58 @@
 package com.baidu.tieba.pb.pb.main;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.e;
-/* loaded from: classes6.dex */
+import com.baidu.tbadk.core.message.GameLaunchMessage;
+import com.baidu.tbadk.core.util.ba;
+import java.util.Map;
+/* loaded from: classes4.dex */
 public class av {
-    private TbPageContext mPageContext;
+    private static av hyP = null;
 
-    public av(TbPageContext tbPageContext) {
-        this.mPageContext = tbPageContext;
-    }
-
-    public void i(String str, byte[] bArr) {
-        new a(str, bArr).execute(new String[0]);
-    }
-
-    /* loaded from: classes6.dex */
-    private class a extends BdAsyncTask<String, Integer, String> {
-        byte[] mData;
-        String mUrl;
-
-        public a(String str, byte[] bArr) {
-            this.mUrl = null;
-            this.mData = null;
-            this.mUrl = str;
-            this.mData = bArr;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            switch (com.baidu.tbadk.core.util.l.a(this.mUrl, this.mData, av.this.mPageContext.getPageActivity())) {
-                case -2:
-                    return com.baidu.tbadk.core.util.l.CU();
-                case -1:
-                default:
-                    return av.this.mPageContext.getString(e.j.save_fail);
-                case 0:
-                    return av.this.mPageContext.getString(e.j.save_image_to_album);
+    public static av bNC() {
+        if (hyP == null) {
+            synchronized (av.class) {
+                if (hyP == null) {
+                    hyP = new av();
+                }
             }
         }
+        return hyP;
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            super.onPostExecute((a) str);
-            av.this.mPageContext.showToast(str);
+    public void d(TbPageContext tbPageContext, String str) {
+        if (tbPageContext != null && !TextUtils.isEmpty(str)) {
+            if (str.contains("is_native_app=1")) {
+            }
+            if (Ad(str)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
+            } else if (Ae(str)) {
+                ba.adD().a((TbPageContext<?>) tbPageContext, new String[]{str}, true);
+            } else {
+                ba.adD().c(tbPageContext, new String[]{str});
+            }
         }
+    }
 
-        /* JADX INFO: Access modifiers changed from: protected */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onCancelled() {
-            super.onCancelled();
-        }
+    public static boolean Ac(String str) {
+        return str != null && str.contains("bookcover:");
+    }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            super.cancel(true);
+    private boolean Ad(String str) {
+        Map<String, String> mN;
+        if (!TextUtils.isEmpty(str) && (mN = ba.mN(ba.mO(str))) != null) {
+            String str2 = mN.get("url");
+            if (!TextUtils.isEmpty(str2)) {
+                return Ad(com.baidu.adp.lib.util.k.by(str2));
+            }
+            String str3 = mN.get("tbgametype");
+            return !TextUtils.isEmpty(str3) && str3.equals("1");
         }
+        return false;
+    }
+
+    private boolean Ae(String str) {
+        return !TextUtils.isEmpty(str) && str.contains("xiaoying.tv");
     }
 }

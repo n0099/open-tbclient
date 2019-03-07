@@ -1,11 +1,7 @@
 package com.baidu.tieba.frs;
-/* loaded from: classes6.dex */
+
+import java.util.ArrayList;
+/* loaded from: classes3.dex */
 public interface ai {
-    void a(int i, int i2, ao aoVar);
-
-    void a(al alVar);
-
-    void acK();
-
-    void init();
+    void a(int i, int i2, ap apVar, ArrayList<com.baidu.adp.widget.ListView.m> arrayList);
 }

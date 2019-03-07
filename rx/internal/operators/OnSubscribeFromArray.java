@@ -11,10 +11,6 @@ public final class OnSubscribeFromArray<T> implements d.a<T> {
         call((rx.j) ((rx.j) obj));
     }
 
-    public OnSubscribeFromArray(T[] tArr) {
-        this.array = tArr;
-    }
-
     public void call(rx.j<? super T> jVar) {
         jVar.setProducer(new FromArrayProducer(jVar, this.array));
     }

@@ -4,18 +4,18 @@ import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public final class d {
     private ByteBuffer b;
-    private cn.jiguang.d.e.a.a.c mk;
+    private cn.jiguang.d.e.a.a.c mn;
 
     public d(cn.jiguang.d.e.a.a.c cVar, ByteBuffer byteBuffer) {
-        this.mk = cVar;
+        this.mn = cVar;
         this.b = byteBuffer;
     }
 
-    public final cn.jiguang.d.e.a.a.c cd() {
-        return this.mk;
+    public final cn.jiguang.d.e.a.a.c cc() {
+        return this.mn;
     }
 
-    public final ByteBuffer ce() {
+    public final ByteBuffer cd() {
         return this.b;
     }
 }

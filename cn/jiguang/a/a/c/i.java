@@ -5,11 +5,7 @@ import android.text.TextUtils;
 import android.util.Patterns;
 import cn.jiguang.d.d.aa;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.ar.util.SystemInfoUtil;
-import com.baidu.searchbox.ng.ai.apps.scheme.actions.UploadFileAction;
-import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
-import com.baidu.webkit.internal.ETAG;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -33,7 +29,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.net.ssl.SSLPeerUnverifiedException;
-import org.apache.http.cookie.SM;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,7 +37,7 @@ public final class i extends Thread {
     private static ExecutorService a = Executors.newSingleThreadExecutor();
     private static final Object b = new Object();
     private static AtomicInteger c = new AtomicInteger();
-    private static CookieManager kR;
+    private static CookieManager kT;
     private String d;
     private String e;
     private String f;
@@ -58,9 +53,9 @@ public final class i extends Thread {
         String c2 = cn.jiguang.g.a.c(context, this.e);
         String e = cn.jiguang.g.a.e(context, this.f);
         CookieManager cookieManager = new CookieManager();
-        kR = cookieManager;
+        kT = cookieManager;
         cookieManager.setCookiePolicy(CookiePolicy.ACCEPT_ALL);
-        CookieHandler.setDefault(kR);
+        CookieHandler.setDefault(kT);
         this.g = context;
         this.d = d;
         this.e = c2;
@@ -108,17 +103,15 @@ public final class i extends Thread {
         InputStream inputStream2;
         Map<String, List<String>> headerFields;
         String str3;
-        if (j < 200 || j > 60000) {
-            j = SystemScreenshotManager.DELAY_TIME;
-        }
+        j = (j < 200 || j > 60000) ? 2000L : 2000L;
         String uuid = UUID.randomUUID().toString();
         HttpURLConnection httpURLConnection3 = null;
         InputStream inputStream3 = null;
         Map<String, List<String>> map2 = null;
         HttpURLConnection httpURLConnection4 = 0;
         int i3 = -1;
-        if (kR == null) {
-            kR = new CookieManager();
+        if (kT == null) {
+            kT = new CookieManager();
         }
         while (true) {
             try {
@@ -133,22 +126,22 @@ public final class i extends Thread {
                         httpURLConnection.setDoOutput(true);
                         httpURLConnection.setUseCaches(false);
                         httpURLConnection.setRequestMethod("POST");
-                        httpURLConnection.setRequestProperty("Charset", "UTF-8");
-                        httpURLConnection.addRequestProperty(HTTP.USER_AGENT, "Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.23 Mobile Safari/537.36");
-                        if (kR.getCookieStore().getCookies().size() > 0) {
-                            httpURLConnection.setRequestProperty(SM.COOKIE, TextUtils.join(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, kR.getCookieStore().getCookies()));
+                        httpURLConnection.setRequestProperty("Charset", HTTP.UTF_8);
+                        httpURLConnection.addRequestProperty("User-Agent", "Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.23 Mobile Safari/537.36");
+                        if (kT.getCookieStore().getCookies().size() > 0) {
+                            httpURLConnection.setRequestProperty("Cookie", TextUtils.join(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, kT.getCookieStore().getCookies()));
                         }
                         httpURLConnection.setInstanceFollowRedirects(z);
                         if (file != null) {
-                            httpURLConnection.setRequestProperty("Content-Type", UploadFileAction.PARAMS_UPLOADFILE_CONTENT_TYPE + ";boundary=" + uuid);
+                            httpURLConnection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + uuid);
                             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                             StringBuffer stringBuffer = new StringBuffer();
                             stringBuffer.append("--");
                             stringBuffer.append(uuid);
-                            stringBuffer.append(SystemInfoUtil.LINE_END);
-                            stringBuffer.append("Content-Disposition: form-data; name=\"" + str2 + "\"; filename=\"" + file.getName() + "\"" + SystemInfoUtil.LINE_END);
-                            stringBuffer.append("Content-Type: application/octet-stream; charset=UTF-8" + SystemInfoUtil.LINE_END);
-                            stringBuffer.append(SystemInfoUtil.LINE_END);
+                            stringBuffer.append("\r\n");
+                            stringBuffer.append("Content-Disposition: form-data; name=\"" + str2 + "\"; filename=\"" + file.getName() + "\"\r\n");
+                            stringBuffer.append("Content-Type: application/octet-stream; charset=UTF-8\r\n");
+                            stringBuffer.append("\r\n");
                             dataOutputStream.write(stringBuffer.toString().getBytes());
                             FileInputStream fileInputStream = new FileInputStream(file);
                             byte[] bArr = new byte[1024];
@@ -160,8 +153,8 @@ public final class i extends Thread {
                                 dataOutputStream.write(bArr, 0, read);
                             }
                             fileInputStream.close();
-                            dataOutputStream.write(SystemInfoUtil.LINE_END.getBytes());
-                            dataOutputStream.write(("--" + uuid + "--" + SystemInfoUtil.LINE_END).getBytes());
+                            dataOutputStream.write("\r\n".getBytes());
+                            dataOutputStream.write(("--" + uuid + "--\r\n").getBytes());
                             dataOutputStream.flush();
                             dataOutputStream.close();
                         }
@@ -263,7 +256,7 @@ public final class i extends Thread {
                 try {
                     byte[] a3 = cn.jiguang.g.f.a(inputStream2);
                     if (a3 != null && a3.length > 0) {
-                        str3 = new String(a3, "UTF-8");
+                        str3 = new String(a3, HTTP.UTF_8);
                         break;
                     }
                     break;
@@ -425,10 +418,10 @@ public final class i extends Thread {
     }
 
     private static void a(Map<String, List<String>> map) {
-        List<String> list = map.get(SM.SET_COOKIE);
+        List<String> list = map.get("Set-Cookie");
         if (list != null) {
             for (String str : list) {
-                kR.getCookieStore().add(null, HttpCookie.parse(str).get(0));
+                kT.getCookieStore().add(null, HttpCookie.parse(str).get(0));
             }
         }
     }
@@ -489,13 +482,13 @@ public final class i extends Thread {
             treeMap.put("imsi", str3);
         }
         treeMap.put("version", cn.jiguang.d.a.a.b(this.g, "number_version", "1.3.0"));
-        treeMap.put(HttpConstants.HTTP_APP_ID, cn.jiguang.d.a.a.b(this.g, "number_appid", "7"));
+        treeMap.put("app_id", cn.jiguang.d.a.a.b(this.g, "number_appid", "7"));
         treeMap.put("req_time", cn.jiguang.d.h.c.b());
-        treeMap.put("sign", a(treeMap));
+        treeMap.put(SapiUtils.KEY_QR_LOGIN_SIGN, a(treeMap));
         String str5 = "";
         for (Map.Entry<String, String> entry : treeMap.entrySet()) {
             try {
-                str5 = str5 + ETAG.ITEM_SEPARATOR + ((Object) entry.getKey()) + ETAG.EQUAL + URLEncoder.encode(entry.getValue(), "UTF-8");
+                str5 = str5 + "&" + ((Object) entry.getKey()) + "=" + URLEncoder.encode(entry.getValue(), HTTP.UTF_8);
             } catch (UnsupportedEncodingException e) {
             }
         }

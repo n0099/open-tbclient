@@ -3,7 +3,7 @@ package com.baidu.tieba.play;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class VideoListMediaControllerView extends VideoControllerView {
     public VideoListMediaControllerView(Context context) {
@@ -19,7 +19,7 @@ public class VideoListMediaControllerView extends VideoControllerView {
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
-    protected View ca(Context context) {
-        return View.inflate(context, e.h.video_list_video_controller, null);
+    protected View ds(Context context) {
+        return View.inflate(context, d.h.video_list_video_controller, null);
     }
 }

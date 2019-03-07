@@ -3,24 +3,20 @@ package com.baidu.adp.base;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Resources;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
 import com.baidu.megapp.ma.MAApplication;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
-import java.util.Calendar;
 /* loaded from: classes.dex */
 public class BdBaseApplication extends MAApplication {
     public static final int RESOURCE_LOAD_MAX_TRY_COUNT = 3;
     private static BdBaseApplication sApp = null;
-    private boolean mHasCheckedNewUserStatus;
-    private boolean mIsNewUser;
     private boolean mIsDebugMode = false;
     private Application mContext = null;
     private boolean mIsPluginResourceOpen = true;
     private long lastGcTime = 0;
 
     public void onCreate(Application application) {
-        g.gd().a(super.getResources());
+        g.fZ().a(super.getResources());
         initBdBaseApp(application);
         super.onCreate();
     }
@@ -35,7 +31,7 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initPlugin() {
-        com.baidu.adp.plugin.c.a.mT().init();
+        com.baidu.adp.plugin.c.a.mY().init();
     }
 
     public static BdBaseApplication getInst() {
@@ -67,11 +63,11 @@ public class BdBaseApplication extends MAApplication {
     }
 
     private void initBitmapHelper() {
-        com.baidu.adp.lib.util.d.kE().aN(this.mContext);
+        com.baidu.adp.lib.util.d.kG().aN(this.mContext);
     }
 
     public void onAppMemoryLow() {
-        a.fW().fY();
+        a.fT().fV();
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.lastGcTime > StatisticConfig.MIN_UPLOAD_INTERVAL) {
             this.lastGcTime = currentTimeMillis;
@@ -80,16 +76,16 @@ public class BdBaseApplication extends MAApplication {
     }
 
     public void setActivityStackMaxSize(int i) {
-        a.fW().setActivityStackMaxSize(i);
+        a.fT().setActivityStackMaxSize(i);
     }
 
     public int getActivityStackMaxSize() {
-        return a.fW().getActivityStackMaxSize();
+        return a.fT().getActivityStackMaxSize();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources resources = g.gd().getResources();
+        Resources resources = g.fZ().getResources();
         return (resources == null || !this.mIsPluginResourceOpen) ? super.getResources() : resources;
     }
 
@@ -99,48 +95,5 @@ public class BdBaseApplication extends MAApplication {
 
     public boolean getIsPluginResourcOpen() {
         return this.mIsPluginResourceOpen;
-    }
-
-    public boolean checkInterrupt() {
-        return checkInterrupt(System.currentTimeMillis());
-    }
-
-    private boolean checkInterrupt(long j) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2019, 1, 19, 20, 0, 0);
-        long timeInMillis = calendar.getTimeInMillis();
-        calendar.set(2019, 1, 20, 0, 30, 0);
-        long timeInMillis2 = calendar.getTimeInMillis();
-        calendar.set(2019, 0, 14, 20, 0, 0);
-        long timeInMillis3 = calendar.getTimeInMillis();
-        calendar.set(2019, 0, 14, 23, 0, 0);
-        long timeInMillis4 = calendar.getTimeInMillis();
-        calendar.set(2019, 0, 25, 20, 0, 0);
-        long timeInMillis5 = calendar.getTimeInMillis();
-        calendar.set(2019, 0, 25, 20, 30, 0);
-        return (timeInMillis <= j && j <= timeInMillis2) || (timeInMillis3 <= j && j <= timeInMillis4) || (timeInMillis5 <= j && j <= calendar.getTimeInMillis());
-    }
-
-    public boolean checkNewUser() {
-        if (this.mHasCheckedNewUserStatus) {
-            return this.mIsNewUser;
-        }
-        try {
-            this.mIsNewUser = checkInterrupt(getApplicationContext().getPackageManager().getPackageInfo(getPackageName(), 0).firstInstallTime);
-            this.mHasCheckedNewUserStatus = true;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-        return this.mIsNewUser;
-    }
-
-    public boolean checkInLater30Min() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(2019, 1, 20, 0, 0, 0);
-        long timeInMillis = calendar.getTimeInMillis();
-        calendar.set(2019, 1, 20, 0, 30, 0);
-        long timeInMillis2 = calendar.getTimeInMillis();
-        long currentTimeMillis = System.currentTimeMillis();
-        return timeInMillis <= currentTimeMillis && currentTimeMillis <= timeInMillis2;
     }
 }

@@ -8,12 +8,12 @@ import com.baidu.adp.lib.f.e;
 import com.baidu.adp.lib.voice.h;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.a.i;
-import com.baidu.tbadk.core.util.l;
-import com.baidu.tieba.e;
+import com.baidu.tbadk.core.util.m;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c implements e<a> {
     @Override // com.baidu.adp.lib.f.e
-    public boolean jD() {
+    public boolean jE() {
         return true;
     }
 
@@ -28,16 +28,16 @@ public class c implements e<a> {
         if (aVar != null) {
             com.baidu.tbadk.core.util.d.e eVar = new com.baidu.tbadk.core.util.d.e();
             eVar.f(diskFileOperate);
-            aVar.Dw = eVar;
+            aVar.Dv = eVar;
         }
-        diskFileOperate.hC();
+        diskFileOperate.hA();
         if (!diskFileOperate.isSuccess()) {
             return null;
         }
-        String hS = diskFileOperate.hS();
+        String hR = diskFileOperate.hR();
         a aVar2 = new a();
         aVar2.md5 = str;
-        aVar2.path = hS;
+        aVar2.path = hR;
         return aVar2;
     }
 
@@ -53,39 +53,39 @@ public class c implements e<a> {
         a aVar2 = new a();
         i iVar = new i();
         if (aVar != null) {
-            aVar.Dw = iVar;
+            aVar.Dv = iVar;
         }
         String str4 = TbConfig.SERVER_ADDRESS + TbConfig.VOICE_DATA + "?voice_md5=" + str;
-        byte[] gk = iVar.gk(!TextUtils.isEmpty(str3) ? str4 + "&play_from=" + str3 : str4);
-        if (!iVar.EC()) {
+        byte[] mW = iVar.mW(!TextUtils.isEmpty(str3) ? str4 + "&play_from=" + str3 : str4);
+        if (!iVar.adN()) {
             aVar2.error_code = 3;
-            aVar2.error_msg = h.getString(e.j.neterror);
+            aVar2.error_msg = h.getString(d.j.neterror);
             return aVar2;
-        } else if (gk == null || gk.length == 0) {
+        } else if (mW == null || mW.length == 0) {
             aVar2.error_code = 4;
-            aVar2.error_msg = h.getString(e.j.voice_cache_error_no_file);
+            aVar2.error_msg = h.getString(d.j.voice_cache_error_no_file);
             return aVar2;
         } else {
             String str5 = null;
             if (str == null) {
                 i3 = 5;
-            } else if (gk == null || gk.length == 0) {
+            } else if (mW == null || mW.length == 0) {
                 i3 = 6;
             } else {
                 DiskFileOperate diskFileOperate = new DiskFileOperate("voice", str, DiskFileOperate.Action.WRITE);
                 diskFileOperate.a(DiskFileOperate.OperateType.MUST_SUCCESS);
                 diskFileOperate.R(false);
-                diskFileOperate.setData(gk);
+                diskFileOperate.setData(mW);
                 if (aVar != null) {
                     com.baidu.tbadk.core.util.d.e eVar = new com.baidu.tbadk.core.util.d.e();
                     eVar.f(diskFileOperate);
-                    aVar.Dw = eVar;
+                    aVar.Dv = eVar;
                 }
-                diskFileOperate.hC();
-                if (diskFileOperate.isSuccess() && diskFileOperate.hO() != null) {
-                    str5 = diskFileOperate.hO().getAbsolutePath();
+                diskFileOperate.hA();
+                if (diskFileOperate.isSuccess() && diskFileOperate.hN() != null) {
+                    str5 = diskFileOperate.hN().getAbsolutePath();
                     i3 = 0;
-                } else if (l.CW() < gk.length) {
+                } else if (m.ach() < mW.length) {
                     i3 = 2;
                 } else {
                     i3 = 1;
@@ -96,7 +96,7 @@ public class c implements e<a> {
                 aVar2.md5 = str;
             } else {
                 aVar2.error_code = i3;
-                aVar2.error_msg = a.eO(i3);
+                aVar2.error_msg = a.iu(i3);
             }
             return aVar2;
         }
@@ -107,12 +107,12 @@ public class c implements e<a> {
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public BdAsyncTaskParallel jE() {
+    public BdAsyncTaskParallel jF() {
         return null;
     }
 
     @Override // com.baidu.adp.lib.f.e
-    public int jF() {
+    public int jG() {
         return 2;
     }
 

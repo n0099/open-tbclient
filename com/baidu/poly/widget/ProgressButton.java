@@ -13,9 +13,9 @@ import android.widget.TextView;
 import com.baidu.poly.b;
 /* loaded from: classes2.dex */
 public class ProgressButton extends FrameLayout {
-    private TextView ajh;
-    private ImageView aji;
-    private Animation ajj;
+    private TextView ahH;
+    private ImageView ahI;
+    private Animation ahJ;
     private boolean enable;
 
     public ProgressButton(Context context) {
@@ -28,7 +28,7 @@ public class ProgressButton extends FrameLayout {
 
     public ProgressButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        c(context, attributeSet);
+        d(context, attributeSet);
     }
 
     @Override // android.view.View
@@ -45,25 +45,25 @@ public class ProgressButton extends FrameLayout {
         this.enable = z;
     }
 
-    private void c(Context context, AttributeSet attributeSet) {
+    private void d(Context context, AttributeSet attributeSet) {
         LayoutInflater.from(context).inflate(b.d.button_progress, (ViewGroup) this, true);
-        this.ajh = (TextView) findViewById(b.c.text_view);
-        this.aji = (ImageView) findViewById(b.c.progress_bar);
-        this.ajj = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
+        this.ahH = (TextView) findViewById(b.c.text_view);
+        this.ahI = (ImageView) findViewById(b.c.progress_bar);
+        this.ahJ = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, b.e.ProgressButton);
-        this.ajh.setTextColor(obtainStyledAttributes.getColor(b.e.ProgressButton_textColor, -1));
+        this.ahH.setTextColor(obtainStyledAttributes.getColor(b.e.ProgressButton_textColor, -1));
         obtainStyledAttributes.recycle();
     }
 
     public void setText(String str) {
-        this.ajh.setText(str);
-        this.aji.setVisibility(4);
-        this.ajh.setVisibility(0);
+        this.ahH.setText(str);
+        this.ahI.setVisibility(4);
+        this.ahH.setVisibility(0);
     }
 
     public void startLoading() {
-        this.aji.setVisibility(0);
-        this.aji.startAnimation(this.ajj);
-        this.ajh.setVisibility(4);
+        this.ahI.setVisibility(0);
+        this.ahI.startAnimation(this.ahJ);
+        this.ahH.setVisibility(4);
     }
 }

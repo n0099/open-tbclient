@@ -3,7 +3,6 @@ package com.baidu.android.pushservice.j;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import com.baidu.searchbox.ng.ai.apps.setting.oauth.ScopeInfo;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class h {
@@ -44,7 +43,7 @@ public class h {
             NetworkInfo c = c(context);
             switch (c != null ? c.getType() : -1) {
                 case 0:
-                    return ScopeInfo.SCOPE_ID_MOBILE;
+                    return "mobile";
                 case 1:
                     return "wifi";
                 case 2:

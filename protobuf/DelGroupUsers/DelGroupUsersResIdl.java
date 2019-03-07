@@ -3,7 +3,7 @@ package protobuf.DelGroupUsers;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import protobuf.Error;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class DelGroupUsersResIdl extends Message {
     @ProtoField(tag = 2)
     public final DataRes data;
@@ -21,7 +21,7 @@ public final class DelGroupUsersResIdl extends Message {
         this.data = builder.data;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder extends Message.Builder<DelGroupUsersResIdl> {
         public DataRes data;
         public Error error;

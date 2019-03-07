@@ -6,105 +6,105 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class e {
-    private final com.facebook.common.memory.a iks;
-    private int isL = 0;
-    private int isK = 0;
-    private int isM = 0;
-    private int isO = 0;
-    private int isN = 0;
-    private int isJ = 0;
+    private final com.facebook.common.memory.a jzU;
+    private int jIu = 0;
+    private int jIt = 0;
+    private int jIv = 0;
+    private int jIx = 0;
+    private int jIw = 0;
+    private int jIs = 0;
 
     public e(com.facebook.common.memory.a aVar) {
-        this.iks = (com.facebook.common.memory.a) g.checkNotNull(aVar);
+        this.jzU = (com.facebook.common.memory.a) g.checkNotNull(aVar);
     }
 
     public boolean a(com.facebook.imagepipeline.f.d dVar) {
-        if (this.isJ != 6 && dVar.getSize() > this.isL) {
-            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(dVar.getInputStream(), this.iks.get(16384), this.iks);
+        if (this.jIs != 6 && dVar.getSize() > this.jIu) {
+            com.facebook.common.memory.f fVar = new com.facebook.common.memory.f(dVar.getInputStream(), this.jzU.get(16384), this.jzU);
             try {
-                com.facebook.common.util.c.a(fVar, this.isL);
-                return t(fVar);
+                com.facebook.common.util.c.a(fVar, this.jIu);
+                return v(fVar);
             } catch (IOException e) {
-                k.r(e);
+                k.s(e);
                 return false;
             } finally {
-                com.facebook.common.internal.b.o(fVar);
+                com.facebook.common.internal.b.q(fVar);
             }
         }
         return false;
     }
 
-    private boolean t(InputStream inputStream) {
+    private boolean v(InputStream inputStream) {
         int read;
-        int i = this.isN;
-        while (this.isJ != 6 && (read = inputStream.read()) != -1) {
+        int i = this.jIw;
+        while (this.jIs != 6 && (read = inputStream.read()) != -1) {
             try {
-                this.isL++;
-                switch (this.isJ) {
+                this.jIu++;
+                switch (this.jIs) {
                     case 0:
                         if (read == 255) {
-                            this.isJ = 1;
+                            this.jIs = 1;
                             break;
                         } else {
-                            this.isJ = 6;
+                            this.jIs = 6;
                             break;
                         }
                     case 1:
                         if (read == 216) {
-                            this.isJ = 2;
+                            this.jIs = 2;
                             break;
                         } else {
-                            this.isJ = 6;
+                            this.jIs = 6;
                             break;
                         }
                     case 2:
                         if (read != 255) {
                             break;
                         } else {
-                            this.isJ = 3;
+                            this.jIs = 3;
                             break;
                         }
                     case 3:
                         if (read == 255) {
-                            this.isJ = 3;
+                            this.jIs = 3;
                             break;
                         } else if (read == 0) {
-                            this.isJ = 2;
+                            this.jIs = 2;
                             break;
                         } else {
                             if (read == 218 || read == 217) {
-                                yD(this.isL - 2);
+                                Cp(this.jIu - 2);
                             }
-                            if (yC(read)) {
-                                this.isJ = 4;
+                            if (Co(read)) {
+                                this.jIs = 4;
                                 break;
                             } else {
-                                this.isJ = 2;
+                                this.jIs = 2;
                                 break;
                             }
                         }
                     case 4:
-                        this.isJ = 5;
+                        this.jIs = 5;
                         break;
                     case 5:
-                        int i2 = ((this.isK << 8) + read) - 2;
+                        int i2 = ((this.jIt << 8) + read) - 2;
                         com.facebook.common.util.c.a(inputStream, i2);
-                        this.isL = i2 + this.isL;
-                        this.isJ = 2;
+                        this.jIu = i2 + this.jIu;
+                        this.jIs = 2;
                         break;
                     default:
                         g.checkState(false);
                         break;
                 }
-                this.isK = read;
+                this.jIt = read;
             } catch (IOException e) {
-                k.r(e);
+                k.s(e);
             }
         }
-        return (this.isJ == 6 || this.isN == i) ? false : true;
+        return (this.jIs == 6 || this.jIw == i) ? false : true;
     }
 
-    private static boolean yC(int i) {
+    private static boolean Co(int i) {
         boolean z = true;
         if (i == 1) {
             return false;
@@ -118,20 +118,20 @@ public class e {
         return false;
     }
 
-    private void yD(int i) {
-        if (this.isM > 0) {
-            this.isO = i;
+    private void Cp(int i) {
+        if (this.jIv > 0) {
+            this.jIx = i;
         }
-        int i2 = this.isM;
-        this.isM = i2 + 1;
-        this.isN = i2;
+        int i2 = this.jIv;
+        this.jIv = i2 + 1;
+        this.jIw = i2;
     }
 
-    public int bZo() {
-        return this.isO;
+    public int cyt() {
+        return this.jIx;
     }
 
-    public int bZp() {
-        return this.isN;
+    public int cyu() {
+        return this.jIw;
     }
 }

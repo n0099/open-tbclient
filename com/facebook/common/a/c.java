@@ -1,18 +1,18 @@
 package com.facebook.common.a;
 /* loaded from: classes2.dex */
 public class c implements b {
-    private static c ijV = null;
+    private static c jzx = null;
 
     private c() {
     }
 
-    public static synchronized c bUu() {
+    public static synchronized c cts() {
         c cVar;
         synchronized (c.class) {
-            if (ijV == null) {
-                ijV = new c();
+            if (jzx == null) {
+                jzx = new c();
             }
-            cVar = ijV;
+            cVar = jzx;
         }
         return cVar;
     }

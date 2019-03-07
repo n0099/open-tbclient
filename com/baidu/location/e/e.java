@@ -8,14 +8,13 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.location.g.g;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
-import com.baidu.webkit.internal.ETAG;
+import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class e {
     public List<ScanResult> a;
     private long b;
@@ -41,7 +40,7 @@ public class e {
     }
 
     private String b(String str) {
-        return str != null ? (str.contains(ETAG.ITEM_SEPARATOR) || str.contains(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) ? str.replace(ETAG.ITEM_SEPARATOR, BaseRequestAction.SPLITE).replace(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, BaseRequestAction.SPLITE) : str : str;
+        return str != null ? (str.contains("&") || str.contains(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) ? str.replace("&", "_").replace(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR, "_") : str : str;
     }
 
     private int m() {
@@ -121,15 +120,15 @@ public class e {
                 Random random = new Random();
                 StringBuffer stringBuffer2 = new StringBuffer(512);
                 ArrayList<Long> arrayList = new ArrayList();
-                WifiInfo tV = f.tU().tV();
-                if (tV == null || tV.getBSSID() == null) {
+                WifiInfo l = f.a().l();
+                if (l == null || l.getBSSID() == null) {
                     i2 = -1;
                     str = null;
                     str2 = null;
                 } else {
-                    String replace = tV.getBSSID().replace(":", "");
-                    int rssi = tV.getRssi();
-                    String n = f.tU().n();
+                    String replace = l.getBSSID().replace(":", "");
+                    int rssi = l.getRssi();
+                    String n = f.a().n();
                     if (rssi < 0) {
                         i2 = -rssi;
                         str = n;
@@ -275,13 +274,13 @@ public class e {
                                 StringBuffer stringBuffer4 = new StringBuffer(128);
                                 stringBuffer4.append("&wf_ut=");
                                 boolean z13 = true;
-                                Long l = (Long) arrayList.get(0);
-                                for (Long l2 : arrayList) {
+                                Long l2 = (Long) arrayList.get(0);
+                                for (Long l3 : arrayList) {
                                     if (z13) {
-                                        stringBuffer4.append(l2.longValue());
+                                        stringBuffer4.append(l3.longValue());
                                         z4 = false;
                                     } else {
-                                        long longValue = l2.longValue() - l.longValue();
+                                        long longValue = l3.longValue() - l2.longValue();
                                         if (longValue != 0) {
                                             stringBuffer4.append("" + longValue);
                                         }
@@ -445,38 +444,6 @@ public class e {
         return true;
     }
 
-    public String bJ(int i) {
-        int i2;
-        int i3 = 0;
-        if (i == 0 || a() < 1) {
-            return null;
-        }
-        StringBuffer stringBuffer = new StringBuffer(256);
-        int size = this.a.size();
-        int i4 = size > g.O ? g.O : size;
-        int i5 = 1;
-        int i6 = 0;
-        while (i6 < i4) {
-            if ((i5 & i) == 0 || this.a.get(i6).BSSID == null) {
-                i2 = i3;
-            } else {
-                if (i3 == 0) {
-                    stringBuffer.append("&ssid=");
-                } else {
-                    stringBuffer.append("|");
-                }
-                stringBuffer.append(this.a.get(i6).BSSID.replace(":", ""));
-                stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
-                stringBuffer.append(b(this.a.get(i6).SSID));
-                i2 = i3 + 1;
-            }
-            i5 <<= 1;
-            i6++;
-            i3 = i2;
-        }
-        return stringBuffer.toString();
-    }
-
     public String c() {
         try {
             return a(g.O, true, false);
@@ -531,8 +498,40 @@ public class e {
         }
     }
 
+    public String d(int i) {
+        int i2;
+        int i3 = 0;
+        if (i == 0 || a() < 1) {
+            return null;
+        }
+        StringBuffer stringBuffer = new StringBuffer(256);
+        int size = this.a.size();
+        int i4 = size > g.O ? g.O : size;
+        int i5 = 1;
+        int i6 = 0;
+        while (i6 < i4) {
+            if ((i5 & i) == 0 || this.a.get(i6).BSSID == null) {
+                i2 = i3;
+            } else {
+                if (i3 == 0) {
+                    stringBuffer.append("&ssid=");
+                } else {
+                    stringBuffer.append("|");
+                }
+                stringBuffer.append(this.a.get(i6).BSSID.replace(":", ""));
+                stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
+                stringBuffer.append(b(this.a.get(i6).SSID));
+                i2 = i3 + 1;
+            }
+            i5 <<= 1;
+            i6++;
+            i3 = i2;
+        }
+        return stringBuffer.toString();
+    }
+
     public boolean e() {
-        return a(g.agx);
+        return a(g.af);
     }
 
     @SuppressLint({"NewApi"})
@@ -653,14 +652,14 @@ public class e {
     }
 
     public boolean j() {
-        return System.currentTimeMillis() - this.c > 0 && System.currentTimeMillis() - this.c < 5000;
+        return System.currentTimeMillis() - this.c > 0 && System.currentTimeMillis() - this.c < TbConfig.NOTIFY_SOUND_INTERVAL;
     }
 
     public boolean k() {
-        return System.currentTimeMillis() - this.c > 0 && System.currentTimeMillis() - this.c < 5000;
+        return System.currentTimeMillis() - this.c > 0 && System.currentTimeMillis() - this.c < TbConfig.NOTIFY_SOUND_INTERVAL;
     }
 
     public boolean l() {
-        return System.currentTimeMillis() - this.c > 0 && System.currentTimeMillis() - this.b < 5000;
+        return System.currentTimeMillis() - this.c > 0 && System.currentTimeMillis() - this.b < TbConfig.NOTIFY_SOUND_INTERVAL;
     }
 }

@@ -3,9 +3,8 @@ package com.baidu.tbadk.coreExtra.data;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.ng.ai.apps.media.chooser.action.ChooseVideoAction;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -36,9 +35,9 @@ public class VersionData implements Serializable {
                 this.forceUpdate = jSONObject.optInt("force_update", 0);
                 this.strategy = jSONObject.optInt("strategy", 0);
                 this.newVer = jSONObject.optString("new_version", null);
-                this.size = jSONObject.optString(ChooseVideoAction.CB_KEY_SIZE, null);
+                this.size = jSONObject.optString("size", null);
                 String optString = jSONObject.optString("new_four_version", null);
-                if (!ao.isEmpty(optString)) {
+                if (!ap.isEmpty(optString)) {
                     this.newVer = optString;
                 }
                 this.url = jSONObject.optString("new_version_url");
@@ -52,7 +51,7 @@ public class VersionData implements Serializable {
                 this.apkMD5RSA = jSONObject.optString("apk_MD5_RSA", null);
                 this.asApkMD5RSA = jSONObject.optString("as_apk_MD5_RSA", null);
                 this.isOfficialVersion = jSONObject.optInt("android_is_official_version", 0) == 1;
-                if (Hm()) {
+                if (agF()) {
                     this.hasNewVer = 1;
                     this.newFile = "tieba_" + this.newVer + ".apk";
                 }
@@ -62,7 +61,7 @@ public class VersionData implements Serializable {
         }
     }
 
-    private boolean Hm() {
+    private boolean agF() {
         return (this.newVersionRemind != 1 || this.url == null || !URLUtil.isNetworkUrl(this.url) || TextUtils.isEmpty(this.apkMD5RSA) || this.newVer == null || TbConfig.getVersion().equalsIgnoreCase(this.newVer)) ? false : true;
     }
 

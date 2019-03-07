@@ -8,6 +8,7 @@ import com.baidu.d.a.a;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
+import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.dto.WebRegDTO;
 import com.baidu.sapi2.result.SapiResult;
@@ -17,7 +18,6 @@ import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.SocialType;
 import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes2.dex */
 public class FastRegActivity extends BaseActivity {
     public static final String EXTRA_RESULT_CODE = "result_code";
@@ -67,7 +67,7 @@ public class FastRegActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
             init();
             setupViews();
         } catch (Throwable th) {
@@ -82,7 +82,7 @@ public class FastRegActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void init() {
         super.init();
-        this.businessFrom = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2002);
+        this.businessFrom = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, BaseActivity.EXTRA_PARAM_FROM_PASS_SDK_ENTER);
         this.webAuthResult.activity = this;
     }
 
@@ -134,7 +134,7 @@ public class FastRegActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(a.f.sapi_sdk_title_fast_reg);
+        setTitleText(a.g.sapi_sdk_title_fast_reg);
         configTitle();
         this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.FastRegActivity.3
             @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
@@ -154,7 +154,7 @@ public class FastRegActivity extends BaseActivity {
         ArrayList arrayList = new ArrayList();
         WebLoginDTO webLoginDTO = PassportSDK.getInstance().getWebLoginDTO();
         if (webLoginDTO != null && WebLoginDTO.statExtraValid(webLoginDTO.statExtra)) {
-            arrayList.add(new BasicNameValuePair("extrajson", WebLoginDTO.getStatExtraDecode(webLoginDTO.statExtra)));
+            arrayList.add(new PassNameValuePair("extrajson", WebLoginDTO.getStatExtraDecode(webLoginDTO.statExtra)));
         }
         if (webRegDTO != null && webRegDTO.extraParams != null) {
             arrayList.addAll(webRegDTO.extraParams);

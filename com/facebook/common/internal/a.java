@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 /* loaded from: classes2.dex */
 public final class a {
-    public static long f(InputStream inputStream, OutputStream outputStream) throws IOException {
+    public static long g(InputStream inputStream, OutputStream outputStream) throws IOException {
         g.checkNotNull(inputStream);
         g.checkNotNull(outputStream);
         byte[] bArr = new byte[4096];

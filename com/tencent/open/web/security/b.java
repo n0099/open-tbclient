@@ -10,15 +10,16 @@ import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes6.dex */
+import org.apache.http.protocol.HTTP;
+/* loaded from: classes3.dex */
 public class b extends com.tencent.open.a {
     @Override // com.tencent.open.a
-    public void a(String str, String str2, List<String> list, a.C0381a c0381a) {
+    public void a(String str, String str2, List<String> list, a.C0357a c0357a) {
         f.a("openSDK_LOG.SecureJsBridge", "-->getResult, objectName: " + str + " | methodName: " + str2);
         int size = list.size();
         for (int i = 0; i < size; i++) {
             try {
-                list.set(i, URLDecoder.decode(list.get(i), "UTF-8"));
+                list.set(i, URLDecoder.decode(list.get(i), HTTP.UTF_8));
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -26,12 +27,12 @@ public class b extends com.tencent.open.a {
         a.b bVar = this.a.get(str);
         if (bVar != null) {
             f.b("openSDK_LOG.SecureJsBridge", "-->handler != null");
-            bVar.call(str2, list, c0381a);
+            bVar.call(str2, list, c0357a);
             return;
         }
         f.b("openSDK_LOG.SecureJsBridge", "-->handler == null");
-        if (c0381a != null) {
-            c0381a.a();
+        if (c0357a != null) {
+            c0357a.a();
         }
     }
 

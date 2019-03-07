@@ -4,7 +4,7 @@ import android.support.v7.widget.ActivityChooserView;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 final class i {
-    private static Integer[] lQ = new Integer[64];
+    private static Integer[] lT = new Integer[64];
     private String d;
     private String f;
     private boolean h;
@@ -14,17 +14,13 @@ final class i {
     private int g = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
 
     static {
-        for (int i = 0; i < lQ.length; i++) {
-            lQ[i] = Integer.valueOf(i);
+        for (int i = 0; i < lT.length; i++) {
+            lT[i] = Integer.valueOf(i);
         }
     }
 
     public i(String str, int i) {
         this.d = str;
-    }
-
-    private static Integer E(int i) {
-        return (i < 0 || i >= lQ.length) ? Integer.valueOf(i) : lQ[i];
     }
 
     private void d(int i) {
@@ -33,20 +29,24 @@ final class i {
         }
     }
 
+    private static Integer n(int i) {
+        return (i < 0 || i >= lT.length) ? Integer.valueOf(i) : lT[i];
+    }
+
     public final void a(int i) {
         this.g = 3;
     }
 
     public final void a(int i, String str) {
         d(i);
-        Integer E = E(i);
+        Integer n = n(i);
         if (this.e == 2) {
             str = str.toUpperCase();
         } else if (this.e == 3) {
             str = str.toLowerCase();
         }
-        this.b.put(str, E);
-        this.c.put(E, str);
+        this.b.put(str, n);
+        this.c.put(n, str);
     }
 
     public final void a(boolean z) {
@@ -55,7 +55,7 @@ final class i {
 
     public final String b(int i) {
         d(i);
-        String str = (String) this.c.get(E(i));
+        String str = (String) this.c.get(n(i));
         if (str != null) {
             return str;
         }

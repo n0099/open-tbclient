@@ -16,7 +16,7 @@ public class GuardServiceObserver extends Service {
         try {
             TiebaStatic.log("c12662");
             if (TbadkCoreApplication.getKeepLiveSwitch(context) && context != null) {
-                a.b(0, 0, 0, 1, 5);
+                a.c(0, 0, 0, 1, 5);
                 context.startService(new Intent(context, GuardServiceObserver.class));
             }
         } catch (Throwable th) {
@@ -43,7 +43,7 @@ public class GuardServiceObserver extends Service {
     public int onStartCommand(Intent intent, int i, int i2) {
         try {
             TiebaStatic.log("c12662");
-            a.b(0, 0, 0, 1, 5);
+            a.c(0, 0, 0, 1, 5);
             BdSocketLinkService.startService(false, "restart");
         } catch (Throwable th) {
         }

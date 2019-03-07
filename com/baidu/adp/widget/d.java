@@ -10,7 +10,7 @@ abstract class d {
             return (f2 * f2 * f2 * f2 * f2) + 1.0f;
         }
     };
-    public static final Interpolator Mv = new Interpolator() { // from class: com.baidu.adp.widget.d.2
+    public static final Interpolator MH = new Interpolator() { // from class: com.baidu.adp.widget.d.2
         @Override // android.animation.TimeInterpolator
         public float getInterpolation(float f) {
             return f * f * f * f * f;

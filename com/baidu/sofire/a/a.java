@@ -2,76 +2,78 @@ package com.baidu.sofire.a;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
-import com.baidu.mobstat.Config;
+import com.baidu.appsearchlib.Info;
 import com.baidu.sofire.b;
 import com.baidu.sofire.b.e;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.g;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class a {
-    private static a f;
-    private int a = 5;
-    private String b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
-    private C0148a c;
-    private SQLiteDatabase d;
-    private Context e;
+public final class a {
+    public static a d;
+    int a = 5;
+    String b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
+    public SQLiteDatabase c;
+    private C0074a e;
+    private Context f;
 
     private a(Context context) {
-        b.a("MyDb init");
-        this.e = context.getApplicationContext();
-        this.c = new C0148a(context.getApplicationContext());
+        b.a();
+        this.f = context.getApplicationContext();
+        this.e = new C0074a(context.getApplicationContext());
         try {
-            this.d = this.c.getWritableDatabase();
+            this.c = this.e.getWritableDatabase();
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            b.a("i=" + f);
-            if (f == null) {
-                f = new a(context);
+            new StringBuilder("i=").append(d);
+            b.a();
+            if (d == null) {
+                d = new a(context);
             }
-            aVar = f;
+            aVar = d;
         }
         return aVar;
     }
 
-    public static a a() {
-        return f;
-    }
-
     /* renamed from: com.baidu.sofire.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private class C0148a extends SQLiteOpenHelper {
-        public C0148a(Context context) {
+    private class C0074a extends SQLiteOpenHelper {
+        public C0074a(Context context) {
             super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.a);
-            b.a("DatabaseHelper version=" + a.this.a);
+            new StringBuilder("DatabaseHelper version=").append(a.this.a);
+            b.a();
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        public final void onCreate(SQLiteDatabase sQLiteDatabase) {
             try {
                 sQLiteDatabase.execSQL(a.this.b);
             } catch (Throwable th) {
-                e.a(th);
+                e.a();
             }
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        public final void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             try {
-                b.a("o=" + i + ", n=" + i2);
+                new StringBuilder("o=").append(i).append(", n=").append(i2);
+                b.a();
                 if (i < 3 && i2 >= 3) {
                     sQLiteDatabase.beginTransaction();
                     sQLiteDatabase.execSQL("ALTER TABLE pgn ADD COLUMN pr INTEGER  DEFAULT -1");
@@ -88,37 +90,37 @@ public class a {
                     sQLiteDatabase.execSQL("drop table if exists tbch");
                 }
             } catch (Throwable th) {
-                e.a(th);
+                e.a();
             }
         }
     }
 
-    public long a(ApkInfo apkInfo) {
+    public final long a(ApkInfo apkInfo) {
         long j = 0;
         if (apkInfo != null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("n", Integer.valueOf(apkInfo.initStatus));
             contentValues.put("p", apkInfo.packageName);
-            contentValues.put(Config.APP_VERSION_CODE, apkInfo.pkgPath);
-            contentValues.put("l", apkInfo.libPath);
+            contentValues.put("a", apkInfo.pkgPath);
+            contentValues.put(NotifyType.LIGHTS, apkInfo.libPath);
             contentValues.put("v", apkInfo.versionName);
             contentValues.put("apk", apkInfo.dexPath);
             contentValues.put("ap", Integer.valueOf(apkInfo.apkParseSuc));
-            contentValues.put(Config.CELL_LOCATION, apkInfo.className);
-            contentValues.put("st", Long.valueOf(apkInfo.startTime));
+            contentValues.put("cl", apkInfo.className);
+            contentValues.put(TimeDisplaySetting.START_SHOW_TIME, Long.valueOf(apkInfo.startTime));
             contentValues.put("du", Integer.valueOf(apkInfo.duration));
             contentValues.put("m5", apkInfo.apkMD5);
             contentValues.put("th", Integer.valueOf(apkInfo.applicationTheme));
-            contentValues.put(Config.PRINCIPAL_PART, Integer.valueOf(apkInfo.priority));
+            contentValues.put("pr", Integer.valueOf(apkInfo.priority));
             if (apkInfo.activities != null) {
                 contentValues.put("ac", new com.baidu.sofire.core.a(apkInfo.activities).a());
             }
             try {
                 if (b(apkInfo.key)) {
-                    j = this.d.update("pgn", contentValues, "k=" + apkInfo.key, null);
+                    j = this.c.update("pgn", contentValues, "k=" + apkInfo.key, null);
                 } else {
-                    contentValues.put(Config.APP_KEY, Integer.valueOf(apkInfo.key));
-                    j = this.d.insert("pgn", null, contentValues);
+                    contentValues.put("k", Integer.valueOf(apkInfo.key));
+                    j = this.c.insert("pgn", null, contentValues);
                 }
             } catch (Throwable th) {
             }
@@ -126,39 +128,49 @@ public class a {
         return j;
     }
 
-    public List<ApkInfo> b() {
+    public final List<ApkInfo> a() {
         Cursor cursor;
         ArrayList arrayList = new ArrayList();
         try {
-            cursor = this.d.query("pgn", null, null, null, null, null, null);
+            cursor = this.c.query("pgn", null, null, null, null, null, null);
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
                         ApkInfo apkInfo = new ApkInfo();
-                        apkInfo.key = cursor.getInt(cursor.getColumnIndex(Config.APP_KEY));
+                        apkInfo.key = cursor.getInt(cursor.getColumnIndex("k"));
                         apkInfo.packageName = cursor.getString(cursor.getColumnIndex("p"));
-                        apkInfo.pkgPath = cursor.getString(cursor.getColumnIndex(Config.APP_VERSION_CODE));
-                        apkInfo.libPath = cursor.getString(cursor.getColumnIndex("l"));
+                        apkInfo.pkgPath = cursor.getString(cursor.getColumnIndex("a"));
+                        apkInfo.libPath = cursor.getString(cursor.getColumnIndex(NotifyType.LIGHTS));
                         apkInfo.versionName = cursor.getString(cursor.getColumnIndex("v"));
-                        apkInfo.startTime = cursor.getLong(cursor.getColumnIndex("st"));
+                        apkInfo.startTime = cursor.getLong(cursor.getColumnIndex(TimeDisplaySetting.START_SHOW_TIME));
                         apkInfo.duration = cursor.getInt(cursor.getColumnIndex("du"));
-                        apkInfo.priority = cursor.getInt(cursor.getColumnIndex(Config.PRINCIPAL_PART));
+                        apkInfo.priority = cursor.getInt(cursor.getColumnIndex("pr"));
                         arrayList.add(apkInfo);
                     } catch (Throwable th) {
-                        th = th;
                         try {
-                            e.a(th);
-                            return arrayList;
-                        } finally {
+                            e.a();
                             if (cursor != null) {
                                 try {
                                     if (!cursor.isClosed()) {
                                         cursor.close();
                                     }
                                 } catch (Throwable th2) {
-                                    e.a(th2);
+                                    e.a();
                                 }
                             }
+                            return arrayList;
+                        } catch (Throwable th3) {
+                            Cursor cursor2 = cursor;
+                            if (cursor2 != null) {
+                                try {
+                                    if (!cursor2.isClosed()) {
+                                        cursor2.close();
+                                    }
+                                } catch (Throwable th4) {
+                                    e.a();
+                                }
+                            }
+                            throw th3;
                         }
                     }
                 }
@@ -168,41 +180,50 @@ public class a {
                     if (!cursor.isClosed()) {
                         cursor.close();
                     }
-                } catch (Throwable th3) {
-                    e.a(th3);
+                } catch (Throwable th5) {
+                    e.a();
                 }
             }
-        } catch (Throwable th4) {
-            th = th4;
+        } catch (Throwable th6) {
             cursor = null;
         }
         return arrayList;
     }
 
-    public Map<Integer, String> c() {
+    public final Map<Integer, String> b() {
         Cursor cursor;
         HashMap hashMap = new HashMap();
         try {
-            cursor = this.d.query("pgn", null, "n=1", null, null, null, null);
+            cursor = this.c.query("pgn", null, "n=1", null, null, null, null);
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
-                        hashMap.put(Integer.valueOf(cursor.getInt(cursor.getColumnIndex(Config.APP_KEY))), "'" + cursor.getString(cursor.getColumnIndex("v")) + "'");
+                        hashMap.put(Integer.valueOf(cursor.getInt(cursor.getColumnIndex("k"))), "'" + cursor.getString(cursor.getColumnIndex("v")) + "'");
                     } catch (Throwable th) {
-                        th = th;
                         try {
-                            e.a(th);
-                            return hashMap;
-                        } finally {
+                            e.a();
                             if (cursor != null) {
                                 try {
                                     if (!cursor.isClosed()) {
                                         cursor.close();
                                     }
                                 } catch (Throwable th2) {
-                                    e.a(th2);
+                                    e.a();
                                 }
                             }
+                            return hashMap;
+                        } catch (Throwable th3) {
+                            Cursor cursor2 = cursor;
+                            if (cursor2 != null) {
+                                try {
+                                    if (!cursor2.isClosed()) {
+                                        cursor2.close();
+                                    }
+                                } catch (Throwable th4) {
+                                    e.a();
+                                }
+                            }
+                            throw th3;
                         }
                     }
                 }
@@ -212,41 +233,50 @@ public class a {
                     if (!cursor.isClosed()) {
                         cursor.close();
                     }
-                } catch (Throwable th3) {
-                    e.a(th3);
+                } catch (Throwable th5) {
+                    e.a();
                 }
             }
-        } catch (Throwable th4) {
-            th = th4;
+        } catch (Throwable th6) {
             cursor = null;
         }
         return hashMap;
     }
 
-    public Map<Integer, String> d() {
+    public final Map<Integer, String> c() {
         Cursor cursor;
         HashMap hashMap = new HashMap();
         try {
-            cursor = this.d.query("pgn", null, "n=1", null, null, null, null);
+            cursor = this.c.query("pgn", null, "n=1", null, null, null, null);
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
-                        hashMap.put(Integer.valueOf(cursor.getInt(cursor.getColumnIndex(Config.APP_KEY))), cursor.getString(cursor.getColumnIndex("p")));
+                        hashMap.put(Integer.valueOf(cursor.getInt(cursor.getColumnIndex("k"))), cursor.getString(cursor.getColumnIndex("p")));
                     } catch (Throwable th) {
-                        th = th;
                         try {
-                            e.a(th);
-                            return hashMap;
-                        } finally {
+                            e.a();
                             if (cursor != null) {
                                 try {
                                     if (!cursor.isClosed()) {
                                         cursor.close();
                                     }
                                 } catch (Throwable th2) {
-                                    e.a(th2);
+                                    e.a();
                                 }
                             }
+                            return hashMap;
+                        } catch (Throwable th3) {
+                            Cursor cursor2 = cursor;
+                            if (cursor2 != null) {
+                                try {
+                                    if (!cursor2.isClosed()) {
+                                        cursor2.close();
+                                    }
+                                } catch (Throwable th4) {
+                                    e.a();
+                                }
+                            }
+                            throw th3;
                         }
                     }
                 }
@@ -256,15 +286,107 @@ public class a {
                     if (!cursor.isClosed()) {
                         cursor.close();
                     }
-                } catch (Throwable th3) {
-                    e.a(th3);
+                } catch (Throwable th5) {
+                    e.a();
                 }
             }
-        } catch (Throwable th4) {
-            th = th4;
+        } catch (Throwable th6) {
             cursor = null;
         }
         return hashMap;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, IF, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x018b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final ApkInfo a(int i) {
+        Cursor cursor;
+        ApkInfo apkInfo;
+        ArrayList<com.baidu.sofire.core.b> a;
+        int size;
+        try {
+            cursor = this.c.query("pgn", null, "k=" + i, null, null, null, null);
+        } catch (Throwable th) {
+            cursor = null;
+            apkInfo = null;
+        }
+        if (cursor != null) {
+            try {
+            } catch (Throwable th2) {
+                apkInfo = null;
+            }
+            if (cursor.moveToFirst()) {
+                ApkInfo apkInfo2 = new ApkInfo();
+                try {
+                    apkInfo2.key = i;
+                    apkInfo2.initStatus = cursor.getInt(cursor.getColumnIndex("n"));
+                    apkInfo2.packageName = cursor.getString(cursor.getColumnIndex("p"));
+                    apkInfo2.pkgPath = cursor.getString(cursor.getColumnIndex("a"));
+                    apkInfo2.libPath = cursor.getString(cursor.getColumnIndex(NotifyType.LIGHTS));
+                    apkInfo2.versionName = cursor.getString(cursor.getColumnIndex("v"));
+                    apkInfo2.dexPath = cursor.getString(cursor.getColumnIndex("apk"));
+                    apkInfo2.apkParseSuc = cursor.getInt(cursor.getColumnIndex("ap"));
+                    apkInfo2.className = cursor.getString(cursor.getColumnIndex("cl"));
+                    apkInfo2.applicationTheme = cursor.getInt(cursor.getColumnIndex("th"));
+                    apkInfo2.startTime = cursor.getLong(cursor.getColumnIndex(TimeDisplaySetting.START_SHOW_TIME));
+                    apkInfo2.duration = cursor.getInt(cursor.getColumnIndex("du"));
+                    apkInfo2.apkMD5 = cursor.getString(cursor.getColumnIndex("m5"));
+                    apkInfo2.priority = cursor.getInt(cursor.getColumnIndex("pr"));
+                    byte[] blob = cursor.getBlob(cursor.getColumnIndex("ac"));
+                    if (blob != null && (a = com.baidu.sofire.core.a.a(blob)) != null && (size = a.size()) > 0) {
+                        apkInfo2.activities = new ActivityInfo[size];
+                        for (int i2 = 0; i2 < size; i2++) {
+                            ActivityInfo activityInfo = new ActivityInfo();
+                            activityInfo.theme = a.get(i2).a;
+                            activityInfo.name = a.get(i2).j;
+                            activityInfo.configChanges = a.get(i2).h;
+                            activityInfo.flags = a.get(i2).f;
+                            activityInfo.labelRes = a.get(i2).l;
+                            activityInfo.launchMode = a.get(i2).b;
+                            activityInfo.nonLocalizedLabel = a.get(i2).m;
+                            activityInfo.packageName = a.get(i2).k;
+                            activityInfo.permission = a.get(i2).c;
+                            activityInfo.screenOrientation = a.get(i2).g;
+                            activityInfo.softInputMode = a.get(i2).i;
+                            activityInfo.targetActivity = a.get(i2).e;
+                            activityInfo.taskAffinity = a.get(i2).d;
+                            apkInfo2.activities[i2] = activityInfo;
+                        }
+                    }
+                    apkInfo = apkInfo2;
+                } catch (Throwable th3) {
+                    apkInfo = apkInfo2;
+                    try {
+                        e.a();
+                        if (cursor != null) {
+                            try {
+                                if (!cursor.isClosed()) {
+                                    cursor.close();
+                                }
+                            } catch (Throwable th4) {
+                                e.a();
+                            }
+                        }
+                        return apkInfo;
+                    } finally {
+                        if (cursor != null) {
+                            try {
+                                if (!cursor.isClosed()) {
+                                    cursor.close();
+                                }
+                            } catch (Throwable th5) {
+                                e.a();
+                            }
+                        }
+                    }
+                }
+                return apkInfo;
+            }
+        }
+        apkInfo = null;
+        return apkInfo;
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -275,375 +397,208 @@ public class a {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    public com.baidu.sofire.core.ApkInfo a(int r11) {
+    public final boolean b(int r12) {
         /*
-            r10 = this;
+            r11 = this;
+            r10 = 1
             r8 = 0
-            android.database.sqlite.SQLiteDatabase r0 = r10.d     // Catch: java.lang.Throwable -> L19e
+            r9 = 0
             java.lang.String r1 = "pgn"
-            r2 = 0
-            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L19e
-            r3.<init>()     // Catch: java.lang.Throwable -> L19e
+            android.database.sqlite.SQLiteDatabase r0 = r11.c     // Catch: java.lang.Throwable -> L43
+            r2 = 1
+            java.lang.String[] r2 = new java.lang.String[r2]     // Catch: java.lang.Throwable -> L43
+            r3 = 0
+            java.lang.String r4 = "p"
+            r2[r3] = r4     // Catch: java.lang.Throwable -> L43
+            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L43
             java.lang.String r4 = "k="
-            java.lang.StringBuilder r3 = r3.append(r4)     // Catch: java.lang.Throwable -> L19e
-            java.lang.StringBuilder r3 = r3.append(r11)     // Catch: java.lang.Throwable -> L19e
-            java.lang.String r3 = r3.toString()     // Catch: java.lang.Throwable -> L19e
+            r3.<init>(r4)     // Catch: java.lang.Throwable -> L43
+            java.lang.StringBuilder r3 = r3.append(r12)     // Catch: java.lang.Throwable -> L43
+            java.lang.String r3 = r3.toString()     // Catch: java.lang.Throwable -> L43
             r4 = 0
             r5 = 0
             r6 = 0
             r7 = 0
-            android.database.Cursor r1 = r0.query(r1, r2, r3, r4, r5, r6, r7)     // Catch: java.lang.Throwable -> L19e
-            if (r1 == 0) goto L1d9
-            boolean r0 = r1.moveToFirst()     // Catch: java.lang.Throwable -> L1ce
-            if (r0 == 0) goto L1d9
-            com.baidu.sofire.core.ApkInfo r2 = new com.baidu.sofire.core.ApkInfo     // Catch: java.lang.Throwable -> L1ce
-            r2.<init>()     // Catch: java.lang.Throwable -> L1ce
-            r2.key = r11     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = "n"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1d3
-            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1d3
-            r2.initStatus = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = "p"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1d3
-            r2.packageName = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = "a"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1d3
-            r2.pkgPath = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = "l"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1d3
-            r2.libPath = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = "v"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1d3
-            r2.versionName = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = "apk"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1d3
-            r2.dexPath = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = "ap"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1d3
-            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1d3
-            r2.apkParseSuc = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = "cl"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1d3
-            r2.className = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = "th"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1d3
-            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1d3
-            r2.applicationTheme = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = "st"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1d3
-            long r4 = r1.getLong(r0)     // Catch: java.lang.Throwable -> L1d3
-            r2.startTime = r4     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = "du"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1d3
-            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1d3
-            r2.duration = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = "m5"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1d3
-            r2.apkMD5 = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = "pr"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1d3
-            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1d3
-            r2.priority = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = "ac"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1d3
-            byte[] r0 = r1.getBlob(r0)     // Catch: java.lang.Throwable -> L1d3
-            if (r0 == 0) goto L18c
-            java.util.ArrayList r4 = com.baidu.sofire.core.a.a(r0)     // Catch: java.lang.Throwable -> L1d3
-            if (r4 == 0) goto L18c
-            int r5 = r4.size()     // Catch: java.lang.Throwable -> L1d3
-            if (r5 <= 0) goto L18c
-            android.content.pm.ActivityInfo[] r0 = new android.content.pm.ActivityInfo[r5]     // Catch: java.lang.Throwable -> L1d3
-            r2.activities = r0     // Catch: java.lang.Throwable -> L1d3
-            r0 = 0
-            r3 = r0
-        Lfa:
-            if (r3 >= r5) goto L18c
-            android.content.pm.ActivityInfo r6 = new android.content.pm.ActivityInfo     // Catch: java.lang.Throwable -> L1d3
-            r6.<init>()     // Catch: java.lang.Throwable -> L1d3
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1d3
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1d3
-            int r0 = r0.a     // Catch: java.lang.Throwable -> L1d3
-            r6.theme = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1d3
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = r0.j     // Catch: java.lang.Throwable -> L1d3
-            r6.name = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1d3
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1d3
-            int r0 = r0.h     // Catch: java.lang.Throwable -> L1d3
-            r6.configChanges = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1d3
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1d3
-            int r0 = r0.f     // Catch: java.lang.Throwable -> L1d3
-            r6.flags = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1d3
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1d3
-            int r0 = r0.l     // Catch: java.lang.Throwable -> L1d3
-            r6.labelRes = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1d3
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1d3
-            int r0 = r0.b     // Catch: java.lang.Throwable -> L1d3
-            r6.launchMode = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1d3
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = r0.m     // Catch: java.lang.Throwable -> L1d3
-            r6.nonLocalizedLabel = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1d3
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = r0.k     // Catch: java.lang.Throwable -> L1d3
-            r6.packageName = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1d3
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = r0.c     // Catch: java.lang.Throwable -> L1d3
-            r6.permission = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1d3
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1d3
-            int r0 = r0.g     // Catch: java.lang.Throwable -> L1d3
-            r6.screenOrientation = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1d3
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1d3
-            int r0 = r0.i     // Catch: java.lang.Throwable -> L1d3
-            r6.softInputMode = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1d3
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = r0.e     // Catch: java.lang.Throwable -> L1d3
-            r6.targetActivity = r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1d3
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1d3
-            java.lang.String r0 = r0.d     // Catch: java.lang.Throwable -> L1d3
-            r6.taskAffinity = r0     // Catch: java.lang.Throwable -> L1d3
-            android.content.pm.ActivityInfo[] r0 = r2.activities     // Catch: java.lang.Throwable -> L1d3
-            r0[r3] = r6     // Catch: java.lang.Throwable -> L1d3
-            int r0 = r3 + 1
-            r3 = r0
-            goto Lfa
-        L18c:
-            r0 = r2
-        L18d:
-            if (r1 == 0) goto L198
-            boolean r2 = r1.isClosed()     // Catch: java.lang.Throwable -> L199
-            if (r2 != 0) goto L198
-            r1.close()     // Catch: java.lang.Throwable -> L199
-        L198:
+            android.database.Cursor r1 = r0.query(r1, r2, r3, r4, r5, r6, r7)     // Catch: java.lang.Throwable -> L43
+            if (r1 == 0) goto L77
+            int r0 = r1.getCount()     // Catch: java.lang.Throwable -> L74
+            if (r0 <= 0) goto L77
+            r0 = r10
+        L32:
+            if (r1 == 0) goto L3d
+            boolean r2 = r1.isClosed()     // Catch: java.lang.Throwable -> L3e
+            if (r2 != 0) goto L3d
+            r1.close()     // Catch: java.lang.Throwable -> L3e
+        L3d:
             return r0
-        L199:
+        L3e:
             r1 = move-exception
-            com.baidu.sofire.b.e.a(r1)
-            goto L198
-        L19e:
+            com.baidu.sofire.b.e.a()
+            goto L3d
+        L43:
             r0 = move-exception
-            r1 = r0
-            r2 = r8
+            r0 = r9
+        L45:
+            com.baidu.sofire.b.e.a()     // Catch: java.lang.Throwable -> L70
+            if (r0 == 0) goto L53
+            boolean r1 = r0.isClosed()     // Catch: java.lang.Throwable -> L55
+            if (r1 != 0) goto L53
+            r0.close()     // Catch: java.lang.Throwable -> L55
+        L53:
             r0 = r8
-        L1a2:
-            com.baidu.sofire.b.e.a(r1)     // Catch: java.lang.Throwable -> L1cb
-            if (r2 == 0) goto L198
-            boolean r1 = r2.isClosed()     // Catch: java.lang.Throwable -> L1b1
-            if (r1 != 0) goto L198
-            r2.close()     // Catch: java.lang.Throwable -> L1b1
-            goto L198
-        L1b1:
-            r1 = move-exception
-            com.baidu.sofire.b.e.a(r1)
-            goto L198
-        L1b6:
+            goto L3d
+        L55:
             r0 = move-exception
-            r1 = r8
-        L1b8:
-            if (r1 == 0) goto L1c3
-            boolean r2 = r1.isClosed()     // Catch: java.lang.Throwable -> L1c4
-            if (r2 != 0) goto L1c3
-            r1.close()     // Catch: java.lang.Throwable -> L1c4
-        L1c3:
+            com.baidu.sofire.b.e.a()
+            r0 = r8
+            goto L3d
+        L5b:
+            r0 = move-exception
+        L5c:
+            if (r9 == 0) goto L67
+            boolean r1 = r9.isClosed()     // Catch: java.lang.Throwable -> L68
+            if (r1 != 0) goto L67
+            r9.close()     // Catch: java.lang.Throwable -> L68
+        L67:
             throw r0
-        L1c4:
+        L68:
             r1 = move-exception
-            com.baidu.sofire.b.e.a(r1)
-            goto L1c3
-        L1c9:
+            com.baidu.sofire.b.e.a()
+            goto L67
+        L6d:
             r0 = move-exception
-            goto L1b8
-        L1cb:
-            r0 = move-exception
-            r1 = r2
-            goto L1b8
-        L1ce:
-            r0 = move-exception
-            r2 = r1
-            r1 = r0
-            r0 = r8
-            goto L1a2
-        L1d3:
-            r0 = move-exception
+            r9 = r1
+            goto L5c
+        L70:
+            r1 = move-exception
             r9 = r0
-            r0 = r2
-            r2 = r1
-            r1 = r9
-            goto L1a2
-        L1d9:
+            r0 = r1
+            goto L5c
+        L74:
+            r0 = move-exception
+            r0 = r1
+            goto L45
+        L77:
             r0 = r8
-            goto L18d
+            goto L32
         */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.a.a.a(int):com.baidu.sofire.core.ApkInfo");
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.a.a.b(int):boolean");
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0038 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:50:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean b(int i) {
-        Cursor cursor;
-        boolean z;
-        try {
-            cursor = this.d.query("pgn", new String[]{"p"}, "k=" + i, null, null, null, null);
-            if (cursor != null) {
-                try {
-                    if (cursor.getCount() > 0) {
-                        z = true;
-                        if (cursor == null) {
-                            try {
-                                if (!cursor.isClosed()) {
-                                    cursor.close();
-                                    return z;
-                                }
-                                return z;
-                            } catch (Throwable th) {
-                                e.a(th);
-                                return z;
-                            }
-                        }
-                        return z;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    try {
-                        e.a(th);
-                        if (cursor != null) {
-                            try {
-                                if (!cursor.isClosed()) {
-                                    cursor.close();
-                                }
-                            } catch (Throwable th3) {
-                                e.a(th3);
-                                return false;
-                            }
-                        }
-                        return false;
-                    } catch (Throwable th4) {
-                        Cursor cursor2 = cursor;
-                        if (cursor2 != null) {
-                            try {
-                                if (!cursor2.isClosed()) {
-                                    cursor2.close();
-                                }
-                            } catch (Throwable th5) {
-                                e.a(th5);
-                            }
-                        }
-                        throw th4;
-                    }
-                }
-            }
-            z = false;
-            if (cursor == null) {
-            }
-        } catch (Throwable th6) {
-            th = th6;
-            cursor = null;
-        }
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
+        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
+        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
+    public final int c(int r11) {
+        /*
+            r10 = this;
+            r8 = 0
+            r9 = 0
+            android.database.sqlite.SQLiteDatabase r0 = r10.c     // Catch: java.lang.Throwable -> L4d
+            java.lang.String r1 = "pgn"
+            r2 = 1
+            java.lang.String[] r2 = new java.lang.String[r2]     // Catch: java.lang.Throwable -> L4d
+            r3 = 0
+            java.lang.String r4 = "n"
+            r2[r3] = r4     // Catch: java.lang.Throwable -> L4d
+            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L4d
+            java.lang.String r4 = "k="
+            r3.<init>(r4)     // Catch: java.lang.Throwable -> L4d
+            java.lang.StringBuilder r3 = r3.append(r11)     // Catch: java.lang.Throwable -> L4d
+            java.lang.String r3 = r3.toString()     // Catch: java.lang.Throwable -> L4d
+            r4 = 0
+            r5 = 0
+            r6 = 0
+            r7 = 0
+            android.database.Cursor r1 = r0.query(r1, r2, r3, r4, r5, r6, r7)     // Catch: java.lang.Throwable -> L4d
+            if (r1 == 0) goto L81
+            boolean r0 = r1.moveToFirst()     // Catch: java.lang.Throwable -> L7e
+            if (r0 == 0) goto L81
+            java.lang.String r0 = "n"
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L7e
+            int r8 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L7e
+            r0 = r8
+        L3c:
+            if (r1 == 0) goto L47
+            boolean r2 = r1.isClosed()     // Catch: java.lang.Throwable -> L48
+            if (r2 != 0) goto L47
+            r1.close()     // Catch: java.lang.Throwable -> L48
+        L47:
+            return r0
+        L48:
+            r1 = move-exception
+            com.baidu.sofire.b.e.a()
+            goto L47
+        L4d:
+            r0 = move-exception
+            r0 = r9
+        L4f:
+            com.baidu.sofire.b.e.a()     // Catch: java.lang.Throwable -> L7a
+            if (r0 == 0) goto L5d
+            boolean r1 = r0.isClosed()     // Catch: java.lang.Throwable -> L5f
+            if (r1 != 0) goto L5d
+            r0.close()     // Catch: java.lang.Throwable -> L5f
+        L5d:
+            r0 = r8
+            goto L47
+        L5f:
+            r0 = move-exception
+            com.baidu.sofire.b.e.a()
+            r0 = r8
+            goto L47
+        L65:
+            r0 = move-exception
+        L66:
+            if (r9 == 0) goto L71
+            boolean r1 = r9.isClosed()     // Catch: java.lang.Throwable -> L72
+            if (r1 != 0) goto L71
+            r9.close()     // Catch: java.lang.Throwable -> L72
+        L71:
+            throw r0
+        L72:
+            r1 = move-exception
+            com.baidu.sofire.b.e.a()
+            goto L71
+        L77:
+            r0 = move-exception
+            r9 = r1
+            goto L66
+        L7a:
+            r1 = move-exception
+            r9 = r0
+            r0 = r1
+            goto L66
+        L7e:
+            r0 = move-exception
+            r0 = r1
+            goto L4f
+        L81:
+            r0 = r8
+            goto L3c
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.a.a.c(int):int");
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0042 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:51:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public int c(int i) {
-        Cursor cursor;
-        int i2;
-        try {
-            cursor = this.d.query("pgn", new String[]{"n"}, "k=" + i, null, null, null, null);
-            if (cursor != null) {
-                try {
-                    if (cursor.moveToFirst()) {
-                        i2 = cursor.getInt(cursor.getColumnIndex("n"));
-                        if (cursor == null) {
-                            try {
-                                if (!cursor.isClosed()) {
-                                    cursor.close();
-                                    return i2;
-                                }
-                                return i2;
-                            } catch (Throwable th) {
-                                e.a(th);
-                                return i2;
-                            }
-                        }
-                        return i2;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    try {
-                        e.a(th);
-                        if (cursor != null) {
-                            try {
-                                if (!cursor.isClosed()) {
-                                    cursor.close();
-                                }
-                            } catch (Throwable th3) {
-                                e.a(th3);
-                                return 0;
-                            }
-                        }
-                        return 0;
-                    } catch (Throwable th4) {
-                        Cursor cursor2 = cursor;
-                        if (cursor2 != null) {
-                            try {
-                                if (!cursor2.isClosed()) {
-                                    cursor2.close();
-                                }
-                            } catch (Throwable th5) {
-                                e.a(th5);
-                            }
-                        }
-                        throw th4;
-                    }
-                }
-            }
-            i2 = 0;
-            if (cursor == null) {
-            }
-        } catch (Throwable th6) {
-            th = th6;
-            cursor = null;
-        }
-    }
-
-    public void a(String str) {
-        b.a("deleteLoadedPluginByPackage p=" + str);
+    public final void a(String str) {
+        b.a();
         if (!TextUtils.isEmpty(str)) {
             try {
-                this.d.delete("pgn", "p=?", new String[]{str});
+                this.c.delete("pgn", "p=?", new String[]{str});
             } catch (Throwable th) {
-                e.a(th);
+                e.a();
             }
         }
     }
 
-    public void e() {
+    public final void d() {
         try {
             ArrayList<ApkInfo> arrayList = new ArrayList();
-            for (ApkInfo apkInfo : b()) {
-                if (!e.c(apkInfo.pkgPath) && g.a != null && !g.a.contains(Integer.valueOf(apkInfo.key))) {
+            for (ApkInfo apkInfo : a()) {
+                if (!e.c(apkInfo.pkgPath) && g.b != null && !g.b.contains(Integer.valueOf(apkInfo.key))) {
                     arrayList.add(apkInfo);
                 }
             }
@@ -652,397 +607,306 @@ public class a {
                 if (a != null) {
                     a.b(apkInfo2.packageName);
                 }
-                b.a(apkInfo2.packageName + " is deleted IfAPKNotExist count=" + this.d.delete("pgn", "k=" + apkInfo2.key, null));
-                e.d(this.e.getFilesDir().getCanonicalPath() + "/." + apkInfo2.key);
-                if (this.e != null) {
-                    e.d(this.e.getFileStreamPath(apkInfo2.packageName).getAbsolutePath());
+                new StringBuilder().append(apkInfo2.packageName).append(" is deleted IfAPKNotExist count=").append(this.c.delete("pgn", "k=" + apkInfo2.key, null));
+                b.a();
+                e.d(this.f.getFilesDir().getCanonicalPath() + "/." + apkInfo2.key);
+                if (this.f != null) {
+                    e.d(this.f.getFileStreamPath(apkInfo2.packageName).getAbsolutePath());
                 }
             }
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 
-    public boolean d(int i) {
-        Cursor cursor;
-        boolean z = false;
-        try {
-            Cursor cursor2 = this.d.query("pgn", new String[]{"u"}, "k=" + i, null, null, null, null);
-            if (cursor2 != null) {
-                try {
-                    if (cursor2.moveToFirst()) {
-                        cursor = cursor2.getInt(cursor2.getColumnIndex("u")) == 1;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    try {
-                        e.a(th);
-                        if (cursor != null) {
-                            try {
-                                if (!cursor.isClosed()) {
-                                    cursor.close();
-                                }
-                            } catch (Throwable th2) {
-                                e.a(th2);
-                            }
-                        }
-                        return z;
-                    } finally {
-                        cursor2 = cursor;
-                        if (cursor2 != null) {
-                            try {
-                                if (!cursor2.isClosed()) {
-                                    cursor2.close();
-                                }
-                            } catch (Throwable th3) {
-                                e.a(th3);
-                            }
-                        }
-                    }
-                }
-            }
-        } catch (Throwable th4) {
-            th = th4;
-            cursor = null;
-        }
-        return z;
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
+        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
+        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
+    public final boolean d(int r12) {
+        /*
+            r11 = this;
+            r8 = 1
+            r9 = 0
+            r10 = 0
+            android.database.sqlite.SQLiteDatabase r0 = r11.c     // Catch: java.lang.Throwable -> L53
+            java.lang.String r1 = "pgn"
+            r2 = 1
+            java.lang.String[] r2 = new java.lang.String[r2]     // Catch: java.lang.Throwable -> L53
+            r3 = 0
+            java.lang.String r4 = "u"
+            r2[r3] = r4     // Catch: java.lang.Throwable -> L53
+            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L53
+            java.lang.String r4 = "k="
+            r3.<init>(r4)     // Catch: java.lang.Throwable -> L53
+            java.lang.StringBuilder r3 = r3.append(r12)     // Catch: java.lang.Throwable -> L53
+            java.lang.String r3 = r3.toString()     // Catch: java.lang.Throwable -> L53
+            r4 = 0
+            r5 = 0
+            r6 = 0
+            r7 = 0
+            android.database.Cursor r1 = r0.query(r1, r2, r3, r4, r5, r6, r7)     // Catch: java.lang.Throwable -> L53
+            if (r1 == 0) goto L40
+            boolean r0 = r1.moveToFirst()     // Catch: java.lang.Throwable -> L82
+            if (r0 == 0) goto L40
+            java.lang.String r0 = "u"
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L82
+            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L82
+            if (r0 != r8) goto L4c
+            r0 = r8
+        L3f:
+            r9 = r0
+        L40:
+            if (r1 == 0) goto L4b
+            boolean r0 = r1.isClosed()     // Catch: java.lang.Throwable -> L4e
+            if (r0 != 0) goto L4b
+            r1.close()     // Catch: java.lang.Throwable -> L4e
+        L4b:
+            return r9
+        L4c:
+            r0 = r9
+            goto L3f
+        L4e:
+            r0 = move-exception
+            com.baidu.sofire.b.e.a()
+            goto L4b
+        L53:
+            r0 = move-exception
+            r0 = r10
+        L55:
+            com.baidu.sofire.b.e.a()     // Catch: java.lang.Throwable -> L7e
+            if (r0 == 0) goto L4b
+            boolean r1 = r0.isClosed()     // Catch: java.lang.Throwable -> L64
+            if (r1 != 0) goto L4b
+            r0.close()     // Catch: java.lang.Throwable -> L64
+            goto L4b
+        L64:
+            r0 = move-exception
+            com.baidu.sofire.b.e.a()
+            goto L4b
+        L69:
+            r0 = move-exception
+        L6a:
+            if (r10 == 0) goto L75
+            boolean r1 = r10.isClosed()     // Catch: java.lang.Throwable -> L76
+            if (r1 != 0) goto L75
+            r10.close()     // Catch: java.lang.Throwable -> L76
+        L75:
+            throw r0
+        L76:
+            r1 = move-exception
+            com.baidu.sofire.b.e.a()
+            goto L75
+        L7b:
+            r0 = move-exception
+            r10 = r1
+            goto L6a
+        L7e:
+            r1 = move-exception
+            r10 = r0
+            r0 = r1
+            goto L6a
+        L82:
+            r0 = move-exception
+            r0 = r1
+            goto L55
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.a.a.d(int):boolean");
     }
 
-    public boolean e(int i) {
-        Cursor cursor;
-        boolean z = false;
-        try {
-            Cursor cursor2 = this.d.query("pgn", new String[]{"s"}, "k=" + i, null, null, null, null);
-            if (cursor2 != null) {
-                try {
-                    if (cursor2.moveToFirst()) {
-                        cursor = cursor2.getInt(cursor2.getColumnIndex("s")) == 1;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    try {
-                        e.a(th);
-                        if (cursor != null) {
-                            try {
-                                if (!cursor.isClosed()) {
-                                    cursor.close();
-                                }
-                            } catch (Throwable th2) {
-                                e.a(th2);
-                            }
-                        }
-                        return z;
-                    } finally {
-                        cursor2 = cursor;
-                        if (cursor2 != null) {
-                            try {
-                                if (!cursor2.isClosed()) {
-                                    cursor2.close();
-                                }
-                            } catch (Throwable th3) {
-                                e.a(th3);
-                            }
-                        }
-                    }
-                }
-            }
-        } catch (Throwable th4) {
-            th = th4;
-            cursor = null;
-        }
-        return z;
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
+        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
+        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
+    public final boolean e(int r12) {
+        /*
+            r11 = this;
+            r8 = 1
+            r9 = 0
+            r10 = 0
+            android.database.sqlite.SQLiteDatabase r0 = r11.c     // Catch: java.lang.Throwable -> L53
+            java.lang.String r1 = "pgn"
+            r2 = 1
+            java.lang.String[] r2 = new java.lang.String[r2]     // Catch: java.lang.Throwable -> L53
+            r3 = 0
+            java.lang.String r4 = "s"
+            r2[r3] = r4     // Catch: java.lang.Throwable -> L53
+            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L53
+            java.lang.String r4 = "k="
+            r3.<init>(r4)     // Catch: java.lang.Throwable -> L53
+            java.lang.StringBuilder r3 = r3.append(r12)     // Catch: java.lang.Throwable -> L53
+            java.lang.String r3 = r3.toString()     // Catch: java.lang.Throwable -> L53
+            r4 = 0
+            r5 = 0
+            r6 = 0
+            r7 = 0
+            android.database.Cursor r1 = r0.query(r1, r2, r3, r4, r5, r6, r7)     // Catch: java.lang.Throwable -> L53
+            if (r1 == 0) goto L40
+            boolean r0 = r1.moveToFirst()     // Catch: java.lang.Throwable -> L82
+            if (r0 == 0) goto L40
+            java.lang.String r0 = "s"
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L82
+            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L82
+            if (r0 != r8) goto L4c
+            r0 = r8
+        L3f:
+            r9 = r0
+        L40:
+            if (r1 == 0) goto L4b
+            boolean r0 = r1.isClosed()     // Catch: java.lang.Throwable -> L4e
+            if (r0 != 0) goto L4b
+            r1.close()     // Catch: java.lang.Throwable -> L4e
+        L4b:
+            return r9
+        L4c:
+            r0 = r9
+            goto L3f
+        L4e:
+            r0 = move-exception
+            com.baidu.sofire.b.e.a()
+            goto L4b
+        L53:
+            r0 = move-exception
+            r0 = r10
+        L55:
+            com.baidu.sofire.b.e.a()     // Catch: java.lang.Throwable -> L7e
+            if (r0 == 0) goto L4b
+            boolean r1 = r0.isClosed()     // Catch: java.lang.Throwable -> L64
+            if (r1 != 0) goto L4b
+            r0.close()     // Catch: java.lang.Throwable -> L64
+            goto L4b
+        L64:
+            r0 = move-exception
+            com.baidu.sofire.b.e.a()
+            goto L4b
+        L69:
+            r0 = move-exception
+        L6a:
+            if (r10 == 0) goto L75
+            boolean r1 = r10.isClosed()     // Catch: java.lang.Throwable -> L76
+            if (r1 != 0) goto L75
+            r10.close()     // Catch: java.lang.Throwable -> L76
+        L75:
+            throw r0
+        L76:
+            r1 = move-exception
+            com.baidu.sofire.b.e.a()
+            goto L75
+        L7b:
+            r0 = move-exception
+            r10 = r1
+            goto L6a
+        L7e:
+            r1 = move-exception
+            r10 = r0
+            r0 = r1
+            goto L6a
+        L82:
+            r0 = move-exception
+            r0 = r1
+            goto L55
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.a.a.e(int):boolean");
     }
 
-    public void a(int i, int i2) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("s", Integer.valueOf(i2));
-        try {
-            this.d.update("pgn", contentValues, "k=" + i + " and n=1", null);
-        } catch (Throwable th) {
-            e.a(th);
-        }
-    }
-
-    public int b(int i, int i2) {
+    public final int a(int i, int i2) {
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put("u", Integer.valueOf(i2));
-            return this.d.update("pgn", contentValues, "k=" + i, null);
+            return this.c.update("pgn", contentValues, "k=" + i, null);
         } catch (Throwable th) {
             return 0;
         }
     }
 
-    public void c(int i, int i2) {
+    public final void f(int i) {
         try {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("n", Integer.valueOf(i2));
-            this.d.update("pgn", contentValues, "k=" + i, null);
+            contentValues.put("n", (Integer) (-1));
+            this.c.update("pgn", contentValues, "k=" + i, null);
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 
-    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
-        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
-        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
-        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
-        */
-    public java.lang.String[] b(java.lang.String r12) {
-        /*
-            r11 = this;
-            r10 = 0
-            r8 = 0
-            r9 = 1
-            android.database.sqlite.SQLiteDatabase r0 = r11.d     // Catch: java.lang.Throwable -> L84
-            java.lang.String r1 = "pgn"
-            r2 = 3
-            java.lang.String[] r2 = new java.lang.String[r2]     // Catch: java.lang.Throwable -> L84
-            r3 = 0
-            java.lang.String r4 = "r"
-            r2[r3] = r4     // Catch: java.lang.Throwable -> L84
-            r3 = 1
-            java.lang.String r4 = "b"
-            r2[r3] = r4     // Catch: java.lang.Throwable -> L84
-            r3 = 2
-            java.lang.String r4 = "t"
-            r2[r3] = r4     // Catch: java.lang.Throwable -> L84
-            java.lang.String r3 = "p=?"
-            r4 = 1
-            java.lang.String[] r4 = new java.lang.String[r4]     // Catch: java.lang.Throwable -> L84
-            r5 = 0
-            r4[r5] = r12     // Catch: java.lang.Throwable -> L84
-            r5 = 0
-            r6 = 0
-            r7 = 0
-            android.database.Cursor r1 = r0.query(r1, r2, r3, r4, r5, r6, r7)     // Catch: java.lang.Throwable -> L84
-            if (r1 == 0) goto Lbe
-            boolean r0 = r1.moveToFirst()     // Catch: java.lang.Throwable -> Lb4
-            if (r0 == 0) goto Lbe
-            java.lang.String r0 = "r"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> Lb4
-            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> Lb4
-            if (r0 != r9) goto L7d
-            r0 = r9
-        L43:
-            java.lang.String r2 = "b"
-            int r2 = r1.getColumnIndex(r2)     // Catch: java.lang.Throwable -> Lb4
-            java.lang.String r2 = r1.getString(r2)     // Catch: java.lang.Throwable -> Lb4
-            java.lang.String r3 = "t"
-            int r3 = r1.getColumnIndex(r3)     // Catch: java.lang.Throwable -> Lb4
-            java.lang.String r3 = r1.getString(r3)     // Catch: java.lang.Throwable -> Lb4
-            if (r0 == 0) goto Lbe
-            boolean r0 = android.text.TextUtils.isEmpty(r2)     // Catch: java.lang.Throwable -> Lb4
-            if (r0 != 0) goto Lbe
-            boolean r0 = android.text.TextUtils.isEmpty(r3)     // Catch: java.lang.Throwable -> Lb4
-            if (r0 != 0) goto Lbe
-            r0 = 2
-            java.lang.String[] r8 = new java.lang.String[r0]     // Catch: java.lang.Throwable -> Lb4
-            r0 = 0
-            r8[r0] = r2     // Catch: java.lang.Throwable -> Lb9
-            r0 = 1
-            r8[r0] = r3     // Catch: java.lang.Throwable -> Lb9
-            r0 = r8
-        L71:
-            if (r1 == 0) goto L7c
-            boolean r2 = r1.isClosed()     // Catch: java.lang.Throwable -> L7f
-            if (r2 != 0) goto L7c
-            r1.close()     // Catch: java.lang.Throwable -> L7f
-        L7c:
-            return r0
-        L7d:
-            r0 = r10
-            goto L43
-        L7f:
-            r1 = move-exception
-            com.baidu.sofire.b.e.a(r1)
-            goto L7c
-        L84:
-            r0 = move-exception
-            r1 = r0
-            r2 = r8
-            r0 = r8
-        L88:
-            com.baidu.sofire.b.e.a(r1)     // Catch: java.lang.Throwable -> Lb1
-            if (r2 == 0) goto L7c
-            boolean r1 = r2.isClosed()     // Catch: java.lang.Throwable -> L97
-            if (r1 != 0) goto L7c
-            r2.close()     // Catch: java.lang.Throwable -> L97
-            goto L7c
-        L97:
-            r1 = move-exception
-            com.baidu.sofire.b.e.a(r1)
-            goto L7c
-        L9c:
-            r0 = move-exception
-            r1 = r8
-        L9e:
-            if (r1 == 0) goto La9
-            boolean r2 = r1.isClosed()     // Catch: java.lang.Throwable -> Laa
-            if (r2 != 0) goto La9
-            r1.close()     // Catch: java.lang.Throwable -> Laa
-        La9:
-            throw r0
-        Laa:
-            r1 = move-exception
-            com.baidu.sofire.b.e.a(r1)
-            goto La9
-        Laf:
-            r0 = move-exception
-            goto L9e
-        Lb1:
-            r0 = move-exception
-            r1 = r2
-            goto L9e
-        Lb4:
-            r0 = move-exception
-            r2 = r1
-            r1 = r0
-            r0 = r8
-            goto L88
-        Lb9:
-            r0 = move-exception
-            r2 = r1
-            r1 = r0
-            r0 = r8
-            goto L88
-        Lbe:
-            r0 = r8
-            goto L71
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.a.a.b(java.lang.String):java.lang.String[]");
-    }
-
-    public void a(String str, String str2, String str3) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("r", (Integer) 1);
-        contentValues.put("b", str2);
-        contentValues.put("t", str3);
-        try {
-            this.d.update("pgn", contentValues, "p=?", new String[]{str});
-        } catch (Throwable th) {
-            e.a(th);
-        }
-    }
-
-    public void d(int i, int i2) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("pdld", Integer.valueOf(i2));
-        try {
-            this.d.update("pgn", contentValues, "k=" + i, null);
-        } catch (Throwable th) {
-            e.a(th);
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0042 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:51:? A[RETURN, SYNTHETIC] */
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, IF, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x0073 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int f(int i) {
+    public final String[] b(String str) {
         Cursor cursor;
-        int i2;
+        String[] strArr;
         try {
-            cursor = this.d.query("pgn", new String[]{"pdld"}, "k=" + i, null, null, null, null);
-            if (cursor != null) {
-                try {
-                    if (cursor.moveToFirst()) {
-                        i2 = cursor.getInt(cursor.getColumnIndex("pdld"));
-                        if (cursor == null) {
-                            try {
-                                if (!cursor.isClosed()) {
-                                    cursor.close();
-                                    return i2;
-                                }
-                                return i2;
-                            } catch (Throwable th) {
-                                e.a(th);
-                                return i2;
-                            }
-                        }
-                        return i2;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
+            cursor = this.c.query("pgn", new String[]{"r", "b", Info.kBaiduTimeKey}, "p=?", new String[]{str}, null, null, null);
+        } catch (Throwable th) {
+            cursor = null;
+            strArr = null;
+        }
+        if (cursor != null) {
+            try {
+            } catch (Throwable th2) {
+                strArr = null;
+            }
+            if (cursor.moveToFirst()) {
+                boolean z = cursor.getInt(cursor.getColumnIndex("r")) == 1;
+                String string = cursor.getString(cursor.getColumnIndex("b"));
+                String string2 = cursor.getString(cursor.getColumnIndex(Info.kBaiduTimeKey));
+                if (z && !TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2)) {
+                    String[] strArr2 = new String[2];
                     try {
-                        e.a(th);
-                        if (cursor != null) {
-                            try {
-                                if (!cursor.isClosed()) {
-                                    cursor.close();
+                        strArr2[0] = string;
+                        strArr2[1] = string2;
+                        strArr = strArr2;
+                    } catch (Throwable th3) {
+                        strArr = strArr2;
+                        try {
+                            e.a();
+                            if (cursor != null) {
+                                try {
+                                    if (!cursor.isClosed()) {
+                                        cursor.close();
+                                    }
+                                } catch (Throwable th4) {
+                                    e.a();
                                 }
-                            } catch (Throwable th3) {
-                                e.a(th3);
-                                return 0;
+                            }
+                            return strArr;
+                        } finally {
+                            if (cursor != null) {
+                                try {
+                                    if (!cursor.isClosed()) {
+                                        cursor.close();
+                                    }
+                                } catch (Throwable th5) {
+                                    e.a();
+                                }
                             }
                         }
-                        return 0;
-                    } catch (Throwable th4) {
-                        Cursor cursor2 = cursor;
-                        if (cursor2 != null) {
-                            try {
-                                if (!cursor2.isClosed()) {
-                                    cursor2.close();
-                                }
-                            } catch (Throwable th5) {
-                                e.a(th5);
-                            }
-                        }
-                        throw th4;
                     }
+                    return strArr;
                 }
             }
-            i2 = 0;
-            if (cursor == null) {
-            }
-        } catch (Throwable th6) {
-            th = th6;
-            cursor = null;
         }
+        strArr = null;
+        return strArr;
     }
 
-    public void f() {
+    public final void b(int i, int i2) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("n", (Integer) 0);
+        contentValues.put("pdld", Integer.valueOf(i2));
         try {
-            this.d.update("pgn", contentValues, "n=-1", null);
+            this.c.update("pgn", contentValues, "k=" + i, null);
         } catch (Throwable th) {
-            e.a(th);
-        }
-    }
-
-    public void a(String str, int i) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("s", Integer.valueOf(i));
-        try {
-            this.d.update("pgn", contentValues, "p=? and n=1", new String[]{str});
-        } catch (Throwable th) {
-            e.a(th);
-        }
-    }
-
-    public void g(int i) {
-        b.a("deletePluginById=" + i);
-        if (i > 0) {
-            try {
-                b.a("deletePluginById count=" + this.d.delete("pgn", "k=" + i, null));
-            } catch (Throwable th) {
-                e.a(th);
-            }
-        }
-    }
-
-    public void e(int i, int i2) {
-        try {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put(Config.PRINCIPAL_PART, Integer.valueOf(i2));
-            this.d.update("pgn", contentValues, "k=" + i, null);
-        } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 
@@ -1054,159 +918,279 @@ public class a {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    public com.baidu.sofire.core.ApkInfo c(java.lang.String r12) {
+    public final int g(int r11) {
         /*
-            r11 = this;
+            r10 = this;
+            r8 = 0
+            r9 = 0
+            android.database.sqlite.SQLiteDatabase r0 = r10.c     // Catch: java.lang.Throwable -> L4d
+            java.lang.String r1 = "pgn"
+            r2 = 1
+            java.lang.String[] r2 = new java.lang.String[r2]     // Catch: java.lang.Throwable -> L4d
+            r3 = 0
+            java.lang.String r4 = "pdld"
+            r2[r3] = r4     // Catch: java.lang.Throwable -> L4d
+            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L4d
+            java.lang.String r4 = "k="
+            r3.<init>(r4)     // Catch: java.lang.Throwable -> L4d
+            java.lang.StringBuilder r3 = r3.append(r11)     // Catch: java.lang.Throwable -> L4d
+            java.lang.String r3 = r3.toString()     // Catch: java.lang.Throwable -> L4d
+            r4 = 0
+            r5 = 0
+            r6 = 0
+            r7 = 0
+            android.database.Cursor r1 = r0.query(r1, r2, r3, r4, r5, r6, r7)     // Catch: java.lang.Throwable -> L4d
+            if (r1 == 0) goto L81
+            boolean r0 = r1.moveToFirst()     // Catch: java.lang.Throwable -> L7e
+            if (r0 == 0) goto L81
+            java.lang.String r0 = "pdld"
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L7e
+            int r8 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L7e
+            r0 = r8
+        L3c:
+            if (r1 == 0) goto L47
+            boolean r2 = r1.isClosed()     // Catch: java.lang.Throwable -> L48
+            if (r2 != 0) goto L47
+            r1.close()     // Catch: java.lang.Throwable -> L48
+        L47:
+            return r0
+        L48:
+            r1 = move-exception
+            com.baidu.sofire.b.e.a()
+            goto L47
+        L4d:
+            r0 = move-exception
+            r0 = r9
+        L4f:
+            com.baidu.sofire.b.e.a()     // Catch: java.lang.Throwable -> L7a
+            if (r0 == 0) goto L5d
+            boolean r1 = r0.isClosed()     // Catch: java.lang.Throwable -> L5f
+            if (r1 != 0) goto L5d
+            r0.close()     // Catch: java.lang.Throwable -> L5f
+        L5d:
+            r0 = r8
+            goto L47
+        L5f:
+            r0 = move-exception
+            com.baidu.sofire.b.e.a()
+            r0 = r8
+            goto L47
+        L65:
+            r0 = move-exception
+        L66:
+            if (r9 == 0) goto L71
+            boolean r1 = r9.isClosed()     // Catch: java.lang.Throwable -> L72
+            if (r1 != 0) goto L71
+            r9.close()     // Catch: java.lang.Throwable -> L72
+        L71:
+            throw r0
+        L72:
+            r1 = move-exception
+            com.baidu.sofire.b.e.a()
+            goto L71
+        L77:
+            r0 = move-exception
+            r9 = r1
+            goto L66
+        L7a:
+            r1 = move-exception
+            r9 = r0
+            r0 = r1
+            goto L66
+        L7e:
+            r0 = move-exception
+            r0 = r1
+            goto L4f
+        L81:
+            r0 = r8
+            goto L3c
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.sofire.a.a.g(int):int");
+    }
+
+    public final void h(int i) {
+        b.a();
+        if (i > 0) {
+            try {
+                this.c.delete("pgn", "k=" + i, null);
+                b.a();
+            } catch (Throwable th) {
+                e.a();
+            }
+        }
+    }
+
+    public final void c(int i, int i2) {
+        try {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("pr", Integer.valueOf(i2));
+            this.c.update("pgn", contentValues, "k=" + i, null);
+        } catch (Throwable th) {
+            e.a();
+        }
+    }
+
+    /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
+        jadx.core.utils.exceptions.JadxRuntimeException: Found unreachable blocks
+        	at jadx.core.dex.visitors.blocks.DominatorTree.sortBlocks(DominatorTree.java:35)
+        	at jadx.core.dex.visitors.blocks.DominatorTree.compute(DominatorTree.java:25)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.computeDominators(BlockProcessor.java:202)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
+        	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
+        */
+    public final com.baidu.sofire.core.ApkInfo c(java.lang.String r11) {
+        /*
+            r10 = this;
             r9 = 0
             r8 = 0
-            boolean r0 = android.text.TextUtils.isEmpty(r12)
+            boolean r0 = android.text.TextUtils.isEmpty(r11)
             if (r0 == 0) goto La
             r0 = r8
         L9:
             return r0
         La:
-            android.database.sqlite.SQLiteDatabase r0 = r11.d     // Catch: java.lang.Throwable -> L1a7
+            android.database.sqlite.SQLiteDatabase r0 = r10.c     // Catch: java.lang.Throwable -> L1a7
             java.lang.String r1 = "pgn"
             r2 = 0
             java.lang.String r3 = "p=?"
             r4 = 1
             java.lang.String[] r4 = new java.lang.String[r4]     // Catch: java.lang.Throwable -> L1a7
             r5 = 0
-            r4[r5] = r12     // Catch: java.lang.Throwable -> L1a7
+            r4[r5] = r11     // Catch: java.lang.Throwable -> L1a7
             r5 = 0
             r6 = 0
             r7 = 0
             android.database.Cursor r1 = r0.query(r1, r2, r3, r4, r5, r6, r7)     // Catch: java.lang.Throwable -> L1a7
-            if (r1 == 0) goto L1e3
-            boolean r0 = r1.moveToFirst()     // Catch: java.lang.Throwable -> L1d8
-            if (r0 == 0) goto L1e3
-            com.baidu.sofire.core.ApkInfo r2 = new com.baidu.sofire.core.ApkInfo     // Catch: java.lang.Throwable -> L1d8
-            r2.<init>()     // Catch: java.lang.Throwable -> L1d8
+            if (r1 == 0) goto L1df
+            boolean r0 = r1.moveToFirst()     // Catch: java.lang.Throwable -> L1d7
+            if (r0 == 0) goto L1df
+            com.baidu.sofire.core.ApkInfo r2 = new com.baidu.sofire.core.ApkInfo     // Catch: java.lang.Throwable -> L1d7
+            r2.<init>()     // Catch: java.lang.Throwable -> L1d7
             java.lang.String r0 = "k"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1de
-            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1de
-            r2.key = r0     // Catch: java.lang.Throwable -> L1de
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
+            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1db
+            r2.key = r0     // Catch: java.lang.Throwable -> L1db
             java.lang.String r0 = "n"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1de
-            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1de
-            r2.initStatus = r0     // Catch: java.lang.Throwable -> L1de
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
+            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1db
+            r2.initStatus = r0     // Catch: java.lang.Throwable -> L1db
             java.lang.String r0 = "p"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1de
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1de
-            r2.packageName = r0     // Catch: java.lang.Throwable -> L1de
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
+            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1db
+            r2.packageName = r0     // Catch: java.lang.Throwable -> L1db
             java.lang.String r0 = "a"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1de
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1de
-            r2.pkgPath = r0     // Catch: java.lang.Throwable -> L1de
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
+            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1db
+            r2.pkgPath = r0     // Catch: java.lang.Throwable -> L1db
             java.lang.String r0 = "l"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1de
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1de
-            r2.libPath = r0     // Catch: java.lang.Throwable -> L1de
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
+            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1db
+            r2.libPath = r0     // Catch: java.lang.Throwable -> L1db
             java.lang.String r0 = "v"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1de
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1de
-            r2.versionName = r0     // Catch: java.lang.Throwable -> L1de
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
+            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1db
+            r2.versionName = r0     // Catch: java.lang.Throwable -> L1db
             java.lang.String r0 = "apk"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1de
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1de
-            r2.dexPath = r0     // Catch: java.lang.Throwable -> L1de
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
+            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1db
+            r2.dexPath = r0     // Catch: java.lang.Throwable -> L1db
             java.lang.String r0 = "ap"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1de
-            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1de
-            r2.apkParseSuc = r0     // Catch: java.lang.Throwable -> L1de
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
+            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1db
+            r2.apkParseSuc = r0     // Catch: java.lang.Throwable -> L1db
             java.lang.String r0 = "cl"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1de
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1de
-            r2.className = r0     // Catch: java.lang.Throwable -> L1de
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
+            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1db
+            r2.className = r0     // Catch: java.lang.Throwable -> L1db
             java.lang.String r0 = "th"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1de
-            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1de
-            r2.applicationTheme = r0     // Catch: java.lang.Throwable -> L1de
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
+            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1db
+            r2.applicationTheme = r0     // Catch: java.lang.Throwable -> L1db
             java.lang.String r0 = "st"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1de
-            long r4 = r1.getLong(r0)     // Catch: java.lang.Throwable -> L1de
-            r2.startTime = r4     // Catch: java.lang.Throwable -> L1de
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
+            long r4 = r1.getLong(r0)     // Catch: java.lang.Throwable -> L1db
+            r2.startTime = r4     // Catch: java.lang.Throwable -> L1db
             java.lang.String r0 = "du"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1de
-            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1de
-            r2.duration = r0     // Catch: java.lang.Throwable -> L1de
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
+            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1db
+            r2.duration = r0     // Catch: java.lang.Throwable -> L1db
             java.lang.String r0 = "m5"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1de
-            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1de
-            r2.apkMD5 = r0     // Catch: java.lang.Throwable -> L1de
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
+            java.lang.String r0 = r1.getString(r0)     // Catch: java.lang.Throwable -> L1db
+            r2.apkMD5 = r0     // Catch: java.lang.Throwable -> L1db
             java.lang.String r0 = "pr"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1de
-            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1de
-            r2.priority = r0     // Catch: java.lang.Throwable -> L1de
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
+            int r0 = r1.getInt(r0)     // Catch: java.lang.Throwable -> L1db
+            r2.priority = r0     // Catch: java.lang.Throwable -> L1db
             java.lang.String r0 = "ac"
-            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1de
-            byte[] r0 = r1.getBlob(r0)     // Catch: java.lang.Throwable -> L1de
+            int r0 = r1.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L1db
+            byte[] r0 = r1.getBlob(r0)     // Catch: java.lang.Throwable -> L1db
             if (r0 == 0) goto L193
-            java.util.ArrayList r4 = com.baidu.sofire.core.a.a(r0)     // Catch: java.lang.Throwable -> L1de
+            java.util.ArrayList r4 = com.baidu.sofire.core.a.a(r0)     // Catch: java.lang.Throwable -> L1db
             if (r4 == 0) goto L193
-            int r5 = r4.size()     // Catch: java.lang.Throwable -> L1de
+            int r5 = r4.size()     // Catch: java.lang.Throwable -> L1db
             if (r5 <= 0) goto L193
-            android.content.pm.ActivityInfo[] r0 = new android.content.pm.ActivityInfo[r5]     // Catch: java.lang.Throwable -> L1de
-            r2.activities = r0     // Catch: java.lang.Throwable -> L1de
+            android.content.pm.ActivityInfo[] r0 = new android.content.pm.ActivityInfo[r5]     // Catch: java.lang.Throwable -> L1db
+            r2.activities = r0     // Catch: java.lang.Throwable -> L1db
             r3 = r9
         L101:
             if (r3 >= r5) goto L193
-            android.content.pm.ActivityInfo r6 = new android.content.pm.ActivityInfo     // Catch: java.lang.Throwable -> L1de
-            r6.<init>()     // Catch: java.lang.Throwable -> L1de
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1de
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1de
-            int r0 = r0.a     // Catch: java.lang.Throwable -> L1de
-            r6.theme = r0     // Catch: java.lang.Throwable -> L1de
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1de
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1de
-            java.lang.String r0 = r0.j     // Catch: java.lang.Throwable -> L1de
-            r6.name = r0     // Catch: java.lang.Throwable -> L1de
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1de
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1de
-            int r0 = r0.h     // Catch: java.lang.Throwable -> L1de
-            r6.configChanges = r0     // Catch: java.lang.Throwable -> L1de
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1de
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1de
-            int r0 = r0.f     // Catch: java.lang.Throwable -> L1de
-            r6.flags = r0     // Catch: java.lang.Throwable -> L1de
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1de
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1de
-            int r0 = r0.l     // Catch: java.lang.Throwable -> L1de
-            r6.labelRes = r0     // Catch: java.lang.Throwable -> L1de
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1de
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1de
-            int r0 = r0.b     // Catch: java.lang.Throwable -> L1de
-            r6.launchMode = r0     // Catch: java.lang.Throwable -> L1de
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1de
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1de
-            java.lang.String r0 = r0.m     // Catch: java.lang.Throwable -> L1de
-            r6.nonLocalizedLabel = r0     // Catch: java.lang.Throwable -> L1de
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1de
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1de
-            java.lang.String r0 = r0.k     // Catch: java.lang.Throwable -> L1de
-            r6.packageName = r0     // Catch: java.lang.Throwable -> L1de
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1de
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1de
-            java.lang.String r0 = r0.c     // Catch: java.lang.Throwable -> L1de
-            r6.permission = r0     // Catch: java.lang.Throwable -> L1de
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1de
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1de
-            int r0 = r0.g     // Catch: java.lang.Throwable -> L1de
-            r6.screenOrientation = r0     // Catch: java.lang.Throwable -> L1de
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1de
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1de
-            int r0 = r0.i     // Catch: java.lang.Throwable -> L1de
-            r6.softInputMode = r0     // Catch: java.lang.Throwable -> L1de
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1de
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1de
-            java.lang.String r0 = r0.e     // Catch: java.lang.Throwable -> L1de
-            r6.targetActivity = r0     // Catch: java.lang.Throwable -> L1de
-            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1de
-            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1de
-            java.lang.String r0 = r0.d     // Catch: java.lang.Throwable -> L1de
-            r6.taskAffinity = r0     // Catch: java.lang.Throwable -> L1de
-            android.content.pm.ActivityInfo[] r0 = r2.activities     // Catch: java.lang.Throwable -> L1de
-            r0[r3] = r6     // Catch: java.lang.Throwable -> L1de
+            android.content.pm.ActivityInfo r6 = new android.content.pm.ActivityInfo     // Catch: java.lang.Throwable -> L1db
+            r6.<init>()     // Catch: java.lang.Throwable -> L1db
+            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
+            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
+            int r0 = r0.a     // Catch: java.lang.Throwable -> L1db
+            r6.theme = r0     // Catch: java.lang.Throwable -> L1db
+            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
+            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
+            java.lang.String r0 = r0.j     // Catch: java.lang.Throwable -> L1db
+            r6.name = r0     // Catch: java.lang.Throwable -> L1db
+            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
+            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
+            int r0 = r0.h     // Catch: java.lang.Throwable -> L1db
+            r6.configChanges = r0     // Catch: java.lang.Throwable -> L1db
+            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
+            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
+            int r0 = r0.f     // Catch: java.lang.Throwable -> L1db
+            r6.flags = r0     // Catch: java.lang.Throwable -> L1db
+            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
+            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
+            int r0 = r0.l     // Catch: java.lang.Throwable -> L1db
+            r6.labelRes = r0     // Catch: java.lang.Throwable -> L1db
+            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
+            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
+            int r0 = r0.b     // Catch: java.lang.Throwable -> L1db
+            r6.launchMode = r0     // Catch: java.lang.Throwable -> L1db
+            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
+            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
+            java.lang.String r0 = r0.m     // Catch: java.lang.Throwable -> L1db
+            r6.nonLocalizedLabel = r0     // Catch: java.lang.Throwable -> L1db
+            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
+            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
+            java.lang.String r0 = r0.k     // Catch: java.lang.Throwable -> L1db
+            r6.packageName = r0     // Catch: java.lang.Throwable -> L1db
+            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
+            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
+            java.lang.String r0 = r0.c     // Catch: java.lang.Throwable -> L1db
+            r6.permission = r0     // Catch: java.lang.Throwable -> L1db
+            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
+            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
+            int r0 = r0.g     // Catch: java.lang.Throwable -> L1db
+            r6.screenOrientation = r0     // Catch: java.lang.Throwable -> L1db
+            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
+            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
+            int r0 = r0.i     // Catch: java.lang.Throwable -> L1db
+            r6.softInputMode = r0     // Catch: java.lang.Throwable -> L1db
+            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
+            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
+            java.lang.String r0 = r0.e     // Catch: java.lang.Throwable -> L1db
+            r6.targetActivity = r0     // Catch: java.lang.Throwable -> L1db
+            java.lang.Object r0 = r4.get(r3)     // Catch: java.lang.Throwable -> L1db
+            com.baidu.sofire.core.b r0 = (com.baidu.sofire.core.b) r0     // Catch: java.lang.Throwable -> L1db
+            java.lang.String r0 = r0.d     // Catch: java.lang.Throwable -> L1db
+            r6.taskAffinity = r0     // Catch: java.lang.Throwable -> L1db
+            android.content.pm.ActivityInfo[] r0 = r2.activities     // Catch: java.lang.Throwable -> L1db
+            r0[r3] = r6     // Catch: java.lang.Throwable -> L1db
             int r0 = r3 + 1
             r3 = r0
             goto L101
@@ -1220,58 +1204,54 @@ public class a {
             goto L9
         L1a1:
             r1 = move-exception
-            com.baidu.sofire.b.e.a(r1)
+            com.baidu.sofire.b.e.a()
             goto L9
         L1a7:
             r0 = move-exception
-            r1 = r0
             r0 = r8
-        L1aa:
-            com.baidu.sofire.b.e.a(r1)     // Catch: java.lang.Throwable -> L1d5
+        L1a9:
+            com.baidu.sofire.b.e.a()     // Catch: java.lang.Throwable -> L1d4
             if (r8 == 0) goto L9
-            boolean r1 = r8.isClosed()     // Catch: java.lang.Throwable -> L1ba
+            boolean r1 = r8.isClosed()     // Catch: java.lang.Throwable -> L1b9
             if (r1 != 0) goto L9
-            r8.close()     // Catch: java.lang.Throwable -> L1ba
+            r8.close()     // Catch: java.lang.Throwable -> L1b9
             goto L9
-        L1ba:
+        L1b9:
             r1 = move-exception
-            com.baidu.sofire.b.e.a(r1)
+            com.baidu.sofire.b.e.a()
             goto L9
-        L1c0:
+        L1bf:
             r0 = move-exception
             r1 = r8
-        L1c2:
-            if (r1 == 0) goto L1cd
-            boolean r2 = r1.isClosed()     // Catch: java.lang.Throwable -> L1ce
-            if (r2 != 0) goto L1cd
-            r1.close()     // Catch: java.lang.Throwable -> L1ce
-        L1cd:
+        L1c1:
+            if (r1 == 0) goto L1cc
+            boolean r2 = r1.isClosed()     // Catch: java.lang.Throwable -> L1cd
+            if (r2 != 0) goto L1cc
+            r1.close()     // Catch: java.lang.Throwable -> L1cd
+        L1cc:
             throw r0
-        L1ce:
+        L1cd:
             r1 = move-exception
-            com.baidu.sofire.b.e.a(r1)
-            goto L1cd
-        L1d3:
+            com.baidu.sofire.b.e.a()
+            goto L1cc
+        L1d2:
             r0 = move-exception
-            goto L1c2
-        L1d5:
+            goto L1c1
+        L1d4:
             r0 = move-exception
             r1 = r8
-            goto L1c2
-        L1d8:
+            goto L1c1
+        L1d7:
             r0 = move-exception
-            r10 = r0
             r0 = r8
             r8 = r1
-            r1 = r10
-            goto L1aa
-        L1de:
+            goto L1a9
+        L1db:
             r0 = move-exception
             r8 = r1
-            r1 = r0
             r0 = r2
-            goto L1aa
-        L1e3:
+            goto L1a9
+        L1df:
             r0 = r8
             goto L194
         */

@@ -1,8 +1,8 @@
 package com.baidu.sapi2;
 
 import android.content.Context;
-import com.baidu.cloudsdk.common.http.AsyncHttpClient;
 import com.baidu.sapi2.base.debug.Log;
+import com.baidu.sapi2.httpwrap.HttpClientWrap;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.shell.response.SapiAccountResponse;
@@ -13,7 +13,6 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class AbstractService {
-    protected AsyncHttpClient asyncHttpClient;
     protected SapiConfiguration configuration;
     protected DomainRetry domainRetry;
     protected String versionName;
@@ -124,9 +123,9 @@ public abstract class AbstractService {
         return "tpl:" + this.configuration.tpl + ";android_sapi_v" + this.versionName;
     }
 
-    public void cancelRequest() {
-        if (this.asyncHttpClient != null) {
-            this.asyncHttpClient.cancelRequests(this.configuration.context, true);
+    public void cancelRequest(HttpClientWrap httpClientWrap) {
+        if (httpClientWrap != null) {
+            httpClientWrap.cancelRequest();
         }
     }
 }

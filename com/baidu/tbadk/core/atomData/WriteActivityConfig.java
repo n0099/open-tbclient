@@ -34,6 +34,8 @@ public class WriteActivityConfig extends IntentConfig {
     public static final String IS_SAVE_DRAFTE = "need_save_draft";
     public static final String KEY_CALL_FROM = "KEY_CALL_FROM";
     public static final String KEY_FORUM_AVATAR = "forum_avatar";
+    public static final String KEY_PROFESSION_ZONE = "profession_zone";
+    public static final String KEY_TOPIC_ID = "topic_id";
     public static final String KEY_WRITE_IMAGES_INFO_STRING = "KEY_WRITE_IMAGES_INFO_STRING";
     public static final String KEY_WRITE_LEVEL = "key_write_level";
     public static final String LIVE_DATE = "live_date";
@@ -173,5 +175,17 @@ public class WriteActivityConfig extends IntentConfig {
         if (getIntent() != null && writeImagesInfo != null) {
             getIntent().putExtra("KEY_WRITE_IMAGES_INFO_STRING", writeImagesInfo.toJsonString());
         }
+    }
+
+    public void setProfessionZone(int i) {
+        getIntent().putExtra(KEY_PROFESSION_ZONE, i);
+    }
+
+    public void setTopicId(String str) {
+        getIntent().putExtra(HOT_TOPIC_ID, str);
+    }
+
+    public void setContent(String str) {
+        getIntent().putExtra("write_content", str);
     }
 }

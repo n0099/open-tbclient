@@ -108,7 +108,7 @@ class NotificationCompatApi21 {
         Parcelable[] parcelableArr = new Parcelable[unreadConversation.getMessages().length];
         for (int i = 0; i < parcelableArr.length; i++) {
             Bundle bundle2 = new Bundle();
-            bundle2.putString("text", unreadConversation.getMessages()[i]);
+            bundle2.putString(KEY_TEXT, unreadConversation.getMessages()[i]);
             bundle2.putString(KEY_AUTHOR, str);
             parcelableArr[i] = bundle2;
         }
@@ -120,7 +120,7 @@ class NotificationCompatApi21 {
         bundle.putParcelable(KEY_ON_REPLY, unreadConversation.getReplyPendingIntent());
         bundle.putParcelable(KEY_ON_READ, unreadConversation.getReadPendingIntent());
         bundle.putStringArray(KEY_PARTICIPANTS, unreadConversation.getParticipants());
-        bundle.putLong("timestamp", unreadConversation.getLatestTimestamp());
+        bundle.putLong(KEY_TIMESTAMP, unreadConversation.getLatestTimestamp());
         return bundle;
     }
 
@@ -142,7 +142,7 @@ class NotificationCompatApi21 {
                 } else if (!(parcelableArray[i] instanceof Bundle)) {
                     break;
                 } else {
-                    strArr2[i] = ((Bundle) parcelableArray[i]).getString("text");
+                    strArr2[i] = ((Bundle) parcelableArray[i]).getString(KEY_TEXT);
                     if (strArr2[i] == null) {
                         break;
                     }
@@ -163,7 +163,7 @@ class NotificationCompatApi21 {
         if (stringArray == null || stringArray.length != 1) {
             return null;
         }
-        return factory.build(strArr, remoteInput != null ? toCompatRemoteInput(remoteInput, factory2) : null, pendingIntent2, pendingIntent, stringArray, bundle.getLong("timestamp"));
+        return factory.build(strArr, remoteInput != null ? toCompatRemoteInput(remoteInput, factory2) : null, pendingIntent2, pendingIntent, stringArray, bundle.getLong(KEY_TIMESTAMP));
     }
 
     private static android.app.RemoteInput fromCompatRemoteInput(RemoteInputCompatBase.RemoteInput remoteInput) {

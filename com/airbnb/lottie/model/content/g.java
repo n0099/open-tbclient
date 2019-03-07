@@ -4,36 +4,35 @@ import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.a.n;
 import com.airbnb.lottie.model.a.b;
 import com.airbnb.lottie.model.a.l;
-import com.baidu.mobstat.Config;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class g implements b {
     private final String name;
-    private final l rA;
-    private final com.airbnb.lottie.model.a.b ry;
-    private final com.airbnb.lottie.model.a.b rz;
+    private final com.airbnb.lottie.model.a.b ru;
+    private final com.airbnb.lottie.model.a.b rv;
+    private final l rw;
 
     g(String str, com.airbnb.lottie.model.a.b bVar, com.airbnb.lottie.model.a.b bVar2, l lVar) {
         this.name = str;
-        this.ry = bVar;
-        this.rz = bVar2;
-        this.rA = lVar;
+        this.ru = bVar;
+        this.rv = bVar2;
+        this.rw = lVar;
     }
 
     public String getName() {
         return this.name;
     }
 
+    public com.airbnb.lottie.model.a.b ew() {
+        return this.ru;
+    }
+
     public com.airbnb.lottie.model.a.b ex() {
-        return this.ry;
+        return this.rv;
     }
 
-    public com.airbnb.lottie.model.a.b ey() {
-        return this.rz;
-    }
-
-    public l ez() {
-        return this.rA;
+    public l ey() {
+        return this.rw;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -47,7 +46,7 @@ public class g implements b {
     public static final class a {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static g u(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
-            return new g(jSONObject.optString("nm"), b.a.a(jSONObject.optJSONObject("c"), eVar, false), b.a.a(jSONObject.optJSONObject(Config.OS), eVar, false), l.a.n(jSONObject.optJSONObject("tr"), eVar));
+            return new g(jSONObject.optString("nm"), b.a.a(jSONObject.optJSONObject("c"), eVar, false), b.a.a(jSONObject.optJSONObject("o"), eVar, false), l.a.n(jSONObject.optJSONObject("tr"), eVar));
         }
     }
 }

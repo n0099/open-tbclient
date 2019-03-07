@@ -1,37 +1,37 @@
 package com.baidu.tieba.emotion.editortool;
 
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class b {
     private int column;
-    private EmotionGroupType dqP;
-    private int dqQ;
-    private int dqR;
-    private com.baidu.tbadk.editortools.emotiontool.c dqS;
-    private int dqT;
-    private int dqU;
+    private EmotionGroupType eAM;
+    private int eAN;
+    private int eAO;
+    private com.baidu.tbadk.editortools.emotiontool.c eAP;
+    private int eAQ;
+    private int eAR;
     private int endIndex;
     private int index;
     private int row;
     private int startIndex;
 
     public void e(com.baidu.tbadk.editortools.emotiontool.c cVar) {
-        this.dqS = cVar;
+        this.eAP = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c avM() {
-        return this.dqS;
+    public com.baidu.tbadk.editortools.emotiontool.c aVD() {
+        return this.eAP;
     }
 
     public void b(EmotionGroupType emotionGroupType) {
-        this.dqP = emotionGroupType;
+        this.eAM = emotionGroupType;
     }
 
-    public EmotionGroupType avN() {
-        return this.dqP;
+    public EmotionGroupType aVE() {
+        return this.eAM;
     }
 
-    public void fV(int i) {
+    public void jG(int i) {
         this.row = i;
     }
 
@@ -39,43 +39,43 @@ public class b {
         return this.row;
     }
 
-    public void fU(int i) {
+    public void jF(int i) {
         this.column = i;
     }
 
-    public int avO() {
+    public int aVF() {
         return this.column;
     }
 
-    public void lu(int i) {
-        this.dqU = i;
+    public void oW(int i) {
+        this.eAR = i;
     }
 
-    public int avP() {
-        return this.dqU;
+    public int aVG() {
+        return this.eAR;
     }
 
-    public void lv(int i) {
-        this.dqT = i;
+    public void oX(int i) {
+        this.eAQ = i;
     }
 
-    public int avQ() {
-        return this.dqT;
+    public int aVH() {
+        return this.eAQ;
     }
 
-    public void lw(int i) {
-        this.dqQ = i;
+    public void oY(int i) {
+        this.eAN = i;
     }
 
-    public int avR() {
-        return this.dqQ;
+    public int aVI() {
+        return this.eAN;
     }
 
-    public void lx(int i) {
+    public void oZ(int i) {
         this.startIndex = i;
     }
 
-    public int avS() {
+    public int aVJ() {
         return this.startIndex;
     }
 
@@ -91,11 +91,11 @@ public class b {
         return this.index;
     }
 
-    public void ly(int i) {
-        this.dqR = i;
+    public void pa(int i) {
+        this.eAO = i;
     }
 
-    public int avT() {
-        return this.dqR;
+    public int aVK() {
+        return this.eAO;
     }
 }

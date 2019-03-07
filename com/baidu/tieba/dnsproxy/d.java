@@ -2,33 +2,31 @@ package com.baidu.tieba.dnsproxy;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.fsg.base.armor.RimArmor;
-import com.baidu.searchbox.ng.ai.apps.network.WebSocketAction;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class d {
-    private static volatile d doy = null;
+    private static volatile d eyw = null;
 
-    public static final d avh() {
-        if (doy == null) {
+    public static final d aUY() {
+        if (eyw == null) {
             synchronized (d.class) {
-                if (doy == null) {
-                    doy = new d();
+                if (eyw == null) {
+                    eyw = new d();
                 }
             }
         }
-        return doy;
+        return eyw;
     }
 
     private d() {
     }
 
-    public void aY(String str, String str2) {
+    public void cd(String str, String str2) {
         if (!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_error");
             if (!TextUtils.isEmpty(str)) {
-                statsItem.append(WebSocketAction.PARAM_KEY_REASON, str);
+                statsItem.append("reason", str);
             }
             if (!TextUtils.isEmpty(str2)) {
                 statsItem.append(ClientCookie.COMMENT_ATTR, str2);
@@ -37,15 +35,15 @@ public class d {
         }
     }
 
-    public void G(String str, String str2, String str3) {
+    public void R(String str, String str2, String str3) {
         if (!TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2) || !TextUtils.isEmpty(str3)) {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
             statsItem.append("workflow", "dnsproxy_event");
             if (!TextUtils.isEmpty(str)) {
-                statsItem.append(RimArmor.KEY, str);
+                statsItem.append("key", str);
             }
             if (!TextUtils.isEmpty(str2)) {
-                statsItem.append(WebSocketAction.PARAM_KEY_REASON, str2);
+                statsItem.append("reason", str2);
             }
             if (!TextUtils.isEmpty(str3)) {
                 statsItem.append(ClientCookie.COMMENT_ATTR, str3);

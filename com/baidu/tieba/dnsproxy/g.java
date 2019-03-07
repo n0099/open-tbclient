@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class g extends BdAsyncTask<Collection<String>, Void, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
@@ -37,10 +37,10 @@ public class g extends BdAsyncTask<Collection<String>, Void, HashMap<String, Lis
                 }
             } catch (UnknownHostException e) {
                 BdLog.detailException(e);
-                d.avh().aY("sysdns_get", e.getMessage());
+                d.aUY().cd("sysdns_get", e.getMessage());
             } catch (Throwable th) {
                 BdLog.detailException(th);
-                d.avh().aY("sysdns_get", th.getMessage());
+                d.aUY().cd("sysdns_get", th.getMessage());
             }
         }
         return hashMap;

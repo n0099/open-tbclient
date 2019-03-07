@@ -16,16 +16,16 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import tbclient.OriForumInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RelationBarCellView extends RelativeLayout implements View.OnClickListener {
-    private TbImageView dRS;
-    private TextView dRT;
-    private TextView dRU;
-    private OriForumInfo dRV;
+    private TbImageView eFa;
+    private TextView ffU;
+    private TextView ffV;
+    private OriForumInfo ffW;
     private int mHeight;
     private int mSkinType;
     private int mWidth;
@@ -49,14 +49,17 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(e.h.frs_brand_relation_bar_cell_layout, (ViewGroup) this, true);
-        this.dRS = (TbImageView) findViewById(e.g.frs_brand_bar_cell_img);
-        this.dRT = (TextView) findViewById(e.g.frs_brand_bar_cell_name);
-        this.dRU = (TextView) findViewById(e.g.frs_brand_bar_cell_attention);
-        this.dRS.setDefaultResource(17170445);
-        this.dRS.setDefaultBgResource(e.d.cp_bg_line_e);
-        this.mWidth = l.h(context, e.C0210e.tbds394);
-        this.mHeight = l.h(context, e.C0210e.tbds146);
+        LayoutInflater.from(context).inflate(d.h.frs_brand_relation_bar_cell_layout, (ViewGroup) this, true);
+        this.eFa = (TbImageView) findViewById(d.g.frs_brand_bar_cell_img);
+        this.ffU = (TextView) findViewById(d.g.frs_brand_bar_cell_name);
+        this.ffV = (TextView) findViewById(d.g.frs_brand_bar_cell_attention);
+        this.eFa.setDefaultResource(17170445);
+        this.eFa.setDefaultBgResource(d.C0236d.cp_bg_line_e);
+        this.eFa.setBorderColor(0);
+        this.eFa.setRadius(l.h(getContext(), d.e.tbds20));
+        this.eFa.setConrers(5);
+        this.mWidth = l.h(context, d.e.tbds471);
+        this.mHeight = l.h(context, d.e.tbds164);
         setOnClickListener(this);
         onChangeSkinType();
     }
@@ -73,25 +76,25 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
             return;
         }
         setVisibility(0);
-        this.dRV = oriForumInfo;
-        this.dRS.startLoad(oriForumInfo.ori_avatar, 10, false);
-        this.dRT.setText(oriForumInfo.ori_fname);
-        this.dRU.setText(String.format(getContext().getString(e.j.frs_brand_relation_bar_attention), ao.W(oriForumInfo.ori_member_num.longValue())));
+        this.ffW = oriForumInfo;
+        this.eFa.startLoad(oriForumInfo.ori_avatar, 10, false);
+        this.ffU.setText(oriForumInfo.ori_fname);
+        this.ffV.setText(String.format(getContext().getString(d.j.frs_brand_relation_bar_attention), ap.ay(oriForumInfo.ori_member_num.longValue())));
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        TiebaStatic.log(new am("c13110").i(VideoPlayActivityConfig.OBJ_ID, this.dRV.ori_fid.longValue()));
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getContext()).createNormalCfg(this.dRV.ori_fname, "")));
+        TiebaStatic.log(new am("c13110").k(VideoPlayActivityConfig.OBJ_ID, this.ffW.ori_fid.longValue()));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(getContext()).createNormalCfg(this.ffW.ori_fname, "")));
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            al.i(this, e.f.cp_bg_line_d_e_selector);
-            al.h(this.dRT, e.d.cp_cont_b);
-            al.h(this.dRU, e.d.cp_cont_d);
+            al.k(this, d.f.cp_bg_line_d_e_selector);
+            al.j(this.ffU, d.C0236d.cp_cont_f);
+            al.j(this.ffV, d.C0236d.cp_cont_d);
         }
     }
 }

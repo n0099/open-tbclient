@@ -3,8 +3,8 @@ package com.baidu.crabsdk.b;
 import android.content.Context;
 import android.os.Looper;
 import com.baidu.appsearchlib.Info;
-import com.baidu.searchbox.ng.ai.apps.network.WebSocketAction;
-import com.baidu.searchbox.ng.ai.apps.statistic.search.AiAppsSearchFlowUBC;
+import com.baidu.sapi2.base.network.Apn;
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,18 +16,18 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class c {
     private static Context mContext;
-    private static String Ya = "data/anr/traces.txt";
+    private static String abC = "data/anr/traces.txt";
     private static int aU = 5;
-    private static Thread Yb = null;
+    private static Thread abD = null;
 
     private static void a(Map<String, Object> map) {
         int indexOf;
         StringBuilder sb = new StringBuilder();
         try {
-            String str = (String) map.get("time");
+            String str = (String) map.get(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
             if (str == null) {
                 return;
             }
@@ -64,7 +64,7 @@ public final class c {
                 if (readLine.contains("Reason:")) {
                     String[] split = readLine.split("Reason:");
                     if (split.length == 2) {
-                        map.put(WebSocketAction.PARAM_KEY_REASON, split[1].trim());
+                        map.put("reason", split[1].trim());
                         if (split[1].trim().contains("(") && (indexOf = split[1].trim().indexOf("(")) > 0) {
                             map.put("type", split[1].trim().substring(0, indexOf));
                         }
@@ -93,36 +93,36 @@ public final class c {
     }
 
     public static void d(Context context) {
-        com.baidu.crabsdk.c.a.cH("init AnrCollector");
-        com.baidu.crabsdk.c.a.cH("===Anr init!===");
+        com.baidu.crabsdk.c.a.cv("init AnrCollector");
+        com.baidu.crabsdk.c.a.cv("===Anr init!===");
         mContext = context;
-        if (com.baidu.crabsdk.sender.e.rD()) {
-            com.baidu.crabsdk.c.a.cH("===Anr watchThread start!===");
+        if (com.baidu.crabsdk.sender.e.se()) {
+            com.baidu.crabsdk.c.a.cv("===Anr watchThread start!===");
             try {
                 com.baidu.crabsdk.sender.a aVar = new com.baidu.crabsdk.sender.a(context);
-                Yb = aVar;
+                abD = aVar;
                 aVar.start();
             } catch (Exception e) {
-                com.baidu.crabsdk.c.a.cK("Anr watchThread start failed !!");
+                com.baidu.crabsdk.c.a.cy("Anr watchThread start failed !!");
             }
         }
     }
 
-    public static Thread rr() {
-        return Yb;
+    public static Thread rR() {
+        return abD;
     }
 
     public static Map<String, Object> t() {
         String str;
         String str2;
         HashMap hashMap = new HashMap();
-        String str3 = "N/A";
-        String str4 = "N/A";
+        String str3 = Apn.APN_UNKNOWN;
+        String str4 = Apn.APN_UNKNOWN;
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         int i = 0;
         try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Ya)));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(abC)));
             String readLine = bufferedReader.readLine();
             String G = o.G();
             while (true) {
@@ -143,9 +143,9 @@ public final class c {
                 }
                 if (readLine.contains(G)) {
                     hashMap.put("apiType", "ANR");
-                    hashMap.put(AiAppsSearchFlowUBC.FE_DATA_ERRTYPE, "ANR");
+                    hashMap.put("errorType", "ANR");
                     hashMap.put(Info.kBaiduPIDKey, str3);
-                    hashMap.put("time", str4);
+                    hashMap.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, str4);
                     StringBuilder sb = new StringBuilder();
                     while (readLine != null && !readLine.contains("DALVIK THREADS")) {
                         sb.append(readLine).append("\n");
@@ -218,7 +218,7 @@ public final class c {
                         int i3 = 1;
                         while (true) {
                             if (i3 >= split2.length) {
-                                str = "N/A";
+                                str = Apn.APN_UNKNOWN;
                                 break;
                             } else if (a(split2[i3])) {
                                 str = split2[i3];
@@ -227,11 +227,11 @@ public final class c {
                                 i3++;
                             }
                         }
-                        String str6 = (!str.equals("N/A") || split2.length <= 1) ? str : split2[1];
+                        String str6 = (!str.equals(Apn.APN_UNKNOWN) || split2.length <= 1) ? str : split2[1];
                         int length = split2.length - 1;
                         while (true) {
                             if (length <= 0) {
-                                str2 = "N/A";
+                                str2 = Apn.APN_UNKNOWN;
                                 break;
                             } else if (a(split2[length])) {
                                 str2 = split2[length];
@@ -240,7 +240,7 @@ public final class c {
                                 length--;
                             }
                         }
-                        if (str2.equals("N/A") && split2.length > 0) {
+                        if (str2.equals(Apn.APN_UNKNOWN) && split2.length > 0) {
                             str2 = split2[split2.length - 1];
                         }
                         hashMap.put("errorLine", str6);
@@ -260,10 +260,10 @@ public final class c {
                         sb7.append(stackTraceElement.toString()).append("\n");
                     }
                     hashMap.put("apiType", "ANR");
-                    hashMap.put(AiAppsSearchFlowUBC.FE_DATA_ERRTYPE, "ANR");
-                    hashMap.put(Info.kBaiduPIDKey, "N/A");
-                    hashMap.put("time", Long.valueOf(System.currentTimeMillis()));
-                    hashMap.put("anrMsg", "N/A");
+                    hashMap.put("errorType", "ANR");
+                    hashMap.put(Info.kBaiduPIDKey, Apn.APN_UNKNOWN);
+                    hashMap.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, Long.valueOf(System.currentTimeMillis()));
+                    hashMap.put("anrMsg", Apn.APN_UNKNOWN);
                     hashMap.put("threadList", r.M());
                     hashMap.put("traceList", "由于系统原因，Android7.0以上无权限读取\"data/anr/...\"\n\n" + sb7.toString());
                     hashMap.put("mainThread", sb7.toString());

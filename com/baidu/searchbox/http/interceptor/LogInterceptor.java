@@ -23,7 +23,7 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class LogInterceptor implements Interceptor {
     private static final String TAG = "http";
-    private static final Charset UTF8 = Charset.forName("UTF-8");
+    private static final Charset UTF8 = Charset.forName(HTTP.UTF_8);
     private volatile Level level;
     private final Logger logger;
 

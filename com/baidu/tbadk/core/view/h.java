@@ -1,153 +1,317 @@
 package com.baidu.tbadk.core.view;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.graphics.Rect;
+import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.af;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.e;
-@SuppressLint({"ResourceAsColor"})
+import com.baidu.tbadk.widget.ContinuousAnimationView;
+import com.baidu.tieba.d;
+import com.baidu.tieba.frs.SmartBubbleAnimatedView;
 /* loaded from: classes.dex */
-public class h {
-    private View aHQ;
-    private ViewGroup.LayoutParams aHR;
-    private Runnable aHS;
-    private FrameLayout aHT;
-    private int mScreenHeight;
-    private int usableHeightPrevious;
-    private int mSkinType = 3;
-    private int aHU = e.d.cp_bg_line_d;
-    private boolean aHV = false;
-    private ViewTreeObserver.OnGlobalLayoutListener mGlobalLayoutListener = null;
-    private int aHW = 0;
+public class h extends com.baidu.adp.widget.ListView.c {
+    protected LinearLayout bRD;
+    protected ImageView bRE;
+    private c bRF;
+    private b bRG;
+    private d bRH;
+    private a bRI;
+    protected AnimationDrawable bRJ;
+    protected ContinuousAnimationView bRK;
+    private boolean bRL;
+    private boolean bRM;
+    private SmartBubbleAnimatedView bRN;
+    private f bRO;
+    private e bRP;
+    private boolean bRQ;
+    private boolean bRR;
+    protected View mHeaderView;
+    protected int mSkinType;
 
-    public static h D(Activity activity) {
-        return new h(activity);
+    /* loaded from: classes.dex */
+    public interface a {
+        void aeT();
     }
 
-    public static h d(Activity activity, boolean z) {
-        return new h(activity, z);
+    /* loaded from: classes.dex */
+    public interface b {
+        void f(View view, boolean z);
     }
 
-    public static h a(Activity activity, int i, boolean z) {
-        return new h(activity, i, z);
+    /* loaded from: classes.dex */
+    public interface c {
+        void dR(boolean z);
     }
 
-    private h(Activity activity) {
-        b(activity, e.d.cp_bg_line_d, true);
+    /* loaded from: classes.dex */
+    public interface d {
+        void dS(boolean z);
     }
 
-    private h(Activity activity, boolean z) {
-        b(activity, e.d.cp_bg_line_d, z);
+    /* loaded from: classes.dex */
+    public interface f {
+        void ig(int i);
+
+        void onAnimationEnd();
     }
 
-    private h(Activity activity, int i, boolean z) {
-        b(activity, i, z);
+    public h(Context context) {
+        super(context);
+        this.mHeaderView = null;
+        this.bRD = null;
+        this.bRE = null;
+        this.bRF = null;
+        this.bRG = null;
+        this.bRH = null;
+        this.bRI = null;
+        this.mSkinType = Integer.MIN_VALUE;
+        this.bRL = false;
+        this.bRM = false;
+        this.bRQ = true;
+        this.bRR = true;
     }
 
-    public void ej(int i) {
-        if (this.aHV) {
-            if (i != this.mSkinType && this.aHT != null) {
-                al.j(this.aHT, this.aHU);
-            }
-            this.mSkinType = i;
+    @Override // com.baidu.adp.widget.ListView.c
+    public View oM() {
+        this.mHeaderView = LayoutInflater.from(getContext()).inflate(d.h.tb_pull_view, (ViewGroup) null);
+        this.bRD = (LinearLayout) this.mHeaderView.findViewById(d.g.pull_root);
+        this.bRK = (ContinuousAnimationView) this.mHeaderView.findViewById(d.g.continuous_loading_view);
+        this.bRE = (ImageView) this.mHeaderView.findViewById(d.g.pull_image);
+        int skinType = TbadkCoreApplication.getInst().getSkinType();
+        if (this.mSkinType != Integer.MIN_VALUE) {
+            skinType = this.mSkinType;
+        }
+        if (!add()) {
+            this.bRJ = af.acV().hj(skinType);
+        }
+        this.bRE.setBackgroundDrawable(this.bRJ);
+        aeN();
+        return this.mHeaderView;
+    }
+
+    public void setSkinType(int i) {
+        this.mSkinType = i;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.c
+    public void releaseToRefresh() {
+        if (!add() && this.bRJ != null && this.bRE != null) {
+            this.bRJ.stop();
+            this.bRE.setBackgroundDrawable(this.bRJ.getFrame(0));
         }
     }
 
-    public void onDestory() {
-        if (this.aHS != null) {
-            com.baidu.adp.lib.g.e.jG().removeCallbacks(this.aHS);
-            this.aHS = null;
+    @Override // com.baidu.adp.widget.ListView.c
+    public void aw(boolean z) {
+        if (this.bRH != null) {
+            this.bRH.dS(z);
         }
-        if (this.aHQ != null) {
-            this.aHQ.getViewTreeObserver().removeGlobalOnLayoutListener(this.mGlobalLayoutListener);
-            this.mGlobalLayoutListener = null;
-        }
-        this.aHQ = null;
-        this.aHT = null;
-    }
-
-    private void b(Activity activity, int i, boolean z) {
-        this.aHU = i;
-        this.aHV = z;
-        this.aHT = (FrameLayout) activity.findViewById(16908290);
-        if (z) {
-            al.j(this.aHT, i);
-        } else {
-            al.e(this.aHT, i, 0);
-        }
-        this.aHQ = this.aHT.getChildAt(0);
-        if (this.aHQ != null) {
-            this.mGlobalLayoutListener = new ViewTreeObserver.OnGlobalLayoutListener() { // from class: com.baidu.tbadk.core.view.h.1
-                @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-                public void onGlobalLayout() {
-                    h.this.Fd();
-                }
-            };
-            this.aHQ.getViewTreeObserver().addOnGlobalLayoutListener(this.mGlobalLayoutListener);
-            this.aHR = this.aHQ.getLayoutParams();
+        aeN();
+        this.bRL = true;
+        if (!add() && this.bRJ != null && this.bRE != null) {
+            this.bRJ.stop();
+            this.bRE.setBackgroundDrawable(this.bRJ.getFrame(0));
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void Fd() {
-        if (this.aHQ != null) {
-            int height = this.aHQ.getHeight();
-            if (height > this.mScreenHeight) {
-                this.mScreenHeight = height;
-            }
-            int Fe = Fe();
-            if (this.aHW > 0 && this.aHW <= this.aHR.height) {
-                Fe -= this.aHW;
-            }
-            if (Fe != this.usableHeightPrevious) {
-                int i = this.mScreenHeight;
-                int i2 = i - Fe;
-                if (i2 == 0) {
-                    this.aHR.height = i;
-                    Ff();
-                } else {
-                    this.aHR.height = i - i2;
-                    ek(200);
-                    if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i2) && i2 < (this.mScreenHeight * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i2) {
-                        TbadkCoreApplication.getInst().setKeyboardHeight(i2);
+    @Override // com.baidu.adp.widget.ListView.c, com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
+    public void n(float f2, float f3) {
+        super.n(f2, f3);
+        if (add()) {
+            this.bRK.setAlpha(f2);
+        }
+    }
+
+    @Override // com.baidu.adp.widget.ListView.c
+    public void refreshing() {
+        aeN();
+        if (add()) {
+            this.bRK.cu();
+        } else if (this.bRJ != null && this.bRE != null) {
+            this.bRJ.stop();
+            this.bRE.setBackgroundDrawable(this.bRJ);
+            this.bRE.post(new Runnable() { // from class: com.baidu.tbadk.core.view.h.1
+                @Override // java.lang.Runnable
+                public void run() {
+                    if (h.this.bRJ != null) {
+                        h.this.bRJ.start();
                     }
                 }
-                this.usableHeightPrevious = Fe;
+            });
+        }
+    }
+
+    @Override // com.baidu.adp.widget.ListView.c
+    public void ax(boolean z) {
+        this.bRL = false;
+        if (add()) {
+            this.bRK.cw();
+        } else if (this.bRJ != null) {
+            this.bRJ.stop();
+        }
+        aeO();
+        if (this.bRG != null) {
+            this.bRG.f(this.mHeaderView, z);
+        }
+    }
+
+    @Override // com.baidu.adp.widget.ListView.c
+    public void ay(boolean z) {
+        if (this.bRF != null && this.bRR) {
+            this.bRF.dR(z);
+        }
+        this.bRR = true;
+    }
+
+    public void aeM() {
+        this.bRR = false;
+    }
+
+    public void a(e eVar) {
+        this.bRP = eVar;
+    }
+
+    @Override // com.baidu.adp.widget.ListView.c
+    public void oN() {
+        if (this.bRI != null) {
+            this.bRI.aeT();
+        }
+        aeQ();
+    }
+
+    public void setListPullRefreshListener(c cVar) {
+        this.bRF = cVar;
+    }
+
+    public void a(b bVar) {
+        this.bRG = bVar;
+    }
+
+    public void a(d dVar) {
+        this.bRH = dVar;
+    }
+
+    public void a(a aVar) {
+        this.bRI = aVar;
+    }
+
+    public void ic(int i) {
+        if (add()) {
+            al.f(this.mHeaderView, d.C0236d.cp_bg_line_f, i);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public boolean add() {
+        return af.acV().add();
+    }
+
+    private void aeN() {
+        if (this.bRN != null && this.bRN.getParent() != null) {
+            this.bRD.removeView(this.bRN);
+        }
+        if (add()) {
+            if (this.bRE != null && this.bRK != null) {
+                if (this.bRE.getVisibility() != 8) {
+                    this.bRE.setVisibility(8);
+                }
+                if (this.bRK.getVisibility() != 0) {
+                    this.bRK.setVisibility(0);
+                }
+                if (this.bRK.isAnimating()) {
+                    this.bRK.cancelAnimation();
+                }
+            }
+        } else if (this.bRE != null && this.bRK != null) {
+            if (this.bRE.getVisibility() != 0) {
+                this.bRE.setVisibility(0);
+            }
+            if (this.bRK.getVisibility() != 8) {
+                this.bRK.setVisibility(8);
             }
         }
     }
 
-    private int Fe() {
-        Rect rect = new Rect();
-        this.aHQ.getWindowVisibleDisplayFrame(rect);
-        return rect.bottom;
-    }
-
-    public void setExcludeHeight(int i) {
-        this.aHW = i;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void Ff() {
-        this.aHQ.requestLayout();
-    }
-
-    private void ek(int i) {
-        if (this.aHS != null) {
-            com.baidu.adp.lib.g.e.jG().removeCallbacks(this.aHS);
-            this.aHS = null;
+    private void aeO() {
+        if (add() && this.bRJ != null) {
+            this.bRJ.stop();
+            this.bRJ = null;
         }
-        this.aHS = new Runnable() { // from class: com.baidu.tbadk.core.view.h.2
-            @Override // java.lang.Runnable
-            public void run() {
-                h.this.Ff();
+    }
+
+    @Override // com.baidu.adp.widget.ListView.c, com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b
+    public long getCompleteAnimTime() {
+        return 0L;
+    }
+
+    public boolean aeP() {
+        return this.bRM;
+    }
+
+    public void a(f fVar) {
+        this.bRO = fVar;
+    }
+
+    public void setExecuteMsgAnimation(boolean z) {
+        this.bRQ = z;
+    }
+
+    public void aeQ() {
+        if (aeP() && this.bRQ && this.bRP != null && this.bRD != null) {
+            this.bRE.setVisibility(8);
+            this.bRK.setVisibility(8);
+            if (this.bRN == null) {
+                this.bRN = new SmartBubbleAnimatedView(getContext());
+                this.bRN.setExtrusionRemind(true);
             }
-        };
-        com.baidu.adp.lib.g.e.jG().postDelayed(this.aHS, i);
+            this.bRN.bRT = this.bRP.getTipText();
+            this.bRN.fdf = this.bRP.aeU();
+            if (this.bRN.getParent() != null) {
+                this.bRD.removeView(this.bRN);
+            }
+            this.bRD.addView(this.bRN);
+            this.bRN.setOnBubbleAnimateListener(new SmartBubbleAnimatedView.a() { // from class: com.baidu.tbadk.core.view.h.2
+                @Override // com.baidu.tieba.frs.SmartBubbleAnimatedView.a
+                public void aeS() {
+                    if (h.this.bRO != null) {
+                        h.this.bRO.onAnimationEnd();
+                    }
+                }
+            });
+            if (this.bRO != null) {
+                this.bRO.ig(this.bRN.getTipViewHeight());
+            }
+            this.bRN.bex();
+        }
+    }
+
+    public void aeR() {
+        if (this.bRD != null && this.bRN != null && this.bRN.getParent() != null) {
+            this.bRD.removeView(this.bRN);
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public static class e {
+        private String bRT;
+        private int bRU;
+
+        public e(String str, int i) {
+            this.bRT = str;
+            this.bRU = i;
+        }
+
+        public String getTipText() {
+            return this.bRT;
+        }
+
+        public int aeU() {
+            return this.bRU;
+        }
     }
 }

@@ -8,47 +8,47 @@ import com.baidu.tbadk.BaseActivity;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class y {
-    private static y gIG = null;
-    private LinkedHashMap<String, Integer> gIH = new LinkedHashMap<>(BaseActivity.SHOW_SOFT_KEYBOARD_DELAY, 0.75f, true);
-    private CustomMessageListener bRk = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.play.y.1
+    private static y hYN = null;
+    private LinkedHashMap<String, Integer> hYO = new LinkedHashMap<>(BaseActivity.SHOW_SOFT_KEYBOARD_DELAY, 0.75f, true);
+    private CustomMessageListener dgB = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.play.y.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                y.this.gIH.clear();
+                y.this.hYO.clear();
             }
         }
     };
 
     private y() {
-        MessageManager.getInstance().registerListener(this.bRk);
+        MessageManager.getInstance().registerListener(this.dgB);
     }
 
-    public static y btx() {
-        if (gIG == null) {
+    public static y bTS() {
+        if (hYN == null) {
             synchronized (y.class) {
-                if (gIG == null) {
-                    gIG = new y();
+                if (hYN == null) {
+                    hYN = new y();
                 }
             }
         }
-        return gIG;
+        return hYN;
     }
 
-    public void aO(String str, int i) {
-        if (i != 0 || !this.gIH.containsKey(str)) {
-            this.gIH.put(str, Integer.valueOf(i));
+    public void bj(String str, int i) {
+        if (i != 0 || !this.hYO.containsKey(str)) {
+            this.hYO.put(str, Integer.valueOf(i));
         }
     }
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.gIH.remove(str);
+            this.hYO.remove(str);
         }
     }
 
-    public int up(String str) {
-        Integer num = this.gIH.get(str);
+    public int AU(String str) {
+        Integer num = this.hYO.get(str);
         if (num != null) {
             return num.intValue();
         }
@@ -56,6 +56,6 @@ public class y {
     }
 
     public void clear() {
-        this.gIH.clear();
+        this.hYO.clear();
     }
 }

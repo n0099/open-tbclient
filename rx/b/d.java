@@ -1,45 +1,97 @@
 package rx.b;
 
-import java.util.Arrays;
-import rx.exceptions.CompositeException;
-import rx.exceptions.OnCompletedFailedException;
-import rx.exceptions.OnErrorFailedException;
-import rx.exceptions.OnErrorNotImplementedException;
-import rx.exceptions.UnsubscribeFailedException;
-import rx.j;
+import rx.exceptions.OnErrorThrowable;
+import rx.internal.operators.NotificationLite;
 /* loaded from: classes2.dex */
-public class d<T> extends j<T> {
-    private final j<? super T> actual;
-    boolean done;
+public class d<T> implements rx.e<T> {
+    private boolean emitting;
+    private final rx.e<? super T> kbC;
+    private a kbD;
+    private volatile boolean terminated;
 
-    public d(j<? super T> jVar) {
-        super(jVar);
-        this.actual = jVar;
+    /* loaded from: classes2.dex */
+    static final class a {
+        Object[] array;
+        int size;
+
+        a() {
+        }
+
+        public void add(Object obj) {
+            Object[] objArr;
+            int i = this.size;
+            Object[] objArr2 = this.array;
+            if (objArr2 == null) {
+                objArr = new Object[16];
+                this.array = objArr;
+            } else if (i == objArr2.length) {
+                objArr = new Object[(i >> 2) + i];
+                System.arraycopy(objArr2, 0, objArr, 0, i);
+                this.array = objArr;
+            } else {
+                objArr = objArr2;
+            }
+            objArr[i] = obj;
+            this.size = i + 1;
+        }
     }
 
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
+    public d(rx.e<? super T> eVar) {
+        this.kbC = eVar;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x0032, code lost:
+        continue;
+     */
     @Override // rx.e
-    public void onCompleted() {
-        UnsubscribeFailedException unsubscribeFailedException;
-        if (!this.done) {
-            this.done = true;
-            try {
-                this.actual.onCompleted();
-                try {
-                    unsubscribe();
-                } finally {
-                }
-            } catch (Throwable th) {
-                try {
-                    rx.exceptions.a.J(th);
-                    rx.c.c.onError(th);
-                    throw new OnCompletedFailedException(th.getMessage(), th);
-                } catch (Throwable th2) {
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onNext(T t) {
+        if (!this.terminated) {
+            synchronized (this) {
+                if (!this.terminated) {
+                    if (this.emitting) {
+                        a aVar = this.kbD;
+                        if (aVar == null) {
+                            aVar = new a();
+                            this.kbD = aVar;
+                        }
+                        aVar.add(NotificationLite.bp(t));
+                        return;
+                    }
+                    this.emitting = true;
                     try {
-                        unsubscribe();
-                        throw th2;
-                    } finally {
+                        this.kbC.onNext(t);
+                        while (true) {
+                            synchronized (this) {
+                                a aVar2 = this.kbD;
+                                if (aVar2 == null) {
+                                    this.emitting = false;
+                                    return;
+                                }
+                                this.kbD = null;
+                                Object[] objArr = aVar2.array;
+                                for (Object obj : objArr) {
+                                    if (obj != null) {
+                                        try {
+                                            if (NotificationLite.a(this.kbC, obj)) {
+                                                this.terminated = true;
+                                                return;
+                                            }
+                                        } catch (Throwable th) {
+                                            this.terminated = true;
+                                            rx.exceptions.a.L(th);
+                                            this.kbC.onError(OnErrorThrowable.addValueAsLastCause(th, t));
+                                            return;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    } catch (Throwable th2) {
+                        this.terminated = true;
+                        rx.exceptions.a.a(th2, this.kbC, t);
                     }
                 }
             }
@@ -48,51 +100,45 @@ public class d<T> extends j<T> {
 
     @Override // rx.e
     public void onError(Throwable th) {
-        rx.exceptions.a.J(th);
-        if (!this.done) {
-            this.done = true;
-            T(th);
+        rx.exceptions.a.L(th);
+        if (!this.terminated) {
+            synchronized (this) {
+                if (!this.terminated) {
+                    this.terminated = true;
+                    if (this.emitting) {
+                        a aVar = this.kbD;
+                        if (aVar == null) {
+                            aVar = new a();
+                            this.kbD = aVar;
+                        }
+                        aVar.add(NotificationLite.O(th));
+                        return;
+                    }
+                    this.emitting = true;
+                    this.kbC.onError(th);
+                }
+            }
         }
     }
 
     @Override // rx.e
-    public void onNext(T t) {
-        try {
-            if (!this.done) {
-                this.actual.onNext(t);
-            }
-        } catch (Throwable th) {
-            rx.exceptions.a.a(th, this);
-        }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    protected void T(Throwable th) {
-        rx.c.f.cgp().cgq().C(th);
-        try {
-            this.actual.onError(th);
-            try {
-                unsubscribe();
-            } catch (Throwable th2) {
-                rx.c.c.onError(th2);
-                throw new OnErrorFailedException(th2);
-            }
-        } catch (OnErrorNotImplementedException e) {
-            try {
-                unsubscribe();
-                throw e;
-            } catch (Throwable th3) {
-                rx.c.c.onError(th3);
-                throw new OnErrorNotImplementedException("Observer.onError not implemented and error while unsubscribing.", new CompositeException(Arrays.asList(th, th3)));
-            }
-        } catch (Throwable th4) {
-            rx.c.c.onError(th4);
-            try {
-                unsubscribe();
-                throw new OnErrorFailedException("Error occurred when trying to propagate error to Observer.onError", new CompositeException(Arrays.asList(th, th4)));
-            } catch (Throwable th5) {
-                rx.c.c.onError(th5);
-                throw new OnErrorFailedException("Error occurred when trying to propagate error to Observer.onError and during unsubscription.", new CompositeException(Arrays.asList(th, th4, th5)));
+    public void onCompleted() {
+        if (!this.terminated) {
+            synchronized (this) {
+                if (!this.terminated) {
+                    this.terminated = true;
+                    if (this.emitting) {
+                        a aVar = this.kbD;
+                        if (aVar == null) {
+                            aVar = new a();
+                            this.kbD = aVar;
+                        }
+                        aVar.add(NotificationLite.cDP());
+                        return;
+                    }
+                    this.emitting = true;
+                    this.kbC.onCompleted();
+                }
             }
         }
     }

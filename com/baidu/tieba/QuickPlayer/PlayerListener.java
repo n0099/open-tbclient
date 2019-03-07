@@ -5,7 +5,7 @@ import android.os.Message;
 import android.os.RemoteException;
 import com.baidu.tieba.QuickPlayer.IQuickMediaPlayerListener;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PlayerListener extends IQuickMediaPlayerListener.Stub {
     private WeakReference<Handler> mHandler;
 

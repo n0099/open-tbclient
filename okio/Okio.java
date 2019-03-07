@@ -1,6 +1,5 @@
 package okio;
 
-import com.baidu.searchbox.ng.ai.apps.system.bluetooth.utils.AiAppsBluetoothConstants;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -222,7 +221,7 @@ public final class Okio {
         return new AsyncTimeout() { // from class: okio.Okio.4
             @Override // okio.AsyncTimeout
             protected IOException newTimeoutException(@Nullable IOException iOException) {
-                SocketTimeoutException socketTimeoutException = new SocketTimeoutException(AiAppsBluetoothConstants.KEY_TIME_OUT);
+                SocketTimeoutException socketTimeoutException = new SocketTimeoutException("timeout");
                 if (iOException != null) {
                     socketTimeoutException.initCause(iOException);
                 }

@@ -15,16 +15,16 @@ public class aa extends y {
     }
 
     @Override // com.facebook.imagepipeline.producers.y
-    protected com.facebook.imagepipeline.f.d e(ImageRequest imageRequest) throws IOException {
-        return d(this.mResources.openRawResource(h(imageRequest)), f(imageRequest));
+    protected com.facebook.imagepipeline.f.d h(ImageRequest imageRequest) throws IOException {
+        return e(this.mResources.openRawResource(k(imageRequest)), i(imageRequest));
     }
 
-    private int f(ImageRequest imageRequest) {
+    private int i(ImageRequest imageRequest) {
         AssetFileDescriptor assetFileDescriptor;
         Throwable th;
         int i;
         try {
-            assetFileDescriptor = this.mResources.openRawResourceFd(h(imageRequest));
+            assetFileDescriptor = this.mResources.openRawResourceFd(k(imageRequest));
         } catch (Resources.NotFoundException e) {
             assetFileDescriptor = null;
         } catch (Throwable th2) {
@@ -62,11 +62,11 @@ public class aa extends y {
     }
 
     @Override // com.facebook.imagepipeline.producers.y
-    protected String caA() {
+    protected String czF() {
         return "LocalResourceFetchProducer";
     }
 
-    private static int h(ImageRequest imageRequest) {
-        return Integer.parseInt(imageRequest.cbc().getPath().substring(1));
+    private static int k(ImageRequest imageRequest) {
+        return Integer.parseInt(imageRequest.cAh().getPath().substring(1));
     }
 }

@@ -31,7 +31,7 @@ public final class y implements Runnable {
         aeVar.b(a.c());
         aeVar.d(this.a.getPackageName());
         aeVar.h = new HashMap();
-        com.xiaomi.channel.commonutils.android.h.a(aeVar.h, "app_version", com.xiaomi.channel.commonutils.android.b.a(this.a, this.a.getPackageName()));
+        com.xiaomi.channel.commonutils.android.h.a(aeVar.h, Constants.EXTRA_KEY_APP_VERSION, com.xiaomi.channel.commonutils.android.b.a(this.a, this.a.getPackageName()));
         com.xiaomi.channel.commonutils.android.h.a(aeVar.h, Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.channel.commonutils.android.b.b(this.a, this.a.getPackageName())));
         com.xiaomi.channel.commonutils.android.h.a(aeVar.h, "push_sdk_vn", "3_2_2");
         com.xiaomi.channel.commonutils.android.h.a(aeVar.h, "push_sdk_vc", Integer.toString(30202));
@@ -39,7 +39,7 @@ public final class y implements Runnable {
         com.xiaomi.channel.commonutils.android.h.a(aeVar.h, Constants.EXTRA_KEY_IMEI_MD5, com.xiaomi.channel.commonutils.string.d.a(com.xiaomi.channel.commonutils.android.e.c(this.a)));
         com.xiaomi.channel.commonutils.android.h.a(aeVar.h, Constants.EXTRA_KEY_REG_ID, a.e());
         com.xiaomi.channel.commonutils.android.h.a(aeVar.h, Constants.EXTRA_KEY_REG_SECRET, a.f());
-        com.xiaomi.channel.commonutils.android.h.a(aeVar.h, Constants.EXTRA_KEY_ACCEPT_TIME, MiPushClient.getAcceptTime(this.a).replace(",", Constants.ACCEPT_TIME_SEPARATOR_SERVER));
+        com.xiaomi.channel.commonutils.android.h.a(aeVar.h, Constants.EXTRA_KEY_ACCEPT_TIME, MiPushClient.getAcceptTime(this.a).replace(Constants.ACCEPT_TIME_SEPARATOR_SP, Constants.ACCEPT_TIME_SEPARATOR_SERVER));
         if (this.b) {
             Map<String, String> map = aeVar.h;
             c = x.c(MiPushClient.getAllAlias(this.a));

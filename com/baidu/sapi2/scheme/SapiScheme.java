@@ -9,12 +9,11 @@ import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SapiWebView;
+import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes.dex */
 public class SapiScheme {
     public static final String ACTION_SC_APP_OTP = "otp";
@@ -52,7 +51,7 @@ public class SapiScheme {
         return !checkPackageSign(context, context.getPackageName()) ? 3 : 0;
     }
 
-    public void invokeScApp(Activity activity, String str, String str2, List<NameValuePair> list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
+    public void invokeScApp(Activity activity, String str, String str2, List<PassNameValuePair> list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
         this.a = invokeScAppResult;
         SapiScheme sapiScheme = new SapiScheme();
         if (!sapiScheme.checkPackageSign(activity, SC_APP_PACKAGENAME)) {
@@ -76,17 +75,17 @@ public class SapiScheme {
         }
     }
 
-    private String a(String str, String str2, List<NameValuePair> list) {
+    private String a(String str, String str2, List<PassNameValuePair> list) {
         String str3 = "baiduppscapp://v2/" + str + "?";
         if (list == null) {
             list = new ArrayList<>();
         }
-        list.add(new BasicNameValuePair("minver", str2));
+        list.add(new PassNameValuePair("minver", str2));
         return str3 + SapiUtils.createRequestParams(list);
     }
 
     private void a(Activity activity, String str) throws Exception {
-        activity.startActivityForResult(new Intent("android.intent.action.VIEW", Uri.parse(str)), 3001);
+        activity.startActivityForResult(new Intent("android.intent.action.VIEW", Uri.parse(str)), REQUEST_CODE_START_SC_APP_VERIFY);
     }
 
     public boolean checkPackageSign(Context context, String str) {

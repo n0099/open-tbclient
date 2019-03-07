@@ -13,6 +13,7 @@ import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.share.c;
 import com.baidu.sapi2.share.face.FaceLoginModel;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -96,7 +97,7 @@ public class FaceLoginService {
     public String buildV2FaceUidString(Map<String, Long> map) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(KEY_FACE_LOGIN_LIVINGUNAMES, SapiUtils.map2JsonArray(map, "livinguname", "time"));
+            jSONObject.put(KEY_FACE_LOGIN_LIVINGUNAMES, SapiUtils.map2JsonArray(map, "livinguname", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME));
             return jSONObject.toString();
         } catch (JSONException e) {
             return null;
@@ -113,7 +114,10 @@ public class FaceLoginService {
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(FaceLoginModel.a aVar, FaceLoginModel.a aVar2) {
-                return (int) (aVar.b - aVar2.b);
+                if (aVar.b - aVar2.b > 0) {
+                    return 1;
+                }
+                return aVar.b - aVar2.b == 0 ? 0 : -1;
             }
         });
         for (FaceLoginModel.a aVar : list) {
@@ -132,20 +136,23 @@ public class FaceLoginService {
 
     private List<FaceLoginModel.a> a() {
         ArrayList arrayList = new ArrayList();
-        List<Intent> a2 = c.a(this.context);
-        if (a2.isEmpty()) {
-            return arrayList;
-        }
-        ShareStorage shareStorage = new ShareStorage();
-        for (Intent intent : a2) {
-            FaceLoginModel convertResult2Model = convertResult2Model(shareStorage.getSp(intent.getComponent().getPackageName(), KEY_SHARE_FACE_LOGIN_V1));
-            if (convertResult2Model != null) {
-                arrayList.add(new FaceLoginModel.a(convertResult2Model.livingUid, 0L));
+        if (SapiContext.getInstance(this.context).shareLivingunameEnable()) {
+            List<Intent> a2 = c.a(this.context);
+            if (a2.isEmpty()) {
+                return arrayList;
             }
-        }
-        FaceLoginModel convertResult2Model2 = convertResult2Model(shareStorage.getSd(MD5Util.toMd5(KEY_SHARE_FACE_LOGIN_V1.getBytes(), false)));
-        if (convertResult2Model2 != null) {
-            arrayList.add(new FaceLoginModel.a(convertResult2Model2.livingUid, 0L));
+            ShareStorage shareStorage = new ShareStorage();
+            for (Intent intent : a2) {
+                FaceLoginModel convertResult2Model = convertResult2Model(shareStorage.getSp(intent.getComponent().getPackageName(), KEY_SHARE_FACE_LOGIN_V1));
+                if (convertResult2Model != null) {
+                    arrayList.add(new FaceLoginModel.a(convertResult2Model.livingUid, 0L));
+                }
+            }
+            FaceLoginModel convertResult2Model2 = convertResult2Model(shareStorage.getSd(MD5Util.toMd5(KEY_SHARE_FACE_LOGIN_V1.getBytes(), false)));
+            if (convertResult2Model2 != null) {
+                arrayList.add(new FaceLoginModel.a(convertResult2Model2.livingUid, 0L));
+            }
+            return arrayList;
         }
         return arrayList;
     }
@@ -156,15 +163,18 @@ public class FaceLoginService {
 
     private List<FaceLoginModel.a> c() {
         ArrayList arrayList = new ArrayList();
-        List<Intent> a2 = c.a(this.context);
-        if (a2.isEmpty()) {
+        if (SapiContext.getInstance(this.context).shareLivingunameEnable()) {
+            List<Intent> a2 = c.a(this.context);
+            if (a2.isEmpty()) {
+                return arrayList;
+            }
+            ShareStorage shareStorage = new ShareStorage();
+            for (Intent intent : a2) {
+                arrayList.addAll(str2ShareModelV2List(shareStorage.getSp(intent.getComponent().getPackageName(), KEY_SHARE_FACE_LOGIN_V2)));
+            }
+            arrayList.addAll(str2ShareModelV2List(shareStorage.getSd(MD5Util.toMd5(KEY_SHARE_FACE_LOGIN_V2.getBytes(), false))));
             return arrayList;
         }
-        ShareStorage shareStorage = new ShareStorage();
-        for (Intent intent : a2) {
-            arrayList.addAll(str2ShareModelV2List(shareStorage.getSp(intent.getComponent().getPackageName(), KEY_SHARE_FACE_LOGIN_V2)));
-        }
-        arrayList.addAll(str2ShareModelV2List(shareStorage.getSd(MD5Util.toMd5(KEY_SHARE_FACE_LOGIN_V2.getBytes(), false))));
         return arrayList;
     }
 
@@ -176,7 +186,7 @@ public class FaceLoginService {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     String optString = optJSONObject.optString("livinguname");
-                    long optLong = optJSONObject.optLong("time", 0L);
+                    long optLong = optJSONObject.optLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 0L);
                     if (!TextUtils.isEmpty(optString)) {
                         arrayList.add(new FaceLoginModel.a(optString, optLong));
                     }
@@ -195,7 +205,7 @@ public class FaceLoginService {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                     String optString = optJSONObject.optString("livinguname");
-                    long optLong = optJSONObject.optLong("time", 0L);
+                    long optLong = optJSONObject.optLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, 0L);
                     if (!TextUtils.isEmpty(optString)) {
                         hashMap.put(optString, Long.valueOf(optLong));
                     }

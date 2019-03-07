@@ -1,8 +1,11 @@
 package com.baidu.tbadk.browser;
 
 import android.webkit.JsPromptResult;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.data.AuthVerifyData;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
 /* loaded from: classes.dex */
@@ -17,15 +20,19 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         if ("CommonJSBridge".equals(str)) {
             if ("callNativeSMS".equals(str2)) {
-                ed(str3);
+                kM(str3);
                 jsPromptResult.confirm("1");
                 return true;
             } else if ("copyToClipboard".equals(str2)) {
-                bg(str3);
+                bh(str3);
                 jsPromptResult.confirm("1");
                 return true;
             } else if ("setBlockPopInfo".equals(str2)) {
-                ee(str3);
+                kN(str3);
+                jsPromptResult.confirm("1");
+                return true;
+            } else if ("bindMobileNumber".equals(str2)) {
+                kO(str3);
                 jsPromptResult.confirm("1");
                 return true;
             } else {
@@ -35,7 +42,7 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
         return false;
     }
 
-    private void ed(String str) {
+    private void kM(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             UtilHelper.smsTo(this.mTbPageContext.getPageActivity(), jSONObject.optString("phoneNumber"), jSONObject.optString("content"));
@@ -44,15 +51,15 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
         }
     }
 
-    private void bg(String str) {
+    private void bh(String str) {
         try {
-            com.baidu.adp.lib.util.a.bg(new JSONObject(str).optString("content"));
+            com.baidu.adp.lib.util.a.bh(new JSONObject(str).optString("content"));
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void ee(String str) {
+    private void kN(String str) {
         try {
             BlockPopInfo.Builder builder = new BlockPopInfo.Builder();
             JSONObject jSONObject = new JSONObject(str);
@@ -65,6 +72,14 @@ public class e implements com.baidu.tieba.tbadkCore.e.b {
             BlockPopInfo build = builder.build(false);
             com.baidu.tieba.ueg.c.d(build);
             com.baidu.tieba.ueg.c.e(build);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void kO(String str) {
+        try {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921372, AuthVerifyData.createDataForBindMobile(String.valueOf(System.currentTimeMillis()))));
         } catch (Exception e) {
             e.printStackTrace();
         }

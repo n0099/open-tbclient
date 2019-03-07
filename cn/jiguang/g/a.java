@@ -44,13 +44,9 @@ import cn.jpush.android.service.DaemonService;
 import cn.jpush.android.service.DataProvider;
 import cn.jpush.android.service.PushReceiver;
 import cn.jpush.android.service.PushService;
-import com.baidu.ar.util.IoUtils;
-import com.baidu.fsg.base.armor.RimArmor;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppRomUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -83,7 +79,7 @@ public final class a {
     private static final ArrayList<String> e;
     private static Boolean f;
     private static String g;
-    private static PushReceiver mM;
+    private static PushReceiver mL;
 
     static {
         ArrayList arrayList = new ArrayList();
@@ -91,7 +87,7 @@ public final class a {
         arrayList.add("358673013795895");
         b.add("004999010640000");
         b.add("00000000000000");
-        b.add(Config.NULL_DEVICE_ID);
+        b.add("000000000000000");
         c = new ArrayList<>();
         d = new ArrayList<>();
         c.add("android.permission.INTERNET");
@@ -236,7 +232,7 @@ public final class a {
 
     public static String a(String str) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             char[] charArray = str.toCharArray();
             byte[] bArr = new byte[charArray.length];
             for (int i = 0; i < charArray.length; i++) {
@@ -496,10 +492,10 @@ public final class a {
         String d2 = d();
         String str = d2 == null ? null : d2 + ".push_udid";
         File file = i.a(str) ? null : new File(str);
-        String f2 = cn.jiguang.d.h.f.f(file);
-        if (!TextUtils.isEmpty(f2)) {
-            cn.jiguang.d.a.a.e(context, f2);
-            return f2;
+        String g2 = cn.jiguang.d.h.f.g(file);
+        if (!TextUtils.isEmpty(g2)) {
+            cn.jiguang.d.a.a.e(context, g2);
+            return g2;
         }
         String b2 = i.b(UUID.nameUUIDFromBytes(new StringBuilder().append(System.currentTimeMillis()).toString().getBytes()).toString());
         cn.jiguang.d.a.a.e(context, b2);
@@ -509,11 +505,11 @@ public final class a {
 
     private static String aq(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences("PrefsFile", 0);
-        String string = sharedPreferences.getString(RimArmor.KEY, null);
+        String string = sharedPreferences.getString("key", null);
         if (string == null) {
             String uuid = UUID.randomUUID().toString();
             SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putString(RimArmor.KEY, uuid);
+            edit.putString("key", uuid);
             edit.commit();
             return uuid;
         }
@@ -524,7 +520,7 @@ public final class a {
         String a2 = j.a(context, "ro.product.brand");
         String a3 = j.a(context, "ro.miui.ui.version.name");
         if (!TextUtils.isEmpty(a2) && "Xiaomi".equals(a2) && !TextUtils.isEmpty(a3)) {
-            String a4 = j.a(context, AiAppRomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL);
+            String a4 = j.a(context, "ro.build.version.incremental");
             if (!TextUtils.isEmpty(a4) && a4.startsWith("V7.1")) {
                 return false;
             }
@@ -560,7 +556,7 @@ public final class a {
 
     public static int at(Context context) {
         cn.jiguang.e.c.a("AndroidUtil", "action:checkValidManifest");
-        if (cn.jiguang.d.d.i.bX().f()) {
+        if (cn.jiguang.d.d.i.bW().f()) {
             if (!q(context)) {
                 cn.jiguang.e.c.d("AndroidUtil", "AndroidManifest.xml missing required service: " + PushService.class.getCanonicalName());
                 return 4;
@@ -635,20 +631,20 @@ public final class a {
 
     private static boolean au(Context context) {
         try {
-            if (mM == null) {
-                mM = new PushReceiver();
-                context.registerReceiver(mM, new IntentFilter("android.intent.action.USER_PRESENT"));
-                context.registerReceiver(mM, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+            if (mL == null) {
+                mL = new PushReceiver();
+                context.registerReceiver(mL, new IntentFilter("android.intent.action.USER_PRESENT"));
+                context.registerReceiver(mL, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
                 IntentFilter intentFilter = new IntentFilter("android.intent.action.PACKAGE_ADDED");
                 intentFilter.addDataScheme("package");
                 IntentFilter intentFilter2 = new IntentFilter("android.intent.action.PACKAGE_REMOVED");
                 intentFilter2.addDataScheme("package");
-                context.registerReceiver(mM, intentFilter);
-                context.registerReceiver(mM, intentFilter2);
+                context.registerReceiver(mL, intentFilter);
+                context.registerReceiver(mL, intentFilter2);
                 IntentFilter intentFilter3 = new IntentFilter(JPushInterface.ACTION_NOTIFICATION_RECEIVED_PROXY);
                 intentFilter3.setPriority(1000);
                 intentFilter3.addCategory(context.getPackageName());
-                context.registerReceiver(mM, intentFilter3);
+                context.registerReceiver(mL, intentFilter3);
             } else {
                 cn.jiguang.e.c.a("AndroidUtil", "has register in code");
             }
@@ -696,7 +692,7 @@ public final class a {
 
     public static String b(String str) {
         try {
-            byte[] digest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5).digest(str.getBytes(IoUtils.UTF_8));
+            byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes("utf-8"));
             StringBuffer stringBuffer = new StringBuffer();
             for (byte b2 : digest) {
                 int i = b2 & 255;
@@ -773,7 +769,7 @@ public final class a {
             return str;
         }
         try {
-            return a(str.getBytes(IoUtils.UTF_8));
+            return a(str.getBytes("utf-8"));
         } catch (Throwable th) {
             th.printStackTrace();
             return str;
@@ -839,12 +835,12 @@ public final class a {
         File file = new File(str);
         if (file.exists()) {
             try {
-                ArrayList<String> e2 = cn.jiguang.d.h.f.e(new FileInputStream(file));
-                if (e2.size() > 0) {
-                    return e2.get(0);
+                ArrayList<String> f2 = cn.jiguang.d.h.f.f(new FileInputStream(file));
+                if (f2.size() > 0) {
+                    return f2.get(0);
                 }
                 return null;
-            } catch (Exception e3) {
+            } catch (Exception e2) {
                 return null;
             }
         }
@@ -859,7 +855,7 @@ public final class a {
             }
             String typeName = activeNetworkInfo.getTypeName();
             String subtypeName = activeNetworkInfo.getSubtypeName();
-            return typeName == null ? "Unknown" : !i.a(subtypeName) ? typeName + "," + subtypeName : typeName;
+            return typeName == null ? "Unknown" : !i.a(subtypeName) ? typeName + Constants.ACCEPT_TIME_SEPARATOR_SP + subtypeName : typeName;
         } catch (Exception e2) {
             e2.printStackTrace();
             return "Unknown";
@@ -1088,18 +1084,6 @@ public final class a {
         }
     }
 
-    public static long l(byte[] bArr) {
-        long j = 0;
-        if (bArr != null && bArr.length >= 6) {
-            int i = 0;
-            while (i < 8) {
-                i++;
-                j = (bArr[i + 4] & 255) + (j << 8);
-            }
-        }
-        return j;
-    }
-
     private static String l(Context context, String str) {
         if (c() && a(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
             if (Build.VERSION.SDK_INT < 23) {
@@ -1118,6 +1102,18 @@ public final class a {
             ((AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(PendingIntent.getBroadcast(context, 0, new Intent(context, AlarmReceiver.class), 0));
         } catch (Exception e2) {
         }
+    }
+
+    public static long m(byte[] bArr) {
+        long j = 0;
+        if (bArr != null && bArr.length >= 6) {
+            int i = 0;
+            while (i < 8) {
+                i++;
+                j = (bArr[i + 4] & 255) + (j << 8);
+            }
+        }
+        return j;
     }
 
     public static void m(Context context) {
@@ -1173,7 +1169,7 @@ public final class a {
         cn.jiguang.d.a.d.g(context);
         n(context, "");
         l(context, "");
-        cn.jiguang.d.h.e.ci().b(context);
+        cn.jiguang.d.h.e.ch().b(context);
     }
 
     public static boolean q(Context context) {
@@ -1195,12 +1191,12 @@ public final class a {
     }
 
     public static void s(Context context) {
-        if (mM == null || k(context, PushReceiver.class.getCanonicalName())) {
+        if (mL == null || k(context, PushReceiver.class.getCanonicalName())) {
             return;
         }
         try {
-            context.unregisterReceiver(mM);
-            mM = null;
+            context.unregisterReceiver(mL);
+            mL = null;
         } catch (Exception e2) {
         }
     }
@@ -1356,7 +1352,7 @@ public final class a {
     }
 
     private static String y(Context context) {
-        String string = context.getSharedPreferences("PrefsFile", 0).getString(RimArmor.KEY, null);
+        String string = context.getSharedPreferences("PrefsFile", 0).getString("key", null);
         if (i.a(string)) {
             if (c()) {
                 String a2 = cn.jiguang.d.a.a.a(context);

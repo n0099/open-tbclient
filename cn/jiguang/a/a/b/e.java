@@ -1,6 +1,7 @@
 package cn.jiguang.a.a.b;
 
 import android.text.TextUtils;
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -69,7 +70,7 @@ public final class e {
         try {
             jSONObject.put("lat", this.a);
             jSONObject.put("lng", this.b);
-            jSONObject.put("time", this.g);
+            jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, this.g);
         } catch (JSONException e) {
             e.printStackTrace();
         }

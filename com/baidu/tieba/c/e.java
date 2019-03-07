@@ -13,32 +13,32 @@ import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.util.ab;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tbadk.util.g;
+import com.baidu.tbadk.util.i;
 import com.baidu.tieba.c.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class e implements a.InterfaceC0205a {
-    private static e dhW = null;
-    private a dhX;
-    private a dhY;
-    private ArrayList<TransmitForumData> dhZ;
-    private ArrayList<TransmitForumData> dib;
+public class e implements a.InterfaceC0234a {
+    private static e erV = null;
+    private a erW;
+    private a erX;
+    private ArrayList<TransmitForumData> erY;
+    private ArrayList<TransmitForumData> esa;
     private int mPrivateThread;
     private ArrayList<TransmitForumData> mForumList = new ArrayList<>();
-    private boolean dia = false;
-    private boolean dic = false;
+    private boolean erZ = false;
+    private boolean esb = false;
     private boolean isLoading = false;
 
-    public static e asB() {
-        if (dhW == null) {
+    public static e aSt() {
+        if (erV == null) {
             synchronized (e.class) {
-                if (dhW == null) {
-                    dhW = new e();
+                if (erV == null) {
+                    erV = new e();
                 }
             }
         }
-        return dhW;
+        return erV;
     }
 
     private e() {
@@ -46,38 +46,38 @@ public class e implements a.InterfaceC0205a {
     }
 
     private void init() {
-        asD();
-        asC();
+        aSv();
+        aSu();
         this.isLoading = false;
     }
 
-    private void asC() {
+    private void aSu() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), a.class);
         if (runTask != null) {
-            this.dhY = (a) runTask.getData();
+            this.erX = (a) runTask.getData();
         }
-        if (this.dhY != null) {
-            this.dhY.a(this);
+        if (this.erX != null) {
+            this.erX.a(this);
         }
     }
 
-    private void asD() {
+    private void aSv() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), a.class);
         if (runTask != null) {
-            this.dhX = (a) runTask.getData();
+            this.erW = (a) runTask.getData();
         }
-        if (this.dhX != null) {
-            this.dhX.a(this);
+        if (this.erW != null) {
+            this.erW.a(this);
         }
     }
 
     public void a(ShareDialogConfig shareDialogConfig) {
-        if (shareDialogConfig != null && shareDialogConfig.shareItem != null && !g.isFastDoubleClick()) {
+        if (shareDialogConfig != null && shareDialogConfig.shareItem != null && !i.isFastDoubleClick()) {
             if (shareDialogConfig.showLocation) {
-                shareDialogConfig.shareItem.aSP = asH();
+                shareDialogConfig.shareItem.cbw = aSz();
             }
-            if (l.ll() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.isLoading) {
-                asE();
+            if (l.lo() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.isLoading) {
+                aSw();
             }
             shareDialogConfig.setIsShowTransmitShare(true);
             shareDialogConfig.setTransmitForumList(this.mForumList);
@@ -86,70 +86,70 @@ public class e implements a.InterfaceC0205a {
         }
     }
 
-    public void asE() {
+    public void aSw() {
         this.isLoading = true;
-        if (this.dhX != null) {
-            this.dhX.asq();
+        if (this.erW != null) {
+            this.erW.aSi();
         }
-        if (this.dhY != null) {
-            this.dhY.asq();
+        if (this.erX != null) {
+            this.erX.aSi();
         }
     }
 
-    @Override // com.baidu.tieba.c.a.InterfaceC0205a
+    @Override // com.baidu.tieba.c.a.InterfaceC0234a
     public void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2) {
         if (i == 1) {
             if (z) {
-                this.dib = arrayList;
+                this.esa = arrayList;
             }
-            this.dic = true;
+            this.esb = true;
         } else if (i == 2) {
             if (z) {
-                this.dhZ = arrayList;
+                this.erY = arrayList;
                 this.mPrivateThread = i2;
             }
-            this.dia = true;
+            this.erZ = true;
         }
-        asF();
+        aSx();
     }
 
-    private void asF() {
-        if (this.dhX == null || this.dia) {
-            if (this.dhY == null || this.dic) {
-                this.dia = false;
-                this.dic = false;
+    private void aSx() {
+        if (this.erW == null || this.erZ) {
+            if (this.erX == null || this.esb) {
+                this.erZ = false;
+                this.esb = false;
                 this.isLoading = false;
                 this.mForumList.clear();
-                if (!v.I(this.dhZ)) {
-                    Iterator<TransmitForumData> it = this.dhZ.iterator();
+                if (!v.T(this.erY)) {
+                    Iterator<TransmitForumData> it = this.erY.iterator();
                     while (it.hasNext()) {
                         TransmitForumData next = it.next();
-                        if (!bI(next.forumId)) {
+                        if (!ci(next.forumId)) {
                             this.mForumList.add(next);
                         }
                     }
                 }
-                if (!v.I(this.dib)) {
-                    Iterator<TransmitForumData> it2 = this.dib.iterator();
+                if (!v.T(this.esa)) {
+                    Iterator<TransmitForumData> it2 = this.esa.iterator();
                     while (it2.hasNext()) {
                         TransmitForumData next2 = it2.next();
-                        if (!bI(next2.forumId)) {
+                        if (!ci(next2.forumId)) {
                             this.mForumList.add(next2);
                         }
                     }
                 }
-                this.dhZ = null;
-                this.dib = null;
-                asG();
+                this.erY = null;
+                this.esa = null;
+                aSy();
             }
         }
     }
 
-    private void asG() {
+    private void aSy() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016563, this.mForumList));
     }
 
-    private boolean bI(long j) {
+    private boolean ci(long j) {
         if (this.mForumList == null) {
             return false;
         }
@@ -163,8 +163,8 @@ public class e implements a.InterfaceC0205a {
         return false;
     }
 
-    private Location asH() {
-        if (ab.bC(TbadkCoreApplication.getInst())) {
+    private Location aSz() {
+        if (ab.cR(TbadkCoreApplication.getInst())) {
             LocationManager locationManager = (LocationManager) TbadkCoreApplication.getInst().getSystemService(Headers.LOCATION);
             Criteria criteria = new Criteria();
             criteria.setAccuracy(1);

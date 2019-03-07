@@ -6,26 +6,26 @@ import rx.d;
 public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements d.a<T> {
     final rx.functions.b<? super rx.k> connection;
     final int numberOfSubscribers;
-    final rx.observables.c<? extends T> source;
+    final rx.observables.a<? extends T> source;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
         call((rx.j) ((rx.j) obj));
     }
 
-    public OnSubscribeAutoConnect(rx.observables.c<? extends T> cVar, int i, rx.functions.b<? super rx.k> bVar) {
+    public OnSubscribeAutoConnect(rx.observables.a<? extends T> aVar, int i, rx.functions.b<? super rx.k> bVar) {
         if (i <= 0) {
             throw new IllegalArgumentException("numberOfSubscribers > 0 required");
         }
-        this.source = cVar;
+        this.source = aVar;
         this.numberOfSubscribers = i;
         this.connection = bVar;
     }
 
     public void call(rx.j<? super T> jVar) {
-        this.source.unsafeSubscribe(rx.b.g.b(jVar));
+        this.source.a(rx.b.f.d(jVar));
         if (incrementAndGet() == this.numberOfSubscribers) {
-            this.source.c(this.connection);
+            this.source.f(this.connection);
         }
     }
 }

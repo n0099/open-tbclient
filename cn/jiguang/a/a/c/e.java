@@ -4,9 +4,6 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
 import cn.jiguang.d.d.aa;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -18,8 +15,8 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class e implements Thread.UncaughtExceptionHandler {
     public boolean a;
-    private Thread.UncaughtExceptionHandler kP = null;
-    private static e kO = new e();
+    private Thread.UncaughtExceptionHandler kR = null;
+    private static e kQ = new e();
     private static int c = 1048576;
 
     private e() {
@@ -28,12 +25,12 @@ public final class e implements Thread.UncaughtExceptionHandler {
     }
 
     private static JSONArray T(Context context) {
-        String f = cn.jiguang.d.h.f.f(cn.jiguang.d.h.f.K(context, "jpush_uncaughtexception_file"));
-        if (TextUtils.isEmpty(f)) {
+        String g = cn.jiguang.d.h.f.g(cn.jiguang.d.h.f.K(context, "jpush_uncaughtexception_file"));
+        if (TextUtils.isEmpty(g)) {
             return null;
         }
         try {
-            return new JSONArray(f);
+            return new JSONArray(g);
         } catch (JSONException e) {
             return null;
         }
@@ -48,8 +45,8 @@ public final class e implements Thread.UncaughtExceptionHandler {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("crashlogs", T);
-            jSONObject.put(HttpConstants.NETWORK_TYPE, cn.jiguang.g.a.e(context));
-            aa.a(context, jSONObject, com.baidu.fsg.base.statistics.b.o);
+            jSONObject.put("network_type", cn.jiguang.g.a.e(context));
+            aa.a(context, jSONObject, "crash_log");
             JSONObject a = b.a(context);
             if (a == null || a.length() <= 0) {
                 return jSONObject;
@@ -102,7 +99,7 @@ public final class e implements Thread.UncaughtExceptionHandler {
                 }
                 jSONObject = jSONArray.optJSONObject(i4);
                 if (jSONObject != null && stringWriter2.equals(jSONObject.getString("stacktrace"))) {
-                    jSONObject.put(Config.TRACE_VISIT_RECENT_COUNT, jSONObject.getInt(Config.TRACE_VISIT_RECENT_COUNT) + 1);
+                    jSONObject.put("count", jSONObject.getInt("count") + 1);
                     jSONObject.put("crashtime", bH);
                     break;
                 }
@@ -115,7 +112,7 @@ public final class e implements Thread.UncaughtExceptionHandler {
             jSONObject2.put("crashtime", bH);
             jSONObject2.put("stacktrace", stringWriter2);
             jSONObject2.put("message", a(th));
-            jSONObject2.put(Config.TRACE_VISIT_RECENT_COUNT, 1);
+            jSONObject2.put("count", 1);
             jSONObject2.put("networktype", cn.jiguang.g.a.e(context));
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 1);
             if (packageInfo != null) {
@@ -158,8 +155,8 @@ public final class e implements Thread.UncaughtExceptionHandler {
     }
 
     public static void a(Context context, String str) {
-        if (!cn.jiguang.g.i.a(str) && str.equals(com.baidu.fsg.base.statistics.b.o)) {
-            e eVar = kO;
+        if (!cn.jiguang.g.i.a(str) && str.equals("crash_log")) {
+            e eVar = kQ;
             if (context == null || !cn.jiguang.d.a.d.d(context)) {
                 return;
             }
@@ -171,20 +168,20 @@ public final class e implements Thread.UncaughtExceptionHandler {
     }
 
     public static e bq() {
-        return kO;
+        return kQ;
     }
 
     private JSONArray c(Context context, Throwable th) {
         JSONArray jSONArray;
         int i = 0;
-        String f = cn.jiguang.d.h.f.f(cn.jiguang.d.h.f.K(context, "jpush_uncaughtexception_file"));
-        if (TextUtils.isEmpty(f)) {
+        String g = cn.jiguang.d.h.f.g(cn.jiguang.d.h.f.K(context, "jpush_uncaughtexception_file"));
+        if (TextUtils.isEmpty(g)) {
             jSONArray = null;
         } else {
             try {
-                jSONArray = new JSONArray(f);
+                jSONArray = new JSONArray(g);
                 try {
-                    i = f.length();
+                    i = g.length();
                 } catch (JSONException e) {
                 }
             } catch (JSONException e2) {
@@ -195,8 +192,8 @@ public final class e implements Thread.UncaughtExceptionHandler {
     }
 
     public final void b() {
-        if (this.kP == null) {
-            this.kP = Thread.getDefaultUncaughtExceptionHandler();
+        if (this.kR == null) {
+            this.kR = Thread.getDefaultUncaughtExceptionHandler();
         }
         Thread.setDefaultUncaughtExceptionHandler(this);
     }
@@ -217,13 +214,13 @@ public final class e implements Thread.UncaughtExceptionHandler {
             try {
                 f fVar = new f(this);
                 fVar.start();
-                fVar.join(SystemScreenshotManager.DELAY_TIME);
+                fVar.join(2000L);
             } catch (InterruptedException e) {
             } catch (Throwable th2) {
             }
         }
-        if (this.kP != this) {
-            this.kP.uncaughtException(thread, th);
+        if (this.kR != this) {
+            this.kR.uncaughtException(thread, th);
         }
         throw new RuntimeException(th);
     }

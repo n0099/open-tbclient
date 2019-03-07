@@ -5,14 +5,14 @@ import com.facebook.common.internal.d;
 @d
 /* loaded from: classes2.dex */
 public class RealtimeSinceBootClock {
-    private static final RealtimeSinceBootClock ikX = new RealtimeSinceBootClock();
+    private static final RealtimeSinceBootClock jAz = new RealtimeSinceBootClock();
 
     private RealtimeSinceBootClock() {
     }
 
     @d
     public static RealtimeSinceBootClock get() {
-        return ikX;
+        return jAz;
     }
 
     public long now() {

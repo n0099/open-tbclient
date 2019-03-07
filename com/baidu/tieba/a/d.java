@@ -1,51 +1,80 @@
 package com.baidu.tieba.a;
 
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.v;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class d {
-    private static volatile d bBj;
-    private ArrayList<Integer> bBf = new ArrayList<>();
-    private c bBg;
-    private a bBk;
+    private static volatile d cMp;
+    private ArrayList<Integer> cMl = new ArrayList<>();
+    private c cMm;
+    private a cMq;
+    private List<am> cMr;
 
-    public static d Wk() {
-        if (bBj == null) {
+    public static d awk() {
+        if (cMp == null) {
             synchronized (c.class) {
-                if (bBj == null) {
-                    bBj = new d();
+                if (cMp == null) {
+                    cMp = new d();
                 }
             }
         }
-        return bBj;
+        return cMp;
     }
 
     private d() {
-        this.bBf.add(1);
-        this.bBf.add(2);
-        this.bBg = new c();
-        this.bBk = new a(this.bBg, this.bBf);
-        hI(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_abtest_channel", 0));
+        this.cMl.add(1);
+        this.cMl.add(2);
+        this.cMm = new c();
+        this.cMq = new a(this.cMm, this.cMl);
+        ly(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_abtest_channel", 0));
     }
 
-    public int N(String str, int i) {
-        if (this.bBk == null) {
+    public int ak(String str, int i) {
+        if (this.cMq == null) {
             return 0;
         }
-        return this.bBk.N(str, i);
+        return this.cMq.ak(str, i);
     }
 
-    public void ka(String str) {
-        if (this.bBk != null) {
-            this.bBk.jZ(str);
+    public void qL(String str) {
+        if (this.cMq != null) {
+            this.cMq.qK(str);
+        }
+    }
+
+    public void b(am amVar) {
+        if (amVar != null) {
+            if (this.cMr == null) {
+                this.cMr = new ArrayList();
+            }
+            this.cMr.add(amVar);
+        }
+    }
+
+    public void bA(String str, String str2) {
+        if (!v.T(this.cMr) && this.cMm != null && this.cMm.awi()) {
+            int i = -1;
+            for (am amVar : this.cMr) {
+                if (amVar != null) {
+                    if (amVar.getPosition() == 0) {
+                        a(str, str2, amVar);
+                    } else if (i != amVar.getPosition()) {
+                        i = amVar.getPosition();
+                        a(str, str2, amVar);
+                    }
+                    i = i;
+                }
+            }
+            this.cMr.clear();
         }
     }
 
     public void a(String str, String str2, am amVar) {
-        if (amVar != null && this.bBg != null && this.bBg.Wi()) {
+        if (amVar != null && this.cMm != null && this.cMm.awi()) {
             HashMap hashMap = new HashMap();
             List<Object> params = amVar.getParams();
             if (params != null) {
@@ -69,20 +98,20 @@ public class d {
     }
 
     public void onPageStart(String str) {
-        if (ao.isEmpty(str) || this.bBg == null || !this.bBg.Wi()) {
-            com.baidu.ubs.analytics.a.yK(str);
+        if (ap.isEmpty(str) || this.cMm == null || !this.cMm.awi()) {
+            com.baidu.ubs.analytics.a.EM(str);
         }
     }
 
     public void onPageEnd(String str) {
-        if (ao.isEmpty(str) || this.bBg == null || !this.bBg.Wi()) {
-            com.baidu.ubs.analytics.a.yL(str);
+        if (ap.isEmpty(str) || this.cMm == null || !this.cMm.awi()) {
+            com.baidu.ubs.analytics.a.EN(str);
         }
     }
 
-    public void hI(int i) {
-        if (this.bBg != null) {
-            this.bBg.hI(i);
+    public void ly(int i) {
+        if (this.cMm != null) {
+            this.cMm.ly(i);
         }
     }
 }

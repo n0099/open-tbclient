@@ -9,7 +9,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 /* loaded from: classes.dex */
 public class a {
-    public static void h(InputStream inputStream) {
+    public static void i(InputStream inputStream) {
         if (inputStream != null) {
             try {
                 inputStream.close();
@@ -49,7 +49,7 @@ public class a {
         }
     }
 
-    public static void h(HttpURLConnection httpURLConnection) {
+    public static void f(HttpURLConnection httpURLConnection) {
         if (httpURLConnection != null) {
             try {
                 httpURLConnection.disconnect();

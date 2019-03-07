@@ -6,25 +6,25 @@ import java.util.regex.Matcher;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class i implements h {
-    private final MatchResult iDk;
-    private final f iDl;
-    private final Matcher iDm;
-    private final CharSequence iDn;
+    private final MatchResult jSV;
+    private final f jSW;
+    private final Matcher jSX;
+    private final CharSequence jSY;
 
     public i(Matcher matcher, CharSequence charSequence) {
-        kotlin.jvm.internal.p.j(matcher, "matcher");
-        kotlin.jvm.internal.p.j(charSequence, "input");
-        this.iDm = matcher;
-        this.iDn = charSequence;
-        this.iDk = this.iDm.toMatchResult();
-        this.iDl = new a();
+        kotlin.jvm.internal.p.k(matcher, "matcher");
+        kotlin.jvm.internal.p.k(charSequence, "input");
+        this.jSX = matcher;
+        this.jSY = charSequence;
+        this.jSV = this.jSX.toMatchResult();
+        this.jSW = new a();
     }
 
     @Override // kotlin.text.h
-    public kotlin.b.c cdx() {
+    public kotlin.b.c cCC() {
         kotlin.b.c a2;
-        MatchResult matchResult = this.iDk;
-        kotlin.jvm.internal.p.i(matchResult, "matchResult");
+        MatchResult matchResult = this.jSV;
+        kotlin.jvm.internal.p.j(matchResult, "matchResult");
         a2 = j.a(matchResult);
         return a2;
     }
@@ -49,7 +49,7 @@ public final class i implements h {
 
         @Override // kotlin.collections.a
         public int getSize() {
-            return i.this.iDk.groupCount() + 1;
+            return i.this.jSV.groupCount() + 1;
         }
 
         @Override // kotlin.collections.a, java.util.Collection
@@ -62,14 +62,14 @@ public final class i implements h {
             return kotlin.sequences.d.c(kotlin.collections.n.d(kotlin.collections.n.i(this)), new MatcherMatchResult$groups$1$iterator$1(this)).iterator();
         }
 
-        public e zr(int i) {
+        public e Dd(int i) {
             kotlin.b.c a;
-            MatchResult matchResult = i.this.iDk;
-            kotlin.jvm.internal.p.i(matchResult, "matchResult");
+            MatchResult matchResult = i.this.jSV;
+            kotlin.jvm.internal.p.j(matchResult, "matchResult");
             a = j.a(matchResult, i);
-            if (a.cds().intValue() >= 0) {
-                String group = i.this.iDk.group(i);
-                kotlin.jvm.internal.p.i(group, "matchResult.group(index)");
+            if (a.cCx().intValue() >= 0) {
+                String group = i.this.jSV.group(i);
+                kotlin.jvm.internal.p.j(group, "matchResult.group(index)");
                 return new e(group, a);
             }
             return null;
@@ -77,11 +77,11 @@ public final class i implements h {
     }
 
     @Override // kotlin.text.h
-    public h cdy() {
+    public h cCD() {
         h a2;
-        int end = (this.iDk.end() == this.iDk.start() ? 1 : 0) + this.iDk.end();
-        if (end <= this.iDn.length()) {
-            a2 = j.a(this.iDm, end, this.iDn);
+        int end = (this.jSV.end() == this.jSV.start() ? 1 : 0) + this.jSV.end();
+        if (end <= this.jSY.length()) {
+            a2 = j.a(this.jSX, end, this.jSY);
             return a2;
         }
         return null;

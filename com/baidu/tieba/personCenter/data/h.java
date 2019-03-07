@@ -1,8 +1,8 @@
 package com.baidu.tieba.personCenter.data;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class h {
-    public boolean gvT;
-    public String gvV;
-    public boolean gvS = false;
-    public long gvU = -1;
+    public boolean hMi;
+    public String hMk;
+    public boolean isShowRedTip = false;
+    public long hMj = -1;
 }

@@ -5,9 +5,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class b implements com.baidu.tbadk.core.e.a {
-    private a hvN;
+    private a iMf;
 
     @Override // com.baidu.tbadk.core.e.a
     public void c(Context context, int i, boolean z) {
@@ -15,17 +15,17 @@ public class b implements com.baidu.tbadk.core.e.a {
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public void k(Context context, int i) {
+    public void o(Context context, int i) {
         MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i)));
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public void by(Context context) {
+    public void cM(Context context) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount != null && currentAccount.length() > 0) {
-            k(context, 1);
+            o(context, 1);
         } else {
-            k(context, 0);
+            o(context, 0);
         }
     }
 
@@ -35,24 +35,24 @@ public class b implements com.baidu.tbadk.core.e.a {
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public Class<?> CE() {
+    public Class<?> abO() {
         return MainTabActivity.class;
     }
 
     @Override // com.baidu.tbadk.core.e.a
-    public String CF() {
+    public String abP() {
         return MainTabActivity.class.getName();
     }
 
     @Override // com.baidu.tbadk.core.e.a
     public int getCurrentTabType() {
-        if (this.hvN != null) {
-            return this.hvN.getCurrentTabType();
+        if (this.iMf != null) {
+            return this.iMf.getCurrentTabType();
         }
         return -1;
     }
 
     public void a(a aVar) {
-        this.hvN = aVar;
+        this.iMf = aVar;
     }
 }

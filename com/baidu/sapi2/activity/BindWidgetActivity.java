@@ -32,7 +32,7 @@ public class BindWidgetActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
             init();
             setupViews();
         } catch (Throwable th) {
@@ -109,7 +109,7 @@ public class BindWidgetActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void goBack() {
-        if (this.sapiWebView.canGoBack()) {
+        if (this.sapiWebView != null && this.sapiWebView.canGoBack()) {
             this.sapiWebView.goBack();
         } else {
             onClose();

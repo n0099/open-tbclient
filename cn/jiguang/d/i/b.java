@@ -45,7 +45,7 @@ public final class b implements ServiceConnection {
                     dVar.a(2, false);
                 }
                 arrayList.add(dVar);
-                JSONObject b = f.ck().cl().b(this.b.getPackageName(), arrayList);
+                JSONObject b = f.cj().ck().b(this.b.getPackageName(), arrayList);
                 if (b != null) {
                     e.d(this.b, "android_awake", b);
                 }

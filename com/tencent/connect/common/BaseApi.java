@@ -9,9 +9,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.ng.ai.apps.network.NetworkDef;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.auth.c;
 import com.tencent.open.TDialog;
@@ -30,7 +28,7 @@ import org.apache.http.conn.ConnectTimeoutException;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseApi {
     protected c a;
     protected QQToken b;
@@ -51,12 +49,12 @@ public abstract class BaseApi {
     /* JADX INFO: Access modifiers changed from: protected */
     public Bundle a() {
         Bundle bundle = new Bundle();
-        bundle.putString(IjkMediaMeta.IJKM_KEY_FORMAT, NetworkDef.DataType.JSON);
+        bundle.putString(IjkMediaMeta.IJKM_KEY_FORMAT, "json");
         bundle.putString("status_os", Build.VERSION.RELEASE);
         bundle.putString("status_machine", Build.MODEL);
         bundle.putString("status_version", Build.VERSION.SDK);
         bundle.putString("sdkv", Constants.SDK_VERSION);
-        bundle.putString("sdkp", Config.APP_VERSION_CODE);
+        bundle.putString("sdkp", "a");
         if (this.b != null && this.b.isSessionValid()) {
             bundle.putString("access_token", this.b.getAccessToken());
             bundle.putString("oauth_consumer_key", this.b.getAppId());
@@ -65,7 +63,7 @@ public abstract class BaseApi {
         }
         SharedPreferences sharedPreferences = e.a().getSharedPreferences(Constants.PREFERENCE_PF, 0);
         if (isOEM) {
-            bundle.putString(Constants.PARAM_PLATFORM_ID, "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + HttpConstants.OS_TYPE_VALUE + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
+            bundle.putString(Constants.PARAM_PLATFORM_ID, "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + "android" + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
         } else {
             bundle.putString(Constants.PARAM_PLATFORM_ID, sharedPreferences.getString(Constants.PARAM_PLATFORM_ID, Constants.DEFAULT_PF));
         }
@@ -99,19 +97,19 @@ public abstract class BaseApi {
         bundle.putString("platform", "androidqz");
         SharedPreferences sharedPreferences = e.a().getSharedPreferences(Constants.PREFERENCE_PF, 0);
         if (isOEM) {
-            bundle.putString(Constants.PARAM_PLATFORM_ID, "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + HttpConstants.OS_TYPE_VALUE + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
+            bundle.putString(Constants.PARAM_PLATFORM_ID, "desktop_m_qq-" + installChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + "android" + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + registerChannel + com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SERVER + businessId);
         } else {
             bundle.putString(Constants.PARAM_PLATFORM_ID, sharedPreferences.getString(Constants.PARAM_PLATFORM_ID, Constants.DEFAULT_PF));
             bundle.putString(Constants.PARAM_PLATFORM_ID, Constants.DEFAULT_PF);
         }
         bundle.putString("sdkv", Constants.SDK_VERSION);
-        bundle.putString("sdkp", Config.APP_VERSION_CODE);
+        bundle.putString("sdkp", "a");
         return bundle;
     }
 
     private Intent a(Activity activity, Intent intent) {
         Intent intent2 = new Intent(activity.getApplicationContext(), AssistActivity.class);
-        intent2.putExtra("is_login", true);
+        intent2.putExtra(ImageViewerConfig.IS_LOGIN, true);
         intent2.putExtra(AssistActivity.EXTRA_INTENT, intent);
         return intent2;
     }
@@ -186,7 +184,7 @@ public abstract class BaseApi {
     public void releaseResource() {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class TempRequestListener implements IRequestListener {
         private final IUiListener b;
         private final Handler c;

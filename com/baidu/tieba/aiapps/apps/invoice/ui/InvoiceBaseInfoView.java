@@ -6,10 +6,10 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import com.baidu.tieba.aiapps.apps.invoice.f;
+import com.baidu.tieba.aiapps.apps.invoice.e;
 /* loaded from: classes4.dex */
-public abstract class InvoiceBaseInfoView extends LinearLayout implements f {
-    protected InvoiceInfoItemView[] bIe;
+public abstract class InvoiceBaseInfoView extends LinearLayout implements e {
+    protected InvoiceInfoItemView[] cTE;
 
     public InvoiceBaseInfoView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -17,33 +17,33 @@ public abstract class InvoiceBaseInfoView extends LinearLayout implements f {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setTextChangedListener(TextWatcher textWatcher) {
-        if (this.bIe != null && textWatcher != null) {
-            for (int i = 0; i < this.bIe.length; i++) {
-                this.bIe[i].setTextChangedListener(textWatcher);
+        if (this.cTE != null && textWatcher != null) {
+            for (int i = 0; i < this.cTE.length; i++) {
+                this.cTE[i].setTextChangedListener(textWatcher);
             }
         }
     }
 
-    @Override // com.baidu.tieba.aiapps.apps.invoice.f
-    public boolean YX() {
+    @Override // com.baidu.tieba.aiapps.apps.invoice.e
+    public boolean azg() {
         InvoiceInfoItemView[] invoiceInfoItemViewArr;
-        if (this.bIe == null || this.bIe.length == 0) {
+        if (this.cTE == null || this.cTE.length == 0) {
             return false;
         }
-        for (InvoiceInfoItemView invoiceInfoItemView : this.bIe) {
-            if (invoiceInfoItemView.Zb() && TextUtils.isEmpty(invoiceInfoItemView.getContent())) {
+        for (InvoiceInfoItemView invoiceInfoItemView : this.cTE) {
+            if (invoiceInfoItemView.azl() && TextUtils.isEmpty(invoiceInfoItemView.getContent())) {
                 return false;
             }
         }
         return true;
     }
 
-    @Override // com.baidu.tieba.aiapps.apps.invoice.f
-    public boolean YY() {
-        if (this.bIe == null || this.bIe.length == 0) {
+    @Override // com.baidu.tieba.aiapps.apps.invoice.e
+    public boolean azh() {
+        if (this.cTE == null || this.cTE.length == 0) {
             return false;
         }
-        for (InvoiceInfoItemView invoiceInfoItemView : this.bIe) {
+        for (InvoiceInfoItemView invoiceInfoItemView : this.cTE) {
             if (!TextUtils.isEmpty(invoiceInfoItemView.getContent())) {
                 return true;
             }

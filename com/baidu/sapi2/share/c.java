@@ -13,8 +13,6 @@ import android.os.Looper;
 import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import android.widget.Toast;
-import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
@@ -30,6 +28,7 @@ import com.baidu.sapi2.share.face.FaceLoginService;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
+import com.baidu.sapi2.utils.enums.ShareDirectionType;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -285,7 +284,7 @@ public final class c {
             public void run() {
                 SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
                 Context context = confignation.context;
-                if (SapiUtils.isOnline(context) && !com.baidu.sapi2.utils.enums.a.b.equals(confignation.loginShareDirection())) {
+                if (SapiUtils.isOnline(context) && !ShareDirectionType.EXPORT.equals(confignation.loginShareDirection())) {
                     ArrayList arrayList = new ArrayList();
                     List<Intent> a2 = c.a(context);
                     if (a2.size() == 0) {
@@ -329,13 +328,13 @@ public final class c {
                     SapiContext.getInstance(context).setShareStorage(ShareStorage.StorageModel.toJSONArray(arrayList));
                     HashMap hashMap = new HashMap();
                     hashMap.put("cuid", SapiUtils.getClientId(context));
-                    hashMap.put(Config.DEVICE_PART, Build.MODEL);
+                    hashMap.put("device", Build.MODEL);
                     hashMap.put("read_failure_count", i4 + "");
                     hashMap.put("read_sp_count", i3 + "");
                     hashMap.put("read_sd_count", i2 + "");
                     hashMap.put("app_count", i + "");
                     hashMap.put("share_count", arrayList.size() + "");
-                    hashMap.put(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE);
+                    hashMap.put("os_version", Build.VERSION.RELEASE);
                     StatService.onEvent("share_read", hashMap, false);
                 }
             }
@@ -379,7 +378,7 @@ public final class c {
         StatService.onEvent("share_account_click", hashMap, false);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:29:0x00fa  */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x0104  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -409,17 +408,19 @@ public final class c {
                     shareCallPacking.markLoginState(false);
                     sapiContext.removeShareAccount(sapiAccount);
                     SapiContext.getInstance(context).setAccountActionType(ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE);
-                    ArrayList arrayList = new ArrayList();
-                    String stringExtra = intent.getStringExtra("FACE_LOGIN_UID");
-                    if (!TextUtils.isEmpty(stringExtra) && TextUtils.isEmpty(SapiContext.getInstance(context).getFaceLoginUid())) {
-                        arrayList.add(new FaceLoginModel.a(stringExtra, 1L));
-                    }
-                    String stringExtra2 = intent.getStringExtra("V2_FACE_LOGIN_UIDS_TIMES");
-                    if (!TextUtils.isEmpty(stringExtra2)) {
-                        arrayList.addAll(new FaceLoginService().str2ShareModelV2List(stringExtra2));
-                    }
-                    if (!arrayList.isEmpty()) {
-                        new FaceLoginService().syncPriWithShare(arrayList, false);
+                    if (SapiContext.getInstance(context).shareLivingunameEnable()) {
+                        ArrayList arrayList = new ArrayList();
+                        String stringExtra = intent.getStringExtra("FACE_LOGIN_UID");
+                        if (!TextUtils.isEmpty(stringExtra) && TextUtils.isEmpty(SapiContext.getInstance(context).getFaceLoginUid())) {
+                            arrayList.add(new FaceLoginModel.a(stringExtra, 1L));
+                        }
+                        String stringExtra2 = intent.getStringExtra("V2_FACE_LOGIN_UIDS_TIMES");
+                        if (!TextUtils.isEmpty(stringExtra2)) {
+                            arrayList.addAll(new FaceLoginService().str2ShareModelV2List(stringExtra2));
+                        }
+                        if (!arrayList.isEmpty()) {
+                            new FaceLoginService().syncPriWithShare(arrayList, false);
+                        }
                     }
                     SapiContext.getInstance(context).put(SapiContext.KEY_PRE_LOGIN_TYPE, ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE);
                     shareLoginCallBack.onSuccess();

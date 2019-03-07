@@ -10,7 +10,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.searchbox.ng.ai.apps.core.slave.AiAppsSlavePool;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
@@ -28,7 +27,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class QzoneShare extends BaseApi {
     public static final String SHARE_TO_QQ_APP_NAME = "appName";
     public static final String SHARE_TO_QQ_AUDIO_URL = "audio_url";
@@ -178,7 +177,7 @@ public class QzoneShare extends BaseApi {
                 bundle.putString("title", j.a(str, 200, (String) null, (String) null));
             }
             if (!j.e(string2) && string2.length() > 600) {
-                bundle.putString("summary", j.a(string2, (int) AiAppsSlavePool.PRELOAD_NEXT_DELAY_MS, (String) null, (String) null));
+                bundle.putString("summary", j.a(string2, 600, (String) null, (String) null));
             }
         }
         if (!TextUtils.isEmpty(a)) {

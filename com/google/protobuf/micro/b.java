@@ -3,6 +3,7 @@ package com.google.protobuf.micro;
 import android.support.v7.widget.ActivityChooserView;
 import java.io.InputStream;
 import java.util.Vector;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class b {
     private final byte[] a;
@@ -279,9 +280,9 @@ public final class b {
     public String g() {
         int j = j();
         if (j > this.b - this.d || j <= 0) {
-            return new String(e(j), "UTF-8");
+            return new String(e(j), HTTP.UTF_8);
         }
-        String str = new String(this.a, this.d, j, "UTF-8");
+        String str = new String(this.a, this.d, j, HTTP.UTF_8);
         this.d = j + this.d;
         return str;
     }

@@ -11,8 +11,8 @@ import android.net.wifi.WifiManager;
 import android.telephony.NeighboringCellInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.searchbox.ng.ai.apps.media.audio.AiAppsAudioPlayer;
 import com.xiaomi.channel.commonutils.misc.f;
 import com.xiaomi.push.service.ah;
 import com.xiaomi.xmpush.thrift.ae;
@@ -178,7 +178,7 @@ public class d extends f.a {
             com.xiaomi.channel.commonutils.logger.b.d("GeoFenceNetInfoUpdateJobverifyUploadData");
         } else {
             byte[] a = aq.a(d());
-            ae aeVar = new ae(AiAppsAudioPlayer.ERROR_UNKNOWN, false);
+            ae aeVar = new ae(LivenessStat.TYPE_STRING_DEFAULT, false);
             aeVar.c(com.xiaomi.xmpush.thrift.o.GeoUpdateLoc.N);
             aeVar.a(a);
             u.a(this.g).a(aeVar, com.xiaomi.xmpush.thrift.a.Notification, true, null);

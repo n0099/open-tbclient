@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.atomData.PushDialogActivityConfig;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import com.baidu.tieba.pushdialog.data.PullTidHttpRespMessage;
 import com.baidu.tieba.pushdialog.data.PullTidSocketResponseMessage;
 import com.baidu.tieba.pushdialog.data.PushDialogHttpResMsg;
@@ -25,22 +25,22 @@ public class PushDialogStatic {
 
     static {
         TbadkApplication.getInst().RegisterIntent(PushDialogActivityConfig.class, PushDialogActivity.class);
-        avC();
+        aVt();
     }
 
-    private static void avC() {
+    private static void aVt() {
         com.baidu.tieba.tbadkCore.a.a.a(309614, PushDialogSocketResMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, com.baidu.tieba.tbadkCore.a.a.aV(TbConfig.GET_PUSH_DIALOG_DETAIL, 309614));
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, com.baidu.tieba.tbadkCore.a.a.br(TbConfig.GET_PUSH_DIALOG_DETAIL, 309614));
         tbHttpMessageTask.setResponsedClass(PushDialogHttpResMsg.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         com.baidu.tieba.tbadkCore.a.a.a(309618, PullTidSocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, com.baidu.tieba.tbadkCore.a.a.aV(TbConfig.GET_PUSH_DIALOG_TID, 309618));
+        TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, com.baidu.tieba.tbadkCore.a.a.br(TbConfig.GET_PUSH_DIALOG_TID, 309618));
         tbHttpMessageTask2.setResponsedClass(PullTidHttpRespMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask2);
         CustomMessageTask customMessageTask = new CustomMessageTask(2921359, new CustomMessageTask.CustomRunnable() { // from class: com.baidu.tieba.pushdialog.PushDialogStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage customMessage) {
-                PushDialogLoopManager.buL();
+                PushDialogLoopManager.bVx();
                 return null;
             }
         });
@@ -56,7 +56,7 @@ public class PushDialogStatic {
                     if (!(i2 >= 2) && TbSingleton.getInstance().canShowPermDialog()) {
                         final TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) customMessage.getData();
                         if (tbPageContextSupport.getPageContext() != null && tbPageContextSupport.getPageContext().getPageActivity() != null) {
-                            if (b.buR()) {
+                            if (b.bVD()) {
                                 bVar = new a.b() { // from class: com.baidu.tieba.pushdialog.PushDialogStatic.2.1
                                     @Override // com.baidu.tbadk.core.dialog.a.b
                                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -71,8 +71,8 @@ public class PushDialogStatic {
                                         }
                                     }
                                 };
-                                i = e.j.push_dialog_guide_content_miui;
-                            } else if (b.buS()) {
+                                i = d.j.push_dialog_guide_content_miui;
+                            } else if (b.bVE()) {
                                 bVar = new a.b() { // from class: com.baidu.tieba.pushdialog.PushDialogStatic.2.2
                                     @Override // com.baidu.tbadk.core.dialog.a.b
                                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -86,23 +86,23 @@ public class PushDialogStatic {
                                         }
                                     }
                                 };
-                                i = e.j.push_dialog_guide_content_vivo;
+                                i = d.j.push_dialog_guide_content_vivo;
                             } else {
                                 bVar = null;
                             }
                             if (bVar != null) {
                                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(tbPageContextSupport.getPageContext().getPageActivity());
-                                aVar.da(e.j.push_dialog_guide_title);
-                                aVar.db(i);
-                                aVar.a(e.j.go_setting, bVar);
-                                aVar.b(e.j.has_set, new a.b() { // from class: com.baidu.tieba.pushdialog.PushDialogStatic.2.3
+                                aVar.gC(d.j.push_dialog_guide_title);
+                                aVar.gD(i);
+                                aVar.a(d.j.go_setting, bVar);
+                                aVar.b(d.j.has_set, new a.b() { // from class: com.baidu.tieba.pushdialog.PushDialogStatic.2.3
                                     @Override // com.baidu.tbadk.core.dialog.a.b
                                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                                         aVar2.dismiss();
                                     }
                                 });
                                 aVar.b(tbPageContextSupport.getPageContext());
-                                aVar.BS();
+                                aVar.aaZ();
                                 TbSingleton.getInstance().setHasShowPermDlg(true);
                             }
                             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("lock_permission_guide_set", i2 + 1);

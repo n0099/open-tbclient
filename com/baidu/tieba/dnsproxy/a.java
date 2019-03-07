@@ -5,46 +5,46 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class a {
-    private static final String[] dor = {"119.75.222.62", "119.75.222.63"};
-    private static final String[] dos = {"111.13.100.247", "117.185.16.61"};
-    private static final String[] dot = {"111.206.37.190"};
-    private static final String[] dou = {"115.239.211.146", "180.97.33.196"};
+    private static final String[] eyp = {"119.75.222.62", "119.75.222.63"};
+    private static final String[] eyq = {"111.13.100.247", "117.185.16.61"};
+    private static final String[] eyr = {"111.206.37.190"};
+    private static final String[] eys = {"115.239.211.146", "180.97.33.196"};
+    private volatile int eyo;
     private volatile String imsi;
-    private volatile int operator;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String ave() {
-        avf();
-        if (j.kW()) {
-            return dou[new Random().nextInt(dou.length)];
+    public String aUV() {
+        aUW();
+        if (j.kZ()) {
+            return eys[new Random().nextInt(eys.length)];
         }
-        if (j.kX()) {
-            if (this.operator == 1) {
-                return dor[new Random().nextInt(dor.length)];
+        if (j.la()) {
+            if (this.eyo == 1) {
+                return eyp[new Random().nextInt(eyp.length)];
             }
-            if (this.operator == 2) {
-                return dos[new Random().nextInt(dos.length)];
+            if (this.eyo == 2) {
+                return eyq[new Random().nextInt(eyq.length)];
             }
-            if (this.operator == 3) {
-                return dot[new Random().nextInt(dot.length)];
+            if (this.eyo == 3) {
+                return eyr[new Random().nextInt(eyr.length)];
             }
             return "119.75.222.62";
         }
         return "119.75.222.62";
     }
 
-    protected void avf() {
+    protected void aUW() {
         this.imsi = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSubscriberId();
-        this.operator = 0;
+        this.eyo = 0;
         if (this.imsi != null) {
             if (this.imsi.startsWith("46000") || this.imsi.startsWith("46002") || this.imsi.startsWith("46007")) {
-                this.operator = 1;
+                this.eyo = 1;
             } else if (this.imsi.startsWith("46001") || this.imsi.startsWith("46006")) {
-                this.operator = 2;
+                this.eyo = 2;
             } else if (this.imsi.startsWith("46003") || this.imsi.startsWith("46005")) {
-                this.operator = 3;
+                this.eyo = 3;
             }
         }
     }

@@ -5,5 +5,5 @@ import com.baidu.tbadk.core.flow.a.a;
 public interface d<T extends a> {
     void a(int i, T t);
 
-    void i(int i, String str);
+    void y(int i, String str);
 }

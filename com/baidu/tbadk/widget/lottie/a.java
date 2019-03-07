@@ -6,38 +6,38 @@ import com.airbnb.lottie.g;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.d.m;
 /* loaded from: classes.dex */
 public class a implements c {
-    public static final String bqh = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-    private m bqi;
-    private boolean bqj = false;
+    public static final String cAT = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
+    private m cAU;
+    private boolean cAV = false;
     private String mPath;
 
     @Override // com.airbnb.lottie.c
     public Bitmap a(g gVar) {
-        if (ao.isEmpty(this.mPath)) {
+        if (ap.isEmpty(this.mPath)) {
             return null;
         }
-        String str = this.mPath + gVar.cX().replace("/", "") + "/" + gVar.getFileName();
-        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.f.c.jA().a(str, 36, new Object[0]);
+        String str = this.mPath + gVar.cW().replace("/", "") + "/" + gVar.getFileName();
+        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) com.baidu.adp.lib.f.c.jB().a(str, 36, new Object[0]);
         if (aVar == null && getFristLoadInternal()) {
-            if (this.bqi == null) {
-                this.bqi = new m();
+            if (this.cAU == null) {
+                this.cAU = new m();
             }
-            aVar = this.bqi.o(str, 0, 0);
+            aVar = this.cAU.n(str, 0, 0);
         }
-        if (aVar != null && aVar.ot() != null) {
-            Bitmap ot = aVar.ot();
+        if (aVar != null && aVar.oy() != null) {
+            Bitmap oy = aVar.oy();
             try {
-                return ot.copy(ot.getConfig(), false);
+                return oy.copy(oy.getConfig(), false);
             } catch (OutOfMemoryError e) {
                 TbadkCoreApplication.getInst().onAppMemoryLow();
                 BdLog.e(e);
             }
         }
-        com.baidu.adp.lib.f.c.jA().a(str, 36, null, null);
+        com.baidu.adp.lib.f.c.jB().a(str, 36, null, null);
         return null;
     }
 
@@ -46,14 +46,14 @@ public class a implements c {
     }
 
     public static String getAnimationPath() {
-        return bqh + "/" + TbConfig.getTempDirName() + "/animation/";
+        return cAT + "/" + TbConfig.getTempDirName() + "/animation/";
     }
 
     public void setFirstLoadInternal(boolean z) {
-        this.bqj = z;
+        this.cAV = z;
     }
 
     public boolean getFristLoadInternal() {
-        return this.bqj;
+        return this.cAV;
     }
 }

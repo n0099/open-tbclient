@@ -20,45 +20,44 @@ import com.baidu.location.Jni;
 import com.baidu.location.LocationClientOption;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.tieba.model.ReportUserInfoModel;
-import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
 import com.tencent.connect.common.Constants;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class d {
-    String a;
-    private WifiManager ade;
-    private LocationClientOption adg;
-    private b adh;
-    String b;
-    private Context e;
-    private TelephonyManager kx;
-    private String p;
-    private static Method adb = null;
+    private static Method h = null;
     private static Method i = null;
     private static Method j = null;
     private static Method k = null;
     private static Method l = null;
-    private static Class<?> adc = null;
-    private Address acZ = null;
-    private a ada = new a();
-    private C0083d adf = null;
+    private static Class<?> m = null;
+    String a;
+    String b;
+    private Context e;
+    private TelephonyManager f;
+    private WifiManager n;
+    private String p;
+    private LocationClientOption q;
+    private b r;
+    private Address d = null;
+    private a g = new a();
+    private C0043d o = null;
     private String s = null;
-    c adi = new c();
+    c c = new c();
     private long t = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class a {
         public int a;
-        public char adj;
         public int b;
         public int c;
         public int d;
         public int e;
         public int f;
+        public char g;
 
         private a() {
             this.a = -1;
@@ -67,7 +66,7 @@ public class d {
             this.d = -1;
             this.e = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
             this.f = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-            this.adj = (char) 0;
+            this.g = (char) 0;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -79,7 +78,7 @@ public class d {
             if (b()) {
                 StringBuffer stringBuffer = new StringBuffer(128);
                 stringBuffer.append("&nw=");
-                stringBuffer.append(this.adj);
+                stringBuffer.append(this.g);
                 stringBuffer.append(String.format(Locale.CHINA, "&cl=%d|%d|%d|%d", Integer.valueOf(this.c), Integer.valueOf(this.d), Integer.valueOf(this.a), Integer.valueOf(this.b)));
                 if (this.e < Integer.MAX_VALUE && this.f < Integer.MAX_VALUE) {
                     stringBuffer.append(String.format(Locale.CHINA, "&cdmall=%.6f|%.6f", Double.valueOf(this.f / 14400.0d), Double.valueOf(this.e / 14400.0d)));
@@ -90,13 +89,13 @@ public class d {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void onReceiveFixLocation(BDLocation bDLocation);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class c extends com.baidu.location.g.e {
         String a = null;
         private boolean c = false;
@@ -108,7 +107,7 @@ public class d {
         private void b() {
             BDLocation bDLocation = new BDLocation();
             bDLocation.setLocType(63);
-            d.this.adh.onReceiveFixLocation(bDLocation);
+            d.this.r.onReceiveFixLocation(bDLocation);
         }
 
         @Override // com.baidu.location.g.e
@@ -116,7 +115,7 @@ public class d {
             this.h = com.baidu.location.g.g.c();
             String encodeTp4 = Jni.encodeTp4(this.a);
             this.a = null;
-            this.k.put(BaseLocationBox.TYPE, encodeTp4);
+            this.k.put("bloc", encodeTp4);
             this.k.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
         }
 
@@ -145,14 +144,14 @@ public class d {
                     if (bDLocation == null || bDLocation.getLocType() != 161) {
                         b();
                     } else {
-                        bDLocation.setCoorType(d.this.adg.coorType);
+                        bDLocation.setCoorType(d.this.q.coorType);
                         bDLocation.setLocationID(Jni.en1(d.this.a + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + d.this.b + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR + bDLocation.getTime()));
                         if (d.b(bDLocation.getAddress()) == 1) {
                             d.this.a(bDLocation.getAddress());
-                            d.this.adh.onReceiveFixLocation(bDLocation);
+                            d.this.r.onReceiveFixLocation(bDLocation);
                         } else {
                             bDLocation.setAddr(new Address.Builder().build());
-                            d.this.adh.onReceiveFixLocation(bDLocation);
+                            d.this.r.onReceiveFixLocation(bDLocation);
                         }
                     }
                 } catch (Exception e2) {
@@ -169,12 +168,12 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* renamed from: com.baidu.location.a.d$d  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C0083d {
+    /* loaded from: classes3.dex */
+    public class C0043d {
         public List<ScanResult> a;
         private long c;
 
-        public C0083d(List<ScanResult> list) {
+        public C0043d(List<ScanResult> list) {
             this.a = null;
             this.c = 0L;
             this.a = list;
@@ -190,7 +189,7 @@ public class d {
         }
 
         private String c() {
-            WifiInfo connectionInfo = d.this.ade.getConnectionInfo();
+            WifiInfo connectionInfo = d.this.n.getConnectionInfo();
             if (connectionInfo == null) {
                 return null;
             }
@@ -292,23 +291,23 @@ public class d {
     public d(Context context, LocationClientOption locationClientOption, b bVar) {
         String str;
         this.e = null;
-        this.kx = null;
-        this.ade = null;
+        this.f = null;
+        this.n = null;
         this.p = null;
         this.a = null;
         this.b = null;
         this.e = context.getApplicationContext();
-        this.adg = locationClientOption;
-        this.adh = bVar;
+        this.q = locationClientOption;
+        this.r = bVar;
         this.a = this.e.getPackageName();
         this.b = null;
         try {
-            this.kx = (TelephonyManager) this.e.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
-            this.ade = (WifiManager) this.e.getApplicationContext().getSystemService("wifi");
-            str = this.kx.getDeviceId();
+            this.f = (TelephonyManager) this.e.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE);
+            this.n = (WifiManager) this.e.getApplicationContext().getSystemService("wifi");
+            str = this.f.getDeviceId();
         } catch (Exception e) {
-            this.ade = null;
-            this.kx = null;
+            this.n = null;
+            this.f = null;
             str = null;
         }
         try {
@@ -317,9 +316,9 @@ public class d {
             this.b = null;
         }
         if (this.b != null) {
-            this.p = "&prod=" + this.adg.prodName + ":" + this.a + "|&cu=" + this.b + "&coor=" + locationClientOption.getCoorType();
+            this.p = "&prod=" + this.q.prodName + ":" + this.a + "|&cu=" + this.b + "&coor=" + locationClientOption.getCoorType();
         } else {
-            this.p = "&prod=" + this.adg.prodName + ":" + this.a + "|&im=" + str + "&coor=" + locationClientOption.getCoorType();
+            this.p = "&prod=" + this.q.prodName + ":" + this.a + "|&im=" + str + "&coor=" + locationClientOption.getCoorType();
         }
         StringBuffer stringBuffer = new StringBuffer(256);
         stringBuffer.append("&fw=");
@@ -352,15 +351,15 @@ public class d {
             i2 = 3;
         }
         try {
-            a(this.kx.getCellLocation());
-            str = this.ada.a();
+            a(this.f.getCellLocation());
+            str = this.g.a();
         } catch (Throwable th) {
             str = null;
         }
         try {
-            this.adf = null;
-            this.adf = new C0083d(this.ade.getScanResults());
-            str2 = this.adf.a(i2);
+            this.o = null;
+            this.o = new C0043d(this.n.getScanResults());
+            str2 = this.o.a(i2);
         } catch (Exception e) {
             str2 = null;
         }
@@ -382,17 +381,17 @@ public class d {
     }
 
     private void a(CellLocation cellLocation) {
-        if (cellLocation == null || this.kx == null) {
+        if (cellLocation == null || this.f == null) {
             return;
         }
         a aVar = new a();
-        String networkOperator = this.kx.getNetworkOperator();
+        String networkOperator = this.f.getNetworkOperator();
         if (networkOperator != null && networkOperator.length() > 0) {
             int i2 = -1;
             try {
                 if (networkOperator.length() >= 3) {
                     i2 = Integer.valueOf(networkOperator.substring(0, 3)).intValue();
-                    aVar.c = i2 < 0 ? this.ada.c : i2;
+                    aVar.c = i2 < 0 ? this.g.c : i2;
                 }
                 String substring = networkOperator.substring(3);
                 if (substring != null) {
@@ -404,7 +403,7 @@ public class d {
                     i2 = Integer.valueOf(substring.substring(0, i3)).intValue();
                 }
                 if (i2 < 0) {
-                    i2 = this.ada.d;
+                    i2 = this.g.d;
                 }
                 aVar.d = i2;
             } catch (Exception e) {
@@ -413,30 +412,30 @@ public class d {
         if (cellLocation instanceof GsmCellLocation) {
             aVar.a = ((GsmCellLocation) cellLocation).getLac();
             aVar.b = ((GsmCellLocation) cellLocation).getCid();
-            aVar.adj = 'g';
+            aVar.g = 'g';
         } else if (cellLocation instanceof CdmaCellLocation) {
-            aVar.adj = 'c';
-            if (adc == null) {
+            aVar.g = 'c';
+            if (m == null) {
                 try {
-                    adc = Class.forName("android.telephony.cdma.CdmaCellLocation");
-                    adb = adc.getMethod("getBaseStationId", new Class[0]);
-                    i = adc.getMethod("getNetworkId", new Class[0]);
-                    j = adc.getMethod("getSystemId", new Class[0]);
-                    k = adc.getMethod("getBaseStationLatitude", new Class[0]);
-                    l = adc.getMethod("getBaseStationLongitude", new Class[0]);
+                    m = Class.forName("android.telephony.cdma.CdmaCellLocation");
+                    h = m.getMethod("getBaseStationId", new Class[0]);
+                    i = m.getMethod("getNetworkId", new Class[0]);
+                    j = m.getMethod("getSystemId", new Class[0]);
+                    k = m.getMethod("getBaseStationLatitude", new Class[0]);
+                    l = m.getMethod("getBaseStationLongitude", new Class[0]);
                 } catch (Exception e2) {
-                    adc = null;
+                    m = null;
                     return;
                 }
             }
-            if (adc != null && adc.isInstance(cellLocation)) {
+            if (m != null && m.isInstance(cellLocation)) {
                 try {
                     int intValue = ((Integer) j.invoke(cellLocation, new Object[0])).intValue();
                     if (intValue < 0) {
-                        intValue = this.ada.d;
+                        intValue = this.g.d;
                     }
                     aVar.d = intValue;
-                    aVar.b = ((Integer) adb.invoke(cellLocation, new Object[0])).intValue();
+                    aVar.b = ((Integer) h.invoke(cellLocation, new Object[0])).intValue();
                     aVar.a = ((Integer) i.invoke(cellLocation, new Object[0])).intValue();
                     Object invoke = k.invoke(cellLocation, new Object[0]);
                     if (((Integer) invoke).intValue() < Integer.MAX_VALUE) {
@@ -452,9 +451,9 @@ public class d {
             }
         }
         if (aVar.b()) {
-            this.ada = aVar;
+            this.g = aVar;
         } else {
-            this.ada = null;
+            this.g = null;
         }
     }
 
@@ -489,18 +488,11 @@ public class d {
         if (this.s == null) {
             return;
         }
-        this.adi.a(this.s);
+        this.c.a(this.s);
     }
 
-    public void a(Address address) {
-        if (b(address) == 1) {
-            this.acZ = new Address.Builder().country(address.country).countryCode(address.countryCode).province(address.province).city(address.city).cityCode(address.cityCode).district(address.district).street(address.street).adcode(address.adcode).streetNumber(address.streetNumber).build();
-            this.t = System.currentTimeMillis();
-        }
-    }
-
-    public Address ti() {
-        Address address = this.acZ;
+    public Address a() {
+        Address address = this.d;
         if (address == null) {
             address = new Address.Builder().build();
         }
@@ -510,5 +502,12 @@ public class d {
             c();
         }
         return address;
+    }
+
+    public void a(Address address) {
+        if (b(address) == 1) {
+            this.d = new Address.Builder().country(address.country).countryCode(address.countryCode).province(address.province).city(address.city).cityCode(address.cityCode).district(address.district).street(address.street).adcode(address.adcode).streetNumber(address.streetNumber).build();
+            this.t = System.currentTimeMillis();
+        }
     }
 }

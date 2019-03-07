@@ -1,51 +1,67 @@
 package com.baidu.tieba.frs.d;
 
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.h;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.lego.card.view.e;
-/* loaded from: classes3.dex */
-public class a extends h<ICardInfo, b> {
-    private ICardInfo ecG;
-
-    public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aH */
-    public b onCreateViewHolder(ViewGroup viewGroup) {
-        e a = com.baidu.tieba.lego.card.b.aZc().a(this.mPageContext, this.ecG, 1);
-        if (a == null) {
-            return null;
+import com.baidu.adp.widget.ListView.m;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.data.bg;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.v;
+import java.util.List;
+/* loaded from: classes4.dex */
+public class a {
+    public static void a(bg bgVar, int i, BdUniqueId bdUniqueId, b bVar) {
+        am a;
+        if (bgVar != null && (a = com.baidu.tieba.q.a.a(bgVar, "a006", "common_click", i, bgVar.bDP, false, null, null)) != null) {
+            a.T("list_order", c.bil().a(bVar));
+            com.baidu.tieba.q.c.cdq().b(bdUniqueId, a);
         }
-        a.h(this.mPageId);
-        return new b(a);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, ICardInfo iCardInfo, b bVar) {
-        super.onFillViewHolder(i, view, viewGroup, iCardInfo, bVar);
-        View view2 = bVar.getView();
-        if (view2 != null && iCardInfo != null) {
-            ((e) view2).Z(iCardInfo);
+    public static void a(bg bgVar, BdUniqueId bdUniqueId, b bVar, int i) {
+        am a;
+        if (bgVar != null && (a = com.baidu.tieba.q.a.a(bgVar, "a006", "common_exp", i, false, null, null)) != null) {
+            a.T("list_order", c.bil().a(bVar));
+            com.baidu.tieba.q.c.cdq().a(bdUniqueId, bgVar.getId(), a);
         }
-        return view2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: a */
-    public View getView(int i, View view, ViewGroup viewGroup, ICardInfo iCardInfo) {
-        this.ecG = iCardInfo;
-        return super.getView(i, view, viewGroup, iCardInfo);
+    public static void a(bg bgVar, BdUniqueId bdUniqueId, b bVar) {
+        am a;
+        if (bgVar != null && (a = com.baidu.tieba.q.a.a(bgVar, "a006", "common_exp", bgVar.bDP, false, null, null)) != null) {
+            a.T("list_order", c.bil().a(bVar));
+            com.baidu.tieba.q.c.cdq().a(bdUniqueId, bgVar.getId(), a);
+        }
+    }
+
+    public static void a(BdUniqueId bdUniqueId, List<m> list, ForumData forumData, int i) {
+        if (!v.T(list)) {
+            int i2 = 0;
+            for (int i3 = 0; i3 < list.size(); i3++) {
+                if (list.get(i3) instanceof com.baidu.tieba.InjectPlugin.a) {
+                    i2++;
+                }
+            }
+            if (i2 > 0) {
+                am b = com.baidu.tieba.q.a.b("a006", "common_fill", true, i2);
+                if (forumData != null) {
+                    if (!ap.isEmpty(forumData.getId())) {
+                        b.bJ(ImageViewerConfig.FORUM_ID, forumData.getId());
+                    }
+                    if (!ap.isEmpty(forumData.getName())) {
+                        b.bJ(ImageViewerConfig.FORUM_NAME, forumData.getName());
+                    }
+                    if (!ap.isEmpty(forumData.getFirst_class())) {
+                        b.bJ("first_dir", forumData.getFirst_class());
+                    }
+                    if (!ap.isEmpty(forumData.getSecond_class())) {
+                        b.bJ("second_dir", forumData.getSecond_class());
+                    }
+                }
+                b.T("list_order", i);
+                com.baidu.tieba.q.c.cdq().b(bdUniqueId, b);
+            }
+        }
     }
 }

@@ -2,30 +2,46 @@ package rx.b;
 
 import rx.j;
 /* loaded from: classes2.dex */
-public class f<T> extends j<T> {
-    private final rx.e<T> iRA;
-
-    public f(j<? super T> jVar) {
-        this(jVar, true);
+public final class f {
+    public static <T> j<T> cEM() {
+        return b(a.cEL());
     }
 
-    public f(j<? super T> jVar, boolean z) {
-        super(jVar, z);
-        this.iRA = new e(jVar);
+    public static <T> j<T> b(final rx.e<? super T> eVar) {
+        return new j<T>() { // from class: rx.b.f.1
+            @Override // rx.e
+            public void onCompleted() {
+                rx.e.this.onCompleted();
+            }
+
+            @Override // rx.e
+            public void onError(Throwable th) {
+                rx.e.this.onError(th);
+            }
+
+            @Override // rx.e
+            public void onNext(T t) {
+                rx.e.this.onNext(t);
+            }
+        };
     }
 
-    @Override // rx.e
-    public void onCompleted() {
-        this.iRA.onCompleted();
-    }
+    public static <T> j<T> d(final j<? super T> jVar) {
+        return new j<T>(jVar) { // from class: rx.b.f.2
+            @Override // rx.e
+            public void onCompleted() {
+                jVar.onCompleted();
+            }
 
-    @Override // rx.e
-    public void onError(Throwable th) {
-        this.iRA.onError(th);
-    }
+            @Override // rx.e
+            public void onError(Throwable th) {
+                jVar.onError(th);
+            }
 
-    @Override // rx.e
-    public void onNext(T t) {
-        this.iRA.onNext(t);
+            @Override // rx.e
+            public void onNext(T t) {
+                jVar.onNext(t);
+            }
+        };
     }
 }

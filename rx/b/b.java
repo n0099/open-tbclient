@@ -1,24 +1,65 @@
 package rx.b;
 
-import rx.exceptions.OnErrorNotImplementedException;
+import rx.exceptions.CompositeException;
+import rx.exceptions.OnCompletedFailedException;
+import rx.exceptions.OnErrorFailedException;
+import rx.k;
 /* loaded from: classes2.dex */
-public final class b {
-    private static final rx.e<Object> iRw = new rx.e<Object>() { // from class: rx.b.b.1
-        @Override // rx.e
-        public final void onCompleted() {
-        }
+public final class b implements rx.c, k {
+    final rx.c actual;
+    boolean done;
+    k kbB;
 
-        @Override // rx.e
-        public final void onError(Throwable th) {
-            throw new OnErrorNotImplementedException(th);
-        }
+    public b(rx.c cVar) {
+        this.actual = cVar;
+    }
 
-        @Override // rx.e
-        public final void onNext(Object obj) {
+    @Override // rx.c
+    public void onCompleted() {
+        if (!this.done) {
+            this.done = true;
+            try {
+                this.actual.onCompleted();
+            } catch (Throwable th) {
+                rx.exceptions.a.L(th);
+                throw new OnCompletedFailedException(th);
+            }
         }
-    };
+    }
 
-    public static <T> rx.e<T> cgk() {
-        return (rx.e<T>) iRw;
+    @Override // rx.c
+    public void onError(Throwable th) {
+        rx.c.c.onError(th);
+        if (!this.done) {
+            this.done = true;
+            try {
+                this.actual.onError(th);
+            } catch (Throwable th2) {
+                rx.exceptions.a.L(th2);
+                throw new OnErrorFailedException(new CompositeException(th, th2));
+            }
+        }
+    }
+
+    @Override // rx.c
+    public void onSubscribe(k kVar) {
+        this.kbB = kVar;
+        try {
+            this.actual.onSubscribe(this);
+        } catch (Throwable th) {
+            rx.exceptions.a.L(th);
+            kVar.unsubscribe();
+            onError(th);
+        }
+    }
+
+    @Override // rx.k
+    public void unsubscribe() {
+        this.kbB.unsubscribe();
+    }
+
+    @Override // rx.k
+    public boolean isUnsubscribed() {
+        return this.done || this.kbB.isUnsubscribed();
     }
 }

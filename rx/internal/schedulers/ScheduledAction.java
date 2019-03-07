@@ -9,21 +9,21 @@ import rx.k;
 public final class ScheduledAction extends AtomicReference<Thread> implements Runnable, k {
     private static final long serialVersionUID = -3962399486978279857L;
     final rx.functions.a action;
-    final rx.internal.util.j cancel;
+    final rx.internal.util.i cancel;
 
     public ScheduledAction(rx.functions.a aVar) {
         this.action = aVar;
-        this.cancel = new rx.internal.util.j();
+        this.cancel = new rx.internal.util.i();
     }
 
     public ScheduledAction(rx.functions.a aVar, rx.subscriptions.b bVar) {
         this.action = aVar;
-        this.cancel = new rx.internal.util.j(new Remover(this, bVar));
+        this.cancel = new rx.internal.util.i(new Remover(this, bVar));
     }
 
-    public ScheduledAction(rx.functions.a aVar, rx.internal.util.j jVar) {
+    public ScheduledAction(rx.functions.a aVar, rx.internal.util.i iVar) {
         this.action = aVar;
-        this.cancel = new rx.internal.util.j(new Remover2(this, jVar));
+        this.cancel = new rx.internal.util.i(new Remover2(this, iVar));
     }
 
     @Override // java.lang.Runnable
@@ -70,30 +70,30 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         this.cancel.add(new Remover(this, bVar));
     }
 
-    public void addParent(rx.internal.util.j jVar) {
-        this.cancel.add(new Remover2(this, jVar));
+    public void addParent(rx.internal.util.i iVar) {
+        this.cancel.add(new Remover2(this, iVar));
     }
 
     /* loaded from: classes2.dex */
     final class a implements k {
-        private final Future<?> iPG;
+        private final Future<?> kac;
 
         a(Future<?> future) {
-            this.iPG = future;
+            this.kac = future;
         }
 
         @Override // rx.k
         public void unsubscribe() {
             if (ScheduledAction.this.get() != Thread.currentThread()) {
-                this.iPG.cancel(true);
+                this.kac.cancel(true);
             } else {
-                this.iPG.cancel(false);
+                this.kac.cancel(false);
             }
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.iPG.isCancelled();
+            return this.kac.isCancelled();
         }
     }
 
@@ -116,7 +116,7 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         @Override // rx.k
         public void unsubscribe() {
             if (compareAndSet(false, true)) {
-                this.parent.b(this.s);
+                this.parent.a(this.s);
             }
         }
     }
@@ -124,12 +124,12 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
     /* loaded from: classes2.dex */
     static final class Remover2 extends AtomicBoolean implements k {
         private static final long serialVersionUID = 247232374289553518L;
-        final rx.internal.util.j parent;
+        final rx.internal.util.i parent;
         final ScheduledAction s;
 
-        public Remover2(ScheduledAction scheduledAction, rx.internal.util.j jVar) {
+        public Remover2(ScheduledAction scheduledAction, rx.internal.util.i iVar) {
             this.s = scheduledAction;
-            this.parent = jVar;
+            this.parent = iVar;
         }
 
         @Override // rx.k
@@ -140,7 +140,7 @@ public final class ScheduledAction extends AtomicReference<Thread> implements Ru
         @Override // rx.k
         public void unsubscribe() {
             if (compareAndSet(false, true)) {
-                this.parent.b(this.s);
+                this.parent.a(this.s);
             }
         }
     }

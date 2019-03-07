@@ -6,44 +6,44 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public class e {
-    private static Toast Gv;
+    private static Toast Gu;
     private static Handler mHandler = new Handler();
     private static Runnable r = new Runnable() { // from class: com.baidu.tbadk.core.util.e.1
         @Override // java.lang.Runnable
         public void run() {
-            if (e.Gv != null) {
-                e.Gv.cancel();
+            if (e.Gu != null) {
+                e.Gu.cancel();
             }
         }
     };
-    private boolean aAB;
+    private boolean bIv;
 
-    public static e CQ() {
+    public static e aca() {
         return new e();
     }
 
     private e() {
     }
 
-    public void m(String str, int i, int i2) {
-        if (!this.aAB && str != null) {
+    public void l(String str, int i, int i2) {
+        if (!this.bIv && str != null) {
             String trim = str.trim();
             if (trim.length() != 0) {
                 mHandler.removeCallbacks(r);
-                if (Gv != null && Gv.getView() != null) {
+                if (Gu != null && Gu.getView() != null) {
                     try {
-                        Gv.setText(trim);
+                        Gu.setText(trim);
                     } catch (RuntimeException e) {
                         BdLog.e(e);
-                        Gv = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                        Gv.setGravity(17, 0, i2);
+                        Gu = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                        Gu.setGravity(17, 0, i2);
                     }
                 } else {
-                    Gv = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
-                    Gv.setGravity(17, 0, i2);
+                    Gu = Toast.makeText(BdBaseApplication.getInst().getApp(), trim, 0);
+                    Gu.setGravity(17, 0, i2);
                 }
                 mHandler.postDelayed(r, i);
-                Gv.show();
+                Gu.show();
             }
         }
     }
@@ -57,31 +57,31 @@ public class e {
     }
 
     public void showToast(String str, int i) {
-        m(str, i, com.baidu.adp.lib.util.l.dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
+        l(str, i, com.baidu.adp.lib.util.l.dip2px(BdBaseApplication.getInst().getApp(), 100.0f));
     }
 
     public void showToast(int i, int i2) {
         showToast(BdBaseApplication.getInst().getApp().getResources().getString(i), i2);
     }
 
-    public void l(int i, int i2, int i3) {
-        m(BdBaseApplication.getInst().getApp().getResources().getString(i), i2, i3);
+    public void n(int i, int i2, int i3) {
+        l(BdBaseApplication.getInst().getApp().getResources().getString(i), i2, i3);
     }
 
     public void onPause() {
-        this.aAB = true;
+        this.bIv = true;
         cancel();
     }
 
     public void onResume() {
-        this.aAB = false;
+        this.bIv = false;
     }
 
     public static void cancel() {
-        if (Gv != null) {
+        if (Gu != null) {
             mHandler.removeCallbacks(r);
-            Gv.cancel();
-            Gv = null;
+            Gu.cancel();
+            Gu = null;
         }
     }
 }

@@ -14,7 +14,9 @@ public class AlarmerUtil {
     public static PendingIntent addAlarm(Context context, String str, int i, int i2) {
         Log.d(Tag, "addAlarm()", str, Integer.valueOf(i), Integer.valueOf(i2));
         try {
-            PendingIntent broadcast = PendingIntent.getBroadcast(context, 0, new Intent(str), 0);
+            Intent intent = new Intent(str);
+            intent.setPackage(context.getPackageName());
+            PendingIntent broadcast = PendingIntent.getBroadcast(context, 0, intent, 0);
             Calendar calendar = Calendar.getInstance();
             calendar.setTimeInMillis(System.currentTimeMillis());
             calendar.add(i, i2);

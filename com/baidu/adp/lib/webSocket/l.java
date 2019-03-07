@@ -2,74 +2,74 @@ package com.baidu.adp.lib.webSocket;
 /* loaded from: classes.dex */
 public class l {
     private String Ht;
-    private int Ib;
-    private int Ic;
-    private boolean Id;
-    private boolean Ie;
-    private int If;
     private int Ig;
-    private boolean Ih;
+    private int Ih;
     private boolean Ii;
+    private boolean Ij;
+    private int Ik;
+    private int Il;
+    private boolean Im;
+    private boolean In;
 
     public l() {
         this.Ht = null;
-        this.Ib = 32768;
-        this.Ic = 131072;
-        this.Id = false;
-        this.Ie = true;
-        this.If = 30000;
-        this.Ig = 30000;
-        this.Ih = true;
-        this.Ii = true;
+        this.Ig = 32768;
+        this.Ih = 131072;
+        this.Ii = false;
+        this.Ij = true;
+        this.Ik = 30000;
+        this.Il = 30000;
+        this.Im = true;
+        this.In = true;
         this.Ht = null;
     }
 
     public l(l lVar) {
         this.Ht = null;
-        this.Ib = lVar.Ib;
-        this.Ic = lVar.Ic;
-        this.Id = lVar.Id;
-        this.Ie = lVar.Ie;
-        this.If = lVar.If;
         this.Ig = lVar.Ig;
         this.Ih = lVar.Ih;
         this.Ii = lVar.Ii;
+        this.Ij = lVar.Ij;
+        this.Ik = lVar.Ik;
+        this.Il = lVar.Il;
+        this.Im = lVar.Im;
+        this.In = lVar.In;
         this.Ht = lVar.Ht;
     }
 
-    public boolean lS() {
-        return this.Id;
-    }
-
-    public int lT() {
-        return this.Ib;
-    }
-
-    public int lU() {
-        return this.Ic;
-    }
-
-    public boolean getTcpNoDelay() {
-        return this.Ie;
-    }
-
-    public int lV() {
-        return this.If;
-    }
-
-    public int lW() {
-        return this.Ig;
-    }
-
     public boolean lX() {
-        return this.Ih;
-    }
-
-    public boolean lY() {
         return this.Ii;
     }
 
-    public String lZ() {
+    public int lY() {
+        return this.Ig;
+    }
+
+    public int lZ() {
+        return this.Ih;
+    }
+
+    public boolean getTcpNoDelay() {
+        return this.Ij;
+    }
+
+    public int ma() {
+        return this.Ik;
+    }
+
+    public int mb() {
+        return this.Il;
+    }
+
+    public boolean mc() {
+        return this.Im;
+    }
+
+    public boolean md() {
+        return this.In;
+    }
+
+    public String me() {
         return this.Ht;
     }
 

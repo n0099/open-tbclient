@@ -23,7 +23,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.accessibility.AccessibilityEvent;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import com.baidu.searchbox.widget.ViewDragHelper;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -301,7 +300,7 @@ public class SlidingPaneLayout extends ViewGroup {
                 i6 = 0;
                 paddingTop = (i5 - getPaddingTop()) - getPaddingBottom();
                 break;
-            case AiAppsFileUtils.GB /* 1073741824 */:
+            case 1073741824:
                 i6 = (i5 - getPaddingTop()) - getPaddingBottom();
                 paddingTop = i6;
                 break;
@@ -343,16 +342,16 @@ public class SlidingPaneLayout extends ViewGroup {
                 if (layoutParams.width == -2) {
                     makeMeasureSpec3 = View.MeasureSpec.makeMeasureSpec(i4 - i11, Integer.MIN_VALUE);
                 } else if (layoutParams.width == -1) {
-                    makeMeasureSpec3 = View.MeasureSpec.makeMeasureSpec(i4 - i11, AiAppsFileUtils.GB);
+                    makeMeasureSpec3 = View.MeasureSpec.makeMeasureSpec(i4 - i11, 1073741824);
                 } else {
-                    makeMeasureSpec3 = View.MeasureSpec.makeMeasureSpec(layoutParams.width, AiAppsFileUtils.GB);
+                    makeMeasureSpec3 = View.MeasureSpec.makeMeasureSpec(layoutParams.width, 1073741824);
                 }
                 if (layoutParams.height == -2) {
                     makeMeasureSpec4 = View.MeasureSpec.makeMeasureSpec(paddingTop, Integer.MIN_VALUE);
                 } else if (layoutParams.height == -1) {
-                    makeMeasureSpec4 = View.MeasureSpec.makeMeasureSpec(paddingTop, AiAppsFileUtils.GB);
+                    makeMeasureSpec4 = View.MeasureSpec.makeMeasureSpec(paddingTop, 1073741824);
                 } else {
-                    makeMeasureSpec4 = View.MeasureSpec.makeMeasureSpec(layoutParams.height, AiAppsFileUtils.GB);
+                    makeMeasureSpec4 = View.MeasureSpec.makeMeasureSpec(layoutParams.height, 1073741824);
                 }
                 childAt.measure(makeMeasureSpec3, makeMeasureSpec4);
                 int measuredWidth = childAt.getMeasuredWidth();
@@ -394,35 +393,35 @@ public class SlidingPaneLayout extends ViewGroup {
                                     if (layoutParams2.height == -2) {
                                         makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(paddingTop, Integer.MIN_VALUE);
                                     } else if (layoutParams2.height == -1) {
-                                        makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(paddingTop, AiAppsFileUtils.GB);
+                                        makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(paddingTop, 1073741824);
                                     } else {
-                                        makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(layoutParams2.height, AiAppsFileUtils.GB);
+                                        makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(layoutParams2.height, 1073741824);
                                     }
                                 } else {
-                                    makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(childAt2.getMeasuredHeight(), AiAppsFileUtils.GB);
+                                    makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(childAt2.getMeasuredHeight(), 1073741824);
                                 }
-                                childAt2.measure(View.MeasureSpec.makeMeasureSpec(i13, AiAppsFileUtils.GB), makeMeasureSpec2);
+                                childAt2.measure(View.MeasureSpec.makeMeasureSpec(i13, 1073741824), makeMeasureSpec2);
                             }
                         } else if (layoutParams2.weight > 0.0f) {
                             if (layoutParams2.width == 0) {
                                 if (layoutParams2.height == -2) {
                                     makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(paddingTop, Integer.MIN_VALUE);
                                 } else if (layoutParams2.height == -1) {
-                                    makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(paddingTop, AiAppsFileUtils.GB);
+                                    makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(paddingTop, 1073741824);
                                 } else {
-                                    makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(layoutParams2.height, AiAppsFileUtils.GB);
+                                    makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(layoutParams2.height, 1073741824);
                                 }
                             } else {
-                                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(childAt2.getMeasuredHeight(), AiAppsFileUtils.GB);
+                                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(childAt2.getMeasuredHeight(), 1073741824);
                             }
                             if (z2) {
                                 int i15 = i4 - (layoutParams2.rightMargin + layoutParams2.leftMargin);
-                                int makeMeasureSpec5 = View.MeasureSpec.makeMeasureSpec(i15, AiAppsFileUtils.GB);
+                                int makeMeasureSpec5 = View.MeasureSpec.makeMeasureSpec(i15, 1073741824);
                                 if (measuredWidth2 != i15) {
                                     childAt2.measure(makeMeasureSpec5, makeMeasureSpec);
                                 }
                             } else {
-                                childAt2.measure(View.MeasureSpec.makeMeasureSpec(((int) ((layoutParams2.weight * Math.max(0, paddingLeft)) / f2)) + measuredWidth2, AiAppsFileUtils.GB), makeMeasureSpec);
+                                childAt2.measure(View.MeasureSpec.makeMeasureSpec(((int) ((layoutParams2.weight * Math.max(0, paddingLeft)) / f2)) + measuredWidth2, 1073741824), makeMeasureSpec);
                             }
                         }
                     }
@@ -661,15 +660,17 @@ public class SlidingPaneLayout extends ViewGroup {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onPanelDragged(int i) {
-        LayoutParams layoutParams = (LayoutParams) this.mSlideableView.getLayoutParams();
-        this.mSlideOffset = (i - (getPaddingLeft() + layoutParams.leftMargin)) / this.mSlideRange;
-        if (this.mParallaxBy != 0) {
-            parallaxOtherViews(this.mSlideOffset);
+        if (this.mCanSlide) {
+            LayoutParams layoutParams = (LayoutParams) this.mSlideableView.getLayoutParams();
+            this.mSlideOffset = (i - (getPaddingLeft() + layoutParams.leftMargin)) / this.mSlideRange;
+            if (this.mParallaxBy != 0) {
+                parallaxOtherViews(this.mSlideOffset);
+            }
+            if (layoutParams.dimWhenOffset) {
+                dimChildView(this.mSlideableView, this.mSlideOffset, this.mSliderFadeColor);
+            }
+            dispatchOnPanelSlide(this.mSlideableView);
         }
-        if (layoutParams.dimWhenOffset) {
-            dimChildView(this.mSlideableView, this.mSlideOffset, this.mSliderFadeColor);
-        }
-        dispatchOnPanelSlide(this.mSlideableView);
     }
 
     private void dimChildView(View view, float f, int i) {

@@ -4,6 +4,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.utils.MD5;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -129,7 +130,7 @@ public class LogFileUtil {
                         sb.replace(0, 1, "");
                     }
                     if (sb.charAt(sb.length() - 1) != ',') {
-                        sb.replace(sb.length() - 1, sb.length(), ",");
+                        sb.replace(sb.length() - 1, sb.length(), Constants.ACCEPT_TIME_SEPARATOR_SP);
                     }
                     File file = new File(str);
                     FileWriter fileWriter2 = null;

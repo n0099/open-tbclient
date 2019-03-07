@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import com.tencent.connect.common.Constants;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.MessageDigest;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class h {
     public static String a(Context context, String str) {
         try {
@@ -80,12 +78,12 @@ public class h {
         try {
             String packageName = context.getPackageName();
             Signature[] signatureArr = context.getPackageManager().getPackageInfo(packageName, 64).signatures;
-            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(signatureArr[0].toByteArray());
             String a = j.a(messageDigest.digest());
             messageDigest.reset();
             com.tencent.open.a.f.a("openSDK_LOG.SystemUtils", "-->sign: " + a);
-            messageDigest.update(j.i(packageName + BaseRequestAction.SPLITE + a + BaseRequestAction.SPLITE + str + ""));
+            messageDigest.update(j.i(packageName + "_" + a + "_" + str + ""));
             str2 = j.a(messageDigest.digest());
             try {
                 messageDigest.reset();
@@ -259,7 +257,7 @@ public class h {
 
     public static int a(String str) {
         if ("shareToQQ".equals(str)) {
-            return 10103;
+            return Constants.REQUEST_QQ_SHARE;
         }
         if ("shareToQzone".equals(str)) {
             return Constants.REQUEST_QZONE_SHARE;

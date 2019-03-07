@@ -1,6 +1,9 @@
 package com.meizu.cloud.pushsdk.networking.b;
 
 import com.meizu.cloud.pushsdk.networking.b.c;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpHead;
+import org.apache.http.client.methods.HttpPut;
 /* loaded from: classes3.dex */
 public class i {
     private final f a;
@@ -32,13 +35,13 @@ public class i {
         if ("POST".equals(b())) {
             return 1;
         }
-        if ("PUT".equals(b())) {
+        if (HttpPut.METHOD_NAME.equals(b())) {
             return 2;
         }
-        if ("DELETE".equals(b())) {
+        if (HttpDelete.METHOD_NAME.equals(b())) {
             return 3;
         }
-        if ("HEAD".equals(b())) {
+        if (HttpHead.METHOD_NAME.equals(b())) {
             return 4;
         }
         return "PATCH".equals(b()) ? 5 : 0;
@@ -111,7 +114,7 @@ public class i {
         }
 
         public a b() {
-            return a("HEAD", (j) null);
+            return a(HttpHead.METHOD_NAME, (j) null);
         }
 
         public a a(j jVar) {
@@ -119,11 +122,11 @@ public class i {
         }
 
         public a b(j jVar) {
-            return a("DELETE", jVar);
+            return a(HttpDelete.METHOD_NAME, jVar);
         }
 
         public a c(j jVar) {
-            return a("PUT", jVar);
+            return a(HttpPut.METHOD_NAME, jVar);
         }
 
         public a d(j jVar) {

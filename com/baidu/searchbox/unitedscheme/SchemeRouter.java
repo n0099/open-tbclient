@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 /* loaded from: classes2.dex */
 public class SchemeRouter {
     public static boolean isSchemeAvailable(Context context, Uri uri, String str) {
@@ -43,5 +44,12 @@ public class SchemeRouter {
             return false;
         }
         return invokeScheme(context, Uri.parse(stringExtra), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE);
+    }
+
+    public static boolean invoke(Context context, String str) {
+        if (UnitedSchemeUtility.isUnitedScheme(str)) {
+            return invokeSchemeForInner(context, Uri.parse(str));
+        }
+        return false;
     }
 }

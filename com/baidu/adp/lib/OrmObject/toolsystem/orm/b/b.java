@@ -8,19 +8,19 @@ import java.util.TreeSet;
 /* loaded from: classes.dex */
 public class b implements c {
     private final ContentValues values;
-    private Cursor zL;
-    private final Set<String> zM;
+    private Cursor zK;
+    private final Set<String> zL;
 
     public b(Cursor cursor) {
-        this.zL = cursor;
+        this.zK = cursor;
         this.values = null;
-        this.zM = new TreeSet();
+        this.zL = new TreeSet();
         if (cursor != null) {
             int columnCount = cursor.getColumnCount();
             for (int i = 0; i < columnCount; i++) {
                 String columnName = cursor.getColumnName(i);
                 if (columnName != null) {
-                    this.zM.add(columnName);
+                    this.zL.add(columnName);
                 }
             }
         }
@@ -28,12 +28,12 @@ public class b implements c {
 
     public b(ContentValues contentValues) {
         this.values = contentValues;
-        this.zM = new TreeSet();
+        this.zL = new TreeSet();
     }
 
     @Override // com.baidu.adp.lib.OrmObject.toolsystem.orm.b.c
     public Set<String> getKeys() {
-        return this.zM;
+        return this.zL;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:38:0x0058 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -49,53 +49,53 @@ public class b implements c {
     public Object getObject(String str) {
         Object valueOf;
         Object string;
-        int columnIndex = this.zL.getColumnIndex(str);
-        if (columnIndex <= 0 || columnIndex >= this.zL.getColumnCount()) {
+        int columnIndex = this.zK.getColumnIndex(str);
+        if (columnIndex <= 0 || columnIndex >= this.zK.getColumnCount()) {
             return null;
         }
         if (0 == 0) {
             try {
-                valueOf = Short.valueOf(this.zL.getShort(columnIndex));
+                valueOf = Short.valueOf(this.zK.getShort(columnIndex));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Integer.valueOf(this.zL.getInt(columnIndex));
+                    valueOf = Integer.valueOf(this.zK.getInt(columnIndex));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Long.valueOf(this.zL.getLong(columnIndex));
+                    valueOf = Long.valueOf(this.zK.getLong(columnIndex));
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Float.valueOf(this.zL.getFloat(columnIndex));
+                    valueOf = Float.valueOf(this.zK.getFloat(columnIndex));
                 } catch (Exception e4) {
                     e4.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    valueOf = Double.valueOf(this.zL.getDouble(columnIndex));
+                    valueOf = Double.valueOf(this.zK.getDouble(columnIndex));
                 } catch (Exception e5) {
                     e5.printStackTrace();
                 }
             }
             if (valueOf == null) {
                 try {
-                    string = this.zL.getString(columnIndex);
+                    string = this.zK.getString(columnIndex);
                 } catch (Exception e6) {
                     e6.printStackTrace();
                 }
                 if (string == null) {
                     try {
-                        return this.zL.getBlob(columnIndex);
+                        return this.zK.getBlob(columnIndex);
                     } catch (Exception e7) {
                         e7.printStackTrace();
                         return string;

@@ -12,7 +12,9 @@ import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseAddGroupMessage;
 import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
 import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
-/* loaded from: classes6.dex */
+import com.baidu.tieba.im.util.d;
+import com.xiaomi.mipush.sdk.Constants;
+/* loaded from: classes3.dex */
 public class Static {
     static {
         MessageManager.getInstance().registerListener(103104, new com.baidu.adp.framework.listener.c(0) { // from class: com.baidu.tieba.im.Static.1
@@ -37,12 +39,12 @@ public class Static {
                     RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
                     ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                     imMessageCenterPojo.setGroup_name(requestAddGroupMessage.getName());
-                    imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.a.a.qy(requestAddGroupMessage.getGroupType()));
+                    imMessageCenterPojo.setCustomGroupType(com.baidu.tieba.im.a.a.ui(requestAddGroupMessage.getGroupType()));
                     AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
                     if (addGroupInfo != null) {
                         imMessageCenterPojo.setGroup_head(addGroupInfo.getPortrait());
                         imMessageCenterPojo.setGid(String.valueOf(addGroupInfo.getGroupId()));
-                        imMessageCenterPojo.setPulled_msgId(com.baidu.tieba.im.util.d.cH(1L));
+                        imMessageCenterPojo.setPulled_msgId(d.dm(1L));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016016, imMessageCenterPojo));
                     }
                 }
@@ -57,7 +59,7 @@ public class Static {
                 String id;
                 if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 103112 && (socketResponsedMessage instanceof ResponseRemoveMembersMessage)) {
                     ResponseRemoveMembersMessage responseRemoveMembersMessage = (ResponseRemoveMembersMessage) socketResponsedMessage;
-                    if (responseRemoveMembersMessage.getError() == 0 && responseRemoveMembersMessage.getOrginalMessage() != null && (responseRemoveMembersMessage.getOrginalMessage() instanceof RequestRemoveMembersMessage) && (userIds = ((RequestRemoveMembersMessage) responseRemoveMembersMessage.getOrginalMessage()).getUserIds()) != null && userIds.length() != 0 && (split = userIds.split(",")) != null && split.length != 0 && (id = TbadkCoreApplication.getCurrentAccountObj().getID()) != null && id.length() != 0) {
+                    if (responseRemoveMembersMessage.getError() == 0 && responseRemoveMembersMessage.getOrginalMessage() != null && (responseRemoveMembersMessage.getOrginalMessage() instanceof RequestRemoveMembersMessage) && (userIds = ((RequestRemoveMembersMessage) responseRemoveMembersMessage.getOrginalMessage()).getUserIds()) != null && userIds.length() != 0 && (split = userIds.split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null && split.length != 0 && (id = TbadkCoreApplication.getCurrentAccountObj().getID()) != null && id.length() != 0) {
                         for (String str : split) {
                             if (id.equals(str)) {
                                 MemoryItemRemoveMessage.a aVar = new MemoryItemRemoveMessage.a();

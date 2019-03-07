@@ -1,5 +1,6 @@
 package org.java_websocket.a;
 
+import android.support.v4.view.PointerIconCompat;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -13,8 +14,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLException;
+import org.apache.http.protocol.HTTP;
 import org.java_websocket.WebSocket;
 import org.java_websocket.c;
 import org.java_websocket.c.b;
@@ -28,6 +31,7 @@ import org.java_websocket.framing.Framedata;
 public abstract class a extends org.java_websocket.a implements Runnable, WebSocket {
     private CountDownLatch closeLatch;
     private CountDownLatch connectLatch;
+    private Thread connectReadThread;
     private int connectTimeout;
     private Draft draft;
     private c engine;
@@ -108,11 +112,19 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
     }
 
     private void reset() {
+        Thread currentThread = Thread.currentThread();
+        if (currentThread == this.writeThread || currentThread == this.connectReadThread) {
+            throw new IllegalStateException("You cannot initialize a reconnect out of the websocket thread. Use reconnect in another thread to insure a successful cleanup.");
+        }
         try {
             closeBlocking();
             if (this.writeThread != null) {
                 this.writeThread.interrupt();
                 this.writeThread = null;
+            }
+            if (this.connectReadThread != null) {
+                this.connectReadThread.interrupt();
+                this.connectReadThread = null;
             }
             this.draft.reset();
             if (this.socket != null) {
@@ -124,23 +136,28 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
             this.engine = new c(this, this.draft);
         } catch (Exception e) {
             onError(e);
-            this.engine.closeConnection(1006, e.getMessage());
+            this.engine.closeConnection(PointerIconCompat.TYPE_CELL, e.getMessage());
         }
     }
 
     public void connect() {
-        if (this.writeThread != null) {
+        if (this.connectReadThread != null) {
             throw new IllegalStateException("WebSocketClient objects are not reuseable");
         }
-        this.writeThread = new Thread(this);
-        this.writeThread.setName("WebSocketConnectReadThread-" + this.writeThread.getId());
-        this.writeThread.start();
+        this.connectReadThread = new Thread(this);
+        this.connectReadThread.setName("WebSocketConnectReadThread-" + this.connectReadThread.getId());
+        this.connectReadThread.start();
     }
 
     public boolean connectBlocking() throws InterruptedException {
         connect();
         this.connectLatch.await();
         return this.engine.isOpen();
+    }
+
+    public boolean connectBlocking(long j, TimeUnit timeUnit) throws InterruptedException {
+        connect();
+        return this.connectLatch.await(j, timeUnit) && this.engine.isOpen();
     }
 
     public void close() {
@@ -204,22 +221,21 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
             InputStream inputStream = this.socket.getInputStream();
             this.ostream = this.socket.getOutputStream();
             sendHandshake();
-            this.writeThread = new Thread(new RunnableC0402a());
+            this.writeThread = new Thread(new RunnableC0377a());
             this.writeThread.start();
-            byte[] bArr = new byte[c.iDZ];
+            byte[] bArr = new byte[c.jTK];
             while (!isClosing() && !isClosed() && (read = inputStream.read(bArr)) != -1) {
                 try {
                     this.engine.k(ByteBuffer.wrap(bArr, 0, read));
                 } catch (IOException e) {
                     handleIOException(e);
-                    return;
                 } catch (RuntimeException e2) {
                     onError(e2);
-                    this.engine.closeConnection(1006, e2.getMessage());
-                    return;
+                    this.engine.closeConnection(PointerIconCompat.TYPE_CELL, e2.getMessage());
                 }
             }
-            this.engine.cdH();
+            this.engine.cCM();
+            this.connectReadThread = null;
         } catch (Exception e3) {
             onWebsocketError(this.engine, e3);
             this.engine.closeConnection(-1, e3.getMessage());
@@ -242,16 +258,16 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
     }
 
     private void sendHandshake() throws InvalidHandshakeException {
-        int port;
         String rawPath = this.uri.getRawPath();
         String rawQuery = this.uri.getRawQuery();
         rawPath = (rawPath == null || rawPath.length() == 0) ? "/" : "/";
         if (rawQuery != null) {
             rawPath = rawPath + '?' + rawQuery;
         }
+        int port = getPort();
         d dVar = new d();
-        dVar.Ad(rawPath);
-        dVar.put("Host", this.uri.getHost() + (getPort() != 80 ? ":" + port : ""));
+        dVar.Gg(rawPath);
+        dVar.put(HTTP.TARGET_HOST, this.uri.getHost() + ((port == 80 || port == 443) ? "" : ":" + port));
         if (this.headers != null) {
             for (Map.Entry<String, String> entry : this.headers.entrySet()) {
                 dVar.put(entry.getKey(), entry.getValue());
@@ -351,8 +367,8 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
 
     /* renamed from: org.java_websocket.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private class RunnableC0402a implements Runnable {
-        private RunnableC0402a() {
+    private class RunnableC0377a implements Runnable {
+        private RunnableC0377a() {
         }
 
         @Override // java.lang.Runnable
@@ -361,11 +377,11 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
             while (!Thread.interrupted()) {
                 try {
                     try {
-                        ByteBuffer take = a.this.engine.iEa.take();
+                        ByteBuffer take = a.this.engine.jTL.take();
                         a.this.ostream.write(take.array(), 0, take.limit());
                         a.this.ostream.flush();
                     } catch (InterruptedException e) {
-                        for (ByteBuffer byteBuffer : a.this.engine.iEa) {
+                        for (ByteBuffer byteBuffer : a.this.engine.jTL) {
                             a.this.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
                             a.this.ostream.flush();
                         }
@@ -426,6 +442,7 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
         return this.engine.isClosing();
     }
 
+    @Deprecated
     public boolean isConnecting() {
         return this.engine.isConnecting();
     }
@@ -476,6 +493,6 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
         if (iOException instanceof SSLException) {
             onError(iOException);
         }
-        this.engine.cdH();
+        this.engine.cCM();
     }
 }

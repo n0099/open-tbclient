@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.plugins.c;
 /* loaded from: classes.dex */
 public class PersonInfoActivityConfig extends IntentConfig {
     public static final String FANS_NUM = "fans_num";
@@ -38,5 +39,13 @@ public class PersonInfoActivityConfig extends IntentConfig {
 
     public void setSourceTid(String str) {
         getIntent().putExtra("thread_id", str);
+    }
+
+    @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
+    public boolean isValid() {
+        if (c.ay(getContext(), "com.baidu.tieba.pluginResource")) {
+            return super.isValid();
+        }
+        return false;
     }
 }

@@ -158,15 +158,15 @@ class ShadowDrawableWrapper extends DrawableWrapper {
         boolean z = this.mContentBounds.width() - (2.0f * f2) > 0.0f;
         boolean z2 = this.mContentBounds.height() - (2.0f * f2) > 0.0f;
         float f3 = this.mRawShadowSize - (this.mRawShadowSize * SHADOW_TOP_SCALE);
-        float f4 = f2 / ((this.mRawShadowSize - (this.mRawShadowSize * 0.5f)) + f2);
+        float f4 = f2 / ((this.mRawShadowSize - (this.mRawShadowSize * SHADOW_HORIZ_SCALE)) + f2);
         float f5 = f2 / (f3 + f2);
-        float f6 = f2 / (f2 + (this.mRawShadowSize - (this.mRawShadowSize * 1.0f)));
+        float f6 = f2 / (f2 + (this.mRawShadowSize - (this.mRawShadowSize * SHADOW_BOTTOM_SCALE)));
         int save2 = canvas.save();
         canvas.translate(this.mContentBounds.left + f2, this.mContentBounds.top + f2);
         canvas.scale(f4, f5);
         canvas.drawPath(this.mCornerShadowPath, this.mCornerShadowPaint);
         if (z) {
-            canvas.scale(1.0f / f4, 1.0f);
+            canvas.scale(SHADOW_BOTTOM_SCALE / f4, SHADOW_BOTTOM_SCALE);
             canvas.drawRect(0.0f, f, this.mContentBounds.width() - (2.0f * f2), -this.mCornerRadius, this.mEdgeShadowPaint);
         }
         canvas.restoreToCount(save2);
@@ -176,7 +176,7 @@ class ShadowDrawableWrapper extends DrawableWrapper {
         canvas.rotate(180.0f);
         canvas.drawPath(this.mCornerShadowPath, this.mCornerShadowPaint);
         if (z) {
-            canvas.scale(1.0f / f4, 1.0f);
+            canvas.scale(SHADOW_BOTTOM_SCALE / f4, SHADOW_BOTTOM_SCALE);
             canvas.drawRect(0.0f, f, this.mContentBounds.width() - (2.0f * f2), this.mShadowSize + (-this.mCornerRadius), this.mEdgeShadowPaint);
         }
         canvas.restoreToCount(save3);
@@ -186,7 +186,7 @@ class ShadowDrawableWrapper extends DrawableWrapper {
         canvas.rotate(270.0f);
         canvas.drawPath(this.mCornerShadowPath, this.mCornerShadowPaint);
         if (z2) {
-            canvas.scale(1.0f / f6, 1.0f);
+            canvas.scale(SHADOW_BOTTOM_SCALE / f6, SHADOW_BOTTOM_SCALE);
             canvas.drawRect(0.0f, f, this.mContentBounds.height() - (2.0f * f2), -this.mCornerRadius, this.mEdgeShadowPaint);
         }
         canvas.restoreToCount(save4);
@@ -196,7 +196,7 @@ class ShadowDrawableWrapper extends DrawableWrapper {
         canvas.rotate(90.0f);
         canvas.drawPath(this.mCornerShadowPath, this.mCornerShadowPaint);
         if (z2) {
-            canvas.scale(1.0f / f5, 1.0f);
+            canvas.scale(SHADOW_BOTTOM_SCALE / f5, SHADOW_BOTTOM_SCALE);
             canvas.drawRect(0.0f, f, this.mContentBounds.height() - (2.0f * f2), -this.mCornerRadius, this.mEdgeShadowPaint);
         }
         canvas.restoreToCount(save5);
@@ -221,9 +221,9 @@ class ShadowDrawableWrapper extends DrawableWrapper {
         float f = -rectF2.top;
         if (f > 0.0f) {
             float f2 = this.mCornerRadius / f;
-            this.mCornerShadowPaint.setShader(new RadialGradient(0.0f, 0.0f, f, new int[]{0, this.mShadowStartColor, this.mShadowMiddleColor, this.mShadowEndColor}, new float[]{0.0f, f2, f2 + ((1.0f - f2) / 2.0f), 1.0f}, Shader.TileMode.CLAMP));
+            this.mCornerShadowPaint.setShader(new RadialGradient(0.0f, 0.0f, f, new int[]{0, this.mShadowStartColor, this.mShadowMiddleColor, this.mShadowEndColor}, new float[]{0.0f, f2, f2 + ((SHADOW_BOTTOM_SCALE - f2) / 2.0f), SHADOW_BOTTOM_SCALE}, Shader.TileMode.CLAMP));
         }
-        this.mEdgeShadowPaint.setShader(new LinearGradient(0.0f, rectF.top, 0.0f, rectF2.top, new int[]{this.mShadowStartColor, this.mShadowMiddleColor, this.mShadowEndColor}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP));
+        this.mEdgeShadowPaint.setShader(new LinearGradient(0.0f, rectF.top, 0.0f, rectF2.top, new int[]{this.mShadowStartColor, this.mShadowMiddleColor, this.mShadowEndColor}, new float[]{0.0f, SHADOW_HORIZ_SCALE, SHADOW_BOTTOM_SCALE}, Shader.TileMode.CLAMP));
         this.mEdgeShadowPaint.setAntiAlias(false);
     }
 

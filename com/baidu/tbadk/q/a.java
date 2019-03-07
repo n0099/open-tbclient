@@ -1,13 +1,24 @@
 package com.baidu.tbadk.q;
 
-import android.view.View;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.tbadk.util.m;
 /* loaded from: classes.dex */
-public interface a {
-    void PZ();
+public class a extends com.baidu.adp.framework.a.c {
+    public a() {
+        super(0);
+    }
 
-    void a(b bVar);
-
-    View getView();
-
-    void release();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.g
+    /* renamed from: b */
+    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
+        if (httpResponsedMessage == null) {
+            return null;
+        }
+        if (httpResponsedMessage.getError() == 2260104) {
+            m.apY();
+            return httpResponsedMessage;
+        }
+        return httpResponsedMessage;
+    }
 }

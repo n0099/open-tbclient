@@ -1,7 +1,6 @@
 package com.xiaomi.network;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -226,7 +225,7 @@ public class Fallback {
         } else if (TextUtils.isEmpty(this.e)) {
             str = "hardcode_isp";
         } else {
-            this.k = HostManager.join(new String[]{this.e, this.c, this.d, this.g, this.f}, BaseRequestAction.SPLITE);
+            this.k = HostManager.join(new String[]{this.e, this.c, this.d, this.g, this.f}, "_");
             str = this.k;
         }
         return str;

@@ -6,6 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.d;
 import rx.exceptions.MissingBackpressureException;
+import rx.internal.util.a.ae;
 /* loaded from: classes2.dex */
 public final class OnSubscribePublishMulticast<T> extends AtomicInteger implements d.a<T>, rx.e<T>, rx.k {
     static final PublishProducer<?>[] EMPTY = new PublishProducer[0];
@@ -33,7 +34,7 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
         }
         this.prefetch = i;
         this.delayError = z;
-        if (rx.internal.util.a.ae.cge()) {
+        if (ae.cEH()) {
             this.queue = new rx.internal.util.a.q(i);
         } else {
             this.queue = new rx.internal.util.atomic.c(i);
@@ -264,30 +265,30 @@ public final class OnSubscribePublishMulticast<T> extends AtomicInteger implemen
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.j<T> {
-        final OnSubscribePublishMulticast<T> iHu;
+        final OnSubscribePublishMulticast<T> jWy;
 
         public a(OnSubscribePublishMulticast<T> onSubscribePublishMulticast) {
-            this.iHu = onSubscribePublishMulticast;
+            this.jWy = onSubscribePublishMulticast;
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            this.iHu.onNext(t);
+            this.jWy.onNext(t);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iHu.onError(th);
+            this.jWy.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.iHu.onCompleted();
+            this.jWy.onCompleted();
         }
 
         @Override // rx.j
         public void setProducer(rx.f fVar) {
-            this.iHu.setProducer(fVar);
+            this.jWy.setProducer(fVar);
         }
     }
 

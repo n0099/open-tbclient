@@ -1,13 +1,13 @@
 package com.baidu.ubc;
 /* loaded from: classes2.dex */
 class h {
-    private String igc;
-    private String igd;
-    private int ige;
-    private String igf;
-    private int igg;
-    private int igh;
-    private String igi;
+    private String bqe;
+    private String jwa;
+    private String jwb;
+    private int jwc;
+    private int jwd;
+    private int jwe;
+    private String jwf;
     private String mCategory;
     private String mId;
     private int mRate;
@@ -15,42 +15,42 @@ class h {
 
     public h(String str, String str2, String str3, int i, String str4, String str5) {
         this.mId = str;
-        this.igc = str2;
-        this.igd = str3;
-        this.ige = i;
+        this.jwa = str2;
+        this.jwb = str3;
+        this.jwc = i;
         this.mType = str4;
-        this.igf = str5;
+        this.bqe = str5;
     }
 
     public String getId() {
         return this.mId;
     }
 
-    public String bSs() {
-        return this.igc;
+    public String crM() {
+        return this.jwa;
     }
 
-    public String bSt() {
-        return this.igd;
+    public String crN() {
+        return this.jwb;
     }
 
     public int getTimeout() {
-        return this.ige;
+        return this.jwc;
     }
 
     public String getType() {
         return this.mType;
     }
 
-    public String bSu() {
-        return this.igf;
+    public String crO() {
+        return this.bqe;
     }
 
-    public int bSv() {
+    public int crP() {
         return this.mRate;
     }
 
-    public void xR(int i) {
+    public void BF(int i) {
         this.mRate = i;
     }
 
@@ -62,27 +62,27 @@ class h {
         this.mCategory = str;
     }
 
-    public int bSw() {
-        return this.igg;
+    public int crQ() {
+        return this.jwd;
     }
 
-    public void xS(int i) {
-        this.igg = i;
+    public void BG(int i) {
+        this.jwd = i;
     }
 
-    public int bSx() {
-        return this.igh;
+    public int crR() {
+        return this.jwe;
     }
 
-    public void xT(int i) {
-        this.igh = i;
+    public void BH(int i) {
+        this.jwe = i;
     }
 
     public String getIdType() {
-        return this.igi;
+        return this.jwf;
     }
 
-    public void yy(String str) {
-        this.igi = str;
+    public void EJ(String str) {
+        this.jwf = str;
     }
 }

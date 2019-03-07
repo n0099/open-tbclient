@@ -1,32 +1,33 @@
 package com.baidu.tbadk.BdToken;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import com.baidu.tbadk.core.util.ap;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class m {
-    private long alv;
-    private long alw;
-    private ArrayList<p> alx;
+    private long brY;
+    private long brZ;
+    private ArrayList<p> bsa;
     private String mUrl;
 
     public void parseJson(String str) {
-        if (!ao.isEmpty(str)) {
+        if (!ap.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.alv = jSONObject.optLong("start_date", 0L) * 1000;
-                this.alw = jSONObject.optLong("end_date", 0L) * 1000;
+                this.brY = jSONObject.optLong("start_date", 0L) * 1000;
+                this.brZ = jSONObject.optLong("end_date", 0L) * 1000;
                 this.mUrl = jSONObject.optString("ahead_url", "");
-                this.alx = new ArrayList<>();
-                JSONArray optJSONArray = jSONObject.optJSONArray("time");
+                this.bsa = new ArrayList<>();
+                JSONArray optJSONArray = jSONObject.optJSONArray(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONArray optJSONArray2 = optJSONArray.optJSONArray(i);
                         p pVar = new p();
-                        pVar.parseJson(optJSONArray2);
-                        this.alx.add(pVar);
+                        pVar.g(optJSONArray2);
+                        this.bsa.add(pVar);
                     }
                 }
             } catch (Exception e) {
@@ -35,19 +36,19 @@ public class m {
         }
     }
 
-    public long vU() {
-        return this.alv;
+    public long Uv() {
+        return this.brY;
     }
 
-    public long vV() {
-        return this.alw;
+    public long Uw() {
+        return this.brZ;
     }
 
     public String getUrl() {
         return this.mUrl;
     }
 
-    public ArrayList<p> vW() {
-        return this.alx;
+    public ArrayList<p> Ux() {
+        return this.bsa;
     }
 }

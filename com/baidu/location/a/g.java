@@ -6,25 +6,24 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.wifi.WifiInfo;
 import android.os.Bundle;
 import com.baidu.location.Jni;
-import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class g {
     private static Object c = new Object();
-    private static g adD = null;
+    private static g d = null;
     private static final String e = com.baidu.location.g.g.h() + "/hst.db";
-    private SQLiteDatabase adE = null;
+    private SQLiteDatabase f = null;
     private boolean g = false;
-    a adF = null;
-    a adG = null;
+    a a = null;
+    a b = null;
     private String h = null;
     private int i = -2;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class a extends com.baidu.location.g.e {
         private String b = null;
         private String c = null;
@@ -41,7 +40,7 @@ public class g {
             this.h = com.baidu.location.g.g.c();
             String encodeTp4 = Jni.encodeTp4(this.c);
             this.c = null;
-            this.k.put(BaseLocationBox.TYPE, encodeTp4);
+            this.k.put("bloc", encodeTp4);
         }
 
         public void a(String str, String str2) {
@@ -70,9 +69,9 @@ public class g {
                                 contentValues.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
                                 contentValues.put("hst", Integer.valueOf(i));
                                 try {
-                                    if (g.this.adE.update("hstdata", contentValues, "id = \"" + valueOf + "\"", null) <= 0) {
+                                    if (g.this.f.update("hstdata", contentValues, "id = \"" + valueOf + "\"", null) <= 0) {
                                         contentValues.put("id", valueOf);
-                                        g.this.adE.insert("hstdata", null, contentValues);
+                                        g.this.f.insert("hstdata", null, contentValues);
                                     }
                                 } catch (Exception e) {
                                 }
@@ -95,29 +94,40 @@ public class g {
         }
     }
 
-    private String a(boolean z) {
-        com.baidu.location.e.a tQ = com.baidu.location.e.b.tP().tQ();
-        com.baidu.location.e.e tX = com.baidu.location.e.f.tU().tX();
-        StringBuffer stringBuffer = new StringBuffer(1024);
-        if (tQ != null && tQ.b()) {
-            stringBuffer.append(tQ.h());
+    public static g a() {
+        g gVar;
+        synchronized (c) {
+            if (d == null) {
+                d = new g();
+            }
+            gVar = d;
         }
-        if (tX != null && tX.a() > 1) {
-            stringBuffer.append(tX.a(15));
-        } else if (com.baidu.location.e.f.tU().m() != null) {
-            stringBuffer.append(com.baidu.location.e.f.tU().m());
+        return gVar;
+    }
+
+    private String a(boolean z) {
+        com.baidu.location.e.a f = com.baidu.location.e.b.a().f();
+        com.baidu.location.e.e p = com.baidu.location.e.f.a().p();
+        StringBuffer stringBuffer = new StringBuffer(1024);
+        if (f != null && f.b()) {
+            stringBuffer.append(f.h());
+        }
+        if (p != null && p.a() > 1) {
+            stringBuffer.append(p.a(15));
+        } else if (com.baidu.location.e.f.a().m() != null) {
+            stringBuffer.append(com.baidu.location.e.f.a().m());
         }
         if (z) {
             stringBuffer.append("&imo=1");
         }
-        stringBuffer.append(com.baidu.location.g.b.tZ().a(false));
-        stringBuffer.append(com.baidu.location.a.a.tf().c());
+        stringBuffer.append(com.baidu.location.g.b.a().a(false));
+        stringBuffer.append(com.baidu.location.a.a.a().c());
         return stringBuffer.toString();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Bundle bundle) {
-        com.baidu.location.a.a.tf().a(bundle, 406);
+        com.baidu.location.a.a.a().a(bundle, 406);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -125,17 +135,6 @@ public class g {
         Bundle bundle = new Bundle();
         bundle.putInt("hotspot", -1);
         a(bundle);
-    }
-
-    public static g tk() {
-        g gVar;
-        synchronized (c) {
-            if (adD == null) {
-                adD = new g();
-            }
-            gVar = adD;
-        }
-        return gVar;
     }
 
     public void a(String str) {
@@ -154,9 +153,9 @@ public class g {
             contentValues.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, Integer.valueOf((int) (System.currentTimeMillis() / 1000)));
             contentValues.put("hst", Integer.valueOf(i));
             try {
-                if (this.adE.update("hstdata", contentValues, "id = \"" + valueOf + "\"", null) <= 0) {
+                if (this.f.update("hstdata", contentValues, "id = \"" + valueOf + "\"", null) <= 0) {
                     contentValues.put("id", valueOf);
-                    this.adE.insert("hstdata", null, contentValues);
+                    this.f.insert("hstdata", null, contentValues);
                 }
             } catch (Exception e2) {
             }
@@ -171,40 +170,40 @@ public class g {
                 file.createNewFile();
             }
             if (file.exists()) {
-                this.adE = SQLiteDatabase.openOrCreateDatabase(file, (SQLiteDatabase.CursorFactory) null);
-                this.adE.execSQL("CREATE TABLE IF NOT EXISTS hstdata(id Long PRIMARY KEY,hst INT,tt INT);");
-                this.adE.setVersion(1);
+                this.f = SQLiteDatabase.openOrCreateDatabase(file, (SQLiteDatabase.CursorFactory) null);
+                this.f.execSQL("CREATE TABLE IF NOT EXISTS hstdata(id Long PRIMARY KEY,hst INT,tt INT);");
+                this.f.setVersion(1);
             }
         } catch (Exception e2) {
-            this.adE = null;
+            this.f = null;
         }
     }
 
     public void c() {
-        if (this.adE != null) {
+        if (this.f != null) {
             try {
-                this.adE.close();
+                this.f.close();
             } catch (Exception e2) {
             } finally {
-                this.adE = null;
+                this.f = null;
             }
         }
     }
 
     public synchronized int d() {
         int i;
-        WifiInfo tV;
+        WifiInfo l;
         Cursor cursor = null;
         synchronized (this) {
             i = -3;
             if (!this.g) {
                 try {
-                    if (com.baidu.location.e.f.j() && this.adE != null && (tV = com.baidu.location.e.f.tU().tV()) != null && tV.getBSSID() != null) {
-                        String replace = tV.getBSSID().replace(":", "");
+                    if (com.baidu.location.e.f.j() && this.f != null && (l = com.baidu.location.e.f.a().l()) != null && l.getBSSID() != null) {
+                        String replace = l.getBSSID().replace(":", "");
                         Long encode3 = Jni.encode3(replace);
                         if (this.h == null || !replace.equals(this.h) || this.i <= -2) {
                             try {
-                                cursor = this.adE.rawQuery("select * from hstdata where id = \"" + encode3 + "\";", null);
+                                cursor = this.f.rawQuery("select * from hstdata where id = \"" + encode3 + "\";", null);
                                 if (cursor == null || !cursor.moveToFirst()) {
                                     i = -2;
                                 } else {
@@ -265,19 +264,19 @@ public class g {
             return;
         }
         try {
-            if (!com.baidu.location.e.f.j() || this.adE == null) {
+            if (!com.baidu.location.e.f.j() || this.f == null) {
                 f();
                 return;
             }
-            WifiInfo tV = com.baidu.location.e.f.tU().tV();
-            if (tV == null || tV.getBSSID() == null) {
+            WifiInfo l = com.baidu.location.e.f.a().l();
+            if (l == null || l.getBSSID() == null) {
                 f();
                 return;
             }
-            String replace = tV.getBSSID().replace(":", "");
+            String replace = l.getBSSID().replace(":", "");
             boolean z2 = false;
             try {
-                rawQuery = this.adE.rawQuery("select * from hstdata where id = \"" + Jni.encode3(replace) + "\";", null);
+                rawQuery = this.f.rawQuery("select * from hstdata where id = \"" + Jni.encode3(replace) + "\";", null);
             } catch (Exception e2) {
                 cursor = null;
             }
@@ -311,11 +310,11 @@ public class g {
                         }
                     }
                     if (z2) {
-                        if (this.adF == null) {
-                            this.adF = new a();
+                        if (this.a == null) {
+                            this.a = new a();
                         }
-                        if (this.adF != null) {
-                            this.adF.a(replace, a(true));
+                        if (this.a != null) {
+                            this.a.a(replace, a(true));
                             return;
                         }
                         return;

@@ -7,17 +7,17 @@ public final class i implements Comparable<i> {
     public final String a;
     public final int b;
     public final String c;
-    final /* synthetic */ h kN;
+    final /* synthetic */ h kP;
 
     public i(h hVar, ScanResult scanResult) {
-        this.kN = hVar;
+        this.kP = hVar;
         this.a = scanResult.BSSID;
         this.b = scanResult.level;
         this.c = cn.jiguang.g.i.c(scanResult.SSID);
     }
 
     public i(h hVar, String str, int i, String str2) {
-        this.kN = hVar;
+        this.kP = hVar;
         this.a = str;
         this.b = i;
         this.c = cn.jiguang.g.i.c(str2);

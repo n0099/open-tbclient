@@ -2,24 +2,63 @@ package com.baidu.tieba.recapp.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.view.ThreadUserInfoLayout;
+import android.view.View;
+import android.widget.RelativeLayout;
+import com.baidu.card.view.CardUserInfoLayout;
+import com.baidu.tbadk.core.view.HeadPendantClickableView;
+import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
-public class AdThreadUserInfoLayout extends ThreadUserInfoLayout {
+public class AdThreadUserInfoLayout extends CardUserInfoLayout {
+    private RelativeLayout inN;
+    private AfterAdjustChildWidthListener inO;
+
+    /* loaded from: classes3.dex */
+    public interface AfterAdjustChildWidthListener {
+        void afterChildWidth();
+    }
+
     public AdThreadUserInfoLayout(Context context) {
         super(context);
+        init();
     }
 
     public AdThreadUserInfoLayout(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        init();
     }
 
-    public AdThreadUserInfoLayout(Context context, AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
+    private void init() {
+        this.inN = (RelativeLayout) findViewById(d.g.suffix_container);
     }
 
-    @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
-    protected String gG(String str) {
-        return ao.B(str, 16);
+    public void addAdTagView(View view) {
+        if (view != null) {
+            this.inN.removeAllViews();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
+            if (layoutParams == null) {
+                layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+            }
+            layoutParams.addRule(11);
+            layoutParams.addRule(15);
+            view.setLayoutParams(layoutParams);
+            this.inN.addView(view);
+        }
+    }
+
+    public HeadPendantClickableView getHeaderImg() {
+        return getAvatar();
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.baidu.card.view.CardUserInfoLayout
+    public void rH() {
+        super.rH();
+        if (this.inO != null) {
+            this.inO.afterChildWidth();
+        }
+    }
+
+    public void setAfterAdjustChildWidthListener(AfterAdjustChildWidthListener afterAdjustChildWidthListener) {
+        this.inO = afterAdjustChildWidthListener;
     }
 }

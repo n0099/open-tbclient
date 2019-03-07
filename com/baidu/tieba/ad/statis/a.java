@@ -6,12 +6,12 @@ public class a implements com.baidu.tieba.p.a {
 
     /* renamed from: com.baidu.tieba.ad.statis.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private static class C0186a {
-        private static a bCT = new a();
+    private static class C0220a {
+        private static a cOa = new a();
     }
 
-    public static a WM() {
-        return C0186a.bCT;
+    public static a awM() {
+        return C0220a.cOa;
     }
 
     @Override // com.baidu.tieba.p.a
@@ -25,7 +25,7 @@ public class a implements com.baidu.tieba.p.a {
     }
 
     @Override // com.baidu.tieba.p.a
-    public void aV(String str, String str2) {
+    public void ca(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
         init.addParam("f1", "cardshow");
         init.addParam("f2", str2);
@@ -34,7 +34,7 @@ public class a implements com.baidu.tieba.p.a {
     }
 
     @Override // com.baidu.tieba.p.a
-    public void aW(String str, String str2) {
+    public void cb(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
         init.addParam("f1", "cardclick");
         init.addParam("f2", str2);
@@ -43,7 +43,7 @@ public class a implements com.baidu.tieba.p.a {
     }
 
     @Override // com.baidu.tieba.p.a
-    public void aX(String str, String str2) {
+    public void cc(String str, String str2) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
         init.addParam("f1", "fullvideoshow");
         init.addParam("f2", str2);
@@ -63,7 +63,7 @@ public class a implements com.baidu.tieba.p.a {
     }
 
     @Override // com.baidu.tieba.p.a
-    public void s(String str, String str2, String str3) {
+    public void F(String str, String str2, String str3) {
         CustomALSHttpMessage init = new CustomALSHttpMessage().init("1001", "every_log");
         init.addParam("f1", "alert_click");
         init.addParam("f2", str);

@@ -11,7 +11,7 @@ import com.tencent.connect.common.UIListenerManager;
 import com.tencent.open.a.f;
 import com.tencent.open.utils.h;
 import com.tencent.open.utils.j;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class AuthActivity extends Activity {
     public static final String ACTION_KEY = "action";
     public static final String ACTION_SHARE_PRIZE = "sharePrize";

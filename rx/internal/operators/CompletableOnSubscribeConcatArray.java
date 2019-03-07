@@ -31,7 +31,7 @@ public final class CompletableOnSubscribeConcatArray implements b.a {
 
         @Override // rx.c
         public void onSubscribe(rx.k kVar) {
-            this.sd.g(kVar);
+            this.sd.f(kVar);
         }
 
         @Override // rx.c

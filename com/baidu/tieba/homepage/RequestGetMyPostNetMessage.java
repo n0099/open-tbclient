@@ -13,6 +13,7 @@ public class RequestGetMyPostNetMessage extends NetMessage {
     private int mScrH;
     private int mScrW;
     private long mThreadId;
+    private int proZone;
 
     public RequestGetMyPostNetMessage() {
         super(CmdConfigHttp.CMD_GET_MY_POST, 303111);
@@ -26,6 +27,14 @@ public class RequestGetMyPostNetMessage extends NetMessage {
         this.mScrH = i2;
         this.mScrDip = d;
         this.mQType = i3;
+    }
+
+    public void setProZone(int i) {
+        this.proZone = i;
+    }
+
+    public int getProZone() {
+        return this.proZone;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage

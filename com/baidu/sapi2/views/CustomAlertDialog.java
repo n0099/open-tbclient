@@ -21,7 +21,7 @@ public class CustomAlertDialog extends Dialog {
     private ViewSwitcher viewSwitcher;
 
     public CustomAlertDialog(Context context) {
-        super(context, a.g.SapiSdkBeautyDialog);
+        super(context, a.h.SapiSdkBeautyDialog);
         init();
     }
 
@@ -36,16 +36,16 @@ public class CustomAlertDialog extends Dialog {
     }
 
     private void init() {
-        setContentView(a.e.layout_sapi_sdk_dialog_alert);
+        setContentView(a.f.layout_sapi_sdk_dialog_alert);
         setCanceledOnTouchOutside(false);
-        this.viewSwitcher = (ViewSwitcher) findViewById(a.d.view_switcher);
-        this.titleText = (TextView) findViewById(a.d.title_text);
-        this.msgText = (TextView) findViewById(a.d.msg_text);
-        this.positiveBtn = (TextView) findViewById(a.d.positive_btn);
-        this.negativeBtn = (TextView) findViewById(a.d.negative_btn);
-        this.neutralBtn = (TextView) findViewById(a.d.neutral_btn);
+        this.viewSwitcher = (ViewSwitcher) findViewById(a.e.view_switcher);
+        this.titleText = (TextView) findViewById(a.e.title_text);
+        this.msgText = (TextView) findViewById(a.e.msg_text);
+        this.positiveBtn = (TextView) findViewById(a.e.positive_btn);
+        this.negativeBtn = (TextView) findViewById(a.e.negative_btn);
+        this.neutralBtn = (TextView) findViewById(a.e.neutral_btn);
         if (SapiAccountManager.getInstance().getSapiConfiguration().isNightMode) {
-            ((ViewGroup) this.titleText.getRootView()).addView(((LayoutInflater) getContext().getSystemService("layout_inflater")).inflate(a.e.layout_sapi_sdk_night_mode_mask, (ViewGroup) null), new AbsoluteLayout.LayoutParams(-1, -1, 0, 0));
+            ((ViewGroup) this.titleText.getRootView()).addView(((LayoutInflater) getContext().getSystemService("layout_inflater")).inflate(a.f.layout_sapi_sdk_night_mode_mask, (ViewGroup) null), new AbsoluteLayout.LayoutParams(-1, -1, 0, 0));
         }
     }
 

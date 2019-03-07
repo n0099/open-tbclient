@@ -3,19 +3,20 @@ package com.airbnb.lottie.model.content;
 import android.graphics.PointF;
 import com.airbnb.lottie.model.a.f;
 import com.airbnb.lottie.model.a.m;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements b {
     private final String name;
-    private final m<PointF, PointF> qQ;
-    private final com.airbnb.lottie.model.a.f qY;
-    private final boolean qZ;
+    private final m<PointF, PointF> qM;
+    private final com.airbnb.lottie.model.a.f qU;
+    private final boolean qV;
 
     private a(String str, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.f fVar, boolean z) {
         this.name = str;
-        this.qQ = mVar;
-        this.qY = fVar;
-        this.qZ = z;
+        this.qM = mVar;
+        this.qU = fVar;
+        this.qV = z;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -26,10 +27,10 @@ public class a implements b {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.airbnb.lottie.model.content.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0012a {
+    public static class C0010a {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static a o(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
-            return new a(jSONObject.optString("nm"), com.airbnb.lottie.model.a.e.h(jSONObject.optJSONObject("p"), eVar), f.a.i(jSONObject.optJSONObject("s"), eVar), jSONObject.optInt("d", 2) == 3);
+            return new a(jSONObject.optString("nm"), com.airbnb.lottie.model.a.e.h(jSONObject.optJSONObject("p"), eVar), f.a.i(jSONObject.optJSONObject(NotifyType.SOUND), eVar), jSONObject.optInt("d", 2) == 3);
         }
     }
 
@@ -37,15 +38,15 @@ public class a implements b {
         return this.name;
     }
 
-    public m<PointF, PointF> dS() {
-        return this.qQ;
+    public m<PointF, PointF> dR() {
+        return this.qM;
     }
 
-    public com.airbnb.lottie.model.a.f ec() {
-        return this.qY;
+    public com.airbnb.lottie.model.a.f eb() {
+        return this.qU;
     }
 
     public boolean isReversed() {
-        return this.qZ;
+        return this.qV;
     }
 }

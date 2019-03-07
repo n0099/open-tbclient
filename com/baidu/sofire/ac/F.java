@@ -1,9 +1,11 @@
 package com.baidu.sofire.ac;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.appsearchlib.Info;
 import com.baidu.sofire.a.a;
 import com.baidu.sofire.b;
 import com.baidu.sofire.b.e;
@@ -13,6 +15,7 @@ import com.baidu.sofire.core.f;
 import com.baidu.sofire.core.g;
 import com.baidu.sofire.core.h;
 import com.baidu.sofire.jni.Asc;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.tencent.connect.common.Constants;
 import java.util.Map;
 /* loaded from: classes.dex */
@@ -37,9 +40,13 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public String p(String str) {
         try {
-            return g.a().e(str);
+            ApkInfo apkInfo = g.a().a.get(str);
+            if (apkInfo == null) {
+                return null;
+            }
+            return apkInfo.pkgPath;
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
             return "";
         }
     }
@@ -47,24 +54,32 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public void r(String str, IntentFilter intentFilter, String str2, String str3) {
         try {
-            b.a(str + ", " + intentFilter + ", " + str2 + ", " + str3);
+            new StringBuilder().append(str).append(", ").append(intentFilter).append(", ").append(str2).append(", ").append(str3);
+            b.a();
             if (!TextUtils.isEmpty(str) && intentFilter != null && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
                 g a = g.a();
-                b.a("h=" + a);
+                new StringBuilder("h=").append(a);
+                b.a();
                 if (a != null) {
                     a.a(new h(str, intentFilter, str2, str3));
-                    b.a("intentFilter.hasAction(Intent.ACTION_BOOT_COMPLETED)" + intentFilter.hasAction("android.intent.action.BOOT_COMPLETED"));
+                    new StringBuilder("intentFilter.hasAction(Intent.ACTION_BOOT_COMPLETED)").append(intentFilter.hasAction("android.intent.action.BOOT_COMPLETED"));
+                    b.a();
                     if (intentFilter.hasAction("android.intent.action.BOOT_COMPLETED")) {
-                        a a2 = a.a();
-                        b.a("d=" + a2);
-                        if (a2 != null) {
-                            a2.a(str, str2, str3);
+                        a aVar = a.d;
+                        new StringBuilder("d=").append(aVar);
+                        b.a();
+                        if (aVar != null) {
+                            ContentValues contentValues = new ContentValues();
+                            contentValues.put("r", (Integer) 1);
+                            contentValues.put("b", str2);
+                            contentValues.put(Info.kBaiduTimeKey, str3);
+                            aVar.c.update("pgn", contentValues, "p=?", new String[]{str});
                         }
                     }
                 }
             }
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 
@@ -76,14 +91,15 @@ public class F implements FI {
                 a.b(new h(str, intentFilter, str2, str3));
             }
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 
     @Override // com.baidu.sofire.ac.FI
     public void cm(String str, String str2, String str3, Callback callback, Class<?>[] clsArr, Object... objArr) {
         try {
-            b.a(str + ", " + str2 + ", " + str3 + ", " + callback);
+            new StringBuilder().append(str).append(", ").append(str2).append(", ").append(str3).append(", ").append(callback);
+            b.a();
             if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
                 if (callback != null) {
                     callback.onEnd(new Object[0]);
@@ -103,7 +119,8 @@ public class F implements FI {
                     } else {
                         Class<?> a2 = ((f) d.classLoader).a("com.baidu.sofire.engine.EngineImpl");
                         Object a3 = e.a(a2.getDeclaredMethod("getInstance", Context.class).invoke(a2, null), str3, clsArr, objArr);
-                        b.a("result object=" + a3);
+                        new StringBuilder("result object=").append(a3);
+                        b.a();
                         if (callback != null) {
                             callback.onEnd(a3);
                         }
@@ -111,28 +128,16 @@ public class F implements FI {
                 }
             }
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 
     @Override // com.baidu.sofire.ac.FI
     public void u(String str) {
         try {
-            d.a().b(str);
+            d.a().a(str);
         } catch (Throwable th) {
-            e.a(th);
-        }
-    }
-
-    @Override // com.baidu.sofire.ac.FI
-    public void s(int i, boolean z) {
-        try {
-            a a = a.a();
-            if (a != null) {
-                a.a(i, z ? 1 : 0);
-            }
-        } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 
@@ -141,16 +146,16 @@ public class F implements FI {
         if (bArr2 != null) {
             try {
                 if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                    e.g("0");
+                    e.f("0");
                     byte[] a = com.baidu.sofire.b.a.a(bArr2, bArr);
                     if (a == null || a.length <= 0) {
                         if (sAsc == null) {
                             sAsc = new Asc();
                         }
-                        e.g("1");
+                        e.f("1");
                         byte[] ac = sAsc.ac(bArr, bArr2);
                         if (ac == null || ac.length == 0) {
-                            e.g("2");
+                            e.f("2");
                             return ac;
                         }
                         return ac;
@@ -158,7 +163,7 @@ public class F implements FI {
                     return a;
                 }
             } catch (Throwable th) {
-                e.a(th);
+                e.a();
                 return null;
             }
         }
@@ -170,16 +175,16 @@ public class F implements FI {
         if (bArr2 != null) {
             try {
                 if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                    e.g("3");
+                    e.f("3");
                     byte[] a = com.baidu.sofire.b.a.a(bArr2, bArr, true);
                     if (a == null || a.length <= 0) {
                         if (sAsc == null) {
                             sAsc = new Asc();
                         }
-                        e.g("4");
+                        e.f("4");
                         byte[] dc = sAsc.dc(bArr, bArr2);
                         if (dc == null || dc.length == 0) {
-                            e.g("5");
+                            e.f("5");
                             return dc;
                         }
                         return dc;
@@ -187,7 +192,7 @@ public class F implements FI {
                     return a;
                 }
             } catch (Throwable th) {
-                e.a(th);
+                e.a();
                 return null;
             }
         }
@@ -199,73 +204,50 @@ public class F implements FI {
         if (bArr2 != null) {
             try {
                 if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                    e.g(Constants.VIA_SHARE_TYPE_INFO);
-                    byte[] b = com.baidu.sofire.b.h.b(bArr, bArr2);
-                    if (b == null || b.length <= 0) {
+                    e.f(Constants.VIA_SHARE_TYPE_INFO);
+                    byte[] a = (bArr == null || bArr2 == null) ? null : com.baidu.sofire.b.h.a(bArr, bArr2);
+                    if (a == null || a.length <= 0) {
                         if (sAsc == null) {
                             sAsc = new Asc();
                         }
-                        e.g("7");
+                        e.f("7");
                         byte[] ar = sAsc.ar(bArr, bArr2);
                         if (ar == null || ar.length == 0) {
-                            e.g(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO);
+                            e.f(Constants.VIA_SHARE_TYPE_PUBLISHVIDEO);
                             return ar;
                         }
                         return ar;
                     }
-                    return b;
+                    return a;
                 }
             } catch (Throwable th) {
-                e.a(th);
+                e.a();
                 return null;
             }
         }
         return null;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x0003 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v0 */
-    /* JADX WARN: Type inference failed for: r1v1 */
-    /* JADX WARN: Type inference failed for: r1v2, types: [int] */
     @Override // com.baidu.sofire.ac.FI
     public byte[] rd(byte[] bArr, byte[] bArr2) {
-        ?? r1 = 0;
         if (bArr2 != null) {
             try {
                 if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                    byte[] a = com.baidu.sofire.b.h.a(bArr, bArr2);
+                    byte[] a = (bArr == null || bArr2 == null) ? null : com.baidu.sofire.b.h.a(bArr, bArr2);
                     if (a == null || a.length <= 0) {
                         if (sAsc == null) {
                             sAsc = new Asc();
                         }
-                        byte[] dr = sAsc.dr(bArr, bArr2);
-                        if (dr != null) {
-                            r1 = dr.length;
-                            return r1 == 0 ? dr : dr;
-                        }
-                        return dr;
+                        return sAsc.dr(bArr, bArr2);
                     }
                     return a;
                 }
             } catch (Throwable th) {
-                e.a(th);
-                return r1;
+                e.a();
+                return null;
             }
         }
         return null;
-    }
-
-    @Override // com.baidu.sofire.ac.FI
-    public void sp(String str, boolean z) {
-        try {
-            a a = a.a();
-            if (a != null) {
-                a.a(str, z ? 1 : 0);
-            }
-        } catch (Throwable th) {
-            e.a(th);
-        }
     }
 
     @Override // com.baidu.sofire.ac.FI
@@ -273,7 +255,7 @@ public class F implements FI {
         try {
             new U(context.getApplicationContext(), 5, true).start();
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 
@@ -287,7 +269,7 @@ public class F implements FI {
             }
             return "";
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
             return "";
         }
     }
@@ -297,22 +279,9 @@ public class F implements FI {
         try {
             return e.a(context, str);
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
             return false;
         }
-    }
-
-    @Override // com.baidu.sofire.ac.FI
-    public Map<Integer, String> gpd() {
-        try {
-            a a = a.a();
-            if (a != null) {
-                return a.c();
-            }
-        } catch (Throwable th) {
-            e.a(th);
-        }
-        return null;
     }
 
     @Override // com.baidu.sofire.ac.FI
@@ -327,8 +296,51 @@ public class F implements FI {
             }
             return a;
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
             return new Pair<>(3, null);
         }
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public void s(int i, boolean z) {
+        try {
+            a aVar = a.d;
+            if (aVar != null) {
+                int i2 = z ? 1 : 0;
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(NotifyType.SOUND, Integer.valueOf(i2));
+                aVar.c.update("pgn", contentValues, "k=" + i + " and n=1", null);
+            }
+        } catch (Throwable th) {
+            e.a();
+        }
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public void sp(String str, boolean z) {
+        try {
+            a aVar = a.d;
+            if (aVar != null) {
+                int i = z ? 1 : 0;
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(NotifyType.SOUND, Integer.valueOf(i));
+                aVar.c.update("pgn", contentValues, "p=? and n=1", new String[]{str});
+            }
+        } catch (Throwable th) {
+            e.a();
+        }
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public Map<Integer, String> gpd() {
+        try {
+            a aVar = a.d;
+            if (aVar != null) {
+                return aVar.b();
+            }
+        } catch (Throwable th) {
+            e.a();
+        }
+        return null;
     }
 }

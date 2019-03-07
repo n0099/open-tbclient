@@ -2,27 +2,27 @@ package cn.jiguang.d.g;
 /* loaded from: classes3.dex */
 public final class c {
     private static final Object c = new Object();
-    private static c mr;
-    private a mt;
+    private static c mw;
+    private a mx;
 
     private c() {
     }
 
-    public static c cg() {
-        if (mr == null) {
+    public static c cf() {
+        if (mw == null) {
             synchronized (c) {
-                if (mr == null) {
-                    mr = new c();
+                if (mw == null) {
+                    mw = new c();
                 }
             }
         }
-        return mr;
+        return mw;
     }
 
-    public final a ch() {
-        if (this.mt == null) {
-            this.mt = new b();
+    public final a cg() {
+        if (this.mx == null) {
+            this.mx = new b();
         }
-        return this.mt;
+        return this.mx;
     }
 }

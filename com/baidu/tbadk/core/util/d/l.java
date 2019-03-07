@@ -28,12 +28,12 @@ public class l extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean EI() {
+    public boolean adS() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean EJ() {
+    public boolean adT() {
         return false;
     }
 
@@ -41,8 +41,8 @@ public class l extends a {
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, com.baidu.tbadk.imageManager.c.NM().iw(str), i, i2);
-        if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.ot() == null || checkIsValidPicMemoryCache.ot().isRecycled()) {
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, com.baidu.tbadk.imageManager.c.anq().pi(str), i, i2);
+        if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.oy() == null || checkIsValidPicMemoryCache.oy().isRecycled()) {
             return null;
         }
         return checkIsValidPicMemoryCache;
@@ -60,7 +60,7 @@ public class l extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int EK() {
+    public int adU() {
         return this.procType;
     }
 }

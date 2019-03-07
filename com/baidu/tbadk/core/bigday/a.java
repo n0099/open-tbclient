@@ -1,14 +1,14 @@
 package com.baidu.tbadk.core.bigday;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import tbclient.GetBigday.BigdayInfo;
 /* loaded from: classes.dex */
 public class a {
-    public String aoX;
-    public int aoY;
-    public long aoZ;
-    public int apa;
+    public String bvG;
+    public int bvH;
+    public long bvI;
+    public int bvJ;
     public long endTime;
     public String imgUrl;
     public long startTime;
@@ -17,25 +17,25 @@ public class a {
         if (bigdayInfo != null && !StringUtils.isNULL(bigdayInfo.img_url) && bigdayInfo.id.longValue() > 0) {
             if ((bigdayInfo.position.intValue() == 1 || bigdayInfo.position.intValue() == 3) && bigdayInfo.start_time.longValue() > 0 && bigdayInfo.end_time.longValue() > 0 && bigdayInfo.end_time.longValue() > bigdayInfo.start_time.longValue()) {
                 this.imgUrl = bigdayInfo.img_url;
-                this.aoX = bigdayInfo.jump_url;
-                this.aoY = bigdayInfo.img_colour.intValue();
-                this.aoZ = bigdayInfo.id.longValue();
-                this.apa = bigdayInfo.position.intValue();
+                this.bvG = bigdayInfo.jump_url;
+                this.bvH = bigdayInfo.img_colour.intValue();
+                this.bvI = bigdayInfo.id.longValue();
+                this.bvJ = bigdayInfo.position.intValue();
                 this.startTime = bigdayInfo.start_time.longValue();
                 this.endTime = bigdayInfo.end_time.longValue();
             }
         }
     }
 
-    public boolean ye() {
-        return !StringUtils.isNULL(this.imgUrl) && this.aoZ > 0 && (this.apa == 1 || this.apa == 3) && this.startTime > 0 && this.endTime > 0 && this.endTime > this.startTime;
+    public boolean WL() {
+        return !StringUtils.isNULL(this.imgUrl) && this.bvI > 0 && (this.bvJ == 1 || this.bvJ == 3) && this.startTime > 0 && this.endTime > 0 && this.endTime > this.startTime;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof a) {
             a aVar = (a) obj;
-            if (aVar.ye() && ye() && this.aoZ == aVar.aoZ && ao.equals(this.imgUrl, aVar.imgUrl)) {
-                return ((this.aoX == null && aVar.aoX == null) || ao.equals(this.aoX, aVar.aoX)) && this.aoY == aVar.aoY && this.apa == aVar.apa && this.startTime == aVar.startTime && this.endTime == aVar.endTime;
+            if (aVar.WL() && WL() && this.bvI == aVar.bvI && ap.equals(this.imgUrl, aVar.imgUrl)) {
+                return ((this.bvG == null && aVar.bvG == null) || ap.equals(this.bvG, aVar.bvG)) && this.bvH == aVar.bvH && this.bvJ == aVar.bvJ && this.startTime == aVar.startTime && this.endTime == aVar.endTime;
             }
             return false;
         }

@@ -5,7 +5,7 @@ import rx.d;
 public enum NeverObservableHolder implements d.a<Object> {
     INSTANCE;
     
-    static final rx.d<Object> NEVER = rx.d.create(INSTANCE);
+    static final rx.d<Object> NEVER = rx.d.a((d.a) INSTANCE);
 
     public static <T> rx.d<T> instance() {
         return (rx.d<T>) NEVER;

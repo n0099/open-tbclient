@@ -2,7 +2,7 @@ package com.baidu.location;
 
 import android.util.Log;
 import com.baidu.location.c.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public abstract class BDNotifyListener {
     public double mLatitude = Double.MIN_VALUE;
     public double mLongitude = Double.MIN_VALUE;
@@ -23,7 +23,7 @@ public abstract class BDNotifyListener {
         } else {
             this.mRadius = f;
         }
-        if (str.equals("gcj02") || str.equals("bd09") || str.equals("bd09ll") || str.equals("gps")) {
+        if (str.equals("gcj02") || str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09) || str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09LL) || str.equals("gps")) {
             this.mCoorType = str;
         } else {
             this.mCoorType = "gcj02";

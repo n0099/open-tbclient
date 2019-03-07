@@ -59,10 +59,10 @@ public class PushService extends Service {
             return;
         }
         cn.jiguang.g.a.m(applicationContext);
-        cn.jiguang.d.b.d.bO().a(applicationContext);
-        cn.jiguang.d.b.d.bO().a((Service) this);
+        cn.jiguang.d.b.d.bN().a(applicationContext);
+        cn.jiguang.d.b.d.bN().a((Service) this);
         try {
-            cn.jiguang.d.i.f.ck().a(applicationContext, true);
+            cn.jiguang.d.i.f.cj().a(applicationContext, true);
         } catch (OutOfMemoryError e) {
         }
         try {
@@ -79,9 +79,9 @@ public class PushService extends Service {
     }
 
     public void runDestroy() {
-        cn.jiguang.d.b.d bO = cn.jiguang.d.b.d.bO();
+        cn.jiguang.d.b.d bN = cn.jiguang.d.b.d.bN();
         getApplicationContext();
-        bO.c();
+        bN.c();
         try {
             if (this.receiver != null) {
                 unregisterReceiver(this.receiver);
@@ -118,7 +118,7 @@ public class PushService extends Service {
             return;
         }
         try {
-            l.bZ().a(applicationContext, str, bundle);
+            l.bY().a(applicationContext, str, bundle);
         } catch (Throwable th3) {
             cn.jiguang.e.c.c(TAG, "PushService onStartCommand error:" + th3.getMessage());
         }

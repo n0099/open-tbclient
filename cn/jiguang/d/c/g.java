@@ -4,7 +4,7 @@ import android.support.v4.internal.view.SupportMenu;
 import java.util.Random;
 /* loaded from: classes3.dex */
 public final class g implements Cloneable {
-    private static Random lL = new Random();
+    private static Random lO = new Random();
     private int a;
     private int b;
     private int[] c;
@@ -45,7 +45,7 @@ public final class g implements Cloneable {
         }
         synchronized (this) {
             if (this.a < 0) {
-                this.a = lL.nextInt(SupportMenu.USER_MASK);
+                this.a = lO.nextInt(SupportMenu.USER_MASK);
             }
             i = this.a;
         }

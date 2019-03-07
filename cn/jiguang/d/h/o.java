@@ -6,8 +6,8 @@ import java.util.concurrent.ExecutorService;
 public final class o extends s {
     @Override // cn.jiguang.d.h.s
     final ExecutorService a() {
-        v i = v.i("REPORT_HISTORY", 3, 1);
-        i.setRejectedExecutionHandler(new p(this));
-        return i;
+        v h = v.h("REPORT_HISTORY", 3, 1);
+        h.setRejectedExecutionHandler(new p(this));
+        return h;
     }
 }

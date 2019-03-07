@@ -3,11 +3,11 @@ package com.baidu.tieba.frs.loadmore;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.widget.ListView.h;
+import com.baidu.adp.widget.ListView.m;
 import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ab;
-import com.baidu.tbadk.core.data.bb;
+import com.baidu.tbadk.core.data.ad;
+import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.util.v;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
@@ -16,17 +16,17 @@ import java.util.List;
 import tbclient.ThreadInfo;
 import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
     private BannerListData bannerListData;
-    private ArrayList<h> threadList;
+    private ArrayList<m> threadList;
     private HashMap<String, MetaData> userMap;
 
     public LoadMoreHttpResponseMessage(int i) {
         super(i);
     }
 
-    public ArrayList<h> getThreadList() {
+    public ArrayList<m> getThreadList() {
         return this.threadList;
     }
 
@@ -39,7 +39,7 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
             setError(threadListResIdl.error.errorno.intValue());
             setErrorString(threadListResIdl.error.usermsg);
             if (getError() == 0 && threadListResIdl.data != null) {
-                if (v.H(threadListResIdl.data.user_list) > 0) {
+                if (v.S(threadListResIdl.data.user_list) > 0) {
                     this.userMap = new HashMap<>();
                     List<User> list = threadListResIdl.data.user_list;
                     if (list != null) {
@@ -55,23 +55,23 @@ public class LoadMoreHttpResponseMessage extends HttpResponsedMessage {
                 }
                 Message<?> orginalMessage2 = getOrginalMessage();
                 boolean isBrandForum = (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) ? false : ((LoadMoreRequestMessage) orginalMessage2.getExtra()).isBrandForum();
-                if (v.H(threadListResIdl.data.thread_list) > 0) {
+                if (v.S(threadListResIdl.data.thread_list) > 0) {
                     this.threadList = new ArrayList<>();
                     List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
                     if (list2 != null) {
                         for (int i3 = 0; i3 < list2.size(); i3++) {
-                            bb bbVar = new bb();
-                            bbVar.setUserMap(this.userMap);
-                            bbVar.a(list2.get(i3));
-                            bbVar.setCurrentPage(3);
-                            bbVar.AD();
-                            bbVar.awg = isBrandForum;
-                            if (!TextUtils.isEmpty(bbVar.AN())) {
-                                ab abVar = new ab();
-                                abVar.eq(bbVar.AN());
-                                this.threadList.add(abVar);
+                            bg bgVar = new bg();
+                            bgVar.setUserMap(this.userMap);
+                            bgVar.a(list2.get(i3));
+                            bgVar.setCurrentPage(3);
+                            bgVar.ZH();
+                            bgVar.bDD = isBrandForum;
+                            if (!TextUtils.isEmpty(bgVar.ZT())) {
+                                ad adVar = new ad();
+                                adVar.la(bgVar.ZT());
+                                this.threadList.add(adVar);
                             } else {
-                                this.threadList.add(bbVar);
+                                this.threadList.add(bgVar);
                             }
                         }
                     }

@@ -1,11 +1,10 @@
 package com.facebook.c;
 
-import com.baidu.searchbox.ng.ai.apps.util.AiAppRomUtils;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class c {
-    public static final c ipn = new c(AiAppRomUtils.UNKNOWN, null);
-    private final String ipo;
+    public static final c jET = new c("UNKNOWN", null);
+    private final String jEU;
     private final String mName;
 
     /* loaded from: classes2.dex */
@@ -18,7 +17,7 @@ public class c {
 
     public c(String str, @Nullable String str2) {
         this.mName = str;
-        this.ipo = str2;
+        this.jEU = str2;
     }
 
     public String toString() {

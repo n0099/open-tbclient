@@ -2,9 +2,10 @@ package com.baidu.tieba.frs;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.util.s;
 import tbclient.SetCommonForumState.DataReq;
 import tbclient.SetCommonForumState.SetCommonForumStateReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RequestSetCommForumStateNetMessage extends NetMessage {
     private long mForumId;
     private int operation;
@@ -27,7 +28,7 @@ public class RequestSetCommForumStateNetMessage extends NetMessage {
         builder.forum_id = Long.valueOf(this.mForumId);
         builder.operation = Integer.valueOf(this.operation);
         if (z) {
-            com.baidu.tbadk.util.q.bindCommonParamsToProtobufData(builder, true);
+            s.bindCommonParamsToProtobufData(builder, true);
         }
         SetCommonForumStateReqIdl.Builder builder2 = new SetCommonForumStateReqIdl.Builder();
         builder2.data = builder.build(false);

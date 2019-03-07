@@ -5,7 +5,6 @@ import com.meizu.cloud.pushsdk.networking.b.k;
 import com.meizu.cloud.pushsdk.networking.error.ANError;
 import java.io.File;
 import java.io.IOException;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class b {
     public static String a = null;
@@ -75,16 +74,16 @@ public final class b {
 
     public static void a(i.a aVar, com.meizu.cloud.pushsdk.networking.common.b bVar) {
         if (bVar.i() != null) {
-            aVar.a(HTTP.USER_AGENT, bVar.i());
+            aVar.a("User-Agent", bVar.i());
         } else if (a != null) {
             bVar.a(a);
-            aVar.a(HTTP.USER_AGENT, a);
+            aVar.a("User-Agent", a);
         }
         com.meizu.cloud.pushsdk.networking.b.c s = bVar.s();
         if (s != null) {
             aVar.a(s);
-            if (bVar.i() != null && !s.b().contains(HTTP.USER_AGENT)) {
-                aVar.a(HTTP.USER_AGENT, bVar.i());
+            if (bVar.i() != null && !s.b().contains("User-Agent")) {
+                aVar.a("User-Agent", bVar.i());
             }
         }
     }

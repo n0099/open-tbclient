@@ -7,12 +7,12 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import com.baidu.tieba.pb.pb.main.view.TriangleShapeView;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class GodReplyLeaderboardTipView extends LinearLayout {
-    private TextView ajh;
-    private TriangleShapeView fWj;
+    private TextView ahH;
+    private TriangleShapeView hmu;
 
     public GodReplyLeaderboardTipView(Context context) {
         super(context);
@@ -31,16 +31,16 @@ public class GodReplyLeaderboardTipView extends LinearLayout {
 
     private void init(Context context) {
         setOrientation(1);
-        LayoutInflater.from(context).inflate(e.h.usertips_view, this);
-        this.fWj = (TriangleShapeView) findViewById(e.g.usertip_triangle);
-        this.fWj.setColorId(e.d.cp_link_tip_a);
-        this.fWj.setAlpha(0.95f);
-        this.ajh = (TextView) findViewById(e.g.usertip_text);
-        this.ajh.setAlpha(0.95f);
+        LayoutInflater.from(context).inflate(d.h.usertips_view, this);
+        this.hmu = (TriangleShapeView) findViewById(d.g.usertip_triangle);
+        this.hmu.setColorId(d.C0236d.cp_link_tip_a);
+        this.hmu.setAlpha(0.95f);
+        this.ahH = (TextView) findViewById(d.g.usertip_text);
+        this.ahH.setAlpha(0.95f);
     }
 
     public void onChangeSkinType(int i) {
-        this.ajh.getBackground().setColorFilter(al.getColor(e.d.cp_link_tip_a), PorterDuff.Mode.MULTIPLY);
-        al.h(this.ajh, e.d.cp_cont_g);
+        this.ahH.getBackground().setColorFilter(al.getColor(d.C0236d.cp_link_tip_a), PorterDuff.Mode.MULTIPLY);
+        al.j(this.ahH, d.C0236d.cp_cont_g);
     }
 }

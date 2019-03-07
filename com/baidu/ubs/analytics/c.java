@@ -1,17 +1,16 @@
 package com.baidu.ubs.analytics;
 
 import android.content.Context;
-import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import com.baidu.ubs.analytics.d.j;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class c {
     private long e;
-    private boolean igI;
-    private long igJ;
-    private long igK;
-    private boolean igL;
-    private int igM;
+    private boolean jwn;
+    private long jwo;
+    private long jwp;
+    private boolean jwq;
+    private int jwr;
     private Context mContext;
 
     /* synthetic */ c(a aVar, byte b) {
@@ -20,12 +19,12 @@ public final class c {
 
     private c(a aVar) {
         this.mContext = aVar.mContext;
-        this.igI = aVar.igI;
-        this.e = aVar.igN;
-        this.igJ = aVar.igJ;
-        this.igL = aVar.igL;
-        this.igK = aVar.igK;
-        this.igM = aVar.igM;
+        this.jwn = aVar.jwn;
+        this.e = aVar.jws;
+        this.jwo = aVar.jwo;
+        this.jwq = aVar.jwq;
+        this.jwp = aVar.jwp;
+        this.jwr = aVar.jwr;
     }
 
     public final Context b() {
@@ -33,7 +32,7 @@ public final class c {
     }
 
     public final boolean c() {
-        return this.igI;
+        return this.jwn;
     }
 
     public final long d() {
@@ -41,70 +40,70 @@ public final class c {
     }
 
     public final long e() {
-        return this.igJ;
+        return this.jwo;
     }
 
     public final long f() {
-        return this.igK;
+        return this.jwp;
     }
 
     public final boolean g() {
-        return this.igL;
+        return this.jwq;
     }
 
     public final int h() {
-        return this.igM;
+        return this.jwr;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         private Context mContext;
-        private boolean igI = true;
-        private long igN = StatisticConfig.MIN_UPLOAD_INTERVAL;
-        private long igJ = 60000;
-        private long igK = ErrDef.Feature.WEIGHT;
-        private boolean igL = false;
-        private int igM = 1000;
+        private boolean jwn = true;
+        private long jws = StatisticConfig.MIN_UPLOAD_INTERVAL;
+        private long jwo = 60000;
+        private long jwp = 10000;
+        private boolean jwq = false;
+        private int jwr = 1000;
 
-        public a dn(Context context) {
+        public a eI(Context context) {
             this.mContext = context;
             return this;
         }
 
-        public a oS(boolean z) {
-            this.igI = z;
+        public a rn(boolean z) {
+            this.jwn = z;
             return this;
         }
 
-        public a dt(long j) {
-            this.igN = 1000 * j;
+        public a dY(long j) {
+            this.jws = 1000 * j;
             return this;
         }
 
-        public a xY(int i) {
-            this.igJ = i * 60 * 1000;
+        public a BK(int i) {
+            this.jwo = i * 60 * 1000;
             return this;
         }
 
-        public a du(long j) {
-            this.igK = 1000 * j;
+        public a dZ(long j) {
+            this.jwp = 1000 * j;
             return this;
         }
 
-        public a oT(boolean z) {
-            this.igL = z;
+        public a ro(boolean z) {
+            this.jwq = z;
             return this;
         }
 
-        public a xZ(int i) {
+        public a BL(int i) {
             int i2 = i <= 0 ? 0 : i;
-            this.igM = i2 < 1000 ? i2 : 1000;
+            this.jwr = i2 < 1000 ? i2 : 1000;
             return this;
         }
 
-        public c bTf() {
+        public c csb() {
             if (this.mContext == null) {
-                j.yU("Context must be not empty!");
+                j.EW("Context must be not empty!");
                 return null;
             }
             return new c(this, (byte) 0);

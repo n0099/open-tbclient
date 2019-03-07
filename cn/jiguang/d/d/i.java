@@ -3,13 +3,12 @@ package cn.jiguang.d.d;
 import android.content.Context;
 import android.text.TextUtils;
 import cn.jiguang.api.SdkType;
-import com.baidu.ar.audio.AudioParams;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public final class i {
     private static final Object g = new Object();
-    private static volatile i ma;
+    private static volatile i md;
     private boolean a;
     private boolean b;
     private boolean c;
@@ -31,7 +30,7 @@ public final class i {
     }
 
     private static String a(Context context, String str) {
-        e.bU();
+        e.bT();
         String j = e.j(str, "");
         return (TextUtils.isEmpty(j) || j.equals(cn.jiguang.d.a.d.b(context, str))) ? "" : j;
     }
@@ -40,36 +39,36 @@ public final class i {
         long c = cn.jiguang.d.a.d.c(null);
         int a = cn.jiguang.d.a.d.a();
         long f = cn.jiguang.d.a.a.f();
-        cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
-        bVar.C(0);
-        bVar.B(0);
-        bVar.B(26);
-        bVar.j(f);
-        bVar.i(a);
-        bVar.j(c);
-        bVar.B(s);
-        bVar.B(1);
-        bVar.e(str.getBytes());
+        cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(20480);
+        bVar.l(0);
+        bVar.k(0);
+        bVar.k(26);
+        bVar.h(f);
+        bVar.g(a);
+        bVar.h(c);
+        bVar.k(s);
+        bVar.k(1);
+        bVar.f(str.getBytes());
         bVar.l(bVar.current(), 0);
         byte[] byteArray = bVar.toByteArray();
-        cn.jiguang.d.b.d.bO();
+        cn.jiguang.d.b.d.bN();
         cn.jiguang.d.b.d.a(byteArray, SdkType.JCORE.name(), 0);
         this.h.put(Long.valueOf(f), str2);
     }
 
-    public static i bX() {
-        if (ma == null) {
+    public static i bW() {
+        if (md == null) {
             synchronized (g) {
-                if (ma == null) {
-                    ma = new i();
+                if (md == null) {
+                    md = new i();
                 }
             }
         }
-        return ma;
+        return md;
     }
 
     public static boolean e() {
-        e.bU();
+        e.bT();
         return e.a(0);
     }
 
@@ -148,19 +147,19 @@ public final class i {
     public final void a(Context context, long j) {
         String remove = this.h.remove(Long.valueOf(j));
         if (!TextUtils.isEmpty(remove)) {
-            e.bU();
+            e.bT();
             TextUtils.isEmpty(e.j(remove, ""));
         }
         if ((this.h != null && !this.h.isEmpty()) || this.b || this.a) {
             return;
         }
-        cn.jiguang.d.b.d.bO().c();
+        cn.jiguang.d.b.d.bN().c();
     }
 
     public final void b(Context context, long j) {
         String remove = this.h.remove(Long.valueOf(j));
         if (!TextUtils.isEmpty(remove)) {
-            e.bU();
+            e.bT();
             String j2 = e.j(remove, "");
             if (!TextUtils.isEmpty(j2)) {
                 cn.jiguang.d.a.d.a(context, remove, j2);
@@ -169,7 +168,7 @@ public final class i {
         if (b(context)) {
             return;
         }
-        cn.jiguang.d.b.d.bO().c();
+        cn.jiguang.d.b.d.bN().c();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:32:? A[RETURN, SYNTHETIC] */
@@ -202,7 +201,7 @@ public final class i {
         return true;
     }
 
-    public final short bY() {
+    public final short bX() {
         short s = this.a ? (short) 1 : (short) 0;
         return this.b ? (cn.jiguang.d.a.a.u() >= 0 || cn.jiguang.d.a.a.t()) ? (short) (s | 32) : (short) (s | 64) : s;
     }
@@ -226,7 +225,7 @@ public final class i {
         if ((this.h != null && !this.h.isEmpty()) || this.b || this.a) {
             return;
         }
-        cn.jiguang.d.b.d.bO().c();
+        cn.jiguang.d.b.d.bN().c();
     }
 
     public final short d() {

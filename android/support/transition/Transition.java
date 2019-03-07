@@ -24,6 +24,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ListView;
+import com.baidu.ubc.UBC;
+import com.xiaomi.mipush.sdk.Constants;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
@@ -123,7 +125,7 @@ public abstract class Transition implements Cloneable {
     public Transition(Context context, AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, Styleable.TRANSITION);
         XmlResourceParser xmlResourceParser = (XmlResourceParser) attributeSet;
-        long namedInt = TypedArrayUtils.getNamedInt(obtainStyledAttributes, xmlResourceParser, "duration", 1, -1);
+        long namedInt = TypedArrayUtils.getNamedInt(obtainStyledAttributes, xmlResourceParser, UBC.CONTENT_KEY_DURATION, 1, -1);
         if (namedInt >= 0) {
             setDuration(namedInt);
         }
@@ -143,7 +145,7 @@ public abstract class Transition implements Cloneable {
     }
 
     private static int[] parseMatchOrder(String str) {
-        StringTokenizer stringTokenizer = new StringTokenizer(str, ",");
+        StringTokenizer stringTokenizer = new StringTokenizer(str, Constants.ACCEPT_TIME_SEPARATOR_SP);
         int[] iArr = new int[stringTokenizer.countTokens()];
         int i = 0;
         while (stringTokenizer.hasMoreTokens()) {

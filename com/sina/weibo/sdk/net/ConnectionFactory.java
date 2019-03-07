@@ -3,9 +3,6 @@ package com.sina.weibo.sdk.net;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.webkit.net.BdNetTask;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
@@ -20,7 +17,7 @@ import org.apache.http.protocol.HTTP;
 public class ConnectionFactory {
     public static HttpURLConnection createConnect(String str, Context context) {
         HttpURLConnection httpURLConnection;
-        if (TextUtils.isEmpty(str) || (!str.startsWith("http://") && !str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
+        if (TextUtils.isEmpty(str) || (!str.startsWith("http://") && !str.startsWith("https://"))) {
             throw new RuntimeException("非法url请求");
         }
         try {
@@ -50,9 +47,9 @@ public class ConnectionFactory {
         }
         httpURLConnection.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
         httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-        httpURLConnection.setRequestProperty("Charset", "UTF-8");
-        httpURLConnection.setReadTimeout(HttpConstants.HTTP_CONNECT_TIMEOUT);
-        httpURLConnection.setConnectTimeout(BdNetTask.TIMEOUT_READ);
+        httpURLConnection.setRequestProperty("Charset", HTTP.UTF_8);
+        httpURLConnection.setReadTimeout(20000);
+        httpURLConnection.setConnectTimeout(25000);
         return httpURLConnection;
     }
 }

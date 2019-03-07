@@ -1,44 +1,45 @@
 package com.baidu.tieba.pb.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.bb;
+import com.baidu.adp.widget.ListView.m;
+import com.baidu.tbadk.core.data.bg;
 import tbclient.PbPage.DataRes;
-/* loaded from: classes6.dex */
-public class i implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId fUA = BdUniqueId.gen();
-    public bb bOl;
-    private boolean fUB = false;
-    private boolean fUC = false;
-    private int fUD = 1;
+/* loaded from: classes4.dex */
+public class i implements m {
+    public static final BdUniqueId hkM = BdUniqueId.gen();
+    public bg bTk;
+    private boolean hkN = false;
+    private boolean hkO = false;
+    private int hkP = 1;
 
-    @Override // com.baidu.adp.widget.ListView.h
+    @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fUA;
+        return hkM;
     }
 
     public void b(DataRes dataRes) {
         boolean z = true;
         if (dataRes != null && dataRes.thread != null) {
-            this.fUB = (dataRes.thread.origin_thread_info == null || dataRes.thread.origin_thread_info.is_deleted.intValue() != 1) ? false : false;
+            this.hkN = (dataRes.thread.origin_thread_info == null || dataRes.thread.origin_thread_info.is_deleted.intValue() != 1) ? false : false;
         }
     }
 
-    public int Bi() {
-        if (this.bOl != null) {
-            return this.bOl.Bi();
+    public int aan() {
+        if (this.bTk != null) {
+            return this.bTk.aan();
         }
         return 0;
     }
 
-    public boolean bid() {
-        return this.bOl != null && this.bOl.Bh() == 1;
+    public boolean bIA() {
+        return this.bTk != null && this.bTk.aam() == 1;
     }
 
-    public void kz(boolean z) {
-        this.fUC = z;
+    public void na(boolean z) {
+        this.hkO = z;
     }
 
-    public boolean bie() {
-        return this.fUC;
+    public boolean bIB() {
+        return this.hkO;
     }
 }

@@ -3,7 +3,6 @@ package com.meizu.cloud.pushsdk.handler.a;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.searchbox.ng.ai.apps.event.message.AiAppsLifecycleMessage;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.HashMap;
@@ -160,7 +159,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
 
     public boolean a(String str) {
         try {
-            return c().getPackageName().equals(new JSONObject(str).getString(AiAppsLifecycleMessage.APP_ID_KEY));
+            return c().getPackageName().equals(new JSONObject(str).getString("appId"));
         } catch (Exception e) {
             com.meizu.cloud.a.a.e("AbstractMessageHandler", "parse notification error");
             return false;

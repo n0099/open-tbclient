@@ -6,69 +6,69 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ChatImageWithTailView extends LinearLayout {
-    private TbImageView dvi;
-    private ChatClipImageItemView eOT;
-    private LinearLayout eOU;
-    private TextView eOV;
+    private TbImageView eIz;
+    private ChatClipImageItemView geW;
+    private LinearLayout geX;
+    private TextView geY;
 
     public ChatImageWithTailView(Context context) {
         super(context);
-        cr(context);
+        aX(context);
     }
 
     public ChatImageWithTailView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        cr(context);
+        aX(context);
     }
 
-    public void cr(Context context) {
-        LayoutInflater.from(context).inflate(e.h.chat_image_with_tail_item, this);
-        this.eOT = (ChatClipImageItemView) findViewById(e.g.img_msgitem_image_new);
-        this.eOT.setContentDescription(getContext().getString(e.j.editor_image));
-        this.eOT.setDefaultResource(e.f.pic_image_h_not);
-        this.eOU = (LinearLayout) findViewById(e.g.small_tail);
-        this.dvi = (TbImageView) findViewById(e.g.tail_icon);
-        this.dvi.setDefaultResource(e.f.icon);
-        this.dvi.setAutoChangeStyle(false);
-        this.eOV = (TextView) findViewById(e.g.tail_game_from);
+    public void aX(Context context) {
+        LayoutInflater.from(context).inflate(d.h.chat_image_with_tail_item, this);
+        this.geW = (ChatClipImageItemView) findViewById(d.g.img_msgitem_image_new);
+        this.geW.setContentDescription(getContext().getString(d.j.editor_image));
+        this.geW.setDefaultResource(d.f.pic_image_h_not);
+        this.geX = (LinearLayout) findViewById(d.g.small_tail);
+        this.eIz = (TbImageView) findViewById(d.g.tail_icon);
+        this.eIz.setDefaultResource(d.f.icon);
+        this.eIz.setAutoChangeStyle(false);
+        this.geY = (TextView) findViewById(d.g.tail_game_from);
     }
 
     public ChatClipImageItemView getImage() {
-        return this.eOT;
+        return this.geW;
     }
 
     public void setImage(ChatClipImageItemView chatClipImageItemView) {
-        this.eOT = chatClipImageItemView;
+        this.geW = chatClipImageItemView;
     }
 
     public LinearLayout getTail() {
-        return this.eOU;
+        return this.geX;
     }
 
     public void setTail(LinearLayout linearLayout) {
-        this.eOU = linearLayout;
+        this.geX = linearLayout;
     }
 
     public TbImageView getIcon() {
-        return this.dvi;
+        return this.eIz;
     }
 
     public void setIcon(TbImageView tbImageView) {
-        this.dvi = tbImageView;
+        this.eIz = tbImageView;
     }
 
     public TextView getFromSource() {
-        return this.eOV;
+        return this.geY;
     }
 
     public void setFromSource(TextView textView) {
-        this.eOV = textView;
+        this.geY = textView;
     }
 
     public void setIsSupportNight(boolean z) {
-        this.dvi.setAutoChangeStyle(z);
+        this.eIz.setAutoChangeStyle(z);
     }
 }

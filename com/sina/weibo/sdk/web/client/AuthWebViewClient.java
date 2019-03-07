@@ -9,8 +9,7 @@ import android.text.TextUtils;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
-import com.baidu.searchbox.ng.ai.apps.impl.map.model.OpenLocationModel;
-import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.sina.weibo.sdk.auth.AccessTokenKeeper;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WbAuthListener;
@@ -49,7 +48,7 @@ public class AuthWebViewClient extends BaseWebViewClient {
         if (str.startsWith("sms:")) {
             try {
                 Intent intent = new Intent("android.intent.action.VIEW");
-                intent.putExtra(OpenLocationModel.ADDRESS, str.replace("sms:", ""));
+                intent.putExtra("address", str.replace("sms:", ""));
                 intent.setType("vnd.android-dir/mms-sms");
                 this.context.startActivity(intent);
                 return true;
@@ -114,8 +113,8 @@ public class AuthWebViewClient extends BaseWebViewClient {
 
     private void handleRedirectUrl(String str) {
         Bundle parseUrl = Utility.parseUrl(str);
-        String string = parseUrl.getString(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR);
-        String string2 = parseUrl.getString("error_code");
+        String string = parseUrl.getString("error");
+        String string2 = parseUrl.getString(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
         String string3 = parseUrl.getString("error_description");
         WbAuthListener wbAuthListener = null;
         if (this.param.getBaseData() != null && !TextUtils.isEmpty(this.param.getBaseData().getCallback())) {

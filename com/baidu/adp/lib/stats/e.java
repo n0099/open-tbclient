@@ -3,16 +3,15 @@ package com.baidu.adp.lib.stats;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.tencent.open.SocialConstants;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class e {
-    private static e Eq;
-    private HashMap<String, a> Eo = new HashMap<>();
-    private HashMap<String, b> Ep = new HashMap<>();
+    private static e Ep;
+    private HashMap<String, a> En = new HashMap<>();
+    private HashMap<String, b> Eo = new HashMap<>();
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.adp.lib.stats.e.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -22,8 +21,8 @@ public class e {
                     if ((message.obj instanceof a) && (aVar = (a) message.obj) != null) {
                         aVar.ai(false);
                         aVar.aj(false);
-                        aVar.aJ(0);
-                        aVar.o(System.currentTimeMillis());
+                        aVar.at(0);
+                        aVar.m(System.currentTimeMillis());
                         return;
                     }
                     return;
@@ -33,69 +32,69 @@ public class e {
         }
     };
 
-    public static e jL() {
-        if (Eq == null) {
+    public static e jN() {
+        if (Ep == null) {
             synchronized (e.class) {
-                if (Eq == null) {
-                    Eq = new e();
+                if (Ep == null) {
+                    Ep = new e();
                 }
             }
         }
-        return Eq;
+        return Ep;
     }
 
     public e() {
         b bVar = new b();
-        bVar.aK(3000);
-        bVar.aL(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
-        bVar.aM(500);
-        this.Ep.put("net", bVar);
-        this.Ep.put("op", bVar);
-        this.Ep.put("stat", bVar);
-        this.Ep.put("crash", bVar);
-        this.Ep.put("pfmonitor", bVar);
+        bVar.au(3000);
+        bVar.av(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
+        bVar.aw(500);
+        this.Eo.put("net", bVar);
+        this.Eo.put("op", bVar);
+        this.Eo.put("stat", bVar);
+        this.Eo.put("crash", bVar);
+        this.Eo.put("pfmonitor", bVar);
         b bVar2 = new b();
-        bVar2.aK(3000);
-        bVar2.aL(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
-        bVar2.aM(TbConfig.POST_IMAGE_SMALL);
-        this.Ep.put("file", bVar2);
-        this.Ep.put("db", bVar2);
-        this.Ep.put(SocialConstants.PARAM_IMG_URL, bVar2);
-        this.Ep.put("voice", bVar2);
-        this.Ep.put(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, bVar2);
+        bVar2.au(3000);
+        bVar2.av(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
+        bVar2.aw(TbConfig.POST_IMAGE_SMALL);
+        this.Eo.put("file", bVar2);
+        this.Eo.put("db", bVar2);
+        this.Eo.put(SocialConstants.PARAM_IMG_URL, bVar2);
+        this.Eo.put("voice", bVar2);
+        this.Eo.put("error", bVar2);
         b bVar3 = new b();
-        bVar3.aK(3000);
-        bVar3.aL(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
-        bVar3.aM(TbConfig.POST_IMAGE_SMALL);
-        this.Ep.put("dbg", bVar3);
+        bVar3.au(3000);
+        bVar3.av(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
+        bVar3.aw(TbConfig.POST_IMAGE_SMALL);
+        this.Eo.put("dbg", bVar3);
     }
 
-    public synchronized boolean aY(String str) {
+    public synchronized boolean aZ(String str) {
         a aVar;
         boolean z;
-        b bVar = this.Ep.get(str);
+        b bVar = this.Eo.get(str);
         if (bVar == null) {
             z = false;
         } else {
-            a aVar2 = this.Eo.get(str);
+            a aVar2 = this.En.get(str);
             long currentTimeMillis = System.currentTimeMillis();
             if (aVar2 == null) {
                 a aVar3 = new a();
                 aVar3.aj(false);
                 aVar3.ai(false);
-                aVar3.o(currentTimeMillis);
-                this.Eo.put(str, aVar3);
+                aVar3.m(currentTimeMillis);
+                this.En.put(str, aVar3);
                 aVar = aVar3;
             } else {
                 aVar = aVar2;
             }
-            if (aVar.jM()) {
+            if (aVar.jO()) {
                 z = true;
             } else {
-                if (aVar.jQ()) {
-                    aVar.aJ(aVar.jO() + 1);
-                    if (currentTimeMillis - aVar.jN() < bVar.jS()) {
-                        if (aVar.jO() >= bVar.jT()) {
+                if (aVar.jS()) {
+                    aVar.at(aVar.jQ() + 1);
+                    if (currentTimeMillis - aVar.jP() < bVar.jU()) {
+                        if (aVar.jQ() >= bVar.jV()) {
                             aVar.ai(true);
                             BdStatisticsManager.getInstance().op(false, "d", "logfast", null, 0L, 99999, str, new Object[0]);
                             a(aVar);
@@ -103,14 +102,14 @@ public class e {
                         }
                     } else {
                         aVar.aj(false);
-                        aVar.aJ(0);
-                        aVar.o(currentTimeMillis);
+                        aVar.at(0);
+                        aVar.m(currentTimeMillis);
                     }
-                } else if (currentTimeMillis - aVar.jP() < bVar.jR()) {
+                } else if (currentTimeMillis - aVar.jR() < bVar.jT()) {
                     aVar.aj(true);
-                    aVar.n(currentTimeMillis);
+                    aVar.l(currentTimeMillis);
                 } else {
-                    aVar.o(currentTimeMillis);
+                    aVar.m(currentTimeMillis);
                 }
                 z = false;
             }
@@ -129,91 +128,91 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
-        private long Es;
-        private boolean Et;
-        private long Eu;
-        private boolean Ev;
+        private long Er;
+        private boolean Es;
+        private long Et;
+        private boolean Eu;
         private int mCount;
 
         private a() {
-            this.Et = false;
+            this.Es = false;
             this.mCount = 0;
-            this.Ev = false;
+            this.Eu = false;
         }
 
-        public boolean jM() {
-            return this.Ev;
-        }
-
-        public void ai(boolean z) {
-            this.Ev = z;
-        }
-
-        public long jN() {
+        public boolean jO() {
             return this.Eu;
         }
 
-        public void n(long j) {
-            this.Eu = j;
-        }
-
-        public int jO() {
-            return this.mCount;
-        }
-
-        public void aJ(int i) {
-            this.mCount = i;
+        public void ai(boolean z) {
+            this.Eu = z;
         }
 
         public long jP() {
-            return this.Es;
-        }
-
-        public void o(long j) {
-            this.Es = j;
-        }
-
-        public boolean jQ() {
             return this.Et;
         }
 
+        public void l(long j) {
+            this.Et = j;
+        }
+
+        public int jQ() {
+            return this.mCount;
+        }
+
+        public void at(int i) {
+            this.mCount = i;
+        }
+
+        public long jR() {
+            return this.Er;
+        }
+
+        public void m(long j) {
+            this.Er = j;
+        }
+
+        public boolean jS() {
+            return this.Es;
+        }
+
         public void aj(boolean z) {
-            this.Et = z;
+            this.Es = z;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class b {
+        private int Ev;
         private int Ew;
         private int Ex;
-        private int Ey;
 
         private b() {
         }
 
-        public int jR() {
+        public int jT() {
+            return this.Ev;
+        }
+
+        public void au(int i) {
+            this.Ev = i;
+        }
+
+        public int jU() {
             return this.Ew;
         }
 
-        public void aK(int i) {
+        public void av(int i) {
             this.Ew = i;
         }
 
-        public int jS() {
+        public int jV() {
             return this.Ex;
         }
 
-        public void aL(int i) {
+        public void aw(int i) {
             this.Ex = i;
-        }
-
-        public int jT() {
-            return this.Ey;
-        }
-
-        public void aM(int i) {
-            this.Ey = i;
         }
     }
 }

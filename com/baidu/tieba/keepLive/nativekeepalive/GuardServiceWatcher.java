@@ -17,7 +17,7 @@ public class GuardServiceWatcher extends Service {
     public int onStartCommand(Intent intent, int i, int i2) {
         try {
             TiebaStatic.log("c12662");
-            a.b(0, 0, 0, 1, 5);
+            a.c(0, 0, 0, 1, 5);
             BdSocketLinkService.startService(false, "restart");
             return 2;
         } catch (Throwable th) {

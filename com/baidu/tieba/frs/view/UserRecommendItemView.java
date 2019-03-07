@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tbadk.core.view.userLike.CardUserLikeButton;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
-import com.baidu.tieba.e;
-/* loaded from: classes6.dex */
+import com.baidu.tieba.d;
+/* loaded from: classes4.dex */
 public class UserRecommendItemView extends LinearLayout {
-    private TextView aKU;
-    private ClickableHeaderImageView elN;
-    private CardUserLikeButton elO;
-    private TextView elP;
+    private TextView Zx;
+    private CardUserLikeButton fAA;
+    private TextView fAB;
+    private ClickableHeaderImageView fAz;
     private boolean isGod;
     private int mSkinType;
 
@@ -37,18 +37,17 @@ public class UserRecommendItemView extends LinearLayout {
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(e.h.frs_user_recommend_item, (ViewGroup) this, true);
-        this.elN = (ClickableHeaderImageView) findViewById(e.g.user_recommend_head);
-        this.elN.setAutoChangeStyle(true);
-        this.elN.setDefaultResource(17170445);
-        this.elN.setDefaultErrorResource(e.f.icon_default_avatar100);
-        this.elN.setDefaultBgResource(e.d.cp_bg_line_e);
-        this.elN.setIsRound(true);
-        this.elN.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.elO = (CardUserLikeButton) findViewById(e.g.user_recommend_like_btn);
-        this.elO.setGravity(17);
-        this.aKU = (TextView) findViewById(e.g.user_recommend_username);
-        this.elP = (TextView) findViewById(e.g.user_recommend_fans_num);
+        LayoutInflater.from(context).inflate(d.h.frs_user_recommend_item, (ViewGroup) this, true);
+        this.fAz = (ClickableHeaderImageView) findViewById(d.g.user_recommend_head);
+        this.fAz.setAutoChangeStyle(true);
+        this.fAz.setDefaultResource(17170445);
+        this.fAz.setDefaultErrorResource(d.f.icon_default_avatar100);
+        this.fAz.setIsRound(true);
+        this.fAz.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.fAA = (CardUserLikeButton) findViewById(d.g.user_recommend_like_btn);
+        this.fAA.setGravity(17);
+        this.Zx = (TextView) findViewById(d.g.user_recommend_username);
+        this.fAB = (TextView) findViewById(d.g.user_recommend_fans_num);
         setOrientation(1);
         setFocusable(true);
         setClickable(true);
@@ -56,7 +55,7 @@ public class UserRecommendItemView extends LinearLayout {
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.view.UserRecommendItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                UserRecommendItemView.this.elN.onClick(UserRecommendItemView.this.elN);
+                UserRecommendItemView.this.fAz.onClick(UserRecommendItemView.this.fAz);
             }
         });
     }
@@ -65,9 +64,9 @@ public class UserRecommendItemView extends LinearLayout {
         if (this.isGod != z) {
             this.isGod = z;
             if (z) {
-                this.aKU.setTextColor(al.getColor(this.mSkinType, e.d.cp_cont_r));
+                this.Zx.setTextColor(al.getColor(this.mSkinType, d.C0236d.cp_cont_r));
             } else {
-                this.aKU.setTextColor(al.getColor(this.mSkinType, e.d.cp_cont_b));
+                this.Zx.setTextColor(al.getColor(this.mSkinType, d.C0236d.cp_cont_b));
             }
         }
     }
@@ -75,30 +74,31 @@ public class UserRecommendItemView extends LinearLayout {
     public void onChangeSkinType(int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            this.elP.setTextColor(al.getColor(i, e.d.cp_cont_d));
+            this.fAB.setTextColor(al.getColor(i, d.C0236d.cp_cont_d));
             if (this.isGod) {
-                this.aKU.setTextColor(al.getColor(i, e.d.cp_cont_r));
+                this.Zx.setTextColor(al.getColor(i, d.C0236d.cp_cont_r));
             } else {
-                this.aKU.setTextColor(al.getColor(i, e.d.cp_cont_b));
+                this.Zx.setTextColor(al.getColor(i, d.C0236d.cp_cont_b));
             }
-            setBackgroundColor(al.getColor(i, e.d.cp_bg_line_d));
-            this.elO.onChangeSkinType(i);
+            setBackgroundColor(al.getColor(i, d.C0236d.cp_bg_line_d));
+            this.fAA.onChangeSkinType(i);
+            this.fAz.setDefaultBgResource(com.baidu.tbadk.util.e.get());
         }
     }
 
     public ClickableHeaderImageView getHeaderView() {
-        return this.elN;
+        return this.fAz;
     }
 
     public CommonUserLikeButton getLikeBtn() {
-        return this.elO;
+        return this.fAA;
     }
 
     public TextView getUsername() {
-        return this.aKU;
+        return this.Zx;
     }
 
     public TextView getFansNum() {
-        return this.elP;
+        return this.fAB;
     }
 }

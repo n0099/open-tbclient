@@ -1,21 +1,20 @@
 package com.baidu.tbadk.imageManager;
 
 import android.text.TextUtils;
-import com.baidu.ar.parser.ARResourceKey;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class d {
-    public static String bdd = "add_user_collect_emotoin";
-    public static String bde = ARResourceKey.THUMBNAIL;
-    public static String bdf = "package_id";
-    public static String bdg = "#(meme,setting)";
-    public static String bdh = "#(meme,collect_";
-    public static String bdi = "meme,collect_";
+    public static String cmC = "add_user_collect_emotoin";
+    public static String cmD = "image_url";
+    public static String cmE = "package_id";
+    public static String cmF = "#(meme,setting)";
+    public static String cmG = "#(meme,collect_";
+    public static String cmH = "meme,collect_";
 
     /* loaded from: classes.dex */
     public static class a {
@@ -23,40 +22,40 @@ public class d {
         public String url;
     }
 
-    public static String NQ() {
+    public static String anu() {
         return "collect_" + (TbadkCoreApplication.getCurrentAccount() == null ? "" : TbadkCoreApplication.getCurrentAccount());
     }
 
-    public static String NR() {
-        return Math.abs(NQ().hashCode()) + "";
+    public static String anv() {
+        return Math.abs(anu().hashCode()) + "";
     }
 
-    public static void ix(String str) {
+    public static void pj(String str) {
         int i = 0;
         if (!TextUtils.isEmpty(str)) {
             Matcher matcher = Pattern.compile("#\\(meme,collect_[a-zA-Z0-9_,]+\\)").matcher(str);
             int i2 = 0;
             while (matcher.find()) {
-                String[] split = matcher.group().split(",");
+                String[] split = matcher.group().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 if (split != null && split.length == 5 && split[1] != null && split[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)")) {
                     i2++;
                 }
             }
             Matcher matcher2 = Pattern.compile("#\\(meme,[a-zA-Z0-9_,]+\\)").matcher(str);
             while (matcher2.find()) {
-                String[] split2 = matcher2.group().split(",");
-                if (split2 != null && split2.length == 5 && split2[1] != null && !split2[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)") && split2[1].contains(BaseRequestAction.SPLITE)) {
+                String[] split2 = matcher2.group().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                if (split2 != null && split2.length == 5 && split2[1] != null && !split2[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)") && split2[1].contains("_")) {
                     i++;
                 }
             }
             if (i2 > 0) {
                 am amVar = new am("c12223");
-                amVar.y("obj_param1", i2);
+                amVar.T("obj_param1", i2);
                 TiebaStatic.log(amVar);
             }
             if (i > 0) {
                 am amVar2 = new am("c12231");
-                amVar2.y("obj_param1", i);
+                amVar2.T("obj_param1", i);
                 TiebaStatic.log(amVar2);
             }
         }

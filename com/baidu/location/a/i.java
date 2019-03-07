@@ -4,16 +4,27 @@ import android.content.Context;
 import android.util.Log;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.lbsapi.auth.LBSAuthManagerListener;
-import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
+import java.util.Hashtable;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class i implements LBSAuthManagerListener {
     private static Object a = new Object();
-    private static i adM = null;
+    private static i b = null;
     private int c = 0;
     private Context d = null;
     private long e = 0;
     private String f = null;
+
+    public static i a() {
+        i iVar;
+        synchronized (a) {
+            if (b == null) {
+                b = new i();
+            }
+            iVar = b;
+        }
+        return iVar;
+    }
 
     public static String b(Context context) {
         return null;
@@ -21,17 +32,6 @@ public class i implements LBSAuthManagerListener {
 
     public static String c(Context context) {
         return null;
-    }
-
-    public static i tl() {
-        i iVar;
-        synchronized (a) {
-            if (adM == null) {
-                adM = new i();
-            }
-            iVar = adM;
-        }
-        return iVar;
     }
 
     public void a(Context context) {
@@ -46,18 +46,17 @@ public class i implements LBSAuthManagerListener {
             long currentTimeMillis = System.currentTimeMillis() - this.e;
             if (z) {
                 if (currentTimeMillis > 86400000) {
-                    LBSAuthManager.getInstance(this.d).authenticate(false, "lbs_locsdk", null, this);
+                    LBSAuthManager.getInstance(this.d).authenticate(false, "lbs_locsdk", (Hashtable) null, this);
                     this.e = System.currentTimeMillis();
                 }
-            } else if (currentTimeMillis < 0 || currentTimeMillis > ErrDef.Feature.WEIGHT) {
-                LBSAuthManager.getInstance(this.d).authenticate(false, "lbs_locsdk", null, this);
+            } else if (currentTimeMillis < 0 || currentTimeMillis > 10000) {
+                LBSAuthManager.getInstance(this.d).authenticate(false, "lbs_locsdk", (Hashtable) null, this);
                 this.e = System.currentTimeMillis();
             }
         }
         return z;
     }
 
-    @Override // com.baidu.lbsapi.auth.LBSAuthManagerListener
     public void onAuthResult(int i, String str) {
         this.c = i;
         if (this.c == 0) {

@@ -1,8 +1,6 @@
 package com.xiaomi.push.service;
 
 import android.content.Context;
-import com.baidu.searchbox.ng.ai.apps.network.WebSocketAction;
-import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import com.xiaomi.push.service.XMPushService;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
@@ -26,8 +24,8 @@ public final class y extends XMPushService.h {
     public void a() {
         try {
             com.xiaomi.xmpush.thrift.ab a = s.a((Context) this.b, this.c);
-            a.h.a(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, this.d);
-            a.h.a(WebSocketAction.PARAM_KEY_REASON, this.e);
+            a.h.a("error", this.d);
+            a.h.a("reason", this.e);
             aa.a(this.b, a);
         } catch (com.xiaomi.smack.l e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);

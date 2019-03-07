@@ -1,5 +1,5 @@
 package com.baidu.pyramid.runtime.multiprocess;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class WrongProcessException extends IllegalStateException {
     public WrongProcessException() {
     }

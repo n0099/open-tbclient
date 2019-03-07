@@ -6,31 +6,31 @@ import com.airbnb.lottie.a.b.a;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class o implements k, a.InterfaceC0009a {
+public class o implements k, a.InterfaceC0007a {
     private final String name;
-    private final com.airbnb.lottie.f nh;
+    private final com.airbnb.lottie.f nc;
     @Nullable
-    private q oH;
-    private boolean oO;
-    private final Path oy = new Path();
-    private final com.airbnb.lottie.a.b.a<?, Path> px;
+    private q oC;
+    private boolean oJ;
+    private final Path ot = new Path();
+    private final com.airbnb.lottie.a.b.a<?, Path> pq;
 
     public o(com.airbnb.lottie.f fVar, com.airbnb.lottie.model.layer.a aVar, com.airbnb.lottie.model.content.k kVar) {
         this.name = kVar.getName();
-        this.nh = fVar;
-        this.px = kVar.eD().dG();
-        aVar.a(this.px);
-        this.px.b(this);
+        this.nc = fVar;
+        this.pq = kVar.eC().dF();
+        aVar.a(this.pq);
+        this.pq.b(this);
     }
 
-    @Override // com.airbnb.lottie.a.b.a.InterfaceC0009a
-    public void dd() {
+    @Override // com.airbnb.lottie.a.b.a.InterfaceC0007a
+    public void dc() {
         invalidate();
     }
 
     private void invalidate() {
-        this.oO = false;
-        this.nh.invalidateSelf();
+        this.oJ = false;
+        this.nc.invalidateSelf();
     }
 
     @Override // com.airbnb.lottie.a.a.b
@@ -40,9 +40,9 @@ public class o implements k, a.InterfaceC0009a {
             int i2 = i;
             if (i2 < list.size()) {
                 b bVar = list.get(i2);
-                if ((bVar instanceof q) && ((q) bVar).dm() == ShapeTrimPath.Type.Simultaneously) {
-                    this.oH = (q) bVar;
-                    this.oH.a(this);
+                if ((bVar instanceof q) && ((q) bVar).dl() == ShapeTrimPath.Type.Simultaneously) {
+                    this.oC = (q) bVar;
+                    this.oC.a(this);
                 }
                 i = i2 + 1;
             } else {
@@ -53,15 +53,15 @@ public class o implements k, a.InterfaceC0009a {
 
     @Override // com.airbnb.lottie.a.a.k
     public Path getPath() {
-        if (this.oO) {
-            return this.oy;
+        if (this.oJ) {
+            return this.ot;
         }
-        this.oy.reset();
-        this.oy.set(this.px.getValue());
-        this.oy.setFillType(Path.FillType.EVEN_ODD);
-        com.airbnb.lottie.c.f.a(this.oy, this.oH);
-        this.oO = true;
-        return this.oy;
+        this.ot.reset();
+        this.ot.set(this.pq.getValue());
+        this.ot.setFillType(Path.FillType.EVEN_ODD);
+        com.airbnb.lottie.c.f.a(this.ot, this.oC);
+        this.oJ = true;
+        return this.ot;
     }
 
     @Override // com.airbnb.lottie.a.a.b

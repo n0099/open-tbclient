@@ -4,7 +4,7 @@ import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static OnAnrCrashListener N;
     public static OnCrashExceedListener O;

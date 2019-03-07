@@ -8,14 +8,14 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
+import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tbadk.xiuba.JSResultData;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -23,7 +23,7 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class h implements com.baidu.tieba.tbadkCore.e.b {
-    private AdBaseWebView bCw;
+    private AdBaseWebView cND;
     private final TbPageContext<?> mTbPageContext;
     private final CustomMessageListener installListener = new CustomMessageListener(2002501) { // from class: com.baidu.tieba.ad.browser.h.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -36,7 +36,7 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
         }
     };
     private final CustomMessageListener downloadListener = new CustomMessageListener(2001118) { // from class: com.baidu.tieba.ad.browser.h.2
-        private boolean anK;
+        private boolean but;
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -47,16 +47,16 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
                     for (DownloadData downloadData : downloadMessage.getData()) {
                         if (downloadData != null && "com.xiu8.baidu.activity".equals(downloadData.getId())) {
                             if (downloadData.getStatus() == 5) {
-                                if (!this.anK) {
-                                    this.anK = true;
+                                if (!this.but) {
+                                    this.but = true;
                                     h.this.callDownloadListener(1);
                                 }
                             } else if (downloadData.getStatus() == 0 || downloadData.getStatus() == 3) {
                                 h.this.callDownloadListener(2);
-                                this.anK = false;
+                                this.but = false;
                             } else if (downloadData.getStatus() == 2 || downloadData.getStatus() == 4) {
                                 h.this.callDownloadListener(0);
-                                this.anK = false;
+                                this.but = false;
                             }
                         }
                     }
@@ -86,7 +86,7 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
 
     private static String md5(String str) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(str.getBytes());
             byte[] digest = messageDigest.digest();
             StringBuffer stringBuffer = new StringBuffer("");
@@ -184,7 +184,7 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private void startDownload(String str) {
-        com.baidu.tbadk.download.b.Mh().a("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(e.j.xiuba_apk_name), -1, -1);
+        com.baidu.tbadk.download.b.alL().a("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(d.j.xiuba_apk_name), -1, -1);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -199,8 +199,8 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
         JSONObject jsonWithObject = OrmObject.jsonWithObject(jSResultData);
         if (this.mTbPageContext.getOrignalPage() instanceof AdBaseWebViewActivity) {
             ((AdBaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('download'," + jsonWithObject + ")");
-        } else if (this.bCw != null) {
-            this.bCw.loadUrl("javascript:addEventLisener('download'," + jsonWithObject + ")");
+        } else if (this.cND != null) {
+            this.cND.loadUrl("javascript:addEventLisener('download'," + jsonWithObject + ")");
         }
     }
 
@@ -216,8 +216,8 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
         JSONObject jsonWithObject = OrmObject.jsonWithObject(jSResultData);
         if (this.mTbPageContext.getOrignalPage() instanceof AdBaseWebViewActivity) {
             ((AdBaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('install'," + jsonWithObject + ")");
-        } else if (this.bCw != null) {
-            this.bCw.loadUrl("javascript:addEventLisener('install'," + jsonWithObject + ")");
+        } else if (this.cND != null) {
+            this.cND.loadUrl("javascript:addEventLisener('install'," + jsonWithObject + ")");
         }
     }
 
@@ -232,7 +232,7 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
             if ("checkAPKInstall".equals(str2)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str3);
-                    String optString = jSONObject.optString("sign");
+                    String optString = jSONObject.optString(SapiUtils.KEY_QR_LOGIN_SIGN);
                     jsPromptResult.confirm(checkAPKInstall(jSONObject.optString("apkName"), jSONObject.optLong("tk"), optString).toString());
                     return true;
                 } catch (Exception e) {
@@ -241,7 +241,7 @@ public class h implements com.baidu.tieba.tbadkCore.e.b {
             } else if ("downLoadAPK".equals(str2)) {
                 try {
                     JSONObject jSONObject2 = new JSONObject(str3);
-                    jsPromptResult.confirm(downLoadAPK(jSONObject2.optString("url"), jSONObject2.optLong("tk"), jSONObject2.optString("sign")));
+                    jsPromptResult.confirm(downLoadAPK(jSONObject2.optString("url"), jSONObject2.optLong("tk"), jSONObject2.optString(SapiUtils.KEY_QR_LOGIN_SIGN)));
                     return true;
                 } catch (Exception e2) {
                     e2.printStackTrace();

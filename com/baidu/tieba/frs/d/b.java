@@ -1,14 +1,10 @@
 package com.baidu.tieba.frs.d;
-
-import android.view.View;
-import com.baidu.adp.widget.ListView.q;
-import com.baidu.tieba.lego.card.view.e;
-/* loaded from: classes3.dex */
-public class b extends q.a {
-    e<?> ecH;
-
-    public b(e<?> eVar) {
-        super((View) eVar);
-        this.ecH = eVar;
-    }
+/* loaded from: classes4.dex */
+public class b {
+    public boolean ftb = false;
+    public int ftc = 0;
+    public String ftd = null;
+    public int fte = -1;
+    public int ftf = -1;
+    public int ftg = -1;
 }

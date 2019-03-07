@@ -20,7 +20,7 @@ import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.widget.RemoteViews;
-import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.baidu.tieba.ala.ALaKeepAliveService;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.channel.commonutils.android.b;
@@ -191,7 +191,7 @@ public class ac {
                 if (s != null && s.containsKey(ALaKeepAliveService.KEY_TICKER)) {
                     builder.setTicker(s.get(ALaKeepAliveService.KEY_TICKER));
                 }
-                if (currentTimeMillis - a > ErrDef.Feature.WEIGHT) {
+                if (currentTimeMillis - a > 10000) {
                     a = currentTimeMillis;
                     int c = e(context, a2) ? c(context, a2) : m.f;
                     builder.setDefaults(c);
@@ -222,7 +222,7 @@ public class ac {
         if (s != null) {
             builder.setTicker(s.get(ALaKeepAliveService.KEY_TICKER));
         }
-        if (currentTimeMillis - a > ErrDef.Feature.WEIGHT) {
+        if (currentTimeMillis - a > 10000) {
         }
         notification = builder.getNotification();
         if (z) {
@@ -274,7 +274,7 @@ public class ac {
                     notification2.tickerText = s.get(ALaKeepAliveService.KEY_TICKER);
                 }
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - a > ErrDef.Feature.WEIGHT) {
+                if (currentTimeMillis - a > 10000) {
                     a = currentTimeMillis;
                     int c = e(context, a(abVar)) ? c(context, a(abVar)) : m.f;
                     notification2.defaults = c;
@@ -509,8 +509,8 @@ public class ac {
                         }
                     }
                 }
-                if (jSONObject.has("time")) {
-                    JSONObject jSONObject4 = jSONObject.getJSONObject("time");
+                if (jSONObject.has(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME)) {
+                    JSONObject jSONObject4 = jSONObject.getJSONObject(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
                     Iterator<String> keys3 = jSONObject4.keys();
                     while (keys3.hasNext()) {
                         String next3 = keys3.next();

@@ -261,7 +261,7 @@ public class ViewDragHelper {
         } else {
             abs = (int) (((Math.abs(i) / i3) + 1.0f) * 256.0f);
         }
-        return Math.min(abs, 600);
+        return Math.min(abs, (int) MAX_SETTLE_DURATION);
     }
 
     private int clampMag(int i, int i2, int i3) {

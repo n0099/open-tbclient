@@ -16,9 +16,10 @@ import java.io.InputStream;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class Statistics {
     private static final String AS_FILE_NAME = "as";
     private static final int MESSAGE_INSTANT_SYNC_FILE = 1;
@@ -120,7 +121,7 @@ public class Statistics {
                                 }
                             }
                             byteArrayOutputStream.flush();
-                            JSONObject jSONObject = new JSONObject(new String(byteArrayOutputStream.toByteArray(), "UTF-8"));
+                            JSONObject jSONObject = new JSONObject(new String(byteArrayOutputStream.toByteArray(), HTTP.UTF_8));
                             return new StatisticsResult(jSONObject.getInt("errno"), jSONObject.getString("errnmsg"));
                         }
 
@@ -193,7 +194,7 @@ public class Statistics {
         return Holder.instance;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     private static final class Holder {
         private static final Statistics instance = new Statistics();
 
@@ -202,7 +203,7 @@ public class Statistics {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static final class StatisticsResult {
         public String errmsg;
         public int errno;

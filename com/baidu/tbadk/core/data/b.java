@@ -1,118 +1,121 @@
 package com.baidu.tbadk.core.data;
 
-import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.AlaPersonCenterFansActivityConfig;
+import com.xiaomi.mipush.sdk.Constants;
+import org.json.JSONObject;
+import tbclient.ActInfo;
 /* loaded from: classes.dex */
 public class b {
-    public boolean Sc;
-    public String apA;
-    public String apB;
-    public String apy;
-    public String apz;
-    public String extensionInfo;
-    public String fid;
-    public String page;
-    public int pn;
+    private int activity_type;
+    private int bqP;
+    private int bvW;
+    private int bvX;
+    private int bvY;
+    private int bvZ;
+    private boolean bwa;
+    private String bwb;
+    private int bwc = 1;
+    private int bwd = 1;
+    private int bwe;
+    private bb bwf;
+    private int status;
+    private int total_num;
+    private String url;
 
-    public static void a(b bVar, int i, boolean z) {
-        if (bVar != null && !bVar.Sc) {
-            com.baidu.tieba.recapp.report.b aa = com.baidu.tieba.recapp.report.f.aa(z ? 13 : 3, i, bVar.pn);
-            aa.vm(bVar.page);
-            aa.cB("isCache", String.valueOf(bVar.apy));
-            aa.vj(bVar.apz);
-            aa.vk(bVar.apA);
-            aa.vl(bVar.fid);
-            aa.cB("vc", bVar.apB);
-            aa.vf(bVar.extensionInfo);
-            com.baidu.tieba.recapp.report.c.bwO().a(aa);
-            bVar.Sc = true;
-        }
+    public int WV() {
+        return this.activity_type;
     }
 
-    public static void a(AdvertAppInfo advertAppInfo) {
-        b bVar;
-        if (advertAppInfo != null && (bVar = advertAppInfo.advertAppContext) != null && !bVar.Sc) {
-            com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(advertAppInfo, 3, bVar.pn);
-            c.vm(bVar.page);
-            c.cB("isCache", bVar.apy);
-            c.vj(bVar.apz);
-            c.vk(bVar.apA);
-            c.vl(bVar.fid);
-            c.cB("vc", bVar.apB);
-            c.vf(bVar.extensionInfo);
-            com.baidu.tieba.recapp.report.c.bwO().a(c);
-            com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.e(advertAppInfo));
-            bVar.Sc = true;
-        }
+    public int getStatus() {
+        return this.status;
     }
 
-    public static void a(com.baidu.afd.d dVar) {
-        if (dVar != null && dVar.pz() != null && !dVar.Sc && !TextUtils.isEmpty(dVar.pz().ext)) {
-            com.baidu.tieba.recapp.report.c.bwO().a(com.baidu.tieba.recapp.report.f.a(dVar, 3, dVar.getPageNum()));
-            com.baidu.tieba.lego.card.b.c.b(dVar);
-            dVar.Sc = true;
-        }
+    public int WW() {
+        return this.bvW;
     }
 
-    public static void b(b bVar, int i, boolean z) {
-        if (bVar != null && !bVar.Sc) {
-            int i2 = z ? 13 : 3;
-            com.baidu.tieba.recapp.report.b bVar2 = new com.baidu.tieba.recapp.report.b();
-            bVar2.uj(i2);
-            if ("PB_BANNER".equals(bVar.page)) {
-                bVar2.uk(-1);
-                bVar2.setPageNumber(-1);
-            } else {
-                bVar2.uk(i2);
-                bVar2.setPageNumber(bVar.pn);
+    public int WX() {
+        return this.bvX;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public int WY() {
+        return this.total_num;
+    }
+
+    public boolean WZ() {
+        return this.bwa;
+    }
+
+    public void a(ActInfo actInfo) {
+        if (actInfo != null) {
+            this.activity_type = actInfo.activity_type != null ? actInfo.activity_type.intValue() : -1;
+            this.status = actInfo.status != null ? actInfo.status.intValue() : -1;
+            this.bvW = actInfo.begin_time != null ? actInfo.begin_time.intValue() : -1;
+            this.bvX = actInfo.end_time != null ? actInfo.end_time.intValue() : -1;
+            this.url = actInfo.url;
+            this.total_num = actInfo.total_num != null ? actInfo.total_num.intValue() : -1;
+            this.bqP = actInfo.activity_id.intValue();
+            this.bvY = actInfo.award_act_id.intValue();
+            this.bvZ = actInfo.component_id.intValue();
+            this.bwa = actInfo.is_senior.booleanValue();
+            this.bwb = actInfo.banner_img;
+            this.bwe = actInfo.show_total_num.intValue();
+            String str = actInfo.banner_img_size;
+            if (!com.baidu.tbadk.core.util.ap.isEmpty(str)) {
+                try {
+                    String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    this.bwc = com.baidu.adp.lib.g.b.l(split[0], 1);
+                    this.bwd = com.baidu.adp.lib.g.b.l(split[1], 1);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
             }
-            bVar2.vm(bVar.page);
-            bVar2.vj(bVar.apz);
-            bVar2.vk(bVar.apA);
-            bVar2.vl(bVar.fid);
-            bVar2.cB("vc", bVar.apB);
-            bVar2.vf(bVar.extensionInfo);
-            com.baidu.tieba.recapp.report.c.bwO().a(bVar2);
-            bVar.Sc = true;
-        }
-    }
-
-    public static void a(com.baidu.tieba.tbadkCore.data.l lVar) {
-        b bVar;
-        if (lVar != null && lVar.bEG() != null && (bVar = lVar.bEG().advertAppContext) != null && !bVar.Sc) {
-            lVar.aqh = bVar.apz;
-            lVar.aqi = bVar.apA;
-            lVar.forumId = bVar.fid;
-            int i = 3;
-            if (lVar != null && lVar.bEH() != null && lVar.bEH().forFree()) {
-                i = 103;
+            if (this.bwc <= 0) {
+                this.bwc = 1;
             }
-            com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(lVar, i);
-            c.vf(bVar.extensionInfo);
-            com.baidu.tieba.recapp.report.c.bwO().a(c);
-            com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.e(lVar.py()));
-            bVar.Sc = true;
+            if (this.bwd <= 0) {
+                this.bwd = 1;
+            }
+            this.bwf = new bb();
+            this.bwf.a(actInfo.lottery_senior);
         }
     }
 
-    public static void c(b bVar, int i, boolean z) {
-        if (bVar != null && !bVar.Sc) {
-            com.baidu.tieba.recapp.report.b aa = com.baidu.tieba.recapp.report.f.aa(z ? 13 : 3, i, bVar.pn);
-            aa.vm(bVar.page);
-            aa.vf(bVar.extensionInfo);
-            com.baidu.tieba.recapp.report.c.bwO().a(aa);
-            bVar.Sc = true;
-        }
-    }
-
-    public static void a(com.baidu.tieba.card.data.d dVar) {
-        if (dVar != null && dVar.arh() != null && dVar.arh().advertAppContext != null && !dVar.arh().advertAppContext.Sc) {
-            dVar.arh().page = dVar.arh().advertAppContext.page;
-            com.baidu.tbadk.distribute.a.Mc().a(dVar.arh(), "", 0L, dVar.arh().page, "show", dVar.arh().advertAppContext.pn);
-            com.baidu.tieba.recapp.report.b d = com.baidu.tieba.recapp.report.f.d(dVar.arh(), 3, dVar.arh().advertAppContext.pn);
-            d.vf(dVar.arh().advertAppContext.extensionInfo);
-            com.baidu.tieba.recapp.report.c.bwO().a(d);
-            com.baidu.tieba.lego.card.b.c.b(com.baidu.tieba.lego.card.b.c.e(dVar.arh()));
-            dVar.arh().advertAppContext.Sc = true;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.activity_type = jSONObject.optInt(AlaPersonCenterFansActivityConfig.ACTIVITY_TYPE);
+                this.status = jSONObject.optInt("status");
+                this.bvW = jSONObject.optInt("begin_time");
+                this.bvX = jSONObject.optInt("end_time");
+                this.url = jSONObject.optString("url");
+                this.total_num = jSONObject.optInt("total_num");
+                this.bqP = jSONObject.optInt("activity_id");
+                this.bvY = jSONObject.optInt("award_act_id");
+                this.bvZ = jSONObject.optInt("component_id");
+                this.bwa = jSONObject.optBoolean("is_senior");
+                this.bwb = jSONObject.optString("banner_img");
+                this.bwe = jSONObject.optInt("show_total_num");
+                String optString = jSONObject.optString("banner_img_size");
+                if (!com.baidu.tbadk.core.util.ap.isEmpty(optString)) {
+                    String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    this.bwc = com.baidu.adp.lib.g.b.l(split[0], 1);
+                    this.bwd = com.baidu.adp.lib.g.b.l(split[1], 1);
+                }
+                if (this.bwc <= 0) {
+                    this.bwc = 1;
+                }
+                if (this.bwd <= 0) {
+                    this.bwd = 1;
+                }
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
         }
     }
 }

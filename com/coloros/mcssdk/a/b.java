@@ -8,20 +8,20 @@ public final class b extends c {
     @Override // com.coloros.mcssdk.a.d
     public final com.coloros.mcssdk.e.c a(Context context, int i, Intent intent) {
         if (4105 == i) {
-            return ao(intent);
+            return aF(intent);
         }
         return null;
     }
 
-    public final com.coloros.mcssdk.e.c ao(Intent intent) {
+    public final com.coloros.mcssdk.e.c aF(Intent intent) {
         try {
             com.coloros.mcssdk.e.b bVar = new com.coloros.mcssdk.e.b();
-            bVar.ye(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("command"))));
-            bVar.H(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("code"))));
+            bVar.BQ(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("command"))));
+            bVar.q(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("code"))));
             bVar.setContent(com.coloros.mcssdk.c.a.a(intent.getStringExtra("content")));
             bVar.setAppKey(com.coloros.mcssdk.c.a.a(intent.getStringExtra(WBConstants.SSO_APP_KEY)));
-            bVar.zk(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appSecret")));
-            bVar.zm(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
+            bVar.Fm(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appSecret")));
+            bVar.Fo(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
             com.coloros.mcssdk.c.c.a("OnHandleIntent-message:" + bVar.toString());
             return bVar;
         } catch (Exception e) {

@@ -5,6 +5,8 @@ import android.text.TextUtils;
 import com.baidu.sapi2.passhost.hostsdk.service.SafeService;
 /* loaded from: classes.dex */
 public final class SapiSafeFacade {
+    public static final int DEVICE_AUTH_TOKEN_EVENT_ID = 122;
+    public static final int GET_ZID_DEFAULT_EVENT_ID = 120;
     private static SapiSafeFacade a;
 
     private SapiSafeFacade() {
@@ -34,5 +36,9 @@ public final class SapiSafeFacade {
 
     public String getZidAndCheckSafe(Context context, String str, int i) {
         return SafeService.getInstance().getZidAndCheckSafe(context, str, i);
+    }
+
+    public String getDeviceAuthToken(Context context, String str, int i) {
+        return SafeService.getInstance().getDeviceAuthToken(context, SapiAccountManager.getInstance().getSapiConfiguration().tpl, str, i);
     }
 }

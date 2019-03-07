@@ -6,11 +6,11 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.baidu.tieba.QuickPlayer.IQuickMediaPlayer;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public interface IQuickMediaPlayerService extends IInterface {
     IQuickMediaPlayer createPlayer() throws RemoteException;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static abstract class Stub extends Binder implements IQuickMediaPlayerService {
         private static final String DESCRIPTOR = "com.baidu.tieba.QuickPlayer.IQuickMediaPlayerService";
         static final int TRANSACTION_createPlayer = 1;
@@ -52,7 +52,7 @@ public interface IQuickMediaPlayerService extends IInterface {
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes3.dex */
         private static class Proxy implements IQuickMediaPlayerService {
             private IBinder mRemote;
 

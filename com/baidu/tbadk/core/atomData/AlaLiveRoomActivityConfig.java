@@ -20,6 +20,8 @@ public class AlaLiveRoomActivityConfig extends IntentConfig {
     public static final String FROM_TYPE_HOME_CONCERN_TAB = "home_concern_tab";
     public static final String FROM_TYPE_HOME_LIVE_AUTO_PLAY = "home_live_auto_play";
     public static final String FROM_TYPE_HOME_LIVE_PLAY = "home_live_play";
+    public static final String FROM_TYPE_HOME_LIVE_TAB_MAIN = "home_live_tab_main";
+    public static final String FROM_TYPE_HOME_LIVE_TAB_MY_CONCERN = "home_live_tab_my_concern";
     public static final String FROM_TYPE_HOME_REC_AUTO_PLAY = "home_rec_auto_play";
     public static final String FROM_TYPE_HOME_REC_PLAY = "home_rec_play";
     public static final String FROM_TYPE_LIVE_ACTIVE_VIEW = "active_view_jump_live_room";

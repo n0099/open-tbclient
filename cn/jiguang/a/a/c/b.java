@@ -6,7 +6,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
 import cn.jiguang.d.d.aa;
-import com.baidu.ar.statistic.StatisticConstants;
+import com.sina.weibo.sdk.statistic.LogBuilder;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -46,7 +46,7 @@ public class b {
             if (cn.jiguang.g.i.a(str)) {
                 str = "";
             }
-            jSONObject.put(StatisticConstants.OS_VERSION, str);
+            jSONObject.put("os_version", str);
             if (cn.jiguang.g.i.a(locale)) {
                 locale = "";
             }
@@ -113,7 +113,7 @@ public class b {
             jSONObject.put("modelnumber", eVar.c);
             jSONObject.put("basebandversion", eVar.d);
             jSONObject.put("buildnumber", eVar.e);
-            jSONObject.put("channel", eVar.k);
+            jSONObject.put(LogBuilder.KEY_CHANNEL, eVar.k);
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("PushSDKVer", eVar.f);
             jSONObject2.put("StatisticSDKVer", eVar.g);
@@ -156,23 +156,23 @@ public class b {
             String str2 = cn.jiguang.d.a.c;
             StringBuilder sb2 = new StringBuilder();
             sb2.append(H);
-            sb2.append(",");
+            sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (TextUtils.isEmpty(b)) {
                 b = "";
             }
             sb2.append(b);
-            sb2.append(",");
+            sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
             sb2.append(str);
-            sb2.append(",");
+            sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
             sb2.append(TextUtils.isEmpty(sb) ? "" : sb);
-            sb2.append(",");
+            sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
             sb2.append(TextUtils.isEmpty("1.2.5") ? "" : "1.2.5");
-            sb2.append(",");
+            sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
             sb2.append(TextUtils.isEmpty("125") ? "" : "125");
-            sb2.append(",");
+            sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
             sb2.append(TextUtils.isEmpty(str2) ? "" : str2);
             String b2 = cn.jiguang.g.i.b(append.append(sb2.toString()).toString());
             if (b2 == null || TextUtils.equals(b2, context.getSharedPreferences("jpush_device_info", 0).getString("device_session", null))) {

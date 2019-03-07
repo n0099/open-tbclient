@@ -1,0 +1,89 @@
+package com.baidu.swan.apps.statistic;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.an.aa;
+import com.baidu.swan.apps.database.SwanAppDbControl;
+import com.baidu.swan.apps.statistic.a;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes2.dex */
+public class d extends com.baidu.swan.apps.process.b.a.a {
+    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+
+    @Override // com.baidu.swan.apps.process.b.a.a
+    public void t(@NonNull Bundle bundle) {
+        JSONObject jSONObject;
+        com.baidu.swan.apps.database.a ef;
+        String string = bundle.getString("key_swan_appid", "");
+        String string2 = bundle.getString("key_report_info", "");
+        if (TextUtils.isEmpty(string2)) {
+            string2 = "";
+        }
+        try {
+            jSONObject = new JSONObject(string2);
+        } catch (JSONException e) {
+            if (DEBUG) {
+                Log.e("VersionBusinessUbc", "execCall: ", e);
+            }
+            e.printStackTrace();
+            jSONObject = null;
+        }
+        if (jSONObject == null) {
+            jSONObject = new JSONObject();
+        }
+        if (!TextUtils.isEmpty(string) && (ef = SwanAppDbControl.bE(AppRuntime.getAppContext()).ef(string)) != null) {
+            try {
+                jSONObject.put("appDbInfo", ef.toShortString());
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+        }
+        if (DEBUG) {
+            Log.d("VersionBusinessUbc", "report info: " + jSONObject.toString());
+        }
+        new a.C0145a(10002).gO(jSONObject.toString()).Kq();
+        finish();
+    }
+
+    public static void i(String str, @Nullable JSONObject jSONObject) {
+        Intent intent;
+        if (TextUtils.isEmpty(str)) {
+            JSONObject jSONObject2 = new JSONObject();
+            if (str == null) {
+                str = "null";
+            }
+            try {
+                jSONObject2.put("version", str);
+                com.baidu.swan.apps.ae.b IX = com.baidu.swan.apps.ae.b.IX();
+                if (IX != null) {
+                    com.baidu.swan.apps.v.b.b uB = IX.uB();
+                    jSONObject2.put("launchInfo", uB == null ? "null" : uB.toShortString());
+                    com.baidu.swan.apps.v.b.b bVar = null;
+                    if (IX.getActivity() != null && (intent = IX.getActivity().getIntent()) != null) {
+                        bVar = com.baidu.swan.apps.v.b.b.G(intent);
+                    }
+                    jSONObject2.put("launchInfoIntent", bVar == null ? "null" : bVar.toShortString());
+                }
+                jSONObject2.put("stackTrace", aa.Mn());
+                if (jSONObject != null) {
+                    jSONObject2.put("reportExtInfo", jSONObject);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            com.baidu.swan.apps.process.messaging.client.a Gq = com.baidu.swan.apps.process.messaging.client.a.Gq();
+            if (Gq != null) {
+                Bundle bundle = new Bundle();
+                bundle.putString("key_swan_appid", com.baidu.swan.apps.ae.b.Ji());
+                bundle.putString("key_report_info", jSONObject2.toString());
+                Gq.a(bundle, d.class);
+            }
+        }
+    }
+}

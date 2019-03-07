@@ -95,11 +95,11 @@ public class TimeDisplaySetting implements Parcelable {
         TimeDisplaySetting timeDisplaySetting = new TimeDisplaySetting();
         if (jSONObject != null) {
             try {
-                if (!jSONObject.isNull("td")) {
-                    timeDisplaySetting.setIsTimeDisplay(jSONObject.getInt("td") != 0);
+                if (!jSONObject.isNull(TIME_DISPLAY)) {
+                    timeDisplaySetting.setIsTimeDisplay(jSONObject.getInt(TIME_DISPLAY) != 0);
                 }
-                if (!jSONObject.isNull("st")) {
-                    timeDisplaySetting.setStartShowTime(jSONObject.getString("st"));
+                if (!jSONObject.isNull(START_SHOW_TIME)) {
+                    timeDisplaySetting.setStartShowTime(jSONObject.getString(START_SHOW_TIME));
                 }
                 if (!jSONObject.isNull("et")) {
                     timeDisplaySetting.setEndShowTime(jSONObject.getString("et"));

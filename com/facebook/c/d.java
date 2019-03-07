@@ -9,45 +9,45 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class d {
-    private static d ipp;
-    private int ipq;
+    private static d jEV;
+    private int jEW;
     @Nullable
-    private List<c.a> ipr;
-    private final c.a ips = new a();
+    private List<c.a> jEX;
+    private final c.a jEY = new a();
 
     private d() {
-        bWY();
+        cvZ();
     }
 
-    public void eu(@Nullable List<c.a> list) {
-        this.ipr = list;
-        bWY();
+    public void ey(@Nullable List<c.a> list) {
+        this.jEX = list;
+        cvZ();
     }
 
-    public c q(InputStream inputStream) throws IOException {
+    public c s(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.ipq];
-        int a = a(this.ipq, inputStream, bArr);
-        if (this.ipr != null) {
-            for (c.a aVar : this.ipr) {
+        byte[] bArr = new byte[this.jEW];
+        int a = a(this.jEW, inputStream, bArr);
+        if (this.jEX != null) {
+            for (c.a aVar : this.jEX) {
                 c j = aVar.j(bArr, a);
-                if (j != null && j != c.ipn) {
+                if (j != null && j != c.jET) {
                     return j;
                 }
             }
         }
-        c j2 = this.ips.j(bArr, a);
+        c j2 = this.jEY.j(bArr, a);
         if (j2 == null) {
-            return c.ipn;
+            return c.jET;
         }
         return j2;
     }
 
-    private void bWY() {
-        this.ipq = this.ips.getHeaderSize();
-        if (this.ipr != null) {
-            for (c.a aVar : this.ipr) {
-                this.ipq = Math.max(this.ipq, aVar.getHeaderSize());
+    private void cvZ() {
+        this.jEW = this.jEY.getHeaderSize();
+        if (this.jEX != null) {
+            for (c.a aVar : this.jEX) {
+                this.jEW = Math.max(this.jEW, aVar.getHeaderSize());
             }
         }
     }
@@ -67,26 +67,26 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d bWZ() {
+    public static synchronized d cwa() {
         d dVar;
         synchronized (d.class) {
-            if (ipp == null) {
-                ipp = new d();
+            if (jEV == null) {
+                jEV = new d();
             }
-            dVar = ipp;
+            dVar = jEV;
         }
         return dVar;
     }
 
-    public static c r(InputStream inputStream) throws IOException {
-        return bWZ().q(inputStream);
+    public static c t(InputStream inputStream) throws IOException {
+        return cwa().s(inputStream);
     }
 
-    public static c s(InputStream inputStream) {
+    public static c u(InputStream inputStream) {
         try {
-            return r(inputStream);
+            return t(inputStream);
         } catch (IOException e) {
-            throw k.r(e);
+            throw k.s(e);
         }
     }
 }

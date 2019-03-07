@@ -12,7 +12,7 @@ public interface h {
 
     /* loaded from: classes.dex */
     public interface b {
-        int d(Context context, Map<String, String> map);
+        int k(Context context, Map<String, String> map);
     }
 
     /* loaded from: classes.dex */
@@ -28,5 +28,5 @@ public interface h {
 
     boolean d(Context context, String[] strArr);
 
-    boolean kf(String str);
+    boolean qQ(String str);
 }

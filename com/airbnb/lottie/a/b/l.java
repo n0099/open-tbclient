@@ -4,21 +4,21 @@ import android.graphics.Path;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class l extends a<com.airbnb.lottie.model.content.h, Path> {
-    private final com.airbnb.lottie.model.content.h pO;
-    private final Path pP;
+    private final com.airbnb.lottie.model.content.h pJ;
+    private final Path pK;
 
     public l(List<com.airbnb.lottie.a.a<com.airbnb.lottie.model.content.h>> list) {
         super(list);
-        this.pO = new com.airbnb.lottie.model.content.h();
-        this.pP = new Path();
+        this.pJ = new com.airbnb.lottie.model.content.h();
+        this.pK = new Path();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.a.b.a
     /* renamed from: g */
     public Path a(com.airbnb.lottie.a.a<com.airbnb.lottie.model.content.h> aVar, float f) {
-        this.pO.a(aVar.on, aVar.oo, f);
-        com.airbnb.lottie.c.e.a(this.pO, this.pP);
-        return this.pP;
+        this.pJ.a(aVar.oh, aVar.oi, f);
+        com.airbnb.lottie.c.e.a(this.pJ, this.pK);
+        return this.pK;
     }
 }

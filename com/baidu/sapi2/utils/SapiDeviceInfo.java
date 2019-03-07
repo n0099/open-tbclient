@@ -5,8 +5,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.android.common.security.MD5Util;
-import com.baidu.fsg.base.BaiduRimConstants;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
@@ -17,8 +15,6 @@ import com.baidu.sapi2.passhost.framework.a.b;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccountManagerService;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.utils.SapiDeviceUtils;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
-import com.baidu.webkit.internal.ETAG;
 import com.tencent.connect.common.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,7 +28,7 @@ public class SapiDeviceInfo {
     private static final int a = 11;
     private static final String c = "android";
     private static final String b = Character.toString(1);
-    private static final String d = TextUtils.join("", new String[]{"O", Config.APP_VERSION_CODE, "L", "h", "z", "O", "K", "T", "T", "Q", "G", "L", Config.DEVICE_WIDTH, Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "h", "P"});
+    private static final String d = TextUtils.join("", new String[]{"O", "a", "L", "h", "z", "O", "K", "T", "T", "Q", "G", "L", "w", Constants.VIA_SHARE_TYPE_PUBLISHVIDEO, "h", "P"});
     private static boolean e = ((ISapiAccountManagerService) b.a().getService(6, 0)).isOutsideCompany();
 
     static String a() {
@@ -67,11 +63,11 @@ public class SapiDeviceInfo {
         arrayList.add(diExceptIndex.contains(2) ? "" : isAccountManager.getVersionName());
         arrayList.add(diExceptIndex.contains(3) ? "" : b());
         arrayList.add(diExceptIndex.contains(4) ? "" : a());
-        arrayList.add(diExceptIndex.contains(5) ? "" : "android");
+        arrayList.add(diExceptIndex.contains(5) ? "" : c);
         arrayList.add(diExceptIndex.contains(6) ? "" : SapiUtils.getClientId(context));
         arrayList.add(diExceptIndex.contains(7) ? "" : confignation.tpl);
         arrayList.add(diExceptIndex.contains(8) ? "" : String.valueOf(isAccountManager.getShareAccounts().size()));
-        arrayList.add(diExceptIndex.contains(9) ? "" : TextUtils.join(",", c()));
+        arrayList.add(diExceptIndex.contains(9) ? "" : TextUtils.join(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP, c()));
         if (diExceptIndex.contains(10)) {
             str = "";
         } else if (str == null) {
@@ -101,7 +97,7 @@ public class SapiDeviceInfo {
         if (diExceptIndex.contains(17)) {
             str3 = "";
         } else {
-            str3 = SapiUtils.isEmulator(context) ? "emulator" : "android";
+            str3 = SapiUtils.isEmulator(context) ? "emulator" : c;
         }
         arrayList.add(str3);
         arrayList.add(diExceptIndex.contains(18) ? "" : SapiDeviceUtils.getMac(context));
@@ -116,7 +112,7 @@ public class SapiDeviceInfo {
         arrayList.add(diExceptIndex.contains(22) ? "" : SapiUtils.getInternalAvailableMemorySize() + "");
         arrayList.add(diExceptIndex.contains(23) ? "" : SapiUtils.getTimeSinceBoot() + "");
         arrayList.add(diExceptIndex.contains(24) ? "" : SapiUtils.getGPSInfo(context));
-        arrayList.add(diExceptIndex.contains(25) ? "" : TextUtils.join(",", SapiUtils.getPackageList(context)));
+        arrayList.add(diExceptIndex.contains(25) ? "" : TextUtils.join(com.xiaomi.mipush.sdk.Constants.ACCEPT_TIME_SEPARATOR_SP, SapiUtils.getPackageList(context)));
         if (diExceptIndex.contains(26)) {
             localIpAddress = "";
         } else {
@@ -131,7 +127,7 @@ public class SapiDeviceInfo {
         arrayList.add("");
         arrayList.add("");
         arrayList.add(diExceptIndex.contains(34) ? "" : isAccountManager.getCurrentZid(context));
-        arrayList.add(diExceptIndex.contains(35) ? "" : "1.0.3");
+        arrayList.add(diExceptIndex.contains(35) ? "" : PluginFacade.a.a);
         arrayList.add(diExceptIndex.contains(36) ? "" : SapiUtils.getIccid(context));
         return arrayList;
     }
@@ -173,7 +169,7 @@ public class SapiDeviceInfo {
         try {
             String d2 = d();
             String base64Encode = SapiDeviceUtils.DeviceCrypto.base64Encode(new AES().encrypt(str, d2, d));
-            return TextUtils.join(BaseRequestAction.SPLITE, new String[]{d2, base64Encode, MD5Util.toMd5(TextUtils.join(BaseRequestAction.SPLITE, new String[]{d2, base64Encode, "check"}).getBytes(), false).substring(0, 6)});
+            return TextUtils.join("_", new String[]{d2, base64Encode, MD5Util.toMd5(TextUtils.join("_", new String[]{d2, base64Encode, "check"}).getBytes(), false).substring(0, 6)});
         } catch (Throwable th) {
             Log.e(th);
             return "";
@@ -197,7 +193,8 @@ public class SapiDeviceInfo {
             if ("NoZidYet".equals(jSONObject.optString("sf_zid"))) {
                 try {
                     ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
-                    jSONObject.put("sf_zid", isAccountManager.getCurrentZid(isAccountManager.getConfignation().context));
+                    SapiAccount session = isAccountManager.getSession();
+                    jSONObject.put("sf_zid", isAccountManager.getZidAndCheckSafe(isAccountManager.getConfignation().context, session == null ? null : session.uid, 120));
                 } catch (JSONException e3) {
                     Log.e(e3);
                 }
@@ -256,13 +253,13 @@ public class SapiDeviceInfo {
             arrayList.add("SystemVersion");
             arrayList.add("SystemType");
             arrayList.add("cuid");
-            arrayList.add(BaiduRimConstants.TPL_INIT_KEY);
+            arrayList.add("tpl");
             arrayList.add("uid_count");
             arrayList.add("uid_list");
             arrayList.add("usetype");
             arrayList.add("used_times");
             arrayList.add("cur_uid");
-            arrayList.add(ETAG.KEY_NET_TYPE);
+            arrayList.add("net_type");
             arrayList.add("is_root");
             arrayList.add("wifi");
             arrayList.add("imei");

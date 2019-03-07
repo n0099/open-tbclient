@@ -1,8 +1,6 @@
 package com.baidu.tieba.recapp.download.http;
 
 import com.baidu.adp.lib.util.k;
-import com.baidu.ar.util.SystemInfoUtil;
-import com.baidu.webkit.internal.ETAG;
 import java.io.DataOutputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -11,12 +9,13 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class h {
     private String url = "";
-    protected Map<String, String> Da = new HashMap();
-    protected LinkedList<BasicNameValuePair> Db = new LinkedList<>();
-    protected HashMap<String, byte[]> Dc = new HashMap<>();
+    protected Map<String, String> CZ = new HashMap();
+    protected LinkedList<BasicNameValuePair> Da = new LinkedList<>();
+    protected HashMap<String, byte[]> Db = new HashMap<>();
 
     public String getUrl() {
         return this.url;
@@ -30,14 +29,14 @@ public class h {
         }
     }
 
-    public boolean jt() {
-        return this.Dc != null && this.Dc.size() > 0;
+    public boolean jv() {
+        return this.Db != null && this.Db.size() > 0;
     }
 
     public String c(e eVar) {
-        if (this.Db.size() == 0) {
+        if (this.Da.size() == 0) {
             if (eVar != null) {
-                eVar.CF = this.url.length();
+                eVar.CE = this.url.length();
             }
             return this.url;
         }
@@ -45,32 +44,32 @@ public class h {
         sb.append(this.url);
         if (this.url.indexOf("?") < 0) {
             sb.append("?");
-        } else if (!this.url.endsWith("?") && !this.url.endsWith(ETAG.ITEM_SEPARATOR)) {
-            sb.append(ETAG.ITEM_SEPARATOR);
+        } else if (!this.url.endsWith("?") && !this.url.endsWith("&")) {
+            sb.append("&");
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.Db.size()) {
+            if (i2 >= this.Da.size()) {
                 break;
             }
             if (i2 != 0) {
-                sb.append(ETAG.ITEM_SEPARATOR);
+                sb.append("&");
             }
-            sb.append(this.Db.get(i2).getName());
-            sb.append(ETAG.EQUAL);
-            sb.append(k.bx(this.Db.get(i2).getValue()));
+            sb.append(this.Da.get(i2).getName());
+            sb.append("=");
+            sb.append(k.bx(this.Da.get(i2).getValue()));
             i = i2 + 1;
         }
         if (eVar != null) {
-            eVar.CF = sb.length();
+            eVar.CE = sb.length();
         }
         return sb.toString();
     }
 
-    public void f(HttpURLConnection httpURLConnection) {
-        if (httpURLConnection != null && this.Da != null) {
-            for (Map.Entry<String, String> entry : this.Da.entrySet()) {
+    public void d(HttpURLConnection httpURLConnection) {
+        if (httpURLConnection != null && this.CZ != null) {
+            for (Map.Entry<String, String> entry : this.CZ.entrySet()) {
                 httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -78,43 +77,43 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(HttpURLConnection httpURLConnection, String str, e eVar) throws Exception {
-        jv();
+        jx();
         int i = 0;
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
-                if (this.Db != null) {
-                    Iterator<BasicNameValuePair> it = this.Db.iterator();
+                if (this.Da != null) {
+                    Iterator<BasicNameValuePair> it = this.Da.iterator();
                     while (it.hasNext()) {
                         BasicNameValuePair next = it.next();
                         if (next != null) {
                             String name = next.getName();
                             String value = next.getValue();
                             if (value != null && name != null) {
-                                dataOutputStream.writeBytes("--" + str + SystemInfoUtil.LINE_END);
-                                byte[] bytes = value.getBytes("UTF-8");
-                                dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"" + SystemInfoUtil.LINE_END);
-                                dataOutputStream.writeBytes(SystemInfoUtil.LINE_END);
+                                dataOutputStream.writeBytes("--" + str + "\r\n");
+                                byte[] bytes = value.getBytes(HTTP.UTF_8);
+                                dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"\r\n");
+                                dataOutputStream.writeBytes("\r\n");
                                 dataOutputStream.write(bytes);
-                                dataOutputStream.writeBytes(SystemInfoUtil.LINE_END);
+                                dataOutputStream.writeBytes("\r\n");
                             }
                         }
                     }
                 }
-                if (this.Dc != null) {
-                    for (Map.Entry<String, byte[]> entry : this.Dc.entrySet()) {
+                if (this.Db != null) {
+                    for (Map.Entry<String, byte[]> entry : this.Db.entrySet()) {
                         String key = entry.getKey();
                         byte[] value2 = entry.getValue();
                         if (value2 != null) {
-                            dataOutputStream.writeBytes("--" + str + SystemInfoUtil.LINE_END);
-                            dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"" + SystemInfoUtil.LINE_END);
-                            dataOutputStream.writeBytes(SystemInfoUtil.LINE_END);
+                            dataOutputStream.writeBytes("--" + str + "\r\n");
+                            dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"\r\n");
+                            dataOutputStream.writeBytes("\r\n");
                             dataOutputStream.write(value2);
-                            dataOutputStream.writeBytes(SystemInfoUtil.LINE_END);
+                            dataOutputStream.writeBytes("\r\n");
                         }
                     }
                 }
-                dataOutputStream.writeBytes("--" + str + "--" + SystemInfoUtil.LINE_END);
+                dataOutputStream.writeBytes("--" + str + "--\r\n");
                 dataOutputStream.flush();
                 i = dataOutputStream.size();
             } finally {
@@ -122,14 +121,14 @@ public class h {
             }
         }
         if (eVar != null) {
-            eVar.CF = i;
+            eVar.CE = i;
         }
     }
 
     public void a(HttpURLConnection httpURLConnection, e eVar) throws Exception {
         int i = 0;
         if (httpURLConnection != null) {
-            String sb = ju().toString();
+            String sb = jw().toString();
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
                 dataOutputStream.writeBytes(sb);
@@ -142,14 +141,14 @@ public class h {
             }
         }
         if (eVar != null) {
-            eVar.CF = i;
+            eVar.CE = i;
         }
     }
 
-    private StringBuilder ju() {
+    private StringBuilder jw() {
         StringBuilder sb = new StringBuilder(1024);
-        if (this.Db != null) {
-            Iterator<BasicNameValuePair> it = this.Db.iterator();
+        if (this.Da != null) {
+            Iterator<BasicNameValuePair> it = this.Da.iterator();
             int i = 0;
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
@@ -157,9 +156,9 @@ public class h {
                     String name = next.getName();
                     String value = next.getValue();
                     if (i != 0) {
-                        sb.append(ETAG.ITEM_SEPARATOR);
+                        sb.append("&");
                     }
-                    sb.append(name + ETAG.EQUAL);
+                    sb.append(name + "=");
                     sb.append(k.bx(value));
                     i++;
                 }
@@ -168,23 +167,23 @@ public class h {
         return sb;
     }
 
-    protected void jv() {
+    protected void jx() {
     }
 
     public String aQ(String str) {
-        if (this.Da != null) {
-            return this.Da.get(str);
+        if (this.CZ != null) {
+            return this.CZ.get(str);
         }
         return null;
     }
 
     public void a(BasicNameValuePair basicNameValuePair) {
-        this.Db.add(basicNameValuePair);
+        this.Da.add(basicNameValuePair);
     }
 
     public void y(String str, String str2) {
-        if (this.Da != null) {
-            this.Da.put(str, str2);
+        if (this.CZ != null) {
+            this.CZ.put(str, str2);
         }
     }
 }

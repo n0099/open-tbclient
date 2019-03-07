@@ -12,13 +12,13 @@ import java.util.Set;
 /* loaded from: classes.dex */
 public class a {
     public static final List<Object> a(c cVar, int i) {
-        Class<?> hZ = cVar.hZ();
-        if (hZ == List.class || hZ == ArrayList.class) {
+        Class<?> hY = cVar.hY();
+        if (hY == List.class || hY == ArrayList.class) {
             return new ArrayList(i);
         }
-        Object b = com.baidu.adp.lib.OrmObject.a.a.b(hZ, i);
+        Object b = com.baidu.adp.lib.OrmObject.a.a.b(hY, i);
         if (b == null) {
-            b = com.baidu.adp.lib.OrmObject.a.a.g(hZ);
+            b = com.baidu.adp.lib.OrmObject.a.a.g(hY);
         }
         if (!(b instanceof List)) {
             return null;
@@ -27,13 +27,13 @@ public class a {
     }
 
     public static final Set<Object> b(c cVar, int i) {
-        Class<?> hZ = cVar.hZ();
-        if (hZ == Set.class) {
+        Class<?> hY = cVar.hY();
+        if (hY == Set.class) {
             return new HashSet();
         }
-        Object b = com.baidu.adp.lib.OrmObject.a.a.b(hZ, i);
+        Object b = com.baidu.adp.lib.OrmObject.a.a.b(hY, i);
         if (b == null) {
-            b = com.baidu.adp.lib.OrmObject.a.a.g(hZ);
+            b = com.baidu.adp.lib.OrmObject.a.a.g(hY);
         }
         if (!(b instanceof Set)) {
             return null;
@@ -42,13 +42,13 @@ public class a {
     }
 
     public static final Queue<Object> c(c cVar, int i) {
-        Class<?> hZ = cVar.hZ();
-        if (hZ == Queue.class) {
+        Class<?> hY = cVar.hY();
+        if (hY == Queue.class) {
             return new LinkedList();
         }
-        Object b = com.baidu.adp.lib.OrmObject.a.a.b(hZ, i);
+        Object b = com.baidu.adp.lib.OrmObject.a.a.b(hY, i);
         if (b == null) {
-            b = com.baidu.adp.lib.OrmObject.a.a.g(hZ);
+            b = com.baidu.adp.lib.OrmObject.a.a.g(hY);
         }
         if (!(b instanceof Queue)) {
             return null;
@@ -57,26 +57,26 @@ public class a {
     }
 
     public static final Map<String, Object> d(c cVar, int i) {
-        Class<?> hZ = cVar.hZ();
-        Type[] hY = cVar.hY();
-        if (com.baidu.adp.lib.OrmObject.a.a.d(hZ, Map.class)) {
-            if (hY != null && hY.length >= 2 && hY[0] == String.class) {
-                if (hZ == Map.class) {
+        Class<?> hY = cVar.hY();
+        Type[] hX = cVar.hX();
+        if (com.baidu.adp.lib.OrmObject.a.a.d(hY, Map.class)) {
+            if (hX != null && hX.length >= 2 && hX[0] == String.class) {
+                if (hY == Map.class) {
                     return new HashMap(i);
                 }
-                Object b = com.baidu.adp.lib.OrmObject.a.a.b(hZ, i);
+                Object b = com.baidu.adp.lib.OrmObject.a.a.b(hY, i);
                 if (b == null) {
-                    b = com.baidu.adp.lib.OrmObject.a.a.g(hZ);
+                    b = com.baidu.adp.lib.OrmObject.a.a.g(hY);
                 }
                 if (b instanceof Map) {
                     return (Map) b;
                 }
-            } else if (hZ == Map.class) {
+            } else if (hY == Map.class) {
                 return new HashMap(i);
             } else {
-                Object b2 = com.baidu.adp.lib.OrmObject.a.a.b(hZ, i);
+                Object b2 = com.baidu.adp.lib.OrmObject.a.a.b(hY, i);
                 if (b2 == null) {
-                    b2 = com.baidu.adp.lib.OrmObject.a.a.g(hZ);
+                    b2 = com.baidu.adp.lib.OrmObject.a.a.g(hY);
                 }
                 if (b2 instanceof Map) {
                     return (Map) b2;

@@ -1,8 +1,8 @@
 package com.baidu.tieba.frs;
 
 import android.view.View;
-import com.baidu.tbadk.core.data.bb;
+import com.baidu.tbadk.core.data.bg;
 /* loaded from: classes.dex */
 public interface d {
-    void a(int i, int i2, View view, View view2, bb bbVar);
+    void a(int i, int i2, View view, View view2, bg bgVar);
 }

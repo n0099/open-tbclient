@@ -4,8 +4,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import java.util.UUID;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public abstract class AbstractMediaPlayer implements IMediaPlayer {
+    private boolean isNewPlayer = true;
     private IMediaPlayer.OnBufferingUpdateListener mOnBufferingUpdateListener;
     private IMediaPlayer.OnCompletionListener mOnCompletionListener;
     private IMediaPlayer.OnErrorListener mOnErrorListener;
@@ -65,6 +66,7 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
 
     @Override // tv.danmaku.ijk.media.player.IMediaPlayer
     public void resetListeners() {
+        this.isNewPlayer = true;
         this.mOnPreparedListener = null;
         this.mOnBufferingUpdateListener = null;
         this.mOnCompletionListener = null;
@@ -74,6 +76,11 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
         this.mOnInfoListener = null;
         this.mOnSubErrorInfoListener = null;
         this.mOnHandleOppoErrorListener = null;
+    }
+
+    @Override // tv.danmaku.ijk.media.player.IMediaPlayer
+    public boolean isNewPlayer() {
+        return this.isNewPlayer;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -118,6 +125,9 @@ public abstract class AbstractMediaPlayer implements IMediaPlayer {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final boolean notifyOnInfo(int i, int i2) {
+        if (i == 3) {
+            this.isNewPlayer = false;
+        }
         return this.mOnInfoListener != null && this.mOnInfoListener.onInfo(this, i, i2);
     }
 

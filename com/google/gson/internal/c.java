@@ -8,17 +8,17 @@ import java.util.Collections;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class c implements p, Cloneable {
-    public static final c ixI = new c();
-    private boolean ixM;
-    private double ixJ = -1.0d;
-    private int ixK = 136;
-    private boolean ixL = true;
-    private List<com.google.gson.a> ixN = Collections.emptyList();
-    private List<com.google.gson.a> ixO = Collections.emptyList();
+    public static final c jNt = new c();
+    private boolean jNx;
+    private double jNu = -1.0d;
+    private int jNv = 136;
+    private boolean jNw = true;
+    private List<com.google.gson.a> jNy = Collections.emptyList();
+    private List<com.google.gson.a> jNz = Collections.emptyList();
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
-    /* renamed from: cbU */
+    /* renamed from: cAZ */
     public c clone() {
         try {
             return (c) super.clone();
@@ -29,12 +29,12 @@ public final class c implements p, Cloneable {
 
     @Override // com.google.gson.p
     public <T> o<T> a(final com.google.gson.d dVar, final com.google.gson.b.a<T> aVar) {
-        Class<? super T> ccr = aVar.ccr();
-        final boolean b = b(ccr, true);
-        final boolean b2 = b(ccr, false);
+        Class<? super T> cBw = aVar.cBw();
+        final boolean b = b(cBw, true);
+        final boolean b2 = b(cBw, false);
         if (b || b2) {
             return new o<T>() { // from class: com.google.gson.internal.c.1
-                private o<T> ixt;
+                private o<T> jNe;
 
                 /* JADX WARN: Type inference failed for: r0v2, types: [T, java.lang.Object] */
                 @Override // com.google.gson.o
@@ -43,25 +43,25 @@ public final class c implements p, Cloneable {
                         aVar2.skipValue();
                         return null;
                     }
-                    return cbV().b(aVar2);
+                    return cBa().b(aVar2);
                 }
 
                 @Override // com.google.gson.o
                 public void a(com.google.gson.stream.b bVar, T t) throws IOException {
                     if (b) {
-                        bVar.ccq();
+                        bVar.cBv();
                     } else {
-                        cbV().a(bVar, t);
+                        cBa().a(bVar, t);
                     }
                 }
 
-                private o<T> cbV() {
-                    o<T> oVar = this.ixt;
+                private o<T> cBa() {
+                    o<T> oVar = this.jNe;
                     if (oVar != 0) {
                         return oVar;
                     }
                     o<T> a = dVar.a(c.this, aVar);
-                    this.ixt = a;
+                    this.jNe = a;
                     return a;
                 }
             };
@@ -71,13 +71,13 @@ public final class c implements p, Cloneable {
 
     public boolean a(Field field, boolean z) {
         com.google.gson.a.a aVar;
-        if ((this.ixK & field.getModifiers()) != 0) {
+        if ((this.jNv & field.getModifiers()) != 0) {
             return true;
         }
-        if ((this.ixJ == -1.0d || a((com.google.gson.a.d) field.getAnnotation(com.google.gson.a.d.class), (com.google.gson.a.e) field.getAnnotation(com.google.gson.a.e.class))) && !field.isSynthetic()) {
-            if (!this.ixM || ((aVar = (com.google.gson.a.a) field.getAnnotation(com.google.gson.a.a.class)) != null && (!z ? !aVar.cbP() : !aVar.cbO()))) {
-                if ((this.ixL || !w(field.getType())) && !v(field.getType())) {
-                    List<com.google.gson.a> list = z ? this.ixN : this.ixO;
+        if ((this.jNu == -1.0d || a((com.google.gson.a.d) field.getAnnotation(com.google.gson.a.d.class), (com.google.gson.a.e) field.getAnnotation(com.google.gson.a.e.class))) && !field.isSynthetic()) {
+            if (!this.jNx || ((aVar = (com.google.gson.a.a) field.getAnnotation(com.google.gson.a.a.class)) != null && (!z ? !aVar.cAU() : !aVar.cAT()))) {
+                if ((this.jNw || !z(field.getType())) && !y(field.getType())) {
+                    List<com.google.gson.a> list = z ? this.jNy : this.jNz;
                     if (!list.isEmpty()) {
                         com.google.gson.b bVar = new com.google.gson.b(field);
                         for (com.google.gson.a aVar2 : list) {
@@ -96,10 +96,10 @@ public final class c implements p, Cloneable {
     }
 
     public boolean b(Class<?> cls, boolean z) {
-        if (this.ixJ == -1.0d || a((com.google.gson.a.d) cls.getAnnotation(com.google.gson.a.d.class), (com.google.gson.a.e) cls.getAnnotation(com.google.gson.a.e.class))) {
-            if ((this.ixL || !w(cls)) && !v(cls)) {
-                for (com.google.gson.a aVar : z ? this.ixN : this.ixO) {
-                    if (aVar.s(cls)) {
+        if (this.jNu == -1.0d || a((com.google.gson.a.d) cls.getAnnotation(com.google.gson.a.d.class), (com.google.gson.a.e) cls.getAnnotation(com.google.gson.a.e.class))) {
+            if ((this.jNw || !z(cls)) && !y(cls)) {
+                for (com.google.gson.a aVar : z ? this.jNy : this.jNz) {
+                    if (aVar.v(cls)) {
                         return true;
                     }
                 }
@@ -110,15 +110,15 @@ public final class c implements p, Cloneable {
         return true;
     }
 
-    private boolean v(Class<?> cls) {
+    private boolean y(Class<?> cls) {
         return !Enum.class.isAssignableFrom(cls) && (cls.isAnonymousClass() || cls.isLocalClass());
     }
 
-    private boolean w(Class<?> cls) {
-        return cls.isMemberClass() && !x(cls);
+    private boolean z(Class<?> cls) {
+        return cls.isMemberClass() && !A(cls);
     }
 
-    private boolean x(Class<?> cls) {
+    private boolean A(Class<?> cls) {
         return (cls.getModifiers() & 8) != 0;
     }
 
@@ -127,10 +127,10 @@ public final class c implements p, Cloneable {
     }
 
     private boolean a(com.google.gson.a.d dVar) {
-        return dVar == null || dVar.cbS() <= this.ixJ;
+        return dVar == null || dVar.cAX() <= this.jNu;
     }
 
     private boolean a(com.google.gson.a.e eVar) {
-        return eVar == null || eVar.cbS() > this.ixJ;
+        return eVar == null || eVar.cAX() > this.jNu;
     }
 }
