@@ -13,7 +13,7 @@ public final class b extends i {
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // cn.jiguang.d.b.a.a.i
     public final int a() {
-        InetAddress M = cn.jiguang.d.d.g.M(cn.jiguang.d.a.ld.d());
+        InetAddress M = cn.jiguang.d.d.g.M(cn.jiguang.d.a.lf.d());
         if (M == null) {
             return -1;
         }

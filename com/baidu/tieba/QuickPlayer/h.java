@@ -6,42 +6,43 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import android.view.Surface;
+import com.baidu.tieba.keepLive.util.RomTypeUtil;
 import java.lang.reflect.Field;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class h extends MediaPlayer {
-    private b byX;
-    private Handler byZ;
-    private Handler.Callback bza;
+    private b cKd;
+    private Handler cKf;
+    private Handler.Callback cKg;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void handleOppoError(String str);
     }
 
     public h() {
-        if (!TextUtils.isEmpty(Build.BRAND) && "OPPO".toLowerCase().equals(Build.BRAND.toLowerCase())) {
+        if (!TextUtils.isEmpty(Build.BRAND) && RomTypeUtil.ROM_OPPO.toLowerCase().equals(Build.BRAND.toLowerCase())) {
             try {
                 Field declaredField = MediaPlayer.class.getDeclaredField("mEventHandler");
                 declaredField.setAccessible(true);
                 Object obj = declaredField.get(this);
                 if (obj instanceof Handler) {
-                    this.byZ = (Handler) obj;
+                    this.cKf = (Handler) obj;
                     Field declaredField2 = Handler.class.getDeclaredField("mCallback");
                     declaredField2.setAccessible(true);
                     Object obj2 = declaredField2.get(obj);
                     if (obj2 instanceof Handler.Callback) {
-                        this.bza = (Handler.Callback) obj2;
+                        this.cKg = (Handler.Callback) obj2;
                     }
                     declaredField2.set(obj, new a());
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                n(e);
+                m(e);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     private class a implements Handler.Callback {
         private a() {
         }
@@ -49,23 +50,23 @@ public class h extends MediaPlayer {
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             try {
-                if ((h.this.bza == null || !h.this.bza.handleMessage(message)) && h.this.byZ != null) {
-                    h.this.byZ.handleMessage(message);
+                if ((h.this.cKg == null || !h.this.cKg.handleMessage(message)) && h.this.cKf != null) {
+                    h.this.cKf.handleMessage(message);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                h.this.n(e);
+                h.this.m(e);
             }
             return true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void n(Throwable th) {
+    public void m(Throwable th) {
         if (th != null) {
-            String o = com.baidu.tieba.j.a.o(th);
-            if (this.byX != null) {
-                this.byX.handleOppoError(o);
+            String p = com.baidu.tieba.j.a.p(th);
+            if (this.cKd != null) {
+                this.cKd.handleOppoError(p);
             }
         }
     }
@@ -78,6 +79,6 @@ public class h extends MediaPlayer {
     }
 
     public void a(b bVar) {
-        this.byX = bVar;
+        this.cKd = bVar;
     }
 }

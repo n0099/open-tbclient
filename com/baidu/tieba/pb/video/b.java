@@ -1,12 +1,13 @@
 package com.baidu.tieba.pb.video;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes6.dex */
-public class b implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId gnI = BdUniqueId.gen();
+import com.baidu.adp.widget.ListView.m;
+/* loaded from: classes4.dex */
+public class b implements m {
+    public static final BdUniqueId hDS = BdUniqueId.gen();
 
-    @Override // com.baidu.adp.widget.ListView.h
+    @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gnI;
+        return hDS;
     }
 }

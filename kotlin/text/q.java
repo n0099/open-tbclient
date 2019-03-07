@@ -7,13 +7,13 @@ import kotlin.collections.y;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class q extends p {
-    public static final boolean i(CharSequence charSequence) {
+    public static final boolean m(CharSequence charSequence) {
         boolean z;
-        kotlin.jvm.internal.p.j(charSequence, "$receiver");
+        kotlin.jvm.internal.p.k(charSequence, "$receiver");
         if (charSequence.length() != 0) {
-            kotlin.b.c k = k.k(charSequence);
-            if (!(k instanceof Collection) || !((Collection) k).isEmpty()) {
-                Iterator<Integer> it = k.iterator();
+            kotlin.b.c o = k.o(charSequence);
+            if (!(o instanceof Collection) || !((Collection) o).isEmpty()) {
+                Iterator<Integer> it = o.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         z = true;
@@ -34,8 +34,8 @@ public class q extends p {
     }
 
     public static final boolean a(String str, int i, String str2, int i2, int i3, boolean z) {
-        kotlin.jvm.internal.p.j(str, "$receiver");
-        kotlin.jvm.internal.p.j(str2, ImageViewerConfig.FROM_OTHER);
+        kotlin.jvm.internal.p.k(str, "$receiver");
+        kotlin.jvm.internal.p.k(str2, ImageViewerConfig.FROM_OTHER);
         if (!z) {
             return str.regionMatches(i, str2, i2, i3);
         }

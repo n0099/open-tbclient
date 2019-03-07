@@ -2,7 +2,6 @@ package com.baidu.appsearchlib;
 
 import android.app.ActivityManager;
 import android.content.Context;
-import com.baidu.ar.util.IoUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -135,12 +134,12 @@ public class Logger {
     public static void reportWithString(Context context, String str) {
         String timeStr = Util.getTimeStr();
         String encode = encode(Util.getDeviceId(context));
-        reportWithUrl(String.valueOf(String.valueOf(String.valueOf(String.format("%s?%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s", LOG_SERVER, Info.kBaiduPIDKey, Info.kBaiduPIDValue, Info.kBaiduPJKey, Info.kBaiduPJValue, Info.kBaiduVersionKey, encode(Util.getCurrentVersion(context)), "t", timeStr, Info.kBaiduDevice, encode(Util.getPlatformCode()), Info.kBaiduOpenudid, encode, Info.kBaiduIOSVersion, encode(Util.getOSVersion()), Info.kBaiduModuleKey, Info.kBaiduBaseModule, Info.kBaiduAppIDKey, Info.APPID, Info.kBaiduSDKVersionKey, Info.SDK_VERSION, "vcode1", Md5Util.getMd5(String.valueOf(timeStr) + encode + Info.PASSWORD))) + str) + "&vcode2=") + Md5Util.getMd5(String.valueOf(timeStr) + encode + Info.PASSWORD + str));
+        reportWithUrl(String.valueOf(String.valueOf(String.valueOf(String.format("%s?%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s&%s=%s", LOG_SERVER, Info.kBaiduPIDKey, Info.kBaiduPIDValue, Info.kBaiduPJKey, Info.kBaiduPJValue, Info.kBaiduVersionKey, encode(Util.getCurrentVersion(context)), Info.kBaiduTimeKey, timeStr, Info.kBaiduDevice, encode(Util.getPlatformCode()), Info.kBaiduOpenudid, encode, Info.kBaiduIOSVersion, encode(Util.getOSVersion()), Info.kBaiduModuleKey, Info.kBaiduBaseModule, Info.kBaiduAppIDKey, Info.APPID, Info.kBaiduSDKVersionKey, Info.SDK_VERSION, "vcode1", Md5Util.getMd5(String.valueOf(timeStr) + encode + Info.PASSWORD))) + str) + "&vcode2=") + Md5Util.getMd5(String.valueOf(timeStr) + encode + Info.PASSWORD + str));
     }
 
     public static String encode(String str) {
         try {
-            return URLEncoder.encode(str, IoUtils.UTF_8);
+            return URLEncoder.encode(str, "utf-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             return "";

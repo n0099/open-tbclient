@@ -12,7 +12,6 @@ import android.os.Environment;
 import android.os.ParcelFileDescriptor;
 import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
-import com.baidu.mobstat.Config;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -186,7 +185,7 @@ public class FileProvider extends ContentProvider {
         if ("r".equals(str)) {
             return 268435456;
         }
-        if (!Config.DEVICE_WIDTH.equals(str) && !"wt".equals(str)) {
+        if (!"w".equals(str) && !"wt".equals(str)) {
             if ("wa".equals(str)) {
                 return 704643072;
             }

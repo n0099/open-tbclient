@@ -1,40 +1,121 @@
 package com.baidu.tbadk.core.data;
 
-import org.json.JSONException;
+import com.baidu.adp.lib.util.BdLog;
+import com.xiaomi.mipush.sdk.Constants;
 import org.json.JSONObject;
-import tbclient.FrsPage.TopNotice;
+import tbclient.TaskInfo;
 /* loaded from: classes.dex */
 public class be {
-    private String title = null;
-    private String title_link = null;
-    private String author = null;
-    private int id = 0;
+    private long bAA;
+    private String bAB;
+    private String bAC;
+    private long endTime;
+    private long forumId;
+    private String forumName;
+    private int mHeight;
+    private int mWidth;
+    private String obj_id;
+    private long taskId;
+    private long threadId;
 
-    public String getTitle() {
-        return this.title;
+    public String getForumName() {
+        return this.forumName;
     }
 
-    public String BF() {
-        return this.title_link;
+    public String getForumId() {
+        return this.forumId + "";
     }
 
-    public void parserJson(JSONObject jSONObject) {
-        try {
-            this.title = jSONObject.getString("title");
-            this.title_link = jSONObject.getString("title_link");
-            this.author = jSONObject.getString("author");
-            this.id = jSONObject.getInt("id");
-        } catch (JSONException e) {
-            e.printStackTrace();
+    public long Yk() {
+        return this.bAA;
+    }
+
+    public long Yl() {
+        return this.endTime;
+    }
+
+    public String getTaskId() {
+        return this.taskId + "";
+    }
+
+    public String getThreadId() {
+        return this.threadId + "";
+    }
+
+    public String getThreadImgUrl() {
+        return this.bAC;
+    }
+
+    public int Ym() {
+        return this.mWidth;
+    }
+
+    public int Yn() {
+        return this.mHeight;
+    }
+
+    public String Yo() {
+        return this.obj_id;
+    }
+
+    public void a(TaskInfo taskInfo) {
+        if (taskInfo != null) {
+            this.forumName = taskInfo.forum_name;
+            this.forumId = taskInfo.forum_id.longValue();
+            this.taskId = taskInfo.task_id != null ? taskInfo.task_id.longValue() : -1L;
+            this.threadId = taskInfo.thread_id != null ? taskInfo.thread_id.longValue() : -1L;
+            this.bAB = taskInfo.bgimg;
+            this.bAC = taskInfo.thread_img;
+            this.bAA = taskInfo.start_time != null ? taskInfo.start_time.longValue() : -1L;
+            this.endTime = taskInfo.end_time != null ? taskInfo.end_time.longValue() : -1L;
+            String str = taskInfo.thread_img_size;
+            if (str != null) {
+                try {
+                    String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    this.mWidth = com.baidu.adp.lib.g.b.l(split[0], 1);
+                    this.mHeight = com.baidu.adp.lib.g.b.l(split[1], 1);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+            }
+            if (this.mWidth <= 0) {
+                this.mWidth = 1;
+            }
+            if (this.mHeight <= 0) {
+                this.mHeight = 1;
+            }
+            this.obj_id = taskInfo.obj_id;
         }
     }
 
-    public void a(TopNotice topNotice) {
-        if (topNotice != null) {
-            this.title = topNotice.title;
-            this.title_link = topNotice.title_link;
-            this.author = topNotice.author;
-            this.id = topNotice.id.intValue();
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.forumName = jSONObject.optString("forum_name");
+                this.forumId = jSONObject.optLong("forum_id");
+                this.taskId = jSONObject.optLong("task_id");
+                this.threadId = jSONObject.optLong("thread_id");
+                this.bAB = jSONObject.optString("bgimg");
+                this.bAA = jSONObject.optLong("start_time");
+                this.endTime = jSONObject.optLong("end_time");
+                this.bAC = jSONObject.optString("thread_img");
+                String optString = jSONObject.optString("thread_img_size");
+                if (optString != null && optString.length() > 0) {
+                    String[] split = optString.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    if (split.length > 1) {
+                        this.mWidth = Integer.valueOf(split[0]).intValue();
+                        this.mHeight = Integer.valueOf(split[1]).intValue();
+                    }
+                }
+                if (this.mWidth <= 0) {
+                    this.mWidth = 1;
+                }
+                if (this.mHeight <= 0) {
+                    this.mHeight = 1;
+                }
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
         }
     }
 }

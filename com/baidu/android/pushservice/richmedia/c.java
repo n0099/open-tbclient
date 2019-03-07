@@ -1,6 +1,5 @@
 package com.baidu.android.pushservice.richmedia;
 
-import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -51,7 +50,7 @@ public class c {
             stringBuffer.append(this.l);
         }
         this.l = stringBuffer.toString();
-        return this.l.endsWith(ETAG.ITEM_SEPARATOR) ? this.l.substring(0, this.l.length() - 1) : this.l;
+        return this.l.endsWith("&") ? this.l.substring(0, this.l.length() - 1) : this.l;
     }
 
     public boolean equals(Object obj) {

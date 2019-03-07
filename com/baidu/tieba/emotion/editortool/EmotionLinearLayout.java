@@ -5,9 +5,9 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-/* loaded from: classes5.dex */
+/* loaded from: classes2.dex */
 public class EmotionLinearLayout extends LinearLayout {
-    private View bcc;
+    private View clG;
     private boolean visible;
 
     public EmotionLinearLayout(Context context) {
@@ -21,8 +21,8 @@ public class EmotionLinearLayout extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.bcc != null) {
-            this.bcc.measure(getChildMeasureSpec(i, 0, this.bcc.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.bcc.getLayoutParams().height));
+        if (this.clG != null) {
+            this.clG.measure(getChildMeasureSpec(i, 0, this.clG.getLayoutParams().width), getChildMeasureSpec(i2, 0, this.clG.getLayoutParams().height));
         }
     }
 
@@ -30,14 +30,14 @@ public class EmotionLinearLayout extends LinearLayout {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         View childAt = getChildAt(0);
-        if (this.bcc != null && childAt != null) {
-            int measuredWidth = childAt.getMeasuredWidth() - this.bcc.getMeasuredWidth();
-            this.bcc.layout(measuredWidth, 0, this.bcc.getMeasuredWidth() + measuredWidth, this.bcc.getMeasuredHeight());
+        if (this.clG != null && childAt != null) {
+            int measuredWidth = childAt.getMeasuredWidth() - this.clG.getMeasuredWidth();
+            this.clG.layout(measuredWidth, 0, this.clG.getMeasuredWidth() + measuredWidth, this.clG.getMeasuredHeight());
         }
     }
 
     public void setNewView(View view) {
-        this.bcc = view;
+        this.clG = view;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -45,8 +45,8 @@ public class EmotionLinearLayout extends LinearLayout {
         super.dispatchDraw(canvas);
         if (this.visible) {
             canvas.save();
-            canvas.translate(this.bcc.getLeft(), this.bcc.getTop());
-            this.bcc.draw(canvas);
+            canvas.translate(this.clG.getLeft(), this.clG.getTop());
+            this.clG.draw(canvas);
             canvas.restore();
         }
     }

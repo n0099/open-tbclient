@@ -1,21 +1,21 @@
 package com.baidu.tieba.recapp.download.http;
 /* loaded from: classes3.dex */
 public class e {
+    public long CE = -1;
     public long CF = -1;
-    public long CG = -1;
     public long connectTime = -1;
-    public long CH = -1;
-    public int CI = 0;
+    public long CG = -1;
+    public int CH = 0;
+    public long CI = -1;
     public long CJ = -1;
-    public long CK = -1;
-    public String CL = "";
-    public int CM = -1;
+    public String CK = "";
+    public int CL = -1;
     public int errorCode = 0;
-    public int CN = 0;
+    public int CM = 0;
+    public String CN = null;
     public String CO = null;
-    public String CP = null;
     public String url = null;
+    public String CP = null;
     public String CQ = null;
-    public String CT = null;
-    public int CU = 0;
+    public int CT = 0;
 }

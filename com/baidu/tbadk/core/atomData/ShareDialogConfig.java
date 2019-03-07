@@ -14,6 +14,7 @@ public class ShareDialogConfig extends IntentConfig {
     public View.OnClickListener copyLinkListener;
     public int hideMode;
     public boolean isCopyLink;
+    @Deprecated
     public boolean isInsertBack;
     public boolean isLandscape;
     public boolean isSetCopyLink;
@@ -57,6 +58,7 @@ public class ShareDialogConfig extends IntentConfig {
         this.mtjStatistics = sparseArray;
     }
 
+    @Deprecated
     public ShareDialogConfig(Context context, d dVar, boolean z, boolean z2) {
         super(context);
         this.showLocation = true;

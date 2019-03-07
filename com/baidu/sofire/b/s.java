@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.net.TrafficStats;
 import android.os.Build;
 /* loaded from: classes.dex */
-public class s {
+public final class s {
     @SuppressLint({"NewApi"})
     public static void a() {
         try {
@@ -12,7 +12,7 @@ public class s {
                 TrafficStats.setThreadStatsTag(155648);
             }
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 
@@ -23,7 +23,7 @@ public class s {
                 TrafficStats.clearThreadStatsTag();
             }
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
         }
     }
 }

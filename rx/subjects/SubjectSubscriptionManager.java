@@ -23,11 +23,11 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     }
 
     public SubjectSubscriptionManager() {
-        super(a.iSL);
+        super(a.kcL);
         this.active = true;
-        this.onStart = Actions.cez();
-        this.onAdded = Actions.cez();
-        this.onTerminated = Actions.cez();
+        this.onStart = Actions.cDK();
+        this.onAdded = Actions.cDK();
+        this.onTerminated = Actions.cDK();
     }
 
     public void call(j<? super T> jVar) {
@@ -40,7 +40,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     }
 
     void addUnsubscriber(j<? super T> jVar, final b<T> bVar) {
-        jVar.add(e.j(new rx.functions.a() { // from class: rx.subjects.SubjectSubscriptionManager.1
+        jVar.add(e.l(new rx.functions.a() { // from class: rx.subjects.SubjectSubscriptionManager.1
             @Override // rx.functions.a
             public void call() {
                 SubjectSubscriptionManager.this.remove(bVar);
@@ -58,9 +58,8 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         return this.latest;
     }
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public b<T>[] observers() {
-        return get().iSI;
+    b<T>[] observers() {
+        return get().kcI;
     }
 
     boolean add(b<T> bVar) {
@@ -90,34 +89,34 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     /* JADX INFO: Access modifiers changed from: package-private */
     public b<T>[] next(Object obj) {
         setLatest(obj);
-        return get().iSI;
+        return get().kcI;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b<T>[] terminate(Object obj) {
         setLatest(obj);
         this.active = false;
-        return get().terminated ? a.iSJ : getAndSet(a.iSK).iSI;
+        return get().terminated ? a.kcJ : getAndSet(a.kcK).kcI;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     /* loaded from: classes2.dex */
     public static final class a<T> {
-        static final b[] iSJ = new b[0];
-        static final a iSK = new a(true, iSJ);
-        static final a iSL = new a(false, iSJ);
-        final b[] iSI;
+        static final b[] kcJ = new b[0];
+        static final a kcK = new a(true, kcJ);
+        static final a kcL = new a(false, kcJ);
+        final b[] kcI;
         final boolean terminated;
 
         public a(boolean z, b[] bVarArr) {
             this.terminated = z;
-            this.iSI = bVarArr;
+            this.kcI = bVarArr;
         }
 
         public a b(b bVar) {
-            int length = this.iSI.length;
+            int length = this.kcI.length;
             b[] bVarArr = new b[length + 1];
-            System.arraycopy(this.iSI, 0, bVarArr, 0, length);
+            System.arraycopy(this.kcI, 0, bVarArr, 0, length);
             bVarArr[length] = bVar;
             return new a(this.terminated, bVarArr);
         }
@@ -125,10 +124,10 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         public a c(b bVar) {
             b[] bVarArr;
             int i;
-            b[] bVarArr2 = this.iSI;
+            b[] bVarArr2 = this.kcI;
             int length = bVarArr2.length;
             if (length == 1 && bVarArr2[0] == bVar) {
-                return iSL;
+                return kcL;
             }
             if (length != 0) {
                 b[] bVarArr3 = new b[length - 1];
@@ -148,7 +147,7 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
                     i3 = i;
                 }
                 if (i3 == 0) {
-                    return iSL;
+                    return kcL;
                 }
                 if (i3 < length - 1) {
                     bVarArr = new b[i3];
@@ -167,9 +166,9 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
     public static final class b<T> implements rx.e<T> {
         final j<? super T> actual;
         boolean emitting;
-        List<Object> iNN;
-        boolean iSM = true;
-        boolean iSN;
+        boolean first = true;
+        List<Object> kcM;
+        boolean kcN;
 
         public b(j<? super T> jVar) {
             this.actual = jVar;
@@ -191,28 +190,28 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void bu(Object obj) {
-            if (!this.iSN) {
+        public void bE(Object obj) {
+            if (!this.kcN) {
                 synchronized (this) {
-                    this.iSM = false;
+                    this.first = false;
                     if (this.emitting) {
-                        if (this.iNN == null) {
-                            this.iNN = new ArrayList();
+                        if (this.kcM == null) {
+                            this.kcM = new ArrayList();
                         }
-                        this.iNN.add(obj);
+                        this.kcM.add(obj);
                         return;
                     }
-                    this.iSN = true;
+                    this.kcN = true;
                 }
             }
             NotificationLite.a(this.actual, obj);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void bv(Object obj) {
+        public void bF(Object obj) {
             synchronized (this) {
-                if (this.iSM && !this.emitting) {
-                    this.iSM = false;
+                if (this.first && !this.emitting) {
+                    this.first = false;
                     this.emitting = obj != null;
                     if (obj != null) {
                         c(null, obj);
@@ -252,8 +251,8 @@ final class SubjectSubscriptionManager<T> extends AtomicReference<a<T>> implemen
                 try {
                     synchronized (this) {
                         try {
-                            list = this.iNN;
-                            this.iNN = null;
+                            list = this.kcM;
+                            this.kcM = null;
                             if (list == null) {
                                 this.emitting = false;
                                 return;

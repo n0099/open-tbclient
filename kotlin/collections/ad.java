@@ -4,7 +4,7 @@ import android.support.v7.widget.ActivityChooserView;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class ad extends ac {
-    public static final int zn(int i) {
+    public static final int CZ(int i) {
         if (i < 3) {
             return i + 1;
         }

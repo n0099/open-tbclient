@@ -3,8 +3,6 @@ package com.baidu.tieba.recapp.download;
 import android.content.SharedPreferences;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
-import com.baidu.searchbox.ng.ai.apps.statistic.AiAppsUBCStatistic;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -22,8 +20,8 @@ public class i implements com.baidu.tbadk.download.c {
                 edit.putLong(downloadData.getId(), downloadData.getSize());
                 edit.commit();
             }
-            h.bwg().c(downloadData);
-            h.bwg().b(downloadData);
+            h.bWT().c(downloadData);
+            h.bWT().b(downloadData);
         }
     }
 
@@ -52,25 +50,25 @@ public class i implements com.baidu.tbadk.download.c {
             if (tag != null && tag.length == 3) {
                 String str = tag[0];
                 String str2 = tag[1];
-                TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", AiAppsUBCStatistic.TYPE_CLICK, 1, "dev_id", downloadData.getId(), "ref_id", str, "is_detail", tag[2], "ref_type", str2);
+                TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", str, "is_detail", tag[2], "ref_type", str2);
             }
             NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-            h.bwg().b(downloadData);
+            h.bWT().b(downloadData);
             if (downloadData.isNeedInvokeApk()) {
-                UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", BaseRequestAction.SPLITE) + ".apk");
+                UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", "_") + ".apk");
             }
         }
     }
 
     @Override // com.baidu.tbadk.download.c
     public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-        h bwg = h.bwg();
+        h bWT = h.bWT();
         if (i == 3) {
-            bwg.k(downloadData);
+            bWT.k(downloadData);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
         } else {
-            bwg.l(downloadData);
+            bWT.l(downloadData);
         }
-        h.bwg().b(downloadData);
+        h.bWT().b(downloadData);
     }
 }

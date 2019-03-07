@@ -4,11 +4,11 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 /* loaded from: classes.dex */
 public interface b {
+    boolean V(int i);
+
+    int W(int i);
+
     boolean a(Bitmap bitmap, Canvas canvas);
-
-    boolean am(int i);
-
-    int an(int i);
 
     void close();
 

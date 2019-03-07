@@ -3,29 +3,9 @@ package com.baidu.tbadk.util;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    public static void W(List<a> list) {
-        if (list != null) {
-            StringBuilder sb = new StringBuilder();
-            HashMap hashMap = new HashMap();
-            for (a aVar : list) {
-                if (aVar != null && !StringUtils.isNull(aVar.forumName)) {
-                    if (!hashMap.containsKey(aVar.forumName)) {
-                        sb.append(aVar.toString()).append("^");
-                        hashMap.put(aVar.forumName, aVar.forumName);
-                    }
-                } else {
-                    return;
-                }
-            }
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), sb.toString());
-        }
-    }
-
-    public static String[] Qg() {
+    public static String[] apR() {
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
         if (StringUtils.isNull(string)) {
             return new String[0];
@@ -34,9 +14,9 @@ public class d {
         if (split != null && split.length > 0) {
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
-                a iO = a.iO(str);
-                if (iO != null && !StringUtils.isNull(iO.forumName)) {
-                    arrayList.add(iO.forumName);
+                a pD = a.pD(str);
+                if (pD != null && !StringUtils.isNull(pD.forumName)) {
+                    arrayList.add(pD.forumName);
                 }
             }
             return (String[]) arrayList.toArray(new String[arrayList.size()]);
@@ -64,7 +44,7 @@ public class d {
             return this.forumName + "#" + this.level;
         }
 
-        public static a iO(String str) {
+        public static a pD(String str) {
             if (StringUtils.isNull(str)) {
                 return null;
             }

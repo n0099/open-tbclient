@@ -12,6 +12,8 @@ public interface d {
         void onFirstFrame(int i, int i2, int i3);
     }
 
+    View UL();
+
     void a(a aVar);
 
     boolean a(int i, String str, LinearLayout.LayoutParams layoutParams);
@@ -23,6 +25,4 @@ public interface d {
     void setRenderVideoModel(int i, int i2);
 
     void stop();
-
-    View wh();
 }

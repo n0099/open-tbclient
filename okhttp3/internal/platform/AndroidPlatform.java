@@ -120,7 +120,7 @@ public class AndroidPlatform extends Platform {
                 indexOf = length;
             }
             while (true) {
-                min = Math.min(indexOf, i3 + 4000);
+                min = Math.min(indexOf, i3 + MAX_LOG_LENGTH);
                 Log.println(i2, "OkHttp", str.substring(i3, min));
                 if (min >= indexOf) {
                     break;

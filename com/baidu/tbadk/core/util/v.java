@@ -3,20 +3,20 @@ package com.baidu.tbadk.core.util;
 import java.util.List;
 /* loaded from: classes.dex */
 public class v {
-    public static <T> void G(List<T> list) {
+    public static <T> void R(List<T> list) {
         if (list != null) {
             list.clear();
         }
     }
 
-    public static <T> int H(List<T> list) {
+    public static <T> int S(List<T> list) {
         if (list == null || list.isEmpty()) {
             return 0;
         }
         return list.size();
     }
 
-    public static <T> T d(List<T> list, int i) {
+    public static <T> T c(List<T> list, int i) {
         if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
             return null;
         }
@@ -30,11 +30,11 @@ public class v {
         return list.indexOf(t);
     }
 
-    public static <T> boolean I(List<T> list) {
-        return H(list) <= 0;
+    public static <T> boolean T(List<T> list) {
+        return S(list) <= 0;
     }
 
-    public static <T> T e(List<T> list, int i) {
+    public static <T> T d(List<T> list, int i) {
         if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
             return null;
         }
@@ -64,18 +64,18 @@ public class v {
         return true;
     }
 
-    public static <T> List<T> b(List<T> list, int i, int i2) {
-        int H = H(list);
-        if (H > 0 && i >= 0 && i2 <= H) {
+    public static <T> List<T> c(List<T> list, int i, int i2) {
+        int S = S(list);
+        if (S > 0 && i >= 0 && i2 <= S) {
             return list.subList(i, i2);
         }
         return null;
     }
 
-    public static <T> void c(List<T> list, int i, int i2) {
-        int H = H(list);
-        if (H > 0 && i >= 0 && i2 <= H) {
-            G(list.subList(i, i2));
+    public static <T> void d(List<T> list, int i, int i2) {
+        int S = S(list);
+        if (S > 0 && i >= 0 && i2 <= S) {
+            R(list.subList(i, i2));
         }
     }
 

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.mapapi.UIMsg;
 import com.xiaomi.channel.commonutils.misc.k;
 import com.xiaomi.mipush.sdk.MiPushClient;
 import com.xiaomi.push.service.ah;
@@ -56,7 +55,7 @@ public class d {
                 try {
                     HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.a).openConnection();
                     httpURLConnection.setRequestMethod("GET");
-                    httpURLConnection.setConnectTimeout(UIMsg.m_AppUI.MSG_APP_GPS);
+                    httpURLConnection.setConnectTimeout(5000);
                     httpURLConnection.connect();
                     if (httpURLConnection.getResponseCode() == 200) {
                         byte[] b = com.xiaomi.channel.commonutils.file.a.b(httpURLConnection.getInputStream());

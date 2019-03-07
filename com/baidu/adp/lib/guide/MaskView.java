@@ -194,12 +194,12 @@ public class MaskView extends ViewGroup {
         invalidate();
     }
 
-    public void ay(int i) {
+    public void ah(int i) {
         this.BX.setAlpha(i);
         invalidate();
     }
 
-    public void az(int i) {
+    public void ai(int i) {
         this.BX.setColor(i);
         invalidate();
     }

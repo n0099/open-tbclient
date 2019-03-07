@@ -3,7 +3,6 @@ package com.airbnb.lottie.model.a;
 import com.airbnb.lottie.model.a.m;
 import com.airbnb.lottie.model.a.n;
 import com.airbnb.lottie.model.d;
-import com.baidu.mobstat.Config;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -14,26 +13,26 @@ public class j extends o<com.airbnb.lottie.model.d, com.airbnb.lottie.model.d> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.model.a.m
-    /* renamed from: dP */
-    public com.airbnb.lottie.a.b.o dG() {
-        return new com.airbnb.lottie.a.b.o(this.pE);
+    /* renamed from: dO */
+    public com.airbnb.lottie.a.b.o dF() {
+        return new com.airbnb.lottie.a.b.o(this.pz);
     }
 
     /* loaded from: classes2.dex */
     public static final class a {
         public static j l(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
-            if (jSONObject != null && jSONObject.has(Config.EVENT_HEAT_X)) {
+            if (jSONObject != null && jSONObject.has("x")) {
                 eVar.V("Lottie doesn't support expressions.");
             }
-            n.a ea = n.a(jSONObject, 1.0f, eVar, b.qK).ea();
-            return new j(ea.pE, (com.airbnb.lottie.model.d) ea.pS);
+            n.a dZ = n.a(jSONObject, 1.0f, eVar, b.qG).dZ();
+            return new j(dZ.pz, (com.airbnb.lottie.model.d) dZ.pN);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class b implements m.a<com.airbnb.lottie.model.d> {
-        private static final b qK = new b();
+        private static final b qG = new b();
 
         private b() {
         }

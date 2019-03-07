@@ -8,55 +8,53 @@ import com.baidu.adp.lib.g.e;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
-import com.baidu.searchbox.ng.ai.apps.media.AiAppsPlayerContext;
-import com.baidu.searchbox.ng.ai.apps.media.AiAppsPlayerManager;
-import com.baidu.searchbox.ng.ai.apps.media.audio.event.AudioStatusCallback;
-import com.baidu.searchbox.ng.ai.apps.model.view.base.AiAppsNaViewModel;
-import com.baidu.searchbox.ng.ai.apps.view.container.AiAppsNAViewContainer;
-import com.baidu.tieba.aiapps.apps.media.video.b;
+import com.baidu.swan.apps.media.b;
+import com.baidu.swan.apps.view.container.SwanAppNAViewContainer;
+import com.baidu.tieba.aiapps.apps.media.video.d;
 import com.baidu.tieba.aiapps.apps.media.video.view.ConfigurationChangedListenFragment;
 import com.baidu.tieba.play.c;
+import com.baidu.ubc.UBC;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class a extends c implements AiAppsPlayerContext {
-    private b bKk;
-    private boolean bKl;
-    private AiAppsNaViewModel bKm;
-    private ConfigurationChangedListenFragment bKn;
-    private boolean bKo;
+public class a extends c implements com.baidu.swan.apps.media.a {
+    private SwanAppNAViewContainer ako;
+    private com.baidu.tieba.aiapps.apps.media.video.c cVP;
+    private boolean cVQ;
+    private com.baidu.swan.apps.model.a.a.a cVR;
+    private ConfigurationChangedListenFragment cVS;
+    private boolean cVT;
     private boolean isFullScreen;
-    private AiAppsNAViewContainer mContainer;
 
     public a(Activity activity, boolean z) {
         super(activity, (View) null, z);
-        this.bKk = new b();
-        this.bKl = false;
+        this.cVP = new com.baidu.tieba.aiapps.apps.media.video.c();
+        this.cVQ = false;
         this.isFullScreen = false;
-        this.bKo = false;
-        AiAppsPlayerManager.addPlayerContext(this);
-        a(new c.InterfaceC0297c() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1
-            @Override // com.baidu.tieba.play.c.InterfaceC0297c
-            public void Zp() {
+        this.cVT = false;
+        b.a(this);
+        a(new c.InterfaceC0294c() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1
+            @Override // com.baidu.tieba.play.c.InterfaceC0294c
+            public void qj() {
                 if (!a.this.isFullScreen) {
                     a.this.isFullScreen = true;
-                    if (a.this.mContainer != null) {
-                        boolean bsq = a.this.bsq();
-                        if (bsq) {
+                    if (a.this.ako != null) {
+                        boolean ql = a.this.ql();
+                        if (ql) {
                             a.this.pausePlay();
                         }
                         ViewGroup viewGroup = (ViewGroup) a.this.mActivity.getWindow().getDecorView();
-                        ViewGroup viewGroup2 = (ViewGroup) a.this.bsC().getParent();
+                        ViewGroup viewGroup2 = (ViewGroup) a.this.bSW().getParent();
                         if (viewGroup2 != null) {
-                            viewGroup2.removeView(a.this.bsC());
+                            viewGroup2.removeView(a.this.bSW());
                         }
-                        viewGroup.addView(a.this.bsC());
-                        a.this.dH(true);
-                        if (bsq) {
-                            a.this.frU.postDelayed(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1.1
+                        viewGroup.addView(a.this.bSW());
+                        a.this.fZ(true);
+                        if (ql) {
+                            a.this.gHW.postDelayed(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    a.this.bag();
+                                    a.this.bAK();
                                 }
                             }, 100L);
                         }
@@ -64,30 +62,30 @@ public class a extends c implements AiAppsPlayerContext {
                 }
             }
 
-            @Override // com.baidu.tieba.play.c.InterfaceC0297c
-            public void Zq() {
+            @Override // com.baidu.tieba.play.c.InterfaceC0294c
+            public void qk() {
                 if (a.this.isFullScreen) {
                     a.this.isFullScreen = false;
-                    if (a.this.mContainer != null) {
-                        boolean bsq = a.this.bsq();
-                        if (bsq) {
+                    if (a.this.ako != null) {
+                        boolean ql = a.this.ql();
+                        if (ql) {
                             a.this.pausePlay();
                         }
-                        ViewGroup viewGroup = (ViewGroup) a.this.bsC().getParent();
+                        ViewGroup viewGroup = (ViewGroup) a.this.bSW().getParent();
                         if (viewGroup != null) {
-                            viewGroup.removeView(a.this.bsC());
+                            viewGroup.removeView(a.this.bSW());
                         }
-                        a.this.mContainer.removeView();
-                        a.this.mContainer.insertView(a.this.bsC(), a.this.bKm);
+                        a.this.ako.MK();
+                        a.this.ako.a(a.this.bSW(), a.this.cVR);
                         if (a.this.mActivity.getResources().getConfiguration().orientation == 2) {
                             a.this.mActivity.setRequestedOrientation(1);
                         }
-                        a.this.dH(false);
-                        if (bsq) {
-                            a.this.frU.postDelayed(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1.2
+                        a.this.fZ(false);
+                        if (ql) {
+                            a.this.gHW.postDelayed(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1.2
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    a.this.bag();
+                                    a.this.bAK();
                                 }
                             }, 100L);
                         }
@@ -95,78 +93,78 @@ public class a extends c implements AiAppsPlayerContext {
                 }
             }
         });
-        a(new c.n() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.2
-            @Override // com.baidu.tieba.play.c.n
+        a(new c.o() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.2
+            @Override // com.baidu.tieba.play.c.o
             public void onStarted() {
-                com.baidu.tieba.aiapps.apps.media.video.c.a(a.this.getPlayerId(), a.this.getSlaveId(), "play", new JSONObject());
-                a.this.bKo = true;
+                d.a(a.this.Ei(), a.this.getSlaveId(), "play", new JSONObject());
+                a.this.cVT = true;
             }
 
-            @Override // com.baidu.tieba.play.c.n
+            @Override // com.baidu.tieba.play.c.o
             public void onPaused() {
-                com.baidu.tieba.aiapps.apps.media.video.c.a(a.this.getPlayerId(), a.this.getSlaveId(), "pause", new JSONObject());
-                a.this.bKo = false;
+                d.a(a.this.Ei(), a.this.getSlaveId(), "pause", new JSONObject());
+                a.this.cVT = false;
             }
 
-            @Override // com.baidu.tieba.play.c.n
+            @Override // com.baidu.tieba.play.c.o
             public void onPlayEnd() {
-                com.baidu.tieba.aiapps.apps.media.video.c.a(a.this.getPlayerId(), a.this.getSlaveId(), "ended", new JSONObject());
-                a.this.bKo = false;
+                d.a(a.this.Ei(), a.this.getSlaveId(), "ended", new JSONObject());
+                a.this.cVT = false;
             }
 
-            @Override // com.baidu.tieba.play.c.n
-            public void Zr() {
-                a.this.bKo = false;
+            @Override // com.baidu.tieba.play.c.o
+            public void azH() {
+                a.this.cVT = false;
             }
 
-            @Override // com.baidu.tieba.play.c.n
-            public void ie(int i) {
+            @Override // com.baidu.tieba.play.c.o
+            public void lV(int i) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.putOpt("duration", Integer.valueOf(a.this.getVideoView().getDuration()));
-                    jSONObject.putOpt(AudioStatusCallback.KEY_POSITION, Integer.valueOf(i));
+                    jSONObject.putOpt(UBC.CONTENT_KEY_DURATION, Integer.valueOf(a.this.getVideoView().getDuration()));
+                    jSONObject.putOpt("currentTime", Integer.valueOf(i));
                 } catch (JSONException e) {
                 }
-                com.baidu.tieba.aiapps.apps.media.video.c.a(a.this.getPlayerId(), a.this.getSlaveId(), "timeupdate", jSONObject);
+                d.a(a.this.Ei(), a.this.getSlaveId(), "timeupdate", jSONObject);
             }
 
-            @Override // com.baidu.tieba.play.c.n
-            public void Zs() {
-                com.baidu.tieba.aiapps.apps.media.video.c.a(a.this.getPlayerId(), a.this.getSlaveId(), "play", new JSONObject());
-                a.this.bKo = true;
+            @Override // com.baidu.tieba.play.c.o
+            public void azI() {
+                d.a(a.this.Ei(), a.this.getSlaveId(), "play", new JSONObject());
+                a.this.cVT = true;
             }
         });
-        this.bKn = new ConfigurationChangedListenFragment();
-        this.bKn.a(new ConfigurationChangedListenFragment.a() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.3
+        this.cVS = new ConfigurationChangedListenFragment();
+        this.cVS.a(new ConfigurationChangedListenFragment.a() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.3
             @Override // com.baidu.tieba.aiapps.apps.media.video.view.ConfigurationChangedListenFragment.a
             public void onConfigurationChanged(Configuration configuration) {
-                if (a.this.bsi()) {
+                if (a.this.bSC()) {
                     a.this.setFullScreenToDestroySurface();
                     a.this.onConfigurationChanged(configuration);
                 }
             }
         });
-        activity.getFragmentManager().beginTransaction().add(this.bKn, "onCon").commitAllowingStateLoss();
-        ms(false);
+        activity.getFragmentManager().beginTransaction().add(this.cVS, "onCon").commitAllowingStateLoss();
+        oP(false);
     }
 
-    public b Zn() {
-        return this.bKk;
+    public com.baidu.tieba.aiapps.apps.media.video.c azF() {
+        return this.cVP;
     }
 
-    public void a(b bVar) {
-        this.bKk = bVar;
-        Zo();
+    public void a(com.baidu.tieba.aiapps.apps.media.video.c cVar) {
+        this.cVP = cVar;
+        azG();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dH(boolean z) {
+    public void fZ(boolean z) {
         int width;
         int height;
         JSONObject jSONObject = new JSONObject();
         try {
             if (z) {
-                if (bsj()) {
+                if (bSD()) {
                     width = l.aO(this.mActivity);
                     height = l.aQ(this.mActivity);
                 } else {
@@ -175,150 +173,145 @@ public class a extends c implements AiAppsPlayerContext {
                     height = aO;
                 }
             } else {
-                width = this.bKm.position.getWidth();
-                height = this.bKm.position.getHeight();
+                width = this.cVR.aBE.getWidth();
+                height = this.cVR.aBE.getHeight();
             }
             jSONObject.putOpt("fullscreen", z ? "1" : "0");
             jSONObject.putOpt("width", String.valueOf(width));
             jSONObject.putOpt("height", String.valueOf(height));
         } catch (JSONException e) {
         }
-        com.baidu.tieba.aiapps.apps.media.video.c.a(getPlayerId(), getSlaveId(), "fullscreenchange", jSONObject);
+        d.a(Ei(), getSlaveId(), "fullscreenchange", jSONObject);
     }
 
-    private void Zo() {
-        if (this.bKk.bJY) {
+    private void azG() {
+        if (this.cVP.cVD) {
             setVolume(0);
         }
-        getVideoView().setLooping(this.bKk.mLoop);
-        if (this.bKk.bJH) {
-            bsk();
+        getVideoView().setLooping(this.cVP.mLoop);
+        if (this.cVP.cVj) {
+            bSF();
         }
-        mB(!this.bKk.bKf);
-        if (!StringUtils.isNull(this.bKk.bJZ)) {
-            setThumbnail(this.bKk.bJZ);
+        oZ(!this.cVP.cVK);
+        if (!StringUtils.isNull(this.cVP.cVE)) {
+            setThumbnail(this.cVP.cVE);
         }
-        bsC().setVisibility(this.bKk.hidden ? 8 : 0);
+        bSW().setVisibility(this.cVP.hidden ? 8 : 0);
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.media.AiAppsPlayerContext
-    public String getPlayerId() {
-        return this.bKk == null ? "" : this.bKk.mPlayerId;
+    @Override // com.baidu.swan.apps.media.a
+    public String Ei() {
+        return this.cVP == null ? "" : this.cVP.azr;
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.media.AiAppsPlayerContext
+    @Override // com.baidu.swan.apps.media.a
     public String getSlaveId() {
-        return this.bKk == null ? "" : this.bKk.slaveId;
+        return this.cVP == null ? "" : this.cVP.aBC;
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.media.AiAppsPlayerContext
-    public Object getPlayerObject() {
+    @Override // com.baidu.swan.apps.media.a
+    public Object Ek() {
         return this;
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.media.AiAppsPlayerContext
-    public int getPlayerType() {
-        return 1;
-    }
-
-    @Override // com.baidu.searchbox.ng.ai.apps.media.AiAppsPlayerContext
-    public void onForegroundChanged(boolean z) {
+    @Override // com.baidu.swan.apps.media.a
+    public void bk(boolean z) {
         if (!z) {
             if (getVideoView().isPlaying()) {
                 pausePlay();
-                this.bKl = true;
+                this.cVQ = true;
                 return;
             }
             return;
         }
-        if (this.bKl) {
-            bag();
+        if (this.cVQ) {
+            bAK();
         }
-        this.bKl = false;
+        this.cVQ = false;
     }
 
-    public void a(AiAppsNAViewContainer aiAppsNAViewContainer) {
-        this.mContainer = aiAppsNAViewContainer;
-        this.bKm = this.mContainer.getModel().cloneModel();
+    public void e(SwanAppNAViewContainer swanAppNAViewContainer) {
+        this.ako = swanAppNAViewContainer;
+        this.cVR = this.ako.getModel().EM();
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.media.AiAppsPlayerContext
-    public void onAppForegroundChanged(boolean z) {
+    @Override // com.baidu.swan.apps.media.a
+    public void bl(boolean z) {
         if (!z) {
             if (getVideoView().isPlaying()) {
                 pausePlay();
-                this.bKl = true;
+                this.cVQ = true;
                 return;
             }
             return;
         }
-        if (this.bKl) {
-            bag();
+        if (this.cVQ) {
+            bAK();
         }
-        this.bKl = false;
+        this.cVQ = false;
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.media.AiAppsPlayerContext
+    @Override // com.baidu.swan.apps.media.a
     public boolean onBackPressed() {
         if (!this.isFullScreen) {
             return false;
         }
-        if (bsj()) {
-            bsl();
+        if (bSD()) {
+            bSG();
         } else {
-            aZX();
+            bAB();
         }
         return true;
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.media.AiAppsPlayerContext
-    public void resetPlayer() {
-        aNk();
-    }
-
-    @Override // com.baidu.searchbox.ng.ai.apps.media.AiAppsPlayerContext
+    @Override // com.baidu.swan.apps.media.a
     public void onDestroy() {
-        ViewGroup viewGroup = (ViewGroup) bsC().getParent();
+        ViewGroup viewGroup = (ViewGroup) bSW().getParent();
         if (viewGroup != null) {
-            aNk();
-            viewGroup.removeView(bsC());
-            this.mContainer.removeView();
+            bnQ();
+            viewGroup.removeView(bSW());
+            this.ako.MK();
         }
-        if (this.bPc != null) {
-            this.bPc.stopPlayback();
+        if (this.dbg != null) {
+            this.dbg.stopPlayback();
         }
-        bsg();
-        AiAppsPlayerManager.removePlayerContext(this);
+        bSB();
+        b.b(this);
     }
 
-    public void dI(boolean z) {
+    public void ga(boolean z) {
         if (z != this.isFullScreen) {
             setFullScreenToDestroySurface();
-            if (bsj()) {
-                if (this.bJQ) {
-                    bsl();
+            if (bSD()) {
+                if (this.US) {
+                    bSG();
                 } else {
-                    bsk();
+                    bSF();
                 }
-                mt(this.bJQ);
+                oR(this.US);
                 return;
             }
-            aZX();
+            bAB();
         }
     }
 
     @Override // com.baidu.tieba.play.c
-    public void ba(String str, String str2) {
-        if (!j.kK()) {
-            aNk();
-            e.jG().removeCallbacks(this.fsH);
-            this.daW.setVisibility(0);
+    public void cf(String str, String str2) {
+        if (!j.kM()) {
+            bnQ();
+            e.jH().removeCallbacks(this.gII);
+            this.ekJ.setVisibility(0);
             return;
         }
-        super.ba(str, str2);
+        super.cf(str, str2);
     }
 
     public boolean hasStart() {
-        return this.bKo;
+        return this.cVT;
+    }
+
+    @Override // com.baidu.swan.apps.media.a
+    public String Ej() {
+        return null;
     }
 }

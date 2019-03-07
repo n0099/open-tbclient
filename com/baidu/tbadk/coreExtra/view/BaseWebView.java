@@ -81,7 +81,7 @@ public class BaseWebView extends WebView {
             @Override // com.baidu.tieba.tbadkCore.e.c
             public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
                 if (BaseWebView.this.mJsBridge != null) {
-                    return BaseWebView.this.mJsBridge.b(str, jsPromptResult);
+                    return BaseWebView.this.mJsBridge.a(str, jsPromptResult);
                 }
                 return false;
             }
@@ -105,7 +105,7 @@ public class BaseWebView extends WebView {
             @Override // com.baidu.tieba.tbadkCore.e.c
             public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
                 if (BaseWebView.this.mJsBridge != null) {
-                    return BaseWebView.this.mJsBridge.b(str, jsPromptResult);
+                    return BaseWebView.this.mJsBridge.a(str, jsPromptResult);
                 }
                 return false;
             }
@@ -145,7 +145,7 @@ public class BaseWebView extends WebView {
             removeJavascriptInterface("accessibility");
             removeJavascriptInterface("accessibilityTraversal");
         }
-        com.baidu.tbadk.browser.a.br(getContext());
+        com.baidu.tbadk.browser.a.cF(getContext());
         if (Build.VERSION.SDK_INT >= 21) {
             setAcceptThirdPartyCookies(true);
             getSettings().setMixedContentMode(0);
@@ -319,7 +319,7 @@ public class BaseWebView extends WebView {
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
                 if (str != null) {
                     try {
-                        com.baidu.tbadk.browser.a.ag(BaseWebView.this.mContext, str);
+                        com.baidu.tbadk.browser.a.at(BaseWebView.this.mContext, str);
                     } catch (Exception e2) {
                         BdLog.e(e2.toString());
                     }

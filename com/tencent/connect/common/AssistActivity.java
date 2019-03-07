@@ -7,14 +7,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
-import com.baidu.searchbox.ng.ai.apps.event.message.AiAppsLifecycleMessage;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.tencent.open.a.f;
 import com.tencent.open.b.d;
 import com.tencent.open.utils.j;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class AssistActivity extends Activity {
     public static final String EXTRA_INTENT = "openSDK_LOG.AssistActivity.ExtraIntent";
     private String d;
@@ -88,7 +88,7 @@ public class AssistActivity extends Activity {
         f.b("openSDK_LOG.AssistActivity", "-->onResume");
         super.onResume();
         Intent intent = getIntent();
-        if (!intent.getBooleanExtra("is_login", false)) {
+        if (!intent.getBooleanExtra(ImageViewerConfig.IS_LOGIN, false)) {
             if (!intent.getBooleanExtra("is_qq_mobile_share", false) && this.c && !isFinishing()) {
                 finish();
             }
@@ -193,7 +193,7 @@ public class AssistActivity extends Activity {
         String string2 = bundle.getString("callbackAction");
         String string3 = bundle.getString("url");
         String string4 = bundle.getString("openId");
-        String string5 = bundle.getString(AiAppsLifecycleMessage.APP_ID_KEY);
+        String string5 = bundle.getString("appId");
         String str = "";
         String str2 = "";
         if ("shareToQQ".equals(string2)) {

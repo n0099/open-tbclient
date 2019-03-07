@@ -1,8 +1,8 @@
 package com.baidu.tieba.pb.pb.main;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class l extends com.baidu.adp.lib.b.a {
     @Override // com.baidu.adp.lib.b.a
-    protected void aq(int i) {
+    protected void Z(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a

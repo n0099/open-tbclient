@@ -2,28 +2,69 @@ package rx.internal.operators;
 
 import rx.d;
 /* loaded from: classes2.dex */
-public final class n<T, R> implements d.a<R> {
-    final d.a<T> iHr;
-    final d.b<? extends R, ? super T> iHs;
+public final class n<T> implements d.b<T, T> {
+    final rx.functions.g<? super T, ? super Integer, Boolean> jYF;
 
-    @Override // rx.functions.b
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((rx.j) ((rx.j) obj));
+    @Override // rx.functions.f
+    public /* bridge */ /* synthetic */ Object call(Object obj) {
+        return call((rx.j) ((rx.j) obj));
     }
 
-    public n(d.a<T> aVar, d.b<? extends R, ? super T> bVar) {
-        this.iHr = aVar;
-        this.iHs = bVar;
+    public n(final rx.functions.f<? super T, Boolean> fVar) {
+        this(new rx.functions.g<T, Integer, Boolean>() { // from class: rx.internal.operators.n.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // rx.functions.g
+            /* renamed from: a */
+            public Boolean j(T t, Integer num) {
+                return (Boolean) rx.functions.f.this.call(t);
+            }
+        });
     }
 
-    public void call(rx.j<? super R> jVar) {
-        try {
-            rx.j<? super T> call = rx.c.c.a(this.iHs).call(jVar);
-            call.onStart();
-            this.iHr.call(call);
-        } catch (Throwable th) {
-            rx.exceptions.a.J(th);
-            jVar.onError(th);
-        }
+    public n(rx.functions.g<? super T, ? super Integer, Boolean> gVar) {
+        this.jYF = gVar;
+    }
+
+    public rx.j<? super T> call(final rx.j<? super T> jVar) {
+        rx.j jVar2 = (rx.j<T>) new rx.j<T>(jVar, false) { // from class: rx.internal.operators.n.2
+            private boolean done;
+            private int jYH;
+
+            @Override // rx.e
+            public void onNext(T t) {
+                try {
+                    rx.functions.g<? super T, ? super Integer, Boolean> gVar = n.this.jYF;
+                    int i = this.jYH;
+                    this.jYH = i + 1;
+                    if (gVar.j(t, Integer.valueOf(i)).booleanValue()) {
+                        jVar.onNext(t);
+                        return;
+                    }
+                    this.done = true;
+                    jVar.onCompleted();
+                    unsubscribe();
+                } catch (Throwable th) {
+                    this.done = true;
+                    rx.exceptions.a.a(th, jVar, t);
+                    unsubscribe();
+                }
+            }
+
+            @Override // rx.e
+            public void onCompleted() {
+                if (!this.done) {
+                    jVar.onCompleted();
+                }
+            }
+
+            @Override // rx.e
+            public void onError(Throwable th) {
+                if (!this.done) {
+                    jVar.onError(th);
+                }
+            }
+        };
+        jVar.add(jVar2);
+        return jVar2;
     }
 }

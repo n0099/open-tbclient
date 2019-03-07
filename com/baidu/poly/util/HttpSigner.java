@@ -1,6 +1,5 @@
 package com.baidu.poly.util;
 
-import com.baidu.webkit.internal.ETAG;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
@@ -24,7 +23,7 @@ public class HttpSigner {
         for (String str : arrayList) {
             String str2 = map.get(str);
             if (str2 != null) {
-                sb.append(str).append(ETAG.EQUAL).append(str2);
+                sb.append(str).append("=").append(str2);
             }
         }
         map.put("nop_sign", nativeSignNop(sb.toString(), i));

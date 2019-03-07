@@ -7,7 +7,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.message.PublicMsg;
-import com.baidu.ar.constants.HttpConstants;
+import com.tencent.open.SocialConstants;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -78,7 +78,7 @@ public class h extends c {
                         intent.putExtra("message_id", h);
                         intent.putExtra("baidu_message_type", i2);
                         intent.putExtra("baidu_message_body", bArr);
-                        intent.putExtra(HttpConstants.HTTP_APP_ID, e);
+                        intent.putExtra("app_id", e);
                         intent.putExtra("baidu_message_secur_info", a2);
                         if (!TextUtils.isEmpty(a3.mCustomContent)) {
                             try {
@@ -108,7 +108,7 @@ public class h extends c {
             case SDK_CLIENT:
                 byte[] a5 = com.baidu.android.pushservice.j.m.a(this.a, h, bArr, j, str2);
                 try {
-                    String optString = new JSONObject(new String(bArr)).optString("description");
+                    String optString = new JSONObject(new String(bArr)).optString(SocialConstants.PARAM_COMMENT);
                     if (TextUtils.isEmpty(optString)) {
                         i3 = 2;
                     } else {

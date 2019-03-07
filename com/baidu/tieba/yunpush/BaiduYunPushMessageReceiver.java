@@ -6,11 +6,11 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.pushservice.PushMessageReceiver;
-import com.baidu.searchbox.ng.ai.apps.scheme.actions.GetSwanHistoryAction;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.NotificationHelper;
+import com.tencent.open.SocialConstants;
 import java.net.URISyntaxException;
 import java.util.List;
 import org.json.JSONException;
@@ -61,11 +61,11 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
             try {
                 JSONObject jSONObject2 = new JSONObject(str);
                 String string = !jSONObject2.isNull("title") ? jSONObject2.getString("title") : null;
-                String string2 = !jSONObject2.isNull("description") ? jSONObject2.getString("description") : null;
+                String string2 = !jSONObject2.isNull(SocialConstants.PARAM_COMMENT) ? jSONObject2.getString(SocialConstants.PARAM_COMMENT) : null;
                 if (!jSONObject2.isNull("custom_content")) {
                     JSONObject jSONObject3 = new JSONObject(jSONObject2.getString("custom_content"));
-                    if (!jSONObject3.isNull(GetSwanHistoryAction.KEY_SCHEME)) {
-                        str3 = jSONObject3.getString(GetSwanHistoryAction.KEY_SCHEME);
+                    if (!jSONObject3.isNull("scheme")) {
+                        str3 = jSONObject3.getString("scheme");
                         String str4 = "";
                         if (!TextUtils.isEmpty(str3) && str3.contains("tbyunpushnotifybody=")) {
                             jSONObject = new JSONObject(str3.substring(str3.indexOf("tbyunpushnotifybody=") + "tbyunpushnotifybody=".length()));
@@ -106,8 +106,8 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
             try {
                 JSONObject jSONObject = new JSONObject(str3);
                 String str4 = null;
-                if (!jSONObject.isNull(GetSwanHistoryAction.KEY_SCHEME)) {
-                    str4 = jSONObject.getString(GetSwanHistoryAction.KEY_SCHEME);
+                if (!jSONObject.isNull("scheme")) {
+                    str4 = jSONObject.getString("scheme");
                 }
                 if (!TextUtils.isEmpty(str4)) {
                     Intent parseUri = Intent.parseUri(str4, 1);

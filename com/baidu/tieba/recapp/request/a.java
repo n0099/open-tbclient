@@ -5,10 +5,10 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.network.http.c;
 import com.baidu.adp.lib.network.http.e;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.http.cookie.SM;
 /* loaded from: classes3.dex */
 public class a {
     private String url;
@@ -23,33 +23,33 @@ public class a {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(String... strArr) {
-                HashMap aZj = a.this.aZj();
+                HashMap bzO = a.this.bzO();
                 HashMap b = a.this.b(str, i, i2, i3, str2, str3);
                 e eVar = new e();
-                eVar.jp().setUrl(a.this.url);
-                eVar.jp().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-                if (aZj != null && !aZj.isEmpty()) {
-                    eVar.jp().l(a.this.aZj());
+                eVar.jr().setUrl(a.this.url);
+                eVar.jr().setMethod(HttpMessageTask.HTTP_METHOD.POST);
+                if (bzO != null && !bzO.isEmpty()) {
+                    eVar.jr().k(a.this.bzO());
                 }
                 if (b != null && !b.isEmpty()) {
                     ArrayList arrayList = new ArrayList();
                     for (Map.Entry<String, Object> entry : b.entrySet()) {
                         arrayList.add(entry);
                     }
-                    eVar.jp().j(arrayList);
+                    eVar.jr().j(arrayList);
                 }
                 new c(eVar).g(1, 0, 0);
-                eVar.jq();
+                eVar.js();
                 return null;
             }
         }.execute(new String[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap<String, String> aZj() {
+    public HashMap<String, String> bzO() {
         String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
         HashMap<String, String> hashMap = new HashMap<>();
-        hashMap.put(SM.COOKIE, cookie);
+        hashMap.put("Cookie", cookie);
         return hashMap;
     }
 
@@ -57,7 +57,7 @@ public class a {
     public HashMap<String, Object> b(String str, int i, int i2, int i3, String str2, String str3) {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("ev", str);
-        hashMap.put("st", i + "");
+        hashMap.put(TimeDisplaySetting.START_SHOW_TIME, i + "");
         hashMap.put("et", i2 + "");
         hashMap.put("dur", i3 + "");
         hashMap.put("pg", str2);

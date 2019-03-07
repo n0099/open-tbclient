@@ -6,27 +6,27 @@ import android.os.Bundle;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class d implements LocationListener {
-    final /* synthetic */ c kG;
+    final /* synthetic */ c kI;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.kG = cVar;
+        this.kI = cVar;
     }
 
     @Override // android.location.LocationListener
     public final void onLocationChanged(Location location) {
         String str;
         if (location != null) {
-            c cVar = this.kG;
-            str = this.kG.c;
+            c cVar = this.kI;
+            str = this.kI.c;
             cVar.a(location, str, false);
         }
-        this.kG.d();
+        this.kI.d();
     }
 
     @Override // android.location.LocationListener
     public final void onProviderDisabled(String str) {
-        this.kG.d();
+        this.kI.d();
     }
 
     @Override // android.location.LocationListener
@@ -36,7 +36,7 @@ public final class d implements LocationListener {
     @Override // android.location.LocationListener
     public final void onStatusChanged(String str, int i, Bundle bundle) {
         if (i == 0) {
-            this.kG.d();
+            this.kI.d();
         }
     }
 }

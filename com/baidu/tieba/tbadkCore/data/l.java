@@ -1,139 +1,151 @@
 package com.baidu.tieba.tbadkCore.data;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.util.v;
-import java.util.List;
-import tbclient.App;
+import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.tbadk.util.o;
+import com.baidu.tieba.d;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public class l extends PostData {
-    public String aqh;
-    public String aqi;
-    public String ecr;
-    public String forumId;
-    private AppData hpA;
-    public boolean hpB = false;
-    public boolean hpC = false;
-    public int pageNumber;
-    public long threadId;
+public class l {
+    private String c;
+    private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
+    private static final Pattern iGd = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
+    private int type = 0;
+    private String text = null;
+    private String link = null;
+    private String iGb = null;
+    private SpannableStringBuilder iGc = null;
+    private boolean iGa = false;
 
-    public void d(App app) {
-        this.hpA = new AppData(app);
+    public static boolean co(int i, int i2) {
+        return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
     }
 
-    public void vV(String str) {
-        this.hpA = new AppData(str);
+    public void setType(int i) {
+        this.type = i;
     }
 
-    public AppData bEG() {
-        return this.hpA;
+    public int getType() {
+        return this.type;
     }
 
-    public AdvertAppInfo.ILegoAdvert bEH() {
-        if (this.hpA == null) {
-            return null;
+    public String getText() {
+        return this.text;
+    }
+
+    public String cea() {
+        return this.c;
+    }
+
+    public SpannableStringBuilder ceb() {
+        return this.iGc;
+    }
+
+    public SpannableStringBuilder b(SpannableString spannableString) {
+        if (this.iGc == null) {
+            this.iGc = new SpannableStringBuilder();
         }
-        return this.hpA.legoCard;
+        this.iGc.append((CharSequence) spannableString);
+        return this.iGc;
     }
 
-    public String getAdId() {
-        return this.hpA == null ? "" : this.hpA.id;
-    }
-
-    public boolean Xu() {
-        return this.hpA != null && this.hpA.yp() == 0;
-    }
-
-    public boolean isApp() {
-        if (this.hpA == null) {
-            return false;
-        }
-        return this.hpA.yq();
-    }
-
-    public int bEI() {
-        if (this.hpA == null || this.hpA.goods == null) {
-            return -1;
-        }
-        return this.hpA.goods.goods_style;
-    }
-
-    public int getPosition() {
-        if (this.hpA == null) {
-            return 0;
-        }
-        return com.baidu.adp.lib.g.b.l(this.hpA.pos_name, 0);
-    }
-
-    public String bEJ() {
-        return this.hpB ? "PB_BANNER" : "PB";
-    }
-
-    public AdvertAppInfo py() {
-        List<String> eo;
-        AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-        if (this.hpA != null) {
-            advertAppInfo.aql = this.hpA;
-            advertAppInfo.apT = this.hpA.id;
-            advertAppInfo.apU = this.hpA.name;
-            advertAppInfo.apV = this.hpA.url_type;
-            advertAppInfo.apW = this.hpA.url;
-            advertAppInfo.deepUrl = this.hpA.deepUrl;
-            advertAppInfo.apX = this.hpA.apk_url;
-            advertAppInfo.apY = this.hpA.apk_name;
-            advertAppInfo.adPosition = this.hpA.pos_name.trim();
-            advertAppInfo.firstName = this.hpA.first_name;
-            advertAppInfo.aqa = this.hpA.second_name;
-            advertAppInfo.cpid = this.hpA.cpid;
-            advertAppInfo.abtest = this.hpA.abtest;
-            advertAppInfo.aqb = this.hpA.plan_id;
-            advertAppInfo.userId = this.hpA.user_id;
-            advertAppInfo.aqc = this.hpA.verify;
-            advertAppInfo.price = this.hpA.price;
-            advertAppInfo.extensionInfo = this.hpA.ext_info;
-            advertAppInfo.aqd = this.hpA.app_time * 1000;
-            advertAppInfo.legoCard = this.hpA.legoCard;
-            if (this.hpA.goods != null) {
-                advertAppInfo.aqe.aqq = this.hpA.goods.pop_window_text;
-                advertAppInfo.aqe.aqm = this.hpA.goods.id;
-                advertAppInfo.aqe.aqp = this.hpA.goods.thread_pic;
-                advertAppInfo.aqe.aqr = this.hpA.goods.goods_style;
-                advertAppInfo.aqe.aqn = this.hpA.goods.thread_title;
-                advertAppInfo.aqe.aqo = this.hpA.goods.thread_content;
-                advertAppInfo.aqe.userName = this.hpA.goods.user_name;
-                advertAppInfo.aqe.userPortrait = this.hpA.goods.user_portrait;
-                advertAppInfo.aqe.buttonText = this.hpA.goods.button_text;
-                advertAppInfo.aqe.aqu = this.hpA.goods.button_url;
-                if (this.hpA.goods.thread_pic_list != null && advertAppInfo.aqe.aqv != null) {
-                    advertAppInfo.aqe.aqv.addAll(this.hpA.goods.thread_pic_list);
+    public SpannableString et(Context context) {
+        String str;
+        switch (this.type) {
+            case 0:
+                return new SpannableString(this.text);
+            case 1:
+                if (!this.text.endsWith(" ")) {
+                    this.text += " ";
                 }
-                if (v.I(advertAppInfo.aqe.aqv) && (eo = advertAppInfo.aqe.eo(this.hpA.goods.lego_card)) != null && advertAppInfo.aqe.aqv != null) {
-                    advertAppInfo.aqe.aqv.addAll(eo);
+                SpannableString spannableString = new SpannableString(this.text);
+                spannableString.setSpan(new o(context) { // from class: com.baidu.tieba.tbadkCore.data.l.2
+                    @Override // com.baidu.tbadk.util.o, android.text.style.ClickableSpan
+                    public void onClick(View view) {
+                        Matcher matcher = l.pbPattern0.matcher(l.this.link);
+                        if (matcher.find()) {
+                            try {
+                                String group = matcher.group();
+                                pL(group.substring(group.lastIndexOf("/") + 1));
+                                return;
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        Matcher matcher2 = l.iGd.matcher(l.this.link);
+                        if (matcher2.find()) {
+                            try {
+                                String group2 = matcher2.group();
+                                pL(group2.substring(group2.lastIndexOf("=") + 1));
+                                return;
+                            } catch (Exception e2) {
+                                e2.printStackTrace();
+                            }
+                        }
+                        pK(l.this.link);
+                    }
+                }, 0, this.text.length() - 1, 33);
+                return spannableString;
+            case 2:
+                SpannableString spannableString2 = new SpannableString(this.text + " ");
+                com.baidu.adp.widget.ImageView.a face = TbadkCoreApplication.getInst().getFace(this.text);
+                if (face != null) {
+                    BitmapDrawable oA = face.oA();
+                    oA.setBounds(0, 0, face.getWidth(), face.getHeight());
+                    spannableString2.setSpan(new ImageSpan(oA, 1), 0, this.text.length(), 33);
+                    return spannableString2;
                 }
-                advertAppInfo.aqe.aqw = this.hpA.goods.video_info;
-                advertAppInfo.aqe.tagName = this.hpA.goods.tag_name;
-                advertAppInfo.aqe.adSource = this.hpA.goods.ad_source;
-                advertAppInfo.aqe.aqx = this.hpA.goods.tag_name_url;
-                advertAppInfo.aqe.tagRatio = this.hpA.goods.tagRatio;
-                advertAppInfo.aqe.lego_card = this.hpA.goods.lego_card;
-                advertAppInfo.aqe.adCloseInfo = this.hpA.goods.adCloseInfo;
-            }
-            advertAppInfo.page = bEJ();
+                return spannableString2;
+            case 3:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+            case 11:
+            default:
+                return null;
+            case 4:
+                if (!this.text.endsWith(" ")) {
+                    this.text += " ";
+                }
+                SpannableString spannableString3 = new SpannableString(this.text);
+                spannableString3.setSpan(new o(context) { // from class: com.baidu.tieba.tbadkCore.data.l.3
+                    @Override // com.baidu.tbadk.util.o, android.text.style.ClickableSpan
+                    public void onClick(View view) {
+                        if (l.this.text != null) {
+                            l.this.text.replace("@", "").replace(" ", "");
+                        }
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(getContext()).createNormalConfig(com.baidu.adp.lib.g.b.d(l.this.link, 0L), false, false)));
+                    }
+                }, 0, this.text.length() - 1, 33);
+                return spannableString3;
+            case 5:
+                if (!this.text.endsWith(" ")) {
+                    this.text += " ";
+                }
+                String string = context.getString(d.j.video);
+                SpannableString spannableString4 = new SpannableString(string + this.text);
+                spannableString4.setSpan(new o(context) { // from class: com.baidu.tieba.tbadkCore.data.l.1
+                    @Override // com.baidu.tbadk.util.o, android.text.style.ClickableSpan
+                    public void onClick(View view) {
+                        pK(l.this.text);
+                    }
+                }, string.length(), str.length() - 1, 33);
+                return spannableString4;
         }
-        return advertAppInfo;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.adp.widget.ListView.h
-    public BdUniqueId getType() {
-        if (!com.baidu.tbadk.core.i.xR().xV() && this.hpA != null && this.hpA.legoCard != null && !this.hpA.legoCard.isNoPicAd()) {
-            return AdvertAppInfo.apH;
-        }
-        if (bEI() == 1001 || bEI() == -1001) {
-            return AdvertAppInfo.apH;
-        }
-        if (bEH() != null) {
-            return AdvertAppInfo.apL;
-        }
-        return null;
+    public String getLink() {
+        return this.link;
     }
 }

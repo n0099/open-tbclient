@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import java.io.InputStream;
 import java.util.HashMap;
 import org.json.JSONException;
@@ -165,7 +165,7 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
     private void b(int i, byte[] bArr) {
         Intent intent = new Intent("com.baidu.android.pushservice.action.internal.RECEIVE");
         intent.putExtra("method", this.b.a);
-        intent.putExtra("error_msg", i);
+        intent.putExtra(PushConstants.EXTRA_ERROR_CODE, i);
         intent.putExtra("content", bArr);
         intent.putExtra("appid", this.b.f);
         intent.setFlags(32);
@@ -205,7 +205,7 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
                 intent.setAction(PushConstants.ACTION_RECEIVE);
             }
             intent.putExtra("method", this.b.a);
-            intent.putExtra("error_msg", i);
+            intent.putExtra(PushConstants.EXTRA_ERROR_CODE, i);
             intent.putExtra("content", bArr);
             intent.setFlags(32);
             a(intent);
@@ -225,9 +225,9 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
                 com.baidu.android.pushservice.h.i a = com.baidu.android.pushservice.j.m.a(iVar, this.a, this.b.e);
                 try {
                     JSONObject jSONObject = new JSONObject(new String(bArr));
-                    bVar.b = jSONObject.getString(StatisticConstants.REQUEST_ID);
+                    bVar.b = jSONObject.getString("request_id");
                     if (i != 0) {
-                        bVar.a = jSONObject.getString("error_msg");
+                        bVar.a = jSONObject.getString(PushConstants.EXTRA_ERROR_CODE);
                     }
                     String string = jSONObject.getJSONObject("response_params").getString("appid");
                     bVar.h = string;
@@ -259,7 +259,7 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
                     bVar.d = "020601";
                 }
                 try {
-                    bVar.b = new JSONObject(new String(bArr)).getString(StatisticConstants.REQUEST_ID);
+                    bVar.b = new JSONObject(new String(bArr)).getString("request_id");
                 } catch (JSONException e3) {
                     com.baidu.android.pushservice.g.a.b("AbstractProcessor", "unbind failed msg: " + new String(bArr), this.a);
                     bVar.a = new String(bArr);
@@ -296,12 +296,12 @@ public abstract class a extends com.baidu.android.pushservice.i.c {
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            int i = jSONObject.getInt("error_code");
-            String string = jSONObject.getString("error_msg");
-            String string2 = jSONObject.getString(StatisticConstants.REQUEST_ID);
+            int i = jSONObject.getInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
+            String string = jSONObject.getString(PushConstants.EXTRA_ERROR_CODE);
+            String string2 = jSONObject.getString("request_id");
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("error_msg", string);
-            jSONObject2.put(StatisticConstants.REQUEST_ID, string2);
+            jSONObject2.put(PushConstants.EXTRA_ERROR_CODE, string);
+            jSONObject2.put("request_id", string2);
             a(i, jSONObject2.toString().getBytes());
         } catch (JSONException e) {
             com.baidu.android.pushservice.g.a.b("AbstractProcessor", "error : " + e.getMessage(), this.a);

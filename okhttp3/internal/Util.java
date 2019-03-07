@@ -37,6 +37,7 @@ import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
 import okio.Source;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public final class Util {
     private static final Pattern VERIFY_AS_IP_ADDRESS;
@@ -50,7 +51,7 @@ public final class Util {
     private static final ByteString UTF_16_LE_BOM = ByteString.decodeHex("fffe");
     private static final ByteString UTF_32_BE_BOM = ByteString.decodeHex("0000ffff");
     private static final ByteString UTF_32_LE_BOM = ByteString.decodeHex("ffff0000");
-    public static final Charset UTF_8 = Charset.forName("UTF-8");
+    public static final Charset UTF_8 = Charset.forName(HTTP.UTF_8);
     public static final Charset ISO_8859_1 = Charset.forName("ISO-8859-1");
     private static final Charset UTF_16_BE = Charset.forName("UTF-16BE");
     private static final Charset UTF_16_LE = Charset.forName("UTF-16LE");

@@ -14,7 +14,7 @@ final class StringsKt__IndentKt$getIndentFunction$2 extends Lambda implements ko
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.b
     public final String invoke(String str) {
-        kotlin.jvm.internal.p.j(str, "line");
+        kotlin.jvm.internal.p.k(str, "line");
         return this.$indent + str;
     }
 }

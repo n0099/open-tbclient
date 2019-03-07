@@ -7,27 +7,27 @@ import android.widget.ImageView;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class h implements Runnable {
-    private ImageView ahZ;
-    private Handler aic;
-    private int aid;
-    private int aie;
+    private ImageView agD;
+    private Handler agG;
+    private int agH;
+    private int agI;
     private Context context;
     private String url;
 
     public h(Context context, Handler handler, String str, ImageView imageView, int i, int i2) {
         this.context = context.getApplicationContext();
-        this.aic = handler;
+        this.agG = handler;
         this.url = str;
-        this.ahZ = imageView;
-        this.aid = i;
-        this.aie = i2;
+        this.agD = imageView;
+        this.agH = i;
+        this.agI = i2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        Bitmap k = k(this.url, this.aid, this.aie);
-        if (this.aic != null) {
-            this.aic.obtainMessage(1, new f(this.ahZ, this.url, k)).sendToTarget();
+        Bitmap j = j(this.url, this.agH, this.agI);
+        if (this.agG != null) {
+            this.agG.obtainMessage(1, new f(this.agD, this.url, j)).sendToTarget();
         }
     }
 
@@ -36,15 +36,15 @@ public class h implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private Bitmap k(String str, int i, int i2) {
+    private Bitmap j(String str, int i, int i2) {
         Bitmap bitmap;
-        Bitmap l;
+        Bitmap k;
         Bitmap bitmap2 = null;
         try {
-            l = a.bp(this.context).l(str, i, i2);
+            k = a.bh(this.context).k(str, i, i2);
             try {
             } catch (IOException e) {
-                bitmap2 = l;
+                bitmap2 = k;
                 e = e;
                 e.printStackTrace();
                 bitmap = bitmap2;
@@ -54,14 +54,14 @@ public class h implements Runnable {
         } catch (IOException e2) {
             e = e2;
         }
-        if (l != null) {
-            a.uw().b(str, l);
-            return l;
+        if (k != null) {
+            a.ty().b(str, k);
+            return k;
         }
-        a.bp(this.context).dm(str);
-        bitmap = a.bp(this.context).l(str, i, i2);
+        a.bh(this.context).cY(str);
+        bitmap = a.bh(this.context).k(str, i, i2);
         if (bitmap != null) {
-            return d.dl(str);
+            return d.cX(str);
         }
         return bitmap;
     }

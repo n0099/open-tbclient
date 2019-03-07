@@ -1,11 +1,11 @@
 package com.baidu.tieba.recapp;
 /* loaded from: classes.dex */
 public interface j {
-    int Z(String str, boolean z);
+    int aq(String str, boolean z);
 
-    int aa(String str, boolean z);
+    int ar(String str, boolean z);
 
-    void bvE();
+    void bWr();
 
-    void f(String str, int i, boolean z);
+    void g(String str, int i, boolean z);
 }

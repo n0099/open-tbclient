@@ -4,78 +4,79 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.j;
+import com.baidu.location.BDLocation;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tieba.tbadkCore.location.c;
 import tbclient.AppPosInfo;
 /* loaded from: classes.dex */
 public class a {
-    private static a gUJ;
-    private long AJ;
-    private String gUH;
-    private String gUI = b.getInstance().getString("asp_shown_info", "");
+    private static a imm;
+    private long AI;
+    private String imk;
+    private String iml = b.getInstance().getString("asp_shown_info", "");
     private String latitude;
     private String longitude;
 
     private a() {
     }
 
-    public static a bwJ() {
-        if (gUJ == null) {
+    public static a bXw() {
+        if (imm == null) {
             synchronized (c.class) {
-                if (gUJ == null) {
-                    gUJ = new a();
+                if (imm == null) {
+                    imm = new a();
                 }
             }
         }
-        return gUJ;
+        return imm;
     }
 
-    public void pX(String str) {
+    public void wC(String str) {
         this.longitude = str;
     }
 
-    public void pY(String str) {
+    public void wD(String str) {
         this.latitude = str;
     }
 
-    public void dg(long j) {
-        this.AJ = j;
+    public void dL(long j) {
+        this.AI = j;
     }
 
-    private String bwK() {
-        if (TextUtils.isEmpty(this.gUH)) {
+    private String bXx() {
+        if (TextUtils.isEmpty(this.imk)) {
             WifiInfo connectionInfo = ((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo();
             if (connectionInfo != null) {
-                this.gUH = connectionInfo.getBSSID();
+                this.imk = connectionInfo.getBSSID();
             } else {
-                this.gUH = "";
+                this.imk = "";
             }
         }
-        return this.gUH;
+        return this.imk;
     }
 
-    public void vc(String str) {
-        this.gUH = str;
+    public void BH(String str) {
+        this.imk = str;
     }
 
-    public void vd(String str) {
-        this.gUI = str;
+    public void BI(String str) {
+        this.iml = str;
     }
 
-    public void bwL() {
-        b.getInstance().putString("asp_shown_info", this.gUI);
+    public void bXy() {
+        b.getInstance().putString("asp_shown_info", this.iml);
     }
 
-    public AppPosInfo bwM() {
+    public AppPosInfo bXz() {
         AppPosInfo.Builder builder = new AppPosInfo.Builder();
-        builder.ap_mac = bwK();
-        builder.ap_connected = Boolean.valueOf(j.kW());
+        builder.ap_mac = bXx();
+        builder.ap_connected = Boolean.valueOf(j.kZ());
         builder.latitude = this.latitude;
         builder.longitude = this.longitude;
-        builder.addr_timestamp = Long.valueOf(this.AJ);
-        builder.coordinate_type = "bd09ll";
-        builder.asp_shown_info = this.gUI;
+        builder.addr_timestamp = Long.valueOf(this.AI);
+        builder.coordinate_type = BDLocation.BDLOCATION_GCJ02_TO_BD09LL;
+        builder.asp_shown_info = this.iml;
         return builder.build(false);
     }
 }

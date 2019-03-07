@@ -1,19 +1,88 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.LotteryRegular;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.LinkThreadContent;
+import tbclient.LinkThreadInfo;
 /* loaded from: classes.dex */
 public class af {
-    private String asB;
-    private List<Integer> asC;
+    public static int bzf = 1;
+    private String bzg;
+    private String bzh;
+    private String bzi;
+    private int bzj = 0;
+    private boolean bzk = false;
+    private String linkUrl;
 
-    public void a(LotteryRegular lotteryRegular) {
-        this.asB = lotteryRegular.regular;
-        this.asC = new ArrayList();
-        int size = lotteryRegular.chance.size();
-        for (int i = 0; i < size; i++) {
-            this.asC.add(lotteryRegular.chance.get(i));
+    public void a(LinkThreadInfo linkThreadInfo) {
+        if (linkThreadInfo != null) {
+            this.linkUrl = linkThreadInfo.link_url;
+            LinkThreadContent linkThreadContent = (LinkThreadContent) com.baidu.tbadk.core.util.v.c(linkThreadInfo.link_content, 0);
+            if (linkThreadContent != null) {
+                this.bzg = linkThreadContent.link_title;
+                this.bzh = linkThreadContent.link_abstract;
+                this.bzi = linkThreadContent.link_head_small_pic;
+                this.bzj = linkThreadContent.link_type.intValue();
+                if (com.baidu.tbadk.core.util.ap.isEmpty(this.bzg) && com.baidu.tbadk.core.util.ap.isEmpty(this.bzh)) {
+                    this.bzk = true;
+                    return;
+                }
+                return;
+            }
+            this.bzk = true;
         }
+    }
+
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            this.linkUrl = jSONObject.optString("link_url");
+            JSONArray optJSONArray = jSONObject.optJSONArray("link_content");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                try {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(0);
+                    if (jSONObject2 != null) {
+                        this.bzg = jSONObject2.optString("link_title");
+                        this.bzh = jSONObject2.optString("link_abstract");
+                        this.bzi = jSONObject2.optString("link_head_small_pic");
+                        this.bzj = jSONObject2.optInt("link_type");
+                        if (com.baidu.tbadk.core.util.ap.isEmpty(this.bzg) && com.baidu.tbadk.core.util.ap.isEmpty(this.bzh)) {
+                            this.bzk = true;
+                        }
+                    } else {
+                        this.bzk = true;
+                    }
+                    return;
+                } catch (JSONException e) {
+                    this.bzk = true;
+                    return;
+                }
+            }
+            this.bzk = true;
+        }
+    }
+
+    public String getLinkUrl() {
+        return this.linkUrl;
+    }
+
+    public String Xv() {
+        return this.bzg;
+    }
+
+    public String Xw() {
+        return this.bzh;
+    }
+
+    public String Xx() {
+        return this.bzi;
+    }
+
+    public int Xy() {
+        return this.bzj;
+    }
+
+    public boolean Xz() {
+        return this.bzk;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.model.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.q;
+import com.baidu.tbadk.util.s;
 import tbclient.CheckRealName.CheckRealNameReqIdl;
 import tbclient.CheckRealName.DataReq;
 /* loaded from: classes.dex */
@@ -19,7 +19,7 @@ public class CheckRealNameRequestNetMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.obj_source = this.objSource;
         if (z) {
-            q.bindCommonParamsToProtobufData(builder, true);
+            s.bindCommonParamsToProtobufData(builder, true);
         }
         CheckRealNameReqIdl.Builder builder2 = new CheckRealNameReqIdl.Builder();
         builder2.data = builder.build(false);

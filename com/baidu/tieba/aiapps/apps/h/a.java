@@ -1,112 +1,133 @@
 package com.baidu.tieba.aiapps.apps.h;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.location.Address;
-import android.net.http.Headers;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.d.a;
-import com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppLocationIoc;
-import com.baidu.searchbox.ng.ai.apps.scheme.actions.location.LocationResult;
-import com.baidu.searchbox.ng.ai.apps.scheme.actions.recommend.model.AiAppsLocationInfo;
-import rx.d;
-import rx.j;
+import com.baidu.swan.apps.u.b.o;
+import com.baidu.swan.apps.x.a.c;
+import com.baidu.swan.apps.x.a.e;
+import com.baidu.swan.apps.x.a.f;
+import com.baidu.swan.apps.x.a.g;
 /* loaded from: classes4.dex */
-public class a implements IAiAppLocationIoc {
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppLocationIoc
-    @TargetApi(23)
-    @Nullable
-    public d<AiAppsLocationInfo> getLocationInfo(Context context) {
-        if (context == null) {
-            return null;
-        }
-        return d.create(new d.a<AiAppsLocationInfo>() { // from class: com.baidu.tieba.aiapps.apps.h.a.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // rx.functions.b
-            public void call(final j<? super AiAppsLocationInfo> jVar) {
-                a.this.requestLocation("bd09ll", true, true, new IAiAppLocationIoc.LocationListener() { // from class: com.baidu.tieba.aiapps.apps.h.a.1.1
-                    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppLocationIoc.LocationListener
-                    public void onSuccess(LocationResult locationResult) {
-                        AiAppsLocationInfo aiAppsLocationInfo = new AiAppsLocationInfo();
-                        aiAppsLocationInfo.coordType = "bd09ll";
-                        aiAppsLocationInfo.latitude = locationResult.latitude;
-                        aiAppsLocationInfo.longitude = locationResult.longitude;
-                        jVar.onNext(aiAppsLocationInfo);
-                        jVar.onCompleted();
-                    }
+public class a implements o {
+    private static o cUW;
 
-                    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppLocationIoc.LocationListener
-                    public void onFailed(int i) {
-                        jVar.onError(new Throwable());
-                    }
-                });
-            }
-        });
+    public static void a(o oVar) {
+        cUW = oVar;
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppLocationIoc
-    public void preInitLocation() {
+    @Override // com.baidu.swan.apps.u.b.o
+    public boolean a(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
+        if (cUW == null) {
+            return false;
+        }
+        return cUW.a(context, cVar, bVar, bVar2);
     }
 
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppLocationIoc
-    public void requestLocation(final String str, boolean z, boolean z2, final IAiAppLocationIoc.LocationListener locationListener) {
-        if (locationListener != null) {
-            com.baidu.adp.lib.d.a.iW().a(!z, z2, new a.InterfaceC0017a() { // from class: com.baidu.tieba.aiapps.apps.h.a.2
-                @Override // com.baidu.adp.lib.d.a.InterfaceC0017a
-                public void b(int i, String str2, Address address) {
-                    if ("bd09ll".equals(str)) {
-                        locationListener.onSuccess(a.this.a(str, address));
-                        return;
-                    }
-                    CustomMessageTask customMessageTask = (CustomMessageTask) MessageManager.getInstance().findTask(2921363);
-                    if (customMessageTask == null) {
-                        locationListener.onFailed(-1);
-                        return;
-                    }
-                    try {
-                        CustomMessageTask.CustomRunnable<?> runnable = customMessageTask.getRunnable();
-                        Bundle bundle = new Bundle();
-                        bundle.putString("coorType", str);
-                        bundle.putParcelable(Headers.LOCATION, address);
-                        CustomResponsedMessage<?> run = runnable.run(new CustomMessage<>(2921363, bundle));
-                        if (run == null) {
-                            locationListener.onFailed(-1);
-                        } else {
-                            locationListener.onSuccess(a.this.a(str, (Address) run.getData()));
-                        }
-                    } catch (Exception e) {
-                        locationListener.onFailed(-1);
-                    }
-                }
-            });
+    @Override // com.baidu.swan.apps.u.b.o
+    public boolean b(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
+        if (cUW == null) {
+            return false;
+        }
+        return cUW.b(context, cVar, bVar, bVar2);
+    }
+
+    @Override // com.baidu.swan.apps.u.b.o
+    public boolean c(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
+        if (cUW == null) {
+            return false;
+        }
+        return cUW.c(context, cVar, bVar, bVar2);
+    }
+
+    @Override // com.baidu.swan.apps.u.b.o
+    public boolean a(Context context, f fVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
+        if (cUW == null) {
+            return false;
+        }
+        return cUW.a(context, fVar, bVar, bVar2);
+    }
+
+    @Override // com.baidu.swan.apps.u.b.o
+    public boolean a(Context context, e eVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
+        if (cUW == null) {
+            return false;
+        }
+        return cUW.a(context, eVar, bVar, bVar2);
+    }
+
+    @Override // com.baidu.swan.apps.u.b.o
+    public boolean d(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
+        if (cUW == null) {
+            return false;
+        }
+        return cUW.d(context, cVar, bVar, bVar2);
+    }
+
+    @Override // com.baidu.swan.apps.u.b.o
+    public boolean a(Context context, com.baidu.swan.apps.x.a.b bVar, com.baidu.swan.apps.x.b bVar2, com.baidu.swan.apps.ae.b bVar3) {
+        if (cUW == null) {
+            return false;
+        }
+        return cUW.a(context, bVar, bVar2, bVar3);
+    }
+
+    @Override // com.baidu.swan.apps.u.b.o
+    public boolean e(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
+        if (cUW == null) {
+            return false;
+        }
+        return cUW.e(context, cVar, bVar, bVar2);
+    }
+
+    @Override // com.baidu.swan.apps.u.b.o
+    public boolean f(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
+        if (cUW == null) {
+            return false;
+        }
+        return cUW.f(context, cVar, bVar, bVar2);
+    }
+
+    @Override // com.baidu.swan.apps.u.b.o
+    public boolean g(Context context, c cVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
+        if (cUW == null) {
+            return false;
+        }
+        return cUW.g(context, cVar, bVar, bVar2);
+    }
+
+    @Override // com.baidu.swan.apps.u.b.o
+    public boolean a(Context context, com.baidu.swan.apps.x.a.a aVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
+        if (cUW == null) {
+            return false;
+        }
+        return cUW.a(context, aVar, bVar, bVar2);
+    }
+
+    @Override // com.baidu.swan.apps.u.b.o
+    public boolean a(Context context, g gVar, com.baidu.swan.apps.x.b bVar, com.baidu.swan.apps.ae.b bVar2) {
+        if (cUW == null) {
+            return false;
+        }
+        return cUW.a(context, gVar, bVar, bVar2);
+    }
+
+    @Override // com.baidu.swan.apps.u.b.o
+    public void c(com.baidu.swan.apps.b.c.c cVar) {
+        if (cUW != null) {
+            cUW.c(cVar);
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public LocationResult a(String str, Address address) {
-        if (address == null) {
-            return null;
+    @Override // com.baidu.swan.apps.u.b.o
+    public void d(com.baidu.swan.apps.b.c.c cVar) {
+        if (cUW != null) {
+            cUW.d(cVar);
         }
-        Bundle extras = address.getExtras();
-        float f = 0.0f;
-        double d = 0.0d;
-        String str2 = "";
-        String str3 = "";
-        String str4 = "";
-        String str5 = "";
-        if (extras != null) {
-            f = extras.getFloat("speed");
-            d = extras.getDouble("altitude");
-            str2 = extras.getString("cityCode");
-            str3 = extras.getString("province");
-            str4 = extras.getString("street");
-            str5 = extras.getString("streetNumber");
+    }
+
+    @Override // com.baidu.swan.apps.u.b.o
+    public void e(com.baidu.swan.apps.b.c.c cVar) {
+        if (cUW != null) {
+            cUW.e(cVar);
         }
-        return new LocationResult(str, address.getLongitude(), address.getLatitude(), f, 0.0d, d, address.getCountryName(), address.getCountryCode(), address.getLocality(), str2, str3, "", str4, str5);
     }
 }

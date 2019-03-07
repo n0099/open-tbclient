@@ -25,14 +25,14 @@ public class PassportViewManager {
 
     /* loaded from: classes2.dex */
     public static class TitleViewModule {
-        public static final int DEFAULT_TEXT_COLOR = PassportViewManager.configuration.context.getResources().getColor(a.C0071a.sapi_sdk_edit_text_color);
+        public static final int DEFAULT_TEXT_COLOR = PassportViewManager.configuration.context.getResources().getColor(a.b.sapi_sdk_edit_text_color);
         public int bgColor = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         public int leftBtnImgResId = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
         public int leftBtnImgVisible = 0;
         public int leftBtnTextColor = DEFAULT_TEXT_COLOR;
         public String leftBtnText = null;
         public int leftBtnTextVisible = 4;
-        public float leftBtnTextSize = PassportViewManager.configuration.context.getResources().getDimension(a.b.sapi_sdk_title_left_btn_text_size);
+        public float leftBtnTextSize = PassportViewManager.configuration.context.getResources().getDimension(a.c.sapi_sdk_title_left_btn_text_size);
         public Drawable leftBtnDrawableLeft = null;
         public Drawable leftBtnDrawableTop = null;
         public Drawable leftBtnDrawableRight = null;
@@ -40,7 +40,7 @@ public class PassportViewManager {
         public int titleTextColor = DEFAULT_TEXT_COLOR;
         public String titleText = null;
         public int titleVisible = 0;
-        public float titleTextSize = PassportViewManager.configuration.context.getResources().getDimension(a.b.sapi_sdk_title_text_size);
+        public float titleTextSize = PassportViewManager.configuration.context.getResources().getDimension(a.c.sapi_sdk_title_text_size);
         public boolean useWebviewTitle = true;
         public Drawable titleDrawableLeft = null;
         public Drawable titleDrawableTop = null;
@@ -49,7 +49,7 @@ public class PassportViewManager {
         public int rightBtnTextColor = DEFAULT_TEXT_COLOR;
         public String rightBtnText = null;
         public int rightBtnVisible = 4;
-        public float rightBtnTextSize = PassportViewManager.configuration.context.getResources().getDimension(a.b.sapi_sdk_title_right_btn_text_size);
+        public float rightBtnTextSize = PassportViewManager.configuration.context.getResources().getDimension(a.c.sapi_sdk_title_right_btn_text_size);
     }
 
     private PassportViewManager() {
@@ -127,7 +127,7 @@ public class PassportViewManager {
             titleViewModule.bgColor = -1;
         }
         if (titleViewModule.leftBtnImgResId == Integer.MAX_VALUE) {
-            titleViewModule.leftBtnImgResId = a.c.sapi_sdk_btn_back;
+            titleViewModule.leftBtnImgResId = a.d.sapi_sdk_btn_back;
         }
     }
 

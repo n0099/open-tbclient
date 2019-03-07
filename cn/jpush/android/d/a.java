@@ -16,17 +16,16 @@ import android.text.TextUtils;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import cn.jpush.android.api.JPushInterface;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
-import com.baidu.searchbox.ng.ai.apps.network.NetworkDef;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.sina.weibo.sdk.statistic.LogBuilder;
+import com.xiaomi.mipush.sdk.Constants;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -34,7 +33,7 @@ public final class a {
     public static Intent a(Context context, cn.jpush.android.data.b bVar, boolean z) {
         Intent intent = new Intent();
         intent.putExtra("isUpdateVersion", false);
-        intent.putExtra(NetworkDef.Http.BODY, bVar);
+        intent.putExtra("body", bVar);
         intent.setAction("cn.jpush.android.ui.PushActivity");
         intent.addCategory(context.getPackageName());
         intent.addFlags(536870912);
@@ -46,7 +45,7 @@ public final class a {
     }
 
     public static String a(Context context, String str) {
-        String str2 = Build.VERSION.RELEASE + "," + Integer.toString(Build.VERSION.SDK_INT);
+        String str2 = Build.VERSION.RELEASE + Constants.ACCEPT_TIME_SEPARATOR_SP + Integer.toString(Build.VERSION.SDK_INT);
         String str3 = Build.MODEL;
         String a = i.a(context, "gsm.version.baseband", "baseband");
         String str4 = Build.DEVICE;
@@ -60,8 +59,8 @@ public final class a {
             jSONObject.put("androidSdkVersion", str2);
             jSONObject.put("model", str3);
             jSONObject.put("baseband", a);
-            jSONObject.put(Config.DEVICE_PART, str4);
-            jSONObject.put("channel", bA);
+            jSONObject.put("device", str4);
+            jSONObject.put(LogBuilder.KEY_CHANNEL, bA);
             jSONObject.put("network", e);
             jSONObject.put("url", str);
         } catch (JSONException e2) {
@@ -74,7 +73,7 @@ public final class a {
             return null;
         }
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(str.getBytes());
             byte[] digest = messageDigest.digest();
             if (digest == null) {
@@ -174,7 +173,7 @@ public final class a {
         webSettings.setLoadWithOverviewMode(true);
         webSettings.setDomStorageEnabled(true);
         webSettings.setJavaScriptEnabled(true);
-        webSettings.setDefaultTextEncodingName("UTF-8");
+        webSettings.setDefaultTextEncodingName(HTTP.UTF_8);
         webSettings.setSupportZoom(true);
         webSettings.setBuiltInZoomControls(true);
         if (Build.VERSION.SDK_INT >= 11) {
@@ -310,7 +309,7 @@ public final class a {
             if (TextUtils.isEmpty(b)) {
                 return true;
             }
-            String[] split = b.split(BaseRequestAction.SPLITE);
+            String[] split = b.split("_");
             String str = split[0];
             String str2 = split[1];
             char[] charArray = str.toCharArray();
@@ -407,7 +406,7 @@ public final class a {
             }
             String typeName = activeNetworkInfo.getTypeName();
             String subtypeName = activeNetworkInfo.getSubtypeName();
-            return typeName == null ? "Unknown" : !TextUtils.isEmpty(subtypeName) ? typeName + "," + subtypeName : typeName;
+            return typeName == null ? "Unknown" : !TextUtils.isEmpty(subtypeName) ? typeName + Constants.ACCEPT_TIME_SEPARATOR_SP + subtypeName : typeName;
         } catch (Exception e) {
             e.printStackTrace();
             return "Unknown";

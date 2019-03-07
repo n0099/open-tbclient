@@ -44,7 +44,6 @@ import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import java.lang.reflect.Method;
 import java.util.WeakHashMap;
 /* loaded from: classes2.dex */
@@ -505,7 +504,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                     size = this.mMaxWidth;
                     break;
                 }
-            case AiAppsFileUtils.GB /* 1073741824 */:
+            case 1073741824:
                 if (this.mMaxWidth > 0) {
                     size = Math.min(this.mMaxWidth, size);
                     break;
@@ -522,7 +521,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                 size2 = getPreferredHeight();
                 break;
         }
-        super.onMeasure(View.MeasureSpec.makeMeasureSpec(size, AiAppsFileUtils.GB), View.MeasureSpec.makeMeasureSpec(size2, AiAppsFileUtils.GB));
+        super.onMeasure(View.MeasureSpec.makeMeasureSpec(size, 1073741824), View.MeasureSpec.makeMeasureSpec(size2, 1073741824));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -1014,7 +1013,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         ComponentName searchActivity = searchableInfo.getSearchActivity();
         Intent intent2 = new Intent("android.intent.action.SEARCH");
         intent2.setComponent(searchActivity);
-        PendingIntent activity = PendingIntent.getActivity(getContext(), 0, intent2, AiAppsFileUtils.GB);
+        PendingIntent activity = PendingIntent.getActivity(getContext(), 0, intent2, 1073741824);
         Bundle bundle = new Bundle();
         if (this.mAppSearchData != null) {
             bundle.putParcelable("app_data", this.mAppSearchData);

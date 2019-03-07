@@ -1,151 +1,69 @@
 package com.baidu.tieba.tbadkCore.data;
 
-import android.content.Context;
-import android.graphics.drawable.BitmapDrawable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.ImageSpan;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tieba.e;
-import com.baidu.webkit.internal.ETAG;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.baidu.adp.lib.util.BdLog;
+import com.xiaomi.mipush.sdk.Constants;
+import tbclient.Timgs;
 /* loaded from: classes.dex */
-public class k {
-    private String c;
-    private static final Pattern pbPattern0 = Pattern.compile("(tieba.baidu.com/p/){1}\\d+");
-    private static final Pattern hpy = Pattern.compile("(tieba.baidu.com/f\\?kz=){1}\\d+");
-    private int type = 0;
-    private String text = null;
-    private String link = null;
-    private String hpw = null;
-    private SpannableStringBuilder hpx = null;
-    private boolean hpv = false;
+public class k implements com.baidu.tbadk.core.flow.a.a {
+    private int height;
+    private String iFW;
+    private String iFX;
+    private String iFY;
+    private String iFZ;
+    private String subTitle;
+    private int urlFlag;
+    private int width;
 
-    public static boolean bS(int i, int i2) {
-        return (i != 0 || i2 == 3 || i2 == 2) ? false : true;
-    }
-
-    public void setType(int i) {
-        this.type = i;
-    }
-
-    public int getType() {
-        return this.type;
-    }
-
-    public String getText() {
-        return this.text;
-    }
-
-    public String bEC() {
-        return this.c;
-    }
-
-    public SpannableStringBuilder bED() {
-        return this.hpx;
-    }
-
-    public SpannableStringBuilder b(SpannableString spannableString) {
-        if (this.hpx == null) {
-            this.hpx = new SpannableStringBuilder();
-        }
-        this.hpx.append((CharSequence) spannableString);
-        return this.hpx;
-    }
-
-    public SpannableString cX(Context context) {
-        String str;
-        switch (this.type) {
-            case 0:
-                return new SpannableString(this.text);
-            case 1:
-                if (!this.text.endsWith(" ")) {
-                    this.text += " ";
+    public k(Timgs timgs) {
+        this.iFW = null;
+        this.urlFlag = 0;
+        this.iFX = null;
+        this.iFY = null;
+        this.iFZ = null;
+        this.subTitle = null;
+        this.width = 1;
+        this.height = 1;
+        if (timgs != null) {
+            this.iFW = timgs.img_url;
+            this.urlFlag = timgs.flag.intValue();
+            this.iFX = timgs.url;
+            this.iFY = timgs.big_cdn_url;
+            this.iFZ = timgs.des_main;
+            this.subTitle = timgs.des_sub;
+            String str = timgs.bsize;
+            if (str != null) {
+                try {
+                    String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                    this.width = com.baidu.adp.lib.g.b.l(split[0], 1);
+                    this.height = com.baidu.adp.lib.g.b.l(split[1], 1);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                 }
-                SpannableString spannableString = new SpannableString(this.text);
-                spannableString.setSpan(new com.baidu.tbadk.util.l(context) { // from class: com.baidu.tieba.tbadkCore.data.k.2
-                    @Override // com.baidu.tbadk.util.l, android.text.style.ClickableSpan
-                    public void onClick(View view) {
-                        Matcher matcher = k.pbPattern0.matcher(k.this.link);
-                        if (matcher.find()) {
-                            try {
-                                String group = matcher.group();
-                                iV(group.substring(group.lastIndexOf("/") + 1));
-                                return;
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        }
-                        Matcher matcher2 = k.hpy.matcher(k.this.link);
-                        if (matcher2.find()) {
-                            try {
-                                String group2 = matcher2.group();
-                                iV(group2.substring(group2.lastIndexOf(ETAG.EQUAL) + 1));
-                                return;
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
-                            }
-                        }
-                        iU(k.this.link);
-                    }
-                }, 0, this.text.length() - 1, 33);
-                return spannableString;
-            case 2:
-                SpannableString spannableString2 = new SpannableString(this.text + " ");
-                com.baidu.adp.widget.ImageView.a face = TbadkCoreApplication.getInst().getFace(this.text);
-                if (face != null) {
-                    BitmapDrawable ov = face.ov();
-                    ov.setBounds(0, 0, face.getWidth(), face.getHeight());
-                    spannableString2.setSpan(new ImageSpan(ov, 1), 0, this.text.length(), 33);
-                    return spannableString2;
-                }
-                return spannableString2;
-            case 3:
-            case 6:
-            case 7:
-            case 8:
-            case 9:
-            case 10:
-            case 11:
-            default:
-                return null;
-            case 4:
-                if (!this.text.endsWith(" ")) {
-                    this.text += " ";
-                }
-                SpannableString spannableString3 = new SpannableString(this.text);
-                spannableString3.setSpan(new com.baidu.tbadk.util.l(context) { // from class: com.baidu.tieba.tbadkCore.data.k.3
-                    @Override // com.baidu.tbadk.util.l, android.text.style.ClickableSpan
-                    public void onClick(View view) {
-                        if (k.this.text != null) {
-                            k.this.text.replace("@", "").replace(" ", "");
-                        }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(getContext()).createNormalConfig(com.baidu.adp.lib.g.b.d(k.this.link, 0L), false, false)));
-                    }
-                }, 0, this.text.length() - 1, 33);
-                return spannableString3;
-            case 5:
-                if (!this.text.endsWith(" ")) {
-                    this.text += " ";
-                }
-                String string = context.getString(e.j.video);
-                SpannableString spannableString4 = new SpannableString(string + this.text);
-                spannableString4.setSpan(new com.baidu.tbadk.util.l(context) { // from class: com.baidu.tieba.tbadkCore.data.k.1
-                    @Override // com.baidu.tbadk.util.l, android.text.style.ClickableSpan
-                    public void onClick(View view) {
-                        iU(k.this.text);
-                    }
-                }, string.length(), str.length() - 1, 33);
-                return spannableString4;
+            }
+            if (this.width <= 0) {
+                this.width = 1;
+            }
+            if (this.height <= 0) {
+                this.height = 1;
+            }
         }
     }
 
-    public String getLink() {
-        return this.link;
+    @Override // com.baidu.tbadk.core.flow.a.a
+    public String getPicUrl() {
+        return this.iFW;
+    }
+
+    @Override // com.baidu.tbadk.core.flow.a.a
+    public String Xi() {
+        return this.iFX;
+    }
+
+    public String cdY() {
+        return this.iFW;
+    }
+
+    public String cdZ() {
+        return this.iFY;
     }
 }

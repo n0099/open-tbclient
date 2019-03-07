@@ -366,7 +366,7 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
                         this.mAnimatedVectorState.mVectorDrawable = create;
                     }
                     obtainAttributes.recycle();
-                } else if ("target".equals(name)) {
+                } else if (TARGET.equals(name)) {
                     TypedArray obtainAttributes2 = resources.obtainAttributes(attributeSet, AndroidResources.STYLEABLE_ANIMATED_VECTOR_DRAWABLE_TARGET);
                     String string = obtainAttributes2.getString(0);
                     int resourceId2 = obtainAttributes2.getResourceId(1, 0);

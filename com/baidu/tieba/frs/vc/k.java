@@ -1,11 +1,11 @@
 package com.baidu.tieba.frs.vc;
 
-import com.baidu.tieba.tbadkCore.l;
-/* loaded from: classes6.dex */
+import com.baidu.tieba.tbadkCore.FrsViewData;
+/* loaded from: classes4.dex */
 public interface k {
-    void a(l lVar, int i);
+    void a(FrsViewData frsViewData, int i);
 
-    void aIJ();
+    boolean rC(int i);
 
-    boolean nM(int i);
+    void rF(int i);
 }

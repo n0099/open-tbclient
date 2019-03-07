@@ -1,17 +1,17 @@
 package com.baidu.tieba.card.a;
 
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.v;
 import com.baidu.tieba.card.a;
-/* loaded from: classes6.dex */
-public class a<T extends com.baidu.tieba.card.a> extends q.a {
-    protected T dcI;
+/* loaded from: classes3.dex */
+public class a<T extends com.baidu.tieba.card.a> extends v.a {
+    protected T emI;
 
     public a(T t) {
         super(t.getView());
-        this.dcI = t;
+        this.emI = t;
     }
 
-    public T arr() {
-        return this.dcI;
+    public T aRi() {
+        return this.emI;
     }
 }

@@ -11,57 +11,57 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class ShutDownValidateTipView extends FrameLayout {
-    private ArrayList<a> aID;
-    private boolean aJU;
-    private TextView fhb;
-    private ImageView fhc;
-    private TextView fhd;
-    private TextView fhe;
+    private ArrayList<a> bQU;
+    private boolean bSu;
+    private TextView gxh;
+    private ImageView gxi;
+    private TextView gxj;
+    private TextView gxk;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void bG(boolean z);
+        void dP(boolean z);
     }
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aID = new ArrayList<>();
+        this.bQU = new ArrayList<>();
         init(context);
     }
 
     public ShutDownValidateTipView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.aID = new ArrayList<>();
+        this.bQU = new ArrayList<>();
         init(context);
     }
 
     public ShutDownValidateTipView(Context context) {
         super(context);
-        this.aID = new ArrayList<>();
+        this.bQU = new ArrayList<>();
         init(context);
     }
 
     public void init(Context context) {
-        addView(LayoutInflater.from(context).inflate(e.h.shut_down_validate_tip, (ViewGroup) null));
-        this.fhc = (ImageView) findViewById(e.g.no_network_icon);
-        this.fhd = (TextView) findViewById(e.g.no_network_guide1);
-        this.fhe = (TextView) findViewById(e.g.no_network_guide2);
-        this.fhb = (TextView) findViewById(e.g.no_network_showmore);
+        addView(LayoutInflater.from(context).inflate(d.h.shut_down_validate_tip, (ViewGroup) null));
+        this.gxi = (ImageView) findViewById(d.g.no_network_icon);
+        this.gxj = (TextView) findViewById(d.g.no_network_guide1);
+        this.gxk = (TextView) findViewById(d.g.no_network_guide2);
+        this.gxh = (TextView) findViewById(d.g.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.fhb != null) {
-            this.fhb.setOnClickListener(onClickListener);
+        if (this.gxh != null) {
+            this.gxh.setOnClickListener(onClickListener);
         }
     }
 
     public void setVisible(boolean z) {
-        if (z != this.aJU) {
-            this.aJU = z;
+        if (z != this.bSu) {
+            this.bSu = z;
             if (z) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setFillAfter(true);
@@ -81,8 +81,8 @@ public class ShutDownValidateTipView extends FrameLayout {
                 });
                 setVisibility(0);
                 startAnimation(alphaAnimation);
-                for (int i = 0; i < this.aID.size(); i++) {
-                    this.aID.get(i).bG(false);
+                for (int i = 0; i < this.bQU.size(); i++) {
+                    this.bQU.get(i).dP(false);
                 }
             } else if (getVisibility() != 8) {
                 AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
@@ -103,8 +103,8 @@ public class ShutDownValidateTipView extends FrameLayout {
                     }
                 });
                 startAnimation(alphaAnimation2);
-                for (int i2 = 0; i2 < this.aID.size(); i2++) {
-                    this.aID.get(i2).bG(true);
+                for (int i2 = 0; i2 < this.bQU.size(); i2++) {
+                    this.bQU.get(i2).dP(true);
                 }
             }
         }
@@ -118,20 +118,20 @@ public class ShutDownValidateTipView extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.aID.clear();
+        this.bQU.clear();
     }
 
     public void onChangeSkinType(int i) {
-        al.c(this.fhc, e.f.icon_error);
-        al.i(findViewById(e.g.no_network_parent), e.f.bg_no_network);
+        al.c(this.gxi, d.f.icon_error);
+        al.k(findViewById(d.g.no_network_parent), d.f.bg_no_network);
         if (i == 1) {
-            this.fhd.setTextColor(-10523526);
-            this.fhe.setTextColor(-8682095);
-            this.fhb.setTextColor(-10523526);
+            this.gxj.setTextColor(-10523526);
+            this.gxk.setTextColor(-8682095);
+            this.gxh.setTextColor(-10523526);
             return;
         }
-        this.fhd.setTextColor(-14277082);
-        this.fhe.setTextColor(-5065030);
-        this.fhb.setTextColor(-14277082);
+        this.gxj.setTextColor(-14277082);
+        this.gxk.setTextColor(-5065030);
+        this.gxh.setTextColor(-14277082);
     }
 }

@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 /* loaded from: classes.dex */
 public class SocketMessageTask extends MessageTask {
     private Class<? extends SocketResponsedMessage> mResponsedClass;
-    private boolean yI;
-    private boolean yJ;
-    private boolean yK;
-    private DupLicateMode yL;
+    private boolean yF;
+    private boolean yG;
+    private boolean yH;
+    private DupLicateMode yI;
 
     /* loaded from: classes.dex */
     public enum DupLicateMode {
@@ -20,31 +20,31 @@ public class SocketMessageTask extends MessageTask {
 
     public SocketMessageTask(int i) {
         super(i);
-        this.yI = false;
-        this.yJ = false;
-        this.yK = true;
-        this.yL = DupLicateMode.NONE;
+        this.yF = false;
+        this.yG = false;
+        this.yH = true;
+        this.yI = DupLicateMode.NONE;
     }
 
     @Override // com.baidu.adp.framework.task.MessageTask
     public boolean checkCmd() {
-        return FrameHelper.ac(this.mCmd);
+        return FrameHelper.L(this.mCmd);
     }
 
     public void L(boolean z) {
-        this.yI = z;
+        this.yF = z;
     }
 
-    public boolean ht() {
-        return this.yI;
+    public boolean hr() {
+        return this.yF;
     }
 
-    public boolean hu() {
-        return this.yJ;
+    public boolean hs() {
+        return this.yG;
     }
 
     public void M(boolean z) {
-        this.yJ = z;
+        this.yG = z;
     }
 
     public Class<? extends SocketResponsedMessage> getResponsedClass() {
@@ -55,19 +55,19 @@ public class SocketMessageTask extends MessageTask {
         this.mResponsedClass = cls;
     }
 
-    public boolean hv() {
-        return this.yK;
+    public boolean ht() {
+        return this.yH;
     }
 
     public void N(boolean z) {
-        this.yK = z;
+        this.yH = z;
     }
 
-    public DupLicateMode hw() {
-        return this.yL;
+    public DupLicateMode hu() {
+        return this.yI;
     }
 
     public void a(DupLicateMode dupLicateMode) {
-        this.yL = dupLicateMode;
+        this.yI = dupLicateMode;
     }
 }

@@ -3,15 +3,15 @@ package com.baidu.idl.util;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import com.baidu.mapapi.UIMsg;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.URL;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class NetUtil {
     private static final String TAG = "NetUtil";
 
@@ -70,7 +70,7 @@ public class NetUtil {
                 httpURLConnection2.setRequestMethod(requestAdapter.getRequestMethod());
                 httpURLConnection2.setUseCaches(false);
                 outputStream2 = httpURLConnection2.getOutputStream();
-                outputStream2.write(requestAdapter.getRequestString().getBytes("UTF-8"));
+                outputStream2.write(requestAdapter.getRequestString().getBytes(HTTP.UTF_8));
                 outputStream2.flush();
                 if (httpURLConnection2.getResponseCode() != 200) {
                     i3 = 4;
@@ -300,7 +300,7 @@ public class NetUtil {
         throw new RuntimeException("This class instance can not be created.");
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static abstract class RequestAdapter<T> {
         private static final int CONNECT_TIMEOUT = 5000;
         private static final int READ_TIMEOUT = 5000;
@@ -326,11 +326,11 @@ public class NetUtil {
         }
 
         public int getConnectTimeout() {
-            return UIMsg.m_AppUI.MSG_APP_GPS;
+            return 5000;
         }
 
         public int getReadTimeout() {
-            return UIMsg.m_AppUI.MSG_APP_GPS;
+            return 5000;
         }
 
         public String getRequestMethod() {

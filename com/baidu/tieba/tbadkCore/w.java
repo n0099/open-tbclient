@@ -4,24 +4,26 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class w {
-    private a hoN;
+    private a iFs;
     private String mFrom = "bar_detail";
 
     /* loaded from: classes.dex */
     public interface a {
-        void p(String str, long j);
+        void s(String str, long j);
 
-        void q(String str, long j);
+        void t(String str, long j);
     }
 
     public void setFrom(String str) {
@@ -29,11 +31,11 @@ public class w {
     }
 
     public void a(a aVar) {
-        this.hoN = aVar;
+        this.iFs = aVar;
     }
 
-    public void w(String str, long j) {
-        new b(str, j, this.mFrom, this.hoN, this, null).execute(new Integer[0]);
+    public void A(String str, long j) {
+        new b(str, j, this.mFrom, this.iFs, this, null).execute(new Integer[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -42,8 +44,8 @@ public class w {
         private String authSid;
         private int errorCode;
         private String errorMsg;
-        private WeakReference<a> hoO;
-        private WeakReference<w> hoP;
+        private WeakReference<a> iFt;
+        private WeakReference<w> iFu;
         private long mForumId;
         private String mForumName;
         private String mFrom;
@@ -53,11 +55,11 @@ public class w {
         public b(String str, long j, String str2, a aVar, w wVar, String str3) {
             this.mForumName = null;
             this.mForumId = 0L;
-            this.hoO = null;
-            this.hoP = new WeakReference<>(wVar);
+            this.iFt = null;
+            this.iFu = new WeakReference<>(wVar);
             this.mForumName = str;
             this.mForumId = j;
-            this.hoO = new WeakReference<>(aVar);
+            this.iFt = new WeakReference<>(aVar);
             this.mFrom = str2;
             this.authSid = str3;
             setPriority(3);
@@ -77,14 +79,14 @@ public class w {
                     this.mNetwork.x("favo_type", "1");
                     this.mNetwork.x("st_type", this.mFrom);
                     this.mNetwork.x("authsid", this.authSid);
-                    this.mNetwork.Dw().Eu().mIsNeedTbs = true;
-                    String CY = this.mNetwork.CY();
-                    if (!ao.isEmpty(CY) && (jSONObject = new JSONObject(CY)) != null) {
-                        this.errorCode = jSONObject.optInt("error_code");
-                        this.errorMsg = jSONObject.optString("error_msg");
+                    this.mNetwork.acH().adF().mIsNeedTbs = true;
+                    String acj = this.mNetwork.acj();
+                    if (!ap.isEmpty(acj) && (jSONObject = new JSONObject(acj)) != null) {
+                        this.errorCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
+                        this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
                         this.tokenData = AuthTokenData.parse(jSONObject);
                     }
-                    if (this.mNetwork.Dw().Ev().isRequestSuccess()) {
+                    if (this.mNetwork.acH().adG().isRequestSuccess()) {
                         return 1;
                     }
                 }
@@ -100,23 +102,23 @@ public class w {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
-            if (this.hoO != null) {
+            if (this.iFt != null) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = this.mForumId;
-                a aVar2 = this.hoO.get();
+                a aVar2 = this.iFt.get();
                 if (aVar2 != null) {
-                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.Dw().Ev().isRequestSuccess()) {
+                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.acH().adG().isRequestSuccess()) {
                         TbadkCoreApplication.getInst().delLikeForum(this.mForumName);
-                        aVar2.p(this.mForumName, this.mForumId);
+                        aVar2.s(this.mForumName, this.mForumId);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(this.mForumId)));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001611, this.mForumName));
                         aVar.isSuccess = true;
                     } else {
                         aVar.isSuccess = false;
                         if (this.mNetwork != null) {
-                            String errorString = this.mNetwork.Dz() ? this.mNetwork.getErrorString() : this.mNetwork.DC();
+                            String errorString = this.mNetwork.acK() ? this.mNetwork.getErrorString() : this.mNetwork.acN();
                             aVar.errorMessage = errorString;
-                            aVar2.q(errorString, this.errorCode);
+                            aVar2.t(errorString, this.errorCode);
                         }
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001438, aVar));

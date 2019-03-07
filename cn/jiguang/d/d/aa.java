@@ -7,10 +7,8 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
 import cn.jpush.android.service.PushReceiver;
-import com.baidu.ar.util.IoUtils;
-import com.baidu.mobstat.Config;
-import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.searchbox.ng.ai.apps.aps.AiAppsApsUtils;
+import com.sina.weibo.sdk.statistic.LogBuilder;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.security.interfaces.RSAPublicKey;
@@ -20,6 +18,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import javax.crypto.Cipher;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,11 +33,11 @@ public final class aa {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            String f = cn.jiguang.d.h.f.f(cn.jiguang.d.h.f.K(context, str));
-            if (cn.jiguang.g.i.a(f)) {
+            String g = cn.jiguang.d.h.f.g(cn.jiguang.d.h.f.K(context, str));
+            if (cn.jiguang.g.i.a(g)) {
                 return null;
             }
-            return new JSONObject(f.trim());
+            return new JSONObject(g.trim());
         } catch (Throwable th) {
             return null;
         }
@@ -50,23 +49,23 @@ public final class aa {
             try {
                 if (jSONObject.length() != 0) {
                     if (cn.jiguang.g.a.d(context)) {
-                        boolean equalsIgnoreCase = "CN".equalsIgnoreCase(cn.jiguang.d.a.ld.a());
+                        boolean equalsIgnoreCase = "CN".equalsIgnoreCase(cn.jiguang.d.a.lf.a());
                         LinkedHashSet<String> linkedHashSet = new LinkedHashSet();
-                        if (equalsIgnoreCase && (d = f.bV().ai(context).d(set)) != null) {
+                        if (equalsIgnoreCase && (d = f.bU().ai(context).d(set)) != null) {
                             for (String str : d) {
                                 if (!TextUtils.isEmpty(str)) {
                                     linkedHashSet.add(str);
                                 }
                             }
                         }
-                        String g = cn.jiguang.d.a.ld.g();
+                        String g = cn.jiguang.d.a.lf.g();
                         if (!TextUtils.isEmpty(g)) {
-                            linkedHashSet.add(SapiUtils.COOKIE_HTTPS_URL_PREFIX + g);
+                            linkedHashSet.add("https://" + g);
                         }
                         if (equalsIgnoreCase) {
                             String c2 = cn.jiguang.d.a.d.c();
                             if (!TextUtils.isEmpty(c2)) {
-                                linkedHashSet.add(SapiUtils.COOKIE_HTTPS_URL_PREFIX + c2);
+                                linkedHashSet.add("https://" + c2);
                             }
                         }
                         if (linkedHashSet.isEmpty()) {
@@ -104,7 +103,7 @@ public final class aa {
             RSAPublicKey P = cn.jiguang.d.h.a.b.P("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCi0v4VEUhOdfIEfFCrPC72pcDsQF/luTmr4q34NY0EZYGKzfQuTrUAm916P52HCgF+342gjZ/Nvijts5543qYNyoLvgtu4NRcHJmuGI/w7qifhfsivYeoEj9wYphXOyB9HUjzwn1BtAih+1RyUrcErCi249yabUOIKQygPZ9OXXQIDAQAB");
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(1, P);
-            return new String(Base64.encode(cipher.doFinal(str.getBytes()), 2), "UTF-8");
+            return new String(Base64.encode(cipher.doFinal(str.getBytes()), 2), HTTP.UTF_8);
         } catch (Throwable th) {
             return null;
         }
@@ -225,11 +224,11 @@ public final class aa {
             return;
         }
         try {
-            i2 = jSONObject2.toString().getBytes(IoUtils.UTF_8).length;
+            i2 = jSONObject2.toString().getBytes("utf-8").length;
         } catch (UnsupportedEncodingException e) {
             i2 = 0;
         }
-        int i4 = (i2 + i) - com.baidu.fsg.base.statistics.b.b;
+        int i4 = (i2 + i) - 204800;
         if (i4 <= 0 || (optJSONArray = jSONObject2.optJSONArray("content")) == null || optJSONArray.length() <= 0) {
             return;
         }
@@ -241,7 +240,7 @@ public final class aa {
                     if (i3 >= i4) {
                         jSONArray.put(jSONObject3);
                     }
-                    i3 += jSONObject3.toString().getBytes(IoUtils.UTF_8).length;
+                    i3 += jSONObject3.toString().getBytes("utf-8").length;
                 }
             }
             if (jSONArray.length() > 0) {
@@ -283,9 +282,9 @@ public final class aa {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(Context context, JSONArray jSONArray, Set set) {
         try {
-            String c2 = f.bV().ah(context).c(set);
+            String c2 = f.bU().ah(context).c(set);
             JSONObject d = d(context);
-            ArrayList<JSONArray> a2 = a(jSONArray, 40960, (int) com.baidu.fsg.base.statistics.b.b);
+            ArrayList<JSONArray> a2 = a(jSONArray, 40960, 204800);
             boolean z = d == null;
             Iterator<JSONArray> it = a2.iterator();
             while (it.hasNext()) {
@@ -338,7 +337,7 @@ public final class aa {
 
     public static void b(Context context) {
         try {
-            l.bZ().d(context, "report_history", new Bundle());
+            l.bY().d(context, "report_history", new Bundle());
         } catch (Throwable th) {
         }
     }
@@ -382,26 +381,26 @@ public final class aa {
         boolean z = false;
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("platform", Config.APP_VERSION_CODE);
+            jSONObject.put("platform", "a");
             long c2 = cn.jiguang.d.a.d.c(context);
             if (c2 != 0) {
                 jSONObject.put("uid", c2);
                 String b2 = cn.jiguang.d.a.b(context);
                 if (!cn.jiguang.g.i.a(b2)) {
-                    jSONObject.put(AiAppsApsUtils.APP_KEY, b2);
-                    e.bU().a(jSONObject);
+                    jSONObject.put("app_key", b2);
+                    e.bT().a(jSONObject);
                     jSONObject.put("core_sdk_ver", "1.2.5");
                     String H = cn.jiguang.d.a.a.H("");
                     if (cn.jiguang.g.i.a(H)) {
                         cn.jiguang.e.c.c("ReportUtils", "miss channel when wrap container info,but continue report...");
                     } else {
-                        jSONObject.put("channel", H);
+                        jSONObject.put(LogBuilder.KEY_CHANNEL, H);
                     }
                     Pair<String, Integer> Y = cn.jiguang.d.a.Y(context);
                     if (cn.jiguang.g.i.a((String) Y.first)) {
                         cn.jiguang.e.c.c("ReportUtils", "miss app version when wrap container info,but continue report...");
                     } else {
-                        jSONObject.put("app_version", Y.first);
+                        jSONObject.put(Constants.EXTRA_KEY_APP_VERSION, Y.first);
                     }
                     z = true;
                 }

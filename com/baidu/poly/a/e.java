@@ -4,12 +4,12 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes2.dex */
 public class e implements d {
-    private Handler ahG = new Handler(Looper.getMainLooper());
+    private Handler uiHandler = new Handler(Looper.getMainLooper());
 
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [com.baidu.poly.a.e.1.run():void] */
     static /* synthetic */ Handler a(e eVar) {
-        return eVar.ahG;
+        return eVar.uiHandler;
     }
 
     @Override // com.baidu.poly.a.d
@@ -36,7 +36,7 @@ public class e implements d {
                     java.net.URLConnection r0 = r0.openConnection()     // Catch: java.lang.Throwable -> L3a
                     java.net.HttpURLConnection r0 = (java.net.HttpURLConnection) r0     // Catch: java.lang.Throwable -> L3a
                     com.baidu.poly.a.b r1 = r3     // Catch: java.lang.Throwable -> L3a
-                    java.util.Map r1 = r1.ut()     // Catch: java.lang.Throwable -> L3a
+                    java.util.Map r1 = r1.tv()     // Catch: java.lang.Throwable -> L3a
                     java.util.Set r1 = r1.entrySet()     // Catch: java.lang.Throwable -> L3a
                     java.util.Iterator r4 = r1.iterator()     // Catch: java.lang.Throwable -> L3a
                 L1e:
@@ -75,7 +75,7 @@ public class e implements d {
                     r2 = 299(0x12b, float:4.19E-43)
                     if (r1 > r2) goto L87
                     java.io.InputStream r0 = r0.getInputStream()     // Catch: java.lang.Throwable -> L3a
-                    java.lang.String r1 = com.baidu.poly.util.a.k(r0)     // Catch: java.lang.Throwable -> La2
+                    java.lang.String r1 = com.baidu.poly.util.a.l(r0)     // Catch: java.lang.Throwable -> La2
                     com.baidu.poly.a.a r2 = r4     // Catch: java.lang.Throwable -> La2
                     if (r2 == 0) goto L7f
                     com.baidu.poly.a.e r2 = com.baidu.poly.a.e.this     // Catch: java.lang.Throwable -> La2
@@ -90,7 +90,7 @@ public class e implements d {
                     goto L55
                 L87:
                     java.io.InputStream r0 = r0.getErrorStream()     // Catch: java.lang.Throwable -> L3a
-                    java.lang.String r2 = com.baidu.poly.util.a.k(r0)     // Catch: java.lang.Throwable -> La2
+                    java.lang.String r2 = com.baidu.poly.util.a.l(r0)     // Catch: java.lang.Throwable -> La2
                     com.baidu.poly.a.a r3 = r4     // Catch: java.lang.Throwable -> La2
                     if (r3 == 0) goto L7f
                     com.baidu.poly.a.e r3 = com.baidu.poly.a.e.this     // Catch: java.lang.Throwable -> La2

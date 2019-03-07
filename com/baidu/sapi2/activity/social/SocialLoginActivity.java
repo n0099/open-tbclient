@@ -48,7 +48,7 @@ public class SocialLoginActivity extends BaseSSOLoginActivity {
         this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.social.SocialLoginActivity.1
             @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
             public boolean onBack() {
-                if (SocialLoginActivity.this.sapiWebView.canGoBack()) {
+                if (SocialLoginActivity.this.sapiWebView != null && SocialLoginActivity.this.sapiWebView.canGoBack()) {
                     SocialLoginActivity.this.sapiWebView.goBack();
                     return true;
                 }
@@ -59,7 +59,7 @@ public class SocialLoginActivity extends BaseSSOLoginActivity {
         this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.sapi2.activity.social.SocialLoginActivity.2
             @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
             public void onBack() {
-                if (SocialLoginActivity.this.sapiWebView.canGoBack()) {
+                if (SocialLoginActivity.this.sapiWebView != null && SocialLoginActivity.this.sapiWebView.canGoBack()) {
                     SocialLoginActivity.this.sapiWebView.goBack();
                 } else {
                     SocialLoginActivity.this.handleBack(SocialLoginActivity.this.businessFrom);

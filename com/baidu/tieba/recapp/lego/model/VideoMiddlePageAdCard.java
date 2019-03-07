@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.c;
 import com.baidu.afd.d;
 import com.baidu.afd.h;
-import com.baidu.searchbox.ng.ai.apps.scheme.actions.GetSwanHistoryAction;
 import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteVideoActivityConfig;
 import com.baidu.tieba.lego.card.b.b;
@@ -65,8 +64,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, com
         this.operateData.parseFromJson(optJSONObject3);
         this.parallelChargeInfo = new b.a();
         this.parallelChargeInfo.parseFromJson(jSONObject);
-        if (TextUtils.isEmpty(this.operateData.gQF)) {
-            this.operateData.gQF = this.userName;
+        if (TextUtils.isEmpty(this.operateData.iij)) {
+            this.operateData.iij = this.userName;
         }
     }
 
@@ -117,7 +116,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, com
             jSONObject.put("user_portrait", this.userPortrait);
             jSONObject.put("user_name", this.userPortrait);
             jSONObject.put(MissonDetailsActivityConfig.THREAD_TITLE, this.userPortrait);
-            jSONObject.put(GetSwanHistoryAction.KEY_SCHEME, this.userPortrait);
+            jSONObject.put("scheme", this.userPortrait);
             jSONObject.put("tag_name", this.userPortrait);
             JSONObject jSONObject2 = new JSONObject();
             if (this.video != null) {
@@ -132,9 +131,9 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, com
             }
             jSONObject.put(WriteVideoActivityConfig.VIDEO_INFO, jSONObject2);
             jSONObject.put(WebVideoActivityConfig.KEY_TAIL_FRAME, this.tailFrame.toJson());
-            jSONObject.put("operate", this.operateData.toJsonObject());
-            if (this.adFacadeData != null && this.adFacadeData.pz() != null) {
-                jSONObject.put("extraparams", this.adFacadeData.pz().ext);
+            jSONObject.put("operate", this.operateData.bFy());
+            if (this.adFacadeData != null && this.adFacadeData.pS() != null) {
+                jSONObject.put("extraparams", this.adFacadeData.pS().ext);
             }
         } catch (JSONException e) {
             e.printStackTrace();

@@ -2,7 +2,6 @@ package com.xiaomi.push.service;
 
 import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.mapapi.UIMsg;
 import com.xiaomi.network.Host;
 import com.xiaomi.push.protobuf.a;
 import java.io.BufferedReader;
@@ -21,7 +20,7 @@ public class ae {
     private static ThreadPoolExecutor c = new ThreadPoolExecutor(1, 1, 20, TimeUnit.SECONDS, new LinkedBlockingQueue());
 
     public static void a() {
-        a.C0392a d;
+        a.C0368a d;
         long currentTimeMillis = System.currentTimeMillis();
         if ((c.getActiveCount() <= 0 || currentTimeMillis - b >= 1800000) && com.xiaomi.stats.f.a().c() && (d = at.a().d()) != null && d.m() > 0) {
             b = currentTimeMillis;
@@ -53,7 +52,7 @@ public class ae {
         try {
             com.xiaomi.channel.commonutils.logger.b.a("ConnectivityTest: begin to connect to " + str);
             Socket socket = new Socket();
-            socket.connect(Host.b(str, 5222), UIMsg.m_AppUI.MSG_APP_GPS);
+            socket.connect(Host.b(str, 5222), 5000);
             socket.setTcpNoDelay(true);
             com.xiaomi.channel.commonutils.logger.b.a("ConnectivityTest: connect to " + str + " in " + (System.currentTimeMillis() - currentTimeMillis));
             socket.close();

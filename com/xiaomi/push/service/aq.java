@@ -1,6 +1,4 @@
 package com.xiaomi.push.service;
-
-import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes3.dex */
 public class aq {
     private static int a = 8;
@@ -38,8 +36,8 @@ public class aq {
             for (int i3 = 0; i3 <= i; i3++) {
                 sb.append(" ").append(a(this.b[i3]));
             }
-            sb.append("   j_").append(i - 1).append(ETAG.EQUAL).append(this.d);
-            sb.append("   j_").append(i).append(ETAG.EQUAL).append(this.e);
+            sb.append("   j_").append(i - 1).append("=").append(this.d);
+            sb.append("   j_").append(i).append("=").append(this.e);
             sb.append("   S_").append(i - 1).append("[j_").append(i - 1).append("]=").append(a(this.b[this.d]));
             sb.append("   S_").append(i - 1).append("[j_").append(i).append("]=").append(a(this.b[this.e]));
             if (this.b[1] != 0) {

@@ -7,9 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
 import cn.jpush.android.a.i;
-import com.baidu.searchbox.ng.ai.apps.network.NetworkDef;
+import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 /* loaded from: classes3.dex */
@@ -53,7 +54,7 @@ public class PushActivity extends Activity {
                 }
                 pushActivity.d = (FullScreenView) pushActivity.findViewById(identifier2);
                 pushActivity.d.initModule(pushActivity, bVar);
-                if (TextUtils.isEmpty(str2) || !new File(str2.replace("file://", "")).exists() || pushActivity.b) {
+                if (TextUtils.isEmpty(str2) || !new File(str2.replace(SkiaImageDecoder.FILE_PREFIX, "")).exists() || pushActivity.b) {
                     pushActivity.d.loadUrl(str);
                 } else {
                     pushActivity.d.loadUrl(str2);
@@ -75,7 +76,7 @@ public class PushActivity extends Activity {
         try {
             this.b = getIntent().getBooleanExtra("from_way", false);
             Intent intent = getIntent();
-            cn.jpush.android.data.b bVar = (cn.jpush.android.data.b) intent.getSerializableExtra(NetworkDef.Http.BODY);
+            cn.jpush.android.data.b bVar = (cn.jpush.android.data.b) intent.getSerializableExtra("body");
             if (bVar == null) {
                 cn.jpush.android.d.f.a("PushActivity", "parse entity form plugin plateform");
                 String uri = intent.getData() != null ? intent.getData().toString() : null;
@@ -142,7 +143,7 @@ public class PushActivity extends Activity {
             this.d.webviewGoBack();
             return;
         }
-        cn.jpush.android.a.e.a(this.c, 1006, null, this);
+        cn.jpush.android.a.e.a(this.c, PointerIconCompat.TYPE_CELL, null, this);
         b();
     }
 

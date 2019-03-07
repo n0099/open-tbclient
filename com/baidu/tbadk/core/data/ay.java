@@ -1,62 +1,96 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.SimpleForum;
-/* loaded from: classes.dex */
-public class ay implements com.baidu.tbadk.core.view.commonLike.forum.b {
-    private boolean atB;
-    private boolean atC;
-    public t atD;
-    private String avatar;
-    private String forumId;
-    private int forumLevel;
-    private String forumName;
-    public boolean isBrandForum;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.d;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.RecomTopicInfo;
+import tbclient.RecomTopicList;
+/* loaded from: classes3.dex */
+public class ay {
+    private String bAi;
+    private List<a> bAj = new ArrayList();
 
-    @Override // com.baidu.tbadk.core.view.commonLike.forum.b
-    public String getForumId() {
-        return this.forumId;
+    public String Ya() {
+        return StringUtils.isNull(this.bAi) ? TbadkCoreApplication.getInst().getString(d.j.hot_topic_card_title) : this.bAi;
     }
 
-    @Override // com.baidu.tbadk.core.view.commonLike.forum.b
-    public String getForumName() {
-        return this.forumName;
-    }
-
-    @Override // com.baidu.tbadk.core.view.commonLike.forum.b
-    public void ba(boolean z) {
-        this.atC = z;
-    }
-
-    public boolean zr() {
-        return this.atC;
-    }
-
-    public String getAvatar() {
-        return this.avatar;
-    }
-
-    @Override // com.baidu.tbadk.core.view.commonLike.a
-    public boolean getIsLike() {
-        return this.atB;
-    }
-
-    @Override // com.baidu.tbadk.core.view.commonLike.a
-    public void setIsLike(boolean z) {
-        this.atB = z;
-    }
-
-    public void parserProtobuf(SimpleForum simpleForum) {
-        if (simpleForum != null) {
-            this.forumId = String.valueOf(simpleForum.id);
-            this.forumName = simpleForum.name;
-            this.avatar = simpleForum.avatar;
-            this.atB = simpleForum.is_liked.intValue() == 1;
-            this.forumLevel = simpleForum.level_id.intValue();
-            if (simpleForum.multi_forum_perm != null) {
-                this.atD = new t();
-                this.atD.a(simpleForum.multi_forum_perm);
+    public com.baidu.tieba.card.data.n Yb() {
+        com.baidu.tieba.card.data.n nVar = new com.baidu.tieba.card.data.n();
+        ArrayList arrayList = null;
+        nVar.elZ = Ya();
+        if (this.bAj != null) {
+            ArrayList arrayList2 = new ArrayList();
+            for (a aVar : this.bAj) {
+                if (aVar != null) {
+                    arrayList2.add(aVar.Yd());
+                }
             }
-            this.isBrandForum = simpleForum.is_brand_forum.intValue() == 1;
+            arrayList = arrayList2;
+        }
+        nVar.ema = arrayList;
+        return nVar;
+    }
+
+    public void a(RecomTopicInfo recomTopicInfo) {
+        if (recomTopicInfo != null) {
+            this.bAi = recomTopicInfo.recom_title;
+            if (com.baidu.tbadk.core.util.v.S(recomTopicInfo.topic_list) > 0) {
+                for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
+                    if (recomTopicList != null) {
+                        a aVar = new a();
+                        aVar.a(recomTopicList);
+                        if (!a(aVar)) {
+                            this.bAj.add(aVar);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private boolean a(a aVar) {
+        return aVar == null || StringUtils.isNull(aVar.getTopicName()) || aVar.Yc() <= 0;
+    }
+
+    /* loaded from: classes3.dex */
+    public static class a {
+        private String bAk;
+        private long bAl;
+        private String bAm;
+        private String bAn;
+        private int tag;
+        private long topicId;
+        private int type;
+
+        public long Yc() {
+            return this.topicId;
+        }
+
+        public String getTopicName() {
+            return this.bAk;
+        }
+
+        public void a(RecomTopicList recomTopicList) {
+            if (recomTopicList != null) {
+                this.topicId = recomTopicList.topic_id.longValue();
+                this.bAk = recomTopicList.topic_name;
+                this.type = recomTopicList.type.intValue();
+                this.bAl = recomTopicList.discuss_num.longValue();
+                this.tag = recomTopicList.tag.intValue();
+                this.bAm = recomTopicList.topic_desc;
+                this.bAn = recomTopicList.topic_pic;
+            }
+        }
+
+        public com.baidu.tieba.card.data.m Yd() {
+            com.baidu.tieba.card.data.m mVar = new com.baidu.tieba.card.data.m();
+            mVar.tag = this.tag;
+            mVar.desc = this.bAm;
+            mVar.topicId = this.topicId;
+            mVar.bAk = this.bAk;
+            return mVar;
         }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.pb.main;
 import android.content.Context;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import tbclient.PbPage.PbPageResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Object> {
     private Context context;
     private boolean markCache;
@@ -58,7 +58,7 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
                     this.pbData.a(pbPageResIdl.data, this.context);
                     if (!this.pbData.isValid()) {
                         this.pbData = null;
-                    } else if (isMarkCache() && this.pbData.ww() != null && !this.pbData.ww().equals(this.postId)) {
+                    } else if (isMarkCache() && this.pbData.Va() != null && !this.pbData.Va().equals(this.postId)) {
                         this.pbData = null;
                     }
                 } catch (Exception e) {

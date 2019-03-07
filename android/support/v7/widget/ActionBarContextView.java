@@ -16,7 +16,6 @@ import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class ActionBarContextView extends AbsActionBarView {
@@ -262,8 +261,7 @@ public class ActionBarContextView extends AbsActionBarView {
 
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
-        int i3 = AiAppsFileUtils.GB;
-        int i4 = 0;
+        int i3 = 0;
         if (View.MeasureSpec.getMode(i) != 1073741824) {
             throw new IllegalStateException(getClass().getSimpleName() + " can only be used with android:layout_width=\"match_parent\" (or fill_parent)");
         }
@@ -274,8 +272,8 @@ public class ActionBarContextView extends AbsActionBarView {
         int size2 = this.mContentHeight > 0 ? this.mContentHeight : View.MeasureSpec.getSize(i2);
         int paddingTop = getPaddingTop() + getPaddingBottom();
         int paddingLeft = (size - getPaddingLeft()) - getPaddingRight();
-        int i5 = size2 - paddingTop;
-        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i5, Integer.MIN_VALUE);
+        int i4 = size2 - paddingTop;
+        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i4, Integer.MIN_VALUE);
         if (this.mClose != null) {
             int measureChildView = measureChildView(this.mClose, paddingLeft, makeMeasureSpec, 0);
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.mClose.getLayoutParams();
@@ -299,27 +297,24 @@ public class ActionBarContextView extends AbsActionBarView {
         }
         if (this.mCustomView != null) {
             ViewGroup.LayoutParams layoutParams = this.mCustomView.getLayoutParams();
-            int i6 = layoutParams.width != -2 ? 1073741824 : Integer.MIN_VALUE;
+            int i5 = layoutParams.width != -2 ? 1073741824 : Integer.MIN_VALUE;
             if (layoutParams.width >= 0) {
                 paddingLeft = Math.min(layoutParams.width, paddingLeft);
             }
-            if (layoutParams.height == -2) {
-                i3 = Integer.MIN_VALUE;
-            }
-            this.mCustomView.measure(View.MeasureSpec.makeMeasureSpec(paddingLeft, i6), View.MeasureSpec.makeMeasureSpec(layoutParams.height >= 0 ? Math.min(layoutParams.height, i5) : i5, i3));
+            this.mCustomView.measure(View.MeasureSpec.makeMeasureSpec(paddingLeft, i5), View.MeasureSpec.makeMeasureSpec(layoutParams.height >= 0 ? Math.min(layoutParams.height, i4) : i4, layoutParams.height == -2 ? Integer.MIN_VALUE : 1073741824));
         }
         if (this.mContentHeight <= 0) {
             int childCount = getChildCount();
-            int i7 = 0;
-            while (i4 < childCount) {
-                int measuredHeight = getChildAt(i4).getMeasuredHeight() + paddingTop;
-                if (measuredHeight <= i7) {
-                    measuredHeight = i7;
+            int i6 = 0;
+            while (i3 < childCount) {
+                int measuredHeight = getChildAt(i3).getMeasuredHeight() + paddingTop;
+                if (measuredHeight <= i6) {
+                    measuredHeight = i6;
                 }
-                i4++;
-                i7 = measuredHeight;
+                i3++;
+                i6 = measuredHeight;
             }
-            setMeasuredDimension(size, i7);
+            setMeasuredDimension(size, i6);
             return;
         }
         setMeasuredDimension(size, size2);

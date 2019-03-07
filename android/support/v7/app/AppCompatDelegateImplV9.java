@@ -62,7 +62,6 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 import org.xmlpull.v1.XmlPullParser;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(14)
@@ -857,7 +856,7 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
                 closePanel(panelFeatureState, true);
                 return;
             }
-            WindowManager windowManager = (WindowManager) this.mContext.getSystemService(WindowConfig.JSON_WINDOW_KEY);
+            WindowManager windowManager = (WindowManager) this.mContext.getSystemService("window");
             if (windowManager != null && preparePanel(panelFeatureState, keyEvent)) {
                 if (panelFeatureState.decorView == null || panelFeatureState.refreshDecorView) {
                     if (panelFeatureState.decorView == null) {
@@ -1073,7 +1072,7 @@ public class AppCompatDelegateImplV9 extends AppCompatDelegateImplBase implement
             checkCloseActionMenu(panelFeatureState.menu);
             return;
         }
-        WindowManager windowManager = (WindowManager) this.mContext.getSystemService(WindowConfig.JSON_WINDOW_KEY);
+        WindowManager windowManager = (WindowManager) this.mContext.getSystemService("window");
         if (windowManager != null && panelFeatureState.isOpen && panelFeatureState.decorView != null) {
             windowManager.removeView(panelFeatureState.decorView);
             if (z) {

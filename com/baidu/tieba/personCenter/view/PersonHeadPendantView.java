@@ -6,10 +6,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.tbadk.core.view.HeadPendantView;
-import com.baidu.tieba.e;
-/* loaded from: classes5.dex */
+import com.baidu.tieba.d;
+/* loaded from: classes4.dex */
 public class PersonHeadPendantView extends HeadPendantView {
-    private View gwD;
+    private View hMS;
 
     public PersonHeadPendantView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -27,24 +27,24 @@ public class PersonHeadPendantView extends HeadPendantView {
     @Override // com.baidu.tbadk.core.view.HeadPendantView
     public void init() {
         super.init();
-        this.gwD = new View(getContext());
-        addView(this.gwD, 0, new RelativeLayout.LayoutParams(-1, -1));
+        this.hMS = new View(getContext());
+        addView(this.hMS, 0, new RelativeLayout.LayoutParams(-1, -1));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.HeadPendantView, android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.gwD.getLayoutParams();
-        int measuredWidth = (int) ((getMeasuredWidth() * 0.13f) - getResources().getDimensionPixelSize(e.C0210e.ds4));
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.hMS.getLayoutParams();
+        int measuredWidth = (int) ((getMeasuredWidth() * 0.13f) - getResources().getDimensionPixelSize(d.e.ds4));
         layoutParams.leftMargin = measuredWidth;
         layoutParams.topMargin = measuredWidth;
         layoutParams.rightMargin = measuredWidth;
         layoutParams.bottomMargin = measuredWidth;
-        this.gwD.setLayoutParams(layoutParams);
+        this.hMS.setLayoutParams(layoutParams);
     }
 
     public void setBackgroundViewDrawable(Drawable drawable) {
-        this.gwD.setBackgroundDrawable(drawable);
+        this.hMS.setBackgroundDrawable(drawable);
     }
 }

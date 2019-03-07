@@ -1,33 +1,35 @@
 package com.baidu.tbadk.util;
-
-import android.content.Context;
-import android.text.style.ClickableSpan;
-import android.view.View;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
 /* loaded from: classes.dex */
-public class l extends ClickableSpan {
-    private Context mContext;
-
-    public l(Context context) {
-        this.mContext = null;
-        this.mContext = context;
+public class l {
+    public static boolean apW() {
+        return apX();
     }
 
-    public Context getContext() {
-        return this.mContext;
+    public static boolean apX() {
+        return com.baidu.tbadk.core.util.m.hy() && com.baidu.adp.gif.c.hx();
     }
 
-    public void iU(String str) {
-        com.baidu.tbadk.browser.a.ad(this.mContext, str);
+    public static boolean pF(String str) {
+        if (str == null) {
+            return false;
+        }
+        if (pG(str)) {
+            return true;
+        }
+        int indexOf = str.indexOf("imgsrc");
+        if (indexOf <= 0 || indexOf >= 20) {
+            return (com.baidu.adp.lib.b.d.iQ().aO("portrait_cdn_open") != 0) && pH(str);
+        }
+        return true;
     }
 
-    public void iV(String str) {
-        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.mContext).createNormalCfg(str, null, null)));
+    public static boolean pG(String str) {
+        int indexOf;
+        return str != null && (indexOf = str.indexOf("hiphotos")) > 0 && indexOf < 20;
     }
 
-    @Override // android.text.style.ClickableSpan
-    public void onClick(View view) {
+    public static boolean pH(String str) {
+        int indexOf;
+        return str != null && (indexOf = str.indexOf("tb.himg")) > 0 && indexOf < 20;
     }
 }

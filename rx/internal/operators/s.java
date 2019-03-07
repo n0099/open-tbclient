@@ -1,114 +1,68 @@
 package rx.internal.operators;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.locks.ReentrantLock;
-import rx.d;
+import rx.g;
+import rx.h;
 /* loaded from: classes2.dex */
-public final class s<T> implements d.a<T> {
-    volatile rx.subscriptions.b iHR = new rx.subscriptions.b();
-    final AtomicInteger iHS = new AtomicInteger(0);
-    final ReentrantLock lock = new ReentrantLock();
-    private final rx.observables.c<? extends T> source;
+public final class s<T> implements h.a<T> {
+    final h.a<T> jYT;
+    final rx.g scheduler;
 
+    public s(h.a<T> aVar, rx.g gVar) {
+        this.jYT = aVar;
+        this.scheduler = gVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((rx.j) ((rx.j) obj));
+    /* renamed from: b */
+    public void call(rx.i<? super T> iVar) {
+        g.a createWorker = this.scheduler.createWorker();
+        a aVar = new a(iVar, createWorker);
+        iVar.add(createWorker);
+        iVar.add(aVar);
+        this.jYT.call(aVar);
     }
 
-    public s(rx.observables.c<? extends T> cVar) {
-        this.source = cVar;
-    }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes2.dex */
+    public static final class a<T> extends rx.i<T> implements rx.functions.a {
+        final rx.i<? super T> actual;
+        Throwable error;
+        final g.a jYV;
+        T value;
 
-    public void call(rx.j<? super T> jVar) {
-        boolean z;
-        this.lock.lock();
-        if (this.iHS.incrementAndGet() == 1) {
-            AtomicBoolean atomicBoolean = new AtomicBoolean(true);
+        public a(rx.i<? super T> iVar, g.a aVar) {
+            this.actual = iVar;
+            this.jYV = aVar;
+        }
+
+        @Override // rx.i
+        public void onSuccess(T t) {
+            this.value = t;
+            this.jYV.c(this);
+        }
+
+        @Override // rx.i
+        public void onError(Throwable th) {
+            this.error = th;
+            this.jYV.c(this);
+        }
+
+        @Override // rx.functions.a
+        public void call() {
             try {
-                this.source.c(a(jVar, atomicBoolean));
-                if (z) {
-                    return;
+                Throwable th = this.error;
+                if (th != null) {
+                    this.error = null;
+                    this.actual.onError(th);
+                } else {
+                    T t = this.value;
+                    this.value = null;
+                    this.actual.onSuccess(t);
                 }
-                return;
             } finally {
-                if (atomicBoolean.get()) {
-                }
+                this.jYV.unsubscribe();
             }
         }
-        try {
-            a(jVar, this.iHR);
-        } finally {
-            this.lock.unlock();
-        }
-    }
-
-    private rx.functions.b<rx.k> a(final rx.j<? super T> jVar, final AtomicBoolean atomicBoolean) {
-        return new rx.functions.b<rx.k>() { // from class: rx.internal.operators.s.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // rx.functions.b
-            /* renamed from: a */
-            public void call(rx.k kVar) {
-                try {
-                    s.this.iHR.add(kVar);
-                    s.this.a(jVar, s.this.iHR);
-                } finally {
-                    s.this.lock.unlock();
-                    atomicBoolean.set(false);
-                }
-            }
-        };
-    }
-
-    void a(final rx.j<? super T> jVar, final rx.subscriptions.b bVar) {
-        jVar.add(a(bVar));
-        this.source.unsafeSubscribe(new rx.j<T>(jVar) { // from class: rx.internal.operators.s.2
-            @Override // rx.e
-            public void onError(Throwable th) {
-                cleanup();
-                jVar.onError(th);
-            }
-
-            @Override // rx.e
-            public void onNext(T t) {
-                jVar.onNext(t);
-            }
-
-            @Override // rx.e
-            public void onCompleted() {
-                cleanup();
-                jVar.onCompleted();
-            }
-
-            void cleanup() {
-                s.this.lock.lock();
-                try {
-                    if (s.this.iHR == bVar) {
-                        s.this.iHR.unsubscribe();
-                        s.this.iHR = new rx.subscriptions.b();
-                        s.this.iHS.set(0);
-                    }
-                } finally {
-                    s.this.lock.unlock();
-                }
-            }
-        });
-    }
-
-    private rx.k a(final rx.subscriptions.b bVar) {
-        return rx.subscriptions.e.j(new rx.functions.a() { // from class: rx.internal.operators.s.3
-            @Override // rx.functions.a
-            public void call() {
-                s.this.lock.lock();
-                try {
-                    if (s.this.iHR == bVar && s.this.iHS.decrementAndGet() == 0) {
-                        s.this.iHR.unsubscribe();
-                        s.this.iHR = new rx.subscriptions.b();
-                    }
-                } finally {
-                    s.this.lock.unlock();
-                }
-            }
-        });
     }
 }

@@ -3,18 +3,18 @@ package com.baidu.tieba.VideoCache;
 import android.os.StatFs;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class m {
     private static final String TAG = m.class.getSimpleName();
 
-    public static long jN(String str) {
+    public static long qy(String str) {
         long j;
         long j2 = 0;
-        long jO = jO(str);
+        long qz = qz(str);
         if (str == null || str.isEmpty()) {
             j = 0;
         } else {
-            File file = new File(i.bAL + str);
+            File file = new File(i.cLR + str);
             if (file == null || !file.exists() || !file.isDirectory()) {
                 return 0L;
             }
@@ -25,15 +25,15 @@ public class m {
                 j2 = file3.length();
             }
         }
-        return j + j2 + jO;
+        return j + j2 + qz;
     }
 
-    public static long jO(String str) {
+    public static long qz(String str) {
         File file;
         File file2;
         File[] listFiles;
         long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(i.bAL + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+        if (str != null && !str.isEmpty() && (file = new File(i.cLR + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
             for (File file3 : listFiles) {
                 if (file3 != null && file3.exists()) {
                     j += file3.length();
@@ -43,12 +43,12 @@ public class m {
         return j;
     }
 
-    public static long VS() {
+    public static long avS() {
         StatFs statFs = new StatFs(TbadkCoreApplication.getInst().getCacheDir().getPath());
         return statFs.getAvailableBlocks() * statFs.getBlockSize();
     }
 
-    public static synchronized long n(File file) {
+    public static synchronized long o(File file) {
         long j;
         synchronized (m.class) {
             j = 0;
@@ -61,7 +61,7 @@ public class m {
         return j;
     }
 
-    public static void G(File file) {
+    public static void O(File file) {
         if (file != null) {
             if (file.isFile()) {
                 file.delete();
@@ -72,14 +72,14 @@ public class m {
                     return;
                 }
                 for (File file2 : listFiles) {
-                    G(file2);
+                    O(file2);
                 }
                 file.delete();
             }
         }
     }
 
-    public static String jP(String str) {
+    public static String qA(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }

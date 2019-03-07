@@ -13,7 +13,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.l;
-import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -22,9 +21,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ah;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tieba.e;
-import com.baidu.tieba.u.b;
-import com.baidu.webkit.internal.GlobalConstants;
+import com.baidu.tieba.d;
+import com.baidu.tieba.t.c;
 /* loaded from: classes.dex */
 public class KuangFloatingViewController {
     private View mFloatingView;
@@ -48,7 +46,7 @@ public class KuangFloatingViewController {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Class<?> intentClass;
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof IntentConfig) && (intentClass = ah.DT().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) != null) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof IntentConfig) && (intentClass = ah.ade().getIntentClass(((IntentConfig) customResponsedMessage.getData()).getClass())) != null) {
                 if (intentClass.getName().contains(KuangFloatingViewController.WRITE_PACKAGE) || intentClass.getName().contains(KuangFloatingViewController.STORY_PACKAGE)) {
                     KuangFloatingViewController.this.hideFloatingView();
                 }
@@ -65,7 +63,7 @@ public class KuangFloatingViewController {
 
     public boolean init() {
         if (this.mFloatingView == null) {
-            this.mFloatingView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(e.h.floating_view_from_kuang, (ViewGroup) null);
+            this.mFloatingView = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(d.h.floating_view_from_kuang, (ViewGroup) null);
             this.mFloatingView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.KuangFloatingViewController.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
@@ -74,16 +72,16 @@ public class KuangFloatingViewController {
                     if (currentActivity != null) {
                         currentActivity.moveTaskToBack(true);
                     }
-                    TiebaStatic.log(new am("c12264").y(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 1));
-                    Intent launchIntentForPackage = TbadkCoreApplication.getInst().getPackageManager().getLaunchIntentForPackage(GlobalConstants.SEARCHBOX_PACKAGE_NAME);
+                    TiebaStatic.log(new am("c12264").T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 1));
+                    Intent launchIntentForPackage = TbadkCoreApplication.getInst().getPackageManager().getLaunchIntentForPackage("com.baidu.searchbox");
                     if (launchIntentForPackage != null) {
                         launchIntentForPackage.addFlags(268435456);
                         TbadkCoreApplication.getInst().startActivity(launchIntentForPackage);
-                        TiebaStatic.log(new am("C12265").y("obj_type", 1));
+                        TiebaStatic.log(new am("C12265").T("obj_type", 1));
                     }
                 }
             });
-            this.mFloatingView.findViewById(e.g.floating_view_close).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.KuangFloatingViewController.4
+            this.mFloatingView.findViewById(d.g.floating_view_close).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.KuangFloatingViewController.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     KuangFloatingViewController.this.hideFloatingView();
@@ -92,22 +90,22 @@ public class KuangFloatingViewController {
         } else if (this.mFloatingView.getParent() != null) {
             return false;
         }
-        ((TextView) this.mFloatingView.findViewById(e.g.info)).setText(this.mInfo);
+        ((TextView) this.mFloatingView.findViewById(d.g.info)).setText(this.mInfo);
         return true;
     }
 
     public void showFloatingView() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        layoutParams.type = b.wy(2002);
+        layoutParams.type = c.Aj(com.baidu.sapi2.activity.BaseActivity.EXTRA_PARAM_FROM_PASS_SDK_ENTER);
         layoutParams.flags = 65800;
         layoutParams.format = -3;
         layoutParams.x = 0;
-        layoutParams.y = l.h(TbadkCoreApplication.getInst(), e.C0210e.ds260) + UtilHelper.getStatusBarHeight();
+        layoutParams.y = l.h(TbadkCoreApplication.getInst(), d.e.ds260) + UtilHelper.getStatusBarHeight();
         layoutParams.width = -2;
         layoutParams.height = -2;
         layoutParams.gravity = 51;
         if (this.wm == null) {
-            this.wm = (WindowManager) TbadkCoreApplication.getInst().getSystemService(WindowConfig.JSON_WINDOW_KEY);
+            this.wm = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
         }
         try {
             if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(TbadkCoreApplication.getInst().getContext())) {
@@ -128,7 +126,7 @@ public class KuangFloatingViewController {
 
     public void hideFloatingView() {
         if (this.wm == null) {
-            this.wm = (WindowManager) TbadkCoreApplication.getInst().getSystemService(WindowConfig.JSON_WINDOW_KEY);
+            this.wm = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");
         }
         if (this.mFloatingView != null && this.mFloatingView.getParent() != null) {
             try {

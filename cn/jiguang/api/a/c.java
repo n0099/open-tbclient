@@ -3,6 +3,7 @@ package cn.jiguang.api.a;
 import cn.jiguang.api.h;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class c {
     public static byte[] G(String str) {
@@ -11,7 +12,7 @@ public class c {
             return new byte[]{0, 0};
         }
         try {
-            bArr = str.getBytes("UTF-8");
+            bArr = str.getBytes(HTTP.UTF_8);
         } catch (UnsupportedEncodingException e) {
             bArr = null;
         }
@@ -37,7 +38,7 @@ public class c {
         byte[] bArr = new byte[b];
         a.a(byteBuffer, bArr, hVar);
         try {
-            return new String(bArr, "UTF-8");
+            return new String(bArr, HTTP.UTF_8);
         } catch (Throwable th) {
             return null;
         }
@@ -72,7 +73,7 @@ public class c {
         try {
             byte[] bArr = new byte[byteBuffer.getShort()];
             byteBuffer.get(bArr);
-            return new String(bArr, "UTF-8");
+            return new String(bArr, HTTP.UTF_8);
         } catch (UnsupportedEncodingException | Exception e) {
             return null;
         }

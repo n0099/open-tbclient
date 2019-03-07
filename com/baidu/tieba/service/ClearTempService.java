@@ -6,9 +6,8 @@ import android.os.IBinder;
 import android.os.Message;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.ng.ai.apps.trace.ReportLevel;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.l;
+import com.baidu.tbadk.core.util.m;
 import java.io.File;
 import java.util.Date;
 /* loaded from: classes.dex */
@@ -48,10 +47,10 @@ public class ClearTempService extends BdBaseService {
                     public void run() {
                         super.run();
                         try {
-                            File file = new File(l.FL + "/" + TbConfig.getTempDirName() + "/image");
-                            File file2 = new File(l.FL + "/" + TbConfig.getTempDirName() + "/share");
-                            File file3 = new File(l.FL + "/" + TbConfig.getTempDirName() + "/voice");
-                            File file4 = new File(l.FL + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_ALA_IM_RECORD_DIR_NAME);
+                            File file = new File(m.FK + "/" + TbConfig.getTempDirName() + "/image");
+                            File file2 = new File(m.FK + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_SHARE_DIR_NAME);
+                            File file3 = new File(m.FK + "/" + TbConfig.getTempDirName() + "/voice");
+                            File file4 = new File(m.FK + "/" + TbConfig.getTempDirName() + "/" + TbConfig.TMP_ALA_IM_RECORD_DIR_NAME);
                             ClearTempService.this.deleteCache(file, false);
                             ClearTempService.this.deleteDir(file2);
                             ClearTempService.this.deleteDir(file3);
@@ -77,7 +76,7 @@ public class ClearTempService extends BdBaseService {
         try {
             File[] listFiles = file.listFiles();
             long time = new Date().getTime();
-            int length = listFiles.length > 500 ? listFiles.length + ReportLevel.USER : 0;
+            int length = listFiles.length > 500 ? listFiles.length - 300 : 0;
             if (listFiles != null) {
                 for (int i = 0; i < listFiles.length && !this.interrupted; i++) {
                     File file2 = listFiles[i];
@@ -99,7 +98,7 @@ public class ClearTempService extends BdBaseService {
     }
 
     private void deleteImageCacheByName() {
-        String str = l.FL + "/" + TbConfig.getTempDirName() + "/image";
+        String str = m.FK + "/" + TbConfig.getTempDirName() + "/image";
         for (int i = 0; i < 20; i++) {
             File file = new File(str + "/" + i);
             if (file.exists() && file.isDirectory()) {

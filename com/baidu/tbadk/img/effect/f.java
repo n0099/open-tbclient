@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.baidu.tbadk.core.util.BitmapHelper;
 /* loaded from: classes.dex */
 public class f extends b {
-    private float bdT;
+    private float cns;
 
     @Override // com.baidu.tbadk.img.effect.b
     public String getActionName() {
@@ -14,7 +14,7 @@ public class f extends b {
     @Override // com.baidu.tbadk.img.effect.b
     public void setParams(String str) {
         if (str != null) {
-            this.bdT = com.baidu.adp.lib.g.b.c(str, 0.0f);
+            this.cns = com.baidu.adp.lib.g.b.c(str, 0.0f);
         }
     }
 
@@ -23,9 +23,9 @@ public class f extends b {
         if (bitmap == null) {
             return null;
         }
-        if (this.bdT > 0.0f) {
-            com.baidu.tbadk.imageManager.c.NM().gb(BitmapHelper.getBitmapSize(bitmap) * 2);
-            return BitmapHelper.getRoundedCornerBitmap(bitmap, this.bdT, z);
+        if (this.cns > 0.0f) {
+            com.baidu.tbadk.imageManager.c.anq().jM(BitmapHelper.getBitmapSize(bitmap) * 2);
+            return BitmapHelper.getRoundedCornerBitmap(bitmap, this.cns, z);
         }
         return bitmap;
     }

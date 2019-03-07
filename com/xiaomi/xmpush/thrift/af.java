@@ -1,8 +1,5 @@
 package com.xiaomi.xmpush.thrift;
 
-import com.baidu.fsg.base.BaiduRimConstants;
-import com.baidu.searchbox.ng.ai.apps.event.message.AiAppsLifecycleMessage;
-import com.baidu.searchbox.ng.ai.apps.network.WebSocketAction;
 import java.io.Serializable;
 import java.util.BitSet;
 import java.util.Collections;
@@ -38,9 +35,9 @@ public class af implements Serializable, Cloneable, org.apache.thrift.a<af, a> {
     public String w;
     private static final org.apache.thrift.protocol.j y = new org.apache.thrift.protocol.j("XmPushActionRegistration");
     private static final org.apache.thrift.protocol.b z = new org.apache.thrift.protocol.b("debug", (byte) 11, 1);
-    private static final org.apache.thrift.protocol.b A = new org.apache.thrift.protocol.b(BaiduRimConstants.ACTION_TARGET, (byte) 12, 2);
+    private static final org.apache.thrift.protocol.b A = new org.apache.thrift.protocol.b("target", (byte) 12, 2);
     private static final org.apache.thrift.protocol.b B = new org.apache.thrift.protocol.b("id", (byte) 11, 3);
-    private static final org.apache.thrift.protocol.b C = new org.apache.thrift.protocol.b(AiAppsLifecycleMessage.APP_ID_KEY, (byte) 11, 4);
+    private static final org.apache.thrift.protocol.b C = new org.apache.thrift.protocol.b("appId", (byte) 11, 4);
     private static final org.apache.thrift.protocol.b D = new org.apache.thrift.protocol.b("appVersion", (byte) 11, 5);
     private static final org.apache.thrift.protocol.b E = new org.apache.thrift.protocol.b("packageName", (byte) 11, 6);
     private static final org.apache.thrift.protocol.b F = new org.apache.thrift.protocol.b("token", (byte) 11, 7);
@@ -56,7 +53,7 @@ public class af implements Serializable, Cloneable, org.apache.thrift.a<af, a> {
     private static final org.apache.thrift.protocol.b P = new org.apache.thrift.protocol.b("serial", (byte) 11, 17);
     private static final org.apache.thrift.protocol.b Q = new org.apache.thrift.protocol.b("imeiMd5", (byte) 11, 18);
     private static final org.apache.thrift.protocol.b R = new org.apache.thrift.protocol.b("spaceId", (byte) 8, 19);
-    private static final org.apache.thrift.protocol.b S = new org.apache.thrift.protocol.b(WebSocketAction.PARAM_KEY_REASON, (byte) 8, 20);
+    private static final org.apache.thrift.protocol.b S = new org.apache.thrift.protocol.b("reason", (byte) 8, 20);
     private static final org.apache.thrift.protocol.b T = new org.apache.thrift.protocol.b("connectionAttrs", (byte) 13, 100);
     private static final org.apache.thrift.protocol.b U = new org.apache.thrift.protocol.b("cleanOldRegInfo", (byte) 2, 101);
     private static final org.apache.thrift.protocol.b V = new org.apache.thrift.protocol.b("oldRegId", (byte) 11, 102);
@@ -66,9 +63,9 @@ public class af implements Serializable, Cloneable, org.apache.thrift.a<af, a> {
     /* loaded from: classes3.dex */
     public enum a {
         DEBUG(1, "debug"),
-        TARGET(2, BaiduRimConstants.ACTION_TARGET),
+        TARGET(2, "target"),
         ID(3, "id"),
-        APP_ID(4, AiAppsLifecycleMessage.APP_ID_KEY),
+        APP_ID(4, "appId"),
         APP_VERSION(5, "appVersion"),
         PACKAGE_NAME(6, "packageName"),
         TOKEN(7, "token"),
@@ -84,7 +81,7 @@ public class af implements Serializable, Cloneable, org.apache.thrift.a<af, a> {
         SERIAL(17, "serial"),
         IMEI_MD5(18, "imeiMd5"),
         SPACE_ID(19, "spaceId"),
-        REASON(20, WebSocketAction.PARAM_KEY_REASON),
+        REASON(20, "reason"),
         CONNECTION_ATTRS(100, "connectionAttrs"),
         CLEAN_OLD_REG_INFO(101, "cleanOldRegInfo"),
         OLD_REG_ID(102, "oldRegId");
@@ -114,9 +111,9 @@ public class af implements Serializable, Cloneable, org.apache.thrift.a<af, a> {
     static {
         EnumMap enumMap = new EnumMap(a.class);
         enumMap.put((EnumMap) a.DEBUG, (a) new org.apache.thrift.meta_data.b("debug", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.TARGET, (a) new org.apache.thrift.meta_data.b(BaiduRimConstants.ACTION_TARGET, (byte) 2, new org.apache.thrift.meta_data.g((byte) 12, u.class)));
+        enumMap.put((EnumMap) a.TARGET, (a) new org.apache.thrift.meta_data.b("target", (byte) 2, new org.apache.thrift.meta_data.g((byte) 12, u.class)));
         enumMap.put((EnumMap) a.ID, (a) new org.apache.thrift.meta_data.b("id", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.APP_ID, (a) new org.apache.thrift.meta_data.b(AiAppsLifecycleMessage.APP_ID_KEY, (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
+        enumMap.put((EnumMap) a.APP_ID, (a) new org.apache.thrift.meta_data.b("appId", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.APP_VERSION, (a) new org.apache.thrift.meta_data.b("appVersion", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.PACKAGE_NAME, (a) new org.apache.thrift.meta_data.b("packageName", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.TOKEN, (a) new org.apache.thrift.meta_data.b("token", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
@@ -132,7 +129,7 @@ public class af implements Serializable, Cloneable, org.apache.thrift.a<af, a> {
         enumMap.put((EnumMap) a.SERIAL, (a) new org.apache.thrift.meta_data.b("serial", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.IMEI_MD5, (a) new org.apache.thrift.meta_data.b("imeiMd5", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.SPACE_ID, (a) new org.apache.thrift.meta_data.b("spaceId", (byte) 2, new org.apache.thrift.meta_data.c((byte) 8)));
-        enumMap.put((EnumMap) a.REASON, (a) new org.apache.thrift.meta_data.b(WebSocketAction.PARAM_KEY_REASON, (byte) 2, new org.apache.thrift.meta_data.a((byte) 16, t.class)));
+        enumMap.put((EnumMap) a.REASON, (a) new org.apache.thrift.meta_data.b("reason", (byte) 2, new org.apache.thrift.meta_data.a((byte) 16, t.class)));
         enumMap.put((EnumMap) a.CONNECTION_ATTRS, (a) new org.apache.thrift.meta_data.b("connectionAttrs", (byte) 2, new org.apache.thrift.meta_data.e((byte) 13, new org.apache.thrift.meta_data.c((byte) 11), new org.apache.thrift.meta_data.c((byte) 11))));
         enumMap.put((EnumMap) a.CLEAN_OLD_REG_INFO, (a) new org.apache.thrift.meta_data.b("cleanOldRegInfo", (byte) 2, new org.apache.thrift.meta_data.c((byte) 2)));
         enumMap.put((EnumMap) a.OLD_REG_ID, (a) new org.apache.thrift.meta_data.b("oldRegId", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));

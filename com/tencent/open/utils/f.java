@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
-import com.baidu.mobstat.Config;
 import com.tencent.connect.common.Constants;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -16,9 +15,10 @@ import java.nio.charset.Charset;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class f {
     private static Map<String, f> a = Collections.synchronizedMap(new HashMap());
     private static String b = null;
@@ -83,7 +83,7 @@ public class f {
                 return "";
             }
         }
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(open, Charset.forName("UTF-8")));
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(open, Charset.forName(HTTP.UTF_8)));
         StringBuffer stringBuffer = new StringBuffer();
         while (true) {
             try {
@@ -126,7 +126,7 @@ public class f {
             if (this.d != null) {
                 str = str + "." + this.d;
             }
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.c.openFileOutput(str, 0), Charset.forName("UTF-8"));
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.c.openFileOutput(str, 0), Charset.forName(HTTP.UTF_8));
             outputStreamWriter.write(str2);
             outputStreamWriter.flush();
             outputStreamWriter.close();
@@ -149,7 +149,7 @@ public class f {
         bundle.putString("status_machine", Build.MODEL);
         bundle.putString("status_version", Build.VERSION.SDK);
         bundle.putString("sdkv", Constants.SDK_VERSION);
-        bundle.putString("sdkp", Config.APP_VERSION_CODE);
+        bundle.putString("sdkp", "a");
         new Thread() { // from class: com.tencent.open.utils.f.1
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {

@@ -1,16 +1,15 @@
 package com.airbnb.lottie.model;
 
 import com.airbnb.lottie.model.a.m;
-import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class k {
-    private final float qA;
-    private final float qz;
+    private final float qv;
+    private final float qw;
 
     public k(float f, float f2) {
-        this.qz = f;
-        this.qA = f2;
+        this.qv = f;
+        this.qw = f2;
     }
 
     public k() {
@@ -18,20 +17,20 @@ public class k {
     }
 
     public float getScaleX() {
-        return this.qz;
+        return this.qv;
     }
 
     public float getScaleY() {
-        return this.qA;
+        return this.qw;
     }
 
     public String toString() {
-        return getScaleX() + Config.EVENT_HEAT_X + getScaleY();
+        return getScaleX() + "x" + getScaleY();
     }
 
     /* loaded from: classes2.dex */
     public static class a implements m.a<k> {
-        public static final a qB = new a();
+        public static final a qx = new a();
 
         private a() {
         }

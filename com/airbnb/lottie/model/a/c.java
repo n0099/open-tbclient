@@ -5,7 +5,6 @@ import android.support.annotation.IntRange;
 import android.util.Log;
 import com.airbnb.lottie.model.a.m;
 import com.airbnb.lottie.model.a.n;
-import com.baidu.mobstat.Config;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -17,25 +16,25 @@ public class c extends o<com.airbnb.lottie.model.content.c, com.airbnb.lottie.mo
     }
 
     @Override // com.airbnb.lottie.model.a.m
-    public com.airbnb.lottie.a.b.a<com.airbnb.lottie.model.content.c, com.airbnb.lottie.model.content.c> dG() {
-        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.pS) : new com.airbnb.lottie.a.b.d(this.pE);
+    public com.airbnb.lottie.a.b.a<com.airbnb.lottie.model.content.c, com.airbnb.lottie.model.content.c> dF() {
+        return !hasAnimation() ? new com.airbnb.lottie.a.b.n(this.pN) : new com.airbnb.lottie.a.b.d(this.pz);
     }
 
     /* loaded from: classes2.dex */
     public static final class a {
         public static c f(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
-            n.a ea = n.a(jSONObject, 1.0f, eVar, new b(jSONObject.optInt("p", jSONObject.optJSONArray(Config.APP_KEY).length() / 4))).ea();
-            return new c(ea.pE, (com.airbnb.lottie.model.content.c) ea.pS);
+            n.a dZ = n.a(jSONObject, 1.0f, eVar, new b(jSONObject.optInt("p", jSONObject.optJSONArray("k").length() / 4))).dZ();
+            return new c(dZ.pz, (com.airbnb.lottie.model.content.c) dZ.pN);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public static class b implements m.a<com.airbnb.lottie.model.content.c> {
-        private final int qD;
+        private final int qz;
 
         private b(int i) {
-            this.qD = i;
+            this.qz = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -43,15 +42,15 @@ public class c extends o<com.airbnb.lottie.model.content.c, com.airbnb.lottie.mo
         /* renamed from: f */
         public com.airbnb.lottie.model.content.c b(Object obj, float f) {
             JSONArray jSONArray = (JSONArray) obj;
-            float[] fArr = new float[this.qD];
-            int[] iArr = new int[this.qD];
+            float[] fArr = new float[this.qz];
+            int[] iArr = new int[this.qz];
             com.airbnb.lottie.model.content.c cVar = new com.airbnb.lottie.model.content.c(fArr, iArr);
-            if (jSONArray.length() != this.qD * 4) {
-                Log.w("LOTTIE", "Unexpected gradient length: " + jSONArray.length() + ". Expected " + (this.qD * 4) + ". This may affect the appearance of the gradient. Make sure to save your After Effects file before exporting an animation with gradients.");
+            if (jSONArray.length() != this.qz * 4) {
+                Log.w("LOTTIE", "Unexpected gradient length: " + jSONArray.length() + ". Expected " + (this.qz * 4) + ". This may affect the appearance of the gradient. Make sure to save your After Effects file before exporting an animation with gradients.");
             }
             int i = 0;
             int i2 = 0;
-            for (int i3 = 0; i3 < this.qD * 4; i3++) {
+            for (int i3 = 0; i3 < this.qz * 4; i3++) {
                 int i4 = i3 / 4;
                 double optDouble = jSONArray.optDouble(i3);
                 switch (i3 % 4) {
@@ -74,7 +73,7 @@ public class c extends o<com.airbnb.lottie.model.content.c, com.airbnb.lottie.mo
         }
 
         private void a(com.airbnb.lottie.model.content.c cVar, JSONArray jSONArray) {
-            int i = this.qD * 4;
+            int i = this.qz * 4;
             if (jSONArray.length() > i) {
                 int length = (jSONArray.length() - i) / 2;
                 double[] dArr = new double[length];
@@ -90,7 +89,7 @@ public class c extends o<com.airbnb.lottie.model.content.c, com.airbnb.lottie.mo
                 }
                 for (int i4 = 0; i4 < cVar.getSize(); i4++) {
                     int i5 = cVar.getColors()[i4];
-                    cVar.getColors()[i4] = Color.argb(a(cVar.ed()[i4], dArr, dArr2), Color.red(i5), Color.green(i5), Color.blue(i5));
+                    cVar.getColors()[i4] = Color.argb(a(cVar.ec()[i4], dArr, dArr2), Color.red(i5), Color.green(i5), Color.blue(i5));
                 }
             }
         }

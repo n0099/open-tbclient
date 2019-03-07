@@ -1,31 +1,30 @@
 package com.baidu.adp.framework.c;
 
-import com.baidu.mapapi.UIMsg;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class b extends d {
-    private static b yC = null;
-    private e yD;
+    private static b yz = null;
+    private e yA;
 
-    public static b hn() {
-        if (yC == null) {
+    public static b hk() {
+        if (yz == null) {
             synchronized (b.class) {
-                if (yC == null) {
-                    yC = new b();
+                if (yz == null) {
+                    yz = new b();
                 }
             }
         }
-        return yC;
+        return yz;
     }
 
     private b() {
-        this.yD = null;
-        this.yF = new e(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
-        this.yD = new e(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, UIMsg.m_AppUI.MSG_APP_GPS);
+        this.yA = null;
+        this.yC = new e(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
+        this.yA = new e(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, 5000);
         this.mRetryCount = 3;
     }
 
-    public e ho() {
-        return this.yD;
+    public e hl() {
+        return this.yA;
     }
 }

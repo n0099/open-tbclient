@@ -35,7 +35,6 @@ import android.widget.EdgeEffect;
 import android.widget.FrameLayout;
 import android.widget.OverScroller;
 import android.widget.ScrollView;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class NestedScrollView extends FrameLayout implements NestedScrollingChild2, NestedScrollingParent, ScrollingView {
@@ -257,7 +256,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
     }
 
     public int getMaxScrollAmount() {
-        return (int) (0.5f * getHeight());
+        return (int) (MAX_SCROLL_FACTOR * getHeight());
     }
 
     private void initScrollView() {
@@ -349,7 +348,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingChil
             View childAt = getChildAt(0);
             int measuredHeight = getMeasuredHeight();
             if (childAt.getMeasuredHeight() < measuredHeight) {
-                childAt.measure(getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight(), ((FrameLayout.LayoutParams) childAt.getLayoutParams()).width), View.MeasureSpec.makeMeasureSpec((measuredHeight - getPaddingTop()) - getPaddingBottom(), AiAppsFileUtils.GB));
+                childAt.measure(getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight(), ((FrameLayout.LayoutParams) childAt.getLayoutParams()).width), View.MeasureSpec.makeMeasureSpec((measuredHeight - getPaddingTop()) - getPaddingBottom(), 1073741824));
             }
         }
     }

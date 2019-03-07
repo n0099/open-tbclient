@@ -66,9 +66,9 @@ public final class c {
                     if (!str.startsWith("content://")) {
                         str = "content://" + str;
                     }
-                    String j = j(hashMap);
-                    if (!TextUtils.isEmpty(j)) {
-                        str = str + j;
+                    String b = b(hashMap);
+                    if (!TextUtils.isEmpty(b)) {
+                        str = str + b;
                     }
                     contentResolver.query(Uri.parse(str), null, null, null, null);
                     dVar.a(4, true);
@@ -103,6 +103,17 @@ public final class c {
         return true;
     }
 
+    private static String b(HashMap<String, String> hashMap) {
+        if (hashMap == null || hashMap.isEmpty()) {
+            return null;
+        }
+        Uri.Builder builder = new Uri.Builder();
+        for (String str : hashMap.keySet()) {
+            builder.appendQueryParameter(str, hashMap.get(str));
+        }
+        return builder.toString();
+    }
+
     private static Bundle i(HashMap<String, String> hashMap) {
         if (hashMap == null || hashMap.isEmpty()) {
             return null;
@@ -112,16 +123,5 @@ public final class c {
             bundle.putString(str, hashMap.get(str));
         }
         return bundle;
-    }
-
-    private static String j(HashMap<String, String> hashMap) {
-        if (hashMap == null || hashMap.isEmpty()) {
-            return null;
-        }
-        Uri.Builder builder = new Uri.Builder();
-        for (String str : hashMap.keySet()) {
-            builder.appendQueryParameter(str, hashMap.get(str));
-        }
-        return builder.toString();
     }
 }

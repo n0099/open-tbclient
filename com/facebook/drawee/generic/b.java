@@ -13,26 +13,26 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class b {
-    public static final n.b iop = n.b.iog;
-    public static final n.b ioq = n.b.ioh;
-    private n.b ioA;
-    private n.b ioB;
-    private Matrix ioC;
-    private PointF ioD;
-    private ColorFilter ioE;
-    private List<Drawable> ioF;
-    private Drawable ioG;
-    private RoundingParams iol;
-    private int ior;
-    private float ios;
-    private Drawable iot;
+    public static final n.b jDP = n.b.jDG;
+    public static final n.b jDQ = n.b.jDH;
+    private RoundingParams jDL;
+    private int jDR;
+    private float jDS;
+    private Drawable jDT;
     @Nullable
-    private n.b iou;
-    private Drawable iov;
-    private n.b iow;
-    private Drawable iox;
-    private n.b ioy;
-    private Drawable ioz;
+    private n.b jDU;
+    private Drawable jDV;
+    private n.b jDW;
+    private Drawable jDX;
+    private n.b jDY;
+    private Drawable jDZ;
+    private n.b jEa;
+    private n.b jEb;
+    private Matrix jEc;
+    private PointF jEd;
+    private ColorFilter jEe;
+    private List<Drawable> jEf;
+    private Drawable jEg;
     private Drawable mBackground;
     private Resources mResources;
 
@@ -42,155 +42,155 @@ public class b {
     }
 
     private void init() {
-        this.ior = 300;
-        this.ios = 0.0f;
-        this.iot = null;
-        this.iou = iop;
-        this.iov = null;
-        this.iow = iop;
-        this.iox = null;
-        this.ioy = iop;
-        this.ioz = null;
-        this.ioA = iop;
-        this.ioB = ioq;
-        this.ioC = null;
-        this.ioD = null;
-        this.ioE = null;
+        this.jDR = 300;
+        this.jDS = 0.0f;
+        this.jDT = null;
+        this.jDU = jDP;
+        this.jDV = null;
+        this.jDW = jDP;
+        this.jDX = null;
+        this.jDY = jDP;
+        this.jDZ = null;
+        this.jEa = jDP;
+        this.jEb = jDQ;
+        this.jEc = null;
+        this.jEd = null;
+        this.jEe = null;
         this.mBackground = null;
-        this.ioF = null;
-        this.ioG = null;
-        this.iol = null;
+        this.jEf = null;
+        this.jEg = null;
+        this.jDL = null;
     }
 
     public Resources getResources() {
         return this.mResources;
     }
 
-    public b yw(int i) {
-        this.ior = i;
+    public b Ci(int i) {
+        this.jDR = i;
         return this;
     }
 
-    public int bWu() {
-        return this.ior;
+    public int cvt() {
+        return this.jDR;
     }
 
-    public b aJ(float f) {
-        this.ios = f;
+    public b aW(float f) {
+        this.jDS = f;
         return this;
     }
 
-    public float bWv() {
-        return this.ios;
-    }
-
-    public b m(@Nullable Drawable drawable) {
-        this.iot = drawable;
-        return this;
-    }
-
-    @Nullable
-    public Drawable bWw() {
-        return this.iot;
-    }
-
-    public b c(@Nullable n.b bVar) {
-        this.iou = bVar;
-        return this;
-    }
-
-    @Nullable
-    public n.b bWx() {
-        return this.iou;
+    public float cvu() {
+        return this.jDS;
     }
 
     public b n(@Nullable Drawable drawable) {
-        this.iov = drawable;
+        this.jDT = drawable;
         return this;
     }
 
     @Nullable
-    public Drawable bWy() {
-        return this.iov;
+    public Drawable cvv() {
+        return this.jDT;
     }
 
-    public b d(@Nullable n.b bVar) {
-        this.iow = bVar;
+    public b c(@Nullable n.b bVar) {
+        this.jDU = bVar;
         return this;
     }
 
     @Nullable
-    public n.b bWz() {
-        return this.iow;
+    public n.b cvw() {
+        return this.jDU;
     }
 
     public b o(@Nullable Drawable drawable) {
-        this.iox = drawable;
+        this.jDV = drawable;
         return this;
     }
 
     @Nullable
-    public Drawable bWA() {
-        return this.iox;
+    public Drawable cvx() {
+        return this.jDV;
     }
 
-    public b e(@Nullable n.b bVar) {
-        this.ioy = bVar;
+    public b d(@Nullable n.b bVar) {
+        this.jDW = bVar;
         return this;
     }
 
     @Nullable
-    public n.b bWB() {
-        return this.ioy;
+    public n.b cvy() {
+        return this.jDW;
     }
 
     public b p(@Nullable Drawable drawable) {
-        this.ioz = drawable;
+        this.jDX = drawable;
         return this;
     }
 
     @Nullable
-    public Drawable bWC() {
-        return this.ioz;
+    public Drawable cvz() {
+        return this.jDX;
     }
 
-    public b f(@Nullable n.b bVar) {
-        this.ioA = bVar;
+    public b e(@Nullable n.b bVar) {
+        this.jDY = bVar;
         return this;
     }
 
     @Nullable
-    public n.b bWD() {
-        return this.ioA;
-    }
-
-    public b g(@Nullable n.b bVar) {
-        this.ioB = bVar;
-        this.ioC = null;
-        return this;
-    }
-
-    @Nullable
-    public n.b bWE() {
-        return this.ioB;
-    }
-
-    @Nullable
-    public Matrix bWF() {
-        return this.ioC;
-    }
-
-    @Nullable
-    public PointF bWG() {
-        return this.ioD;
-    }
-
-    @Nullable
-    public ColorFilter bWH() {
-        return this.ioE;
+    public n.b cvA() {
+        return this.jDY;
     }
 
     public b q(@Nullable Drawable drawable) {
+        this.jDZ = drawable;
+        return this;
+    }
+
+    @Nullable
+    public Drawable cvB() {
+        return this.jDZ;
+    }
+
+    public b f(@Nullable n.b bVar) {
+        this.jEa = bVar;
+        return this;
+    }
+
+    @Nullable
+    public n.b cvC() {
+        return this.jEa;
+    }
+
+    public b g(@Nullable n.b bVar) {
+        this.jEb = bVar;
+        this.jEc = null;
+        return this;
+    }
+
+    @Nullable
+    public n.b cvD() {
+        return this.jEb;
+    }
+
+    @Nullable
+    public Matrix cvE() {
+        return this.jEc;
+    }
+
+    @Nullable
+    public PointF cvF() {
+        return this.jEd;
+    }
+
+    @Nullable
+    public ColorFilter cvG() {
+        return this.jEe;
+    }
+
+    public b r(@Nullable Drawable drawable) {
         this.mBackground = drawable;
         return this;
     }
@@ -200,55 +200,55 @@ public class b {
         return this.mBackground;
     }
 
-    public b r(@Nullable Drawable drawable) {
+    public b s(@Nullable Drawable drawable) {
         if (drawable == null) {
-            this.ioF = null;
+            this.jEf = null;
         } else {
-            this.ioF = Arrays.asList(drawable);
+            this.jEf = Arrays.asList(drawable);
         }
         return this;
     }
 
     @Nullable
-    public List<Drawable> bWI() {
-        return this.ioF;
+    public List<Drawable> cvH() {
+        return this.jEf;
     }
 
-    public b s(@Nullable Drawable drawable) {
+    public b t(@Nullable Drawable drawable) {
         if (drawable == null) {
-            this.ioG = null;
+            this.jEg = null;
         } else {
             StateListDrawable stateListDrawable = new StateListDrawable();
             stateListDrawable.addState(new int[]{16842919}, drawable);
-            this.ioG = stateListDrawable;
+            this.jEg = stateListDrawable;
         }
         return this;
     }
 
     @Nullable
-    public Drawable bWJ() {
-        return this.ioG;
+    public Drawable cvI() {
+        return this.jEg;
     }
 
     public b b(@Nullable RoundingParams roundingParams) {
-        this.iol = roundingParams;
+        this.jDL = roundingParams;
         return this;
     }
 
     @Nullable
-    public RoundingParams bWK() {
-        return this.iol;
+    public RoundingParams cvJ() {
+        return this.jDL;
     }
 
     private void validate() {
-        if (this.ioF != null) {
-            for (Drawable drawable : this.ioF) {
+        if (this.jEf != null) {
+            for (Drawable drawable : this.jEf) {
                 g.checkNotNull(drawable);
             }
         }
     }
 
-    public a bWL() {
+    public a cvK() {
         validate();
         return new a(this);
     }

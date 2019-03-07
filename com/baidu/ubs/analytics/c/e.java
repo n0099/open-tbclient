@@ -1,18 +1,18 @@
 package com.baidu.ubs.analytics.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class e {
-    private static final e ihg = new e();
-    private l ihh = new l();
+    private static final e jwL = new e();
+    private l jwM = new l();
 
-    public static e bTp() {
-        return ihg;
+    public static e csl() {
+        return jwL;
     }
 
-    public final void yK(String str) {
-        this.ihh.yK(str);
+    public final void EM(String str) {
+        this.jwM.EM(str);
     }
 
-    public final void yL(String str) {
-        this.ihh.yL(str);
+    public final void EN(String str) {
+        this.jwM.EN(str);
     }
 }

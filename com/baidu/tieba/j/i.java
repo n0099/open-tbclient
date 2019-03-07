@@ -1,6 +1,8 @@
 package com.baidu.tieba.j;
 /* loaded from: classes.dex */
 public interface i {
+    void Kq();
+
     String a(int i, int i2, int i3, String str, boolean z, long j, String str2);
 
     void a(int i, String str, int i2, int i3, int i4, String str2, int i5);
@@ -9,39 +11,37 @@ public interface i {
 
     void a(String str, long j, long j2, long j3, long j4, long j5, String str2, int i);
 
-    void bdH();
+    void bEk();
 
-    void bdI();
+    void bEl();
 
-    void bdJ();
+    void bEm();
 
-    void bdK();
+    void bEn();
 
-    void bdL();
+    void bEo();
 
-    void bdM();
+    void bEp();
 
-    String bdN();
+    String bEq();
 
-    String bdO();
+    String bEr();
 
-    void f(int i, int i2, String str);
+    void h(int i, int i2, String str);
 
-    void jS(boolean z);
+    void mt(boolean z);
 
-    void rW(int i);
+    void vF(int i);
 
-    void rX(int i);
+    void vG(int i);
 
-    void report();
+    void yZ(String str);
 
-    void sA(String str);
+    void za(String str);
 
-    void sw(String str);
+    String zb(String str);
 
-    void sx(String str);
+    boolean zc(String str);
 
-    String sy(String str);
-
-    boolean sz(String str);
+    void zd(String str);
 }

@@ -41,6 +41,7 @@ public class PluginNetConfigInfos extends OrmObject implements Serializable {
         public int priority = -1;
         public int load_priority = -1;
         public String ext = null;
+        public int can_forbidden = 0;
     }
 
     public String getConfig_version() {

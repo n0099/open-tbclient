@@ -1,7 +1,6 @@
 package com.facebook.imagepipeline.producers;
 
 import android.net.Uri;
-import com.baidu.ar.util.MsgConstants;
 import com.facebook.imagepipeline.producers.af;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,14 +13,14 @@ import java.util.concurrent.Future;
 import okhttp3.internal.http.StatusLine;
 /* loaded from: classes2.dex */
 public class t extends c<s> {
-    private final ExecutorService ifD;
+    private final ExecutorService bpt;
 
     public t() {
         this(Executors.newFixedThreadPool(3));
     }
 
     t(ExecutorService executorService) {
-        this.ifD = executorService;
+        this.bpt = executorService;
     }
 
     @Override // com.facebook.imagepipeline.producers.af
@@ -31,17 +30,17 @@ public class t extends c<s> {
 
     @Override // com.facebook.imagepipeline.producers.af
     public void a(final s sVar, final af.a aVar) {
-        final Future<?> submit = this.ifD.submit(new Runnable() { // from class: com.facebook.imagepipeline.producers.t.1
+        final Future<?> submit = this.bpt.submit(new Runnable() { // from class: com.facebook.imagepipeline.producers.t.1
             @Override // java.lang.Runnable
             public void run() {
                 t.this.b(sVar, aVar);
             }
         });
-        sVar.caD().a(new e() { // from class: com.facebook.imagepipeline.producers.t.2
+        sVar.czI().a(new e() { // from class: com.facebook.imagepipeline.producers.t.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void caw() {
+            public void czB() {
                 if (submit.cancel(false)) {
-                    aVar.bUx();
+                    aVar.ctv();
                 }
             }
         });
@@ -73,11 +72,11 @@ public class t extends c<s> {
                 if (httpURLConnection != null) {
                     try {
                         r1 = httpURLConnection.getInputStream();
-                        aVar.e(r1, -1);
+                        aVar.f(r1, -1);
                         inputStream = r1;
                     } catch (IOException e) {
                         e = e;
-                        aVar.B(e);
+                        aVar.C(e);
                         if (r1 != 0) {
                             try {
                                 r1.close();
@@ -127,34 +126,34 @@ public class t extends c<s> {
     }
 
     private HttpURLConnection b(Uri uri, int i) throws IOException {
-        HttpURLConnection B = B(uri);
-        int responseCode = B.getResponseCode();
-        if (!yZ(responseCode)) {
-            if (za(responseCode)) {
-                String headerField = B.getHeaderField("Location");
-                B.disconnect();
+        HttpURLConnection J = J(uri);
+        int responseCode = J.getResponseCode();
+        if (!CL(responseCode)) {
+            if (CM(responseCode)) {
+                String headerField = J.getHeaderField("Location");
+                J.disconnect();
                 Uri parse = headerField == null ? null : Uri.parse(headerField);
                 String scheme = uri.getScheme();
                 if (i > 0 && parse != null && !parse.getScheme().equals(scheme)) {
                     return b(parse, i - 1);
                 }
-                throw new IOException(i == 0 ? n("URL %s follows too many redirects", uri.toString()) : n("URL %s returned %d without a valid redirect", uri.toString(), Integer.valueOf(responseCode)));
+                throw new IOException(i == 0 ? m("URL %s follows too many redirects", uri.toString()) : m("URL %s returned %d without a valid redirect", uri.toString(), Integer.valueOf(responseCode)));
             }
-            B.disconnect();
+            J.disconnect();
             throw new IOException(String.format("Image URL %s returned HTTP code %d", uri.toString(), Integer.valueOf(responseCode)));
         }
-        return B;
+        return J;
     }
 
-    static HttpURLConnection B(Uri uri) throws IOException {
+    static HttpURLConnection J(Uri uri) throws IOException {
         return (HttpURLConnection) new URL(uri.toString()).openConnection();
     }
 
-    private static boolean yZ(int i) {
+    private static boolean CL(int i) {
         return i >= 200 && i < 300;
     }
 
-    private static boolean za(int i) {
+    private static boolean CM(int i) {
         switch (i) {
             case 300:
             case 301:
@@ -165,13 +164,13 @@ public class t extends c<s> {
                 return true;
             case 304:
             case 305:
-            case MsgConstants.TRACK_MODEL_SHOWING /* 306 */:
+            case 306:
             default:
                 return false;
         }
     }
 
-    private static String n(String str, Object... objArr) {
+    private static String m(String str, Object... objArr) {
         return String.format(Locale.getDefault(), str, objArr);
     }
 }

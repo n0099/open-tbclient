@@ -1,27 +1,80 @@
 package com.baidu.tieba.aiapps.apps.a;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.searchbox.ng.ai.apps.setting.actions.PrivateGetUserInfoAction;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import android.support.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.swan.apps.u.b.c;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes4.dex */
-class h extends ProviderDelegation {
-    h() {
+public class h implements com.baidu.swan.apps.u.b.c {
+    private static String cRp = " swan/1.6";
+    private final List<com.baidu.swan.apps.a.c> cRq = new LinkedList();
+    private String cRr = null;
+
+    public h() {
+        MessageManager.getInstance().registerListener(new CustomMessageListener(2005016) { // from class: com.baidu.tieba.aiapps.apps.a.h.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                boolean isNULL = StringUtils.isNULL(h.this.bl(TbadkCoreApplication.getInst()));
+                synchronized (h.this.cRq) {
+                    for (com.baidu.swan.apps.a.c cVar : h.this.cRq) {
+                        cVar.aL(isNULL);
+                    }
+                }
+            }
+        });
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        Bundle bundle2 = new Bundle();
-        if (bundle != null && !TextUtils.isEmpty(bundle.getString("key_uid"))) {
-            SapiAccount session = SapiAccountManager.getInstance().getSession();
-            bundle2.putString("user_login_nickname_key", session.displayname);
-            bundle2.putString("user_login_portrait_key", session.getSocialPortrait());
-            bundle2.putInt(PrivateGetUserInfoAction.KEY_GENDER, TbadkCoreApplication.getCurrentAccountObj() == null ? -1 : TbadkCoreApplication.getCurrentAccountObj().getSex());
-            return bundle2;
+    public String bl(Context context) {
+        return TbadkCoreApplication.getInst().isMainProcess(true) ? a.bl(context) : a.dF(context);
+    }
+
+    @Override // com.baidu.swan.apps.u.b.c
+    public void a(Activity activity, Bundle bundle, com.baidu.swan.apps.a.a aVar) {
+        if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+            a.b(activity, AlbumActivityConfig.FROM_AIAPPS, aVar);
+        } else {
+            a.a(activity, aVar);
         }
-        return bundle2;
+    }
+
+    @Override // com.baidu.swan.apps.u.b.c
+    public boolean bH(Context context) {
+        return TbadkCoreApplication.getInst().isMainProcess(true) ? a.bk(context) : a.dG(context);
+    }
+
+    @Override // com.baidu.swan.apps.u.b.c
+    public String bI(Context context) {
+        return TbadkCoreApplication.getInst().isMainProcess(true) ? a.bl(context) : a.dF(context);
+    }
+
+    @Override // com.baidu.swan.apps.u.b.c
+    public String bJ(@NonNull Context context) {
+        return TbadkCoreApplication.getInst().getCuid();
+    }
+
+    @Override // com.baidu.swan.apps.u.b.c
+    public void a(com.baidu.swan.apps.a.c cVar) {
+        if (cVar != null) {
+            synchronized (this.cRq) {
+                if (!this.cRq.contains(cVar)) {
+                    this.cRq.add(cVar);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.swan.apps.u.b.c
+    public void a(String str, c.a aVar) {
+        a.a(str, aVar);
     }
 }

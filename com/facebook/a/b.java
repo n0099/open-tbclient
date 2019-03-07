@@ -38,7 +38,7 @@ public class b implements a {
         return this.mFile.hashCode();
     }
 
-    public static b S(File file) {
+    public static b aa(File file) {
         if (file != null) {
             return new b(file);
         }

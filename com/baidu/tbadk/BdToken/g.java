@@ -2,23 +2,23 @@ package com.baidu.tbadk.BdToken;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.DecryptCode.DataRes;
 /* loaded from: classes.dex */
 public class g {
     private int urlType;
-    private static final String DEFAULT_TITLE = TbadkCoreApplication.getInst().getString(e.j.tb_token);
-    private static final String DEFAULT_TIPS = TbadkCoreApplication.getInst().getString(e.j.tb_ai_apps_tips);
-    private static final String alj = TbadkCoreApplication.getInst().getString(e.j.cancel);
-    private static final String alk = TbadkCoreApplication.getInst().getString(e.j.check_immediately);
+    private static final String DEFAULT_TITLE = TbadkCoreApplication.getInst().getString(d.j.tb_token);
+    private static final String DEFAULT_TIPS = TbadkCoreApplication.getInst().getString(d.j.tb_ai_apps_tips);
+    private static final String brO = TbadkCoreApplication.getInst().getString(d.j.cancel);
+    private static final String brP = TbadkCoreApplication.getInst().getString(d.j.check_immediately);
     private String title = "";
     private String img = "";
     private String tips = "";
     private String url = "";
-    private String alm = "";
-    private String aln = "";
+    private String brQ = "";
+    private String brR = "";
     public String appId = "";
     public String appName = "";
 
@@ -33,13 +33,13 @@ public class g {
                     JSONObject jSONObject = new JSONObject(dataRes.url);
                     this.appId = jSONObject.optString("appid");
                     this.appName = jSONObject.optString("appname");
-                    this.url = com.baidu.tieba.aiapps.a.t(this.appId, jSONObject.optString("url"), "9104");
+                    this.url = com.baidu.tieba.aiapps.a.G(this.appId, jSONObject.optString("url"), "9104");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
-            this.alm = StringUtils.isNull(dataRes.btn_sure) ? alk : dataRes.btn_sure;
-            this.aln = StringUtils.isNull(dataRes.btn_cancel) ? alj : dataRes.btn_cancel;
+            this.brQ = StringUtils.isNull(dataRes.btn_sure) ? brP : dataRes.btn_sure;
+            this.brR = StringUtils.isNull(dataRes.btn_cancel) ? brO : dataRes.btn_cancel;
         } else if (this.urlType == 2) {
             this.title = dataRes.title;
             this.url = dataRes.url;
@@ -48,8 +48,8 @@ public class g {
             this.title = dataRes.title;
             this.img = dataRes.img;
             this.tips = dataRes.tips;
-            this.alm = dataRes.btn_sure;
-            this.aln = dataRes.btn_cancel;
+            this.brQ = dataRes.btn_sure;
+            this.brR = dataRes.btn_cancel;
         }
     }
 
@@ -57,7 +57,7 @@ public class g {
         return this.title;
     }
 
-    public String vL() {
+    public String Um() {
         return this.img;
     }
 
@@ -69,15 +69,15 @@ public class g {
         return this.url;
     }
 
-    public String vM() {
-        return this.alm;
+    public String Un() {
+        return this.brQ;
     }
 
-    public String vN() {
-        return this.aln;
+    public String Uo() {
+        return this.brR;
     }
 
-    public int vO() {
+    public int Up() {
         return this.urlType;
     }
 }

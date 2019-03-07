@@ -8,6 +8,7 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 public class EditVideoActivityConfig extends IntentConfig {
     public static final String FROM_TYPE = "from_type";
     public static final String FROM_TYPE_RECORD_VIDEO_ACTIVITY = "from_record_activity";
+    public static final String KEY_PRO_ZONE = "pro_zone";
     public static String LOCAL_PATH_KEY = "local_path";
     public static String MUSIC_ID_KEY = "music_id";
     public static String POSITION_KEY = "position";
@@ -34,5 +35,9 @@ public class EditVideoActivityConfig extends IntentConfig {
 
     public void addFromType(String str) {
         getIntent().putExtra("from_type", str);
+    }
+
+    public void setProZone(int i) {
+        getIntent().putExtra("pro_zone", i);
     }
 }

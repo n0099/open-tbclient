@@ -15,8 +15,8 @@ import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
-public class e extends BaseAdapter implements i {
-    private boolean OM;
+public class e extends BaseAdapter implements n {
+    private boolean Pf;
     private DataSetObserver mAdapterDataSetObserver;
     private Context mContext;
     private ArrayList<b> mFooterViewInfos;
@@ -36,15 +36,15 @@ public class e extends BaseAdapter implements i {
         this.mContext = null;
         this.mHeaderViewInfos = null;
         this.mFooterViewInfos = null;
-        this.OM = false;
+        this.Pf = false;
         this.mAdapterDataSetObserver = null;
         this.mContext = context;
         this.mHeaderViewInfos = new ArrayList<>();
         this.mFooterViewInfos = new ArrayList<>();
-        if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
+        if (f(this.mHeaderViewInfos) && f(this.mFooterViewInfos)) {
             z = true;
         }
-        this.OM = z;
+        this.Pf = z;
         this.mAdapterDataSetObserver = new DataSetObserver() { // from class: com.baidu.adp.widget.ListView.e.1
             @Override // android.database.DataSetObserver
             public void onChanged() {
@@ -93,9 +93,9 @@ public class e extends BaseAdapter implements i {
         notifyDataSetChanged();
     }
 
-    @Override // android.widget.BaseAdapter, com.baidu.adp.widget.ListView.i
+    @Override // android.widget.BaseAdapter, com.baidu.adp.widget.ListView.n
     public void notifyDataSetChanged() {
-        if (com.baidu.adp.lib.util.l.lk()) {
+        if (com.baidu.adp.lib.util.l.ln()) {
             super.notifyDataSetChanged();
         }
     }
@@ -126,7 +126,7 @@ public class e extends BaseAdapter implements i {
         return this.mFooterViewInfos.size();
     }
 
-    private boolean e(ArrayList<b> arrayList) {
+    private boolean f(ArrayList<b> arrayList) {
         if (arrayList != null) {
             Iterator<b> it = arrayList.iterator();
             while (it.hasNext()) {
@@ -146,10 +146,10 @@ public class e extends BaseAdapter implements i {
         for (int i = 0; i < this.mHeaderViewInfos.size(); i++) {
             if (this.mHeaderViewInfos.get(i).view == view) {
                 this.mHeaderViewInfos.remove(i);
-                if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
+                if (f(this.mHeaderViewInfos) && f(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.OM = z;
+                this.Pf = z;
                 notifyDataSetChanged();
                 return true;
             }
@@ -165,10 +165,10 @@ public class e extends BaseAdapter implements i {
         for (int i = 0; i < this.mFooterViewInfos.size(); i++) {
             if (this.mFooterViewInfos.get(i).view == view) {
                 this.mFooterViewInfos.remove(i);
-                if (e(this.mHeaderViewInfos) && e(this.mFooterViewInfos)) {
+                if (f(this.mHeaderViewInfos) && f(this.mFooterViewInfos)) {
                     z = true;
                 }
-                this.OM = z;
+                this.Pf = z;
                 notifyDataSetChanged();
                 return true;
             }
@@ -222,12 +222,12 @@ public class e extends BaseAdapter implements i {
         }
     }
 
-    @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.i
+    @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.n
     public int getCount() {
         return this.mAdapter != null ? getFootersCount() + getHeadersCount() + this.mAdapter.getCount() : getFootersCount() + getHeadersCount();
     }
 
-    @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.i
+    @Override // android.widget.Adapter, com.baidu.adp.widget.ListView.n
     public Object getItem(int i) {
         int headersCount = getHeadersCount();
         if (i < headersCount) {
@@ -263,7 +263,7 @@ public class e extends BaseAdapter implements i {
     @Override // android.widget.BaseAdapter, android.widget.ListAdapter
     public boolean areAllItemsEnabled() {
         if (this.mAdapter != null) {
-            return this.OM && this.mAdapter.areAllItemsEnabled();
+            return this.Pf && this.mAdapter.areAllItemsEnabled();
         }
         return super.areAllItemsEnabled();
     }
@@ -322,7 +322,7 @@ public class e extends BaseAdapter implements i {
         if (i < headersCount) {
             View view4 = this.mHeaderViewInfos.get(i).view;
             if (view4 == null) {
-                return oM();
+                return oQ();
             }
             return view4;
         }
@@ -343,7 +343,7 @@ public class e extends BaseAdapter implements i {
                 view3 = this.mAdapter.getView(i2, view, viewGroup);
             }
             if (view3 == null) {
-                return oM();
+                return oQ();
             }
             return view3;
         }
@@ -354,12 +354,12 @@ public class e extends BaseAdapter implements i {
             view2 = null;
         }
         if (view2 == null) {
-            return oM();
+            return oQ();
         }
         return view2;
     }
 
-    private View oM() {
+    private View oQ() {
         TextView textView = new TextView(this.mContext);
         textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.load_res_failed));
         int dip2px = com.baidu.adp.lib.util.l.dip2px(this.mContext, 15.0f);

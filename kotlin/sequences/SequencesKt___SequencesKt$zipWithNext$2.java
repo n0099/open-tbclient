@@ -26,8 +26,8 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
     }
 
     public final kotlin.coroutines.experimental.b<kotlin.e> create(kotlin.coroutines.experimental.f<? super R> fVar, kotlin.coroutines.experimental.b<? super kotlin.e> bVar) {
-        p.j(fVar, "$receiver");
-        p.j(bVar, "continuation");
+        p.k(fVar, "$receiver");
+        p.k(bVar, "continuation");
         SequencesKt___SequencesKt$zipWithNext$2 sequencesKt___SequencesKt$zipWithNext$2 = new SequencesKt___SequencesKt$zipWithNext$2(this.receiver$0, this.$transform, bVar);
         sequencesKt___SequencesKt$zipWithNext$2.p$ = fVar;
         return sequencesKt___SequencesKt$zipWithNext$2;
@@ -36,9 +36,9 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.a.c
     public final Object invoke(kotlin.coroutines.experimental.f<? super R> fVar, kotlin.coroutines.experimental.b<? super kotlin.e> bVar) {
-        p.j(fVar, "$receiver");
-        p.j(bVar, "continuation");
-        return ((SequencesKt___SequencesKt$zipWithNext$2) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(kotlin.e.iCd, null);
+        p.k(fVar, "$receiver");
+        p.k(bVar, "continuation");
+        return ((SequencesKt___SequencesKt$zipWithNext$2) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(kotlin.e.jRO, null);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1615=4] */
@@ -47,7 +47,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
         kotlin.coroutines.experimental.f fVar;
         Iterator it;
         Object obj2;
-        Object cdj = kotlin.coroutines.experimental.a.a.cdj();
+        Object cCo = kotlin.coroutines.experimental.a.a.cCo();
         switch (this.label) {
             case 0:
                 if (th == null) {
@@ -57,7 +57,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
                         obj2 = it.next();
                         break;
                     } else {
-                        return kotlin.e.iCd;
+                        return kotlin.e.jRO;
                     }
                 } else {
                     throw th;
@@ -86,11 +86,11 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
             this.L$2 = obj2;
             this.L$3 = next;
             this.label = 1;
-            if (fVar.a(invoke, this) == cdj) {
-                return cdj;
+            if (fVar.a(invoke, this) == cCo) {
+                return cCo;
             }
             obj2 = next;
         }
-        return kotlin.e.iCd;
+        return kotlin.e.jRO;
     }
 }

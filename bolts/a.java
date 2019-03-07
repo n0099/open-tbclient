@@ -11,17 +11,17 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes2.dex */
 final class a {
-    private final Executor jG = new ExecutorC0004a();
-    private static final a jF = new a();
-    private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
-    static final int CORE_POOL_SIZE = CPU_COUNT + 1;
-    static final int MAX_POOL_SIZE = (CPU_COUNT * 2) + 1;
+    private final Executor jI = new ExecutorC0004a();
+    private static final a jH = new a();
+    private static final int jJ = Runtime.getRuntime().availableProcessors();
+    static final int CORE_POOL_SIZE = jJ + 1;
+    static final int jK = (jJ * 2) + 1;
 
     private a() {
     }
 
     public static ExecutorService newCachedThreadPool() {
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(CORE_POOL_SIZE, MAX_POOL_SIZE, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(CORE_POOL_SIZE, jK, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
         a(threadPoolExecutor, true);
         return threadPoolExecutor;
     }
@@ -34,7 +34,7 @@ final class a {
     }
 
     public static Executor aV() {
-        return jF.jG;
+        return jH.jI;
     }
 
     /* renamed from: bolts.a$a  reason: collision with other inner class name */

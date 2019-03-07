@@ -6,11 +6,11 @@ import android.content.Context;
 public final class g implements Runnable {
     final /* synthetic */ Context a;
     final /* synthetic */ boolean b;
-    final /* synthetic */ f mK;
+    final /* synthetic */ f mJ;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar, Context context, boolean z) {
-        this.mK = fVar;
+        this.mJ = fVar;
         this.a = context;
         this.b = z;
     }
@@ -20,9 +20,9 @@ public final class g implements Runnable {
         e eVar;
         h hVar;
         try {
-            eVar = this.mK.mH;
+            eVar = this.mJ.mG;
             eVar.a(this.a, this.b);
-            hVar = this.mK.mI;
+            hVar = this.mJ.mH;
             hVar.a(this.a, this.b);
         } catch (Throwable th) {
         }

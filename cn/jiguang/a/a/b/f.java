@@ -5,20 +5,18 @@ import android.net.http.Headers;
 import android.os.Handler;
 import android.os.HandlerThread;
 import cn.jiguang.d.d.aa;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.webkit.internal.ETAG;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class f {
     private static final Object d = new Object();
-    private static volatile f kH;
+    private static volatile f kJ;
     protected Handler b;
     private Context e;
-    private a kI;
-    private c kJ;
-    private h kK;
+    private a kK;
+    private c kL;
+    private h kM;
     private String f = "all";
     private boolean g = true;
     public boolean a = false;
@@ -29,13 +27,13 @@ public final class f {
 
     private f(Context context) {
         this.e = context;
-        this.kI = new a(context, this);
-        this.kK = new h(context);
-        this.kJ = new c(context, this);
+        this.kK = new a(context, this);
+        this.kM = new h(context);
+        this.kL = new c(context, this);
     }
 
     public static e R(Context context) {
-        e bp = kH != null ? kH.bp() : null;
+        e bp = kJ != null ? kJ.bp() : null;
         if (bp == null || !bp.a()) {
             bp = e.E(cn.jiguang.d.a.d.l(context));
         }
@@ -46,15 +44,15 @@ public final class f {
         if (context == null) {
             return;
         }
-        if (kH == null) {
+        if (kJ == null) {
             synchronized (d) {
-                if (kH == null) {
-                    kH = new f(context);
+                if (kJ == null) {
+                    kJ = new f(context);
                 }
             }
         }
-        kH.a = z;
-        f fVar = kH;
+        kJ.a = z;
+        f fVar = kJ;
         try {
             if (fVar.b == null) {
                 HandlerThread handlerThread = new HandlerThread(Headers.LOCATION);
@@ -110,14 +108,14 @@ public final class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void b(f fVar) {
-        fVar.kI.c();
-        fVar.kK.a();
-        fVar.kJ.b();
+        fVar.kK.c();
+        fVar.kM.a();
+        fVar.kL.b();
     }
 
     private e bp() {
-        if (this.kJ != null) {
-            return this.kJ.bo();
+        if (this.kL != null) {
+            return this.kL.bo();
         }
         return null;
     }
@@ -127,8 +125,8 @@ public final class f {
         boolean z;
         JSONArray jSONArray = null;
         if (cn.jiguang.d.a.d.d(this.e)) {
-            JSONArray c = this.kK.c();
-            JSONArray bn = this.kI.bn();
+            JSONArray c = this.kM.c();
+            JSONArray bn = this.kK.bn();
             e bp = this.a ? null : bp();
             JSONObject f = bp != null ? bp.f() : null;
             if (f == null && bn == null && c == null) {
@@ -146,8 +144,8 @@ public final class f {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 aa.a(this.e, jSONObject2, "loc_info");
-                jSONObject2.put(HttpConstants.NETWORK_TYPE, cn.jiguang.g.a.e(this.e));
-                jSONObject2.put(ETAG.KEY_LOCAL_DNS, cn.jiguang.g.a.b());
+                jSONObject2.put("network_type", cn.jiguang.g.a.e(this.e));
+                jSONObject2.put("local_dns", cn.jiguang.g.a.b());
                 if (c != null && c.length() > 0) {
                     jSONObject2.put("wifi", c);
                     this.h = ((JSONObject) c.get(0)).optString("ssid");
@@ -203,7 +201,7 @@ public final class f {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void c(f fVar) {
         if (cn.jiguang.g.a.a(fVar.e, "android.permission.ACCESS_COARSE_LOCATION")) {
-            fVar.kI.a();
+            fVar.kK.a();
         } else {
             fVar.a();
         }
@@ -211,8 +209,8 @@ public final class f {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a() {
-        this.kK.b();
-        this.kJ.a(this.e);
+        this.kM.b();
+        this.kL.a(this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -222,11 +220,11 @@ public final class f {
         try {
             if (this.g) {
                 if (this.f.equals("cell_towers")) {
-                    if (cn.jiguang.d.a.d.d(this.e) && (a2 = cn.jiguang.g.a.a("loc_cell", this.kI.bn())) != null && a2.length() > 0) {
+                    if (cn.jiguang.d.a.d.d(this.e) && (a2 = cn.jiguang.g.a.a("loc_cell", this.kK.bn())) != null && a2.length() > 0) {
                         aa.a(this.e, a2);
                     }
                 } else if (this.f.equals("wifi_towers")) {
-                    if (cn.jiguang.d.a.d.d(this.e) && (a = cn.jiguang.g.a.a("loc_wifi", this.kK.c())) != null && a.length() > 0) {
+                    if (cn.jiguang.d.a.d.d(this.e) && (a = cn.jiguang.g.a.a("loc_wifi", this.kM.c())) != null && a.length() > 0) {
                         aa.a(this.e, a);
                     }
                 } else if (this.f.equals("gps")) {

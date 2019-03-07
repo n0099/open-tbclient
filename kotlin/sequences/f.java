@@ -1,6 +1,5 @@
 package kotlin.sequences;
 
-import com.baidu.searchbox.ng.ai.apps.canvas.action.draw.DaTransform;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -13,20 +12,20 @@ import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public class f extends e {
     public static final <T> kotlin.sequences.c<T> a(kotlin.sequences.c<? extends T> cVar, kotlin.jvm.a.b<? super T, Boolean> bVar) {
-        p.j(cVar, "$receiver");
-        p.j(bVar, "predicate");
+        p.k(cVar, "$receiver");
+        p.k(bVar, "predicate");
         return new kotlin.sequences.a(cVar, true, bVar);
     }
 
     public static final <T> kotlin.sequences.c<T> b(kotlin.sequences.c<? extends T> cVar, kotlin.jvm.a.b<? super T, Boolean> bVar) {
-        p.j(cVar, "$receiver");
-        p.j(bVar, "predicate");
+        p.k(cVar, "$receiver");
+        p.k(bVar, "predicate");
         return new kotlin.sequences.a(cVar, false, bVar);
     }
 
     public static final <T, C extends Collection<? super T>> C a(kotlin.sequences.c<? extends T> cVar, C c2) {
-        p.j(cVar, "$receiver");
-        p.j(c2, "destination");
+        p.k(cVar, "$receiver");
+        p.k(c2, "destination");
         for (T t : cVar) {
             c2.add(t);
         }
@@ -34,24 +33,24 @@ public class f extends e {
     }
 
     public static final <T> HashSet<T> a(kotlin.sequences.c<? extends T> cVar) {
-        p.j(cVar, "$receiver");
+        p.k(cVar, "$receiver");
         return (HashSet) kotlin.sequences.d.a(cVar, new HashSet());
     }
 
     public static final <T> List<T> b(kotlin.sequences.c<? extends T> cVar) {
-        p.j(cVar, "$receiver");
+        p.k(cVar, "$receiver");
         return (List) kotlin.sequences.d.a(cVar, new ArrayList());
     }
 
     public static final <T, R> kotlin.sequences.c<R> c(kotlin.sequences.c<? extends T> cVar, kotlin.jvm.a.b<? super T, ? extends R> bVar) {
-        p.j(cVar, "$receiver");
-        p.j(bVar, DaTransform.ACTION_TYPE);
+        p.k(cVar, "$receiver");
+        p.k(bVar, "transform");
         return new g(cVar, bVar);
     }
 
     /* loaded from: classes2.dex */
     public static final class a implements kotlin.sequences.c<T> {
-        final /* synthetic */ Object iDd;
+        final /* synthetic */ Object jSO;
         final /* synthetic */ kotlin.sequences.c receiver$0;
 
         @Override // kotlin.sequences.c
@@ -64,35 +63,35 @@ public class f extends e {
 
     /* loaded from: classes2.dex */
     public static final class b implements kotlin.sequences.c<T> {
-        final /* synthetic */ Object[] iDe;
+        final /* synthetic */ Object[] jSP;
         final /* synthetic */ kotlin.sequences.c receiver$0;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return kotlin.sequences.d.b(this.receiver$0, new SequencesKt___SequencesKt$minus$2$iterator$1(kotlin.collections.f.L(this.iDe))).iterator();
+            return kotlin.sequences.d.b(this.receiver$0, new SequencesKt___SequencesKt$minus$2$iterator$1(kotlin.collections.f.L(this.jSP))).iterator();
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class c implements kotlin.sequences.c<T> {
-        final /* synthetic */ Iterable iDf;
+        final /* synthetic */ Iterable jSQ;
         final /* synthetic */ kotlin.sequences.c receiver$0;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            Collection a = n.a(this.iDf);
+            Collection a = n.a(this.jSQ);
             return a.isEmpty() ? this.receiver$0.iterator() : kotlin.sequences.d.b(this.receiver$0, new SequencesKt___SequencesKt$minus$3$iterator$1(a)).iterator();
         }
     }
 
     /* loaded from: classes2.dex */
     public static final class d implements kotlin.sequences.c<T> {
-        final /* synthetic */ kotlin.sequences.c iDg;
+        final /* synthetic */ kotlin.sequences.c jSR;
         final /* synthetic */ kotlin.sequences.c receiver$0;
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            HashSet a = kotlin.sequences.d.a(this.iDg);
+            HashSet a = kotlin.sequences.d.a(this.jSR);
             return a.isEmpty() ? this.receiver$0.iterator() : kotlin.sequences.d.b(this.receiver$0, new SequencesKt___SequencesKt$minus$4$iterator$1(a)).iterator();
         }
     }

@@ -1,6 +1,5 @@
 package com.sina.weibo.sdk.utils;
 
-import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.security.MessageDigest;
 /* loaded from: classes2.dex */
 public class MD5 {
@@ -17,7 +16,7 @@ public class MD5 {
 
     public static String hexdigest(byte[] bArr) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(bArr);
             byte[] digest = messageDigest.digest();
             char[] cArr = new char[32];

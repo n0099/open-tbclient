@@ -3,7 +3,6 @@ package com.xiaomi.push.service;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
-import com.baidu.mobstat.Config;
 import com.xiaomi.network.Fallback;
 import com.xiaomi.network.HostFilter;
 import com.xiaomi.network.HostManager;
@@ -79,7 +78,7 @@ public class an extends at.a implements HostManager.HostManagerFactory {
         at.a().a(anVar);
         synchronized (HostManager.class) {
             HostManager.setHostManagerFactory(anVar);
-            HostManager.init(xMPushService, null, new a(), "0", Config.PUSH, "2.2");
+            HostManager.init(xMPushService, null, new a(), "0", "push", "2.2");
         }
     }
 
@@ -89,15 +88,15 @@ public class an extends at.a implements HostManager.HostManagerFactory {
     }
 
     @Override // com.xiaomi.push.service.at.a
-    public void a(a.C0392a c0392a) {
+    public void a(a.C0368a c0368a) {
     }
 
     @Override // com.xiaomi.push.service.at.a
-    public void a(b.C0393b c0393b) {
+    public void a(b.C0369b c0369b) {
         Fallback fallbacksByHost;
         boolean z;
-        if (c0393b.e() && c0393b.d() && System.currentTimeMillis() - this.b > 3600000) {
-            com.xiaomi.channel.commonutils.logger.b.a("fetch bucket :" + c0393b.d());
+        if (c0369b.e() && c0369b.d() && System.currentTimeMillis() - this.b > 3600000) {
+            com.xiaomi.channel.commonutils.logger.b.a("fetch bucket :" + c0369b.d());
             this.b = System.currentTimeMillis();
             HostManager hostManager = HostManager.getInstance();
             hostManager.clear();

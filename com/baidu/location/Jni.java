@@ -1,7 +1,8 @@
 package com.baidu.location;
 
 import com.baidu.android.common.so.SoLoader;
-/* loaded from: classes6.dex */
+import org.apache.http.protocol.HTTP;
+/* loaded from: classes3.dex */
 public class Jni {
     private static int a = 0;
     private static int b = 1;
@@ -40,9 +41,9 @@ public class Jni {
             return dArr;
         }
         int i2 = -1;
-        if (str.equals("bd09")) {
+        if (str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09)) {
             i2 = a;
-        } else if (str.equals("bd09ll")) {
+        } else if (str.equals(BDLocation.BDLOCATION_GCJ02_TO_BD09LL)) {
             i2 = b;
         } else if (str.equals("gcj02")) {
             i2 = c;
@@ -117,7 +118,7 @@ public class Jni {
             return null;
         }
         try {
-            str2 = new String(str.getBytes(), "UTF-8");
+            str2 = new String(str.getBytes(), HTTP.UTF_8);
         } catch (Exception e2) {
             str2 = "";
         }
@@ -138,7 +139,7 @@ public class Jni {
             return "err!";
         }
         try {
-            str2 = new String(str.getBytes(), "UTF-8");
+            str2 = new String(str.getBytes(), HTTP.UTF_8);
         } catch (Exception e2) {
             str2 = "";
         }
@@ -158,7 +159,7 @@ public class Jni {
             return "err!";
         }
         try {
-            str2 = new String(str.getBytes(), "UTF-8");
+            str2 = new String(str.getBytes(), HTTP.UTF_8);
         } catch (Exception e2) {
             str2 = "";
         }

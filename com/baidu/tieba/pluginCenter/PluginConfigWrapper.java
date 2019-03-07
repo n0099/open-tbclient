@@ -2,7 +2,7 @@ package com.baidu.tieba.pluginCenter;
 
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
 import com.baidu.tbadk.mvc.b.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PluginConfigWrapper extends PluginNetConfigInfos.PluginConfig implements a {
     public static final int DOWNLOADED_BUT_FORBIDDEN = 1;
     public static final int DOWNLOADED_NOT_FORBIDDEN = 2;
@@ -10,8 +10,8 @@ public class PluginConfigWrapper extends PluginNetConfigInfos.PluginConfig imple
     public static final int DOWNLOAD_NOT = 0;
     public static final int DOWNLOAD_UPDATE = 4;
     private static final long serialVersionUID = 1;
-    private float mDownLoadPercent;
     private int mDownLoadStatus;
+    private int mDownloadProgress;
 
     public PluginConfigWrapper(PluginNetConfigInfos.PluginConfig pluginConfig) {
         if (pluginConfig != null) {
@@ -22,6 +22,7 @@ public class PluginConfigWrapper extends PluginNetConfigInfos.PluginConfig imple
             this.ext = pluginConfig.ext;
             this.newest = pluginConfig.newest;
             this.package_name = pluginConfig.package_name;
+            this.verbose = pluginConfig.verbose;
         }
     }
 
@@ -33,11 +34,11 @@ public class PluginConfigWrapper extends PluginNetConfigInfos.PluginConfig imple
         this.mDownLoadStatus = i;
     }
 
-    public float getDownLoadPercent() {
-        return this.mDownLoadPercent;
+    public int getDownLoadPercent() {
+        return this.mDownloadProgress;
     }
 
-    public void setDownLoadPercent(float f) {
-        this.mDownLoadPercent = f;
+    public void setDownLoadPercent(int i) {
+        this.mDownloadProgress = i;
     }
 }

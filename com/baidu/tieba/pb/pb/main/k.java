@@ -6,16 +6,16 @@ import android.util.SparseIntArray;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.q;
-import com.baidu.adp.widget.ListView.q.a;
+import com.baidu.adp.widget.ListView.v;
+import com.baidu.adp.widget.ListView.v.a;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.lang.ref.SoftReference;
-/* loaded from: classes6.dex */
-public abstract class k<T, V extends q.a> extends com.baidu.adp.widget.ListView.a<T, V> {
-    protected com.baidu.adp.widget.ListView.j dLf;
-    private SparseArray<SoftReference<Drawable>> fVg;
-    private SparseIntArray fVh;
-    protected PbActivity fYK;
+/* loaded from: classes4.dex */
+public abstract class k<T, V extends v.a> extends com.baidu.adp.widget.ListView.a<T, V> {
+    private SparseArray<SoftReference<Drawable>> hlr;
+    private SparseIntArray hls;
+    protected PbActivity hpc;
+    protected com.baidu.adp.widget.ListView.o hqB;
     protected boolean mIsFromCDN;
     protected int mSkinType;
 
@@ -24,14 +24,14 @@ public abstract class k<T, V extends q.a> extends com.baidu.adp.widget.ListView.
         super(pbActivity == null ? null : pbActivity.getPageContext().getPageActivity(), bdUniqueId);
         this.mSkinType = 3;
         this.mIsFromCDN = false;
-        this.fVg = new SparseArray<>();
-        this.fVh = new SparseIntArray();
-        aq(pbActivity);
+        this.hlr = new SparseArray<>();
+        this.hls = new SparseIntArray();
+        au(pbActivity);
     }
 
-    public void aq(PbActivity pbActivity) {
+    public void au(PbActivity pbActivity) {
         if (pbActivity != null) {
-            this.fYK = pbActivity;
+            this.hpc = pbActivity;
             this.mContext = pbActivity.getActivity();
         }
     }
@@ -40,7 +40,7 @@ public abstract class k<T, V extends q.a> extends com.baidu.adp.widget.ListView.
     @Override // com.baidu.adp.widget.ListView.a
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, T t, V v) {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-        this.dLf = (com.baidu.adp.widget.ListView.j) viewGroup;
+        this.hqB = (com.baidu.adp.widget.ListView.o) viewGroup;
         return null;
     }
 
@@ -50,10 +50,10 @@ public abstract class k<T, V extends q.a> extends com.baidu.adp.widget.ListView.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public int getDimensionPixelSize(int i) {
-        int i2 = this.fVh.get(i, -1);
+        int i2 = this.hls.get(i, -1);
         if (i2 == -1) {
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
-            this.fVh.put(i, dimensionPixelSize);
+            this.hls.put(i, dimensionPixelSize);
             return dimensionPixelSize;
         }
         return i2;

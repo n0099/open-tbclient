@@ -8,13 +8,13 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.webkit.internal.ETAG;
+import com.baidu.tbadk.TbConfig;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class g {
     private static com.xiaomi.channel.commonutils.misc.h a = new com.xiaomi.channel.commonutils.misc.h(true);
@@ -50,7 +50,7 @@ public class g {
         }
 
         public boolean a(a aVar) {
-            return TextUtils.equals(aVar.a, this.a) && TextUtils.equals(aVar.e, this.e) && aVar.c == this.c && aVar.d == this.d && Math.abs(aVar.b - this.b) <= 5000;
+            return TextUtils.equals(aVar.a, this.a) && TextUtils.equals(aVar.e, this.e) && aVar.c == this.c && aVar.d == this.d && Math.abs(aVar.b - this.b) <= TbConfig.NOTIFY_SOUND_INTERVAL;
         }
     }
 
@@ -63,7 +63,7 @@ public class g {
 
     public static int a(String str) {
         try {
-            return str.getBytes("UTF-8").length;
+            return str.getBytes(HTTP.UTF_8).length;
         } catch (UnsupportedEncodingException e2) {
             return str.getBytes().length;
         }
@@ -84,7 +84,7 @@ public class g {
             a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? c(context) : "", a(a2, j)));
         }
         if (isEmpty) {
-            a.a(new h(context), 5000L);
+            a.a(new h(context), TbConfig.NOTIFY_SOUND_INTERVAL);
         }
     }
 
@@ -126,9 +126,9 @@ public class g {
                 writableDatabase.beginTransaction();
                 for (a aVar : list) {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put(ETAG.KEY_PACKAGE_NAME, aVar.a);
+                    contentValues.put("package_name", aVar.a);
                     contentValues.put("message_ts", Long.valueOf(aVar.b));
-                    contentValues.put(HttpConstants.NETWORK_TYPE, Integer.valueOf(aVar.c));
+                    contentValues.put("network_type", Integer.valueOf(aVar.c));
                     contentValues.put("bytes", Long.valueOf(aVar.f));
                     contentValues.put("rcv", Integer.valueOf(aVar.d));
                     contentValues.put("imsi", aVar.e);

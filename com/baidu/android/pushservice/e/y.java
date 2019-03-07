@@ -6,8 +6,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.e.a;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
-import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.ar.util.IoUtils;
 import com.tencent.connect.common.Constants;
 import java.io.IOException;
 import java.io.InputStream;
@@ -126,10 +124,10 @@ public class y implements Runnable {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("method", "token");
         b.a(hashMap);
-        hashMap.put(StatisticConstants.DEVICE_TYPE, "3");
+        hashMap.put("device_type", "3");
         String b = com.baidu.android.pushservice.k.e.b(this.a);
         if (com.baidu.android.pushservice.h.f()) {
-            hashMap.put("rsa_device_id", com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptR(b.getBytes(), 1), IoUtils.UTF_8));
+            hashMap.put("rsa_device_id", com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptR(b.getBytes(), 1), "utf-8"));
         } else {
             hashMap.put("device_id", b);
         }

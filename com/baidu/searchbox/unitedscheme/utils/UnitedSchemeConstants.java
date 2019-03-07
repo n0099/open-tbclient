@@ -12,8 +12,9 @@ public final class UnitedSchemeConstants {
     public static final String SCHEME_INVOKE_TYPE_ENTERANCE = "entrance";
     public static final String SCHEME_INVOKE_TYPE_INSIDE = "inside";
     public static final String SCHEME_INVOKE_TYPE_OUTSIDE = "outside";
-    public static final int SCHEME_VERSION = 33;
+    public static final int SCHEME_VERSION = 41;
     public static final String TRUE_INT_VALUE = "1";
+    public static final String UNITED_SCHEME = SchemeConfig.getSchemeHead();
     public static final String UNITED_SCHEME_BACKUP = "backup";
     public static final String UNITED_SCHEME_NEXT = "next";
     public static final String UNITED_SCHEME_SENIOR = "senior";
@@ -21,6 +22,4 @@ public final class UnitedSchemeConstants {
     public static final String UNITED_SCHEME_STYLE = "style";
     public static final String UNITED_SCHEME_UPGRADE = "upgrade";
     public static final String UNITED_SCHEME_VERSION_PREFIX = "v";
-    public static final String UNITED_SCHEME = SchemeConfig.getSchemeHead();
-    public static final String DEFAULT_SCHEME = SchemeConfig.getSchemeHead() + "://swan/%1$s/?_baiduboxapp={\"from\":\"%2$s\"}";
 }

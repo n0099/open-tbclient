@@ -12,25 +12,25 @@ import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 /* loaded from: classes.dex */
-public class d {
+public final class d {
     private static Certificate[] a(JarFile jarFile, JarEntry jarEntry, byte[] bArr) {
         try {
             BufferedInputStream bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
             do {
-            } while (bufferedInputStream.read(bArr, 0, bArr.length) != -1);
+            } while (bufferedInputStream.read(bArr, 0, 8192) != -1);
             bufferedInputStream.close();
             if (jarEntry != null) {
                 return jarEntry.getCertificates();
             }
             return null;
         } catch (IOException e) {
-            e.a(e);
+            e.a();
             return null;
         } catch (RuntimeException e2) {
-            e.a(e2);
+            e.a();
             return null;
         } catch (Throwable th) {
-            e.a(th);
+            e.a();
             return null;
         }
     }
@@ -63,8 +63,9 @@ public class d {
                     if (a == null) {
                         jarFile.close();
                         return null;
-                    }
-                    if (certificateArr != null) {
+                    } else if (certificateArr == null) {
+                        certificateArr = a;
+                    } else {
                         for (int i = 0; i < certificateArr.length; i++) {
                             int i2 = 0;
                             while (true) {
@@ -85,9 +86,8 @@ public class d {
                                 return null;
                             }
                         }
-                        a = certificateArr;
+                        continue;
                     }
-                    certificateArr = a;
                 }
             }
             jarFile.close();

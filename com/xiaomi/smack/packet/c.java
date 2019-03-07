@@ -2,7 +2,6 @@ package com.xiaomi.smack.packet;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 /* loaded from: classes3.dex */
 public class c extends d {
     private String c;
@@ -187,7 +186,7 @@ public class c extends d {
         if (this.d != null) {
             sb.append("<thread>").append(this.d).append("</thread>");
         }
-        if (AiAppsTouchHelper.TouchEventName.TOUCH_ERROR.equalsIgnoreCase(this.c) && (p = p()) != null) {
+        if ("error".equalsIgnoreCase(this.c) && (p = p()) != null) {
             sb.append(p.b());
         }
         sb.append(s());

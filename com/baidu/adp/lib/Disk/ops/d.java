@@ -2,24 +2,25 @@ package com.baidu.adp.lib.Disk.ops;
 
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class d extends DiskFileOperate {
     private String mContent;
-    private String zD;
+    private String zC;
 
     public d(String str, String str2, DiskFileOperate.Action action) {
         super(str, str2, action);
         this.mContent = null;
-        this.zD = "UTF-8";
+        this.zC = HTTP.UTF_8;
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public boolean p(byte[] bArr) {
+    public boolean q(byte[] bArr) {
         if (bArr == null) {
             return false;
         }
         try {
-            this.mContent = new String(bArr, this.zD);
+            this.mContent = new String(bArr, this.zC);
             return true;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -28,10 +29,10 @@ public class d extends DiskFileOperate {
     }
 
     @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public byte[] hJ() {
+    public byte[] hI() {
         if (this.mContent != null) {
             try {
-                return this.mContent.getBytes(this.zD);
+                return this.mContent.getBytes(this.zC);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return null;

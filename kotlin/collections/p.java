@@ -7,7 +7,7 @@ import java.util.Set;
 /* loaded from: classes2.dex */
 public class p extends o {
     public static final <T> int a(Iterable<? extends T> iterable, int i) {
-        kotlin.jvm.internal.p.j(iterable, "$receiver");
+        kotlin.jvm.internal.p.k(iterable, "$receiver");
         return iterable instanceof Collection ? ((Collection) iterable).size() : i;
     }
 
@@ -16,7 +16,7 @@ public class p extends o {
     }
 
     public static final <T> Collection<T> a(Iterable<? extends T> iterable) {
-        kotlin.jvm.internal.p.j(iterable, "$receiver");
+        kotlin.jvm.internal.p.k(iterable, "$receiver");
         if (iterable instanceof Set) {
             return (Collection) iterable;
         }

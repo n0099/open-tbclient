@@ -5,16 +5,16 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import com.baidu.crabsdk.b.o;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppDateTimeUtil;
+import com.baidu.sapi2.base.network.Apn;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class c {
-    private static SimpleDateFormat YC;
-    private static PackageManager YD;
+    private static SimpleDateFormat acf;
+    private static PackageManager acg;
 
     public static void a(SharedPreferences.Editor editor, boolean z) {
-        if (rv() < 9 || z) {
+        if (rW() < 9 || z) {
             editor.commit();
         } else {
             editor.apply();
@@ -22,35 +22,24 @@ public final class c {
     }
 
     public static String e(Date date) {
-        if (YC == null) {
-            YC = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (acf == null) {
+            acf = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return YC.format(date);
+        return acf.format(date);
+    }
+
+    public static String f(Throwable th) {
+        if (th == null) {
+            a.cy("getErrorLine thr is null.");
+            return "";
+        }
+        StackTraceElement[] stackTrace = th.getStackTrace();
+        return stackTrace.length > 0 ? stackTrace[0].toString() : Apn.APN_UNKNOWN;
     }
 
     public static String g(Throwable th) {
         if (th == null) {
-            a.cK("getErrorLine thr is null.");
-            return "";
-        }
-        StackTraceElement[] stackTrace = th.getStackTrace();
-        return stackTrace.length > 0 ? stackTrace[0].toString() : "N/A";
-    }
-
-    public static boolean g(Context context, String str) {
-        if (YD == null) {
-            YD = context.getPackageManager();
-        }
-        try {
-            return YD.checkPermission(str, context.getPackageName()) == 0;
-        } catch (RuntimeException e) {
-            return false;
-        }
-    }
-
-    public static String h(Throwable th) {
-        if (th == null) {
-            a.cK("getErrorOriginalLine thr is null.");
+            a.cy("getErrorOriginalLine thr is null.");
             return "";
         }
         while (th.getCause() != null) {
@@ -63,14 +52,25 @@ public final class c {
                 return stackTrace[i].toString();
             }
         }
-        return stackTrace.length > 0 ? stackTrace[0].toString() : "N/A";
+        return stackTrace.length > 0 ? stackTrace[0].toString() : Apn.APN_UNKNOWN;
     }
 
-    public static String k(long j) {
+    public static boolean g(Context context, String str) {
+        if (acg == null) {
+            acg = context.getPackageManager();
+        }
+        try {
+            return acg.checkPermission(str, context.getPackageName()) == 0;
+        } catch (RuntimeException e) {
+            return false;
+        }
+    }
+
+    public static String i(long j) {
         return j / 1000000000 > 0 ? (((float) (j / 100000000)) / 10.0f) + "G" : j / 1000000 > 0 ? (((float) (j / 100000)) / 10.0f) + "M" : j / 1000 > 0 ? (((float) (j / 100)) / 10.0f) + "K" : j + "B";
     }
 
-    public static int rv() {
+    public static int rW() {
         try {
             return Build.VERSION.class.getField("SDK_INT").getInt(null);
         } catch (Exception e) {
@@ -78,7 +78,7 @@ public final class c {
         }
     }
 
-    public static String rw() {
-        return new SimpleDateFormat(AiAppDateTimeUtil.DAY_FORMAT).format(new Date(System.currentTimeMillis()));
+    public static String rX() {
+        return new SimpleDateFormat("yyyyMMdd").format(new Date(System.currentTimeMillis()));
     }
 }

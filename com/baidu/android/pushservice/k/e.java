@@ -20,10 +20,7 @@ import android.system.Os;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.ar.util.IoUtils;
-import com.baidu.ar.util.SystemInfoUtil;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.webkit.internal.ETAG;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.CharArrayWriter;
@@ -253,7 +250,7 @@ public final class e {
                     if (resolveInfo.activityInfo != null && resolveInfo.activityInfo.applicationInfo != null && (bundle = packageManager.getReceiverInfo(new ComponentName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name), 128).metaData) != null) {
                         String string = bundle.getString("galaxy_data");
                         if (!TextUtils.isEmpty(string)) {
-                            byte[] a2 = com.baidu.android.pushservice.k.b.a(string.getBytes(IoUtils.UTF_8));
+                            byte[] a2 = com.baidu.android.pushservice.k.b.a(string.getBytes("utf-8"));
                             JSONObject jSONObject = new JSONObject(new String(a2));
                             a aVar = new a();
                             aVar.b = jSONObject.getInt(LogFactory.PRIORITY_KEY);
@@ -488,8 +485,8 @@ public final class e {
             List<a> a4 = a(new Intent("com.baidu.intent.action.GALAXY"), z);
             if (a4 != null) {
                 File filesDir = this.b.getFilesDir();
-                if (com.baidu.fsg.face.base.b.c.g.equals(filesDir.getName())) {
-                    str2 = com.baidu.fsg.face.base.b.c.g;
+                if ("files".equals(filesDir.getName())) {
+                    str2 = "files";
                 } else {
                     Log.e("DeviceId", "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath());
                     str2 = filesDir.getName();
@@ -614,7 +611,7 @@ public final class e {
             }
             file2.mkdirs();
             FileWriter fileWriter = new FileWriter(file3, false);
-            fileWriter.write(com.baidu.android.pushservice.k.b.a(com.baidu.android.pushservice.k.a.a(a, a, (str + ETAG.EQUAL + str2).getBytes()), IoUtils.UTF_8));
+            fileWriter.write(com.baidu.android.pushservice.k.b.a(com.baidu.android.pushservice.k.a.a(a, a, (str + "=" + str2).getBytes()), "utf-8"));
             fileWriter.flush();
             fileWriter.close();
         } catch (IOException e2) {
@@ -702,10 +699,10 @@ public final class e {
                     break;
                 }
                 sb.append(readLine);
-                sb.append(SystemInfoUtil.LINE_END);
+                sb.append("\r\n");
             }
             bufferedReader.close();
-            split = new String(com.baidu.android.pushservice.k.a.b(a, a, com.baidu.android.pushservice.k.b.a(sb.toString().getBytes()))).split(ETAG.EQUAL);
+            split = new String(com.baidu.android.pushservice.k.a.b(a, a, com.baidu.android.pushservice.k.b.a(sb.toString().getBytes()))).split("=");
         } catch (FileNotFoundException e2) {
             str2 = str;
         } catch (IOException e3) {
@@ -767,7 +764,7 @@ public final class e {
             return null;
         }
         try {
-            return com.baidu.android.pushservice.k.b.a(com.baidu.android.pushservice.k.a.a(a, a, str.getBytes()), IoUtils.UTF_8);
+            return com.baidu.android.pushservice.k.b.a(com.baidu.android.pushservice.k.a.a(a, a, str.getBytes()), "utf-8");
         } catch (UnsupportedEncodingException e2) {
             b(e2);
             return "";

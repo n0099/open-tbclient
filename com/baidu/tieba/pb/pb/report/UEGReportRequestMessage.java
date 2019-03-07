@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.pb.report;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class UEGReportRequestMessage extends HttpMessage {
     private String mPid;
     private String mTUid;

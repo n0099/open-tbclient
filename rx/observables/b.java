@@ -1,16 +1,13 @@
 package rx.observables;
+
+import rx.d;
 /* loaded from: classes2.dex */
-public final class b<T> {
-    static final Object iRt = new Object();
-    static final Object iRu = new Object();
-    static final Object iRv = new Object();
-    private final rx.d<? extends T> iRs;
+public class b<K, T> extends d<T> {
+    private final K key;
 
-    private b(rx.d<? extends T> dVar) {
-        this.iRs = dVar;
-    }
-
-    public static <T> b<T> n(rx.d<? extends T> dVar) {
-        return new b<>(dVar);
+    /* JADX INFO: Access modifiers changed from: protected */
+    public b(K k, d.a<T> aVar) {
+        super(aVar);
+        this.key = k;
     }
 }

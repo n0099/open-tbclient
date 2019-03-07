@@ -3,12 +3,11 @@ package cn.jiguang.d.b;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
 import cn.jiguang.api.SdkType;
 import cn.jiguang.d.h.t;
 import cn.jpush.android.api.JPushInterface;
-import com.baidu.ar.audio.AudioParams;
-import com.baidu.ar.constants.HttpConstants;
 import java.nio.ByteBuffer;
 import java.util.Locale;
 import java.util.Random;
@@ -19,12 +18,12 @@ import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes3.dex */
 public final class g implements Runnable {
     public static AtomicLong a = new AtomicLong(0);
-    public static AtomicBoolean lB = new AtomicBoolean(false);
+    public static AtomicBoolean lE = new AtomicBoolean(false);
     private Context c;
     private Handler d;
     private volatile boolean e = false;
     private boolean f = true;
-    private ExecutorService lC;
+    private ExecutorService lF;
 
     public g(Context context, Handler handler) {
         this.c = context;
@@ -48,52 +47,52 @@ public final class g implements Runnable {
             if (!cn.jiguang.d.a.d.d(this.c) || TextUtils.isEmpty(cn.jiguang.d.a.d.e(this.c))) {
                 Context context = this.c;
                 a.get();
-                String a2 = cn.jiguang.d.h.e.ci().a();
-                String str = cn.jiguang.d.h.e.ci().a;
-                String b = cn.jiguang.d.h.e.ci().b();
-                String c = cn.jiguang.d.h.e.ci().c();
-                short c2 = cn.jiguang.d.d.i.bX().c();
+                String a2 = cn.jiguang.d.h.e.ch().a();
+                String str = cn.jiguang.d.h.e.ch().a;
+                String b = cn.jiguang.d.h.e.ch().b();
+                String c = cn.jiguang.d.h.e.ch().c();
+                short c2 = cn.jiguang.d.d.i.bW().c();
                 String m = cn.jiguang.d.a.d.m(context);
                 long f = cn.jiguang.d.a.a.f();
                 int abs = Math.abs(new Random().nextInt());
                 cn.jiguang.d.h.a.a.a(abs);
-                cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
-                bVar.C(0);
-                bVar.B(16);
-                bVar.B(0);
-                bVar.j(f);
-                bVar.i(abs);
-                bVar.j(0L);
-                bVar.e(a2.getBytes());
-                bVar.e(str.getBytes());
-                bVar.e(b.getBytes());
-                bVar.B(0);
-                bVar.e(c.getBytes());
-                cn.jiguang.d.d.i.bX().d();
-                bVar.B(c2);
-                bVar.e(m.getBytes());
+                cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(20480);
+                bVar.l(0);
+                bVar.k(16);
+                bVar.k(0);
+                bVar.h(f);
+                bVar.g(abs);
+                bVar.h(0L);
+                bVar.f(a2.getBytes());
+                bVar.f(str.getBytes());
+                bVar.f(b.getBytes());
+                bVar.k(0);
+                bVar.f(c.getBytes());
+                cn.jiguang.d.d.i.bW().d();
+                bVar.k(c2);
+                bVar.f(m.getBytes());
                 bVar.l(bVar.current(), 0);
                 byte[] a3 = cn.jiguang.d.e.a.a.b.a(bVar.toByteArray(), 0);
                 if (a3 == null) {
                     z = false;
-                } else if (cn.jiguang.d.g.c.cg().ch().i(a3) != 0) {
+                } else if (cn.jiguang.d.g.c.cf().cg().j(a3) != 0) {
                     z = false;
                 } else {
-                    cn.jiguang.d.g.d F = cn.jiguang.d.g.c.cg().ch().F(HttpConstants.HTTP_CONNECT_TIMEOUT);
-                    if (F.a() != 0) {
-                        cn.jiguang.e.c.c("ConnectingHelper", "Register failed - recv msg failed with error code:" + F.a() + ",msg:" + F.c());
+                    cn.jiguang.d.g.d o = cn.jiguang.d.g.c.cf().cg().o(20000);
+                    if (o.a() != 0) {
+                        cn.jiguang.e.c.c("ConnectingHelper", "Register failed - recv msg failed with error code:" + o.a() + ",msg:" + o.c());
                         z = false;
                     } else {
-                        cn.jiguang.api.h g = cn.jiguang.d.e.a.a.a.g(F.ce().array());
-                        if (g == null) {
+                        cn.jiguang.api.h h = cn.jiguang.d.e.a.a.a.h(o.cd().array());
+                        if (h == null) {
                             z = false;
-                        } else if (g.getCommand() != 0) {
+                        } else if (h.getCommand() != 0) {
                             z = false;
                         } else {
-                            cn.jiguang.d.e.a.f fVar = (cn.jiguang.d.e.a.f) g;
+                            cn.jiguang.d.e.a.f fVar = (cn.jiguang.d.e.a.f) h;
                             int i3 = fVar.code;
                             cn.jiguang.d.a.a.a(context, i3);
-                            d.bO().b(i3);
+                            d.bN().b(i3);
                             if (i3 == 0) {
                                 long juid = fVar.getJuid();
                                 String a4 = fVar.a();
@@ -117,11 +116,11 @@ public final class g implements Runnable {
                     }
                 }
                 if (z) {
-                    cn.jiguang.a.a.c.b.b(this.c, cn.jiguang.d.h.e.ci());
+                    cn.jiguang.a.a.c.b.b(this.c, cn.jiguang.d.h.e.ch());
                     if (cn.jiguang.d.a.a.j()) {
                         cn.jiguang.d.a.a.h();
                     }
-                    cn.jiguang.d.i.f.ck().cl().b(cn.jiguang.d.a.d.c(this.c));
+                    cn.jiguang.d.i.f.cj().ck().b(cn.jiguang.d.a.d.c(this.c));
                 } else {
                     if (cn.jiguang.d.a.a.j()) {
                         this.d.sendEmptyMessageDelayed(1001, 100L);
@@ -139,25 +138,25 @@ public final class g implements Runnable {
                         b3 = "";
                     }
                     String b4 = cn.jiguang.d.a.b(context2);
-                    cn.jiguang.d.d.e.bU();
+                    cn.jiguang.d.d.e.bT();
                     String j = cn.jiguang.d.d.e.j(SdkType.JCORE.name(), "");
                     int d = TextUtils.isEmpty(j) ? 0 : cn.jiguang.g.a.d(j);
-                    cn.jiguang.d.d.e.bU();
+                    cn.jiguang.d.d.e.bT();
                     String j2 = cn.jiguang.d.d.e.j(SdkType.JANALYTICS.name(), "");
                     int d2 = TextUtils.isEmpty(j2) ? 0 : cn.jiguang.g.a.d(j2);
-                    cn.jiguang.d.d.e.bU();
+                    cn.jiguang.d.d.e.bT();
                     String j3 = cn.jiguang.d.d.e.j(SdkType.JSHARE.name(), "");
                     int d3 = TextUtils.isEmpty(j3) ? 0 : cn.jiguang.g.a.d(j3);
-                    cn.jiguang.d.d.e.bU();
+                    cn.jiguang.d.d.e.bT();
                     String j4 = cn.jiguang.d.d.e.j(SdkType.JPUSH.name(), "");
                     int d4 = TextUtils.isEmpty(j4) ? 0 : cn.jiguang.g.a.d(j4);
-                    cn.jiguang.d.d.e.bU();
+                    cn.jiguang.d.d.e.bT();
                     String j5 = cn.jiguang.d.d.e.j(SdkType.JSSP.name(), "");
                     int d5 = TextUtils.isEmpty(j5) ? 0 : cn.jiguang.g.a.d(j5);
-                    cn.jiguang.d.h.e.ci();
+                    cn.jiguang.d.h.e.ch();
                     byte an = cn.jiguang.d.h.e.an(context2);
                     cn.jiguang.e.c.b("ConnectingHelper", "Login with - juid:" + c4 + ", appKey:" + b4 + ", sdkVersion:" + d + ", pushVersion:" + d4 + ", analyticsVersion:" + d2 + " ,shareVersion:" + d3 + ",sspSdkVer:" + d5 + ", pluginPlatformType:" + ((int) an));
-                    short d6 = cn.jiguang.d.d.i.bX().d();
+                    short d6 = cn.jiguang.d.d.i.bW().d();
                     int a5 = cn.jiguang.g.k.a(context2);
                     String i4 = cn.jiguang.g.a.i(context2);
                     cn.jiguang.a.a.b.e R = cn.jiguang.a.a.b.f.R(context2);
@@ -167,51 +166,51 @@ public final class g implements Runnable {
                     String m2 = cn.jiguang.d.a.d.m(context2);
                     long f2 = cn.jiguang.d.a.a.f();
                     long j6 = d;
-                    cn.jiguang.api.a.b bVar2 = new cn.jiguang.api.a.b(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
-                    bVar2.C(0);
-                    bVar2.B(21);
-                    bVar2.B(1);
-                    bVar2.j(f2);
-                    bVar2.i(0L);
-                    bVar2.j(c4);
-                    bVar2.B(97);
-                    bVar2.B(0);
-                    bVar2.C(0);
-                    bVar2.e(b3.getBytes());
-                    bVar2.i(d4);
-                    bVar2.i(d2);
-                    bVar2.i(d3);
-                    bVar2.i(j6);
-                    bVar2.i(d5);
-                    bVar2.e(b4.getBytes());
-                    bVar2.B(0);
-                    bVar2.B(d6);
-                    bVar2.B(an);
-                    bVar2.B(a5);
-                    bVar2.e(i4.getBytes());
-                    bVar2.e(e.getBytes());
-                    bVar2.e(upperCase.getBytes());
-                    bVar2.e(m2.getBytes());
+                    cn.jiguang.api.a.b bVar2 = new cn.jiguang.api.a.b(20480);
+                    bVar2.l(0);
+                    bVar2.k(21);
+                    bVar2.k(1);
+                    bVar2.h(f2);
+                    bVar2.g(0L);
+                    bVar2.h(c4);
+                    bVar2.k(97);
+                    bVar2.k(0);
+                    bVar2.l(0);
+                    bVar2.f(b3.getBytes());
+                    bVar2.g(d4);
+                    bVar2.g(d2);
+                    bVar2.g(d3);
+                    bVar2.g(j6);
+                    bVar2.g(d5);
+                    bVar2.f(b4.getBytes());
+                    bVar2.k(0);
+                    bVar2.k(d6);
+                    bVar2.k(an);
+                    bVar2.k(a5);
+                    bVar2.f(i4.getBytes());
+                    bVar2.f(e.getBytes());
+                    bVar2.f(upperCase.getBytes());
+                    bVar2.f(m2.getBytes());
                     bVar2.l(bVar2.current(), 0);
                     byte[] a6 = cn.jiguang.d.e.a.a.b.a(bVar2.toByteArray(), 1);
                     if (a6 == null || a6.length <= 0) {
                         i2 = -1;
-                    } else if (cn.jiguang.d.g.c.cg().ch().i(a6) != 0) {
+                    } else if (cn.jiguang.d.g.c.cf().cg().j(a6) != 0) {
                         i2 = -1;
                     } else {
-                        cn.jiguang.d.g.d F2 = cn.jiguang.d.g.c.cg().ch().F(HttpConstants.HTTP_CONNECT_TIMEOUT);
-                        if (F2.a() != 0) {
-                            cn.jiguang.e.c.c("ConnectingHelper", "Login failed - recv msg failed wit error code:" + F2.a() + ",msg:" + F2.c());
+                        cn.jiguang.d.g.d o2 = cn.jiguang.d.g.c.cf().cg().o(20000);
+                        if (o2.a() != 0) {
+                            cn.jiguang.e.c.c("ConnectingHelper", "Login failed - recv msg failed wit error code:" + o2.a() + ",msg:" + o2.c());
                             i2 = -1;
                         } else {
-                            cn.jiguang.api.h g2 = cn.jiguang.d.e.a.a.a.g(F2.ce().array());
-                            if (g2 == null) {
+                            cn.jiguang.api.h h2 = cn.jiguang.d.e.a.a.a.h(o2.cd().array());
+                            if (h2 == null) {
                                 cn.jiguang.e.c.c("ConnectingHelper", "Login failed - unknown command");
                                 i2 = -1;
-                            } else if (g2 instanceof cn.jiguang.d.e.a.e) {
-                                cn.jiguang.d.e.a.e eVar = (cn.jiguang.d.e.a.e) g2;
+                            } else if (h2 instanceof cn.jiguang.d.e.a.e) {
+                                cn.jiguang.d.e.a.e eVar = (cn.jiguang.d.e.a.e) h2;
                                 int i5 = eVar.code;
-                                d.bO().a(i5);
+                                d.bN().a(i5);
                                 if (i5 == 0) {
                                     int sid = eVar.getSid();
                                     long a7 = eVar.a() * 1000;
@@ -237,7 +236,7 @@ public final class g implements Runnable {
                     if (i2 <= 0) {
                         if (0 != a.get()) {
                             cn.jiguang.d.d.g.a(Message.obtain(this.d, 7304), a.get());
-                            if (cn.jiguang.d.d.i.bX().b(this.c)) {
+                            if (cn.jiguang.d.d.i.bW().b(this.c)) {
                                 return true;
                             }
                             cn.jiguang.e.c.a("NetworkingClient", "need not keep tcp connect,will close connection");
@@ -249,7 +248,7 @@ public final class g implements Runnable {
                     if (i2 != 108) {
                         if (i2 == 102) {
                             cn.jiguang.d.a.a.i();
-                            this.d.sendEmptyMessageDelayed(1003, 100L);
+                            this.d.sendEmptyMessageDelayed(PointerIconCompat.TYPE_HELP, 100L);
                         } else if (i2 == 1012) {
                             cn.jiguang.d.a.a.a();
                         }
@@ -267,7 +266,7 @@ public final class g implements Runnable {
     }
 
     private boolean a(Context context) {
-        cn.jiguang.d.h.e.ci().a(context);
+        cn.jiguang.d.h.e.ch().a(context);
         try {
             a.set(Thread.currentThread().getId());
             cn.jiguang.d.b.a.a.f fVar = new cn.jiguang.d.b.a.a.f(context, this, a.get());
@@ -293,14 +292,14 @@ public final class g implements Runnable {
         cn.jiguang.e.c.a("NetworkingClient", "Action - closeConnection - connection:" + a.get());
         if (0 != a.get()) {
             try {
-                lB.set(true);
+                lE.set(true);
                 a.set(0L);
-                cn.jiguang.d.g.c.cg().ch().a();
-                lB.set(false);
+                cn.jiguang.d.g.c.cf().cg().a();
+                lE.set(false);
             } catch (Exception e) {
             }
             this.f = false;
-            if (cn.jiguang.d.d.i.bX().f()) {
+            if (cn.jiguang.d.d.i.bW().f()) {
                 cn.jiguang.d.d.g.a(Message.obtain(this.d, 7301), a.get());
             }
         }
@@ -311,20 +310,20 @@ public final class g implements Runnable {
         this.e = true;
         this.f = false;
         if (a.get() != 0) {
-            cn.jiguang.d.g.c.cg().ch().a();
+            cn.jiguang.d.g.c.cf().cg().a();
         }
     }
 
     public final synchronized void b() {
         if (this.f) {
-            this.lC = Executors.newSingleThreadExecutor();
-            this.lC.execute(this);
+            this.lF = Executors.newSingleThreadExecutor();
+            this.lF.execute(this);
         }
     }
 
     public final synchronized void c() {
         a();
-        t.a(this.lC);
+        t.a(this.lF);
     }
 
     public final boolean d() {
@@ -349,17 +348,17 @@ public final class g implements Runnable {
         do {
             if (!this.e) {
                 cn.jiguang.e.c.a("NetworkingClient", "Network listening...");
-                cn.jiguang.d.g.d F = cn.jiguang.d.g.c.cg().ch().F(0);
-                if (F != null) {
-                    if (F.a() != 0) {
-                        cn.jiguang.e.c.a("NetworkingClient", " recv failed with error code:" + F.a() + ",msg:" + F.c() + ",No Break!!");
+                cn.jiguang.d.g.d o = cn.jiguang.d.g.c.cf().cg().o(0);
+                if (o != null) {
+                    if (o.a() != 0) {
+                        cn.jiguang.e.c.a("NetworkingClient", " recv failed with error code:" + o.a() + ",msg:" + o.c() + ",No Break!!");
                     } else {
-                        ByteBuffer ce = F.ce();
-                        int length = ce.array().length;
+                        ByteBuffer cd = o.cd();
+                        int length = cd.array().length;
                         byte[] bArr = new byte[length];
-                        System.arraycopy(ce.array(), 0, bArr, 0, length);
+                        System.arraycopy(cd.array(), 0, bArr, 0, length);
                         cn.jiguang.d.e.a.a.a.b(this.c, bArr);
-                        cn.jiguang.e.c.a("NetworkingClient", "Received bytes - len:" + ce.array().length + ", connection:" + a.get() + ", pkg:" + cn.jiguang.d.a.c);
+                        cn.jiguang.e.c.a("NetworkingClient", "Received bytes - len:" + cd.array().length + ", connection:" + a.get() + ", pkg:" + cn.jiguang.d.a.c);
                     }
                 }
             }

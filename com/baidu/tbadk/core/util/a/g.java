@@ -3,22 +3,23 @@ package com.baidu.tbadk.core.util.a;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class g {
-    public boolean aEw;
+    public boolean bMq;
     public boolean mIsBaiduServer = true;
-    public String aEx = "UTF-8";
+    public String bMr = HTTP.UTF_8;
     public String mUrl = null;
-    public ArrayList<BasicNameValuePair> aEt = null;
-    public boolean aEv = true;
+    public ArrayList<BasicNameValuePair> bMn = null;
+    public boolean bMp = true;
     public boolean mIsBDImage = false;
-    public HashMap<String, byte[]> aEu = null;
-    public String aEy = null;
+    public HashMap<String, byte[]> bMo = null;
+    public String bMs = null;
     public String mNetType = null;
     public String mFrom = null;
 
     public g() {
-        this.aEw = true;
-        this.aEw = true;
+        this.bMq = true;
+        this.bMq = true;
     }
 }

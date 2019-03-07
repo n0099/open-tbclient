@@ -1,7 +1,8 @@
 package com.tencent.open.a;
 
+import com.baidu.tbadk.TbConfig;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static int a = 62;
     public static int b = 60;
@@ -16,5 +17,5 @@ public class c {
     public static String k = "debug.file.keepperiod";
     public static String l = "debug.file.tracelevel";
     public static int m = 24;
-    public static long n = 604800000;
+    public static long n = TbConfig.APP_OVERDUR_DRAFT_BOX;
 }

@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.g.b;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.q;
+import com.baidu.tbadk.util.s;
 import tbclient.GetRepostRecommendForum.DataReq;
 import tbclient.GetRepostRecommendForum.GetRepostRecommendForumReqIdl;
 /* loaded from: classes3.dex */
@@ -31,7 +31,7 @@ public class GetRepostForumReqMessage extends NetMessage {
         try {
             DataReq.Builder builder = new DataReq.Builder();
             if (z) {
-                q.bindCommonParamsToProtobufData(builder, true);
+                s.bindCommonParamsToProtobufData(builder, true);
             }
             builder.title = this.threadTitle;
             builder.content = this.threadContent;

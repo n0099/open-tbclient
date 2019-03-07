@@ -1,13 +1,12 @@
 package com.airbnb.lottie.c;
 
 import android.graphics.PointF;
-import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
     public static PointF a(JSONObject jSONObject, float f) {
-        return new PointF(l(jSONObject.opt(Config.EVENT_HEAT_X)) * f, l(jSONObject.opt("y")) * f);
+        return new PointF(l(jSONObject.opt("x")) * f, l(jSONObject.opt("y")) * f);
     }
 
     public static PointF a(JSONArray jSONArray, float f) {

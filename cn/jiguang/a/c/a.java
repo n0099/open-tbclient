@@ -8,9 +8,7 @@ import cn.jiguang.api.h;
 import cn.jiguang.d.h.e;
 import cn.jiguang.d.i.f;
 import cn.jiguang.g.i;
-import com.baidu.ar.audio.AudioParams;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.searchbox.ng.ai.apps.system.bluetooth.utils.AiAppsBluetoothConstants;
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.Serializable;
 import org.json.JSONArray;
@@ -27,15 +25,15 @@ public final class a {
             } catch (JSONException e) {
             }
             if (jSONObject2 == null) {
-                e.ci().a(context);
-                jSONObject = cn.jiguang.a.a.c.b.a(context, e.ci());
+                e.ch().a(context);
+                jSONObject = cn.jiguang.a.a.c.b.a(context, e.ch());
             } else {
                 jSONObject = jSONObject2;
             }
             try {
-                e.ci();
+                e.ch();
                 byte an = e.an(context);
-                e.ci();
+                e.ch();
                 String d = e.d(context);
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("rom_type", (int) an);
@@ -81,7 +79,7 @@ public final class a {
                         break;
                     case 5:
                         Context context = cn.jiguang.d.a.d;
-                        a(cn.jiguang.d.b.d.bO().bP());
+                        a(cn.jiguang.d.b.d.bN().bO());
                         break;
                     case 6:
                         break;
@@ -114,17 +112,17 @@ public final class a {
         long c2 = cn.jiguang.d.a.d.c(null);
         long f = cn.jiguang.d.a.a.f();
         int a3 = cn.jiguang.d.a.d.a();
-        cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
-        bVar.C(0);
-        bVar.B(1);
-        bVar.B(25);
-        bVar.j(f);
-        bVar.i(a3);
-        bVar.j(c2);
-        bVar.C(0);
-        bVar.j(a);
+        cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(20480);
+        bVar.l(0);
+        bVar.k(1);
+        bVar.k(25);
+        bVar.h(f);
+        bVar.g(a3);
+        bVar.h(c2);
+        bVar.l(0);
+        bVar.h(a);
         if (a2 != null) {
-            bVar.e(a2.getBytes());
+            bVar.f(a2.getBytes());
         }
         bVar.l(bVar.current(), 0);
         byte[] a4 = cn.jiguang.d.e.a.a.b.a(bVar.toByteArray(), 1);
@@ -132,7 +130,7 @@ public final class a {
             cn.jiguang.e.c.c("CtrlMessageProcessor", "reportCtrlReceived to report received failed - " + a);
             c = 65535;
         } else {
-            if (cn.jiguang.d.g.c.cg().ch().i(a4) != 0) {
+            if (cn.jiguang.d.g.c.cf().cg().j(a4) != 0) {
                 cn.jiguang.e.c.c("CtrlMessageProcessor", "Failed to report received - " + a);
             }
             c = 0;
@@ -202,7 +200,7 @@ public final class a {
             if (jSONObject.has("content")) {
                 jSONObject = jSONObject.getJSONObject("content");
             }
-            long j = jSONObject.getLong(AiAppsBluetoothConstants.KEY_INTERVAL);
+            long j = jSONObject.getLong("interval");
             if (j < 0) {
                 cn.jiguang.d.a.d.a(context, "app_running_collect_enable", false);
                 return;
@@ -224,13 +222,13 @@ public final class a {
 
     private static void b(Context context, JSONObject jSONObject) {
         try {
-            int optInt = jSONObject.getJSONObject("content").optInt("state", -1);
+            int optInt = jSONObject.getJSONObject("content").optInt(WXLoginActivity.KEY_BASE_RESP_STATE, -1);
             if (optInt != -1) {
                 if (optInt == 0) {
                     cn.jiguang.d.a.d.b(context, optInt);
                 } else if (optInt == 1) {
                     cn.jiguang.d.a.d.b(context, optInt);
-                    cn.jiguang.d.f.a.cf().a(context, cn.jiguang.api.e.getUid());
+                    cn.jiguang.d.f.a.ce().a(context, cn.jiguang.api.e.getUid());
                     cn.jiguang.d.f.a.a(context, context.getPackageName());
                 }
             }
@@ -240,7 +238,7 @@ public final class a {
 
     private static void c(Context context, JSONObject jSONObject) {
         try {
-            long optLong = jSONObject.getJSONObject("content").optLong(AiAppsBluetoothConstants.KEY_INTERVAL, 0L);
+            long optLong = jSONObject.getJSONObject("content").optLong("interval", 0L);
             if (optLong <= 0 || optLong > cn.jiguang.a.b.a.a(context) / 1000) {
                 return;
             }
@@ -254,7 +252,7 @@ public final class a {
         try {
             JSONObject jSONObject2 = jSONObject.getJSONObject("content");
             int optInt = jSONObject2.optInt("type");
-            cn.jiguang.d.i.h cm = f.ck().cm();
+            cn.jiguang.d.i.h cl = f.cj().cl();
             switch (optInt) {
                 case 1:
                     String optString = jSONObject2.optString("pkgName");
@@ -262,7 +260,7 @@ public final class a {
                     cn.jiguang.d.d.a aVar = new cn.jiguang.d.d.a();
                     aVar.a = optString;
                     aVar.b = optString2;
-                    cm.a(context, aVar);
+                    cl.a(context, aVar);
                     break;
                 case 2:
                     String optString3 = jSONObject2.optString("pkgName");
@@ -270,7 +268,7 @@ public final class a {
                     cn.jiguang.d.d.a aVar2 = new cn.jiguang.d.d.a();
                     aVar2.a = optString3;
                     aVar2.b = optString4;
-                    cm.b(context, aVar2);
+                    cl.b(context, aVar2);
                     break;
             }
         } catch (SecurityException e) {
@@ -284,7 +282,7 @@ public final class a {
             JSONObject jSONObject2 = jSONObject.getJSONObject("content");
             boolean optBoolean = jSONObject2.optBoolean("uploadnumber", false);
             String optString = jSONObject2.optString("version", "");
-            String optString2 = jSONObject2.optString(HttpConstants.HTTP_APP_ID, "");
+            String optString2 = jSONObject2.optString("app_id", "");
             String optString3 = jSONObject2.optString("app_secret", "");
             JSONArray optJSONArray = jSONObject2.optJSONArray("carriers");
             if (optJSONArray != null) {

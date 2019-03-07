@@ -30,11 +30,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.baidu.ar.base.MsgField;
-import com.baidu.ar.parser.ARResourceKey;
-import com.baidu.searchbox.ng.ai.apps.core.container.NgWebView;
-import com.baidu.searchbox.ng.ai.apps.network.AiAppNetworkUtils;
-import com.baidu.webkit.internal.ETAG;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import com.tencent.connect.auth.b;
 import com.tencent.connect.common.Constants;
@@ -51,7 +46,7 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a extends Dialog {
     private String a;
     private b b;
@@ -122,7 +117,7 @@ public class a extends Dialog {
         super.onStop();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     private class c extends Handler {
         private b b;
 
@@ -149,7 +144,7 @@ public class a extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     private class b implements IUiListener {
         String a;
         String b;
@@ -176,7 +171,7 @@ public class a extends Dialog {
         @Override // com.tencent.tauth.IUiListener
         public void onComplete(Object obj) {
             JSONObject jSONObject = (JSONObject) obj;
-            g.a().a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(ARResourceKey.HTTP_RET, -6), this.a, false);
+            g.a().a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt("ret", -6), this.a, false);
             if (this.e != null) {
                 this.e.onComplete(jSONObject);
                 this.e = null;
@@ -214,9 +209,9 @@ public class a extends Dialog {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C0375a extends WebViewClient {
-        private C0375a() {
+    /* loaded from: classes3.dex */
+    public class C0350a extends WebViewClient {
+        private C0350a() {
         }
 
         @Override // android.webkit.WebViewClient
@@ -230,7 +225,7 @@ public class a extends Dialog {
                     if (c.optString("fail_cb", null) != null) {
                         a.this.a(c.optString("fail_cb"), "");
                     } else if (c.optInt("fall_to_wv") == 1) {
-                        a.a(a.this, (Object) (a.this.a.indexOf("?") > -1 ? ETAG.ITEM_SEPARATOR : "?"));
+                        a.a(a.this, (Object) (a.this.a.indexOf("?") > -1 ? "&" : "?"));
                         a.a(a.this, (Object) "browser_error=1");
                         a.this.j.loadUrl(a.this.a);
                     } else {
@@ -359,11 +354,10 @@ public class a extends Dialog {
         @TargetApi(8)
         public void onReceivedSslError(WebView webView, final SslErrorHandler sslErrorHandler, SslError sslError) {
             f.e("openSDK_LOG.AuthDialog", "-->onReceivedSslError " + sslError.getPrimaryError() + "请求不合法，请检查手机安全设置，如系统时间、代理等");
-            String language = Locale.getDefault().getLanguage();
             String str = "The SSL certificate is invalid,do you countinue?";
             String str2 = "yes";
-            String str3 = AiAppNetworkUtils.NETWORK_TYPE_CELL_UN_CONNECTED;
-            if (language.equals("zh")) {
+            String str3 = "no";
+            if (Locale.getDefault().getLanguage().equals("zh")) {
                 str = "ssl证书无效，是否继续访问？";
                 str2 = "是";
                 str3 = "否";
@@ -387,7 +381,7 @@ public class a extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     class d implements Runnable {
         String a;
 
@@ -400,7 +394,7 @@ public class a extends Dialog {
         public void run() {
             f.a("openSDK_LOG.AuthDialog", "-->timeoutUrl: " + this.a + " | mRetryUrl: " + a.this.o);
             if (this.a.equals(a.this.o)) {
-                a.this.b.onError(new UiError(MsgField.MSG_STAT_FIRST_LOAD_FILE_MANAGE_FAILURE, "请求页面超时，请稍后重试！", a.this.o));
+                a.this.b.onError(new UiError(9002, "请求页面超时，请稍后重试！", a.this.o));
                 a.this.dismiss();
             }
         }
@@ -471,7 +465,7 @@ public class a extends Dialog {
     private void d() {
         this.j.setVerticalScrollBarEnabled(false);
         this.j.setHorizontalScrollBarEnabled(false);
-        this.j.setWebViewClient(new C0375a());
+        this.j.setWebViewClient(new C0350a());
         this.j.setWebChromeClient(new WebChromeClient());
         this.j.clearFormData();
         this.j.clearSslPreferences();
@@ -507,7 +501,7 @@ public class a extends Dialog {
         settings.setRenderPriority(WebSettings.RenderPriority.HIGH);
         settings.setJavaScriptEnabled(true);
         settings.setDatabaseEnabled(true);
-        settings.setDatabasePath(this.k.getDir(NgWebView.APP_DATABASE_PATH, 0).getPath());
+        settings.setDatabasePath(this.k.getDir("databases", 0).getPath());
         settings.setDomStorageEnabled(true);
         f.a("openSDK_LOG.AuthDialog", "-->mUrl : " + this.a);
         this.o = this.a;

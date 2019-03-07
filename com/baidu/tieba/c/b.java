@@ -5,48 +5,54 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.aq;
 import com.baidu.tbadk.core.view.MessageRedDotView;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class b {
-    private ImageView dhs;
-    private MessageRedDotView dht;
-    private int dhu = e.f.icon_topbar_remind_n_svg;
-    private int dhv = e.d.select_topbar_icon_color_tint;
+    private ImageView ers;
+    private MessageRedDotView ert;
+    private int eru = d.f.icon_topbar_remind_n_svg;
+    private int erv = d.C0236d.select_topbar_icon_color_tint;
     private Context mContext;
     private View mRootView;
 
     public b(Context context) {
         this.mContext = context;
-        this.mRootView = LayoutInflater.from(this.mContext).inflate(e.h.widget_message_entrance, (ViewGroup) null);
-        this.dhs = (ImageView) this.mRootView.findViewById(e.g.img_message);
-        this.dht = (MessageRedDotView) this.mRootView.findViewById(e.g.img_red_tip);
+        this.mRootView = LayoutInflater.from(this.mContext).inflate(d.h.widget_message_entrance, (ViewGroup) null);
+        this.ers = (ImageView) this.mRootView.findViewById(d.g.img_message);
+        this.ert = (MessageRedDotView) this.mRootView.findViewById(d.g.img_red_tip);
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    public ImageView asr() {
-        return this.dhs;
+    public ImageView aSj() {
+        return this.ers;
     }
 
-    public void h(boolean z, int i) {
+    public void l(boolean z, int i) {
         if (z) {
-            this.dht.refresh(i);
-            this.dht.setVisibility(0);
+            this.ert.refresh(i);
+            this.ert.setVisibility(0);
             return;
         }
-        this.dht.setVisibility(8);
+        this.ert.setVisibility(8);
     }
 
     public void onChangeSkinType(int i) {
-        this.dht.onChangeSkinType();
-        ap.Ed().c(this.dhs, this.dhu, this.dhv);
+        this.ert.onChangeSkinType();
+        aq.ado().d(this.ers, this.eru, this.erv);
     }
 
-    public void lf(int i) {
-        this.dhv = i;
+    public void oH(int i) {
+        this.erv = i;
+    }
+
+    public void setVisibility(int i) {
+        if (this.mRootView != null) {
+            this.mRootView.setVisibility(i);
+        }
     }
 }

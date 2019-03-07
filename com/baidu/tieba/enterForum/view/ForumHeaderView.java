@@ -4,24 +4,29 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.e;
+import com.baidu.tbadk.core.util.am;
+import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
-public class ForumHeaderView extends LinearLayout {
-    private ViewEventCenter drf;
-    private TextView dtQ;
-    private ImageView dtR;
-    private LinearLayout dtZ;
+public class ForumHeaderView extends LinearLayout implements View.OnClickListener {
+    private LinearLayout eGU;
+    private TextView eGV;
+    private ImageView eGW;
 
     public ForumHeaderView(Context context) {
-        this(context, null);
+        super(context);
+        init();
     }
 
     public ForumHeaderView(Context context, AttributeSet attributeSet) {
@@ -29,43 +34,44 @@ public class ForumHeaderView extends LinearLayout {
         init();
     }
 
-    public void setEventCenter(ViewEventCenter viewEventCenter) {
-        this.drf = viewEventCenter;
+    public ForumHeaderView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        init();
     }
 
     public void init() {
-        LayoutInflater.from(getContext()).inflate(e.h.layout_enterforum_search, this);
         setOrientation(1);
+        LayoutInflater.from(getContext()).inflate(d.h.layout_enterforum_search, (ViewGroup) this, true);
+        this.eGU = (LinearLayout) findViewById(d.g.search_container);
+        this.eGV = (TextView) findViewById(d.g.search_text);
+        this.eGW = (ImageView) findViewById(d.g.search_icon);
         setDescendantFocusability(262144);
-        this.dtZ = (LinearLayout) findViewById(e.g.search_container);
-        this.dtZ.setVisibility(0);
-        this.dtZ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.ForumHeaderView.1
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                if (ForumHeaderView.this.drf != null) {
-                    TiebaStatic.log("c10362");
-                    ForumHeaderView.this.drf.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(7, null, null, null));
-                }
-            }
-        });
-        this.dtQ = (TextView) findViewById(e.g.search_text);
-        this.dtR = (ImageView) findViewById(e.g.search_icon);
+        this.eGU.setOnClickListener(this);
     }
 
-    public void onChangeSkinType(TbPageContext<?> tbPageContext) {
-        com.baidu.tbadk.o.a.a(tbPageContext, this);
-        al.c(this.dtR, e.f.icon_input_search);
-        al.h(this.dtQ, e.d.cp_cont_d);
-        al.j(this.dtZ, e.d.cp_bg_line_e);
+    @Override // android.widget.LinearLayout, android.view.View
+    protected void onMeasure(int i, int i2) {
+        super.onMeasure(View.MeasureSpec.makeMeasureSpec(l.aO(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(l.h(getContext(), d.e.tbds140), 1073741824));
     }
 
-    public void lF(int i) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.dtZ.getLayoutParams();
-        layoutParams.topMargin = i;
-        this.dtZ.setLayoutParams(layoutParams);
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (!TbadkCoreApplication.isLogin()) {
+            TiebaStatic.eventStat(getContext(), "notlogin_8", "click", 1, new Object[0]);
+        }
+        TiebaStatic.log(new am("c13367").bJ("obj_location", "1"));
+        if (com.baidu.tbadk.plugins.c.ay(getContext(), "com.baidu.tieba.pluginCore")) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(getContext())));
+        }
     }
 
     public void setSearchHint(String str) {
-        this.dtQ.setText(UtilHelper.getFixedText(str, 20));
+        this.eGV.setText(UtilHelper.getFixedText(str, 20));
+    }
+
+    public void onChangeSkinType() {
+        al.c(this.eGW, d.f.icon_ba_search_n);
+        al.j(this.eGV, d.C0236d.cp_cont_d);
+        al.k(this.eGU, d.f.enter_forum_search_bg);
     }
 }

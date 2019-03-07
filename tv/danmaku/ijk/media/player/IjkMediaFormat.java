@@ -1,11 +1,12 @@
 package tv.danmaku.ijk.media.player;
 
 import android.text.TextUtils;
+import com.baidu.sapi2.base.network.Apn;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class IjkMediaFormat implements IMediaFormat {
     public static final String CODEC_NAME_H264 = "h264";
     public static final String KEY_IJK_BIT_RATE_UI = "ijk-bit-rate-ui";
@@ -137,7 +138,7 @@ public class IjkMediaFormat implements IMediaFormat {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static abstract class Formatter {
         protected abstract String doFormat(IjkMediaFormat ijkMediaFormat);
 
@@ -153,7 +154,7 @@ public class IjkMediaFormat implements IMediaFormat {
         }
 
         protected String getDefaultString() {
-            return "N/A";
+            return Apn.APN_UNKNOWN;
         }
     }
 }

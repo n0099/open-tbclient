@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.MPushMessage;
@@ -16,6 +15,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
 import java.util.Map;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class a extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
@@ -115,7 +115,7 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
             if (messageV3.getParamsMap() != null) {
                 for (Map.Entry<String, String> entry2 : messageV3.getParamsMap().entrySet()) {
                     com.meizu.cloud.a.a.i("AbstractMessageHandler", " key " + entry2.getKey() + " value " + entry2.getValue());
-                    String str2 = (TextUtils.isEmpty(entry2.getKey()) || TextUtils.isEmpty(entry2.getValue())) ? str : str + "S." + entry2.getKey() + ETAG.EQUAL + b(entry2.getValue()) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
+                    String str2 = (TextUtils.isEmpty(entry2.getKey()) || TextUtils.isEmpty(entry2.getValue())) ? str : str + "S." + entry2.getKey() + "=" + b(entry2.getValue()) + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
                     com.meizu.cloud.a.a.i("AbstractMessageHandler", "paramValue " + str2);
                     str = str2;
                 }
@@ -148,7 +148,7 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
 
     private String b(String str) {
         try {
-            str = URLEncoder.encode(str, "UTF-8");
+            str = URLEncoder.encode(str, HTTP.UTF_8);
         } catch (UnsupportedEncodingException e) {
             com.meizu.cloud.a.a.i("AbstractMessageHandler", "encode url fail");
         }

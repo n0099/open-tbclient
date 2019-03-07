@@ -5,30 +5,19 @@ import java.util.concurrent.atomic.AtomicReference;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
-    public static final class a {
-        static final OperatorOnBackpressureLatest<Object> iKP = new OperatorOnBackpressureLatest<>();
-    }
-
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
         return call((rx.j) ((rx.j) obj));
     }
 
-    public static <T> OperatorOnBackpressureLatest<T> cfk() {
-        return (OperatorOnBackpressureLatest<T>) a.iKP;
-    }
-
     public rx.j<? super T> call(rx.j<? super T> jVar) {
         LatestEmitter latestEmitter = new LatestEmitter(jVar);
-        b<? super T> bVar = new b<>(latestEmitter);
-        latestEmitter.parent = bVar;
-        jVar.add(bVar);
+        a<? super T> aVar = new a<>(latestEmitter);
+        latestEmitter.parent = aVar;
+        jVar.add(aVar);
         jVar.add(latestEmitter);
         jVar.setProducer(latestEmitter);
-        return bVar;
+        return aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -41,7 +30,7 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
         volatile boolean done;
         boolean emitting;
         boolean missed;
-        b<? super T> parent;
+        a<? super T> parent;
         Throwable terminal;
         final AtomicReference<Object> value = new AtomicReference<>(EMPTY);
 
@@ -71,7 +60,7 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
                     }
                 } while (!compareAndSet(j2, j3));
                 if (j2 == NOT_REQUESTED) {
-                    this.parent.dH(Long.MAX_VALUE);
+                    this.parent.ek(Long.MAX_VALUE);
                 }
                 emit();
             }
@@ -201,11 +190,11 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public static final class b<T> extends rx.j<T> {
-        private final LatestEmitter<T> iKQ;
+    public static final class a<T> extends rx.j<T> {
+        private final LatestEmitter<T> jXX;
 
-        b(LatestEmitter<T> latestEmitter) {
-            this.iKQ = latestEmitter;
+        a(LatestEmitter<T> latestEmitter) {
+            this.jXX = latestEmitter;
         }
 
         @Override // rx.j
@@ -215,20 +204,20 @@ public final class OperatorOnBackpressureLatest<T> implements d.b<T, T> {
 
         @Override // rx.e
         public void onNext(T t) {
-            this.iKQ.onNext(t);
+            this.jXX.onNext(t);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            this.iKQ.onError(th);
+            this.jXX.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            this.iKQ.onCompleted();
+            this.jXX.onCompleted();
         }
 
-        void dH(long j) {
+        void ek(long j) {
             request(j);
         }
     }

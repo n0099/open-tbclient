@@ -3,7 +3,7 @@ package com.baidu.tieba.imageProblem.cdnOptimize;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class TbCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessage {
     public TbCdnIpListData ipListData;
 

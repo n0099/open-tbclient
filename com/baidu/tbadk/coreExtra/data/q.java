@@ -3,31 +3,31 @@ package com.baidu.tbadk.coreExtra.data;
 import android.support.v7.widget.ActivityChooserView;
 /* loaded from: classes.dex */
 public class q {
-    private int aOJ;
-    private int aOK;
-    private int aOL;
+    private int bXh;
+    private int bXi;
+    private int bXj;
 
-    public int Hc() {
-        return this.aOJ == 0 ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : this.aOJ;
+    public int agv() {
+        return this.bXh == 0 ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : this.bXh;
     }
 
-    public void gS(String str) {
-        this.aOJ = com.baidu.adp.lib.g.b.l(str, 0);
+    public void nE(String str) {
+        this.bXh = com.baidu.adp.lib.g.b.l(str, 0);
     }
 
-    public int Hd() {
-        return this.aOK;
+    public int agw() {
+        return this.bXi;
     }
 
-    public void gT(String str) {
-        this.aOK = com.baidu.adp.lib.g.b.l(str, 0);
+    public void nF(String str) {
+        this.bXi = com.baidu.adp.lib.g.b.l(str, 0);
     }
 
-    public int He() {
-        return this.aOL;
+    public int agx() {
+        return this.bXj;
     }
 
-    public void gU(String str) {
-        this.aOL = com.baidu.adp.lib.g.b.l(str, 0);
+    public void nG(String str) {
+        this.bXj = com.baidu.adp.lib.g.b.l(str, 0);
     }
 }

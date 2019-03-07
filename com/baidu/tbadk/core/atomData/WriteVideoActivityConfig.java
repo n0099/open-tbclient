@@ -14,6 +14,7 @@ public class WriteVideoActivityConfig extends IntentConfig {
     public static final String FORUM_VIDEO_TITLE = "forum_video_title";
     public static final String FROM_TYPE = "from_type";
     public static final String KEY_CALL_FROM = "KEY_CALL_FROM";
+    public static final String KEY_PRO_ZONE = "pro_zone";
     public static final String VIDEO_INFO = "video_info";
     public static final String VIDEO_TITLE = "video_title";
 
@@ -38,5 +39,9 @@ public class WriteVideoActivityConfig extends IntentConfig {
 
     public void addFromType(String str) {
         getIntent().putExtra("from_type", str);
+    }
+
+    public void setProZone(int i) {
+        getIntent().putExtra("pro_zone", i);
     }
 }

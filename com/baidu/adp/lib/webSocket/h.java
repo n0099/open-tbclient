@@ -20,7 +20,7 @@ public class h {
     private i Hu = null;
     private ArrayList<g.a> Hv = new ArrayList<>();
 
-    public static h lE() {
+    public static h lJ() {
         if (Hp == null) {
             synchronized (h.class) {
                 if (Hp == null) {
@@ -52,10 +52,10 @@ public class h {
             }
 
             @Override // com.baidu.adp.lib.webSocket.g.a
-            public void w(byte[] bArr) {
+            public void x(byte[] bArr) {
                 Iterator it = h.this.Hv.iterator();
                 while (it.hasNext()) {
-                    ((g.a) it.next()).w(bArr);
+                    ((g.a) it.next()).x(bArr);
                 }
             }
 
@@ -93,39 +93,39 @@ public class h {
             }
 
             @Override // com.baidu.adp.lib.webSocket.g.a
-            public void lD() {
+            public void lI() {
                 Iterator it = h.this.Hv.iterator();
                 while (it.hasNext()) {
-                    ((g.a) it.next()).lD();
+                    ((g.a) it.next()).lI();
                 }
             }
 
             @Override // com.baidu.adp.lib.webSocket.g.a
             public void b(c cVar) {
                 if (cVar != null) {
-                    cVar.gA();
+                    cVar.gx();
                 }
             }
 
             @Override // com.baidu.adp.lib.webSocket.g.a
             public void a(int i, c cVar) {
                 if (cVar != null) {
-                    cVar.af(i);
+                    cVar.O(i);
                 }
             }
 
             @Override // com.baidu.adp.lib.webSocket.g.a
             public void c(c cVar) {
                 if (cVar != null) {
-                    cVar.gB();
+                    cVar.gy();
                 }
             }
         };
     }
 
-    public boolean lF() {
+    public boolean lK() {
         if (isDebug()) {
-            com.baidu.adp.lib.util.l.lj();
+            com.baidu.adp.lib.util.l.lm();
         }
         if (this.Hu != null) {
             if (this.Hu.isConnecting() || this.Hu.isOpen()) {
@@ -160,23 +160,23 @@ public class h {
         }
     }
 
-    public boolean lG() {
+    public boolean lL() {
         if (isDebug()) {
-            com.baidu.adp.lib.util.l.lj();
+            com.baidu.adp.lib.util.l.lm();
         }
-        return (this.Hu == null || !this.Hu.isOpen() || this.Hu.lO()) ? false : true;
+        return (this.Hu == null || !this.Hu.isOpen() || this.Hu.lT()) ? false : true;
     }
 
-    public boolean lH() {
+    public boolean lM() {
         if (isDebug()) {
-            com.baidu.adp.lib.util.l.lj();
+            com.baidu.adp.lib.util.l.lm();
         }
         return this.Hu != null && this.Hu.isOpen();
     }
 
     public boolean isConnecting() {
         if (isDebug()) {
-            com.baidu.adp.lib.util.l.lj();
+            com.baidu.adp.lib.util.l.lm();
         }
         return this.Hu != null && this.Hu.isConnecting();
     }
@@ -185,11 +185,11 @@ public class h {
         boolean z = false;
         synchronized (this) {
             if (cVar != null) {
-                com.baidu.adp.lib.util.l.lj();
+                com.baidu.adp.lib.util.l.lm();
                 if (this.Hu != null) {
                     z = this.Hu.sendMessage(cVar);
                 } else if (cVar != null) {
-                    cVar.af(1);
+                    cVar.O(1);
                 }
             }
         }
@@ -211,9 +211,9 @@ public class h {
         return BdBaseApplication.getInst().isDebugMode();
     }
 
-    public void lI() {
+    public void lN() {
         if (this.Hu != null) {
-            this.Hu.lI();
+            this.Hu.lN();
         }
     }
 
@@ -224,9 +224,9 @@ public class h {
         return -1L;
     }
 
-    public void lJ() {
+    public void lO() {
         if (this.Hu != null) {
-            this.Hu.lJ();
+            this.Hu.lO();
         }
     }
 
@@ -237,37 +237,37 @@ public class h {
         return -1L;
     }
 
-    public long lB() {
+    public long lG() {
         if (this.Hu != null) {
-            return this.Hu.lP();
+            return this.Hu.lU();
         }
         return -1L;
     }
 
-    public String lA() {
+    public String lF() {
         if (this.Hu != null) {
-            return this.Hu.lQ();
+            return this.Hu.lV();
         }
         return null;
     }
 
-    public long lK() {
+    public long lP() {
         if (this.Hu != null) {
-            return this.Hu.lR();
+            return this.Hu.lW();
         }
         return -1L;
     }
 
-    public String getLocalDns() {
+    public String lp() {
         if (this.Hu != null) {
-            return this.Hu.getLocalDns();
+            return this.Hu.lp();
         }
         return null;
     }
 
-    public String lm() {
+    public String lq() {
         if (this.Hu != null) {
-            return this.Hu.lm();
+            return this.Hu.lq();
         }
         return null;
     }

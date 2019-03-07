@@ -10,81 +10,81 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.QuickPlayer.IQuickMediaPlayerService;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class d {
-    private static d byn;
-    private IQuickMediaPlayerService byp;
-    private Set<b> byr;
-    private Set<b> bys;
-    private Set<b> byt;
-    private boolean byu;
-    private a byv;
+    private static d cJv;
+    private Set<b> cJA;
+    private Set<b> cJB;
+    private boolean cJC;
+    private a cJD;
+    private IQuickMediaPlayerService cJx;
+    private Set<b> cJz;
     private Context mContext = TbadkCoreApplication.getInst();
-    private boolean byo = false;
-    private boolean byq = false;
+    private boolean cJw = false;
+    private boolean cJy = false;
     private ServiceConnection mServiceConnection = new ServiceConnection() { // from class: com.baidu.tieba.QuickPlayer.d.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            d.this.byo = true;
-            com.baidu.adp.lib.g.e.jG().removeCallbacks(d.this.byw);
-            d.this.byp = IQuickMediaPlayerService.Stub.asInterface(iBinder);
-            if (d.this.byq) {
-                d.this.byq = false;
-                d.this.Vf();
+            d.this.cJw = true;
+            com.baidu.adp.lib.g.e.jH().removeCallbacks(d.this.cJE);
+            d.this.cJx = IQuickMediaPlayerService.Stub.asInterface(iBinder);
+            if (d.this.cJy) {
+                d.this.cJy = false;
+                d.this.ave();
             }
-            if (d.this.byv != null) {
-                d.this.byv.a(d.this.byp);
+            if (d.this.cJD != null) {
+                d.this.cJD.a(d.this.cJx);
             }
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceDisconnected(ComponentName componentName) {
-            d.this.byo = false;
-            d.this.byq = true;
-            com.baidu.adp.lib.g.e.jG().postDelayed(d.this.byw, 1000L);
+            d.this.cJw = false;
+            d.this.cJy = true;
+            com.baidu.adp.lib.g.e.jH().postDelayed(d.this.cJE, 1000L);
         }
     };
-    private Runnable byw = new Runnable() { // from class: com.baidu.tieba.QuickPlayer.d.2
+    private Runnable cJE = new Runnable() { // from class: com.baidu.tieba.QuickPlayer.d.2
         @Override // java.lang.Runnable
         public void run() {
-            if (!d.this.byo) {
-                d.this.Ve();
-                com.baidu.adp.lib.g.e.jG().postDelayed(d.this.byw, 1000L);
+            if (!d.this.cJw) {
+                d.this.avd();
+                com.baidu.adp.lib.g.e.jH().postDelayed(d.this.cJE, 1000L);
             }
         }
     };
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(IQuickMediaPlayerService iQuickMediaPlayerService);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
-        void Vg();
+        void avf();
     }
 
     private d() {
-        Ve();
-        com.baidu.adp.lib.g.e.jG().postDelayed(this.byw, 1000L);
-        this.byr = new HashSet();
-        this.bys = new HashSet();
-        this.byt = new HashSet();
+        avd();
+        com.baidu.adp.lib.g.e.jH().postDelayed(this.cJE, 1000L);
+        this.cJz = new HashSet();
+        this.cJA = new HashSet();
+        this.cJB = new HashSet();
     }
 
-    public static d Vd() {
-        if (byn == null) {
+    public static d avc() {
+        if (cJv == null) {
             synchronized (d.class) {
-                if (byn == null) {
-                    byn = new d();
+                if (cJv == null) {
+                    cJv = new d();
                 }
             }
         }
-        return byn;
+        return cJv;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ve() {
+    public void avd() {
         try {
             this.mContext.bindService(new Intent(this.mContext, QuickMediaPlayerService.class), this.mServiceConnection, 1);
         } catch (Exception e) {
@@ -93,50 +93,50 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Vf() {
-        this.byu = true;
-        for (b bVar : this.byr) {
+    public void ave() {
+        this.cJC = true;
+        for (b bVar : this.cJz) {
             if (bVar != null) {
-                bVar.Vg();
+                bVar.avf();
             }
         }
-        this.byu = false;
-        this.byr.addAll(this.byt);
-        this.byt.clear();
-        this.byr.removeAll(this.bys);
-        this.bys.clear();
+        this.cJC = false;
+        this.cJz.addAll(this.cJB);
+        this.cJB.clear();
+        this.cJz.removeAll(this.cJA);
+        this.cJA.clear();
     }
 
     public IQuickMediaPlayer createPlayer() {
-        if (this.byo && this.byp != null) {
+        if (this.cJw && this.cJx != null) {
             try {
-                return this.byp.createPlayer();
+                return this.cJx.createPlayer();
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
         } else {
-            com.baidu.adp.lib.g.e.jG().postDelayed(this.byw, 1000L);
+            com.baidu.adp.lib.g.e.jH().postDelayed(this.cJE, 1000L);
         }
         return null;
     }
 
     public void a(a aVar) {
-        this.byv = aVar;
+        this.cJD = aVar;
     }
 
     public void a(b bVar) {
-        if (this.byu) {
-            this.byt.add(bVar);
+        if (this.cJC) {
+            this.cJB.add(bVar);
         } else {
-            this.byr.add(bVar);
+            this.cJz.add(bVar);
         }
     }
 
     public void b(b bVar) {
-        if (this.byu) {
-            this.byt.remove(bVar);
+        if (this.cJC) {
+            this.cJB.remove(bVar);
         } else {
-            this.byr.remove(bVar);
+            this.cJz.remove(bVar);
         }
     }
 }

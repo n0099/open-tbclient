@@ -3,11 +3,12 @@ package com.baidu.crabsdk.b;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-/* loaded from: classes6.dex */
+import com.baidu.sapi2.base.network.Apn;
+/* loaded from: classes3.dex */
 public final class o {
-    private static PackageManager Yv;
-    private static PackageInfo Yw;
-    private static String Yx;
+    private static PackageManager abX;
+    private static PackageInfo abY;
+    private static String abZ;
     private static Context mContext;
 
     public static String G() {
@@ -15,32 +16,32 @@ public final class o {
     }
 
     public static String H() {
-        if (Yx == null) {
-            if (Yw == null) {
-                return "N/A";
+        if (abZ == null) {
+            if (abY == null) {
+                return Apn.APN_UNKNOWN;
             }
-            Yx = Yw.applicationInfo.loadLabel(Yv).toString();
+            abZ = abY.applicationInfo.loadLabel(abX).toString();
         }
-        return Yx;
+        return abZ;
     }
 
     public static String I() {
-        return Yw == null ? "N/A" : Yw.versionName;
+        return abY == null ? Apn.APN_UNKNOWN : abY.versionName;
     }
 
     public static int J() {
-        if (Yw == null) {
+        if (abY == null) {
             return 0;
         }
-        return Yw.versionCode;
+        return abY.versionCode;
     }
 
     public static void d(Context context) {
         if (mContext == null) {
             mContext = context;
-            Yv = context.getPackageManager();
+            abX = context.getPackageManager();
             try {
-                Yw = Yv.getPackageInfo(mContext.getPackageName(), 0);
+                abY = abX.getPackageInfo(mContext.getPackageName(), 0);
             } catch (PackageManager.NameNotFoundException e) {
                 com.baidu.crabsdk.c.a.f("PackageCollector.init fail.", e);
             }

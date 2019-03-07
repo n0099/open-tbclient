@@ -2,20 +2,20 @@ package com.baidu.tieba.frs;
 
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class m implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId dOe = BdUniqueId.gen();
-    private int dOf;
+public class m implements com.baidu.adp.widget.ListView.m {
+    public static final BdUniqueId fbK = BdUniqueId.gen();
+    private int fbL;
 
-    public int aDm() {
-        return this.dOf;
+    public int bdV() {
+        return this.fbL;
     }
 
-    public void mw(int i) {
-        this.dOf = i;
+    public void qi(int i) {
+        this.fbL = i;
     }
 
-    @Override // com.baidu.adp.widget.ListView.h
+    @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return dOe;
+        return fbK;
     }
 }

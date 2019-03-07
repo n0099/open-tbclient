@@ -30,6 +30,7 @@ import android.support.v4.app.NotificationCompatJellybean;
 import android.support.v4.app.NotificationCompatKitKat;
 import android.support.v4.app.RemoteInputCompatBase;
 import android.support.v4.text.BidiFormatter;
+import android.support.v4.view.ViewCompat;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.TextAppearanceSpan;
@@ -835,8 +836,8 @@ public class NotificationCompat {
         }
 
         protected static CharSequence limitCharSequenceLength(CharSequence charSequence) {
-            if (charSequence != null && charSequence.length() > 5120) {
-                return charSequence.subSequence(0, 5120);
+            if (charSequence != null && charSequence.length() > MAX_CHARSEQUENCE_LENGTH) {
+                return charSequence.subSequence(0, MAX_CHARSEQUENCE_LENGTH);
             }
             return charSequence;
         }
@@ -1335,7 +1336,7 @@ public class NotificationCompat {
             BidiFormatter bidiFormatter = BidiFormatter.getInstance();
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             boolean z = Build.VERSION.SDK_INT >= 21;
-            int i2 = z ? -16777216 : -1;
+            int i2 = z ? ViewCompat.MEASURED_STATE_MASK : -1;
             CharSequence sender = message.getSender();
             if (TextUtils.isEmpty(message.getSender())) {
                 String str = this.mUserDisplayName == null ? "" : this.mUserDisplayName;
@@ -1441,7 +1442,7 @@ public class NotificationCompat {
             private Bundle toBundle() {
                 Bundle bundle = new Bundle();
                 if (this.mText != null) {
-                    bundle.putCharSequence("text", this.mText);
+                    bundle.putCharSequence(KEY_TEXT, this.mText);
                 }
                 bundle.putLong("time", this.mTimestamp);
                 if (this.mSender != null) {
@@ -1487,8 +1488,8 @@ public class NotificationCompat {
 
             static Message getMessageFromBundle(Bundle bundle) {
                 try {
-                    if (bundle.containsKey("text") && bundle.containsKey("time")) {
-                        Message message = new Message(bundle.getCharSequence("text"), bundle.getLong("time"), bundle.getCharSequence("sender"));
+                    if (bundle.containsKey(KEY_TEXT) && bundle.containsKey("time")) {
+                        Message message = new Message(bundle.getCharSequence(KEY_TEXT), bundle.getLong("time"), bundle.getCharSequence("sender"));
                         if (bundle.containsKey("type") && bundle.containsKey(KEY_DATA_URI)) {
                             message.setData(bundle.getString("type"), (Uri) bundle.getParcelable(KEY_DATA_URI));
                         }

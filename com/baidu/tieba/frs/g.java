@@ -2,25 +2,36 @@ package com.baidu.tieba.frs;
 
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
-/* loaded from: classes6.dex */
+import com.baidu.tieba.tbadkCore.FrsViewData;
+/* loaded from: classes3.dex */
 public class g {
     private static UserData mUserData;
 
-    public static UserData aBH() {
+    public static UserData bcg() {
         return mUserData;
     }
 
-    private static UserData a(com.baidu.tieba.tbadkCore.l lVar) {
-        mUserData = lVar != null ? lVar.getUserData() : null;
+    private static UserData a(FrsViewData frsViewData) {
+        mUserData = frsViewData != null ? frsViewData.getUserData() : null;
         return mUserData;
     }
 
-    public static void a(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, com.baidu.tieba.tbadkCore.l lVar) {
+    public static void a(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, FrsViewData frsViewData) {
         if (threadCommentAndPraiseInfoLayout != null) {
-            if (lVar != null && lVar.hoq != 303 && b(a(lVar))) {
+            if (frsViewData != null && frsViewData.frsCurrentTabId != 303 && b(a(frsViewData))) {
                 threadCommentAndPraiseInfoLayout.setManageVisible(true);
             } else {
                 threadCommentAndPraiseInfoLayout.setManageVisible(false);
+            }
+        }
+    }
+
+    public static void a(com.baidu.card.b bVar, FrsViewData frsViewData) {
+        if (bVar != null) {
+            if (frsViewData != null && frsViewData.frsCurrentTabId != 303 && b(a(frsViewData))) {
+                bVar.bu(4);
+            } else {
+                bVar.bv(4);
             }
         }
     }
@@ -32,22 +43,29 @@ public class g {
         switch (userData.getIs_manager()) {
             case 1:
             case 2:
+            case 3:
+            case 4:
                 return true;
             default:
                 return false;
         }
     }
 
-    public static boolean aBI() {
-        UserData aBH = aBH();
-        if (aBH == null) {
+    public static boolean bch() {
+        UserData bcg = bcg();
+        if (bcg == null) {
             return false;
         }
-        switch (aBH.getIs_manager()) {
+        switch (bcg.getIs_manager()) {
             case 1:
                 return true;
             default:
                 return false;
         }
+    }
+
+    public static boolean bci() {
+        UserData bcg = bcg();
+        return bcg != null && bcg.getIs_manager() == 3;
     }
 }

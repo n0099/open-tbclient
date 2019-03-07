@@ -15,7 +15,6 @@ import com.baidu.android.bbalbs.common.security.Base64;
 import com.baidu.android.common.security.RSAUtil;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
-import com.baidu.searchbox.ng.ai.apps.network.AiAppNetworkUtils;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import java.io.File;
 import java.io.FileInputStream;
@@ -31,22 +30,22 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class g {
     public static boolean a = false;
     public static boolean b = false;
     public static boolean c = false;
     public static int d = 0;
-    private static String agg = "http://loc.map.baidu.com/sdk.php";
+    private static String aw = "http://loc.map.baidu.com/sdk.php";
     public static String e = "http://loc.map.baidu.com/sdk_ep.php";
-    private static String agh = "http://loc.map.baidu.com/user_err.php";
-    private static String agi = "http://loc.map.baidu.com/oqur.php";
-    private static String agj = "http://loc.map.baidu.com/tcu.php";
-    private static String agk = "http://loc.map.baidu.com/rtbu.php";
-    private static String agl = "http://loc.map.baidu.com/iofd.php";
-    private static String agm = "http://loc.map.baidu.com/wloc";
+    private static String ax = "http://loc.map.baidu.com/user_err.php";
+    private static String ay = "http://loc.map.baidu.com/oqur.php";
+    private static String az = "http://loc.map.baidu.com/tcu.php";
+    private static String aA = "http://loc.map.baidu.com/rtbu.php";
+    private static String aB = "http://loc.map.baidu.com/iofd.php";
+    private static String aC = "http://loc.map.baidu.com/wloc";
     public static String f = "https://loc.map.baidu.com/sdk.php";
-    public static String g = AiAppNetworkUtils.NETWORK_TYPE_CELL_UN_CONNECTED;
+    public static String g = "no";
     public static boolean h = false;
     public static boolean i = false;
     public static boolean j = false;
@@ -57,17 +56,17 @@ public class g {
     public static String o = "";
     public static boolean p = true;
     public static int q = 3;
-    public static double adn = 0.0d;
+    public static double r = 0.0d;
     public static double s = 0.0d;
     public static double t = 0.0d;
     public static double u = 0.0d;
     public static int v = 0;
-    public static byte[] agn = null;
+    public static byte[] w = null;
     public static boolean x = false;
     public static int y = 0;
     public static float z = 1.1f;
-    public static float ago = 2.2f;
-    public static float agp = 2.3f;
+    public static float A = 2.2f;
+    public static float B = 2.3f;
     public static float C = 3.8f;
     public static int D = 3;
     public static int E = 10;
@@ -77,15 +76,15 @@ public class g {
     public static int I = 70;
     public static int J = 120;
     public static float K = 2.0f;
-    public static float agq = 10.0f;
-    public static float agr = 50.0f;
-    public static float ags = 200.0f;
+    public static float L = 10.0f;
+    public static float M = 50.0f;
+    public static float N = 200.0f;
     public static int O = 16;
-    public static float agt = 0.9f;
+    public static float P = 0.9f;
     public static int Q = 10000;
-    public static float agu = 0.5f;
-    public static float agv = 0.0f;
-    public static float agw = 0.1f;
+    public static float R = 0.5f;
+    public static float S = 0.0f;
+    public static float T = 0.1f;
     public static int U = 30;
     public static int V = 100;
     public static int W = 0;
@@ -97,10 +96,10 @@ public class g {
     public static int ac = 20;
     public static int ad = 300;
     public static int ae = 1000;
-    public static int agx = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    public static long agy = 900000;
-    public static long agz = 420000;
-    public static long agA = 180000;
+    public static int af = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    public static long ag = 900000;
+    public static long ah = 420000;
+    public static long ai = 180000;
     public static long aj = 0;
     public static long ak = 15;
     public static long al = ReportUserInfoModel.TIME_INTERVAL;
@@ -108,9 +107,9 @@ public class g {
     public static int an = 0;
     public static int ao = 30000;
     public static int ap = 30000;
-    public static float agB = 10.0f;
-    public static float agC = 6.0f;
-    public static float agD = 10.0f;
+    public static float aq = 10.0f;
+    public static float ar = 6.0f;
+    public static float as = 10.0f;
     public static int at = 60;
     public static int au = 70;
     public static int av = 6;
@@ -125,6 +124,21 @@ public class g {
         return !z2 ? 0 : 1;
     }
 
+    public static int a(String str, String str2, String str3) {
+        int indexOf;
+        int length;
+        int indexOf2;
+        String substring;
+        if (str == null || str.equals("") || (indexOf = str.indexOf(str2)) == -1 || (indexOf2 = str.indexOf(str3, (length = indexOf + str2.length()))) == -1 || (substring = str.substring(length, indexOf2)) == null || substring.equals("")) {
+            return Integer.MIN_VALUE;
+        }
+        try {
+            return Integer.parseInt(substring);
+        } catch (NumberFormatException e2) {
+            return Integer.MIN_VALUE;
+        }
+    }
+
     public static String a() {
         Calendar calendar = Calendar.getInstance();
         int i2 = calendar.get(5);
@@ -136,37 +150,37 @@ public class g {
     }
 
     public static String a(com.baidu.location.e.a aVar, com.baidu.location.e.e eVar, Location location, String str, int i2, boolean z2) {
-        String f2;
-        String g2;
+        String a2;
+        String b2;
         StringBuffer stringBuffer = new StringBuffer(1024);
-        if (aVar != null && (g2 = com.baidu.location.e.b.tP().g(aVar)) != null) {
-            stringBuffer.append(g2);
+        if (aVar != null && (b2 = com.baidu.location.e.b.a().b(aVar)) != null) {
+            stringBuffer.append(b2);
         }
         if (eVar != null) {
-            String b2 = i2 == 0 ? z2 ? eVar.b() : eVar.c() : eVar.d();
-            if (b2 != null) {
-                stringBuffer.append(b2);
+            String b3 = i2 == 0 ? z2 ? eVar.b() : eVar.c() : eVar.d();
+            if (b3 != null) {
+                stringBuffer.append(b3);
             }
         }
         if (location != null) {
-            String h2 = (d == 0 || i2 == 0) ? com.baidu.location.e.d.h(location) : com.baidu.location.e.d.i(location);
-            if (h2 != null) {
-                stringBuffer.append(h2);
+            String b4 = (d == 0 || i2 == 0) ? com.baidu.location.e.d.b(location) : com.baidu.location.e.d.c(location);
+            if (b4 != null) {
+                stringBuffer.append(b4);
             }
         }
-        String a2 = b.tZ().a(i2 == 0);
-        if (a2 != null) {
-            stringBuffer.append(a2);
+        String a3 = b.a().a(i2 == 0);
+        if (a3 != null) {
+            stringBuffer.append(a3);
         }
         if (str != null) {
             stringBuffer.append(str);
         }
-        String d2 = com.baidu.location.b.c.tz().d();
+        String d2 = com.baidu.location.b.c.a().d();
         if (!TextUtils.isEmpty(d2)) {
             stringBuffer.append("&bc=").append(d2);
         }
-        if (aVar != null && (f2 = com.baidu.location.e.b.tP().f(aVar)) != null && f2.length() + stringBuffer.length() < 750) {
-            stringBuffer.append(f2);
+        if (aVar != null && (a2 = com.baidu.location.e.b.a().a(aVar)) != null && a2.length() + stringBuffer.length() < 750) {
+            stringBuffer.append(a2);
         }
         String stringBuffer2 = stringBuffer.toString();
         try {
@@ -175,12 +189,12 @@ public class g {
             } else {
                 float speed = location.getSpeed();
                 int i3 = d;
-                int h3 = eVar.h();
-                int a3 = eVar.a();
+                int h2 = eVar.h();
+                int a4 = eVar.a();
                 boolean i4 = eVar.i();
-                if (speed < agC && ((i3 == 1 || i3 == 0) && (h3 < at || i4))) {
+                if (speed < ar && ((i3 == 1 || i3 == 0) && (h2 < at || i4))) {
                     q = 1;
-                } else if (speed >= agD || (!(i3 == 1 || i3 == 0 || i3 == 3) || (h3 >= au && a3 <= av))) {
+                } else if (speed >= as || (!(i3 == 1 || i3 == 0 || i3 == 3) || (h2 >= au && a4 <= av))) {
                     q = 3;
                 } else {
                     q = 2;
@@ -232,6 +246,11 @@ public class g {
         return false;
     }
 
+    public static boolean a(BDLocation bDLocation) {
+        int locType = bDLocation.getLocType();
+        return (locType > 100 && locType < 200) || locType == 62;
+    }
+
     public static int b(Context context) {
         try {
             return Settings.System.getInt(context.getContentResolver(), "airplane_mode_on", 0);
@@ -272,6 +291,19 @@ public class g {
         return null;
     }
 
+    public static boolean b(String str, String str2, String str3) {
+        try {
+            PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str3.getBytes())));
+            Signature signature = Signature.getInstance("SHA1WithRSA");
+            signature.initVerify(generatePublic);
+            signature.update(str.getBytes());
+            return signature.verify(Base64.decode(str2.getBytes()));
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            return false;
+        }
+    }
+
     public static int c(Context context) {
         if (Build.VERSION.SDK_INT >= 19) {
             try {
@@ -284,11 +316,11 @@ public class g {
     }
 
     public static String c() {
-        return agg;
+        return aw;
     }
 
     public static String d() {
-        return agj;
+        return az;
     }
 
     public static String d(Context context) {
@@ -346,11 +378,6 @@ public class g {
         return f2 + "/baidu/tempdata";
     }
 
-    public static boolean g(BDLocation bDLocation) {
-        int locType = bDLocation.getLocType();
-        return (locType > 100 && locType < 200) || locType == 62;
-    }
-
     public static String h() {
         try {
             File file = new File(com.baidu.location.f.getServiceContext().getFilesDir() + File.separator + "lldt");
@@ -372,34 +399,6 @@ public class g {
             return com.baidu.location.f.getServiceContext().getFilesDir().getPath();
         } catch (Exception e2) {
             return null;
-        }
-    }
-
-    public static int m(String str, String str2, String str3) {
-        int indexOf;
-        int length;
-        int indexOf2;
-        String substring;
-        if (str == null || str.equals("") || (indexOf = str.indexOf(str2)) == -1 || (indexOf2 = str.indexOf(str3, (length = indexOf + str2.length()))) == -1 || (substring = str.substring(length, indexOf2)) == null || substring.equals("")) {
-            return Integer.MIN_VALUE;
-        }
-        try {
-            return Integer.parseInt(substring);
-        } catch (NumberFormatException e2) {
-            return Integer.MIN_VALUE;
-        }
-    }
-
-    public static boolean n(String str, String str2, String str3) {
-        try {
-            PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str3.getBytes())));
-            Signature signature = Signature.getInstance("SHA1WithRSA");
-            signature.initVerify(generatePublic);
-            signature.update(str.getBytes());
-            return signature.verify(Base64.decode(str2.getBytes()));
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return false;
         }
     }
 }

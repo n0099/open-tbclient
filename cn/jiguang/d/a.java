@@ -6,6 +6,7 @@ import android.content.ServiceConnection;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.os.Bundle;
+import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
 import android.util.Pair;
 import cn.jiguang.api.SdkType;
@@ -25,14 +26,14 @@ public final class a {
     public static String c;
     public static Context d;
     public static String g;
-    private static Pair<String, Integer> lf;
+    private static Pair<String, Integer> lh;
     public static final String a = SdkType.JCORE.name();
     public static boolean b = false;
     static boolean e = false;
-    public static final cn.jiguang.c.b ld = new cn.jiguang.c.a();
+    public static final cn.jiguang.c.b lf = new cn.jiguang.c.a();
     public static boolean h = false;
     public static boolean i = false;
-    private static final AtomicInteger le = new AtomicInteger(-1);
+    private static final AtomicInteger lg = new AtomicInteger(-1);
     private static final Object k = new Object();
     private static ServiceConnection m = new b();
 
@@ -45,19 +46,19 @@ public final class a {
     }
 
     public static Pair<String, Integer> Y(Context context) {
-        if (lf == null) {
+        if (lh == null) {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                 String str = packageInfo.versionName;
                 if (str.length() > 30) {
                     str = str.substring(0, 30);
                 }
-                lf = new Pair<>(str, Integer.valueOf(packageInfo.versionCode));
+                lh = new Pair<>(str, Integer.valueOf(packageInfo.versionCode));
             } catch (Throwable th) {
                 cn.jiguang.e.c.a("JCoreGlobal", "NO versionCode or versionName defined in manifest.");
             }
         }
-        return lf;
+        return lh;
     }
 
     public static void a(Context context, boolean z) {
@@ -80,7 +81,7 @@ public final class a {
             Bundle bundle = new Bundle();
             bundle.putBoolean("force", z);
             bundle.putLong("rtc_delay", j);
-            l.bZ().d(context, "intent.RTC", bundle);
+            l.bY().d(context, "intent.RTC", bundle);
         } catch (Throwable th) {
             cn.jiguang.e.c.c("JCoreGlobal", "sendHeartBeat error:" + th.getMessage());
         }
@@ -125,7 +126,7 @@ public final class a {
     }
 
     public static boolean c(Context context) {
-        switch (le.get()) {
+        switch (lg.get()) {
             case -1:
                 Context X = X(context);
                 if (X != null) {
@@ -154,17 +155,17 @@ public final class a {
     public static int e(Context context) {
         i = h;
         h = true;
-        int i2 = le.get();
+        int i2 = lg.get();
         if (i2 != -1) {
             return i2;
         }
         synchronized (k) {
-            int i3 = le.get();
+            int i3 = lg.get();
             if (i3 != -1) {
                 return i3;
             }
             cn.jiguang.e.c.a("JCoreGlobal", "action:init - sdkVersion:1.2.5, buildId:195");
-            i.bX();
+            i.bW();
             Context X = X(context);
             if (X == null) {
                 return -1;
@@ -174,15 +175,15 @@ public final class a {
             cn.jiguang.a.a.a(X);
             if (!a()) {
                 cn.jiguang.e.c.d("JCoreGlobal", "JCore .so file do not match JCore .jar file in the project, Failed to init JCore");
-                le.set(3);
+                lg.set(3);
                 return 3;
             } else if (!g(X)) {
-                le.set(2);
+                lg.set(2);
                 return 2;
             } else {
                 int at = cn.jiguang.g.a.at(X);
                 if (at != 0) {
-                    le.set(at);
+                    lg.set(at);
                     return at;
                 }
                 b(X);
@@ -202,7 +203,7 @@ public final class a {
                     cn.jiguang.a.a.c.e.a(X);
                     s.a(X, (String) null, "nowrap");
                 }
-                le.set(0);
+                lg.set(0);
                 e.a("SDK_MAIN", new c(X, 1), new int[0]);
                 return 0;
             }
@@ -242,8 +243,8 @@ public final class a {
                         z = false;
                     } else if (g.length() != 24) {
                         cn.jiguang.e.c.d("JCoreGlobal", "errorcode:1008,Invalid appKey : " + g + ", Please get your Appkey from JIGUANG web console!");
-                        g.a(d, 1008, false);
-                        cn.jiguang.d.a.a.a(context, 1008);
+                        g.a(d, PointerIconCompat.TYPE_TEXT, false);
+                        cn.jiguang.d.a.a.a(context, (int) PointerIconCompat.TYPE_TEXT);
                         z = false;
                     } else {
                         g = g.toLowerCase(Locale.getDefault());

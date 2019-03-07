@@ -4,21 +4,20 @@ import android.graphics.PointF;
 import com.airbnb.lottie.model.a.b;
 import com.airbnb.lottie.model.a.f;
 import com.airbnb.lottie.model.a.m;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f implements b {
     private final String name;
-    private final m<PointF, PointF> qQ;
-    private final com.airbnb.lottie.model.a.f qY;
-
-    /* renamed from: rx  reason: collision with root package name */
-    private final com.airbnb.lottie.model.a.b f3rx;
+    private final m<PointF, PointF> qM;
+    private final com.airbnb.lottie.model.a.f qU;
+    private final com.airbnb.lottie.model.a.b rt;
 
     private f(String str, m<PointF, PointF> mVar, com.airbnb.lottie.model.a.f fVar, com.airbnb.lottie.model.a.b bVar) {
         this.name = str;
-        this.qQ = mVar;
-        this.qY = fVar;
-        this.f3rx = bVar;
+        this.qM = mVar;
+        this.qU = fVar;
+        this.rt = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -26,7 +25,7 @@ public class f implements b {
     public static class a {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static f t(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
-            return new f(jSONObject.optString("nm"), com.airbnb.lottie.model.a.e.h(jSONObject.optJSONObject("p"), eVar), f.a.i(jSONObject.optJSONObject("s"), eVar), b.a.e(jSONObject.optJSONObject("r"), eVar));
+            return new f(jSONObject.optString("nm"), com.airbnb.lottie.model.a.e.h(jSONObject.optJSONObject("p"), eVar), f.a.i(jSONObject.optJSONObject(NotifyType.SOUND), eVar), b.a.e(jSONObject.optJSONObject("r"), eVar));
         }
     }
 
@@ -34,16 +33,16 @@ public class f implements b {
         return this.name;
     }
 
-    public com.airbnb.lottie.model.a.b ew() {
-        return this.f3rx;
+    public com.airbnb.lottie.model.a.b ev() {
+        return this.rt;
     }
 
-    public com.airbnb.lottie.model.a.f ec() {
-        return this.qY;
+    public com.airbnb.lottie.model.a.f eb() {
+        return this.qU;
     }
 
-    public m<PointF, PointF> dS() {
-        return this.qQ;
+    public m<PointF, PointF> dR() {
+        return this.qM;
     }
 
     @Override // com.airbnb.lottie.model.content.b
@@ -52,6 +51,6 @@ public class f implements b {
     }
 
     public String toString() {
-        return "RectangleShape{cornerRadius=" + this.f3rx.dI() + ", position=" + this.qQ + ", size=" + this.qY + '}';
+        return "RectangleShape{cornerRadius=" + this.rt.dH() + ", position=" + this.qM + ", size=" + this.qU + '}';
     }
 }

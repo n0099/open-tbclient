@@ -2,89 +2,102 @@ package com.baidu.ubc;
 
 import android.os.RemoteException;
 import android.text.TextUtils;
-import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
-import com.baidu.ubc.IRemoteUBCService;
+import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class q {
-    private static final String TAG = q.class.getSimpleName();
+    public final void onEvent(String str) {
+        onEvent(str, "", 0);
+    }
 
-    public static void bSS() {
-        IPCServiceManager.addService("remote_ubc_service", new IRemoteUBCService.Stub() { // from class: com.baidu.ubc.UBCIPCManager$1
-            @Override // com.baidu.ubc.IRemoteUBCService
-            public void ubcOnEvent(String str, String str2, int i) throws RemoteException {
-                o.p(str, str2, i);
+    public final void onEvent(String str, Map<String, String> map, int i) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                jSONObject.put(entry.getKey(), entry.getValue());
             }
+        } catch (JSONException e) {
+        }
+        onEvent(str, jSONObject.toString(), i);
+    }
 
-            @Override // com.baidu.ubc.IRemoteUBCService
-            public Flow ubcBeginFlow(String str, String str2, int i) throws RemoteException {
-                return o.o(str, str2, i);
+    public void onEvent(String str, String str2, int i) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.tR()) {
+            if (UBC.getUBCContext() != null || !TextUtils.isEmpty(str)) {
+                d.crK().h(str, str2, i);
+                return;
             }
+            return;
+        }
+        try {
+            getProxy().ubcOnEvent(str, str2, i);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
 
-            @Override // com.baidu.ubc.IRemoteUBCService
-            public void flowAddEvent(Flow flow, String str, String str2) throws RemoteException {
-                if (flow != null) {
-                    flow.db(str, str2);
-                }
+    public void onEvent(String str, JSONObject jSONObject, int i) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.tR()) {
+            if (UBC.getUBCContext() != null || !TextUtils.isEmpty(str)) {
+                d.crK().a(str, jSONObject, i);
+                return;
             }
+            return;
+        }
+        try {
+            getProxy().ubcOnEvent(str, jSONObject.toString(), i);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
 
-            @Override // com.baidu.ubc.IRemoteUBCService
-            public void flowAddEventWithTime(Flow flow, String str, String str2, long j) {
-                if (flow != null) {
-                    flow.e(str, str2, j);
-                }
+    public final Flow beginFlow(String str, Map<String, String> map, int i) {
+        JSONObject jSONObject = new JSONObject();
+        try {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                jSONObject.put(entry.getKey(), entry.getValue());
             }
+        } catch (JSONException e) {
+        }
+        return beginFlow(str, jSONObject.toString(), i);
+    }
 
-            @Override // com.baidu.ubc.IRemoteUBCService
-            public void flowSetValue(Flow flow, String str) throws RemoteException {
-                if (flow != null) {
-                    flow.setValue(str);
-                }
+    public Flow beginFlow(String str, String str2, int i) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.tR()) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
+            return d.crK().beginFlow(str, str2, i);
+        }
+        return v(str, str2, i);
+    }
 
-            @Override // com.baidu.ubc.IRemoteUBCService
-            public void flowSetValueWithDuration(Flow flow, String str) throws RemoteException {
-                if (flow != null) {
-                    flow.yz(str);
-                }
+    public Flow beginFlow(String str, JSONObject jSONObject, int i) {
+        if (com.baidu.pyramid.runtime.multiprocess.a.tR()) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
+            return d.crK().beginFlow(str, jSONObject, i);
+        }
+        return v(str, jSONObject.toString(), i);
+    }
 
-            @Override // com.baidu.ubc.IRemoteUBCService
-            public void flowStartSlot(Flow flow, String str, String str2) throws RemoteException {
-                if (flow != null) {
-                    if (TextUtils.isEmpty(str2)) {
-                        flow.i(str, null);
-                        return;
-                    }
-                    try {
-                        flow.i(str, new JSONObject(str2));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
+    private IRemoteUBCService getProxy() throws RemoteException {
+        return UBC.getProxy();
+    }
 
-            @Override // com.baidu.ubc.IRemoteUBCService
-            public void flowEndSlot(Flow flow, String str) throws RemoteException {
-                if (flow != null) {
-                    flow.yA(str);
-                }
-            }
-
-            @Override // com.baidu.ubc.IRemoteUBCService
-            public void flowCancel(Flow flow) throws RemoteException {
-                if (flow != null) {
-                    flow.cancel();
-                }
-            }
-
-            @Override // com.baidu.ubc.IRemoteUBCService
-            public void flowEnd(Flow flow) throws RemoteException {
-                if (flow != null) {
-                    flow.end();
-                }
-            }
-        }, false);
+    private Flow v(String str, String str2, int i) {
+        Flow flow;
+        try {
+            flow = getProxy().ubcBeginFlow(str, str2, i);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+            flow = null;
+        }
+        if (flow == null) {
+            return new Flow();
+        }
+        return flow;
     }
 }

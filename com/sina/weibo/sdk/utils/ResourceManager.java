@@ -21,6 +21,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class ResourceManager {
     private static final String TAG = ResourceManager.class.getName();
@@ -318,7 +319,7 @@ public class ResourceManager {
             DataInputStream dataInputStream = new DataInputStream(open);
             byte[] bArr = new byte[dataInputStream.available()];
             dataInputStream.read(bArr);
-            str2 = new String(bArr, "UTF-8");
+            str2 = new String(bArr, HTTP.UTF_8);
             try {
                 open.close();
                 return str2;

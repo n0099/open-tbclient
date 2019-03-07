@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
+import com.baidu.tbadk.TbConfig;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +16,7 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class h extends a {
     private static final Object f = new Object();
-    private ConcurrentLinkedQueue<cn.jiguang.d.d.a> mL = new ConcurrentLinkedQueue<>();
+    private ConcurrentLinkedQueue<cn.jiguang.d.d.a> mK = new ConcurrentLinkedQueue<>();
     private boolean g = false;
     private AtomicBoolean h = new AtomicBoolean(false);
 
@@ -25,7 +26,7 @@ public final class h extends a {
         if (K != null) {
             if (K.exists()) {
                 try {
-                    arrayList = (ArrayList) cn.jiguang.d.h.f.h(K);
+                    arrayList = (ArrayList) cn.jiguang.d.h.f.i(K);
                 } catch (Throwable th) {
                     arrayList = null;
                 }
@@ -90,7 +91,7 @@ public final class h extends a {
                     while (it.hasNext()) {
                         d next = it.next();
                         if (next != null) {
-                            JSONObject a = a(packageName, next.cj(), a(next));
+                            JSONObject a = a(packageName, next.ci(), a(next));
                             if (a != null) {
                                 jSONArray.put(a);
                             }
@@ -109,7 +110,7 @@ public final class h extends a {
     private void e(Context context) {
         if (this.g) {
             ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.mL);
+            arrayList.addAll(this.mK);
             a(context, "Jpush_awake_file_list", arrayList);
             this.g = false;
         }
@@ -118,8 +119,8 @@ public final class h extends a {
     public final void a(Context context, cn.jiguang.d.d.a aVar) {
         int i = 1;
         try {
-            if (!this.mL.contains(aVar)) {
-                this.mL.add(aVar);
+            if (!this.mK.contains(aVar)) {
+                this.mK.add(aVar);
                 this.g = true;
             }
         } catch (Throwable th) {
@@ -159,9 +160,9 @@ public final class h extends a {
     }
 
     public final void b(Context context, cn.jiguang.d.d.a aVar) {
-        if (this.mL.contains(aVar)) {
+        if (this.mK.contains(aVar)) {
             try {
-                this.mL.remove(aVar);
+                this.mK.remove(aVar);
                 this.g = true;
             } catch (Throwable th) {
             }
@@ -179,17 +180,17 @@ public final class h extends a {
         ArrayList<cn.jiguang.d.d.a> a;
         this.h.set(true);
         try {
-            Thread.sleep(5000L);
+            Thread.sleep(TbConfig.NOTIFY_SOUND_INTERVAL);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if (this.mL.isEmpty() && (a = a(context, "Jpush_awake_file_list")) != null) {
-            this.mL.clear();
-            this.mL.addAll(a);
+        if (this.mK.isEmpty() && (a = a(context, "Jpush_awake_file_list")) != null) {
+            this.mK.clear();
+            this.mK.addAll(a);
         }
-        if (this.mL != null && !this.mL.isEmpty()) {
+        if (this.mK != null && !this.mK.isEmpty()) {
             ArrayList<d> arrayList = new ArrayList<>();
-            Iterator<cn.jiguang.d.d.a> it = this.mL.iterator();
+            Iterator<cn.jiguang.d.d.a> it = this.mK.iterator();
             while (it.hasNext()) {
                 cn.jiguang.d.d.a next = it.next();
                 d a2 = c.a(context, 2, (Build.VERSION.SDK_INT < 26 || next.c < 26) ? 1 : 2, next, null);

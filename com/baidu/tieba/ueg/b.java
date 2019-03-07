@@ -7,40 +7,40 @@ import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.dialog.a;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.as;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.at;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.ueg.UEGCancelModel;
 /* loaded from: classes.dex */
 public class b {
-    public static boolean hDt = false;
-    private UEGCancelModel.a hDr;
-    public int hDs = as.a.aDv;
-    private UEGCancelModel hDq = new UEGCancelModel();
+    public static boolean iTH = false;
+    private UEGCancelModel.a iTF;
+    public int iTG = at.a.bLq;
+    private UEGCancelModel iTE = new UEGCancelModel();
 
     public b() {
-        if (this.hDr == null) {
-            this.hDr = new UEGCancelModel.a() { // from class: com.baidu.tieba.ueg.b.1
+        if (this.iTF == null) {
+            this.iTF = new UEGCancelModel.a() { // from class: com.baidu.tieba.ueg.b.1
                 @Override // com.baidu.tieba.ueg.UEGCancelModel.a
                 public void d(BlockPopInfoData blockPopInfoData) {
-                    if (blockPopInfoData != null && !b.hDt) {
+                    if (blockPopInfoData != null && !b.iTH) {
                         b.this.a(blockPopInfoData);
                     }
                 }
             };
         }
-        this.hDq.a(this.hDr);
+        this.iTE.a(this.iTF);
     }
 
-    public void wx(int i) {
-        this.hDs = i;
-        this.hDq.cancelRequest();
+    public void Ai(int i) {
+        this.iTG = i;
+        this.iTE.cancelRequest();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(BlockPopInfoData blockPopInfoData) {
         boolean z = false;
-        if (blockPopInfoData != null && com.baidu.adp.base.a.fW().fX() != null) {
+        if (blockPopInfoData != null && com.baidu.adp.base.a.fT().fU() != null) {
             String str = blockPopInfoData.block_id_code;
             int i = blockPopInfoData.win_type;
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -48,59 +48,59 @@ public class b {
             String str3 = blockPopInfoData.ok_info;
             String str4 = blockPopInfoData.ahead_info;
             String str5 = blockPopInfoData.block_info;
-            if ((i == 1 || i == 2 || i == 3 || i == 4) && !ao.isEmpty(currentAccount) && !ao.isEmpty(str)) {
+            if ((i == 1 || i == 2 || i == 3 || i == 4) && !ap.isEmpty(currentAccount) && !ap.isEmpty(str)) {
                 boolean z2 = com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean(str + i + currentAccount, false);
-                if ((!ao.isEmpty(str2) || i == 4) && !ao.isEmpty(str3) && ((!ao.isEmpty(str4) || i == 4) && !ao.isEmpty(str5))) {
+                if ((!ap.isEmpty(str2) || i == 4) && !ap.isEmpty(str3) && ((!ap.isEmpty(str4) || i == 4) && !ap.isEmpty(str5))) {
                     z = true;
                 }
                 if (!z2 && z) {
                     com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean(str + i + currentAccount, true);
                     b(blockPopInfoData);
-                    TiebaStatic.log(new am("c12534").y("obj_locate", this.hDs).y("obj_type", i));
+                    TiebaStatic.log(new am("c12534").T("obj_locate", this.iTG).T("obj_type", i));
                 }
             }
         }
     }
 
     private void b(final BlockPopInfoData blockPopInfoData) {
-        Activity fX;
-        if (blockPopInfoData != null && (fX = com.baidu.adp.base.a.fW().fX()) != null) {
-            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(fX);
-            aVar.eK(blockPopInfoData.block_info);
+        Activity fU;
+        if (blockPopInfoData != null && (fU = com.baidu.adp.base.a.fT().fU()) != null) {
+            com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(fU);
+            aVar.ly(blockPopInfoData.block_info);
             aVar.b(blockPopInfoData.ok_info, new a.b() { // from class: com.baidu.tieba.ueg.b.2
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     aVar2.dismiss();
-                    TiebaStatic.log(new am("c12535").y("obj_locate", b.this.hDs).y("obj_type", blockPopInfoData.win_type));
+                    TiebaStatic.log(new am("c12535").T("obj_locate", b.this.iTG).T("obj_type", blockPopInfoData.win_type));
                 }
             });
             aVar.a(blockPopInfoData.ahead_info, new a.b() { // from class: com.baidu.tieba.ueg.b.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                     b.this.c(blockPopInfoData);
-                    TiebaStatic.log(new am("c12536").y("obj_locate", b.this.hDs).y("obj_type", blockPopInfoData.win_type));
+                    TiebaStatic.log(new am("c12536").T("obj_locate", b.this.iTG).T("obj_type", blockPopInfoData.win_type));
                 }
             });
-            aVar.b(((f) fX).getPageContext());
-            aVar.BS();
+            aVar.b(((f) fU).getPageContext());
+            aVar.aaZ();
         }
     }
 
-    public void nX(boolean z) {
-        hDt = z;
+    public void qx(boolean z) {
+        iTH = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(BlockPopInfoData blockPopInfoData) {
-        Activity fX;
-        if (blockPopInfoData != null && (fX = com.baidu.adp.base.a.fW().fX()) != null) {
-            AntiHelper.aI(fX, blockPopInfoData.ahead_url);
+        Activity fU;
+        if (blockPopInfoData != null && (fU = com.baidu.adp.base.a.fT().fU()) != null) {
+            AntiHelper.aW(fU, blockPopInfoData.ahead_url);
         }
     }
 
     public void onDestroy() {
-        if (this.hDq != null) {
-            this.hDq.onDestroy();
+        if (this.iTE != null) {
+            this.iTE.onDestroy();
         }
     }
 }

@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class c {
     public static String a(Context context, String str) {
@@ -71,7 +72,7 @@ public final class c {
         byte[] bytes;
         if (str2 != null) {
             try {
-                bytes = str2.getBytes("UTF-8");
+                bytes = str2.getBytes(HTTP.UTF_8);
             } catch (Exception e) {
                 return false;
             }

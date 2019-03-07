@@ -16,11 +16,13 @@ import android.util.Log;
 import com.baidu.location.a.c;
 import com.baidu.location.a.d;
 import com.baidu.location.a.i;
+import com.baidu.sapi2.utils.enums.ShareDirectionType;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.apache.commons.logging.LogFactory;
-/* loaded from: classes6.dex */
+import org.apache.http.protocol.HTTP;
+/* loaded from: classes3.dex */
 public final class LocationClient implements c.a, d.b {
     public static final int CONNECT_HOT_SPOT_FALSE = 0;
     public static final int CONNECT_HOT_SPOT_TRUE = 1;
@@ -102,7 +104,7 @@ public final class LocationClient implements c.a, d.b {
     private final Messenger h = new Messenger(this.g);
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class a extends Handler {
         private final WeakReference<LocationClient> a;
 
@@ -192,7 +194,7 @@ public final class LocationClient implements c.a, d.b {
                         }
                         Iterator it = locationClient.j.iterator();
                         while (it.hasNext()) {
-                            ((BDAbstractLocationListener) it.next()).onLocDiagnosticMessage(i, i2, new String(byteArray, "UTF-8"));
+                            ((BDAbstractLocationListener) it.next()).onLocDiagnosticMessage(i, i2, new String(byteArray, HTTP.UTF_8));
                         }
                         return;
                     } catch (Exception e) {
@@ -202,7 +204,7 @@ public final class LocationClient implements c.a, d.b {
                     try {
                         Bundle data3 = message.getData();
                         byte[] byteArray2 = data3.getByteArray("mac");
-                        String str = byteArray2 != null ? new String(byteArray2, "UTF-8") : null;
+                        String str = byteArray2 != null ? new String(byteArray2, HTTP.UTF_8) : null;
                         int i3 = data3.getInt("hotspot", -1);
                         if (locationClient.j != null) {
                             Iterator it2 = locationClient.j.iterator();
@@ -252,7 +254,7 @@ public final class LocationClient implements c.a, d.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         private b() {
         }
@@ -367,11 +369,11 @@ public final class LocationClient implements c.a, d.b {
                     this.D.a(this.k.getAddress());
                     z = true;
                 } else if (b2 == 2) {
-                    Address ti = this.D.ti();
-                    if (ti == null || ti.city == null || ti.cityCode == null) {
+                    Address a2 = this.D.a();
+                    if (a2 == null || a2.city == null || a2.cityCode == null) {
                         z = false;
                     } else {
-                        this.k.setAddr(ti);
+                        this.k.setAddr(a2);
                         z = true;
                     }
                 }
@@ -572,7 +574,7 @@ public final class LocationClient implements c.a, d.b {
         bundle.putInt("timeOut", this.c.timeOut);
         bundle.putInt(LogFactory.PRIORITY_KEY, this.c.priority);
         bundle.putBoolean("map", this.y.booleanValue());
-        bundle.putBoolean(com.baidu.sapi2.utils.enums.a.a, this.z.booleanValue());
+        bundle.putBoolean(ShareDirectionType.IMPORT, this.z.booleanValue());
         bundle.putBoolean("needDirect", this.c.mIsNeedDeviceDirect);
         bundle.putBoolean("isneedaptag", this.c.isNeedAptag);
         bundle.putBoolean("isneedpoiregion", this.c.isNeedPoiRegion);

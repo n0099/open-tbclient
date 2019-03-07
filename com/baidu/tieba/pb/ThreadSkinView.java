@@ -7,18 +7,18 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
-import com.baidu.fsg.face.liveness.activity.LivenessRecogActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.ba;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.d.a;
+import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo fRN;
-    private a.C0316a fRO;
+    private SkinInfo hhZ;
+    private a.C0309a hia;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -40,38 +40,38 @@ public class ThreadSkinView extends TbImageView {
         setVisibility(8);
     }
 
-    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0316a c0316a) {
+    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, a.C0309a c0309a) {
         if (tbPageContext == null || skinInfo == null || StringUtils.isNull(skinInfo.skin)) {
             setVisibility(8);
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.fRN != skinInfo && c0316a != null) {
-            this.fRO = c0316a;
-            this.fRO.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-            this.fRO.cO(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
-            this.fRO.cO("obj_url", skinInfo.url);
-            this.fRO.cO("obj_name", skinInfo.monitor_id);
-            this.fRO.cO(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "VIEW_TRUE");
-            this.fRO.save();
+        if (this.hhZ != skinInfo && c0309a != null) {
+            this.hia = c0309a;
+            this.hia.delete("action_type");
+            this.hia.dY(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
+            this.hia.dY("obj_url", skinInfo.url);
+            this.hia.dY("obj_name", skinInfo.monitor_id);
+            this.hia.dY("action_type", "VIEW_TRUE");
+            this.hia.save();
         }
-        this.fRN = skinInfo;
+        this.hhZ = skinInfo;
         int aO = l.aO(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = aO;
         if (!StringUtils.isNull(skinInfo.skin_size)) {
-            String[] split = skinInfo.skin_size.split(",");
+            String[] split = skinInfo.skin_size.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split.length > 1) {
                 int l = com.baidu.adp.lib.g.b.l(split[0].trim(), -1);
                 int l2 = com.baidu.adp.lib.g.b.l(split[1].trim(), -1);
                 if (l > 0 && l2 > 0) {
                     layoutParams.height = (int) ((l2 / l) * layoutParams.width);
                 } else {
-                    layoutParams.height = (int) tbPageContext.getResources().getDimension(e.C0210e.ds80);
+                    layoutParams.height = (int) tbPageContext.getResources().getDimension(d.e.ds80);
                 }
             }
         } else {
-            layoutParams.height = (int) tbPageContext.getResources().getDimension(e.C0210e.ds80);
+            layoutParams.height = (int) tbPageContext.getResources().getDimension(d.e.ds80);
         }
         setLayoutParams(layoutParams);
         startLoad(skinInfo.skin, 10, false);
@@ -82,13 +82,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.fRN != null && !StringUtils.isNull(this.fRN.url)) {
-            if (this.fRO != null) {
-                this.fRO.delete(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE);
-                this.fRO.cO(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "CLICK");
-                this.fRO.save();
+        if (this.hhZ != null && !StringUtils.isNull(this.hhZ.url)) {
+            if (this.hia != null) {
+                this.hia.delete("action_type");
+                this.hia.dY("action_type", "CLICK");
+                this.hia.save();
             }
-            ay.Es().c(this.mTbPageContext, new String[]{this.fRN.url});
+            ba.adD().c(this.mTbPageContext, new String[]{this.hhZ.url});
         }
     }
 }

@@ -5,18 +5,19 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.widget.TbClipImageView;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class HeadImageView extends TbClipImageView {
-    private int aHb;
-    private int aHc;
-    private boolean aHd;
-    private int aHe;
-    private int aHf;
-    private float aHg;
-    private float aHh;
+    private int bPi;
+    private int bPj;
+    private boolean bPk;
+    private int bPl;
+    private int bPm;
+    private float bPn;
+    private float bPo;
     private String fid;
     private int height;
     private int mDefaultBgId;
@@ -38,29 +39,33 @@ public class HeadImageView extends TbClipImageView {
 
     public HeadImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.aHb = 0;
-        this.aHc = 0;
-        this.aHd = false;
-        this.aHe = 0;
+        this.bPi = 0;
+        this.bPj = 0;
+        this.bPk = false;
+        this.bPl = 0;
         this.user_id = null;
         this.user_name = null;
         this.fid = null;
         this.tid = null;
         this.mUrl = null;
-        this.mDefaultId = e.f.transparent_bg;
-        this.mDefaultBgId = e.d.cp_bg_line_e;
-        this.aHf = e.f.pic_v_avatar;
+        this.mDefaultId = d.f.transparent_bg;
+        this.mDefaultBgId = com.baidu.tbadk.util.e.get();
+        this.bPm = d.f.pic_v_avatar;
         init();
     }
 
     private void init() {
-        this.aHc = com.baidu.adp.lib.util.l.h(getContext(), e.C0210e.tbds42);
+        this.bPj = com.baidu.adp.lib.util.l.h(getContext(), d.e.tbds42);
         setDrawerType(1);
         setGifIconSupport(false);
         setDrawBorder(true);
         setDefaultBgResource(this.mDefaultBgId);
         setDefaultResource(this.mDefaultId);
-        setDefaultErrorResource(e.f.icon_default_avatar100);
+        setDefaultErrorResource(d.f.icon_default_avatar100);
+        setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds1));
+        setBorderColor(al.getColor(d.C0236d.black_alpha8));
+        setBorderSurroundContent(true);
+        setConrers(15);
         this.mPaint = new Paint();
     }
 
@@ -98,7 +103,7 @@ public class HeadImageView extends TbClipImageView {
     }
 
     public void setUserName(String str) {
-        setUserName(str, str + getResources().getString(e.j.somebodys_portrait));
+        setUserName(str, str + getResources().getString(d.j.somebodys_portrait));
     }
 
     public void setUserName(String str, String str2) {
@@ -114,8 +119,8 @@ public class HeadImageView extends TbClipImageView {
     public void startLogPerf() {
         if (!this.canLogPerf) {
             this.canLogPerf = true;
-        } else if (this.mPerfLog != null && this.mPerfLog.bgB) {
-            this.mPerfLog.Py();
+        } else if (this.mPerfLog != null && this.mPerfLog.cqm) {
+            this.mPerfLog.apf();
         }
     }
 
@@ -123,21 +128,21 @@ public class HeadImageView extends TbClipImageView {
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         if (canvas != null) {
-            if (this.aHe != 0) {
-                this.mPaint.setColor(this.aHe);
-                canvas.drawCircle(this.aHg, this.aHh, this.aHg, this.mPaint);
+            if (this.bPl != 0) {
+                this.mPaint.setColor(this.bPl);
+                canvas.drawCircle(this.bPn, this.bPo, this.bPn, this.mPaint);
             }
-            g(canvas);
+            w(canvas);
         }
     }
 
     public void setGodIconResId(int i) {
-        this.aHf = i;
+        this.bPm = i;
     }
 
     public void setGodIconWidth(int i) {
         if (i > 0) {
-            this.aHc = com.baidu.adp.lib.util.l.h(getContext(), i);
+            this.bPj = com.baidu.adp.lib.util.l.h(getContext(), i);
         }
         invalidate();
     }
@@ -145,38 +150,38 @@ public class HeadImageView extends TbClipImageView {
     public void setGodIconMargin(int i) {
         setIsRound(true);
         if (i > 0) {
-            this.aHb = com.baidu.adp.lib.util.l.h(getContext(), i);
+            this.bPi = com.baidu.adp.lib.util.l.h(getContext(), i);
         }
         invalidate();
     }
 
     public void setIsGod(boolean z) {
-        this.aHd = z;
+        this.bPk = z;
         if (z) {
             setGodIconMargin(0);
             return;
         }
         setIsRound(true);
-        this.aHb = 0;
+        this.bPi = 0;
         invalidate();
     }
 
     public void setIsBigV(boolean z) {
-        this.aHd = z;
+        this.bPk = z;
     }
 
     public void setShowV(boolean z) {
-        this.aHd = z;
+        this.bPk = z;
     }
 
     public void setMaskColor(int i) {
-        this.aHe = i;
+        this.bPl = i;
     }
 
-    public void g(Canvas canvas) {
+    public void w(Canvas canvas) {
         Drawable drawable;
-        if (this.aHd && this.aHc > 0 && (drawable = al.getDrawable(this.aHf)) != null) {
-            drawable.setBounds((this.width - this.aHc) - this.aHb, (this.height - this.aHc) - this.aHb, this.width - this.aHb, this.height - this.aHb);
+        if (this.bPk && this.bPj > 0 && (drawable = al.getDrawable(this.bPm)) != null) {
+            drawable.setBounds((this.width - this.bPj) - this.bPi, (this.height - this.bPj) - this.bPi, this.width - this.bPi, this.height - this.bPi);
             drawable.draw(canvas);
         }
     }
@@ -187,7 +192,7 @@ public class HeadImageView extends TbClipImageView {
         super.onSizeChanged(i, i2, i3, i4);
         this.width = getWidth();
         this.height = getHeight();
-        this.aHg = this.width / 2.0f;
-        this.aHh = this.height / 2.0f;
+        this.bPn = this.width / 2.0f;
+        this.bPo = this.height / 2.0f;
     }
 }

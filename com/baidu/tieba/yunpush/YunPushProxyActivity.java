@@ -8,7 +8,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.ChannelHomeActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ay;
+import com.baidu.tbadk.core.util.ba;
 import org.apache.http.HttpHost;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -42,15 +42,15 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                 i = 3;
                             }
                         }
-                        TiebaStatic.log(new am("c11703").y("obj_type", 2).aB("task_id", str).aB("obj_to", str2).y(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i));
-                        if (!TextUtils.isEmpty(str2) && (str2.startsWith(HttpHost.DEFAULT_SCHEME_NAME) || str2.startsWith("https"))) {
-                            ay.Es().c(getPageContext(), new String[]{str2});
+                        TiebaStatic.log(new am("c11703").T("obj_type", 2).bJ("task_id", str).bJ("obj_to", str2).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i));
+                        if (!TextUtils.isEmpty(str2) && (str2.startsWith(HttpHost.DEFAULT_SCHEME_NAME) || str2.startsWith("https") || str2.startsWith("com.baidu.tieba://deeplink?jump=new_hot_topic_list"))) {
+                            ba.adD().c(getPageContext(), new String[]{str2});
                         }
                     }
                     i = 0;
-                    TiebaStatic.log(new am("c11703").y("obj_type", 2).aB("task_id", str).aB("obj_to", str2).y(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i));
+                    TiebaStatic.log(new am("c11703").T("obj_type", 2).bJ("task_id", str).bJ("obj_to", str2).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i));
                     if (!TextUtils.isEmpty(str2)) {
-                        ay.Es().c(getPageContext(), new String[]{str2});
+                        ba.adD().c(getPageContext(), new String[]{str2});
                     }
                 }
             }

@@ -1,7 +1,6 @@
 package com.xiaomi.smack.packet;
 
 import android.os.Bundle;
-import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes3.dex */
@@ -14,7 +13,7 @@ public class b extends d {
         public static final a a = new a("get");
         public static final a b = new a("set");
         public static final a c = new a("result");
-        public static final a d = new a(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR);
+        public static final a d = new a("error");
         public static final a e = new a("command");
         private String f;
 

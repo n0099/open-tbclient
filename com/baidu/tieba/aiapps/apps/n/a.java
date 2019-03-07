@@ -1,37 +1,20 @@
 package com.baidu.tieba.aiapps.apps.n;
 
-import android.content.res.Resources;
-import com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppNightModeIoc;
-import com.baidu.searchbox.ng.ai.apps.skin.AiAppNightModeChangeListener;
+import com.baidu.swan.apps.scheme.j;
+import com.baidu.swan.apps.u.b.k;
 /* loaded from: classes4.dex */
-public class a implements IAiAppNightModeIoc {
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppNightModeIoc
-    public void setNightModeSwitcherState(boolean z) {
-    }
-
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppNightModeIoc
-    public void forceSyncNightModeState(boolean z) {
-    }
-
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppNightModeIoc
-    public void setNightMode(boolean z) {
-    }
-
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppNightModeIoc
-    public boolean getNightModeSwitcherState() {
-        return false;
-    }
-
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppNightModeIoc
-    public void subscribeNightModeChangeEvent(Object obj, AiAppNightModeChangeListener aiAppNightModeChangeListener) {
-    }
-
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppNightModeIoc
-    public void unsubscribeNightModeChangedEvent(Object obj) {
-    }
-
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppNightModeIoc
-    public Resources getSkinResources() {
-        return null;
+public class a implements k {
+    @Override // com.baidu.swan.apps.u.b.k
+    public void a(j jVar) {
+        if (jVar != null) {
+            jVar.a(new c(jVar));
+            jVar.a(new com.baidu.tieba.aiapps.apps.m.b(jVar));
+            jVar.a(new com.baidu.tieba.aiapps.apps.a.a.a(jVar));
+            jVar.a(new com.baidu.tieba.aiapps.apps.a.a.b(jVar));
+            jVar.a(new com.baidu.swan.apps.q.a.a.a(jVar));
+            jVar.a(new com.baidu.swan.apps.scheme.actions.c.a(jVar));
+            jVar.a(new com.baidu.swan.apps.scheme.actions.c.b(jVar));
+            jVar.a(new com.baidu.tieba.aiapps.apps.m.a(jVar));
+        }
     }
 }

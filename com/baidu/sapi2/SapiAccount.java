@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.sapi2.share.ShareAccountAccessor;
@@ -217,7 +216,7 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
     }
 
     public String getShareAccountTpl() {
-        return a(BaiduRimConstants.TPL_INIT_KEY, "");
+        return a("tpl", "");
     }
 
     public String getSocialPortrait() {
@@ -397,7 +396,7 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
                 jSONObject.put(EXTRA_SOCIAL_PORTRAIT, this.d);
                 jSONObject.put(EXTRA_TPL_STOKEN_LIST, new JSONObject(this.dispersionCertification.tplStokenMap));
                 jSONObject.put(EXTRA_IS_GUEST_ACCOUNT, this.e);
-                jSONObject.put("tpl", this.f);
+                jSONObject.put(EXTRA_TPL, this.f);
                 jSONObject.put(EXTRA_PKG, this.g);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -417,7 +416,7 @@ public class SapiAccount implements Parcelable, ISapiAccount, Cloneable {
             extraProperty.d = jSONObject.optString(EXTRA_SOCIAL_PORTRAIT);
             extraProperty.dispersionCertification = DispersionCertification.fromJSONObject(jSONObject);
             extraProperty.e = jSONObject.optString(EXTRA_IS_GUEST_ACCOUNT);
-            extraProperty.f = jSONObject.optString("tpl");
+            extraProperty.f = jSONObject.optString(EXTRA_TPL);
             extraProperty.g = jSONObject.optString(EXTRA_PKG);
             return extraProperty;
         }

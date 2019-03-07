@@ -1,11 +1,12 @@
 package com.airbnb.lottie.model;
 
 import android.graphics.Color;
+import android.support.v4.view.ViewCompat;
 import com.airbnb.lottie.model.a.m;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 public class a implements m.a<Integer> {
-    public static final a ql = new a();
+    public static final a qf = new a();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.airbnb.lottie.model.a.m.a
@@ -22,6 +23,6 @@ public class a implements m.a<Integer> {
             float f2 = z ? 255.0f : 1.0f;
             return Integer.valueOf(Color.argb((int) (jSONArray.optDouble(3) * f2), (int) (jSONArray.optDouble(0) * f2), (int) (jSONArray.optDouble(1) * f2), (int) (jSONArray.optDouble(2) * f2)));
         }
-        return -16777216;
+        return Integer.valueOf((int) ViewCompat.MEASURED_STATE_MASK);
     }
 }

@@ -7,7 +7,7 @@ import com.squareup.wire.Wire;
 import tbclient.PbPage.AdParam;
 import tbclient.PbPage.DataReq;
 import tbclient.PbPage.PbPageReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PbPageRequestMessage extends NetMessage {
     public static final Wire WIRE = new Wire(new Class[0]);
     private Integer arround;
@@ -375,7 +375,7 @@ public class PbPageRequestMessage extends NetMessage {
             builder.obj_param1 = this.objParam1;
             builder.obj_source = this.obj_source;
             builder.from_smart_frs = this.fromSmartFrs;
-            builder.app_pos = com.baidu.tieba.recapp.d.a.bwJ().bwM();
+            builder.app_pos = com.baidu.tieba.recapp.d.a.bXw().bXz();
             builder.forum_id = this.forumId;
             builder.need_repost_recommend_forum = this.needRepostRecommendForum;
             AdParam.Builder builder2 = new AdParam.Builder();
@@ -383,7 +383,7 @@ public class PbPageRequestMessage extends NetMessage {
             builder2.load_count = Integer.valueOf(this.loadCount);
             builder2.is_req_ad = this.isReqAd;
             builder.ad_param = builder2.build(false);
-            com.baidu.tbadk.util.q.bindCommonParamsToProtobufData(builder, true, false, true);
+            com.baidu.tbadk.util.s.bindCommonParamsToProtobufData(builder, true, false, true);
             PbPageReqIdl.Builder builder3 = new PbPageReqIdl.Builder();
             builder3.data = builder.build(false);
             return builder3.build(false);

@@ -14,11 +14,11 @@ public final class f {
         return Arrays.hashCode(objArr);
     }
 
-    public static a ao(Object obj) {
-        return new a(q(obj.getClass()));
+    public static a aD(Object obj) {
+        return new a(t(obj.getClass()));
     }
 
-    private static String q(Class<?> cls) {
+    private static String t(Class<?> cls) {
         String replaceAll = cls.getName().replaceAll("\\$[0-9]+", "\\$");
         int lastIndexOf = replaceAll.lastIndexOf(36);
         if (lastIndexOf == -1) {
@@ -30,69 +30,69 @@ public final class f {
     /* loaded from: classes2.dex */
     public static final class a {
         private final String className;
-        private C0353a ika;
-        private C0353a ikb;
-        private boolean ikc;
+        private C0329a jzC;
+        private C0329a jzD;
+        private boolean jzE;
 
         private a(String str) {
-            this.ika = new C0353a();
-            this.ikb = this.ika;
-            this.ikc = false;
+            this.jzC = new C0329a();
+            this.jzD = this.jzC;
+            this.jzE = false;
             this.className = (String) g.checkNotNull(str);
         }
 
-        public a n(String str, @Nullable Object obj) {
-            return o(str, obj);
+        public a q(String str, @Nullable Object obj) {
+            return r(str, obj);
         }
 
-        public a ah(String str, boolean z) {
-            return o(str, String.valueOf(z));
+        public a ax(String str, boolean z) {
+            return r(str, String.valueOf(z));
         }
 
-        public a bg(String str, int i) {
-            return o(str, String.valueOf(i));
+        public a bz(String str, int i) {
+            return r(str, String.valueOf(i));
         }
 
         public String toString() {
-            boolean z = this.ikc;
+            boolean z = this.jzE;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0353a c0353a = this.ika.ikd; c0353a != null; c0353a = c0353a.ikd) {
-                if (!z || c0353a.value != null) {
+            for (C0329a c0329a = this.jzC.jzF; c0329a != null; c0329a = c0329a.jzF) {
+                if (!z || c0329a.value != null) {
                     append.append(str);
                     str = ", ";
-                    if (c0353a.name != null) {
-                        append.append(c0353a.name).append('=');
+                    if (c0329a.name != null) {
+                        append.append(c0329a.name).append('=');
                     }
-                    append.append(c0353a.value);
+                    append.append(c0329a.value);
                 }
             }
             return append.append('}').toString();
         }
 
-        private C0353a bUz() {
-            C0353a c0353a = new C0353a();
-            this.ikb.ikd = c0353a;
-            this.ikb = c0353a;
-            return c0353a;
+        private C0329a ctx() {
+            C0329a c0329a = new C0329a();
+            this.jzD.jzF = c0329a;
+            this.jzD = c0329a;
+            return c0329a;
         }
 
-        private a o(String str, @Nullable Object obj) {
-            C0353a bUz = bUz();
-            bUz.value = obj;
-            bUz.name = (String) g.checkNotNull(str);
+        private a r(String str, @Nullable Object obj) {
+            C0329a ctx = ctx();
+            ctx.value = obj;
+            ctx.name = (String) g.checkNotNull(str);
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static final class C0353a {
-            C0353a ikd;
+        public static final class C0329a {
+            C0329a jzF;
             String name;
             Object value;
 
-            private C0353a() {
+            private C0329a() {
             }
         }
     }

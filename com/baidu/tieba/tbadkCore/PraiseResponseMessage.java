@@ -1,5 +1,7 @@
 package com.baidu.tieba.tbadkCore;
 
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -34,8 +36,8 @@ public class PraiseResponseMessage extends JsonHttpResponsedMessage {
         int statusCode = getStatusCode();
         int error = getError();
         if (statusCode == 200 && error >= 0 && jSONObject != null) {
-            this.errCode = jSONObject.optInt("error_code");
-            this.errMsg = jSONObject.optString("error_msg");
+            this.errCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
+            this.errMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
         }
     }
 }

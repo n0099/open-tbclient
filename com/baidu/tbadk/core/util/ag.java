@@ -7,8 +7,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ag extends Thread {
-    private String aCr;
-    private boolean aCs;
+    private String bKl;
+    private boolean bKm;
     private String mObjTp;
     private String mParam;
     private String mType;
@@ -16,19 +16,19 @@ public class ag extends Thread {
     public ag(String str, boolean z) {
         this.mType = null;
         this.mParam = null;
-        this.aCr = null;
+        this.bKl = null;
         this.mObjTp = null;
-        this.aCs = false;
+        this.bKm = false;
         this.mType = str;
-        this.aCs = z;
+        this.bKm = z;
     }
 
     public ag(String str, String str2) {
         this.mType = null;
         this.mParam = null;
-        this.aCr = null;
+        this.bKl = null;
         this.mObjTp = null;
-        this.aCs = false;
+        this.bKm = false;
         this.mType = str;
         this.mParam = str2;
     }
@@ -37,39 +37,37 @@ public class ag extends Thread {
     public void run() {
         String str;
         super.run();
-        if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-            if (this.aCs) {
-                str = TbConfig.IN_PV_ADDRESS;
-            } else {
-                str = TbConfig.LOAD_REG_PV_ADDRESS;
-            }
-            x xVar = new x(TbConfig.SERVER_ADDRESS + str);
-            xVar.x("st_type", this.mType);
-            if (this.mParam != null) {
-                xVar.x("st_param", this.mParam);
-            }
-            if (this.aCr != null) {
-                xVar.x("obj", this.aCr);
-            }
-            if (this.mObjTp != null) {
-                xVar.x("obj_tp", this.mObjTp);
-            }
-            String CY = xVar.CY();
-            System.out.println("pv_test !!!");
-            if (CY != null) {
-                Log.i("USEINTERVAL", CY);
-                try {
-                    JSONObject jSONObject = new JSONObject(CY);
-                    if (jSONObject.has("use_duration")) {
-                        long optLong = jSONObject.optLong("use_duration");
-                        Log.i("USEINTERVAL", "duration " + optLong);
-                        if (optLong >= 0 && optLong != TbadkCoreApplication.getInst().getUseTimeInterval()) {
-                            TbadkCoreApplication.getInst().setUseTimeInterval(optLong);
-                        }
+        if (this.bKm) {
+            str = TbConfig.IN_PV_ADDRESS;
+        } else {
+            str = TbConfig.LOAD_REG_PV_ADDRESS;
+        }
+        x xVar = new x(TbConfig.SERVER_ADDRESS + str);
+        xVar.x("st_type", this.mType);
+        if (this.mParam != null) {
+            xVar.x("st_param", this.mParam);
+        }
+        if (this.bKl != null) {
+            xVar.x("obj", this.bKl);
+        }
+        if (this.mObjTp != null) {
+            xVar.x("obj_tp", this.mObjTp);
+        }
+        String acj = xVar.acj();
+        System.out.println("pv_test !!!");
+        if (acj != null) {
+            Log.i("USEINTERVAL", acj);
+            try {
+                JSONObject jSONObject = new JSONObject(acj);
+                if (jSONObject.has("use_duration")) {
+                    long optLong = jSONObject.optLong("use_duration");
+                    Log.i("USEINTERVAL", "duration " + optLong);
+                    if (optLong >= 0 && optLong != TbadkCoreApplication.getInst().getUseTimeInterval()) {
+                        TbadkCoreApplication.getInst().setUseTimeInterval(optLong);
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
                 }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }

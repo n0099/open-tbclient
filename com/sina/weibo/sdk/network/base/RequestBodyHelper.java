@@ -1,8 +1,6 @@
 package com.sina.weibo.sdk.network.base;
 
 import android.os.Bundle;
-import com.baidu.ar.util.SystemInfoUtil;
-import com.baidu.webkit.internal.ETAG;
 import com.sina.weibo.sdk.network.IRequestParam;
 import com.sina.weibo.sdk.network.impl.RequestParam;
 import java.io.ByteArrayOutputStream;
@@ -40,10 +38,10 @@ public class RequestBodyHelper {
                 if (z) {
                     z = false;
                 } else {
-                    sb.append(ETAG.ITEM_SEPARATOR);
+                    sb.append("&");
                 }
                 try {
-                    sb.append(URLEncoder.encode(str2, "UTF-8")).append(ETAG.EQUAL).append(URLEncoder.encode(String.valueOf(postBundle.get(str2)), "UTF-8"));
+                    sb.append(URLEncoder.encode(str2, "UTF-8")).append("=").append(URLEncoder.encode(String.valueOf(postBundle.get(str2)), "UTF-8"));
                 } catch (Exception e) {
                 }
             }
@@ -70,12 +68,12 @@ public class RequestBodyHelper {
             StringBuilder sb = new StringBuilder(100);
             sb.setLength(0);
             sb.append("--");
-            sb.append(str).append(SystemInfoUtil.LINE_END);
-            sb.append("Content-Disposition: form-data; name=\"").append(str2).append("\"").append(SystemInfoUtil.LINE_END);
-            sb.append("Content-Type: text/plain;charset:\"UTF-8\"" + SystemInfoUtil.LINE_END);
-            sb.append("Content-Transfer-Encoding: 8bit").append(SystemInfoUtil.LINE_END);
-            sb.append(SystemInfoUtil.LINE_END);
-            sb.append(String.valueOf(postBundle.get(str2))).append(SystemInfoUtil.LINE_END);
+            sb.append(str).append("\r\n");
+            sb.append("Content-Disposition: form-data; name=\"").append(str2).append("\"").append("\r\n");
+            sb.append("Content-Type: text/plain;charset:\"UTF-8\"\r\n");
+            sb.append("Content-Transfer-Encoding: 8bit").append("\r\n");
+            sb.append("\r\n");
+            sb.append(String.valueOf(postBundle.get(str2))).append("\r\n");
             outputStream.write(sb.toString().getBytes("UTF-8"));
         }
         Map<String, IRequestParam.ValuePart<File>> files = iRequestParam.files();
@@ -86,10 +84,10 @@ public class RequestBodyHelper {
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("--");
             stringBuffer.append(str);
-            stringBuffer.append(SystemInfoUtil.LINE_END);
-            stringBuffer.append("Content-Disposition: form-data; name=\"").append(str3).append("\";").append("filename=\"").append(file.getName()).append("\"").append(SystemInfoUtil.LINE_END);
-            stringBuffer.append("Content-Type: " + str4 + ";charset:\"UTF-8\"" + SystemInfoUtil.LINE_END);
-            stringBuffer.append(SystemInfoUtil.LINE_END);
+            stringBuffer.append("\r\n");
+            stringBuffer.append("Content-Disposition: form-data; name=\"").append(str3).append("\";").append("filename=\"").append(file.getName()).append("\"").append("\r\n");
+            stringBuffer.append("Content-Type: " + str4 + ";charset:\"UTF-8\"\r\n");
+            stringBuffer.append("\r\n");
             outputStream.write(stringBuffer.toString().getBytes("UTF-8"));
             FileInputStream fileInputStream = new FileInputStream(file);
             byte[] bArr = new byte[1024];
@@ -100,22 +98,22 @@ public class RequestBodyHelper {
                 }
             }
             fileInputStream.close();
-            outputStream.write(SystemInfoUtil.LINE_END.getBytes());
+            outputStream.write("\r\n".getBytes());
         }
         Map<String, byte[]> byteArrays = iRequestParam.byteArrays();
         for (String str5 : byteArrays.keySet()) {
             StringBuffer stringBuffer2 = new StringBuffer();
             stringBuffer2.append("--");
             stringBuffer2.append(str);
-            stringBuffer2.append(SystemInfoUtil.LINE_END);
-            stringBuffer2.append("Content-Disposition: form-data; name=\"").append(str5).append("\"").append(SystemInfoUtil.LINE_END);
-            stringBuffer2.append("Content-Type: text/plain;charset:\"UTF-8\"" + SystemInfoUtil.LINE_END);
-            stringBuffer2.append(SystemInfoUtil.LINE_END);
+            stringBuffer2.append("\r\n");
+            stringBuffer2.append("Content-Disposition: form-data; name=\"").append(str5).append("\"").append("\r\n");
+            stringBuffer2.append("Content-Type: text/plain;charset:\"UTF-8\"\r\n");
+            stringBuffer2.append("\r\n");
             outputStream.write(stringBuffer2.toString().getBytes());
             outputStream.write(byteArrays.get(str5));
-            outputStream.write(SystemInfoUtil.LINE_END.getBytes());
+            outputStream.write("\r\n".getBytes());
         }
-        outputStream.write(("--" + str + "--" + SystemInfoUtil.LINE_END).getBytes());
+        outputStream.write(("--" + str + "--\r\n").getBytes());
         outputStream.flush();
         outputStream.close();
     }

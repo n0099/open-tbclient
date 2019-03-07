@@ -6,44 +6,44 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class e {
-    private String aRR;
-    private String aRS;
-    private String aRT;
-    private String aRU;
-    private String aRX;
-    private String aRY;
-    private String aRZ;
-    private String aSa;
-    private String aSb;
-    private String aSc;
-    private int aRz = 0;
-    private int aRA = 0;
-    private int aRB = 0;
-    private int aRC = 0;
-    private int aRD = 0;
-    private int aRE = 0;
-    private int aRF = 0;
-    private int aRG = 0;
-    private int aRH = 0;
-    private int aRI = 0;
-    private int aRJ = 0;
-    private int aRK = 0;
-    private int aRL = 0;
-    private int aRM = 0;
-    private int aRN = 0;
-    private int aRO = 0;
-    private boolean aRP = true;
-    private boolean aRQ = true;
-    private HashMap<String, String> aRV = new HashMap<>();
-    private HashMap<String, String> aRW = new HashMap<>();
-    private List<a> aSd = new ArrayList();
+    private String caB;
+    private String caC;
+    private String caD;
+    private String caE;
+    private String caF;
+    private String caG;
+    private String cav;
+    private String caw;
+    private String cax;
+    private String cay;
+    private int cad = 0;
+    private int cae = 0;
+    private int caf = 0;
+    private int cag = 0;
+    private int cah = 0;
+    private int cai = 0;
+    private int caj = 0;
+    private int cak = 0;
+    private int cal = 0;
+    private int cam = 0;
+    private int can = 0;
+    private int cao = 0;
+    private int cap = 0;
+    private int caq = 0;
+    private int car = 0;
+    private int cas = 0;
+    private boolean cat = true;
+    private boolean cau = true;
+    private HashMap<String, String> caz = new HashMap<>();
+    private HashMap<String, String> caA = new HashMap<>();
+    private List<a> caH = new ArrayList();
 
     /* loaded from: classes.dex */
     public static class a {
-        public String aSe;
-        public String aSf;
-        public int aSg;
-        public String aSh;
+        public String caI;
+        public String caJ;
+        public int caK;
+        public String caL;
         public String content;
         public String gid;
         public String title;
@@ -51,219 +51,219 @@ public class e {
         public int userType;
     }
 
-    public void Jz() {
-        HashMap<String, String> JP = JP();
-        Set<String> keySet = JP.keySet();
+    public void aiX() {
+        HashMap<String, String> ajn = ajn();
+        Set<String> keySet = ajn.keySet();
         if (keySet.size() != 1) {
-            hd(null);
+            nP(null);
         } else {
-            hd(JP.get(keySet.iterator().next()));
+            nP(ajn.get(keySet.iterator().next()));
         }
     }
 
-    public void JA() {
-        HashMap<String, String> JV = JV();
-        Set<String> keySet = JV.keySet();
+    public void aiY() {
+        HashMap<String, String> ajt = ajt();
+        Set<String> keySet = ajt.keySet();
         if (keySet.size() != 1) {
-            hj(null);
+            nV(null);
         } else {
-            hj(JV.get(keySet.iterator().next()));
+            nV(ajt.get(keySet.iterator().next()));
         }
     }
 
-    public int JB() {
-        return this.aRz;
+    public int aiZ() {
+        return this.cad;
     }
 
-    public void fa(int i) {
-        this.aRz = i;
+    public void iG(int i) {
+        this.cad = i;
     }
 
-    public int JC() {
-        return this.aRC;
+    public int aja() {
+        return this.cag;
     }
 
-    public void fb(int i) {
-        this.aRC = i;
+    public void iH(int i) {
+        this.cag = i;
     }
 
-    public int JD() {
-        return this.aRD;
+    public int ajb() {
+        return this.cah;
     }
 
-    public int JE() {
-        return this.aRF;
+    public int ajc() {
+        return this.caj;
     }
 
-    public void fc(int i) {
-        this.aRF = i;
+    public void iI(int i) {
+        this.caj = i;
     }
 
-    public int JF() {
-        return this.aRJ;
+    public int ajd() {
+        return this.can;
     }
 
-    public void fd(int i) {
-        this.aRJ = i;
+    public void iJ(int i) {
+        this.can = i;
     }
 
-    public int JG() {
-        return this.aRI;
+    public int aje() {
+        return this.cam;
     }
 
-    public void fe(int i) {
-        this.aRI = i;
+    public void iK(int i) {
+        this.cam = i;
     }
 
-    public int JH() {
-        return this.aRz;
+    public int ajf() {
+        return this.cad;
     }
 
-    public int JI() {
-        return this.aRB;
+    public int ajg() {
+        return this.caf;
     }
 
-    public void ff(int i) {
-        this.aRB = i;
+    public void iL(int i) {
+        this.caf = i;
     }
 
-    public boolean JJ() {
-        return this.aRP;
+    public boolean ajh() {
+        return this.cat;
     }
 
-    public void cf(boolean z) {
-        this.aRP = z;
+    public void eo(boolean z) {
+        this.cat = z;
     }
 
-    public String JK() {
-        return this.aRR;
+    public String aji() {
+        return this.cav;
     }
 
-    public void hc(String str) {
-        this.aRR = str;
+    public void nO(String str) {
+        this.cav = str;
     }
 
-    public String JL() {
-        return this.aRX;
+    public String ajj() {
+        return this.caB;
     }
 
-    public void hd(String str) {
-        this.aRX = str;
+    public void nP(String str) {
+        this.caB = str;
     }
 
-    public void he(String str) {
-        this.aRY = str;
+    public void nQ(String str) {
+        this.caC = str;
     }
 
-    public int JM() {
-        return this.aRA;
+    public int ajk() {
+        return this.cae;
     }
 
-    public void fg(int i) {
-        this.aRA = i;
+    public void iM(int i) {
+        this.cae = i;
     }
 
-    public void hf(String str) {
-        this.aRZ = str;
+    public void nR(String str) {
+        this.caD = str;
     }
 
-    public String JN() {
-        return this.aSb;
+    public String ajl() {
+        return this.caF;
     }
 
-    public String JO() {
-        return this.aSc;
+    public String ajm() {
+        return this.caG;
     }
 
-    public HashMap<String, String> JP() {
-        return this.aRV;
+    public HashMap<String, String> ajn() {
+        return this.caz;
     }
 
-    public int JQ() {
-        return this.aRE;
+    public int ajo() {
+        return this.cai;
     }
 
-    public void fh(int i) {
-        this.aRE = i;
+    public void iN(int i) {
+        this.cai = i;
     }
 
-    public int JR() {
-        return this.aRG;
+    public int ajp() {
+        return this.cak;
     }
 
-    public void fi(int i) {
-        this.aRG = i;
+    public void iO(int i) {
+        this.cak = i;
     }
 
-    public int JS() {
-        return this.aRK;
+    public int ajq() {
+        return this.cao;
     }
 
-    public void fj(int i) {
-        this.aRK = i;
+    public void iP(int i) {
+        this.cao = i;
     }
 
-    public void hg(String str) {
-        this.aRS = str;
+    public void nS(String str) {
+        this.caw = str;
     }
 
-    public void hh(String str) {
-        this.aRT = str;
+    public void nT(String str) {
+        this.cax = str;
     }
 
-    public int JT() {
-        return this.aRH;
+    public int ajr() {
+        return this.cal;
     }
 
-    public void fk(int i) {
-        this.aRH = i;
+    public void iQ(int i) {
+        this.cal = i;
     }
 
-    public String JU() {
-        return this.aRU;
+    public String ajs() {
+        return this.cay;
     }
 
-    public void hi(String str) {
-        this.aRU = str;
+    public void nU(String str) {
+        this.cay = str;
     }
 
-    public HashMap<String, String> JV() {
-        return this.aRW;
+    public HashMap<String, String> ajt() {
+        return this.caA;
     }
 
-    public String JW() {
-        return this.aSa;
+    public String aju() {
+        return this.caE;
     }
 
-    public void hj(String str) {
-        this.aSa = str;
+    public void nV(String str) {
+        this.caE = str;
     }
 
-    public int JX() {
-        return this.aRM;
+    public int ajv() {
+        return this.caq;
     }
 
-    public void fl(int i) {
-        this.aRM = i;
+    public void iR(int i) {
+        this.caq = i;
     }
 
-    public int JY() {
-        return this.aRN;
+    public int ajw() {
+        return this.car;
     }
 
-    public void fm(int i) {
-        this.aRN = i;
+    public void iS(int i) {
+        this.car = i;
     }
 
-    public List<a> JZ() {
-        return this.aSd;
+    public List<a> ajx() {
+        return this.caH;
     }
 
-    public int Ka() {
-        return this.aRO;
+    public int ajy() {
+        return this.cas;
     }
 
-    public void fn(int i) {
-        this.aRO = i;
+    public void iT(int i) {
+        this.cas = i;
     }
 }

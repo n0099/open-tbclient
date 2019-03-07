@@ -4,14 +4,14 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes2.dex */
 public class p {
-    private final com.facebook.common.memory.c irE;
-    private final s itA;
-    private final r itB;
-    private final r itC;
-    private final s itD;
-    private final r itE;
-    private final s itF;
-    private final r itz;
+    private final com.facebook.common.memory.c jHk;
+    private final r jJh;
+    private final s jJi;
+    private final r jJj;
+    private final r jJk;
+    private final s jJl;
+    private final r jJm;
+    private final s jJn;
 
     private p(a aVar) {
         r rVar;
@@ -22,107 +22,107 @@ public class p {
         s sVar2;
         r rVar4;
         s sVar3;
-        if (aVar.itz == null) {
-            rVar = e.bZP();
+        if (aVar.jJh == null) {
+            rVar = e.cyU();
         } else {
-            rVar = aVar.itz;
+            rVar = aVar.jJh;
         }
-        this.itz = rVar;
-        if (aVar.itA == null) {
-            sVar = n.bZU();
+        this.jJh = rVar;
+        if (aVar.jJi == null) {
+            sVar = n.cyZ();
         } else {
-            sVar = aVar.itA;
+            sVar = aVar.jJi;
         }
-        this.itA = sVar;
-        if (aVar.itB == null) {
-            rVar2 = g.bZP();
+        this.jJi = sVar;
+        if (aVar.jJj == null) {
+            rVar2 = g.cyU();
         } else {
-            rVar2 = aVar.itB;
+            rVar2 = aVar.jJj;
         }
-        this.itB = rVar2;
-        if (aVar.irE == null) {
-            cVar = com.facebook.common.memory.d.bUD();
+        this.jJj = rVar2;
+        if (aVar.jHk == null) {
+            cVar = com.facebook.common.memory.d.ctB();
         } else {
-            cVar = aVar.irE;
+            cVar = aVar.jHk;
         }
-        this.irE = cVar;
-        if (aVar.itC == null) {
-            rVar3 = h.bZP();
+        this.jHk = cVar;
+        if (aVar.jJk == null) {
+            rVar3 = h.cyU();
         } else {
-            rVar3 = aVar.itC;
+            rVar3 = aVar.jJk;
         }
-        this.itC = rVar3;
-        if (aVar.itD == null) {
-            sVar2 = n.bZU();
+        this.jJk = rVar3;
+        if (aVar.jJl == null) {
+            sVar2 = n.cyZ();
         } else {
-            sVar2 = aVar.itD;
+            sVar2 = aVar.jJl;
         }
-        this.itD = sVar2;
-        if (aVar.itE == null) {
-            rVar4 = f.bZP();
+        this.jJl = sVar2;
+        if (aVar.jJm == null) {
+            rVar4 = f.cyU();
         } else {
-            rVar4 = aVar.itE;
+            rVar4 = aVar.jJm;
         }
-        this.itE = rVar4;
-        if (aVar.itF == null) {
-            sVar3 = n.bZU();
+        this.jJm = rVar4;
+        if (aVar.jJn == null) {
+            sVar3 = n.cyZ();
         } else {
-            sVar3 = aVar.itF;
+            sVar3 = aVar.jJn;
         }
-        this.itF = sVar3;
+        this.jJn = sVar3;
     }
 
-    public r bZX() {
-        return this.itz;
+    public r czc() {
+        return this.jJh;
     }
 
-    public s bZY() {
-        return this.itA;
+    public s czd() {
+        return this.jJi;
     }
 
-    public com.facebook.common.memory.c bYj() {
-        return this.irE;
+    public com.facebook.common.memory.c cxk() {
+        return this.jHk;
     }
 
-    public r bZZ() {
-        return this.itC;
+    public r cze() {
+        return this.jJk;
     }
 
-    public s caa() {
-        return this.itD;
+    public s czf() {
+        return this.jJl;
     }
 
-    public r cab() {
-        return this.itB;
+    public r czg() {
+        return this.jJj;
     }
 
-    public r cac() {
-        return this.itE;
+    public r czh() {
+        return this.jJm;
     }
 
-    public s cad() {
-        return this.itF;
+    public s czi() {
+        return this.jJn;
     }
 
-    public static a cae() {
+    public static a czj() {
         return new a();
     }
 
     /* loaded from: classes2.dex */
     public static class a {
-        private com.facebook.common.memory.c irE;
-        private s itA;
-        private r itB;
-        private r itC;
-        private s itD;
-        private r itE;
-        private s itF;
-        private r itz;
+        private com.facebook.common.memory.c jHk;
+        private r jJh;
+        private s jJi;
+        private r jJj;
+        private r jJk;
+        private s jJl;
+        private r jJm;
+        private s jJn;
 
         private a() {
         }
 
-        public p caf() {
+        public p czk() {
             return new p(this);
         }
     }

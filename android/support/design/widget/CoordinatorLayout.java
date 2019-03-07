@@ -43,7 +43,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.ViewTreeObserver;
-import com.baidu.mapapi.map.WeightedLatLng;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Constructor;
@@ -1548,10 +1547,10 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
 
         @ColorInt
         public int getScrimColor(CoordinatorLayout coordinatorLayout, V v) {
-            return -16777216;
+            return ViewCompat.MEASURED_STATE_MASK;
         }
 
-        @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
+        @FloatRange(from = 0.0d, to = 1.0d)
         public float getScrimOpacity(CoordinatorLayout coordinatorLayout, V v) {
             return 0.0f;
         }

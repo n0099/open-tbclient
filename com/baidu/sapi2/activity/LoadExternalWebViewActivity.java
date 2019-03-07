@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.d.a.a;
-import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiAccount;
@@ -12,6 +11,7 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
+import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.ExtendSysWebViewMethodResult;
 import com.baidu.sapi2.result.SapiResult;
@@ -19,7 +19,6 @@ import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes2.dex */
 public class LoadExternalWebViewActivity extends BaseActivity {
     public static final String EXTRA_BUSINESS_TYPE = "business_type";
@@ -50,7 +49,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
             init();
             setupViews();
         } catch (Throwable th) {
@@ -156,7 +155,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         ArrayList arrayList = new ArrayList();
         WebLoginDTO webLoginDTO = PassportSDK.getInstance().getWebLoginDTO();
         if (webLoginDTO != null && WebLoginDTO.statExtraValid(webLoginDTO.statExtra)) {
-            arrayList.add(new BasicNameValuePair("extrajson", webLoginDTO.statExtra));
+            arrayList.add(new PassNameValuePair("extrajson", webLoginDTO.statExtra));
         }
         this.sapiWebView.loadExternalUrl(this.url, arrayList);
     }
@@ -186,7 +185,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void goBack() {
-        if (this.sapiWebView.canGoBack()) {
+        if (this.sapiWebView != null && this.sapiWebView.canGoBack()) {
             this.sapiWebView.goBack();
         } else {
             finish();
@@ -212,7 +211,7 @@ public class LoadExternalWebViewActivity extends BaseActivity {
         super.finish();
         if (PassportSDK.getInstance().getExtendSysWebViewMethodCallback() != null) {
             ExtendSysWebViewMethodResult extendSysWebViewMethodResult = new ExtendSysWebViewMethodResult();
-            extendSysWebViewMethodResult.params.put(BaiduRimConstants.RETCODE_KEY, -301);
+            extendSysWebViewMethodResult.params.put("retCode", -301);
             extendSysWebViewMethodResult.params.put("retMsg", SapiResult.ERROR_MSG_PROCESSED_END);
             PassportSDK.getInstance().getExtendSysWebViewMethodCallback().onFinish(extendSysWebViewMethodResult);
         }
@@ -227,5 +226,8 @@ public class LoadExternalWebViewActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
+        if (i == 2001 && i2 == -1) {
+            this.loginStatusChange = true;
+        }
     }
 }

@@ -9,7 +9,6 @@ import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
-import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
 /* loaded from: classes2.dex */
 final class SwipeProgressBar {
     private static final int ANIMATION_DURATION_MS = 2000;
@@ -82,9 +81,8 @@ final class SwipeProgressBar {
         canvas.clipRect(this.mBounds);
         if (this.mRunning || this.mFinishTime > 0) {
             long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis();
-            long j = (currentAnimationTimeMillis - this.mStartTime) % SystemScreenshotManager.DELAY_TIME;
-            long j2 = (currentAnimationTimeMillis - this.mStartTime) / SystemScreenshotManager.DELAY_TIME;
-            float f = ((float) j) / 20.0f;
+            long j = (currentAnimationTimeMillis - this.mStartTime) / 2000;
+            float f = ((float) ((currentAnimationTimeMillis - this.mStartTime) % 2000)) / 20.0f;
             if (this.mRunning) {
                 z = false;
             } else if (currentAnimationTimeMillis - this.mFinishTime >= 1000) {
@@ -96,7 +94,7 @@ final class SwipeProgressBar {
                 canvas.saveLayerAlpha(this.mClipRect, 0, 0);
                 z = true;
             }
-            if (j2 == 0) {
+            if (j == 0) {
                 canvas.drawColor(this.mColor1);
             } else if (f >= 0.0f && f < 25.0f) {
                 canvas.drawColor(this.mColor4);

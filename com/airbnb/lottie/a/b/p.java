@@ -7,105 +7,105 @@ import com.airbnb.lottie.a.b.a;
 /* loaded from: classes2.dex */
 public class p {
     private final Matrix matrix = new Matrix();
-    private final a<PointF, PointF> pT;
-    private final a<?, PointF> pU;
-    private final a<com.airbnb.lottie.model.k, com.airbnb.lottie.model.k> pV;
-    private final a<Float, Float> pW;
-    private final a<Integer, Integer> pX;
+    private final a<PointF, PointF> pO;
+    private final a<?, PointF> pP;
+    private final a<com.airbnb.lottie.model.k, com.airbnb.lottie.model.k> pQ;
+    private final a<Float, Float> pR;
+    private final a<Integer, Integer> pS;
     @Nullable
-    private final a<?, Float> pY;
+    private final a<?, Float> pT;
     @Nullable
-    private final a<?, Float> pZ;
+    private final a<?, Float> pU;
 
     public p(com.airbnb.lottie.model.a.l lVar) {
-        this.pT = lVar.dR().dG();
-        this.pU = lVar.dS().dG();
-        this.pV = lVar.dT().dG();
-        this.pW = lVar.dU().dG();
-        this.pX = lVar.dV().dG();
-        if (lVar.dW() != null) {
-            this.pY = lVar.dW().dG();
+        this.pO = lVar.dQ().dF();
+        this.pP = lVar.dR().dF();
+        this.pQ = lVar.dS().dF();
+        this.pR = lVar.dT().dF();
+        this.pS = lVar.dU().dF();
+        if (lVar.dV() != null) {
+            this.pT = lVar.dV().dF();
         } else {
-            this.pY = null;
+            this.pT = null;
         }
-        if (lVar.dX() != null) {
-            this.pZ = lVar.dX().dG();
+        if (lVar.dW() != null) {
+            this.pU = lVar.dW().dF();
         } else {
-            this.pZ = null;
+            this.pU = null;
         }
     }
 
     public void a(com.airbnb.lottie.model.layer.a aVar) {
-        aVar.a(this.pT);
-        aVar.a(this.pU);
-        aVar.a(this.pV);
-        aVar.a(this.pW);
-        aVar.a(this.pX);
-        if (this.pY != null) {
-            aVar.a(this.pY);
+        aVar.a(this.pO);
+        aVar.a(this.pP);
+        aVar.a(this.pQ);
+        aVar.a(this.pR);
+        aVar.a(this.pS);
+        if (this.pT != null) {
+            aVar.a(this.pT);
         }
-        if (this.pZ != null) {
-            aVar.a(this.pZ);
+        if (this.pU != null) {
+            aVar.a(this.pU);
         }
     }
 
-    public void a(a.InterfaceC0009a interfaceC0009a) {
-        this.pT.b(interfaceC0009a);
-        this.pU.b(interfaceC0009a);
-        this.pV.b(interfaceC0009a);
-        this.pW.b(interfaceC0009a);
-        this.pX.b(interfaceC0009a);
-        if (this.pY != null) {
-            this.pY.b(interfaceC0009a);
+    public void a(a.InterfaceC0007a interfaceC0007a) {
+        this.pO.b(interfaceC0007a);
+        this.pP.b(interfaceC0007a);
+        this.pQ.b(interfaceC0007a);
+        this.pR.b(interfaceC0007a);
+        this.pS.b(interfaceC0007a);
+        if (this.pT != null) {
+            this.pT.b(interfaceC0007a);
         }
-        if (this.pZ != null) {
-            this.pZ.b(interfaceC0009a);
+        if (this.pU != null) {
+            this.pU.b(interfaceC0007a);
         }
     }
 
     public void setProgress(float f) {
-        this.pT.setProgress(f);
-        this.pU.setProgress(f);
-        this.pV.setProgress(f);
-        this.pW.setProgress(f);
-        this.pX.setProgress(f);
-        if (this.pY != null) {
-            this.pY.setProgress(f);
+        this.pO.setProgress(f);
+        this.pP.setProgress(f);
+        this.pQ.setProgress(f);
+        this.pR.setProgress(f);
+        this.pS.setProgress(f);
+        if (this.pT != null) {
+            this.pT.setProgress(f);
         }
-        if (this.pZ != null) {
-            this.pZ.setProgress(f);
+        if (this.pU != null) {
+            this.pU.setProgress(f);
         }
     }
 
-    public a<?, Integer> dy() {
-        return this.pX;
+    public a<?, Integer> dx() {
+        return this.pS;
+    }
+
+    @Nullable
+    public a<?, Float> dy() {
+        return this.pT;
     }
 
     @Nullable
     public a<?, Float> dz() {
-        return this.pY;
-    }
-
-    @Nullable
-    public a<?, Float> dA() {
-        return this.pZ;
+        return this.pU;
     }
 
     public Matrix getMatrix() {
         this.matrix.reset();
-        PointF value = this.pU.getValue();
+        PointF value = this.pP.getValue();
         if (value.x != 0.0f || value.y != 0.0f) {
             this.matrix.preTranslate(value.x, value.y);
         }
-        float floatValue = this.pW.getValue().floatValue();
+        float floatValue = this.pR.getValue().floatValue();
         if (floatValue != 0.0f) {
             this.matrix.preRotate(floatValue);
         }
-        com.airbnb.lottie.model.k value2 = this.pV.getValue();
+        com.airbnb.lottie.model.k value2 = this.pQ.getValue();
         if (value2.getScaleX() != 1.0f || value2.getScaleY() != 1.0f) {
             this.matrix.preScale(value2.getScaleX(), value2.getScaleY());
         }
-        PointF value3 = this.pT.getValue();
+        PointF value3 = this.pO.getValue();
         if (value3.x != 0.0f || value3.y != 0.0f) {
             this.matrix.preTranslate(-value3.x, -value3.y);
         }
@@ -113,10 +113,10 @@ public class p {
     }
 
     public Matrix h(float f) {
-        PointF value = this.pU.getValue();
-        PointF value2 = this.pT.getValue();
-        com.airbnb.lottie.model.k value3 = this.pV.getValue();
-        float floatValue = this.pW.getValue().floatValue();
+        PointF value = this.pP.getValue();
+        PointF value2 = this.pO.getValue();
+        com.airbnb.lottie.model.k value3 = this.pQ.getValue();
+        float floatValue = this.pR.getValue().floatValue();
         this.matrix.reset();
         this.matrix.preTranslate(value.x * f, value.y * f);
         this.matrix.preScale((float) Math.pow(value3.getScaleX(), f), (float) Math.pow(value3.getScaleY(), f));

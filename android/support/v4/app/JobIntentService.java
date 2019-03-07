@@ -16,7 +16,6 @@ import android.os.PowerManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
-import com.baidu.ar.parser.ARResourceKey;
 import com.baidu.tieba.keepLive.jobScheduler.KeepJobService;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -96,7 +95,7 @@ public abstract class JobIntentService extends Service {
         CompatWorkEnqueuer(Context context, ComponentName componentName) {
             super(context, componentName);
             this.mContext = context.getApplicationContext();
-            PowerManager powerManager = (PowerManager) context.getSystemService(ARResourceKey.HTTP_POWER);
+            PowerManager powerManager = (PowerManager) context.getSystemService("power");
             this.mLaunchWakeLock = powerManager.newWakeLock(1, componentName.getClassName() + ":launch");
             this.mLaunchWakeLock.setReferenceCounted(false);
             this.mRunWakeLock = powerManager.newWakeLock(1, componentName.getClassName() + ":run");

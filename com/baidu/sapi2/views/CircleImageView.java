@@ -64,9 +64,9 @@ public class CircleImageView extends ImageView {
         this.mBorderPaint = new Paint();
         this.mBorderColor = -16777216;
         this.mBorderWidth = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.h.sapi_sdk_circle_image_view, i, 0);
-        this.mBorderWidth = obtainStyledAttributes.getDimensionPixelSize(a.h.sapi_sdk_circle_image_view_sapi_sdk_border_width, 0);
-        this.mBorderColor = obtainStyledAttributes.getColor(a.h.sapi_sdk_circle_image_view_sapi_sdk_border_color, -16777216);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.i.sapi_sdk_circle_image_view, i, 0);
+        this.mBorderWidth = obtainStyledAttributes.getDimensionPixelSize(a.i.sapi_sdk_circle_image_view_sapi_sdk_border_width, 0);
+        this.mBorderColor = obtainStyledAttributes.getColor(a.i.sapi_sdk_circle_image_view_sapi_sdk_border_color, -16777216);
         obtainStyledAttributes.recycle();
         init();
     }

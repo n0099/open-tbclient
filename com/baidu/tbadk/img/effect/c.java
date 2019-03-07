@@ -7,25 +7,25 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c bdQ = new c();
-    private final HashMap<String, Class<? extends b>> bdR = new HashMap<>();
+    private static c cnp = new c();
+    private final HashMap<String, Class<? extends b>> cnq = new HashMap<>();
 
-    public static c NX() {
-        return bdQ;
+    public static c anB() {
+        return cnp;
     }
 
     private c() {
-        m(d.class);
-        m(f.class);
-        m(a.class);
-        m(e.class);
-        m(g.class);
+        p(d.class);
+        p(f.class);
+        p(a.class);
+        p(e.class);
+        p(g.class);
     }
 
     public Bitmap a(Bitmap bitmap, boolean z, List<ImageOperation> list, ImageFileInfo imageFileInfo) throws Exception {
         Bitmap b;
         int i;
-        if (bitmap != null && !v.I(list)) {
+        if (bitmap != null && !v.T(list)) {
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
                 b a = a(list.get(i2));
@@ -76,14 +76,14 @@ public class c {
         Bitmap bitmap;
         int i;
         int i2 = 0;
-        if (v.I(list)) {
+        if (v.T(list)) {
             return null;
         }
         int size = list.size();
         for (int i3 = 0; i3 < size; i3++) {
             b a = a(list.get(i3));
             if ((a instanceof g) && imageFileInfo != null) {
-                return a.iB(imageFileInfo.getFilePath());
+                return a.pn(imageFileInfo.getFilePath());
             }
         }
         int i4 = 0;
@@ -103,47 +103,47 @@ public class c {
             }
             i4 = i + 1;
         }
-        Bitmap iB = dVar != null ? dVar.iB(str) : null;
+        Bitmap pn = dVar != null ? dVar.pn(str) : null;
         if (list != null) {
             while (true) {
-                bitmap = iB;
+                bitmap = pn;
                 if (i2 >= list.size()) {
                     break;
                 }
                 b a2 = a(list.get(i2));
                 if (a2 == null) {
-                    iB = bitmap;
+                    pn = bitmap;
                 } else if (bitmap == null) {
-                    iB = a2.iB(str);
+                    pn = a2.pn(str);
                 } else {
-                    iB = a2.b(bitmap, true);
+                    pn = a2.b(bitmap, true);
                 }
                 i2++;
             }
         } else {
-            bitmap = iB;
+            bitmap = pn;
         }
         return bitmap;
     }
 
     protected b a(ImageOperation imageOperation) {
-        b n;
-        Class<? extends b> cls = this.bdR.get(imageOperation.actionName);
-        if (cls != null && (n = n(cls)) != null) {
-            n.setParams(imageOperation.actionParam);
-            return n;
+        b q;
+        Class<? extends b> cls = this.cnq.get(imageOperation.actionName);
+        if (cls != null && (q = q(cls)) != null) {
+            q.setParams(imageOperation.actionParam);
+            return q;
         }
         return null;
     }
 
-    private void m(Class<? extends b> cls) {
-        b n = n(cls);
-        if (n != null) {
-            this.bdR.put(n.getActionName(), cls);
+    private void p(Class<? extends b> cls) {
+        b q = q(cls);
+        if (q != null) {
+            this.cnq.put(q.getActionName(), cls);
         }
     }
 
-    private b n(Class<? extends b> cls) {
+    private b q(Class<? extends b> cls) {
         try {
             return cls.newInstance();
         } catch (IllegalAccessException e) {

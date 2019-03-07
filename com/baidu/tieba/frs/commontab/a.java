@@ -3,33 +3,33 @@ package com.baidu.tieba.frs.commontab;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.adp.widget.ListView.h;
-import com.baidu.tbadk.core.data.bb;
+import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.util.v;
 import com.baidu.tieba.a.f;
-import com.baidu.tieba.card.aa;
 import com.baidu.tieba.frs.AbsDelegateAdapterList;
-import com.baidu.tieba.frs.entelechy.a.i;
-import com.baidu.tieba.frs.entelechy.a.p;
+import com.baidu.tieba.frs.entelechy.a.u;
+import com.baidu.tieba.frs.entelechy.a.y;
+import com.baidu.tieba.frs.h;
 import com.baidu.tieba.frs.l;
 import com.baidu.tieba.frs.m;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private BdTypeRecyclerView bRZ;
-    private l dPJ;
-    private FrsCommonTabFragment dSa;
-    private i dSb;
-    private i dSc;
-    private com.baidu.tieba.frs.entelechy.a.l dSd;
-    private p dSe;
-    private com.baidu.tieba.frs.entelechy.a.d dSf;
-    private boolean dSg;
+    private BdTypeRecyclerView Qq;
+    private l fdE;
+    private FrsCommonTabFragment ffZ;
+    private com.baidu.tieba.frs.entelechy.a.d fga;
+    private com.baidu.tieba.frs.entelechy.a.d fgb;
+    private u fgc;
+    private y fgd;
+    private y fge;
+    private boolean fgf;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
-    private CustomMessageListener dSh = new CustomMessageListener(2003008) { // from class: com.baidu.tieba.frs.commontab.a.1
+    private CustomMessageListener fgg = new CustomMessageListener(2003008) { // from class: com.baidu.tieba.frs.commontab.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -37,10 +37,10 @@ public class a {
                 Iterator it = ((AbsDelegateAdapterList) customResponsedMessage.getData()).iterator();
                 while (it.hasNext()) {
                     com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
-                    if ((aVar instanceof aa) && "FrsHottopicDelegateAdapter".equals(((aa) aVar).aqR()) && a.this.mAdapters != null) {
-                        ((aa) aVar).a(a.this.dSa.getPageContext(), a.this.dSa.getUniqueId());
-                        if (a.this.dSg) {
-                            ((aa) aVar).setFrom("c13010");
+                    if ((aVar instanceof com.baidu.tieba.card.y) && "FrsHottopicDelegateAdapter".equals(((com.baidu.tieba.card.y) aVar).aQH()) && a.this.mAdapters != null) {
+                        ((com.baidu.tieba.card.y) aVar).a(a.this.ffZ.getPageContext(), a.this.ffZ.getUniqueId());
+                        if (a.this.fgf) {
+                            ((com.baidu.tieba.card.y) aVar).setFrom("c13010");
                         }
                         a.this.mAdapters.add(aVar);
                     }
@@ -49,58 +49,64 @@ public class a {
         }
     };
 
-    public a(FrsCommonTabFragment frsCommonTabFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        a(frsCommonTabFragment, bdTypeRecyclerView);
-        this.bRZ = bdTypeRecyclerView;
+    public a(FrsCommonTabFragment frsCommonTabFragment, BdTypeRecyclerView bdTypeRecyclerView, FrsViewData frsViewData) {
+        a(frsCommonTabFragment, bdTypeRecyclerView, frsViewData);
+        this.Qq = bdTypeRecyclerView;
     }
 
-    public void a(FrsCommonTabFragment frsCommonTabFragment, BdTypeRecyclerView bdTypeRecyclerView) {
-        this.dSa = frsCommonTabFragment;
-        this.dSh.setPriority(1);
-        this.dSh.setSelfListener(true);
-        this.dSa.registerListener(this.dSh);
-        this.dSb = new i(frsCommonTabFragment.getPageContext(), bb.atJ, this.dSa.getUniqueId());
-        this.dSb.setVoiceManager(frsCommonTabFragment.getVoiceManager());
-        this.dSc = new i(frsCommonTabFragment.getPageContext(), bb.atL, this.dSa.getUniqueId());
-        this.dSc.setVoiceManager(frsCommonTabFragment.getVoiceManager());
-        this.dSd = new com.baidu.tieba.frs.entelechy.a.l(frsCommonTabFragment.getPageContext(), bb.atQ, this.dSa.getUniqueId());
-        this.dSe = new p(frsCommonTabFragment.getPageContext(), bb.atM, this.dSa.getUniqueId());
-        this.dSe.dSm = this.dSa.dSm;
-        this.dSf = new com.baidu.tieba.frs.entelechy.a.d(frsCommonTabFragment.getPageContext(), bb.atR, this.dSa.getUniqueId());
-        this.dSf.dSm = this.dSa.dSm;
-        this.dPJ = new l(frsCommonTabFragment.getPageContext(), m.dOe);
-        this.mAdapters.add(this.dSb);
-        this.mAdapters.add(this.dSc);
-        this.mAdapters.add(this.dSd);
-        this.mAdapters.add(this.dSe);
-        this.mAdapters.add(this.dSf);
-        this.mAdapters.add(this.dPJ);
+    public void a(FrsCommonTabFragment frsCommonTabFragment, BdTypeRecyclerView bdTypeRecyclerView, FrsViewData frsViewData) {
+        this.ffZ = frsCommonTabFragment;
+        this.fgg.setPriority(1);
+        this.fgg.setSelfListener(true);
+        this.ffZ.registerListener(this.fgg);
+        this.fga = new com.baidu.tieba.frs.entelechy.a.d(frsCommonTabFragment.getPageContext(), bg.bAO, this.ffZ.getUniqueId());
+        this.fga.setVoiceManager(frsCommonTabFragment.getVoiceManager());
+        this.fgb = new com.baidu.tieba.frs.entelechy.a.d(frsCommonTabFragment.getPageContext(), bg.bBa, this.ffZ.getUniqueId());
+        this.fgb.setVoiceManager(frsCommonTabFragment.getVoiceManager());
+        this.fgc = new u(frsCommonTabFragment.getPageContext(), bg.bBf, this.ffZ.getUniqueId());
+        this.fgd = new y(frsCommonTabFragment.getPageContext(), bg.bBb, this.ffZ.getUniqueId());
+        this.fgd.fgm = this.ffZ.fgm;
+        this.fge = new y(frsCommonTabFragment.getPageContext(), bg.bBg, this.ffZ.getUniqueId());
+        this.fge.fgm = this.ffZ.fgm;
+        this.fdE = new l(frsCommonTabFragment.getPageContext(), m.fbK);
+        this.mAdapters.add(this.fga);
+        this.mAdapters.add(this.fgb);
+        this.mAdapters.add(this.fgc);
+        this.mAdapters.add(this.fgd);
+        this.mAdapters.add(this.fge);
+        this.mAdapters.add(this.fdE);
         if (frsCommonTabFragment.tabId == 89) {
-            this.dSg = true;
-            this.dSb.setFrom("c13010");
-            this.dSc.setFrom("c13010");
-            this.dSd.setFrom("c13010");
-            this.dSe.setFrom("c13010");
-            this.dSf.setFrom("c13010");
-            kb("page_frs_dynamic");
+            this.fgf = true;
+            this.fga.setFrom("c13010");
+            this.fgb.setFrom("c13010");
+            this.fgc.setFrom("c13010");
+            this.fgd.setFrom("c13010");
+            this.fge.setFrom("c13010");
+            qM("page_frs_dynamic");
+        }
+        if (frsCommonTabFragment.tabId == 502) {
+            b(frsViewData);
         }
         bdTypeRecyclerView.addAdapters(this.mAdapters);
-        aEt();
+        bfc();
     }
 
-    public void setData(ArrayList<h> arrayList) {
-        this.bRZ.setData(arrayList);
+    public void setData(ArrayList<com.baidu.adp.widget.ListView.m> arrayList) {
+        this.Qq.setData(arrayList);
     }
 
-    private void aEt() {
-        if (this.dSa != null && !v.I(this.mAdapters)) {
+    private void bfc() {
+        if (this.ffZ != null && !v.T(this.mAdapters)) {
             for (com.baidu.adp.widget.ListView.a aVar : this.mAdapters) {
-                if (aVar instanceof com.baidu.tieba.frs.e.d) {
-                    com.baidu.tieba.frs.e.d dVar = (com.baidu.tieba.frs.e.d) aVar;
-                    if (dVar.aFf() != null) {
-                        dVar.aFf().eeK = this.dSa.dSl;
-                        dVar.aFf().eeM = this.dSa.forumId;
-                        dVar.aFf().eeN = this.dSa.tabId;
+                if (aVar instanceof com.baidu.tieba.frs.d.d) {
+                    com.baidu.tieba.frs.d.d dVar = (com.baidu.tieba.frs.d.d) aVar;
+                    if (dVar.bfz() != null) {
+                        dVar.bfz().ftb = this.ffZ.fgl;
+                        dVar.bfz().ftd = this.ffZ.forumId;
+                        dVar.bfz().fte = this.ffZ.tabId;
+                        if (this.ffZ.tabId == 502) {
+                            dVar.bfz().ftg = 10;
+                        }
                     }
                 }
             }
@@ -108,22 +114,32 @@ public class a {
     }
 
     public void notifyDataSetChanged() {
-        this.bRZ.getAdapter().notifyDataSetChanged();
+        this.Qq.getAdapter().notifyDataSetChanged();
     }
 
     public void onDestory() {
         for (com.baidu.adp.widget.ListView.a aVar : this.mAdapters) {
-            if (aVar instanceof com.baidu.tieba.frs.h) {
-                ((com.baidu.tieba.frs.h) aVar).release();
+            if (aVar instanceof h) {
+                ((h) aVar).release();
             }
         }
     }
 
-    private void kb(String str) {
+    private void qM(String str) {
         if (this.mAdapters != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.mAdapters) {
                 if (aVar instanceof f) {
-                    ((f) aVar).kb(str);
+                    ((f) aVar).qM(str);
+                }
+            }
+        }
+    }
+
+    private void b(FrsViewData frsViewData) {
+        if (this.mAdapters != null && this.mAdapters.size() != 0) {
+            for (com.baidu.adp.widget.ListView.a aVar : this.mAdapters) {
+                if (aVar instanceof h) {
+                    ((h) aVar).b(frsViewData);
                 }
             }
         }

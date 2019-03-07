@@ -5,34 +5,34 @@ import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.e;
-/* loaded from: classes6.dex */
+import com.baidu.tieba.d;
+/* loaded from: classes3.dex */
 public class c extends com.baidu.tieba.card.a<b> {
-    private View dcD;
-    private View dcE;
+    private View emD;
+    private View emE;
     private TextView mTitle;
 
     public c(TbPageContext tbPageContext) {
         super(tbPageContext);
         getView().setOnClickListener(this);
-        this.dcD = getView().findViewById(e.g.card_divider_top_margin);
-        this.mTitle = (TextView) getView().findViewById(e.g.card_divider_tv);
-        this.dcE = getView().findViewById(e.g.bottom_line);
+        this.emD = getView().findViewById(d.g.card_divider_top_margin);
+        this.mTitle = (TextView) getView().findViewById(d.g.card_divider_tv);
+        this.emE = getView().findViewById(d.g.bottom_line);
     }
 
     @Override // com.baidu.tieba.card.a
-    public void d(TbPageContext tbPageContext, int i) {
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         if (this.mSkinType != i) {
-            al.h(this.mTitle, e.d.cp_cont_d);
-            al.j(this.dcE, e.d.cp_bg_line_b);
-            al.j(this.dcD, e.d.cp_bg_line_c);
+            al.j(this.mTitle, d.C0236d.cp_cont_d);
+            al.l(this.emE, d.C0236d.cp_bg_line_b);
+            al.l(this.emD, d.C0236d.cp_bg_line_c);
         }
         this.mSkinType = i;
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return e.h.card_divider_view;
+        return d.h.card_divider_view;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,12 +40,12 @@ public class c extends com.baidu.tieba.card.a<b> {
     public void a(b bVar) {
         if (bVar != null) {
             if (bVar.needTopMargin) {
-                this.dcD.setVisibility(0);
+                this.emD.setVisibility(0);
             } else {
-                this.dcD.setVisibility(8);
+                this.emD.setVisibility(8);
             }
             this.mTitle.setText(bVar.title);
-            d(null, TbadkCoreApplication.getInst().getSkinType());
+            onChangeSkinType(null, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 

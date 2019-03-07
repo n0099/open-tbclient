@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 /* loaded from: classes2.dex */
 public class Space extends View {
     public Space(Context context, AttributeSet attributeSet, int i) {
@@ -37,7 +36,7 @@ public class Space extends View {
             case 0:
             default:
                 return i;
-            case AiAppsFileUtils.GB /* 1073741824 */:
+            case 1073741824:
                 return size;
         }
     }

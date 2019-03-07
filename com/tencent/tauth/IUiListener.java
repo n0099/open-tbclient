@@ -1,5 +1,5 @@
 package com.tencent.tauth;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public interface IUiListener {
     void onCancel();
 

@@ -1,99 +1,126 @@
 package com.baidu.tbadk.core.dialog;
 
-import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.CheckBox;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.i;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tieba.e;
-import java.util.ArrayList;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class f extends BaseAdapter {
-    private TbPageContext<?> mContext;
-    private ArrayList<g> mData = new ArrayList<>();
+public class f implements h {
+    private String alI;
+    private i bFn;
+    private View bFo;
+    private int bFp;
+    private int bFq;
+    private i.b bFr;
+    private boolean bFs;
+    private int mId;
+    private final View.OnClickListener mOnClickListener;
+    private int mTextColor;
+    public TextView mTextView;
+    private View mView;
 
-    public f(TbPageContext<?> tbPageContext) {
-        this.mContext = tbPageContext;
+    public int getId() {
+        return this.mId;
     }
 
-    public void setData(ArrayList<g> arrayList) {
-        this.mData = arrayList;
-        notifyDataSetChanged();
+    public f(i iVar) {
+        this(null, iVar);
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        return this.mData.size();
+    public f(String str, i iVar) {
+        this.mTextColor = d.f.person_more_pop_cancel_text_selector;
+        this.bFp = d.C0236d.cp_bg_line_d;
+        this.bFq = 17;
+        this.bFs = false;
+        this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.f.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (f.this.bFr != null) {
+                    f.this.bFr.onClick();
+                }
+                if (f.this.bFn != null && f.this.bFn.abj() != null) {
+                    f.this.bFn.abj().a(f.this.bFn, f.this.mId, f.this.mTextView);
+                }
+            }
+        };
+        this.alI = str;
+        this.bFn = iVar;
+        this.mId = hashCode();
+        initView();
+        initListener();
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        return this.mData.get(i);
+    public f(int i, String str, i iVar) {
+        this.mTextColor = d.f.person_more_pop_cancel_text_selector;
+        this.bFp = d.C0236d.cp_bg_line_d;
+        this.bFq = 17;
+        this.bFs = false;
+        this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.dialog.f.1
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view) {
+                if (f.this.bFr != null) {
+                    f.this.bFr.onClick();
+                }
+                if (f.this.bFn != null && f.this.bFn.abj() != null) {
+                    f.this.bFn.abj().a(f.this.bFn, f.this.mId, f.this.mTextView);
+                }
+            }
+        };
+        this.mId = i;
+        this.alI = str;
+        this.bFn = iVar;
+        initView();
+        initListener();
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        return i;
+    @Override // com.baidu.tbadk.core.dialog.h
+    public View getView() {
+        return this.mView;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        a aVar;
-        g gVar = this.mData.get(i);
-        if (gVar == null) {
-            return null;
+    public void setText(String str) {
+        this.alI = str;
+        this.mTextView.setText(this.alI);
+    }
+
+    public void a(i.b bVar) {
+        this.bFr = bVar;
+        initListener();
+    }
+
+    public void setTextColor(int i) {
+        this.mTextColor = i;
+        al.j(this.mTextView, i);
+    }
+
+    @Override // com.baidu.tbadk.core.dialog.h
+    public void onChangeSkinType() {
+        al.k(this.mTextView, this.bFp);
+        al.j(this.mTextView, this.mTextColor);
+        al.l(this.bFo, d.C0236d.cp_bg_line_c);
+    }
+
+    private void initView() {
+        if (this.bFn != null && this.bFn.getContext() != null) {
+            this.mView = LayoutInflater.from(this.bFn.getContext()).inflate(d.h.popup_dialog_view_item, this.bFn.abi(), false);
+            this.mTextView = (TextView) this.mView.findViewById(d.g.item_view);
+            this.mTextView.setText(this.alI);
+            this.mTextView.setGravity(this.bFq);
+            this.bFo = this.mView.findViewById(d.g.divider_line);
+            if (this.bFs) {
+                this.bFo.setVisibility(0);
+            } else {
+                this.bFo.setVisibility(8);
+            }
+            onChangeSkinType();
         }
-        if (view == null) {
-            view = LayoutInflater.from(this.mContext.getPageActivity()).inflate(e.h.dialog_rich_bdlist_item, viewGroup, false);
-            a aVar2 = new a();
-            aVar2.axH = (TextView) view.findViewById(e.g.text_tip);
-            aVar2.axI = (TextView) view.findViewById(e.g.text_desc);
-            aVar2.axJ = (CheckBox) view.findViewById(e.g.checked_icon);
-            aVar2.divider = view.findViewById(e.g.line);
-            aVar = aVar2;
-        } else {
-            aVar = (a) view.getTag();
-        }
-        aVar.axH.setText(gVar.getTip());
-        if (StringUtils.isNull(gVar.getDesc())) {
-            aVar.axI.setVisibility(8);
-        } else {
-            aVar.axI.setText(gVar.getDesc());
-            aVar.axI.setVisibility(0);
-        }
-        aVar.axJ.setChecked(gVar.isChecked());
-        aVar.axJ.setButtonDrawable(gVar.isChecked() ? al.getDrawable(e.f.icon_set_list_ok_s) : new ColorDrawable(e.d.common_color_10022));
-        if (dq(i)) {
-            aVar.divider.setVisibility(8);
-            al.i(view, e.f.dialog_single_button_bg_selector);
-        } else {
-            aVar.divider.setVisibility(0);
-            al.i(view, e.f.dialg_alert_btn_bg);
-        }
-        view.setTag(aVar);
-        this.mContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.mContext.getLayoutMode().onModeChanged(view);
-        return view;
     }
 
-    private boolean dq(int i) {
-        return this.mData != null && i == this.mData.size() + (-1);
-    }
-
-    /* loaded from: classes.dex */
-    private class a {
-        TextView axH;
-        TextView axI;
-        CheckBox axJ;
-        View divider;
-
-        private a() {
+    private void initListener() {
+        if (this.mTextView != null) {
+            this.mTextView.setOnClickListener(this.mOnClickListener);
         }
     }
 }

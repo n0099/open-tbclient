@@ -1,81 +1,63 @@
 package com.baidu.tieba.aiapps.apps.share;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.browser.BrowserType;
-import com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppsSocialShareIoc;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import org.json.JSONException;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface;
+import com.baidu.swan.apps.u.b.u;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class c extends ActivityDelegation implements IAiAppsSocialShareIoc.OnShareResultListener {
-    private String errorCallback;
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    protected boolean onExec() {
-        return false;
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public void onAttachedToWindow() {
-        Zu();
-        String string = this.mParams.getString("options");
-        String string2 = this.mParams.getString("successCallback");
-        this.errorCallback = this.mParams.getString("errorCallback");
-        a(getAgent(), this.mParams.getString("source"), BrowserType.AI_APPS, string, string2, this.mParams.getBoolean("snapshot"), this.mParams.getBoolean("forceLightTheme"), this.errorCallback, this);
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public void onSelfFinish() {
-        Zv();
-    }
-
-    private void Zu() {
-    }
-
-    private void Zv() {
-    }
-
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppsSocialShareIoc.OnShareResultListener
-    public void notify(String str, String str2) {
-        this.mResult.putString("callBack", str);
-        this.mResult.putString("info", str2);
-        Zv();
-        finish();
-    }
-
-    @Override // com.baidu.searchbox.ng.ai.apps.ioc.interfaces.IAiAppsSocialShareIoc.OnShareResultListener
-    public void onSharePanelCancel() {
-        notify(this.errorCallback, String.valueOf(false));
-    }
-
-    private void a(Context context, String str, BrowserType browserType, String str2, String str3, boolean z, boolean z2, final String str4, final IAiAppsSocialShareIoc.OnShareResultListener onShareResultListener) {
-        if (context == null) {
-            onShareResultListener.notify(str4, "client error");
-            return;
+public class c implements u {
+    u.a cWA;
+    private CustomMessageListener cWB = new CustomMessageListener(2921366) { // from class: com.baidu.tieba.aiapps.apps.share.c.1
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            if (c.this.cWA != null && (customResponsedMessage.getData() instanceof Boolean)) {
+                if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                    c.this.cWA.Du();
+                } else {
+                    c.this.cWA.Dv();
+                }
+            }
         }
-        a aVar = new a();
-        try {
-            aVar.O(new JSONObject(str2));
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(context, aVar, false);
-            shareDialogConfig.onCancelListener = new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.aiapps.apps.share.c.1
-                @Override // android.content.DialogInterface.OnCancelListener
-                public void onCancel(DialogInterface dialogInterface) {
-                    onShareResultListener.notify(str4, "user cancel");
+    };
+
+    public c() {
+        TbadkCoreApplication.getInst().setSkinType(0);
+        MessageManager.getInstance().registerListener(this.cWB);
+    }
+
+    @Override // com.baidu.swan.apps.u.b.u
+    public void a(Context context, JSONObject jSONObject, final u.a aVar) {
+        if (context instanceof Activity) {
+            this.cWA = aVar;
+            Bundle bundle = new Bundle();
+            bundle.putString("options", jSONObject.toString());
+            bundle.putBoolean(SwanAppUtilsJavaScriptInterface.KEY_SHARE_SNAPSHOT, jSONObject.optBoolean(SwanAppUtilsJavaScriptInterface.KEY_SHARE_SNAPSHOT));
+            bundle.putBoolean(SwanAppUtilsJavaScriptInterface.KEY_SHARE_FORCE_LIGHT_THEME, jSONObject.optBoolean(SwanAppUtilsJavaScriptInterface.KEY_SHARE_FORCE_LIGHT_THEME));
+            bundle.putString("source", "swan_");
+            bundle.putInt("screenOrientation", ((Activity) context).getRequestedOrientation());
+            DelegateUtils.callOnMainWithActivity((Activity) context, AiAppsShareDelegateActivity.class, b.class, bundle, new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.share.c.2
+                @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
+                public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
+                    if (delegateResult.isOk()) {
+                        if (delegateResult.mResult.getBoolean("share_result")) {
+                            aVar.Du();
+                        } else {
+                            aVar.Dv();
+                        }
+                    }
                 }
-            };
-            shareDialogConfig.onDismissListener = new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.aiapps.apps.share.c.2
-                @Override // android.content.DialogInterface.OnDismissListener
-                public void onDismiss(DialogInterface dialogInterface) {
-                    onShareResultListener.notify(str4, "user cancel");
-                }
-            };
-            MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
-        } catch (JSONException e) {
-            finish();
+            });
         }
     }
 }

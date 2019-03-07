@@ -16,50 +16,50 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private Map<BdUniqueId, ArrayList<am>> hlR;
+    private Map<BdUniqueId, ArrayList<am>> iDG;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b() {
-        if (this.hlR == null) {
-            this.hlR = new LinkedHashMap();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void r(BdUniqueId bdUniqueId) {
-        if (bdUniqueId != null) {
-            this.hlR.put(bdUniqueId, null);
+        if (this.iDG == null) {
+            this.iDG = new LinkedHashMap();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void s(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.hlR.remove(bdUniqueId);
+            this.iDG.put(bdUniqueId, null);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void t(BdUniqueId bdUniqueId) {
+        if (bdUniqueId != null) {
+            this.iDG.remove(bdUniqueId);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, am amVar) {
         if (amVar != null && bdUniqueId != null) {
-            ArrayList<am> arrayList = this.hlR.get(bdUniqueId);
+            ArrayList<am> arrayList = this.iDG.get(bdUniqueId);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.hlR.put(bdUniqueId, arrayList);
+                this.iDG.put(bdUniqueId, arrayList);
             }
             arrayList.add(amVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean t(BdUniqueId bdUniqueId) {
-        return this.hlR.containsKey(bdUniqueId);
+    public boolean u(BdUniqueId bdUniqueId) {
+        return this.iDG.containsKey(bdUniqueId);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bCB() {
-        if (this.hlR.size() != 0) {
-            for (Map.Entry<BdUniqueId, ArrayList<am>> entry : this.hlR.entrySet()) {
+    public void cdp() {
+        if (this.iDG.size() != 0) {
+            for (Map.Entry<BdUniqueId, ArrayList<am>> entry : this.iDG.entrySet()) {
                 ArrayList<am> value = entry.getValue();
                 if (value != null) {
                     value.clear();
@@ -71,19 +71,19 @@ public class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, boolean z) {
         if (bdUniqueId != null) {
-            ArrayList<am> arrayList = this.hlR.get(bdUniqueId);
-            if (v.H(arrayList) != 0) {
-                ax(arrayList);
+            ArrayList<am> arrayList = this.iDG.get(bdUniqueId);
+            if (v.S(arrayList) != 0) {
+                aB(arrayList);
                 arrayList.clear();
             }
         }
     }
 
-    private void ax(ArrayList<am> arrayList) {
-        if (arrayList != null && v.H(arrayList) != 0) {
+    private void aB(ArrayList<am> arrayList) {
+        if (arrayList != null && v.S(arrayList) != 0) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (v.H(arrayList) == 1) {
-                TiebaStatic.log((am) v.d(arrayList, 0));
+            if (v.S(arrayList) == 1) {
+                TiebaStatic.log((am) v.c(arrayList, 0));
             } else {
                 HashMap hashMap = new HashMap();
                 int i = 0;
@@ -105,7 +105,7 @@ public class b {
                 boolean z = false;
                 for (Map.Entry entry : hashMap.entrySet()) {
                     List list = (List) entry.getValue();
-                    if (v.H(list) != 0) {
+                    if (v.S(list) != 0) {
                         am amVar2 = (am) list.get(0);
                         StringBuilder sb = new StringBuilder();
                         StringBuilder sb2 = new StringBuilder();
@@ -118,23 +118,23 @@ public class b {
                         int i3 = 0;
                         while (i3 < list.size()) {
                             List<Object> params = ((am) list.get(i3)).getParams();
-                            sb.append(k(params, "obj_floor"));
+                            sb.append(m(params, "obj_floor"));
                             sb.append("|");
-                            sb2.append(k(params, "obj_isad"));
+                            sb2.append(m(params, "obj_isad"));
                             sb2.append("|");
-                            sb3.append(k(params, VideoPlayActivityConfig.OBJ_ID));
+                            sb3.append(m(params, VideoPlayActivityConfig.OBJ_ID));
                             sb3.append("|");
-                            sb4.append(k(params, "tid"));
+                            sb4.append(m(params, "tid"));
                             sb4.append("|");
-                            sb5.append(k(params, Info.kBaiduPIDKey));
+                            sb5.append(m(params, Info.kBaiduPIDKey));
                             sb5.append("|");
-                            sb6.append(k(params, "thread_type"));
+                            sb6.append(m(params, "thread_type"));
                             sb6.append("|");
-                            sb7.append(k(params, ImageViewerConfig.FORUM_ID));
+                            sb7.append(m(params, ImageViewerConfig.FORUM_ID));
                             sb7.append("|");
-                            String k = k(params, "post_type");
-                            boolean z2 = !StringUtils.isNull(k) ? true : z;
-                            sb8.append(k);
+                            String m = m(params, "post_type");
+                            boolean z2 = !StringUtils.isNull(m) ? true : z;
+                            sb8.append(m);
                             sb8.append("|");
                             i3++;
                             z = z2;
@@ -171,15 +171,15 @@ public class b {
                         amVar2.delete("thread_type");
                         amVar2.delete(ImageViewerConfig.FORUM_ID);
                         amVar2.delete("post_type");
-                        amVar2.aB("obj_floors", sb.toString());
-                        amVar2.aB("obj_isads", sb2.toString());
-                        amVar2.aB("obj_ids", sb3.toString());
-                        amVar2.aB("tids", sb4.toString());
-                        amVar2.aB("pids", sb5.toString());
-                        amVar2.aB("thread_types", sb6.toString());
-                        amVar2.aB("fids", sb7.toString());
+                        amVar2.bJ("obj_floors", sb.toString());
+                        amVar2.bJ("obj_isads", sb2.toString());
+                        amVar2.bJ("obj_ids", sb3.toString());
+                        amVar2.bJ("tids", sb4.toString());
+                        amVar2.bJ("pids", sb5.toString());
+                        amVar2.bJ("thread_types", sb6.toString());
+                        amVar2.bJ("fids", sb7.toString());
                         if (z) {
-                            amVar2.aB("post_types", sb8.toString());
+                            amVar2.bJ("post_types", sb8.toString());
                         }
                         TiebaStatic.log(amVar2);
                     }
@@ -194,9 +194,9 @@ public class b {
         }
     }
 
-    private String k(List<Object> list, String str) {
+    private String m(List<Object> list, String str) {
         int indexOf;
-        if (v.H(list) != 0 && !StringUtils.isNull(str) && (indexOf = list.indexOf(str)) >= 0 && list.size() > indexOf + 1) {
+        if (v.S(list) != 0 && !StringUtils.isNull(str) && (indexOf = list.indexOf(str)) >= 0 && list.size() > indexOf + 1) {
             String valueOf = String.valueOf(list.get(indexOf + 1));
             return StringUtils.isNull(valueOf, true) ? "" : valueOf;
         }

@@ -1,54 +1,37 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPage.ActivityHead;
-import tbclient.FrsPage.HeadImgs;
-/* loaded from: classes6.dex */
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
+import org.json.JSONObject;
+import tbclient.CartoonThread;
+/* loaded from: classes.dex */
 public class o {
-    private String arc;
-    private int ard;
-    private ArrayList<q> are = new ArrayList<>();
-    private int height;
-    private String obj_id;
-    private int width;
+    private long cartoonId;
+    private int chapterId;
 
-    public ArrayList<q> yw() {
-        return this.are;
-    }
-
-    public void j(ArrayList<q> arrayList) {
-        this.are = arrayList;
-    }
-
-    public String yx() {
-        return this.obj_id;
-    }
-
-    public void a(ActivityHead activityHead) {
-        if (activityHead != null) {
-            this.ard = activityHead.activity_type.intValue();
-            this.arc = activityHead.activity_title;
-            this.width = activityHead.top_size == null ? 0 : activityHead.top_size.width.intValue();
-            this.height = activityHead.top_size != null ? activityHead.top_size.height.intValue() : 0;
-            this.obj_id = activityHead.obj_id;
-            B(activityHead.head_imgs);
+    public void a(CartoonThread cartoonThread) {
+        if (cartoonThread != null) {
+            this.cartoonId = cartoonThread.cartoon_id.longValue();
+            this.chapterId = cartoonThread.chapter_id.intValue();
         }
     }
 
-    public void B(List<HeadImgs> list) {
-        if (!com.baidu.tbadk.core.util.v.I(list)) {
-            for (HeadImgs headImgs : list) {
-                a(headImgs);
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.cartoonId = jSONObject.optLong("cartoon_id");
+                this.chapterId = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
+            } catch (Exception e) {
+                BdLog.e(e.toString());
             }
         }
     }
 
-    public void a(HeadImgs headImgs) {
-        if (headImgs != null) {
-            q qVar = new q();
-            qVar.b(headImgs);
-            this.are.add(qVar);
-        }
+    public long getCartoonId() {
+        return this.cartoonId;
+    }
+
+    public int getChapterId() {
+        return this.chapterId;
     }
 }

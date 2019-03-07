@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.ServiceInfo;
 import android.text.TextUtils;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.xiaomi.channel.commonutils.misc.f;
 import com.xiaomi.push.service.ah;
@@ -71,7 +72,7 @@ public abstract class MiPushClient {
     }
 
     private static boolean acceptTimeSet(Context context, String str, String str2) {
-        return TextUtils.equals(getAcceptTime(context), str + "," + str2);
+        return TextUtils.equals(getAcceptTime(context), str + Constants.ACCEPT_TIME_SEPARATOR_SP + str2);
     }
 
     public static long accountSetTime(Context context, String str) {
@@ -81,7 +82,7 @@ public abstract class MiPushClient {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static synchronized void addAcceptTime(Context context, String str, String str2) {
         synchronized (MiPushClient.class) {
-            context.getSharedPreferences(PREF_EXTRA, 0).edit().putString(Constants.EXTRA_KEY_ACCEPT_TIME, str + "," + str2).commit();
+            context.getSharedPreferences(PREF_EXTRA, 0).edit().putString(Constants.EXTRA_KEY_ACCEPT_TIME, str + Constants.ACCEPT_TIME_SEPARATOR_SP + str2).commit();
         }
     }
 
@@ -310,7 +311,7 @@ public abstract class MiPushClient {
                     aeVar.c("client_info_update");
                     aeVar.a(generatePacketID());
                     aeVar.h = new HashMap();
-                    aeVar.h.put("app_version", com.xiaomi.channel.commonutils.android.b.a(sContext, sContext.getPackageName()));
+                    aeVar.h.put(Constants.EXTRA_KEY_APP_VERSION, com.xiaomi.channel.commonutils.android.b.a(sContext, sContext.getPackageName()));
                     aeVar.h.put(Constants.EXTRA_KEY_APP_VERSION_CODE, Integer.toString(com.xiaomi.channel.commonutils.android.b.b(sContext, sContext.getPackageName())));
                     aeVar.h.put("push_sdk_vn", "3_2_2");
                     aeVar.h.put("push_sdk_vc", Integer.toString(30202));
@@ -608,7 +609,7 @@ public abstract class MiPushClient {
     }
 
     private static boolean shouldSendRegRequest(Context context) {
-        return Math.abs(System.currentTimeMillis() - context.getSharedPreferences(PREF_EXTRA, 0).getLong("last_reg_request", -1L)) > 5000;
+        return Math.abs(System.currentTimeMillis() - context.getSharedPreferences(PREF_EXTRA, 0).getLong("last_reg_request", -1L)) > TbConfig.NOTIFY_SOUND_INTERVAL;
     }
 
     public static boolean shouldUseMIUIPush(Context context) {

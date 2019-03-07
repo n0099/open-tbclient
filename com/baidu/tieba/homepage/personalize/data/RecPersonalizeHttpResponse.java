@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.Personalized.DataRes;
 import tbclient.Personalized.PersonalizedResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RecPersonalizeHttpResponse extends HttpResponsedMessage {
     private DataRes resultData;
 
@@ -27,6 +27,13 @@ public class RecPersonalizeHttpResponse extends HttpResponsedMessage {
                     setError(personalizedResIdl.error.errorno.intValue());
                 }
                 setErrorString(personalizedResIdl.error.usermsg);
+            }
+            h.fNw = false;
+            if (h.f(this) && personalizedResIdl.data != null && personalizedResIdl.data.thread_list != null && personalizedResIdl.data.thread_list.size() == 0) {
+                this.resultData = h.bmV();
+                h.fNw = true;
+                h.bmW();
+                return;
             }
             this.resultData = personalizedResIdl.data;
         }

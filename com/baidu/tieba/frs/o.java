@@ -1,10 +1,10 @@
 package com.baidu.tieba.frs;
 
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-/* loaded from: classes6.dex */
-public class o extends q.a {
-    public FrsCommonImageLayout dOh;
-    public HeadImageView dOi;
+/* loaded from: classes4.dex */
+public class o extends v.a {
+    public FrsCommonImageLayout fbS;
+    public HeadImageView fbT;
 }

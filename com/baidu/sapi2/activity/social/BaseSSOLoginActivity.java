@@ -7,6 +7,7 @@ import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.dto.WebRegDTO;
@@ -18,10 +19,9 @@ import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.social.SocialLoginBase;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
+import com.baidu.sapi2.views.ViewUtility;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes2.dex */
 public class BaseSSOLoginActivity extends SocialLoginBase {
     protected int businessFrom;
@@ -103,7 +103,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.C0072a.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(a.C0039a.layout_sapi_sdk_webview_with_title_bar);
             initData();
         } catch (Throwable th) {
             reportWebviewError(th);
@@ -137,14 +137,6 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         }
     }
 
-    private void goBack() {
-        if (this.sapiWebView.canGoBack()) {
-            this.sapiWebView.back();
-        } else {
-            handleBack(this.businessFrom);
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onRightBtnClick() {
@@ -161,6 +153,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
+        ViewUtility.enableStatusBarTint(this, -1);
         configTitle();
         this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.social.BaseSSOLoginActivity.3
             @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
@@ -185,14 +178,14 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public List<NameValuePair> getStatParamList() {
+    public List<PassNameValuePair> getStatParamList() {
         ArrayList arrayList = new ArrayList();
         WebLoginDTO webLoginDTO = PassportSDK.getInstance().getWebLoginDTO();
         WebSocialLoginDTO socialLoginDTO = PassportSDK.getInstance().getSocialLoginDTO();
         if (webLoginDTO != null && WebLoginDTO.statExtraValid(webLoginDTO.statExtra)) {
-            arrayList.add(new BasicNameValuePair("extrajson", WebLoginDTO.getStatExtraDecode(webLoginDTO.statExtra)));
+            arrayList.add(new PassNameValuePair("extrajson", WebLoginDTO.getStatExtraDecode(webLoginDTO.statExtra)));
         } else if (socialLoginDTO != null && WebLoginDTO.statExtraValid(socialLoginDTO.statExtra)) {
-            arrayList.add(new BasicNameValuePair("extrajson", WebLoginDTO.getStatExtraDecode(socialLoginDTO.statExtra)));
+            arrayList.add(new PassNameValuePair("extrajson", WebLoginDTO.getStatExtraDecode(socialLoginDTO.statExtra)));
         }
         return arrayList;
     }

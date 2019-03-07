@@ -10,6 +10,7 @@ public class PbEditorData implements Serializable {
     private String mContent;
     private String mDisableVoiceMessage;
     private int mEditorType = 0;
+    private String mSubPbReplyPrefix;
     private ThreadData mThreadData;
     private VoiceData.VoiceModel mVoiceModel;
     private WriteImagesInfo mWriteImagesInfo;
@@ -29,6 +30,14 @@ public class PbEditorData implements Serializable {
 
     public void setContent(String str) {
         this.mContent = str;
+    }
+
+    public String getSubPbReplyPrefix() {
+        return this.mSubPbReplyPrefix;
+    }
+
+    public void setSubPbReplyPrefix(String str) {
+        this.mSubPbReplyPrefix = str;
     }
 
     public VoiceData.VoiceModel getVoiceModel() {

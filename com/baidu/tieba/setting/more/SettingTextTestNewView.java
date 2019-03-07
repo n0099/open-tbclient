@@ -6,16 +6,16 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public final class SettingTextTestNewView extends TbSettingTextTipView {
     public SettingTextTestNewView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         hideArrow();
-        g(0, 0, l.h(context, e.C0210e.ds30), 0);
+        k(0, 0, l.h(context, d.e.ds30), 0);
     }
 
     public void refresh() {
@@ -26,14 +26,14 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             z = true;
         }
         if (z) {
-            this.aVk.setText("new");
-            this.aVk.setTextAppearance(this.mContext, z2 ? e.k.setting_version_prompt_text_1 : e.k.setting_version_prompt_text);
-            al.i(this.aVk, e.f.icon_news_text_prompt);
+            this.ceF.setText("new");
+            this.ceF.setTextAppearance(this.mContext, z2 ? d.k.setting_version_prompt_text_1 : d.k.setting_version_prompt_text);
+            al.k(this.ceF, d.f.icon_news_text_prompt);
             return;
         }
         String version = TbConfig.getVersion();
-        this.aVk.setText((TbConfig.getVersionType() != 1 || ao.isEmpty(TbConfig.getSubVersion())) ? version : version + "." + TbConfig.getSubVersion());
-        this.aVk.setBackgroundDrawable(null);
-        this.aVk.setTextAppearance(this.mContext, z2 ? e.k.setting_version_text_1 : e.k.setting_version_text);
+        this.ceF.setText((TbConfig.getVersionType() != 1 || ap.isEmpty(TbConfig.getSubVersion())) ? version : version + "." + TbConfig.getSubVersion());
+        this.ceF.setBackgroundDrawable(null);
+        this.ceF.setTextAppearance(this.mContext, z2 ? d.k.setting_version_text_1 : d.k.setting_version_text);
     }
 }

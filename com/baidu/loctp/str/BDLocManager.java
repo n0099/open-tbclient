@@ -8,9 +8,9 @@ import android.telephony.CellLocation;
 import android.telephony.TelephonyManager;
 import android.telephony.cdma.CdmaCellLocation;
 import android.telephony.gsm.GsmCellLocation;
-import com.baidu.mobstat.Config;
+import com.baidu.appsearchlib.Info;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.webkit.internal.ETAG;
+import com.baidu.tbadk.TbConfig;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.List;
@@ -29,7 +29,7 @@ public class BDLocManager {
     private Object k;
     private Method l;
     private String q;
-    private final long a = 5000;
+    private final long a = TbConfig.NOTIFY_SOUND_INTERVAL;
     private a d = new a();
     private WifiList j = null;
     private boolean m = true;
@@ -125,7 +125,7 @@ public class BDLocManager {
                         if (i4 < i) {
                             stringBuffer.append("h");
                             stringBuffer.append(replace);
-                            stringBuffer.append(Config.MODEL);
+                            stringBuffer.append("m");
                             stringBuffer.append(StrictMath.abs(i5));
                             i2 = i4 + 1;
                             z2 = false;
@@ -207,7 +207,7 @@ public class BDLocManager {
         } catch (Exception e2) {
             str = null;
         }
-        this.q = ETAG.ITEM_SEPARATOR + packageName + ETAG.ITEM_SEPARATOR + str;
+        this.q = "&" + packageName + "&" + str;
         this.i = (WifiManager) this.b.getSystemService("wifi");
         try {
             Field declaredField = Class.forName("android.net.wifi.WifiManager").getDeclaredField("mService");
@@ -253,7 +253,7 @@ public class BDLocManager {
         if (str.equals("Z")) {
             return null;
         }
-        return a(str + "t" + System.currentTimeMillis() + this.q);
+        return a(str + Info.kBaiduTimeKey + System.currentTimeMillis() + this.q);
     }
 
     private static String a(String str) {
@@ -421,7 +421,7 @@ public class BDLocManager {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis() - this.n;
-        if (currentTimeMillis > 5000 || currentTimeMillis < 0) {
+        if (currentTimeMillis > TbConfig.NOTIFY_SOUND_INTERVAL || currentTimeMillis < 0) {
             if (!this.i.isWifiEnabled()) {
                 this.n = 0L;
                 return false;

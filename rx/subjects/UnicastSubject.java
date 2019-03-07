@@ -15,15 +15,7 @@ import rx.j;
 import rx.k;
 /* loaded from: classes2.dex */
 public final class UnicastSubject<T> extends c<T, T> {
-    final State<T> iSO;
-
-    public static <T> UnicastSubject<T> cgK() {
-        return zK(16);
-    }
-
-    public static <T> UnicastSubject<T> zK(int i) {
-        return new UnicastSubject<>(new State(i, null));
-    }
+    final State<T> kcO;
 
     public static <T> UnicastSubject<T> a(int i, rx.functions.a aVar) {
         return new UnicastSubject<>(new State(i, aVar));
@@ -31,32 +23,26 @@ public final class UnicastSubject<T> extends c<T, T> {
 
     private UnicastSubject(State<T> state) {
         super(state);
-        this.iSO = state;
+        this.kcO = state;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.iSO.onNext(t);
+        this.kcO.onNext(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.iSO.onError(th);
+        this.kcO.onError(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.iSO.onCompleted();
+        this.kcO.onCompleted();
     }
 
-    @Override // rx.subjects.c
-    public boolean hasObservers() {
-        return this.iSO.subscriber.get() != null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
-    public static final class State<T> extends AtomicLong implements d.a<T>, e<T>, f, k {
+    static final class State<T> extends AtomicLong implements d.a<T>, e<T>, f, k {
         private static final long serialVersionUID = -9044104859202255786L;
         volatile boolean caughtUp;
         volatile boolean done;
@@ -76,9 +62,9 @@ public final class UnicastSubject<T> extends c<T, T> {
             Queue<Object> xVar;
             this.terminateOnce = aVar != null ? new AtomicReference<>(aVar) : null;
             if (i > 1) {
-                xVar = ae.cge() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
+                xVar = ae.cEH() ? new y<>(i) : new rx.internal.util.atomic.f<>(i);
             } else {
-                xVar = ae.cge() ? new x<>() : new rx.internal.util.atomic.e<>();
+                xVar = ae.cEH() ? new x<>() : new rx.internal.util.atomic.e<>();
             }
             this.queue = xVar;
         }
@@ -90,7 +76,7 @@ public final class UnicastSubject<T> extends c<T, T> {
                     boolean z = false;
                     synchronized (this) {
                         if (!this.caughtUp) {
-                            this.queue.offer(NotificationLite.aY(t));
+                            this.queue.offer(NotificationLite.bp(t));
                             z = true;
                         }
                     }
@@ -217,14 +203,14 @@ public final class UnicastSubject<T> extends c<T, T> {
                                     if (z3) {
                                         break;
                                     }
-                                    Object obj = (Object) NotificationLite.bb(poll);
+                                    Object obj = (Object) NotificationLite.bs(poll);
                                     try {
                                         jVar.onNext(obj);
                                         j4--;
                                         j3 = 1 + j;
                                     } catch (Throwable th) {
                                         queue.clear();
-                                        rx.exceptions.a.J(th);
+                                        rx.exceptions.a.L(th);
                                         jVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
                                         return;
                                     }

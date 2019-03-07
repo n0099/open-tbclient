@@ -25,8 +25,8 @@ public class r {
             try {
                 l.b bVar = new l.b();
                 bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.Ba = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                bVar.AM = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.AZ = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.AK = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
                 bVar.value = cursor.getString(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
@@ -62,8 +62,8 @@ public class r {
             try {
                 l.b bVar = new l.b();
                 bVar.key = cursor.getString(cursor.getColumnIndex("m_key"));
-                bVar.Ba = cursor.getLong(cursor.getColumnIndex("saveTime"));
-                bVar.AM = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                bVar.AZ = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                bVar.AK = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
                 bVar.value = cursor.getBlob(cursor.getColumnIndex("m_value"));
                 linkedList.add(bVar);
             } catch (Throwable th2) {
@@ -87,7 +87,7 @@ public class r {
             l.c cVar = (l.c) lVar;
             if (cVar.iB() instanceof com.baidu.adp.lib.cache.j) {
                 com.baidu.adp.lib.cache.c ix = ((com.baidu.adp.lib.cache.j) cVar.iB()).ix();
-                return ix.d(ix.ip().ge(), cVar.iA());
+                return ix.d(ix.ip().ga(), cVar.iA());
             }
             return null;
         }
@@ -104,10 +104,10 @@ public class r {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(l.b<?> bVar, l.b<?> bVar2) {
-            if (bVar.Ba == bVar2.Ba) {
+            if (bVar.AZ == bVar2.AZ) {
                 return 0;
             }
-            return bVar.Ba > bVar2.Ba ? -1 : 1;
+            return bVar.AZ > bVar2.AZ ? -1 : 1;
         }
     }
 }

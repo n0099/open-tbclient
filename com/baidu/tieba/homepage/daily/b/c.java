@@ -1,21 +1,21 @@
 package com.baidu.tieba.homepage.daily.b;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId evG = BdUniqueId.gen();
-    private String evH;
+    public static final BdUniqueId fIf = BdUniqueId.gen();
+    private String fIg;
 
-    public String aLD() {
-        return this.evH;
+    public String blF() {
+        return this.fIg;
     }
 
-    public void pC(String str) {
-        this.evH = str;
+    public void wf(String str) {
+        this.fIg = str;
     }
 
-    @Override // com.baidu.adp.widget.ListView.h
+    @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return evG;
+        return fIf;
     }
 }

@@ -5,7 +5,6 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.c;
 import com.baidu.adp.lib.util.l;
-import com.baidu.searchbox.ng.ai.apps.core.slave.AiAppsSlavePool;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class TiebaIMConfig {
@@ -19,7 +18,7 @@ public class TiebaIMConfig {
     private static final BdAsyncTaskParallel sBdAsyncTaskParallel = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, IM_ASYCTASK_UNIQUEID);
     public static final String defaultUrl = "ws://im.tieba.baidu.com:8000";
     public static String url = defaultUrl;
-    public static int[] reconStrategy = {30, 60, 300, AiAppsSlavePool.PRELOAD_NEXT_DELAY_MS, TbConfig.POST_IMAGE_MIDDLE, 3600, 7200, 14400};
+    public static int[] reconStrategy = {30, 60, 300, 600, TbConfig.POST_IMAGE_MIDDLE, 3600, 7200, 14400};
     public static String POST_IMAGE_PATH = "post_image";
     public static int POST_IMAGE_DEFAULT_WIDTH = 30;
     public static int POST_IMAGE_DEFAULT_HEIGHT = 30;

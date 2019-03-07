@@ -2,8 +2,9 @@ package com.airbnb.lottie.model;
 
 import android.graphics.Color;
 import android.support.annotation.ColorInt;
-import com.baidu.mobstat.Config;
+import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.TbConfig;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -11,44 +12,44 @@ public class d {
     @ColorInt
     public int color;
     public String fontName;
-    int qp;
-    double qq;
-    public double qr;
-    public boolean qs;
+    int qj;
+    public int ql;
+    double qm;
+    public double qn;
+    public boolean qo;
     public int size;
     @ColorInt
     public int strokeColor;
     public int strokeWidth;
     public String text;
-    public int tracking;
 
     d(String str, String str2, int i, int i2, int i3, double d, double d2, @ColorInt int i4, @ColorInt int i5, int i6, boolean z) {
         this.text = str;
         this.fontName = str2;
         this.size = i;
-        this.qp = i2;
-        this.tracking = i3;
-        this.qq = d;
-        this.qr = d2;
+        this.qj = i2;
+        this.ql = i3;
+        this.qm = d;
+        this.qn = d2;
         this.color = i4;
         this.strokeColor = i5;
         this.strokeWidth = i6;
-        this.qs = z;
+        this.qo = z;
     }
 
     /* loaded from: classes2.dex */
     public static final class a {
         public static d j(JSONObject jSONObject) {
-            String optString = jSONObject.optString("t");
+            String optString = jSONObject.optString(Info.kBaiduTimeKey);
             String optString2 = jSONObject.optString("f");
-            int optInt = jSONObject.optInt("s");
+            int optInt = jSONObject.optInt(NotifyType.SOUND);
             int optInt2 = jSONObject.optInt("j");
             int optInt3 = jSONObject.optInt("tr");
             double optDouble = jSONObject.optDouble("lh");
             double optDouble2 = jSONObject.optDouble("ls");
             JSONArray optJSONArray = jSONObject.optJSONArray("fc");
             int argb = Color.argb(255, (int) (optJSONArray.optDouble(0) * 255.0d), (int) (optJSONArray.optDouble(1) * 255.0d), (int) (optJSONArray.optDouble(2) * 255.0d));
-            JSONArray optJSONArray2 = jSONObject.optJSONArray(Config.STAT_SDK_CHANNEL);
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("sc");
             int i = 0;
             if (optJSONArray2 != null) {
                 i = Color.argb(255, (int) (optJSONArray2.optDouble(0) * 255.0d), (int) (optJSONArray2.optDouble(1) * 255.0d), (int) (optJSONArray2.optDouble(2) * 255.0d));
@@ -58,7 +59,7 @@ public class d {
     }
 
     public int hashCode() {
-        long doubleToLongBits = Double.doubleToLongBits(this.qq);
-        return (((((((((((this.text.hashCode() * 31) + this.fontName.hashCode()) * 31) + this.size) * 31) + this.qp) * 31) + this.tracking) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.color;
+        long doubleToLongBits = Double.doubleToLongBits(this.qm);
+        return (((((((((((this.text.hashCode() * 31) + this.fontName.hashCode()) * 31) + this.size) * 31) + this.qj) * 31) + this.ql) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.color;
     }
 }

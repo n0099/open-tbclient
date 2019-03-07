@@ -1,15 +1,15 @@
 package com.baidu.tieba.frs.entelechy.b;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface c {
-    void B(boolean z, boolean z2);
+    void F(boolean z, boolean z2);
 
-    boolean aFi();
+    boolean bfK();
 
-    void aFj();
+    void bfL();
 
-    void aFk();
+    void bfM();
 
-    void hh(boolean z);
+    void jD(boolean z);
 
     void onChangeSkinType(int i);
 }

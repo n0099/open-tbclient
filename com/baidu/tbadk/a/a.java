@@ -1,16 +1,13 @@
 package com.baidu.tbadk.a;
-
-import java.util.HashMap;
 /* loaded from: classes.dex */
-public abstract class a implements f {
-    public abstract String key();
+public class a {
+    public String bsz;
+    public String log;
+    public String name;
 
-    @Override // com.baidu.tbadk.a.f
-    public h a(Object obj, HashMap<String, String> hashMap, String str) {
-        return null;
-    }
-
-    @Override // com.baidu.tbadk.a.f
-    public void a(Object obj, HashMap<String, String> hashMap, String str, com.baidu.adp.base.d dVar) {
+    public a(String str, String str2, String str3) {
+        this.name = str;
+        this.bsz = str2;
+        this.log = str3;
     }
 }

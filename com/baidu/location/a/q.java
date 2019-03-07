@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class q {
     private static Object a = new Object();
-    private static q aeq = null;
+    private static q b = null;
     private HandlerThread c;
     private Handler d;
     private boolean e = false;
@@ -16,13 +16,13 @@ public class q {
     q() {
     }
 
-    public static q tw() {
+    public static q a() {
         q qVar;
         synchronized (a) {
-            if (aeq == null) {
-                aeq = new q();
+            if (b == null) {
+                b = new q();
             }
-            qVar = aeq;
+            qVar = b;
         }
         return qVar;
     }
@@ -100,7 +100,7 @@ public class q {
                                 Location location = (Location) data.getParcelable("loc");
                                 data.getInt("satnum");
                                 if (location != null) {
-                                    e.tj().a(location);
+                                    e.a().a(location);
                                     return;
                                 }
                                 return;
@@ -109,26 +109,26 @@ public class q {
                                 return;
                             }
                         case 2:
-                            p.a(n.ts(), com.baidu.location.e.f.tU().tW(), n.tt(), n.a());
+                            p.a(n.c(), com.baidu.location.e.f.a().o(), n.d(), n.a());
                             return;
                         case 3:
-                            p.a(n.ts(), null, n.tt(), a.tf().c());
+                            p.a(n.c(), null, n.d(), a.a().c());
                             return;
                         case 4:
                             boolean j = com.baidu.location.e.f.j();
                             if (!j) {
                                 z = j;
-                            } else if (g.tk().d() == 1) {
+                            } else if (g.a().d() == 1) {
                                 z = false;
                             }
                             if (z) {
-                                if (com.baidu.location.b.c.tz().e()) {
-                                    com.baidu.location.d.d.tI().m();
-                                    com.baidu.location.d.d.tI().i();
+                                if (com.baidu.location.b.c.a().e()) {
+                                    com.baidu.location.d.d.a().m();
+                                    com.baidu.location.d.d.a().i();
                                 }
-                                com.baidu.location.b.f.tC().c();
-                                if (com.baidu.location.b.c.tz().e()) {
-                                    p.tv().c();
+                                com.baidu.location.b.f.a().c();
+                                if (com.baidu.location.b.c.a().e()) {
+                                    p.a().c();
                                 }
                             }
                             try {
@@ -142,14 +142,14 @@ public class q {
                                 return;
                             }
                         case 5:
-                            com.baidu.location.b.f.tC().b();
+                            com.baidu.location.b.f.a().b();
                             return;
                         case 6:
                         default:
                             return;
                         case 7:
-                            p.tv().c();
-                            com.baidu.location.b.f.tC().c();
+                            p.a().c();
+                            com.baidu.location.b.f.a().c();
                             return;
                         case 8:
                             message.getData();
@@ -176,7 +176,7 @@ public class q {
 
     public void f() {
         if (this.e) {
-            e.tj().b();
+            e.a().b();
             try {
                 if (this.d != null) {
                     this.d.removeCallbacksAndMessages(null);

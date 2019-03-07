@@ -5,14 +5,13 @@ import android.text.TextUtils;
 import cn.jiguang.d.d.l;
 import cn.jiguang.g.i;
 import cn.jpush.android.service.PushService;
-import com.baidu.webkit.internal.ETAG;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public final class d {
-    private static volatile cn.jiguang.g.b.d li;
+    private static volatile cn.jiguang.g.b.d lk;
 
     public static int a() {
-        return ((Integer) aa(null).c(ETAG.KEY_STATISTICS_SEESIONID, 0)).intValue();
+        return ((Integer) aa(null).c("session_id", 0)).intValue();
     }
 
     public static String a(Context context) {
@@ -20,7 +19,7 @@ public final class d {
     }
 
     public static void a(Context context, int i) {
-        aa(context).d(ETAG.KEY_STATISTICS_SEESIONID, Integer.valueOf(i));
+        aa(context).d("session_id", Integer.valueOf(i));
     }
 
     public static void a(Context context, long j) {
@@ -61,10 +60,10 @@ public final class d {
     }
 
     private static cn.jiguang.g.b.d aa(Context context) {
-        if (li == null) {
-            li = cn.jiguang.g.b.d.O(context, "cn.jpush.android.user.profile");
+        if (lk == null) {
+            lk = cn.jiguang.g.b.d.O(context, "cn.jpush.android.user.profile");
         }
-        return li;
+        return lk;
     }
 
     public static long ab(Context context) {
@@ -158,15 +157,15 @@ public final class d {
             String N = cn.jiguang.g.a.N(cn.jiguang.d.a.d, PushService.class.getCanonicalName());
             String c = cn.jiguang.d.b.a.c(cn.jiguang.d.a.d);
             if (!TextUtils.isEmpty(N) && !TextUtils.isEmpty(c) && c.equals(N)) {
-                cn.jiguang.d.b.d.bO();
+                cn.jiguang.d.b.d.bN();
                 return cn.jiguang.d.b.d.d();
             } else if (!cn.jiguang.d.b.a.c() && cn.jiguang.d.b.a.b(cn.jiguang.d.a.d)) {
-                cn.jiguang.d.b.d.bO();
+                cn.jiguang.d.b.d.bN();
                 return cn.jiguang.d.b.d.d();
             } else {
                 if (!cn.jiguang.g.a.b(cn.jiguang.d.a.d)) {
                     if (cn.jiguang.d.a.d != null) {
-                        l.bZ().e(cn.jiguang.d.a.d, null, null);
+                        l.bY().e(cn.jiguang.d.a.d, null, null);
                     }
                     if (cn.jiguang.d.b.a.c()) {
                         return false;
@@ -204,7 +203,7 @@ public final class d {
     }
 
     public static void f(Context context) {
-        aa(context).b(new cn.jiguang.g.b.a().a("device_uid", (Serializable) 0L).l("device_password", "").l("device_registration_id", "").l("devcie_id_generated", "").l("device_appkey", "").f(ETAG.KEY_STATISTICS_SEESIONID, 0).l("brd", ""));
+        aa(context).b(new cn.jiguang.g.b.a().a("device_uid", (Serializable) 0L).l("device_password", "").l("device_registration_id", "").l("devcie_id_generated", "").l("device_appkey", "").f("session_id", 0).l("brd", ""));
     }
 
     public static void f(Context context, String str) {

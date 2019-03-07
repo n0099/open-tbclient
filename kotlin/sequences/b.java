@@ -7,13 +7,13 @@ import kotlin.jvm.internal.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class b<T> implements c<T> {
-    private final kotlin.jvm.a.a<T> iDa;
-    private final kotlin.jvm.a.b<T, T> iDb;
+    private final kotlin.jvm.a.a<T> jSL;
+    private final kotlin.jvm.a.b<T, T> jSM;
 
     /* loaded from: classes2.dex */
     public static final class a implements Iterator<T> {
-        private T GE;
-        private int iCY = -2;
+        private T GD;
+        private int jSJ = -2;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -24,44 +24,44 @@ public final class b<T> implements c<T> {
         a() {
         }
 
-        private final void cdw() {
+        private final void cCB() {
             T t;
-            if (this.iCY == -2) {
-                t = (T) b.this.iDa.invoke();
+            if (this.jSJ == -2) {
+                t = (T) b.this.jSL.invoke();
             } else {
-                kotlin.jvm.a.b bVar = b.this.iDb;
-                T t2 = this.GE;
+                kotlin.jvm.a.b bVar = b.this.jSM;
+                T t2 = this.GD;
                 if (t2 == null) {
-                    p.cdm();
+                    p.cCr();
                 }
                 t = (T) bVar.invoke(t2);
             }
-            this.GE = t;
-            this.iCY = this.GE == null ? 0 : 1;
+            this.GD = t;
+            this.jSJ = this.GD == null ? 0 : 1;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.iCY < 0) {
-                cdw();
+            if (this.jSJ < 0) {
+                cCB();
             }
-            if (this.iCY == 0) {
+            if (this.jSJ == 0) {
                 throw new NoSuchElementException();
             }
-            T t = this.GE;
+            T t = this.GD;
             if (t == null) {
                 throw new TypeCastException("null cannot be cast to non-null type T");
             }
-            this.iCY = -1;
+            this.jSJ = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.iCY < 0) {
-                cdw();
+            if (this.jSJ < 0) {
+                cCB();
             }
-            return this.iCY == 1;
+            return this.jSJ == 1;
         }
     }
 
@@ -69,10 +69,10 @@ public final class b<T> implements c<T> {
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: kotlin.jvm.a.b<? super T, ? extends T> */
     /* JADX WARN: Multi-variable type inference failed */
     public b(kotlin.jvm.a.a<? extends T> aVar, kotlin.jvm.a.b<? super T, ? extends T> bVar) {
-        p.j(aVar, "getInitialValue");
-        p.j(bVar, "getNextValue");
-        this.iDa = aVar;
-        this.iDb = bVar;
+        p.k(aVar, "getInitialValue");
+        p.k(bVar, "getNextValue");
+        this.jSL = aVar;
+        this.jSM = bVar;
     }
 
     @Override // kotlin.sequences.c

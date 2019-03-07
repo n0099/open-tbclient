@@ -9,123 +9,123 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 public class g extends Drawable implements Drawable.Callback, c, o, p {
-    private static final Matrix inw = new Matrix();
-    protected p imZ;
-    private final d ina = new d();
-    private Drawable inv;
+    private static final Matrix jCW = new Matrix();
+    protected p jCA;
+    private final d jCB = new d();
+    private Drawable jCV;
 
     public g(Drawable drawable) {
-        this.inv = drawable;
-        e.a(this.inv, this, this);
+        this.jCV = drawable;
+        e.a(this.jCV, this, this);
     }
 
-    public Drawable j(Drawable drawable) {
-        Drawable k = k(drawable);
+    public Drawable k(Drawable drawable) {
+        Drawable l = l(drawable);
         invalidateSelf();
-        return k;
+        return l;
     }
 
-    protected Drawable k(Drawable drawable) {
-        Drawable drawable2 = this.inv;
+    protected Drawable l(Drawable drawable) {
+        Drawable drawable2 = this.jCV;
         e.a(drawable2, null, null);
         e.a(drawable, null, null);
-        e.a(drawable, this.ina);
-        e.a(drawable, this);
+        e.a(drawable, this.jCB);
+        e.c(drawable, this);
         e.a(drawable, this, this);
-        this.inv = drawable;
+        this.jCV = drawable;
         return drawable2;
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getOpacity() {
-        return this.inv.getOpacity();
+        return this.jCV.getOpacity();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setAlpha(int i) {
-        this.ina.setAlpha(i);
-        this.inv.setAlpha(i);
+        this.jCB.setAlpha(i);
+        this.jCV.setAlpha(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setColorFilter(ColorFilter colorFilter) {
-        this.ina.setColorFilter(colorFilter);
-        this.inv.setColorFilter(colorFilter);
+        this.jCB.setColorFilter(colorFilter);
+        this.jCV.setColorFilter(colorFilter);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setDither(boolean z) {
-        this.ina.setDither(z);
-        this.inv.setDither(z);
+        this.jCB.setDither(z);
+        this.jCV.setDither(z);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void setFilterBitmap(boolean z) {
-        this.ina.setFilterBitmap(z);
-        this.inv.setFilterBitmap(z);
+        this.jCB.setFilterBitmap(z);
+        this.jCV.setFilterBitmap(z);
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean setVisible(boolean z, boolean z2) {
         super.setVisible(z, z2);
-        return this.inv.setVisible(z, z2);
+        return this.jCV.setVisible(z, z2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.graphics.drawable.Drawable
     public void onBoundsChange(Rect rect) {
-        this.inv.setBounds(rect);
+        this.jCV.setBounds(rect);
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean isStateful() {
-        return this.inv.isStateful();
+        return this.jCV.isStateful();
     }
 
     @Override // android.graphics.drawable.Drawable
     protected boolean onStateChange(int[] iArr) {
-        return this.inv.setState(iArr);
+        return this.jCV.setState(iArr);
     }
 
     @Override // android.graphics.drawable.Drawable
     protected boolean onLevelChange(int i) {
-        return this.inv.setLevel(i);
+        return this.jCV.setLevel(i);
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        this.inv.draw(canvas);
+        this.jCV.draw(canvas);
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicWidth() {
-        return this.inv.getIntrinsicWidth();
+        return this.jCV.getIntrinsicWidth();
     }
 
     @Override // android.graphics.drawable.Drawable
     public int getIntrinsicHeight() {
-        return this.inv.getIntrinsicHeight();
+        return this.jCV.getIntrinsicHeight();
     }
 
     @Override // android.graphics.drawable.Drawable
     public boolean getPadding(Rect rect) {
-        return this.inv.getPadding(rect);
+        return this.jCV.getPadding(rect);
     }
 
     @Override // android.graphics.drawable.Drawable
     public Drawable mutate() {
-        this.inv.mutate();
+        this.jCV.mutate();
         return this;
     }
 
     @Override // android.graphics.drawable.Drawable
     public Drawable getCurrent() {
-        return this.inv;
+        return this.jCV;
     }
 
     @Override // com.facebook.drawee.drawable.c
-    public Drawable h(Drawable drawable) {
-        return j(drawable);
+    public Drawable i(Drawable drawable) {
+        return k(drawable);
     }
 
     @Override // com.facebook.drawee.drawable.c
@@ -150,13 +150,13 @@ public class g extends Drawable implements Drawable.Callback, c, o, p {
 
     @Override // com.facebook.drawee.drawable.o
     public void a(p pVar) {
-        this.imZ = pVar;
+        this.jCA = pVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void f(Matrix matrix) {
-        if (this.imZ != null) {
-            this.imZ.e(matrix);
+        if (this.jCA != null) {
+            this.jCA.e(matrix);
         } else {
             matrix.reset();
         }
@@ -169,8 +169,8 @@ public class g extends Drawable implements Drawable.Callback, c, o, p {
 
     @Override // com.facebook.drawee.drawable.p
     public void b(RectF rectF) {
-        if (this.imZ != null) {
-            this.imZ.b(rectF);
+        if (this.jCA != null) {
+            this.jCA.b(rectF);
         } else {
             rectF.set(getBounds());
         }
@@ -179,6 +179,6 @@ public class g extends Drawable implements Drawable.Callback, c, o, p {
     @Override // android.graphics.drawable.Drawable
     @TargetApi(21)
     public void setHotspot(float f, float f2) {
-        this.inv.setHotspot(f, f2);
+        this.jCV.setHotspot(f, f2);
     }
 }

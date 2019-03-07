@@ -1,68 +1,25 @@
 package com.baidu.tieba.tbadkCore.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import tbclient.Timgs;
+import tbclient.DetailInfo;
 /* loaded from: classes.dex */
-public class j implements com.baidu.tbadk.core.flow.a.a {
-    private int height;
-    private String hpr;
-    private String hps;
-    private String hpt;
-    private String hpu;
-    private String subTitle;
-    private int urlFlag;
-    private int width;
+public class j {
+    private String text;
+    private String url;
 
-    public j(Timgs timgs) {
-        this.hpr = null;
-        this.urlFlag = 0;
-        this.hps = null;
-        this.hpt = null;
-        this.hpu = null;
-        this.subTitle = null;
-        this.width = 1;
-        this.height = 1;
-        if (timgs != null) {
-            this.hpr = timgs.img_url;
-            this.urlFlag = timgs.flag.intValue();
-            this.hps = timgs.url;
-            this.hpt = timgs.big_cdn_url;
-            this.hpu = timgs.des_main;
-            this.subTitle = timgs.des_sub;
-            String str = timgs.bsize;
-            if (str != null) {
-                try {
-                    String[] split = str.split(",");
-                    this.width = com.baidu.adp.lib.g.b.l(split[0], 1);
-                    this.height = com.baidu.adp.lib.g.b.l(split[1], 1);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-            if (this.width <= 0) {
-                this.width = 1;
-            }
-            if (this.height <= 0) {
-                this.height = 1;
-            }
+    public j(DetailInfo detailInfo) {
+        this.text = null;
+        this.url = null;
+        if (detailInfo != null) {
+            this.text = detailInfo.text;
+            this.url = detailInfo.url;
         }
     }
 
-    @Override // com.baidu.tbadk.core.flow.a.a
-    public String getPicUrl() {
-        return this.hpr;
+    public String getText() {
+        return this.text;
     }
 
-    @Override // com.baidu.tbadk.core.flow.a.a
-    public String yA() {
-        return this.hps;
-    }
-
-    public String bEA() {
-        return this.hpr;
-    }
-
-    public String bEB() {
-        return this.hpt;
+    public String getUrl() {
+        return this.url;
     }
 }

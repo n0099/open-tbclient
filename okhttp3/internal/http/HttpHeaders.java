@@ -1,6 +1,7 @@
 package okhttp3.internal.http;
 
 import android.support.v7.widget.ActivityChooserView;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,6 +17,7 @@ import okhttp3.HttpUrl;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.internal.Util;
+import org.apache.http.client.methods.HttpHead;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public final class HttpHeaders {
@@ -75,7 +77,7 @@ public final class HttpHeaders {
                 if (emptySet.isEmpty()) {
                     emptySet = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
                 }
-                String[] split = value.split(",");
+                String[] split = value.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 for (String str : split) {
                     emptySet.add(str.trim());
                 }
@@ -141,7 +143,7 @@ public final class HttpHeaders {
                 if (str3 != null) {
                     Challenge challenge = new Challenge(substring, str3);
                     if (str2 != null) {
-                        if (str2.equalsIgnoreCase("UTF-8")) {
+                        if (str2.equalsIgnoreCase(HTTP.UTF_8)) {
                             challenge = challenge.withCharset(Util.UTF_8);
                         }
                     }
@@ -162,7 +164,7 @@ public final class HttpHeaders {
     }
 
     public static boolean hasBody(Response response) {
-        if (response.request().method().equals("HEAD")) {
+        if (response.request().method().equals(HttpHead.METHOD_NAME)) {
             return false;
         }
         int code = response.code();

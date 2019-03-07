@@ -9,7 +9,6 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.FrameLayout;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 /* loaded from: classes2.dex */
 public class ContentFrameLayout extends FrameLayout {
     private OnAttachListener mAttachListener;
@@ -93,7 +92,7 @@ public class ContentFrameLayout extends FrameLayout {
                     fraction3 = typedValue2.type == 6 ? (int) typedValue2.getFraction(displayMetrics.widthPixels, displayMetrics.widthPixels) : 0;
                 }
                 if (fraction3 > 0) {
-                    i = View.MeasureSpec.makeMeasureSpec(Math.min(fraction3 - (this.mDecorPadding.left + this.mDecorPadding.right), View.MeasureSpec.getSize(i)), AiAppsFileUtils.GB);
+                    i = View.MeasureSpec.makeMeasureSpec(Math.min(fraction3 - (this.mDecorPadding.left + this.mDecorPadding.right), View.MeasureSpec.getSize(i)), 1073741824);
                     z = true;
                     if (mode2 == Integer.MIN_VALUE) {
                         TypedValue typedValue3 = z3 ? this.mFixedHeightMajor : this.mFixedHeightMinor;
@@ -104,13 +103,13 @@ public class ContentFrameLayout extends FrameLayout {
                                 fraction2 = typedValue3.type == 6 ? (int) typedValue3.getFraction(displayMetrics.heightPixels, displayMetrics.heightPixels) : 0;
                             }
                             if (fraction2 > 0) {
-                                i2 = View.MeasureSpec.makeMeasureSpec(Math.min(fraction2 - (this.mDecorPadding.top + this.mDecorPadding.bottom), View.MeasureSpec.getSize(i2)), AiAppsFileUtils.GB);
+                                i2 = View.MeasureSpec.makeMeasureSpec(Math.min(fraction2 - (this.mDecorPadding.top + this.mDecorPadding.bottom), View.MeasureSpec.getSize(i2)), 1073741824);
                             }
                         }
                     }
                     super.onMeasure(i, i2);
                     measuredWidth = getMeasuredWidth();
-                    int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(measuredWidth, AiAppsFileUtils.GB);
+                    int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824);
                     if (!z && mode == Integer.MIN_VALUE) {
                         typedValue = !z3 ? this.mMinWidthMinor : this.mMinWidthMajor;
                         if (typedValue != null && typedValue.type != 0) {
@@ -123,7 +122,7 @@ public class ContentFrameLayout extends FrameLayout {
                                 fraction -= this.mDecorPadding.left + this.mDecorPadding.right;
                             }
                             if (measuredWidth < fraction) {
-                                i3 = View.MeasureSpec.makeMeasureSpec(fraction, AiAppsFileUtils.GB);
+                                i3 = View.MeasureSpec.makeMeasureSpec(fraction, 1073741824);
                                 z2 = true;
                                 if (z2) {
                                     super.onMeasure(i3, i2);
@@ -144,7 +143,7 @@ public class ContentFrameLayout extends FrameLayout {
         }
         super.onMeasure(i, i2);
         measuredWidth = getMeasuredWidth();
-        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(measuredWidth, AiAppsFileUtils.GB);
+        int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(measuredWidth, 1073741824);
         if (!z) {
             if (!z3) {
             }

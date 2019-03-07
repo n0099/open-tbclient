@@ -2,27 +2,27 @@ package com.baidu.tieba.pb.pb.a;
 
 import android.view.View;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface a {
-    void I(View.OnClickListener onClickListener);
+    void J(View.OnClickListener onClickListener);
 
     void b(com.baidu.tieba.pb.data.d dVar);
 
-    void kC(boolean z);
+    void nc(boolean z);
 
-    void kD(boolean z);
+    void nd(boolean z);
 
-    void kE(boolean z);
-
-    void s(View.OnClickListener onClickListener);
+    void ne(boolean z);
 
     void setFromCDN(boolean z);
 
     void setHostId(String str);
 
-    void setImageMaxWidth(int i);
-
     void setOnImageClickListener(TbRichTextView.h hVar);
 
     void setOnLongClickListener(View.OnLongClickListener onLongClickListener);
+
+    void t(View.OnClickListener onClickListener);
+
+    void wa(int i);
 }

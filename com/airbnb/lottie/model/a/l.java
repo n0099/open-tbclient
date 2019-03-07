@@ -7,62 +7,62 @@ import com.airbnb.lottie.a.b.p;
 import com.airbnb.lottie.model.a.b;
 import com.airbnb.lottie.model.a.d;
 import com.airbnb.lottie.model.a.g;
-import com.baidu.mobstat.Config;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import java.util.Collections;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class l implements com.airbnb.lottie.model.content.b {
-    private final e qP;
-    private final m<PointF, PointF> qQ;
-    private final g qR;
-    private final b qS;
-    private final d qT;
+    private final e qL;
+    private final m<PointF, PointF> qM;
+    private final g qN;
+    private final b qO;
+    private final d qP;
     @Nullable
-    private final b qU;
+    private final b qQ;
     @Nullable
-    private final b qV;
+    private final b qR;
 
     private l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.qP = eVar;
-        this.qQ = mVar;
-        this.qR = gVar;
-        this.qS = bVar;
-        this.qT = dVar;
-        this.qU = bVar2;
-        this.qV = bVar3;
+        this.qL = eVar;
+        this.qM = mVar;
+        this.qN = gVar;
+        this.qO = bVar;
+        this.qP = dVar;
+        this.qQ = bVar2;
+        this.qR = bVar3;
     }
 
-    public e dR() {
+    public e dQ() {
+        return this.qL;
+    }
+
+    public m<PointF, PointF> dR() {
+        return this.qM;
+    }
+
+    public g dS() {
+        return this.qN;
+    }
+
+    public b dT() {
+        return this.qO;
+    }
+
+    public d dU() {
         return this.qP;
     }
 
-    public m<PointF, PointF> dS() {
+    @Nullable
+    public b dV() {
         return this.qQ;
-    }
-
-    public g dT() {
-        return this.qR;
-    }
-
-    public b dU() {
-        return this.qS;
-    }
-
-    public d dV() {
-        return this.qT;
     }
 
     @Nullable
     public b dW() {
-        return this.qU;
+        return this.qR;
     }
 
-    @Nullable
-    public b dX() {
-        return this.qV;
-    }
-
-    public p dY() {
+    public p dX() {
         return new p(this);
     }
 
@@ -74,8 +74,8 @@ public class l implements com.airbnb.lottie.model.content.b {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public static l dZ() {
-            return new l(new e(), new e(), g.a.dO(), b.a.dJ(), d.a.dL(), b.a.dJ(), b.a.dJ());
+        public static l dY() {
+            return new l(new e(), new e(), g.a.dN(), b.a.dI(), d.a.dK(), b.a.dI(), b.a.dI());
         }
 
         public static l n(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
@@ -84,9 +84,9 @@ public class l implements com.airbnb.lottie.model.content.b {
             g gVar;
             b bVar;
             d dVar;
-            JSONObject optJSONObject = jSONObject.optJSONObject(Config.APP_VERSION_CODE);
+            JSONObject optJSONObject = jSONObject.optJSONObject("a");
             if (optJSONObject != null) {
-                eVar2 = new e(optJSONObject.opt(Config.APP_KEY), eVar);
+                eVar2 = new e(optJSONObject.opt("k"), eVar);
             } else {
                 Log.w("LOTTIE", "Layer has no transform property. You may be using an unsupported layer type such as a camera.");
                 eVar2 = new e();
@@ -98,7 +98,7 @@ public class l implements com.airbnb.lottie.model.content.b {
                 ad("position");
                 mVar = null;
             }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("s");
+            JSONObject optJSONObject3 = jSONObject.optJSONObject(NotifyType.SOUND);
             if (optJSONObject3 != null) {
                 gVar = g.a.j(optJSONObject3, eVar);
             } else {
@@ -114,7 +114,7 @@ public class l implements com.airbnb.lottie.model.content.b {
                 ad("rotation");
                 bVar = null;
             }
-            JSONObject optJSONObject5 = jSONObject.optJSONObject(Config.OS);
+            JSONObject optJSONObject5 = jSONObject.optJSONObject("o");
             if (optJSONObject5 != null) {
                 dVar = d.a.g(optJSONObject5, eVar);
             } else {

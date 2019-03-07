@@ -1,35 +1,21 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.StringUtils;
-import java.util.ArrayList;
-import tbclient.FrsPage.ColorEgg;
+import tbclient.FrsPage.CarrierEnter;
 /* loaded from: classes.dex */
 public class n {
-    private ArrayList<String> ara = new ArrayList<>();
-    private int arb;
+    private String headline_cover;
+    private String obj_id;
+    private String text;
+    private String title;
+    private String url;
 
-    public ArrayList<String> yu() {
-        return this.ara;
-    }
-
-    public int yv() {
-        return this.arb;
-    }
-
-    public boolean a(ColorEgg colorEgg) {
-        this.arb = 0;
-        if (colorEgg == null || colorEgg.holiday_words == null || colorEgg.holiday_words.size() <= 0) {
-            return false;
+    public void a(CarrierEnter carrierEnter) {
+        if (carrierEnter != null) {
+            this.title = carrierEnter.title;
+            this.text = carrierEnter.text;
+            this.headline_cover = carrierEnter.headline_cover;
+            this.url = carrierEnter.url;
+            this.obj_id = carrierEnter.obj_id;
         }
-        for (String str : colorEgg.holiday_words) {
-            if (!StringUtils.isNull(str)) {
-                this.ara.add(str);
-            }
-        }
-        if (this.ara.size() <= 0) {
-            return false;
-        }
-        this.arb = colorEgg.style_flag.intValue();
-        return true;
     }
 }

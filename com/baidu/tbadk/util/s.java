@@ -1,56 +1,77 @@
 package com.baidu.tbadk.util;
 
-import android.os.Environment;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.pass.biometrics.base.utils.PhoneUtils;
+import com.baidu.sofire.ac.FH;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import java.lang.reflect.Field;
+import tbclient.CommonReq;
 /* loaded from: classes.dex */
-public final class s {
-    public static boolean isEMUI() {
-        return t("ro.build.version.emui", "ro.build.hw_emui_api_level");
+public class s {
+    public static void bindCommonParamsToProtobufData(Object obj, boolean z) {
+        bindCommonParamsToProtobufData(obj, z, false);
     }
 
-    private static boolean t(String... strArr) {
-        if (strArr == null || strArr.length == 0) {
-            return false;
-        }
-        try {
-            a Qw = a.Qw();
-            for (String str : strArr) {
-                if (Qw.getProperty(str) != null) {
-                    return true;
+    public static void bindCommonParamsToProtobufData(Object obj, boolean z, boolean z2) {
+        bindCommonParamsToProtobufData(obj, z, z2, false);
+    }
+
+    public static void bindCommonParamsToProtobufData(Object obj, boolean z, boolean z2, boolean z3) {
+        AccountData currentAccountInfo;
+        if (obj != null) {
+            try {
+                Field field = obj.getClass().getField(PhoneUtils.CPUInfo.FEATURE_COMMON);
+                if (!field.isAccessible()) {
+                    field.setAccessible(true);
                 }
-            }
-            return false;
-        } catch (IOException e) {
-            return false;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes.dex */
-    public static final class a {
-        private static a bjw;
-        private final Properties bjx = new Properties();
-
-        private a() throws IOException {
-            this.bjx.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
-        }
-
-        public static a Qw() throws IOException {
-            if (bjw == null) {
-                synchronized (a.class) {
-                    if (bjw == null) {
-                        bjw = new a();
+                CommonReq.Builder builder = new CommonReq.Builder();
+                builder._client_type = 2;
+                builder._client_version = TbConfig.getVersion();
+                builder._client_id = TbadkCoreApplication.getClientId();
+                if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
+                    builder.subapp_type = TbConfig.getSubappType();
+                }
+                if (!TbadkCoreApplication.getInst().isOfficial()) {
+                    builder.apid = TbConfig.SW_APID;
+                }
+                builder._phone_imei = TbadkCoreApplication.getInst().getImei();
+                builder.from = TbadkCoreApplication.getFrom();
+                builder.cuid = TbadkCoreApplication.getInst().getCuid();
+                builder.cuid_galaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+                builder.cuid_gid = TbadkCoreApplication.getInst().getCuidGid();
+                builder._timestamp = Long.valueOf(System.currentTimeMillis());
+                builder.model = Build.MODEL;
+                if (z && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
+                    builder.BDUSS = currentAccountInfo.getBDUSS();
+                    String c = com.baidu.tbadk.core.a.d.c(currentAccountInfo);
+                    if (!StringUtils.isNull(c)) {
+                        builder.stoken = c;
                     }
                 }
+                if (z2) {
+                    builder.tbs = TbadkCoreApplication.getInst().getTbs();
+                }
+                if (z3) {
+                    builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
+                }
+                builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
+                builder.lego_lib_version = TbConfig.getLegoLibVersion();
+                if (com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("android_safe_sdk_open", 0) == 1) {
+                    builder.z_id = FH.gz(TbadkCoreApplication.getInst());
+                }
+                builder.net_type = Integer.valueOf(com.baidu.adp.lib.util.j.netType());
+                field.set(obj, builder.build(false));
+            } catch (Throwable th) {
+                if (BdLog.isDebugMode()) {
+                    th.printStackTrace();
+                }
             }
-            return bjw;
-        }
-
-        public String getProperty(String str) {
-            return this.bjx.getProperty(str);
         }
     }
 }

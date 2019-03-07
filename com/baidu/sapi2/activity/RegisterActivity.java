@@ -27,7 +27,7 @@ public class RegisterActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
             setupViews();
             init();
         } catch (Throwable th) {
@@ -83,13 +83,13 @@ public class RegisterActivity extends BaseActivity {
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(a.f.sapi_sdk_title_register);
+        setTitleText(a.g.sapi_sdk_title_register);
         configTitle();
         final WebAuthListener webAuthListener = PassportSDK.getInstance().getWebAuthListener();
         this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.RegisterActivity.2
             @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
             public void onFinish() {
-                if (RegisterActivity.this.sapiWebView.canGoBack()) {
+                if (RegisterActivity.this.sapiWebView != null && RegisterActivity.this.sapiWebView.canGoBack()) {
                     RegisterActivity.this.sapiWebView.goBack();
                 } else {
                     RegisterActivity.this.onClose();

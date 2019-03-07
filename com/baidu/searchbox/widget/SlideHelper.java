@@ -24,6 +24,7 @@ public class SlideHelper {
 
     public void attachSlideView(Context context, View view) {
         if (view != null && this.canSlide) {
+            boolean isFocused = view.isFocused();
             ViewGroup viewGroup = (ViewGroup) view.getParent();
             viewGroup.removeView(view);
             if (this.mMaskView == null) {
@@ -36,6 +37,9 @@ public class SlideHelper {
             this.mSlideLayout.addView(this.mMaskView, layoutParams);
             this.mSlideLayout.addView(view, layoutParams);
             viewGroup.addView(this.mSlideLayout);
+            if (isFocused) {
+                this.mSlideLayout.requestFocus();
+            }
         }
     }
 
@@ -88,5 +92,11 @@ public class SlideHelper {
 
     public View getMaskView() {
         return this.mMaskView;
+    }
+
+    public void setRegionFactor(double d) {
+        if (this.mSlideLayout != null) {
+            this.mSlideLayout.setCanSlideRegionFactor(d);
+        }
     }
 }

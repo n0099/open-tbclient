@@ -3,10 +3,8 @@ package com.baidu.tbadk.browser;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.e;
-import com.baidu.webkit.internal.ETAG;
+import com.baidu.tieba.d;
 import java.net.MalformedURLException;
 import java.net.URL;
 /* loaded from: classes.dex */
@@ -15,7 +13,7 @@ public class BaseWebViewFragment extends BaseFragment {
     public String mUrl;
     private String mUrlTitle;
 
-    public void dH(String str) {
+    public void kq(String str) {
         this.mUrlTitle = str;
     }
 
@@ -28,40 +26,40 @@ public class BaseWebViewFragment extends BaseFragment {
     }
 
     private String parseWebViewUrl(String str) {
-        if (str != null && !str.startsWith("http://") && !str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
+        if (str != null && !str.startsWith("http://") && !str.startsWith("https://")) {
             return "http://".concat(str);
         }
         return str;
     }
 
     public boolean isNeedShowNavigationBar() {
-        return ak(this.mUrl, "nonavigationbar");
+        return br(this.mUrl, "nonavigationbar");
     }
 
     public boolean isNeedShowShareItem() {
-        return ak(this.mUrl, "noshare");
+        return br(this.mUrl, "noshare");
     }
 
     public boolean isNeedShowMenuItem() {
-        return ak(this.mUrl, "nomenu");
+        return br(this.mUrl, "nomenu");
     }
 
-    public boolean dI(String str) {
-        return ak(str, "blank");
+    public boolean kr(String str) {
+        return br(str, "blank");
     }
 
-    public boolean ak(String str, String str2) {
+    public boolean br(String str, String str2) {
         String[] split;
         if (StringUtils.isNull(str) || StringUtils.isNull(str2)) {
             return true;
         }
         try {
             String query = new URL(str).getQuery();
-            if (StringUtils.isNull(query) || (split = query.split(ETAG.ITEM_SEPARATOR)) == null) {
+            if (StringUtils.isNull(query) || (split = query.split("&")) == null) {
                 return true;
             }
             for (String str3 : split) {
-                String[] split2 = str3.split(ETAG.EQUAL);
+                String[] split2 = str3.split("=");
                 if (split2 != null && split2.length == 2) {
                     String str4 = split2[0];
                     String str5 = split2[1];
@@ -77,11 +75,10 @@ public class BaseWebViewFragment extends BaseFragment {
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
-    public com.baidu.tbadk.coreExtra.c.d createShareContent(String str, String str2, String str3, String str4) {
+    protected com.baidu.tbadk.coreExtra.c.d createShareContent(String str, String str2, String str3, String str4) {
         com.baidu.tbadk.coreExtra.c.d dVar = new com.baidu.tbadk.coreExtra.c.d();
         if (StringUtils.isNull(this.mUrlTitle, true)) {
-            dVar.title = getResources().getString(e.j.share_from_tieba);
+            dVar.title = getResources().getString(d.j.share_from_tieba);
         } else {
             dVar.title = this.mUrlTitle;
         }

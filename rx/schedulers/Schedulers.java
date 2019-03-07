@@ -11,21 +11,21 @@ import rx.internal.schedulers.h;
 import rx.internal.schedulers.j;
 /* loaded from: classes2.dex */
 public final class Schedulers {
-    private static final AtomicReference<Schedulers> iSo = new AtomicReference<>();
-    private final g iSl;
-    private final g iSm;
-    private final g iSn;
+    private static final AtomicReference<Schedulers> kcm = new AtomicReference<>();
+    private final g kcj;
+    private final g kck;
+    private final g kcl;
 
-    private static Schedulers cgD() {
+    private static Schedulers cFe() {
         Schedulers schedulers;
         while (true) {
-            schedulers = iSo.get();
+            schedulers = kcm.get();
             if (schedulers == null) {
                 schedulers = new Schedulers();
-                if (iSo.compareAndSet(null, schedulers)) {
+                if (kcm.compareAndSet(null, schedulers)) {
                     break;
                 }
-                schedulers.cgF();
+                schedulers.cFg();
             } else {
                 break;
             }
@@ -34,45 +34,45 @@ public final class Schedulers {
     }
 
     private Schedulers() {
-        rx.c.g cgu = f.cgp().cgu();
-        g cgy = cgu.cgy();
-        if (cgy != null) {
-            this.iSl = cgy;
+        rx.c.g cEV = f.cEQ().cEV();
+        g cEZ = cEV.cEZ();
+        if (cEZ != null) {
+            this.kcj = cEZ;
         } else {
-            this.iSl = rx.c.g.cgv();
+            this.kcj = rx.c.g.cEW();
         }
-        g cgz = cgu.cgz();
-        if (cgz != null) {
-            this.iSm = cgz;
+        g cFa = cEV.cFa();
+        if (cFa != null) {
+            this.kck = cFa;
         } else {
-            this.iSm = rx.c.g.cgw();
+            this.kck = rx.c.g.cEX();
         }
-        g cgA = cgu.cgA();
-        if (cgA != null) {
-            this.iSn = cgA;
+        g cFb = cEV.cFb();
+        if (cFb != null) {
+            this.kcl = cFb;
         } else {
-            this.iSn = rx.c.g.cgx();
+            this.kcl = rx.c.g.cEY();
         }
     }
 
     public static g immediate() {
-        return e.iPx;
+        return e.jZT;
     }
 
     public static g trampoline() {
-        return j.iPX;
+        return j.kat;
     }
 
     public static g newThread() {
-        return c.f(cgD().iSn);
+        return c.i(cFe().kcl);
     }
 
     public static g computation() {
-        return c.d(cgD().iSl);
+        return c.g(cFe().kcj);
     }
 
     public static g io() {
-        return c.e(cgD().iSm);
+        return c.h(cFe().kck);
     }
 
     public static TestScheduler test() {
@@ -84,49 +84,49 @@ public final class Schedulers {
     }
 
     public static void reset() {
-        Schedulers andSet = iSo.getAndSet(null);
+        Schedulers andSet = kcm.getAndSet(null);
         if (andSet != null) {
-            andSet.cgF();
+            andSet.cFg();
         }
     }
 
     public static void start() {
-        Schedulers cgD = cgD();
-        cgD.cgE();
-        synchronized (cgD) {
-            d.iPu.start();
+        Schedulers cFe = cFe();
+        cFe.cFf();
+        synchronized (cFe) {
+            d.jZQ.start();
         }
     }
 
     public static void shutdown() {
-        Schedulers cgD = cgD();
-        cgD.cgF();
-        synchronized (cgD) {
-            d.iPu.shutdown();
+        Schedulers cFe = cFe();
+        cFe.cFg();
+        synchronized (cFe) {
+            d.jZQ.shutdown();
         }
     }
 
-    synchronized void cgE() {
-        if (this.iSl instanceof h) {
-            ((h) this.iSl).start();
+    synchronized void cFf() {
+        if (this.kcj instanceof h) {
+            ((h) this.kcj).start();
         }
-        if (this.iSm instanceof h) {
-            ((h) this.iSm).start();
+        if (this.kck instanceof h) {
+            ((h) this.kck).start();
         }
-        if (this.iSn instanceof h) {
-            ((h) this.iSn).start();
+        if (this.kcl instanceof h) {
+            ((h) this.kcl).start();
         }
     }
 
-    synchronized void cgF() {
-        if (this.iSl instanceof h) {
-            ((h) this.iSl).shutdown();
+    synchronized void cFg() {
+        if (this.kcj instanceof h) {
+            ((h) this.kcj).shutdown();
         }
-        if (this.iSm instanceof h) {
-            ((h) this.iSm).shutdown();
+        if (this.kck instanceof h) {
+            ((h) this.kck).shutdown();
         }
-        if (this.iSn instanceof h) {
-            ((h) this.iSn).shutdown();
+        if (this.kcl instanceof h) {
+            ((h) this.kcl).shutdown();
         }
     }
 }

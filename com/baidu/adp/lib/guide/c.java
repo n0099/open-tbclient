@@ -127,8 +127,8 @@ public class c implements View.OnClickListener, View.OnKeyListener {
 
     private MaskView p(Activity activity) {
         MaskView maskView = new MaskView(activity);
-        maskView.az(activity.getResources().getColor(this.BK.BE));
-        maskView.ay(this.BK.mAlpha);
+        maskView.ai(activity.getResources().getColor(this.BK.BE));
+        maskView.ah(this.BK.mAlpha);
         maskView.ae(this.BK.BG);
         maskView.setOnKeyListener(this);
         int[] iArr = new int[2];
@@ -166,7 +166,7 @@ public class c implements View.OnClickListener, View.OnKeyListener {
         if (findViewById2 != null) {
             maskView.c(a.a(findViewById2, 0, i));
         }
-        if (this.BK.mOutsideTouchable) {
+        if (this.BK.BB) {
             maskView.setClickable(false);
         } else {
             maskView.setOnClickListener(this);

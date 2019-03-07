@@ -2,13 +2,13 @@ package com.airbnb.lottie.model.content;
 
 import com.airbnb.lottie.model.a.d;
 import com.airbnb.lottie.model.a.h;
-import com.baidu.mobstat.Config;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class Mask {
-    private final com.airbnb.lottie.model.a.d qT;
-    private final MaskMode rp;
-    private final com.airbnb.lottie.model.a.h rq;
+    private final com.airbnb.lottie.model.a.d qP;
+    private final MaskMode rk;
+    private final com.airbnb.lottie.model.a.h rl;
 
     /* loaded from: classes2.dex */
     public enum MaskMode {
@@ -19,9 +19,9 @@ public class Mask {
     }
 
     private Mask(MaskMode maskMode, com.airbnb.lottie.model.a.h hVar, com.airbnb.lottie.model.a.d dVar) {
-        this.rp = maskMode;
-        this.rq = hVar;
-        this.qT = dVar;
+        this.rk = maskMode;
+        this.rl = hVar;
+        this.qP = dVar;
     }
 
     /* loaded from: classes2.dex */
@@ -32,7 +32,7 @@ public class Mask {
             char c = 65535;
             switch (optString.hashCode()) {
                 case 97:
-                    if (optString.equals(Config.APP_VERSION_CODE)) {
+                    if (optString.equals("a")) {
                         c = 0;
                         break;
                     }
@@ -44,7 +44,7 @@ public class Mask {
                     }
                     break;
                 case 115:
-                    if (optString.equals("s")) {
+                    if (optString.equals(NotifyType.SOUND)) {
                         c = 1;
                         break;
                     }
@@ -64,19 +64,19 @@ public class Mask {
                     maskMode = MaskMode.MaskModeUnknown;
                     break;
             }
-            return new Mask(maskMode, h.a.k(jSONObject.optJSONObject(Config.PLATFORM_TYPE), eVar), d.a.g(jSONObject.optJSONObject(Config.OS), eVar));
+            return new Mask(maskMode, h.a.k(jSONObject.optJSONObject("pt"), eVar), d.a.g(jSONObject.optJSONObject("o"), eVar));
         }
     }
 
-    public MaskMode en() {
-        return this.rp;
+    public MaskMode em() {
+        return this.rk;
     }
 
-    public com.airbnb.lottie.model.a.h eo() {
-        return this.rq;
+    public com.airbnb.lottie.model.a.h en() {
+        return this.rl;
     }
 
-    public com.airbnb.lottie.model.a.d dV() {
-        return this.qT;
+    public com.airbnb.lottie.model.a.d dU() {
+        return this.qP;
     }
 }

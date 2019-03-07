@@ -7,28 +7,28 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c {
-    private a ecQ;
-    private HttpMessageListener ecU = new HttpMessageListener(CmdConfigHttp.FRS_LIVE_TIP_CMD) { // from class: com.baidu.tieba.frs.live.c.1
+    private a fqv;
+    private HttpMessageListener fqz = new HttpMessageListener(CmdConfigHttp.FRS_LIVE_TIP_CMD) { // from class: com.baidu.tieba.frs.live.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && c.this.ecQ != null) {
-                c.this.ecQ.a((FrsLiveTipResponseMessage) httpResponsedMessage);
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof FrsLiveTipResponseMessage) && httpResponsedMessage.getError() == 0 && c.this.fqv != null) {
+                c.this.fqv.a((FrsLiveTipResponseMessage) httpResponsedMessage);
             }
         }
     };
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(FrsLiveTipResponseMessage frsLiveTipResponseMessage);
     }
 
     public c(a aVar) {
-        this.ecQ = aVar;
+        this.fqv = aVar;
         registerTask();
-        MessageManager.getInstance().registerListener(this.ecU);
+        MessageManager.getInstance().registerListener(this.fqz);
     }
 
     private void registerTask() {
@@ -40,7 +40,7 @@ public class c {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void nn(int i) {
+    public void ra(int i) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.FRS_LIVE_TIP_CMD);
         httpMessage.addParam("forum_id", i);
         MessageManager.getInstance().sendMessage(httpMessage);
@@ -48,6 +48,6 @@ public class c {
 
     public void onDestory() {
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.FRS_LIVE_TIP_CMD);
-        MessageManager.getInstance().unRegisterListener(this.ecU);
+        MessageManager.getInstance().unRegisterListener(this.fqz);
     }
 }

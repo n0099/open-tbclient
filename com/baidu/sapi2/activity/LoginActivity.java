@@ -14,6 +14,7 @@ import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
+import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.SapiResult;
@@ -27,8 +28,6 @@ import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes2.dex */
 public class LoginActivity extends BaseActivity {
     public static final String EXTRA_LOGIN_FINISH_AFTER_SUC = "extra_login_finish_after_suc";
@@ -96,7 +95,7 @@ public class LoginActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
             init();
             setupViews();
         } catch (Throwable th) {
@@ -169,7 +168,7 @@ public class LoginActivity extends BaseActivity {
         this.businessType = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2001);
         this.userName = getIntent().getStringExtra("username");
         this.loginType = getIntent().getStringExtra(EXTRA_LOGIN_TYPE);
-        this.sapiWebView = (SapiWebView) findViewById(a.d.sapi_webview);
+        this.sapiWebView = (SapiWebView) findViewById(a.e.sapi_webview);
         this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.LoginActivity.3
             @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
             public void onFinish() {
@@ -213,34 +212,43 @@ public class LoginActivity extends BaseActivity {
                     if (intent.resolveActivity(LoginActivity.this.getPackageManager()) != null) {
                         LoginActivity.this.startActivityForResult(intent, 2004);
                     } else {
-                        Toast.makeText(LoginActivity.this, LoginActivity.this.getString(a.f.sapi_sdk_account_center_please_download_message_app), 1).show();
+                        Toast.makeText(LoginActivity.this, LoginActivity.this.getString(a.g.sapi_sdk_account_center_please_download_message_app), 1).show();
                     }
                 }
             }
         });
         SapiJsCallBacks.JoinLoginParams joinLoginParams = new SapiJsCallBacks.JoinLoginParams();
+        List<PassNameValuePair> arrayList = webLoginDTO != null ? webLoginDTO.extraParams : new ArrayList<>();
+        if (webLoginDTO != null) {
+            if (!TextUtils.isEmpty(webLoginDTO.encryptedId) && !TextUtils.isEmpty(webLoginDTO.preSetUname)) {
+                SapiJsCallBacks.DirectedLoginParams directedLoginParams = new SapiJsCallBacks.DirectedLoginParams();
+                directedLoginParams.encryptedId = webLoginDTO.encryptedId;
+                directedLoginParams.displayname = webLoginDTO.preSetUname;
+                arrayList.add(SapiWebView.EXTRA_SUPPORT_DIRECT_LOGIN);
+                this.sapiWebView.setDirectedLoginParams(directedLoginParams);
+            }
+            if (WebLoginDTO.statExtraValid(webLoginDTO.statExtra)) {
+                arrayList.add(new PassNameValuePair("extrajson", WebLoginDTO.getStatExtraDecode(webLoginDTO.statExtra)));
+            }
+            this.sapiWebView.shareV2Disable = webLoginDTO.shareV2Disable;
+            joinLoginParams.agreement = webLoginDTO.agreement;
+        }
         if (WebLoginDTO.EXTRA_JOIN_LOGIN_WITH_THIRD_ACCOUNT.equals(this.loginType)) {
             joinLoginParams.hasThirdAccount = true;
         } else {
             joinLoginParams.hasThirdAccount = false;
         }
-        joinLoginParams.agreement = webLoginDTO == null ? null : webLoginDTO.agreement;
         this.sapiWebView.setJoinLoingParams(joinLoginParams);
-        this.sapiWebView.shareV2Disable = webLoginDTO == null ? false : webLoginDTO.shareV2Disable;
-        List<NameValuePair> arrayList = webLoginDTO != null ? webLoginDTO.extraParams : new ArrayList<>();
-        if (webLoginDTO != null && WebLoginDTO.statExtraValid(webLoginDTO.statExtra)) {
-            arrayList.add(new BasicNameValuePair("extrajson", WebLoginDTO.getStatExtraDecode(webLoginDTO.statExtra)));
-        }
         if (WebLoginDTO.EXTRA_JOIN_LOGIN_WITH_THIRD_ACCOUNT.equals(this.loginType) || WebLoginDTO.EXTRA_JOIN_LOGIN_WITHOUT_THIRD_ACCOUNT.equals(this.loginType)) {
             this.sapiWebView.loadLogin(4, arrayList);
         } else if (WebLoginDTO.EXTRA_LOGIN_WITH_SMS.equals(this.loginType)) {
-            setTitleText(a.f.sapi_sdk_title_sms_login);
+            setTitleText(a.g.sapi_sdk_title_sms_login);
             this.sapiWebView.loadLogin(1, arrayList);
         } else {
             if (!TextUtils.isEmpty(this.userName)) {
-                arrayList.add(new BasicNameValuePair(SapiWebView.PARAMS_LOGIN_WITH_USER_NAME, this.userName));
+                arrayList.add(new PassNameValuePair(SapiWebView.PARAMS_LOGIN_WITH_USER_NAME, this.userName));
             }
-            setTitleText(a.f.sapi_sdk_title_login);
+            setTitleText(a.g.sapi_sdk_title_login);
             this.sapiWebView.loadLogin(arrayList);
         }
     }
@@ -263,7 +271,7 @@ public class LoginActivity extends BaseActivity {
                         @Override // java.lang.Runnable
                         public void run() {
                             if (i == 1001) {
-                                LoginActivity.this.loginSucces(SapiAccountManager.getInstance().getSession().getAccountType(), true);
+                                LoginActivity.this.loginSucces(null, true);
                             }
                         }
                     });
@@ -344,7 +352,7 @@ public class LoginActivity extends BaseActivity {
         this.sapiWebView.onAuthorizedResult(i, i2, intent);
         if (i == 2001) {
             if (i2 == 1001) {
-                loginSucces(SapiAccountManager.getInstance().getSession().getAccountType(), true);
+                loginSucces(null, true);
             }
         } else if (i == 2003) {
             if (i2 == 1001) {
@@ -355,17 +363,18 @@ public class LoginActivity extends BaseActivity {
             }
         } else if (i == 2005) {
             if (i2 == -1) {
-                String stringExtra = intent.getStringExtra(LoadExternalWebViewActivity.EXTRA_BUSINESS_TYPE);
-                if (LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE_PRE_SET_UNAME.equals(stringExtra)) {
-                    this.sapiWebView.preSetUserName(intent.getStringExtra("username"));
-                } else if (LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE_ACCOUNT_FREEZE.equals(stringExtra)) {
+                String str = "";
+                String str2 = "";
+                if (intent != null) {
+                    str = intent.getStringExtra(LoadExternalWebViewActivity.EXTRA_BUSINESS_TYPE);
+                    str2 = intent.getStringExtra("username");
+                }
+                if (LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE_PRE_SET_UNAME.equals(str)) {
+                    this.sapiWebView.preSetUserName(str2);
+                } else if (LoadExternalWebViewActivity.RESULT_BUSINESS_TYPE_ACCOUNT_FREEZE.equals(str)) {
                     this.webAuthResult.isAccountFreeze = true;
                 } else {
-                    int type = AccountType.UNKNOWN.getType();
-                    if (intent != null) {
-                        type = intent.getIntExtra(GiftTabActivityConfig.ACCOUNT_TYPE, AccountType.UNKNOWN.getType());
-                    }
-                    loginSucces(AccountType.getAccountType(type), false);
+                    loginSucces(AccountType.getAccountType(intent == null ? AccountType.UNKNOWN.getType() : intent.getIntExtra(GiftTabActivityConfig.ACCOUNT_TYPE, AccountType.UNKNOWN.getType())), false);
                 }
             }
         } else if (i == 2004 && this.result != null) {

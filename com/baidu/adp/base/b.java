@@ -5,20 +5,20 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public class b<T> extends c<T> {
-    protected View vo;
+    protected View vk;
 
     public b(e<T> eVar, int i) {
         super(eVar);
-        this.vo = null;
-        this.vo = LayoutInflater.from(eVar.getContext()).inflate(i, (ViewGroup) null);
-        this.vo.setTag(this);
+        this.vk = null;
+        this.vk = LayoutInflater.from(eVar.getContext()).inflate(i, (ViewGroup) null);
+        this.vk.setTag(this);
     }
 
-    public View gb() {
-        return this.vo;
+    public View fY() {
+        return this.vk;
     }
 
     public View findViewById(int i) {
-        return this.vo.findViewById(i);
+        return this.vk.findViewById(i);
     }
 }

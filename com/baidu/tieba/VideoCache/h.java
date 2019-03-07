@@ -1,67 +1,67 @@
 package com.baidu.tieba.VideoCache;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class h {
-    private String ama;
-    private String bAB;
-    private boolean bAC;
-    private long bAD = -1;
-    private long bAE = -1;
-    private long bAF = 0;
-    private long bAG = 0;
+    private String bsH;
+    private String cLH;
+    private boolean cLI;
+    private long cLJ = -1;
+    private long cLK = -1;
+    private long cLL = 0;
+    private long cLM = 0;
 
-    public String VK() {
-        return this.bAB;
+    public String avK() {
+        return this.cLH;
     }
 
-    public void jK(String str) {
-        this.bAB = str;
+    public void qv(String str) {
+        this.cLH = str;
     }
 
-    public String VL() {
-        return this.ama;
+    public String avL() {
+        return this.bsH;
     }
 
-    public void jL(String str) {
-        this.ama = str;
+    public void qw(String str) {
+        this.bsH = str;
     }
 
-    public boolean VM() {
-        return this.bAC;
+    public boolean avM() {
+        return this.cLI;
     }
 
-    public void ds(boolean z) {
-        this.bAC = z;
+    public void fI(boolean z) {
+        this.cLI = z;
     }
 
-    public long VN() {
-        return this.bAD;
+    public long avN() {
+        return this.cLJ;
     }
 
-    public void aT(long j) {
-        this.bAD = j;
+    public void bv(long j) {
+        this.cLJ = j;
     }
 
-    public long VO() {
-        return this.bAE;
+    public long avO() {
+        return this.cLK;
     }
 
-    public void aU(long j) {
-        this.bAE = j;
+    public void bw(long j) {
+        this.cLK = j;
     }
 
     public long getTotalLength() {
-        return this.bAF;
+        return this.cLL;
     }
 
-    public void am(long j) {
-        this.bAF = j;
+    public void aO(long j) {
+        this.cLL = j;
     }
 
-    public void aV(long j) {
-        this.bAG = j;
+    public void bx(long j) {
+        this.cLM = j;
     }
 
-    public long VP() {
-        return this.bAG;
+    public long avP() {
+        return this.cLM;
     }
 }

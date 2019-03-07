@@ -1,14 +1,13 @@
 package com.baidu.afd;
 
 import android.text.TextUtils;
-import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static e e(JSONObject jSONObject, String str) throws ParseError {
+    public static e f(JSONObject jSONObject, String str) throws ParseError {
         if (jSONObject == null) {
             throw new ParseError(1, "afd/entry retun null");
         }
@@ -23,10 +22,10 @@ public class f {
         if (optJSONArray == null || optJSONArray.length() == 0) {
             throw new ParseError(1, "res missing key ad");
         }
-        return f(optJSONArray.optJSONObject(0), str);
+        return g(optJSONArray.optJSONObject(0), str);
     }
 
-    private static e f(JSONObject jSONObject, String str) throws ParseError {
+    private static e g(JSONObject jSONObject, String str) throws ParseError {
         String str2;
         if (jSONObject == null) {
             throw new ParseError(1, "ad has no element");
@@ -63,7 +62,7 @@ public class f {
                     }
                     JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i);
                     if (optJSONObject2 != null) {
-                        String optString2 = optJSONObject2.optString(Config.APP_KEY);
+                        String optString2 = optJSONObject2.optString("k");
                         String optString3 = optJSONObject2.optString("v");
                         if (!TextUtils.isEmpty(optString3) && TextUtils.equals("extraParam", optString2)) {
                             str2 = optString3;
@@ -77,7 +76,7 @@ public class f {
                 throw new ParseError(1, "adInfo has no extraParam info");
             }
             if (z) {
-                return a.R(str2, str);
+                return a.Q(str2, str);
             }
             JSONArray optJSONArray3 = optJSONObject.optJSONArray("material");
             if (optJSONArray3 == null || optJSONArray3.length() == 0) {
@@ -97,8 +96,8 @@ public class f {
                     throw new ParseError(1, "info array has no first element");
                 }
                 e eVar = new e();
-                eVar.Sf = z;
-                eVar.Sg = com.baidu.tieba.lego.card.b.rs(optJSONObject4.optJSONObject("lego_card").toString());
+                eVar.Tm = z;
+                eVar.Tn = com.baidu.tieba.lego.card.b.xW(optJSONObject4.optJSONObject("lego_card").toString());
                 eVar.ext = str2;
                 return eVar;
             } catch (JSONException e) {

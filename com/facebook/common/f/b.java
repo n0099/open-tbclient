@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class b extends FilterInputStream {
-    private final byte[] ikU;
-    private int ikV;
-    private int ikW;
+    private final byte[] jAw;
+    private int jAx;
+    private int jAy;
 
     public b(InputStream inputStream, byte[] bArr) {
         super(inputStream);
@@ -17,13 +17,13 @@ public class b extends FilterInputStream {
         if (bArr == null) {
             throw new NullPointerException();
         }
-        this.ikU = bArr;
+        this.jAw = bArr;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() throws IOException {
         int read = this.in.read();
-        return read != -1 ? read : bUZ();
+        return read != -1 ? read : ctX();
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -40,11 +40,11 @@ public class b extends FilterInputStream {
             }
             int i3 = 0;
             while (i3 < i2) {
-                int bUZ = bUZ();
-                if (bUZ == -1) {
+                int ctX = ctX();
+                if (ctX == -1) {
                     break;
                 }
-                bArr[i + i3] = (byte) bUZ;
+                bArr[i + i3] = (byte) ctX;
                 i3++;
             }
             if (i3 <= 0) {
@@ -59,7 +59,7 @@ public class b extends FilterInputStream {
     public void reset() throws IOException {
         if (this.in.markSupported()) {
             this.in.reset();
-            this.ikV = this.ikW;
+            this.jAx = this.jAy;
             return;
         }
         throw new IOException("mark is not supported");
@@ -69,17 +69,17 @@ public class b extends FilterInputStream {
     public void mark(int i) {
         if (this.in.markSupported()) {
             super.mark(i);
-            this.ikW = this.ikV;
+            this.jAy = this.jAx;
         }
     }
 
-    private int bUZ() {
-        if (this.ikV >= this.ikU.length) {
+    private int ctX() {
+        if (this.jAx >= this.jAw.length) {
             return -1;
         }
-        byte[] bArr = this.ikU;
-        int i = this.ikV;
-        this.ikV = i + 1;
+        byte[] bArr = this.jAw;
+        int i = this.jAx;
+        this.jAx = i + 1;
         return bArr[i] & 255;
     }
 }

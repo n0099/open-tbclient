@@ -1,29 +1,35 @@
 package com.baidu.tieba.aiapps.apps.media.b.a;
 
+import android.util.Log;
+import com.baidu.swan.apps.c;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class a {
-    public int bJU;
-    public int bJV;
-    public int bJW;
-    public int bJX;
+    private static final boolean DEBUG = c.DEBUG;
+    public int cVA;
+    public int cVB;
+    public int cVy;
+    public int cVz;
     public int mVideoHeight;
     public int mVideoWidth;
 
-    public String toJSONString() {
+    public String EK() {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("videoBitrate", this.bJU);
-            jSONObject2.put("audioBitrate", this.bJV);
-            jSONObject2.put("videoFPS", this.bJW);
-            jSONObject2.put("netSpeed", this.bJX);
+            jSONObject2.put("videoBitrate", this.cVy);
+            jSONObject2.put("audioBitrate", this.cVz);
+            jSONObject2.put("videoFPS", this.cVA);
+            jSONObject2.put("netSpeed", this.cVB);
             jSONObject2.put("videoWidth", this.mVideoWidth);
             jSONObject2.put("videoHeight", this.mVideoHeight);
             jSONObject.putOpt("detail", jSONObject2);
             return jSONObject.toString();
         } catch (JSONException e) {
+            if (DEBUG) {
+                Log.e("LiveNetworkStatus", "toJSONObject failed: " + Log.getStackTraceString(e));
+            }
             return null;
         }
     }

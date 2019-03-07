@@ -1,18 +1,17 @@
 package com.baidu.crabsdk.a;
 
-import com.baidu.ar.util.SystemInfoUtil;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class p extends n {
-    private static final LinkedHashMap<Long, String> XT = new LinkedHashMap<>();
+    private static final LinkedHashMap<Long, String> abv = new LinkedHashMap<>();
     private int V;
-    private Thread XU;
+    private Thread abw;
 
     private p(Thread thread, int i, long j) {
         super(j);
         this.V = a.V;
-        this.XU = thread;
+        this.abw = thread;
         this.V = i;
     }
 
@@ -20,16 +19,16 @@ public final class p extends n {
         this(thread, a.V, j);
     }
 
-    public static ArrayList<String> b(long j, long j2) {
+    public static ArrayList<String> c(long j, long j2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        synchronized (XT) {
-            for (Long l : XT.keySet()) {
+        synchronized (abv) {
+            for (Long l : abv.keySet()) {
                 if (j < l.longValue() && l.longValue() < j2) {
-                    arrayList.add(XT.get(l));
+                    arrayList.add(abv.get(l));
                 }
             }
         }
-        com.baidu.crabsdk.c.a.cH("result : " + arrayList.toString());
+        com.baidu.crabsdk.c.a.cv("result : " + arrayList.toString());
         return arrayList;
     }
 
@@ -37,14 +36,14 @@ public final class p extends n {
     @Override // com.baidu.crabsdk.a.n
     public final void n() {
         StringBuilder sb = new StringBuilder();
-        for (StackTraceElement stackTraceElement : this.XU.getStackTrace()) {
-            sb.append(stackTraceElement.toString()).append(SystemInfoUtil.LINE_END);
+        for (StackTraceElement stackTraceElement : this.abw.getStackTrace()) {
+            sb.append(stackTraceElement.toString()).append("\r\n");
         }
-        synchronized (XT) {
-            if (XT.size() == this.V && this.V > 0) {
-                XT.remove(XT.keySet().iterator().next());
+        synchronized (abv) {
+            if (abv.size() == this.V && this.V > 0) {
+                abv.remove(abv.keySet().iterator().next());
             }
-            XT.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            abv.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
         }
     }
 }

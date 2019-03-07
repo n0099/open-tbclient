@@ -9,22 +9,22 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class ad {
-    public static void a(com.baidu.adp.widget.ListView.k kVar, BdUniqueId bdUniqueId) {
-        a(kVar, bdUniqueId, 13);
+    public static void a(com.baidu.adp.widget.ListView.p pVar, BdUniqueId bdUniqueId) {
+        a(pVar, bdUniqueId, 13);
     }
 
-    public static void a(com.baidu.adp.widget.ListView.k kVar, BdUniqueId bdUniqueId, int i) {
-        com.baidu.adp.widget.ListView.i adapter;
+    public static void a(com.baidu.adp.widget.ListView.p pVar, BdUniqueId bdUniqueId, int i) {
+        com.baidu.adp.widget.ListView.n adapter;
         ArrayList<PreLoadImageInfo> images;
-        if (kVar != null && com.baidu.adp.lib.util.j.kW() && (adapter = kVar.getAdapter()) != null) {
+        if (pVar != null && com.baidu.adp.lib.util.j.kZ() && (adapter = pVar.getAdapter()) != null) {
             int i2 = 0;
             int i3 = 0;
             int i4 = 0;
             int bigImageMaxUsedMemory = (int) (TbConfig.getBigImageMaxUsedMemory() * 0.8f);
-            boolean Ep = aq.Ep();
-            int firstVisiblePosition = kVar.getFirstVisiblePosition();
-            int lastVisiblePosition = kVar.getLastVisiblePosition();
-            com.baidu.adp.lib.f.c.jA().a(bdUniqueId, (com.baidu.adp.lib.f.b) null);
+            boolean adA = ar.adA();
+            int firstVisiblePosition = pVar.getFirstVisiblePosition();
+            int lastVisiblePosition = pVar.getLastVisiblePosition();
+            com.baidu.adp.lib.f.c.jB().a(bdUniqueId, (com.baidu.adp.lib.f.b) null);
             while (true) {
                 int i5 = firstVisiblePosition;
                 if (i5 < adapter.getCount()) {
@@ -36,14 +36,14 @@ public class ad {
                         int i8 = i2;
                         while (it.hasNext()) {
                             PreLoadImageInfo next = it.next();
-                            if (com.baidu.adp.lib.f.c.jA().aI(next.procType)) {
+                            if (com.baidu.adp.lib.f.c.jB().ar(next.procType)) {
                                 if (12 == next.procType || 28 == next.procType) {
                                     i6++;
                                     if (i6 <= 30 && i5 > lastVisiblePosition && !TextUtils.isEmpty(next.imgUrl)) {
                                         if (12 == next.procType) {
-                                            com.baidu.adp.lib.f.c.jA().a(next.imgUrl, 12, null, next.width, next.height, bdUniqueId, new Object[0]);
+                                            com.baidu.adp.lib.f.c.jB().a(next.imgUrl, 12, null, next.width, next.height, bdUniqueId, new Object[0]);
                                         } else if (28 == next.procType) {
-                                            com.baidu.adp.lib.f.c.jA().a(next.imgUrl, 28, null, next.width, next.height, bdUniqueId, new Object[0]);
+                                            com.baidu.adp.lib.f.c.jB().a(next.imgUrl, 28, null, next.width, next.height, bdUniqueId, new Object[0]);
                                         }
                                     }
                                 } else {
@@ -64,14 +64,14 @@ public class ad {
                                     if (i8 <= i && i7 < bigImageMaxUsedMemory && i5 > lastVisiblePosition) {
                                         if (next.bigEmotion != null) {
                                             TbRichTextEmotionInfo tbRichTextEmotionInfo = next.bigEmotion;
-                                            String str = Ep ? tbRichTextEmotionInfo.mGifInfo.mDynamicUrl : tbRichTextEmotionInfo.mGifInfo.mStaticUrl;
+                                            String str = adA ? tbRichTextEmotionInfo.mGifInfo.mDynamicUrl : tbRichTextEmotionInfo.mGifInfo.mStaticUrl;
                                             if (!TextUtils.isEmpty(str)) {
-                                                com.baidu.adp.lib.f.c.jA().a(tbRichTextEmotionInfo.mGifInfo.mSharpText, next.procType, null, next.width, next.height, bdUniqueId, tbRichTextEmotionInfo.mGifInfo.mGid, tbRichTextEmotionInfo.mGifInfo.mSharpText, Boolean.valueOf(Ep), str);
+                                                com.baidu.adp.lib.f.c.jB().a(tbRichTextEmotionInfo.mGifInfo.mSharpText, next.procType, null, next.width, next.height, bdUniqueId, tbRichTextEmotionInfo.mGifInfo.mGid, tbRichTextEmotionInfo.mGifInfo.mSharpText, Boolean.valueOf(adA), str);
                                             }
                                         } else {
                                             String str2 = next.imgUrl;
                                             if (!TextUtils.isEmpty(str2)) {
-                                                com.baidu.adp.lib.f.c.jA().a(str2, next.procType, null, next.width, next.height, bdUniqueId, new Object[0]);
+                                                com.baidu.adp.lib.f.c.jB().a(str2, next.procType, null, next.width, next.height, bdUniqueId, new Object[0]);
                                             }
                                         }
                                     }

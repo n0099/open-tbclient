@@ -13,7 +13,7 @@ public class PluginFacade {
 
     /* loaded from: classes.dex */
     public static final class a {
-        public static final String a = "1.0.3";
+        public static final String a = "1.0.5";
     }
 
     public static void setSwitch(Context context, boolean z) {

@@ -17,7 +17,6 @@ import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.PopupWindow;
-import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class MenuPopupHelper implements MenuHelper {
@@ -131,7 +130,7 @@ public class MenuPopupHelper implements MenuHelper {
     @NonNull
     private MenuPopup createPopup() {
         MenuPopup standardMenuPopup;
-        Display defaultDisplay = ((WindowManager) this.mContext.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay();
+        Display defaultDisplay = ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay();
         Point point = new Point();
         if (Build.VERSION.SDK_INT >= 17) {
             defaultDisplay.getRealSize(point);

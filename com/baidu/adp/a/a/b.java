@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.util.SparseArray;
 import com.baidu.adp.lib.util.BdLog;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -19,26 +20,26 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes.dex */
 public class b {
-    private static int vC = 0;
+    private static int vy = 0;
 
     private static String a(String str, Object obj, List list) {
         StringBuffer stringBuffer = new StringBuffer("");
         try {
             Class<?> cls = obj.getClass();
             if (str == null || str.equals("")) {
-                stringBuffer.append(gi() + cls.getSimpleName() + " = {\n");
+                stringBuffer.append(gf() + cls.getSimpleName() + " = {\n");
             } else {
                 stringBuffer.append(str + " = {\n");
             }
             while (cls != null && f(cls)) {
                 if (!cls.getSimpleName().equals("Object")) {
-                    vC++;
+                    vy++;
                     a(cls.getDeclaredFields(), obj, stringBuffer, list);
-                    vC--;
+                    vy--;
                 }
                 cls = cls.getSuperclass();
             }
-            stringBuffer.append(gi() + "}\n");
+            stringBuffer.append(gf() + "}\n");
         } catch (IllegalAccessException e) {
             stringBuffer.append(e.toString());
         }
@@ -59,14 +60,14 @@ public class b {
         for (int i = 0; i < fieldArr.length; i++) {
             fieldArr[i].setAccessible(true);
             if (!Modifier.isStatic(fieldArr[i].getModifiers())) {
-                stringBuffer.append(c(gi() + fieldArr[i].getName(), fieldArr[i].get(obj), list));
+                stringBuffer.append(c(gf() + fieldArr[i].getName(), fieldArr[i].get(obj), list));
             }
         }
     }
 
-    private static String gi() {
+    private static String gf() {
         StringBuffer stringBuffer = new StringBuffer("");
-        for (int i = 0; i < vC; i++) {
+        for (int i = 0; i < vy; i++) {
             stringBuffer.append("    ");
         }
         return stringBuffer.toString();
@@ -95,7 +96,7 @@ public class b {
                 if (!o(Array.get(obj, 0))) {
                     stringBuffer.append(str + " = [");
                     for (int i3 = 0; i3 < Array.getLength(obj) - 1; i3++) {
-                        stringBuffer.append(p(Array.get(obj, i3)) + ",");
+                        stringBuffer.append(p(Array.get(obj, i3)) + Constants.ACCEPT_TIME_SEPARATOR_SP);
                     }
                     stringBuffer.append(Array.get(obj, Array.getLength(obj) - 1) + "]\n");
                 } else {
@@ -233,7 +234,7 @@ public class b {
 
     public static void c(String str, Object obj) {
         StringBuffer stringBuffer = new StringBuffer("");
-        if (d.vN) {
+        if (d.vJ) {
             stringBuffer.append("Message_Type: " + str + "\n");
             stringBuffer.append(b("", obj));
             stringBuffer.append("----------------------------------------------------------\n");

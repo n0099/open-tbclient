@@ -1,5 +1,5 @@
 package com.baidu.tbadk.core;
 /* loaded from: classes.dex */
 public interface e {
-    void aW(boolean z);
+    void df(boolean z);
 }

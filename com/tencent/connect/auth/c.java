@@ -9,14 +9,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.widget.Toast;
-import com.baidu.webkit.internal.ABTestConstants;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.open.a.f;
 import com.tencent.open.utils.e;
 import com.tencent.tauth.IUiListener;
 import java.io.File;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c {
     private AuthAgent a;
     private QQToken b;
@@ -136,7 +135,7 @@ public class c {
     }
 
     public boolean c() {
-        f.a("openSDK_LOG.QQAuth", "isSessionValid(), result = " + (this.b.isSessionValid() ? "true" : ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE) + "");
+        f.a("openSDK_LOG.QQAuth", "isSessionValid(), result = " + (this.b.isSessionValid() ? "true" : "false") + "");
         return this.b.isSessionValid();
     }
 

@@ -1,6 +1,7 @@
 package com.baidu.searchbox.websocket;
 
-import com.baidu.fsg.base.armor.RimArmor;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.ubc.UBC;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -21,6 +22,7 @@ public final class WebSocketRequest {
     public static final String PARAM_KEY_METHOD = "method";
     public static final String PARAM_KEY_PROTOCOLS = "protocols";
     public static final String PARAM_KEY_URL = "url";
+    private Integer connectionLostTimeout;
     private Map<String, String> headers;
     private String method;
     private List<String> protocols;
@@ -31,7 +33,7 @@ public final class WebSocketRequest {
     }
 
     public WebSocketRequest(String str) {
-        p.j(str, "url");
+        p.k(str, "url");
         this.url = str;
         this.method = "GET";
     }
@@ -45,7 +47,7 @@ public final class WebSocketRequest {
     }
 
     public final void setMethod(String str) {
-        p.j(str, "<set-?>");
+        p.k(str, "<set-?>");
         this.method = str;
     }
 
@@ -65,6 +67,14 @@ public final class WebSocketRequest {
         this.protocols = list;
     }
 
+    public final Integer getConnectionLostTimeout() {
+        return this.connectionLostTimeout;
+    }
+
+    public final void setConnectionLostTimeout(Integer num) {
+        this.connectionLostTimeout = num;
+    }
+
     /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -73,11 +83,12 @@ public final class WebSocketRequest {
         this(r0);
         String url = builder.getUrl();
         if (url == null) {
-            p.cdm();
+            p.cCr();
         }
         this.method = builder.getMethod();
         this.headers = builder.getHeaders();
         this.protocols = builder.getProtocols();
+        this.connectionLostTimeout = builder.getConnectionLostTimeout();
     }
 
     /* loaded from: classes2.dex */
@@ -90,39 +101,44 @@ public final class WebSocketRequest {
         }
 
         public final WebSocketRequest build(b<? super Builder, e> bVar) {
-            p.j(bVar, "block");
+            p.k(bVar, "block");
             Builder builder = new Builder();
             bVar.invoke(builder);
             return builder.build();
         }
 
         /* JADX WARN: Type inference failed for: r0v12, types: [T, org.json.JSONArray] */
+        /* JADX WARN: Type inference failed for: r0v15, types: [T, org.json.JSONArray] */
         public final WebSocketRequest fromJSON(JSONObject jSONObject) {
-            p.j(jSONObject, "params");
+            p.k(jSONObject, LegoListActivityConfig.PARAMS);
             Companion companion = WebSocketRequest.Companion;
             Builder builder = new Builder();
             builder.setUrl(jSONObject.getString("url"));
             if (jSONObject.has("method")) {
                 String string = jSONObject.getString("method");
-                p.i(string, "params.getString(PARAM_KEY_METHOD)");
+                p.j(string, "params.getString(PARAM_KEY_METHOD)");
                 builder.setMethod(string);
             }
-            if (jSONObject.has("header")) {
-                JSONObject jSONObject2 = jSONObject.getJSONObject("header");
+            if (jSONObject.has(WebSocketRequest.PARAM_KEY_HEADER)) {
+                JSONObject jSONObject2 = jSONObject.getJSONObject(WebSocketRequest.PARAM_KEY_HEADER);
                 Iterator<String> keys = jSONObject2.keys();
-                p.i(keys, "headers.keys()");
+                p.j(keys, "headers.keys()");
                 while (keys.hasNext()) {
                     String next = keys.next();
-                    p.i(next, RimArmor.KEY);
+                    p.j(next, "key");
                     String string2 = jSONObject2.getString(next);
-                    p.i(string2, "headers.getString(key)");
+                    p.j(string2, "headers.getString(key)");
                     builder.addHeader(next, string2);
                 }
             }
             if (jSONObject.has(WebSocketRequest.PARAM_KEY_PROTOCOLS)) {
                 Ref.ObjectRef objectRef = new Ref.ObjectRef();
                 objectRef.element = jSONObject.getJSONArray(WebSocketRequest.PARAM_KEY_PROTOCOLS);
-                builder.setProtocols(d.b(d.c(n.d(kotlin.b.d.co(0, ((JSONArray) objectRef.element).length())), new WebSocketRequest$Companion$fromJSON$1$2(objectRef))));
+                if (((JSONArray) objectRef.element) == null || ((JSONArray) objectRef.element).length() == 0) {
+                    objectRef.element = new JSONArray();
+                    ((JSONArray) objectRef.element).put("");
+                }
+                builder.setProtocols(d.b(d.c(n.d(kotlin.b.d.cJ(0, ((JSONArray) objectRef.element).length())), new WebSocketRequest$Companion$fromJSON$1$2(objectRef))));
             }
             return builder.build();
         }
@@ -130,6 +146,7 @@ public final class WebSocketRequest {
 
     /* loaded from: classes2.dex */
     public static final class Builder {
+        private Integer connectionLostTimeout;
         private Map<String, String> headers;
         private String method = "GET";
         private List<String> protocols;
@@ -148,7 +165,7 @@ public final class WebSocketRequest {
         }
 
         public final void setMethod(String str) {
-            p.j(str, "<set-?>");
+            p.k(str, "<set-?>");
             this.method = str;
         }
 
@@ -168,9 +185,17 @@ public final class WebSocketRequest {
             this.protocols = list;
         }
 
+        public final Integer getConnectionLostTimeout() {
+            return this.connectionLostTimeout;
+        }
+
+        public final void setConnectionLostTimeout(Integer num) {
+            this.connectionLostTimeout = num;
+        }
+
         public final void addHeader(String str, String str2) {
-            p.j(str, RimArmor.KEY);
-            p.j(str2, "value");
+            p.k(str, "key");
+            p.k(str2, UBC.CONTENT_KEY_VALUE);
             Builder builder = this;
             if (builder.headers == null) {
                 builder.headers = new HashMap();

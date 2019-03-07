@@ -2,27 +2,27 @@ package com.baidu.tbadk.core.util.e;
 
 import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.i;
-import com.baidu.adp.widget.ListView.k;
+import com.baidu.adp.widget.ListView.n;
+import com.baidu.adp.widget.ListView.p;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d {
-    public static void a(k kVar, BdUniqueId bdUniqueId, c cVar) {
-        i adapter;
+    public static void a(p pVar, BdUniqueId bdUniqueId, c cVar) {
+        n adapter;
         g.log("video preload start ");
-        if (kVar != null) {
+        if (pVar != null) {
             if (cVar != null && !cVar.videoNeedPreload()) {
                 g.log("this page don't preload ");
                 return;
             }
-            g.log("video preload switch  " + e.EP().isOpen() + " num " + e.EP().EQ() + " size " + e.EP().getSize());
-            if (e.EP().isOpen() && (adapter = kVar.getAdapter()) != null) {
-                boolean z = kVar.getFirstVisiblePosition() == 0;
-                int lastVisiblePosition = kVar.getLastVisiblePosition();
+            g.log("video preload switch  " + e.adZ().isOpen() + " num " + e.adZ().aea() + " size " + e.adZ().getSize());
+            if (e.adZ().isOpen() && (adapter = pVar.getAdapter()) != null) {
+                boolean z = pVar.getFirstVisiblePosition() == 0;
+                int lastVisiblePosition = pVar.getLastVisiblePosition();
                 ArrayList arrayList = new ArrayList();
                 g.log("video preload  end=  " + lastVisiblePosition + "  " + adapter.getCount());
                 if (lastVisiblePosition >= 0 && adapter.getCount() > 0) {
-                    for (int i = z ? 0 : lastVisiblePosition; i < adapter.getCount() && i < lastVisiblePosition + 10 && arrayList.size() <= e.EP().EQ(); i++) {
+                    for (int i = z ? 0 : lastVisiblePosition; i < adapter.getCount() && i < lastVisiblePosition + 10 && arrayList.size() <= e.adZ().aea(); i++) {
                         g.log("video preload  i=  " + i);
                         Object item = adapter.getItem(i);
                         if (item instanceof a) {
@@ -35,7 +35,7 @@ public class d {
                     }
                     g.log("video preload  urls size   " + arrayList.size());
                     if (arrayList.size() > 0) {
-                        h.ER().K(arrayList);
+                        h.aeb().V(arrayList);
                     }
                 }
             }

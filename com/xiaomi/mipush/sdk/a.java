@@ -3,17 +3,16 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import com.baidu.searchbox.ng.ai.apps.event.message.AiAppsLifecycleMessage;
 /* loaded from: classes3.dex */
 public class a {
     private static a a;
     private Context b;
-    private C0390a c;
+    private C0366a c;
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.xiaomi.mipush.sdk.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0390a {
+    public class C0366a {
         public String a;
         public String b;
         public String c;
@@ -25,7 +24,7 @@ public class a {
         public boolean i;
         public int j;
 
-        private C0390a() {
+        private C0366a() {
             this.h = true;
             this.i = false;
             this.j = 1;
@@ -59,7 +58,7 @@ public class a {
             this.b = str2;
             this.g = str3;
             SharedPreferences.Editor edit = a.this.j().edit();
-            edit.putString(AiAppsLifecycleMessage.APP_ID_KEY, this.a);
+            edit.putString("appId", this.a);
             edit.putString("appToken", str2);
             edit.putString("regResource", str3);
             edit.commit();
@@ -109,9 +108,9 @@ public class a {
     }
 
     private void o() {
-        this.c = new C0390a();
+        this.c = new C0366a();
         SharedPreferences j = j();
-        this.c.a = j.getString(AiAppsLifecycleMessage.APP_ID_KEY, null);
+        this.c.a = j.getString("appId", null);
         this.c.b = j.getString("appToken", null);
         this.c.c = j.getString("regId", null);
         this.c.d = j.getString("regSec", null);

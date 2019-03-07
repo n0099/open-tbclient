@@ -9,7 +9,6 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
@@ -25,7 +24,7 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class QQShare extends BaseApi {
     public static final int QQ_SHARE_SUMMARY_MAX_LENGTH = 512;
     public static final int QQ_SHARE_TITLE_MAX_LENGTH = 128;
@@ -107,7 +106,7 @@ public class QQShare extends BaseApi {
             }
         }
         if (i != 5) {
-            if (TextUtils.isEmpty(string4) || (!string4.startsWith("http://") && !string4.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX))) {
+            if (TextUtils.isEmpty(string4) || (!string4.startsWith("http://") && !string4.startsWith("https://"))) {
                 iUiListener.onError(new UiError(-6, Constants.MSG_PARAM_ERROR, null));
                 f.e("openSDK_LOG.QQShare", "shareToQQ, targetUrl is empty or illegal..");
                 d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQQ, targetUrl is empty or illegal..");
@@ -119,7 +118,7 @@ public class QQShare extends BaseApi {
                 return;
             }
         }
-        if (!TextUtils.isEmpty(string) && !string.startsWith("http://") && !string.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX) && !new File(string).exists()) {
+        if (!TextUtils.isEmpty(string) && !string.startsWith("http://") && !string.startsWith("https://") && !new File(string).exists()) {
             iUiListener.onError(new UiError(-6, Constants.MSG_PARAM_IMAGE_URL_FORMAT_ERROR, null));
             f.e("openSDK_LOG.QQShare", "shareToQQ, image url is emprty or illegal.");
             d.a().a(1, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.b.getAppId(), String.valueOf(0), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "shareToQQ, image url is emprty or illegal.");
@@ -297,7 +296,7 @@ public class QQShare extends BaseApi {
                 f.c("openSDK_LOG.QQShare", "doShareToQQ, last listener is not null, cancel it.");
             }
             if (a(intent)) {
-                a(activity, 10103, intent, true);
+                a(activity, Constants.REQUEST_QQ_SHARE, intent, true);
             }
         }
         String str = Constants.VIA_REPORT_TYPE_SHARE_TO_QQ;

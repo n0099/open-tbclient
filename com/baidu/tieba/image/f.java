@@ -1,37 +1,42 @@
 package com.baidu.tieba.image;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.ng.ai.apps.media.chooser.action.ChooseVideoAction;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.tencent.open.SocialConstants;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f {
-    private boolean fkX;
+    private AgreeData agreeData;
+    private boolean gAV;
     private boolean isBlockedPic;
+    private boolean isFirstPost;
     private boolean isLongPic;
-    private String fkU = null;
+    private String gAT = null;
     private String imageUrl = null;
-    private String bsd = null;
+    private String cCT = null;
     private int width = 0;
     private int height = 0;
-    private String fkV = null;
+    private String gAU = null;
     private long originalSize = 0;
     private int picType = 0;
     private String tagName = "";
     private int index = -1;
     private long overAllIndex = 0;
-    private String fkW = null;
+    private String postId = null;
+    private String commentNum = null;
+    private JSONArray richTextArray = null;
 
     public String getImageUrl() {
         return this.imageUrl;
     }
 
-    public String aXM() {
-        return this.fkU;
+    public String byp() {
+        return this.gAT;
     }
 
-    public String aXN() {
-        return this.fkW;
+    public String byq() {
+        return this.postId;
     }
 
     public int getWidth() {
@@ -46,12 +51,12 @@ public class f {
         return this.index;
     }
 
-    public String SO() {
-        return this.bsd;
+    public String asO() {
+        return this.cCT;
     }
 
-    public String SV() {
-        return this.fkV;
+    public String asU() {
+        return this.gAU;
     }
 
     public long getOriginalSize() {
@@ -66,11 +71,11 @@ public class f {
         return this.tagName;
     }
 
-    public boolean aXO() {
-        return this.fkX;
+    public boolean byr() {
+        return this.gAV;
     }
 
-    public boolean aXP() {
+    public boolean bys() {
         return this.isBlockedPic;
     }
 
@@ -78,33 +83,65 @@ public class f {
         return this.isLongPic;
     }
 
-    public long aXQ() {
+    public long byt() {
         return this.overAllIndex;
+    }
+
+    public String byu() {
+        return this.commentNum;
+    }
+
+    public AgreeData aaH() {
+        return this.agreeData;
+    }
+
+    public JSONArray byv() {
+        return this.richTextArray;
+    }
+
+    public boolean byw() {
+        return this.isFirstPost;
     }
 
     public void paserJson(JSONObject jSONObject) {
         JSONObject optJSONObject;
         try {
             this.overAllIndex = jSONObject.optLong("overall_index", 0L);
-            this.fkW = jSONObject.optString("post_id");
-            this.fkX = jSONObject.optInt("show_original_btn") == 1;
+            this.postId = jSONObject.optString("post_id");
+            this.gAV = jSONObject.optInt("show_original_btn") == 1;
             this.isBlockedPic = jSONObject.optInt("is_blocked_pic") == 1;
             this.isLongPic = jSONObject.optInt("is_long_pic") == 1;
             this.index = jSONObject.optInt("index", -1);
-            JSONObject optJSONObject2 = jSONObject.optJSONObject(SocialConstants.PARAM_IMG_URL);
-            if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("original")) != null) {
-                this.fkU = optJSONObject.optString("id");
+            this.isFirstPost = jSONObject.optInt("is_first_post") == 1;
+            this.commentNum = jSONObject.optString("comment_num");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("agree");
+            if (optJSONObject2 != null) {
+                int optInt = optJSONObject2.optInt("agree_num");
+                int optInt2 = optJSONObject2.optInt("disagree_num");
+                int optInt3 = optJSONObject2.optInt("agree_type");
+                boolean z = optJSONObject2.optInt("has_agree") == 1;
+                if (this.agreeData == null) {
+                    this.agreeData = new AgreeData();
+                }
+                this.agreeData.agreeType = optInt3;
+                this.agreeData.hasAgree = z;
+                this.agreeData.diffAgreeNum = optInt - optInt2;
+            }
+            this.richTextArray = jSONObject.optJSONArray("post_content");
+            JSONObject optJSONObject3 = jSONObject.optJSONObject(SocialConstants.PARAM_IMG_URL);
+            if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("original")) != null) {
+                this.gAT = optJSONObject.optString("id");
                 this.imageUrl = optJSONObject.optString("url");
                 this.width = optJSONObject.optInt("width", 0);
                 this.height = optJSONObject.optInt("height", 0);
-                this.bsd = optJSONObject.optString("big_cdn_src", null);
-                this.fkV = optJSONObject.optString("original_src");
-                this.originalSize = optJSONObject.optInt(ChooseVideoAction.CB_KEY_SIZE);
+                this.cCT = optJSONObject.optString("big_cdn_src", null);
+                this.gAU = optJSONObject.optString("original_src");
+                this.originalSize = optJSONObject.optInt("size");
             }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("pic_tagname");
-            if (optJSONObject3 != null) {
-                this.picType = optJSONObject3.optInt("pic_type", 0);
-                this.tagName = optJSONObject3.optString("tag_name");
+            JSONObject optJSONObject4 = jSONObject.optJSONObject("pic_tagname");
+            if (optJSONObject4 != null) {
+                this.picType = optJSONObject4.optInt("pic_type", 0);
+                this.tagName = optJSONObject4.optString("tag_name");
             }
         } catch (Exception e) {
             BdLog.detailException(e);

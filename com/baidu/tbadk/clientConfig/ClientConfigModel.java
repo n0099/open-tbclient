@@ -6,42 +6,42 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes.dex */
 public class ClientConfigModel extends BdBaseModel {
-    private a anU;
-    private final com.baidu.adp.framework.listener.a anV;
+    private a buD;
+    private final com.baidu.adp.framework.listener.a buE;
 
     public ClientConfigModel(BdBaseFragmentActivity<?> bdBaseFragmentActivity, a aVar) {
         super(bdBaseFragmentActivity.getPageContext());
-        this.anV = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039) { // from class: com.baidu.tbadk.clientConfig.ClientConfigModel.1
+        this.buE = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_CLIENT_CONFIG, 303039) { // from class: com.baidu.tbadk.clientConfig.ClientConfigModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 if (!ClientConfigModel.this.checkMessageIsBelongToCurPage(responsedMessage)) {
-                    if (ClientConfigModel.this.anU != null) {
-                        ClientConfigModel.this.anU.onError("");
+                    if (ClientConfigModel.this.buD != null) {
+                        ClientConfigModel.this.buD.onError("");
                     }
                 } else if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
                     String errorString = responsedMessage.getErrorString();
-                    String string = TbadkCoreApplication.getInst().getString(e.j.neterror);
+                    String string = TbadkCoreApplication.getInst().getString(d.j.neterror);
                     if (!StringUtils.isNull(errorString)) {
                         string = errorString;
                     }
-                    if (ClientConfigModel.this.anU != null) {
-                        ClientConfigModel.this.anU.onError(string);
+                    if (ClientConfigModel.this.buD != null) {
+                        ClientConfigModel.this.buD.onError(string);
                     }
                 } else if (responsedMessage instanceof ClientConfigHttpProtoResponse) {
                     ClientConfigModel.this.a(((ClientConfigHttpProtoResponse) responsedMessage).getData());
                 } else if (responsedMessage instanceof ClientConfigSocketResponse) {
                     ClientConfigModel.this.a(((ClientConfigSocketResponse) responsedMessage).getData());
-                } else if (ClientConfigModel.this.anU != null) {
-                    ClientConfigModel.this.anU.onError("");
+                } else if (ClientConfigModel.this.buD != null) {
+                    ClientConfigModel.this.buD.onError("");
                 }
             }
         };
-        this.anU = aVar;
-        registerListener(this.anV);
+        this.buD = aVar;
+        registerListener(this.buE);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -54,7 +54,7 @@ public class ClientConfigModel extends BdBaseModel {
         return false;
     }
 
-    public void eg(String str) {
+    public void kQ(String str) {
         ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();
         clientConfigNetMessage.setType(str);
         sendMessage(clientConfigNetMessage);
@@ -68,11 +68,11 @@ public class ClientConfigModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(DataRes dataRes) {
         if (dataRes == null) {
-            if (this.anU != null) {
-                this.anU.onError(TbadkCoreApplication.getInst().getString(e.j.data_load_error));
+            if (this.buD != null) {
+                this.buD.onError(TbadkCoreApplication.getInst().getString(d.j.data_load_error));
             }
-        } else if (this.anU != null) {
-            this.anU.G(dataRes);
+        } else if (this.buD != null) {
+            this.buD.aa(dataRes);
         }
     }
 }

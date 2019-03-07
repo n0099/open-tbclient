@@ -2,96 +2,68 @@ package rx.internal.operators;
 
 import java.util.NoSuchElementException;
 import rx.d;
+import rx.h;
 /* loaded from: classes2.dex */
-public final class q<T> implements d.a<T> {
-    final rx.d<T> iFX;
-    final rx.functions.g<T, T, T> iHO;
+public final class q<T> implements h.a<T> {
+    final d.a<T> jYZ;
 
+    public q(d.a<T> aVar) {
+        this.jYZ = aVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((rx.j) ((rx.j) obj));
-    }
-
-    public q(rx.d<T> dVar, rx.functions.g<T, T, T> gVar) {
-        this.iFX = dVar;
-        this.iHO = gVar;
-    }
-
-    public void call(rx.j<? super T> jVar) {
-        final a aVar = new a(jVar, this.iHO);
-        jVar.add(aVar);
-        jVar.setProducer(new rx.f() { // from class: rx.internal.operators.q.1
-            @Override // rx.f
-            public void request(long j) {
-                aVar.dG(j);
-            }
-        });
-        this.iFX.unsafeSubscribe(aVar);
+    /* renamed from: b */
+    public void call(rx.i<? super T> iVar) {
+        a aVar = new a(iVar);
+        iVar.add(aVar);
+        this.jYZ.call(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a<T> extends rx.j<T> {
-        static final Object EMPTY = new Object();
-        final rx.j<? super T> actual;
-        boolean done;
-        final rx.functions.g<T, T, T> iHO;
-        T value = (T) EMPTY;
+        final rx.i<? super T> actual;
+        int state;
+        T value;
 
-        public a(rx.j<? super T> jVar, rx.functions.g<T, T, T> gVar) {
-            this.actual = jVar;
-            this.iHO = gVar;
-            request(0L);
+        /* JADX INFO: Access modifiers changed from: package-private */
+        public a(rx.i<? super T> iVar) {
+            this.actual = iVar;
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            if (!this.done) {
-                T t2 = this.value;
-                if (t2 == EMPTY) {
-                    this.value = t;
-                    return;
-                }
-                try {
-                    this.value = this.iHO.j(t2, t);
-                } catch (Throwable th) {
-                    rx.exceptions.a.J(th);
-                    unsubscribe();
-                    onError(th);
-                }
+            int i = this.state;
+            if (i == 0) {
+                this.state = 1;
+                this.value = t;
+            } else if (i == 1) {
+                this.state = 2;
+                this.actual.onError(new IndexOutOfBoundsException("The upstream produced more than one value"));
             }
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
-            if (!this.done) {
-                this.done = true;
-                this.actual.onError(th);
+            if (this.state == 2) {
+                rx.c.c.onError(th);
                 return;
             }
-            rx.c.c.onError(th);
+            this.value = null;
+            this.actual.onError(th);
         }
 
         @Override // rx.e
         public void onCompleted() {
-            if (!this.done) {
-                this.done = true;
-                T t = this.value;
-                if (t != EMPTY) {
-                    this.actual.onNext(t);
-                    this.actual.onCompleted();
-                    return;
-                }
+            int i = this.state;
+            if (i == 0) {
                 this.actual.onError(new NoSuchElementException());
-            }
-        }
-
-        void dG(long j) {
-            if (j < 0) {
-                throw new IllegalArgumentException("n >= 0 required but it was " + j);
-            }
-            if (j != 0) {
-                request(Long.MAX_VALUE);
+            } else if (i == 1) {
+                this.state = 2;
+                T t = this.value;
+                this.value = null;
+                this.actual.onSuccess(t);
             }
         }
     }

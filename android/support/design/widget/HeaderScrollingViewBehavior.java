@@ -9,7 +9,6 @@ import android.support.v4.view.ViewCompat;
 import android.support.v4.view.WindowInsetsCompat;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import java.util.List;
 /* loaded from: classes2.dex */
 abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<View> {
@@ -49,7 +48,7 @@ abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<View> {
             if (size == 0) {
                 size = coordinatorLayout.getHeight();
             }
-            coordinatorLayout.onMeasureChild(view, i, i2, View.MeasureSpec.makeMeasureSpec(getScrollRange(findFirstDependency) + (size - findFirstDependency.getMeasuredHeight()), i5 == -1 ? AiAppsFileUtils.GB : Integer.MIN_VALUE), i4);
+            coordinatorLayout.onMeasureChild(view, i, i2, View.MeasureSpec.makeMeasureSpec(getScrollRange(findFirstDependency) + (size - findFirstDependency.getMeasuredHeight()), i5 == -1 ? 1073741824 : Integer.MIN_VALUE), i4);
             return true;
         }
         return false;

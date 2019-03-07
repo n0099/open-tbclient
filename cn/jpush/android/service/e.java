@@ -11,7 +11,6 @@ import cn.jpush.android.a.k;
 import cn.jpush.android.a.n;
 import cn.jpush.android.api.JThirdPlatFormInterface;
 import cn.jpush.android.data.JPushLocalNotification;
-import com.baidu.searchbox.ng.ai.apps.event.message.AiAppsLifecycleMessage;
 import com.baidu.tieba.ala.ALaKeepAliveService;
 /* loaded from: classes3.dex */
 public final class e {
@@ -104,7 +103,7 @@ public final class e {
                 g.a().a(this.a, bundle);
             }
         } else {
-            String string2 = bundle.getString(AiAppsLifecycleMessage.APP_ID_KEY);
+            String string2 = bundle.getString("appId");
             String string3 = bundle.getString("senderId");
             String string4 = bundle.getString("JMessageExtra");
             byte b2 = bundle.getByte("platform");

@@ -3,20 +3,20 @@ package rx.a.a;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
 public final class a {
-    private static final a iFz = new a();
-    private final AtomicReference<b> iFA = new AtomicReference<>();
+    private static final a jVf = new a();
+    private final AtomicReference<b> jVg = new AtomicReference<>();
 
-    public static a ces() {
-        return iFz;
+    public static a cDD() {
+        return jVf;
     }
 
     a() {
     }
 
-    public b cet() {
-        if (this.iFA.get() == null) {
-            this.iFA.compareAndSet(null, b.ceu());
+    public b cDE() {
+        if (this.jVg.get() == null) {
+            this.jVg.compareAndSet(null, b.cDF());
         }
-        return this.iFA.get();
+        return this.jVg.get();
     }
 }

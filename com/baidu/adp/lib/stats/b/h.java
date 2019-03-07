@@ -1,12 +1,13 @@
 package com.baidu.adp.lib.stats.b;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class h {
-    public void kD() {
+    public void kF() {
         new a().execute(new String[0]);
     }
 
@@ -19,11 +20,11 @@ public class h {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
-            kD();
+            kF();
             return null;
         }
 
-        private void kD() {
+        private void kF() {
             int i;
             ArrayList<com.baidu.adp.lib.stats.base.c> al = com.baidu.adp.lib.stats.base.b.al(true);
             if (al != null && al.size() != 0) {
@@ -34,7 +35,7 @@ public class h {
                     if (!it.hasNext()) {
                         break;
                     }
-                    i2 = (int) (it.next().EN + i);
+                    i2 = (int) (it.next().EM + i);
                 }
                 int i3 = i - 31457280;
                 ArrayList arrayList = new ArrayList();
@@ -48,7 +49,7 @@ public class h {
                         }
                         com.baidu.adp.lib.stats.base.c next = it2.next();
                         arrayList.add(next.mFileName);
-                        i3 = (int) (i4 - next.EN);
+                        i3 = (int) (i4 - next.EM);
                         if (i3 <= 0) {
                             break;
                         }
@@ -59,8 +60,8 @@ public class h {
                 while (it3.hasNext()) {
                     com.baidu.adp.lib.stats.base.c next2 = it3.next();
                     if (next2 != null) {
-                        long j = next2.EO;
-                        if (j != 0 && j + 604800000 < currentTimeMillis && !arrayList.contains(next2.mFileName)) {
+                        long j = next2.EN;
+                        if (j != 0 && j + TbConfig.APP_OVERDUR_DRAFT_BOX < currentTimeMillis && !arrayList.contains(next2.mFileName)) {
                             arrayList.add(next2.mFileName);
                         }
                     }

@@ -1,11 +1,9 @@
 package com.xiaomi.smack.util;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.ng.ai.apps.media.audio.AiAppsAudioPlayer;
-import com.baidu.searchbox.ng.ai.apps.network.NetworkDef;
-import com.baidu.searchbox.ng.ai.apps.network.WebSocketAction;
-import com.baidu.searchbox.ng.ai.apps.statistic.AiAppsUBCStatistic;
-import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
+import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import com.baidu.sapi2.views.SmsLoginView;
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.tencent.connect.common.Constants;
 import com.xiaomi.push.service.ak;
 import com.xiaomi.push.service.aq;
@@ -52,7 +50,7 @@ public class a {
             if (next == 2) {
                 String name = xmlPullParser.getName();
                 String namespace = xmlPullParser.getNamespace();
-                if (name.equals(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR)) {
+                if (name.equals("error")) {
                     hVar = d(xmlPullParser);
                 } else {
                     bVar = new com.xiaomi.smack.packet.b();
@@ -92,7 +90,7 @@ public class a {
 
     public static com.xiaomi.smack.packet.d a(XmlPullParser xmlPullParser) {
         String str;
-        if ("1".equals(xmlPullParser.getAttributeValue("", "s"))) {
+        if ("1".equals(xmlPullParser.getAttributeValue("", NotifyType.SOUND))) {
             String attributeValue = xmlPullParser.getAttributeValue("", "chid");
             String attributeValue2 = xmlPullParser.getAttributeValue("", "id");
             String attributeValue3 = xmlPullParser.getAttributeValue("", "from");
@@ -108,7 +106,7 @@ public class a {
             while (!z) {
                 int next = xmlPullParser.next();
                 if (next == 2) {
-                    if (!"s".equals(xmlPullParser.getName())) {
+                    if (!NotifyType.SOUND.equals(xmlPullParser.getName())) {
                         throw new l("error while receiving a encrypted message with wrong format");
                     }
                     if (xmlPullParser.next() != 4) {
@@ -123,7 +121,7 @@ public class a {
                         cVar.m(attributeValue4);
                         cVar.k(attributeValue2);
                         cVar.f(attributeValue5);
-                        com.xiaomi.smack.packet.a aVar = new com.xiaomi.smack.packet.a("s", null, null, null);
+                        com.xiaomi.smack.packet.a aVar = new com.xiaomi.smack.packet.a(NotifyType.SOUND, null, null, null);
                         aVar.b(text);
                         cVar.a(aVar);
                         return cVar;
@@ -205,7 +203,7 @@ public class a {
                     if (f(xmlPullParser) == null) {
                     }
                     cVar2.g(e(xmlPullParser));
-                } else if (name.equals(NetworkDef.Http.BODY)) {
+                } else if (name.equals("body")) {
                     String attributeValue11 = xmlPullParser.getAttributeValue("", "encode");
                     String e6 = e(xmlPullParser);
                     if (TextUtils.isEmpty(attributeValue11)) {
@@ -217,7 +215,7 @@ public class a {
                     if (str2 == null) {
                         str2 = xmlPullParser.nextText();
                     }
-                } else if (name.equals(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR)) {
+                } else if (name.equals("error")) {
                     cVar2.a(d(xmlPullParser));
                 } else {
                     cVar2.a(a(name, namespace, xmlPullParser));
@@ -276,14 +274,14 @@ public class a {
                     } catch (IllegalArgumentException e3) {
                         fVar.a(0);
                     }
-                } else if (name.equals("show")) {
+                } else if (name.equals(SmsLoginView.StatEvent.LOGIN_SHOW)) {
                     String nextText = xmlPullParser.nextText();
                     try {
                         fVar.a(f.a.valueOf(nextText));
                     } catch (IllegalArgumentException e4) {
                         System.err.println("Found invalid presence mode " + nextText);
                     }
-                } else if (name.equals(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR)) {
+                } else if (name.equals("error")) {
                     fVar.a(d(xmlPullParser));
                 } else {
                     fVar.a(a(name, namespace, xmlPullParser));
@@ -302,7 +300,7 @@ public class a {
             int next = xmlPullParser.next();
             if (next == 2) {
                 gVar = new com.xiaomi.smack.packet.g(xmlPullParser.getName());
-            } else if (next == 3 && xmlPullParser.getName().equals(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR)) {
+            } else if (next == 3 && xmlPullParser.getName().equals("error")) {
                 z = true;
             }
         }
@@ -313,13 +311,13 @@ public class a {
         ArrayList arrayList = new ArrayList();
         String str = null;
         String str2 = null;
-        String str3 = AiAppsAudioPlayer.ERROR_UNKNOWN;
+        String str3 = LivenessStat.TYPE_STRING_DEFAULT;
         int i = 0;
         while (i < xmlPullParser.getAttributeCount()) {
             String attributeValue = xmlPullParser.getAttributeName(i).equals("code") ? xmlPullParser.getAttributeValue("", "code") : str3;
             String attributeValue2 = xmlPullParser.getAttributeName(i).equals("type") ? xmlPullParser.getAttributeValue("", "type") : str2;
-            if (xmlPullParser.getAttributeName(i).equals(WebSocketAction.PARAM_KEY_REASON)) {
-                str = xmlPullParser.getAttributeValue("", WebSocketAction.PARAM_KEY_REASON);
+            if (xmlPullParser.getAttributeName(i).equals("reason")) {
+                str = xmlPullParser.getAttributeValue("", "reason");
             }
             i++;
             str2 = attributeValue2;
@@ -343,14 +341,14 @@ public class a {
                     }
                 }
             } else if (next == 3) {
-                if (xmlPullParser.getName().equals(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR)) {
+                if (xmlPullParser.getName().equals("error")) {
                     z = true;
                 }
             } else if (next == 4) {
                 str5 = xmlPullParser.getText();
             }
         }
-        return new com.xiaomi.smack.packet.h(Integer.parseInt(str3), str2 == null ? AiAppsUBCStatistic.VALUE_CANCEL : str2, str, str4, str5, arrayList);
+        return new com.xiaomi.smack.packet.h(Integer.parseInt(str3), str2 == null ? "cancel" : str2, str, str4, str5, arrayList);
     }
 
     private static String e(XmlPullParser xmlPullParser) {

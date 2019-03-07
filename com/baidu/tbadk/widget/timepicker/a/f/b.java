@@ -8,124 +8,123 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.baidu.searchbox.ng.ai.apps.statistic.AiAppsUBCStatistic;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import java.text.ParseException;
 import java.util.Calendar;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class b extends a implements View.OnClickListener {
-    private c buB;
+    private c cFL;
 
     public b(com.baidu.tbadk.widget.timepicker.a.c.a aVar) {
         super(aVar.context);
-        this.bth = aVar;
+        this.cEt = aVar;
         initView(aVar.context);
     }
 
     private void initView(Context context) {
-        Ty();
+        atx();
         initViews();
         initAnim();
-        if (this.bth.btk == null) {
-            LayoutInflater.from(context).inflate(e.h.pickerview_time, this.bup);
-            TextView textView = (TextView) findViewById(e.g.tvTitle);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(e.g.rv_topbar);
-            Button button = (Button) findViewById(e.g.btnSubmit);
-            Button button2 = (Button) findViewById(e.g.btnCancel);
+        if (this.cEt.cEw == null) {
+            LayoutInflater.from(context).inflate(d.h.pickerview_time, this.cFz);
+            TextView textView = (TextView) findViewById(d.g.tvTitle);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(d.g.rv_topbar);
+            Button button = (Button) findViewById(d.g.btnSubmit);
+            Button button2 = (Button) findViewById(d.g.btnCancel);
             button.setTag("submit");
-            button2.setTag(AiAppsUBCStatistic.VALUE_CANCEL);
+            button2.setTag("cancel");
             button.setOnClickListener(this);
             button2.setOnClickListener(this);
-            button.setText(TextUtils.isEmpty(this.bth.btK) ? context.getResources().getString(e.j.pickerview_submit) : this.bth.btK);
-            button2.setText(TextUtils.isEmpty(this.bth.btL) ? context.getResources().getString(e.j.pickerview_cancel) : this.bth.btL);
-            textView.setText(TextUtils.isEmpty(this.bth.btM) ? "" : this.bth.btM);
-            button.setTextColor(this.bth.btN);
-            button2.setTextColor(this.bth.btO);
-            textView.setTextColor(this.bth.btP);
-            relativeLayout.setBackgroundColor(this.bth.btR);
-            button.setTextSize(this.bth.btS);
-            button2.setTextSize(this.bth.btS);
-            textView.setTextSize(this.bth.btT);
+            button.setText(TextUtils.isEmpty(this.cEt.cEV) ? context.getResources().getString(d.j.pickerview_submit) : this.cEt.cEV);
+            button2.setText(TextUtils.isEmpty(this.cEt.cEW) ? context.getResources().getString(d.j.pickerview_cancel) : this.cEt.cEW);
+            textView.setText(TextUtils.isEmpty(this.cEt.cEX) ? "" : this.cEt.cEX);
+            button.setTextColor(this.cEt.cEY);
+            button2.setTextColor(this.cEt.cEZ);
+            textView.setTextColor(this.cEt.cFa);
+            relativeLayout.setBackgroundColor(this.cEt.cFc);
+            button.setTextSize(this.cEt.cFd);
+            button2.setTextSize(this.cEt.cFd);
+            textView.setTextSize(this.cEt.cFe);
         } else {
-            this.bth.btk.Z(LayoutInflater.from(context).inflate(this.bth.btI, this.bup));
+            this.cEt.cEw.aT(LayoutInflater.from(context).inflate(this.cEt.cET, this.cFz));
         }
-        LinearLayout linearLayout = (LinearLayout) findViewById(e.g.timepicker);
-        linearLayout.setBackgroundColor(this.bth.btQ);
+        LinearLayout linearLayout = (LinearLayout) findViewById(d.g.timepicker);
+        linearLayout.setBackgroundColor(this.cEt.cFb);
         b(linearLayout);
     }
 
     private void b(LinearLayout linearLayout) {
-        this.buB = new c(linearLayout, this.bth.btq, this.bth.btJ, this.bth.btU);
-        if (this.bth.btj != null) {
-            this.buB.a(new com.baidu.tbadk.widget.timepicker.a.d.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.b.1
+        this.cFL = new c(linearLayout, this.cEt.cEB, this.cEt.cEU, this.cEt.cFf);
+        if (this.cEt.cEv != null) {
+            this.cFL.a(new com.baidu.tbadk.widget.timepicker.a.d.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.b.1
                 @Override // com.baidu.tbadk.widget.timepicker.a.d.b
-                public void Tw() {
+                public void atv() {
                     try {
-                        b.this.bth.btj.k(c.buD.parse(b.this.buB.getTime()));
+                        b.this.cEt.cEv.p(c.cFN.parse(b.this.cFL.getTime()));
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
                 }
             });
         }
-        this.buB.di(this.bth.btv);
-        if (this.bth.startYear != 0 && this.bth.endYear != 0 && this.bth.startYear <= this.bth.endYear) {
-            TB();
+        this.cFL.fy(this.cEt.cEG);
+        if (this.cEt.startYear != 0 && this.cEt.endYear != 0 && this.cEt.startYear <= this.cEt.endYear) {
+            atA();
         }
-        if (this.bth.bts != null && this.bth.btt != null) {
-            if (this.bth.bts.getTimeInMillis() > this.bth.btt.getTimeInMillis()) {
+        if (this.cEt.cED != null && this.cEt.cEE != null) {
+            if (this.cEt.cED.getTimeInMillis() > this.cEt.cEE.getTimeInMillis()) {
                 throw new IllegalArgumentException("startDate can't be later than endDate");
             }
-            TC();
-        } else if (this.bth.bts != null) {
-            if (this.bth.bts.get(1) < 1900) {
+            atB();
+        } else if (this.cEt.cED != null) {
+            if (this.cEt.cED.get(1) < 1900) {
                 throw new IllegalArgumentException("The startDate can not as early as 1900");
             }
-            TC();
-        } else if (this.bth.btt != null) {
-            if (this.bth.btt.get(1) > 2100) {
+            atB();
+        } else if (this.cEt.cEE != null) {
+            if (this.cEt.cEE.get(1) > 2100) {
                 throw new IllegalArgumentException("The endDate should not be later than 2100");
             }
-            TC();
+            atB();
         } else {
-            TC();
+            atB();
         }
-        TE();
-        this.buB.c(this.bth.btw, this.bth.btx, this.bth.bty, this.bth.btz, this.bth.btA, this.bth.btB);
-        this.buB.h(this.bth.btC, this.bth.btD, this.bth.btE, this.bth.btF, this.bth.btG, this.bth.btH);
-        dh(this.bth.bua);
-        this.buB.setCyclic(this.bth.btu);
-        this.buB.setDividerColor(this.bth.btX);
-        this.buB.setDividerType(this.bth.bud);
-        this.buB.setLineSpacingMultiplier(this.bth.btY);
-        this.buB.setTextColorOut(this.bth.btV);
-        this.buB.setTextColorCenter(this.bth.btW);
-        this.buB.dj(this.bth.bub);
+        atD();
+        this.cFL.c(this.cEt.cEH, this.cEt.cEI, this.cEt.cEJ, this.cEt.cEK, this.cEt.cEL, this.cEt.cEM);
+        this.cFL.h(this.cEt.cEN, this.cEt.cEO, this.cEt.cEP, this.cEt.cEQ, this.cEt.cER, this.cEt.cES);
+        fx(this.cEt.cFl);
+        this.cFL.setCyclic(this.cEt.cEF);
+        this.cFL.setDividerColor(this.cEt.cFi);
+        this.cFL.setDividerType(this.cEt.cFo);
+        this.cFL.setLineSpacingMultiplier(this.cEt.cFj);
+        this.cFL.setTextColorOut(this.cEt.cFg);
+        this.cFL.setTextColorCenter(this.cEt.cFh);
+        this.cFL.fz(this.cEt.cFm);
     }
 
-    private void TB() {
-        this.buB.setStartYear(this.bth.startYear);
-        this.buB.hm(this.bth.endYear);
+    private void atA() {
+        this.cFL.setStartYear(this.cEt.startYear);
+        this.cFL.lc(this.cEt.endYear);
     }
 
-    private void TC() {
-        this.buB.a(this.bth.bts, this.bth.btt);
-        TD();
+    private void atB() {
+        this.cFL.a(this.cEt.cED, this.cEt.cEE);
+        atC();
     }
 
-    private void TD() {
-        if (this.bth.bts != null && this.bth.btt != null) {
-            if (this.bth.btr == null || this.bth.btr.getTimeInMillis() < this.bth.bts.getTimeInMillis() || this.bth.btr.getTimeInMillis() > this.bth.btt.getTimeInMillis()) {
-                this.bth.btr = this.bth.bts;
+    private void atC() {
+        if (this.cEt.cED != null && this.cEt.cEE != null) {
+            if (this.cEt.cEC == null || this.cEt.cEC.getTimeInMillis() < this.cEt.cED.getTimeInMillis() || this.cEt.cEC.getTimeInMillis() > this.cEt.cEE.getTimeInMillis()) {
+                this.cEt.cEC = this.cEt.cED;
             }
-        } else if (this.bth.bts != null) {
-            this.bth.btr = this.bth.bts;
-        } else if (this.bth.btt != null) {
-            this.bth.btr = this.bth.btt;
+        } else if (this.cEt.cED != null) {
+            this.cEt.cEC = this.cEt.cED;
+        } else if (this.cEt.cEE != null) {
+            this.cEt.cEC = this.cEt.cEE;
         }
     }
 
-    private void TE() {
+    private void atD() {
         int i;
         int i2;
         int i3;
@@ -133,7 +132,7 @@ public class b extends a implements View.OnClickListener {
         int i5;
         int i6;
         Calendar calendar = Calendar.getInstance();
-        if (this.bth.btr == null) {
+        if (this.cEt.cEC == null) {
             calendar.setTimeInMillis(System.currentTimeMillis());
             i = calendar.get(1);
             i2 = calendar.get(2);
@@ -142,28 +141,28 @@ public class b extends a implements View.OnClickListener {
             i5 = calendar.get(12);
             i6 = calendar.get(13);
         } else {
-            i = this.bth.btr.get(1);
-            i2 = this.bth.btr.get(2);
-            i3 = this.bth.btr.get(5);
-            i4 = this.bth.btr.get(11);
-            i5 = this.bth.btr.get(12);
-            i6 = this.bth.btr.get(13);
+            i = this.cEt.cEC.get(1);
+            i2 = this.cEt.cEC.get(2);
+            i3 = this.cEt.cEC.get(5);
+            i4 = this.cEt.cEC.get(11);
+            i5 = this.cEt.cEC.get(12);
+            i6 = this.cEt.cEC.get(13);
         }
-        this.buB.f(i, i2, i3, i4, i5, i6);
+        this.cFL.f(i, i2, i3, i4, i5, i6);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (((String) view.getTag()).equals("submit")) {
-            TF();
+            atE();
         }
         dismiss();
     }
 
-    public void TF() {
-        if (this.bth.bti != null) {
+    public void atE() {
+        if (this.cEt.cEu != null) {
             try {
-                this.bth.bti.a(c.buD.parse(this.buB.getTime()), this.buw);
+                this.cEt.cEu.a(c.cFN.parse(this.cFL.getTime()), this.cFG);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -171,7 +170,7 @@ public class b extends a implements View.OnClickListener {
     }
 
     @Override // com.baidu.tbadk.widget.timepicker.a.f.a
-    public boolean TA() {
-        return this.bth.btZ;
+    public boolean atz() {
+        return this.cEt.cFk;
     }
 }

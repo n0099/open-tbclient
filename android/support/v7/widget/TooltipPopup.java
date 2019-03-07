@@ -14,8 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.TextView;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 class TooltipPopup {
@@ -50,13 +48,13 @@ class TooltipPopup {
         }
         this.mMessageView.setText(charSequence);
         computePosition(view, i, i2, z, this.mLayoutParams);
-        ((WindowManager) this.mContext.getSystemService(WindowConfig.JSON_WINDOW_KEY)).addView(this.mContentView, this.mLayoutParams);
+        ((WindowManager) this.mContext.getSystemService("window")).addView(this.mContentView, this.mLayoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void hide() {
         if (isShowing()) {
-            ((WindowManager) this.mContext.getSystemService(WindowConfig.JSON_WINDOW_KEY)).removeView(this.mContentView);
+            ((WindowManager) this.mContext.getSystemService("window")).removeView(this.mContentView);
         }
     }
 
@@ -89,7 +87,7 @@ class TooltipPopup {
         appRootView.getWindowVisibleDisplayFrame(this.mTmpDisplayFrame);
         if (this.mTmpDisplayFrame.left < 0 && this.mTmpDisplayFrame.top < 0) {
             Resources resources = this.mContext.getResources();
-            int identifier = resources.getIdentifier("status_bar_height", "dimen", HttpConstants.OS_TYPE_VALUE);
+            int identifier = resources.getIdentifier("status_bar_height", "dimen", "android");
             int dimensionPixelSize = identifier != 0 ? resources.getDimensionPixelSize(identifier) : 0;
             DisplayMetrics displayMetrics = resources.getDisplayMetrics();
             this.mTmpDisplayFrame.set(0, dimensionPixelSize, displayMetrics.widthPixels, displayMetrics.heightPixels);

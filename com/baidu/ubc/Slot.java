@@ -11,47 +11,47 @@ public class Slot implements Parcelable {
     public static final Parcelable.Creator<Slot> CREATOR = new Parcelable.Creator<Slot>() { // from class: com.baidu.ubc.Slot.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: A */
+        /* renamed from: R */
         public Slot createFromParcel(Parcel parcel) {
             return new Slot(parcel);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: xW */
+        /* renamed from: BJ */
         public Slot[] newArray(int i) {
             return new Slot[i];
         }
     };
-    private long igu;
-    private long igv;
-    private JSONObject igw;
-    private float igx;
+    private long bpE;
+    private JSONObject bpF;
+    private float bpG;
     private String mCategory;
+    private long mStart;
 
     public Slot(String str, long j, JSONObject jSONObject) {
-        this.igu = 0L;
-        this.igv = 0L;
-        this.igu = j;
+        this.mStart = 0L;
+        this.bpE = 0L;
+        this.mStart = j;
         this.mCategory = str;
-        this.igw = jSONObject;
+        this.bpF = jSONObject;
     }
 
     protected Slot(Parcel parcel) {
-        this.igu = 0L;
-        this.igv = 0L;
-        this.igu = parcel.readLong();
-        this.igv = parcel.readLong();
+        this.mStart = 0L;
+        this.bpE = 0L;
+        this.mStart = parcel.readLong();
+        this.bpE = parcel.readLong();
         this.mCategory = parcel.readString();
-        this.igx = parcel.readFloat();
+        this.bpG = parcel.readFloat();
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeLong(this.igu);
-        parcel.writeLong(this.igv);
+        parcel.writeLong(this.mStart);
+        parcel.writeLong(this.bpE);
         parcel.writeString(this.mCategory);
-        parcel.writeFloat(this.igx);
+        parcel.writeFloat(this.bpG);
     }
 
     @Override // android.os.Parcelable
@@ -59,37 +59,37 @@ public class Slot implements Parcelable {
         return 0;
     }
 
-    public void setEnd(long j) {
-        if (j > 0 && j > this.igu) {
-            this.igv = j;
-            this.igx = (((float) (this.igv - this.igu)) / 1000.0f) + this.igx;
+    public void C(long j) {
+        if (j > 0 && j > this.mStart) {
+            this.bpE = j;
+            this.bpG = (((float) (this.bpE - this.mStart)) / 1000.0f) + this.bpG;
         }
     }
 
-    public void az(JSONObject jSONObject) {
-        this.igw = jSONObject;
+    public void aF(JSONObject jSONObject) {
+        this.bpF = jSONObject;
     }
 
-    public boolean bSN() {
-        return this.igu > 0;
+    public boolean Tp() {
+        return this.mStart > 0;
     }
 
-    public boolean bSO() {
-        return this.igv > 0;
+    public boolean Tq() {
+        return this.bpE > 0;
     }
 
     public void clean() {
-        this.igu = 0L;
-        this.igv = 0L;
+        this.mStart = 0L;
+        this.bpE = 0L;
     }
 
-    public JSONObject bSP() {
+    public JSONObject Tr() {
         JSONObject jSONObject;
         JSONException e;
-        if (TextUtils.isEmpty(this.mCategory) || this.igx <= 0.0f) {
+        if (TextUtils.isEmpty(this.mCategory) || this.bpG <= 0.0f) {
             return null;
         }
-        String format = String.format("%.3f", Float.valueOf(this.igx));
+        String format = String.format("%.3f", Float.valueOf(this.bpG));
         try {
             jSONObject = new JSONObject();
         } catch (JSONException e2) {
@@ -99,8 +99,8 @@ public class Slot implements Parcelable {
         try {
             jSONObject.put("id", this.mCategory);
             jSONObject.put("d", format);
-            if (this.igw != null) {
-                jSONObject.put("info", this.igw);
+            if (this.bpF != null) {
+                jSONObject.put("info", this.bpF);
                 return jSONObject;
             }
             return jSONObject;

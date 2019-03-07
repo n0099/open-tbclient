@@ -1,76 +1,43 @@
 package com.baidu.tbadk.util;
 
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.fsg.base.utils.PhoneUtils;
-import com.baidu.sofire.ac.FH;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import java.lang.reflect.Field;
-import tbclient.CommonReq;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 /* loaded from: classes.dex */
 public class q {
-    public static void bindCommonParamsToProtobufData(Object obj, boolean z) {
-        bindCommonParamsToProtobufData(obj, z, false);
-    }
-
-    public static void bindCommonParamsToProtobufData(Object obj, boolean z, boolean z2) {
-        bindCommonParamsToProtobufData(obj, z, z2, false);
-    }
-
-    public static void bindCommonParamsToProtobufData(Object obj, boolean z, boolean z2, boolean z3) {
-        AccountData currentAccountInfo;
-        if (obj != null) {
-            try {
-                Field field = obj.getClass().getField(PhoneUtils.CPUInfo.FEATURE_COMMON);
-                if (!field.isAccessible()) {
-                    field.setAccessible(true);
-                }
-                CommonReq.Builder builder = new CommonReq.Builder();
-                builder._client_type = 2;
-                builder._client_version = TbConfig.getVersion();
-                builder._client_id = TbadkCoreApplication.getClientId();
-                if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-                    builder.subapp_type = TbConfig.getSubappType();
-                }
-                if (!TbadkCoreApplication.getInst().isOfficial()) {
-                    builder.apid = TbConfig.SW_APID;
-                }
-                builder._phone_imei = TbadkCoreApplication.getInst().getImei();
-                builder.from = TbadkCoreApplication.getFrom();
-                builder.cuid = TbadkCoreApplication.getInst().getCuid();
-                builder.cuid_galaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-                builder.cuid_gid = TbadkCoreApplication.getInst().getCuidGid();
-                builder._timestamp = Long.valueOf(System.currentTimeMillis());
-                builder.model = Build.MODEL;
-                if (z && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
-                    builder.BDUSS = currentAccountInfo.getBDUSS();
-                    String c = com.baidu.tbadk.core.a.d.c(currentAccountInfo);
-                    if (!StringUtils.isNull(c)) {
-                        builder.stoken = c;
-                    }
-                }
-                if (z2) {
-                    builder.tbs = TbadkCoreApplication.getInst().getTbs();
-                }
-                if (z3) {
-                    builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
-                }
-                builder.pversion = "1.0.3";
-                builder.lego_lib_version = TbConfig.getLegoLibVersion();
-                if (com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("android_safe_sdk_open", 0) == 1) {
-                    builder.z_id = FH.gz(TbadkCoreApplication.getInst());
-                }
-                builder.net_type = Integer.valueOf(com.baidu.adp.lib.util.j.netType());
-                field.set(obj, builder.build(false));
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    th.printStackTrace();
-                }
-            }
+    public static final boolean aqd() {
+        Message message;
+        int i = 0;
+        Object c = com.baidu.adp.lib.OrmObject.a.a.c(Looper.myQueue(), "mMessages");
+        if (c == null || !(c instanceof Message)) {
+            return false;
         }
+        Message message2 = (Message) c;
+        boolean z = false;
+        while (message2 != null && message2.obj != null && !z && i < 10) {
+            i++;
+            boolean u = u(message2);
+            Object c2 = com.baidu.adp.lib.OrmObject.a.a.c(message2, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
+            if (c2 != null && (c2 instanceof Message)) {
+                message = (Message) c2;
+            } else {
+                message = null;
+            }
+            message2 = message;
+            z = u;
+        }
+        return z;
+    }
+
+    private static final boolean u(Message message) {
+        Object c;
+        ComponentName component;
+        if (message == null) {
+            return false;
+        }
+        Object obj = message.obj;
+        return (obj == null || (c = com.baidu.adp.lib.OrmObject.a.a.c(obj, "intent")) == null || !(c instanceof Intent) || (component = ((Intent) c).getComponent()) == null || !"com.baidu.tieba.LogoActivity".equals(component.getClassName())) ? false : true;
     }
 }

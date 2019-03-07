@@ -9,10 +9,10 @@ public final class n implements Runnable {
     private Bundle c;
     private int d;
     private Context e;
-    final /* synthetic */ l md;
+    final /* synthetic */ l mh;
 
     public n(l lVar, Context context, String str, Bundle bundle, int i) {
-        this.md = lVar;
+        this.mh = lVar;
         this.b = str;
         this.c = bundle;
         this.e = context;
@@ -23,13 +23,13 @@ public final class n implements Runnable {
     public final void run() {
         boolean z;
         if (this.d == 1) {
-            l.a(this.md, this.b, this.c);
+            l.a(this.mh, this.b, this.c);
         } else if (cn.jiguang.d.b.a.c()) {
-            this.md.e(this.e, this.b, this.c);
+            this.mh.e(this.e, this.b, this.c);
         } else {
-            z = this.md.e;
+            z = this.mh.e;
             if (z) {
-                l.a(this.md, this.b, this.c);
+                l.a(this.mh, this.b, this.c);
             }
         }
     }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.util.d;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class h extends a {
     private int height;
@@ -14,16 +14,16 @@ public class h extends a {
         this.procType = 0;
         this.procType = i;
         if (z) {
-            this.width = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(e.C0210e.ds176);
+            this.width = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(d.e.ds176);
             this.height = this.width;
             return;
         }
-        this.width = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(e.C0210e.ds184);
-        this.height = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(e.C0210e.ds184);
+        this.width = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(d.e.ds184);
+        this.height = TbadkCoreApplication.getInst().getApp().getResources().getDimensionPixelSize(d.e.ds184);
     }
 
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
-    public boolean jD() {
+    public boolean jE() {
         return true;
     }
 
@@ -43,17 +43,17 @@ public class h extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean EI() {
+    public boolean adS() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public boolean EJ() {
+    public boolean adT() {
         return false;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int EK() {
+    public int adU() {
         return this.procType;
     }
 }

@@ -10,7 +10,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.b.d;
 import com.baidu.adp.lib.g.g;
 import com.baidu.adp.lib.g.h;
 import com.baidu.sapi2.PassportSDK;
@@ -31,32 +30,32 @@ import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tbadk.core.util.l;
-import com.baidu.tbadk.coreExtra.view.a;
-import com.baidu.tieba.e;
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tbadk.core.util.m;
+import com.baidu.tbadk.coreExtra.view.c;
+import com.baidu.tieba.d;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class LoginActivity extends BaseActivity<LoginActivity> {
-    private a aNx;
-    private BdAsyncTask<?, ?, ?> bBt;
-    private WebAuthResult fQg;
-    private Activity fQh;
-    private String fQl;
-    private String fQn;
-    private int fQo;
-    private String fQp;
-    private int fQf = 1;
-    private String fQi = null;
-    private int fQj = -2;
-    private boolean fQk = false;
-    private int fQm = -1;
-    private final a.InterfaceC0155a bBP = new a.InterfaceC0155a() { // from class: com.baidu.tieba.passaccount.app.LoginActivity.3
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0155a
-        public void el(String str) {
+    private c bVW;
+    private BdAsyncTask<?, ?, ?> cMA;
+    private int hgA;
+    private String hgB;
+    private WebAuthResult hgs;
+    private Activity hgt;
+    private String hgx;
+    private String hgz;
+    private int hgr = 1;
+    private String hgu = null;
+    private int hgv = -2;
+    private boolean hgw = false;
+    private int hgy = -1;
+    private final a.InterfaceC0188a cMW = new a.InterfaceC0188a() { // from class: com.baidu.tieba.passaccount.app.LoginActivity.3
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0188a
+        public void kV(String str) {
             if (LoginActivity.this.getLoadingDialog() == null || !LoginActivity.this.getLoadingDialog().isShowing()) {
-                LoginActivity.this.showLoadingDialog(LoginActivity.this.getPageContext().getString(e.j.sapi_logining), new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.passaccount.app.LoginActivity.3.1
+                LoginActivity.this.showLoadingDialog(LoginActivity.this.getPageContext().getString(d.j.sapi_logining), new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.passaccount.app.LoginActivity.3.1
                     @Override // android.content.DialogInterface.OnCancelListener
                     public void onCancel(DialogInterface dialogInterface) {
                         LoginActivity.this.destroyWaitingDialog();
@@ -65,10 +64,10 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             }
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0155a
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0188a
         public void a(AccountData accountData) {
             com.baidu.tbadk.core.d.a.a("account", -1L, 0, "login_pass_cslogin_success", 0, "", new Object[0]);
-            TiebaStatic.log(new am("c12948").y("obj_type", LoginActivity.this.fQf).aB("obj_url", LoginActivity.this.fQl));
+            TiebaStatic.log(new am("c12948").T("obj_type", LoginActivity.this.hgr).bJ("obj_url", LoginActivity.this.hgx));
             LoginActivity.this.closeLoadingDialog();
             if (!TbadkCoreApplication.getInst().shouldNeedCheckUserNameDialog() || !TextUtils.isEmpty(accountData.getAccount())) {
                 LoginActivity.this.o(accountData);
@@ -77,15 +76,15 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             }
         }
 
-        @Override // com.baidu.tbadk.core.a.a.InterfaceC0155a
-        public void b(String str, int i, String str2) {
+        @Override // com.baidu.tbadk.core.a.a.InterfaceC0188a
+        public void e(String str, int i, String str2) {
             com.baidu.tbadk.core.d.a.a("account", -1L, 0, "login_pass_cslogin_fail", i, str2, new Object[0]);
             LoginActivity.this.closeLoadingDialog();
             LoginActivity.this.showToast(str2);
-            if (LoginActivity.this.fQh instanceof BaseSSOLoginActivity) {
-                LoginActivity.this.fQh.finish();
+            if (LoginActivity.this.hgt instanceof BaseSSOLoginActivity) {
+                LoginActivity.this.hgt.finish();
             }
-            LoginActivity.this.sj(0);
+            LoginActivity.this.vS(0);
         }
     };
 
@@ -100,70 +99,70 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         LoginActivityConfig.lastStartActivityTime = System.currentTimeMillis();
-        bgj();
-        bgk();
-        TiebaStatic.log(new am("c12947").aB("obj_url", this.fQl));
+        bGN();
+        bGO();
+        TiebaStatic.log(new am("c12947").bJ("obj_url", this.hgx));
     }
 
-    private void bgj() {
+    private void bGN() {
         Intent intent = getIntent();
-        this.fQk = intent.getBooleanExtra("close", false);
-        this.fQm = intent.getIntExtra(LoginActivityConfig.JUMP_AFTER_DESTROY, -1);
-        this.fQl = intent.getStringExtra("url");
-        this.fQo = intent.getIntExtra("social_type", 0);
-        this.fQn = intent.getStringExtra(LoginActivityConfig.CUSTOM_LOGIN_CSS_URL);
-        this.fQp = intent.getStringExtra("activity_id");
+        this.hgw = intent.getBooleanExtra("close", false);
+        this.hgy = intent.getIntExtra(LoginActivityConfig.JUMP_AFTER_DESTROY, -1);
+        this.hgx = intent.getStringExtra("url");
+        this.hgA = intent.getIntExtra("social_type", 0);
+        this.hgz = intent.getStringExtra(LoginActivityConfig.CUSTOM_LOGIN_CSS_URL);
+        this.hgB = intent.getStringExtra("activity_id");
     }
 
-    protected void bgk() {
+    protected void bGO() {
         try {
             SapiAccountManager.getInstance().getConfignation();
         } catch (Exception e) {
             sendMessage(new CustomMessage(2921328, TbadkCoreApplication.getInst().getApp()));
         }
         MessageManager.getInstance().runTask(2921332, (Class) null);
-        PassManagerStatic.bgw();
+        PassManagerStatic.bGZ();
         SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
         if (confignation != null && confignation.fastLoginFeatureList != null) {
             confignation.fastLoginFeatureList.clear();
-            confignation.fastLoginFeatureList.addAll(PassManagerStatic.bgs());
+            confignation.fastLoginFeatureList.addAll(PassManagerStatic.bGW());
         }
-        bgo();
-        if (bgl()) {
-            si(this.fQo);
+        bGS();
+        if (bGP()) {
+            vR(this.hgA);
         } else {
-            bgm();
+            bGQ();
         }
     }
 
-    private boolean bgl() {
-        return this.fQo == 1 || this.fQo == 2 || this.fQo == 3;
+    private boolean bGP() {
+        return this.hgA == 1 || this.hgA == 2 || this.hgA == 3;
     }
 
-    private void bgm() {
+    private void bGQ() {
         PassportSDK passportSDK = PassportSDK.getInstance();
         WebLoginDTO webLoginDTO = new WebLoginDTO();
         webLoginDTO.finishActivityAfterSuc = false;
-        if (d.iQ().aO("android_pass_login_sms_enable") == 1) {
+        if (com.baidu.adp.lib.b.d.iQ().aO("android_pass_login_sms_enable") == 1) {
             webLoginDTO.loginType = WebLoginDTO.EXTRA_LOGIN_WITH_SMS;
         }
         passportSDK.startLogin(getActivity(), new WebAuthListener() { // from class: com.baidu.tieba.passaccount.app.LoginActivity.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onSuccess(WebAuthResult webAuthResult) {
-                LoginActivity.this.fQg = webAuthResult;
-                LoginActivity.this.fQh = webAuthResult.activity;
+                LoginActivity.this.hgs = webAuthResult;
+                LoginActivity.this.hgt = webAuthResult.activity;
                 com.baidu.tbadk.core.d.a.a("account", -1L, 0, "login_pass_success", 0, "", new Object[0]);
-                LoginActivity.this.bgn();
-                LoginActivity.this.fQj = 0;
+                LoginActivity.this.bGR();
+                LoginActivity.this.hgv = 0;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onFailure(WebAuthResult webAuthResult) {
                 com.baidu.tbadk.core.d.a.a("account", -1L, 0, "login_pass_fail", webAuthResult.getResultCode(), webAuthResult.getResultMsg(), new Object[0]);
-                LoginActivity.this.fQj = -1;
-                LoginActivity.this.sj(0);
+                LoginActivity.this.hgv = -1;
+                LoginActivity.this.vS(0);
             }
 
             @Override // com.baidu.sapi2.shell.listener.WebAuthListener
@@ -177,7 +176,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         }, webLoginDTO);
     }
 
-    private void si(int i) {
+    private void vR(int i) {
         PassportSDK passportSDK = PassportSDK.getInstance();
         WebSocialLoginDTO webSocialLoginDTO = new WebSocialLoginDTO();
         if (i == 1) {
@@ -195,17 +194,17 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onSuccess(WebAuthResult webAuthResult) {
-                LoginActivity.this.fQg = webAuthResult;
-                LoginActivity.this.fQh = webAuthResult.activity;
-                LoginActivity.this.bgn();
-                LoginActivity.this.fQj = 0;
+                LoginActivity.this.hgs = webAuthResult;
+                LoginActivity.this.hgt = webAuthResult.activity;
+                LoginActivity.this.bGR();
+                LoginActivity.this.hgv = 0;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onFailure(WebAuthResult webAuthResult) {
-                LoginActivity.this.fQj = -1;
-                LoginActivity.this.sj(0);
+                LoginActivity.this.hgv = -1;
+                LoginActivity.this.vS(0);
             }
 
             @Override // com.baidu.sapi2.shell.listener.WebAuthListener, com.baidu.sapi2.callback.SapiCallback
@@ -221,11 +220,11 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         p(accountData);
         com.baidu.tbadk.core.d.a.a("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
         TbadkCoreApplication.getInst().onUserChanged(getIntent());
-        if (this.fQk) {
-            if (this.fQg != null) {
-                this.fQg.finishActivity();
+        if (this.hgw) {
+            if (this.hgs != null) {
+                this.hgs.finishActivity();
             }
-            sj(-1);
+            vS(-1);
             return;
         }
         int intExtra = getIntent().getIntExtra("locate_type", -1);
@@ -234,95 +233,95 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         } else if (b.getInstance().getBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
             b.getInstance().putBoolean("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
         }
-        com.baidu.tbadk.core.e.b.d(this.fQh, i, false);
-        if (this.fQg != null) {
-            this.fQg.finishActivity();
+        com.baidu.tbadk.core.e.b.d(this.hgt, i, false);
+        if (this.hgs != null) {
+            this.hgs.finishActivity();
         }
         finish();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void finish() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921362, Integer.valueOf(this.fQj)));
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921362, Integer.valueOf(this.hgv)));
         super.finish();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bgn() {
+    public void bGR() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
-            if (this.bBt != null) {
-                this.bBt.cancel();
+            if (this.cMA != null) {
+                this.cMA.cancel();
             }
-            this.bBt = com.baidu.tbadk.core.a.a.xW().a(session.username, session.bduss, "", null, this.bBP);
+            this.cMA = a.WD().a(session.username, session.bduss, "", null, this.cMW);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
-        if (g.q(this.fQh)) {
+        if (g.q(this.hgt)) {
             if (str == null) {
-                str = getString(e.j.Waiting);
+                str = getString(d.j.Waiting);
             }
-            this.mWaitingDialog = new com.baidu.tbadk.core.view.d(this.fQh);
-            this.mWaitingDialog.gz(str);
-            this.mWaitingDialog.d(onCancelListener);
-            this.mWaitingDialog.bC(false);
+            this.mWaitingDialog = new com.baidu.tbadk.core.view.b(this.hgt);
+            this.mWaitingDialog.nl(str);
+            this.mWaitingDialog.e(onCancelListener);
+            this.mWaitingDialog.dK(false);
             this.mWaitingDialog.setCancelable(true);
-            this.mWaitingDialog.bB(true);
+            this.mWaitingDialog.dJ(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sj(int i) {
+    public void vS(int i) {
         Intent intent = new Intent();
         intent.putExtra("BDUSS", TbadkCoreApplication.getCurrentBduss());
-        intent.putExtra("social_type", this.fQo);
-        intent.putExtra("activity_id", this.fQp);
+        intent.putExtra("social_type", this.hgA);
+        intent.putExtra("activity_id", this.hgB);
         setResult(i, intent);
         finish();
     }
 
     private void p(final AccountData accountData) {
-        h.jH().c(new Runnable() { // from class: com.baidu.tieba.passaccount.app.LoginActivity.4
+        h.jI().c(new Runnable() { // from class: com.baidu.tieba.passaccount.app.LoginActivity.4
             @Override // java.lang.Runnable
             public void run() {
                 com.baidu.tbadk.core.a.b.b(accountData);
             }
         });
         TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
-        com.baidu.tbadk.browser.a.br(TbadkCoreApplication.getInst());
+        com.baidu.tbadk.browser.a.cF(TbadkCoreApplication.getInst());
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, true));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void i(AccountData accountData) {
-        this.fQi = TbadkCoreApplication.getCurrentTbs();
-        if (this.aNx == null) {
-            this.aNx = new com.baidu.tbadk.coreExtra.view.a(this.fQh);
-            this.aNx.a(this.bBP);
-            this.aNx.b(new a.InterfaceC0165a() { // from class: com.baidu.tieba.passaccount.app.LoginActivity.5
-                @Override // com.baidu.tbadk.coreExtra.view.a.InterfaceC0165a
+        this.hgu = TbadkCoreApplication.getCurrentTbs();
+        if (this.bVW == null) {
+            this.bVW = new c(this.hgt);
+            this.bVW.a(this.cMW);
+            this.bVW.b(new c.a() { // from class: com.baidu.tieba.passaccount.app.LoginActivity.5
+                @Override // com.baidu.tbadk.coreExtra.view.c.a
                 public void g(AccountData accountData2) {
-                    TbadkCoreApplication.getInst().setTbs(LoginActivity.this.fQi);
-                    if (LoginActivity.this.fQg != null) {
-                        LoginActivity.this.fQg.finishActivity();
+                    TbadkCoreApplication.getInst().setTbs(LoginActivity.this.hgu);
+                    if (LoginActivity.this.hgs != null) {
+                        LoginActivity.this.hgs.finishActivity();
                     }
                     LoginActivity.this.finish();
                 }
             });
         }
-        this.aNx.KK();
-        this.aNx.setAccountData(accountData);
-        this.aNx.KG();
+        this.bVW.akn();
+        this.bVW.setAccountData(accountData);
+        this.bVW.akj();
     }
 
-    private boolean bgo() {
-        if (!ao.isEmpty(this.fQn)) {
-            String fB = l.fB(this.fQn);
-            if (!ao.isEmpty(fB) && l.fq(fB)) {
-                SapiAccountManager.getInstance().getConfignation().skin = fB;
+    private boolean bGS() {
+        if (!ap.isEmpty(this.hgz)) {
+            String mn = m.mn(this.hgz);
+            if (!ap.isEmpty(mn) && m.md(mn)) {
+                SapiAccountManager.getInstance().getConfignation().skin = mn;
                 return true;
             }
         }
@@ -333,17 +332,17 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        if (this.fQm == 1) {
+        if (this.hgy == 1) {
             com.baidu.tbadk.core.e.b.d(getPageContext().getPageActivity(), 2, false);
         }
-        if (this.bBt != null) {
-            this.bBt.cancel();
+        if (this.cMA != null) {
+            this.cMA.cancel();
         }
-        if (this.aNx != null) {
-            this.aNx.onDestroy();
+        if (this.bVW != null) {
+            this.bVW.onDestroy();
         }
-        this.fQg = null;
-        this.fQh = null;
+        this.hgs = null;
+        this.hgt = null;
         super.onDestroy();
     }
 }

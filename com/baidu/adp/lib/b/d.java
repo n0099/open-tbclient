@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d {
-    private static d BB = null;
+    private static d BA = null;
     private HashMap<String, c> mSwitchs;
 
     private d() {
@@ -18,10 +18,10 @@ public class d {
     public static synchronized d iQ() {
         d dVar;
         synchronized (d.class) {
-            if (BB == null) {
-                BB = new d();
+            if (BA == null) {
+                BA = new d();
             }
-            dVar = BB;
+            dVar = BA;
         }
         return dVar;
     }
@@ -41,7 +41,7 @@ public class d {
     public boolean i(String str, int i) {
         c cVar;
         if (i >= 0 && (cVar = this.mSwitchs.get(str)) != null) {
-            return cVar.ar(i);
+            return cVar.aa(i);
         }
         return false;
     }
@@ -59,9 +59,9 @@ public class d {
             SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
             for (c cVar : this.mSwitchs.values()) {
                 if (cVar != null) {
-                    cVar.au(0);
-                    edit.putInt(cVar.getName() + c.Bw, 0);
-                    edit.putInt(cVar.getName() + c.Bx, cVar.iH());
+                    cVar.ad(0);
+                    edit.putInt(cVar.getName() + c.Bv, 0);
+                    edit.putInt(cVar.getName() + c.Bw, cVar.iH());
                 }
             }
             edit.commit();
@@ -78,7 +78,7 @@ public class d {
         }
     }
 
-    public void k(HashMap<String, Integer> hashMap) {
+    public void j(HashMap<String, Integer> hashMap) {
         if (hashMap != null && hashMap.size() > 0) {
             for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
                 i(entry.getKey(), entry.getValue().intValue());

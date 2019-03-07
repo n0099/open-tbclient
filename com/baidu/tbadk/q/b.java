@@ -1,11 +1,25 @@
 package com.baidu.tbadk.q;
+
+import com.baidu.adp.framework.a.j;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.tbadk.util.m;
 /* loaded from: classes.dex */
-public interface b {
-    void Qa();
+public class b extends j {
+    public b() {
+        super(0);
+    }
 
-    void iL(String str);
-
-    void w(String str, boolean z);
-
-    void wO();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.a.g
+    /* renamed from: d */
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+        if (socketResponsedMessage == null) {
+            return null;
+        }
+        if (socketResponsedMessage.getError() == 2260104) {
+            m.apY();
+            return socketResponsedMessage;
+        }
+        return socketResponsedMessage;
+    }
 }

@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.appsearchlib.Info;
-import com.baidu.searchbox.ng.ai.apps.scheme.actions.GetSwanHistoryAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes.dex */
 public class EmotionImageActivityConfig extends IntentConfig {
@@ -13,7 +12,7 @@ public class EmotionImageActivityConfig extends IntentConfig {
         intent.addFlags(268435456);
         intent.putExtra(Info.kBaiduPIDKey, str);
         intent.putExtra("panme", str2);
-        intent.putExtra(GetSwanHistoryAction.KEY_ICON_URL, str3);
+        intent.putExtra("iconUrl", str3);
         intent.putExtra("gifUrl", str5);
         intent.putExtra("staticUrl", str4);
         intent.putExtra("sharpText", str6);

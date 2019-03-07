@@ -1,6 +1,5 @@
 package okhttp3;
 
-import com.baidu.searchbox.ng.ai.apps.res.ui.BdDatePicker;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,7 +14,6 @@ import okhttp3.internal.Util;
 import okhttp3.internal.http.HttpDate;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.apache.http.cookie.ClientCookie;
-import org.apache.http.cookie.SM;
 /* loaded from: classes2.dex */
 public final class Cookie {
     private final String domain;
@@ -196,7 +194,7 @@ public final class Cookie {
                 } catch (IllegalArgumentException e3) {
                     str3 = str4;
                 }
-            } else if (trimSubstring3.equalsIgnoreCase("path")) {
+            } else if (trimSubstring3.equalsIgnoreCase(ClientCookie.PATH_ATTR)) {
                 str5 = str2;
                 str3 = str4;
             } else if (trimSubstring3.equalsIgnoreCase(ClientCookie.SECURE_ATTR)) {
@@ -273,7 +271,7 @@ public final class Cookie {
             dateCharacterOffset = dateCharacterOffset(str, dateCharacterOffset2 + 1, i2, false);
         }
         if (i8 >= 70 && i8 <= 99) {
-            i8 += BdDatePicker.START_YEAR;
+            i8 += 1900;
         }
         if (i8 >= 0 && i8 <= 69) {
             i8 += 2000;
@@ -348,7 +346,7 @@ public final class Cookie {
     }
 
     public static List<Cookie> parseAll(HttpUrl httpUrl, Headers headers) {
-        List<String> values = headers.values(SM.SET_COOKIE);
+        List<String> values = headers.values("Set-Cookie");
         ArrayList arrayList = null;
         int size = values.size();
         for (int i = 0; i < size; i++) {

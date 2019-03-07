@@ -1,54 +1,54 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class y {
-    private String aPb;
-    private long aPc;
-    private long aPd;
-    private long aPe;
-    private String aPf;
-    private String aPg;
+    private long bXA;
+    private long bXB;
+    private long bXC;
+    private String bXD;
+    private String bXE;
+    private String bXz;
 
     public void parseJson(String str) {
-        if (!ao.isEmpty(str)) {
+        if (!ap.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.aPb = jSONObject.optString("splash_video_url");
-                this.aPc = jSONObject.optLong("splash_video_start_time") * 1000;
-                this.aPd = jSONObject.optLong("splash_video_end_time") * 1000;
-                this.aPe = jSONObject.optLong("splash_video_interval_time") * 1000;
-                this.aPf = jSONObject.optString("splash_video_h5_url");
-                this.aPg = jSONObject.optString("splash_video_h5_text");
+                this.bXz = jSONObject.optString("splash_video_url");
+                this.bXA = jSONObject.optLong("splash_video_start_time") * 1000;
+                this.bXB = jSONObject.optLong("splash_video_end_time") * 1000;
+                this.bXC = jSONObject.optLong("splash_video_interval_time") * 1000;
+                this.bXD = jSONObject.optString("splash_video_h5_url");
+                this.bXE = jSONObject.optString("splash_video_h5_text");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public String Hn() {
-        return this.aPb;
+    public String agG() {
+        return this.bXz;
     }
 
-    public long Ho() {
-        return this.aPc;
+    public long agH() {
+        return this.bXA;
     }
 
-    public long Hp() {
-        return this.aPd;
+    public long agI() {
+        return this.bXB;
     }
 
-    public long Hq() {
-        return this.aPe;
+    public long agJ() {
+        return this.bXC;
     }
 
-    public String Hr() {
-        return this.aPf;
+    public String agK() {
+        return this.bXD;
     }
 
-    public String Hs() {
-        return this.aPg;
+    public String agL() {
+        return this.bXE;
     }
 }

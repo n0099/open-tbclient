@@ -30,7 +30,7 @@ public class f {
         return true;
     }
 
-    public boolean v(byte[] bArr) {
+    public boolean w(byte[] bArr) {
         return i(bArr, 0, bArr.length);
     }
 }

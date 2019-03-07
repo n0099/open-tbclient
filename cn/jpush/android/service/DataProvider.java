@@ -7,7 +7,6 @@ import android.database.MatrixCursor;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.fsg.base.armor.RimArmor;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class DataProvider extends ContentProvider {
@@ -52,7 +51,7 @@ public class DataProvider extends ContentProvider {
             return null;
         }
         try {
-            str = uri.getQueryParameter(RimArmor.KEY);
+            str = uri.getQueryParameter("key");
         } catch (Throwable th) {
             str = null;
         }

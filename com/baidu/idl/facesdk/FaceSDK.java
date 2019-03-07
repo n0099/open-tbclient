@@ -16,9 +16,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class FaceSDK {
-    private static final String VERSION = "3.0.1.0";
+    private static final String VERSION = "3.0.3.0";
     private static String mApiKey = null;
     private static FaceSDK mInstance = null;
     private static final String tag = "FaceSDK";
@@ -34,7 +34,7 @@ public class FaceSDK {
     private static String cdnn_parsingmodel_path2 = "7_class_model";
     private static String cdnn_parsingparam_path2 = "";
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public enum AlignMethodType {
         SDM,
         CDNN,
@@ -42,23 +42,23 @@ public class FaceSDK {
         SDM_15PTS
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public enum DetectMethodType {
         BOOST
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public enum ImgType {
         ARGB
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public enum LivenessAction {
         RESET,
         ADD_ONE_FRAME
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public enum LivenessMethodType {
         EYE_BLINK,
         MOUTH_MOTION,
@@ -66,7 +66,7 @@ public class FaceSDK {
         ALL
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public enum ParsMethodType {
         NOT_USE,
         CLASS_NUM_3,
@@ -96,16 +96,6 @@ public class FaceSDK {
 
     public static synchronized void getInstance(AssetManager assetManager, final Context context, final String str, final String str2, final String str3, AlignMethodType alignMethodType, ParsMethodType parsMethodType) {
         synchronized (FaceSDK.class) {
-            File dir = context.getDir("FaceSDKLibs", 0);
-            File file = new File(dir.getAbsolutePath() + File.separator + "libFaceSDK.so");
-            File file2 = new File(dir.getAbsolutePath() + File.separator + "libidl_license.so");
-            if (file.exists() && file2.exists()) {
-                System.load(file2.getAbsolutePath());
-                System.load(file.getAbsolutePath());
-            } else {
-                System.loadLibrary("idl_license");
-                System.loadLibrary(tag);
-            }
             if (mAuthorityStatus > 48) {
                 new Thread(new Runnable() { // from class: com.baidu.idl.facesdk.FaceSDK.1
                     @Override // java.lang.Runnable

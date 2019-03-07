@@ -1,53 +1,65 @@
 package rx.internal.operators;
 
 import rx.d;
+import rx.internal.producers.SingleDelayedProducer;
 /* loaded from: classes2.dex */
-public final class h<T, U> implements d.a<T> {
-    final rx.d<? extends T> iGI;
-    final rx.d<U> iGJ;
+public final class h<T> implements d.b<Boolean, T> {
+    final boolean jWV;
+    final rx.functions.f<? super T, Boolean> jWb;
 
-    @Override // rx.functions.b
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((rx.j) ((rx.j) obj));
+    public h(rx.functions.f<? super T, Boolean> fVar, boolean z) {
+        this.jWb = fVar;
+        this.jWV = z;
     }
 
-    public h(rx.d<? extends T> dVar, rx.d<U> dVar2) {
-        this.iGI = dVar;
-        this.iGJ = dVar2;
-    }
-
-    public void call(rx.j<? super T> jVar) {
-        final rx.subscriptions.d dVar = new rx.subscriptions.d();
-        jVar.add(dVar);
-        final rx.j b = rx.b.g.b(jVar);
-        rx.j<U> jVar2 = new rx.j<U>() { // from class: rx.internal.operators.h.1
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // rx.functions.f
+    public rx.j<? super T> call(final rx.j<? super Boolean> jVar) {
+        final SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(jVar);
+        rx.j jVar2 = (rx.j<T>) new rx.j<T>() { // from class: rx.internal.operators.h.1
             boolean done;
+            boolean jWW;
 
             @Override // rx.e
-            public void onNext(U u) {
-                onCompleted();
+            public void onNext(T t) {
+                if (!this.done) {
+                    this.jWW = true;
+                    try {
+                        if (h.this.jWb.call(t).booleanValue()) {
+                            this.done = true;
+                            singleDelayedProducer.setValue(Boolean.valueOf(!h.this.jWV));
+                            unsubscribe();
+                        }
+                    } catch (Throwable th) {
+                        rx.exceptions.a.a(th, this, t);
+                    }
+                }
             }
 
             @Override // rx.e
             public void onError(Throwable th) {
-                if (this.done) {
-                    rx.c.c.onError(th);
+                if (!this.done) {
+                    this.done = true;
+                    jVar.onError(th);
                     return;
                 }
-                this.done = true;
-                b.onError(th);
+                rx.c.c.onError(th);
             }
 
             @Override // rx.e
             public void onCompleted() {
                 if (!this.done) {
                     this.done = true;
-                    dVar.g(rx.subscriptions.e.cgS());
-                    h.this.iGI.unsafeSubscribe(b);
+                    if (this.jWW) {
+                        singleDelayedProducer.setValue(false);
+                    } else {
+                        singleDelayedProducer.setValue(Boolean.valueOf(h.this.jWV));
+                    }
                 }
             }
         };
-        dVar.g(jVar2);
-        this.iGJ.unsafeSubscribe(jVar2);
+        jVar.add(jVar2);
+        jVar.setProducer(singleDelayedProducer);
+        return jVar2;
     }
 }

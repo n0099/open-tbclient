@@ -11,6 +11,8 @@ public interface ISAccountManager {
 
     String getCurrentZid(Context context);
 
+    String getDeviceAuthToken(Context context, String str, int i);
+
     ISAccountService getIsAccountService();
 
     SapiAccount getSession();
@@ -18,6 +20,8 @@ public interface ISAccountManager {
     List<SapiAccount> getShareAccounts();
 
     String getVersionName();
+
+    String getZidAndCheckSafe(Context context, String str, int i);
 
     void invalidate(SapiAccount sapiAccount);
 

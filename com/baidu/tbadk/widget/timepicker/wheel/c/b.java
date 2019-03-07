@@ -1,5 +1,5 @@
 package com.baidu.tbadk.widget.timepicker.wheel.c;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public interface b {
-    void hn(int i);
+    void ld(int i);
 }

@@ -5,49 +5,50 @@ import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.baidu.adp.base.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.PersonalChatMessage;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class f extends com.baidu.adp.base.b<MsglistActivity<?>> {
-    private TextView eLG;
-    private LinearLayout eLH;
-    private TextView eLI;
-    private TextView eLJ;
+public class f extends b<MsglistActivity<?>> {
+    private TextView gbH;
+    private LinearLayout gbI;
+    private TextView gbJ;
+    private TextView gbK;
 
     public f(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, e.h.msg_msgmid_view);
-        this.eLG = null;
+        super(tbPageContext, d.h.msg_msgmid_view);
+        this.gbH = null;
         initView();
     }
 
     private void initView() {
-        this.eLG = (TextView) findViewById(e.g.tex_msgcontent);
-        this.eLG.setMovementMethod(LinkMovementMethod.getInstance());
-        this.eLH = (LinearLayout) findViewById(e.g.lay_add_friend);
-        this.eLI = (TextView) findViewById(e.g.btn_add_friend);
-        this.eLJ = (TextView) findViewById(e.g.text_add_friend);
-        this.eLH.setVisibility(8);
+        this.gbH = (TextView) findViewById(d.g.tex_msgcontent);
+        this.gbH.setMovementMethod(LinkMovementMethod.getInstance());
+        this.gbI = (LinearLayout) findViewById(d.g.lay_add_friend);
+        this.gbJ = (TextView) findViewById(d.g.btn_add_friend);
+        this.gbK = (TextView) findViewById(d.g.text_add_friend);
+        this.gbI.setVisibility(8);
     }
 
     public void setData(ChatMessage chatMessage) {
-        this.eLH.setVisibility(8);
+        this.gbI.setVisibility(8);
         if (chatMessage == null) {
-            this.eLG.setText("");
+            this.gbH.setText("");
         } else if (!f(chatMessage)) {
-            this.eLG.setVisibility(0);
+            this.gbH.setVisibility(0);
             String A = com.baidu.tieba.im.util.e.A(chatMessage);
             if (!TextUtils.isEmpty(A)) {
-                this.eLG.setText(A);
+                this.gbH.setText(A);
             } else {
-                this.eLG.setText("");
+                this.gbH.setText("");
             }
         }
     }
@@ -72,8 +73,8 @@ public class f extends com.baidu.adp.base.b<MsglistActivity<?>> {
             return false;
         }
         if (optString.equals("406")) {
-            this.eLH.setVisibility(0);
-            this.eLG.setVisibility(8);
+            this.gbI.setVisibility(0);
+            this.gbH.setVisibility(8);
             String optString2 = jSONObject.optString("userMsg");
             JSONObject optJSONObject = jSONObject.optJSONObject("eventParam");
             if (optJSONObject == null) {
@@ -89,11 +90,11 @@ public class f extends com.baidu.adp.base.b<MsglistActivity<?>> {
             }
             final String userName = toUserInfo.getUserName();
             final String portrait = toUserInfo.getPortrait();
-            this.eLJ.setText(optString2);
+            this.gbK.setText(optString2);
             if (optInt == 1) {
-                this.eLI.setVisibility(0);
-                this.eLI.setText(optString3);
-                this.eLI.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.f.1
+                this.gbJ.setVisibility(0);
+                this.gbJ.setText(optString3);
+                this.gbJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.f.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(f.this.mContext.getPageActivity(), String.valueOf(optLong), userName, portrait, "", false, AddFriendActivityConfig.TYPE_NEW_FRD)));

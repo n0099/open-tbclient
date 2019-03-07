@@ -10,7 +10,7 @@ import android.support.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class f extends a {
     private final Paint paint;
-    private final Layer rT;
+    private final Layer rP;
     private final RectF rect;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -18,7 +18,7 @@ public class f extends a {
         super(fVar, layer);
         this.rect = new RectF();
         this.paint = new Paint();
-        this.rT = layer;
+        this.rP = layer;
         this.paint.setAlpha(0);
         this.paint.setStyle(Paint.Style.FILL);
         this.paint.setColor(layer.getSolidColor());
@@ -26,9 +26,9 @@ public class f extends a {
 
     @Override // com.airbnb.lottie.model.layer.a
     public void b(Canvas canvas, Matrix matrix, int i) {
-        int alpha = Color.alpha(this.rT.getSolidColor());
+        int alpha = Color.alpha(this.rP.getSolidColor());
         if (alpha != 0) {
-            int intValue = (int) (((this.pv.dy().getValue().intValue() * (alpha / 255.0f)) / 100.0f) * (i / 255.0f) * 255.0f);
+            int intValue = (int) (((this.po.dx().getValue().intValue() * (alpha / 255.0f)) / 100.0f) * (i / 255.0f) * 255.0f);
             this.paint.setAlpha(intValue);
             if (intValue > 0) {
                 b(matrix);
@@ -40,12 +40,12 @@ public class f extends a {
     @Override // com.airbnb.lottie.model.layer.a, com.airbnb.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
         super.a(rectF, matrix);
-        b(this.rS);
+        b(this.rO);
         rectF.set(this.rect);
     }
 
     private void b(Matrix matrix) {
-        this.rect.set(0.0f, 0.0f, this.rT.eT(), this.rT.eS());
+        this.rect.set(0.0f, 0.0f, this.rP.eS(), this.rP.eR());
         matrix.mapRect(this.rect);
     }
 

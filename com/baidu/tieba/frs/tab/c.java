@@ -1,9 +1,5 @@
 package com.baidu.tieba.frs.tab;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface c {
-    void M(float f);
-
-    void aIa();
-
-    void oF();
+    void bip();
 }

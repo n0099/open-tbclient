@@ -2,9 +2,8 @@ package cn.jiguang.d.d;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.searchbox.ng.ai.apps.aps.AiAppsApsUtils;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
-import com.baidu.webkit.internal.ETAG;
+import com.sina.weibo.sdk.statistic.LogBuilder;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.ArrayList;
@@ -28,13 +27,13 @@ public final class s {
     }
 
     private static List<q> a(String str, Set<String> set, JSONObject jSONObject) {
-        File[] e = cn.jiguang.d.h.f.e(str, false);
-        if (e == null || e.length == 0) {
+        File[] c = cn.jiguang.d.h.f.c(str, false);
+        if (c == null || c.length == 0) {
             return null;
         }
         boolean z = !cn.jiguang.d.h.h.h(jSONObject);
         ArrayList arrayList = new ArrayList();
-        for (File file : e) {
+        for (File file : c) {
             Boolean bool = b.get(file);
             if (bool == null || !bool.booleanValue()) {
                 q a2 = r.a(file, set);
@@ -54,13 +53,13 @@ public final class s {
     }
 
     public static void a(Context context) {
-        File[] a2 = cn.jiguang.d.h.f.a(context.getFilesDir(), true);
-        if (a2 == null) {
+        File[] b2 = cn.jiguang.d.h.f.b(context.getFilesDir(), true);
+        if (b2 == null) {
             return;
         }
-        for (File file : a2) {
+        for (File file : b2) {
             if (file.getName().startsWith("jpush_stat_history")) {
-                cn.jiguang.d.h.f.i(file);
+                cn.jiguang.d.h.f.j(file);
             }
         }
     }
@@ -80,7 +79,7 @@ public final class s {
                         File[] a4 = cn.jiguang.d.h.f.a(file2, (FileFilter) vVar);
                         if (a4 != null && a4.length != 0) {
                             for (File file3 : a4) {
-                                cn.jiguang.d.h.f.i(file3);
+                                cn.jiguang.d.h.f.j(file3);
                             }
                         }
                     }
@@ -121,7 +120,7 @@ public final class s {
                 } else if (c.equals(context.getPackageName())) {
                     a = "";
                 } else {
-                    a = c.replaceFirst(context.getPackageName() + ":", BaseRequestAction.SPLITE);
+                    a = c.replaceFirst(context.getPackageName() + ":", "_");
                 }
             }
         }
@@ -131,13 +130,13 @@ public final class s {
     public static /* synthetic */ void d(Context context, File file) {
         HashSet hashSet = new HashSet();
         hashSet.add("uid");
-        hashSet.add(AiAppsApsUtils.APP_KEY);
-        hashSet.add(ETAG.KEY_SDK_VER);
+        hashSet.add("app_key");
+        hashSet.add("sdk_ver");
         hashSet.add("core_sdk_ver");
         hashSet.add("share_sdk_ver");
         hashSet.add("statistics_sdk_ver");
-        hashSet.add("channel");
-        hashSet.add("app_version");
+        hashSet.add(LogBuilder.KEY_CHANNEL);
+        hashSet.add(Constants.EXTRA_KEY_APP_VERSION);
         JSONObject d = aa.d(context);
         String absolutePath = file.getAbsolutePath();
         ArrayList arrayList = new ArrayList();
@@ -151,19 +150,19 @@ public final class s {
                 arrayList.addAll(a3);
             }
         }
-        File[] a4 = cn.jiguang.d.h.f.a(file, false);
-        File c = cn.jiguang.d.h.f.c(a4);
+        File[] b2 = cn.jiguang.d.h.f.b(file, false);
+        File c = cn.jiguang.d.h.f.c(b2);
         ArrayList<q> arrayList2 = new ArrayList();
-        if ((a4 != null ? a4.length : 0) > 0) {
-            for (File file2 : a4) {
+        if ((b2 != null ? b2.length : 0) > 0) {
+            for (File file2 : b2) {
                 if (!file2.equals(c)) {
-                    arrayList2.add(r.d(file2));
+                    arrayList2.add(r.e(file2));
                 }
             }
         }
-        q a5 = r.a(c, hashSet);
-        if (a5 != null) {
-            arrayList.add(0, a5);
+        q a4 = r.a(c, hashSet);
+        if (a4 != null) {
+            arrayList.add(0, a4);
         }
         try {
             if (arrayList.size() >= 2) {
@@ -174,7 +173,7 @@ public final class s {
         arrayList2.addAll(r.a(arrayList, file));
         a(arrayList2, 512000L);
         for (q qVar : arrayList2) {
-            if (aa.a(context, aa.f(qVar.cb()), qVar.cb(), qVar.c()) == -2) {
+            if (aa.a(context, aa.f(qVar.ca()), qVar.ca(), qVar.c()) == -2) {
                 return;
             }
         }

@@ -1,9 +1,9 @@
 package com.baidu.tieba.homepage.personalize.model;
 
-import com.baidu.adp.widget.ListView.h;
+import com.baidu.adp.widget.ListView.m;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c {
-    public List<h> bwD;
-    public int eAB = 0;
+    public List<m> cHM;
+    public int fNA = 0;
 }

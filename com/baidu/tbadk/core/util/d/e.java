@@ -3,17 +3,17 @@ package com.baidu.tbadk.core.util.d;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.f.a;
 /* loaded from: classes.dex */
-public class e implements a.InterfaceC0018a {
-    private DiskFileOperate aEX = null;
+public class e implements a.InterfaceC0016a {
+    private DiskFileOperate bMQ = null;
 
     public void f(DiskFileOperate diskFileOperate) {
-        this.aEX = diskFileOperate;
+        this.bMQ = diskFileOperate;
     }
 
-    @Override // com.baidu.adp.lib.f.a.InterfaceC0018a
+    @Override // com.baidu.adp.lib.f.a.InterfaceC0016a
     public void cancel() {
-        if (this.aEX != null) {
-            com.baidu.adp.lib.Disk.d.hB().d(this.aEX);
+        if (this.bMQ != null) {
+            com.baidu.adp.lib.Disk.d.hz().d(this.bMQ);
         }
     }
 }

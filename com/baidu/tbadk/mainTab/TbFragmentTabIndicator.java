@@ -7,33 +7,49 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.MessageRedDotView;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
-    protected boolean beQ;
+    protected boolean cos;
+    protected float cot;
+    protected float cou;
+    protected int cov;
+    protected int cow;
 
     public TbFragmentTabIndicator(Context context) {
         super(context);
-        this.beQ = false;
+        this.cos = false;
+        this.cot = 0.0f;
+        this.cou = 0.0f;
+        this.cov = 0;
+        this.cow = 0;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.beQ = false;
+        this.cos = false;
+        this.cot = 0.0f;
+        this.cou = 0.0f;
+        this.cov = 0;
+        this.cow = 0;
     }
 
     public TbFragmentTabIndicator(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.beQ = false;
+        this.cos = false;
+        this.cot = 0.0f;
+        this.cou = 0.0f;
+        this.cov = 0;
+        this.cow = 0;
     }
 
-    public void eD(int i) {
+    public void ij(int i) {
     }
 
     public void setCheckDescriptionText(boolean z) {
     }
 
-    public void cF(boolean z) {
+    public void eT(boolean z) {
     }
 
     public View getContentTv() {
@@ -49,7 +65,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void b(String str, a aVar) {
     }
 
-    public a iD(String str) {
+    public a pq(String str) {
         return null;
     }
 
@@ -86,43 +102,56 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
     public void setTextColorResId(int i) {
     }
 
-    public void aM(String str, String str2) {
-    }
-
-    public void Oi() {
+    public void anM() {
     }
 
     public void setAnimationResId(int i) {
     }
 
     public void setIsContentSelectBold(boolean z) {
-        this.beQ = z;
+        this.cos = z;
+    }
+
+    public void setContentSelectTextSize(float f) {
+        this.cot = f;
+    }
+
+    public void setContentDefaultTextSize(float f) {
+        this.cou = f;
+    }
+
+    public void setContentSelectTextColor(int i) {
+        this.cov = i;
+    }
+
+    public void setContentDefaultTextColor(int i) {
+        this.cow = i;
     }
 
     /* loaded from: classes.dex */
     public static class a {
         public int Cd;
-        public int beS;
-        public TbFragmentTabIndicator beU;
+        public TbFragmentTabIndicator coA;
+        public int coy;
         public View view;
-        public boolean beR = true;
-        public int beT = e.d.common_color_10225;
+        public boolean cox = true;
+        public int coz = d.C0236d.common_color_10225;
 
-        public void eD(int i) {
-            if (this.beS != 0) {
-                al.i(this.view, this.beS);
+        public void ij(int i) {
+            if (this.coy != 0) {
+                al.k(this.view, this.coy);
             }
             if (this.view instanceof TextView) {
-                if (this.beT != 0) {
-                    al.c(this.view, this.beT, 1);
+                if (this.coz != 0) {
+                    al.d(this.view, this.coz, 1);
                 }
-                int a = a((TextView) this.view);
-                if (a > 0 && a < 10) {
-                    al.i(this.view, e.f.icon_news_head_prompt_one);
-                } else if (a >= 10 && a < 100) {
-                    al.i(this.view, e.f.icon_news_head_prompt_two);
-                } else if (a >= 100) {
-                    al.i(this.view, e.f.icon_news_head_prompt_more);
+                int c = c((TextView) this.view);
+                if (c > 0 && c < 10) {
+                    al.k(this.view, d.f.icon_news_head_prompt_one);
+                } else if (c >= 10 && c < 100) {
+                    al.k(this.view, d.f.icon_news_head_prompt_two);
+                } else if (c >= 100) {
+                    al.k(this.view, d.f.icon_news_head_prompt_more);
                 }
             }
             if (this.view instanceof MessageRedDotView) {
@@ -130,7 +159,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
             }
         }
 
-        private int a(TextView textView) {
+        private int c(TextView textView) {
             if (textView == null) {
                 return -1;
             }

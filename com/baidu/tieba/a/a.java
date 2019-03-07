@@ -1,44 +1,44 @@
 package com.baidu.tieba.a;
 
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a {
-    private HashMap<String, b> bBe = new HashMap<>();
-    private ArrayList<Integer> bBf;
-    private c bBg;
+    private HashMap<String, b> aiW = new HashMap<>();
+    private ArrayList<Integer> cMl;
+    private c cMm;
 
     public a(c cVar, ArrayList<Integer> arrayList) {
-        this.bBf = arrayList;
-        this.bBg = cVar;
+        this.cMl = arrayList;
+        this.cMm = cVar;
     }
 
-    public int N(String str, int i) {
-        if (this.bBe == null || ao.isEmpty(str) || this.bBf == null || !this.bBf.contains(Integer.valueOf(i))) {
+    public int ak(String str, int i) {
+        if (this.aiW == null || ap.isEmpty(str) || this.cMl == null || !this.cMl.contains(Integer.valueOf(i))) {
             return 0;
         }
-        if (!this.bBe.containsKey(str)) {
-            jZ(str);
+        if (!this.aiW.containsKey(str)) {
+            qK(str);
         }
-        b bVar = this.bBe.get(str);
+        b bVar = this.aiW.get(str);
         if (bVar == null) {
             return 0;
         }
-        return bVar.hD(i);
+        return bVar.lt(i);
     }
 
-    public void jZ(String str) {
-        if (this.bBe != null && !ao.isEmpty(str) && this.bBg != null) {
-            if (this.bBe.containsKey(str)) {
-                b bVar = this.bBe.get(str);
-                this.bBg.a(this.bBf, bVar);
-                this.bBe.put(str, bVar);
+    public void qK(String str) {
+        if (this.aiW != null && !ap.isEmpty(str) && this.cMm != null) {
+            if (this.aiW.containsKey(str)) {
+                b bVar = this.aiW.get(str);
+                this.cMm.a(this.cMl, bVar);
+                this.aiW.put(str, bVar);
                 return;
             }
             b bVar2 = new b();
-            this.bBg.a(this.bBf, bVar2);
-            this.bBe.put(str, bVar2);
+            this.cMm.a(this.cMl, bVar2);
+            this.aiW.put(str, bVar2);
         }
     }
 }

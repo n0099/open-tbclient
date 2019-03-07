@@ -5,13 +5,10 @@ import android.graphics.Bitmap;
 import android.webkit.URLUtil;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.l;
-import com.baidu.searchbox.ng.ai.apps.core.container.init.NgWebViewInitHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.imageManager.c;
-import com.baidu.tieba.e;
-import java.util.HashSet;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class TbConfig {
     public static final int ABSTRACT_AUTO = 0;
@@ -30,7 +27,6 @@ public class TbConfig {
     public static final String ALL_THEME_LIST_PAGE = "c/e/theme/getSkinList";
     public static final String APPLY_GAME_CARD = "c/u/game/applygamecard";
     public static final long APP_ENTER_BACKGROUND_INTERVAL = 1000;
-    public static final long APP_OVERDUR_DRAFT_BOX = 604800000;
     public static final String APP_UPDATE_ACTION = "com.baidu.tieba.NewsVersion";
     public static final int AUTO_PLAY_ALWAYS = 2;
     public static final int AUTO_PLAY_CLOSED = 1;
@@ -86,7 +82,7 @@ public class TbConfig {
     public static final String DAILYRECOMMEND_ADDRESS = "c/f/forum/threadrecommend";
     public static final int DATABASE_SD_VERSION = 9;
     public static final String DECRYPT_CODE_URL = "c/s/decryptCode";
-    public static final int DEFAULT_SDRAM_PHOTO_NUM = 30;
+    public static final int DEFAULT_SDRAM_PHOTO_NUM = 60;
     public static final String DELETE_EMOTION_PACKAGE = "c/e/meme/delPackage";
     public static final String DELETE_MY_GAME = "c/c/game/delmygame";
     public static final String DEL_POST_ADDRESS = "c/c/bawu/delpost";
@@ -280,7 +276,7 @@ public class TbConfig {
     public static final boolean MSG_DEFAULT_REMIND_VIBRATE = false;
     public static final boolean MSG_DEFAULT_REPLYME_SWITCH = true;
     public static final String MULTI_FOLLOW = "c/c/user/mfollow";
-    public static final int MUTI_IMAGE_MAX_COUNT = 10;
+    public static final int MUTI_IMAGE_MAX_COUNT = 9;
     public static final String NANI_CAMPUS_SQUARE = "https://nani.baidu.com/n/nani/campus/square";
     public static final String NANI_DEFAULT_H5_PREFIX = "https://nani.baidu.com/n/nani/share/tieba";
     public static final int NAVI_STATE_EDIT = 2;
@@ -290,7 +286,7 @@ public class TbConfig {
     public static final String NEG_FEED_BACK = "c/c/excellent/submitDislike";
     public static final int NET_MSG_GETLENTH = 900002;
     public static final int NET_MSG_TOTALLENTH = 900001;
-    public static final int NEW_FRAME_MUTI_IMAGE_MAX_COUNT = 10;
+    public static final int NEW_FRAME_MUTI_IMAGE_MAX_COUNT = 9;
     public static final int NOTIFY_AGREE_ME_ID = 29;
     public static final int NOTIFY_AT_ME_ID = 25;
     public static final int NOTIFY_CHAT_ID = 16;
@@ -324,6 +320,7 @@ public class TbConfig {
     public static final String PB_MORE_GOD_REPLY_URL = "/c/f/pb/getPostList";
     public static final int PB_PHOTO_MAX_SIZE = 80;
     public static final int PB_PHOTO_QUALITY = 80;
+    public static final int PB_REPLY_MUTI_IMAGE_MAX_COUNT = 9;
     public static final String PB_SET_DECLARE_URL = "c/c/thread/setDeclare";
     public static final String PERSONAL_BACKGROUND_GET = "c/e/theme/getBackground";
     public static final String PERSONAL_BACKGROUND_GROUP_PAGE = "c/e/theme/getBgByCategory";
@@ -445,6 +442,7 @@ public class TbConfig {
     public static final String URL_CONCERN_UNREAD_TIP = "c/f/excellent/unreadtip";
     public static final String URL_DAILY_PAGE = "c/f/general/dailyPage";
     public static final String URL_DELETE_GRAFFITTI = "c/c/graffiti/remove";
+    public static final String URL_ENTER_RECOMMEND_FORUM = "c/f/recommend/recommforum";
     public static final String URL_FEED_BACK = "https://ufosdk.baidu.com/?m=Client&a=postViewTieba&appid=222251";
     public static final String URL_GETPAYINFO = "c/e/mema/getpayinfo";
     public static final String URL_GET_CONSENTLIST = "c/u/feed/getConsentList";
@@ -455,8 +453,11 @@ public class TbConfig {
     public static final String URL_GET_INTEREST_LABEL_LIST = "c/f/recommtag/getTagList";
     public static final String URL_GET_RECOMMEND_GOD = "c/u/user/getRecommendGod";
     public static final String URL_GET_STICKER_LIST = "c/f/story/getSticker";
+    public static final String URL_GET_TAB_TOPIC_LIST = "c/f/recommend/newtopiclist";
     public static final String URL_GET_TOKEN = "c/s/getToken";
+    public static final String URL_GET_TOPIC_DETAIL = "c/f/recommend/newhottopic";
     public static final String URL_GET_TOPIC_RELATE_THREAD = "c/f/recommend/getTopicRelateThread";
+    public static final String URL_GET_TOPIC_THREAD = "c/f/recommend/newtopicthread";
     public static final String URL_GET_VIDEO_INFO_BY_VLOGID = "/c/f/video/getVideoInfoByVLogId";
     public static final String URL_HOST_TOPIC_LIST = "https://tieba.baidu.com/mo/q/hotMessage/list";
     public static final String URL_IMAGE_PREFIX = "http://c.tieba.baidu.com/c/p/img?src=";
@@ -473,6 +474,8 @@ public class TbConfig {
     public static final String URL_PLAY_REPORT = "c/c/video/addReport";
     public static final String URL_PLAY_STATISTICS = "c/c/video/playStat";
     public static final String URL_POST_VIDEO_MONITOR_REPORT = "ala/sys/vtlog";
+    public static final String URL_PROFESSION_PERMISSION = "c/f/frs/zoneRight";
+    public static final String URL_RECOMMEND_FORUM_TEST_CLOSE = "c/f/recommend/testclose";
     public static final String URL_REMOVE_FANS = "c/c/user/removeFans";
     public static final String URL_SET_PRIVACY = "c/c/thread/setPrivacy";
     public static final String URL_SHARE_REPORT = "c/c/thread/share";
@@ -517,7 +520,8 @@ public class TbConfig {
     public static final String api_key = "GXGROE8KmWiRmcWFpiWTmUbE";
     public static final String app_id = "1095821";
     public static String SERVER_ADDRESS = TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS;
-    public static long MILLS_7DAYS = 604800000;
+    public static final long APP_OVERDUR_DRAFT_BOX = 604800000;
+    public static long MILLS_7DAYS = APP_OVERDUR_DRAFT_BOX;
     public static int BUILD_NUMBER = 0;
     public static boolean USE_OLD_LOGIN = false;
     public static String LOGIN_FULL_ADDRESS = SERVER_ADDRESS + "c/s/login";
@@ -540,7 +544,7 @@ public class TbConfig {
     private static int FRIEND_PHOTO_MAX_SIZE = 80;
     private static int VERSION_TYPE = 3;
     public static final Bitmap.Config BitmapConfig = Bitmap.Config.RGB_565;
-    private static String TMPDIRNAME = NgWebViewInitHelper.INIT_BWEBKIT_APPID;
+    private static String TMPDIRNAME = "tieba";
     private static String CURRENT_FROM = null;
     private static int BIG_IMAGE_SIZE = 10240;
     private static int BIG_IMAGE_MAX_USED_MEMORY = 1048576;
@@ -556,19 +560,23 @@ public class TbConfig {
     public static String ADD_MSG_RECORD = "c/b/commit/addMsgRecord";
     public static String COMMIT_GRAFFITI = "c/c/graffiti/commit";
     public static boolean COULD_UPDATE = true;
-    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.h(TbadkCoreApplication.getInst().getContext(), e.C0210e.tbds56);
-    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), e.C0210e.tbds52);
-    public static final int VALUE_COMMON_FONT_SIZE_MID = l.h(TbadkCoreApplication.getInst().getContext(), e.C0210e.tbds48);
-    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), e.C0210e.tbds42);
-    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.h(TbadkCoreApplication.getInst().getContext(), e.C0210e.tbds52);
-    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), e.C0210e.tbds48);
-    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.h(TbadkCoreApplication.getInst().getContext(), e.C0210e.tbds44);
-    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), e.C0210e.tbds38);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_XLAGER = l.h(TbadkCoreApplication.getInst().getContext(), e.C0210e.tbds72);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), e.C0210e.tbds68);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_MID = l.h(TbadkCoreApplication.getInst().getContext(), e.C0210e.tbds64);
-    public static final int VALUE_PB_TITLE_FONT_SIZE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), e.C0210e.tbds56);
-    private static int MAX_PHOTO_MEMORY_CACHE = 30;
+    public static final int VALUE_COMMON_FONT_SIZE_XLAGER = l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds54);
+    public static final int VALUE_COMMON_FONT_SIZE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds50);
+    public static final int VALUE_COMMON_FONT_SIZE_MID = l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds44);
+    public static final int VALUE_COMMON_FONT_SIZE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds40);
+    public static final int VALUE_COMMON_FONT_LINE_SPACE_XLAGRE = l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds11);
+    public static final int VALUE_COMMON_FONT_LINE_SPACE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds9);
+    public static final int VALUE_COMMON_FONT_LINE_SPACE_MID = l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds7);
+    public static final int VALUE_COMMON_FONT_LINE_SPACE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds5);
+    public static final int VALUE_SUBPB_FONT_SIZE_XLAGER = l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds50);
+    public static final int VALUE_SUBPB_FONT_SIZE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds44);
+    public static final int VALUE_SUBPB_FONT_SIZE_MID = l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds40);
+    public static final int VALUE_SUBPB_FONT_SIZE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds34);
+    public static final int VALUE_SUBPB_FONT_LINE_SPACE_XLAGRE = l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds9);
+    public static final int VALUE_SUBPB_FONT_LINE_SPACE_BIG = l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds7);
+    public static final int VALUE_SUBPB_FONT_LINE_SPACE_MID = l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds5);
+    public static final int VALUE_SUBPB_FONT_LINE_SPACE_SMALL = l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds3);
+    private static int MAX_PHOTO_MEMORY_CACHE = 60;
     public static boolean IS_START_BAIDU_KUANG_CLOSE_SELF = false;
     public static boolean IS_CHECK_OFFICAL_APPLICATION = true;
     public static final String RECOMMEND_APP_ADDRESS = SERVER_ADDRESS_WEB_VIEW + "mo/q/topic_page/136_1";
@@ -701,11 +709,11 @@ public class TbConfig {
     }
 
     public static void setMaxPhotoMemoryCache(int i) {
-        if (i < 30) {
-            i = 30;
+        if (i < 60) {
+            i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.NM().fY(i);
+            c.anq().jJ(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }
@@ -805,18 +813,33 @@ public class TbConfig {
         }
     }
 
+    public static int getContentLineSpace() {
+        switch (TbadkCoreApplication.getInst().getFontSize()) {
+            case 0:
+                return VALUE_COMMON_FONT_LINE_SPACE_XLAGRE;
+            case 1:
+                return VALUE_COMMON_FONT_LINE_SPACE_BIG;
+            case 2:
+                return VALUE_COMMON_FONT_LINE_SPACE_MID;
+            case 3:
+                return VALUE_COMMON_FONT_LINE_SPACE_SMALL;
+            default:
+                return VALUE_COMMON_FONT_LINE_SPACE_SMALL;
+        }
+    }
+
     public static int getContentSizeOfPostTitle() {
         switch (TbadkCoreApplication.getInst().getFontSize()) {
             case 0:
-                return VALUE_PB_TITLE_FONT_SIZE_XLAGER;
+                return VALUE_COMMON_FONT_SIZE_XLAGER;
             case 1:
-                return VALUE_PB_TITLE_FONT_SIZE_BIG;
+                return VALUE_COMMON_FONT_SIZE_BIG;
             case 2:
-                return VALUE_PB_TITLE_FONT_SIZE_MID;
+                return VALUE_COMMON_FONT_SIZE_MID;
             case 3:
-                return VALUE_PB_TITLE_FONT_SIZE_SMALL;
+                return VALUE_COMMON_FONT_SIZE_SMALL;
             default:
-                return VALUE_PB_TITLE_FONT_SIZE_SMALL;
+                return VALUE_COMMON_FONT_SIZE_SMALL;
         }
     }
 
@@ -832,6 +855,21 @@ public class TbConfig {
                 return VALUE_SUBPB_FONT_SIZE_SMALL;
             default:
                 return VALUE_SUBPB_FONT_SIZE_SMALL;
+        }
+    }
+
+    public static int getContentLineSpaceOfLzl() {
+        switch (TbadkCoreApplication.getInst().getFontSize()) {
+            case 0:
+                return VALUE_SUBPB_FONT_LINE_SPACE_XLAGRE;
+            case 1:
+                return VALUE_SUBPB_FONT_LINE_SPACE_BIG;
+            case 2:
+                return VALUE_SUBPB_FONT_LINE_SPACE_MID;
+            case 3:
+                return VALUE_SUBPB_FONT_LINE_SPACE_SMALL;
+            default:
+                return VALUE_SUBPB_FONT_LINE_SPACE_SMALL;
         }
     }
 
@@ -898,45 +936,5 @@ public class TbConfig {
 
     public static final String getBroadcastActionChangeSkin() {
         return BROADCAST_CHANGESKIN;
-    }
-
-    /* loaded from: classes.dex */
-    public static class DownFlowCmd {
-        public static HashSet<Integer> sInterruptCMDs = new HashSet<>();
-
-        static {
-            collectHttpCmd();
-            collectSocketCmd();
-        }
-
-        private static void collectSocketCmd() {
-            sInterruptCMDs.add(309541);
-            sInterruptCMDs.add(303024);
-            sInterruptCMDs.add(309609);
-            sInterruptCMDs.add(309476);
-            sInterruptCMDs.add(309618);
-            sInterruptCMDs.add(303005);
-            sInterruptCMDs.add(309615);
-            sInterruptCMDs.add(309485);
-            sInterruptCMDs.add(309117);
-            sInterruptCMDs.add(202101);
-            sInterruptCMDs.add(303017);
-        }
-
-        private static void collectHttpCmd() {
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.PB_PLAY_STATISTICS_CMD));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.WEBVIEW_CACHE_INFO));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_UEG_CANCEL));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_BIGDAY_INFO));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_RN_SYNC));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_VR_LOGO));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CDN_IPLIST_CMD));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_STORE_REMIND_TIME));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_CONCERN_UNREAD_TIP));
-            sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_USER_INFO));
-        }
     }
 }

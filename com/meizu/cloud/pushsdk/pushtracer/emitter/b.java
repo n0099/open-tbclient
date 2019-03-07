@@ -3,7 +3,6 @@ package com.meizu.cloud.pushsdk.pushtracer.emitter;
 import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.helper.ItemTouchHelper;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.meizu.cloud.pushsdk.networking.b.g;
 import com.meizu.cloud.pushsdk.networking.b.i;
 import com.meizu.cloud.pushsdk.networking.b.j;
@@ -117,7 +116,7 @@ public abstract class b {
         if (this.i == RequestSecurity.HTTP) {
             this.e = Uri.parse("http://" + this.l).buildUpon();
         } else {
-            this.e = Uri.parse(SapiUtils.COOKIE_HTTPS_URL_PREFIX + this.l).buildUpon();
+            this.e = Uri.parse("https://" + this.l).buildUpon();
         }
         if (this.g == HttpMethod.GET) {
             this.e.appendPath("i");

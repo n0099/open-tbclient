@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
-import com.baidu.searchbox.ng.ai.apps.res.ui.BdBaseImageView;
+import com.baidu.swan.apps.res.ui.BdBaseImageView;
 /* loaded from: classes4.dex */
 public class SelectorImageView extends BdBaseImageView {
     private static final int DISABLED_ALPHA = 255;

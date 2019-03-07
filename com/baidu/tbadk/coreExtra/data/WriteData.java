@@ -1,6 +1,7 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import java.io.File;
@@ -83,10 +84,12 @@ public class WriteData extends OrmObject implements Serializable {
     private String mShareSummaryImgType;
     private int mShareSummaryImgWidth;
     private String mShareSummaryTitle;
+    private String mSubPbReplyPrefix;
     private int mTakePhotoNum;
     private String mTaskId;
     private String mThreadId;
     private String mTitle;
+    private String mTopicId;
     private int mType;
     private String mVcode;
     private VcodeExtra mVcodeExtra;
@@ -101,6 +104,7 @@ public class WriteData extends OrmObject implements Serializable {
     private String originalVideoCover;
     private String originalVideoTitle;
     private String postPrefix;
+    private int proZone;
     public String sourceFrom;
     private String transmitForumData;
     private String vForumId;
@@ -157,6 +161,7 @@ public class WriteData extends OrmObject implements Serializable {
 
     public WriteData() {
         this.mShareImageType = SHARE_SDK_NET_IMAGE;
+        this.proZone = -1;
         this.isUserFeedback = false;
         this.mCategoryFrom = -1;
         this.mCategoryTo = -1;
@@ -206,6 +211,7 @@ public class WriteData extends OrmObject implements Serializable {
 
     public WriteData(int i) {
         this.mShareImageType = SHARE_SDK_NET_IMAGE;
+        this.proZone = -1;
         this.isUserFeedback = false;
         this.mCategoryFrom = -1;
         this.mCategoryTo = -1;
@@ -252,7 +258,10 @@ public class WriteData extends OrmObject implements Serializable {
             jSONObject.put("is_barrage", this.mIsBarrage);
             jSONObject.put("barrage_time", this.mBarrageTime);
             jSONObject.put("big_count", this.mBigEmtionCount);
-            jSONObject.put("source_from", this.sourceFrom);
+            jSONObject.put(VideoPlayActivityConfig.SOURCE_FROM, this.sourceFrom);
+            jSONObject.put("pro_zone", this.proZone);
+            jSONObject.put("topic_id", this.mTopicId);
+            jSONObject.put("sub_pb_reply_prefix", this.mSubPbReplyPrefix);
         } catch (Exception e) {
         }
         return jSONObject.toString();
@@ -284,7 +293,10 @@ public class WriteData extends OrmObject implements Serializable {
             writeData.mIsBarrage = jSONObject.optBoolean("is_barrage");
             writeData.mBarrageTime = jSONObject.optLong("barrage_time");
             writeData.mBigEmtionCount = jSONObject.optInt("big_count");
-            writeData.sourceFrom = jSONObject.optString("source_from");
+            writeData.sourceFrom = jSONObject.optString(VideoPlayActivityConfig.SOURCE_FROM);
+            writeData.proZone = jSONObject.optInt("pro_zone");
+            writeData.mTopicId = jSONObject.optString("topic_id");
+            writeData.mSubPbReplyPrefix = jSONObject.optString("sub_pb_reply_prefix");
             return writeData;
         } catch (Exception e) {
             return null;
@@ -464,6 +476,14 @@ public class WriteData extends OrmObject implements Serializable {
 
     public VideoInfo getVideoInfo() {
         return this.mVideoInfo;
+    }
+
+    public int getProZone() {
+        return this.proZone;
+    }
+
+    public void setProZone(int i) {
+        this.proZone = i;
     }
 
     public boolean isSubFloor() {
@@ -923,5 +943,21 @@ public class WriteData extends OrmObject implements Serializable {
 
     public void setAuthSid(String str) {
         this.mAuthSid = str;
+    }
+
+    public String getTopicId() {
+        return this.mTopicId;
+    }
+
+    public void setTopicId(String str) {
+        this.mTopicId = str;
+    }
+
+    public String getSubPbReplyPrefix() {
+        return this.mSubPbReplyPrefix;
+    }
+
+    public void setSubPbReplyPrefix(String str) {
+        this.mSubPbReplyPrefix = str;
     }
 }

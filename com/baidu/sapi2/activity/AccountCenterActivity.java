@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.view.PointerIconCompat;
+import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import com.baidu.d.a.a;
 import com.baidu.sapi2.PassportSDK;
@@ -14,6 +16,7 @@ import com.baidu.sapi2.callback.AccountCenterCallback;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
 import com.baidu.sapi2.callback.Web2NativeLoginCallback;
 import com.baidu.sapi2.dto.AccountCenterDTO;
+import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.result.AccountCenterResult;
 import com.baidu.sapi2.result.GetTplStokenResult;
@@ -24,7 +27,6 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.SocialType;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.http.NameValuePair;
 /* loaded from: classes2.dex */
 public class AccountCenterActivity extends BaseActivity {
     public static final String EXTRA_LOAD_WEIXIN = "extra_load_weixin";
@@ -32,14 +34,14 @@ public class AccountCenterActivity extends BaseActivity {
     private static final String TAG = "AccountCenterActivity";
     AccountCenterResult accountCenterResult = new AccountCenterResult();
     private String bduss;
-    private List<NameValuePair> paramsList;
+    private List<PassNameValuePair> paramsList;
     private String refer;
 
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
             init();
             setupViews();
         } catch (Throwable th) {
@@ -102,7 +104,7 @@ public class AccountCenterActivity extends BaseActivity {
         this.sapiWebView.setOnNewBackCallback(new SapiWebView.OnNewBackCallback() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.3
             @Override // com.baidu.sapi2.SapiWebView.OnNewBackCallback
             public boolean onBack() {
-                if (AccountCenterActivity.this.sapiWebView.canGoBack()) {
+                if (AccountCenterActivity.this.sapiWebView != null && AccountCenterActivity.this.sapiWebView.canGoBack()) {
                     AccountCenterActivity.this.sapiWebView.goBack();
                     return false;
                 }
@@ -121,6 +123,7 @@ public class AccountCenterActivity extends BaseActivity {
                             super.loginSuc();
                             AccountCenterActivity.this.bduss = SapiAccountManager.getInstance().getSession().bduss;
                             AccountCenterActivity.this.loadAccountCenter(AccountCenterActivity.this.bduss);
+                            AccountCenterActivity.this.loginStatusChange = true;
                         }
                     };
                     accountCenterResult.setResultCode(-10001);
@@ -130,7 +133,7 @@ public class AccountCenterActivity extends BaseActivity {
                 }
                 Intent intent = new Intent(AccountCenterActivity.this, LoginActivity.class);
                 intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
-                AccountCenterActivity.this.startActivityForResult(intent, 1004);
+                AccountCenterActivity.this.startActivityForResult(intent, PointerIconCompat.TYPE_WAIT);
             }
 
             @Override // com.baidu.sapi2.SapiWebView.SwitchAccountCallback
@@ -143,6 +146,7 @@ public class AccountCenterActivity extends BaseActivity {
                             super.loginSuc();
                             AccountCenterActivity.this.bduss = SapiAccountManager.getInstance().getSession().bduss;
                             AccountCenterActivity.this.loadAccountCenter(AccountCenterActivity.this.bduss);
+                            AccountCenterActivity.this.loginStatusChange = true;
                         }
                     };
                     accountCenterResult.preSetUserName = result.userName;
@@ -154,7 +158,7 @@ public class AccountCenterActivity extends BaseActivity {
                 Intent intent = new Intent(AccountCenterActivity.this, LoginActivity.class);
                 intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
                 intent.putExtra("username", result.userName);
-                AccountCenterActivity.this.startActivityForResult(intent, 1004);
+                AccountCenterActivity.this.startActivityForResult(intent, PointerIconCompat.TYPE_WAIT);
             }
         });
         this.sapiWebView.setSocialBindHandler(new Handler() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.5
@@ -235,13 +239,17 @@ public class AccountCenterActivity extends BaseActivity {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.sapi2.callback.SapiCallback
                 public void onSuccess(GetTplStokenResult getTplStokenResult) {
-                    AccountCenterActivity.this.sapiWebView.loadAccountCenter(AccountCenterActivity.this.paramsList, getTplStokenResult.tplStokenMap.get("pp"), AccountCenterActivity.this.refer);
+                    if (AccountCenterActivity.this.sapiWebView != null) {
+                        AccountCenterActivity.this.sapiWebView.loadAccountCenter(AccountCenterActivity.this.paramsList, getTplStokenResult.tplStokenMap.get("pp"), AccountCenterActivity.this.refer);
+                    }
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.sapi2.callback.SapiCallback
                 public void onFailure(GetTplStokenResult getTplStokenResult) {
-                    AccountCenterActivity.this.sapiWebView.loadAccountCenter(AccountCenterActivity.this.paramsList, null, AccountCenterActivity.this.refer);
+                    if (AccountCenterActivity.this.sapiWebView != null) {
+                        AccountCenterActivity.this.sapiWebView.loadAccountCenter(AccountCenterActivity.this.paramsList, null, AccountCenterActivity.this.refer);
+                    }
                 }
 
                 @Override // com.baidu.sapi2.callback.SapiCallback
@@ -261,15 +269,15 @@ public class AccountCenterActivity extends BaseActivity {
 
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void configTitle() {
-        setTitleText(a.f.sapi_sdk_title_account_center);
+        setTitleText(a.g.sapi_sdk_title_account_center);
         if (PassportViewManager.getInstance().getTitleViewModule() != null) {
             configCustomTitle();
             return;
         }
         setBtnVisibility(4, 0, 4);
         setTitleDrawable(null, null, null, null);
-        setTitleTextColor(-16777216);
-        setLeftBtnDrawable(getResources().getDrawable(a.c.sapi_sdk_btn_back), null, null, null);
+        setTitleTextColor(ViewCompat.MEASURED_STATE_MASK);
+        setLeftBtnDrawable(getResources().getDrawable(a.d.sapi_sdk_btn_back), null, null, null);
         if (SapiAccountManager.getInstance().getSapiConfiguration().showBottomBack) {
             setBtnVisibility(4, 4, 4);
         }
@@ -285,7 +293,7 @@ public class AccountCenterActivity extends BaseActivity {
     }
 
     private void goBack() {
-        if (this.sapiWebView.canGoBack()) {
+        if (this.sapiWebView != null && this.sapiWebView.canGoBack()) {
             this.sapiWebView.back();
         } else {
             onClose();
@@ -334,6 +342,7 @@ public class AccountCenterActivity extends BaseActivity {
         if (i == 1004 && i2 == -1) {
             this.bduss = intent.getStringExtra("bduss");
             loadAccountCenter(this.bduss);
+            this.loginStatusChange = true;
         }
     }
 

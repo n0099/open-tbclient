@@ -19,7 +19,7 @@ public class ModifyPwdActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
             init();
             setupViews();
         } catch (Throwable th) {
@@ -47,7 +47,7 @@ public class ModifyPwdActivity extends BaseActivity {
     public void setupViews() {
         super.setupViews();
         setBtnVisibility(4, 0, 4);
-        setTitleText(a.f.sapi_sdk_title_modify_pwd);
+        setTitleText(a.g.sapi_sdk_title_modify_pwd);
         this.sapiWebView.setOnBackCallback(new SapiWebView.OnBackCallback() { // from class: com.baidu.sapi2.activity.ModifyPwdActivity.1
             @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
             public void onBack() {
@@ -96,7 +96,7 @@ public class ModifyPwdActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void goBack() {
-        if (this.sapiWebView.canGoBack()) {
+        if (this.sapiWebView != null && this.sapiWebView.canGoBack()) {
             this.sapiWebView.goBack();
         } else {
             onClose();

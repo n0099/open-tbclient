@@ -1,16 +1,19 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
-import org.json.JSONObject;
+import tbclient.AwardUser;
 /* loaded from: classes.dex */
-public abstract class i {
-    public abstract void parserJson(JSONObject jSONObject);
+public class i {
+    private String bxA;
+    private int bxC;
+    private long mUserId;
+    private String mUserName;
 
-    public void parserJson(String str) {
-        try {
-            parserJson(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+    public void a(AwardUser awardUser) {
+        if (awardUser != null) {
+            this.mUserId = awardUser.user_id.longValue();
+            this.mUserName = awardUser.user_name;
+            this.bxA = awardUser.award_name;
+            this.bxC = awardUser.award_time.intValue();
         }
     }
 }

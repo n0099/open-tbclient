@@ -23,7 +23,7 @@ public final class a extends Thread {
     }
 
     public static String a(Context context) {
-        return cn.jiguang.d.h.f.f(cn.jiguang.d.h.f.K(context, "appPackageNames_v2"));
+        return cn.jiguang.d.h.f.g(cn.jiguang.d.h.f.K(context, "appPackageNames_v2"));
     }
 
     public static void a(Context context, ArrayList<h> arrayList) {

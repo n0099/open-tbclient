@@ -21,7 +21,7 @@ public final class e {
                 if (!TextUtils.isEmpty(str2)) {
                     jSONObject.put("data", str2);
                 }
-                cn.jiguang.api.e.d(jSONObject, "msg_status");
+                cn.jiguang.api.e.e(jSONObject, "msg_status");
                 cn.jiguang.api.e.a(context, jSONObject, cn.jpush.android.a.a);
             } catch (JSONException e) {
             }
@@ -37,7 +37,7 @@ public final class e {
                 jSONObject.put("tmsg_id", str2);
                 jSONObject.put("result", i);
                 jSONObject.put("sdk_type", (int) b);
-                cn.jiguang.api.e.d(jSONObject, "third_msg_status");
+                cn.jiguang.api.e.e(jSONObject, "third_msg_status");
                 cn.jiguang.api.e.a(context, jSONObject, cn.jpush.android.a.a);
             } catch (JSONException e) {
             }

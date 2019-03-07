@@ -2,8 +2,6 @@ package com.baidu.adp.lib.network.http;
 
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.k;
-import com.baidu.ar.util.SystemInfoUtil;
-import com.baidu.webkit.internal.ETAG;
 import java.io.DataOutputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -13,20 +11,21 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class f {
-    private HttpMessageTask.HTTP_METHOD CZ;
+    private HttpMessageTask.HTTP_METHOD CY;
     private String url = "";
-    protected Map<String, String> Da = new HashMap();
-    protected LinkedList<BasicNameValuePair> Db = new LinkedList<>();
-    protected HashMap<String, byte[]> Dc = new HashMap<>();
+    protected Map<String, String> CZ = new HashMap();
+    protected LinkedList<BasicNameValuePair> Da = new LinkedList<>();
+    protected HashMap<String, byte[]> Db = new HashMap<>();
 
     public HttpMessageTask.HTTP_METHOD getMethod() {
-        return this.CZ;
+        return this.CY;
     }
 
     public void setMethod(HttpMessageTask.HTTP_METHOD http_method) {
-        this.CZ = http_method;
+        this.CY = http_method;
     }
 
     public String getUrl() {
@@ -41,14 +40,14 @@ public class f {
         }
     }
 
-    public boolean jt() {
-        return this.Dc != null && this.Dc.size() > 0;
+    public boolean jv() {
+        return this.Db != null && this.Db.size() > 0;
     }
 
     public String c(d dVar) {
-        if (this.Db.size() == 0) {
+        if (this.Da.size() == 0) {
             if (dVar != null) {
-                dVar.CF = this.url.length();
+                dVar.CE = this.url.length();
             }
             return this.url;
         }
@@ -56,33 +55,33 @@ public class f {
         sb.append(this.url);
         if (this.url.indexOf("?") < 0) {
             sb.append("?");
-        } else if (!this.url.endsWith("?") && !this.url.endsWith(ETAG.ITEM_SEPARATOR)) {
-            sb.append(ETAG.ITEM_SEPARATOR);
+        } else if (!this.url.endsWith("?") && !this.url.endsWith("&")) {
+            sb.append("&");
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.Db.size()) {
+            if (i2 >= this.Da.size()) {
                 break;
             }
             if (i2 != 0) {
-                sb.append(ETAG.ITEM_SEPARATOR);
+                sb.append("&");
             }
-            sb.append(this.Db.get(i2).getName());
-            sb.append(ETAG.EQUAL);
-            sb.append(k.bx(this.Db.get(i2).getValue()));
+            sb.append(this.Da.get(i2).getName());
+            sb.append("=");
+            sb.append(k.bx(this.Da.get(i2).getValue()));
             i = i2 + 1;
         }
         if (dVar != null) {
-            dVar.CF = sb.length();
+            dVar.CE = sb.length();
         }
         return sb.toString();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void f(HttpURLConnection httpURLConnection) {
-        if (httpURLConnection != null && this.Da != null) {
-            for (Map.Entry<String, String> entry : this.Da.entrySet()) {
+    public void d(HttpURLConnection httpURLConnection) {
+        if (httpURLConnection != null && this.CZ != null) {
+            for (Map.Entry<String, String> entry : this.CZ.entrySet()) {
                 httpURLConnection.addRequestProperty(entry.getKey(), entry.getValue());
             }
         }
@@ -90,43 +89,43 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(HttpURLConnection httpURLConnection, String str, d dVar) throws Exception {
-        jv();
+        jx();
         int i = 0;
         if (httpURLConnection != null) {
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
-                if (this.Db != null) {
-                    Iterator<BasicNameValuePair> it = this.Db.iterator();
+                if (this.Da != null) {
+                    Iterator<BasicNameValuePair> it = this.Da.iterator();
                     while (it.hasNext()) {
                         BasicNameValuePair next = it.next();
                         if (next != null) {
                             String name = next.getName();
                             String value = next.getValue();
                             if (value != null && name != null) {
-                                dataOutputStream.writeBytes("--" + str + SystemInfoUtil.LINE_END);
-                                byte[] bytes = value.getBytes("UTF-8");
-                                dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"" + SystemInfoUtil.LINE_END);
-                                dataOutputStream.writeBytes(SystemInfoUtil.LINE_END);
+                                dataOutputStream.writeBytes("--" + str + "\r\n");
+                                byte[] bytes = value.getBytes(HTTP.UTF_8);
+                                dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + name + "\"\r\n");
+                                dataOutputStream.writeBytes("\r\n");
                                 dataOutputStream.write(bytes);
-                                dataOutputStream.writeBytes(SystemInfoUtil.LINE_END);
+                                dataOutputStream.writeBytes("\r\n");
                             }
                         }
                     }
                 }
-                if (this.Dc != null) {
-                    for (Map.Entry<String, byte[]> entry : this.Dc.entrySet()) {
+                if (this.Db != null) {
+                    for (Map.Entry<String, byte[]> entry : this.Db.entrySet()) {
                         String key = entry.getKey();
                         byte[] value2 = entry.getValue();
                         if (value2 != null) {
-                            dataOutputStream.writeBytes("--" + str + SystemInfoUtil.LINE_END);
-                            dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"" + SystemInfoUtil.LINE_END);
-                            dataOutputStream.writeBytes(SystemInfoUtil.LINE_END);
+                            dataOutputStream.writeBytes("--" + str + "\r\n");
+                            dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"" + key + "\"; filename=\"file\"\r\n");
+                            dataOutputStream.writeBytes("\r\n");
                             dataOutputStream.write(value2);
-                            dataOutputStream.writeBytes(SystemInfoUtil.LINE_END);
+                            dataOutputStream.writeBytes("\r\n");
                         }
                     }
                 }
-                dataOutputStream.writeBytes("--" + str + "--" + SystemInfoUtil.LINE_END);
+                dataOutputStream.writeBytes("--" + str + "--\r\n");
                 dataOutputStream.flush();
                 i = dataOutputStream.size();
             } finally {
@@ -134,14 +133,14 @@ public class f {
             }
         }
         if (dVar != null) {
-            dVar.CF = i;
+            dVar.CE = i;
         }
     }
 
     public void a(HttpURLConnection httpURLConnection, d dVar) throws Exception {
         int i = 0;
         if (httpURLConnection != null) {
-            String sb = ju().toString();
+            String sb = jw().toString();
             DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
             try {
                 dataOutputStream.writeBytes(sb);
@@ -154,14 +153,14 @@ public class f {
             }
         }
         if (dVar != null) {
-            dVar.CF = i;
+            dVar.CE = i;
         }
     }
 
-    private StringBuilder ju() {
+    private StringBuilder jw() {
         StringBuilder sb = new StringBuilder(1024);
-        if (this.Db != null) {
-            Iterator<BasicNameValuePair> it = this.Db.iterator();
+        if (this.Da != null) {
+            Iterator<BasicNameValuePair> it = this.Da.iterator();
             int i = 0;
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
@@ -169,9 +168,9 @@ public class f {
                     String name = next.getName();
                     String value = next.getValue();
                     if (i != 0) {
-                        sb.append(ETAG.ITEM_SEPARATOR);
+                        sb.append("&");
                     }
-                    sb.append(name + ETAG.EQUAL);
+                    sb.append(name + "=");
                     sb.append(k.bx(value));
                     i++;
                 }
@@ -180,16 +179,16 @@ public class f {
         return sb;
     }
 
-    protected void jv() {
+    protected void jx() {
     }
 
-    public void l(HashMap<String, String> hashMap) {
-        this.Da = hashMap;
+    public void k(HashMap<String, String> hashMap) {
+        this.CZ = hashMap;
     }
 
     public String aQ(String str) {
-        if (this.Da != null) {
-            return this.Da.get(str);
+        if (this.CZ != null) {
+            return this.CZ.get(str);
         }
         return null;
     }
@@ -200,9 +199,9 @@ public class f {
                 Object value = entry.getValue();
                 if (value != null) {
                     if (value instanceof String) {
-                        this.Db.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
+                        this.Da.add(new BasicNameValuePair(entry.getKey(), (String) entry.getValue()));
                     } else if (value instanceof byte[]) {
-                        this.Dc.put(entry.getKey(), (byte[]) entry.getValue());
+                        this.Db.put(entry.getKey(), (byte[]) entry.getValue());
                     } else {
                         throw new UnsupportedOperationException("post type is not String and byte[]");
                     }
@@ -212,20 +211,20 @@ public class f {
     }
 
     public void d(String str, byte[] bArr) {
-        this.Dc.put(str, bArr);
+        this.Db.put(str, bArr);
     }
 
     public void x(String str, String str2) {
-        this.Db.add(new BasicNameValuePair(str, str2));
+        this.Da.add(new BasicNameValuePair(str, str2));
     }
 
     public void a(BasicNameValuePair basicNameValuePair) {
-        this.Db.add(basicNameValuePair);
+        this.Da.add(basicNameValuePair);
     }
 
     public void y(String str, String str2) {
-        if (this.Da != null) {
-            this.Da.put(str, str2);
+        if (this.CZ != null) {
+            this.CZ.put(str, str2);
         }
     }
 }

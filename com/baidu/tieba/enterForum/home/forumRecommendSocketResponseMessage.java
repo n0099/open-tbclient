@@ -6,15 +6,20 @@ import com.baidu.tieba.enterForum.data.HotSearchInfoData;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
 import com.squareup.wire.Wire;
 import java.util.List;
+import tbclient.ForumCreateInfo;
 import tbclient.ForumRecommend.ForumRecommendResIdl;
 import tbclient.ForumRecommend.LikeForum;
+import tbclient.PrivatePopInfo;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes4.dex */
 public class forumRecommendSocketResponseMessage extends SocketResponsedMessage {
+    private ForumCreateInfo forum_create_info;
     private HotSearchInfoData hotSearchInfo;
     private List<LikeForum> like_forum;
+    private PrivatePopInfo private_pop_info;
     private List<RecommendForumInfo> recommend_concern_forums;
     private List<RecommendForumInfo> recommend_forum_info;
+    private Integer sortType;
     private Integer time;
 
     public forumRecommendSocketResponseMessage() {
@@ -61,6 +66,9 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
                     this.hotSearchInfo.a(forumRecommendResIdl.data.hot_search);
                 }
                 this.recommend_concern_forums = forumRecommendResIdl.data.tag_recommend_forum;
+                this.sortType = Integer.valueOf(forumRecommendResIdl.data.sort_type.intValue() == 0 ? 1 : forumRecommendResIdl.data.sort_type.intValue());
+                this.forum_create_info = forumRecommendResIdl.data.forum_create_info;
+                this.private_pop_info = forumRecommendResIdl.data.private_forum_popinfo;
             }
         }
     }
@@ -69,7 +77,23 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         if (bArr != null && bArr.length > 0 && getError() == 0) {
-            com.baidu.tbadk.core.c.a.BO().an("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).f(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
+            com.baidu.tbadk.core.c.a.aaW().bu("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).f(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
         }
+    }
+
+    public Integer getSortType() {
+        return this.sortType;
+    }
+
+    public void setSortType(Integer num) {
+        this.sortType = num;
+    }
+
+    public ForumCreateInfo getForumCreateInfo() {
+        return this.forum_create_info;
+    }
+
+    public PrivatePopInfo getPrivatePopInfo() {
+        return this.private_pop_info;
     }
 }

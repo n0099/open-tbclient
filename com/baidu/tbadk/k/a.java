@@ -1,48 +1,30 @@
 package com.baidu.tbadk.k;
 
-import android.view.View;
-import android.view.ViewGroup;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
-public class a {
-    protected View attachedView;
-    private boolean isAttached;
+public class a implements b {
+    private b cml;
 
-    public a(View view) {
-        this.attachedView = view;
-    }
-
-    public boolean isViewAttached() {
-        return this.isAttached;
-    }
-
-    public void attachView(View view, boolean z) {
-        if (view != null && this.attachedView != null && this.attachedView.getParent() == null) {
-            this.isAttached = true;
-            d.ad(view).a(view, this.attachedView, z);
-            onViewAttached();
+    public a(TbPageContext<?> tbPageContext) {
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2016469, b.class, tbPageContext);
+        if (runTask != null && runTask.getData() != null) {
+            this.cml = (b) runTask.getData();
         }
     }
 
-    public void dettachView(View view) {
-        if (view != null && this.attachedView != null && this.attachedView.getParent() != null && (view instanceof ViewGroup)) {
-            try {
-                onViewDettached();
-                ((ViewGroup) view).removeView(this.attachedView);
-                this.isAttached = false;
-            } catch (Exception e) {
-            }
+    @Override // com.baidu.tbadk.k.b
+    public void pb(String str) {
+        if (this.cml != null) {
+            this.cml.pb(str);
         }
     }
 
-    public void attachView(View view) {
-        attachView(view, false);
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void onViewAttached() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void onViewDettached() {
+    @Override // com.baidu.tbadk.k.b
+    public void destory() {
+        if (this.cml != null) {
+            this.cml.destory();
+        }
     }
 }

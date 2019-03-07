@@ -14,8 +14,8 @@ import com.airbnb.lottie.model.content.f;
 import com.airbnb.lottie.model.content.g;
 import com.airbnb.lottie.model.content.i;
 import com.airbnb.lottie.model.content.k;
-import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -28,7 +28,7 @@ public class j implements b {
 
     @Nullable
     public static b w(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
-        String optString = jSONObject.optString(Config.EXCEPTION_CRASH_CHANNEL);
+        String optString = jSONObject.optString("ty");
         char c = 65535;
         switch (optString.hashCode()) {
             case 3239:
@@ -92,7 +92,7 @@ public class j implements b {
                 }
                 break;
             case 3681:
-                if (optString.equals("st")) {
+                if (optString.equals(TimeDisplaySetting.START_SHOW_TIME)) {
                     c = 1;
                     break;
                 }
@@ -126,7 +126,7 @@ public class j implements b {
             case 6:
                 return k.a.z(jSONObject, eVar);
             case 7:
-                return a.C0012a.o(jSONObject, eVar);
+                return a.C0010a.o(jSONObject, eVar);
             case '\b':
                 return f.a.t(jSONObject, eVar);
             case '\t':

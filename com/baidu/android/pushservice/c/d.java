@@ -1,6 +1,6 @@
 package com.baidu.android.pushservice.c;
 
-import com.baidu.fsg.base.armor.RimArmor;
+import com.baidu.ubc.UBC;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -55,8 +55,8 @@ public class d {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     JSONObject jSONObject2 = jSONArray.getJSONObject(i);
                     f fVar = new f();
-                    fVar.a(jSONObject2.getString(RimArmor.KEY));
-                    fVar.b(jSONObject2.getString("value"));
+                    fVar.a(jSONObject2.getString("key"));
+                    fVar.b(jSONObject2.getString(UBC.CONTENT_KEY_VALUE));
                     String string2 = jSONObject2.getString("match");
                     if (string2.equalsIgnoreCase("above")) {
                         fVar.a(0);
@@ -74,8 +74,8 @@ public class d {
                 for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
                     JSONObject jSONObject3 = jSONArray2.getJSONObject(i2);
                     g gVar = new g();
-                    gVar.a(jSONObject3.getString(RimArmor.KEY));
-                    gVar.b(jSONObject3.getString("value"));
+                    gVar.a(jSONObject3.getString("key"));
+                    gVar.b(jSONObject3.getString(UBC.CONTENT_KEY_VALUE));
                     String string3 = jSONObject3.getString("match");
                     if (string3.equalsIgnoreCase("above")) {
                         gVar.a(0);

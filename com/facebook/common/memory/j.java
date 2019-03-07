@@ -5,8 +5,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 /* loaded from: classes2.dex */
 public class j {
-    private final int ikr;
-    private final a iks;
+    private final int jzT;
+    private final a jzU;
 
     public j(a aVar) {
         this(aVar, 16384);
@@ -14,23 +14,23 @@ public class j {
 
     public j(a aVar, int i) {
         com.facebook.common.internal.g.checkArgument(i > 0);
-        this.ikr = i;
-        this.iks = aVar;
+        this.jzT = i;
+        this.jzU = aVar;
     }
 
-    public long f(InputStream inputStream, OutputStream outputStream) throws IOException {
+    public long g(InputStream inputStream, OutputStream outputStream) throws IOException {
         long j = 0;
-        byte[] bArr = this.iks.get(this.ikr);
+        byte[] bArr = this.jzU.get(this.jzT);
         while (true) {
             try {
-                int read = inputStream.read(bArr, 0, this.ikr);
+                int read = inputStream.read(bArr, 0, this.jzT);
                 if (read == -1) {
                     return j;
                 }
                 outputStream.write(bArr, 0, read);
                 j += read;
             } finally {
-                this.iks.release(bArr);
+                this.jzU.release(bArr);
             }
         }
     }

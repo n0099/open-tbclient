@@ -9,28 +9,21 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.SquareSearchActivityConfig;
-import com.baidu.tbadk.core.sharedPref.b;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ap;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tieba.e;
+import com.baidu.tbadk.core.util.aq;
+import com.baidu.tieba.d;
 import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class HomeTabBarView extends RelativeLayout implements View.OnClickListener {
-    private ImageView eAW;
-    private PagerSlidingTabStrip eAX;
-    private ImageView ebK;
+    private PagerSlidingTabStrip fOd;
+    private ImageView fpq;
     private int mSkinType;
 
     public HomeTabBarView(Context context) {
@@ -52,18 +45,11 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(e.h.home_tab_bar_view_layout, (ViewGroup) this, true);
-        this.ebK = (ImageView) findViewById(e.g.home_page_search_icon);
-        this.eAW = (ImageView) findViewById(e.g.home_page_live_icon);
-        this.eAX = (PagerSlidingTabStrip) findViewById(e.g.home_page_tabstrip);
-        this.eAX.e(l.h(context, e.C0210e.ds34), l.h(context, e.C0210e.ds4), false);
-        this.ebK.setOnClickListener(this);
-        this.eAW.setOnClickListener(this);
-        if (b.getInstance().getBoolean("key_live_forum_enter_switch", false)) {
-            this.eAW.setVisibility(0);
-        } else {
-            this.eAW.setVisibility(8);
-        }
+        LayoutInflater.from(context).inflate(d.h.home_tab_bar_view_layout, (ViewGroup) this, true);
+        this.fpq = (ImageView) findViewById(d.g.home_page_search_icon);
+        this.fOd = (PagerSlidingTabStrip) findViewById(d.g.home_page_tabstrip);
+        this.fOd.d(l.h(context, d.e.tbds44), l.h(context, d.e.tbds68), l.h(context, d.e.tbds32), true);
+        this.fpq.setOnClickListener(this);
         setOnClickListener(this);
         onChangeSkinType();
     }
@@ -73,75 +59,64 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.ebK) {
-            TiebaStatic.log(new am("c10378").y("obj_type", 1));
+        if (view == this.fpq && com.baidu.tbadk.plugins.c.ay(getContext(), "com.baidu.tieba.pluginCore")) {
+            TiebaStatic.log(new am("c10378").T("obj_type", 1));
             MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new SquareSearchActivityConfig(getContext(), "", false)));
-        } else if (view == this.eAW) {
-            TiebaStatic.log("c13393");
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2911006, String.class);
-            if (runTask != null && !StringUtils.isNull((String) runTask.getData())) {
-                ay.Es().a((TbPageContext) i.aK(getContext()), new String[]{(String) runTask.getData()}, true);
-            }
         }
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
-        this.eAX.setOnPageChangeListener(onPageChangeListener);
+        this.fOd.setOnPageChangeListener(onPageChangeListener);
     }
 
     public void setShowConcernRedTip(boolean z) {
-        if (this.eAX != null) {
-            this.eAX.setShowConcernRedTip(z);
+        if (this.fOd != null) {
+            this.fOd.setShowConcernRedTip(z);
         }
     }
 
-    public boolean aMa() {
-        if (this.eAX != null) {
-            return this.eAX.aMa();
+    public boolean bmc() {
+        if (this.fOd != null) {
+            return this.fOd.bmc();
         }
         return false;
     }
 
     public void setViewPager(ViewPager viewPager) {
-        this.eAX.setViewPager(viewPager);
+        this.fOd.setViewPager(viewPager);
     }
 
     public void setTabItemClicked(boolean z) {
-        this.eAX.setTabItemClicked(z);
+        this.fOd.setTabItemClicked(z);
     }
 
     public void notifyDataSetChanged() {
-        this.eAX.notifyDataSetChanged();
+        this.fOd.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            al.j(this, e.d.cp_bg_line_d);
-            ap.Ed().c(this.ebK, e.f.icon_topbar_search_n_svg, e.d.select_topbar_icon_color_tint);
-            al.c(this.eAW, e.f.icon_live_entry_selector);
-            this.eAX.onChangeSkinType();
+            al.l(this, d.C0236d.cp_bg_line_d);
+            aq.ado().d(this.fpq, d.f.icon_common_top_search, d.C0236d.select_topbar_icon_color_tint);
+            this.fOd.onChangeSkinType();
         }
     }
 
-    public View oO(int i) {
-        return this.eAX.oO(i);
+    public View sx(int i) {
+        return this.fOd.sx(i);
     }
 
     public void onResume() {
-        ap.Ed().c(this.ebK, e.f.icon_topbar_search_n_svg, e.d.select_topbar_icon_color_tint);
+        aq.ado().d(this.fpq, d.f.icon_common_top_search, d.C0236d.select_topbar_icon_color_tint);
     }
 
     public void setConcernTabIndex(int i) {
-        this.eAX.setConcernTabIndex(i);
+        this.fOd.setConcernTabIndex(i);
     }
 
     public void setOnTabItemClickListener(PagerSlidingTabStrip.a aVar) {
-        this.eAX.setOnTabItemClickListener(aVar);
-    }
-
-    public boolean aMh() {
-        return this.eAW.getVisibility() == 0;
+        this.fOd.setOnTabItemClickListener(aVar);
     }
 }

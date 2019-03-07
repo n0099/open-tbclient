@@ -14,21 +14,21 @@ import com.baidu.tbadk.data.PayMemberInfoData;
 import com.baidu.tbadk.data.UserData;
 /* loaded from: classes.dex */
 public class b {
-    private static b bci;
-    private UserData bcj;
+    private static b clM;
+    private UserData clN;
 
     private b() {
     }
 
-    public static b ND() {
-        if (bci == null) {
+    public static b ani() {
+        if (clM == null) {
             synchronized (b.class) {
-                if (bci == null) {
-                    bci = new b();
+                if (clM == null) {
+                    clM = new b();
                 }
             }
         }
-        return bci;
+        return clM;
     }
 
     public void registerTask() {
@@ -36,7 +36,7 @@ public class b {
         com.baidu.tieba.tbadkCore.a.a.a(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void NE() {
+    public void anj() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
@@ -47,7 +47,7 @@ public class b {
     }
 
     public void a(UserData userData) {
-        this.bcj = userData;
+        this.clN = userData;
         if (userData != null) {
             final AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj == null) {
@@ -79,12 +79,12 @@ public class b {
             }
             CloseAdData closeAdData = userData.getCloseAdData();
             if (closeAdData != null) {
-                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.LK());
-                currentAccountObj.setMemberCloseAdVipClose(closeAdData.LL());
+                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.alm());
+                currentAccountObj.setMemberCloseAdVipClose(closeAdData.aln());
             }
             currentAccountObj.setUserIcons(userData.getIconInfo());
             currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
-            h.jH().c(new Runnable() { // from class: com.baidu.tbadk.getUserInfo.b.1
+            h.jI().c(new Runnable() { // from class: com.baidu.tbadk.getUserInfo.b.1
                 @Override // java.lang.Runnable
                 public void run() {
                     com.baidu.tbadk.core.a.b.b(currentAccountObj);
@@ -94,7 +94,7 @@ public class b {
         }
     }
 
-    public UserData NF() {
-        return this.bcj;
+    public UserData ank() {
+        return this.clN;
     }
 }

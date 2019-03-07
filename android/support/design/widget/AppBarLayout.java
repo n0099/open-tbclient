@@ -622,7 +622,7 @@ public class AppBarLayout extends LinearLayout {
             } else {
                 this.mOffsetAnimator.cancel();
             }
-            this.mOffsetAnimator.setDuration(Math.min(i2, 600));
+            this.mOffsetAnimator.setDuration(Math.min(i2, (int) MAX_OFFSET_ANIMATION_DURATION));
             this.mOffsetAnimator.setIntValues(topBottomOffsetForScrollingSibling, i);
             this.mOffsetAnimator.start();
         }

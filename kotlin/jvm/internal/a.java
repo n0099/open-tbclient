@@ -3,23 +3,23 @@ package kotlin.jvm.internal;
 import java.util.NoSuchElementException;
 /* loaded from: classes2.dex */
 final class a extends kotlin.collections.k {
-    private final boolean[] iCz;
     private int index;
+    private final boolean[] jSk;
 
     public a(boolean[] zArr) {
-        p.j(zArr, com.baidu.fsg.base.statistics.b.j);
-        this.iCz = zArr;
+        p.k(zArr, "array");
+        this.jSk = zArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.iCz.length;
+        return this.index < this.jSk.length;
     }
 
     @Override // kotlin.collections.k
     public boolean nextBoolean() {
         try {
-            boolean[] zArr = this.iCz;
+            boolean[] zArr = this.jSk;
             int i = this.index;
             this.index = i + 1;
             return zArr[i];

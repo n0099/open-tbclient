@@ -2,7 +2,6 @@ package cn.jiguang.d.d;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.ar.parser.ARResourceKey;
 import java.util.LinkedHashSet;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
@@ -14,19 +13,19 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class y {
     private static final Object c = new Object();
-    private static z mh;
-    private static volatile FutureTask<?> mi;
+    private static z mk;
+    private static volatile FutureTask<?> ml;
 
     public static void a(Context context, boolean z) {
-        if (mh == null) {
-            mh = new z(context, (byte) 0);
+        if (mk == null) {
+            mk = new z(context, (byte) 0);
         }
-        if (mi == null || mi.isCancelled() || mi.isDone()) {
+        if (ml == null || ml.isCancelled() || ml.isDone()) {
             synchronized (c) {
-                if (mi == null || mi.isCancelled() || mi.isDone()) {
+                if (ml == null || ml.isCancelled() || ml.isDone()) {
                     try {
-                        FutureTask<?> futureTask = new FutureTask<>(mh, null);
-                        mi = futureTask;
+                        FutureTask<?> futureTask = new FutureTask<>(mk, null);
+                        ml = futureTask;
                         cn.jiguang.api.e.a(futureTask, new int[0]);
                     } catch (Throwable th) {
                     }
@@ -35,7 +34,7 @@ public final class y {
         }
         if (z) {
             try {
-                mi.get(10L, TimeUnit.SECONDS);
+                ml.get(10L, TimeUnit.SECONDS);
             } catch (InterruptedException e) {
             } catch (ExecutionException e2) {
             } catch (TimeoutException e3) {
@@ -77,7 +76,7 @@ public final class y {
             String b = a.b();
             if (!TextUtils.isEmpty(b)) {
                 try {
-                    f.bV().a(context, new JSONObject(b).getJSONObject(ARResourceKey.HTTP_RET));
+                    f.bU().a(context, new JSONObject(b).getJSONObject("ret"));
                     return true;
                 } catch (Throwable th) {
                 }

@@ -1,55 +1,73 @@
 package com.baidu.tbadk.core.view;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.RectF;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.text.style.ReplacementSpan;
-import com.baidu.tbadk.core.util.al;
+import android.content.Context;
+import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class e extends ReplacementSpan {
-    private int aGn;
-    private int aGo;
-    private int aGp;
-    private int aGr;
-    private int aGs;
-    private int aGt;
-    private int mTextColorId;
-    private int mTextSize;
-    private RectF aGq = new RectF();
-    private Paint aGu = new Paint();
+public class e {
+    private Toast Gu;
+    private View bPQ;
+    private TextView bPR;
+    private ImageView bPS;
+    private Context mContext;
+    public long bPN = 3000;
+    private int bPO = -1;
+    private int bPP = -1;
+    private Runnable bPU = new Runnable() { // from class: com.baidu.tbadk.core.view.e.1
+        @Override // java.lang.Runnable
+        public void run() {
+            if (e.this.Gu != null) {
+                e.this.Gu.cancel();
+            }
+        }
+    };
+    private Handler bPT = new Handler();
 
-    public e(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
-        this.aGn = i;
-        this.aGo = i2;
-        this.aGp = i3;
-        this.mTextSize = i4;
-        this.mTextColorId = i5;
-        this.aGr = i6;
-        this.aGt = i7;
-        this.aGu.setAntiAlias(true);
-        this.aGu.setStyle(Paint.Style.STROKE);
-        this.aGu.setTextSize(this.mTextSize);
+    public e() {
+        this.mContext = null;
+        this.bPQ = null;
+        this.bPR = null;
+        this.bPS = null;
+        this.mContext = TbadkCoreApplication.getInst().getContext();
+        this.bPQ = LayoutInflater.from(this.mContext).inflate(d.h.image_toast_view, (ViewGroup) null);
+        this.bPR = (TextView) this.bPQ.findViewById(d.g.tip_text);
+        this.bPS = (ImageView) this.bPQ.findViewById(d.g.tip_iamge);
     }
 
-    @Override // android.text.style.ReplacementSpan
-    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        this.aGs = ((int) this.aGu.measureText(charSequence, i, i2)) + (this.aGr * 2);
-        return this.aGs;
+    public void showToast(int i, int i2) {
+        this.bPR.setText(i2);
+        this.bPS.setImageResource(i);
+        aG(this.bPQ);
     }
 
-    @Override // android.text.style.ReplacementSpan
-    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
-        this.aGu.setColor(al.getColor(this.aGp));
-        int i6 = ((i5 - this.aGt) / 2) + i3;
-        this.aGq.left = f;
-        this.aGq.top = i6;
-        this.aGq.right = this.aGs + f;
-        this.aGq.bottom = i6 + this.aGt;
-        canvas.drawRoundRect(this.aGq, this.aGo, this.aGo, this.aGu);
-        Paint.FontMetricsInt fontMetricsInt = this.aGu.getFontMetricsInt();
-        this.aGu.setColor(al.getColor(this.mTextColorId));
-        canvas.drawText(charSequence, i, i2, f + this.aGr, (int) ((this.aGq.centerY() + ((fontMetricsInt.bottom - fontMetricsInt.top) / 2)) - fontMetricsInt.bottom), this.aGu);
+    public void aG(View view) {
+        this.bPT.removeCallbacks(this.bPU);
+        if (this.Gu == null) {
+            this.Gu = new Toast(this.mContext);
+        }
+        this.bPT.postDelayed(this.bPU, this.bPN);
+        this.Gu.setView(view);
+        this.Gu.setDuration(1);
+        this.Gu.setGravity(17, 0, 0);
+        this.Gu.show();
+    }
+
+    public void i(CharSequence charSequence) {
+        this.bPR.setText(charSequence);
+        this.bPS.setImageResource(d.f.icon_toast_game_ok);
+        aG(this.bPQ);
+    }
+
+    public void j(CharSequence charSequence) {
+        this.bPR.setText(charSequence);
+        this.bPS.setImageResource(d.f.icon_toast_game_error);
+        aG(this.bPQ);
     }
 }

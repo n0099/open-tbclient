@@ -3,7 +3,7 @@ package com.baidu.tieba.frs;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.SetCommonForumState.SetCommonForumStateResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ResponseSetCommForumStateSocketMessage extends SocketResponsedMessage {
     private SetCommonForumStateResIdl mResponseData;
 

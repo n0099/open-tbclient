@@ -1,9 +1,10 @@
 package com.squareup.wire;
 
 import java.nio.charset.Charset;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 final class Stringer {
-    private static final Charset UTF_8 = Charset.forName("UTF-8");
+    private static final Charset UTF_8 = Charset.forName(HTTP.UTF_8);
 
     private Stringer() {
     }

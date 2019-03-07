@@ -1,31 +1,20 @@
 package com.baidu.tbadk.core.data;
 
-import org.json.JSONObject;
-import tbclient.VideoChannelInfo;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
-public class bh {
-    public int awC;
-    public String channelAvatar;
-    public long channelId;
-    public String channelName;
-    public int mCurrentPage;
+public class bh extends com.baidu.tieba.card.data.b {
+    public int bDS;
+    public int bDT;
+    public int bDU;
+    public String stType;
+    public bg threadData;
 
-    public void a(VideoChannelInfo videoChannelInfo) {
-        if (videoChannelInfo != null && videoChannelInfo.channel_id.longValue() > 0) {
-            this.channelId = videoChannelInfo.channel_id.longValue();
-            this.channelName = videoChannelInfo.channel_name;
-            this.channelAvatar = videoChannelInfo.channel_avatar;
-        }
+    public bh(bg bgVar) {
+        this.threadData = bgVar;
     }
 
-    public void z(JSONObject jSONObject) {
-        if (jSONObject != null) {
-            try {
-                this.channelId = jSONObject.optLong("channel_id", 0L);
-                this.channelName = jSONObject.optString("channel_name");
-                this.channelAvatar = jSONObject.optString("channel_avatar");
-            } catch (Exception e) {
-            }
-        }
+    @Override // com.baidu.adp.widget.ListView.m
+    public BdUniqueId getType() {
+        return null;
     }
 }

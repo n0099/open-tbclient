@@ -1,13 +1,14 @@
 package com.baidu.sofire.rp.f;
 
 import android.content.Context;
-import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
+import com.baidu.appsearchlib.Info;
 import com.baidu.sofire.b;
 import com.baidu.sofire.b.f;
+import com.baidu.sofire.b.h;
 import com.baidu.sofire.b.l;
 import com.baidu.sofire.b.o;
 import com.baidu.sofire.e;
@@ -19,157 +20,162 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class a {
-    private HandlerC0150a a = new HandlerC0150a(l.a());
-    private e b;
-    private Context c;
-    private com.baidu.sofire.rp.d.a.a d;
-    private com.baidu.sofire.rp.e.a e;
+public final class a {
+    e a;
+    public Context b;
+    com.baidu.sofire.rp.d.a.a c;
+    public com.baidu.sofire.rp.e.a d;
+    private HandlerC0076a e = new HandlerC0076a(l.a());
 
     public a(Context context) {
-        this.c = context.getApplicationContext();
-        this.b = new e(this.c);
-        this.d = new com.baidu.sofire.rp.d.a.a(this.c);
+        this.b = context.getApplicationContext();
+        this.a = new e(this.b);
+        this.c = new com.baidu.sofire.rp.d.a.a(this.b);
     }
 
-    public void a(boolean z) {
-        b();
-        Message message = new Message();
-        message.what = 5;
-        a(message);
-    }
-
-    public void a() {
-        Message message = new Message();
-        message.what = 7;
-        a(message);
-    }
-
-    private void b() {
-        if (this.e == null) {
-            this.e = new com.baidu.sofire.rp.e.a();
-        }
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("com.b.r.p");
-        this.c.getApplicationContext().registerReceiver(this.e, intentFilter);
-    }
-
-    private void c() {
-        this.d.a();
-        this.b.f(System.currentTimeMillis());
-    }
-
-    public void a(Message message) {
-        this.a.sendMessage(message);
+    public final void a(Message message) {
+        this.e.sendMessage(message);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sofire.rp.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class HandlerC0150a extends Handler {
-        public HandlerC0150a(Looper looper) {
+    public class HandlerC0076a extends Handler {
+        public HandlerC0076a(Looper looper) {
             super(looper);
         }
 
         @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        public final void handleMessage(Message message) {
             try {
                 switch (message.what) {
                     case 0:
-                        a.this.f();
-                        break;
+                        a.b(a.this);
+                        return;
                     case 1:
-                        com.baidu.sofire.rp.b.a.a(a.this.c).a((com.baidu.sofire.rp.c.a) message.obj);
-                        b.a("sj-trigger report f ACTION_REPORT_RECORD");
+                        com.baidu.sofire.rp.b.a.a(a.this.b).a((com.baidu.sofire.rp.c.a) message.obj);
+                        b.a();
                         Message message2 = new Message();
                         message2.what = 10;
                         sendMessage(message2);
-                        break;
+                        return;
                     case 2:
-                        b.a("sj-trigger report ACTION_REPORT_DATA");
-                        a.this.d();
-                        a.this.f();
-                        int o = com.baidu.sofire.b.e.o(a.this.c);
-                        b.a("sj-trigger report ACTI " + o);
-                        a.this.a(0, o);
-                        break;
+                        b.a();
+                        a.a(a.this);
+                        a.b(a.this);
+                        int m = com.baidu.sofire.b.e.m(a.this.b);
+                        b.a();
+                        a.a(a.this, 0, m);
+                        return;
                     case 3:
                         com.baidu.sofire.rp.a.a aVar = (com.baidu.sofire.rp.a.a) message.obj;
                         if (aVar != null) {
-                            a.this.b(aVar);
-                            break;
+                            a aVar2 = a.this;
+                            String c = aVar2.a.c(aVar.e);
+                            com.baidu.sofire.rp.c.a aVar3 = new com.baidu.sofire.rp.c.a();
+                            aVar3.b = aVar.e;
+                            aVar3.g = 0;
+                            aVar3.c = 1;
+                            aVar3.e = System.currentTimeMillis();
+                            aVar3.f = 1;
+                            aVar3.d = com.baidu.sofire.b.e.a(aVar2.b, aVar, c, false).toString();
+                            com.baidu.sofire.rp.b.a.a(aVar2.b).a(aVar3);
+                            e eVar = aVar2.a;
+                            eVar.f.putBoolean("re_net_ins_" + aVar.e, true);
+                            eVar.f.commit();
+                            String a = o.a(com.baidu.sofire.b.e.l(aVar2.b).toString());
+                            if (!com.baidu.sofire.rp.b.a.a(aVar2.b).b(a)) {
+                                return;
+                            }
+                            aVar3.b = "1001001";
+                            aVar3.d = com.baidu.sofire.b.e.a(aVar2.b, aVar.a, aVar.c, aVar3.b, com.baidu.sofire.b.e.l(aVar2.b).toString()).toString();
+                            com.baidu.sofire.rp.b.a.a(aVar2.b).a(aVar3);
+                            com.baidu.sofire.rp.b.a.a(aVar2.b).a(a);
+                            return;
                         }
-                        break;
+                        return;
                     case 4:
                         String valueOf = String.valueOf(message.obj);
                         if (!TextUtils.isEmpty(valueOf)) {
-                            com.baidu.sofire.rp.b.a.a(a.this.c).a(o.a(valueOf));
-                            break;
+                            com.baidu.sofire.rp.b.a.a(a.this.b).a(o.a(valueOf));
+                            return;
                         }
-                        break;
+                        return;
                     case 5:
-                        a.this.d();
-                        a.this.e();
+                        a.a(a.this);
+                        a aVar4 = a.this;
+                        e eVar2 = new e(aVar4.b);
+                        int w = eVar2.w();
+                        new StringBuilder("sj-setTimer-start 2").append(Integer.toString(w));
+                        b.a();
+                        long currentTimeMillis = System.currentTimeMillis() - eVar2.e.getLong("re_last_ofline_time", 0L);
+                        if (currentTimeMillis >= w * 3600000) {
+                            f.a(aVar4.b).c();
+                            com.baidu.sofire.b.e.a(aVar4.b, w * 3600000);
+                            eVar2.c(System.currentTimeMillis());
+                        } else {
+                            com.baidu.sofire.b.e.a(aVar4.b, (w * 3600000) - currentTimeMillis);
+                        }
                         Message message3 = new Message();
                         message3.what = 10;
                         sendMessage(message3);
-                        break;
+                        return;
                     case 6:
-                        a.this.a(1, com.baidu.sofire.b.e.o(a.this.c));
-                        break;
+                        a.a(a.this, 1, com.baidu.sofire.b.e.m(a.this.b));
+                        return;
                     case 7:
-                        a.this.f();
-                        a.this.a(1, com.baidu.sofire.b.e.o(a.this.c));
-                        break;
+                        a.b(a.this);
+                        a.a(a.this, 1, com.baidu.sofire.b.e.m(a.this.b));
+                        return;
                     case 8:
-                        b.a("report 3 day data.. ");
-                        a.this.a(3, com.baidu.sofire.b.e.o(a.this.c));
-                        break;
+                        b.a();
+                        a.a(a.this, 3, com.baidu.sofire.b.e.m(a.this.b));
+                        return;
                     case 9:
-                        a.this.a(0, 2);
-                        break;
+                        a.a(a.this, 0, 2);
+                        return;
                     case 10:
-                        int o2 = com.baidu.sofire.b.e.o(a.this.c);
-                        if (2 == o2) {
-                            b.a("sj-trigger report wifi ");
-                            if (com.baidu.sofire.rp.b.a.a(a.this.c).b() < new e(a.this.c).W()) {
-                                List<com.baidu.sofire.rp.c.a> a = com.baidu.sofire.rp.b.a.a(a.this.c).a(true, o2);
-                                b.a("sj-trigger report Dela " + a.size());
-                                if (a != null && a.size() > 0) {
-                                    b.a("sj-trigger reportde condi");
-                                    a.this.a(0, o2);
-                                    break;
-                                }
-                            } else {
-                                b.a("sj-trigger reportrc condi");
-                                a.this.a(0, o2);
-                                break;
+                        int m2 = com.baidu.sofire.b.e.m(a.this.b);
+                        if (2 == m2) {
+                            b.a();
+                            if (com.baidu.sofire.rp.b.a.a(a.this.b).b() >= new e(a.this.b).e.getInt("up_nu_co", 50)) {
+                                b.a();
+                                a.a(a.this, 0, m2);
+                                return;
                             }
-                        } else if (1 == o2) {
-                            b.a("sj-trigger reportde re");
-                            a.this.a(4, o2);
-                            break;
+                            List<com.baidu.sofire.rp.c.a> a2 = com.baidu.sofire.rp.b.a.a(a.this.b).a(true, m2);
+                            new StringBuilder("sj-trigger report Dela ").append(a2.size());
+                            b.a();
+                            if (a2.size() > 0) {
+                                b.a();
+                                a.a(a.this, 0, m2);
+                                return;
+                            }
+                            return;
+                        } else if (1 == m2) {
+                            b.a();
+                            a.a(a.this, 4, m2);
+                            return;
+                        } else {
+                            return;
                         }
-                        break;
                     case 11:
                         String valueOf2 = String.valueOf(message.obj);
-                        if (!a.this.d.a(new JSONArray().put(com.baidu.sofire.b.e.a(a.this.c, new JSONObject(valueOf2))).toString(), a.this.a(new JSONObject(valueOf2)))) {
-                            com.baidu.sofire.b.e.b(a.this.c, valueOf2);
-                            break;
+                        if (!a.this.c.a(new JSONArray().put(com.baidu.sofire.b.e.a(a.this.b, new JSONObject(valueOf2))).toString(), a.a(new JSONObject(valueOf2)))) {
+                            com.baidu.sofire.b.e.b(a.this.b, valueOf2);
+                            return;
                         }
-                        break;
+                        return;
+                    default:
+                        return;
                 }
             } catch (Throwable th) {
-                com.baidu.sofire.b.e.a(th);
+                com.baidu.sofire.b.e.a();
             }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public String a(JSONObject jSONObject) {
-        if (jSONObject == null) {
-            return null;
-        }
+    static String a(JSONObject jSONObject) {
         try {
             JSONObject jSONObject2 = jSONObject.getJSONObject("Common_section");
             if (jSONObject2 == null || !jSONObject2.has(Constants.VIA_REPORT_TYPE_SET_AVATAR)) {
@@ -177,138 +183,42 @@ public class a {
             }
             return jSONObject2.optString(Constants.VIA_REPORT_TYPE_SET_AVATAR, "");
         } catch (Throwable th) {
-            com.baidu.sofire.b.e.a(th);
+            com.baidu.sofire.b.e.a();
             return null;
         }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        if (System.currentTimeMillis() - this.b.Z() >= 86400000) {
-            c();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void e() {
-        e eVar = new e(this.c);
-        int R = eVar.R();
-        b.a("sj-setTimer-start 2" + Integer.toString(R));
-        long currentTimeMillis = System.currentTimeMillis() - eVar.S();
-        if (currentTimeMillis >= R * 3600000) {
-            f.a(this.c).b();
-            com.baidu.sofire.b.e.a(this.c, R * 3600000);
-            eVar.e(System.currentTimeMillis());
-            return;
-        }
-        com.baidu.sofire.b.e.a(this.c, (R * 3600000) - currentTimeMillis);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i, int i2) {
-        List<com.baidu.sofire.rp.c.a> b;
-        if (i2 == 0) {
-            b.a("sj-trigger EVENT_NETWORK_NONE");
-            return;
-        }
-        if (i == 1) {
-            List<com.baidu.sofire.rp.c.a> a = com.baidu.sofire.rp.b.a.a(this.c).a();
-            if (1 == i2) {
-                b.a("sj-trigger report 3g " + a.size());
-                b = a;
-            } else {
-                b = a;
-            }
-        } else if (i == 3) {
-            b = com.baidu.sofire.rp.b.a.a(this.c).a(false, i2);
-        } else if (i == 4) {
-            List<com.baidu.sofire.rp.c.a> a2 = com.baidu.sofire.rp.b.a.a(this.c).a(true, i2);
-            b.a("sj-trigger report 3g to report " + a2.size());
-            b = a2;
-        } else {
-            b = com.baidu.sofire.rp.b.a.a(this.c).b(i2);
-        }
-        if (b == null || b.size() <= 0) {
-            b.a("sj-trigger report size =0");
-            return;
-        }
-        long aa = this.b.aa();
-        long currentTimeMillis = System.currentTimeMillis();
-        long ab = this.b.ab();
-        int Y = this.b.Y();
-        if (ab == 0) {
-            this.b.h(currentTimeMillis);
-            ab = currentTimeMillis;
-        }
-        b.a("begintime : " + currentTimeMillis);
-        b.a("last rp len : " + aa);
-        if (currentTimeMillis - ab < 86400000) {
-            b.a("in one day ...type :  " + i);
-            if (i == 3) {
-                int af = this.b.af();
-                b.a("report 3 day num :  " + af);
-                if (af >= 5) {
-                    b.a("report 3 day end .. " + af);
-                    return;
-                }
-                this.b.z(af + 1);
-            }
-            if (aa > 1048576 * Y) {
-                b.a("rp over limit : maxday : " + Y + " : " + aa);
-                return;
-            }
-        } else {
-            this.b.g(0L);
-            this.b.h(currentTimeMillis);
-            if (i == 3) {
-                this.b.z(0);
-            }
-        }
-        a(b, i2, aa);
-        List<com.baidu.sofire.rp.c.a> b2 = b(i, i2);
-        while (b2 != null && b2.size() != 0) {
-            a(b2, i2, aa);
-            b2 = b(i, i2);
-        }
-    }
-
-    private List<com.baidu.sofire.rp.c.a> b(int i, int i2) {
-        if (i == 0 && i2 == 2) {
-            return com.baidu.sofire.rp.b.a.a(this.c).b(i2);
-        }
-        return null;
     }
 
     private void a(List<com.baidu.sofire.rp.c.a> list, int i, long j) {
         JSONObject jSONObject;
         int length;
         int i2 = 0;
-        int X = this.b.X();
+        int i3 = this.a.e.getInt("re_net_one_lt", 5);
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         Iterator<com.baidu.sofire.rp.c.a> it = list.iterator();
-        int i3 = 0;
+        int i4 = 0;
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             com.baidu.sofire.rp.c.a next = it.next();
             try {
-                String jSONObject2 = com.baidu.sofire.b.e.a(this.c, new JSONObject(next.d)).toString();
+                String jSONObject2 = com.baidu.sofire.b.e.a(this.b, new JSONObject(next.d)).toString();
                 try {
                     jSONObject = new JSONObject(jSONObject2);
                     length = jSONObject2.length();
                 } catch (Exception e) {
-                    com.baidu.sofire.b.e.a(e);
+                    com.baidu.sofire.b.e.a();
                 }
             } catch (Exception e2) {
-                com.baidu.sofire.b.e.a(e2);
+                com.baidu.sofire.b.e.a();
             }
-            if (i3 + length >= 1048576 * X) {
-                b.a("rp once over limit : maxOnece : " + X + " : " + (i3 + length));
+            if (i4 + length >= 1048576 * i3) {
+                new StringBuilder("rp once over limit : maxOnece : ").append(i3).append(" : ").append(i4 + length);
+                b.a();
                 break;
             }
-            i3 += length;
+            i4 += length;
             arrayList.add(Integer.valueOf(next.a));
             arrayList2.add(new com.baidu.sofire.rp.c.b(jSONObject, next.j, next.a));
         }
@@ -317,83 +227,70 @@ public class a {
         JSONArray jSONArray = new JSONArray();
         ArrayList arrayList3 = new ArrayList();
         while (true) {
-            int i4 = i2;
-            if (i4 >= arrayList2.size()) {
+            int i5 = i2;
+            if (i5 >= arrayList2.size()) {
                 break;
             }
-            com.baidu.sofire.rp.c.b bVar = (com.baidu.sofire.rp.c.b) arrayList2.get(i4);
+            com.baidu.sofire.rp.c.b bVar = (com.baidu.sofire.rp.c.b) arrayList2.get(i5);
             if (bVar != null) {
-                String b = bVar.b();
-                if (TextUtils.isEmpty(b)) {
-                    jSONArray.put(bVar.a());
-                    arrayList3.add(Integer.valueOf(bVar.c()));
+                String str = bVar.b;
+                if (TextUtils.isEmpty(str)) {
+                    jSONArray.put(bVar.a);
+                    arrayList3.add(Integer.valueOf(bVar.c));
                 } else {
-                    if (hashMap.containsKey(b)) {
-                        JSONArray jSONArray2 = (JSONArray) hashMap.get(b);
+                    if (hashMap.containsKey(str)) {
+                        JSONArray jSONArray2 = (JSONArray) hashMap.get(str);
                         if (jSONArray2 == null) {
                             jSONArray2 = new JSONArray();
                         }
-                        jSONArray2.put(bVar.a());
-                        hashMap.put(b, jSONArray2);
+                        jSONArray2.put(bVar.a);
+                        hashMap.put(str, jSONArray2);
                     } else {
                         JSONArray jSONArray3 = new JSONArray();
-                        jSONArray3.put(bVar.a());
-                        hashMap.put(b, jSONArray3);
+                        jSONArray3.put(bVar.a);
+                        hashMap.put(str, jSONArray3);
                     }
-                    ArrayList arrayList4 = (ArrayList) hashMap2.get(b);
+                    ArrayList arrayList4 = (ArrayList) hashMap2.get(str);
                     if (arrayList4 == null) {
                         arrayList4 = new ArrayList();
                     }
-                    arrayList4.add(Integer.valueOf(bVar.c()));
-                    hashMap2.put(b, arrayList4);
+                    arrayList4.add(Integer.valueOf(bVar.c));
+                    hashMap2.put(str, arrayList4);
                 }
             }
-            i2 = i4 + 1;
+            i2 = i5 + 1;
         }
-        b.a("sj-trigger before report");
-        if (jSONArray != null && jSONArray.length() > 0) {
-            if (this.d.a(jSONArray.toString(), null)) {
-                b.a("report one sucess");
-                com.baidu.sofire.rp.b.a.a(this.c).a(arrayList3);
+        b.a();
+        if (jSONArray.length() > 0) {
+            if (this.c.a(jSONArray.toString(), null)) {
+                b.a();
+                com.baidu.sofire.rp.b.a.a(this.b).a(arrayList3);
             }
         } else {
-            b.a("sj-trigger 1 null");
+            b.a();
         }
-        if (hashMap != null && hashMap.size() > 0) {
-            for (String str : hashMap.keySet()) {
-                JSONArray jSONArray4 = (JSONArray) hashMap.get(str);
-                if (jSONArray4 != null && jSONArray4.length() > 0 && this.d.a(jSONArray4.toString(), str)) {
-                    b.a("report one sucess");
-                    com.baidu.sofire.rp.b.a.a(this.c).a((List) hashMap2.get(str));
+        if (hashMap.size() > 0) {
+            for (String str2 : hashMap.keySet()) {
+                JSONArray jSONArray4 = (JSONArray) hashMap.get(str2);
+                if (jSONArray4 != null && jSONArray4.length() > 0 && this.c.a(jSONArray4.toString(), str2)) {
+                    b.a();
+                    com.baidu.sofire.rp.b.a.a(this.b).a((List) hashMap2.get(str2));
                 }
             }
         } else {
-            b.a("sj-trigger 2 null");
+            b.a();
         }
-        com.baidu.sofire.rp.b.a.a(this.c).c();
+        com.baidu.sofire.rp.b.a.a(this.b).c();
         if (2 != i) {
-            this.b.g(i3 + j);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
-        List<com.baidu.sofire.rp.a.a> P = this.b.P();
-        if (P != null) {
-            for (com.baidu.sofire.rp.a.a aVar : P) {
-                if (a(this.b.ac(), aVar.b)) {
-                    a(aVar);
-                }
-            }
+            this.a.d(i4 + j);
         }
     }
 
     private boolean a(String str, String str2) {
-        boolean z = true;
         if (TextUtils.isEmpty(str2)) {
             return false;
         }
-        if (str2.equals(this.c.getPackageName())) {
+        if (str2.equals(this.b.getPackageName())) {
             return true;
         }
         if (TextUtils.isEmpty(str)) {
@@ -401,67 +298,185 @@ public class a {
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
-            int i = 0;
-            while (true) {
-                if (i >= jSONArray.length()) {
-                    z = false;
-                    break;
-                } else if (str2.equals(jSONArray.get(i))) {
-                    break;
-                } else {
-                    i++;
+            for (int i = 0; i < jSONArray.length(); i++) {
+                if (str2.equals(jSONArray.get(i))) {
+                    return true;
                 }
             }
-            return z;
+            return false;
         } catch (Exception e) {
             return false;
         }
     }
 
-    private void a(com.baidu.sofire.rp.a.a aVar) {
-        String j = this.b.j(aVar.d);
-        String a = com.baidu.sofire.b.e.a();
-        if (!j.equals(a)) {
-            String l = this.b.l(aVar.d);
-            com.baidu.sofire.rp.c.a aVar2 = new com.baidu.sofire.rp.c.a();
-            aVar2.b = aVar.d;
-            aVar2.g = 0;
-            aVar2.c = 2;
-            aVar2.e = System.currentTimeMillis();
-            aVar2.f = 1;
-            aVar2.i = 5;
-            aVar2.d = com.baidu.sofire.b.e.a(this.c, aVar, l, true).toString();
-            com.baidu.sofire.rp.b.a.a(this.c).a(aVar2);
-            String a2 = o.a(com.baidu.sofire.b.e.n(this.c).toString());
-            if (com.baidu.sofire.rp.b.a.a(this.c).b(a2)) {
-                aVar2.b = "1001001";
-                aVar2.i = 0;
-                aVar2.d = com.baidu.sofire.b.e.a(this.c, aVar.a, aVar.c, aVar2.b, com.baidu.sofire.b.e.n(this.c).toString()).toString();
-                com.baidu.sofire.rp.b.a.a(this.c).a(aVar2);
-                com.baidu.sofire.rp.b.a.a(this.c).a(a2);
+    static /* synthetic */ void a(a aVar) {
+        if (System.currentTimeMillis() - aVar.a.e.getLong("re_net_pu_de", 0L) < 86400000) {
+            return;
+        }
+        com.baidu.sofire.rp.d.a.a aVar2 = aVar.c;
+        try {
+            String a = h.a(aVar2.a, com.baidu.sofire.b.e.b() + "p/1/rs", "", false, true);
+            b.a();
+            JSONObject jSONObject = new JSONObject(a).getJSONObject("c");
+            e eVar = new e(aVar2.a);
+            int optInt = jSONObject.optInt("n");
+            if (optInt > 0) {
+                eVar.f.putInt("re_net_ty", optInt);
+                eVar.f.commit();
             }
-            this.b.c(aVar.d, a);
+            int optInt2 = jSONObject.optInt("i");
+            if (optInt2 > 0) {
+                eVar.f.putInt("re_net_hr", optInt2);
+                eVar.f.commit();
+            }
+            int optInt3 = jSONObject.optInt("i2");
+            if (optInt3 > 0) {
+                eVar.f.putInt("re_net_hr_bc", optInt3);
+                eVar.f.commit();
+            }
+            int optInt4 = jSONObject.optInt("w");
+            if (optInt4 > 0) {
+                eVar.f.putInt("re_net_wt", optInt4);
+                eVar.f.commit();
+            }
+            if (jSONObject.optInt("s1") > 0) {
+                eVar.f.putInt("re_net_one_lt", jSONObject.optInt("s1"));
+                eVar.f.commit();
+            }
+            int optInt5 = jSONObject.optInt("s2");
+            if (optInt5 > 0) {
+                eVar.f.putInt("re_net_dy_lt", optInt5);
+                eVar.f.commit();
+            }
+            int optInt6 = jSONObject.optInt(Info.kBaiduTimeKey);
+            if (optInt6 > 0) {
+                eVar.f.putInt("re_net_over", optInt6);
+                eVar.f.commit();
+            }
+            int optInt7 = jSONObject.optInt("l1");
+            if (optInt7 > 0) {
+                eVar.f.putInt("up_nu_co", optInt7);
+                eVar.f.commit();
+            }
+            int optInt8 = jSONObject.optInt("l2");
+            if (optInt8 > 0) {
+                eVar.f.putInt("up_nu_li", optInt8);
+                eVar.f.commit();
+            }
+        } catch (Throwable th) {
+            com.baidu.sofire.b.e.a();
+        }
+        e eVar2 = aVar.a;
+        eVar2.f.putLong("re_net_pu_de", System.currentTimeMillis());
+        eVar2.f.commit();
+    }
+
+    static /* synthetic */ void b(a aVar) {
+        List<com.baidu.sofire.rp.a.a> v = aVar.a.v();
+        if (v == null) {
+            return;
+        }
+        for (com.baidu.sofire.rp.a.a aVar2 : v) {
+            if (aVar.a(aVar.a.e.getString("li_pk_s", ""), aVar2.b)) {
+                String string = aVar.a.e.getString("re_net_ali2_" + aVar2.d, "");
+                String c = com.baidu.sofire.b.e.c();
+                if (!string.equals(c)) {
+                    String c2 = aVar.a.c(aVar2.d);
+                    com.baidu.sofire.rp.c.a aVar3 = new com.baidu.sofire.rp.c.a();
+                    aVar3.b = aVar2.d;
+                    aVar3.g = 0;
+                    aVar3.c = 2;
+                    aVar3.e = System.currentTimeMillis();
+                    aVar3.f = 1;
+                    aVar3.i = 5;
+                    aVar3.d = com.baidu.sofire.b.e.a(aVar.b, aVar2, c2, true).toString();
+                    com.baidu.sofire.rp.b.a.a(aVar.b).a(aVar3);
+                    String a = o.a(com.baidu.sofire.b.e.l(aVar.b).toString());
+                    if (com.baidu.sofire.rp.b.a.a(aVar.b).b(a)) {
+                        aVar3.b = "1001001";
+                        aVar3.i = 0;
+                        aVar3.d = com.baidu.sofire.b.e.a(aVar.b, aVar2.a, aVar2.c, aVar3.b, com.baidu.sofire.b.e.l(aVar.b).toString()).toString();
+                        com.baidu.sofire.rp.b.a.a(aVar.b).a(aVar3);
+                        com.baidu.sofire.rp.b.a.a(aVar.b).a(a);
+                    }
+                    e eVar = aVar.a;
+                    eVar.f.putString("re_net_ali2_" + aVar2.d, c);
+                    eVar.f.commit();
+                }
+            }
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b(com.baidu.sofire.rp.a.a aVar) {
-        String l = this.b.l(aVar.e);
-        com.baidu.sofire.rp.c.a aVar2 = new com.baidu.sofire.rp.c.a();
-        aVar2.b = aVar.e;
-        aVar2.g = 0;
-        aVar2.c = 1;
-        aVar2.e = System.currentTimeMillis();
-        aVar2.f = 1;
-        aVar2.d = com.baidu.sofire.b.e.a(this.c, aVar, l, false).toString();
-        com.baidu.sofire.rp.b.a.a(this.c).a(aVar2);
-        this.b.a(aVar.e, true);
-        String a = o.a(com.baidu.sofire.b.e.n(this.c).toString());
-        if (com.baidu.sofire.rp.b.a.a(this.c).b(a)) {
-            aVar2.b = "1001001";
-            aVar2.d = com.baidu.sofire.b.e.a(this.c, aVar.a, aVar.c, aVar2.b, com.baidu.sofire.b.e.n(this.c).toString()).toString();
-            com.baidu.sofire.rp.b.a.a(this.c).a(aVar2);
-            com.baidu.sofire.rp.b.a.a(this.c).a(a);
+    static /* synthetic */ void a(a aVar, int i, int i2) {
+        List<com.baidu.sofire.rp.c.a> a;
+        if (i2 == 0) {
+            b.a();
+            return;
         }
+        if (i == 1) {
+            a = com.baidu.sofire.rp.b.a.a(aVar.b).a();
+            if (1 == i2) {
+                new StringBuilder("sj-trigger report 3g ").append(a.size());
+                b.a();
+            }
+        } else if (i == 3) {
+            a = com.baidu.sofire.rp.b.a.a(aVar.b).a(false, i2);
+        } else if (i == 4) {
+            a = com.baidu.sofire.rp.b.a.a(aVar.b).a(true, i2);
+            new StringBuilder("sj-trigger report 3g to report ").append(a.size());
+            b.a();
+        } else {
+            a = com.baidu.sofire.rp.b.a.a(aVar.b).a(i2);
+        }
+        if (a.size() <= 0) {
+            b.a();
+            return;
+        }
+        long j = aVar.a.e.getLong("re_day_len", 0L);
+        long currentTimeMillis = System.currentTimeMillis();
+        long j2 = aVar.a.e.getLong("re_day_b_t", 0L);
+        int i3 = aVar.a.e.getInt("re_net_dy_lt", 50);
+        if (j2 == 0) {
+            aVar.a.e(currentTimeMillis);
+            j2 = currentTimeMillis;
+        }
+        b.a();
+        b.a();
+        if (currentTimeMillis - j2 < 86400000) {
+            b.a();
+            if (i == 3) {
+                int i4 = aVar.a.e.getInt("g_r_d_d_n", 0);
+                b.a();
+                if (i4 >= 5) {
+                    b.a();
+                    return;
+                }
+                aVar.a.h(i4 + 1);
+            }
+            if (j > 1048576 * i3) {
+                new StringBuilder("rp over limit : maxday : ").append(i3).append(" : ").append(j);
+                b.a();
+                return;
+            }
+        } else {
+            aVar.a.d(0L);
+            aVar.a.e(currentTimeMillis);
+            if (i == 3) {
+                aVar.a.h(0);
+            }
+        }
+        do {
+            aVar.a(a, i2, j);
+            if (i != 0) {
+                a = null;
+            } else if (i2 != 2) {
+                a = null;
+            } else {
+                a = com.baidu.sofire.rp.b.a.a(aVar.b).a(i2);
+            }
+            if (a == null) {
+                return;
+            }
+        } while (a.size() != 0);
     }
 }

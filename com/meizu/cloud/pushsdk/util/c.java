@@ -3,8 +3,6 @@ package com.meizu.cloud.pushsdk.util;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.webkit.internal.ETAG;
 import com.meizu.cloud.pushsdk.PushManager;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.notification.MPushMessage;
@@ -50,8 +48,8 @@ public class c {
         HashMap hashMap = new HashMap();
         hashMap.put("taskId", str3);
         hashMap.put("deviceId", str2);
-        hashMap.put(HttpConstants.TIMESTAMP, String.valueOf(System.currentTimeMillis() / 1000));
-        hashMap.put(ETAG.KEY_PACKAGE_NAME, str);
+        hashMap.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+        hashMap.put("package_name", str);
         hashMap.put("pushsdk_version", str4);
         hashMap.put("push_info", str5);
         hashMap.put("push_info_type", String.valueOf(i));
@@ -85,8 +83,8 @@ public class c {
         if (TextUtils.isEmpty(str6)) {
             str6 = String.valueOf(System.currentTimeMillis() / 1000);
         }
-        hashMap.put(HttpConstants.TIMESTAMP, str6);
-        hashMap.put(ETAG.KEY_PACKAGE_NAME, str);
+        hashMap.put("timestamp", str6);
+        hashMap.put("package_name", str);
         hashMap.put("pushsdk_version", PushManager.TAG);
         if (!TextUtils.isEmpty(str4)) {
             hashMap.put("seq_id", str4);
@@ -98,7 +96,7 @@ public class c {
     public static void a(Context context, String str, Map<String, String> map) {
         com.meizu.cloud.a.a.e("UxIPUtils", "onLogEvent eventName [" + str + "] properties = " + map);
         if (!"notification_service_message".equals(str)) {
-            com.meizu.cloud.pushsdk.pushtracer.a.a(context, (d) null).a(((b.a) com.meizu.cloud.pushsdk.pushtracer.b.b.d().a(str).a(Long.valueOf(map.get(HttpConstants.TIMESTAMP)).longValue())).c(map.get("deviceId")).e(map.get(ETAG.KEY_PACKAGE_NAME)).d(map.get("pushsdk_version")).b(map.get("taskId")).f(TextUtils.isEmpty(map.get("seq_id")) ? "null" : map.get("seq_id")).g(String.valueOf(b.g(context, map.get(ETAG.KEY_PACKAGE_NAME)))).b());
+            com.meizu.cloud.pushsdk.pushtracer.a.a(context, (d) null).a(((b.a) com.meizu.cloud.pushsdk.pushtracer.b.b.d().a(str).a(Long.valueOf(map.get("timestamp")).longValue())).c(map.get("deviceId")).e(map.get("package_name")).d(map.get("pushsdk_version")).b(map.get("taskId")).f(TextUtils.isEmpty(map.get("seq_id")) ? "null" : map.get("seq_id")).g(String.valueOf(b.g(context, map.get("package_name")))).b());
         }
     }
 }

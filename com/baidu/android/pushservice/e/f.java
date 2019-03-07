@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.PushSettings;
-import com.baidu.mobstat.Config;
-import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class f extends d {
@@ -69,7 +67,7 @@ public class f extends d {
         }
         hashMap.put("manufacture", Build.MANUFACTURER);
         if (com.baidu.android.pushservice.j.m.f()) {
-            hashMap.put(Config.ROM, com.baidu.android.pushservice.j.m.C(this.a));
+            hashMap.put("rom", com.baidu.android.pushservice.j.m.C(this.a));
         }
         if (com.baidu.android.pushservice.j.m.F(this.a)) {
             hashMap.put("connect_version", "3");
@@ -79,7 +77,7 @@ public class f extends d {
         hashMap.put("sdk_int", Build.VERSION.SDK_INT + "");
         String str = this.b.e;
         if (!TextUtils.isEmpty(str) && str.length() <= 128) {
-            hashMap.put(ETAG.KEY_PACKAGE_NAME, str);
+            hashMap.put("package_name", str);
         }
         hashMap.put("app_alone_conn", (com.baidu.android.pushservice.a.d(this.a) ? 1 : 0) + "");
         if (!PushSettings.d(this.a)) {

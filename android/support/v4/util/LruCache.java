@@ -1,6 +1,5 @@
 package android.support.v4.util;
 
-import com.baidu.webkit.internal.ETAG;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -142,7 +141,7 @@ public class LruCache<K, V> {
     private int safeSizeOf(K k, V v) {
         int sizeOf = sizeOf(k, v);
         if (sizeOf < 0) {
-            throw new IllegalStateException("Negative size: " + k + ETAG.EQUAL + v);
+            throw new IllegalStateException("Negative size: " + k + "=" + v);
         }
         return sizeOf;
     }

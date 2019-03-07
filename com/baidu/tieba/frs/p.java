@@ -1,21 +1,17 @@
 package com.baidu.tieba.frs;
 
 import com.baidu.adp.BdUniqueId;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class p extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId dOj = BdUniqueId.gen();
-    private long dOk;
+    public static final BdUniqueId fbZ = BdUniqueId.gen();
+    private long fca;
 
-    @Override // com.baidu.adp.widget.ListView.h
+    @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return dOj;
+        return fbZ;
     }
 
-    public long aDn() {
-        return this.dOk;
-    }
-
-    public void bZ(long j) {
-        this.dOk = j;
+    public void cE(long j) {
+        this.fca = j;
     }
 }

@@ -12,9 +12,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -24,7 +22,8 @@ import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.net.NetworkInterface;
 import java.util.Collections;
-/* loaded from: classes6.dex */
+import org.apache.http.protocol.HTTP;
+/* loaded from: classes3.dex */
 public final class i {
     private static String A;
     private static String B;
@@ -99,18 +98,18 @@ public final class i {
         String encode;
         WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-        if (connectionInfo != null && Config.DEF_MAC_ID.equals(connectionInfo.getMacAddress())) {
+        if (connectionInfo != null && "02:00:00:00:00:00".equals(connectionInfo.getMacAddress())) {
             try {
-                String rx2 = rx();
-                if (rx2 != null) {
-                    encode = com.baidu.ubs.analytics.d.f.encode(rx2);
+                String rY = rY();
+                if (rY != null) {
+                    encode = com.baidu.ubs.analytics.d.f.encode(rY);
                 } else {
                     encode = com.baidu.ubs.analytics.d.f.encode(a(wifiManager));
                 }
                 return encode;
             } catch (Exception e) {
                 com.baidu.ubs.analytics.d.j.a(e);
-                return com.baidu.ubs.analytics.d.f.encode(Config.DEF_MAC_ID);
+                return com.baidu.ubs.analytics.d.f.encode("02:00:00:00:00:00");
             }
         } else if (connectionInfo != null && connectionInfo.getMacAddress() != null) {
             return com.baidu.ubs.analytics.d.f.encode(connectionInfo.getMacAddress());
@@ -119,7 +118,7 @@ public final class i {
         }
     }
 
-    private static String rx() {
+    private static String rY() {
         try {
             for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
                 if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
@@ -173,7 +172,7 @@ public final class i {
         StringWriter stringWriter = new StringWriter();
         char[] cArr = new char[2048];
         try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, HTTP.UTF_8));
             while (true) {
                 int read = bufferedReader.read(cArr);
                 if (read != -1) {
@@ -213,28 +212,28 @@ public final class i {
 
     public static String y() {
         if (TextUtils.isEmpty(z)) {
-            p(com.baidu.ubs.analytics.d.bTh().getContext());
+            p(com.baidu.ubs.analytics.d.csd().getContext());
         }
         return z;
     }
 
     public static String z() {
         if (TextUtils.isEmpty(A)) {
-            p(com.baidu.ubs.analytics.d.bTh().getContext());
+            p(com.baidu.ubs.analytics.d.csd().getContext());
         }
         return A;
     }
 
     public static String A() {
         if (TextUtils.isEmpty(B)) {
-            p(com.baidu.ubs.analytics.d.bTh().getContext());
+            p(com.baidu.ubs.analytics.d.csd().getContext());
         }
         return B;
     }
 
     private static void p(Context context) {
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        ((WindowManager) context.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay().getMetrics(displayMetrics);
+        ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
         z = String.valueOf(displayMetrics.widthPixels);
         A = String.valueOf(displayMetrics.heightPixels);
         B = String.valueOf(displayMetrics.density);

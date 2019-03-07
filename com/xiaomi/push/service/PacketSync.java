@@ -3,9 +3,6 @@ package com.xiaomi.push.service;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.searchbox.ng.ai.apps.network.WebSocketAction;
-import com.baidu.searchbox.ng.ai.apps.statistic.AiAppsUBCStatistic;
-import com.coremedia.iso.boxes.AuthorBox;
 import com.xiaomi.network.Fallback;
 import com.xiaomi.network.HostManager;
 import com.xiaomi.push.protobuf.b;
@@ -87,7 +84,7 @@ public class PacketSync {
             if (p != null) {
                 String m = dVar.m();
                 String a = p.a("type");
-                String a2 = p.a(WebSocketAction.PARAM_KEY_REASON);
+                String a2 = p.a("reason");
                 com.xiaomi.channel.commonutils.logger.b.a("kicked by server, chid=" + l + " userid=" + m + " type=" + a + " reason=" + a2);
                 if (!"wait".equals(a)) {
                     this.a.a(l, m, 3, a2, a);
@@ -143,7 +140,7 @@ public class PacketSync {
                     }
                     return;
                 } else if ("CONF".equals(bVar.b())) {
-                    at.a().a(b.C0393b.b(bVar.k()));
+                    at.a().a(b.C0369b.b(bVar.k()));
                     return;
                 } else if (TextUtils.equals("U", bVar.b())) {
                     b.k b3 = b.k.b(bVar.k());
@@ -213,14 +210,14 @@ public class PacketSync {
                             return;
                         }
                         String f2 = b7.f();
-                        if (AuthorBox.TYPE.equals(f2)) {
+                        if ("auth".equals(f2)) {
                             if ("invalid-sig".equals(b7.h())) {
                                 com.xiaomi.channel.commonutils.logger.b.a("SMACK: bind error invalid-sig token = " + b8.c + " sec = " + b8.i);
                                 com.xiaomi.stats.h.a(0, com.xiaomi.push.thrift.a.BIND_INVALID_SIG.a(), 1, null, 0);
                             }
                             b8.a(ak.c.unbind, 1, 5, b7.h(), f2);
                             ak.a().a(num, j2);
-                        } else if (AiAppsUBCStatistic.VALUE_CANCEL.equals(f2)) {
+                        } else if ("cancel".equals(f2)) {
                             b8.a(ak.c.unbind, 1, 7, b7.h(), f2);
                             ak.a().a(num, j2);
                         } else if ("wait".equals(f2)) {

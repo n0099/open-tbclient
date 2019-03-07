@@ -1,10 +1,10 @@
 package com.baidu.tieba.im.data;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.h;
+import com.baidu.adp.widget.ListView.m;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
-public class GroupPermData implements h, Serializable {
+/* loaded from: classes3.dex */
+public class GroupPermData implements m, Serializable {
     public static final BdUniqueId TYPE_FRS_CREATE_GROUP = BdUniqueId.gen();
     private static final long serialVersionUID = 5660832418912851013L;
     private int canCreateNormal;
@@ -119,7 +119,7 @@ public class GroupPermData implements h, Serializable {
         this.canCreatePersonalNum = i;
     }
 
-    @Override // com.baidu.adp.widget.ListView.h
+    @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
         return TYPE_FRS_CREATE_GROUP;
     }

@@ -2,11 +2,12 @@ package com.baidu.sapi2.utils;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
+import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,6 +17,24 @@ public class SapiStatUtil {
     public static final String LOGIN_STATUS_BDUSS_VALIDATE = "0";
     public static final String LOGIN_STATUS_NO_LOGIN = "1";
     public static final String LOGIN_STATUS_UNKNOWN = "3";
+
+    /* loaded from: classes.dex */
+    public class a {
+        public static final String a = "cm_pre_phone";
+        public static final String b = "cm_pre_phone_errno";
+        public int c;
+        public String d;
+
+        public a() {
+        }
+    }
+
+    public static void statInit(a aVar) {
+        HashMap hashMap = new HashMap();
+        hashMap.put(a.a, aVar.c + "");
+        hashMap.put(a.b, aVar.d + "");
+        StatService.onEvent("pass_sdk_init", hashMap, false);
+    }
 
     public static void statShareV1Login(Context context, SapiAccount sapiAccount) {
         if (ShareCallPacking.LOGIN_TYPE_SHARE_V1_CHOICE.equals(SapiContext.getInstance(context).getAccountActionType())) {
@@ -45,8 +64,8 @@ public class SapiStatUtil {
         }
         HashMap hashMap = new HashMap();
         hashMap.put("account_size", list.size() + "");
-        hashMap.put("account_tpls", TextUtils.join(",", arrayList));
-        hashMap.put("account_apps", TextUtils.join(",", arrayList2));
+        hashMap.put("account_tpls", TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, arrayList));
+        hashMap.put("account_apps", TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, arrayList2));
         StatService.onEvent("share_v1_account_open", hashMap, false);
     }
 
@@ -93,14 +112,14 @@ public class SapiStatUtil {
 
     public static void statShareV2OtherFail(Context context, int i) {
         HashMap hashMap = new HashMap();
-        hashMap.put("error_code", i + "");
+        hashMap.put(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE, i + "");
         StatService.onEvent("share_v2_oauth_fail", hashMap, true);
     }
 
     public static void statThirdLoginEnter(SocialType socialType) {
         HashMap hashMap = new HashMap();
         hashMap.put("clientip", SapiUtils.getLocalIpAddress());
-        hashMap.put("client", HttpConstants.OS_TYPE_VALUE);
+        hashMap.put("client", "android");
         hashMap.put("social_type", socialType.getType() + "");
         if (SocialType.SINA_WEIBO_SSO == socialType) {
             hashMap.put("is_sso", "1");

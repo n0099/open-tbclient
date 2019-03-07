@@ -9,38 +9,38 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import com.baidu.tieba.f.a;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.tieba.f.b cxB;
+    private com.baidu.tieba.f.b dMv;
+    private boolean foy;
     private Context mContext;
-    private boolean mIsEnable;
     private BdUniqueId mPageId;
     private VelocityTracker mVelocityTracker;
-    private boolean bjB = false;
-    private a.InterfaceC0214a cxC = new a.InterfaceC0214a() { // from class: com.baidu.tieba.frs.gametab.b.1
-        final int cIM = (int) TbadkCoreApplication.getInst().getResources().getDimension(e.C0210e.ds98);
+    private boolean ctI = false;
+    private a.InterfaceC0243a dMw = new a.InterfaceC0243a() { // from class: com.baidu.tieba.frs.gametab.b.1
+        final int dWo = (int) TbadkCoreApplication.getInst().getResources().getDimension(d.e.ds98);
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0214a
-        public void ar(int i, int i2) {
-            if (Math.abs(i) <= Math.abs(i2) && ag(i2)) {
-                b.this.gT(false);
+        @Override // com.baidu.tieba.f.a.InterfaceC0243a
+        public void aR(int i, int i2) {
+            if (Math.abs(i) <= Math.abs(i2) && av(i2)) {
+                b.this.jr(false);
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0214a
-        public void as(int i, int i2) {
-            if (Math.abs(i) <= Math.abs(i2) && ag(i2)) {
-                b.this.gT(true);
+        @Override // com.baidu.tieba.f.a.InterfaceC0243a
+        public void aS(int i, int i2) {
+            if (Math.abs(i) <= Math.abs(i2) && av(i2)) {
+                b.this.jr(true);
             }
         }
 
-        @Override // com.baidu.tieba.f.a.InterfaceC0214a
-        public void at(int i, int i2) {
+        @Override // com.baidu.tieba.f.a.InterfaceC0243a
+        public void aT(int i, int i2) {
         }
 
-        private boolean ag(float f) {
+        private boolean av(float f) {
             return Math.abs(f) >= 10.0f;
         }
     };
@@ -48,14 +48,14 @@ public class b {
     public b(Context context, BdUniqueId bdUniqueId, boolean z) {
         this.mContext = context;
         this.mPageId = bdUniqueId;
-        this.mIsEnable = z;
-        if (this.mIsEnable) {
-            this.cxB = new com.baidu.tieba.f.b(context);
-            this.cxB.a(this.cxC);
+        this.foy = z;
+        if (this.foy) {
+            this.dMv = new com.baidu.tieba.f.b(context);
+            this.dMv.a(this.dMw);
         }
     }
 
-    public void d(View view, MotionEvent motionEvent) {
+    public void f(View view, MotionEvent motionEvent) {
         if (this.mVelocityTracker == null) {
             this.mVelocityTracker = VelocityTracker.obtain();
         }
@@ -68,15 +68,15 @@ public class b {
             case 2:
                 this.mVelocityTracker.computeCurrentVelocity(1000);
                 if (Math.abs(this.mVelocityTracker.getXVelocity()) > Math.abs(this.mVelocityTracker.getYVelocity())) {
-                    this.mIsEnable = false;
+                    this.foy = false;
                     break;
                 } else {
-                    this.mIsEnable = true;
+                    this.foy = true;
                     break;
                 }
         }
-        if (this.mIsEnable && this.cxB != null) {
-            this.cxB.onTouchEvent(motionEvent);
+        if (this.foy && this.dMv != null) {
+            this.dMv.onTouchEvent(motionEvent);
         }
     }
 
@@ -89,14 +89,14 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void gT(boolean z) {
-        this.bjB = z;
-        if (this.mIsEnable) {
-            o(!this.bjB, true);
+    public void jr(boolean z) {
+        this.ctI = z;
+        if (this.foy) {
+            s(!this.ctI, true);
         }
     }
 
-    private void o(boolean z, boolean z2) {
+    private void s(boolean z, boolean z2) {
         if (z) {
             CustomMessage customMessage = new CustomMessage(2001617);
             customMessage.setTag(this.mPageId);

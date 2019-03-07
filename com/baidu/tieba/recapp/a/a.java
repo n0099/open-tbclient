@@ -5,52 +5,52 @@ import android.text.TextUtils;
 import com.baidu.adp.base.d;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.a.h;
+import com.baidu.tbadk.b.h;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.x;
 import java.util.HashMap;
 import java.util.Set;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a extends com.baidu.tbadk.a.a {
+public class a extends com.baidu.tbadk.b.a {
     private String mKey;
 
     public a(String str) {
         this.mKey = str;
     }
 
-    @Override // com.baidu.tbadk.a.a
+    @Override // com.baidu.tbadk.b.a
     public String key() {
         Uri parse = Uri.parse(this.mKey);
         return parse != null ? parse.getAuthority() + parse.getPath() : "";
     }
 
-    @Override // com.baidu.tbadk.a.a, com.baidu.tbadk.a.f
+    @Override // com.baidu.tbadk.b.a, com.baidu.tbadk.b.f
     public void a(Object obj, HashMap<String, String> hashMap, String str, d dVar) {
         if (hashMap != null && !hashMap.isEmpty() && hashMap.containsKey("url")) {
             String str2 = hashMap.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                C0304a c0304a = new C0304a(str, str2, hashMap, dVar);
-                c0304a.setPriority(2);
-                c0304a.execute(new Object[0]);
+                C0299a c0299a = new C0299a(str, str2, hashMap, dVar);
+                c0299a.setPriority(2);
+                c0299a.execute(new Object[0]);
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.recapp.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class C0304a extends BdAsyncTask<Object, Integer, h> {
-        private String ama;
-        private HashMap<String, String> fpo;
-        private d fpp;
+    private class C0299a extends BdAsyncTask<Object, Integer, h> {
+        private String bsH;
+        private HashMap<String, String> gFt;
+        private d gFu;
         private volatile x mNetwork = null;
         private String postUrl;
 
-        public C0304a(String str, String str2, HashMap<String, String> hashMap, d dVar) {
-            this.ama = str;
+        public C0299a(String str, String str2, HashMap<String, String> hashMap, d dVar) {
+            this.bsH = str;
             this.postUrl = str2;
-            this.fpo = hashMap;
-            this.fpp = dVar;
+            this.gFt = hashMap;
+            this.gFu = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -61,39 +61,39 @@ public class a extends com.baidu.tbadk.a.a {
             h hVar = new h();
             try {
                 this.mNetwork = new x(this.postUrl);
-                Set<String> keySet = this.fpo.keySet();
+                Set<String> keySet = this.gFt.keySet();
                 if (keySet.size() > 0) {
                     for (String str : keySet) {
                         if (!"url".equalsIgnoreCase(str)) {
-                            this.mNetwork.x(str, this.fpo.get(str));
+                            this.mNetwork.x(str, this.gFt.get(str));
                         }
                     }
                 }
                 this.mNetwork.x("user_name", TbadkCoreApplication.getCurrentAccountName());
                 this.mNetwork.x("user_id", TbadkCoreApplication.getCurrentAccount());
-                this.mNetwork.Dw().Eu().mIsNeedTbs = true;
-                String CY = this.mNetwork.CY();
-                if (!this.mNetwork.Dw().Ev().Dz()) {
-                    hVar.errorCode = this.mNetwork.DB();
-                    hVar.errorString = this.mNetwork.Da();
+                this.mNetwork.acH().adF().mIsNeedTbs = true;
+                String acj = this.mNetwork.acj();
+                if (!this.mNetwork.acH().adG().acK()) {
+                    hVar.errorCode = this.mNetwork.acM();
+                    hVar.errorString = this.mNetwork.acl();
                 } else {
-                    hVar.errorCode = this.mNetwork.DA();
+                    hVar.errorCode = this.mNetwork.acL();
                     hVar.errorString = this.mNetwork.getErrorString();
                 }
-                if (this.mNetwork.Dw().Ev().isRequestSuccess() && !TextUtils.isEmpty(CY)) {
-                    JSONObject jSONObject = new JSONObject(CY);
+                if (this.mNetwork.acH().adG().isRequestSuccess() && !TextUtils.isEmpty(acj)) {
+                    JSONObject jSONObject = new JSONObject(acj);
                     if (jSONObject.has("code")) {
                         if (jSONObject.optInt("code", -1) == 0) {
-                            hVar.amb = true;
-                            hVar.ama = this.ama;
+                            hVar.result = true;
+                            hVar.bsH = this.bsH;
                             return hVar;
                         }
                         String str2 = "";
                         if (jSONObject.has("msg")) {
                             str2 = jSONObject.optString("msg", "");
                         }
-                        hVar.amb = false;
-                        hVar.ama = this.ama;
+                        hVar.result = false;
+                        hVar.bsH = this.bsH;
                         hVar.errorString = str2;
                         return hVar;
                     }
@@ -101,8 +101,8 @@ public class a extends com.baidu.tbadk.a.a {
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
-            hVar.amb = false;
-            hVar.ama = this.ama;
+            hVar.result = false;
+            hVar.bsH = this.bsH;
             return hVar;
         }
 
@@ -111,8 +111,8 @@ public class a extends com.baidu.tbadk.a.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(h hVar) {
-            if (this.fpp != null) {
-                this.fpp.m(hVar);
+            if (this.gFu != null) {
+                this.gFu.m(hVar);
             }
         }
 
@@ -120,20 +120,20 @@ public class a extends com.baidu.tbadk.a.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            if (this.fpp != null) {
-                this.fpp.m(null);
+            if (this.gFu != null) {
+                this.gFu.m(null);
             }
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             if (this.mNetwork != null) {
-                this.mNetwork.jg();
+                this.mNetwork.ji();
                 this.mNetwork = null;
             }
             super.cancel(true);
-            if (this.fpp != null) {
-                this.fpp.m(null);
+            if (this.gFu != null) {
+                this.gFu.m(null);
             }
         }
     }

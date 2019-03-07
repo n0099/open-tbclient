@@ -14,7 +14,7 @@ public final class b {
             sb.append(": " + str);
         }
         String sb2 = sb.toString();
-        p.i(sb2, "sb.toString()");
+        p.j(sb2, "sb.toString()");
         return sb2;
     }
 }

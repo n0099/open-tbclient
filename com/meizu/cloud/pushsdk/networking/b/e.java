@@ -4,6 +4,9 @@ import com.meizu.cloud.pushsdk.networking.b.k;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpHead;
+import org.apache.http.client.methods.HttpPut;
 /* loaded from: classes3.dex */
 public class e implements a {
     i a;
@@ -70,14 +73,14 @@ public class e implements a {
                 b(httpURLConnection, iVar);
                 return;
             case 2:
-                httpURLConnection.setRequestMethod("PUT");
+                httpURLConnection.setRequestMethod(HttpPut.METHOD_NAME);
                 b(httpURLConnection, iVar);
                 return;
             case 3:
-                httpURLConnection.setRequestMethod("DELETE");
+                httpURLConnection.setRequestMethod(HttpDelete.METHOD_NAME);
                 return;
             case 4:
-                httpURLConnection.setRequestMethod("HEAD");
+                httpURLConnection.setRequestMethod(HttpHead.METHOD_NAME);
                 return;
             case 5:
                 httpURLConnection.setRequestMethod("PATCH");

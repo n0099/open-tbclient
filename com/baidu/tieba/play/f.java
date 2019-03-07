@@ -9,6 +9,8 @@ public interface f {
 
     View getVideoContainer();
 
+    boolean isFullScreen();
+
     boolean isPlayStarted();
 
     boolean isPlaying();

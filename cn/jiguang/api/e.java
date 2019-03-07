@@ -6,7 +6,6 @@ import android.os.Build;
 import android.os.Bundle;
 import cn.jiguang.d.d.aa;
 import cn.jiguang.d.d.l;
-import com.baidu.searchbox.ng.ai.apps.system.bluetooth.utils.AiAppsBluetoothConstants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.util.List;
 import org.json.JSONArray;
@@ -14,10 +13,6 @@ import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class e {
     public static String a = "cn.jpush.android.intent.DaemonService";
-
-    public static void A(int i) {
-        cn.jiguang.a.c.a.a(i);
-    }
 
     public static void F(String str) {
         cn.jiguang.d.h.i.a(str, 4, -1);
@@ -29,7 +24,7 @@ public class e {
             bundle.putString("sdktype", str);
             bundle.putByteArray(IntentConfig.DATAS, bArr);
             bundle.putInt(IntentConfig.CMD, i);
-            l.bZ().d(context, "senddata.action", bundle);
+            l.bY().d(context, "senddata.action", bundle);
         } catch (Throwable th) {
             cn.jiguang.e.c.c("JCoreInterface", "sendData failed", th);
         }
@@ -42,7 +37,7 @@ public class e {
         }
         try {
             bundle.putString("sdktype", str);
-            l.bZ().d(context, z ? "intent.RESTOREPUSH" : "intent.INIT", bundle);
+            l.bY().d(context, z ? "intent.RESTOREPUSH" : "intent.INIT", bundle);
         } catch (Throwable th) {
             cn.jiguang.e.c.c("JCoreInterface", "restart failed", th);
         }
@@ -80,8 +75,8 @@ public class e {
             Bundle bundle = new Bundle();
             bundle.putString("sdktype", str);
             bundle.putByteArray(IntentConfig.DATAS, bArr);
-            bundle.putInt(AiAppsBluetoothConstants.KEY_TIME_OUT, i);
-            l.bZ().d(context, "sendrequestdata.action", bundle);
+            bundle.putInt("timeout", i);
+            l.bY().d(context, "sendrequestdata.action", bundle);
         } catch (Throwable th) {
             cn.jiguang.e.c.c("JCoreInterface", "sendRequestData failed", th);
         }
@@ -90,7 +85,7 @@ public class e {
     public static void b(Context context, String str, Bundle bundle) {
         try {
             bundle.putString("sdktype", str);
-            l.bZ().d(context, "run.action", bundle);
+            l.bY().d(context, "run.action", bundle);
         } catch (Throwable th) {
             cn.jiguang.e.c.c("JCoreInterface", "sendAction failed", th);
         }
@@ -159,7 +154,7 @@ public class e {
     public static void c(Context context, String str, Bundle bundle) {
         try {
             bundle.putString("sdktype", str);
-            l.bZ().d(context, "intent.STOPPUSH", bundle);
+            l.bY().d(context, "intent.STOPPUSH", bundle);
         } catch (Throwable th) {
             cn.jiguang.e.c.c("JCoreInterface", "stop failed", th);
         }
@@ -169,19 +164,19 @@ public class e {
         cn.jiguang.d.d.e.b(str, cls.getName());
     }
 
-    public static JSONObject d(JSONObject jSONObject, String str) {
-        return aa.a(cn.jiguang.d.a.d, jSONObject, str);
-    }
-
     public static void d(Context context, int i) {
         try {
             Bundle bundle = new Bundle();
             bundle.putString("sdktype", cn.jiguang.d.a.a);
             bundle.putInt("key_trigger_scene", i);
-            l.bZ().d(context, "cn.jpush.android.intent.check.notification.state", bundle);
+            l.bY().d(context, "cn.jpush.android.intent.check.notification.state", bundle);
         } catch (Throwable th) {
             cn.jiguang.e.c.c("JCoreInterface", "triggerSceneCheck to pushservice error", th);
         }
+    }
+
+    public static JSONObject e(JSONObject jSONObject, String str) {
+        return aa.a(cn.jiguang.d.a.d, jSONObject, str);
     }
 
     public static String getAppKey() {
@@ -221,6 +216,10 @@ public class e {
         a("SDK_MAIN", new cn.jiguang.d.c(context, 2), new int[0]);
     }
 
+    public static void j(int i) {
+        cn.jiguang.a.c.a.a(i);
+    }
+
     public static void onFragmentPause(Context context, String str) {
         cn.jiguang.d.a.c(context);
         cn.jiguang.a.a.d.b.br().b(context, str);
@@ -253,7 +252,7 @@ public class e {
     }
 
     public static void register(Context context) {
-        l.bZ().d(context, "intent.INIT", new Bundle());
+        l.bY().d(context, "intent.INIT", new Bundle());
     }
 
     public static void requestPermission(Context context) {
@@ -277,7 +276,7 @@ public class e {
 
     public static void setDaemonAction(String str) {
         a = str;
-        cn.jiguang.d.i.f.ck().cl().c(str);
+        cn.jiguang.d.i.f.cj().ck().c(str);
     }
 
     public static void setDebugMode(boolean z) {
@@ -298,7 +297,7 @@ public class e {
             Bundle bundle = new Bundle();
             bundle.putString("sdktype", cn.jiguang.d.a.a);
             bundle.putBoolean("key_power_save", z);
-            l.bZ().d(context, "intent.power.save", bundle);
+            l.bY().d(context, "intent.power.save", bundle);
         } catch (Throwable th) {
             cn.jiguang.e.c.c("JCoreInterface", "setDozeAndPowerEnable to pushservice error", th);
         }
@@ -309,6 +308,6 @@ public class e {
     }
 
     public static void w(boolean z) {
-        cn.jiguang.d.i.f.ck().cl().a(z);
+        cn.jiguang.d.i.f.cj().ck().a(z);
     }
 }

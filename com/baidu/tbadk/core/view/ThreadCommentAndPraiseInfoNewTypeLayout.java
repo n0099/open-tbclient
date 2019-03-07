@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import com.baidu.tbadk.core.data.bb;
-/* loaded from: classes6.dex */
+import com.baidu.tbadk.core.data.bg;
+/* loaded from: classes3.dex */
 public class ThreadCommentAndPraiseInfoNewTypeLayout extends ThreadCommentAndPraiseInfoLayout {
     public ThreadCommentAndPraiseInfoNewTypeLayout(Context context) {
         super(context);
@@ -28,64 +28,64 @@ public class ThreadCommentAndPraiseInfoNewTypeLayout extends ThreadCommentAndPra
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void updatePraiseNum(bb bbVar) {
-        super.updatePraiseNum(bbVar);
-        if (this.aFH != null && this.aJW) {
-            if (this.aFH.getLayoutParams() != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aFH.getLayoutParams();
+    public void updatePraiseNum(bg bgVar) {
+        super.updatePraiseNum(bgVar);
+        if (this.bNr != null && this.bSw) {
+            if (this.bNr.getLayoutParams() != null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bNr.getLayoutParams();
                 layoutParams.width = -2;
                 layoutParams.leftMargin = 0;
                 layoutParams.weight = 0.0f;
-                this.aFH.setLayoutParams(layoutParams);
+                this.bNr.setLayoutParams(layoutParams);
             }
-            ImageView imageView = this.aFH.aGb;
+            ImageView imageView = this.bNr.bOj;
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) imageView.getLayoutParams();
-            layoutParams2.leftMargin = this.aJz;
+            layoutParams2.leftMargin = this.bRY;
             imageView.setLayoutParams(layoutParams2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void g(bb bbVar) {
-        super.g(bbVar);
-        if (this.aJF != null && this.aKa) {
-            this.aJF.setVisibility(0);
-            if (this.aJF.getLayoutParams() != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aJF.getLayoutParams();
+    public void p(bg bgVar) {
+        super.p(bgVar);
+        if (this.bSf != null && this.bSA) {
+            this.bSf.setVisibility(0);
+            if (this.bSf.getLayoutParams() != null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bSf.getLayoutParams();
                 layoutParams.width = -2;
-                layoutParams.leftMargin = this.aJz;
+                layoutParams.leftMargin = this.bRY;
                 layoutParams.weight = 0.0f;
-                this.aJF.setLayoutParams(layoutParams);
+                this.bSf.setLayoutParams(layoutParams);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void h(bb bbVar) {
-        super.h(bbVar);
-        if (this.aJI != null && this.aKc && this.aJI.getLayoutParams() != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aJI.getLayoutParams();
+    public void o(bg bgVar) {
+        super.o(bgVar);
+        if (this.bSi != null && this.bSC && this.bSi.getLayoutParams() != null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bSi.getLayoutParams();
             layoutParams.width = -2;
-            layoutParams.leftMargin = this.aJz;
+            layoutParams.leftMargin = this.bRY;
             layoutParams.weight = 0.0f;
-            this.aJI.setLayoutParams(layoutParams);
+            this.bSi.setLayoutParams(layoutParams);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void i(bb bbVar) {
-        super.i(bbVar);
-        if (this.aJP != null && this.aKd) {
-            this.aJP.setVisibility(0);
-            if (this.aJP.getLayoutParams() != null) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.aJP.getLayoutParams();
+    public void q(bg bgVar) {
+        super.q(bgVar);
+        if (this.bSp != null && this.bSD) {
+            this.bSp.setVisibility(0);
+            if (this.bSp.getLayoutParams() != null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.bSp.getLayoutParams();
                 layoutParams.width = -2;
-                layoutParams.leftMargin = this.aJz;
+                layoutParams.leftMargin = this.bRY;
                 layoutParams.weight = 0.0f;
-                this.aJP.setLayoutParams(layoutParams);
+                this.bSp.setLayoutParams(layoutParams);
             }
         }
     }

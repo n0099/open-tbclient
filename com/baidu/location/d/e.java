@@ -3,12 +3,9 @@ package com.baidu.location.d;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.fsg.base.widget.textfilter.EditTextPasteFilterUtils;
 import com.baidu.location.Address;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Poi;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppDateTimeUtil;
-import com.baidu.webkit.internal.ETAG;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,33 +13,33 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class e {
     private static final String[] a = {"CoorType", "Time", "LocType", "Longitude", "Latitude", "Radius", "NetworkLocationType", "Country", "CountryCode", "Province", "City", "CityCode", "District", "Street", "StreetNumber", "PoiList", "LocationDescription"};
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         final String a;
-        final BDLocation aft;
-        final LinkedHashMap<String, Integer> afu;
         final String b;
         final boolean c;
         final boolean d;
         final boolean e;
         final int f;
+        final BDLocation g;
         final boolean h;
+        final LinkedHashMap<String, Integer> i;
 
         public a(String[] strArr) {
             boolean z;
             if (strArr == null) {
                 this.a = null;
                 this.b = null;
-                this.afu = null;
+                this.i = null;
                 this.c = false;
                 this.d = false;
                 this.e = false;
-                this.aft = null;
+                this.g = null;
                 this.h = false;
                 this.f = 8;
                 return;
@@ -60,12 +57,12 @@ public final class e {
                 try {
                     if (strArr[i2].equals("-loc")) {
                         str2 = strArr[i2 + 1];
-                        String[] split = str2.split(ETAG.ITEM_SEPARATOR);
+                        String[] split = str2.split("&");
                         for (int i3 = 0; i3 < split.length; i3++) {
                             if (split[i3].startsWith("cl=")) {
                                 str = split[i3].substring(3);
                             } else if (split[i3].startsWith("wf=")) {
-                                for (String str3 : split[i3].substring(3).split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR)) {
+                                for (String str3 : split[i3].substring(3).split("\\|")) {
                                     String[] split2 = str3.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                                     if (split2.length >= 2) {
                                         linkedHashMap.put(split2[0], Integer.valueOf(split2[1]));
@@ -88,12 +85,12 @@ public final class e {
                                 z = false;
                                 this.a = str2;
                                 this.b = str;
-                                this.afu = linkedHashMap;
+                                this.i = linkedHashMap;
                                 this.c = z;
                                 this.d = z4;
                                 this.e = z3;
                                 this.f = i;
-                                this.aft = bDLocation;
+                                this.g = bDLocation;
                                 this.h = z2;
                             }
                         } else {
@@ -126,111 +123,18 @@ public final class e {
             z = true;
             this.a = str2;
             this.b = str;
-            this.afu = linkedHashMap;
+            this.i = linkedHashMap;
             this.c = z;
             this.d = z4;
             this.e = z3;
             this.f = i;
-            this.aft = bDLocation;
+            this.g = bDLocation;
             this.h = z2;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String a(BDLocation bDLocation, BDLocation bDLocation2, a aVar) {
-        StringBuffer stringBuffer = new StringBuffer();
-        if (bDLocation2 == null) {
-            stringBuffer.append("&ofcl=0");
-        } else {
-            stringBuffer.append(String.format(Locale.US, "&ofcl=1|%f|%f|%d", Double.valueOf(bDLocation2.getLongitude()), Double.valueOf(bDLocation2.getLatitude()), Integer.valueOf((int) bDLocation2.getRadius())));
-        }
-        if (bDLocation == null) {
-            stringBuffer.append("&ofwf=0");
-        } else {
-            stringBuffer.append(String.format(Locale.US, "&ofwf=1|%f|%f|%d", Double.valueOf(bDLocation.getLongitude()), Double.valueOf(bDLocation.getLatitude()), Integer.valueOf((int) bDLocation.getRadius())));
-        }
-        if (aVar == null || !aVar.e) {
-            stringBuffer.append("&rgcn=0");
-        } else {
-            stringBuffer.append("&rgcn=1");
-        }
-        if (aVar == null || !aVar.d) {
-            stringBuffer.append("&poin=0");
-        } else {
-            stringBuffer.append("&poin=1");
-        }
-        if (aVar == null || !aVar.h) {
-            stringBuffer.append("&desc=0");
-        } else {
-            stringBuffer.append("&desc=1");
-        }
-        if (aVar != null) {
-            stringBuffer.append(String.format(Locale.US, "&aps=%d", Integer.valueOf(aVar.f)));
-        }
-        return stringBuffer.toString();
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String[] a(com.baidu.location.e.a aVar, com.baidu.location.e.e eVar, BDLocation bDLocation, String str, boolean z, int i) {
-        ArrayList arrayList = new ArrayList();
-        StringBuffer stringBuffer = new StringBuffer();
-        if (aVar != null) {
-            stringBuffer.append(com.baidu.location.e.b.tP().g(aVar));
-        }
-        if (eVar != null) {
-            stringBuffer.append(eVar.a(30));
-        }
-        if (stringBuffer.length() > 0) {
-            if (str != null) {
-                stringBuffer.append(str);
-            }
-            arrayList.add("-loc");
-            arrayList.add(stringBuffer.toString());
-        }
-        if (bDLocation != null) {
-            String format = String.format(Locale.US, "%f;%f;%d;%s", Double.valueOf(bDLocation.getLatitude()), Double.valueOf(bDLocation.getLongitude()), Integer.valueOf(bDLocation.getLocType()), bDLocation.getNetworkLocationType());
-            arrayList.add("-com");
-            arrayList.add(format);
-        }
-        if (z) {
-            arrayList.add("-log");
-            arrayList.add("true");
-        }
-        if (com.baidu.location.g.g.g.equals("all")) {
-            arrayList.add("-rgc");
-            arrayList.add("true");
-        }
-        if (com.baidu.location.g.g.j) {
-            arrayList.add("-poi");
-            arrayList.add("true");
-        }
-        if (com.baidu.location.g.g.h) {
-            arrayList.add("-des");
-            arrayList.add("true");
-        }
-        arrayList.add("-minap");
-        arrayList.add(Integer.toString(i));
-        String[] strArr = new String[arrayList.size()];
-        arrayList.toArray(strArr);
-        return strArr;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static String b(BDLocation bDLocation, int i) {
-        if (bDLocation == null || bDLocation.getLocType() == 67) {
-            return String.format(Locale.CHINA, "&ofl=%s|%d", "1", Integer.valueOf(i));
-        }
-        String format = String.format(Locale.CHINA, "&ofl=%s|%d|%f|%f|%d", "1", Integer.valueOf(i), Double.valueOf(bDLocation.getLongitude()), Double.valueOf(bDLocation.getLatitude()), Integer.valueOf((int) bDLocation.getRadius()));
-        String str = bDLocation.getAddress() != null ? format + "&ofaddr=" + bDLocation.getAddress().address : format;
-        if (bDLocation.getPoiList() != null && bDLocation.getPoiList().size() > 0) {
-            Poi poi = bDLocation.getPoiList().get(0);
-            str = str + String.format(Locale.US, "&ofpoi=%s|%s", poi.getId(), poi.getName());
-        }
-        return com.baidu.location.g.b.d != null ? str + String.format(Locale.US, "&pack=%s&sdk=%.3f", com.baidu.location.g.b.d, Float.valueOf(7.8f)) : str;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public static Cursor f(BDLocation bDLocation) {
+    public static Cursor a(BDLocation bDLocation) {
         String str;
         String str2;
         String str3;
@@ -239,7 +143,7 @@ public final class e {
         String str6;
         String str7;
         String str8;
-        String format = new SimpleDateFormat(AiAppDateTimeUtil.TIME_FORMAT, Locale.US).format(new Date(System.currentTimeMillis()));
+        String format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US).format(new Date(System.currentTimeMillis()));
         MatrixCursor matrixCursor = new MatrixCursor(a);
         Object[] objArr = new Object[a.length];
         objArr[matrixCursor.getColumnIndex("CoorType")] = "gcj02";
@@ -301,7 +205,7 @@ public final class e {
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, IF] complete} */
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static BDLocation i(Cursor cursor) {
+    public static BDLocation a(Cursor cursor) {
         BDLocation bDLocation = new BDLocation();
         if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
             bDLocation.setLocType(67);
@@ -324,7 +228,7 @@ public final class e {
                 String string8 = cursor.getString(cursor.getColumnIndex("PoiList"));
                 if (string8 != null) {
                     try {
-                        String[] split = string8.split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
+                        String[] split = string8.split("\\|");
                         for (String str : split) {
                             String[] split2 = str.split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                             if (split2.length >= 3) {
@@ -358,5 +262,98 @@ public final class e {
             bDLocation.setLocationDescribe(string9);
         }
         return bDLocation;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static String a(BDLocation bDLocation, int i) {
+        if (bDLocation == null || bDLocation.getLocType() == 67) {
+            return String.format(Locale.CHINA, "&ofl=%s|%d", "1", Integer.valueOf(i));
+        }
+        String format = String.format(Locale.CHINA, "&ofl=%s|%d|%f|%f|%d", "1", Integer.valueOf(i), Double.valueOf(bDLocation.getLongitude()), Double.valueOf(bDLocation.getLatitude()), Integer.valueOf((int) bDLocation.getRadius()));
+        String str = bDLocation.getAddress() != null ? format + "&ofaddr=" + bDLocation.getAddress().address : format;
+        if (bDLocation.getPoiList() != null && bDLocation.getPoiList().size() > 0) {
+            Poi poi = bDLocation.getPoiList().get(0);
+            str = str + String.format(Locale.US, "&ofpoi=%s|%s", poi.getId(), poi.getName());
+        }
+        return com.baidu.location.g.b.d != null ? str + String.format(Locale.US, "&pack=%s&sdk=%.3f", com.baidu.location.g.b.d, Float.valueOf(7.8f)) : str;
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static String a(BDLocation bDLocation, BDLocation bDLocation2, a aVar) {
+        StringBuffer stringBuffer = new StringBuffer();
+        if (bDLocation2 == null) {
+            stringBuffer.append("&ofcl=0");
+        } else {
+            stringBuffer.append(String.format(Locale.US, "&ofcl=1|%f|%f|%d", Double.valueOf(bDLocation2.getLongitude()), Double.valueOf(bDLocation2.getLatitude()), Integer.valueOf((int) bDLocation2.getRadius())));
+        }
+        if (bDLocation == null) {
+            stringBuffer.append("&ofwf=0");
+        } else {
+            stringBuffer.append(String.format(Locale.US, "&ofwf=1|%f|%f|%d", Double.valueOf(bDLocation.getLongitude()), Double.valueOf(bDLocation.getLatitude()), Integer.valueOf((int) bDLocation.getRadius())));
+        }
+        if (aVar == null || !aVar.e) {
+            stringBuffer.append("&rgcn=0");
+        } else {
+            stringBuffer.append("&rgcn=1");
+        }
+        if (aVar == null || !aVar.d) {
+            stringBuffer.append("&poin=0");
+        } else {
+            stringBuffer.append("&poin=1");
+        }
+        if (aVar == null || !aVar.h) {
+            stringBuffer.append("&desc=0");
+        } else {
+            stringBuffer.append("&desc=1");
+        }
+        if (aVar != null) {
+            stringBuffer.append(String.format(Locale.US, "&aps=%d", Integer.valueOf(aVar.f)));
+        }
+        return stringBuffer.toString();
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public static String[] a(com.baidu.location.e.a aVar, com.baidu.location.e.e eVar, BDLocation bDLocation, String str, boolean z, int i) {
+        ArrayList arrayList = new ArrayList();
+        StringBuffer stringBuffer = new StringBuffer();
+        if (aVar != null) {
+            stringBuffer.append(com.baidu.location.e.b.a().b(aVar));
+        }
+        if (eVar != null) {
+            stringBuffer.append(eVar.a(30));
+        }
+        if (stringBuffer.length() > 0) {
+            if (str != null) {
+                stringBuffer.append(str);
+            }
+            arrayList.add("-loc");
+            arrayList.add(stringBuffer.toString());
+        }
+        if (bDLocation != null) {
+            String format = String.format(Locale.US, "%f;%f;%d;%s", Double.valueOf(bDLocation.getLatitude()), Double.valueOf(bDLocation.getLongitude()), Integer.valueOf(bDLocation.getLocType()), bDLocation.getNetworkLocationType());
+            arrayList.add("-com");
+            arrayList.add(format);
+        }
+        if (z) {
+            arrayList.add("-log");
+            arrayList.add("true");
+        }
+        if (com.baidu.location.g.g.g.equals("all")) {
+            arrayList.add("-rgc");
+            arrayList.add("true");
+        }
+        if (com.baidu.location.g.g.j) {
+            arrayList.add("-poi");
+            arrayList.add("true");
+        }
+        if (com.baidu.location.g.g.h) {
+            arrayList.add("-des");
+            arrayList.add("true");
+        }
+        arrayList.add("-minap");
+        arrayList.add(Integer.toString(i));
+        String[] strArr = new String[arrayList.size()];
+        arrayList.toArray(strArr);
+        return strArr;
     }
 }

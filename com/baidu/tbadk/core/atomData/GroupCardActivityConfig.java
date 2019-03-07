@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class GroupCardActivityConfig extends IntentConfig {
     public static String GROUP_PORTRAIT = "groupportrait";
 

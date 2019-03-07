@@ -15,6 +15,7 @@ public class CmdConfigHttp {
     public static final int CMD_AD_CLOSE = 1003322;
     public static final int CMD_AD_UPLOAD = 1003062;
     public static final int CMD_AFD_REQUEST_ASYNC = 1003397;
+    public static final int CMD_AGREE = 1003426;
     public static final int CMD_ALA_HTTP_BASE_CMD = 1021000;
     public static final int CMD_ALA_HTTP_MAX_CMD = 1030999;
     public static final int CMD_ALA_VERIFY_STRATEGY = 1003303;
@@ -41,7 +42,7 @@ public class CmdConfigHttp {
     public static final int CMD_CHECK_SHARE_SDK = 1003417;
     public static final int CMD_CHOSEN_PB_PRAISE = 1003007;
     public static final int CMD_CLIENT_CONFIG = 1003024;
-    public static final int CMD_COMPLETE_TASK = 1003423;
+    public static final int CMD_COMPLETE_TASK = 1003430;
     public static final int CMD_CONCERN_CHECK_RED_NOTIFY = 1003344;
     public static final int CMD_CONCERN_PAGE = 1003343;
     public static final int CMD_CONCERN_UNREAD_TIP = 1003387;
@@ -162,7 +163,10 @@ public class CmdConfigHttp {
     public static final int CMD_PERSON_POLYMERIC = 1003181;
     public static final int CMD_PLAY_DURATION_STATISTICS = 1003359;
     public static final int CMD_POST_SEARCH = 1003016;
+    public static final int CMD_PROFESSION_PERMISSION = 1003427;
+    public static final int CMD_RECOMMEND_FORUM = 1003428;
     public static final int CMD_RECOMMEND_PERSONALIZE = 1003070;
+    public static final int CMD_RECOMMEND_TEST_CLOSE = 1003429;
     public static final int CMD_REMOVE_ALL_FORBIDDEN_FANS = 1003407;
     public static final int CMD_REMOVE_FANS = 1003396;
     public static final int CMD_REPORT_HOME_PIC_CLICK = 1003072;
@@ -195,7 +199,10 @@ public class CmdConfigHttp {
     public static final int CMD_TAIL_UPDATE = 1003023;
     public static final int CMD_THEME_LIST_UPDATE = 1003038;
     public static final int CMD_TOPIC_BLESS = 1003065;
+    public static final int CMD_TOPIC_DETAIL = 1003424;
+    public static final int CMD_TOPIC_LIST = 1003423;
     public static final int CMD_TOPIC_RELATE_THREAD = 1003042;
+    public static final int CMD_TOPIC_THREAD = 1003425;
     public static final int CMD_TOP_THEME_LIST = 1003031;
     public static final int CMD_UEG_CANCEL = 1003414;
     public static final int CMD_UEG_REPORT = 1003402;
@@ -213,6 +220,7 @@ public class CmdConfigHttp {
     public static final int CMD_VIDEO_COVER_PENDANT = 1003377;
     public static final int CMD_VIDEO_HOLY_CARD = 1003400;
     public static final int CMD_VIDEO_MIDDLE_AGGREGATION = 1003378;
+    public static final int CMD_VIDEO_PASTER_AD_REQUEST = 1003431;
     public static final int CMD_VIDEO_SUG_MUSIC = 1003366;
     public static final int CMD_VIDEO_TEXT_UEG = 1003356;
     public static final int CMD_VOTE_EMOTION = 1003358;

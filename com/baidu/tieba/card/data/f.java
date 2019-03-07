@@ -2,23 +2,23 @@ package com.baidu.tieba.card.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.core.data.MetaData;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class f extends b {
-    public static BdUniqueId dbt = BdUniqueId.gen();
-    public static BdUniqueId dbu = BdUniqueId.gen();
-    public MetaData aun;
+    public static BdUniqueId elf = BdUniqueId.gen();
+    public static BdUniqueId elg = BdUniqueId.gen();
+    public MetaData bBE;
     public int type = 0;
     public int rank = 1;
 
-    @Override // com.baidu.adp.widget.ListView.h
+    @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
         switch (this.type) {
             case 0:
-                return dbt;
+                return elf;
             case 1:
-                return dbu;
+                return elg;
             default:
-                return dbt;
+                return elf;
         }
     }
 }

@@ -7,52 +7,53 @@ import com.baidu.poly.bean.PayChannel;
 import com.baidu.poly.d.a;
 import com.baidu.poly.d.a.d;
 import com.baidu.poly.d.a.e;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.baidu.searchbox.process.ipc.agent.activity.PluginDelegateActivity;
 import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
 import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
 import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.sina.weibo.sdk.statistic.LogBuilder;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements com.baidu.poly.d.a {
     private Activity activity;
-    int aiG = 0;
-    int aiH = 1;
+    int ahg = 0;
+    int ahh = 1;
 
     public a(Activity activity) {
         this.activity = activity;
     }
 
     @Override // com.baidu.poly.d.a
-    public void a(Map<String, String> map, String str, a.C0115a c0115a) {
+    public void a(Map<String, String> map, String str, a.C0054a c0054a) {
         try {
             String optString = new JSONObject(map).optString("extData");
             int optInt = TextUtils.isEmpty(optString) ? 0 : new JSONObject(optString).optInt("isNewCashier", 0);
-            if (optInt == this.aiG) {
-                b(map, str, c0115a);
-            } else if (optInt == this.aiH) {
-                a(m(map), str, c0115a);
+            if (optInt == this.ahg) {
+                b(map, str, c0054a);
+            } else if (optInt == this.ahh) {
+                a(l(map), str, c0054a);
             }
         } catch (Throwable th) {
-            c0115a.dk(th.getMessage());
+            c0054a.onFail(th.getMessage());
         }
     }
 
-    public void a(Bundle bundle, final String str, final a.C0115a c0115a) {
+    public void a(Bundle bundle, final String str, final a.C0054a c0054a) {
         bundle.putString("reqData", "{\"payChannel\": \"" + str + "\"}");
-        com.baidu.poly.a.a.a.uu().b(bundle, new com.baidu.poly.a.a<Map<String, String>>() { // from class: com.baidu.poly.d.b.a.1
+        com.baidu.poly.a.a.a.tw().b(bundle, new com.baidu.poly.a.a<Map<String, String>>() { // from class: com.baidu.poly.d.b.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.poly.a.a
             /* renamed from: k */
             public void onSuccess(Map<String, String> map) {
-                a.this.c(map, str, c0115a);
+                a.this.c(map, str, c0054a);
             }
         });
     }
 
-    private Bundle m(Map<String, String> map) {
+    private Bundle l(Map<String, String> map) {
         Bundle bundle = new Bundle();
         for (String str : map.keySet()) {
             bundle.putString(str, map.get(str));
@@ -60,47 +61,47 @@ public class a implements com.baidu.poly.d.a {
         return bundle;
     }
 
-    public void b(Map<String, String> map, String str, final a.C0115a c0115a) {
+    public void b(Map<String, String> map, String str, final a.C0054a c0054a) {
         JSONObject b = b(map, str);
         Bundle bundle = new Bundle();
-        bundle.putString("params", b.toString());
-        bundle.putString("channel", str);
+        bundle.putString(LegoListActivityConfig.PARAMS, b.toString());
+        bundle.putString(LogBuilder.KEY_CHANNEL, str);
         bundle.putBoolean(PluginDelegateActivity.ENABLE_FALLBACK_FINISH_KEY, false);
         DelegateUtils.callOnMainWithActivity(this.activity, PluginDelegateActivity.class, b.class, bundle, new DelegateListener() { // from class: com.baidu.poly.d.b.a.2
             @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
             public void onDelegateCallBack(DelegateResult delegateResult) {
                 Bundle bundle2 = delegateResult.mResult;
-                c0115a.onResult(bundle2.getInt("stateCode", 0), bundle2.getString("payDesc"));
+                c0054a.onResult(bundle2.getInt("stateCode", 0), bundle2.getString("payDesc"));
             }
         });
     }
 
-    public void c(final Map<String, String> map, String str, final a.C0115a c0115a) {
-        d ds = ds(str);
-        if (ds != null) {
-            ds.a(this.activity, map, new a.C0115a() { // from class: com.baidu.poly.d.b.a.3
-                @Override // com.baidu.poly.d.a.C0115a
+    public void c(final Map<String, String> map, String str, final a.C0054a c0054a) {
+        d de = de(str);
+        if (de != null) {
+            de.a(this.activity, map, new a.C0054a() { // from class: com.baidu.poly.d.b.a.3
+                @Override // com.baidu.poly.d.a.C0054a
                 public void onResult(int i, String str2) {
-                    c0115a.onResult(0, a.this.d(i, (String) map.get("payOrderNo"), str2));
+                    c0054a.onResult(0, a.this.b(i, (String) map.get("payOrderNo"), str2));
                 }
             });
         }
     }
 
-    public d ds(String str) {
+    public d de(String str) {
         if (PayChannel.ALIPAY.equalsIgnoreCase(str)) {
-            return com.baidu.poly.d.a.a.uG();
+            return com.baidu.poly.d.a.a.tI();
         }
         if (PayChannel.WECHAT.equalsIgnoreCase(str)) {
-            return e.uI();
+            return e.tK();
         }
         if (PayChannel.BAIFUBAO.equalsIgnoreCase(str)) {
-            return com.baidu.poly.d.a.b.uH();
+            return com.baidu.poly.d.a.b.tJ();
         }
         return null;
     }
 
-    public String d(int i, String str, String str2) {
+    public String b(int i, String str, String str2) {
         String str3;
         JSONObject jSONObject = new JSONObject();
         if (!TextUtils.isEmpty(str2)) {
@@ -109,7 +110,7 @@ public class a implements com.baidu.poly.d.a {
             str3 = "statcode={" + i + "};order_no={" + str + "};notify={" + str2 + "}";
         }
         try {
-            jSONObject.put(BaseRequestAction.PARAMS_STATUSCODE, i);
+            jSONObject.put("statusCode", i);
             jSONObject.put("responseData", str3);
         } catch (JSONException e) {
             e.printStackTrace();

@@ -12,22 +12,20 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.a.a;
 import com.baidu.tbadk.core.atomData.AdTbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ag;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.webkit.internal.ETAG;
+import com.baidu.tbadk.core.util.ap;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public class e {
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static String al(String str, String str2) {
+    public static String bs(String str, String str2) {
         String str3;
-        if (!str.startsWith("http://") && !str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
+        if (!str.startsWith("http://") && !str.startsWith("https://")) {
             str = "http://".concat(str);
         }
         if (str.contains("?")) {
@@ -43,7 +41,7 @@ public class e {
     }
 
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4, boolean z5) {
-        wR();
+        Vx();
         try {
             if (!StringUtils.isNull(str2)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AdTbWebViewActivityConfig(context, str, z5 ? appendVersionCode(appendCuidParam(str2)) : str2, z, z2, z3)));
@@ -53,7 +51,7 @@ public class e {
         }
     }
 
-    public static void ag(Context context, String str) {
+    public static void at(Context context, String str) {
         String appendVersionCode = appendVersionCode(appendCuidParam(str));
         try {
             Intent intent = new Intent("android.intent.action.VIEW");
@@ -68,11 +66,11 @@ public class e {
     }
 
     public static String appendCuidParam(String str) {
-        if (!ao.isEmpty(str) && str.indexOf("cuid=") <= -1) {
+        if (!ap.isEmpty(str) && str.indexOf("cuid=") <= -1) {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             if (str.indexOf("?") > 0) {
-                sb.append(ETAG.ITEM_SEPARATOR);
+                sb.append("&");
             } else {
                 sb.append("?");
             }
@@ -92,13 +90,13 @@ public class e {
     }
 
     public static String appendVersionCode(String str) {
-        return (ao.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
+        return (ap.isEmpty(str) || str.indexOf("_client_version=") <= -1) ? str + "&_client_version=" + TbConfig.getVersion() : str;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x00b3 -> B:33:0x001c). Please submit an issue!!! */
-    public static void br(Context context) {
+    public static void cF(Context context) {
         CookieManager cookieManager;
-        a.b ek = com.baidu.tbadk.core.a.a.xW().ek(TbadkCoreApplication.getCurrentBduss());
+        a.b kU = com.baidu.tbadk.core.a.a.WD().kU(TbadkCoreApplication.getCurrentBduss());
         try {
             CookieSyncManager.createInstance(TbadkCoreApplication.getInst());
             cookieManager = CookieManager.getInstance();
@@ -107,7 +105,7 @@ public class e {
             cookieManager = null;
         }
         if (cookieManager != null) {
-            if (ek != null) {
+            if (kU != null) {
                 cookieManager.setAcceptCookie(true);
                 cookieManager.setCookie("baidu.com", "CUID=" + TbadkCoreApplication.getInst().getCuid() + "; domain=.baidu.com; cuid_galaxy2=" + TbadkCoreApplication.getInst().getCuidGalaxy2() + "; cuid_gid=" + TbadkCoreApplication.getInst().getCuidGid() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
                 String c = com.baidu.tbadk.core.a.d.c(TbadkCoreApplication.getCurrentAccountInfo());
@@ -142,7 +140,7 @@ public class e {
         }
     }
 
-    private static void wR() {
+    private static void Vx() {
         new ag("open_webview", true).start();
     }
 }

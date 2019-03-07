@@ -32,7 +32,7 @@ public class f {
 
     /* loaded from: classes.dex */
     static class a implements e.a {
-        private LinkedList<g<?>> AF;
+        private LinkedList<g<?>> AE;
         private final int maxSize;
 
         public a(int i) {
@@ -46,7 +46,7 @@ public class f {
 
         @Override // com.baidu.adp.lib.cache.e.a
         public void is() {
-            this.AF = new LinkedList<>();
+            this.AE = new LinkedList<>();
         }
 
         @Override // com.baidu.adp.lib.cache.e.a
@@ -54,19 +54,19 @@ public class f {
             String str;
             int i;
             String str2 = null;
-            if (gVar.AM < System.currentTimeMillis()) {
-                return gVar.AH;
+            if (gVar.AK < System.currentTimeMillis()) {
+                return gVar.AG;
             }
-            this.AF.add(gVar);
-            if (this.AF.size() > getMaxSize()) {
+            this.AE.add(gVar);
+            if (this.AE.size() > getMaxSize()) {
                 long j = 0;
                 int i2 = 0;
                 int i3 = -1;
-                while (i2 < this.AF.size()) {
-                    g<?> gVar2 = this.AF.get(i2);
-                    if (i3 == -1 || gVar2.AK < j) {
-                        String str3 = gVar2.AH;
-                        j = gVar2.AK;
+                while (i2 < this.AE.size()) {
+                    g<?> gVar2 = this.AE.get(i2);
+                    if (i3 == -1 || gVar2.AJ < j) {
+                        String str3 = gVar2.AG;
+                        j = gVar2.AJ;
                         str = str3;
                         i = i2;
                     } else {
@@ -77,7 +77,7 @@ public class f {
                     i3 = i;
                     str2 = str;
                 }
-                this.AF.remove(i3);
+                this.AE.remove(i3);
                 return str2;
             }
             return null;
@@ -85,8 +85,8 @@ public class f {
 
         @Override // com.baidu.adp.lib.cache.e.a
         public void it() {
-            this.AF.clear();
-            this.AF = null;
+            this.AE.clear();
+            this.AE = null;
         }
 
         @Override // com.baidu.adp.lib.cache.e
@@ -97,7 +97,7 @@ public class f {
 
     /* loaded from: classes.dex */
     static class b implements e.b {
-        private HashMap<String, Long> AG = new HashMap<>();
+        private HashMap<String, Long> AF = new HashMap<>();
         private final int maxSize;
 
         public b(int i) {
@@ -118,10 +118,10 @@ public class f {
             String key;
             long j;
             String str2 = null;
-            if (!this.AG.containsKey(str) && this.AG.size() >= this.maxSize) {
+            if (!this.AF.containsKey(str) && this.AF.size() >= this.maxSize) {
                 synchronized (this) {
                     long j2 = -1;
-                    for (Map.Entry<String, Long> entry : this.AG.entrySet()) {
+                    for (Map.Entry<String, Long> entry : this.AF.entrySet()) {
                         long longValue = entry.getValue().longValue();
                         if (j2 == -1 || j2 > longValue) {
                             key = entry.getKey();
@@ -134,7 +134,7 @@ public class f {
                         j2 = j;
                     }
                     if (str2 != null) {
-                        this.AG.remove(str2);
+                        this.AF.remove(str2);
                     }
                 }
             }
@@ -143,9 +143,9 @@ public class f {
 
         @Override // com.baidu.adp.lib.cache.e.b
         public String e(g<?> gVar) {
-            String aC = aC(gVar.AH);
+            String aC = aC(gVar.AG);
             synchronized (this) {
-                this.AG.put(gVar.AH, Long.valueOf(gVar.AK));
+                this.AF.put(gVar.AG, Long.valueOf(gVar.AJ));
             }
             return aC;
         }
@@ -156,7 +156,7 @@ public class f {
 
         @Override // com.baidu.adp.lib.cache.e.b
         public String f(g<?> gVar) {
-            return gVar.AM < System.currentTimeMillis() ? gVar.AH : e(gVar);
+            return gVar.AK < System.currentTimeMillis() ? gVar.AG : e(gVar);
         }
 
         @Override // com.baidu.adp.lib.cache.e.b
@@ -166,7 +166,7 @@ public class f {
         @Override // com.baidu.adp.lib.cache.e.b
         public void release() {
             synchronized (this) {
-                this.AG.clear();
+                this.AF.clear();
             }
         }
     }

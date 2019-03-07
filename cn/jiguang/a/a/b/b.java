@@ -5,23 +5,23 @@ import android.telephony.SignalStrength;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class b extends PhoneStateListener {
-    final /* synthetic */ a kB;
+    final /* synthetic */ a kD;
 
     public b(a aVar) {
-        this.kB = aVar;
+        this.kD = aVar;
     }
 
     @Override // android.telephony.PhoneStateListener
     public final void onSignalStrengthsChanged(SignalStrength signalStrength) {
         super.onSignalStrengthsChanged(signalStrength);
-        this.kB.h = signalStrength.getGsmSignalStrength();
+        this.kD.h = signalStrength.getGsmSignalStrength();
         try {
-            this.kB.f();
-            this.kB.e();
-            this.kB.d();
+            this.kD.f();
+            this.kD.e();
+            this.kD.d();
         } catch (Throwable th) {
-            this.kB.e();
-            this.kB.d();
+            this.kD.e();
+            this.kD.d();
         }
     }
 }

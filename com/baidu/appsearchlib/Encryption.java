@@ -1,12 +1,12 @@
 package com.baidu.appsearchlib;
 
 import android.util.Base64;
-import com.baidu.ar.util.IoUtils;
 import com.baidu.sapi2.utils.SapiEnv;
 import java.io.UnsupportedEncodingException;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class Encryption {
     private static SecretKeySpec createKey(String str) {
@@ -23,7 +23,7 @@ public class Encryption {
             stringBuffer.setLength(16);
         }
         try {
-            bArr = stringBuffer.toString().getBytes("UTF-8");
+            bArr = stringBuffer.toString().getBytes(HTTP.UTF_8);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -35,7 +35,7 @@ public class Encryption {
             byte[] decode = Base64.decode(str, 0);
             Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
             cipher.init(2, createKey(Info.PASSWORD), new IvParameterSpec(Info.IV.getBytes()));
-            return new String(cipher.doFinal(decode), IoUtils.UTF_8);
+            return new String(cipher.doFinal(decode), "utf-8");
         } catch (Exception e) {
             e.printStackTrace();
             return null;

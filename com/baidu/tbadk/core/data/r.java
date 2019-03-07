@@ -1,37 +1,49 @@
 package com.baidu.tbadk.core.data;
 
-import java.util.ArrayList;
-import tbclient.FrsPage.ForumHeadlineImgInfo;
-/* loaded from: classes6.dex */
+import tbclient.FrsPage.ForumBookInfo;
+/* loaded from: classes3.dex */
 public class r {
-    private o arC;
-    private long threadId;
-    private long arx = 0;
-    private String ary = "";
-    private long arz = 0;
-    private String arA = "";
-    private String imgUrl = "";
-    private String arB = "";
+    private String author;
+    private int bxH;
+    private String bxT;
+    private String bxU;
+    private String bxV;
+    private String bxW;
+    private String bxX;
+    private String bxY;
+    private String bxZ;
+    private long bya;
+    private long byb;
+    private long byc;
+    private long byd;
+    private long bye;
+    private long byf;
 
-    public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
-        if (forumHeadlineImgInfo != null) {
-            this.threadId = forumHeadlineImgInfo.thread_id.longValue();
-            this.arx = forumHeadlineImgInfo.thread_user_id.longValue();
-            this.ary = forumHeadlineImgInfo.thread_user_name;
-            this.arz = forumHeadlineImgInfo.img_user_id.longValue();
-            this.arA = forumHeadlineImgInfo.img_user_name;
-            this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.arB = forumHeadlineImgInfo.headline_url;
-            this.arC = new o();
-            ArrayList<q> arrayList = new ArrayList<>();
-            q qVar = new q(this.imgUrl == null ? "" : this.imgUrl, this.arB == null ? "" : this.arB, null);
-            qVar.aZ(true);
-            arrayList.add(qVar);
-            this.arC.j(arrayList);
-        }
+    public String Xg() {
+        return this.bxT;
     }
 
-    public String yF() {
-        return this.imgUrl;
+    public int Xh() {
+        return this.bxH;
+    }
+
+    public void a(ForumBookInfo forumBookInfo) {
+        if (forumBookInfo != null) {
+            this.bxT = forumBookInfo.book_id;
+            this.bxH = forumBookInfo.book_type.intValue();
+            this.bxU = forumBookInfo.book_title;
+            this.bxV = forumBookInfo.book_cover;
+            this.author = forumBookInfo.author;
+            this.bxW = forumBookInfo.forum_pic;
+            this.bxX = forumBookInfo.show_chapter_id;
+            this.bxY = forumBookInfo.show_chapter_no;
+            this.bxZ = forumBookInfo.show_chapter_title;
+            this.bya = forumBookInfo.history_page_id.longValue();
+            this.byb = forumBookInfo.history_paragraph_id.longValue();
+            this.byc = forumBookInfo.history_word_id.longValue();
+            this.byd = forumBookInfo.history_percent.longValue();
+            this.bye = forumBookInfo.show_page_id.longValue();
+            this.byf = forumBookInfo.show_paragraph_id.longValue();
+        }
     }
 }

@@ -1,6 +1,5 @@
 package kotlin.collections;
 
-import com.baidu.webkit.internal.ETAG;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
@@ -8,7 +7,7 @@ import java.util.Set;
 import kotlin.TypeCastException;
 /* loaded from: classes2.dex */
 public abstract class e<K, V> implements Map<K, V> {
-    public static final a iCm = new a(null);
+    public static final a jRX = new a(null);
 
     public abstract Set getEntries();
 
@@ -93,7 +92,7 @@ public abstract class e<K, V> implements Map<K, V> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public final String b(Map.Entry<? extends K, ? extends V> entry) {
-        return toString(entry.getKey()) + ETAG.EQUAL + toString(entry.getValue());
+        return toString(entry.getKey()) + "=" + toString(entry.getValue());
     }
 
     private final String toString(Object obj) {

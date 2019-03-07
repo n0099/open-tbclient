@@ -15,12 +15,13 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class u {
-    public static final Charset GL = Charset.forName("UTF-8");
-    private static final byte[] GM = {-92, 11, -56, 52, -42, -107, -13, 19};
+    public static final Charset GK = Charset.forName(HTTP.UTF_8);
+    private static final byte[] GL = {-92, 11, -56, 52, -42, -107, -13, 19};
 
-    public static PublicKey u(byte[] bArr) throws Exception {
+    public static PublicKey v(byte[] bArr) throws Exception {
         return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr));
     }
 
@@ -42,7 +43,7 @@ public class u {
         for (int i = 0; i < cArr.length; i++) {
             cArr[i] = (char) (((byte) str.charAt(i)) & 255);
         }
-        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, GM, 5, 256));
+        return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, GL, 5, 256));
     }
 
     public static byte[] a(SecretKey secretKey, byte[] bArr) throws GeneralSecurityException {
@@ -57,7 +58,7 @@ public class u {
         return cipher.doFinal(bArr, i, i2);
     }
 
-    public static String aR(int i) {
+    public static String aB(int i) {
         String bigInteger = new BigInteger(i * 5, new SecureRandom()).toString(36);
         if (bigInteger.length() > i) {
             return bigInteger.substring(0, bigInteger.length());

@@ -26,8 +26,9 @@ import tbclient.FrsPage.SignUser;
 import tbclient.FrsPage.TagInfo;
 import tbclient.FrsPage.Yule;
 import tbclient.SimpleForum;
-/* loaded from: classes6.dex */
-public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tbadk.core.util.ae, Serializable {
+import tbclient.ThemeColorInfo;
+/* loaded from: classes3.dex */
+public class ForumData implements com.baidu.adp.widget.ListView.m, com.baidu.tbadk.core.util.ae, Serializable {
     public static BdUniqueId FORUM_FLOOR_TYPE = BdUniqueId.gen();
     private static final long serialVersionUID = -5446966999595522426L;
     private String accelerate_cotent;
@@ -40,33 +41,36 @@ public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tba
     public boolean isBrandForum;
     public int isShowAllTopThread;
     private int is_local_effect;
+    private int is_private_forum;
     private boolean is_sign;
     private int is_support_local;
-    private q l;
+    private s l;
     private String level_name;
     private int levelup_score;
     public int locate;
     public AcrossForumIcon mAcrossForumIcon;
-    private final ArrayList<h> mBadgeData;
+    private final ArrayList<j> mBadgeData;
     private final BannerListData mBannerListData;
-    private final v mFrsBannerData;
+    private final x mFrsBannerData;
     public int mIsLiveGameForum;
-    private s mMemberShowIconData;
+    private u mMemberShowIconData;
     private PostTopicData mPostTopicData;
     private final PostPrefixData mPrefixData;
-    private ar mRealTimeData;
+    private au mRealTimeData;
     private ArrayList<RecommendForumData> mRecommendForumData;
-    private bg news_info;
+    private ThemeColorInfo mThemeColorInfo;
+    private bl news_info;
     private String slogan;
     public String special_forum_type;
     private String tag_color;
     private String tag_id;
-    private bd top_code;
-    private be top_notice_data;
+    private String topIcon;
+    private bi top_code;
+    private bj top_notice_data;
     private String topic_special_icon;
     private String topic_special_icon_right;
     private String warning_msg;
-    private bj yuleData;
+    private bo yuleData;
     private String id = null;
     private String name = null;
     private String first_class = null;
@@ -81,7 +85,7 @@ public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tba
     private int album_open_photo_frs = 0;
     private SignData mSignData = new SignData();
     private ArrayList<String> managers = new ArrayList<>();
-    private ArrayList<aa> good_classify = new ArrayList<>();
+    private ArrayList<ac> good_classify = new ArrayList<>();
     private String tag_name = null;
 
     public ForumData() {
@@ -91,23 +95,26 @@ public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tba
         this.levelup_score = 0;
         this.is_support_local = 0;
         this.is_local_effect = 0;
-        this.top_notice_data = new be();
+        this.top_notice_data = new bj();
         this.mBadgeData = new ArrayList<>();
-        this.mFrsBannerData = new v();
+        this.mFrsBannerData = new x();
         this.mBannerListData = new BannerListData();
         this.mRecommendForumData = new ArrayList<>();
         this.mPrefixData = new PostPrefixData();
         this.mPostTopicData = new PostTopicData();
-        this.top_code = new bd();
-        this.news_info = new bg();
+        this.top_code = new bi();
+        this.news_info = new bl();
         this.canAddPhotoLivePost = false;
-        this.mMemberShowIconData = new s();
-        this.yuleData = new bj();
+        this.mMemberShowIconData = new u();
+        this.yuleData = new bo();
         this.mIsLiveGameForum = 0;
         this.warning_msg = null;
         this.special_forum_type = null;
         this.topic_special_icon = null;
         this.topic_special_icon_right = null;
+        this.mThemeColorInfo = null;
+        this.topIcon = null;
+        this.is_private_forum = 0;
     }
 
     public AnchorPower getAnchorPower() {
@@ -257,12 +264,12 @@ public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tba
         this.mSignData = signData;
     }
 
-    public be getTop_notice_data() {
+    public bj getTop_notice_data() {
         return this.top_notice_data;
     }
 
-    public void setTop_notice_data(be beVar) {
-        this.top_notice_data = beVar;
+    public void setTop_notice_data(bj bjVar) {
+        this.top_notice_data = bjVar;
     }
 
     public void setManagers(ArrayList<String> arrayList) {
@@ -273,11 +280,11 @@ public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tba
         return this.managers;
     }
 
-    public void setGood_classify(ArrayList<aa> arrayList) {
+    public void setGood_classify(ArrayList<ac> arrayList) {
         this.good_classify = arrayList;
     }
 
-    public ArrayList<aa> getGood_classify() {
+    public ArrayList<ac> getGood_classify() {
         return this.good_classify;
     }
 
@@ -289,11 +296,11 @@ public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tba
         this.level_name = str;
     }
 
-    public ArrayList<h> getBadgeData() {
+    public ArrayList<j> getBadgeData() {
         return this.mBadgeData;
     }
 
-    public v getFrsBannerData() {
+    public x getFrsBannerData() {
         return this.mFrsBannerData;
     }
 
@@ -309,12 +316,24 @@ public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tba
         return this.accelerate_cotent;
     }
 
-    public ar getRealTimeData() {
+    public au getRealTimeData() {
         return this.mRealTimeData;
     }
 
-    public void setRealTimeData(ar arVar) {
-        this.mRealTimeData = arVar;
+    public void setRealTimeData(au auVar) {
+        this.mRealTimeData = auVar;
+    }
+
+    public ThemeColorInfo getThemeColorInfo() {
+        return this.mThemeColorInfo;
+    }
+
+    public String getTopIcon() {
+        return this.topIcon;
+    }
+
+    public int getIsPrivateForum() {
+        return this.is_private_forum;
     }
 
     public void parserProtobuf(ForumInfo forumInfo) {
@@ -359,9 +378,9 @@ public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tba
                 List<Classify> list2 = forumInfo.good_classify;
                 if (list2 != null) {
                     for (int i2 = 0; i2 < list2.size(); i2++) {
-                        aa aaVar = new aa();
-                        aaVar.a(list2.get(i2));
-                        this.good_classify.add(aaVar);
+                        ac acVar = new ac();
+                        acVar.a(list2.get(i2));
+                        this.good_classify.add(acVar);
                     }
                 }
                 SignInfo signInfo = forumInfo.sign_in_info;
@@ -389,9 +408,9 @@ public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tba
                 List<Badges> list3 = forumInfo.badges;
                 if (list3 != null && list3.size() > 0) {
                     for (int i3 = 0; i3 < list3.size(); i3++) {
-                        h hVar = new h();
-                        hVar.a(list3.get(i3));
-                        this.mBadgeData.add(hVar);
+                        j jVar = new j();
+                        jVar.a(list3.get(i3));
+                        this.mBadgeData.add(jVar);
                     }
                 }
                 List<RecommendForum> list4 = forumInfo.recommend_forum;
@@ -422,7 +441,7 @@ public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tba
                 this.news_info.a(forumInfo.news_info);
                 RealTime realTime = forumInfo.realtime_data;
                 if (realTime != null) {
-                    this.mRealTimeData = new ar();
+                    this.mRealTimeData = new au();
                     this.mRealTimeData.a(realTime);
                 }
                 this.mAcrossForumIcon = forumInfo.across_forum_show;
@@ -434,6 +453,9 @@ public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tba
                 this.topic_special_icon_right = forumInfo.topic_special_icon_right;
                 this.isBrandForum = forumInfo.is_brand_forum.intValue() == 1;
                 this.isShowAllTopThread = forumInfo.is_show_all_top_thread.intValue();
+                this.mThemeColorInfo = forumInfo.theme_color;
+                this.topIcon = forumInfo.is_top_img;
+                this.is_private_forum = forumInfo.is_private_forum.intValue();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -512,9 +534,9 @@ public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tba
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("good_classify");
                 if (optJSONArray2 != null) {
                     for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        aa aaVar = new aa();
-                        aaVar.parserJson(optJSONArray2.optJSONObject(i2));
-                        this.good_classify.add(aaVar);
+                        ac acVar = new ac();
+                        acVar.parserJson(optJSONArray2.optJSONObject(i2));
+                        this.good_classify.add(acVar);
                     }
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("sign_in_info");
@@ -542,9 +564,9 @@ public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tba
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("badges");
                 if (optJSONArray3 != null && optJSONArray3.length() > 0) {
                     for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                        h hVar = new h();
-                        hVar.parserJson(optJSONArray3.optJSONObject(i3));
-                        this.mBadgeData.add(hVar);
+                        j jVar = new j();
+                        jVar.parserJson(optJSONArray3.optJSONObject(i3));
+                        this.mBadgeData.add(jVar);
                     }
                 }
                 JSONArray optJSONArray4 = jSONObject.optJSONArray("recommend_forum");
@@ -594,6 +616,8 @@ public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tba
                 this.special_forum_type = jSONObject.optString(AlaMasterLiveRoomActivityConfig.SPECIAL_FORIM_TYPE);
                 this.topic_special_icon = jSONObject.optString("topic_special_icon");
                 this.topic_special_icon_right = jSONObject.optString("topic_special_icon_right");
+                this.topIcon = jSONObject.optString("is_top_img");
+                this.is_private_forum = jSONObject.optInt("is_private_forum");
             } catch (Exception e8) {
                 BdLog.e(e8.getMessage());
             }
@@ -670,32 +694,32 @@ public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tba
         return this.mPostTopicData;
     }
 
-    public void setTopCode(bd bdVar) {
-        this.top_code = bdVar;
+    public void setTopCode(bi biVar) {
+        this.top_code = biVar;
     }
 
-    public void setNewsInfo(bg bgVar) {
-        this.news_info = bgVar;
+    public void setNewsInfo(bl blVar) {
+        this.news_info = blVar;
     }
 
-    public bd getTopCode() {
+    public bi getTopCode() {
         return this.top_code;
     }
 
-    public bg getNewsInfo() {
+    public bl getNewsInfo() {
         return this.news_info;
     }
 
-    public s getMemberShowIconData() {
+    public u getMemberShowIconData() {
         return this.mMemberShowIconData;
     }
 
-    public bj getYuleData() {
+    public bo getYuleData() {
         return this.yuleData;
     }
 
-    public void setYuleData(bj bjVar) {
-        this.yuleData = bjVar;
+    public void setYuleData(bo boVar) {
+        this.yuleData = boVar;
     }
 
     public boolean isGameForumType() {
@@ -732,7 +756,7 @@ public class ForumData implements com.baidu.adp.widget.ListView.h, com.baidu.tba
         return this.topic_special_icon_right;
     }
 
-    @Override // com.baidu.adp.widget.ListView.h
+    @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
         return FORUM_FLOOR_TYPE;
     }

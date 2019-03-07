@@ -6,14 +6,14 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.coreExtra.model.e;
-import com.baidu.tbadk.util.h;
-import com.baidu.tbadk.util.x;
-import com.baidu.tbadk.util.y;
+import com.baidu.tbadk.util.aa;
+import com.baidu.tbadk.util.k;
+import com.baidu.tbadk.util.z;
 import com.baidu.tieba.im.db.l;
 import com.baidu.tieba.im.db.m;
 /* loaded from: classes.dex */
 public class b {
-    public static void aVR() {
+    public static void bww() {
         MessageManager.getInstance().registerListener(2005016, new CustomMessageListener(0) { // from class: com.baidu.tieba.im.widget.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -21,31 +21,31 @@ public class b {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && customResponsedMessage.getData() != null) {
                     final boolean isNull = StringUtils.isNull(((AccountData) customResponsedMessage.getData()).getAccount());
                     if (!isNull) {
-                        com.baidu.tbadk.coreExtra.messageCenter.a.If().c(new e());
-                        com.baidu.tbadk.coreExtra.messageCenter.a.If().setMsgChat(0);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.If().setMsgAtme(0);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.If().eW(0);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.If().setMsgFans(0);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.If().setMsgGiftNum(0);
-                        com.baidu.tbadk.coreExtra.messageCenter.a.If().Ix();
-                        y.QE();
-                        m.aRU().aRz();
-                        l.aRS().aRz();
+                        com.baidu.tbadk.coreExtra.messageCenter.b.ahA().c(new e());
+                        com.baidu.tbadk.coreExtra.messageCenter.b.ahA().setMsgChat(0);
+                        com.baidu.tbadk.coreExtra.messageCenter.b.ahA().setMsgAtme(0);
+                        com.baidu.tbadk.coreExtra.messageCenter.b.ahA().iC(0);
+                        com.baidu.tbadk.coreExtra.messageCenter.b.ahA().setMsgFans(0);
+                        com.baidu.tbadk.coreExtra.messageCenter.b.ahA().setMsgGiftNum(0);
+                        com.baidu.tbadk.coreExtra.messageCenter.b.ahA().ahS();
+                        aa.aqp();
+                        m.bsz().bse();
+                        l.bsx().bse();
                     }
-                    y.b(new x<Integer>() { // from class: com.baidu.tieba.im.widget.b.1.1
+                    aa.b(new z<Integer>() { // from class: com.baidu.tieba.im.widget.b.1.1
                         /* JADX DEBUG: Method merged with bridge method */
                         /* JADX WARN: Can't rename method to resolve collision */
-                        @Override // com.baidu.tbadk.util.x
+                        @Override // com.baidu.tbadk.util.z
                         public Integer doInBackground() {
                             if (!isNull) {
-                                com.baidu.tieba.im.db.b.aRA().aRB();
+                                com.baidu.tieba.im.db.b.bsf().bsg();
                             }
                             return 0;
                         }
-                    }, new h<Integer>() { // from class: com.baidu.tieba.im.widget.b.1.2
+                    }, new k<Integer>() { // from class: com.baidu.tieba.im.widget.b.1.2
                         /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.tbadk.util.h
-                        /* renamed from: n */
+                        @Override // com.baidu.tbadk.util.k
+                        /* renamed from: i */
                         public void onReturnDataInUI(Integer num) {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005018, null));
                         }

@@ -10,83 +10,85 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
-import com.baidu.tbadk.core.util.ao;
-import com.baidu.tieba.e;
-/* loaded from: classes6.dex */
+import com.baidu.tbadk.core.util.ap;
+import com.baidu.tieba.d;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+/* loaded from: classes4.dex */
 public class i {
-    private PopupWindow ehC;
-    private com.baidu.tieba.frs.entelechy.b.d ehD;
-    private Runnable ehE = new Runnable() { // from class: com.baidu.tieba.frs.vc.i.1
+    private PopupWindow fwK;
+    private com.baidu.tieba.frs.entelechy.b.d fwL;
+    private Runnable fwM = new Runnable() { // from class: com.baidu.tieba.frs.vc.i.1
         @Override // java.lang.Runnable
         public void run() {
-            if (i.this.mActivity != null && i.this.mAnchorView != null && i.this.ehC != null && i.this.ehC.getContentView() != null) {
-                int h = l.h(i.this.mActivity, e.C0210e.ds252);
-                i.this.ehC.getContentView().measure(0, 0);
-                com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(i.this.ehC, i.this.mAnchorView, (-(l.h(i.this.mActivity, e.C0210e.ds430) - i.this.mAnchorView.getMeasuredWidth())) / 2, -h);
-                com.baidu.adp.lib.g.e.jG().postDelayed(i.this.ehF, 5000L);
-                TiebaStatic.log(new am("c13016").y("obj_locate", 2));
+            if (i.this.mActivity != null && i.this.mAnchorView != null && i.this.fwK != null && i.this.fwK.getContentView() != null) {
+                int h = l.h(i.this.mActivity, d.e.ds270);
+                i.this.fwK.getContentView().measure(0, 0);
+                com.baidu.adp.lib.g.g.showPopupWindowAsDropDown(i.this.fwK, i.this.mAnchorView, (-l.h(i.this.mActivity, d.e.ds430)) + (i.this.mAnchorView.getMeasuredWidth() / 2) + 30, -h);
+                com.baidu.adp.lib.g.e.jH().postDelayed(i.this.fwN, TbConfig.NOTIFY_SOUND_INTERVAL);
+                TiebaStatic.log(new am("c13016").T("obj_locate", 2));
             }
         }
     };
-    private Runnable ehF = new Runnable() { // from class: com.baidu.tieba.frs.vc.i.2
+    private Runnable fwN = new Runnable() { // from class: com.baidu.tieba.frs.vc.i.2
         @Override // java.lang.Runnable
         public void run() {
-            i.this.aIM();
+            i.this.bjC();
         }
     };
-    private View.OnClickListener ehG = new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.i.3
+    private View.OnClickListener fwO = new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.i.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            i.this.aIL();
-            if (i.this.ehp != null && i.this.ehp.hnl != null && i.this.ehp.bhx() != null) {
-                if (i.this.ehD == null || i.this.ehD.aFp()) {
-                    WriteActivityConfig writeActivityConfig = new WriteActivityConfig(i.this.mActivity, 9, i.this.ehp.bhx().getId(), i.this.ehp.bhx().getName(), null, null, 0, i.this.ehp.yR(), 13003, false, false, null, false, false, null, null, i.this.ehp.bhx().getPrefixData(), 0);
-                    if (!StringUtils.isNull(i.this.ehp.hnl.recom_topic)) {
-                        writeActivityConfig.setTitle(i.this.ehp.hnl.recom_topic, true);
+            i.this.bjB();
+            if (i.this.fwn != null && i.this.fwn.postTopic != null && i.this.fwn.getForum() != null) {
+                if (i.this.fwL == null || i.this.fwL.bfN()) {
+                    WriteActivityConfig writeActivityConfig = new WriteActivityConfig(i.this.mActivity, 9, i.this.fwn.getForum().getId(), i.this.fwn.getForum().getName(), null, null, 0, i.this.fwn.getAnti(), 13003, false, false, null, false, false, null, null, i.this.fwn.getForum().getPrefixData(), 0);
+                    if (!StringUtils.isNull(i.this.fwn.postTopic.recom_topic)) {
+                        writeActivityConfig.setTitle(i.this.fwn.postTopic.recom_topic, true);
                     }
-                    ForumData bhx = i.this.ehp.bhx();
-                    writeActivityConfig.setForumDir(bhx.getFirst_class(), bhx.getSecond_class());
+                    ForumData forum = i.this.fwn.getForum();
+                    writeActivityConfig.setForumDir(forum.getFirst_class(), forum.getSecond_class());
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, writeActivityConfig));
-                    TiebaStatic.log(new am("c13017").y("obj_locate", 2));
+                    TiebaStatic.log(new am("c13017").T("obj_locate", 2));
                 }
             }
         }
     };
-    private com.baidu.tieba.tbadkCore.l ehp;
+    private FrsViewData fwn;
     private Activity mActivity;
     private View mAnchorView;
 
     public i(Activity activity, com.baidu.tieba.frs.entelechy.b.d dVar) {
         this.mActivity = activity;
-        this.ehD = dVar;
+        this.fwL = dVar;
     }
 
-    public void b(View view, com.baidu.tieba.tbadkCore.l lVar) {
-        if (view != null && lVar != null && lVar.hnl != null && this.mActivity != null) {
-            this.ehp = lVar;
+    public void b(View view, FrsViewData frsViewData) {
+        if (view != null && frsViewData != null && frsViewData.postTopic != null && this.mActivity != null) {
+            this.fwn = frsViewData;
             this.mAnchorView = view;
-            View inflate = LayoutInflater.from(this.mActivity).inflate(e.h.tips_blue_twice_line_down, (ViewGroup) null);
-            ((TextView) inflate.findViewById(e.g.tips)).setText(ao.f(lVar.hnl.recom_title, 24, "..."));
-            ((TextView) inflate.findViewById(e.g.tips_content)).setText(e.j.topic_join);
-            inflate.setOnClickListener(this.ehG);
-            this.ehC = new PopupWindow(inflate, -2, -2);
-            com.baidu.adp.lib.g.e.jG().removeCallbacks(this.ehE);
-            com.baidu.adp.lib.g.e.jG().postDelayed(this.ehE, 100L);
+            View inflate = LayoutInflater.from(this.mActivity).inflate(d.h.frs_tips_blue_twice_line_down, (ViewGroup) null);
+            ((TextView) inflate.findViewById(d.g.tips)).setText(ap.i(frsViewData.postTopic.recom_title, 24, "..."));
+            ((TextView) inflate.findViewById(d.g.tips_content)).setText(d.j.topic_join);
+            inflate.setOnClickListener(this.fwO);
+            this.fwK = new PopupWindow(inflate, -2, -2);
+            com.baidu.adp.lib.g.e.jH().removeCallbacks(this.fwM);
+            com.baidu.adp.lib.g.e.jH().postDelayed(this.fwM, 100L);
         }
     }
 
-    public void aIL() {
-        com.baidu.adp.lib.g.e.jG().removeCallbacks(this.ehE);
-        com.baidu.adp.lib.g.e.jG().removeCallbacks(this.ehF);
-        aIM();
+    public void bjB() {
+        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.fwM);
+        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.fwN);
+        bjC();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aIM() {
-        com.baidu.adp.lib.g.g.a(this.ehC);
+    public void bjC() {
+        com.baidu.adp.lib.g.g.a(this.fwK);
     }
 }

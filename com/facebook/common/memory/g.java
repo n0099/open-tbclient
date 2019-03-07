@@ -4,13 +4,13 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public interface g {
-    PooledByteBuffer S(byte[] bArr);
+    i BV(int i);
 
-    PooledByteBuffer a(InputStream inputStream, int i) throws IOException;
+    PooledByteBuffer Y(byte[] bArr);
 
-    i bUG();
+    PooledByteBuffer b(InputStream inputStream, int i) throws IOException;
 
-    PooledByteBuffer p(InputStream inputStream) throws IOException;
+    i ctE();
 
-    i yj(int i);
+    PooledByteBuffer r(InputStream inputStream) throws IOException;
 }

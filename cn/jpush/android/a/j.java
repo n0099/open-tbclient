@@ -1,6 +1,7 @@
 package cn.jpush.android.a;
 
 import android.content.Context;
+import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
@@ -30,7 +31,7 @@ public final class j implements Runnable {
             cn.jiguang.h.c a = cn.jpush.android.b.a.a(this.a, 5, 8000L);
             if (a != null && a.getResponseCode() == 200) {
                 z = true;
-                str = a.cs();
+                str = a.cr();
                 break;
             }
         }
@@ -38,7 +39,7 @@ public final class j implements Runnable {
             i.a(this.b, str);
             return;
         }
-        e.a(this.c, 1021, cn.jpush.android.d.a.a(this.b, this.a), this.b);
+        e.a(this.c, PointerIconCompat.TYPE_GRABBING, cn.jpush.android.d.a.a(this.b, this.a), this.b);
         e.a(this.c, 996, null, this.b);
     }
 }

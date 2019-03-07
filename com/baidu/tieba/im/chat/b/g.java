@@ -5,7 +5,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.aj;
+import com.baidu.tbadk.core.data.al;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.chat.b.a;
 import com.baidu.tieba.im.data.GroupMsgData;
@@ -14,29 +14,29 @@ import com.baidu.tieba.im.message.chat.ChatMessage;
 import java.util.Iterator;
 /* loaded from: classes.dex */
 public class g {
-    private static g eOP;
+    private static g geT;
 
     private g() {
     }
 
-    public static synchronized g aPZ() {
+    public static synchronized g bqE() {
         g gVar;
         synchronized (g.class) {
-            if (eOP == null) {
-                eOP = new g();
+            if (geT == null) {
+                geT = new g();
             }
-            gVar = eOP;
+            gVar = geT;
         }
         return gVar;
     }
 
-    public void t(String str, long j) {
+    public void w(String str, long j) {
         if (!TextUtils.isEmpty(str) && j > 0) {
             TbadkSettings.getInst().saveLong("tb_group_msg_" + str, j);
         }
     }
 
-    public long cs(long j) {
+    public long cX(long j) {
         return TbadkSettings.getInst().loadLong("tb_group_msg_" + j, -1L);
     }
 
@@ -69,7 +69,7 @@ public class g {
                     TiebaStatic.pushMsg(next.getMsgId(), 1, next.getLink(), next.getStat());
                 }
                 CustomMessage customMessage = new CustomMessage(2012100);
-                customMessage.setData(new aj(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat()));
+                customMessage.setData(new al(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat()));
                 MessageManager.getInstance().sendMessage(customMessage);
             }
             if (groupMsgData.getListMessage().size() > 0) {
@@ -81,7 +81,7 @@ public class g {
     public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.b.g.1
             @Override // com.baidu.tieba.im.chat.b.a.c
-            public boolean pT(String str) {
+            public boolean wy(String str) {
                 return true;
             }
         }, false);

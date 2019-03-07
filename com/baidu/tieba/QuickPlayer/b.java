@@ -3,19 +3,19 @@ package com.baidu.tieba.QuickPlayer;
 import android.graphics.SurfaceTexture;
 import android.net.Uri;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class b {
-    private SurfaceTexture byk;
+    private String HR;
+    private SurfaceTexture cJs;
     private Map<String, String> headers;
-    private String mHost;
     private Uri uri;
 
     public void setHost(String str) {
-        this.mHost = str;
+        this.HR = str;
     }
 
     public String getHost() {
-        return this.mHost;
+        return this.HR;
     }
 
     public Uri getUri() {
@@ -31,10 +31,10 @@ public class b {
     }
 
     public SurfaceTexture getSurfaceTexture() {
-        return this.byk;
+        return this.cJs;
     }
 
     public void setSurfaceTexture(SurfaceTexture surfaceTexture) {
-        this.byk = surfaceTexture;
+        this.cJs = surfaceTexture;
     }
 }

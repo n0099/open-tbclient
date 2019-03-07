@@ -7,24 +7,22 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppFileClassifyHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ab;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import java.io.File;
 /* loaded from: classes.dex */
 public class u {
-    public static final void aE(Context context, String str) {
+    public static final void aS(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
-            com.baidu.adp.lib.util.l.showToast(context, e.j.download_error);
+            com.baidu.adp.lib.util.l.showToast(context, d.j.download_error);
             return;
         }
-        File fd = com.baidu.tbadk.core.util.l.fd(str.replace(".", BaseRequestAction.SPLITE) + ".apk");
-        if (fd != null) {
+        File lQ = com.baidu.tbadk.core.util.m.lQ(str.replace(".", "_") + ".apk");
+        if (lQ != null) {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
-            intent.setDataAndType(UtilHelper.getUriFromFile(fd, intent, context), AiAppFileClassifyHelper.MIME_TYPE_APK);
+            intent.setDataAndType(UtilHelper.getUriFromFile(lQ, intent, context), "application/vnd.android.package-archive");
             intent.addFlags(268435456);
             context.startActivity(intent);
         }
@@ -38,14 +36,14 @@ public class u {
         }
     }
 
-    public static boolean O(Activity activity) {
+    public static boolean an(Activity activity) {
         if (Build.VERSION.SDK_INT < 23) {
             return true;
         }
-        boolean bF = ab.bF(activity);
+        boolean cV = ab.cV(activity);
         if (activity.getApplicationInfo().targetSdkVersion < 23 && Environment.getExternalStorageState().equals("unmounted")) {
             return false;
         }
-        return bF;
+        return cV;
     }
 }

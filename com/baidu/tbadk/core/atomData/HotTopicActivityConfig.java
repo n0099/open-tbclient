@@ -20,7 +20,7 @@ public class HotTopicActivityConfig extends IntentConfig {
 
     public HotTopicActivityConfig createNormalConfig(String str, String str2, String str3) {
         Intent intent = getIntent();
-        intent.putExtra(IntentConfig.TOPIC_ID, str);
+        intent.putExtra("topic_id", str);
         intent.putExtra(IntentConfig.TOPIC_NAME, str2);
         if (StringUtils.isNull(str3)) {
             str3 = "1";

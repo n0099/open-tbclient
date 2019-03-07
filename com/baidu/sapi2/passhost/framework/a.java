@@ -1,5 +1,6 @@
 package com.baidu.sapi2.passhost.framework;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.os.Build;
@@ -9,14 +10,8 @@ import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.appsearchlib.Info;
-import com.baidu.cloudsdk.common.http.AsyncHttpClient;
-import com.baidu.cloudsdk.common.http.BinaryHttpResponseHandler;
-import com.baidu.cloudsdk.common.http.JsonHttpResponseHandler;
-import com.baidu.cloudsdk.common.http.RequestParams;
-import com.baidu.fsg.base.BaiduRimConstants;
-import com.baidu.fsg.base.utils.PhoneUtils;
-import com.baidu.fsg.face.base.b.c;
-import com.baidu.fsg.face.base.d.h;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
+import com.baidu.pass.biometrics.base.utils.PhoneUtils;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
@@ -24,6 +19,11 @@ import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.base.utils.EncodeUtils;
 import com.baidu.sapi2.base.utils.FileUtil;
 import com.baidu.sapi2.base.utils.TextUtil;
+import com.baidu.sapi2.httpwrap.BinaryHttpHandlerWrap;
+import com.baidu.sapi2.httpwrap.HttpClientWrap;
+import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
+import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
+import com.baidu.sapi2.passhost.framework.PluginFacade;
 import com.baidu.sapi2.passhost.framework.b;
 import com.baidu.sapi2.passhost.hostsdk.service.ThreadPoolService;
 import com.baidu.sapi2.passhost.pluginsdk.AbsPassPi;
@@ -40,10 +40,6 @@ import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.Domain;
-import com.baidu.searchbox.ng.ai.apps.media.chooser.action.ChooseVideoAction;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppFileClassifyHelper;
-import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
-import com.baidu.webkit.internal.ETAG;
 import com.xiaomi.mipush.sdk.Constants;
 import dalvik.system.DexClassLoader;
 import java.io.BufferedInputStream;
@@ -86,27 +82,29 @@ public class a {
         return i;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sapi2.passhost.framework.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private static class C0122a {
+    public static class C0061a {
         public static a a = new a();
 
-        private C0122a() {
+        private C0061a() {
         }
     }
 
     public static a a() {
-        return C0122a.a;
+        return C0061a.a;
     }
 
     a() {
         if (this.c == null) {
             Log.e(a, "PassPiManager() mHostContext is null");
+            return;
         }
         this.d = IPassPi.class.getClassLoader();
         this.e = new HashMap();
         this.f = new HashMap();
-        String str = this.c.getDir(c.g, 0).getAbsolutePath() + File.separator + ".tmp" + File.separator + "temp.db" + File.separator;
+        String str = this.c.getDir("files", 0).getAbsolutePath() + File.separator + ".tmp" + File.separator + "temp.db" + File.separator;
         this.g = str + ".p00";
         this.h = str + ".p11";
         this.i = str + ".p22";
@@ -149,32 +147,33 @@ public class a {
 
     private void a(SapiConfiguration sapiConfiguration) {
         String str;
-        RequestParams requestParams = new RequestParams();
-        requestParams.put(BaiduRimConstants.TPL_INIT_KEY, sapiConfiguration.tpl);
-        requestParams.put("pack_name", this.c.getPackageName());
-        requestParams.put("host_ver", "1.0.3");
+        HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
+        httpHashMapWrap.put("tpl", sapiConfiguration.tpl);
+        httpHashMapWrap.put("pack_name", this.c.getPackageName());
+        httpHashMapWrap.put("host_ver", PluginFacade.a.a);
         String a2 = a(sapiConfiguration.context, this.c.getPackageName());
         if (TextUtils.isEmpty(a2)) {
-            str = i() + "host-1.0.3.txt";
+            str = i() + "host-" + PluginFacade.a.a + ".txt";
         } else {
-            str = i() + "host-1.0.3" + Constants.ACCEPT_TIME_SEPARATOR_SERVER + sapiConfiguration.tpl + Constants.ACCEPT_TIME_SEPARATOR_SERVER + a2 + ".txt";
+            str = i() + "host-" + PluginFacade.a.a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + sapiConfiguration.tpl + Constants.ACCEPT_TIME_SEPARATOR_SERVER + a2 + ".txt";
         }
         Log.d(a, "getTplPkgname()", "configUrl", str);
-        new AsyncHttpClient().get(sapiConfiguration.context, str, requestParams, new JsonHttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.passhost.framework.a.2
-            @Override // com.baidu.cloudsdk.common.http.JsonHttpResponseHandler
-            protected void onSuccess(final JSONObject jSONObject) {
+        new HttpClientWrap().get(str, httpHashMapWrap, null, null, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.passhost.framework.a.2
+            /* JADX INFO: Access modifiers changed from: protected */
+            @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+            public void onSuccess(int i, final String str2) {
                 ThreadPoolService.getInstance().runImport(new TPRunnable(new Runnable() { // from class: com.baidu.sapi2.passhost.framework.a.2.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.a(jSONObject);
+                        a.this.a(str2);
                     }
                 }));
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
+            @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onFailure(Throwable th, String str2) {
-                Log.w(a.a, "getTplPkgname()", AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, th.toString());
+                Log.w(a.a, "getTplPkgname()", "error", th.toString());
             }
         });
     }
@@ -190,11 +189,12 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(JSONObject jSONObject) {
+    public void a(String str) {
         boolean z;
         boolean z2;
-        if (jSONObject != null) {
-            try {
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            if (jSONObject != null) {
                 ArrayList<PassPiInfo> arrayList = new ArrayList<>();
                 ArrayList<PassPiInfo> arrayList2 = new ArrayList<>();
                 b a2 = b.a(jSONObject);
@@ -203,8 +203,8 @@ public class a {
                 if (a2.a()) {
                     String versionName = ServiceManager.getInstance().getIsAccountManager().getVersionName();
                     if (a2.b() != null) {
-                        for (String str : a2.b()) {
-                            if (a(versionName, str) == 0) {
+                        for (String str2 : a2.b()) {
+                            if (a(versionName, str2) == 0) {
                                 z = true;
                                 break;
                             }
@@ -221,8 +221,8 @@ public class a {
                                 arrayList2.add(cVar.f.get(cVar.e.get(cVar.e.size() - 1)));
                             } else {
                                 if (cVar.d != null) {
-                                    for (String str2 : cVar.d) {
-                                        if (a(versionName, str2) == 0) {
+                                    for (String str3 : cVar.d) {
+                                        if (a(versionName, str3) == 0) {
                                             z2 = true;
                                             break;
                                         }
@@ -235,7 +235,7 @@ public class a {
                                     Log.i(a, "startPassPi()", Info.kBaiduPIDKey, cVar.a, "meetGrayDemand", false);
                                 } else {
                                     PassPiInfo passPiInfo = cVar.f.get(cVar.e.get(cVar.e.size() - 1));
-                                    passPiInfo.filePath = this.g + File.separator + b(passPiInfo.url);
+                                    passPiInfo.filePath = this.g + File.separator + c(passPiInfo.url);
                                     arrayList.add(passPiInfo);
                                 }
                             }
@@ -244,9 +244,9 @@ public class a {
                         b(arrayList2);
                     }
                 }
-            } catch (Throwable th) {
-                Log.e(a, "startPassPi()", "t", th.toString());
             }
+        } catch (Throwable th) {
+            Log.e(a, "startPassPi()", Info.kBaiduTimeKey, android.util.Log.getStackTraceString(th));
         }
     }
 
@@ -260,14 +260,17 @@ public class a {
             if (file != null && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
                 for (File file2 : listFiles) {
                     String name = file2.getName();
-                    multiHashMap.put(name.substring(0, name.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SERVER)), file2.getAbsolutePath());
+                    int indexOf = name.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
+                    if (indexOf > 0) {
+                        multiHashMap.put(name.substring(0, indexOf), file2.getAbsolutePath());
+                    }
                 }
                 if (!multiHashMap.isEmpty()) {
                     Iterator<PassPiInfo> it = arrayList.iterator();
                     while (it.hasNext()) {
                         String str2 = it.next().url;
                         String substring = str2.substring(str2.lastIndexOf("/") + 1, str2.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SERVER));
-                        if (multiHashMap.containsKey(substring) && ((arrayList2 = multiHashMap.get(substring)) != null || arrayList2.size() != 0)) {
+                        if (multiHashMap.containsKey(substring) && (arrayList2 = multiHashMap.get(substring)) != null && arrayList2.size() != 0) {
                             Iterator it2 = arrayList2.iterator();
                             while (it2.hasNext()) {
                                 FileUtil.deleteFile((String) it2.next());
@@ -325,28 +328,29 @@ public class a {
                     if (TextUtil.isNullOrEmptyWithoutTrim(next.hostVersion)) {
                         Log.e(a, "installPassPis()", "pi hostVersion empty");
                     } else {
-                        int a2 = a("1.0.3", next.hostVersion);
+                        int a2 = a(PluginFacade.a.a, next.hostVersion);
                         Log.i(a, "installPassPis()", "url", next.url, "filePath", next.filePath, "cpver", Integer.valueOf(a2));
                         if (a2 < 0) {
-                            Log.e(a, "installPassPis()", "hv", "1.0.3", "phv", next.hostVersion);
+                            Log.e(a, "installPassPis()", "hv", PluginFacade.a.a, "phv", next.hostVersion);
                         } else {
-                            boolean a3 = a(next, a(next.url));
+                            boolean a3 = a(next, b(next.url));
                             Log.i(a, "installPassPis()", "url", next.url, "filePath", next.filePath, "needUpdate", Boolean.valueOf(a3));
                             next.firstInstall = a3;
                             if (a3) {
                                 this.l++;
                                 if (next != null) {
-                                    new AsyncHttpClient().get(this.c, next.url, new BinaryHttpResponseHandler(Looper.getMainLooper(), new String[]{"application/octet-stream", "*/*", "application/apk", "image/png", AiAppFileClassifyHelper.MIME_TYPE_APK}) { // from class: com.baidu.sapi2.passhost.framework.a.3
-                                        @Override // com.baidu.cloudsdk.common.http.BinaryHttpResponseHandler
-                                        protected void onSuccess(int i, byte[] bArr) {
+                                    new HttpClientWrap().get(next.url, new BinaryHttpHandlerWrap(Looper.getMainLooper(), new String[]{"application/octet-stream", "*/*", "application/apk", "image/png", "application/vnd.android.package-archive"}) { // from class: com.baidu.sapi2.passhost.framework.a.3
+                                        /* JADX INFO: Access modifiers changed from: protected */
+                                        @Override // com.baidu.sapi2.httpwrap.BinaryHttpHandlerWrap
+                                        public void onSuccess(int i, byte[] bArr) {
                                             a.this.a(next, bArr);
                                         }
 
                                         /* JADX INFO: Access modifiers changed from: protected */
-                                        @Override // com.baidu.cloudsdk.common.http.BinaryHttpResponseHandler
-                                        public void onFailure(Throwable th, byte[] bArr) {
-                                            Log.d(a.a, "installPassPis() onFailure", next.url, AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, th.toString());
-                                            super.onFailure(th, bArr);
+                                        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+                                        public void onFailure(Throwable th, String str) {
+                                            Log.d(a.a, "installPassPis() onFailure", next.url, "error", th.toString());
+                                            super.onFailure(th, str);
                                             if (a.a(a.this) == a.this.l) {
                                                 com.baidu.sapi2.passhost.hostsdk.service.a.a().a(0);
                                             }
@@ -424,6 +428,7 @@ public class a {
         }
     }
 
+    @TargetApi(3)
     protected PluginContext a(PassPiInfo passPiInfo, boolean z) {
         long currentTimeMillis = System.currentTimeMillis();
         if (passPiInfo.filePath == null || TextUtil.isNullOrEmptyWithoutTrim(passPiInfo.filePath)) {
@@ -454,12 +459,12 @@ public class a {
                 Log.e(a, "decrypt file  e", e.toString());
             }
         }
-        PluginContext a2 = a(passPiInfo, this.c, new DexClassLoader(passPiInfo.filePath, this.i, this.h, this.d), this.d);
+        PluginContext a2 = a(passPiInfo, this.c, a(passPiInfo.filePath, this.i, this.h, this.d), this.d);
         if (a2 == null) {
             Log.e(a, "loadPassPi()", "name", passPiInfo.name, Info.kBaiduPIDKey, Integer.valueOf(passPiInfo.pid), "ver", passPiInfo.version, "piContext == null");
             return null;
         }
-        a(passPiInfo.filePath, h.a, this.h);
+        a(passPiInfo.filePath, PassBiometricUtil.CPU_TYPE_ARMEABI, this.h);
         a(passPiInfo.filePath, h(), this.h);
         a(a2);
         if (z) {
@@ -467,6 +472,57 @@ public class a {
         }
         Log.d(a, "loadPassPi()", Info.kBaiduPIDKey, Integer.valueOf(passPiInfo.pid), "ver", passPiInfo.version, "name", passPiInfo.name, "time used", (System.currentTimeMillis() - currentTimeMillis) + "ms");
         return a2;
+    }
+
+    @TargetApi(3)
+    private DexClassLoader a(String str, String str2, String str3, ClassLoader classLoader) {
+        if (SapiContext.getInstance(this.c).getPluginLoadModelV2Enabel()) {
+            return new DexClassLoader(str, str2, str3, classLoader) { // from class: com.baidu.sapi2.passhost.framework.a.5
+                @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+                protected Class<?> findClass(String str4) throws ClassNotFoundException {
+                    return super.findClass(str4);
+                }
+
+                @Override // java.lang.ClassLoader
+                protected Class<?> loadClass(String str4, boolean z) throws ClassNotFoundException {
+                    Class<?> cls;
+                    Class<?> findLoadedClass = findLoadedClass(str4);
+                    if (findLoadedClass == null) {
+                        try {
+                            cls = super.findClass(str4);
+                        } catch (Throwable th) {
+                            cls = findLoadedClass;
+                        }
+                        if (cls == null) {
+                            try {
+                                if (getParent() != null) {
+                                    findLoadedClass = getParent().loadClass(str4);
+                                } else {
+                                    findLoadedClass = (Class) getClass().getDeclaredMethod("findBootstrapClassOrNull", String.class).invoke(this, str4);
+                                }
+                            } catch (Throwable th2) {
+                                findLoadedClass = cls;
+                            }
+                        } else {
+                            findLoadedClass = cls;
+                        }
+                    }
+                    if (z) {
+                        resolveClass(findLoadedClass);
+                    }
+                    if (findLoadedClass == null) {
+                        try {
+                            return super.loadClass(str4, z);
+                        } catch (Throwable th3) {
+                            Log.e(th3);
+                            return findLoadedClass;
+                        }
+                    }
+                    return findLoadedClass;
+                }
+            };
+        }
+        return new DexClassLoader(str, str2, str3, classLoader);
     }
 
     private synchronized void a(PluginContext pluginContext) {
@@ -478,7 +534,7 @@ public class a {
                 } else if (!this.f.get(Integer.valueOf(i)).mPiVer.equals(pluginContext.mPiVer)) {
                     this.f.put(Integer.valueOf(i), pluginContext);
                 }
-                Log.i(a, "addPiEntityToMap()", ChooseVideoAction.CB_KEY_SIZE, Integer.valueOf(this.f.size()));
+                Log.i(a, "addPiEntityToMap()", "size", Integer.valueOf(this.f.size()));
             }
         }
     }
@@ -580,6 +636,7 @@ public class a {
         return absPassPiSafe;
     }
 
+    @TargetApi(5)
     public Pair<ArrayList<String>, ArrayList<String>> e() {
         Pair<ArrayList<String>, ArrayList<String>> cookies;
         Log.d(a, "combinePisCookies()");
@@ -615,7 +672,7 @@ public class a {
         }
     }
 
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [991=5, 992=4] */
+    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [1070=5, 1071=4] */
     private void a(String str, String str2, String str3) {
         BufferedOutputStream bufferedOutputStream;
         Exception e;
@@ -799,9 +856,9 @@ public class a {
                         }
                         str2 = "none";
                         Log.i(a, "getCpuType()", strArr[0], strArr[1], str, str2);
-                        if (!str.equals(h.a)) {
+                        if (!str.equals(PassBiometricUtil.CPU_TYPE_ARMEABI)) {
                         }
-                        return h.a;
+                        return PassBiometricUtil.CPU_TYPE_ARMEABI;
                     } catch (Throwable th) {
                         th = th;
                         fileReader = fileReader2;
@@ -850,44 +907,44 @@ public class a {
                 Log.w(a, "getCpuType() abi2", e7.toString());
             }
             Log.i(a, "getCpuType()", strArr[0], strArr[1], str, str2);
-            if (!str.equals(h.a) || str2.equals(h.a)) {
-                return h.a;
+            if (!str.equals(PassBiometricUtil.CPU_TYPE_ARMEABI) || str2.equals(PassBiometricUtil.CPU_TYPE_ARMEABI)) {
+                return PassBiometricUtil.CPU_TYPE_ARMEABI;
             }
-            if (str.equals(h.b) || str2.equals(h.b)) {
-                return h.b;
+            if (str.equals(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A) || str2.equals(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A)) {
+                return PassBiometricUtil.CPU_TYPE_ARMEABI_V7A;
             }
             if (strArr[0].toLowerCase().contains(PhoneUtils.CPUInfo.PROCESSOR_ARMV7)) {
-                return h.b;
+                return PassBiometricUtil.CPU_TYPE_ARMEABI_V7A;
             }
             if (strArr[0].toLowerCase().contains("arm")) {
-                return h.a;
+                return PassBiometricUtil.CPU_TYPE_ARMEABI;
             }
             if (strArr[0].toLowerCase().contains("mips")) {
                 return "mips";
             }
-            return h.c;
+            return PassBiometricUtil.CPU_TYPE_X86;
         }
         str2 = "none";
         Log.i(a, "getCpuType()", strArr[0], strArr[1], str, str2);
-        if (!str.equals(h.a)) {
+        if (!str.equals(PassBiometricUtil.CPU_TYPE_ARMEABI)) {
         }
-        return h.a;
+        return PassBiometricUtil.CPU_TYPE_ARMEABI;
     }
 
     private String a(PassPiInfo passPiInfo) {
         return EncodeUtils.toMd5((passPiInfo.hostVersion + "passSdk" + passPiInfo.entryClass.substring(3, passPiInfo.entryClass.length()) + "25dc51fccc54ad442ad264b6d2801d08" + passPiInfo.name + passPiInfo.pid + "67577b0541256ea89d15e0edb6d2a7b8").getBytes()).substring(0, 16);
     }
 
-    private String a(String str) {
-        String b2 = b(str);
-        String str2 = this.g + File.separator + b2;
-        if (FileUtil.isFileExist(str2) && !TextUtils.isEmpty(b2)) {
+    private String b(String str) {
+        String c = c(str);
+        String str2 = this.g + File.separator + c;
+        if (FileUtil.isFileExist(str2) && !TextUtils.isEmpty(c)) {
             return EncodeUtils.getSHA1(new File(str2));
         }
         return null;
     }
 
-    private String b(String str) {
+    private String c(String str) {
         String[] split;
         if (TextUtils.isEmpty(str) || (split = str.split("/")) == null || split.length <= 0) {
             return null;
@@ -935,18 +992,18 @@ public class a {
 
     private boolean a(b.c cVar) {
         List<b.a> grayPlugins = SapiContext.getInstance(this.c).getGrayPlugins();
-        if (grayPlugins == null || grayPlugins.size() > 0) {
-            for (b.a aVar : grayPlugins) {
-                if (100 == cVar.c) {
-                    return true;
-                }
-                if (cVar.a.equals(aVar.b) && aVar.c < cVar.c) {
-                    return true;
-                }
-            }
-            return false;
+        if (grayPlugins == null || grayPlugins.size() <= 0) {
+            return true;
         }
-        return true;
+        for (b.a aVar : grayPlugins) {
+            if (100 == cVar.c) {
+                return true;
+            }
+            if (cVar.a.equals(aVar.b) && aVar.c < cVar.c) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private String i() {
@@ -962,10 +1019,10 @@ public class a {
             arrayList2.add(entry.getValue().mPiVer);
         }
         HashMap hashMap = new HashMap();
-        hashMap.put("pids", TextUtils.join(",", arrayList));
-        hashMap.put("pi_vers", TextUtils.join(",", arrayList2));
-        hashMap.put(ETAG.KEY_PACKAGE_NAME, this.c.getPackageName());
-        hashMap.put("host_ver", "1.0.3");
+        hashMap.put("pids", TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, arrayList));
+        hashMap.put("pi_vers", TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, arrayList2));
+        hashMap.put("package_name", this.c.getPackageName());
+        hashMap.put("host_ver", PluginFacade.a.a);
         StatService.onEvent("app_pi_info", hashMap);
     }
 }

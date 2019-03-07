@@ -1,10 +1,12 @@
 package com.baidu.searchbox.process.ipc.agent.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
-/* loaded from: classes2.dex */
+import com.baidu.searchbox.process.ipc.IPCLibConfig;
+/* loaded from: classes.dex */
 public class PluginDelegateActivity extends ProcessDelegateBaseActivity {
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = IPCLibConfig.DEBUG;
     public static final String ENABLE_FALLBACK_FINISH_KEY = "fallback_finish_key";
     private static final boolean FALLBACK_FINISH_DEFAULT_VALUE = true;
     private static final String TAG = "PluginDelegateActivity";
@@ -18,11 +20,17 @@ public class PluginDelegateActivity extends ProcessDelegateBaseActivity {
         if (!this.mDelegation.mParams.isEmpty()) {
             this.mFallbackFinish = this.mDelegation.mParams.getBoolean(ENABLE_FALLBACK_FINISH_KEY, true);
         }
+        if (DEBUG) {
+            Log.d(TAG, "mFallbackFinish :" + this.mFallbackFinish);
+        }
     }
 
     @Override // android.app.Activity
     protected void onResume() {
         super.onResume();
+        if (DEBUG) {
+            Log.d(TAG, "onResume count: " + this.mResumeCount);
+        }
         if (this.mFallbackFinish) {
             int i = this.mResumeCount + 1;
             this.mResumeCount = i;

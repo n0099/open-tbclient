@@ -1,41 +1,32 @@
 package com.baidu.tbadk.core.data;
 
-import tbclient.FrsPage.CarrierEnter;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
+import org.json.JSONObject;
+import tbclient.BookThread;
 /* loaded from: classes.dex */
 public class l {
-    private String headline_cover;
-    private String obj_id;
-    private String text;
-    private String title;
-    private String url;
+    public String bxF;
+    public long bxG;
+    public int bxH;
 
-    public void a(CarrierEnter carrierEnter) {
-        if (carrierEnter != null) {
-            this.title = carrierEnter.title;
-            this.text = carrierEnter.text;
-            this.headline_cover = carrierEnter.headline_cover;
-            this.url = carrierEnter.url;
-            this.obj_id = carrierEnter.obj_id;
+    public void a(BookThread bookThread) {
+        if (bookThread != null) {
+            this.bxF = bookThread.book_id;
+            this.bxG = bookThread.chapter_id.longValue();
+            this.bxH = bookThread.book_type.intValue();
         }
     }
 
-    public String getTitle() {
-        return this.title;
-    }
-
-    public String getText() {
-        return this.text;
-    }
-
-    public String ys() {
-        return this.headline_cover;
-    }
-
-    public String getUrl() {
-        return this.url;
-    }
-
-    public String yt() {
-        return this.obj_id;
+    public void parserJson(JSONObject jSONObject) {
+        if (jSONObject != null) {
+            try {
+                this.bxF = jSONObject.optString("book_id", "0");
+                this.bxG = jSONObject.optLong(MangaBrowserActivityConfig.CHAPTER_ID, 0L);
+                this.bxH = jSONObject.optInt("book_type", 0);
+            } catch (Exception e) {
+                BdLog.e(e.toString());
+            }
+        }
     }
 }

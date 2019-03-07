@@ -8,70 +8,75 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
-import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class e extends Dialog {
-    private LinearLayout aKl;
+    private LinearLayout bFu;
+    private float bFv;
     private Context context;
-    private float dEK;
     private View mContentView;
-
-    public e(Context context) {
-        super(context, 16973835);
-        this.dEK = 0.3f;
-        this.context = context;
-    }
 
     public e(Context context, View view) {
         super(context, 16973835);
-        this.dEK = 0.3f;
+        this.bFv = 0.3f;
         this.context = context;
         this.mContentView = view;
     }
 
-    public void ax(float f) {
-        this.dEK = f;
+    public void al(float f) {
+        this.bFv = f;
     }
 
     @Override // android.app.Dialog
     public void setContentView(View view) {
         this.mContentView = view;
+        if (this.bFu != null) {
+            this.bFu.removeAllViews();
+            if (this.mContentView.getParent() != null) {
+                if (this.mContentView.getParent() instanceof ViewGroup) {
+                    ((ViewGroup) this.mContentView.getParent()).removeView(this.mContentView);
+                    this.bFu.addView(this.mContentView);
+                    return;
+                }
+                return;
+            }
+            this.bFu.addView(this.mContentView);
+        }
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         requestWindowFeature(1);
-        setContentView(e.h.person_info_more_dialog);
-        Display defaultDisplay = ((WindowManager) this.context.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay();
+        setContentView(d.h.person_info_more_dialog);
+        Display defaultDisplay = ((WindowManager) this.context.getSystemService("window")).getDefaultDisplay();
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
         attributes.width = defaultDisplay.getWidth();
         getWindow().setAttributes(attributes);
-        getWindow().setBackgroundDrawableResource(e.d.transparent);
-        getWindow().setDimAmount(this.dEK);
+        getWindow().setBackgroundDrawableResource(d.C0236d.transparent);
+        getWindow().setDimAmount(this.bFv);
         getWindow().setGravity(80);
-        getWindow().setWindowAnimations(e.k.pb_more_pop_anim);
+        getWindow().setWindowAnimations(d.k.pb_more_pop_anim);
         setCanceledOnTouchOutside(true);
         setCancelable(true);
-        this.aKl = (LinearLayout) findViewById(e.g.root_view);
-        this.aKl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.person.e.1
+        this.bFu = (LinearLayout) findViewById(d.g.root_view);
+        this.bFu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.person.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.dismiss();
             }
         });
         if (this.mContentView != null) {
-            this.aKl.removeAllViews();
+            this.bFu.removeAllViews();
             if (this.mContentView.getParent() != null) {
                 if (this.mContentView.getParent() instanceof ViewGroup) {
                     ((ViewGroup) this.mContentView.getParent()).removeView(this.mContentView);
-                    this.aKl.addView(this.mContentView);
+                    this.bFu.addView(this.mContentView);
                     return;
                 }
                 return;
             }
-            this.aKl.addView(this.mContentView);
+            this.bFu.addView(this.mContentView);
         }
     }
 }

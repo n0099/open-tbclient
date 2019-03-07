@@ -7,9 +7,8 @@ import android.net.http.Headers;
 import android.text.TextUtils;
 import cn.jiguang.d.h.x;
 import cn.jiguang.g.f;
-import com.baidu.ar.msghandler.ComponentMessageType;
 import com.baidu.sapi2.base.network.Apn;
-import com.baidu.webkit.internal.ETAG;
+import com.baidu.sapi2.scheme.SapiScheme;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,6 +27,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.TrustManager;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class d {
     public static HttpURLConnection R(Context context, String str) {
@@ -102,9 +102,9 @@ public class d {
             }
             if (httpURLConnection instanceof HttpsURLConnection) {
                 try {
-                    if (bVar.co() != null) {
+                    if (bVar.cn() != null) {
                         SSLContext sSLContext = SSLContext.getInstance("TLS");
-                        sSLContext.init(null, new TrustManager[]{bVar.co()}, new SecureRandom());
+                        sSLContext.init(null, new TrustManager[]{bVar.cn()}, new SecureRandom());
                         if (sSLContext != null) {
                             ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(sSLContext.getSocketFactory());
                         }
@@ -122,27 +122,27 @@ public class d {
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
                 httpURLConnection.setDoInput(true);
-                byte[] cp = bVar.cp();
-                if (cp != null) {
-                    httpURLConnection.getOutputStream().write(cp);
+                byte[] co = bVar.co();
+                if (co != null) {
+                    httpURLConnection.getOutputStream().write(co);
                 }
             }
             int responseCode = httpURLConnection.getResponseCode();
-            cVar.H(responseCode);
+            cVar.q(responseCode);
             try {
                 inputStream3 = httpURLConnection.getInputStream();
             } catch (Throwable th4) {
                 inputStream3 = null;
             }
             try {
-                if (!bVar.cq() || inputStream3 == null) {
+                if (!bVar.cp() || inputStream3 == null) {
                     bArr = null;
                 } else {
                     try {
-                        bArr = f(inputStream3);
+                        bArr = g(inputStream3);
                         if (bArr != null) {
                             try {
-                                if (bVar.cr()) {
+                                if (bVar.cq()) {
                                     bArr = x.b(bArr);
                                 }
                             } catch (Throwable th5) {
@@ -152,15 +152,15 @@ public class d {
                         bArr = null;
                     }
                 }
-                if (bArr == null && responseCode != 200 && bVar.cn()) {
+                if (bArr == null && responseCode != 200 && bVar.cm()) {
                     inputStream4 = httpURLConnection.getErrorStream();
-                    bArr = f(inputStream4);
+                    bArr = g(inputStream4);
                 }
                 if (bArr != null) {
-                    cVar.R(new String(bArr, "UTF-8"));
+                    cVar.R(new String(bArr, HTTP.UTF_8));
                 }
                 if (httpURLConnection != null) {
-                    cVar.H(httpURLConnection.getResponseCode());
+                    cVar.q(httpURLConnection.getResponseCode());
                     cVar.m("expires", httpURLConnection.getHeaderField("Expires"));
                     cVar.m(Headers.CACHE_CONTROL, httpURLConnection.getHeaderField("Cache-Control"));
                 }
@@ -172,7 +172,7 @@ public class d {
             } catch (MalformedURLException e5) {
                 inputStream2 = inputStream3;
                 try {
-                    cVar.H(3004);
+                    cVar.q(3004);
                     cVar.R("MalformedURLException");
                     f.a((Closeable) inputStream2);
                     f.a((Closeable) inputStream4);
@@ -192,16 +192,16 @@ public class d {
                 }
             } catch (IOException e6) {
                 e = e6;
-                cVar.H(2998);
+                cVar.q(2998);
                 cVar.R("网络错误");
                 if (e instanceof SocketTimeoutException) {
-                    cVar.H(3001);
+                    cVar.q(SapiScheme.REQUEST_CODE_START_SC_APP_VERIFY);
                     cVar.R("请求超时");
                 } else if (e instanceof UnknownHostException) {
-                    cVar.H(3003);
+                    cVar.q(3003);
                     cVar.R("域名无效");
                 } else if (e instanceof SSLHandshakeException) {
-                    cVar.H(ComponentMessageType.MSG_TYPE_LOGO_START);
+                    cVar.q(3005);
                     cVar.R("SSL失败");
                 }
                 f.a((Closeable) inputStream3);
@@ -212,7 +212,7 @@ public class d {
                 return cVar;
             } catch (Exception e7) {
                 e = e7;
-                cVar.H(ComponentMessageType.MSG_TYPE_LOGO_STOP);
+                cVar.q(3006);
                 cVar.R("UNKnow execption" + e.getMessage());
                 f.a((Closeable) inputStream3);
                 f.a((Closeable) inputStream4);
@@ -221,7 +221,7 @@ public class d {
                 }
                 return cVar;
             } catch (StackOverflowError e8) {
-                cVar.H(ComponentMessageType.MSG_TYPE_LOGO_HIT);
+                cVar.q(3007);
                 cVar.R("StackOverflowError");
                 f.a((Closeable) inputStream3);
                 f.a((Closeable) inputStream4);
@@ -267,10 +267,6 @@ public class d {
         return a(context, bVar, true);
     }
 
-    public static byte[] f(InputStream inputStream) {
-        return f.a(inputStream);
-    }
-
     public static String g(Map<String, String> map) {
         StringBuilder sb = new StringBuilder("");
         if (map != null && map.size() > 0) {
@@ -278,9 +274,9 @@ public class d {
             while (it.hasNext()) {
                 try {
                     Map.Entry<String, String> next = it.next();
-                    sb.append(next.getKey()).append(ETAG.EQUAL).append(URLEncoder.encode(next.getValue(), "UTF-8"));
+                    sb.append(next.getKey()).append("=").append(URLEncoder.encode(next.getValue(), HTTP.UTF_8));
                     if (it.hasNext()) {
-                        sb.append(ETAG.ITEM_SEPARATOR);
+                        sb.append("&");
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -288,5 +284,9 @@ public class d {
             }
         }
         return sb.toString();
+    }
+
+    public static byte[] g(InputStream inputStream) {
+        return f.a(inputStream);
     }
 }

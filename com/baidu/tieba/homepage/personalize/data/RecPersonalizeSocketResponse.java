@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.squareup.wire.Wire;
 import tbclient.Personalized.DataRes;
 import tbclient.Personalized.PersonalizedResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
     private DataRes resultData;
 
@@ -26,6 +26,13 @@ public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
                     setError(personalizedResIdl.error.errorno.intValue());
                 }
                 setErrorString(personalizedResIdl.error.usermsg);
+            }
+            h.fNw = false;
+            if (h.f(this) && personalizedResIdl.data != null && personalizedResIdl.data.thread_list != null && personalizedResIdl.data.thread_list.size() == 0) {
+                this.resultData = h.bmV();
+                h.fNw = true;
+                h.bmW();
+                return;
             }
             this.resultData = personalizedResIdl.data;
         }

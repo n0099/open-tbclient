@@ -2,146 +2,170 @@ package com.baidu.tbadk.core.view;
 
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.ImageView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.e;
-import com.baidu.tieba.tbadkCore.data.PostData;
-/* loaded from: classes6.dex */
+import com.baidu.tbadk.core.data.bg;
+import com.baidu.tieba.d;
+/* loaded from: classes3.dex */
 public class a {
-    protected ImageView aFA;
-    private PostData aFB;
-    private boolean aFC;
-    private final View.OnClickListener aFD = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.a.1
+    private bg XR;
+    private PraiseView bNr;
+    private DisPraiseView bNs;
+    private final View.OnClickListener bNt = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            a.this.updateUI();
+            a.this.GR();
         }
     };
-    private CustomMessageListener aFE = new CustomMessageListener(2016529) { // from class: com.baidu.tbadk.core.view.a.2
+    private CustomMessageListener bNu = new CustomMessageListener(2016528) { // from class: com.baidu.tbadk.core.view.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            PostData postData;
-            if ((customResponsedMessage.getData() instanceof PostData) && a.this.aFB != null && !TextUtils.isEmpty(a.this.aFB.getId()) && (postData = (PostData) customResponsedMessage.getData()) != null && a.this.aFB.getId().equals(postData.getId())) {
-                a.this.aFB.C(postData.Bf());
-                a.this.aFB.D(postData.Bg());
-                a.this.aFB.nz(postData.aEn());
-                a.this.aFB.cY(postData.Bi());
-                a.this.updateUI();
+            bg bgVar;
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tbadk.data.j) && a.this.XR != null && !TextUtils.isEmpty(a.this.XR.getTid()) && (bgVar = ((com.baidu.tbadk.data.j) customResponsedMessage.getData()).cht) != null && a.this.XR.getTid().equals(bgVar.getTid())) {
+                a.this.XR.gA(bgVar.aan());
+                a.this.XR.gy(bgVar.aam());
+                a.this.XR.af(bgVar.aak());
+                a.this.XR.ag(bgVar.aal());
+                a.this.GR();
             }
         }
     };
-    private CustomMessageListener aFF = new CustomMessageListener(2156670) { // from class: com.baidu.tbadk.core.view.a.3
+    private CustomMessageListener bNv = new CustomMessageListener(2156670) { // from class: com.baidu.tbadk.core.view.a.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && ((String) customResponsedMessage.getData()).equals("zan_or_cai_smallflow")) {
-                a.this.ES();
-                a.this.updateUI();
+                a.this.aec();
+                a.this.GR();
             }
         }
     };
-    protected PostPraiseView aFy;
-    protected PostDisPraiseView aFz;
 
-    public a(PostPraiseView postPraiseView, PostDisPraiseView postDisPraiseView, ImageView imageView) {
-        this.aFy = postPraiseView;
-        this.aFz = postDisPraiseView;
-        this.aFA = imageView;
-        setFrom(5);
+    public a(PraiseView praiseView, DisPraiseView disPraiseView) {
+        this.bNr = praiseView;
+        this.bNs = disPraiseView;
     }
 
-    public void bz(boolean z) {
-        this.aFC = z;
-    }
-
-    public void ES() {
-        if (com.baidu.tbadk.util.a.Qb().Gt()) {
-            if (this.aFy != null) {
-                this.aFy.aFV = e.j.action_like;
-                this.aFy.aFY = e.f.selector_comment_and_prise_item_text_color;
-                this.aFy.aFZ = e.d.cp_cont_h;
-                this.aFy.aFW = e.f.icon_card_like_n;
-                this.aFy.aFX = e.f.icon_card_like_s;
-                this.aFy.setAfterClickListener(this.aFD);
-                this.aFy.setVisibility(0);
+    public void aec() {
+        if (com.baidu.tbadk.util.a.apM().afN()) {
+            if (this.bNr != null) {
+                this.bNr.bOd = d.j.action_like;
+                this.bNr.bOg = d.C0236d.cp_cont_j;
+                this.bNr.bOh = d.C0236d.cp_cont_h;
+                this.bNr.bOe = d.f.icon_card_like_n;
+                this.bNr.bOf = d.f.icon_card_like_s;
+                this.bNr.setAfterClickListener(this.bNt);
+                this.bNr.setVisibility(0);
             }
-            if (this.aFz != null) {
-                this.aFz.aFV = e.j.action_dislike;
-                this.aFz.aFY = e.d.cp_cont_j;
-                this.aFz.aFZ = e.d.cp_link_tip_a;
-                this.aFz.aFW = e.f.icon_card_dislike_n;
-                this.aFz.aFX = e.f.icon_card_dislike_s;
-                this.aFz.setAfterClickListener(this.aFD);
-                this.aFz.setVisibility(0);
-            }
-            if (this.aFA != null) {
-                this.aFA.setVisibility(8);
+            if (this.bNs != null) {
+                this.bNs.bOd = d.j.action_dislike;
+                this.bNs.bOg = d.C0236d.cp_cont_j;
+                this.bNs.bOh = d.C0236d.cp_link_tip_a;
+                this.bNs.bOe = d.f.icon_card_dislike_n;
+                this.bNs.bOf = d.f.icon_card_dislike_s;
+                this.bNs.setAfterClickListener(this.bNt);
+                this.bNs.setVisibility(0);
                 return;
             }
             return;
         }
-        if (this.aFy != null) {
-            this.aFy.aFV = e.j.action_praise_default;
-            this.aFy.aFY = e.f.selector_comment_and_prise_item_text_color;
-            this.aFy.aFZ = e.d.cp_cont_h;
-            this.aFy.aFW = ET() ? e.f.icon_home_card_like_n_xmas : e.f.icon_home_card_like_n;
-            this.aFy.aFX = ET() ? e.f.icon_home_card_like_s_xmas : e.f.icon_home_card_like_s;
-            this.aFy.setVisibility(this.aFC ? 8 : 0);
-            this.aFy.setAfterClickListener(this.aFD);
+        if (this.bNr != null) {
+            this.bNr.bOd = d.j.action_praise_default;
+            this.bNr.bOg = d.C0236d.cp_cont_j;
+            this.bNr.bOh = d.C0236d.cp_cont_h;
+            this.bNr.bOe = aed() ? d.f.icon_home_card_like_n_xmas : d.f.icon_home_card_like_n;
+            this.bNr.bOf = aed() ? d.f.icon_home_card_like_s_xmas : d.f.icon_home_card_like_s;
+            this.bNr.setVisibility(0);
+            this.bNr.setAfterClickListener(this.bNt);
         }
-        if (this.aFz != null) {
-            this.aFz.setAfterClickListener(this.aFD);
-            this.aFz.setVisibility(8);
-        }
-        if (this.aFA != null) {
-            this.aFA.setVisibility(this.aFC ? 8 : 0);
+        if (this.bNs != null) {
+            this.bNs.setAfterClickListener(this.bNt);
+            this.bNs.setVisibility(8);
         }
     }
 
-    private boolean ET() {
+    public void onChangeSkinType(int i) {
+        if (this.bNr != null) {
+            this.bNr.onChangeSkinType(i);
+        }
+        if (this.bNs != null) {
+            this.bNs.onChangeSkinType(i);
+        }
+    }
+
+    private boolean aed() {
         com.baidu.tbadk.coreExtra.data.c activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
-        return activitySwitch != null && activitySwitch.GE();
+        return activitySwitch != null && activitySwitch.afX();
     }
 
     public void setFrom(int i) {
-        if (this.aFy != null) {
-            this.aFy.setFrom(i);
+        if (this.bNr != null) {
+            this.bNr.setFrom(i);
         }
-        if (this.aFz != null) {
-            this.aFz.setFrom(i);
-        }
-    }
-
-    public void a(PostData postData) {
-        if (this.aFB == null) {
-            this.aFB = postData;
-        }
-        if (this.aFy != null) {
-            this.aFy.a(postData);
-        }
-        if (this.aFz != null) {
-            this.aFz.a(postData);
+        if (this.bNs != null) {
+            this.bNs.setFrom(i);
         }
     }
 
-    public void updateUI() {
-        if (this.aFy != null) {
-            this.aFy.updateUI();
+    public void setDisPraiseFrom(int i) {
+        if (this.bNr != null) {
+            this.bNr.setFrom(i);
         }
-        if (this.aFz != null) {
-            this.aFz.updateUI();
+        if (this.bNs != null) {
+            this.bNs.setFrom(i);
         }
     }
 
-    public void h(BdUniqueId bdUniqueId) {
-        this.aFF.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.aFF);
-        this.aFE.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.aFE);
+    public void setForumId(String str) {
+        if (this.bNr != null) {
+            this.bNr.setForumId(str);
+        }
+        if (this.bNs != null) {
+            this.bNs.setForumId(str);
+        }
+    }
+
+    public void setClickable(boolean z) {
+        if (this.bNr != null) {
+            this.bNr.setViewEnabled(z);
+        }
+        if (this.bNs != null) {
+            this.bNs.setViewEnabled(z);
+        }
+    }
+
+    public void n(bg bgVar) {
+        this.XR = bgVar;
+        if (this.bNr != null) {
+            this.bNr.n(bgVar);
+        }
+        if (this.bNs != null) {
+            this.bNs.n(bgVar);
+        }
+    }
+
+    public void GR() {
+        if (this.bNr != null) {
+            this.bNr.GR();
+        }
+        if (this.bNs != null) {
+            this.bNs.GR();
+        }
+    }
+
+    public void onDestroy() {
+        MessageManager.getInstance().unRegisterListener(this.bNu);
+        MessageManager.getInstance().unRegisterListener(this.bNv);
+    }
+
+    public void i(BdUniqueId bdUniqueId) {
+        this.bNu.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.bNu);
+        this.bNv.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.bNv);
     }
 }

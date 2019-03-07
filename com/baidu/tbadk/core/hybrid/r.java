@@ -10,7 +10,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 /* loaded from: classes.dex */
 public class r {
-    public static boolean au(String str, String str2) {
+    public static boolean bB(String str, String str2) {
         return d(new File(str), str2);
     }
 

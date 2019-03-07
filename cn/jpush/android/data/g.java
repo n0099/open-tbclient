@@ -1,9 +1,11 @@
 package cn.jpush.android.data;
 
 import android.content.Context;
+import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
 import cn.jpush.android.a.i;
-import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.tbadk.TbConfig;
+import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -62,12 +64,12 @@ public final class g extends b implements Runnable {
         cn.jiguang.api.e.d(this.R.getApplicationContext(), 3);
         if (this.L == 0) {
             if (this.w == 3 && !TextUtils.isEmpty(str5)) {
-                if (str5.startsWith("http://") || str5.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX)) {
+                if (str5.startsWith("http://") || str5.startsWith("https://")) {
                     if (cn.jpush.android.d.a.b(this.R, "android.permission.WRITE_EXTERNAL_STORAGE")) {
                         Context context = this.R;
                         if (str5.endsWith(".jpg") || str5.endsWith(".png")) {
                             str2 = cn.jpush.android.d.c.b(context, str3) + (str3 + str5.substring(str5.lastIndexOf(".")));
-                            byte[] a = cn.jpush.android.b.a.a(str5, 5, 5000L, 4);
+                            byte[] a = cn.jpush.android.b.a.a(str5, 5, TbConfig.NOTIFY_SOUND_INTERVAL, 4);
                             if (a == null) {
                                 str2 = "";
                             } else if (!cn.jpush.android.d.c.a(str2, a)) {
@@ -107,10 +109,10 @@ public final class g extends b implements Runnable {
         } else {
             if (!TextUtils.isEmpty(str4)) {
                 for (int i = 0; i < 4; i++) {
-                    cn.jiguang.h.c a2 = cn.jpush.android.b.a.a(str4, 5, 5000L);
+                    cn.jiguang.h.c a2 = cn.jpush.android.b.a.a(str4, 5, TbConfig.NOTIFY_SOUND_INTERVAL);
                     if (a2 != null && a2.getResponseCode() == 200) {
                         z = true;
-                        str = a2.cs();
+                        str = a2.cr();
                         break;
                     }
                 }
@@ -120,7 +122,7 @@ public final class g extends b implements Runnable {
             String b = cn.jpush.android.d.c.b(this.R, str3);
             if (!z) {
                 cn.jpush.android.a.e.a(str3, 1014, null, this.R);
-                cn.jpush.android.a.e.a(str3, 1021, cn.jpush.android.d.a.a(this.R, str4), this.R);
+                cn.jpush.android.a.e.a(str3, PointerIconCompat.TYPE_GRABBING, cn.jpush.android.d.a.a(this.R, str4), this.R);
                 return;
             }
             String str6 = b + str3 + ".html";
@@ -140,7 +142,7 @@ public final class g extends b implements Runnable {
                     cn.jpush.android.a.e.a(str3, 1014, null, this.R);
                     return;
                 }
-                this.Q = "file://" + str6;
+                this.Q = SkiaImageDecoder.FILE_PREFIX + str6;
                 cn.jpush.android.a.e.a(str3, 995, null, this.R);
                 cn.jpush.android.api.c.a(this.R, this);
             }

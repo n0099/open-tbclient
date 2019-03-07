@@ -1,6 +1,5 @@
 package okio;
 
-import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -99,19 +98,19 @@ public class ByteString implements Serializable, Comparable<ByteString> {
     }
 
     public ByteString md5() {
-        return digest(AiAppEncryptUtils.ENCRYPT_MD5);
+        return digest("MD5");
     }
 
     public ByteString sha1() {
-        return digest(AiAppEncryptUtils.ENCRYPT_SHA1);
+        return digest("SHA-1");
     }
 
     public ByteString sha256() {
-        return digest(AiAppEncryptUtils.ENCRYPT_SHA256);
+        return digest("SHA-256");
     }
 
     public ByteString sha512() {
-        return digest(AiAppEncryptUtils.ENCRYPT_SHA512);
+        return digest("SHA-512");
     }
 
     private ByteString digest(String str) {

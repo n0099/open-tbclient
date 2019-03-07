@@ -22,7 +22,7 @@ public class FillUProfileActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
             init();
             setupViews();
         } catch (Throwable th) {
@@ -46,7 +46,7 @@ public class FillUProfileActivity extends BaseActivity {
     public void setupViews() {
         super.setupViews();
         setBtnVisibility(4, 0, 4);
-        setTitleText(a.f.sapi_sdk_title_filluprofile);
+        setTitleText(a.g.sapi_sdk_title_filluprofile);
         final WebFillUProfileCallback webFillUProfileCallback = PassportSDK.getInstance().getWebFillUProfileCallback();
         if (TextUtils.isEmpty(this.bduss)) {
             this.result.setResultCode(-204);
@@ -116,7 +116,7 @@ public class FillUProfileActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void goBack() {
-        if (this.sapiWebView.canGoBack()) {
+        if (this.sapiWebView != null && this.sapiWebView.canGoBack()) {
             this.sapiWebView.goBack();
         } else {
             onClose();

@@ -45,7 +45,7 @@ public final class g {
         try {
             hVar.start();
             hVar.join(3000L);
-            return hVar.bW();
+            return hVar.bV();
         } catch (InterruptedException e2) {
             return null;
         } catch (Exception e3) {
@@ -117,10 +117,10 @@ public final class g {
                 throw new IllegalArgumentException("flag or body length error");
             }
             cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(300);
-            bVar.C(0);
+            bVar.l(0);
             bVar.writeByteArray(str.getBytes());
-            bVar.i(i);
-            bVar.C(i2);
+            bVar.g(i);
+            bVar.l(i2);
             bVar.writeByteArray(bArr);
             bVar.l(bVar.current(), 0);
             bVar.k(z ? 1 : 0, 4);

@@ -1,12 +1,6 @@
 package com.baidu.tieba.frs;
-
-import com.baidu.adp.BdUniqueId;
-/* loaded from: classes6.dex */
-public class v implements com.baidu.adp.widget.ListView.h {
-    public static final BdUniqueId dOL = BdUniqueId.gen();
-
-    @Override // com.baidu.adp.widget.ListView.h
-    public BdUniqueId getType() {
-        return dOL;
-    }
+/* loaded from: classes.dex */
+public class v {
+    public int fcB;
+    public String name;
 }

@@ -25,7 +25,6 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Transformation;
 import android.widget.AbsListView;
 import android.widget.ListView;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 /* loaded from: classes2.dex */
 public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChild, NestedScrollingParent {
     private static final int ALPHA_ANIMATION_DURATION = 300;
@@ -437,8 +436,8 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
             ensureTarget();
         }
         if (this.mTarget != null) {
-            this.mTarget.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), AiAppsFileUtils.GB), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), AiAppsFileUtils.GB));
-            this.mCircleView.measure(View.MeasureSpec.makeMeasureSpec(this.mCircleDiameter, AiAppsFileUtils.GB), View.MeasureSpec.makeMeasureSpec(this.mCircleDiameter, AiAppsFileUtils.GB));
+            this.mTarget.measure(View.MeasureSpec.makeMeasureSpec((getMeasuredWidth() - getPaddingLeft()) - getPaddingRight(), 1073741824), View.MeasureSpec.makeMeasureSpec((getMeasuredHeight() - getPaddingTop()) - getPaddingBottom(), 1073741824));
+            this.mCircleView.measure(View.MeasureSpec.makeMeasureSpec(this.mCircleDiameter, 1073741824), View.MeasureSpec.makeMeasureSpec(this.mCircleDiameter, 1073741824));
             this.mCircleViewIndex = -1;
             for (int i3 = 0; i3 < getChildCount(); i3++) {
                 if (getChildAt(i3) == this.mCircleView) {
@@ -670,7 +669,7 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
         }
         this.mProgress.setStartEndTrim(0.0f, Math.min((float) MAX_PROGRESS_ANGLE, max * MAX_PROGRESS_ANGLE));
         this.mProgress.setArrowScale(Math.min(1.0f, max));
-        this.mProgress.setProgressRotation(((-0.25f) + (max * 0.4f) + (pow * DECELERATE_INTERPOLATION_FACTOR)) * 0.5f);
+        this.mProgress.setProgressRotation(((-0.25f) + (max * 0.4f) + (pow * DECELERATE_INTERPOLATION_FACTOR)) * DRAG_RATE);
         setTargetOffsetTopAndBottom(i - this.mCurrentTargetOffsetTop);
     }
 
@@ -725,8 +724,9 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
                     return false;
                 }
                 if (this.mIsBeingDragged) {
+                    float y = (motionEvent.getY(findPointerIndex) - this.mInitialMotionY) * DRAG_RATE;
                     this.mIsBeingDragged = false;
-                    finishSpinner((motionEvent.getY(findPointerIndex) - this.mInitialMotionY) * 0.5f);
+                    finishSpinner(y);
                 }
                 this.mActivePointerId = -1;
                 return false;
@@ -736,10 +736,10 @@ public class SwipeRefreshLayout extends ViewGroup implements NestedScrollingChil
                     Log.e(LOG_TAG, "Got ACTION_MOVE event but have an invalid active pointer id.");
                     return false;
                 }
-                float y = motionEvent.getY(findPointerIndex2);
-                startDragging(y);
+                float y2 = motionEvent.getY(findPointerIndex2);
+                startDragging(y2);
                 if (this.mIsBeingDragged) {
-                    float f = (y - this.mInitialMotionY) * 0.5f;
+                    float f = (y2 - this.mInitialMotionY) * DRAG_RATE;
                     if (f > 0.0f) {
                         moveSpinner(f);
                         break;

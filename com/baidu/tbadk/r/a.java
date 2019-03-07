@@ -1,24 +1,16 @@
 package com.baidu.tbadk.r;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class a {
-    public static String ji(String str) {
-        if (StringUtils.isNull(str)) {
-            return null;
-        }
-        int indexOf = str.indexOf("(");
-        int indexOf2 = str.indexOf(")");
-        if (indexOf == -1 || indexOf2 == -1 || indexOf + 1 >= indexOf2) {
-            return null;
-        }
-        return str.substring(indexOf + 1, indexOf2);
-    }
-
-    public static boolean jj(String str) {
-        if (StringUtils.isNull(str)) {
+    public static final boolean a(TbPageContext<?> tbPageContext, View view) {
+        if (tbPageContext == null || view == null) {
             return false;
         }
-        return str.equals("4") || str.equals("5");
+        tbPageContext.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        tbPageContext.getLayoutMode().onModeChanged(view);
+        return true;
     }
 }

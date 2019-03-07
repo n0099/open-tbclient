@@ -12,8 +12,8 @@ import android.text.style.DynamicDrawableSpan;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class c extends DynamicDrawableSpan {
-    private Uri PK;
-    private a PM;
+    private Uri QP;
+    private a QR;
     private Context mContext;
     private Drawable mDrawable;
     private Rect mRect;
@@ -32,12 +32,12 @@ public class c extends DynamicDrawableSpan {
         super(i2);
         this.mRect = new Rect();
         this.mResourceId = i;
-        this.PM = aVar;
+        this.QR = aVar;
     }
 
     @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
     public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        if (this.mDrawable != null || this.PM == null) {
+        if (this.mDrawable != null || this.QR == null) {
             return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
         }
         if (fontMetricsInt != null) {
@@ -54,15 +54,15 @@ public class c extends DynamicDrawableSpan {
         Drawable drawable = null;
         if (this.mDrawable != null) {
             drawable = this.mDrawable;
-        } else if (this.PM != null) {
-            drawable = this.PM.a(this);
+        } else if (this.QR != null) {
+            drawable = this.QR.a(this);
         }
         if (drawable != null) {
             return drawable;
         }
-        if (this.PK != null) {
+        if (this.QP != null) {
             try {
-                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.PK);
+                InputStream openInputStream = this.mContext.getContentResolver().openInputStream(this.QP);
                 BitmapDrawable bitmapDrawable = new BitmapDrawable(this.mContext.getResources(), BitmapFactory.decodeStream(openInputStream));
                 try {
                     bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());

@@ -5,24 +5,25 @@ import android.net.wifi.WifiManager;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.sapi2.base.network.Apn;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+import org.apache.http.protocol.HTTP;
+/* loaded from: classes3.dex */
 public final class h {
-    private static String Ym = null;
+    private static String abO = null;
 
     public static String b(String str) {
         if (TextUtils.isEmpty(str)) {
-            return "N/A";
+            return Apn.APN_UNKNOWN;
         }
         MessageDigest messageDigest = null;
         try {
-            messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
+            messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.reset();
-            messageDigest.update(str.getBytes("UTF-8"));
+            messageDigest.update(str.getBytes(HTTP.UTF_8));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } catch (NoSuchAlgorithmException e2) {
@@ -51,17 +52,17 @@ public final class h {
 
     public static String g(Context context) {
         if (com.baidu.crabsdk.a.K) {
-            if (Ym != null) {
-                return Ym;
+            if (abO != null) {
+                return abO;
             }
             try {
-                Ym = b(((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), "android_id"));
+                abO = b(((TelephonyManager) context.getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getDeviceId() + ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress() + Settings.Secure.getString(context.getContentResolver(), "android_id"));
             } catch (Exception e) {
-                com.baidu.crabsdk.c.a.cJ("getCUID fail," + e);
-                Ym = "N/A";
+                com.baidu.crabsdk.c.a.cx("getCUID fail," + e);
+                abO = Apn.APN_UNKNOWN;
             }
-            return Ym;
+            return abO;
         }
-        return "N/A";
+        return Apn.APN_UNKNOWN;
     }
 }

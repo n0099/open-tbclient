@@ -44,7 +44,7 @@ public class c {
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && !next.gH()) {
+            if (next != null && !next.gE()) {
                 it.remove();
                 return next;
             }
@@ -103,9 +103,9 @@ public class c {
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && next.gH()) {
-                next.gJ();
-                if (next.gI() >= next.gs()) {
+            if (next != null && next.gE()) {
+                next.gG();
+                if (next.gF() >= next.gp()) {
                     return true;
                 }
             }
@@ -119,7 +119,7 @@ public class c {
             while (it.hasNext()) {
                 e next = it.next();
                 if (next != null) {
-                    next.gx();
+                    next.gu();
                 }
             }
         }
@@ -134,7 +134,7 @@ public class c {
             e next = it.next();
             if (next != null && next.getSequenceId() == i) {
                 it.remove();
-                next.gy();
+                next.gv();
                 return next;
             }
         }
@@ -142,11 +142,11 @@ public class c {
     }
 
     public static boolean b(LinkedList<e> linkedList, int i) {
-        SocketMessage gE;
+        SocketMessage gB;
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && (gE = next.gE()) != null && gE.getCmd() == i) {
+            if (next != null && (gB = next.gB()) != null && gB.getCmd() == i) {
                 return true;
             }
         }
@@ -154,25 +154,25 @@ public class c {
     }
 
     public static void c(LinkedList<e> linkedList, int i) {
-        SocketMessage gE;
+        SocketMessage gB;
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && (gE = next.gE()) != null && gE.getCmd() == i) {
+            if (next != null && (gB = next.gB()) != null && gB.getCmd() == i) {
                 it.remove();
             }
         }
     }
 
     public static boolean a(LinkedList<e> linkedList, a aVar, int i) {
-        SocketMessage gE;
+        SocketMessage gB;
         if (aVar == null) {
             return false;
         }
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && (gE = next.gE()) != null && gE.getCmd() == i && aVar.onFindMessage(gE)) {
+            if (next != null && (gB = next.gB()) != null && gB.getCmd() == i && aVar.onFindMessage(gB)) {
                 return true;
             }
         }
@@ -180,11 +180,11 @@ public class c {
     }
 
     public static boolean a(LinkedList<e> linkedList, int i, BdUniqueId bdUniqueId) {
-        SocketMessage gE;
+        SocketMessage gB;
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && (gE = next.gE()) != null && ((i != 0 && gE.getTag() == bdUniqueId && i == gE.getCmd()) || (i == 0 && bdUniqueId != null && gE.getTag() == bdUniqueId))) {
+            if (next != null && (gB = next.gB()) != null && ((i != 0 && gB.getTag() == bdUniqueId && i == gB.getCmd()) || (i == 0 && bdUniqueId != null && gB.getTag() == bdUniqueId))) {
                 return true;
             }
         }
@@ -192,14 +192,14 @@ public class c {
     }
 
     public static void b(LinkedList<e> linkedList, int i, BdUniqueId bdUniqueId) {
-        SocketMessage gE;
+        SocketMessage gB;
         if (linkedList != null) {
             Iterator<e> it = linkedList.iterator();
             while (it.hasNext()) {
                 e next = it.next();
-                if (next != null && (gE = next.gE()) != null && ((i != 0 && gE.getTag() == bdUniqueId && i == gE.getCmd()) || (i == 0 && bdUniqueId != null && gE.getTag() == bdUniqueId))) {
+                if (next != null && (gB = next.gB()) != null && ((i != 0 && gB.getTag() == bdUniqueId && i == gB.getCmd()) || (i == 0 && bdUniqueId != null && gB.getTag() == bdUniqueId))) {
                     it.remove();
-                    next.gy();
+                    next.gv();
                 }
             }
         }

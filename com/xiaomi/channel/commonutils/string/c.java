@@ -1,6 +1,5 @@
 package com.xiaomi.channel.commonutils.string;
 
-import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes3.dex */
@@ -12,7 +11,7 @@ public class c {
 
     public static String a(String str) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             StringBuffer stringBuffer = new StringBuffer();
             messageDigest.update(str.getBytes(), 0, str.length());
             for (byte b : messageDigest.digest()) {

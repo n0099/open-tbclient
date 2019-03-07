@@ -19,7 +19,11 @@ public class CallStateReceiver extends BroadcastReceiver {
 
     public void unregister(Context context) {
         if (context != null) {
-            context.unregisterReceiver(this);
+            try {
+                context.unregisterReceiver(this);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

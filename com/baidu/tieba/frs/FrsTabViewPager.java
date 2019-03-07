@@ -6,13 +6,13 @@ import android.view.MotionEvent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class FrsTabViewPager extends BdBaseViewPager {
-    private float dOU;
-    private float dOV;
-    private float dOW;
-    private float dOX;
-    private boolean dOY;
+    private float fcI;
+    private float fcJ;
+    private float fcK;
+    private float fcL;
+    private boolean fcM;
     private float x;
     private float y;
 
@@ -30,16 +30,16 @@ public class FrsTabViewPager extends BdBaseViewPager {
         this.y = motionEvent.getRawY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.dOU = motionEvent.getRawX();
-                this.dOV = motionEvent.getRawY();
-                gP(true);
-                if (aDG()) {
-                    this.dOY = false;
+                this.fcI = motionEvent.getRawX();
+                this.fcJ = motionEvent.getRawY();
+                jn(true);
+                if (bem()) {
+                    this.fcM = false;
                     break;
                 }
                 break;
             case 1:
-                gP(false);
+                jn(false);
                 break;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -51,18 +51,18 @@ public class FrsTabViewPager extends BdBaseViewPager {
         this.y = motionEvent.getRawY();
         switch (motionEvent.getAction()) {
             case 1:
-                gP(false);
+                jn(false);
                 break;
             case 2:
-                this.dOW = this.x - this.dOU;
-                this.dOX = this.y - this.dOV;
-                if (this.dOW < 0.0f && Math.abs(this.dOW) > Math.abs(this.dOX) && aDG()) {
-                    bN(false);
-                    if (this.dOY) {
+                this.fcK = this.x - this.fcI;
+                this.fcL = this.y - this.fcJ;
+                if (this.fcK < 0.0f && Math.abs(this.fcK) > Math.abs(this.fcL) && bem()) {
+                    dW(false);
+                    if (this.fcM) {
                         return false;
                     }
-                    gQ(true);
-                    this.dOY = true;
+                    jo(true);
+                    this.fcM = true;
                     return false;
                 }
                 break;
@@ -70,44 +70,44 @@ public class FrsTabViewPager extends BdBaseViewPager {
         return super.onTouchEvent(motionEvent);
     }
 
-    public void gP(boolean z) {
+    public void jn(boolean z) {
         a aVar = new a();
-        aVar.gR(aDG());
-        aVar.gS(z);
+        aVar.jp(bem());
+        aVar.jq(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void aDF() {
-        gP(false);
+    public void bel() {
+        jn(false);
     }
 
-    public void gQ(boolean z) {
+    public void jo(boolean z) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921370, Boolean.valueOf(z)));
     }
 
-    private boolean aDG() {
+    private boolean bem() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a {
-        private boolean dOZ;
-        private boolean dPa;
+        private boolean fcN;
+        private boolean fcO;
 
-        public boolean aDH() {
-            return this.dOZ;
+        public boolean ben() {
+            return this.fcN;
         }
 
-        public void gR(boolean z) {
-            this.dOZ = z;
+        public void jp(boolean z) {
+            this.fcN = z;
         }
 
-        public boolean aDI() {
-            return this.dPa;
+        public boolean beo() {
+            return this.fcO;
         }
 
-        public void gS(boolean z) {
-            this.dPa = z;
+        public void jq(boolean z) {
+            this.fcO = z;
         }
     }
 }

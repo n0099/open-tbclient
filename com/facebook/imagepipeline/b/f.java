@@ -1,15 +1,15 @@
 package com.facebook.imagepipeline.b;
 /* loaded from: classes2.dex */
 public abstract class f {
-    private static a ipC;
+    private static a jFi;
 
     /* loaded from: classes2.dex */
     public interface a {
     }
 
     public void a(a aVar) {
-        if (ipC == null) {
-            ipC = aVar;
+        if (jFi == null) {
+            jFi = aVar;
         }
     }
 }

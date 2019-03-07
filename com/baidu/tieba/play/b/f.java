@@ -1,6 +1,5 @@
 package com.baidu.tieba.play.b;
 
-import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
@@ -8,16 +7,16 @@ import org.json.JSONObject;
 public class f {
     private List<a> mList = new ArrayList();
 
-    public void O(String str, String str2, String str3) {
+    public void aa(String str, String str2, String str3) {
         this.mList.add(new a(str, str2, str3));
     }
 
-    public String btF() {
+    public String bUq() {
         JSONObject jSONObject = new JSONObject();
         try {
             int size = this.mList.size();
             for (int i = 0; i < size; i++) {
-                jSONObject.put(i + "", this.mList.get(i).btG());
+                jSONObject.put(i + "", this.mList.get(i).bUr());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -28,21 +27,21 @@ public class f {
     /* loaded from: classes.dex */
     private static class a {
         public final String error;
-        public final String gJl;
+        public final String iaL;
         public final String uuid;
 
         public a(String str, String str2, String str3) {
             this.uuid = str;
             this.error = str2;
-            this.gJl = str3;
+            this.iaL = str3;
         }
 
-        public JSONObject btG() {
+        public JSONObject bUr() {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("uuid", this.uuid);
-                jSONObject.put(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, this.error);
-                jSONObject.put("sub_error", this.gJl);
+                jSONObject.put("error", this.error);
+                jSONObject.put("sub_error", this.iaL);
             } catch (Exception e) {
                 e.printStackTrace();
             }

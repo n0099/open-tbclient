@@ -3,6 +3,7 @@ package com.baidu.adp.lib.g;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.support.v4.view.ViewCompat;
 import android.util.TypedValue;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
@@ -10,13 +11,13 @@ import com.baidu.adp.lib.util.BdLog;
 import java.io.InputStream;
 /* loaded from: classes.dex */
 public class c extends Resources {
-    private static final ColorStateList DR = ColorStateList.valueOf(-16777216);
-    private Resources DS;
+    private static final ColorStateList DQ = ColorStateList.valueOf(ViewCompat.MEASURED_STATE_MASK);
+    private Resources DR;
     private boolean isNight;
 
     public c(Resources resources) {
         super(resources.getAssets(), resources.getDisplayMetrics(), resources.getConfiguration());
-        this.DS = resources;
+        this.DR = resources;
         this.isNight = false;
     }
 
@@ -27,7 +28,7 @@ public class c extends Resources {
             int i3 = i2;
             if (i3 < 3) {
                 try {
-                    return this.DS.getDrawable(i);
+                    return this.DR.getDrawable(i);
                 } catch (OutOfMemoryError e) {
                     if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.isNight)) {
                         throw e;
@@ -55,7 +56,7 @@ public class c extends Resources {
             int i3 = i2;
             if (i3 < 3) {
                 try {
-                    return this.DS.getString(i);
+                    return this.DR.getString(i);
                 } catch (OutOfMemoryError e) {
                     if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.isNight)) {
                         throw e;
@@ -89,7 +90,7 @@ public class c extends Resources {
         while (true) {
             if (i3 < 3) {
                 try {
-                    i2 = this.DS.getColor(i);
+                    i2 = this.DR.getColor(i);
                     break;
                 } catch (OutOfMemoryError e) {
                     if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.isNight)) {
@@ -118,7 +119,7 @@ public class c extends Resources {
             int i3 = i2;
             if (i3 < 3) {
                 try {
-                    return this.DS.getColorStateList(i);
+                    return this.DR.getColorStateList(i);
                 } catch (OutOfMemoryError e) {
                     if (i3 == 2 && (BdBaseApplication.getInst().isDebugMode() || this.isNight)) {
                         throw e;
@@ -132,7 +133,7 @@ public class c extends Resources {
                 }
             } else {
                 m("colorstatelist", i);
-                return DR;
+                return DQ;
             }
             i2 = i3 + 1;
         }
@@ -141,18 +142,18 @@ public class c extends Resources {
 
     @Override // android.content.res.Resources
     public InputStream openRawResource(int i) throws Resources.NotFoundException {
-        return this.DS.openRawResource(i);
+        return this.DR.openRawResource(i);
     }
 
     @Override // android.content.res.Resources
     public InputStream openRawResource(int i, TypedValue typedValue) throws Resources.NotFoundException {
-        return this.DS.openRawResource(i, typedValue);
+        return this.DR.openRawResource(i, typedValue);
     }
 
     private final void m(String str, int i) {
         String str2 = null;
         try {
-            str2 = this.DS.getResourceEntryName(i);
+            str2 = this.DR.getResourceEntryName(i);
         } catch (Exception e) {
         }
         try {

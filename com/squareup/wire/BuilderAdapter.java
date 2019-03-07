@@ -1,5 +1,6 @@
 package com.squareup.wire;
 
+import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.squareup.wire.Message;
 import com.squareup.wire.Message.Builder;
 import java.lang.reflect.Field;
@@ -52,7 +53,7 @@ public final class BuilderAdapter<B extends Message.Builder> {
                     if (sb == null) {
                         sb = new StringBuilder();
                     } else {
-                        str = "s";
+                        str = NotifyType.SOUND;
                     }
                     sb.append("\n  ");
                     sb.append(field.getName());

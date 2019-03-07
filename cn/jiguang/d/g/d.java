@@ -29,7 +29,7 @@ public final class d {
         return this.c;
     }
 
-    public final ByteBuffer ce() {
+    public final ByteBuffer cd() {
         return this.b;
     }
 }

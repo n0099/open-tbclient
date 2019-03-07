@@ -4,18 +4,18 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static a biY;
-    private com.baidu.tbadk.coreExtra.data.a aRy;
+    private static a csV;
+    private com.baidu.tbadk.coreExtra.data.a cab;
 
-    public static a Qb() {
-        if (biY == null) {
+    public static a apM() {
+        if (csV == null) {
             synchronized (a.class) {
-                if (biY == null) {
-                    biY = new a();
+                if (csV == null) {
+                    csV = new a();
                 }
             }
         }
-        return biY;
+        return csV;
     }
 
     public void a(com.baidu.tbadk.coreExtra.data.a aVar) {
@@ -24,22 +24,22 @@ public class a {
 
     private void b(com.baidu.tbadk.coreExtra.data.a aVar) {
         boolean z = false;
-        z = (aVar == null || this.aRy == null || aVar.Gt() != this.aRy.Gt()) ? true : true;
-        this.aRy = aVar;
+        z = (aVar == null || this.cab == null || aVar.afN() != this.cab.afN()) ? true : true;
+        this.cab = aVar;
         if (z) {
-            iM("zan_or_cai_smallflow");
+            pB("zan_or_cai_smallflow");
         }
     }
 
-    public boolean Gt() {
-        if (this.aRy == null) {
-            this.aRy = new com.baidu.tbadk.coreExtra.data.a();
-            this.aRy.Gu();
+    public boolean afN() {
+        if (this.cab == null) {
+            this.cab = new com.baidu.tbadk.coreExtra.data.a();
+            this.cab.afO();
         }
-        return this.aRy.Gt();
+        return this.cab.afN();
     }
 
-    private void iM(String str) {
+    private void pB(String str) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
     }
 }

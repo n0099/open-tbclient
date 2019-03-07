@@ -18,13 +18,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.webkit.internal.ABTestConstants;
-import com.baidu.webkit.internal.ETAG;
 import com.tencent.connect.common.Constants;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -37,9 +31,10 @@ import java.net.URLDecoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Enumeration;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class j {
     private static String f;
     private static String a = "";
@@ -53,8 +48,8 @@ public class j {
         Bundle bundle = new Bundle();
         if (str != null) {
             try {
-                for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
-                    String[] split = str2.split(ETAG.EQUAL);
+                for (String str2 : str.split("&")) {
+                    String[] split = str2.split("=");
                     if (split.length == 2) {
                         bundle.putString(URLDecoder.decode(split[0]), URLDecoder.decode(split[1]));
                     }
@@ -72,8 +67,8 @@ public class j {
             jSONObject = new JSONObject();
         }
         if (str != null) {
-            for (String str2 : str.split(ETAG.ITEM_SEPARATOR)) {
-                String[] split = str2.split(ETAG.EQUAL);
+            for (String str2 : str.split("&")) {
+                String[] split = str2.split("=");
                 if (split.length == 2) {
                     try {
                         split[0] = URLDecoder.decode(split[0]);
@@ -113,7 +108,7 @@ public class j {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public String a;
         public long b;
@@ -129,7 +124,7 @@ public class j {
     }
 
     public static JSONObject d(String str) throws JSONException {
-        if (str.equals(ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE)) {
+        if (str.equals("false")) {
             str = "{value : false}";
         }
         if (str.equals("true")) {
@@ -175,7 +170,7 @@ public class j {
                 return false;
             }
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
                 messageDigest.update(signatureArr[0].toByteArray());
                 String a2 = a(messageDigest.digest());
                 messageDigest.reset();
@@ -237,7 +232,7 @@ public class j {
         Intent intent = new Intent();
         intent.setComponent(new ComponentName(str, str2));
         intent.setAction("android.intent.action.VIEW");
-        intent.addFlags(AiAppsFileUtils.GB);
+        intent.addFlags(1073741824);
         intent.addFlags(268435456);
         intent.setData(Uri.parse(str3));
         context.startActivity(intent);
@@ -245,7 +240,7 @@ public class j {
 
     public static String f(String str) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(i(str));
             byte[] digest = messageDigest.digest();
             if (digest != null) {
@@ -306,7 +301,7 @@ public class j {
         if (str == null) {
             return false;
         }
-        return str.startsWith("http://") || str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+        return str.startsWith("http://") || str.startsWith("https://");
     }
 
     public static boolean h(String str) {
@@ -320,7 +315,7 @@ public class j {
             return "";
         }
         if (TextUtils.isEmpty(str2)) {
-            str2 = "UTF-8";
+            str2 = HTTP.UTF_8;
         }
         try {
             if (str.getBytes(str2).length > i) {
@@ -378,7 +373,7 @@ public class j {
         bundle.putString("report_type", str2);
         bundle.putString("act_type", str3);
         bundle.putString("via", str4);
-        bundle.putString(HttpConstants.HTTP_APP_ID, str5);
+        bundle.putString("app_id", str5);
         bundle.putString("result", str6);
         bundle.putString("type", str7);
         bundle.putString("login_status", str8);
@@ -405,7 +400,7 @@ public class j {
         bundle.putString("network", com.tencent.open.b.a.a(e.a()));
         bundle.putString("apn", com.tencent.open.b.a.b(e.a()));
         bundle.putString("model_name", Build.MODEL);
-        bundle.putString(ETAG.KEY_SDK_VER, Constants.SDK_VERSION);
+        bundle.putString("sdk_ver", Constants.SDK_VERSION);
         bundle.putString("packagename", e.b());
         bundle.putString("app_ver", d(e.a(), e.b()));
         return bundle;
@@ -475,7 +470,7 @@ public class j {
 
     public static byte[] i(String str) {
         try {
-            return str.getBytes("UTF-8");
+            return str.getBytes(HTTP.UTF_8);
         } catch (UnsupportedEncodingException e2) {
             return null;
         }

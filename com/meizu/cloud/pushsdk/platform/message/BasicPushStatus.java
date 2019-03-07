@@ -1,6 +1,7 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
 import android.text.TextUtils;
+import com.baidu.ubc.UBC;
 import com.meizu.cloud.a.a;
 import java.io.Serializable;
 import org.json.JSONException;
@@ -19,9 +20,9 @@ public abstract class BasicPushStatus implements Serializable {
 
     public BasicPushStatus(String str) {
         JSONObject parse = parse(str);
-        if (parse != null && SUCCESS_CODE.equals(this.code) && !parse.isNull("value")) {
+        if (parse != null && SUCCESS_CODE.equals(this.code) && !parse.isNull(UBC.CONTENT_KEY_VALUE)) {
             try {
-                parseValueData(parse.getJSONObject("value"));
+                parseValueData(parse.getJSONObject(UBC.CONTENT_KEY_VALUE));
             } catch (JSONException e) {
                 a.e(TAG, "parse value data error " + e.getMessage() + " json " + str);
             }

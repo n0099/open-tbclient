@@ -5,6 +5,6 @@ import java.util.concurrent.ExecutorService;
 final class k extends s {
     @Override // cn.jiguang.d.h.s
     final ExecutorService a() {
-        return v.i("ACTION", 5, -1);
+        return v.h("ACTION", 5, -1);
     }
 }

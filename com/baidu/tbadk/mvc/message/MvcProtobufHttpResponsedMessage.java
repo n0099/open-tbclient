@@ -57,7 +57,7 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends j, M extends Mes
             }
             if (obj instanceof j) {
                 this.data = (D) obj;
-                this.data.a(parseFrom);
+                this.data.initByProtobuf(parseFrom);
             }
         }
     }
@@ -66,7 +66,7 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends j, M extends Mes
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         e eVar;
-        l<byte[]> an;
+        l<byte[]> bu;
         super.afterDispatchInBackGround(i, (int) bArr);
         if (getError() == 0 && bArr != null) {
             if (getOrginalMessage() instanceof MvcSocketMessage) {
@@ -86,10 +86,10 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends j, M extends Mes
             }
             if (eVar != null) {
                 String cacheKey = eVar.getCacheKey();
-                String Oq = eVar.Oq();
+                String anW = eVar.anW();
                 String currentAccount = eVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey != null && !TextUtils.isEmpty(Oq) && bArr != null && (an = a.BO().an(Oq, currentAccount)) != null) {
-                    an.e(cacheKey, bArr);
+                if (cacheKey != null && !TextUtils.isEmpty(anW) && bArr != null && (bu = a.aaW().bu(anW, currentAccount)) != null) {
+                    bu.e(cacheKey, bArr);
                 }
             }
         }

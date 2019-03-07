@@ -3,9 +3,9 @@ package com.baidu.location.g;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c {
-    static c afU;
+    static c c;
     String a = "firll.dat";
     int b = 3164;
     int d = 0;
@@ -75,6 +75,13 @@ public class c {
         }
     }
 
+    public static c a() {
+        if (c == null) {
+            c = new c();
+        }
+        return c;
+    }
+
     private void a(int i, long j) {
         String h = g.h();
         if (h == null) {
@@ -89,13 +96,6 @@ public class c {
             randomAccessFile.close();
         } catch (Exception e) {
         }
-    }
-
-    public static c ua() {
-        if (afU == null) {
-            afU = new c();
-        }
-        return afU;
     }
 
     public void a(long j) {

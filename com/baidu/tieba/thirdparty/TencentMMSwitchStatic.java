@@ -2,18 +2,17 @@ package com.baidu.tieba.thirdparty;
 
 import com.baidu.adp.lib.b.a;
 import com.baidu.adp.lib.b.d;
-import com.tencent.mm.sdk.constants.ConstantsAPI;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class TencentMMSwitchStatic extends a {
-    public static final String[] hCW;
+    public static final String[] iTr;
 
     static {
         d.iQ().i(TencentMMSwitchStatic.class);
-        hCW = new String[]{ConstantsAPI.WXApp.WXAPP_PACKAGE_NAME};
+        iTr = new String[]{"com.tencent.mm"};
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected void aq(int i) {
+    protected void Z(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -23,7 +22,7 @@ public class TencentMMSwitchStatic extends a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String[] iG() {
-        return hCW;
+        return iTr;
     }
 
     @Override // com.baidu.adp.lib.b.a

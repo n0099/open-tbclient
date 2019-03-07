@@ -8,7 +8,6 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.webkit.internal.ETAG;
 import com.tencent.open.SocialConstants;
 import java.util.LinkedList;
 import org.apache.http.cookie.ClientCookie;
@@ -55,19 +54,19 @@ public class i {
         a(str, i, -1L, i2, str2, i3, str3);
     }
 
-    public static void gW() {
+    public static void gT() {
         try {
-            BdStatisticsManager.getInstance().debug("socket", "url", com.baidu.adp.lib.webSocket.h.lE().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.lE().lB()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.h.lE().lK()), "remote_ip", com.baidu.adp.lib.webSocket.h.lE().lA(), ETAG.KEY_LOCAL_DNS, com.baidu.adp.lib.webSocket.h.lE().getLocalDns(), "local_dns_bak", com.baidu.adp.lib.webSocket.h.lE().lm(), "net", BdStatisticsManager.getInstance().getCurNetworkType());
+            BdStatisticsManager.getInstance().debug("socket", "url", com.baidu.adp.lib.webSocket.h.lJ().getUrl(), "dns_cost", Long.valueOf(com.baidu.adp.lib.webSocket.h.lJ().lG()), TiebaStatic.CON_COST, Long.valueOf(com.baidu.adp.lib.webSocket.h.lJ().lP()), "remote_ip", com.baidu.adp.lib.webSocket.h.lJ().lF(), "local_dns", com.baidu.adp.lib.webSocket.h.lJ().lp(), "local_dns_bak", com.baidu.adp.lib.webSocket.h.lJ().lq(), "net", BdStatisticsManager.getInstance().getCurNetworkType());
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
     }
 
-    public static void gX() {
+    public static void gU() {
         try {
             com.baidu.adp.lib.stats.a statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
             statsItem.append("action", "imconn");
-            statsItem.append(TiebaStatic.CON_COST, String.valueOf(com.baidu.adp.lib.webSocket.h.lE().lK()));
+            statsItem.append(TiebaStatic.CON_COST, String.valueOf(com.baidu.adp.lib.webSocket.h.lJ().lP()));
             statsItem.append("nettype", com.baidu.adp.lib.stats.d.getNetType(BdBaseApplication.getInst()));
             BdStatisticsManager.getInstance().performance("im", statsItem);
         } catch (Exception e) {

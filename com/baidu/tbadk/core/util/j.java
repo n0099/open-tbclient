@@ -1,27 +1,89 @@
 package com.baidu.tbadk.core.util;
 
-import android.os.Build;
-import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.tbadk.TbConfig;
+import android.database.Cursor;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.xiaomi.mipush.sdk.Constants;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes.dex */
-public class j extends Thread {
-    private String aAD = "1";
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        super.run();
-        if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-            x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.IN_PV_ADDRESS);
-            xVar.x("st_type", TbConfig.ST_TYPE_ENTER_FORE);
-            xVar.x(StatisticConstants.OS_VERSION, Build.VERSION.RELEASE);
-            xVar.x("android_sdk", String.valueOf(Build.VERSION.SDK_INT));
-            xVar.x("op_type", this.aAD);
-            xVar.CY();
+public class j {
+    public static void lM(String str) {
+        int i;
+        CustomResponsedMessage runTask;
+        int i2 = 0;
+        Matcher matcher = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)").matcher(str);
+        while (true) {
+            i = i2;
+            if (!matcher.find()) {
+                break;
+            }
+            String group = matcher.group();
+            if (MessageManager.getInstance().findTask(2004609) != null && (runTask = MessageManager.getInstance().runTask(2004609, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && !((Boolean) runTask.getData()).booleanValue()) {
+                i++;
+            }
+            i2 = i;
+        }
+        Matcher matcher2 = Pattern.compile("#\\(meme,[a-zA-Z0-9_,]+\\)").matcher(str);
+        while (matcher2.find()) {
+            String[] split = matcher2.group().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
+            if (split != null && split.length == 5) {
+                String str2 = split[1];
+                if (!TextUtils.isEmpty(str2) && str2.contains("_") && !str2.contains("collect_")) {
+                    i++;
+                }
+            }
+        }
+        if (i > 0) {
+            am amVar = new am("c12231");
+            amVar.T("obj_param1", i);
+            TiebaStatic.log(amVar);
         }
     }
 
-    public void setOpType(String str) {
-        this.aAD = str;
+    public static void acd() {
+        new Thread(new Runnable() { // from class: com.baidu.tbadk.core.util.j.1
+            @Override // java.lang.Runnable
+            public void run() {
+                Cursor cursor;
+                Throwable th;
+                int i;
+                com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+                try {
+                    cursor = mainDBDatabaseManager.ga().rawQuery("SELECT * FROM user_emotions where uid = ? order by updateTime desc ", new String[]{TbadkCoreApplication.getCurrentAccount()});
+                    i = 0;
+                    while (cursor.moveToNext()) {
+                        try {
+                            i++;
+                        } catch (Throwable th2) {
+                            th = th2;
+                            try {
+                                mainDBDatabaseManager.c(th, "EmotionsDBManager.listMyEmotions");
+                                com.baidu.adp.lib.util.n.e(cursor);
+                                am amVar = new am("c12232");
+                                amVar.bJ("uid", TbadkCoreApplication.getCurrentAccount());
+                                amVar.T("obj_param1", i);
+                                TiebaStatic.log(amVar);
+                            } catch (Throwable th3) {
+                                com.baidu.adp.lib.util.n.e(cursor);
+                                throw th3;
+                            }
+                        }
+                    }
+                    com.baidu.adp.lib.util.n.e(cursor);
+                } catch (Throwable th4) {
+                    cursor = null;
+                    th = th4;
+                    i = 0;
+                }
+                am amVar2 = new am("c12232");
+                amVar2.bJ("uid", TbadkCoreApplication.getCurrentAccount());
+                amVar2.T("obj_param1", i);
+                TiebaStatic.log(amVar2);
+            }
+        }).start();
     }
 }

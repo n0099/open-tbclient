@@ -13,15 +13,15 @@ import com.baidu.poly.b;
 import com.baidu.poly.bean.PayChannel;
 /* loaded from: classes2.dex */
 public class ChannelItemView extends RelativeLayout implements View.OnClickListener {
-    private ImageView aiL;
-    private TextView aiM;
-    private TextView aiN;
-    private ImageView aiO;
-    private a aiP;
+    private ImageView ahm;
+    private TextView ahn;
+    private TextView aho;
+    private ImageView ahp;
+    private a ahq;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void uJ();
+        void tL();
     }
 
     public ChannelItemView(Context context) {
@@ -39,10 +39,10 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
 
     private void initView(Context context) {
         LayoutInflater.from(context).inflate(b.d.view_channel_list_item, (ViewGroup) this, true);
-        this.aiL = (ImageView) findViewById(b.c.channel_icon_view);
-        this.aiM = (TextView) findViewById(b.c.channel_name_view);
-        this.aiN = (TextView) findViewById(b.c.channel_desc_view);
-        this.aiO = (ImageView) findViewById(b.c.channel_select_view);
+        this.ahm = (ImageView) findViewById(b.c.channel_icon_view);
+        this.ahn = (TextView) findViewById(b.c.channel_name_view);
+        this.aho = (TextView) findViewById(b.c.channel_desc_view);
+        this.ahp = (ImageView) findViewById(b.c.channel_select_view);
         setOnClickListener(this);
     }
 
@@ -52,30 +52,30 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
         String icon = payChannel.getIcon();
         boolean isSelected = payChannel.isSelected();
         boolean isEnable = payChannel.isEnable();
-        com.baidu.poly.b.b.ux().b(this.aiL, icon);
-        this.aiM.setText(displayName);
+        com.baidu.poly.b.b.tz().b(this.ahm, icon);
+        this.ahn.setText(displayName);
         if (isSelected) {
-            this.aiO.setImageResource(b.C0114b.channel_checked);
+            this.ahp.setImageResource(b.C0053b.channel_checked);
         }
         if (isEnable) {
-            this.aiP = aVar;
+            this.ahq = aVar;
         } else {
-            this.aiL.setAlpha(0.4f);
-            this.aiM.setAlpha(0.4f);
-            this.aiN.setAlpha(0.4f);
-            this.aiO.setVisibility(8);
+            this.ahm.setAlpha(0.4f);
+            this.ahn.setAlpha(0.4f);
+            this.aho.setAlpha(0.4f);
+            this.ahp.setVisibility(8);
         }
         if (!TextUtils.isEmpty(payText)) {
-            this.aiN.setText(payText);
+            this.aho.setText(payText);
         } else {
-            this.aiN.setVisibility(8);
+            this.aho.setVisibility(8);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.aiP != null) {
-            this.aiP.uJ();
+        if (this.ahq != null) {
+            this.ahq.tL();
         }
     }
 }

@@ -11,7 +11,7 @@ public final class BackpressureDrainManager extends AtomicLong implements rx.f {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void P(Throwable th);
+        void R(Throwable th);
 
         boolean accept(Object obj);
 
@@ -192,7 +192,7 @@ public final class BackpressureDrainManager extends AtomicLong implements rx.f {
                                 if (z) {
                                     if (aVar.peek() == null) {
                                         i = 1;
-                                        aVar.P(this.exception);
+                                        aVar.R(this.exception);
                                         return;
                                     }
                                 }

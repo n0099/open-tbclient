@@ -4,7 +4,7 @@ import GetSticker.DataReq;
 import GetSticker.GetStickerReqIdl;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.q;
+import com.baidu.tbadk.util.s;
 import tbclient.CommonReq;
 /* loaded from: classes3.dex */
 public class RequestGetStickerMessage extends NetMessage {
@@ -23,7 +23,7 @@ public class RequestGetStickerMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.common = this.common;
         if (z) {
-            q.bindCommonParamsToProtobufData(builder, true);
+            s.bindCommonParamsToProtobufData(builder, true);
         }
         GetStickerReqIdl.Builder builder2 = new GetStickerReqIdl.Builder();
         builder2.data = builder.build(false);

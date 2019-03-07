@@ -10,7 +10,6 @@ import android.graphics.RectF;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 /* loaded from: classes2.dex */
 class TransitionUtils {
     private static final int MAX_IMAGE_SIZE = 1048576;
@@ -36,7 +35,7 @@ class TransitionUtils {
         if (createViewBitmap != null) {
             imageView.setImageBitmap(createViewBitmap);
         }
-        imageView.measure(View.MeasureSpec.makeMeasureSpec(round3 - round, AiAppsFileUtils.GB), View.MeasureSpec.makeMeasureSpec(round4 - round2, AiAppsFileUtils.GB));
+        imageView.measure(View.MeasureSpec.makeMeasureSpec(round3 - round, 1073741824), View.MeasureSpec.makeMeasureSpec(round4 - round2, 1073741824));
         imageView.layout(round, round2, round3, round4);
         return imageView;
     }

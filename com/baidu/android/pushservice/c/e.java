@@ -11,7 +11,8 @@ import com.baidu.android.pushservice.h;
 import com.baidu.android.pushservice.j.j;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.sapi2.SapiContext;
-import com.baidu.webkit.internal.ETAG;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.keepLive.util.RomTypeUtil;
 import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -181,12 +182,12 @@ public class e extends b {
                     if (str.equalsIgnoreCase("HUAWEI") && !m.e() && !str2.matches("\\d+\\.\\d+$") && Build.VERSION.SDK_INT >= 21 && PushSettings.n(this.a)) {
                         str2 = "3.1";
                     }
-                    if (str.equalsIgnoreCase("OPPO") && PushSettings.m(this.a) && !i(this.a)) {
+                    if (str.equalsIgnoreCase(RomTypeUtil.ROM_OPPO) && PushSettings.m(this.a) && !i(this.a)) {
                         str2 = "V1.0";
                     }
                     Matcher matcher = Pattern.compile(gVar.c()).matcher(str2);
                     if (matcher.find()) {
-                        Double valueOf = Double.valueOf(str.equalsIgnoreCase("OPPO") ? matcher.group(1) : matcher.group());
+                        Double valueOf = Double.valueOf(str.equalsIgnoreCase(RomTypeUtil.ROM_OPPO) ? matcher.group(1) : matcher.group());
                         Double valueOf2 = Double.valueOf(gVar.b());
                         if (gVar.d() == 0) {
                             if (valueOf.doubleValue() >= valueOf2.doubleValue()) {
@@ -344,7 +345,7 @@ public class e extends b {
 
     private static boolean i(Context context) {
         try {
-            return com.coloros.mcssdk.a.m25do(context);
+            return com.coloros.mcssdk.a.eJ(context);
         } catch (Exception e2) {
             return false;
         }
@@ -352,7 +353,7 @@ public class e extends b {
 
     private boolean j() {
         long j = 0;
-        if (System.currentTimeMillis() - j.b(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_CACHE") > 604800000) {
+        if (System.currentTimeMillis() - j.b(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_CACHE") > TbConfig.APP_OVERDUR_DRAFT_BOX) {
             return true;
         }
         long b = j.b(this.a, "com.baidu.android.pushservice.config.MODE_CONFIG_LAST_MODIFIED");
@@ -462,7 +463,7 @@ public class e extends b {
                             }
                             hashMap.put("manufacture", Build.MANUFACTURER);
                             hashMap.put("cuid", com.baidu.android.pushservice.k.e.a(e.this.a));
-                            hashMap.put(ETAG.KEY_PACKAGE_NAME, e.this.a.getPackageName());
+                            hashMap.put("package_name", e.this.a.getPackageName());
                             String a2 = e.this.a(hashMap);
                             if (!TextUtils.isEmpty(a2) && (jSONObject = (JSONObject) new JSONObject(a2).get("response_params")) != null) {
                                 if (jSONObject.getInt("status") == 1) {

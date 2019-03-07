@@ -1,8 +1,8 @@
 package com.baidu.searchbox.http.statistics;
 
 import android.text.TextUtils;
-import com.baidu.fsg.base.utils.PhoneUtils;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
+import com.baidu.pass.biometrics.base.utils.PhoneUtils;
+import com.baidu.searchbox.websocket.WebSocketRequest;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import org.json.JSONException;
@@ -83,7 +83,7 @@ public class NetworkStatRecord {
                 jSONObject.put("errMsg", getStackTraceString(this.exception));
             }
             if (this.statusCode != -1) {
-                jSONObject.put(BaseRequestAction.PARAMS_STATUSCODE, this.statusCode);
+                jSONObject.put("statusCode", this.statusCode);
             }
             if (!TextUtils.isEmpty(this.localIP)) {
                 jSONObject.put("localIP", this.localIP);
@@ -92,7 +92,7 @@ public class NetworkStatRecord {
                 jSONObject.put("remoteIP", this.remoteIP);
             }
             if (!TextUtils.isEmpty(this.errheaders)) {
-                jSONObject.put("header", this.errheaders);
+                jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, this.errheaders);
             }
             jSONObject.put("responseLength", this.responseLength);
             jSONObject.put("requestBodyLength", this.requestBodyLength);
@@ -116,14 +116,34 @@ public class NetworkStatRecord {
     }
 
     private String getStackTraceString(Throwable th) {
+        PrintWriter printWriter;
+        StringWriter stringWriter;
         if (th == null) {
             return "";
         }
-        StringWriter stringWriter = new StringWriter();
-        PrintWriter printWriter = new PrintWriter(stringWriter);
-        th.printStackTrace(printWriter);
-        printWriter.flush();
-        return stringWriter.toString();
+        try {
+            stringWriter = new StringWriter();
+            printWriter = new PrintWriter(stringWriter);
+        } catch (Throwable th2) {
+            th = th2;
+            printWriter = null;
+        }
+        try {
+            th.printStackTrace(printWriter);
+            printWriter.flush();
+            String stringWriter2 = stringWriter.toString();
+            if (printWriter == null) {
+                return stringWriter2;
+            }
+            printWriter.close();
+            return stringWriter2;
+        } catch (Throwable th3) {
+            th = th3;
+            if (printWriter != null) {
+                printWriter.close();
+            }
+            throw th;
+        }
     }
 
     public boolean isNeedFinishRightNow() {

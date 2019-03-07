@@ -20,7 +20,6 @@ import android.util.AttributeSet;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class BottomNavigationMenuView extends ViewGroup implements MenuView {
@@ -85,7 +84,7 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         int i3;
         int size = View.MeasureSpec.getSize(i);
         int childCount = getChildCount();
-        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.mItemHeight, AiAppsFileUtils.GB);
+        int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.mItemHeight, 1073741824);
         if (this.mShiftingMode) {
             int i4 = childCount - 1;
             int min = Math.min(size - (this.mInactiveItemMinWidth * i4), this.mActiveItemMaxWidth);
@@ -120,12 +119,12 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         for (int i10 = 0; i10 < childCount; i10++) {
             View childAt = getChildAt(i10);
             if (childAt.getVisibility() != 8) {
-                childAt.measure(View.MeasureSpec.makeMeasureSpec(this.mTempChildWidths[i10], AiAppsFileUtils.GB), makeMeasureSpec);
+                childAt.measure(View.MeasureSpec.makeMeasureSpec(this.mTempChildWidths[i10], 1073741824), makeMeasureSpec);
                 childAt.getLayoutParams().width = childAt.getMeasuredWidth();
                 i9 += childAt.getMeasuredWidth();
             }
         }
-        setMeasuredDimension(View.resolveSizeAndState(i9, View.MeasureSpec.makeMeasureSpec(i9, AiAppsFileUtils.GB), 0), View.resolveSizeAndState(this.mItemHeight, makeMeasureSpec, 0));
+        setMeasuredDimension(View.resolveSizeAndState(i9, View.MeasureSpec.makeMeasureSpec(i9, 1073741824), 0), View.resolveSizeAndState(this.mItemHeight, makeMeasureSpec, 0));
     }
 
     @Override // android.view.ViewGroup, android.view.View

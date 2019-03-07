@@ -1,5 +1,6 @@
 package com.baidu.sofire.b;
 
+import android.os.Build;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -11,18 +12,20 @@ public class r {
 
     private r() {
         this.a = null;
-        int i = b >= 1 ? b : 1;
-        com.baidu.sofire.b.a("Thread Pool core " + b);
-        this.a = new ThreadPoolExecutor(i, i, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        int i = b <= 0 ? 1 : b;
+        new StringBuilder("Thread Pool core ").append(b);
+        com.baidu.sofire.b.a();
+        this.a = new ThreadPoolExecutor(i, i, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        if (Build.VERSION.SDK_INT >= 9) {
+            this.a.allowCoreThreadTimeOut(true);
+        }
     }
 
-    public void a(Runnable runnable) {
-        if (runnable != null) {
-            try {
-                this.a.execute(runnable);
-            } catch (Throwable th) {
-                e.a(th);
-            }
+    public final void a(Runnable runnable) {
+        try {
+            this.a.execute(runnable);
+        } catch (Throwable th) {
+            e.a();
         }
     }
 
@@ -35,7 +38,7 @@ public class r {
                     }
                 }
             } catch (Throwable th) {
-                e.a(th);
+                e.a();
             }
         }
         return c;

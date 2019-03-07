@@ -9,12 +9,12 @@ import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.NormalizeGuestAccountDTO;
+import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.NormalizeGuestAccountResult;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.utils.enums.SocialType;
 import java.util.ArrayList;
-import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes2.dex */
 public class NormalizeGuestAccountActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
@@ -33,7 +33,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(a.e.layout_sapi_sdk_webview_with_title_bar);
+            setContentView(a.f.layout_sapi_sdk_webview_with_title_bar);
             this.bduss = getIntent().getStringExtra("EXTRA_BDUSS");
             SapiAccount accountFromBduss = SapiContext.getInstance(this).getAccountFromBduss(this.bduss);
             if (TextUtils.isEmpty(this.bduss) || accountFromBduss == null) {
@@ -96,7 +96,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
         ArrayList arrayList = new ArrayList();
         NormalizeGuestAccountDTO normalizeGuestAccountDTO = PassportSDK.getInstance().getNormalizeGuestAccountDTO();
         if (normalizeGuestAccountDTO != null && WebLoginDTO.statExtraValid(normalizeGuestAccountDTO.statExtra)) {
-            arrayList.add(new BasicNameValuePair("extrajson", WebLoginDTO.getStatExtraDecode(normalizeGuestAccountDTO.statExtra)));
+            arrayList.add(new PassNameValuePair("extrajson", WebLoginDTO.getStatExtraDecode(normalizeGuestAccountDTO.statExtra)));
         }
         this.sapiWebView.loadNormalizeGuestAccount(arrayList, this.bduss, this.socialType);
     }
@@ -128,7 +128,7 @@ public class NormalizeGuestAccountActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void goBack() {
-        if (this.sapiWebView.canGoBack()) {
+        if (this.sapiWebView != null && this.sapiWebView.canGoBack()) {
             this.sapiWebView.goBack();
         } else {
             onClose();

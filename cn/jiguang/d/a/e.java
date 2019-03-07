@@ -4,7 +4,7 @@ import android.content.Context;
 import java.util.Random;
 /* loaded from: classes3.dex */
 public final class e {
-    private static cn.jiguang.g.b.d li;
+    private static cn.jiguang.g.b.d lk;
 
     public static synchronized long a() {
         long longValue;
@@ -27,9 +27,9 @@ public final class e {
     }
 
     private static cn.jiguang.g.b.d ag(Context context) {
-        if (li == null) {
-            li = cn.jiguang.g.b.d.O(null, "cn.jpush.preferences.v2.rid");
+        if (lk == null) {
+            lk = cn.jiguang.g.b.d.O(null, "cn.jpush.preferences.v2.rid");
         }
-        return li;
+        return lk;
     }
 }

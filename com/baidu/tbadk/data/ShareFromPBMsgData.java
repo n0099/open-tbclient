@@ -2,7 +2,6 @@ package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,7 +21,7 @@ public class ShareFromPBMsgData extends ShareBaseMsgData {
     public String toChatMessageContent() {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put(TbTitleActivityConfig.FORUM_NAME, this.forumName);
+            jSONObject.put("forumName", this.forumName);
             jSONObject.put("postID", this.postId);
             jSONObject.put("themeContent", this.content);
             jSONObject.put("themeID", this.threadId);

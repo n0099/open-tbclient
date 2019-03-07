@@ -14,129 +14,129 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.bb;
+import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.util.al;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
-import com.baidu.tieba.e;
-/* loaded from: classes6.dex */
+import com.baidu.tieba.d;
+/* loaded from: classes4.dex */
 public class b extends a {
-    private bb aFJ;
-    private com.baidu.tbadk.core.view.userLike.c cXP;
-    public TextView dUL;
-    public EntelechyUserLikeButton dUM;
-    private CommonUserLikeButton.a dUN;
-    private View.OnClickListener dUO;
+    private bg XR;
+    private com.baidu.tbadk.core.view.userLike.c ehB;
+    public TextView fiE;
+    public EntelechyUserLikeButton fiF;
+    private CommonUserLikeButton.a fiG;
+    private View.OnClickListener fiH;
     private TbPageContext mPageContext;
     private int mSkinType;
 
     public b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext, bdUniqueId);
         this.mSkinType = 3;
-        this.dUN = new CommonUserLikeButton.a() { // from class: com.baidu.tieba.frs.entelechy.view.b.1
+        this.fiG = new CommonUserLikeButton.a() { // from class: com.baidu.tieba.frs.entelechy.view.b.1
             @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton.a
-            public void eG(int i) {
-                b.this.mQ(i);
+            public void im(int i) {
+                b.this.qD(i);
             }
         };
-        this.dUO = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.b.2
+        this.fiH = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.aFJ != null && b.this.aFJ.zT() != null && !StringUtils.isNull(b.this.aFJ.zT().getName_show()) && !StringUtils.isNull(b.this.aFJ.zT().getUserId()) && b.this.aFJ.zZ() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(b.this.mPageContext.getPageActivity(), b.this.aFJ.zT().getUserId(), b.this.aFJ.zT().getName_show(), b.this.aFJ.zZ(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                if (b.this.XR != null && b.this.XR.YR() != null && !StringUtils.isNull(b.this.XR.YR().getName_show()) && !StringUtils.isNull(b.this.XR.YR().getUserId()) && b.this.XR.YW() != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(b.this.mPageContext.getPageActivity(), b.this.XR.YR().getUserId(), b.this.XR.YR().getName_show(), b.this.XR.YW(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        this.dUL = new TextView(tbPageContext.getPageActivity());
-        this.dUL.setIncludeFontPadding(false);
-        this.dUL.setTextSize(0, l.h(tbPageContext.getPageActivity(), e.C0210e.ds24));
+        this.fiE = new TextView(tbPageContext.getPageActivity());
+        this.fiE.setIncludeFontPadding(false);
+        this.fiE.setTextSize(0, l.h(tbPageContext.getPageActivity(), d.e.ds24));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.topMargin = l.h(tbPageContext.getPageActivity(), e.C0210e.ds6);
-        this.dUL.setLayoutParams(layoutParams);
-        this.dUL.setOnClickListener(this.dUO);
-        this.ccx.addView(this.dUL, 1);
-        this.dUM = new EntelechyUserLikeButton(tbPageContext.getPageActivity());
-        this.dUM.setFanNumCallBack(this.dUN);
-        RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, l.h(this.mPageContext.getPageActivity(), e.C0210e.ds56));
+        layoutParams.topMargin = l.h(tbPageContext.getPageActivity(), d.e.ds6);
+        this.fiE.setLayoutParams(layoutParams);
+        this.fiE.setOnClickListener(this.fiH);
+        this.drz.addView(this.fiE, 1);
+        this.fiF = new EntelechyUserLikeButton(tbPageContext.getPageActivity());
+        this.fiF.setFanNumCallBack(this.fiG);
+        RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, l.h(this.mPageContext.getPageActivity(), d.e.ds56));
         layoutParams2.addRule(11);
-        layoutParams2.addRule(3, e.g.header_divider);
-        layoutParams2.rightMargin = l.h(this.mPageContext.getPageActivity(), e.C0210e.ds32);
-        layoutParams2.topMargin = l.h(this.mPageContext.getPageActivity(), e.C0210e.ds24);
-        this.dUM.setLayoutParams(layoutParams2);
-        ((ViewGroup) getView()).addView(this.dUM);
-        this.cXP = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.dUM);
-        this.cXP.setFromType("1");
-        this.cXP.h(bdUniqueId);
+        layoutParams2.addRule(3, d.g.header_divider);
+        layoutParams2.rightMargin = l.h(this.mPageContext.getPageActivity(), d.e.ds32);
+        layoutParams2.topMargin = l.h(this.mPageContext.getPageActivity(), d.e.ds24);
+        this.fiF.setLayoutParams(layoutParams2);
+        ((ViewGroup) getView()).addView(this.fiF);
+        this.ehB = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.fiF);
+        this.ehB.setFromType("1");
+        this.ehB.i(bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tieba.frs.entelechy.view.a, com.baidu.tieba.card.a
-    /* renamed from: F */
-    public void a(bb bbVar) {
-        super.a(bbVar);
-        if (bbVar != null) {
-            this.aFJ = bbVar;
-            if (bbVar.zT() != null) {
-                this.cXP.a(bbVar.zT());
-                mQ(bbVar.zT().getFansNum());
-                if (!this.aFJ.zW()) {
-                    this.dUM.setVisibility(8);
-                } else if (this.aFJ.zT().getUserId() != null && TbadkCoreApplication.getCurrentAccount() != null && this.aFJ.zT().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                    this.dUM.setVisibility(8);
+    public void a(bg bgVar) {
+        super.a(bgVar);
+        if (bgVar != null) {
+            this.XR = bgVar;
+            if (bgVar.YR() != null) {
+                this.ehB.a(bgVar.YR());
+                qD(bgVar.YR().getFansNum());
+                if (!this.XR.YU()) {
+                    this.fiF.setVisibility(8);
+                } else if (this.XR.YR().getUserId() != null && TbadkCoreApplication.getCurrentAccount() != null && this.XR.YR().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                    this.fiF.setVisibility(8);
                     return;
-                } else if (this.aFJ.zT().getGodUserData() != null && this.aFJ.zT().getGodUserData().getIsLike()) {
-                    if (this.aFJ.zT().getGodUserData().getIsFromNetWork()) {
-                        this.dUM.setVisibility(8);
+                } else if (this.XR.YR().getGodUserData() != null && this.XR.YR().getGodUserData().getIsLike()) {
+                    if (this.XR.YR().getGodUserData().getIsFromNetWork()) {
+                        this.fiF.setVisibility(8);
                     } else {
-                        this.dUM.setVisibility(0);
-                        this.dUM.d(true, 1);
+                        this.fiF.setVisibility(0);
+                        this.fiF.f(true, 1);
                     }
                 } else {
-                    this.dUM.setVisibility(0);
+                    this.fiF.setVisibility(0);
                 }
             }
-            int i = ((RelativeLayout.LayoutParams) this.ccy.getLayoutParams()).height;
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.dUM.getLayoutParams();
-            if (bbVar.Ap() != null) {
-                layoutParams.topMargin = i + l.h(this.mPageContext.getPageActivity(), e.C0210e.ds4);
+            int i = ((RelativeLayout.LayoutParams) this.drA.getLayoutParams()).height;
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fiF.getLayoutParams();
+            if (bgVar.Zm() != null) {
+                layoutParams.topMargin = i + l.h(this.mPageContext.getPageActivity(), d.e.ds4);
             } else {
-                layoutParams.topMargin = l.h(this.mPageContext.getPageActivity(), e.C0210e.ds24);
+                layoutParams.topMargin = l.h(this.mPageContext.getPageActivity(), d.e.ds24);
             }
         }
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.a, com.baidu.tieba.card.a
-    public void d(TbPageContext<?> tbPageContext, int i) {
-        super.d(tbPageContext, i);
+    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
+        super.onChangeSkinType(tbPageContext, i);
         if (this.mSkinType != i) {
-            al.h(this.dUL, e.d.cp_cont_d);
-            this.dUM.onChangeSkinType(i);
+            al.j(this.fiE, d.C0236d.cp_cont_d);
+            this.fiF.onChangeSkinType(i);
         }
         this.mSkinType = i;
     }
 
     @Override // com.baidu.tieba.frs.entelechy.view.a
-    public void j(BdUniqueId bdUniqueId) {
-        super.j(bdUniqueId);
+    public void k(BdUniqueId bdUniqueId) {
+        super.k(bdUniqueId);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void mQ(int i) {
-        if (this.dUL != null) {
-            String string = this.mPageContext.getResources().getString(e.j.fans_default_name_god_user);
-            if (this.aFJ != null && !StringUtils.isNull(this.aFJ.zZ()) && this.aFJ.zZ().equals(this.mForumName)) {
-                if (this.aFJ.zW()) {
-                    String format = String.format(string, ao.Q(i));
-                    this.dUL.setVisibility(0);
-                    this.dUL.setText(format);
+    public void qD(int i) {
+        if (this.fiE != null) {
+            String string = this.mPageContext.getResources().getString(d.j.fans_default_name_god_user);
+            if (this.XR != null && !StringUtils.isNull(this.XR.YW()) && this.XR.YW().equals(this.mForumName)) {
+                if (this.XR.YU()) {
+                    String format = String.format(string, ap.as(i));
+                    this.fiE.setVisibility(0);
+                    this.fiE.setText(format);
                     return;
                 }
-                this.dUL.setVisibility(8);
+                this.fiE.setVisibility(8);
                 return;
             }
-            this.dUL.setText(this.mPageContext.getResources().getString(e.j.default_personalized_name));
+            this.fiE.setText(this.mPageContext.getResources().getString(d.j.default_personalized_name));
         }
     }
 }

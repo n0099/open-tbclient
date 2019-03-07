@@ -11,8 +11,6 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.a.a;
 import com.baidu.android.pushservice.h.o;
 import com.baidu.android.pushservice.j.m;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class PushService extends Service {
@@ -147,14 +145,14 @@ public class PushService extends Service {
     public String a(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, 30602);
+            jSONObject.put("error", 30602);
             if (!TextUtils.isEmpty(str)) {
-                jSONObject.put(HttpConstants.HTTP_APP_ID, str);
+                jSONObject.put("app_id", str);
             }
             if (!TextUtils.isEmpty(str2)) {
                 jSONObject.put("api_key", str2);
             }
-            jSONObject.put("error_msg", "NOT SUPPORTED ANYMORE");
+            jSONObject.put(PushConstants.EXTRA_ERROR_CODE, "NOT SUPPORTED ANYMORE");
         } catch (Exception e) {
         }
         return jSONObject.toString();

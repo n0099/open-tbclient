@@ -1,108 +1,108 @@
 package com.baidu.tbadk.core.view.viewpager;
 
-import com.baidu.adp.widget.ListView.h;
+import com.baidu.adp.widget.ListView.m;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class d {
-    private List<h> aME;
-    private List<h> aMF;
-    private boolean aMG;
-    private boolean aMH;
-    private int aMI = 2;
-    private int aMJ = 1;
-    private int aMx;
+    private int bUW;
+    private List<m> bVd;
+    private List<m> bVe;
+    private boolean bVf;
+    private boolean bVg;
+    private int bVh = 2;
+    private int bVi = 1;
 
-    public d(List<h> list, boolean z, int i) {
-        this.aMx = 2;
-        this.aME = list;
-        this.aMH = z;
-        this.aMx = i;
-        L(list);
+    public d(List<m> list, boolean z, int i) {
+        this.bUW = 2;
+        this.bVd = list;
+        this.bVg = z;
+        this.bUW = i;
+        W(list);
     }
 
-    public void L(List<h> list) {
-        if (list != null && list.size() >= this.aMI && list.size() <= this.aMx) {
-            this.aMG = true;
-        } else if (list.size() > this.aMx && this.aMH) {
-            this.aMG = true;
+    public void W(List<m> list) {
+        if (list != null && list.size() >= this.bVh && list.size() <= this.bUW) {
+            this.bVf = true;
+        } else if (list.size() > this.bUW && this.bVg) {
+            this.bVf = true;
         } else {
-            this.aMG = false;
+            this.bVf = false;
         }
-        this.aMF = FU();
+        this.bVe = afo();
     }
 
-    private List<h> FU() {
+    private List<m> afo() {
         ArrayList arrayList = new ArrayList();
-        if (this.aME != null) {
-            if (this.aMG) {
-                if (this.aME.size() > this.aMx && this.aME.size() >= this.aMJ) {
-                    arrayList.addAll(this.aME.subList(0, this.aMx));
-                    arrayList.addAll(0, this.aME.subList(this.aMx - this.aMJ, this.aMx));
-                    arrayList.addAll(this.aME.subList(0, this.aMJ));
+        if (this.bVd != null) {
+            if (this.bVf) {
+                if (this.bVd.size() > this.bUW && this.bVd.size() >= this.bVi) {
+                    arrayList.addAll(this.bVd.subList(0, this.bUW));
+                    arrayList.addAll(0, this.bVd.subList(this.bUW - this.bVi, this.bUW));
+                    arrayList.addAll(this.bVd.subList(0, this.bVi));
                 } else {
-                    arrayList.addAll(this.aME);
-                    arrayList.addAll(0, this.aME.subList(this.aME.size() - this.aMJ, this.aME.size()));
-                    arrayList.addAll(this.aME.subList(0, this.aMJ));
+                    arrayList.addAll(this.bVd);
+                    arrayList.addAll(0, this.bVd.subList(this.bVd.size() - this.bVi, this.bVd.size()));
+                    arrayList.addAll(this.bVd.subList(0, this.bVi));
                 }
-            } else if (this.aME != null && this.aME.size() > 0 && this.aME.size() >= this.aMJ) {
-                arrayList.addAll(this.aME.subList(0, this.aMJ));
+            } else if (this.bVd != null && this.bVd.size() > 0 && this.bVd.size() >= this.bVi) {
+                arrayList.addAll(this.bVd.subList(0, this.bVi));
             }
         }
         return arrayList;
     }
 
-    public int eJ(int i) {
-        if (this.aMG) {
-            int size = this.aMF.size();
+    public int ip(int i) {
+        if (this.bVf) {
+            int size = this.bVe.size();
             if (i == 0) {
-                return (size - 1) - this.aMJ;
+                return (size - 1) - this.bVi;
             }
-            if (i == size - this.aMJ) {
-                return this.aMJ;
+            if (i == size - this.bVi) {
+                return this.bVi;
             }
             return i;
         }
         return i;
     }
 
-    public int eK(int i) {
-        if (this.aMG) {
-            return i - this.aMJ;
+    public int iq(int i) {
+        if (this.bVf) {
+            return i - this.bVi;
         }
         return i;
     }
 
-    public int FV() {
-        if (this.aME == null) {
+    public int afp() {
+        if (this.bVd == null) {
             return 0;
         }
-        return this.aME.size();
+        return this.bVd.size();
     }
 
-    public int FW() {
-        if (this.aMG) {
-            return this.aMJ;
+    public int afq() {
+        if (this.bVf) {
+            return this.bVi;
         }
         return 0;
     }
 
-    public void eL(int i) {
-        this.aMx = i;
-        L(this.aME);
+    public void ir(int i) {
+        this.bUW = i;
+        W(this.bVd);
     }
 
-    public void eM(int i) {
-        this.aMI = i;
-        L(this.aME);
+    public void is(int i) {
+        this.bVh = i;
+        W(this.bVd);
     }
 
-    public List<h> FX() {
-        return this.aMF;
+    public List<m> afr() {
+        return this.bVe;
     }
 
-    public void eN(int i) {
-        this.aMJ = i;
-        L(this.aME);
+    public void it(int i) {
+        this.bVi = i;
+        W(this.bVd);
     }
 }

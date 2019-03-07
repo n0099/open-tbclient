@@ -4,12 +4,13 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import cn.jiguang.api.SdkType;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public final class e {
-    private static volatile e mw;
-    private static final Object mx = new Object();
+    private static final Object mA = new Object();
+    private static volatile e mz;
     public String a;
     public String b;
     public String c;
@@ -23,7 +24,7 @@ public final class e {
     public String k;
     public int l;
     public String m;
-    private transient AtomicBoolean mu = new AtomicBoolean(false);
+    private transient AtomicBoolean my = new AtomicBoolean(false);
     public short n;
     public int o;
     public String p;
@@ -41,7 +42,7 @@ public final class e {
     }
 
     public static byte an(Context context) {
-        ArrayList<Object> a = cn.jiguang.d.d.e.bU().a(context, SdkType.JPUSH.name(), 21, "platformtype", 1);
+        ArrayList<Object> a = cn.jiguang.d.d.e.bT().a(context, SdkType.JPUSH.name(), 21, "platformtype", 1);
         Object obj = a.size() > 0 ? a.get(0) : null;
         if (obj == null || !(obj instanceof Byte)) {
             return (byte) 0;
@@ -49,19 +50,19 @@ public final class e {
         return ((Byte) obj).byteValue();
     }
 
-    public static e ci() {
-        if (mw == null) {
-            synchronized (mx) {
-                if (mw == null) {
-                    mw = new e();
+    public static e ch() {
+        if (mz == null) {
+            synchronized (mA) {
+                if (mz == null) {
+                    mz = new e();
                 }
             }
         }
-        return mw;
+        return mz;
     }
 
     public static String d(Context context) {
-        ArrayList<Object> a = cn.jiguang.d.d.e.bU().a(context, SdkType.JPUSH.name(), 21, "platformregid", 1);
+        ArrayList<Object> a = cn.jiguang.d.d.e.bT().a(context, SdkType.JPUSH.name(), 21, "platformregid", 1);
         Object obj = a.size() > 0 ? a.get(0) : null;
         return (obj == null || !(obj instanceof String)) ? "" : (String) obj;
     }
@@ -71,11 +72,11 @@ public final class e {
     }
 
     public final void a(Context context) {
-        if (this.mu.get() || context == null) {
+        if (this.my.get() || context == null) {
             return;
         }
         b(context);
-        this.mu.set(true);
+        this.my.set(true);
     }
 
     public final String b() {
@@ -97,21 +98,21 @@ public final class e {
         }
         this.u = g + "$$" + e + "$$" + context.getPackageName() + "$$" + cn.jiguang.d.a.b(context);
         this.a = cn.jiguang.d.d.d.a(context);
-        this.n = cn.jiguang.d.d.i.bX().c();
-        this.b = Build.VERSION.RELEASE + "," + Integer.toString(Build.VERSION.SDK_INT);
+        this.n = cn.jiguang.d.d.i.bW().c();
+        this.b = Build.VERSION.RELEASE + Constants.ACCEPT_TIME_SEPARATOR_SP + Integer.toString(Build.VERSION.SDK_INT);
         this.c = Build.MODEL;
         this.d = cn.jiguang.g.j.a(context, "gsm.version.baseband", "baseband");
         this.e = Build.DEVICE;
         this.k = cn.jiguang.d.a.a.H("");
-        cn.jiguang.d.d.e.bU();
+        cn.jiguang.d.d.e.bT();
         this.i = cn.jiguang.d.d.e.j(SdkType.JCORE.name(), "");
-        cn.jiguang.d.d.e.bU();
+        cn.jiguang.d.d.e.bT();
         this.g = cn.jiguang.d.d.e.j(SdkType.JANALYTICS.name(), "");
-        cn.jiguang.d.d.e.bU();
+        cn.jiguang.d.d.e.bT();
         this.h = cn.jiguang.d.d.e.j(SdkType.JSHARE.name(), "");
-        cn.jiguang.d.d.e.bU();
+        cn.jiguang.d.d.e.bT();
         this.f = cn.jiguang.d.d.e.j(SdkType.JPUSH.name(), "");
-        cn.jiguang.d.d.e.bU();
+        cn.jiguang.d.d.e.bT();
         this.j = cn.jiguang.d.d.e.j(SdkType.JSSP.name(), "");
         this.l = cn.jiguang.g.a.j(context) ? 1 : 0;
         this.m = cn.jiguang.g.a.a(context);

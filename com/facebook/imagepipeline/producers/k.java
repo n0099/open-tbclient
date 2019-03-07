@@ -3,37 +3,38 @@ package com.facebook.imagepipeline.producers;
 import android.net.Uri;
 import android.util.Base64;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.searchbox.v8engine.WebGLImageLoader;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class k extends y {
     public k(com.facebook.common.memory.g gVar) {
-        super(com.facebook.common.b.a.bUv(), gVar);
+        super(com.facebook.common.b.a.ctt(), gVar);
     }
 
     @Override // com.facebook.imagepipeline.producers.y
-    protected com.facebook.imagepipeline.f.d e(ImageRequest imageRequest) throws IOException {
-        byte[] zF = zF(imageRequest.cbc().toString());
-        return c(new ByteArrayInputStream(zF), zF.length);
+    protected com.facebook.imagepipeline.f.d h(ImageRequest imageRequest) throws IOException {
+        byte[] FI = FI(imageRequest.cAh().toString());
+        return d(new ByteArrayInputStream(FI), FI.length);
     }
 
     @Override // com.facebook.imagepipeline.producers.y
-    protected String caA() {
+    protected String czF() {
         return "DataFetchProducer";
     }
 
-    static byte[] zF(String str) {
-        com.facebook.common.internal.g.checkArgument(str.substring(0, 5).equals("data:"));
+    static byte[] FI(String str) {
+        com.facebook.common.internal.g.checkArgument(str.substring(0, 5).equals(WebGLImageLoader.DATA_URL));
         int indexOf = str.indexOf(44);
         String substring = str.substring(indexOf + 1, str.length());
-        if (zG(str.substring(0, indexOf))) {
+        if (FJ(str.substring(0, indexOf))) {
             return Base64.decode(substring, 0);
         }
         return Uri.decode(substring).getBytes();
     }
 
-    static boolean zG(String str) {
+    static boolean FJ(String str) {
         if (!str.contains(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {
             return false;
         }

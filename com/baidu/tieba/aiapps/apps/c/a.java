@@ -1,13 +1,19 @@
 package com.baidu.tieba.aiapps.apps.c;
-
-import android.content.Context;
-import com.baidu.searchbox.ng.ai.apps.barcode.IAiAppScanCodeIoc;
-import com.baidu.searchbox.ng.ai.apps.barcode.IScanResultCallback;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class a implements IAiAppScanCodeIoc {
-    @Override // com.baidu.searchbox.ng.ai.apps.barcode.IAiAppScanCodeIoc
-    public void scanCode(Context context, IScanResultCallback iScanResultCallback) {
-        iScanResultCallback.onResult(new JSONObject(), 0);
+public class a {
+    public static String getHostName() {
+        return "tieba";
+    }
+
+    public static String vD() {
+        return "flFqXclepWs7RdugAszy9eERL7G5dS0I";
+    }
+
+    public static String vw() {
+        return "tiebaclient";
+    }
+
+    public static String vF() {
+        return "MEwwDQYJKoZIhvcNAQEBBQADOwAwOAIxAMrOpIWOfuGDG1bjUXV5aPU5UQr0vmOqJif4uJC+7/2B9Nm27SEGINei70QIW4x/vwIDAQAB";
     }
 }

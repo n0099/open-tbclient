@@ -1,24 +1,24 @@
 package com.baidu.adp.lib.util;
 
-import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.io.InputStream;
 import java.security.MessageDigest;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class s {
     private static final char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     public static String toMd5(byte[] bArr) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(bArr);
-            return t(messageDigest.digest());
+            return u(messageDigest.digest());
         } catch (Exception e) {
             BdLog.e(e);
             return null;
         }
     }
 
-    public static String t(byte[] bArr) {
+    public static String u(byte[] bArr) {
         if (bArr == null) {
             return null;
         }
@@ -30,12 +30,12 @@ public class s {
         return sb.toString();
     }
 
-    public static String i(InputStream inputStream) {
+    public static String j(InputStream inputStream) {
         String str = null;
         if (inputStream != null) {
             try {
                 byte[] bArr = new byte[1024];
-                MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
                 while (true) {
                     int read = inputStream.read(bArr);
                     if (read <= 0) {
@@ -43,11 +43,11 @@ public class s {
                     }
                     messageDigest.update(bArr, 0, read);
                 }
-                str = t(messageDigest.digest());
+                str = u(messageDigest.digest());
             } catch (Exception e) {
                 BdLog.e(e.toString());
             } finally {
-                n.h(inputStream);
+                n.i(inputStream);
             }
         }
         return str;
@@ -58,7 +58,7 @@ public class s {
             return null;
         }
         try {
-            return toMd5(str.getBytes("UTF-8"));
+            return toMd5(str.getBytes(HTTP.UTF_8));
         } catch (Exception e) {
             return null;
         }

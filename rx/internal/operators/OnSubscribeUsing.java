@@ -5,41 +5,34 @@ import rx.d;
 /* loaded from: classes2.dex */
 public final class OnSubscribeUsing<T, Resource> implements d.a<T> {
     private final rx.functions.b<? super Resource> dispose;
-    private final rx.functions.e<Resource> iIo;
-    private final rx.functions.f<? super Resource, ? extends rx.d<? extends T>> iIp;
-    private final boolean iIq;
+    private final rx.functions.e<Resource> jWS;
+    private final rx.functions.f<? super Resource, ? extends rx.d<? extends T>> jWT;
+    private final boolean jWU;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
         call((rx.j) ((rx.j) obj));
     }
 
-    public OnSubscribeUsing(rx.functions.e<Resource> eVar, rx.functions.f<? super Resource, ? extends rx.d<? extends T>> fVar, rx.functions.b<? super Resource> bVar, boolean z) {
-        this.iIo = eVar;
-        this.iIp = fVar;
-        this.dispose = bVar;
-        this.iIq = z;
-    }
-
     public void call(rx.j<? super T> jVar) {
-        rx.d<? extends T> doAfterTerminate;
+        rx.d<? extends T> b;
         try {
-            Resource call = this.iIo.call();
+            Resource call = this.jWS.call();
             DisposeAction disposeAction = new DisposeAction(this.dispose, call);
             jVar.add(disposeAction);
-            rx.d<? extends T> call2 = this.iIp.call(call);
-            if (this.iIq) {
-                doAfterTerminate = call2.doOnTerminate(disposeAction);
+            rx.d<? extends T> call2 = this.jWT.call(call);
+            if (this.jWU) {
+                b = call2.a(disposeAction);
             } else {
-                doAfterTerminate = call2.doAfterTerminate(disposeAction);
+                b = call2.b(disposeAction);
             }
-            doAfterTerminate.unsafeSubscribe(rx.b.g.b(jVar));
+            b.a(rx.b.f.d(jVar));
         } catch (Throwable th) {
             rx.exceptions.a.a(th, jVar);
         }
     }
 
-    private Throwable d(rx.functions.a aVar) {
+    private Throwable f(rx.functions.a aVar) {
         try {
             aVar.call();
             return null;

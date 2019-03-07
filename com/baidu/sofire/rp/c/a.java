@@ -1,6 +1,6 @@
 package com.baidu.sofire.rp.c;
 /* loaded from: classes.dex */
-public class a {
+public final class a {
     public int a;
     public String b;
     public int c;

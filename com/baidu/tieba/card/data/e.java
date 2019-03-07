@@ -1,5 +1,7 @@
 package com.baidu.tieba.card.data;
-/* loaded from: classes6.dex */
+
+import com.xiaomi.mipush.sdk.Constants;
+/* loaded from: classes3.dex */
 public class e implements com.baidu.tieba.horizonalList.widget.c {
     public String forumAvatar;
     public long forumId;
@@ -20,11 +22,11 @@ public class e implements com.baidu.tieba.horizonalList.widget.c {
 
     public String toString() {
         StringBuilder sb = new StringBuilder("[HotForumInfoData:");
-        sb.append("rank=").append(this.rank).append(",");
-        sb.append("forumAvatar=").append(this.forumAvatar).append(",");
-        sb.append("forumName=").append(this.forumName).append(",");
-        sb.append("forumId=").append(this.forumId).append(",");
-        sb.append("isLiked=").append(this.isLiked).append(",");
+        sb.append("rank=").append(this.rank).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        sb.append("forumAvatar=").append(this.forumAvatar).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        sb.append("forumName=").append(this.forumName).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        sb.append("forumId=").append(this.forumId).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+        sb.append("isLiked=").append(this.isLiked).append(Constants.ACCEPT_TIME_SEPARATOR_SP);
         sb.append("]");
         return sb.toString();
     }

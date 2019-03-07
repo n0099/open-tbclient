@@ -5,7 +5,7 @@ public abstract class j<T> implements e<T>, k {
     private f producer;
     private long requested;
     private final j<?> subscriber;
-    private final rx.internal.util.j subscriptions;
+    private final rx.internal.util.i subscriptions;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public j() {
@@ -21,7 +21,7 @@ public abstract class j<T> implements e<T>, k {
     public j(j<?> jVar, boolean z) {
         this.requested = Long.MIN_VALUE;
         this.subscriber = jVar;
-        this.subscriptions = (!z || jVar == null) ? new rx.internal.util.j() : jVar.subscriptions;
+        this.subscriptions = (!z || jVar == null) ? new rx.internal.util.i() : jVar.subscriptions;
     }
 
     public final void add(k kVar) {

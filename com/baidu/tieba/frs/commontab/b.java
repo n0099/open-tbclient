@@ -9,66 +9,67 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.adp.widget.ListView.h;
 import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.bb;
+import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.util.al;
+import com.baidu.tbadk.core.util.v;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.core.view.UserPhotoLayout;
-import com.baidu.tbadk.core.view.k;
-import com.baidu.tieba.card.v;
-import com.baidu.tieba.e;
+import com.baidu.tbadk.core.view.i;
+import com.baidu.tieba.card.t;
+import com.baidu.tieba.d;
 import com.baidu.tieba.play.m;
 import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b {
-    private PbListView bPn;
-    private BdTypeRecyclerView bRZ;
-    private BdSwipeRefreshLayout bSa;
-    private m dNG;
-    private FrsCommonTabFragment dSa;
-    private a dSp;
-    private d dSq;
+    private BdTypeRecyclerView Qq;
+    private PbListView dbr;
+    private BdSwipeRefreshLayout dcE;
+    private m fbl;
+    private FrsCommonTabFragment ffZ;
+    private a fgr;
+    private d fgs;
     private boolean hasMore;
-    private k mPullView;
-    private BdListView.e bWi = new BdListView.e() { // from class: com.baidu.tieba.frs.commontab.b.1
+    private i mPullView;
+    private BdListView.e dlk = new BdListView.e() { // from class: com.baidu.tieba.frs.commontab.b.1
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            if (b.this.bRZ != null) {
-                b.this.bRZ.stopScroll();
+            if (b.this.Qq != null) {
+                b.this.Qq.stopScroll();
             }
-            if (b.this.bPn != null && b.this.dSa != null) {
-                if (j.kV()) {
-                    b.this.bRZ.setNextPage(b.this.bPn);
-                    b.this.bPn.ez(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-                    b.this.bPn.setOnClickListener(null);
+            if (b.this.dbr != null && b.this.ffZ != null) {
+                if (j.kY()) {
+                    b.this.Qq.setNextPage(b.this.dbr);
+                    b.this.dbr.id(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                    b.this.dbr.setOnClickListener(null);
                     if (b.this.hasMore) {
-                        b.this.bPn.showLoading();
-                        b.this.dSa.aEu();
+                        b.this.dbr.showLoading();
+                        b.this.ffZ.bfd();
                         return;
                     }
-                    b.this.bPn.setText(b.this.dSa.getResources().getString(e.j.list_has_no_more));
-                    b.this.bPn.Fq();
+                    b.this.dbr.setText(b.this.ffZ.getResources().getString(d.j.list_has_no_more));
+                    b.this.dbr.aeD();
                     return;
                 }
-                b.this.bRZ.setNextPage(null);
+                b.this.Qq.setNextPage(null);
             }
         }
     };
-    private RecyclerView.OnScrollListener dSr = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.frs.commontab.b.2
-        private boolean dSt;
+    private RecyclerView.OnScrollListener fgt = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.frs.commontab.b.2
+        private boolean fgv;
 
         @Override // android.support.v7.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             if (i == 0) {
-                if (b.this.dNG != null) {
-                    b.this.dNG.b(b.this.bRZ.getFirstVisiblePosition(), b.this.bRZ.getLastVisiblePosition(), this.dSt, true);
+                if (b.this.fbl != null) {
+                    b.this.fbl.c(b.this.Qq.getFirstVisiblePosition(), b.this.Qq.getLastVisiblePosition(), this.fgv, true);
                 }
-                v.aqP().fy(true);
+                t.aQF().hQ(true);
             }
         }
 
@@ -76,37 +77,37 @@ public class b {
         public void onScrolled(RecyclerView recyclerView, int i, int i2) {
             super.onScrolled(recyclerView, i, i2);
             if (i2 > 0) {
-                this.dSt = false;
+                this.fgv = false;
             } else {
-                this.dSt = true;
+                this.fgv = true;
             }
         }
     };
 
-    public b(FrsCommonTabFragment frsCommonTabFragment, View view) {
+    public b(FrsCommonTabFragment frsCommonTabFragment, View view, FrsViewData frsViewData) {
         if (frsCommonTabFragment != null && view != null) {
-            this.dSa = frsCommonTabFragment;
-            this.bRZ = (BdTypeRecyclerView) view.findViewById(e.g.frs_common_tab_recycler_view);
-            this.bRZ.setLayoutManager(new LinearLayoutManager(this.dSa.getContext()));
-            this.bRZ.setFadingEdgeLength(0);
-            this.bRZ.setOverScrollMode(2);
-            this.bRZ.setOnSrollToBottomListener(this.bWi);
-            this.bRZ.addOnScrollListener(this.dSr);
-            this.mPullView = new k(this.dSa.getPageContext());
-            this.mPullView.a(this.dSa);
-            this.bRZ.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.frs.commontab.b.3
+            this.ffZ = frsCommonTabFragment;
+            this.Qq = (BdTypeRecyclerView) view.findViewById(d.g.frs_common_tab_recycler_view);
+            this.Qq.setLayoutManager(new LinearLayoutManager(this.ffZ.getContext()));
+            this.Qq.setFadingEdgeLength(0);
+            this.Qq.setOverScrollMode(2);
+            this.Qq.setOnSrollToBottomListener(this.dlk);
+            this.Qq.addOnScrollListener(this.fgt);
+            this.mPullView = new i(this.ffZ.getPageContext());
+            this.mPullView.setListPullRefreshListener(this.ffZ);
+            this.Qq.setRecyclerListener(new RecyclerView.RecyclerListener() { // from class: com.baidu.tieba.frs.commontab.b.3
                 @Override // android.support.v7.widget.RecyclerView.RecyclerListener
                 public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
                     View view2 = viewHolder.itemView;
-                    if (b.this.dNG != null) {
-                        b.this.dNG.bm(view2);
+                    if (b.this.fbl != null) {
+                        b.this.fbl.cb(view2);
                     }
                     if (view2 != null) {
-                        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view2.findViewById(e.g.abstract_voice);
+                        PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view2.findViewById(d.g.abstract_voice);
                         if (playVoiceBnt != null) {
                             playVoiceBnt.reset();
                         }
-                        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view2.findViewById(e.g.abstract_img_layout);
+                        FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view2.findViewById(d.g.abstract_img_layout);
                         if (frsCommonImageLayout != null) {
                             frsCommonImageLayout.reset();
                         }
@@ -116,129 +117,144 @@ public class b {
                     }
                 }
             });
-            this.bPn = new PbListView(this.dSa.getPageContext().getPageActivity());
-            this.bPn.oH();
-            this.bPn.ex(e.d.cp_bg_line_e);
-            this.bPn.setHeight(l.h(this.dSa.getActivity(), e.C0210e.tbds182));
-            this.bPn.Fm();
-            this.bPn.setTextSize(e.C0210e.tbfontsize33);
-            this.bPn.setTextColor(al.getColor(e.d.cp_cont_j));
-            this.bPn.ew(e.d.cp_cont_e);
-            if (this.bSa == null) {
-                this.bSa = (BdSwipeRefreshLayout) view.findViewById(e.g.frs_common_tab_pull_refresh_layout);
-                this.bSa.setProgressView(this.mPullView);
-                al.j(this.bSa, e.d.cp_bg_line_e);
+            this.dbr = new PbListView(this.ffZ.getPageContext().getPageActivity());
+            this.dbr.getView();
+            this.dbr.ib(d.C0236d.cp_bg_line_e);
+            this.dbr.setHeight(l.h(this.ffZ.getActivity(), d.e.tbds182));
+            this.dbr.aez();
+            this.dbr.setTextSize(d.e.tbfontsize33);
+            this.dbr.setTextColor(al.getColor(d.C0236d.cp_cont_j));
+            this.dbr.ia(d.C0236d.cp_cont_e);
+            this.dbr.aeG();
+            if (this.dcE == null) {
+                this.dcE = (BdSwipeRefreshLayout) view.findViewById(d.g.frs_common_tab_pull_refresh_layout);
+                this.dcE.setProgressView(this.mPullView);
+                al.l(this.dcE, d.C0236d.cp_bg_line_e);
             }
-            this.dSp = new a(this.dSa, this.bRZ);
-            dl(false);
-            if (this.dNG == null) {
-                this.dNG = new m(this.dSa.getPageContext(), this.bRZ);
+            this.fgr = new a(this.ffZ, this.Qq, frsViewData);
+            fB(false);
+            if (this.fbl == null) {
+                this.fbl = new m(this.ffZ.getPageContext(), this.Qq);
             }
-            this.dNG.setUniqueId(this.dSa.getUniqueId());
+            this.fbl.setUniqueId(this.ffZ.getUniqueId());
         }
     }
 
-    public void dl(boolean z) {
-        if (this.bSa != null) {
-            this.bSa.setRefreshing(z);
+    public void fB(boolean z) {
+        if (this.dcE != null) {
+            this.dcE.setRefreshing(z);
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mPullView != null) {
-            this.mPullView.ey(i);
+            this.mPullView.ic(i);
         }
-        if (this.dSp != null) {
-            this.dSp.notifyDataSetChanged();
+        if (this.fgr != null) {
+            this.fgr.notifyDataSetChanged();
         }
-        if (this.bPn != null) {
-            this.bPn.setTextColor(al.getColor(e.d.cp_cont_j));
-            this.bPn.ey(i);
+        if (this.dbr != null) {
+            this.dbr.setTextColor(al.getColor(d.C0236d.cp_cont_j));
+            this.dbr.ic(i);
         }
-        al.j(this.bSa, e.d.cp_bg_line_e);
+        al.l(this.dcE, d.C0236d.cp_bg_line_e);
     }
 
     public void a(d dVar) {
         if (dVar != null) {
             this.hasMore = dVar.hasMore;
-            if (com.baidu.tbadk.core.util.v.I(dVar.threadList)) {
+            if (v.T(dVar.threadList)) {
                 com.baidu.tieba.frs.m mVar = new com.baidu.tieba.frs.m();
                 dVar.threadList = new ArrayList<>();
                 dVar.threadList.add(mVar);
                 dVar.hasMore = false;
             }
-            this.dSq = dVar;
-            this.bPn.ez(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.bRZ.setNextPage(this.bPn);
+            this.fgs = dVar;
+            this.dbr.id(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
             if (this.hasMore) {
-                this.bPn.Fs();
+                this.Qq.setNextPage(this.dbr);
+                this.dbr.aeF();
             } else {
-                this.bPn.setText(this.dSa.getResources().getString(e.j.list_has_no_more));
-                this.bPn.Fq();
+                this.Qq.setNextPage(null);
+                this.dbr.setText(this.ffZ.getResources().getString(d.j.list_has_no_more));
+                this.dbr.aeD();
             }
-            this.dSp.setData(dVar.threadList);
-            this.dSp.notifyDataSetChanged();
-            if (this.dNG != null) {
-                this.dNG.b(this.bRZ.getFirstVisiblePosition(), this.bRZ.getLastVisiblePosition(), false, true);
+            this.fgr.setData(dVar.threadList);
+            this.fgr.notifyDataSetChanged();
+            if (this.fbl != null) {
+                this.fbl.c(this.Qq.getFirstVisiblePosition(), this.Qq.getLastVisiblePosition(), false, true);
             }
         }
     }
 
     public void setSelection(int i) {
-        if (this.bRZ != null) {
-            this.bRZ.setSelection(i);
+        if (this.Qq != null) {
+            this.Qq.setSelection(i);
         }
     }
 
     public void onDestroy() {
-        if (this.dNG != null) {
-            this.dNG.destroy();
+        if (this.fbl != null) {
+            this.fbl.destroy();
         }
-        if (this.dSp != null) {
-            this.dSp.onDestory();
+        if (this.fgr != null) {
+            this.fgr.onDestory();
         }
     }
 
     public void resume() {
-        if (this.dNG != null) {
-            this.dNG.bar();
+        if (this.fbl != null) {
+            this.fbl.bAV();
         }
     }
 
     public void pause() {
-        if (this.dNG != null) {
-            this.dNG.baq();
+        if (this.fbl != null) {
+            this.fbl.bAU();
         }
     }
 
-    public void he(boolean z) {
-        if (this.bSa != null) {
-            this.bSa.setVisibility(z ? 0 : 8);
+    public void jB(boolean z) {
+        if (this.dcE != null) {
+            this.dcE.setVisibility(z ? 0 : 8);
         }
     }
 
-    public void oE(String str) {
-        bb bbVar;
-        if (!StringUtils.isNull(str) && this.dSq != null && !com.baidu.tbadk.core.util.v.I(this.dSq.threadList)) {
-            Iterator<h> it = this.dSq.threadList.iterator();
+    public void vi(String str) {
+        bg bgVar;
+        if (!StringUtils.isNull(str) && this.fgs != null && !v.T(this.fgs.threadList)) {
+            Iterator<com.baidu.adp.widget.ListView.m> it = this.fgs.threadList.iterator();
             while (true) {
                 if (!it.hasNext()) {
-                    bbVar = null;
+                    bgVar = null;
                     break;
                 }
-                h next = it.next();
-                if (next != null && (next instanceof bb) && TextUtils.equals(str, ((bb) next).getId())) {
-                    bbVar = (bb) next;
+                com.baidu.adp.widget.ListView.m next = it.next();
+                if (next != null && (next instanceof bg) && TextUtils.equals(str, ((bg) next).getId())) {
+                    bgVar = (bg) next;
                     break;
                 }
             }
-            if (bbVar != null) {
-                this.dSq.threadList.remove(bbVar);
-                if (com.baidu.tbadk.core.util.v.I(this.dSq.threadList)) {
-                    this.dSq.threadList.add(new com.baidu.tieba.frs.m());
+            if (bgVar != null) {
+                this.fgs.threadList.remove(bgVar);
+                if (v.T(this.fgs.threadList)) {
+                    this.fgs.threadList.add(new com.baidu.tieba.frs.m());
                 }
-                this.dSp.notifyDataSetChanged();
+                this.fgr.setData(this.fgs.threadList);
+                this.fgr.notifyDataSetChanged();
             }
         }
+    }
+
+    public void bcd() {
+        this.Qq.scrollToPosition(0);
+    }
+
+    public void refreshView() {
+        this.fgr.notifyDataSetChanged();
+    }
+
+    public void aCt() {
+        this.mPullView.aw(false);
     }
 }

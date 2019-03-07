@@ -22,13 +22,14 @@ import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSettings;
 import com.baidu.adp.plugin.util.Util;
 import com.baidu.appsearchlib.NASLib;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tbadk.core.util.i;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tbadk.core.util.j;
 import com.baidu.tbadk.data.d;
-import com.baidu.tbadk.m.a;
-import com.baidu.tbadk.util.n;
-import com.baidu.tieba.e;
+import com.baidu.tbadk.o.n;
+import com.baidu.tbadk.p.a;
+import com.baidu.tbadk.util.q;
 import com.baidu.tieba.service.SignAlertReceiver;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Map;
@@ -64,14 +65,13 @@ public class TbadkApplication extends TbadkCoreApplication {
     public void onCreate() {
         sApp = this;
         super.onCreate();
-        initMotuFilterImageMap();
         if ((this.isCdnTachometerProcess != null && this.isCdnTachometerProcess.booleanValue()) || this.isPluginInstallProcess) {
-            b.J("TbadkApplication_onCreate", "cdn_process");
+            b.I("TbadkApplication_onCreate", "cdn_process");
         } else {
-            boolean Qq = n.Qq();
+            boolean aqd = q.aqd();
             boolean isXiaomiPushSdkShouldOpen = isXiaomiPushSdkShouldOpen();
-            boolean z = Qq && isXiaomiPushSdkShouldOpen;
-            b.J("TbadkApplication_onCreate", z ? "plugin_load_delay" : "plugin_load_now");
+            boolean z = aqd && isXiaomiPushSdkShouldOpen;
+            b.I("TbadkApplication_onCreate", z ? "plugin_load_delay" : "plugin_load_now");
             if (Build.VERSION.SDK_INT >= 24) {
                 try {
                     new WebView(this);
@@ -79,15 +79,16 @@ public class TbadkApplication extends TbadkCoreApplication {
                 }
             }
             long currentTimeMillis = System.currentTimeMillis();
-            b.J("TbadkApplication_onCreate", "load_all_plugins");
+            b.I("TbadkApplication_onCreate", "load_all_plugins");
             String str = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER;
-            PluginPackageManager.nd().a(a.PO(), new com.baidu.tbadk.m.b(), Qq && isXiaomiPushSdkShouldOpen);
-            PluginSettings nD = com.baidu.adp.plugin.packageManager.pluginSettings.c.nG().nD();
-            if (nD != null) {
-                String containerVersion = nD.getContainerVersion();
-                if (!TextUtils.isEmpty(containerVersion) && Util.Q(containerVersion, str) == Util.VersionCompare.EQUAL) {
-                    com.baidu.tbadk.l.n.PJ().cR(z);
-                    com.baidu.tbadk.l.n.PJ().ay(System.currentTimeMillis() - currentTimeMillis);
+            System.currentTimeMillis();
+            PluginPackageManager.ni().a(a.apz(), new com.baidu.tbadk.p.b(), aqd && isXiaomiPushSdkShouldOpen);
+            PluginSettings nI = com.baidu.adp.plugin.packageManager.pluginSettings.c.nL().nI();
+            if (nI != null) {
+                String containerVersion = nI.getContainerVersion();
+                if (!TextUtils.isEmpty(containerVersion) && Util.P(containerVersion, str) == Util.VersionCompare.EQUAL) {
+                    n.apr().fh(z);
+                    n.apr().ba(System.currentTimeMillis() - currentTimeMillis);
                 }
             }
         }
@@ -104,14 +105,14 @@ public class TbadkApplication extends TbadkCoreApplication {
             NASLib.setCallBack(new NASLib.NASCallBack() { // from class: com.baidu.tbadk.TbadkApplication.2
                 @Override // com.baidu.appsearchlib.NASLib.NASCallBack
                 public void callback(String str2, String str3) {
-                    ay.Es().c(null, new String[]{str3});
+                    ba.adD().c(null, new String[]{str3});
                 }
             });
-            com.baidu.tbadk.l.n.PJ().aH(System.currentTimeMillis() - currentTimeMillis2);
+            n.apr().bj(System.currentTimeMillis() - currentTimeMillis2);
         }
-        i.CT();
+        j.acd();
         if (this.isRemoteProcess) {
-            com.baidu.tbadk.l.n.PJ().aP(System.currentTimeMillis() - this.processCreateTime);
+            n.apr().br(System.currentTimeMillis() - this.processCreateTime);
         }
     }
 
@@ -243,18 +244,6 @@ public class TbadkApplication extends TbadkCoreApplication {
         upgradeAbstractOnInMemory(TbadkSettings.getInst().loadInt("new_abstract_state", 0));
     }
 
-    private static void initMotuFilterImageMap() {
-        motuFilterImageMap.put("normal", Integer.valueOf(e.f.motu_filter_normal));
-        motuFilterImageMap.put("clvivid", Integer.valueOf(e.f.motu_filter_skin));
-        motuFilterImageMap.put("cllomoscenery", Integer.valueOf(e.f.motu_filter_lomo));
-        motuFilterImageMap.put("clcaisefupian", Integer.valueOf(e.f.motu_filter_classichdr));
-        motuFilterImageMap.put("clm3", Integer.valueOf(e.f.motu_filter_nashiv));
-        motuFilterImageMap.put("cqiuse", Integer.valueOf(e.f.motu_filter_fleeting));
-        motuFilterImageMap.put("clzaoan", Integer.valueOf(e.f.motu_filter_bluetone));
-        motuFilterImageMap.put("clfuguscenery", Integer.valueOf(e.f.motu_filter_elegant));
-        motuFilterImageMap.put("clheibai", Integer.valueOf(e.f.motu_filter_gray));
-    }
-
     public String gettShopUrl() {
         return this.tShopUrl;
     }
@@ -267,13 +256,13 @@ public class TbadkApplication extends TbadkCoreApplication {
     @Override // com.baidu.tbadk.core.TbadkCoreApplication
     public void loadPatchs() {
         super.loadPatchs();
-        PluginPackageManager.nd().a(TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER, isMainProcess(false), this.isThirdProcess);
+        PluginPackageManager.ni().a(TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER, isMainProcess(false), this.isThirdProcess);
         int i = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("plugin_patch_hook_failed_count", 0);
-        PluginPackageManager.nd().aZ(i);
-        if (checkSyncPatchBlacklist() && com.baidu.adp.plugin.install.d.mL() && i == 0 && PluginPackageManager.nd().nh()) {
+        PluginPackageManager.ni().aJ(i);
+        if (checkSyncPatchBlacklist() && com.baidu.adp.plugin.install.d.mQ() && i == 0 && PluginPackageManager.ni().nm()) {
             long currentTimeMillis = System.currentTimeMillis();
-            PluginPackageManager.nd().ni();
-            com.baidu.tbadk.l.n.PJ().ax(System.currentTimeMillis() - currentTimeMillis);
+            PluginPackageManager.ni().nn();
+            n.apr().aZ(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -282,11 +271,11 @@ public class TbadkApplication extends TbadkCoreApplication {
         Map<String, PluginSetting> plugins;
         PluginSetting pluginSetting;
         try {
-            plugins = com.baidu.adp.plugin.packageManager.pluginSettings.c.nG().nD().getPlugins();
+            plugins = com.baidu.adp.plugin.packageManager.pluginSettings.c.nL().nI().getPlugins();
         } catch (Throwable th) {
             BdLog.e(th.getMessage());
         }
-        if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.nG().nD().hasPatch() || plugins == null || plugins.isEmpty()) {
+        if (!com.baidu.adp.plugin.packageManager.pluginSettings.c.nL().nI().hasPatch() || plugins == null || plugins.isEmpty()) {
             return false;
         }
         Iterator<PluginSetting> it = plugins.values().iterator();
@@ -306,7 +295,7 @@ public class TbadkApplication extends TbadkCoreApplication {
         if (!TextUtils.isEmpty(pluginSetting.ext)) {
             String string = new JSONObject(pluginSetting.ext).getString("patch_blacklist_models");
             if (!TextUtils.isEmpty(string)) {
-                this.mPatchWhiteList = string.split(",");
+                this.mPatchWhiteList = string.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             }
         }
         if (this.mPatchWhiteList == null || this.mPatchWhiteList.length == 0) {

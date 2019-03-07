@@ -3,20 +3,21 @@ package com.baidu.tieba.face;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.imageManager.d;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class a {
-    public static final Pattern dun = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
-    public static final Pattern duo = Pattern.compile("#\\([^#\\)\\(]+\\)$");
+    public static final Pattern eHE = Pattern.compile("#\\([a-zA-Z0-9_~！\\u4E00-\\u9FA5]+\\)");
+    public static final Pattern eHF = Pattern.compile("#\\([^#\\)\\(]+\\)$");
 
-    public static String ny(String str) {
-        String replaceAll = str.replaceAll(d.bdi, "meme,");
+    public static String ue(String str) {
+        String replaceAll = str.replaceAll(d.cmH, "meme,");
         Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
         StringBuilder sb = new StringBuilder(replaceAll);
         int i = 0;
         while (matcher.find()) {
-            String[] split = matcher.group().split(",");
+            String[] split = matcher.group().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split != null && split.length == 6) {
                 StringBuilder sb2 = new StringBuilder();
                 int start = matcher.start() - i;
@@ -25,7 +26,7 @@ public class a {
                     if (i2 != 1) {
                         sb2.append(split[i2]);
                         if (i2 < split.length - 1) {
-                            sb2.append(",");
+                            sb2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                         }
                     }
                 }
@@ -38,14 +39,14 @@ public class a {
         return sb.toString();
     }
 
-    public static int nz(String str) {
+    public static int uf(String str) {
         int i;
         CustomResponsedMessage runTask;
         int i2 = 0;
         if (str == null || str.length() == 0) {
             return 0;
         }
-        Matcher matcher = dun.matcher(str);
+        Matcher matcher = eHE.matcher(str);
         while (true) {
             i = i2;
             if (!matcher.find()) {
@@ -59,14 +60,14 @@ public class a {
         }
         Matcher matcher2 = Pattern.compile("#\\(meme,[collect_]?[a-zA-Z0-9_,]+\\)").matcher(str);
         while (matcher2.find()) {
-            String[] split = matcher2.group().split(",");
+            String[] split = matcher2.group().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split != null && split.length == 5) {
                 i++;
             }
         }
         Matcher matcher3 = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(str);
         while (matcher3.find()) {
-            String[] split2 = matcher3.group().split(",");
+            String[] split2 = matcher3.group().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split2 != null && split2.length == 6) {
                 i++;
             }

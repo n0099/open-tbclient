@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
-import com.baidu.ar.util.IoUtils;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -63,7 +63,7 @@ public class h extends e {
             z = false;
             if (z) {
                 try {
-                    String a = com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptAES(a(this.a), 0), IoUtils.UTF_8);
+                    String a = com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptAES(a(this.a), 0), "utf-8");
                     com.baidu.android.pushservice.j.a.a(this.b, "com.baidu.push.sdkr", a);
                     return a;
                 } catch (Exception e2) {
@@ -88,11 +88,11 @@ public class h extends e {
             }
             a aVar = list.get(i2);
             stringBuffer.append(aVar.b());
-            stringBuffer.append(",");
+            stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
             stringBuffer.append(aVar.c());
-            stringBuffer.append(",");
+            stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
             stringBuffer.append(aVar.d());
-            stringBuffer.append(",");
+            stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
             stringBuffer.append(aVar.a());
             if (i2 != list.size() - 1) {
                 stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
@@ -111,7 +111,7 @@ public class h extends e {
             return arrayList;
         }
         for (String str2 : str.trim().split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {
-            String[] split = str2.trim().trim().split(",");
+            String[] split = str2.trim().trim().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split.length >= 2) {
                 g gVar = new g(split[0], split[1]);
                 try {

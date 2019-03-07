@@ -2,7 +2,6 @@ package com.baidu.sofire.ac;
 
 import android.content.Context;
 import android.util.Pair;
-import com.baidu.sofire.a.a;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.e;
 import com.baidu.sofire.core.g;
@@ -47,18 +46,7 @@ public class FH {
     }
 
     public static boolean isInitSuc(int i) {
-        ApkInfo a;
-        g a2;
-        try {
-            a a3 = a.a();
-            if (a3 == null || (a = a3.a(i)) == null || a.initStatus != 1 || (a2 = g.a()) == null) {
-                return false;
-            }
-            return a2.d(a.packageName) != null;
-        } catch (Throwable th) {
-            com.baidu.sofire.b.e.a(th);
-            return false;
-        }
+        return com.baidu.sofire.b.e.a(i);
     }
 
     public static Object getPInfo(int i, int i2) {
@@ -86,7 +74,7 @@ public class FH {
                     }
                     return "";
                 } catch (Throwable th) {
-                    com.baidu.sofire.b.e.a(th);
+                    com.baidu.sofire.b.e.a();
                     return "";
                 }
             default:
@@ -95,7 +83,7 @@ public class FH {
     }
 
     public static String getVersion(Context context) {
-        return "3.1.8";
+        return "3.1.9.3";
     }
 
     public static String gzfi(Context context, String str, int i, String str2) {
@@ -108,5 +96,13 @@ public class FH {
 
     public static String gz(Context context) {
         return e.a(context);
+    }
+
+    public static String gt(Context context, String str, String str2, int i, String str3) {
+        return e.a(context, str, str2, i, str3);
+    }
+
+    public static String xgz(Context context, String str) {
+        return e.a(context, str);
     }
 }

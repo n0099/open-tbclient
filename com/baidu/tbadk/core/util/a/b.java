@@ -4,28 +4,26 @@ import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
-import com.baidu.ar.constants.HttpConstants;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.q;
-import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes.dex */
 public class b {
-    public boolean aBw;
-    private final g aDT = new g();
+    public boolean bJr;
+    private final g bLO = new g();
     public boolean mIsNeedTbs = false;
-    public boolean aDU = true;
+    public boolean bLP = true;
     public boolean mIsUseCurrentBDUSS = true;
     public boolean mIsNeedAddCommenParam = true;
     public boolean mIsFromCDN = false;
-    public boolean aDV = false;
-    public int aDW = 0;
+    public boolean bLQ = false;
+    public int mImageType = 0;
 
-    public g Ex() {
-        return this.aDT;
+    public g adI() {
+        return this.bLO;
     }
 
     public void a(q qVar) {
@@ -64,21 +62,21 @@ public class b {
             qVar.x("from", from);
         }
         int netType = j.netType();
-        qVar.x(ETAG.KEY_NET_TYPE, String.valueOf(netType));
-        String Gs = com.baidu.tbadk.coreExtra.b.a.Gp().Gs();
+        qVar.x("net_type", String.valueOf(netType));
+        String afM = com.baidu.tbadk.coreExtra.b.a.afJ().afM();
         if (1 == netType) {
             if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
-                str = Gs + "ka=open";
+                str = afM + "ka=open";
                 z = true;
             }
-            str = Gs;
+            str = afM;
             z = false;
         } else {
             if (TbadkCoreApplication.getInst().getKeepaliveNonWifi() == 1) {
-                str = Gs + "ka=open";
+                str = afM + "ka=open";
                 z = true;
             }
-            str = Gs;
+            str = afM;
             z = false;
         }
         com.baidu.adp.lib.network.a.a.setKeepAlive(z);
@@ -89,25 +87,25 @@ public class b {
         qVar.x("cuid", TbadkCoreApplication.getInst().getCuid());
         qVar.x("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
         qVar.x("cuid_gid", TbadkCoreApplication.getInst().getCuidGid());
-        qVar.x(HttpConstants.TIMESTAMP, Long.toString(System.currentTimeMillis()));
+        qVar.x("timestamp", Long.toString(System.currentTimeMillis()));
         qVar.x("model", Build.MODEL);
         if (com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("android_safe_sdk_open", 0) == 1) {
             qVar.x("z_id", FH.gz(TbadkCoreApplication.getInst()));
         }
     }
 
-    public String Ey() {
-        if (this.aDT.mUrl == null) {
+    public String adJ() {
+        if (this.bLO.mUrl == null) {
             return null;
         }
         String str = TbConfig.SERVER_ADDRESS;
-        if (this.aDT.mUrl.startsWith(str)) {
-            int indexOf = this.aDT.mUrl.indexOf(63);
+        if (this.bLO.mUrl.startsWith(str)) {
+            int indexOf = this.bLO.mUrl.indexOf(63);
             if (indexOf < 0) {
-                indexOf = this.aDT.mUrl.length();
+                indexOf = this.bLO.mUrl.length();
             }
-            return this.aDT.mUrl.substring(str.length(), indexOf);
+            return this.bLO.mUrl.substring(str.length(), indexOf);
         }
-        return this.aDT.mUrl;
+        return this.bLO.mUrl;
     }
 }

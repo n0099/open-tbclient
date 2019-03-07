@@ -16,20 +16,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class f {
     private static Object a = new Object();
-    private static f aeF = null;
+    private static f b = null;
     private Handler c = null;
     private String d = null;
     private int e = 24;
-    private a aeG = null;
+    private a f = null;
     private long g = 0;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class a extends com.baidu.location.g.e {
         private boolean b = false;
         private int c = 0;
@@ -54,7 +55,7 @@ public class f {
             }
             this.k.put("cltr[0]", "" + Jni.encodeOfflineLocationUpdateRequest(jSONObject.toString()));
             this.k.put("cfg", 1);
-            this.k.put("info", Jni.encode(com.baidu.location.g.b.tZ().c()));
+            this.k.put("info", Jni.encode(com.baidu.location.g.b.a().c()));
             this.k.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
         }
 
@@ -80,7 +81,7 @@ public class f {
                                 file.createNewFile();
                             }
                             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, false));
-                            bufferedWriter.write(Base64.encode(jSONObject.toString().getBytes(), "UTF-8"));
+                            bufferedWriter.write(Base64.encode(jSONObject.toString().getBytes(), HTTP.UTF_8));
                             bufferedWriter.flush();
                             bufferedWriter.close();
                         } catch (Exception e2) {
@@ -110,7 +111,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public class b {
         public String a;
         public int b;
@@ -121,6 +122,17 @@ public class f {
             this.a = str;
             this.b = i;
         }
+    }
+
+    public static f a() {
+        f fVar;
+        synchronized (a) {
+            if (b == null) {
+                b = new f();
+            }
+            fVar = b;
+        }
+        return fVar;
     }
 
     private Object a(Object obj, String str) throws Exception {
@@ -149,10 +161,10 @@ public class f {
     }
 
     private void a(boolean z, JSONArray jSONArray, JSONArray jSONArray2) {
-        if (this.aeG == null) {
-            this.aeG = new a();
+        if (this.f == null) {
+            this.f = new a();
         }
-        this.aeG.a(z, jSONArray, jSONArray2);
+        this.f.a(z, jSONArray, jSONArray2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -277,7 +289,7 @@ public class f {
                 return;
             }
             JSONArray jSONArray4 = null;
-            List<b> a2 = a(com.baidu.location.e.f.tU().d());
+            List<b> a2 = a(com.baidu.location.e.f.a().d());
             if (currentTimeMillis == 0) {
                 if (a2 != null && a2.size() > 0) {
                     jSONArray4 = new JSONArray();
@@ -336,17 +348,6 @@ public class f {
         } catch (Exception e5) {
             e5.printStackTrace();
         }
-    }
-
-    public static f tC() {
-        f fVar;
-        synchronized (a) {
-            if (aeF == null) {
-                aeF = new f();
-            }
-            fVar = aeF;
-        }
-        return fVar;
     }
 
     public void b() {

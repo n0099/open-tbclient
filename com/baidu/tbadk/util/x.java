@@ -1,5 +1,22 @@
 package com.baidu.tbadk.util;
+
+import android.view.View;
 /* loaded from: classes.dex */
-public abstract class x<T> {
-    public abstract T doInBackground();
+public class x {
+    private View.OnTouchListener ccU;
+    private w ctJ;
+
+    public w aql() {
+        return this.ctJ;
+    }
+
+    public View.OnTouchListener aqm() {
+        return this.ccU;
+    }
+
+    public void onDestroy() {
+        if (this.ctJ != null) {
+            this.ctJ.aqk();
+        }
+    }
 }

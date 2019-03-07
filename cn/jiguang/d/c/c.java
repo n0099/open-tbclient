@@ -4,7 +4,7 @@ package cn.jiguang.d.c;
 public final class c {
     j a;
     int b;
-    c lK;
+    c lN;
 
     private c() {
     }

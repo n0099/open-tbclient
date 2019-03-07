@@ -1,60 +1,42 @@
 package com.baidu.b.a.b.a;
 
-import android.support.annotation.Nullable;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
+import java.util.Random;
 /* loaded from: classes2.dex */
-public interface a<T> {
-    String getChannelId();
+public class a {
+    public String acD;
+    public String channelId;
+    public String md5;
+    public String name;
+    public String packageName;
+    public long acB = -1;
+    public long acC = 0;
+    public int rollback = 0;
+    public int KP = -1;
+    public int type = 0;
+    public String filePath = "";
+    public byte[] fileData = null;
+    public int acE = 0;
+    public long acF = 0;
+    public long currentSize = 0;
+    public long createTime = 0;
+    public long updateTime = 0;
+    public long acG = 0;
+    public int acH = 0;
+    public String acI = sh();
 
-    String getChannelName();
+    public boolean equals(Object obj) {
+        if (obj != null && (obj instanceof a)) {
+            return a((a) obj);
+        }
+        return false;
+    }
 
-    Map<String, String> getCommonParams();
+    public boolean a(a aVar) {
+        return this.channelId.equals(aVar.channelId) && this.packageName.equals(aVar.packageName) && this.acB == aVar.acB && this.md5.equals(aVar.md5);
+    }
 
-    List<com.baidu.b.a.c.a.a> getDownloadItems();
-
-    int getDownloadOptions();
-
-    String getDownloadPath();
-
-    Map<String, String> getExtParams();
-
-    Map<String, String> getHeaderParams();
-
-    Map<String, Integer> getOptions();
-
-    String getPackageName();
-
-    JSONArray getUploadParam();
-
-    Map<String, String> getUrlParams();
-
-    void onBulkDownloaded(List<com.baidu.b.a.c.a.a> list, List<com.baidu.b.a.c.a.a> list2, List<com.baidu.b.a.c.a.a> list3);
-
-    void onConfigurationChanged(T t);
-
-    void onDownloadError(com.baidu.b.a.b.b.a aVar);
-
-    void onDownloadStart(String str);
-
-    void onDownloading(com.baidu.b.a.b.b.a aVar);
-
-    void onFetchError(com.baidu.b.a.b.b.a aVar);
-
-    void onFileCancel(com.baidu.b.a.b.b.a aVar);
-
-    void onFileDownloaded(com.baidu.b.a.b.b.a aVar, com.baidu.b.a.c.a.a aVar2);
-
-    void onFilePause(com.baidu.b.a.b.b.a aVar);
-
-    void onFileProgress(String str, long j, long j2);
-
-    void onItemFiltered(T t);
-
-    void onNewItemAdded(T t);
-
-    void onReceiveItems(JSONArray jSONArray, @Nullable JSONArray jSONArray2);
-
-    void onUpdate(T t);
+    public static String sh() {
+        long currentTimeMillis = System.currentTimeMillis();
+        return String.valueOf(currentTimeMillis) + String.valueOf(new Random(currentTimeMillis).nextInt());
+    }
 }

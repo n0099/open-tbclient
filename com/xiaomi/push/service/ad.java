@@ -1,6 +1,7 @@
 package com.xiaomi.push.service;
 
 import android.content.SharedPreferences;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -15,7 +16,7 @@ public class ad {
             SharedPreferences sharedPreferences = xMPushService.getSharedPreferences("push_message_ids", 0);
             Queue<String> queue = b.get(str);
             if (queue == null) {
-                String[] split = sharedPreferences.getString(str, "").split(",");
+                String[] split = sharedPreferences.getString(str, "").split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 queue = new LinkedList<>();
                 for (String str3 : split) {
                     queue.add(str3);
@@ -29,7 +30,7 @@ public class ad {
             if (queue.size() > 25) {
                 queue.poll();
             }
-            String a2 = com.xiaomi.channel.commonutils.string.d.a(queue, ",");
+            String a2 = com.xiaomi.channel.commonutils.string.d.a(queue, Constants.ACCEPT_TIME_SEPARATOR_SP);
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.putString(str, a2);
             edit.commit();

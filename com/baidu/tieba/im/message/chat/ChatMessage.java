@@ -4,12 +4,11 @@ import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.client.socket.a;
 import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.lib.g.b;
-import com.baidu.adp.widget.ListView.h;
+import com.baidu.adp.widget.ListView.m;
 import com.baidu.appsearchlib.Info;
-import com.baidu.searchbox.ng.ai.apps.scheme.AiAppUnitedSchemeUtilsDispatcher;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.coreExtra.messageCenter.b;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
@@ -20,7 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public abstract class ChatMessage extends TbSocketMessage implements a, h {
+public abstract class ChatMessage extends TbSocketMessage implements a, m {
     private long bornTime;
     private transient MsgCacheData cacheData;
     private String content;
@@ -128,7 +127,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, h {
             String optString3 = jSONObject.optString("url_d");
             String optString4 = jSONObject.optString(Info.kBaiduPIDKey);
             String optString5 = jSONObject.optString("packet_name");
-            String optString6 = jSONObject.optString(AiAppUnitedSchemeUtilsDispatcher.PARAM_TOAST_ICON_KEY);
+            String optString6 = jSONObject.optString("icon");
             int optInt = jSONObject.optInt("size_width");
             int optInt2 = jSONObject.optInt("size_height");
             GifInfo gifInfo = new GifInfo();
@@ -372,9 +371,9 @@ public abstract class ChatMessage extends TbSocketMessage implements a, h {
         return false;
     }
 
-    @Override // com.baidu.adp.widget.ListView.h
+    @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        if (com.baidu.tbadk.coreExtra.messageCenter.a.If().IE() != null && com.baidu.tbadk.coreExtra.messageCenter.a.If().IE().contains(String.valueOf(this.userId)) && this.msgType == 1) {
+        if (b.ahA().ahZ() != null && b.ahA().ahZ().contains(String.valueOf(this.userId)) && this.msgType == 1) {
             return TYPE_MSG_TEXT_OFFICAL_NOTIFICATION;
         }
         if (this.msgType == 11) {
@@ -412,7 +411,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, h {
             try {
                 JSONArray jSONArray = new JSONArray(this.content);
                 if (jSONArray.length() > 0) {
-                    this.statisticsTaskId = b.d(jSONArray.optJSONObject(0).optString("task_id"), 0L);
+                    this.statisticsTaskId = com.baidu.adp.lib.g.b.d(jSONArray.optJSONObject(0).optString("task_id"), 0L);
                 }
             } catch (Exception e) {
             }

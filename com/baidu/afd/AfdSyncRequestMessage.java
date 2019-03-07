@@ -8,15 +8,12 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.appsearchlib.Info;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.searchbox.ng.ai.apps.network.NetworkDef;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import java.util.Map;
-import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,19 +25,19 @@ public class AfdSyncRequestMessage extends HttpMessage {
     public AfdSyncRequestMessage(g gVar) {
         super(CmdConfigHttp.CMD_AFD_REQUEST_ASYNC);
         addCommonParams();
-        addHeader(SM.COOKIE, CookieManager.getInstance().getCookie("tieba.baidu.com"));
+        addHeader("Cookie", CookieManager.getInstance().getCookie("tieba.baidu.com"));
         setUserAgent("bdtb for Android " + TbConfig.getVersion());
         addParam(Info.kBaiduPIDKey, "1517888290046");
         addParam("ac", "1");
-        addParam("ft", gVar.pt());
+        addParam("ft", gVar.pM());
         addParam("ext", getExt(gVar));
-        addParam("flr", String.valueOf(gVar.pv()));
-        addParam("fc", String.valueOf(gVar.pv()));
+        addParam("flr", String.valueOf(gVar.pO()));
+        addParam("fc", String.valueOf(gVar.pO()));
     }
 
     private static String getExt(g gVar) {
         JSONArray jSONArray = new JSONArray();
-        for (Map.Entry<String, String> entry : gVar.pw().entrySet()) {
+        for (Map.Entry<String, String> entry : gVar.pP().entrySet()) {
             jSONArray.put(create(entry.getKey(), entry.getValue()));
         }
         return jSONArray.toString();
@@ -54,10 +51,10 @@ public class AfdSyncRequestMessage extends HttpMessage {
         addParam("ov", Build.VERSION.RELEASE);
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
         addParam("imei", TbadkCoreApplication.getInst().getImei());
-        addParam("fmt", NetworkDef.DataType.JSON);
+        addParam("fmt", "json");
         addParam("android_id", androidId());
         addParam("ot", "2");
-        addParam(Config.EXCEPTION_CRASH_TYPE, "2");
+        addParam("ct", "2");
         addParam("nt", String.valueOf(com.baidu.adp.lib.util.j.netType()));
         addParam("uid", SapiAccountManager.getInstance().getSession("uid"));
         addParam("is_https", 1);
@@ -66,7 +63,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
     private static JSONObject create(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(Config.APP_KEY, str);
+            jSONObject.put("k", str);
             jSONObject.put("v", str2);
             return jSONObject;
         } catch (JSONException e) {

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.v;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public class f<ViewGroup, Object> extends com.baidu.adp.widget.ListView.a {
@@ -20,12 +20,12 @@ public class f<ViewGroup, Object> extends com.baidu.adp.widget.ListView.a {
     }
 
     @Override // com.baidu.adp.widget.ListView.a
-    protected q.a onCreateViewHolder(ViewGroup viewGroup) {
+    protected v.a onCreateViewHolder(ViewGroup viewGroup) {
         return null;
     }
 
     @Override // com.baidu.adp.widget.ListView.a
-    protected View onFillViewHolder(int i, View view, ViewGroup viewGroup, Object obj, q.a aVar) {
+    protected View onFillViewHolder(int i, View view, ViewGroup viewGroup, Object obj, v.a aVar) {
         return null;
     }
 

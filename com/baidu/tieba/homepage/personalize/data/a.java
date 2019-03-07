@@ -2,14 +2,14 @@ package com.baidu.tieba.homepage.personalize.data;
 
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import tbclient.App;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.card.data.d {
     public void b(App app) {
         if (app != null) {
-            if (this.dbr == null) {
-                this.dbr = new AdvertAppInfo();
+            if (this.eld == null) {
+                this.eld = new AdvertAppInfo();
             }
-            this.dbr.a(app);
+            this.eld.a(app);
         }
     }
 }

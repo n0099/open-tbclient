@@ -2,7 +2,6 @@ package com.baidu.sapi2.dto;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.http.NameValuePair;
 /* loaded from: classes2.dex */
 public class FaceBaseDTO extends SapiDTO {
     public static final String BUSINESS_SENCE = "netdisk_2pwd";
@@ -13,5 +12,5 @@ public class FaceBaseDTO extends SapiDTO {
     public String businessSence;
     public String subpro;
     public boolean showGuidePage = false;
-    public List<NameValuePair> transParamsList = new ArrayList();
+    public List<PassNameValuePair> transParamsList = new ArrayList();
 }

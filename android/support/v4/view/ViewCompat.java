@@ -28,7 +28,6 @@ import android.view.WindowInsets;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeProvider;
-import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Field;
@@ -304,7 +303,7 @@ public class ViewCompat {
                     this.mDispatchStartTemporaryDetach.invoke(view, new Object[0]);
                     return;
                 } catch (Exception e) {
-                    Log.d("ViewCompat", "Error calling dispatchStartTemporaryDetach", e);
+                    Log.d(ViewCompat.TAG, "Error calling dispatchStartTemporaryDetach", e);
                     return;
                 }
             }
@@ -320,7 +319,7 @@ public class ViewCompat {
                     this.mDispatchFinishTemporaryDetach.invoke(view, new Object[0]);
                     return;
                 } catch (Exception e) {
-                    Log.d("ViewCompat", "Error calling dispatchFinishTemporaryDetach", e);
+                    Log.d(ViewCompat.TAG, "Error calling dispatchFinishTemporaryDetach", e);
                     return;
                 }
             }
@@ -336,7 +335,7 @@ public class ViewCompat {
                 this.mDispatchStartTemporaryDetach = View.class.getDeclaredMethod("dispatchStartTemporaryDetach", new Class[0]);
                 this.mDispatchFinishTemporaryDetach = View.class.getDeclaredMethod("dispatchFinishTemporaryDetach", new Class[0]);
             } catch (NoSuchMethodException e) {
-                Log.e("ViewCompat", "Couldn't find method", e);
+                Log.e(ViewCompat.TAG, "Couldn't find method", e);
             }
             this.mTempDetachBound = true;
         }
@@ -437,18 +436,18 @@ public class ViewCompat {
                 try {
                     sChildrenDrawingOrderMethod = ViewGroup.class.getDeclaredMethod("setChildrenDrawingOrderEnabled", Boolean.TYPE);
                 } catch (NoSuchMethodException e) {
-                    Log.e("ViewCompat", "Unable to find childrenDrawingOrderEnabled", e);
+                    Log.e(ViewCompat.TAG, "Unable to find childrenDrawingOrderEnabled", e);
                 }
                 sChildrenDrawingOrderMethod.setAccessible(true);
             }
             try {
                 sChildrenDrawingOrderMethod.invoke(viewGroup, Boolean.valueOf(z));
             } catch (IllegalAccessException e2) {
-                Log.e("ViewCompat", "Unable to invoke childrenDrawingOrderEnabled", e2);
+                Log.e(ViewCompat.TAG, "Unable to invoke childrenDrawingOrderEnabled", e2);
             } catch (IllegalArgumentException e3) {
-                Log.e("ViewCompat", "Unable to invoke childrenDrawingOrderEnabled", e3);
+                Log.e(ViewCompat.TAG, "Unable to invoke childrenDrawingOrderEnabled", e3);
             } catch (InvocationTargetException e4) {
-                Log.e("ViewCompat", "Unable to invoke childrenDrawingOrderEnabled", e4);
+                Log.e(ViewCompat.TAG, "Unable to invoke childrenDrawingOrderEnabled", e4);
             }
         }
 
@@ -632,7 +631,7 @@ public class ViewCompat {
 
         public Display getDisplay(View view) {
             if (isAttachedToWindow(view)) {
-                return ((WindowManager) view.getContext().getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay();
+                return ((WindowManager) view.getContext().getSystemService("window")).getDefaultDisplay();
             }
             return null;
         }

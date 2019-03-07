@@ -8,26 +8,26 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class d {
     private Context g;
     private String h;
     private String i;
-    private JSONArray igO;
     private boolean j;
+    private JSONArray jwt;
     private Map<String, g> k;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class a {
-        public static final d igP = new d((byte) 0);
+        public static final d jwu = new d((byte) 0);
     }
 
     /* synthetic */ d(byte b) {
         this();
     }
 
-    public final Map<String, g> bTg() {
+    public final Map<String, g> csc() {
         return this.k;
     }
 
@@ -39,8 +39,8 @@ public final class d {
         this.j = z;
     }
 
-    public static d bTh() {
-        return a.igP;
+    public static d csd() {
+        return a.jwu;
     }
 
     public final void a(Context context) {
@@ -86,20 +86,20 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final SampleResult yN(String str) {
-        if (this.igO == null) {
+    public final SampleResult EP(String str) {
+        if (this.jwt == null) {
             if (str == null || this.k == null) {
                 return SampleResult.OTHERE;
             }
             if (this.k.containsKey(str)) {
-                return i.za(this.k.get(str).getGroup());
+                return i.Fc(this.k.get(str).getGroup());
             }
             return SampleResult.OTHERE;
         }
-        for (int i = 0; i < this.igO.length(); i++) {
-            JSONObject optJSONObject = this.igO.optJSONObject(i);
+        for (int i = 0; i < this.jwt.length(); i++) {
+            JSONObject optJSONObject = this.jwt.optJSONObject(i);
             if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
-                return i.za(optJSONObject.optString("group"));
+                return i.Fc(optJSONObject.optString("group"));
             }
         }
         return SampleResult.OTHERE;

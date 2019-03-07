@@ -1,6 +1,7 @@
 package com.xiaomi.xmpush.thrift;
 
-import com.baidu.ar.constants.HttpConstants;
+import com.baidu.searchbox.v8engine.WebGLImageLoader;
+import com.sina.weibo.sdk.statistic.LogBuilder;
 import java.io.Serializable;
 import java.util.BitSet;
 import java.util.Collections;
@@ -13,11 +14,11 @@ import java.util.Map;
 public class d implements Serializable, Cloneable, org.apache.thrift.a<d, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> h;
     private static final org.apache.thrift.protocol.j i = new org.apache.thrift.protocol.j("ClientUploadDataItem");
-    private static final org.apache.thrift.protocol.b j = new org.apache.thrift.protocol.b("channel", (byte) 11, 1);
+    private static final org.apache.thrift.protocol.b j = new org.apache.thrift.protocol.b(LogBuilder.KEY_CHANNEL, (byte) 11, 1);
     private static final org.apache.thrift.protocol.b k = new org.apache.thrift.protocol.b("data", (byte) 11, 2);
     private static final org.apache.thrift.protocol.b l = new org.apache.thrift.protocol.b("name", (byte) 11, 3);
     private static final org.apache.thrift.protocol.b m = new org.apache.thrift.protocol.b("counter", (byte) 10, 4);
-    private static final org.apache.thrift.protocol.b n = new org.apache.thrift.protocol.b(HttpConstants.TIMESTAMP, (byte) 10, 5);
+    private static final org.apache.thrift.protocol.b n = new org.apache.thrift.protocol.b("timestamp", (byte) 10, 5);
     private static final org.apache.thrift.protocol.b o = new org.apache.thrift.protocol.b("fromSdk", (byte) 2, 6);
     private static final org.apache.thrift.protocol.b p = new org.apache.thrift.protocol.b("category", (byte) 11, 7);
     public String a;
@@ -31,11 +32,11 @@ public class d implements Serializable, Cloneable, org.apache.thrift.a<d, a> {
 
     /* loaded from: classes3.dex */
     public enum a {
-        CHANNEL(1, "channel"),
+        CHANNEL(1, LogBuilder.KEY_CHANNEL),
         DATA(2, "data"),
         NAME(3, "name"),
         COUNTER(4, "counter"),
-        TIMESTAMP(5, HttpConstants.TIMESTAMP),
+        TIMESTAMP(5, "timestamp"),
         FROM_SDK(6, "fromSdk"),
         CATEGORY(7, "category");
         
@@ -63,11 +64,11 @@ public class d implements Serializable, Cloneable, org.apache.thrift.a<d, a> {
 
     static {
         EnumMap enumMap = new EnumMap(a.class);
-        enumMap.put((EnumMap) a.CHANNEL, (a) new org.apache.thrift.meta_data.b("channel", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
+        enumMap.put((EnumMap) a.CHANNEL, (a) new org.apache.thrift.meta_data.b(LogBuilder.KEY_CHANNEL, (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.DATA, (a) new org.apache.thrift.meta_data.b("data", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.NAME, (a) new org.apache.thrift.meta_data.b("name", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.COUNTER, (a) new org.apache.thrift.meta_data.b("counter", (byte) 2, new org.apache.thrift.meta_data.c((byte) 10)));
-        enumMap.put((EnumMap) a.TIMESTAMP, (a) new org.apache.thrift.meta_data.b(HttpConstants.TIMESTAMP, (byte) 2, new org.apache.thrift.meta_data.c((byte) 10)));
+        enumMap.put((EnumMap) a.TIMESTAMP, (a) new org.apache.thrift.meta_data.b("timestamp", (byte) 2, new org.apache.thrift.meta_data.c((byte) 10)));
         enumMap.put((EnumMap) a.FROM_SDK, (a) new org.apache.thrift.meta_data.b("fromSdk", (byte) 2, new org.apache.thrift.meta_data.c((byte) 2)));
         enumMap.put((EnumMap) a.CATEGORY, (a) new org.apache.thrift.meta_data.b("category", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         h = Collections.unmodifiableMap(enumMap);
@@ -371,7 +372,7 @@ public class d implements Serializable, Cloneable, org.apache.thrift.a<d, a> {
             if (!z2) {
                 sb.append(", ");
             }
-            sb.append("data:");
+            sb.append(WebGLImageLoader.DATA_URL);
             if (this.b == null) {
                 sb.append("null");
             } else {

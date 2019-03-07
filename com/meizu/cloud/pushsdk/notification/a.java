@@ -11,7 +11,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Handler;
 import android.text.TextUtils;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
+import com.baidu.pass.biometrics.face.liveness.stat.LivenessStat;
+import com.baidu.tbadk.TbConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
@@ -69,7 +70,7 @@ public abstract class a implements e {
         intent.putExtra("method", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE);
         intent.setClassName(this.a.getPackageName(), MzSystemUtils.findReceiver(this.a, PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, this.a.getPackageName()));
         intent.setAction(PushConstants.MZ_PUSH_ON_MESSAGE_ACTION);
-        return PendingIntent.getBroadcast(this.a, 0, intent, AiAppsFileUtils.GB);
+        return PendingIntent.getBroadcast(this.a, 0, intent, 1073741824);
     }
 
     protected PendingIntent b(MessageV3 messageV3) {
@@ -79,7 +80,7 @@ public abstract class a implements e {
         intent.putExtra("method", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_NOTIFICATION_DELETE);
         intent.setClassName(this.a.getPackageName(), MzSystemUtils.findReceiver(this.a, PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, this.a.getPackageName()));
         intent.setAction(PushConstants.MZ_PUSH_ON_MESSAGE_ACTION);
-        return PendingIntent.getBroadcast(this.a, 0, intent, AiAppsFileUtils.GB);
+        return PendingIntent.getBroadcast(this.a, 0, intent, 1073741824);
     }
 
     protected void a(Notification.Builder builder, MessageV3 messageV3, PendingIntent pendingIntent, PendingIntent pendingIntent2) {
@@ -124,7 +125,7 @@ public abstract class a implements e {
     public Bitmap a(String str) {
         com.meizu.cloud.pushsdk.networking.common.c a = com.meizu.cloud.pushsdk.networking.a.a(str).a().a();
         if (a.b() && a.a() != null) {
-            com.meizu.cloud.a.a.i("AbstractPushNotification", "ANRequest On other Thread down load largeIcon " + str + "image " + (a.a() != null ? "success" : "fail"));
+            com.meizu.cloud.a.a.i("AbstractPushNotification", "ANRequest On other Thread down load largeIcon " + str + "image " + (a.a() != null ? "success" : LivenessStat.TYPE_FACE_MATCH_FAIL));
             return (Bitmap) a.a();
         }
         com.meizu.cloud.a.a.i("AbstractPushNotification", "ANRequest On other Thread down load largeIcon " + str + "image fail");
@@ -186,7 +187,7 @@ public abstract class a implements e {
                     public void run() {
                         notificationManager.notify(i, a);
                     }
-                }, 5000L);
+                }, TbConfig.NOTIFY_SOUND_INTERVAL);
             }
         }
     }

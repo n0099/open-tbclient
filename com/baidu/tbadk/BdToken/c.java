@@ -13,6 +13,7 @@ import com.baidu.tbadk.BdToken.completeTask.CompleteTaskSocketResMsg;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -28,50 +29,50 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class c {
-    private final ScheduledExecutorService akB;
-    private final SparseArray<LinkedList<com.baidu.tbadk.BdToken.b>> akC;
-    private final SparseArray<ConcurrentLinkedQueue<h>> akD;
-    private final LinkedList<com.baidu.tbadk.BdToken.b> akE;
-    private a akF;
-    private Boolean akG;
-    private AtomicBoolean akH;
-    private o akI;
-    private CustomMessageListener akJ;
-    private com.baidu.adp.framework.listener.a akK;
-    private CustomMessageListener akL;
+    private final ScheduledExecutorService brg;
+    private final SparseArray<LinkedList<com.baidu.tbadk.BdToken.b>> brh;
+    private final SparseArray<ConcurrentLinkedQueue<h>> bri;
+    private final LinkedList<com.baidu.tbadk.BdToken.b> brj;
+    private a brk;
+    private Boolean brl;
+    private AtomicBoolean brm;
+    private o brn;
+    private CustomMessageListener bro;
+    private com.baidu.adp.framework.listener.a brp;
+    private CustomMessageListener brq;
 
-    public static final c vy() {
-        return e.akO;
+    public static final c TZ() {
+        return e.brt;
     }
 
     /* loaded from: classes.dex */
     private static class e {
-        private static final c akO = new c();
+        private static final c brt = new c();
     }
 
     private c() {
-        this.akB = Executors.newSingleThreadScheduledExecutor();
-        this.akC = new SparseArray<>();
-        this.akD = new SparseArray<>();
-        this.akE = new LinkedList<>();
-        this.akF = new a();
-        this.akG = false;
-        this.akH = new AtomicBoolean(false);
-        this.akJ = new CustomMessageListener(2921383) { // from class: com.baidu.tbadk.BdToken.c.1
+        this.brg = Executors.newSingleThreadScheduledExecutor();
+        this.brh = new SparseArray<>();
+        this.bri = new SparseArray<>();
+        this.brj = new LinkedList<>();
+        this.brk = new a();
+        this.brl = false;
+        this.brm = new AtomicBoolean(false);
+        this.bro = new CustomMessageListener(2921391) { // from class: com.baidu.tbadk.BdToken.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c.this.akG = true;
-                if (!c.this.akE.isEmpty()) {
-                    Iterator it = c.this.akE.iterator();
+                c.this.brl = true;
+                if (!c.this.brj.isEmpty()) {
+                    Iterator it = c.this.brj.iterator();
                     while (it.hasNext()) {
                         c.this.b((com.baidu.tbadk.BdToken.b) it.next());
                     }
-                    c.this.akE.clear();
+                    c.this.brj.clear();
                 }
             }
         };
-        this.akK = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_COMPLETE_TASK, 309627) { // from class: com.baidu.tbadk.BdToken.c.2
+        this.brp = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_COMPLETE_TASK, 309627) { // from class: com.baidu.tbadk.BdToken.c.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 com.baidu.tbadk.BdToken.completeTask.a data;
@@ -83,11 +84,11 @@ public class c {
                     } else {
                         return;
                     }
-                    if (c.this.akI == null) {
-                        c.this.akI = new o();
+                    if (c.this.brn == null) {
+                        c.this.brn = new o();
                     }
-                    c.this.akI.a(data);
-                    c.this.akI.show();
+                    c.this.brn.a(data);
+                    c.this.brn.show();
                     CompleteTaskReqMsg completeTaskReqMsg = (CompleteTaskReqMsg) responsedMessage.getOrginalMessage().getExtra();
                     if (completeTaskReqMsg.getTaskType() == 1) {
                         JSONObject jSONObject = null;
@@ -102,11 +103,11 @@ public class c {
                             while (keys.hasNext()) {
                                 String next = keys.next();
                                 try {
-                                    for (String str : jSONObject.getString(next).split(",")) {
+                                    for (String str : jSONObject.getString(next).split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
                                         com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b();
                                         bVar.setActivityId(com.baidu.adp.lib.g.b.l(next, 0));
-                                        bVar.bS(com.baidu.adp.lib.g.b.l(str, 0));
-                                        if (bVar.getActivityId() != 0 && bVar.vl() != 0) {
+                                        bVar.fu(com.baidu.adp.lib.g.b.l(str, 0));
+                                        if (bVar.getActivityId() != 0 && bVar.TM() != 0) {
                                             linkedList.add(bVar);
                                         }
                                     }
@@ -122,20 +123,20 @@ public class c {
                 }
             }
         };
-        this.akL = new CustomMessageListener(2921379) { // from class: com.baidu.tbadk.BdToken.c.3
+        this.brq = new CustomMessageListener(2921379) { // from class: com.baidu.tbadk.BdToken.c.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof List)) {
                     HashMap hashMap = new HashMap();
                     for (h hVar : (List) customResponsedMessage.getData()) {
-                        if (hVar.vP().getActivityId() != 0 && hVar.vP().vl() != 0) {
-                            HashSet hashSet = (HashSet) hashMap.get(Integer.valueOf(hVar.vP().vl()));
+                        if (hVar.Uq().getActivityId() != 0 && hVar.Uq().TM() != 0) {
+                            HashSet hashSet = (HashSet) hashMap.get(Integer.valueOf(hVar.Uq().TM()));
                             if (hashSet == null) {
                                 hashSet = new HashSet();
-                                hashMap.put(Integer.valueOf(hVar.vP().getActivityId()), hashSet);
+                                hashMap.put(Integer.valueOf(hVar.Uq().getActivityId()), hashSet);
                             }
-                            hashSet.add(Integer.valueOf(hVar.vP().vl()));
+                            hashSet.add(Integer.valueOf(hVar.Uq().TM()));
                         }
                     }
                     JSONObject jSONObject = new JSONObject();
@@ -143,7 +144,7 @@ public class c {
                         StringBuilder sb = new StringBuilder();
                         Iterator it = ((HashSet) entry.getValue()).iterator();
                         while (it.hasNext()) {
-                            sb.append(it.next() + ",");
+                            sb.append(it.next() + Constants.ACCEPT_TIME_SEPARATOR_SP);
                         }
                         if (sb.length() > 0) {
                             sb.deleteCharAt(sb.length() - 1);
@@ -160,28 +161,28 @@ public class c {
                 }
             }
         };
-        vA();
-        vB();
-        startTimer();
+        Ub();
+        Uc();
+        jL();
         new d().execute(new Void[0]);
     }
 
     public void b(com.baidu.tbadk.BdToken.b bVar) {
-        if (!this.akG.booleanValue()) {
-            this.akE.add(bVar);
+        if (!this.brl.booleanValue()) {
+            this.brj.add(bVar);
         } else if (!e(bVar)) {
             d(bVar);
             new b().execute(bVar);
         }
     }
 
-    public void vz() {
-        this.akH.compareAndSet(true, false);
-        this.akF.bY(0);
-        this.akF.setTid(0L);
-        this.akF.setFid(0L);
-        if (this.akI != null) {
-            this.akI.clearData();
+    public void Ua() {
+        this.brm.compareAndSet(true, false);
+        this.brk.fA(0);
+        this.brk.setTid(0L);
+        this.brk.setFid(0L);
+        if (this.brn != null) {
+            this.brn.clearData();
         }
     }
 
@@ -189,11 +190,11 @@ public class c {
         LinkedList<com.baidu.tbadk.BdToken.b> linkedList;
         ConcurrentLinkedQueue<h> concurrentLinkedQueue;
         boolean z;
-        if (i != 0 && j != 0 && this.akG.booleanValue() && (linkedList = this.akC.get(i)) != null && !linkedList.isEmpty()) {
-            ConcurrentLinkedQueue<h> concurrentLinkedQueue2 = this.akD.get(i);
+        if (i != 0 && j != 0 && this.brl.booleanValue() && (linkedList = this.brh.get(i)) != null && !linkedList.isEmpty()) {
+            ConcurrentLinkedQueue<h> concurrentLinkedQueue2 = this.bri.get(i);
             if (concurrentLinkedQueue2 == null || concurrentLinkedQueue2.isEmpty()) {
                 ConcurrentLinkedQueue<h> concurrentLinkedQueue3 = new ConcurrentLinkedQueue<>();
-                this.akD.put(i, concurrentLinkedQueue3);
+                this.bri.put(i, concurrentLinkedQueue3);
                 concurrentLinkedQueue = concurrentLinkedQueue3;
             } else {
                 concurrentLinkedQueue = concurrentLinkedQueue2;
@@ -202,7 +203,7 @@ public class c {
             boolean z2 = false;
             while (it.hasNext()) {
                 com.baidu.tbadk.BdToken.b next = it.next();
-                if (next.getTaskType() == com.baidu.tbadk.BdToken.b.ajT) {
+                if (next.getTaskType() == com.baidu.tbadk.BdToken.b.bqy) {
                     Iterator<h> it2 = concurrentLinkedQueue.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
@@ -210,17 +211,17 @@ public class c {
                             break;
                         }
                         h next2 = it2.next();
-                        if ((next2 instanceof k) && next2.vP().getActivityId() == next.getActivityId() && next2.vP().vl() == next.vl() && ((k) next2).getTid() == j) {
+                        if ((next2 instanceof k) && next2.Uq().getActivityId() == next.getActivityId() && next2.Uq().TM() == next.TM() && ((k) next2).getTid() == j) {
                             z = true;
                             break;
                         }
                     }
                     if (!z) {
                         k kVar = new k(next, j);
-                        kVar.A(0L);
-                        kVar.aO(false);
-                        for (int i2 : next.vp()) {
-                            ConcurrentLinkedQueue<h> concurrentLinkedQueue4 = this.akD.get(i2);
+                        kVar.ac(0L);
+                        kVar.cX(false);
+                        for (int i2 : next.TQ()) {
+                            ConcurrentLinkedQueue<h> concurrentLinkedQueue4 = this.bri.get(i2);
                             if (concurrentLinkedQueue4 == null) {
                                 concurrentLinkedQueue4 = new ConcurrentLinkedQueue<>();
                             }
@@ -230,11 +231,11 @@ public class c {
                     z2 = z;
                 }
             }
-            this.akF.bY(i);
-            this.akF.setTid(j);
-            this.akH.compareAndSet(false, true);
-            synchronized (this.akH) {
-                this.akH.notify();
+            this.brk.fA(i);
+            this.brk.setTid(j);
+            this.brm.compareAndSet(false, true);
+            synchronized (this.brm) {
+                this.brm.notify();
             }
         }
     }
@@ -243,11 +244,11 @@ public class c {
         LinkedList<com.baidu.tbadk.BdToken.b> linkedList;
         ConcurrentLinkedQueue<h> concurrentLinkedQueue;
         boolean z;
-        if (i != 0 && j != 0 && this.akG.booleanValue() && (linkedList = this.akC.get(i)) != null && !linkedList.isEmpty()) {
-            ConcurrentLinkedQueue<h> concurrentLinkedQueue2 = this.akD.get(i);
+        if (i != 0 && j != 0 && this.brl.booleanValue() && (linkedList = this.brh.get(i)) != null && !linkedList.isEmpty()) {
+            ConcurrentLinkedQueue<h> concurrentLinkedQueue2 = this.bri.get(i);
             if (concurrentLinkedQueue2 == null || concurrentLinkedQueue2.isEmpty()) {
                 ConcurrentLinkedQueue<h> concurrentLinkedQueue3 = new ConcurrentLinkedQueue<>();
-                this.akD.put(i, concurrentLinkedQueue3);
+                this.bri.put(i, concurrentLinkedQueue3);
                 concurrentLinkedQueue = concurrentLinkedQueue3;
             } else {
                 concurrentLinkedQueue = concurrentLinkedQueue2;
@@ -256,7 +257,7 @@ public class c {
             boolean z2 = false;
             while (it.hasNext()) {
                 com.baidu.tbadk.BdToken.b next = it.next();
-                if (next.getTaskType() == com.baidu.tbadk.BdToken.b.ajU) {
+                if (next.getTaskType() == com.baidu.tbadk.BdToken.b.bqz) {
                     Iterator<h> it2 = concurrentLinkedQueue.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
@@ -264,17 +265,17 @@ public class c {
                             break;
                         }
                         h next2 = it2.next();
-                        if ((next2 instanceof j) && next2.vP().getActivityId() == next.getActivityId() && next2.vP().vl() == next.vl() && ((j) next2).getFid() == j) {
+                        if ((next2 instanceof j) && next2.Uq().getActivityId() == next.getActivityId() && next2.Uq().TM() == next.TM() && ((j) next2).getFid() == j) {
                             z = true;
                             break;
                         }
                     }
                     if (!z) {
                         j jVar = new j(next, j);
-                        jVar.A(0L);
-                        jVar.aO(false);
-                        for (int i2 : next.vp()) {
-                            ConcurrentLinkedQueue<h> concurrentLinkedQueue4 = this.akD.get(i2);
+                        jVar.ac(0L);
+                        jVar.cX(false);
+                        for (int i2 : next.TQ()) {
+                            ConcurrentLinkedQueue<h> concurrentLinkedQueue4 = this.bri.get(i2);
                             if (concurrentLinkedQueue4 == null) {
                                 concurrentLinkedQueue4 = new ConcurrentLinkedQueue<>();
                             }
@@ -284,24 +285,24 @@ public class c {
                     z2 = z;
                 }
             }
-            this.akF.bY(i);
-            this.akF.setFid(j);
-            this.akH.compareAndSet(false, true);
-            synchronized (this.akH) {
-                this.akH.notify();
+            this.brk.fA(i);
+            this.brk.setFid(j);
+            this.brm.compareAndSet(false, true);
+            synchronized (this.brm) {
+                this.brm.notify();
             }
         }
     }
 
-    public void bX(int i) {
+    public void fz(int i) {
         LinkedList<com.baidu.tbadk.BdToken.b> linkedList;
         ConcurrentLinkedQueue<h> concurrentLinkedQueue;
         boolean z;
-        if (i != 0 && this.akG.booleanValue() && (linkedList = this.akC.get(i)) != null && !linkedList.isEmpty()) {
-            ConcurrentLinkedQueue<h> concurrentLinkedQueue2 = this.akD.get(i);
+        if (i != 0 && this.brl.booleanValue() && (linkedList = this.brh.get(i)) != null && !linkedList.isEmpty()) {
+            ConcurrentLinkedQueue<h> concurrentLinkedQueue2 = this.bri.get(i);
             if (concurrentLinkedQueue2 == null || concurrentLinkedQueue2.isEmpty()) {
                 ConcurrentLinkedQueue<h> concurrentLinkedQueue3 = new ConcurrentLinkedQueue<>();
-                this.akD.put(i, concurrentLinkedQueue3);
+                this.bri.put(i, concurrentLinkedQueue3);
                 concurrentLinkedQueue = concurrentLinkedQueue3;
             } else {
                 concurrentLinkedQueue = concurrentLinkedQueue2;
@@ -310,7 +311,7 @@ public class c {
             boolean z2 = false;
             while (it.hasNext()) {
                 com.baidu.tbadk.BdToken.b next = it.next();
-                if (next.getTaskType() == com.baidu.tbadk.BdToken.b.ajW) {
+                if (next.getTaskType() == com.baidu.tbadk.BdToken.b.bqB) {
                     Iterator<h> it2 = concurrentLinkedQueue.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
@@ -318,17 +319,17 @@ public class c {
                             break;
                         }
                         h next2 = it2.next();
-                        if ((next2 instanceof i) && next2.vP().getActivityId() == next.getActivityId() && next2.vP().vl() == next.vl()) {
+                        if ((next2 instanceof i) && next2.Uq().getActivityId() == next.getActivityId() && next2.Uq().TM() == next.TM()) {
                             z = true;
                             break;
                         }
                     }
                     if (!z) {
                         i iVar = new i(next);
-                        iVar.A(0L);
-                        iVar.aO(false);
-                        for (int i2 : next.vp()) {
-                            ConcurrentLinkedQueue<h> concurrentLinkedQueue4 = this.akD.get(i2);
+                        iVar.ac(0L);
+                        iVar.cX(false);
+                        for (int i2 : next.TQ()) {
+                            ConcurrentLinkedQueue<h> concurrentLinkedQueue4 = this.bri.get(i2);
                             if (concurrentLinkedQueue4 == null) {
                                 concurrentLinkedQueue4 = new ConcurrentLinkedQueue<>();
                             }
@@ -338,50 +339,50 @@ public class c {
                     z2 = z;
                 }
             }
-            this.akF.bY(i);
-            this.akH.compareAndSet(false, true);
-            synchronized (this.akH) {
-                this.akH.notify();
+            this.brk.fA(i);
+            this.brm.compareAndSet(false, true);
+            synchronized (this.brm) {
+                this.brm.notify();
             }
         }
     }
 
-    private void vA() {
-        String aV = com.baidu.tieba.tbadkCore.a.a.aV(TbConfig.COMPLETE_TASK_URL, 309627);
-        MessageManager.getInstance().registerTask(new HttpMessageTask(CmdConfigHttp.CMD_COMPLETE_TASK, aV));
+    private void Ub() {
+        String br = com.baidu.tieba.tbadkCore.a.a.br(TbConfig.COMPLETE_TASK_URL, 309627);
+        MessageManager.getInstance().registerTask(new HttpMessageTask(CmdConfigHttp.CMD_COMPLETE_TASK, br));
         com.baidu.tieba.tbadkCore.a.a.a(309627, CompleteTaskSocketResMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMPLETE_TASK, aV);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMPLETE_TASK, br);
         tbHttpMessageTask.setResponsedClass(CompleteTaskHTTPResMsg.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void vB() {
-        this.akJ.setPriority(Integer.MIN_VALUE);
-        MessageManager.getInstance().registerListener(this.akJ);
-        MessageManager.getInstance().registerListener(this.akK);
-        MessageManager.getInstance().registerListener(this.akL);
+    private void Uc() {
+        this.bro.setPriority(Integer.MIN_VALUE);
+        MessageManager.getInstance().registerListener(this.bro);
+        MessageManager.getInstance().registerListener(this.brp);
+        MessageManager.getInstance().registerListener(this.brq);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void c(com.baidu.tbadk.BdToken.b bVar) {
         f(bVar);
-        new C0152c().execute(bVar);
+        new C0185c().execute(bVar);
     }
 
-    private void startTimer() {
-        this.akB.scheduleWithFixedDelay(this.akF, 0L, 1L, TimeUnit.SECONDS);
+    private void jL() {
+        this.brg.scheduleWithFixedDelay(this.brk, 0L, 1L, TimeUnit.SECONDS);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(com.baidu.tbadk.BdToken.b bVar) {
-        int[] vp;
-        for (int i : bVar.vp()) {
-            LinkedList<com.baidu.tbadk.BdToken.b> linkedList = this.akC.get(i);
+        int[] TQ;
+        for (int i : bVar.TQ()) {
+            LinkedList<com.baidu.tbadk.BdToken.b> linkedList = this.brh.get(i);
             if (linkedList == null) {
                 LinkedList<com.baidu.tbadk.BdToken.b> linkedList2 = new LinkedList<>();
                 linkedList2.add(bVar);
-                this.akC.put(i, linkedList2);
+                this.brh.put(i, linkedList2);
             } else {
                 linkedList.add(bVar);
             }
@@ -389,19 +390,19 @@ public class c {
     }
 
     private boolean e(com.baidu.tbadk.BdToken.b bVar) {
-        int[] vp = bVar.vp();
-        if (vp == null) {
+        int[] TQ = bVar.TQ();
+        if (TQ == null) {
             return true;
         }
-        for (int i : vp) {
-            LinkedList<com.baidu.tbadk.BdToken.b> linkedList = this.akC.get(i);
+        for (int i : TQ) {
+            LinkedList<com.baidu.tbadk.BdToken.b> linkedList = this.brh.get(i);
             if (linkedList == null) {
                 return false;
             }
             Iterator<com.baidu.tbadk.BdToken.b> it = linkedList.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.BdToken.b next = it.next();
-                if (next != null && next.getActivityId() == bVar.getActivityId() && next.vl() == bVar.vl()) {
+                if (next != null && next.getActivityId() == bVar.getActivityId() && next.TM() == bVar.TM()) {
                     return true;
                 }
             }
@@ -410,25 +411,25 @@ public class c {
     }
 
     private void f(com.baidu.tbadk.BdToken.b bVar) {
-        for (int i = 0; i < this.akD.size(); i++) {
-            ConcurrentLinkedQueue<h> valueAt = this.akD.valueAt(i);
+        for (int i = 0; i < this.bri.size(); i++) {
+            ConcurrentLinkedQueue<h> valueAt = this.bri.valueAt(i);
             if (valueAt != null && !valueAt.isEmpty()) {
                 Iterator<h> it = valueAt.iterator();
                 while (it.hasNext()) {
                     h next = it.next();
-                    if (next.vP().getActivityId() == bVar.getActivityId() && next.vP().vl() == bVar.vl()) {
+                    if (next.Uq().getActivityId() == bVar.getActivityId() && next.Uq().TM() == bVar.TM()) {
                         it.remove();
                     }
                 }
             }
         }
-        for (int i2 = 0; i2 < this.akC.size(); i2++) {
-            LinkedList<com.baidu.tbadk.BdToken.b> valueAt2 = this.akC.valueAt(i2);
+        for (int i2 = 0; i2 < this.brh.size(); i2++) {
+            LinkedList<com.baidu.tbadk.BdToken.b> valueAt2 = this.brh.valueAt(i2);
             if (valueAt2 != null && !valueAt2.isEmpty()) {
                 Iterator<com.baidu.tbadk.BdToken.b> it2 = valueAt2.iterator();
                 while (it2.hasNext()) {
                     com.baidu.tbadk.BdToken.b next2 = it2.next();
-                    if (next2.getActivityId() == bVar.getActivityId() && next2.vl() == bVar.vl()) {
+                    if (next2.getActivityId() == bVar.getActivityId() && next2.TM() == bVar.TM()) {
                         it2.remove();
                     }
                 }
@@ -447,12 +448,12 @@ public class c {
         /* renamed from: b */
         public LinkedList<com.baidu.tbadk.BdToken.b> doInBackground(Void... voidArr) {
             LinkedList<com.baidu.tbadk.BdToken.b> linkedList = new LinkedList<>();
-            linkedList.addAll(com.baidu.tbadk.BdToken.a.ve().vf());
+            linkedList.addAll(com.baidu.tbadk.BdToken.a.TF().TG());
             Iterator<com.baidu.tbadk.BdToken.b> it = linkedList.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.BdToken.b next = it.next();
-                if (next != null && System.currentTimeMillis() / 1000 > next.vu()) {
-                    com.baidu.tbadk.BdToken.a.ve().v(next.getActivityId(), next.vl());
+                if (next != null && System.currentTimeMillis() / 1000 > next.TV()) {
+                    com.baidu.tbadk.BdToken.a.TF().Q(next.getActivityId(), next.TM());
                     it.remove();
                 }
             }
@@ -470,12 +471,12 @@ public class c {
                     Iterator<com.baidu.tbadk.BdToken.b> it = linkedList.iterator();
                     while (it.hasNext()) {
                         com.baidu.tbadk.BdToken.b next = it.next();
-                        if (next.vp() != null) {
+                        if (next.TQ() != null) {
                             c.this.d(next);
                         }
                     }
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921383));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921391));
             }
         }
     }
@@ -491,7 +492,7 @@ public class c {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public Void doInBackground(com.baidu.tbadk.BdToken.b... bVarArr) {
-            com.baidu.tbadk.BdToken.a.ve().a(bVarArr[0]);
+            com.baidu.tbadk.BdToken.a.TF().a(bVarArr[0]);
             return null;
         }
     }
@@ -499,8 +500,8 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.BdToken.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0152c extends BdAsyncTask<com.baidu.tbadk.BdToken.b, Integer, Void> {
-        private C0152c() {
+    public class C0185c extends BdAsyncTask<com.baidu.tbadk.BdToken.b, Integer, Void> {
+        private C0185c() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -509,7 +510,7 @@ public class c {
         /* renamed from: a */
         public Void doInBackground(com.baidu.tbadk.BdToken.b... bVarArr) {
             if (bVarArr[0] != null) {
-                com.baidu.tbadk.BdToken.a.ve().v(bVarArr[0].getActivityId(), bVarArr[0].vl());
+                com.baidu.tbadk.BdToken.a.TF().Q(bVarArr[0].getActivityId(), bVarArr[0].TM());
             }
             return null;
         }
@@ -518,8 +519,8 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a implements Runnable {
-        private volatile int akN;
-        private volatile long akt;
+        private volatile long bqY;
+        private volatile int brs;
         private volatile long mFid;
 
         private a() {
@@ -528,18 +529,18 @@ public class c {
         @Override // java.lang.Runnable
         public void run() {
             boolean z;
-            if (this.akN == 0 || !c.this.akH.get()) {
-                synchronized (c.this.akH) {
+            if (this.brs == 0 || !c.this.brm.get()) {
+                synchronized (c.this.brm) {
                     try {
-                        c.this.akH.wait();
+                        c.this.brm.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
             }
-            ConcurrentLinkedQueue concurrentLinkedQueue = (ConcurrentLinkedQueue) c.this.akD.get(this.akN);
+            ConcurrentLinkedQueue concurrentLinkedQueue = (ConcurrentLinkedQueue) c.this.bri.get(this.brs);
             if (concurrentLinkedQueue == null || concurrentLinkedQueue.isEmpty()) {
-                c.this.akH.compareAndSet(true, false);
+                c.this.brm.compareAndSet(true, false);
                 return;
             }
             LinkedList linkedList = new LinkedList();
@@ -548,11 +549,11 @@ public class c {
             while (it.hasNext()) {
                 h hVar = (h) it.next();
                 if (hVar instanceof k) {
-                    if (this.akt != 0 && ((k) hVar).getTid() == this.akt && !hVar.isCompleted()) {
-                        hVar.bZ(1);
-                        if (hVar.vQ() >= hVar.vP().vq()) {
-                            hVar.aO(true);
-                            if (hVar.vP().vi() >= hVar.vP().getThreadNum()) {
+                    if (this.bqY != 0 && ((k) hVar).getTid() == this.bqY && !hVar.isCompleted()) {
+                        hVar.fB(1);
+                        if (hVar.Ur() >= hVar.Uq().TR()) {
+                            hVar.cX(true);
+                            if (hVar.Uq().TJ() >= hVar.Uq().getThreadNum()) {
                                 linkedList.add(hVar);
                             }
                             z = false;
@@ -563,10 +564,10 @@ public class c {
                     }
                 } else if (hVar instanceof j) {
                     if (this.mFid != 0 && ((j) hVar).getFid() == this.mFid && !hVar.isCompleted()) {
-                        hVar.bZ(1);
-                        if (hVar.vQ() >= hVar.vP().vq()) {
-                            hVar.aO(true);
-                            if (hVar.vP().vh() >= hVar.vP().vr()) {
+                        hVar.fB(1);
+                        if (hVar.Ur() >= hVar.Uq().TR()) {
+                            hVar.cX(true);
+                            if (hVar.Uq().TI() >= hVar.Uq().TS()) {
                                 linkedList.add(hVar);
                             }
                             z = false;
@@ -579,9 +580,9 @@ public class c {
                     z = z2;
                     z2 = z;
                 } else if (!hVar.isCompleted()) {
-                    hVar.bZ(1);
-                    if (hVar.vQ() >= hVar.vP().vq()) {
-                        hVar.aO(true);
+                    hVar.fB(1);
+                    if (hVar.Ur() >= hVar.Uq().TR()) {
+                        hVar.cX(true);
                         linkedList.add(hVar);
                     }
                     z = false;
@@ -589,19 +590,19 @@ public class c {
                 }
             }
             if (z2) {
-                c.this.akH.compareAndSet(true, false);
+                c.this.brm.compareAndSet(true, false);
             }
             if (linkedList != null && !linkedList.isEmpty()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921379, linkedList));
             }
         }
 
-        public synchronized void bY(int i) {
-            this.akN = i;
+        public synchronized void fA(int i) {
+            this.brs = i;
         }
 
         public synchronized void setTid(long j) {
-            this.akt = j;
+            this.bqY = j;
         }
 
         public synchronized void setFid(long j) {

@@ -2,11 +2,10 @@ package com.baidu.tbadk.baseEditMark;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.appsearchlib.Info;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.util.ao;
+import com.baidu.tbadk.core.util.ap;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -57,7 +56,7 @@ public class MarkData implements Serializable {
     }
 
     public String getAuthorName() {
-        return !ao.isEmpty(this.mAuthorName) ? this.mAuthorName : this.mUserName;
+        return !ap.isEmpty(this.mAuthorName) ? this.mAuthorName : this.mUserName;
     }
 
     public void setAuthorName(String str) {
@@ -326,7 +325,7 @@ public class MarkData implements Serializable {
             this.mUesrId = jSONObject.optJSONObject("author").optString("lz_uid");
             this.mId = this.mThreadId;
             this.mReplyNum = jSONObject.optInt("reply_num");
-            this.mNewCounts = jSONObject.optInt(Config.TRACE_VISIT_RECENT_COUNT);
+            this.mNewCounts = jSONObject.optInt("count");
             this.isShareThread = jSONObject.optInt("is_share_thread", 0) == 1;
             JSONObject optJSONObject = jSONObject.optJSONObject("origin_thread_info");
             if (this.isShareThread) {
@@ -338,9 +337,9 @@ public class MarkData implements Serializable {
             JSONArray optJSONArray = jSONObject.optJSONArray("media");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 String optString = optJSONArray.getJSONObject(0).optString("type");
-                if (ao.equals(optString, "pic")) {
+                if (ap.equals(optString, "pic")) {
                     this.pic_url = optJSONArray.getJSONObject(0).optString("small_pic");
-                } else if (ao.equals(optString, "flash")) {
+                } else if (ap.equals(optString, "flash")) {
                     this.pic_url = optJSONArray.getJSONObject(0).optString("vpic");
                 }
             }
@@ -348,7 +347,7 @@ public class MarkData implements Serializable {
             this.is_follow = jSONObject.optInt("is_follow");
             this.is_deleted = jSONObject.optInt("is_deleted");
             this.mState = jSONObject.optString("post_no_msg");
-            if (ao.isEmpty(this.portrait)) {
+            if (ap.isEmpty(this.portrait)) {
                 this.metaData.setPortrait("null");
             } else {
                 this.metaData.setPortrait(this.portrait);

@@ -1,0 +1,8 @@
+package com.baidu.swan.games.binding;
+
+import android.content.Context;
+/* loaded from: classes2.dex */
+public final class b {
+    public void a(com.baidu.swan.games.e.a aVar, Context context) {
+    }
+}

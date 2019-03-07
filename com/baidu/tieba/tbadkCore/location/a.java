@@ -7,26 +7,26 @@ import tbclient.GetPoisByLocation.PoiInfo;
 /* loaded from: classes.dex */
 public class a {
     private String formatted_address;
-    private List<C0317a> poi_info;
+    private List<C0310a> poi_info;
     private String sn;
 
-    public String bFu() {
+    public String ceT() {
         return this.formatted_address;
     }
 
-    public List<C0317a> bFv() {
+    public List<C0310a> ceU() {
         return this.poi_info;
     }
 
-    public void wa(String str) {
+    public void CE(String str) {
         this.formatted_address = str;
     }
 
-    public String bFw() {
+    public String ceV() {
         return this.sn;
     }
 
-    public void wb(String str) {
+    public void CF(String str) {
         this.sn = str;
     }
 
@@ -37,9 +37,9 @@ public class a {
             if (list != null) {
                 this.poi_info = new ArrayList();
                 for (PoiInfo poiInfo : list) {
-                    C0317a c0317a = new C0317a();
-                    c0317a.a(poiInfo);
-                    this.poi_info.add(c0317a);
+                    C0310a c0310a = new C0310a();
+                    c0310a.a(poiInfo);
+                    this.poi_info.add(c0310a);
                 }
             }
         }
@@ -47,7 +47,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.tbadkCore.location.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0317a {
+    public static class C0310a {
         private String addr;
         private String name;
         private String sn;
@@ -64,7 +64,7 @@ public class a {
             return this.addr;
         }
 
-        public String bFw() {
+        public String ceV() {
             return this.sn;
         }
 

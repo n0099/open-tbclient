@@ -262,7 +262,7 @@ class NotificationCompatJellybean {
         try {
             if (sActionsField == null) {
                 sActionClass = Class.forName("android.app.Notification$Action");
-                sActionIconField = sActionClass.getDeclaredField("icon");
+                sActionIconField = sActionClass.getDeclaredField(KEY_ICON);
                 sActionTitleField = sActionClass.getDeclaredField("title");
                 sActionIntentField = sActionClass.getDeclaredField(KEY_ACTION_INTENT);
                 sActionsField = Notification.class.getDeclaredField("actions");
@@ -296,7 +296,7 @@ class NotificationCompatJellybean {
 
     private static NotificationCompatBase.Action getActionFromBundle(Bundle bundle, NotificationCompatBase.Action.Factory factory, RemoteInputCompatBase.RemoteInput.Factory factory2) {
         Bundle bundle2 = bundle.getBundle(KEY_EXTRAS);
-        return factory.build(bundle.getInt("icon"), bundle.getCharSequence("title"), (PendingIntent) bundle.getParcelable(KEY_ACTION_INTENT), bundle.getBundle(KEY_EXTRAS), RemoteInputCompatJellybean.fromBundleArray(BundleUtil.getBundleArrayFromBundle(bundle, KEY_REMOTE_INPUTS), factory2), RemoteInputCompatJellybean.fromBundleArray(BundleUtil.getBundleArrayFromBundle(bundle, KEY_DATA_ONLY_REMOTE_INPUTS), factory2), bundle2 != null ? bundle2.getBoolean(EXTRA_ALLOW_GENERATED_REPLIES, false) : false);
+        return factory.build(bundle.getInt(KEY_ICON), bundle.getCharSequence("title"), (PendingIntent) bundle.getParcelable(KEY_ACTION_INTENT), bundle.getBundle(KEY_EXTRAS), RemoteInputCompatJellybean.fromBundleArray(BundleUtil.getBundleArrayFromBundle(bundle, KEY_REMOTE_INPUTS), factory2), RemoteInputCompatJellybean.fromBundleArray(BundleUtil.getBundleArrayFromBundle(bundle, KEY_DATA_ONLY_REMOTE_INPUTS), factory2), bundle2 != null ? bundle2.getBoolean(EXTRA_ALLOW_GENERATED_REPLIES, false) : false);
     }
 
     public static ArrayList<Parcelable> getParcelableArrayListForActions(NotificationCompatBase.Action[] actionArr) {
@@ -313,7 +313,7 @@ class NotificationCompatJellybean {
     private static Bundle getBundleForAction(NotificationCompatBase.Action action) {
         Bundle bundle;
         Bundle bundle2 = new Bundle();
-        bundle2.putInt("icon", action.getIcon());
+        bundle2.putInt(KEY_ICON, action.getIcon());
         bundle2.putCharSequence("title", action.getTitle());
         bundle2.putParcelable(KEY_ACTION_INTENT, action.getActionIntent());
         if (action.getExtras() != null) {

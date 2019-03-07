@@ -1,8 +1,10 @@
 package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tbadk.data.UserVipInfoData;
+import com.baidu.tieba.d;
 import java.io.Serializable;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -232,6 +234,9 @@ public class AccountData implements Serializable {
         if (!TextUtils.isEmpty(this.mDisplayName)) {
             return this.mDisplayName;
         }
-        return this.mAccount;
+        if (!TextUtils.isEmpty(this.mAccount)) {
+            return this.mAccount;
+        }
+        return TbadkCoreApplication.getInst().getString(d.j.account_default_text);
     }
 }

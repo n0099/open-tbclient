@@ -93,13 +93,13 @@ public final class g {
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:12:0x0020 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x0022 */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: java.io.ObjectInputStream */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:45:0x0035 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r0v0 */
     /* JADX WARN: Type inference failed for: r0v12 */
     /* JADX WARN: Type inference failed for: r0v14, types: [java.util.ArrayList] */
     /* JADX WARN: Type inference failed for: r0v15, types: [java.util.ArrayList<T>] */
-    /* JADX WARN: Type inference failed for: r0v4, types: [java.io.ObjectInputStream] */
     /* JADX WARN: Type inference failed for: r0v7 */
     /* JADX WARN: Type inference failed for: r0v8 */
     /* JADX WARN: Type inference failed for: r0v9 */
@@ -109,7 +109,7 @@ public final class g {
     private static synchronized <T> ArrayList<T> b(Context context, String str) {
         ObjectInputStream objectInputStream;
         Throwable th;
-        ?? r0 = (ArrayList<T>) false;
+        ObjectInputStream objectInputStream2 = (ArrayList<T>) false;
         synchronized (g.class) {
             if (context != null) {
                 ArrayList arrayList = new ArrayList();
@@ -121,28 +121,28 @@ public final class g {
                     th = th2;
                 }
                 try {
-                    r0 = (ArrayList<T>) ((ArrayList) objectInputStream.readObject());
+                    objectInputStream2 = (ArrayList<T>) ((ArrayList) objectInputStream.readObject());
                     try {
                         objectInputStream.close();
                     } catch (IOException e2) {
                     }
                 } catch (Exception e3) {
-                    r0 = (ArrayList<T>) objectInputStream;
+                    objectInputStream2 = (ArrayList<T>) objectInputStream;
                     try {
                         a(context, str);
-                        if (r0 != 0) {
+                        if (objectInputStream2 != 0) {
                             try {
-                                r0.close();
-                                r0 = (ArrayList<T>) arrayList;
+                                objectInputStream2.close();
+                                objectInputStream2 = (ArrayList<T>) arrayList;
                             } catch (IOException e4) {
-                                r0 = (ArrayList<T>) arrayList;
+                                objectInputStream2 = (ArrayList<T>) arrayList;
                             }
                         } else {
-                            r0 = (ArrayList<T>) arrayList;
+                            objectInputStream2 = (ArrayList<T>) arrayList;
                         }
-                        return (ArrayList<T>) r0;
+                        return (ArrayList<T>) objectInputStream2;
                     } catch (Throwable th3) {
-                        objectInputStream = r0;
+                        objectInputStream = objectInputStream2;
                         th = th3;
                         if (objectInputStream != null) {
                             try {
@@ -160,6 +160,6 @@ public final class g {
                 }
             }
         }
-        return (ArrayList<T>) r0;
+        return (ArrayList<T>) objectInputStream2;
     }
 }

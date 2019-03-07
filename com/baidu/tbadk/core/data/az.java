@@ -1,31 +1,42 @@
 package com.baidu.tbadk.core.data;
+
+import com.baidu.adp.lib.util.StringUtils;
+import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes.dex */
 public class az {
-    protected String img_url = null;
-    protected String link = null;
-    protected String atE = null;
+    private String uid = "";
+    private String uname = "";
+    private String portrait = "";
+    private String institute = "";
+    private int isLike = -1;
 
-    public String yF() {
-        return this.img_url;
+    public void a(SchoolRecomUserInfo schoolRecomUserInfo) {
+        if (schoolRecomUserInfo != null) {
+            this.uid = StringUtils.string(schoolRecomUserInfo.uid);
+            this.uname = schoolRecomUserInfo.uname;
+            this.portrait = schoolRecomUserInfo.portrait;
+            this.institute = schoolRecomUserInfo.institute;
+            this.isLike = schoolRecomUserInfo.is_liked.intValue();
+        }
     }
 
-    public void es(String str) {
-        this.img_url = str;
+    public String getUid() {
+        return this.uid;
     }
 
-    public String getLink() {
-        return this.link;
+    public String Ye() {
+        return this.uname;
     }
 
-    public void setLink(String str) {
-        this.link = str;
+    public String getPortrait() {
+        return this.portrait;
     }
 
-    public String zu() {
-        return this.atE;
+    public String Yf() {
+        return this.institute;
     }
 
-    public void et(String str) {
-        this.atE = str;
+    public int getIsLike() {
+        return this.isLike;
     }
 }

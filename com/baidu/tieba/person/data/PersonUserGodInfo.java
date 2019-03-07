@@ -5,7 +5,7 @@ import java.util.List;
 import tbclient.Profile.ForumGodDetailInfo;
 import tbclient.Profile.GodDetailInfo;
 import tbclient.Profile.UserGodInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PersonUserGodInfo implements Serializable {
     public static final int USER_GOD_TYPE_MULTI = 1;
     public static final int USER_GOD_TYPE_SINGLE = 2;

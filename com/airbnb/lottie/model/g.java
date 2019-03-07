@@ -1,7 +1,6 @@
 package com.airbnb.lottie.model;
 
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.ng.ai.apps.media.chooser.action.ChooseVideoAction;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -9,9 +8,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class g {
-    private final List<com.airbnb.lottie.model.content.j> qv;
-    private final char qw;
-    private final String qx;
+    private final List<com.airbnb.lottie.model.content.j> qr;
+    private final char qs;
+    private final String qt;
     private final int size;
     private final String style;
     private final double width;
@@ -21,16 +20,16 @@ public class g {
     }
 
     g(List<com.airbnb.lottie.model.content.j> list, char c, int i, double d, String str, String str2) {
-        this.qv = list;
-        this.qw = c;
+        this.qr = list;
+        this.qs = c;
         this.size = i;
         this.width = d;
         this.style = str;
-        this.qx = str2;
+        this.qt = str2;
     }
 
-    public List<com.airbnb.lottie.model.content.j> dF() {
-        return this.qv;
+    public List<com.airbnb.lottie.model.content.j> dE() {
+        return this.qr;
     }
 
     public double getWidth() {
@@ -43,9 +42,9 @@ public class g {
             JSONArray optJSONArray;
             int i = 0;
             char charAt = jSONObject.optString("ch").charAt(0);
-            int optInt = jSONObject.optInt(ChooseVideoAction.CB_KEY_SIZE);
-            double optDouble = jSONObject.optDouble(Config.DEVICE_WIDTH);
-            String optString = jSONObject.optString("style");
+            int optInt = jSONObject.optInt("size");
+            double optDouble = jSONObject.optDouble("w");
+            String optString = jSONObject.optString(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
             String optString2 = jSONObject.optString("fFamily");
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             List emptyList = Collections.emptyList();
@@ -66,6 +65,6 @@ public class g {
     }
 
     public int hashCode() {
-        return a(this.qw, this.qx, this.style);
+        return a(this.qs, this.qt, this.style);
     }
 }

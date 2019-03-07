@@ -6,7 +6,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.personCenter.data.g;
 import com.baidu.tieba.personCenter.view.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class d extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a.a<f>> {
     private TbPageContext<?> mPageContext;
 
@@ -18,7 +18,7 @@ public class d extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: aa */
+    /* renamed from: ao */
     public com.baidu.tieba.card.a.a<f> onCreateViewHolder(ViewGroup viewGroup) {
         return new com.baidu.tieba.card.a.a<>(new f(this.mPageContext));
     }
@@ -28,7 +28,7 @@ public class d extends com.baidu.adp.widget.ListView.a<g, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, g gVar, com.baidu.tieba.card.a.a<f> aVar) {
-        aVar.arr().a(gVar);
+        aVar.aRi().a(gVar);
         return aVar.getView();
     }
 }

@@ -7,7 +7,7 @@ import java.nio.channels.Selector;
 /* loaded from: classes3.dex */
 class a {
     protected long a;
-    protected SelectionKey lI;
+    protected SelectionKey lL;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(SelectableChannel selectableChannel, long j) {
@@ -16,7 +16,7 @@ class a {
         try {
             selector = Selector.open();
             selectableChannel.configureBlocking(false);
-            this.lI = selectableChannel.register(selector, 1);
+            this.lL = selectableChannel.register(selector, 1);
         } catch (Throwable th) {
             if (selector != null) {
                 selector.close();
@@ -42,7 +42,7 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a() {
-        this.lI.selector().close();
-        this.lI.channel().close();
+        this.lL.selector().close();
+        this.lL.channel().close();
     }
 }

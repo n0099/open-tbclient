@@ -3,7 +3,7 @@ package cn.jiguang.api.a;
 import java.math.BigInteger;
 /* loaded from: classes3.dex */
 public class b {
-    private static final BigInteger kZ = BigInteger.ONE.shiftLeft(64);
+    private static final BigInteger lb = BigInteger.ONE.shiftLeft(64);
     private byte[] a;
     private int b;
     private int c;
@@ -29,26 +29,6 @@ public class b {
         byte[] bArr = new byte[length];
         System.arraycopy(this.a, 0, bArr, 0, this.b);
         this.a = bArr;
-    }
-
-    public void B(int i) {
-        a(1);
-        byte[] bArr = this.a;
-        int i2 = this.b;
-        this.b = i2 + 1;
-        bArr[i2] = (byte) (i & 255);
-    }
-
-    public void C(int i) {
-        a(2);
-        byte[] bArr = this.a;
-        int i2 = this.b;
-        this.b = i2 + 1;
-        bArr[i2] = (byte) ((i >>> 8) & 255);
-        byte[] bArr2 = this.a;
-        int i3 = this.b;
-        this.b = i3 + 1;
-        bArr2[i3] = (byte) (i & 255);
     }
 
     public void b(long j, int i) {
@@ -84,12 +64,12 @@ public class b {
         return this.b;
     }
 
-    public void e(byte[] bArr) {
-        C(bArr.length);
+    public void f(byte[] bArr) {
+        l(bArr.length);
         writeByteArray(bArr, 0, bArr.length);
     }
 
-    public void i(long j) {
+    public void g(long j) {
         a(4);
         byte[] bArr = this.a;
         int i = this.b;
@@ -109,7 +89,7 @@ public class b {
         bArr4[i4] = (byte) (j & 255);
     }
 
-    public void j(long j) {
+    public void h(long j) {
         a(8);
         byte[] bArr = this.a;
         int i = this.b;
@@ -145,11 +125,31 @@ public class b {
         bArr8[i8] = (byte) (j & 255);
     }
 
+    public void k(int i) {
+        a(1);
+        byte[] bArr = this.a;
+        int i2 = this.b;
+        this.b = i2 + 1;
+        bArr[i2] = (byte) (i & 255);
+    }
+
     public void k(int i, int i2) {
         if (i2 > this.b - 1) {
             throw new IllegalArgumentException("cannot write past end of data");
         }
         this.a[i2] = (byte) (i & 255);
+    }
+
+    public void l(int i) {
+        a(2);
+        byte[] bArr = this.a;
+        int i2 = this.b;
+        this.b = i2 + 1;
+        bArr[i2] = (byte) ((i >>> 8) & 255);
+        byte[] bArr2 = this.a;
+        int i3 = this.b;
+        this.b = i3 + 1;
+        bArr2[i3] = (byte) (i & 255);
     }
 
     public void l(int i, int i2) {

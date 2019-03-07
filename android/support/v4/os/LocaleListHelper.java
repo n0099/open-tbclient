@@ -9,8 +9,7 @@ import android.support.annotation.RequiresApi;
 import android.support.annotation.RestrictTo;
 import android.support.annotation.Size;
 import android.support.v7.widget.ActivityChooserView;
-import com.baidu.ar.util.ARFileUtils;
-import com.baidu.fsg.base.statistics.h;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -28,8 +27,8 @@ final class LocaleListHelper {
     private final String mStringRepresentation;
     private static final Locale[] sEmptyList = new Locale[0];
     private static final LocaleListHelper sEmptyLocaleList = new LocaleListHelper(new Locale[0]);
-    private static final Locale LOCALE_EN_XA = new Locale(h.a, "XA");
-    private static final Locale LOCALE_AR_XB = new Locale(ARFileUtils.AR_UNZIP_ROOT_DIR, "XB");
+    private static final Locale LOCALE_EN_XA = new Locale("en", "XA");
+    private static final Locale LOCALE_AR_XB = new Locale("ar", "XB");
     private static final Locale EN_LATN = LocaleHelper.forLanguageTag("en-Latn");
     private static final Object sLock = new Object();
     @GuardedBy("sLock")
@@ -217,7 +216,7 @@ final class LocaleListHelper {
         if (str == null || str.isEmpty()) {
             return getEmptyLocaleList();
         }
-        String[] split = str.split(",");
+        String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
         Locale[] localeArr = new Locale[split.length];
         for (int i = 0; i < localeArr.length; i++) {
             localeArr[i] = LocaleHelper.forLanguageTag(split[i]);

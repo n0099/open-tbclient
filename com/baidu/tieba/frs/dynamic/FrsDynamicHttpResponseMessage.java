@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.dynamic;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import tbclient.StarTrends.StarTrendsResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class FrsDynamicHttpResponseMessage extends MvcProtobufHttpResponsedMessage<a, StarTrendsResIdl> {
     public a responseData;
 
@@ -20,13 +20,13 @@ public class FrsDynamicHttpResponseMessage extends MvcProtobufHttpResponsedMessa
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.a
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         this.responseData = new a();
-        StarTrendsResIdl J = this.responseData.J(bArr);
-        if (J != null && J.error != null) {
-            if (J.error.errorno != null) {
-                setError(J.error.errorno.intValue());
-                this.responseData.dSA = J.error.errorno.intValue();
+        StarTrendsResIdl Q = this.responseData.Q(bArr);
+        if (Q != null && Q.error != null) {
+            if (Q.error.errorno != null) {
+                setError(Q.error.errorno.intValue());
+                this.responseData.mErrorNo = Q.error.errorno.intValue();
             }
-            setErrorString(J.error.usermsg);
+            setErrorString(Q.error.usermsg);
         }
         setData(this.responseData);
     }

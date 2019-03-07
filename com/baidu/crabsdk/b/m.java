@@ -3,44 +3,40 @@ package com.baidu.crabsdk.b;
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class m {
-    private static SharedPreferences Yq;
-    private static SharedPreferences.Editor Yr;
-    private static long Ys = StatisticConfig.MIN_UPLOAD_INTERVAL;
+    private static SharedPreferences abS;
+    private static SharedPreferences.Editor abT;
+    private static long abU = StatisticConfig.MIN_UPLOAD_INTERVAL;
 
     public static void C() {
-        Yr.putInt("used_count", D() + 1);
-        com.baidu.crabsdk.c.c.a(Yr, false);
-    }
-
-    public static int D() {
-        return Yq.getInt("used_count", 0);
+        abT.putInt("used_count", rS() + 1);
+        com.baidu.crabsdk.c.c.a(abT, false);
     }
 
     public static void clear() {
-        if (Yr != null) {
-            Yr.putInt("used_count", 0);
-            com.baidu.crabsdk.c.c.a(Yr, false);
+        if (abT != null) {
+            abT.putInt("used_count", 0);
+            com.baidu.crabsdk.c.c.a(abT, false);
         }
     }
 
     public static void d(Context context) {
-        if (Yq == null) {
-            Yq = context.getSharedPreferences("crab_app_life", 0);
+        if (abS == null) {
+            abS = context.getSharedPreferences("crab_app_life", 0);
         }
-        if (Yr == null) {
-            Yr = Yq.edit();
+        if (abT == null) {
+            abT = abS.edit();
         }
     }
 
     public static void onPause(Context context) {
         d(context);
-        if (Yq == null || Yr == null) {
+        if (abS == null || abT == null) {
             return;
         }
-        Yr.putLong("used_last_time", System.currentTimeMillis());
-        com.baidu.crabsdk.c.c.a(Yr, false);
+        abT.putLong("used_last_time", System.currentTimeMillis());
+        com.baidu.crabsdk.c.c.a(abT, false);
     }
 
     public static void onResume(Context context) {
@@ -48,14 +44,18 @@ public final class m {
         if (com.baidu.crabsdk.a.M) {
             return;
         }
-        if (Yq == null || Yr == null) {
-            com.baidu.crabsdk.c.a.cK("MobclickAgent init error!! applife upload failed!");
+        if (abS == null || abT == null) {
+            com.baidu.crabsdk.c.a.cy("MobclickAgent init error!! applife upload failed!");
             return;
         }
-        com.baidu.crabsdk.c.a.cH("MobclickAgent init success!");
-        if (System.currentTimeMillis() - Yq.getLong("used_last_time", 0L) > Ys) {
+        com.baidu.crabsdk.c.a.cv("MobclickAgent init success!");
+        if (System.currentTimeMillis() - abS.getLong("used_last_time", 0L) > abU) {
             C();
             com.baidu.crabsdk.sender.h.n(context);
         }
+    }
+
+    public static int rS() {
+        return abS.getInt("used_count", 0);
     }
 }

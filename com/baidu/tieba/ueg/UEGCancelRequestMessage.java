@@ -2,7 +2,7 @@ package com.baidu.tieba.ueg;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.q;
+import com.baidu.tbadk.util.s;
 import tbclient.QueryBlockAndAppealInfo.DataReq;
 import tbclient.QueryBlockAndAppealInfo.QueryBlockAndAppealInfoReqIdl;
 /* loaded from: classes.dex */
@@ -26,7 +26,7 @@ public class UEGCancelRequestMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.user_id = Long.valueOf(com.baidu.adp.lib.g.b.d(this.uId, 0L));
         if (z) {
-            q.bindCommonParamsToProtobufData(builder, true);
+            s.bindCommonParamsToProtobufData(builder, true);
         }
         QueryBlockAndAppealInfoReqIdl.Builder builder2 = new QueryBlockAndAppealInfoReqIdl.Builder();
         builder2.data = builder.build(false);

@@ -6,24 +6,19 @@ import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.appsearchlib.Info;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.cloudsdk.common.http.AsyncHttpClient;
-import com.baidu.cloudsdk.common.http.HttpResponseHandler;
-import com.baidu.cloudsdk.common.http.RequestParams;
-import com.baidu.fsg.base.BaiduRimConstants;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.base.debug.Log;
+import com.baidu.sapi2.httpwrap.HttpClientWrap;
+import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
+import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class StatService {
     public static final String STAT_ENENT_QR_LOGIN_ENTER = "qrlogin_enter";
@@ -35,7 +30,7 @@ public final class StatService {
     static {
         a.put(Info.kBaiduPIDKey, "111");
         a.put("type", "1023");
-        a.put(Config.DEVICE_PART, HttpConstants.OS_TYPE_VALUE);
+        a.put("device", "android");
     }
 
     public static void onEvent(StatEvent statEvent) {
@@ -48,42 +43,38 @@ public final class StatService {
     }
 
     public static void onEvent(String str, Map<String, String> map) {
-        onEvent(str, map, true);
+        onEvent(str, map, false);
     }
 
     public static void onEvent(String str, Map<String, String> map, boolean z) {
-        onEvent(str, String.valueOf(System.currentTimeMillis()), map, z, false);
-    }
-
-    public static void onEvent(String str, String str2, Map<String, String> map, boolean z, boolean z2) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
                 SapiConfiguration confignation = isAccountManager.getConfignation();
                 if (SapiUtils.hasActiveNetwork(confignation.context)) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.putAll(a);
-                    hashMap.put("name", str);
-                    hashMap.put(Config.DEVICE_PART, Build.MODEL);
-                    hashMap.put(BaiduRimConstants.TPL_INIT_KEY, confignation.tpl);
-                    hashMap.put("clientfrom", "mobilesdk_enhanced");
-                    hashMap.put("app_version", SapiUtils.getVersionName(confignation.context));
-                    hashMap.put(SapiContext.KEY_SDK_VERSION, isAccountManager.getVersionName());
+                    HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
+                    httpHashMapWrap.putAll(a);
+                    httpHashMapWrap.put("name", str);
+                    httpHashMapWrap.put("v", String.valueOf(System.currentTimeMillis()));
+                    httpHashMapWrap.put("device", Build.MODEL);
+                    httpHashMapWrap.put("tpl", confignation.tpl);
+                    httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
+                    httpHashMapWrap.put(Constants.EXTRA_KEY_APP_VERSION, SapiUtils.getVersionName(confignation.context));
+                    httpHashMapWrap.put(SapiContext.KEY_SDK_VERSION, isAccountManager.getVersionName());
                     if (!TextUtils.isEmpty(confignation.clientId)) {
-                        hashMap.put("cuid", confignation.clientId);
+                        httpHashMapWrap.put("cuid", confignation.clientId);
                     }
-                    hashMap.put("v", str2);
                     if (map != null) {
                         for (Map.Entry<String, String> entry : map.entrySet()) {
                             if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue())) {
-                                hashMap.put(entry.getKey(), entry.getValue());
+                                httpHashMapWrap.put(entry.getKey(), entry.getValue());
                             }
                         }
                     }
-                    new AsyncHttpClient().get(confignation.context, SapiHost.getHost(SapiHost.DOMAIN_NSCLICK_URL), new RequestParams(hashMap), new HttpResponseHandler(Looper.getMainLooper()) { // from class: com.baidu.sapi2.utils.StatService.1
+                    new HttpClientWrap().get(SapiHost.getHost(SapiHost.DOMAIN_NSCLICK_URL), httpHashMapWrap, null, null, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.utils.StatService.1
                         /* JADX INFO: Access modifiers changed from: protected */
-                        @Override // com.baidu.cloudsdk.common.http.HttpResponseHandler
-                        public void onSuccess(int i, String str3) {
+                        @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
+                        public void onSuccess(int i, String str2) {
                         }
                     });
                 }
@@ -108,54 +99,5 @@ public final class StatService {
         map.put("source", "native");
         map.put("data_source", "client");
         onEvent("auto_statistic", map);
-    }
-
-    /* loaded from: classes.dex */
-    public static class StatModel {
-        public static final String KEY_MAP = "map";
-        public static final String KEY_NAME = "name";
-        public static final String KEY_TIME = "time";
-        public Map<String, String> extraMap;
-        public String name;
-        public String time;
-
-        public StatModel(String str, String str2, Map<String, String> map) {
-            this.extraMap = new HashMap();
-            this.name = str;
-            this.time = str2;
-            this.extraMap = map;
-        }
-
-        public JSONObject toJsonObject() {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("name", this.name);
-                jSONObject.put("time", this.time);
-                jSONObject.put("map", new JSONObject(this.extraMap));
-            } catch (JSONException e) {
-            }
-            return jSONObject;
-        }
-
-        public static StatModel fromJsonObject(JSONObject jSONObject) {
-            String optString = jSONObject.optString("name");
-            String optString2 = jSONObject.optString("time");
-            HashMap hashMap = new HashMap();
-            JSONObject optJSONObject = jSONObject.optJSONObject("map");
-            if (optJSONObject != null) {
-                Iterator<String> keys = optJSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    String optString3 = optJSONObject.optString(next);
-                    if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString3)) {
-                        hashMap.put(next, optString3);
-                    }
-                }
-            }
-            if (TextUtils.isEmpty(optString) || hashMap.isEmpty()) {
-                return null;
-            }
-            return new StatModel(optString, optString2, hashMap);
-        }
     }
 }

@@ -1,6 +1,5 @@
 package com.meizu.cloud.pushsdk.networking.okio;
 
-import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -63,11 +62,11 @@ public class ByteString implements Serializable, Comparable<ByteString> {
     }
 
     public ByteString md5() {
-        return a(AiAppEncryptUtils.ENCRYPT_MD5);
+        return a("MD5");
     }
 
     public ByteString sha256() {
-        return a(AiAppEncryptUtils.ENCRYPT_SHA256);
+        return a("SHA-256");
     }
 
     private ByteString a(String str) {

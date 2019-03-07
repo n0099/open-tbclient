@@ -11,34 +11,34 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class a {
-    private final AssetManager qd;
+    private final AssetManager pY;
     @Nullable
-    private com.airbnb.lottie.b qe;
-    private final i<String> qa = new i<>();
-    private final Map<i<String>, Typeface> qb = new HashMap();
-    private final Map<String, Typeface> qc = new HashMap();
-    private String qf = ".ttf";
+    private com.airbnb.lottie.b pZ;
+    private final i<String> pV = new i<>();
+    private final Map<i<String>, Typeface> pW = new HashMap();
+    private final Map<String, Typeface> pX = new HashMap();
+    private String qa = ".ttf";
 
     public a(Drawable.Callback callback, @Nullable com.airbnb.lottie.b bVar) {
-        this.qe = bVar;
+        this.pZ = bVar;
         if (!(callback instanceof View)) {
             Log.w("LOTTIE", "LottieDrawable must be inside of a view for images to work.");
-            this.qd = null;
+            this.pY = null;
             return;
         }
-        this.qd = ((View) callback).getContext().getAssets();
+        this.pY = ((View) callback).getContext().getAssets();
     }
 
     public void a(@Nullable com.airbnb.lottie.b bVar) {
-        this.qe = bVar;
+        this.pZ = bVar;
     }
 
     public Typeface n(String str, String str2) {
-        this.qa.set(str, str2);
-        Typeface typeface = this.qb.get(this.qa);
+        this.pV.set(str, str2);
+        Typeface typeface = this.pW.get(this.pV);
         if (typeface == null) {
             Typeface a = a(ab(str), str2);
-            this.qb.put(this.qa, a);
+            this.pW.put(this.pV, a);
             return a;
         }
         return typeface;
@@ -46,19 +46,19 @@ public class a {
 
     private Typeface ab(String str) {
         String T;
-        Typeface typeface = this.qc.get(str);
+        Typeface typeface = this.pX.get(str);
         if (typeface == null) {
             typeface = null;
-            if (this.qe != null) {
-                typeface = this.qe.S(str);
+            if (this.pZ != null) {
+                typeface = this.pZ.S(str);
             }
-            if (this.qe != null && typeface == null && (T = this.qe.T(str)) != null) {
-                typeface = Typeface.createFromAsset(this.qd, T);
+            if (this.pZ != null && typeface == null && (T = this.pZ.T(str)) != null) {
+                typeface = Typeface.createFromAsset(this.pY, T);
             }
             if (typeface == null) {
-                typeface = Typeface.createFromAsset(this.qd, "fonts/" + str + this.qf);
+                typeface = Typeface.createFromAsset(this.pY, "fonts/" + str + this.qa);
             }
-            this.qc.put(str, typeface);
+            this.pX.put(str, typeface);
         }
         return typeface;
     }

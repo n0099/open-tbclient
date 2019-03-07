@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 /* loaded from: classes2.dex */
 public class a {
-    public static String k(InputStream inputStream) throws IOException {
+    public static String l(InputStream inputStream) throws IOException {
         if (inputStream == null) {
             return null;
         }

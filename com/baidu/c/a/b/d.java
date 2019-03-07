@@ -5,45 +5,45 @@ import android.text.TextUtils;
 import android.view.View;
 /* loaded from: classes3.dex */
 public class d implements c {
-    private static volatile d aaU = null;
-    private c aaV;
+    private static volatile d acW = null;
+    private c acX;
 
-    public static d sr() {
-        if (aaU == null) {
+    public static d sj() {
+        if (acW == null) {
             synchronized (d.class) {
-                if (aaU == null) {
-                    aaU = new d();
+                if (acW == null) {
+                    acW = new d();
                 }
             }
         }
-        return aaU;
+        return acW;
     }
 
     public void b(c cVar) {
-        this.aaV = cVar;
+        this.acX = cVar;
     }
 
     @Override // com.baidu.c.a.b.c
-    public View aa(Context context, String str) {
-        if (this.aaV == null || context == null || TextUtils.isEmpty(str)) {
+    public View Z(Context context, String str) {
+        if (this.acX == null || context == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.aaV.aa(context, str);
+        return this.acX.Z(context, str);
     }
 
     @Override // com.baidu.c.a.b.c
     public boolean a(String str, View view, com.baidu.c.a.a.a aVar) {
-        if (this.aaV == null || view == null || aVar == null) {
+        if (this.acX == null || view == null || aVar == null) {
             return false;
         }
-        return this.aaV.a(str, view, aVar);
+        return this.acX.a(str, view, aVar);
     }
 
     @Override // com.baidu.c.a.b.c
     public boolean a(String str, View view, String str2, String str3) {
-        if (this.aaV == null || view == null || TextUtils.isEmpty(str2)) {
+        if (this.acX == null || view == null || TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.aaV.a(str, view, str2, str3);
+        return this.acX.a(str, view, str2, str3);
     }
 }

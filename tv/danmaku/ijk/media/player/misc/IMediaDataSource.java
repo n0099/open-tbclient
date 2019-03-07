@@ -1,7 +1,7 @@
 package tv.danmaku.ijk.media.player.misc;
 
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public interface IMediaDataSource {
     void close() throws IOException;
 

@@ -7,10 +7,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tieba.frs.FrsFragment;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class f {
     public static boolean a(FrsFragment frsFragment, String str, String str2, boolean z) {
-        if (z && frsFragment != null && !TextUtils.isEmpty(str) && frsFragment.isAdded() && i.av(TbadkCoreApplication.getInst().getApplicationContext(), frsFragment.getActivity().getClass().getName())) {
+        if (z && frsFragment != null && !TextUtils.isEmpty(str) && frsFragment.isAdded() && i.aJ(TbadkCoreApplication.getInst().getApplicationContext(), frsFragment.getActivity().getClass().getName())) {
             Intent intent = new Intent();
             intent.putExtra("class", 2);
             intent.putExtra(ImageViewerConfig.FORUM_NAME, str);

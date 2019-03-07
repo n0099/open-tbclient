@@ -22,6 +22,7 @@ public class VideoPlayActivityConfig extends IntentConfig {
     public static final String PAGE_FROM = "page_from";
     public static final String PARAM_ST_TYPE = "st_type";
     public static final String PARAM_YUELAOU_LACATION = "yuelaou_locate";
+    public static final String SOURCE_FROM = "source_from";
     public static final String VIDEO_COVER_RECT = "video_cover_rect";
     public static final String VIDEO_DATA = "video_data";
     public static final String VIDEO_INDEX = "video_index";
@@ -50,6 +51,18 @@ public class VideoPlayActivityConfig extends IntentConfig {
         getIntent().putExtra("st_type", str2);
         getIntent().putExtra("yuelaou_locate", str3);
         getIntent().putExtra("from", str4);
+        getIntent().setSourceBounds(rect);
+    }
+
+    public VideoPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3, String str4, String str5) {
+        super(context);
+        getIntent().putExtra(VIDEO_LIST, (Serializable) list);
+        getIntent().putExtra(VIDEO_INDEX, i);
+        getIntent().putExtra(PAGE_FROM, str);
+        getIntent().putExtra("st_type", str2);
+        getIntent().putExtra("yuelaou_locate", str3);
+        getIntent().putExtra("from", str4);
+        getIntent().putExtra(SOURCE_FROM, str5);
         getIntent().setSourceBounds(rect);
     }
 }

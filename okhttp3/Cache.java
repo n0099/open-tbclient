@@ -1,6 +1,5 @@
 package okhttp3;
 
-import com.baidu.sapi2.utils.SapiUtils;
 import java.io.Closeable;
 import java.io.File;
 import java.io.Flushable;
@@ -458,7 +457,7 @@ public final class Cache implements Closeable, Flushable {
         }
 
         private boolean isHttps() {
-            return this.url.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
+            return this.url.startsWith("https://");
         }
 
         private List<Certificate> readCertificateList(BufferedSource bufferedSource) throws IOException {

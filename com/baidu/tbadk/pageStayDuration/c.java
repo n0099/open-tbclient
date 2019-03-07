@@ -1,14 +1,13 @@
 package com.baidu.tbadk.pageStayDuration;
 
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.baidu.tbadk.core.util.v;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    public static String U(List<String> list) {
-        if (v.H(list) <= 0) {
+    public static String ag(List<String> list) {
+        if (v.S(list) <= 0) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
@@ -23,7 +22,7 @@ public class c {
                         z2 = true;
                     }
                     if (z2) {
-                        sb.append(BaseRequestAction.SPLITE);
+                        sb.append("_");
                     }
                     sb.append(next);
                 }
@@ -34,10 +33,10 @@ public class c {
         }
     }
 
-    public static List<String> f(List<String> list, int i) {
-        int H = v.H(list);
-        if (H > 0 && i >= 0 && H > i) {
-            return v.b(list, H - i, H);
+    public static List<String> e(List<String> list, int i) {
+        int S = v.S(list);
+        if (S > 0 && i >= 0 && S > i) {
+            return v.c(list, S - i, S);
         }
         return list;
     }

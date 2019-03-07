@@ -10,12 +10,9 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
-import com.baidu.webkit.internal.ETAG;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c {
     private static String d;
     static String a = null;
@@ -46,10 +43,10 @@ public class c {
             return "";
         }
         d = "";
-        WindowManager windowManager = (WindowManager) context.getSystemService(WindowConfig.JSON_WINDOW_KEY);
+        WindowManager windowManager = (WindowManager) context.getSystemService("window");
         if (windowManager != null) {
             int width = windowManager.getDefaultDisplay().getWidth();
-            d = width + Config.EVENT_HEAT_X + windowManager.getDefaultDisplay().getHeight();
+            d = width + "x" + windowManager.getDefaultDisplay().getHeight();
         }
         return d;
     }
@@ -107,7 +104,7 @@ public class c {
         try {
             if (e == null) {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
-                ((WindowManager) context.getSystemService(WindowConfig.JSON_WINDOW_KEY)).getDefaultDisplay().getMetrics(displayMetrics);
+                ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
                 StringBuilder sb = new StringBuilder();
                 sb.append("imei=").append(b(context)).append('&');
                 sb.append("model=").append(Build.MODEL).append('&');
@@ -120,7 +117,7 @@ public class c {
                 sb.append("network=").append(b2).append('&');
                 sb.append("sdcard=").append(Environment.getExternalStorageState().equals("mounted") ? 1 : 0).append('&');
                 sb.append("display=").append(displayMetrics.widthPixels).append('*').append(displayMetrics.heightPixels).append('&');
-                sb.append("manu=").append(Build.MANUFACTURER).append(ETAG.ITEM_SEPARATOR);
+                sb.append("manu=").append(Build.MANUFACTURER).append("&");
                 sb.append("wifi=").append(a.e(context));
                 e = sb.toString();
             }

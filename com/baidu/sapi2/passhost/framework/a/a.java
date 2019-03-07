@@ -3,6 +3,7 @@ package com.baidu.sapi2.passhost.framework.a;
 import android.content.Context;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.ServiceManager;
+import com.baidu.sapi2.passhost.framework.PluginFacade;
 import com.baidu.sapi2.passhost.hostsdk.service.SafeService;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiBaseService;
 import com.baidu.sapi2.utils.SapiDeviceInfo;
@@ -12,17 +13,18 @@ public class a implements ISapiBaseService {
     private static final String a = "SapiBaseService";
     private Context b;
 
+    /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sapi2.passhost.framework.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private static class C0123a {
+    public static class C0062a {
         public static a a = new a();
 
-        private C0123a() {
+        private C0062a() {
         }
     }
 
     public static a a() {
-        return C0123a.a;
+        return C0062a.a;
     }
 
     public void a(Context context) {
@@ -34,7 +36,7 @@ public class a implements ISapiBaseService {
 
     @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISapiBaseService
     public String getPiranhaVersion() {
-        return "1.0.3";
+        return PluginFacade.a.a;
     }
 
     @Override // com.baidu.sapi2.passhost.pluginsdk.service.ISapiBaseService

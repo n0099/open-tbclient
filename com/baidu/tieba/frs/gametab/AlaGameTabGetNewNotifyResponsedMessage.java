@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class AlaGameTabGetNewNotifyResponsedMessage extends JsonHttpResponsedMessage {
     private List<a> mData;
 

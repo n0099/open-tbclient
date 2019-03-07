@@ -3,7 +3,7 @@ package com.baidu.android.pushservice.message.a;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.searchbox.ng.ai.apps.scheme.actions.GetSwanHistoryAction;
+import com.tencent.open.SocialConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -61,7 +61,7 @@ public class b extends c {
             com.baidu.android.pushservice.j.m.b(">>> Deliver baidu supper msg with g action: com.baidu.pushservice.action.supper.MESSAGE", this.a);
         } else if (str.equalsIgnoreCase("push.NOTIFICATION")) {
             try {
-                f.a(this.a, !jSONObject2.isNull("title") ? jSONObject2.getString("title") : null, jSONObject2.getString("description"), !jSONObject2.isNull(GetSwanHistoryAction.KEY_ICON_URL) ? jSONObject2.getString(GetSwanHistoryAction.KEY_ICON_URL) : null, !jSONObject2.isNull("url") ? jSONObject2.getString("url") : null, h);
+                f.a(this.a, !jSONObject2.isNull("title") ? jSONObject2.getString("title") : null, jSONObject2.getString(SocialConstants.PARAM_COMMENT), !jSONObject2.isNull("iconUrl") ? jSONObject2.getString("iconUrl") : null, !jSONObject2.isNull("url") ? jSONObject2.getString("url") : null, h);
             } catch (JSONException e3) {
                 com.baidu.android.pushservice.g.a.b("BaiduSupperHandler", "Supper message parsing notification action Fail:\r\n" + e3.getMessage(), this.b);
             }

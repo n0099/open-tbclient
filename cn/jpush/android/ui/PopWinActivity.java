@@ -4,11 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import cn.jpush.android.d.j;
-import com.baidu.searchbox.ng.ai.apps.network.NetworkDef;
+import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class PopWinActivity extends Activity {
@@ -32,7 +33,7 @@ public class PopWinActivity extends Activity {
         if (!TextUtils.isEmpty(str)) {
             ((cn.jpush.android.data.g) this.d).a = str;
             Intent intent = new Intent(this, PushActivity.class);
-            intent.putExtra(NetworkDef.Http.BODY, this.d);
+            intent.putExtra("body", this.d);
             intent.putExtra("from_way", true);
             intent.setFlags(335544320);
             startActivity(intent);
@@ -43,7 +44,7 @@ public class PopWinActivity extends Activity {
     @Override // android.app.Activity
     public void onBackPressed() {
         super.onBackPressed();
-        cn.jpush.android.a.e.a(this.b, 1006, null, this);
+        cn.jpush.android.a.e.a(this.b, PointerIconCompat.TYPE_CELL, null, this);
     }
 
     @Override // android.app.Activity
@@ -62,7 +63,7 @@ public class PopWinActivity extends Activity {
                 return;
             }
             Intent intent = getIntent();
-            cn.jpush.android.data.b bVar = (cn.jpush.android.data.b) intent.getSerializableExtra(NetworkDef.Http.BODY);
+            cn.jpush.android.data.b bVar = (cn.jpush.android.data.b) intent.getSerializableExtra("body");
             if (bVar == null) {
                 cn.jpush.android.d.f.a("PopWinActivity", "parse entity form plugin plateform");
                 String uri = intent.getData() != null ? intent.getData().toString() : null;
@@ -116,7 +117,7 @@ public class PopWinActivity extends Activity {
             cn.jpush.android.data.g gVar = (cn.jpush.android.data.g) this.d;
             String str = gVar.Q;
             String str2 = gVar.a;
-            if (TextUtils.isEmpty(str) || !new File(str.replace("file://", "")).exists()) {
+            if (TextUtils.isEmpty(str) || !new File(str.replace(SkiaImageDecoder.FILE_PREFIX, "")).exists()) {
                 this.c.loadUrl(str2);
             } else {
                 this.c.loadUrl(str);

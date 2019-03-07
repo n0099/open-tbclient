@@ -1,25 +1,25 @@
 package com.baidu.tieba.person.data;
 
-import com.baidu.adp.widget.ListView.h;
+import com.baidu.adp.widget.ListView.m;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class e {
-    private boolean guC = true;
-    private ArrayList<h> mData;
+    private ArrayList<m> aFH;
+    private boolean hKR = true;
 
-    public void aq(ArrayList<h> arrayList) {
-        this.mData = arrayList;
+    public void au(ArrayList<m> arrayList) {
+        this.aFH = arrayList;
     }
 
-    public boolean bpR() {
-        return this.guC;
+    public boolean bQm() {
+        return this.hKR;
     }
 
-    public void lY(boolean z) {
-        this.guC = z;
+    public void ov(boolean z) {
+        this.hKR = z;
     }
 
-    public ArrayList<h> bpS() {
-        return this.mData;
+    public ArrayList<m> bQn() {
+        return this.aFH;
     }
 }

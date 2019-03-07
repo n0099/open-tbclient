@@ -25,7 +25,6 @@ import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
 import android.view.Window;
 import android.widget.OverScroller;
-import com.baidu.searchbox.ng.ai.apps.core.slave.AiAppsSlavePool;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
 /* loaded from: classes2.dex */
 public class ActionBarOverlayLayout extends ViewGroup implements NestedScrollingParent, DecorContentParent {
@@ -89,7 +88,7 @@ public class ActionBarOverlayLayout extends ViewGroup implements NestedScrolling
         this.mLastBaseInnerInsets = new Rect();
         this.mInnerInsets = new Rect();
         this.mLastInnerInsets = new Rect();
-        this.ACTION_BAR_ANIMATE_DELAY = AiAppsSlavePool.PRELOAD_NEXT_DELAY_MS;
+        this.ACTION_BAR_ANIMATE_DELAY = 600;
         this.mTopAnimatorListener = new AnimatorListenerAdapter() { // from class: android.support.v7.widget.ActionBarOverlayLayout.1
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {

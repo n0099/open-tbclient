@@ -1,6 +1,5 @@
 package com.baidu.android.common.security;
 
-import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes.dex */
@@ -25,7 +24,7 @@ public final class MD5Util {
 
     public static String toMd5(byte[] bArr, boolean z) {
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.reset();
             messageDigest.update(bArr);
             return toHexString(messageDigest.digest(), "", z);

@@ -5,12 +5,12 @@ public class BdStatisticsSwitchStatic extends com.baidu.adp.lib.b.a {
         com.baidu.adp.lib.b.d.iQ().i(BdStatisticsSwitchStatic.class);
     }
 
-    public static boolean jJ() {
+    public static boolean jK() {
         return com.baidu.adp.lib.b.d.iQ().aO("newUrlForPerf") == 1;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected void aq(int i) {
+    protected void Z(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a

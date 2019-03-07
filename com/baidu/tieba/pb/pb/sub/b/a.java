@@ -1,13 +1,13 @@
 package com.baidu.tieba.pb.pb.sub.b;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.h;
-/* loaded from: classes6.dex */
-public class a implements h {
-    public static final BdUniqueId gny = BdUniqueId.gen();
+import com.baidu.adp.widget.ListView.m;
+/* loaded from: classes4.dex */
+public class a implements m {
+    public static final BdUniqueId hDI = BdUniqueId.gen();
 
-    @Override // com.baidu.adp.widget.ListView.h
+    @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return gny;
+        return hDI;
     }
 }

@@ -19,6 +19,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.apache.http.protocol.HTTP;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlSerializer;
@@ -155,7 +156,7 @@ public class ActivityChooserModel extends DataSetObservable {
                     return null;
                 }
             }
-            addHistoricalRecord(new HistoricalRecord(componentName, System.currentTimeMillis(), 1.0f));
+            addHistoricalRecord(new HistoricalRecord(componentName, System.currentTimeMillis(), (float) DEFAULT_HISTORICAL_RECORD_WEIGHT));
             return intent;
         }
     }
@@ -185,7 +186,7 @@ public class ActivityChooserModel extends DataSetObservable {
             if (activityResolveInfo2 != null) {
                 f = (activityResolveInfo2.weight - activityResolveInfo.weight) + 5.0f;
             } else {
-                f = 1.0f;
+                f = DEFAULT_HISTORICAL_RECORD_WEIGHT;
             }
             addHistoricalRecord(new HistoricalRecord(new ComponentName(activityResolveInfo.resolveInfo.activityInfo.packageName, activityResolveInfo.resolveInfo.activityInfo.name), System.currentTimeMillis(), f));
         }
@@ -410,7 +411,7 @@ public class ActivityChooserModel extends DataSetObservable {
                 activityResolveInfo.weight = 0.0f;
                 map.put(new ComponentName(activityResolveInfo.resolveInfo.activityInfo.packageName, activityResolveInfo.resolveInfo.activityInfo.name), activityResolveInfo);
             }
-            float f2 = 1.0f;
+            float f2 = ActivityChooserModel.DEFAULT_HISTORICAL_RECORD_WEIGHT;
             int size2 = list2.size() - 1;
             while (size2 >= 0) {
                 HistoricalRecord historicalRecord = list2.get(size2);
@@ -436,7 +437,7 @@ public class ActivityChooserModel extends DataSetObservable {
                 try {
                     try {
                         XmlPullParser newPullParser = Xml.newPullParser();
-                        newPullParser.setInput(openFileInput, "UTF-8");
+                        newPullParser.setInput(openFileInput, HTTP.UTF_8);
                         for (int i = 0; i != 1 && i != 2; i = newPullParser.next()) {
                         }
                         if (!TAG_HISTORICAL_RECORDS.equals(newPullParser.getName())) {
@@ -513,7 +514,7 @@ public class ActivityChooserModel extends DataSetObservable {
                 try {
                     try {
                         newSerializer.setOutput(openFileOutput, null);
-                        newSerializer.startDocument("UTF-8", true);
+                        newSerializer.startDocument(HTTP.UTF_8, true);
                         newSerializer.startTag(null, ActivityChooserModel.TAG_HISTORICAL_RECORDS);
                         int size = list.size();
                         for (int i = 0; i < size; i++) {

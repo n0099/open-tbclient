@@ -1,11 +1,11 @@
 package com.baidu.tieba.view;
 
 import com.baidu.tbadk.core.data.UserData;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface e {
     void onChangeSkinType(int i);
 
-    void oq(boolean z);
+    void qQ(boolean z);
 
     void setData(UserData userData);
 

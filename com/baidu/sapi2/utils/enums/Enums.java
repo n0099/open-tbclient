@@ -4,6 +4,7 @@ public class Enums {
 
     /* loaded from: classes.dex */
     public static class PreLoginType {
+        public static final int CHINA_MOBILE_OAUTH = 12;
         public static final int CHOICE_SHARE = 8;
         public static final int CHOICE_SHARE_V2 = 9;
         public static final int FACE = 3;

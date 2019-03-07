@@ -1,146 +1,31 @@
 package rx.b;
 
-import rx.exceptions.OnErrorThrowable;
-import rx.internal.operators.NotificationLite;
+import rx.j;
 /* loaded from: classes2.dex */
-public class e<T> implements rx.e<T> {
-    private boolean emitting;
-    private final rx.e<? super T> iRy;
-    private a iRz;
-    private volatile boolean terminated;
+public class e<T> extends j<T> {
+    private final rx.e<T> kbE;
 
-    /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes2.dex */
-    public static final class a {
-        Object[] array;
-        int size;
-
-        a() {
-        }
-
-        public void add(Object obj) {
-            Object[] objArr;
-            int i = this.size;
-            Object[] objArr2 = this.array;
-            if (objArr2 == null) {
-                objArr = new Object[16];
-                this.array = objArr;
-            } else if (i == objArr2.length) {
-                objArr = new Object[(i >> 2) + i];
-                System.arraycopy(objArr2, 0, objArr, 0, i);
-                this.array = objArr;
-            } else {
-                objArr = objArr2;
-            }
-            objArr[i] = obj;
-            this.size = i + 1;
-        }
+    public e(j<? super T> jVar) {
+        this(jVar, true);
     }
 
-    public e(rx.e<? super T> eVar) {
-        this.iRy = eVar;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x0032, code lost:
-        continue;
-     */
-    @Override // rx.e
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onNext(T t) {
-        if (!this.terminated) {
-            synchronized (this) {
-                if (!this.terminated) {
-                    if (this.emitting) {
-                        a aVar = this.iRz;
-                        if (aVar == null) {
-                            aVar = new a();
-                            this.iRz = aVar;
-                        }
-                        aVar.add(NotificationLite.aY(t));
-                        return;
-                    }
-                    this.emitting = true;
-                    try {
-                        this.iRy.onNext(t);
-                        while (true) {
-                            synchronized (this) {
-                                a aVar2 = this.iRz;
-                                if (aVar2 == null) {
-                                    this.emitting = false;
-                                    return;
-                                }
-                                this.iRz = null;
-                                Object[] objArr = aVar2.array;
-                                for (Object obj : objArr) {
-                                    if (obj != null) {
-                                        try {
-                                            if (NotificationLite.a(this.iRy, obj)) {
-                                                this.terminated = true;
-                                                return;
-                                            }
-                                        } catch (Throwable th) {
-                                            this.terminated = true;
-                                            rx.exceptions.a.J(th);
-                                            this.iRy.onError(OnErrorThrowable.addValueAsLastCause(th, t));
-                                            return;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    } catch (Throwable th2) {
-                        this.terminated = true;
-                        rx.exceptions.a.a(th2, this.iRy, t);
-                    }
-                }
-            }
-        }
-    }
-
-    @Override // rx.e
-    public void onError(Throwable th) {
-        rx.exceptions.a.J(th);
-        if (!this.terminated) {
-            synchronized (this) {
-                if (!this.terminated) {
-                    this.terminated = true;
-                    if (this.emitting) {
-                        a aVar = this.iRz;
-                        if (aVar == null) {
-                            aVar = new a();
-                            this.iRz = aVar;
-                        }
-                        aVar.add(NotificationLite.M(th));
-                        return;
-                    }
-                    this.emitting = true;
-                    this.iRy.onError(th);
-                }
-            }
-        }
+    public e(j<? super T> jVar, boolean z) {
+        super(jVar, z);
+        this.kbE = new d(jVar);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        if (!this.terminated) {
-            synchronized (this) {
-                if (!this.terminated) {
-                    this.terminated = true;
-                    if (this.emitting) {
-                        a aVar = this.iRz;
-                        if (aVar == null) {
-                            aVar = new a();
-                            this.iRz = aVar;
-                        }
-                        aVar.add(NotificationLite.ceF());
-                        return;
-                    }
-                    this.emitting = true;
-                    this.iRy.onCompleted();
-                }
-            }
-        }
+        this.kbE.onCompleted();
+    }
+
+    @Override // rx.e
+    public void onError(Throwable th) {
+        this.kbE.onError(th);
+    }
+
+    @Override // rx.e
+    public void onNext(T t) {
+        this.kbE.onNext(t);
     }
 }

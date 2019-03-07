@@ -2,58 +2,58 @@ package com.baidu.tieba.InjectPlugin.FrsFeedAd;
 
 import android.util.SparseArray;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.h;
+import com.baidu.adp.widget.ListView.m;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class b implements h, com.baidu.tieba.InjectPlugin.a {
-    private static SparseArray<BdUniqueId> bwq = new SparseArray<>();
-    private Object bwr;
-    private int bws;
+public class b implements m, com.baidu.tieba.InjectPlugin.a {
+    private static SparseArray<BdUniqueId> cHA = new SparseArray<>();
+    private Object cHB;
+    private int cHC;
 
-    @Override // com.baidu.adp.widget.ListView.h
+    @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return bwq.get(this.bws);
+        return cHA.get(this.cHC);
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object Uh() {
-        return this.bwr;
+    public Object aug() {
+        return this.cHB;
     }
 
-    public void P(Object obj) {
-        this.bwr = obj;
+    public void aj(Object obj) {
+        this.cHB = obj;
     }
 
-    public int Ui() {
-        return this.bws;
+    public int auh() {
+        return this.cHC;
     }
 
-    public void hs(int i) {
-        this.bws = i;
+    public void li(int i) {
+        this.cHC = i;
     }
 
-    public static void X(List<Integer> list) {
-        if (bwq.size() <= 0 && list != null) {
+    public static void ak(List<Integer> list) {
+        if (cHA.size() <= 0 && list != null) {
             for (Integer num : list) {
-                bwq.put(num.intValue(), BdUniqueId.gen());
+                cHA.put(num.intValue(), BdUniqueId.gen());
             }
         }
     }
 
-    public static List<BdUniqueId> Uj() {
+    public static List<BdUniqueId> aui() {
         ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < bwq.size(); i++) {
-            arrayList.add(bwq.valueAt(i));
+        for (int i = 0; i < cHA.size(); i++) {
+            arrayList.add(cHA.valueAt(i));
         }
         return arrayList;
     }
 
-    public static int i(BdUniqueId bdUniqueId) {
+    public static int j(BdUniqueId bdUniqueId) {
         int indexOfValue;
-        if (bwq.size() == 0 || (indexOfValue = bwq.indexOfValue(bdUniqueId)) == -1 || bwq.size() <= indexOfValue) {
+        if (cHA.size() == 0 || (indexOfValue = cHA.indexOfValue(bdUniqueId)) == -1 || cHA.size() <= indexOfValue) {
             return -1;
         }
-        return bwq.keyAt(indexOfValue);
+        return cHA.keyAt(indexOfValue);
     }
 }

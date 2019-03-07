@@ -5,35 +5,35 @@ import com.airbnb.lottie.model.content.ShapeTrimPath;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class q implements b, a.InterfaceC0009a {
+public class q implements b, a.InterfaceC0007a {
     private String name;
-    private final com.airbnb.lottie.a.b.a<?, Float> pA;
-    private final com.airbnb.lottie.a.b.a<?, Float> pB;
-    private final com.airbnb.lottie.a.b.a<?, Float> pC;
-    private final List<a.InterfaceC0009a> py = new ArrayList();
-    private final ShapeTrimPath.Type pz;
+    private final List<a.InterfaceC0007a> pr = new ArrayList();
+    private final ShapeTrimPath.Type pu;
+    private final com.airbnb.lottie.a.b.a<?, Float> pv;
+    private final com.airbnb.lottie.a.b.a<?, Float> pw;
+    private final com.airbnb.lottie.a.b.a<?, Float> px;
 
     public q(com.airbnb.lottie.model.layer.a aVar, ShapeTrimPath shapeTrimPath) {
         this.name = shapeTrimPath.getName();
-        this.pz = shapeTrimPath.dm();
-        this.pA = shapeTrimPath.eF().dG();
-        this.pB = shapeTrimPath.eE().dG();
-        this.pC = shapeTrimPath.ey().dG();
-        aVar.a(this.pA);
-        aVar.a(this.pB);
-        aVar.a(this.pC);
-        this.pA.b(this);
-        this.pB.b(this);
-        this.pC.b(this);
+        this.pu = shapeTrimPath.dl();
+        this.pv = shapeTrimPath.eE().dF();
+        this.pw = shapeTrimPath.eD().dF();
+        this.px = shapeTrimPath.ex().dF();
+        aVar.a(this.pv);
+        aVar.a(this.pw);
+        aVar.a(this.px);
+        this.pv.b(this);
+        this.pw.b(this);
+        this.px.b(this);
     }
 
-    @Override // com.airbnb.lottie.a.b.a.InterfaceC0009a
-    public void dd() {
+    @Override // com.airbnb.lottie.a.b.a.InterfaceC0007a
+    public void dc() {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.py.size()) {
-                this.py.get(i2).dd();
+            if (i2 < this.pr.size()) {
+                this.pr.get(i2).dc();
                 i = i2 + 1;
             } else {
                 return;
@@ -51,25 +51,25 @@ public class q implements b, a.InterfaceC0009a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(a.InterfaceC0009a interfaceC0009a) {
-        this.py.add(interfaceC0009a);
+    public void a(a.InterfaceC0007a interfaceC0007a) {
+        this.pr.add(interfaceC0007a);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ShapeTrimPath.Type dm() {
-        return this.pz;
+    public ShapeTrimPath.Type dl() {
+        return this.pu;
+    }
+
+    public com.airbnb.lottie.a.b.a<?, Float> dm() {
+        return this.pv;
     }
 
     public com.airbnb.lottie.a.b.a<?, Float> dn() {
-        return this.pA;
+        return this.pw;
     }
 
     /* renamed from: do  reason: not valid java name */
     public com.airbnb.lottie.a.b.a<?, Float> m6do() {
-        return this.pB;
-    }
-
-    public com.airbnb.lottie.a.b.a<?, Float> dp() {
-        return this.pC;
+        return this.px;
     }
 }

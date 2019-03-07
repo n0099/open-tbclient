@@ -10,79 +10,79 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.iCp;
-        long j = this.iQT;
-        long cga = cga();
-        long dV = dV(cga);
-        if (b(eArr, dV) != null) {
-            if (cga - cfZ() > j) {
+        E[] eArr = this.jSa;
+        long j = this.kbq;
+        long cED = cED();
+        long es = es(cED);
+        if (b(eArr, es) != null) {
+            if (cED - cEC() > j) {
                 return false;
             }
             do {
-            } while (b(eArr, dV) != null);
-            a(eArr, dV, e);
-            dX(1 + cga);
+            } while (b(eArr, es) != null);
+            a(eArr, es, e);
+            eu(1 + cED);
             return true;
         }
-        a(eArr, dV, e);
-        dX(1 + cga);
+        a(eArr, es, e);
+        eu(1 + cED);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long cfZ;
-        long cgd = cgd();
+        long cEC;
+        long cEG = cEG();
         do {
-            cfZ = cfZ();
-            if (cfZ >= cgd) {
-                long cga = cga();
-                if (cfZ >= cga) {
+            cEC = cEC();
+            if (cEC >= cEG) {
+                long cED = cED();
+                if (cEC >= cED) {
                     return null;
                 }
-                dY(cga);
+                ev(cED);
             }
-        } while (!u(cfZ, 1 + cfZ));
-        long dV = dV(cfZ);
-        E[] eArr = this.iCp;
-        E a = a(eArr, dV);
-        b(eArr, dV, null);
+        } while (!z(cEC, 1 + cEC));
+        long es = es(cEC);
+        E[] eArr = this.jSa;
+        E a = a(eArr, es);
+        b(eArr, es, null);
         return a;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        E dW;
-        long cgd = cgd();
+        E et;
+        long cEG = cEG();
         do {
-            long cfZ = cfZ();
-            if (cfZ >= cgd) {
-                long cga = cga();
-                if (cfZ >= cga) {
+            long cEC = cEC();
+            if (cEC >= cEG) {
+                long cED = cED();
+                if (cEC >= cED) {
                     return null;
                 }
-                dY(cga);
+                ev(cED);
             }
-            dW = dW(dV(cfZ));
-        } while (dW == null);
-        return dW;
+            et = et(es(cEC));
+        } while (et == null);
+        return et;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long cfZ = cfZ();
+        long cEC = cEC();
         while (true) {
-            long cga = cga();
-            long cfZ2 = cfZ();
-            if (cfZ == cfZ2) {
-                return (int) (cga - cfZ2);
+            long cED = cED();
+            long cEC2 = cEC();
+            if (cEC == cEC2) {
+                return (int) (cED - cEC2);
             }
-            cfZ = cfZ2;
+            cEC = cEC2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return cfZ() == cga();
+        return cEC() == cED();
     }
 }

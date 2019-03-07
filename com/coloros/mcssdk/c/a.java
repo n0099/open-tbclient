@@ -3,6 +3,7 @@ package com.coloros.mcssdk.c;
 import android.text.TextUtils;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class a {
     private static String a() {
@@ -13,7 +14,7 @@ public final class a {
             c[i] = c[i + 1];
             c[i + 1] = b;
         }
-        return c != null ? new String(c, Charset.forName("UTF-8")) : "";
+        return c != null ? new String(c, Charset.forName(HTTP.UTF_8)) : "";
     }
 
     public static String a(String str) {
@@ -30,7 +31,7 @@ public final class a {
 
     private static byte[] c(String str) {
         try {
-            return str.getBytes("UTF-8");
+            return str.getBytes(HTTP.UTF_8);
         } catch (UnsupportedEncodingException e) {
             return new byte[0];
         }

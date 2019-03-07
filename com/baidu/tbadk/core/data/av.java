@@ -1,42 +1,17 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.StringUtils;
-import tbclient.SchoolRecomUserInfo;
+import tbclient.RecomPostTopic;
 /* loaded from: classes.dex */
 public class av {
-    private String uid = "";
-    private String uname = "";
-    private String portrait = "";
-    private String institute = "";
-    private int isLike = -1;
+    public long bAd;
+    public String recom_title;
+    public String recom_topic;
 
-    public void a(SchoolRecomUserInfo schoolRecomUserInfo) {
-        if (schoolRecomUserInfo != null) {
-            this.uid = StringUtils.string(schoolRecomUserInfo.uid);
-            this.uname = schoolRecomUserInfo.uname;
-            this.portrait = schoolRecomUserInfo.portrait;
-            this.institute = schoolRecomUserInfo.institute;
-            this.isLike = schoolRecomUserInfo.is_liked.intValue();
+    public void a(RecomPostTopic recomPostTopic) {
+        if (recomPostTopic != null) {
+            this.recom_title = recomPostTopic.recom_title;
+            this.recom_topic = recomPostTopic.recom_topic;
+            this.bAd = recomPostTopic.uniq_topicid.longValue();
         }
-    }
-
-    public String getUid() {
-        return this.uid;
-    }
-
-    public String zp() {
-        return this.uname;
-    }
-
-    public String getPortrait() {
-        return this.portrait;
-    }
-
-    public String zq() {
-        return this.institute;
-    }
-
-    public int getIsLike() {
-        return this.isLike;
     }
 }

@@ -6,7 +6,6 @@ import android.os.Message;
 import android.support.annotation.GuardedBy;
 import android.support.annotation.RestrictTo;
 import android.support.annotation.VisibleForTesting;
-import com.baidu.searchbox.ng.ai.apps.system.bluetooth.utils.AiAppsBluetoothConstants;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -143,7 +142,7 @@ public class SelfDestructiveThread {
                         t = (T) atomicReference.get();
                     }
                 } while (nanos > 0);
-                throw new InterruptedException(AiAppsBluetoothConstants.KEY_TIME_OUT);
+                throw new InterruptedException("timeout");
             }
             return t;
         } finally {

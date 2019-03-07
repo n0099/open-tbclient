@@ -13,10 +13,10 @@ import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ay;
-import com.baidu.tieba.e;
+import com.baidu.tbadk.core.util.ba;
+import com.baidu.tieba.d;
 /* loaded from: classes.dex */
-public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.a, com.baidu.tbadk.j.a> {
+public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.a, com.baidu.tbadk.l.a> {
     private TbPageContext mPageContext;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -28,16 +28,16 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.a, c
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
-    /* renamed from: i */
-    public com.baidu.tbadk.j.a onCreateViewHolder(ViewGroup viewGroup) {
-        return new com.baidu.tbadk.j.a(LayoutInflater.from(this.mContext).inflate(e.h.ala_follow_live_common_item_view, viewGroup, false), this.mPageContext);
+    /* renamed from: p */
+    public com.baidu.tbadk.l.a onCreateViewHolder(ViewGroup viewGroup) {
+        return new com.baidu.tbadk.l.a(LayoutInflater.from(this.mContext).inflate(d.h.ala_follow_live_common_item_view, viewGroup, false), this.mPageContext);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
-    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.a aVar, com.baidu.tbadk.j.a aVar2) {
+    public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tbadk.data.a aVar, com.baidu.tbadk.l.a aVar2) {
         if (aVar != null && aVar2 != null) {
             aVar2.a(i, aVar);
             a(aVar2, aVar);
@@ -45,22 +45,22 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tbadk.data.a, c
         return view;
     }
 
-    private void a(com.baidu.tbadk.j.a aVar, final com.baidu.tbadk.data.a aVar2) {
+    private void a(com.baidu.tbadk.l.a aVar, final com.baidu.tbadk.data.a aVar2) {
         aVar.getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.b.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (aVar2.aXs == -100) {
+                if (aVar2.cgM == -100) {
                     TiebaStatic.log("c12679");
                     CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2911006, String.class);
                     if (runTask == null || StringUtils.isNull((String) runTask.getData())) {
                         com.baidu.tbadk.core.e.b.c(c.this.mPageContext.getPageActivity(), 15, true);
                         return;
                     } else {
-                        ay.Es().a(c.this.mPageContext, new String[]{(String) runTask.getData()}, true);
+                        ba.adD().a(c.this.mPageContext, new String[]{(String) runTask.getData()}, true);
                         return;
                     }
                 }
-                AlaLiveInfoCoreData alaLiveInfoCoreData = aVar2.aXr;
+                AlaLiveInfoCoreData alaLiveInfoCoreData = aVar2.cgL;
                 if (alaLiveInfoCoreData != null) {
                     TiebaStatic.log("c12677");
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(c.this.mPageContext.getPageActivity(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_CONCERN_TAB_TOP_LIVE, TbadkCoreApplication.getCurrentAccount(), false, "")));

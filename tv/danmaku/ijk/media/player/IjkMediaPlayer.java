@@ -16,10 +16,10 @@ import android.os.PowerManager;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
-import com.baidu.ar.parser.ARResourceKey;
-import com.baidu.ar.util.SystemInfoUtil;
+import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.play.b.e;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -32,7 +32,7 @@ import java.util.Map;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 import tv.danmaku.ijk.media.player.misc.IAndroidIO;
 import tv.danmaku.ijk.media.player.misc.IMediaDataSource;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public final class IjkMediaPlayer extends AbstractMediaPlayer {
     public static final int FFP_PROPV_DECODER_AVCODEC = 1;
     public static final int FFP_PROPV_DECODER_MEDIACODEC = 2;
@@ -132,17 +132,17 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     private static volatile boolean mIsLibLoaded = false;
     private static volatile boolean mIsNativeInitialized = false;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface OnControlMessageListener {
         String onControlResolveSegmentUrl(int i);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface OnMediaCodecSelectListener {
         String onMediaCodecSelect(IMediaPlayer iMediaPlayer, String str, int i, int i2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface OnNativeInvokeListener {
         public static final String ARG_RETRY_COUNTER = "retry_counter";
         public static final String ARG_SEGMENT_INDEX = "segment_index";
@@ -389,7 +389,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                 if (!TextUtils.isEmpty(entry.getValue())) {
                     sb.append(entry.getValue());
                 }
-                sb.append(SystemInfoUtil.LINE_END);
+                sb.append("\r\n");
                 setOption(1, "headers", sb.toString());
             }
         }
@@ -481,7 +481,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         } else {
             z = false;
         }
-        this.mWakeLock = ((PowerManager) context.getSystemService(ARResourceKey.HTTP_POWER)).newWakeLock(536870912 | i, IjkMediaPlayer.class.getName());
+        this.mWakeLock = ((PowerManager) context.getSystemService("power")).newWakeLock(536870912 | i, IjkMediaPlayer.class.getName());
         this.mWakeLock.setReferenceCounted(false);
         if (z) {
             this.mWakeLock.acquire();
@@ -676,7 +676,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         mediaInfo.mMediaPlayerName = "ijkplayer";
         String _getVideoCodecInfo = _getVideoCodecInfo();
         if (!TextUtils.isEmpty(_getVideoCodecInfo)) {
-            String[] split = _getVideoCodecInfo.split(",");
+            String[] split = _getVideoCodecInfo.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split.length >= 2) {
                 mediaInfo.mVideoDecoder = split[0];
                 mediaInfo.mVideoDecoderImpl = split[1];
@@ -687,7 +687,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         }
         String _getAudioCodecInfo = _getAudioCodecInfo();
         if (!TextUtils.isEmpty(_getAudioCodecInfo)) {
-            String[] split2 = _getAudioCodecInfo.split(",");
+            String[] split2 = _getAudioCodecInfo.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             if (split2.length >= 2) {
                 mediaInfo.mAudioDecoder = split2[0];
                 mediaInfo.mAudioDecoderImpl = split2[1];
@@ -738,7 +738,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class EventHandler extends Handler {
         private boolean ignoreSubError;
         private final WeakReference<IjkMediaPlayer> mWeakPlayer;
@@ -790,7 +790,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                     return;
                 case 100:
                     ijkMediaPlayer.notifySpeed(ijkMediaPlayer.getTcpSpeed());
-                    if (!ijkMediaPlayer.notifyOnError(-200, message.arg1, message.arg2)) {
+                    if (!ijkMediaPlayer.notifyOnError(SapiErrorCode.NETWORK_FAILED, message.arg1, message.arg2)) {
                         ijkMediaPlayer.notifyOnCompletion();
                     }
                     ijkMediaPlayer.stayAwake(false);
@@ -805,7 +805,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
                         return;
                     }
                 case 400:
-                    e.bE(message.arg1, message.arg2);
+                    e.ca(message.arg1, message.arg2);
                     ijkMediaPlayer.notifyOnSubError(message.arg1, message.arg2, "");
                     return;
                 case 500:
@@ -908,7 +908,7 @@ public final class IjkMediaPlayer extends AbstractMediaPlayer {
         return onMediaCodecSelectListener.onMediaCodecSelect(ijkMediaPlayer, str, i, i2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class DefaultMediaCodecSelector implements OnMediaCodecSelectListener {
         public static final DefaultMediaCodecSelector sInstance = new DefaultMediaCodecSelector();
 

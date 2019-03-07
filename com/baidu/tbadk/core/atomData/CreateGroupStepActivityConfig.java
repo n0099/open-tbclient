@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class CreateGroupStepActivityConfig extends IntentConfig {
     public static final String FORUMID = "forumid";
     public static final String GROUP_TYPE = "group_type";

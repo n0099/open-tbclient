@@ -1,14 +1,12 @@
 package com.baidu.tieba.enterForum.data;
 /* loaded from: classes4.dex */
-public class c {
-    public static final int[] drA = {0, 1, 2, 3, 4};
-    private int mType = 5;
+public class c extends b {
+    public boolean eBM;
+    public String mTitle;
 
-    public void setType(int i) {
-        this.mType = i;
-    }
-
-    public int getType() {
-        return this.mType;
+    public c(String str, boolean z) {
+        this.mTitle = str;
+        this.eBM = z;
+        setType(0);
     }
 }

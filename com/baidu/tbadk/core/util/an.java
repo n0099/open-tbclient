@@ -1,107 +1,111 @@
 package com.baidu.tbadk.core.util;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import com.baidu.tbadk.TbConfig;
-import com.sina.weibo.sdk.utils.FileUtils;
-import java.io.File;
+import android.app.Activity;
+import android.os.Build;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 /* loaded from: classes.dex */
 public class an {
-    private static an aCO;
+    private static int SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+    private static Method mSetStatusBarColorIcon;
+    private static Method mSetStatusBarDarkIcon;
+    private static Field mStatusBarColorFiled;
 
-    public static synchronized an DZ() {
-        an anVar;
-        synchronized (an.class) {
-            if (aCO == null) {
-                aCO = new an();
+    static {
+        SYSTEM_UI_FLAG_LIGHT_STATUS_BAR = 0;
+        try {
+            mSetStatusBarColorIcon = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        try {
+            mSetStatusBarDarkIcon = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
+        } catch (NoSuchMethodException e2) {
+            e2.printStackTrace();
+        }
+        try {
+            mStatusBarColorFiled = WindowManager.LayoutParams.class.getField("statusBarColor");
+        } catch (NoSuchFieldException e3) {
+            e3.printStackTrace();
+        }
+        try {
+            SYSTEM_UI_FLAG_LIGHT_STATUS_BAR = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
+        } catch (IllegalAccessException e4) {
+            e4.printStackTrace();
+        } catch (NoSuchFieldException e5) {
+            e5.printStackTrace();
+        }
+    }
+
+    private static boolean changeMeizuFlag(WindowManager.LayoutParams layoutParams, String str, boolean z) {
+        int i;
+        try {
+            Field declaredField = layoutParams.getClass().getDeclaredField(str);
+            declaredField.setAccessible(true);
+            int i2 = declaredField.getInt(layoutParams);
+            Field declaredField2 = layoutParams.getClass().getDeclaredField("meizuFlags");
+            declaredField2.setAccessible(true);
+            int i3 = declaredField2.getInt(layoutParams);
+            if (z) {
+                i = i2 | i3;
+            } else {
+                i = (i2 ^ (-1)) & i3;
             }
-            anVar = aCO;
+            if (i3 != i) {
+                declaredField2.setInt(layoutParams, i);
+                return true;
+            }
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (IllegalArgumentException e2) {
+            e2.printStackTrace();
+        } catch (NoSuchFieldException e3) {
+            e3.printStackTrace();
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
-        return anVar;
+        return false;
     }
 
-    public String fQ(String str) {
-        if (str == null) {
-            return null;
+    private static void setStatusBarDarkIcon(View view, boolean z) {
+        int i;
+        int systemUiVisibility = view.getSystemUiVisibility();
+        if (z) {
+            i = SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | systemUiVisibility;
+        } else {
+            i = (SYSTEM_UI_FLAG_LIGHT_STATUS_BAR ^ (-1)) & systemUiVisibility;
         }
-        long j = 0;
-        for (byte b : str.getBytes()) {
-            j += b;
-        }
-        return FileUtils.IMAGE_FILE_START + (j % 20);
-    }
-
-    public Bitmap fs(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return null;
-        }
-        return l.ay(fQ(str), str);
-    }
-
-    public boolean fR(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
-        return l.ax(fQ(str), str);
-    }
-
-    public int fS(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return -1;
-        }
-        return (int) l.aw(fQ(str), str);
-    }
-
-    public boolean copyFile(String str, String str2) {
-        String str3 = l.FL + "/" + TbConfig.getTempDirName() + "/";
-        if (!l.fa(str3)) {
-            l.fy(str3);
-        }
-        String str4 = str3 + fQ(str2);
-        if (!l.fa(str4)) {
-            l.fy(str4);
-        }
-        String str5 = str4 + "/" + str2;
-        if (str.equals(str5)) {
-            return false;
-        }
-        return l.d(str, str5, true);
-    }
-
-    public void i(String str, byte[] bArr) {
-        if (!TextUtils.isEmpty(str)) {
-            l.d(fQ(str), str, bArr);
+        if (i != systemUiVisibility) {
+            view.setSystemUiVisibility(i);
         }
     }
 
-    private void C(File file) {
-        File[] listFiles = file.listFiles();
-        if (listFiles != null) {
-            for (File file2 : listFiles) {
-                if (file2.isDirectory()) {
-                    C(file2);
-                    file2.delete();
-                } else if (!file2.delete()) {
+    private static void setStatusBarColor(Window window, int i) {
+        WindowManager.LayoutParams attributes = window.getAttributes();
+        if (mStatusBarColorFiled != null) {
+            try {
+                if (mStatusBarColorFiled.getInt(attributes) != i) {
+                    mStatusBarColorFiled.set(attributes, Integer.valueOf(i));
+                    window.setAttributes(attributes);
                 }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public void Ea() {
-        D(new File(l.FL + "/" + TbConfig.getTempDirName() + "/" + l.dA(3)));
-    }
-
-    private void D(File file) {
-        long currentTimeMillis = System.currentTimeMillis();
-        File[] listFiles = file.listFiles();
-        if (listFiles != null) {
-            for (File file2 : listFiles) {
-                if (file2.isDirectory()) {
-                    C(file2);
-                    file2.delete();
-                } else if (currentTimeMillis - file2.lastModified() >= -1702967296 && file2.delete()) {
-                }
-            }
+    public static void setStatusBarDarkIcon(Window window, boolean z) {
+        if (Build.VERSION.SDK_INT < 23) {
+            changeMeizuFlag(window.getAttributes(), "MEIZU_FLAG_DARK_STATUS_BAR_ICON", z);
+            return;
+        }
+        View decorView = window.getDecorView();
+        if (decorView != null) {
+            setStatusBarDarkIcon(decorView, z);
+            setStatusBarColor(window, 0);
         }
     }
 }

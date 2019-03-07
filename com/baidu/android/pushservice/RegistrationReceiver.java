@@ -6,16 +6,14 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.j.l;
 import com.baidu.android.pushservice.j.m;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes3.dex */
 public class RegistrationReceiver extends BroadcastReceiver {
     static void a(Context context, com.baidu.android.pushservice.b.f fVar) {
         Intent intent = new Intent();
         intent.setAction(PushConstants.ACTION_METHOD);
         intent.putExtra("method", "com.baidu.android.pushservice.action.UNBINDAPP");
-        intent.putExtra(ETAG.KEY_PACKAGE_NAME, fVar.c());
-        intent.putExtra(HttpConstants.HTTP_APP_ID, fVar.a());
+        intent.putExtra("package_name", fVar.c());
+        intent.putExtra("app_id", fVar.a());
         intent.putExtra("user_id", fVar.f);
         l.a(context, intent);
     }

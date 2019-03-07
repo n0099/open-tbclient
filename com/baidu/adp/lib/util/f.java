@@ -2,7 +2,6 @@ package com.baidu.adp.lib.util;
 
 import android.os.Environment;
 import android.os.StatFs;
-import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,15 +13,15 @@ import java.io.OutputStream;
 import java.nio.channels.FileChannel;
 /* loaded from: classes.dex */
 public class f {
-    private static String FK = "baidu";
-    public static final File FL = Environment.getExternalStorageDirectory();
-    private static final char FM = File.separatorChar;
+    private static String FJ = "baidu";
+    public static final File FK = Environment.getExternalStorageDirectory();
+    private static final char FL = File.separatorChar;
 
-    public static boolean hA() {
+    public static boolean hy() {
         return Environment.getExternalStorageState().equals("mounted");
     }
 
-    public static int kF() {
+    public static int kH() {
         String externalStorageState = Environment.getExternalStorageState();
         if (externalStorageState.equals("mounted")) {
             return 0;
@@ -36,43 +35,43 @@ public class f {
         return 3;
     }
 
-    public static String bi(String str) {
+    public static String bj(String str) {
         if (str != null) {
-            return FL + "/" + FK + "/" + str + "/";
+            return FK + "/" + FJ + "/" + str + "/";
         }
-        return FL + "/" + FK + "/";
+        return FK + "/" + FJ + "/";
     }
 
     public static String A(String str, String str2) {
         if (str != null) {
-            return FL + "/" + FK + "/" + str + "/" + str2;
+            return FK + "/" + FJ + "/" + str + "/" + str2;
         }
-        return FL + "/" + FK + "/" + str2;
+        return FK + "/" + FJ + "/" + str2;
     }
 
-    public static boolean kG() {
+    public static boolean kI() {
         try {
-            StatFs statFs = new StatFs(FL.getPath());
+            StatFs statFs = new StatFs(FK.getPath());
             return ((((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024) / 1024 > 2;
         } catch (Exception e) {
             return false;
         }
     }
 
-    public static String bj(String str) {
+    public static String bk(String str) {
         return A(null, str);
     }
 
-    public static boolean bk(String str) {
-        String bi = bi(str);
-        if (hA()) {
-            File file = new File(bi);
+    public static boolean bl(String str) {
+        String bj = bj(str);
+        if (hy()) {
+            File file = new File(bj);
             return file.exists() || file.mkdirs();
         }
         return false;
     }
 
-    private static String bl(String str) {
+    private static String bm(String str) {
         int lastIndexOf = str.lastIndexOf("/");
         if (lastIndexOf <= 0 || lastIndexOf >= str.length()) {
             return null;
@@ -81,7 +80,7 @@ public class f {
     }
 
     public static boolean B(String str, String str2) {
-        File file = new File(bl(A(str, str2)));
+        File file = new File(bm(A(str, str2)));
         if (!file.exists()) {
             try {
                 if (!file.mkdirs()) {
@@ -96,7 +95,7 @@ public class f {
     }
 
     public static File C(String str, String str2) {
-        if (bk(str)) {
+        if (bl(str)) {
             try {
                 return new File(A(str, str2));
             } catch (SecurityException e) {
@@ -108,7 +107,7 @@ public class f {
     }
 
     public static File createFile(String str, String str2) {
-        if (bk(str)) {
+        if (bl(str)) {
             try {
                 if (B(str, str2)) {
                     File C = C(str, str2);
@@ -130,7 +129,7 @@ public class f {
     }
 
     public static File D(String str, String str2) {
-        if (bk(str)) {
+        if (bl(str)) {
             try {
                 File C = C(str, str2);
                 if (C.exists()) {
@@ -148,161 +147,8 @@ public class f {
         return null;
     }
 
-    public static File bm(String str) {
+    public static File bn(String str) {
         return D(null, str);
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [484=5, 485=5, 487=5, 488=5] */
-    public static boolean c(String str, String str2, byte[] bArr) {
-        FileOutputStream fileOutputStream = null;
-        if (!bk(str) || !B(str, str2)) {
-            return false;
-        }
-        File C = C(str, str2);
-        FileOutputStream fileOutputStream2 = null;
-        try {
-            try {
-                if (C.exists() && !C.delete()) {
-                    if (0 != 0) {
-                        try {
-                            fileOutputStream2.close();
-                            return false;
-                        } catch (Exception e) {
-                            BdLog.e(e.getMessage());
-                            return false;
-                        }
-                    }
-                    return false;
-                } else if (!C.createNewFile()) {
-                    if (0 != 0) {
-                        try {
-                            fileOutputStream2.close();
-                            return false;
-                        } catch (Exception e2) {
-                            BdLog.e(e2.getMessage());
-                            return false;
-                        }
-                    }
-                    return false;
-                } else {
-                    FileOutputStream fileOutputStream3 = new FileOutputStream(C);
-                    try {
-                        fileOutputStream3.write(bArr, 0, bArr.length);
-                        fileOutputStream3.flush();
-                        fileOutputStream3.close();
-                        FileOutputStream fileOutputStream4 = null;
-                        if (0 != 0) {
-                            try {
-                                fileOutputStream4.close();
-                            } catch (Exception e3) {
-                                BdLog.e(e3.getMessage());
-                            }
-                        }
-                        return true;
-                    } catch (IOException e4) {
-                        e = e4;
-                        fileOutputStream = fileOutputStream3;
-                        BdLog.e(e.getMessage());
-                        if (fileOutputStream != null) {
-                            try {
-                                fileOutputStream.close();
-                                return false;
-                            } catch (Exception e5) {
-                                BdLog.e(e5.getMessage());
-                                return false;
-                            }
-                        }
-                        return false;
-                    } catch (Throwable th) {
-                        th = th;
-                        fileOutputStream = fileOutputStream3;
-                        if (fileOutputStream != null) {
-                            try {
-                                fileOutputStream.close();
-                            } catch (Exception e6) {
-                                BdLog.e(e6.getMessage());
-                            }
-                        }
-                        throw th;
-                    }
-                }
-            } catch (IOException e7) {
-                e = e7;
-            }
-        } catch (Throwable th2) {
-            th = th2;
-        }
-    }
-
-    public static boolean e(String str, byte[] bArr) {
-        return c(null, str, bArr);
-    }
-
-    /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [521=4, 522=4] */
-    public static byte[] E(String str, String str2) {
-        ByteArrayOutputStream byteArrayOutputStream;
-        FileInputStream fileInputStream;
-        Throwable th;
-        byte[] bArr = null;
-        if (bk(str)) {
-            File C = C(str, str2);
-            if (C.exists()) {
-                try {
-                    fileInputStream = new FileInputStream(C);
-                    try {
-                        byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                        try {
-                            try {
-                                byte[] bArr2 = new byte[1024];
-                                while (true) {
-                                    int read = fileInputStream.read(bArr2, 0, 1024);
-                                    if (read == -1) {
-                                        break;
-                                    }
-                                    byteArrayOutputStream.write(bArr2, 0, read);
-                                }
-                                bArr = byteArrayOutputStream.toByteArray();
-                                n.h(fileInputStream);
-                                n.b((OutputStream) byteArrayOutputStream);
-                            } catch (IOException e) {
-                                e = e;
-                                BdLog.e(e.getMessage());
-                                n.h(fileInputStream);
-                                n.b((OutputStream) byteArrayOutputStream);
-                                return bArr;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            n.h(fileInputStream);
-                            n.b((OutputStream) byteArrayOutputStream);
-                            throw th;
-                        }
-                    } catch (IOException e2) {
-                        e = e2;
-                        byteArrayOutputStream = null;
-                    } catch (Throwable th3) {
-                        byteArrayOutputStream = null;
-                        th = th3;
-                        n.h(fileInputStream);
-                        n.b((OutputStream) byteArrayOutputStream);
-                        throw th;
-                    }
-                } catch (IOException e3) {
-                    e = e3;
-                    byteArrayOutputStream = null;
-                    fileInputStream = null;
-                } catch (Throwable th4) {
-                    byteArrayOutputStream = null;
-                    fileInputStream = null;
-                    th = th4;
-                }
-            }
-        }
-        return bArr;
-    }
-
-    public static byte[] bn(String str) {
-        return E(null, str);
     }
 
     public static void b(File file, File file2) throws IOException {
@@ -369,7 +215,7 @@ public class f {
                                 n.b(closeable);
                                 n.b((OutputStream) fileOutputStream);
                                 n.b(fileChannel);
-                                n.h(fileInputStream);
+                                n.i(fileInputStream);
                                 throw th;
                             }
                         }
@@ -386,7 +232,7 @@ public class f {
                         n.b(channel);
                         n.b((OutputStream) fileOutputStream);
                         n.b(fileChannel2);
-                        n.h(fileInputStream2);
+                        n.i(fileInputStream2);
                         if (file.length() != file2.length()) {
                             throw new IOException("Failed to copy full contents from '" + file + "' to '" + file2 + "'");
                         }
@@ -401,7 +247,7 @@ public class f {
                         n.b(closeable);
                         n.b((OutputStream) fileOutputStream);
                         n.b(fileChannel);
-                        n.h(fileInputStream);
+                        n.i(fileInputStream);
                         throw th;
                     }
                 } catch (Error e2) {
@@ -438,7 +284,7 @@ public class f {
         }
     }
 
-    public static InputStream m(File file) {
+    public static InputStream n(File file) {
         if (file != null) {
             try {
                 return new FileInputStream(file);
@@ -450,8 +296,8 @@ public class f {
         return null;
     }
 
-    public static boolean F(String str, String str2) {
-        if (bk(str)) {
+    public static boolean E(String str, String str2) {
+        if (bl(str)) {
             File C = C(str, str2);
             try {
                 if (C.exists()) {
@@ -467,14 +313,14 @@ public class f {
     }
 
     public static boolean bo(String str) {
-        return F(null, str);
+        return E(null, str);
     }
 
     public static void c(OutputStream outputStream) throws IOException {
         outputStream.write(new byte[]{35, 33, 65, 77, 82, 10}, 0, 6);
     }
 
-    public static long n(File file) {
+    public static long o(File file) {
         FileInputStream fileInputStream;
         long j = 0;
         FileInputStream fileInputStream2 = null;
@@ -487,16 +333,16 @@ public class f {
                     j = fileInputStream.available();
                 } catch (Exception e) {
                     fileInputStream2 = fileInputStream;
-                    com.baidu.adp.lib.g.a.h(fileInputStream2);
+                    com.baidu.adp.lib.g.a.i(fileInputStream2);
                     return j;
                 } catch (Throwable th) {
                     fileInputStream2 = fileInputStream;
                     th = th;
-                    com.baidu.adp.lib.g.a.h(fileInputStream2);
+                    com.baidu.adp.lib.g.a.i(fileInputStream2);
                     throw th;
                 }
             }
-            com.baidu.adp.lib.g.a.h(fileInputStream);
+            com.baidu.adp.lib.g.a.i(fileInputStream);
         } catch (Exception e2) {
         } catch (Throwable th2) {
             th = th2;
@@ -504,13 +350,13 @@ public class f {
         return j;
     }
 
-    public static boolean o(File file) {
+    public static boolean p(File file) {
         if (file == null) {
             return false;
         }
         try {
             if (file.isDirectory()) {
-                p(file);
+                q(file);
             }
         } catch (Exception e) {
         }
@@ -521,7 +367,7 @@ public class f {
         }
     }
 
-    public static void p(File file) throws IOException {
+    public static void q(File file) throws IOException {
         if (!file.exists()) {
             throw new IllegalArgumentException(file + " does not exist");
         }
@@ -535,7 +381,7 @@ public class f {
         IOException e = null;
         for (File file2 : listFiles) {
             try {
-                q(file2);
+                r(file2);
             } catch (IOException e2) {
                 e = e2;
             }
@@ -545,9 +391,9 @@ public class f {
         }
     }
 
-    public static void q(File file) throws IOException {
+    public static void r(File file) throws IOException {
         if (file.isDirectory()) {
-            r(file);
+            s(file);
             return;
         }
         boolean exists = file.exists();
@@ -559,10 +405,10 @@ public class f {
         }
     }
 
-    public static void r(File file) throws IOException {
+    public static void s(File file) throws IOException {
         if (file.exists()) {
-            if (!s(file)) {
-                p(file);
+            if (!t(file)) {
+                q(file);
             }
             if (!file.delete()) {
                 throw new IOException("Unable to delete directory " + file + ".");
@@ -570,11 +416,11 @@ public class f {
         }
     }
 
-    public static boolean s(File file) throws IOException {
+    public static boolean t(File file) throws IOException {
         if (file == null) {
             throw new NullPointerException("File must not be null");
         }
-        if (kH()) {
+        if (kJ()) {
             return false;
         }
         if (file.getParent() != null) {
@@ -583,11 +429,11 @@ public class f {
         return !file.getCanonicalFile().equals(file.getAbsoluteFile());
     }
 
-    static boolean kH() {
-        return FM == '\\';
+    static boolean kJ() {
+        return FL == '\\';
     }
 
-    public static void t(File file) throws IOException {
+    public static void u(File file) throws IOException {
         if (file.exists()) {
             if (!file.isDirectory()) {
                 throw new IOException("File " + file + " exists and is not a directory. Unable to create directory.");

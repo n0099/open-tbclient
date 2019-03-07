@@ -9,15 +9,15 @@ import android.text.style.ForegroundColorSpan;
 import android.widget.EditText;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.util.v;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class b {
-    private String Zv;
-    private ArrayList<String> hUQ;
+    private String blU;
+    private ArrayList<String> jkX;
 
-    public void i(EditText editText) {
+    public void m(EditText editText) {
         Editable text;
         Object[] spans;
         if (editText != null && (text = editText.getText()) != null) {
@@ -27,15 +27,15 @@ public class b {
                 }
             }
             com.baidu.tbadk.plugins.b.a(text);
-            b(text);
+            b((Spannable) text);
         }
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !v.I(this.hUQ)) {
+        if (spannable != null && !v.T(this.jkX)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.hUQ.iterator();
+                Iterator<String> it = this.jkX.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -49,8 +49,8 @@ public class b {
             int length = str2.length();
             while (indexOf >= 0) {
                 int i = indexOf + length;
-                int color = al.getColor(e.d.cp_cont_i);
-                int color2 = al.getColor(e.d.cp_cont_h_alpha85);
+                int color = al.getColor(d.C0236d.cp_btn_a);
+                int color2 = al.getColor(d.C0236d.cp_cont_h_alpha85);
                 ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
                 BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
                 spannable.setSpan(foregroundColorSpan, indexOf, i, 33);
@@ -60,7 +60,7 @@ public class b {
         }
     }
 
-    public int a(Spanned spanned) {
+    public int b(Spanned spanned) {
         if (spanned == null) {
             return 0;
         }
@@ -68,15 +68,15 @@ public class b {
         return (backgroundColorSpanArr == null || backgroundColorSpanArr.length <= 0) ? spanned.length() : spanned.getSpanEnd(backgroundColorSpanArr[0]);
     }
 
-    public boolean j(EditText editText) {
+    public boolean n(EditText editText) {
         Editable text;
         if (editText == null || (text = editText.getText()) == null) {
             return false;
         }
-        int a = a(text);
-        if (a > 0) {
+        int b = b((Spanned) text);
+        if (b > 0) {
             editText.requestFocus();
-            editText.setSelection(a);
+            editText.setSelection(b);
             return true;
         }
         editText.setSelection(editText.getSelectionEnd());
@@ -84,15 +84,15 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (v.I(bOt())) {
+        if (v.T(cnL())) {
             return false;
         }
-        return j(editText) || j(editText2);
+        return n(editText) || n(editText2);
     }
 
     public void b(EditText editText, EditText editText2) {
-        k(editText);
-        k(editText2);
+        o(editText);
+        o(editText2);
         a(editText, editText2);
     }
 
@@ -100,25 +100,25 @@ public class b {
         b(editText, editText2);
     }
 
-    public void k(EditText editText) {
+    public void o(EditText editText) {
         if (editText != null) {
-            i(editText);
+            m(editText);
         }
     }
 
-    public void aA(ArrayList<String> arrayList) {
-        this.hUQ = arrayList;
+    public void aE(ArrayList<String> arrayList) {
+        this.jkX = arrayList;
     }
 
-    public ArrayList<String> bOt() {
-        return this.hUQ;
+    public ArrayList<String> cnL() {
+        return this.jkX;
     }
 
-    public void xK(String str) {
-        this.Zv = str;
+    public void Ei(String str) {
+        this.blU = str;
     }
 
-    public String bOx() {
-        return this.Zv;
+    public String cnP() {
+        return this.blU;
     }
 }

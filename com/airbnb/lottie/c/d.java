@@ -2,13 +2,13 @@ package com.airbnb.lottie.c;
 /* loaded from: classes2.dex */
 public class d {
     private int n;
-    private float sR;
+    private float sN;
 
     public void o(float f) {
-        this.sR += f;
+        this.sN += f;
         this.n++;
         if (this.n == Integer.MAX_VALUE) {
-            this.sR /= 2.0f;
+            this.sN /= 2.0f;
             this.n /= 2;
         }
     }

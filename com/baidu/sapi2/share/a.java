@@ -14,7 +14,6 @@ import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.text.TextUtils;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
@@ -28,7 +27,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
-import com.baidu.webkit.internal.ABTestConstants;
+import com.baidu.sapi2.utils.enums.ShareDirectionType;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -111,7 +110,7 @@ public final class a {
 
     @TargetApi(5)
     void a(SapiAccount sapiAccount, List<Intent> list, boolean z) {
-        if (!com.baidu.sapi2.utils.enums.a.a.equals(q.loginShareDirection()) && !sapiAccount.isGuestAccount()) {
+        if (!ShareDirectionType.IMPORT.equals(q.loginShareDirection()) && !sapiAccount.isGuestAccount() && ShareDirectionType.EXPORT.equals(q.loginShareDirection())) {
             HandlerThread handlerThread = new HandlerThread("ValidateThread");
             handlerThread.start();
             Handler handler = new Handler(handlerThread.getLooper());
@@ -141,7 +140,7 @@ public final class a {
         public void run() {
             if (!this.a.isEmpty()) {
                 try {
-                    if (!a.q.context.bindService((Intent) this.a.get(0), new ServiceConnection() { // from class: com.baidu.sapi2.share.a.1.1
+                    a.q.context.bindService((Intent) this.a.get(0), new ServiceConnection() { // from class: com.baidu.sapi2.share.a.1.1
                         @Override // android.content.ServiceConnection
                         public void onServiceConnected(ComponentName componentName, final IBinder iBinder) {
                             AnonymousClass1.this.b.post(new Runnable() { // from class: com.baidu.sapi2.share.a.1.1.1
@@ -183,14 +182,7 @@ public final class a {
                         @Override // android.content.ServiceConnection
                         public void onServiceDisconnected(ComponentName componentName) {
                         }
-                    }, 1)) {
-                        this.a.remove(0);
-                        if (!this.a.isEmpty()) {
-                            this.b.post(this);
-                        } else {
-                            this.e.quit();
-                        }
-                    }
+                    }, 1);
                 } catch (Throwable th) {
                     Log.e(th);
                 }
@@ -202,7 +194,7 @@ public final class a {
     public void b(SapiAccount sapiAccount) {
         if (sapiAccount != null && !sapiAccount.isGuestAccount() && q.loginShareStrategy() != LoginShareStrategy.DISABLED) {
             r.removeShareAccount(sapiAccount);
-            if (!f() && !g() && !com.baidu.sapi2.utils.enums.a.a.equals(q.loginShareDirection())) {
+            if (!f() && !g() && !ShareDirectionType.IMPORT.equals(q.loginShareDirection())) {
                 HandlerThread handlerThread = new HandlerThread("InvalidateThread");
                 handlerThread.start();
                 Handler handler = new Handler(handlerThread.getLooper());
@@ -231,7 +223,7 @@ public final class a {
         public void run() {
             if (!this.a.isEmpty()) {
                 try {
-                    if (!a.q.context.bindService((Intent) this.a.get(0), new ServiceConnection() { // from class: com.baidu.sapi2.share.a.2.1
+                    a.q.context.bindService((Intent) this.a.get(0), new ServiceConnection() { // from class: com.baidu.sapi2.share.a.2.1
                         @Override // android.content.ServiceConnection
                         public void onServiceConnected(ComponentName componentName, final IBinder iBinder) {
                             AnonymousClass2.this.b.post(new Runnable() { // from class: com.baidu.sapi2.share.a.2.1.1
@@ -269,14 +261,7 @@ public final class a {
                         @Override // android.content.ServiceConnection
                         public void onServiceDisconnected(ComponentName componentName) {
                         }
-                    }, 1)) {
-                        this.a.remove(0);
-                        if (!this.a.isEmpty()) {
-                            this.b.post(this);
-                        } else {
-                            this.d.quit();
-                        }
-                    }
+                    }, 1);
                 } catch (Throwable th) {
                     Log.e(th);
                 }
@@ -296,7 +281,7 @@ public final class a {
 
     @TargetApi(5)
     private static void j() {
-        if (!g() && !com.baidu.sapi2.utils.enums.a.b.equals(q.loginShareDirection())) {
+        if (!g() && !ShareDirectionType.EXPORT.equals(q.loginShareDirection())) {
             HandlerThread handlerThread = new HandlerThread("SyncThread");
             handlerThread.start();
             Handler handler = new Handler(handlerThread.getLooper());
@@ -327,11 +312,11 @@ public final class a {
                     if (this.b) {
                         HashMap hashMap = new HashMap();
                         hashMap.put("cuid", SapiUtils.getClientId(a.q.context));
-                        hashMap.put(Config.DEVICE_PART, Build.MODEL);
+                        hashMap.put("device", Build.MODEL);
                         hashMap.put("num", this.a.size() + "");
                         StatService.onEvent("share_silent_account", hashMap, false);
                     }
-                    if (!a.q.context.bindService((Intent) this.a.get(0), new ServiceConnection() { // from class: com.baidu.sapi2.share.a.3.1
+                    a.q.context.bindService((Intent) this.a.get(0), new ServiceConnection() { // from class: com.baidu.sapi2.share.a.3.1
                         @Override // android.content.ServiceConnection
                         public void onServiceConnected(ComponentName componentName, final IBinder iBinder) {
                             AnonymousClass3.this.c.post(new Runnable() { // from class: com.baidu.sapi2.share.a.3.1.1
@@ -347,14 +332,14 @@ public final class a {
                                         if (AnonymousClass3.this.b) {
                                             HashMap hashMap2 = new HashMap();
                                             hashMap2.put("cuid", SapiUtils.getClientId(a.q.context));
-                                            hashMap2.put(Config.DEVICE_PART, Build.MODEL);
+                                            hashMap2.put("device", Build.MODEL);
                                             SapiAccount session = SapiAccountManager.getInstance().getSession();
                                             if (session != null) {
                                                 hashMap2.put("isLogin", "true");
                                                 hashMap2.put("uid", session.uid);
                                                 hashMap2.put(ShareCallPacking.StatModel.KEY_ACCOUNT_APP, session.app);
                                             } else {
-                                                hashMap2.put("isLogin", ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE);
+                                                hashMap2.put("isLogin", "false");
                                             }
                                             StatService.onEvent("share_silent_account_success", hashMap2, false);
                                         }
@@ -387,14 +372,7 @@ public final class a {
                         @Override // android.content.ServiceConnection
                         public void onServiceDisconnected(ComponentName componentName) {
                         }
-                    }, 1)) {
-                        this.a.remove(0);
-                        if (!this.a.isEmpty() && a.r.getShareAccounts().size() < 5) {
-                            this.c.post(this);
-                        } else {
-                            this.d.quit();
-                        }
-                    }
+                    }, 1);
                 } catch (Throwable th) {
                     Log.e(th);
                 }
@@ -412,17 +390,19 @@ public final class a {
                     String string = readBundle.getString("PKG");
                     c.b(q.context, readBundle.getString(c));
                     c.a(q.context, q.loginShareStrategy(), (ShareModel) readBundle.getParcelable(b), readBundle.getInt("SDK_VERSION"), null, false, z, string);
-                    ArrayList arrayList = new ArrayList();
-                    String string2 = readBundle.getString("FACE_LOGIN_UID");
-                    if (!TextUtils.isEmpty(string2) && TextUtils.isEmpty(SapiContext.getInstance(q.context).getFaceLoginUid())) {
-                        arrayList.add(new FaceLoginModel.a(string2, 1L));
-                    }
-                    String string3 = readBundle.getString("V2_FACE_LOGIN_UIDS_TIMES");
-                    if (!TextUtils.isEmpty(string3)) {
-                        arrayList.addAll(new FaceLoginService().str2ShareModelV2List(string3));
-                    }
-                    if (!arrayList.isEmpty()) {
-                        new FaceLoginService().syncPriWithShare(arrayList, false);
+                    if (SapiContext.getInstance(q.context).shareLivingunameEnable()) {
+                        ArrayList arrayList = new ArrayList();
+                        String string2 = readBundle.getString("FACE_LOGIN_UID");
+                        if (!TextUtils.isEmpty(string2) && TextUtils.isEmpty(SapiContext.getInstance(q.context).getFaceLoginUid())) {
+                            arrayList.add(new FaceLoginModel.a(string2, 1L));
+                        }
+                        String string3 = readBundle.getString("V2_FACE_LOGIN_UIDS_TIMES");
+                        if (!TextUtils.isEmpty(string3)) {
+                            arrayList.addAll(new FaceLoginService().str2ShareModelV2List(string3));
+                        }
+                        if (!arrayList.isEmpty()) {
+                            new FaceLoginService().syncPriWithShare(arrayList, false);
+                        }
                     }
                 }
             } catch (Throwable th) {
@@ -453,7 +433,7 @@ public final class a {
         bundle.putString("PKG", q.context.getPackageName());
         bundle.putParcelable(b, shareModel);
         bundle.putSerializable(d, q.environment);
-        bundle.putInt("SDK_VERSION", 202);
+        bundle.putInt("SDK_VERSION", 200);
         obtain.writeBundle(bundle);
         return obtain;
     }
@@ -508,7 +488,7 @@ public final class a {
     }
 
     public List<ShareStorage.StorageModel> a(Context context) {
-        return (q.loginShareStrategy() == LoginShareStrategy.DISABLED || com.baidu.sapi2.utils.enums.a.b.equals(q.loginShareDirection())) ? new ArrayList(0) : c.e(context);
+        return (q.loginShareStrategy() == LoginShareStrategy.DISABLED || ShareDirectionType.EXPORT.equals(q.loginShareDirection())) ? new ArrayList(0) : c.e(context);
     }
 
     public void b(Context context) {

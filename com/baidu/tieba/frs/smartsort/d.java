@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.smartsort;
 import com.baidu.sapi2.share.face.FaceLoginModel;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class d {
     public String forumName;
     public long lastTime;
@@ -19,7 +19,7 @@ public class d {
         this.lastTime = jSONObject.optLong(FaceLoginModel.KEY_LAST_LOGIN_TIME);
     }
 
-    public JSONObject aHV() {
+    public JSONObject bik() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("forum_name", this.forumName);

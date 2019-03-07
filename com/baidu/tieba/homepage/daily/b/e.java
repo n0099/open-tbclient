@@ -6,18 +6,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.DailyTopic;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class e extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId evM = BdUniqueId.gen();
-    public List<a> evN;
+    public static final BdUniqueId fIl = BdUniqueId.gen();
+    public List<a> fIm;
 
-    public static e cl(List<DailyTopic> list) {
-        if (v.I(list)) {
+    public static e cw(List<DailyTopic> list) {
+        if (v.T(list)) {
             return null;
         }
         e eVar = new e();
         ArrayList arrayList = new ArrayList();
-        eVar.evN = arrayList;
+        eVar.fIm = arrayList;
         int i = 0;
         Iterator<DailyTopic> it = list.iterator();
         while (true) {
@@ -41,45 +41,45 @@ public class e extends com.baidu.tieba.card.data.b {
         return eVar;
     }
 
-    @Override // com.baidu.adp.widget.ListView.h
+    @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return evM;
+        return fIl;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a {
-        private String emG;
-        private String evO;
-        private String evP;
-        private String evQ;
-        private String evR;
+        private String fIn;
+        private String fIo;
+        private String fIp;
+        private String fIq;
+        private String fIr;
 
         public void a(DailyTopic dailyTopic) {
-            this.evO = dailyTopic.topic_pic;
-            this.emG = dailyTopic.topic_title;
-            this.evP = dailyTopic.topic_abstract;
-            this.evQ = dailyTopic.topic_url;
-            this.evR = dailyTopic.topic_rank_url;
+            this.fIn = dailyTopic.topic_pic;
+            this.fIo = dailyTopic.topic_title;
+            this.fIp = dailyTopic.topic_abstract;
+            this.fIq = dailyTopic.topic_url;
+            this.fIr = dailyTopic.topic_rank_url;
         }
 
-        public String aLH() {
-            return this.evO;
+        public String blJ() {
+            return this.fIn;
         }
 
-        public String zl() {
-            return this.emG;
+        public String Ya() {
+            return this.fIo;
         }
 
-        public String aLI() {
-            return this.evP;
+        public String blK() {
+            return this.fIp;
         }
 
-        public String Bt() {
-            return this.evQ;
+        public String aaz() {
+            return this.fIq;
         }
 
-        public String aLJ() {
-            return this.evR;
+        public String blL() {
+            return this.fIr;
         }
     }
 }

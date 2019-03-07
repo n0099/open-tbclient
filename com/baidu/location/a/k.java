@@ -8,25 +8,25 @@ import android.hardware.SensorManager;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class k implements SensorEventListener {
     private static Object a = new Object();
-    private static k aeb = null;
-    private SensorManager aec;
+    private static k b = null;
     private float[] c;
     private int d = 0;
     private List<Float> e = new ArrayList();
     private List<Float> f = new ArrayList();
     private boolean g = false;
     private boolean h;
+    private SensorManager i;
 
     public k() {
         this.h = false;
         try {
-            if (this.aec == null) {
-                this.aec = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
+            if (this.i == null) {
+                this.i = (SensorManager) com.baidu.location.f.getServiceContext().getSystemService("sensor");
             }
-            if (this.aec.getDefaultSensor(6) != null) {
+            if (this.i.getDefaultSensor(6) != null) {
                 this.h = true;
             }
         } catch (Exception e) {
@@ -34,13 +34,13 @@ public class k implements SensorEventListener {
         }
     }
 
-    public static k tp() {
+    public static k a() {
         k kVar;
         synchronized (a) {
-            if (aeb == null) {
-                aeb = new k();
+            if (b == null) {
+                b = new k();
             }
-            kVar = aeb;
+            kVar = b;
         }
         return kVar;
     }

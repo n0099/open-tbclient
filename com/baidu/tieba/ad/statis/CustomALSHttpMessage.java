@@ -10,7 +10,6 @@ import com.baidu.adp.lib.util.j;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.webkit.internal.ETAG;
 /* loaded from: classes3.dex */
 public class CustomALSHttpMessage extends HttpMessage {
     private static final TbHttpMessageTask task = new TbHttpMessageTask(CmdConfigHttp.CMD_CUSTOM_ALS, TbConfig.REPORT_PLOG);
@@ -22,7 +21,7 @@ public class CustomALSHttpMessage extends HttpMessage {
         addParam("productId", "2");
         addParam("_os_version", Build.VERSION.RELEASE);
         addParam("_os_type", "ANDROID");
-        addParam(ETAG.KEY_NET_TYPE, String.valueOf(j.netType()));
+        addParam("net_type", String.valueOf(j.netType()));
         this.mUIHandler = new Handler(Looper.getMainLooper());
     }
 

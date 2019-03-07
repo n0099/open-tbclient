@@ -1,27 +1,23 @@
 package com.baidu.tieba.aiapps.apps.a;
 
-import android.content.Context;
-import android.os.Bundle;
-import com.baidu.searchbox.ng.ai.apps.util.typedbox.TypedCallback;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 /* loaded from: classes4.dex */
-public class g extends ActivityDelegation {
+public class g extends ActivityDelegation implements com.baidu.swan.apps.a.a {
     @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
     protected boolean onExec() {
-        String[] stringArray = this.mParams.getStringArray("param_tpl_list");
-        if (stringArray == null || stringArray.length < 1) {
+        if (!this.mParams.getBoolean("key_login_force", false) && a.bk(getAgent())) {
+            this.mResult.putInt("result_code", 0);
+            finish();
             return true;
         }
-        b.a((Context) getAgent(), new TypedCallback<Bundle>() { // from class: com.baidu.tieba.aiapps.apps.a.g.1
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.searchbox.ng.ai.apps.util.typedbox.TypedCallback
-            public void onCallback(Bundle bundle) {
-                if (bundle != null) {
-                    g.this.mResult.putAll(bundle);
-                }
-                g.this.finish();
-            }
-        }, stringArray);
+        a.b(getAgent(), this.mParams.getString("key_login_source", AlbumActivityConfig.FROM_AIAPPS), this);
         return false;
+    }
+
+    @Override // com.baidu.swan.apps.a.a
+    public void onResult(int i) {
+        this.mResult.putInt("result_code", i);
+        finish();
     }
 }

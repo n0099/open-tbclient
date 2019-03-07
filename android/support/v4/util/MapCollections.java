@@ -1,6 +1,5 @@
 package android.support.v4.util;
 
-import com.baidu.webkit.internal.ETAG;
 import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Iterator;
@@ -160,7 +159,7 @@ public abstract class MapCollections<K, V> {
         }
 
         public final String toString() {
-            return getKey() + ETAG.EQUAL + getValue();
+            return getKey() + "=" + getValue();
         }
     }
 

@@ -2,34 +2,33 @@ package com.coloros.mcssdk.a;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.searchbox.ng.ai.apps.network.WebSocketAction;
 /* loaded from: classes3.dex */
 public final class a extends c {
     @Override // com.coloros.mcssdk.a.d
     public final com.coloros.mcssdk.e.c a(Context context, int i, Intent intent) {
         if (4098 == i) {
-            com.coloros.mcssdk.e.c ao = ao(intent);
-            com.coloros.mcssdk.a.a(context, (com.coloros.mcssdk.e.a) ao, "push_transmit");
-            return ao;
+            com.coloros.mcssdk.e.c aF = aF(intent);
+            com.coloros.mcssdk.a.a(context, (com.coloros.mcssdk.e.a) aF, "push_transmit");
+            return aF;
         }
         return null;
     }
 
-    public final com.coloros.mcssdk.e.c ao(Intent intent) {
+    public final com.coloros.mcssdk.e.c aF(Intent intent) {
         try {
             com.coloros.mcssdk.e.a aVar = new com.coloros.mcssdk.e.a();
-            aVar.yf(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("messageID"))));
-            aVar.zl(com.coloros.mcssdk.c.a.a(intent.getStringExtra(WebSocketAction.PARAM_KEY_TASKID)));
-            aVar.zm(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
+            aVar.BR(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("messageID"))));
+            aVar.Fn(com.coloros.mcssdk.c.a.a(intent.getStringExtra("taskID")));
+            aVar.Fo(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
             aVar.setContent(com.coloros.mcssdk.c.a.a(intent.getStringExtra("content")));
-            aVar.yb(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("balanceTime"))));
-            aVar.dv(Long.parseLong(com.coloros.mcssdk.c.a.a(intent.getStringExtra("startDate"))));
-            aVar.dw(Long.parseLong(com.coloros.mcssdk.c.a.a(intent.getStringExtra("endDate"))));
-            aVar.zi(com.coloros.mcssdk.c.a.a(intent.getStringExtra("timeRanges")));
+            aVar.BN(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("balanceTime"))));
+            aVar.ea(Long.parseLong(com.coloros.mcssdk.c.a.a(intent.getStringExtra("startDate"))));
+            aVar.eb(Long.parseLong(com.coloros.mcssdk.c.a.a(intent.getStringExtra("endDate"))));
+            aVar.Fk(com.coloros.mcssdk.c.a.a(intent.getStringExtra("timeRanges")));
             aVar.setTitle(com.coloros.mcssdk.c.a.a(intent.getStringExtra("title")));
-            aVar.zj(com.coloros.mcssdk.c.a.a(intent.getStringExtra("rule")));
-            aVar.yc(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("forcedDelivery"))));
-            aVar.yd(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("distinctBycontent"))));
+            aVar.Fl(com.coloros.mcssdk.c.a.a(intent.getStringExtra("rule")));
+            aVar.BO(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("forcedDelivery"))));
+            aVar.BP(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("distinctBycontent"))));
             com.coloros.mcssdk.c.c.a("OnHandleIntent-message:" + aVar.toString());
             return aVar;
         } catch (Exception e) {

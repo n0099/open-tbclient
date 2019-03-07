@@ -9,6 +9,7 @@ import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import com.baidu.searchbox.process.ipc.IPCLibConfig;
 import com.baidu.searchbox.process.ipc.agent.activity.ProcessDelegateBaseActivity;
 import com.baidu.searchbox.process.ipc.agent.provider.MainProcessDelegateProvider;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
@@ -18,7 +19,7 @@ import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatche
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import rx.d;
 import rx.j;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class DelegateUtils implements DelegateDef {
     public static Handler sMainHandler = new Handler(Looper.getMainLooper());
 
@@ -37,15 +38,21 @@ public final class DelegateUtils implements DelegateDef {
             }
             return new DelegateResult(call.getInt(DelegateDef.EXTRA_RESULT_CODE), cls, null, call.getBundle(DelegateDef.EXTRA_RESULT));
         } catch (IllegalArgumentException e) {
+            if (IPCLibConfig.DEBUG) {
+                e.printStackTrace();
+            }
             return new DelegateResult(1, cls, null, null);
         } catch (SecurityException e2) {
+            if (IPCLibConfig.DEBUG) {
+                e2.printStackTrace();
+            }
             return new DelegateResult(1, cls, null, null);
         }
     }
 
     @NonNull
     public static d<DelegateResult> safeCallOnMainWithContentProvider(@NonNull final Context context, @NonNull final Class<? extends ProviderDelegation> cls, @Nullable final Bundle bundle) {
-        return d.create(new d.a<DelegateResult>() { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.1
+        return d.a((d.a) new d.a<DelegateResult>() { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(j<? super DelegateResult> jVar) {
@@ -95,7 +102,7 @@ public final class DelegateUtils implements DelegateDef {
                     return true;
                 }
             });
-            resultDispatcher.startActivityForResult(new Intent(activity, cls).putExtra(DelegateDef.EXTRA_DELEGATION_NAME, name).putExtra("extra_params", bundle));
+            resultDispatcher.startActivityForResult(new Intent(activity, cls).putExtra(DelegateDef.EXTRA_DELEGATION_NAME, name).putExtra(DelegateDef.EXTRA_PARAMS, bundle));
         }
     }
 

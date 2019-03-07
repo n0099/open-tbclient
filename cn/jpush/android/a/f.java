@@ -2,8 +2,6 @@ package cn.jpush.android.a;
 
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.ar.audio.AudioParams;
-import com.baidu.ar.constants.HttpConstants;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
 /* loaded from: classes3.dex */
 public final class f {
@@ -54,7 +52,7 @@ public final class f {
         if (gVar == null) {
             return;
         }
-        cn.jpush.android.d.f.a("JPushRequestHelper", "Action - sendJPushRequest, timeout:" + HttpConstants.HTTP_CONNECT_TIMEOUT + ", threadId:" + Thread.currentThread().getId());
+        cn.jpush.android.d.f.a("JPushRequestHelper", "Action - sendJPushRequest, timeout:20000, threadId:" + Thread.currentThread().getId());
         Long rid = gVar.getRid();
         int command = gVar.getCommand();
         long uid = cn.jiguang.api.e.getUid();
@@ -67,19 +65,19 @@ public final class f {
                 String appKey = cn.jiguang.api.e.getAppKey();
                 short command2 = (short) gVar.getCommand();
                 String a = ((cn.jpush.a.c) gVar).a();
-                cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
-                bVar.C(0);
-                bVar.B((short) gVar.getVersion());
-                bVar.B(command2);
-                bVar.j(longValue);
-                bVar.i(sid);
-                bVar.j(uid);
+                cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(20480);
+                bVar.l(0);
+                bVar.k((short) gVar.getVersion());
+                bVar.k(command2);
+                bVar.h(longValue);
+                bVar.g(sid);
+                bVar.h(uid);
                 if (command2 == 10) {
-                    bVar.e(appKey.getBytes());
+                    bVar.f(appKey.getBytes());
                 }
-                bVar.e(a.getBytes());
+                bVar.f(a.getBytes());
                 bVar.l(bVar.current(), 0);
-                cn.jiguang.api.e.b(this.a, cn.jpush.android.a.a, HttpConstants.HTTP_CONNECT_TIMEOUT, bVar.toByteArray());
+                cn.jiguang.api.e.b(this.a, cn.jpush.android.a.a, 20000, bVar.toByteArray());
                 return;
             default:
                 return;

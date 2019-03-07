@@ -1,35 +1,17 @@
 package com.baidu.tbadk.core.data;
 
-import com.baidu.adp.lib.util.BdLog;
 import org.json.JSONObject;
-import tbclient.AppCode;
 /* loaded from: classes.dex */
 public class e {
-    private String button_text;
-    private String game_icon;
-    private String post_url;
-
-    public String getPostUrl() {
-        return this.post_url;
-    }
-
-    public void a(AppCode appCode) {
-        if (appCode != null) {
-            this.game_icon = appCode.game_icon;
-            this.post_url = appCode.post_url;
-            this.button_text = appCode.button_text;
-        }
-    }
+    public String bxt;
+    public int labelId;
+    public String labelName;
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
-            try {
-                this.game_icon = jSONObject.optString("game_icon");
-                this.post_url = jSONObject.optString("post_url");
-                this.button_text = jSONObject.optString("button_text");
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
+            this.labelId = jSONObject.optInt("label_id");
+            this.labelName = jSONObject.optString("label_name");
+            this.bxt = jSONObject.optString("label_rgb");
         }
     }
 }

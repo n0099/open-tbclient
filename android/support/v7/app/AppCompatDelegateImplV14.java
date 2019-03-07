@@ -19,6 +19,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.ActionMode;
 import android.view.Window;
+import com.baidu.sapi2.shell.SapiErrorCode;
 /* JADX INFO: Access modifiers changed from: package-private */
 @RequiresApi(14)
 /* loaded from: classes2.dex */
@@ -114,7 +115,7 @@ public class AppCompatDelegateImplV14 extends AppCompatDelegateImplV11 {
     /* JADX INFO: Access modifiers changed from: package-private */
     public int mapNightMode(int i) {
         switch (i) {
-            case -100:
+            case SapiErrorCode.ERROR_UNKNOWN /* -100 */:
                 return -1;
             case 0:
                 ensureAutoNightModeManager();

@@ -11,16 +11,15 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.l;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class c {
-    private static c hlS;
-    private SparseArray<HashSet<String>> hlV;
-    private a hlW;
+    private static c iDH;
+    private SparseArray<HashSet<String>> iDK;
+    private a iDL;
     Handler mUIHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.q.c.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -29,7 +28,7 @@ public class c {
             switch (message.what) {
                 case 5:
                     if ((message.obj instanceof a) && (aVar = (a) message.obj) != null) {
-                        aVar.eeW = false;
+                        aVar.ftn = false;
                         aVar.isRunning = false;
                         aVar.count = 0;
                         return;
@@ -40,84 +39,84 @@ public class c {
             }
         }
     };
-    private CustomMessageListener aoI = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.q.c.2
+    private CustomMessageListener bvr = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.q.c.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (c.this.hlV != null) {
-                    c.this.hlV.clear();
+                if (c.this.iDK != null) {
+                    c.this.iDK.clear();
                 }
-                c.this.hlT.bCB();
+                c.this.iDI.cdp();
             }
         }
     };
-    private int hlU = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("card_show_statistic_max_count", 200);
-    private final b hlT = new b();
+    private int iDJ = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("card_show_statistic_max_count", 200);
+    private final b iDI = new b();
 
     private c() {
-        MessageManager.getInstance().registerListener(this.aoI);
+        MessageManager.getInstance().registerListener(this.bvr);
     }
 
-    public static c bCC() {
-        if (hlS == null) {
+    public static c cdq() {
+        if (iDH == null) {
             synchronized (c.class) {
-                if (hlS == null) {
-                    hlS = new c();
+                if (iDH == null) {
+                    iDH = new c();
                 }
             }
         }
-        return hlS;
-    }
-
-    public void r(BdUniqueId bdUniqueId) {
-        l.lj();
-        if (bdUniqueId != null) {
-            this.hlT.r(bdUniqueId);
-        }
+        return iDH;
     }
 
     public void s(BdUniqueId bdUniqueId) {
-        l.lj();
+        l.lm();
         if (bdUniqueId != null) {
-            this.hlT.s(bdUniqueId);
-            u(bdUniqueId);
+            this.iDI.s(bdUniqueId);
         }
     }
 
-    private void u(BdUniqueId bdUniqueId) {
-        if (this.hlV != null) {
-            this.hlV.remove(bdUniqueId.getId());
+    public void t(BdUniqueId bdUniqueId) {
+        l.lm();
+        if (bdUniqueId != null) {
+            this.iDI.t(bdUniqueId);
+            v(bdUniqueId);
+        }
+    }
+
+    private void v(BdUniqueId bdUniqueId) {
+        if (this.iDK != null) {
+            this.iDK.remove(bdUniqueId.getId());
         }
     }
 
     public void b(BdUniqueId bdUniqueId, am amVar) {
-        this.hlT.a(bdUniqueId, true);
+        this.iDI.a(bdUniqueId, true);
         TiebaStatic.log(amVar);
     }
 
     public void a(BdUniqueId bdUniqueId, String str, am amVar) {
         if (bdUniqueId != null && amVar != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (!this.hlT.t(bdUniqueId)) {
+            if (!this.iDI.u(bdUniqueId)) {
                 BdLog.e("error, bdUniqueId not register");
                 return;
             }
             if (TextUtils.isEmpty(str)) {
                 BdLog.e("id is null, statistic key is=" + amVar.getKey());
             }
-            if (this.hlV == null) {
-                this.hlV = new SparseArray<>();
+            if (this.iDK == null) {
+                this.iDK = new SparseArray<>();
             }
-            HashSet<String> hashSet = this.hlV.get(bdUniqueId.getId());
+            HashSet<String> hashSet = this.iDK.get(bdUniqueId.getId());
             if (hashSet == null) {
                 hashSet = new HashSet<>();
-                this.hlV.put(bdUniqueId.getId(), hashSet);
+                this.iDK.put(bdUniqueId.getId(), hashSet);
             }
-            String str2 = amVar.getKey() + BaseRequestAction.SPLITE + str;
-            if (!hashSet.contains(str2) && !aHX()) {
+            String str2 = amVar.getKey() + "_" + str;
+            if (!hashSet.contains(str2) && !bim()) {
                 hashSet.add(str2);
-                this.hlT.a(bdUniqueId, amVar);
+                this.iDI.a(bdUniqueId, amVar);
                 if (BdLog.isDebugMode()) {
                     BdLog.d("add show statistic log success" + (System.currentTimeMillis() - currentTimeMillis));
                 }
@@ -125,29 +124,29 @@ public class c {
         }
     }
 
-    private boolean aHX() {
-        if (this.hlW == null) {
-            this.hlW = new a();
+    private boolean bim() {
+        if (this.iDL == null) {
+            this.iDL = new a();
         }
-        if (this.hlW.eeW) {
+        if (this.iDL.ftn) {
             return true;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.hlW.isRunning) {
-            this.hlW.count++;
-            if (currentTimeMillis - this.hlW.eeV < 120000) {
-                if (this.hlW.count >= this.hlU) {
-                    this.hlW.eeW = true;
-                    a(this.hlW);
+        if (this.iDL.isRunning) {
+            this.iDL.count++;
+            if (currentTimeMillis - this.iDL.ftm < 120000) {
+                if (this.iDL.count >= this.iDJ) {
+                    this.iDL.ftn = true;
+                    a(this.iDL);
                     return true;
                 }
             } else {
-                this.hlW.isRunning = false;
-                this.hlW.count = 0;
+                this.iDL.isRunning = false;
+                this.iDL.count = 0;
             }
         } else {
-            this.hlW.isRunning = true;
-            this.hlW.eeV = currentTimeMillis;
+            this.iDL.isRunning = true;
+            this.iDL.ftm = currentTimeMillis;
         }
         return false;
     }
@@ -164,22 +163,22 @@ public class c {
         if (BdLog.isDebugMode()) {
             BdLog.d("logStatisticByKey start write log ");
         }
-        this.hlT.a(bdUniqueId, z);
+        this.iDI.a(bdUniqueId, z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes.dex */
     public class a {
         public int count;
-        public long eeV;
-        public boolean eeW;
+        public long ftm;
+        public boolean ftn;
         public boolean isRunning;
 
         private a() {
             this.isRunning = false;
             this.count = 0;
-            this.eeV = 0L;
-            this.eeW = false;
+            this.ftm = 0L;
+            this.ftn = false;
         }
     }
 }

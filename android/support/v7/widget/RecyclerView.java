@@ -55,9 +55,6 @@ import android.view.accessibility.AccessibilityManager;
 import android.view.animation.Interpolator;
 import android.widget.EdgeEffect;
 import android.widget.OverScroller;
-import com.baidu.ar.util.MsgConstants;
-import com.baidu.mapapi.UIMsg;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
@@ -2028,7 +2025,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
                 dispatchLayoutStep2();
                 this.mLayout.setMeasuredDimensionFromChildren(i, i2);
                 if (this.mLayout.shouldMeasureTwice()) {
-                    this.mLayout.setMeasureSpecs(View.MeasureSpec.makeMeasureSpec(getMeasuredWidth(), AiAppsFileUtils.GB), View.MeasureSpec.makeMeasureSpec(getMeasuredHeight(), AiAppsFileUtils.GB));
+                    this.mLayout.setMeasureSpecs(View.MeasureSpec.makeMeasureSpec(getMeasuredWidth(), 1073741824), View.MeasureSpec.makeMeasureSpec(getMeasuredHeight(), 1073741824));
                     this.mState.mIsMeasuring = true;
                     dispatchLayoutStep2();
                     this.mLayout.setMeasuredDimensionFromChildren(i, i2);
@@ -4266,7 +4263,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
             if (hasStableIds()) {
                 vh.mItemId = getItemId(i);
             }
-            vh.setFlags(1, UIMsg.m_AppUI.MSG_SET_SENSOR_STATUS);
+            vh.setFlags(1, 519);
             TraceCompat.beginSection(RecyclerView.TRACE_BIND_VIEW_TAG);
             onBindViewHolder(vh, i, vh.getUnmodifiedPayloads());
             vh.clearPayload();
@@ -4513,8 +4510,8 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
                 this.mWidth = recyclerView.getWidth();
                 this.mHeight = recyclerView.getHeight();
             }
-            this.mWidthMode = AiAppsFileUtils.GB;
-            this.mHeightMode = AiAppsFileUtils.GB;
+            this.mWidthMode = 1073741824;
+            this.mHeightMode = 1073741824;
         }
 
         void setMeasureSpecs(int i, int i2) {
@@ -4583,7 +4580,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
             switch (mode) {
                 case Integer.MIN_VALUE:
                     return Math.min(size, Math.max(i2, i3));
-                case AiAppsFileUtils.GB /* 1073741824 */:
+                case 1073741824:
                     return size;
                 default:
                     return Math.max(i2, i3);
@@ -5116,7 +5113,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
                         return size >= i;
                     case 0:
                         return true;
-                    case AiAppsFileUtils.GB /* 1073741824 */:
+                    case 1073741824:
                         return size == i;
                     default:
                         return false;
@@ -5138,7 +5135,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
 
         @Deprecated
         public static int getChildMeasureSpec(int i, int i2, int i3, boolean z) {
-            int i4 = AiAppsFileUtils.GB;
+            int i4 = 1073741824;
             int max = Math.max(0, i - i2);
             if (z) {
                 if (i3 < 0) {
@@ -5169,7 +5166,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
                 } else if (i4 == -1) {
                     switch (i2) {
                         case Integer.MIN_VALUE:
-                        case AiAppsFileUtils.GB /* 1073741824 */:
+                        case 1073741824:
                             i5 = max;
                             break;
                         case 0:
@@ -5608,7 +5605,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
         }
 
         void setExactMeasureSpecsFrom(RecyclerView recyclerView) {
-            setMeasureSpecs(View.MeasureSpec.makeMeasureSpec(recyclerView.getWidth(), AiAppsFileUtils.GB), View.MeasureSpec.makeMeasureSpec(recyclerView.getHeight(), AiAppsFileUtils.GB));
+            setMeasureSpecs(View.MeasureSpec.makeMeasureSpec(recyclerView.getWidth(), 1073741824), View.MeasureSpec.makeMeasureSpec(recyclerView.getHeight(), 1073741824));
         }
 
         boolean shouldMeasureTwice() {
@@ -6011,7 +6008,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
     }
 
     int getAdapterPositionFor(ViewHolder viewHolder) {
-        if (viewHolder.hasAnyOfTheFlags(MsgConstants.SLAM_GESTURE_INTERACTION) || !viewHolder.isBound()) {
+        if (viewHolder.hasAnyOfTheFlags(524) || !viewHolder.isBound()) {
             return -1;
         }
         return this.mAdapterHelper.applyPendingUpdatesToPosition(viewHolder.mPosition);

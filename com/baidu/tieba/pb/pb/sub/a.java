@@ -9,130 +9,130 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.al;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import com.baidu.tieba.f.a;
 import com.baidu.tieba.pb.pb.sub.BlankView;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a {
-    private BaseActivity bBW;
-    private com.baidu.tieba.f.b cxB;
-    private boolean dZV = false;
-    private View.OnTouchListener dZW;
-    private BlankView glx;
-    private InterfaceC0290a gly;
+    private BaseActivity cNd;
+    private com.baidu.tieba.f.b dMv;
+    private boolean fny = false;
+    private View.OnTouchListener fnz;
+    private BlankView hBx;
+    private InterfaceC0288a hBy;
     private NavigationBar mNavigationBar;
-    private static final int dZT = l.h(TbadkCoreApplication.getInst(), e.C0210e.ds160);
-    private static final int TOUCH_SLOP = l.h(TbadkCoreApplication.getInst(), e.C0210e.ds20);
+    private static final int fnw = l.h(TbadkCoreApplication.getInst(), d.e.ds160);
+    private static final int TOUCH_SLOP = l.h(TbadkCoreApplication.getInst(), d.e.ds20);
 
     /* renamed from: com.baidu.tieba.pb.pb.sub.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public interface InterfaceC0290a {
-        void aGj();
+    /* loaded from: classes4.dex */
+    public interface InterfaceC0288a {
+        void bgB();
 
-        void aGk();
+        void bgC();
 
-        boolean aGl();
+        boolean bgD();
     }
 
     public a(BaseActivity baseActivity, View view, NavigationBar navigationBar) {
-        this.bBW = baseActivity;
-        this.cxB = new com.baidu.tieba.f.b(this.bBW.getPageContext().getPageActivity());
+        this.cNd = baseActivity;
+        this.dMv = new com.baidu.tieba.f.b(this.cNd.getPageContext().getPageActivity());
         this.mNavigationBar = navigationBar;
         this.mNavigationBar.setStatusBarVisibility(8);
-        this.dZW = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.sub.a.1
+        this.fnz = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.sub.a.1
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view2, MotionEvent motionEvent) {
-                a.this.cxB.onTouchEvent(motionEvent);
+                a.this.dMv.onTouchEvent(motionEvent);
                 return true;
             }
         };
         view.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.sub.a.2
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view2, MotionEvent motionEvent) {
-                a.this.cxB.onTouchEvent(motionEvent);
+                a.this.dMv.onTouchEvent(motionEvent);
                 return false;
             }
         });
-        this.cxB.a(new a.InterfaceC0214a() { // from class: com.baidu.tieba.pb.pb.sub.a.3
-            @Override // com.baidu.tieba.f.a.InterfaceC0214a
-            public void ar(int i, int i2) {
-                if (a.this.gly != null && a.this.gly.aGl() && Math.abs(i2) > a.TOUCH_SLOP) {
-                    if (a.this.glx != null) {
-                        a.this.glx.setBackgroundResource(e.d.transparent);
+        this.dMv.a(new a.InterfaceC0243a() { // from class: com.baidu.tieba.pb.pb.sub.a.3
+            @Override // com.baidu.tieba.f.a.InterfaceC0243a
+            public void aR(int i, int i2) {
+                if (a.this.hBy != null && a.this.hBy.bgD() && Math.abs(i2) > a.TOUCH_SLOP) {
+                    if (a.this.hBx != null) {
+                        a.this.hBx.setBackgroundResource(d.C0236d.transparent);
                     }
-                    a.this.bBW.finish();
+                    a.this.cNd.finish();
                 }
             }
 
-            @Override // com.baidu.tieba.f.a.InterfaceC0214a
-            public void as(int i, int i2) {
-                a.this.aGm();
+            @Override // com.baidu.tieba.f.a.InterfaceC0243a
+            public void aS(int i, int i2) {
+                a.this.bgE();
             }
 
-            @Override // com.baidu.tieba.f.a.InterfaceC0214a
-            public void at(int i, int i2) {
+            @Override // com.baidu.tieba.f.a.InterfaceC0243a
+            public void aT(int i, int i2) {
             }
         });
     }
 
-    public void bI(View view) {
+    public void cu(View view) {
         if (view != null) {
-            view.setOnTouchListener(this.dZW);
+            view.setOnTouchListener(this.fnz);
         }
     }
 
-    public void aGm() {
-        if (this.dZV && this.mNavigationBar != null && this.glx != null && this.glx.getVisibility() == 0) {
+    public void bgE() {
+        if (this.fny && this.mNavigationBar != null && this.hBx != null && this.hBx.getVisibility() == 0) {
             this.mNavigationBar.setStatusBarVisibility(0);
-            this.bBW.setExcludeHeight(0);
-            if (this.gly != null) {
-                this.gly.aGj();
+            this.cNd.setExcludeHeight(0);
+            if (this.hBy != null) {
+                this.hBy.bgB();
             }
-            this.glx.aGt();
+            this.hBx.bgL();
         }
     }
 
-    public void aGn() {
+    public void bgF() {
         ViewGroup viewGroup;
-        if (!this.dZV && (viewGroup = (ViewGroup) this.bBW.findViewById(16908290)) != null && (viewGroup.getParent() instanceof LinearLayout)) {
-            this.glx = new BlankView(this.bBW.getPageContext().getPageActivity());
-            this.glx.setBackgroundResource(e.d.transparent);
-            ((LinearLayout) viewGroup.getParent()).addView(this.glx, 0, new LinearLayout.LayoutParams(-1, dZT));
-            this.glx.setVisibility(0);
-            this.glx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.4
+        if (!this.fny && (viewGroup = (ViewGroup) this.cNd.findViewById(16908290)) != null && (viewGroup.getParent() instanceof LinearLayout)) {
+            this.hBx = new BlankView(this.cNd.getPageContext().getPageActivity());
+            this.hBx.setBackgroundResource(d.C0236d.transparent);
+            ((LinearLayout) viewGroup.getParent()).addView(this.hBx, 0, new LinearLayout.LayoutParams(-1, fnw));
+            this.hBx.setVisibility(0);
+            this.hBx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.bBW.finish();
+                    a.this.cNd.finish();
                 }
             });
-            this.glx.setScrollCallBack(new BlankView.a() { // from class: com.baidu.tieba.pb.pb.sub.a.5
+            this.hBx.setScrollCallBack(new BlankView.a() { // from class: com.baidu.tieba.pb.pb.sub.a.5
                 @Override // com.baidu.tieba.pb.pb.sub.BlankView.a
-                public void aGp() {
-                    if (a.this.glx != null) {
-                        a.this.glx.setVisibility(8);
+                public void bgH() {
+                    if (a.this.hBx != null) {
+                        a.this.hBx.setVisibility(8);
                     }
-                    a.this.dZV = false;
-                    if (a.this.gly != null) {
-                        a.this.gly.aGk();
+                    a.this.fny = false;
+                    if (a.this.hBy != null) {
+                        a.this.hBy.bgC();
                     }
                 }
             });
-            this.bBW.setExcludeHeight(dZT);
-            this.dZV = true;
+            this.cNd.setExcludeHeight(fnw);
+            this.fny = true;
         }
     }
 
-    public void a(InterfaceC0290a interfaceC0290a) {
-        this.gly = interfaceC0290a;
+    public void a(InterfaceC0288a interfaceC0288a) {
+        this.hBy = interfaceC0288a;
     }
 
-    public boolean aGo() {
-        return this.dZV;
+    public boolean bgG() {
+        return this.fny;
     }
 
-    public void nc(int i) {
-        if (this.glx != null) {
-            al.i(this.glx, i);
+    public void qP(int i) {
+        if (this.hBx != null) {
+            al.k(this.hBx, i);
         }
     }
 }

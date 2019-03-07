@@ -13,24 +13,24 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
-import com.baidu.tieba.aiapps.apps.invoice.c;
-import com.baidu.tieba.aiapps.apps.invoice.f;
+import com.baidu.tieba.aiapps.apps.invoice.b;
+import com.baidu.tieba.aiapps.apps.invoice.e;
 import com.baidu.tieba.aiapps.apps.invoice.model.InvoiceInfo;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
-public class InvoiceInfoEditView extends FrameLayout implements f {
-    private TextView bIA;
-    private RadioButton bIB;
-    private RadioButton bIC;
-    private RadioGroup bIs;
-    private ViewSwitcher bIt;
-    private InvoiceCompanyInfoView bIu;
-    private InvoicePersonalInfoView bIv;
-    private TextWatcher bIw;
-    private RadioGroup.OnCheckedChangeListener bIx;
-    private c bIy;
-    private LinearLayout bIz;
-    private View bzH;
+public class InvoiceInfoEditView extends FrameLayout implements e {
+    private View cKN;
+    private RadioGroup cTR;
+    private ViewSwitcher cTS;
+    private InvoiceCompanyInfoView cTT;
+    private InvoicePersonalInfoView cTU;
+    private TextWatcher cTV;
+    private RadioGroup.OnCheckedChangeListener cTW;
+    private b cTX;
+    private LinearLayout cTY;
+    private TextView cTZ;
+    private RadioButton cUa;
+    private RadioButton cUb;
     private Context mContext;
 
     public InvoiceInfoEditView(@NonNull Context context) {
@@ -48,40 +48,40 @@ public class InvoiceInfoEditView extends FrameLayout implements f {
 
     private void init(Context context) {
         this.mContext = context;
-        inflate(context, e.h.invoice_info_edit_view, this);
-        this.bIs = (RadioGroup) findViewById(e.g.invoice_type_group);
-        this.bIt = (ViewSwitcher) findViewById(e.g.invoice_type_switcher);
-        this.bIA = (TextView) findViewById(e.g.invoice_type_desc);
-        this.bIB = (RadioButton) findViewById(e.g.invoice_type_company);
-        this.bIC = (RadioButton) findViewById(e.g.invoice_type_personal);
-        this.bzH = findViewById(e.g.divider_line);
-        this.bIz = (LinearLayout) findViewById(e.g.invoice_type_area);
-        this.bIA.setTextColor(getResources().getColor(e.d.invoice_type));
-        this.bIB.setTextColor(getResources().getColor(e.d.invoice_type_company));
-        this.bIB.setButtonDrawable(getResources().getDrawable(e.f.radio_button_selector));
-        this.bIC.setTextColor(getResources().getColor(e.d.invoice_type_personal));
-        this.bIC.setButtonDrawable(getResources().getDrawable(e.f.radio_button_selector));
-        this.bzH.setBackgroundDrawable(getResources().getDrawable(e.d.invoice_info_item_divider_line));
-        this.bIz.setBackgroundDrawable(getResources().getDrawable(e.d.invoice_edit_view_bg));
-        this.bIx = new RadioGroup.OnCheckedChangeListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceInfoEditView.1
+        inflate(context, d.h.invoice_info_edit_view, this);
+        this.cTR = (RadioGroup) findViewById(d.g.invoice_type_group);
+        this.cTS = (ViewSwitcher) findViewById(d.g.invoice_type_switcher);
+        this.cTZ = (TextView) findViewById(d.g.invoice_type_desc);
+        this.cUa = (RadioButton) findViewById(d.g.invoice_type_company);
+        this.cUb = (RadioButton) findViewById(d.g.invoice_type_personal);
+        this.cKN = findViewById(d.g.divider_line);
+        this.cTY = (LinearLayout) findViewById(d.g.invoice_type_area);
+        this.cTZ.setTextColor(getResources().getColor(d.C0236d.invoice_type));
+        this.cUa.setTextColor(getResources().getColor(d.C0236d.invoice_type_company));
+        this.cUa.setButtonDrawable(getResources().getDrawable(d.f.radio_button_selector));
+        this.cUb.setTextColor(getResources().getColor(d.C0236d.invoice_type_personal));
+        this.cUb.setButtonDrawable(getResources().getDrawable(d.f.radio_button_selector));
+        this.cKN.setBackgroundDrawable(getResources().getDrawable(d.C0236d.invoice_info_item_divider_line));
+        this.cTY.setBackgroundDrawable(getResources().getDrawable(d.C0236d.invoice_edit_view_bg));
+        this.cTW = new RadioGroup.OnCheckedChangeListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceInfoEditView.1
             @Override // android.widget.RadioGroup.OnCheckedChangeListener
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if (i == e.g.invoice_type_company) {
-                    InvoiceInfoEditView.this.bIt.setDisplayedChild(0);
-                } else if (i == e.g.invoice_type_personal) {
-                    InvoiceInfoEditView.this.bIt.setDisplayedChild(1);
+                if (i == d.g.invoice_type_company) {
+                    InvoiceInfoEditView.this.cTS.setDisplayedChild(0);
+                } else if (i == d.g.invoice_type_personal) {
+                    InvoiceInfoEditView.this.cTS.setDisplayedChild(1);
                 }
-                if (InvoiceInfoEditView.this.bIy != null) {
-                    InvoiceInfoEditView.this.bIy.YV();
+                if (InvoiceInfoEditView.this.cTX != null) {
+                    InvoiceInfoEditView.this.cTX.aze();
                 }
             }
         };
-        this.bIs.setOnCheckedChangeListener(this.bIx);
-        this.bIu = new InvoiceCompanyInfoView(context);
-        this.bIv = new InvoicePersonalInfoView(context);
-        this.bIt.addView(this.bIu, 0);
-        this.bIt.addView(this.bIv, 1);
-        this.bIw = new TextWatcher() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceInfoEditView.2
+        this.cTR.setOnCheckedChangeListener(this.cTW);
+        this.cTT = new InvoiceCompanyInfoView(context);
+        this.cTU = new InvoicePersonalInfoView(context);
+        this.cTS.addView(this.cTT, 0);
+        this.cTS.addView(this.cTU, 1);
+        this.cTV = new TextWatcher() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceInfoEditView.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -92,38 +92,38 @@ public class InvoiceInfoEditView extends FrameLayout implements f {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                InvoiceInfoEditView.this.Za();
+                InvoiceInfoEditView.this.azk();
             }
         };
-        this.bIv.setTextChangedListener(this.bIw);
-        this.bIu.setTextChangedListener(this.bIw);
-        this.bIs.check(e.g.invoice_type_company);
+        this.cTU.setTextChangedListener(this.cTV);
+        this.cTT.setTextChangedListener(this.cTV);
+        this.cTR.check(d.g.invoice_type_company);
     }
 
-    public void setInputStatusListener(c cVar) {
-        this.bIy = cVar;
+    public void setInputStatusListener(b bVar) {
+        this.cTX = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Za() {
-        if (this.bIy != null) {
-            if (YX()) {
-                this.bIy.YT();
+    public void azk() {
+        if (this.cTX != null) {
+            if (azg()) {
+                this.cTX.azc();
             } else {
-                this.bIy.YU();
+                this.cTX.azd();
             }
         }
     }
 
-    @Override // com.baidu.tieba.aiapps.apps.invoice.f
-    public boolean YX() {
-        f currentInvoiceView = getCurrentInvoiceView();
-        return currentInvoiceView != null && currentInvoiceView.YX();
+    @Override // com.baidu.tieba.aiapps.apps.invoice.e
+    public boolean azg() {
+        e currentInvoiceView = getCurrentInvoiceView();
+        return currentInvoiceView != null && currentInvoiceView.azg();
     }
 
-    @Override // com.baidu.tieba.aiapps.apps.invoice.f
+    @Override // com.baidu.tieba.aiapps.apps.invoice.e
     public InvoiceInfo getInvoiceInfo() {
-        f currentInvoiceView = getCurrentInvoiceView();
+        e currentInvoiceView = getCurrentInvoiceView();
         if (currentInvoiceView != null) {
             return currentInvoiceView.getInvoiceInfo();
         }
@@ -133,30 +133,30 @@ public class InvoiceInfoEditView extends FrameLayout implements f {
     public void d(InvoiceInfo invoiceInfo) {
         if (invoiceInfo != null) {
             if (invoiceInfo.mType == 0) {
-                this.bIs.check(e.g.invoice_type_company);
-                this.bIu.d(invoiceInfo);
+                this.cTR.check(d.g.invoice_type_company);
+                this.cTT.d(invoiceInfo);
             } else if (invoiceInfo.mType == 1) {
-                this.bIs.check(e.g.invoice_type_personal);
-                this.bIv.d(invoiceInfo);
+                this.cTR.check(d.g.invoice_type_personal);
+                this.cTU.d(invoiceInfo);
             }
         }
     }
 
-    @Override // com.baidu.tieba.aiapps.apps.invoice.f
-    public boolean YY() {
-        f currentInvoiceView = getCurrentInvoiceView();
-        return currentInvoiceView != null && currentInvoiceView.YY();
+    @Override // com.baidu.tieba.aiapps.apps.invoice.e
+    public boolean azh() {
+        e currentInvoiceView = getCurrentInvoiceView();
+        return currentInvoiceView != null && currentInvoiceView.azh();
     }
 
-    private f getCurrentInvoiceView() {
-        if (this.bIt == null) {
+    private e getCurrentInvoiceView() {
+        if (this.cTS == null) {
             return null;
         }
-        if (this.bIt.getDisplayedChild() == 0) {
-            return this.bIu;
+        if (this.cTS.getDisplayedChild() == 0) {
+            return this.cTT;
         }
-        if (this.bIt.getDisplayedChild() == 1) {
-            return this.bIv;
+        if (this.cTS.getDisplayedChild() == 1) {
+            return this.cTU;
         }
         return null;
     }

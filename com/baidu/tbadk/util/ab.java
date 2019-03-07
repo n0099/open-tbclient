@@ -1,49 +1,189 @@
 package com.baidu.tbadk.util;
 
-import android.content.Context;
-import android.media.AudioManager;
+import android.text.TextUtils;
+import android.util.Pair;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class ab {
-    public static boolean a(WeakReference<Context> weakReference, boolean z) {
-        if (weakReference == null || weakReference.get() == null) {
-            return false;
+    public static TextView ctN;
+
+    public static int d(char c) {
+        if (e(c)) {
+            return 1;
         }
-        AudioManager audioManager = (AudioManager) weakReference.get().getSystemService("audio");
-        if (z) {
-            return audioManager.requestAudioFocus(null, 3, 2) == 1;
-        }
-        return audioManager.abandonAudioFocus(null) == 1;
+        return 2;
     }
 
-    public static boolean gq(int i) {
-        boolean z = true;
-        switch (i) {
-            case 3:
-            case 4:
-                return com.baidu.adp.lib.util.j.kW();
-            case 5:
-                return TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || (com.baidu.tbadk.p.v.PW() && com.baidu.adp.lib.util.j.kW() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 0);
-            default:
-                if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != -1) {
-                    return (com.baidu.adp.lib.util.j.kX() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2) || (com.baidu.adp.lib.util.j.kW() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1);
+    public static boolean e(char c) {
+        return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
+    }
+
+    public static int pN(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return 0;
+        }
+        int i = 0;
+        for (int i2 = 0; i2 < str.length(); i2++) {
+            if (e(str.charAt(i2))) {
+                i++;
+            } else {
+                i += 2;
+            }
+        }
+        return i;
+    }
+
+    public static int pO(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return 0;
+        }
+        int codePointCount = str.codePointCount(0, str.length());
+        int i = 0;
+        for (int i2 = 1; i2 <= codePointCount; i2++) {
+            String substring = str.substring(str.offsetByCodePoints(0, i2 - 1), str.offsetByCodePoints(0, i2));
+            if (substring.length() >= 2) {
+                i += 2;
+            } else {
+                i += pN(substring);
+            }
+        }
+        return i;
+    }
+
+    public static int pP(String str) {
+        if (TextUtils.isEmpty(str)) {
+            return 0;
+        }
+        int codePointCount = str.codePointCount(0, str.length());
+        int i = 0;
+        for (int i2 = 1; i2 <= codePointCount; i2++) {
+            if (str.substring(str.offsetByCodePoints(0, i2 - 1), str.offsetByCodePoints(0, i2)).length() >= 2) {
+            }
+            i++;
+        }
+        return i;
+    }
+
+    public static String af(String str, int i) {
+        int codePointCount = str.codePointCount(0, str.length());
+        int i2 = 1;
+        String str2 = str;
+        while (i2 <= codePointCount) {
+            String substring = str.substring(0, str.offsetByCodePoints(0, i2));
+            if (pP(substring) > i) {
+                break;
+            }
+            i2++;
+            str2 = substring;
+        }
+        return str2;
+    }
+
+    public static String ag(String str, int i) {
+        if (StringUtils.isNull(str)) {
+            return "";
+        }
+        if (pN(str) > i) {
+            return p(str, 0, i - 2) + "...";
+        }
+        return str;
+    }
+
+    public static String p(String str, int i, int i2) {
+        StringBuilder sb = new StringBuilder();
+        if (TextUtils.isEmpty(str) || i > i2) {
+            return sb.toString();
+        }
+        if (i >= 0 && i2 >= 0) {
+            int i3 = 0;
+            for (int i4 = 0; i4 < str.length(); i4++) {
+                char charAt = str.charAt(i4);
+                if (i3 >= i2) {
+                    if (i3 == i2) {
+                        return sb.toString();
+                    }
+                    return sb.deleteCharAt(sb.length() - 1).toString();
                 }
-                if (!(com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("auto_play_video_homepage", 0) == 1) || !com.baidu.adp.lib.util.j.kW()) {
-                    z = false;
+                if (i3 >= i) {
+                    sb.append(charAt);
                 }
-                return z;
+                if (e(charAt)) {
+                    i3++;
+                } else {
+                    i3 += 2;
+                }
+            }
         }
+        return sb.toString();
     }
 
-    public static boolean r(int i, String str) {
-        return gq(i);
+    public static boolean f(char c) {
+        return (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || c == ' ';
     }
 
-    public static boolean QK() {
-        if (!com.baidu.adp.lib.util.j.kW() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 1) {
-            return com.baidu.adp.lib.util.j.kX() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2;
+    public static String W(String str, int i) {
+        StringBuilder sb = new StringBuilder();
+        if (TextUtils.isEmpty(str)) {
+            return sb.toString();
         }
-        return true;
+        if (i > 0) {
+            int i2 = 0;
+            for (int i3 = 0; i3 < str.length(); i3++) {
+                char charAt = str.charAt(i3);
+                if (i2 >= i) {
+                    if (i2 == i) {
+                        return sb.toString();
+                    }
+                    return sb.deleteCharAt(sb.length() - 1).toString();
+                }
+                if (i2 >= 0) {
+                    sb.append(charAt);
+                }
+                if (f(charAt)) {
+                    i2++;
+                } else {
+                    i2 += 2;
+                }
+            }
+        }
+        return sb.toString();
+    }
+
+    public static String ah(String str, int i) {
+        int codePointCount = str.codePointCount(0, str.length());
+        int i2 = 1;
+        String str2 = str;
+        while (i2 <= codePointCount) {
+            String substring = str.substring(0, str.offsetByCodePoints(0, i2));
+            if (pO(substring) > i) {
+                break;
+            }
+            i2++;
+            str2 = substring;
+        }
+        return str2;
+    }
+
+    public static Pair<Integer, Integer> q(String str, int i, int i2) {
+        try {
+            if (ctN == null) {
+                ctN = new TextView(TbadkCoreApplication.getInst().getContext());
+            }
+            TextView textView = ctN;
+            if (textView.getLayoutParams() == null) {
+                textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+            }
+            textView.setText(str);
+            textView.setTextSize(0, i);
+            textView.measure(View.MeasureSpec.makeMeasureSpec(i2, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
+            return new Pair<>(Integer.valueOf(textView.getMeasuredHeight()), Integer.valueOf(textView.getLineCount()));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

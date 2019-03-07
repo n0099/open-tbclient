@@ -1,29 +1,29 @@
 package kotlin.coroutines.experimental;
 
-import com.baidu.fsg.base.armor.RimArmor;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import kotlin.TypeCastException;
 import kotlin.coroutines.experimental.d;
 import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public final class a implements d {
-    private final d iCr;
-    private final d.b iCs;
+    private final d jSc;
+    private final d.b jSd;
 
     public a(d dVar, d.b bVar) {
-        p.j(dVar, "left");
-        p.j(bVar, "element");
-        this.iCr = dVar;
-        this.iCs = bVar;
+        p.k(dVar, CustomDialogData.POS_LEFT);
+        p.k(bVar, "element");
+        this.jSc = dVar;
+        this.jSd = bVar;
     }
 
     @Override // kotlin.coroutines.experimental.d
     public <E extends d.b> E a(d.c<E> cVar) {
-        p.j(cVar, RimArmor.KEY);
+        p.k(cVar, "key");
         a aVar = this;
         while (true) {
-            E e = (E) aVar.iCs.a(cVar);
+            E e = (E) aVar.jSd.a(cVar);
             if (e == null) {
-                d dVar = aVar.iCr;
+                d dVar = aVar.jSc;
                 if (dVar instanceof a) {
                     aVar = (a) dVar;
                 } else {
@@ -37,34 +37,34 @@ public final class a implements d {
 
     @Override // kotlin.coroutines.experimental.d
     public <R> R a(R r, kotlin.jvm.a.c<? super R, ? super d.b, ? extends R> cVar) {
-        p.j(cVar, "operation");
-        return cVar.invoke((Object) this.iCr.a(r, cVar), this.iCs);
+        p.k(cVar, "operation");
+        return cVar.invoke((Object) this.jSc.a(r, cVar), this.jSd);
     }
 
     @Override // kotlin.coroutines.experimental.d
     public d b(d.c<?> cVar) {
-        p.j(cVar, RimArmor.KEY);
-        if (this.iCs.a(cVar) != null) {
-            return this.iCr;
+        p.k(cVar, "key");
+        if (this.jSd.a(cVar) != null) {
+            return this.jSc;
         }
-        d b = this.iCr.b(cVar);
-        return b == this.iCr ? this : b == e.iCv ? this.iCs : new a(b, this.iCs);
+        d b = this.jSc.b(cVar);
+        return b == this.jSc ? this : b == e.jSg ? this.jSd : new a(b, this.jSd);
     }
 
     private final int size() {
-        if (this.iCr instanceof a) {
-            return ((a) this.iCr).size() + 1;
+        if (this.jSc instanceof a) {
+            return ((a) this.jSc).size() + 1;
         }
         return 2;
     }
 
     private final boolean a(d.b bVar) {
-        return p.h(a((d.c<d.b>) bVar.cdi()), bVar);
+        return p.h(a((d.c<d.b>) bVar.cCn()), bVar);
     }
 
     private final boolean a(a aVar) {
-        while (a(aVar.iCs)) {
-            d dVar = aVar.iCr;
+        while (a(aVar.jSd)) {
+            d dVar = aVar.jSc;
             if (dVar instanceof a) {
                 aVar = (a) dVar;
             } else if (dVar == null) {
@@ -81,7 +81,7 @@ public final class a implements d {
     }
 
     public int hashCode() {
-        return this.iCr.hashCode() + this.iCs.hashCode();
+        return this.jSc.hashCode() + this.jSd.hashCode();
     }
 
     public String toString() {

@@ -4,11 +4,11 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class k {
-    private static k bAO;
-    private g bAP;
-    private b bAQ;
+    private static k cLU;
+    private g cLV;
+    private b cLW;
     private Handler mHandler;
     private Handler.Callback mHandlerCallback = new Handler.Callback() { // from class: com.baidu.tieba.VideoCache.k.1
         @Override // android.os.Handler.Callback
@@ -23,19 +23,19 @@ public class k {
                 }
             } else if (message.what == 2) {
                 if (message.obj instanceof String) {
-                    k.this.bAP.setVideoUrl((String) message.obj);
-                    k.this.bAP.run();
+                    k.this.cLV.setVideoUrl((String) message.obj);
+                    k.this.cLV.run();
                 }
             } else if (message.what == 3) {
-                if (k.this.bAQ != null) {
-                    k.this.bAQ.VB();
+                if (k.this.cLW != null) {
+                    k.this.cLW.avB();
                 }
             } else if (message.what == 4) {
                 if (message.obj instanceof String) {
-                    k.this.bAQ.jB((String) message.obj);
+                    k.this.cLW.qm((String) message.obj);
                 }
-            } else if (message.what == 5 && k.this.bAQ != null) {
-                k.this.bAQ.clearCache();
+            } else if (message.what == 5 && k.this.cLW != null) {
+                k.this.cLW.clearCache();
             }
             return true;
         }
@@ -45,39 +45,39 @@ public class k {
         HandlerThread handlerThread = new HandlerThread("video_cache_handler");
         handlerThread.start();
         this.mHandler = new Handler(handlerThread.getLooper(), this.mHandlerCallback);
-        this.bAP = new g();
-        this.bAQ = new b();
+        this.cLV = new g();
+        this.cLW = new b();
     }
 
-    public static k VQ() {
-        if (bAO == null) {
+    public static k avQ() {
+        if (cLU == null) {
             synchronized (k.class) {
-                if (bAO == null) {
-                    bAO = new k();
+                if (cLU == null) {
+                    cLU = new k();
                 }
             }
         }
-        return bAO;
+        return cLU;
     }
 
-    public void m(InputStream inputStream) {
+    public void o(InputStream inputStream) {
         Message obtainMessage = this.mHandler.obtainMessage(1);
         obtainMessage.obj = inputStream;
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void jM(String str) {
+    public void qx(String str) {
         this.mHandler.removeMessages(2);
         Message obtainMessage = this.mHandler.obtainMessage(2);
         obtainMessage.obj = str;
         this.mHandler.sendMessageDelayed(obtainMessage, 1000L);
     }
 
-    public void VB() {
+    public void avB() {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
     }
 
-    public void jB(String str) {
+    public void qm(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(4);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);

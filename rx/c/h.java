@@ -16,17 +16,17 @@ public abstract class h {
     }
 
     @Deprecated
-    public <T> k f(k kVar) {
+    public <T> k e(k kVar) {
         return kVar;
     }
 
     @Deprecated
-    public <T> Throwable U(Throwable th) {
+    public <T> Throwable T(Throwable th) {
         return th;
     }
 
     @Deprecated
-    public <T, R> d.b<? extends R, ? super T> d(d.b<? extends R, ? super T> bVar) {
+    public <T, R> d.b<? extends R, ? super T> e(d.b<? extends R, ? super T> bVar) {
         return bVar;
     }
 }

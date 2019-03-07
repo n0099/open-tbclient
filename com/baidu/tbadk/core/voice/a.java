@@ -6,15 +6,15 @@ import com.baidu.adp.lib.util.f;
 import com.baidu.adp.lib.util.q;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.l;
+import com.baidu.tbadk.core.util.m;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a {
-    public static String Ga() {
-        return q.lt();
+    public static String afu() {
+        return q.ly();
     }
 
-    public static String gI(String str) {
+    public static String nu(String str) {
         if (StringUtils.isNull(str)) {
             return null;
         }
@@ -22,11 +22,11 @@ public class a {
     }
 
     public static String getVoiceFilePath(String str) {
-        return l.x(str, 1);
+        return m.S(str, 1);
     }
 
-    public static String gJ(String str) {
-        return f.bj(gI(str));
+    public static String nv(String str) {
+        return f.bk(nu(str));
     }
 
     public static boolean bo(String str) {

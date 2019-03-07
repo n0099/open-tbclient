@@ -1,41 +1,69 @@
 package rx.internal.operators;
 
 import rx.d;
+import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes2.dex */
-public final class i<T, U> implements d.a<T> {
-    final rx.d<? extends T> iFX;
-    final rx.functions.e<? extends rx.d<U>> iGN;
+public class i<T, R> implements d.b<R, T> {
+    final Class<R> jXc;
 
-    @Override // rx.functions.b
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((rx.j) ((rx.j) obj));
+    @Override // rx.functions.f
+    public /* bridge */ /* synthetic */ Object call(Object obj) {
+        return call((rx.j) ((rx.j) obj));
     }
 
-    public i(rx.d<? extends T> dVar, rx.functions.e<? extends rx.d<U>> eVar) {
-        this.iFX = dVar;
-        this.iGN = eVar;
+    public i(Class<R> cls) {
+        this.jXc = cls;
     }
 
-    /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: rx.j<U>, rx.j<? super U> */
-    public void call(final rx.j<? super T> jVar) {
-        try {
-            this.iGN.call().take(1).unsafeSubscribe((rx.j<U>) new rx.j<U>() { // from class: rx.internal.operators.i.1
-                @Override // rx.e
-                public void onCompleted() {
-                    i.this.iFX.unsafeSubscribe(rx.b.g.b(jVar));
-                }
+    public rx.j<? super T> call(rx.j<? super R> jVar) {
+        a aVar = new a(jVar, this.jXc);
+        jVar.add(aVar);
+        return aVar;
+    }
 
-                @Override // rx.e
-                public void onError(Throwable th) {
-                    jVar.onError(th);
-                }
+    /* JADX INFO: Access modifiers changed from: package-private */
+    /* loaded from: classes2.dex */
+    public static final class a<T, R> extends rx.j<T> {
+        final rx.j<? super R> actual;
+        boolean done;
+        final Class<R> jXc;
 
-                @Override // rx.e
-                public void onNext(U u) {
-                }
-            });
-        } catch (Throwable th) {
-            rx.exceptions.a.a(th, jVar);
+        public a(rx.j<? super R> jVar, Class<R> cls) {
+            this.actual = jVar;
+            this.jXc = cls;
+        }
+
+        @Override // rx.e
+        public void onNext(T t) {
+            try {
+                this.actual.onNext(this.jXc.cast(t));
+            } catch (Throwable th) {
+                rx.exceptions.a.L(th);
+                unsubscribe();
+                onError(OnErrorThrowable.addValueAsLastCause(th, t));
+            }
+        }
+
+        @Override // rx.e
+        public void onError(Throwable th) {
+            if (this.done) {
+                rx.c.c.onError(th);
+                return;
+            }
+            this.done = true;
+            this.actual.onError(th);
+        }
+
+        @Override // rx.e
+        public void onCompleted() {
+            if (!this.done) {
+                this.actual.onCompleted();
+            }
+        }
+
+        @Override // rx.j
+        public void setProducer(rx.f fVar) {
+            this.actual.setProducer(fVar);
         }
     }
 }

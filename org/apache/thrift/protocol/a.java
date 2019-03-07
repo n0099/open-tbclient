@@ -2,6 +2,7 @@ package org.apache.thrift.protocol;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class a extends e {
     private static final j f = new j();
@@ -20,20 +21,20 @@ public class a extends e {
 
     /* renamed from: org.apache.thrift.protocol.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0400a implements g {
+    public static class C0376a implements g {
         protected boolean a;
         protected boolean b;
         protected int c;
 
-        public C0400a() {
+        public C0376a() {
             this(false, true);
         }
 
-        public C0400a(boolean z, boolean z2) {
+        public C0376a(boolean z, boolean z2) {
             this(z, z2, 0);
         }
 
-        public C0400a(boolean z, boolean z2, int i) {
+        public C0376a(boolean z, boolean z2, int i) {
             this.a = false;
             this.b = true;
             this.a = z;
@@ -113,7 +114,7 @@ public class a extends e {
     @Override // org.apache.thrift.protocol.e
     public void a(String str) {
         try {
-            byte[] bytes = str.getBytes("UTF-8");
+            byte[] bytes = str.getBytes(HTTP.UTF_8);
             a(bytes.length);
             this.e.b(bytes, 0, bytes.length);
         } catch (UnsupportedEncodingException e) {
@@ -174,7 +175,7 @@ public class a extends e {
             d(i);
             byte[] bArr = new byte[i];
             this.e.d(bArr, 0, i);
-            return new String(bArr, "UTF-8");
+            return new String(bArr, HTTP.UTF_8);
         } catch (UnsupportedEncodingException e) {
             throw new org.apache.thrift.f("JVM DOES NOT SUPPORT UTF-8");
         }
@@ -333,7 +334,7 @@ public class a extends e {
         int t = t();
         if (this.e.c() >= t) {
             try {
-                String str = new String(this.e.a(), this.e.b(), t, "UTF-8");
+                String str = new String(this.e.a(), this.e.b(), t, HTTP.UTF_8);
                 this.e.a(t);
                 return str;
             } catch (UnsupportedEncodingException e) {

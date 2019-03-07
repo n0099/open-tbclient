@@ -7,26 +7,26 @@ import com.baidu.adp.base.a.a;
 import com.baidu.adp.lib.util.BdLog;
 /* loaded from: classes.dex */
 public abstract class c extends SQLiteOpenHelper implements a {
-    private a.InterfaceC0014a vx;
-    private final String vy;
+    private a.InterfaceC0012a vt;
+    private final String vu;
 
     public abstract void d(SQLiteDatabase sQLiteDatabase);
 
     public abstract void e(SQLiteDatabase sQLiteDatabase);
 
     @Override // com.baidu.adp.base.a.a
-    public void a(a.InterfaceC0014a interfaceC0014a) {
-        this.vx = interfaceC0014a;
+    public void a(a.InterfaceC0012a interfaceC0012a) {
+        this.vt = interfaceC0012a;
     }
 
     public c(Context context, String str, int i) {
         super(context, str, (SQLiteDatabase.CursorFactory) null, i);
-        this.vy = str;
+        this.vu = str;
     }
 
     @Override // com.baidu.adp.base.a.a
     public boolean aL(Context context) {
-        return context.deleteDatabase(this.vy);
+        return context.deleteDatabase(this.vu);
     }
 
     public boolean b(SQLiteDatabase sQLiteDatabase, String str) {
@@ -52,8 +52,8 @@ public abstract class c extends SQLiteOpenHelper implements a {
     }
 
     private void f(SQLiteDatabase sQLiteDatabase) {
-        if (this.vx != null) {
-            this.vx.c(sQLiteDatabase);
+        if (this.vt != null) {
+            this.vt.c(sQLiteDatabase);
         }
     }
 }

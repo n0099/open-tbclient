@@ -6,69 +6,67 @@ import com.baidu.adp.lib.network.http.e;
 import com.baidu.adp.lib.network.http.g;
 import com.baidu.adp.lib.network.http.h;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.webkit.internal.ABTestConstants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import org.apache.http.cookie.SM;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class a {
+    private static String Dh;
     private static String Di;
     private static String Dj;
-    private static String Dk;
-    private static boolean Dl;
+    private static boolean Dk;
+    private static String Dl;
     private static String Dm;
     private static String Dn;
-    private static String Do;
-    private e Dp;
-    private c Dq;
-    private long Dr;
+    private e Do;
+    private c Dp;
+    private long Dq;
 
     public void init() {
-        System.setProperty("http.keepAlive", ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE);
-        this.Dr = BdStatisticsManager.getInstance().getClientLogId();
+        System.setProperty("http.keepAlive", "false");
+        this.Dq = BdStatisticsManager.getInstance().getClientLogId();
     }
 
     public static void aR(String str) {
-        Di = str;
-    }
-
-    public static void setCuid(String str) {
-        Dm = str;
+        Dh = str;
     }
 
     public static void aS(String str) {
-        Dn = str;
+        Dl = str;
     }
 
     public static void aT(String str) {
-        Do = str;
+        Dm = str;
+    }
+
+    public static void aU(String str) {
+        Dn = str;
     }
 
     public static void setUserAgent(String str) {
-        Dj = str;
+        Di = str;
     }
 
     public static void setUid(String str) {
-        Dk = str;
+        Dj = str;
     }
 
     public static void setKeepAlive(boolean z) {
-        Dl = z;
+        Dk = z;
     }
 
     public g a(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.Dp = new e();
-        a(this.Dp, z);
-        this.Dp.jp().setUrl(str);
-        this.Dq = new c(this.Dp);
-        this.Dq.e(i, i3, i4);
-        return this.Dp.jq();
+        this.Do = new e();
+        a(this.Do, z);
+        this.Do.jr().setUrl(str);
+        this.Dp = new c(this.Do);
+        this.Dp.e(i, i3, i4);
+        return this.Do.js();
     }
 
     public g a(String str, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
@@ -76,52 +74,52 @@ public class a {
     }
 
     public g a(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.Dp = new e();
-        a(this.Dp, z);
-        this.Dp.jp().setUrl(str);
+        this.Do = new e();
+        a(this.Do, z);
+        this.Do.jr().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.Dp.jp().a(basicNameValuePair);
+                this.Do.jr().a(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.Dp.jp().y(next.getName(), next.getValue());
+                this.Do.jr().y(next.getName(), next.getValue());
             }
         }
-        this.Dq = new c(this.Dp);
-        this.Dq.g(i, i2, -1);
-        return this.Dp.jq();
+        this.Dp = new c(this.Do);
+        this.Dp.g(i, i2, -1);
+        return this.Do.js();
     }
 
     public g a(String str, boolean z, ArrayList<BasicNameValuePair> arrayList, HashMap<String, byte[]> hashMap, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.Dp = new e();
-        a(this.Dp, z);
-        this.Dp.jp().setUrl(str);
+        this.Do = new e();
+        a(this.Do, z);
+        this.Do.jr().setUrl(str);
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.Dp.jp().y(next.getName(), next.getValue());
+                this.Do.jr().y(next.getName(), next.getValue());
             }
         }
         if (arrayList != null) {
             Iterator<BasicNameValuePair> it2 = arrayList.iterator();
             while (it2.hasNext()) {
                 BasicNameValuePair next2 = it2.next();
-                this.Dp.jp().x(next2.getName(), next2.getValue());
+                this.Do.jr().x(next2.getName(), next2.getValue());
             }
         }
         if (hashMap != null) {
             for (Map.Entry<String, byte[]> entry : hashMap.entrySet()) {
-                this.Dp.jp().d(entry.getKey(), entry.getValue());
+                this.Do.jr().d(entry.getKey(), entry.getValue());
             }
         }
-        this.Dq = new c(this.Dp);
-        this.Dq.g(i, i2, -1);
-        return this.Dp.jq();
+        this.Dp = new c(this.Do);
+        this.Dp.g(i, i2, -1);
+        return this.Do.js();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, h hVar, boolean z2) {
@@ -129,11 +127,11 @@ public class a {
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, h hVar, boolean z2, boolean z3) {
-        this.Dp = new e();
-        b(this.Dp);
-        this.Dp.jp().setUrl(str);
-        this.Dq = new c(this.Dp);
-        return this.Dq.a(str2, hVar, i, i2, i3, i4, z2, z3);
+        this.Do = new e();
+        b(this.Do);
+        this.Do.jr().setUrl(str);
+        this.Dp = new c(this.Do);
+        return this.Dp.a(str2, hVar, i, i2, i3, i4, z2, z3);
     }
 
     public a() {
@@ -141,60 +139,60 @@ public class a {
     }
 
     public void cancel() {
-        if (this.Dq != null) {
-            this.Dq.cancel();
+        if (this.Dp != null) {
+            this.Dp.cancel();
         }
     }
 
     public boolean isCanceled() {
-        if (this.Dq != null) {
-            return this.Dq.ji();
+        if (this.Dp != null) {
+            return this.Dp.jk();
         }
         return false;
     }
 
-    public void jj() {
-        if (this.Dq != null) {
-            this.Dq.jj();
+    public void jl() {
+        if (this.Dp != null) {
+            this.Dp.jl();
         }
     }
 
-    public e jx() {
-        return this.Dp;
+    public e jz() {
+        return this.Do;
     }
 
     private void a(e eVar, boolean z) {
         if (eVar != null) {
-            if (!TextUtils.isEmpty(Di)) {
-                eVar.jp().y(SM.COOKIE, Di);
+            if (!TextUtils.isEmpty(Dh)) {
+                eVar.jr().y("Cookie", Dh);
             } else {
-                eVar.jp().y(SM.COOKIE, "");
-            }
-            if (!TextUtils.isEmpty(Dk)) {
-                eVar.jp().y("client_user_token", Dk);
+                eVar.jr().y("Cookie", "");
             }
             if (!TextUtils.isEmpty(Dj)) {
-                eVar.jp().y(HTTP.USER_AGENT, Dj);
+                eVar.jr().y("client_user_token", Dj);
+            }
+            if (!TextUtils.isEmpty(Di)) {
+                eVar.jr().y("User-Agent", Di);
             }
             if (z) {
-                eVar.jp().y("Accept-Encoding", "gzip");
+                eVar.jr().y("Accept-Encoding", "gzip");
             } else {
-                eVar.jp().y("Accept-Encoding", "");
+                eVar.jr().y("Accept-Encoding", "");
             }
-            if (Dl) {
-                eVar.jp().y(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+            if (Dk) {
+                eVar.jr().y(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             } else {
-                eVar.jp().y(HTTP.CONN_DIRECTIVE, "close");
+                eVar.jr().y(HTTP.CONN_DIRECTIVE, "close");
             }
-            eVar.jp().y("client_logid", String.valueOf(this.Dr));
+            eVar.jr().y("client_logid", String.valueOf(this.Dq));
+            if (!TextUtils.isEmpty(Dl)) {
+                eVar.jr().y("cuid", Dl);
+            }
             if (!TextUtils.isEmpty(Dm)) {
-                eVar.jp().y("cuid", Dm);
+                eVar.jr().y("cuid_galaxy2", Dm);
             }
             if (!TextUtils.isEmpty(Dn)) {
-                eVar.jp().y("cuid_galaxy2", Dn);
-            }
-            if (!TextUtils.isEmpty(Do)) {
-                eVar.jp().y("cuid_gid", Do);
+                eVar.jr().y("cuid_gid", Dn);
             }
         }
     }

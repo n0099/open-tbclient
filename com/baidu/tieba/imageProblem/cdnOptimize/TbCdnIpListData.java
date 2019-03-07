@@ -1,39 +1,38 @@
 package com.baidu.tieba.imageProblem.cdnOptimize;
 
-import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class TbCdnIpListData {
-    public ArrayList<ArrayList<String>> flS;
-    public int flQ = 0;
+    public ArrayList<ArrayList<String>> gBX;
+    public int gBV = 0;
     public String errorString = null;
     public String imageUrl = null;
-    public String flR = null;
-    boolean flT = false;
-    public String flU = null;
+    public String gBW = null;
+    boolean gBY = false;
+    public String gBZ = null;
 
     public void parseJson(JSONObject jSONObject) {
         JSONArray optJSONArray;
         if (jSONObject != null) {
             try {
-                JSONObject optJSONObject = jSONObject.optJSONObject(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR);
+                JSONObject optJSONObject = jSONObject.optJSONObject("error");
                 if (optJSONObject != null) {
-                    this.flQ = optJSONObject.optInt("errorno");
+                    this.gBV = optJSONObject.optInt("errorno");
                     this.errorString = optJSONObject.optString("errmsg");
                 }
                 if (1 == jSONObject.optInt("cdn_switch")) {
-                    this.flT = true;
+                    this.gBY = true;
                 } else {
-                    this.flT = false;
+                    this.gBY = false;
                 }
-                this.flU = jSONObject.optString("cdn_domain");
+                this.gBZ = jSONObject.optString("cdn_domain");
                 JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
                 if (optJSONObject2 != null) {
                     this.imageUrl = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
-                    this.flR = optJSONObject2.optString("img_md5");
+                    this.gBW = optJSONObject2.optString("img_md5");
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
                 if (optJSONArray2 != null) {
@@ -56,7 +55,7 @@ public class TbCdnIpListData {
                         }
                     }
                     if (arrayList.size() > 0) {
-                        this.flS = arrayList;
+                        this.gBX = arrayList;
                     }
                 }
             } catch (Exception e) {

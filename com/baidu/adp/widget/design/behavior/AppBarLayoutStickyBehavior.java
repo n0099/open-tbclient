@@ -8,55 +8,55 @@ import android.util.AttributeSet;
 import android.view.View;
 /* loaded from: classes.dex */
 public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
-    private AppBarLayout QZ;
-    private AppBarLayout.OnOffsetChangedListener Ra;
-    private boolean Rb;
-    private boolean Rc;
+    private AppBarLayout Sg;
+    private AppBarLayout.OnOffsetChangedListener Sh;
+    private boolean Si;
+    private boolean Sj;
 
     public AppBarLayoutStickyBehavior() {
-        this.Rb = false;
-        this.Rc = false;
+        this.Si = false;
+        this.Sj = false;
     }
 
     public AppBarLayoutStickyBehavior(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.Rb = false;
-        this.Rc = false;
+        this.Si = false;
+        this.Sj = false;
     }
 
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
     public void onAttachedToLayoutParams(@NonNull CoordinatorLayout.LayoutParams layoutParams) {
         super.onAttachedToLayoutParams(layoutParams);
-        if (this.QZ != null && this.Ra != null && !this.Rc) {
-            this.QZ.addOnOffsetChangedListener(this.Ra);
-            this.Rc = true;
+        if (this.Sg != null && this.Sh != null && !this.Sj) {
+            this.Sg.addOnOffsetChangedListener(this.Sh);
+            this.Sj = true;
         }
     }
 
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
     public void onDetachedFromLayoutParams() {
         super.onDetachedFromLayoutParams();
-        if (this.QZ != null && this.Ra != null && this.Rc) {
-            this.QZ.removeOnOffsetChangedListener(this.Ra);
-            this.Rc = false;
+        if (this.Sg != null && this.Sh != null && this.Sj) {
+            this.Sg.removeOnOffsetChangedListener(this.Sh);
+            this.Sj = false;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.design.widget.AppBarLayout.Behavior, android.support.design.widget.ViewOffsetBehavior, android.support.design.widget.CoordinatorLayout.Behavior
     public boolean onLayoutChild(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, int i) {
-        if (this.QZ == null) {
-            this.QZ = appBarLayout;
+        if (this.Sg == null) {
+            this.Sg = appBarLayout;
         }
-        if (this.Ra == null) {
-            this.Ra = new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.adp.widget.design.behavior.AppBarLayoutStickyBehavior.1
+        if (this.Sh == null) {
+            this.Sh = new AppBarLayout.OnOffsetChangedListener() { // from class: com.baidu.adp.widget.design.behavior.AppBarLayoutStickyBehavior.1
                 @Override // android.support.design.widget.AppBarLayout.OnOffsetChangedListener
                 public void onOffsetChanged(AppBarLayout appBarLayout2, int i2) {
                     if (appBarLayout2 != null) {
                         if (Math.abs(i2) < appBarLayout2.getTotalScrollRange()) {
-                            AppBarLayoutStickyBehavior.this.Rb = false;
-                        } else if (!AppBarLayoutStickyBehavior.this.Rb) {
-                            AppBarLayoutStickyBehavior.this.Rb = true;
+                            AppBarLayoutStickyBehavior.this.Si = false;
+                        } else if (!AppBarLayoutStickyBehavior.this.Si) {
+                            AppBarLayoutStickyBehavior.this.Si = true;
                             appBarLayout2.setActivated(false);
                             appBarLayout2.setExpanded(false, false);
                         }
@@ -64,9 +64,9 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
                 }
             };
         }
-        if (this.QZ != null && this.Ra != null && !this.Rc) {
-            this.QZ.addOnOffsetChangedListener(this.Ra);
-            this.Rc = true;
+        if (this.Sg != null && this.Sh != null && !this.Sj) {
+            this.Sg.addOnOffsetChangedListener(this.Sh);
+            this.Sj = true;
         }
         return super.onLayoutChild(coordinatorLayout, appBarLayout, i);
     }
@@ -74,7 +74,7 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
     public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, View view2, int i) {
-        if (this.Rb) {
+        if (this.Si) {
             return false;
         }
         return super.onStartNestedScroll(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, view2, i);
@@ -83,7 +83,7 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
     public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, int i, int i2, int[] iArr) {
-        if (!this.Rb) {
+        if (!this.Si) {
             super.onNestedPreScroll(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, i, i2, iArr);
         }
     }
@@ -91,7 +91,7 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
     public void onNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, int i, int i2, int i3, int i4) {
-        if (!this.Rb) {
+        if (!this.Si) {
             super.onNestedScroll(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, i, i2, i3, i4);
         }
     }
@@ -99,7 +99,7 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
     public boolean onNestedPreFling(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, float f, float f2) {
-        if (this.Rb) {
+        if (this.Si) {
             return false;
         }
         return super.onNestedPreFling(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, f, f2);
@@ -108,14 +108,14 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.support.design.widget.CoordinatorLayout.Behavior
     public boolean onNestedFling(CoordinatorLayout coordinatorLayout, AppBarLayout appBarLayout, View view, float f, float f2, boolean z) {
-        if (this.Rb) {
+        if (this.Si) {
             return false;
         }
         return super.onNestedFling(coordinatorLayout, (CoordinatorLayout) appBarLayout, view, f, f2, z);
     }
 
     public boolean isSticky() {
-        return this.Rb;
+        return this.Si;
     }
 
     public void expandedAppBarLayout(AppBarLayout appBarLayout) {
@@ -125,6 +125,6 @@ public class AppBarLayoutStickyBehavior extends AppBarLayout.Behavior {
     public void expandedAppBarLayout(AppBarLayout appBarLayout, boolean z) {
         appBarLayout.setActivated(true);
         appBarLayout.setExpanded(true, z);
-        this.Rb = false;
+        this.Si = false;
     }
 }

@@ -10,12 +10,7 @@ import android.view.WindowManager;
 import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
-import com.baidu.ar.audio.AudioParams;
-import com.baidu.ar.util.IoUtils;
-import com.baidu.mobstat.Config;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.searchbox.ng.ai.apps.network.BaseRequestAction;
-import com.baidu.searchbox.ng.ai.apps.runtime.config.WindowConfig;
 import com.baidu.tbadk.TbConfig;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -143,10 +138,10 @@ public class f extends d {
 
     private String e() {
         try {
-            WindowManager windowManager = (WindowManager) this.a.getSystemService(WindowConfig.JSON_WINDOW_KEY);
+            WindowManager windowManager = (WindowManager) this.a.getSystemService("window");
             if (windowManager != null) {
                 Display defaultDisplay = windowManager.getDefaultDisplay();
-                return defaultDisplay.getHeight() + BaseRequestAction.SPLITE + defaultDisplay.getWidth();
+                return defaultDisplay.getHeight() + "_" + defaultDisplay.getWidth();
             }
             return null;
         } catch (Exception e) {
@@ -166,7 +161,7 @@ public class f extends d {
                     return "uni";
                 }
                 if (simOperator.equals("46003")) {
-                    return Config.EXCEPTION_CRASH_TYPE;
+                    return "ct";
                 }
             }
         } catch (Exception e) {
@@ -202,7 +197,6 @@ public class f extends d {
     @Override // com.baidu.android.pushservice.message.d
     public e a(byte[] bArr, int i) throws IOException {
         byte[] bArr2;
-        int i2 = AudioParams.DEFAULT_AUDIO_BUFFER_SIZE;
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
         com.baidu.android.pushservice.j.e eVar = new com.baidu.android.pushservice.j.e(byteArrayInputStream);
         short c = eVar.c();
@@ -219,10 +213,7 @@ public class f extends d {
         eVar.b();
         int b = eVar.b();
         if (b > 0) {
-            if (b <= 20480) {
-                i2 = b;
-            }
-            bArr2 = new byte[i2];
+            bArr2 = new byte[b <= 20480 ? b : 20480];
             eVar.a(bArr2);
         } else {
             bArr2 = null;
@@ -292,7 +283,7 @@ public class f extends d {
                 jSONObject2.put("imsi", g);
             }
             int length = jSONObject2.toString().length();
-            jSONObject.put("devinfo", com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptAES(jSONObject2.toString(), 1), IoUtils.UTF_8));
+            jSONObject.put("devinfo", com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptAES(jSONObject2.toString(), 1), "utf-8"));
             jSONObject.put("devinfolength", length);
             str = jSONObject.toString();
         } catch (Exception e2) {

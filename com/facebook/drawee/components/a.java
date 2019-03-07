@@ -7,51 +7,51 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class a {
-    private static a ilW = null;
-    private final Runnable ilY = new Runnable() { // from class: com.facebook.drawee.components.a.1
+    private static a jBx = null;
+    private final Runnable jBz = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.bVG();
-            for (InterfaceC0360a interfaceC0360a : a.this.ilX) {
-                interfaceC0360a.release();
+            a.cuD();
+            for (InterfaceC0336a interfaceC0336a : a.this.jBy) {
+                interfaceC0336a.release();
             }
-            a.this.ilX.clear();
+            a.this.jBy.clear();
         }
     };
-    private final Set<InterfaceC0360a> ilX = new HashSet();
+    private final Set<InterfaceC0336a> jBy = new HashSet();
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.facebook.drawee.components.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0360a {
+    public interface InterfaceC0336a {
         void release();
     }
 
-    public static synchronized a bVF() {
+    public static synchronized a cuC() {
         a aVar;
         synchronized (a.class) {
-            if (ilW == null) {
-                ilW = new a();
+            if (jBx == null) {
+                jBx = new a();
             }
-            aVar = ilW;
+            aVar = jBx;
         }
         return aVar;
     }
 
-    public void a(InterfaceC0360a interfaceC0360a) {
-        bVG();
-        if (this.ilX.add(interfaceC0360a) && this.ilX.size() == 1) {
-            this.mUiHandler.post(this.ilY);
+    public void a(InterfaceC0336a interfaceC0336a) {
+        cuD();
+        if (this.jBy.add(interfaceC0336a) && this.jBy.size() == 1) {
+            this.mUiHandler.post(this.jBz);
         }
     }
 
-    public void b(InterfaceC0360a interfaceC0360a) {
-        bVG();
-        this.ilX.remove(interfaceC0360a);
+    public void b(InterfaceC0336a interfaceC0336a) {
+        cuD();
+        this.jBy.remove(interfaceC0336a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void bVG() {
+    public static void cuD() {
         g.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
     }
 }

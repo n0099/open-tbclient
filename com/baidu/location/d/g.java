@@ -4,13 +4,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.bbalbs.common.security.Base64;
 import com.baidu.appsearchlib.Info;
-import com.baidu.ar.paddle.PaddleController;
 import com.baidu.location.Address;
 import com.baidu.location.Jni;
 import com.baidu.location.Poi;
-import com.baidu.mapapi.UIMsg;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
+import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -20,17 +19,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class g {
     private static final double[] b = {45.0d, 135.0d, 225.0d, 315.0d};
-    private final d aeQ;
+    private final d a;
     private final int c;
     private final SQLiteDatabase d;
     private int e = -1;
     private int f = -1;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         private double a;
         private double b;
@@ -42,7 +41,7 @@ public final class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public enum b {
         AREA("RGCAREA", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, "addrv", 0, 1000) { // from class: com.baidu.location.d.g.b.1
             @Override // com.baidu.location.d.g.b
@@ -64,10 +63,10 @@ public final class g {
                         String string2 = jSONObject2.has("cyc") ? jSONObject2.getString("cyc") : null;
                         String string3 = jSONObject2.has("prov") ? jSONObject2.getString("prov") : null;
                         String string4 = jSONObject2.has("ctc") ? jSONObject2.getString("ctc") : null;
-                        String string5 = jSONObject2.has(Config.EXCEPTION_CRASH_TYPE) ? jSONObject2.getString(Config.EXCEPTION_CRASH_TYPE) : null;
+                        String string5 = jSONObject2.has("ct") ? jSONObject2.getString("ct") : null;
                         String string6 = jSONObject2.has("dist") ? jSONObject2.getString("dist") : null;
                         if (stringBuffer.length() > 0) {
-                            stringBuffer.append(",");
+                            stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                         }
                         stringBuffer.append("(\"").append(next).append("\",\"").append(string).append("\",\"").append(string2).append("\",\"").append(string3).append("\",\"").append(string5).append("\",\"").append(string4).append("\",\"").append(string6).append("\",").append(System.currentTimeMillis() / 1000).append(",\"\")");
                         b.b(stringBuffer2, next, str, 0);
@@ -109,16 +108,16 @@ public final class g {
                         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                             try {
                                 JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
-                                String string = jSONObject2.has("st") ? jSONObject2.getString("st") : null;
-                                Double valueOf = jSONObject2.has(PaddleController.SDK_TO_LUA_GESTURE_RESULT_X1) ? Double.valueOf(jSONObject2.getDouble(PaddleController.SDK_TO_LUA_GESTURE_RESULT_X1)) : null;
-                                Double valueOf2 = jSONObject2.has(PaddleController.SDK_TO_LUA_GESTURE_RESULT_Y1) ? Double.valueOf(jSONObject2.getDouble(PaddleController.SDK_TO_LUA_GESTURE_RESULT_Y1)) : null;
-                                Double valueOf3 = jSONObject2.has(PaddleController.SDK_TO_LUA_GESTURE_RESULT_X2) ? Double.valueOf(jSONObject2.getDouble(PaddleController.SDK_TO_LUA_GESTURE_RESULT_X2)) : null;
-                                Double valueOf4 = jSONObject2.has(PaddleController.SDK_TO_LUA_GESTURE_RESULT_Y2) ? Double.valueOf(jSONObject2.getDouble(PaddleController.SDK_TO_LUA_GESTURE_RESULT_Y2)) : null;
+                                String string = jSONObject2.has(TimeDisplaySetting.START_SHOW_TIME) ? jSONObject2.getString(TimeDisplaySetting.START_SHOW_TIME) : null;
+                                Double valueOf = jSONObject2.has("x1") ? Double.valueOf(jSONObject2.getDouble("x1")) : null;
+                                Double valueOf2 = jSONObject2.has("y1") ? Double.valueOf(jSONObject2.getDouble("y1")) : null;
+                                Double valueOf3 = jSONObject2.has("x2") ? Double.valueOf(jSONObject2.getDouble("x2")) : null;
+                                Double valueOf4 = jSONObject2.has("y2") ? Double.valueOf(jSONObject2.getDouble("y2")) : null;
                                 if (string != null && valueOf != null && valueOf2 != null && valueOf3 != null && valueOf4 != null) {
                                     if (stringBuffer2.length() > 0) {
-                                        stringBuffer2.append(",");
+                                        stringBuffer2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                                     }
-                                    stringBuffer2.append("(NULL,\"").append(next).append("\",\"").append(string).append("\",").append(valueOf).append(",").append(valueOf2).append(",").append(valueOf3).append(",").append(valueOf4).append(")");
+                                    stringBuffer2.append("(NULL,\"").append(next).append("\",\"").append(string).append("\",").append(valueOf).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(valueOf2).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(valueOf3).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(valueOf4).append(")");
                                 }
                             } catch (JSONException e2) {
                             }
@@ -159,14 +158,14 @@ public final class g {
                         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                             try {
                                 JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
-                                String string = jSONObject2.has("st") ? jSONObject2.getString("st") : null;
+                                String string = jSONObject2.has(TimeDisplaySetting.START_SHOW_TIME) ? jSONObject2.getString(TimeDisplaySetting.START_SHOW_TIME) : null;
                                 String string2 = jSONObject2.has("stn") ? jSONObject2.getString("stn") : null;
-                                Double valueOf = jSONObject2.has(Config.EVENT_HEAT_X) ? Double.valueOf(jSONObject2.getDouble(Config.EVENT_HEAT_X)) : null;
+                                Double valueOf = jSONObject2.has("x") ? Double.valueOf(jSONObject2.getDouble("x")) : null;
                                 Double valueOf2 = jSONObject2.has("y") ? Double.valueOf(jSONObject2.getDouble("y")) : null;
                                 if (stringBuffer2.length() > 0) {
-                                    stringBuffer2.append(",");
+                                    stringBuffer2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                                 }
-                                stringBuffer2.append("(NULL,\"").append(next).append("\",\"").append(string).append("\",\"").append(string2).append("\",").append(valueOf).append(",").append(valueOf2).append(")");
+                                stringBuffer2.append("(NULL,\"").append(next).append("\",\"").append(string).append("\",\"").append(string2).append("\",").append(valueOf).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(valueOf2).append(")");
                             } catch (JSONException e2) {
                             }
                             if (i2 % 50 == 49 && stringBuffer2.length() > 0) {
@@ -186,7 +185,7 @@ public final class g {
                 return arrayList;
             }
         },
-        POI("RGCPOI", "poi", "poiv", 1000, UIMsg.m_AppUI.MSG_APP_GPS) { // from class: com.baidu.location.d.g.b.4
+        POI("RGCPOI", "poi", "poiv", 1000, 5000) { // from class: com.baidu.location.d.g.b.4
             @Override // com.baidu.location.d.g.b
             List<String> a(JSONObject jSONObject, String str, int i) {
                 JSONArray jSONArray;
@@ -210,12 +209,12 @@ public final class g {
                                 String string2 = jSONObject2.has("ne") ? jSONObject2.getString("ne") : null;
                                 String string3 = jSONObject2.has("tp") ? jSONObject2.getString("tp") : null;
                                 Integer valueOf = jSONObject2.has("rk") ? Integer.valueOf(jSONObject2.getInt("rk")) : null;
-                                Double valueOf2 = jSONObject2.has(Config.EVENT_HEAT_X) ? Double.valueOf(jSONObject2.getDouble(Config.EVENT_HEAT_X)) : null;
+                                Double valueOf2 = jSONObject2.has("x") ? Double.valueOf(jSONObject2.getDouble("x")) : null;
                                 Double valueOf3 = jSONObject2.has("y") ? Double.valueOf(jSONObject2.getDouble("y")) : null;
                                 if (stringBuffer2.length() > 0) {
-                                    stringBuffer2.append(",");
+                                    stringBuffer2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                                 }
-                                stringBuffer2.append("(\"").append(string).append("\",\"").append(next).append("\",\"").append(string2).append("\",\"").append(string3).append("\",").append(valueOf2).append(",").append(valueOf3).append(",").append(valueOf).append(")");
+                                stringBuffer2.append("(\"").append(string).append("\",\"").append(next).append("\",\"").append(string2).append("\",\"").append(string3).append("\",").append(valueOf2).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(valueOf3).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(valueOf).append(")");
                             } catch (JSONException e2) {
                             }
                             if (i2 % 50 == 49) {
@@ -262,8 +261,8 @@ public final class g {
                     if (i3 >= g.b.length) {
                         break;
                     }
-                    double[] c = g.c(d2, d, d3, g.b[i3]);
-                    hashSet.add(g.b(i, c[1], c[0]));
+                    double[] b = g.b(d2, d, d3, g.b[i3]);
+                    hashSet.add(g.b(i, b[1], b[0]));
                     i2 = i3 + 1;
                 }
             }
@@ -289,7 +288,7 @@ public final class g {
             while (keys.hasNext()) {
                 String next = keys.next();
                 if (stringBuffer.length() != 0) {
-                    stringBuffer.append(",");
+                    stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 }
                 stringBuffer.append("\"").append(next).append("\"");
             }
@@ -299,9 +298,9 @@ public final class g {
         /* JADX INFO: Access modifiers changed from: private */
         public static void b(StringBuffer stringBuffer, String str, String str2, int i) {
             if (stringBuffer.length() > 0) {
-                stringBuffer.append(",");
+                stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
             }
-            stringBuffer.append("(\"").append(str).append("\",\"").append(str2).append("\",").append(i).append(",").append(System.currentTimeMillis() / 86400000).append(")");
+            stringBuffer.append("(\"").append(str).append("\",\"").append(str2).append("\",").append(i).append(Constants.ACCEPT_TIME_SEPARATOR_SP).append(System.currentTimeMillis() / 86400000).append(")");
         }
 
         abstract List<String> a(JSONObject jSONObject, String str, int i);
@@ -309,7 +308,7 @@ public final class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(d dVar, SQLiteDatabase sQLiteDatabase, int i) {
-        this.aeQ = dVar;
+        this.a = dVar;
         this.d = sQLiteDatabase;
         this.c = i;
         if (this.d == null || !this.d.isOpen()) {
@@ -326,6 +325,21 @@ public final class g {
         }
     }
 
+    private double a(double d, double d2, double d3, double d4, double d5, double d6) {
+        double d7 = ((d5 - d3) * (d - d3)) + ((d6 - d4) * (d2 - d4));
+        if (d7 <= 0.0d) {
+            return Math.sqrt(((d - d3) * (d - d3)) + ((d2 - d4) * (d2 - d4)));
+        }
+        double d8 = ((d5 - d3) * (d5 - d3)) + ((d6 - d4) * (d6 - d4));
+        if (d7 >= d8) {
+            return Math.sqrt(((d - d5) * (d - d5)) + ((d2 - d6) * (d2 - d6)));
+        }
+        double d9 = d7 / d8;
+        double d10 = ((d5 - d3) * d9) + d3;
+        double d11 = (d9 * (d6 - d4)) + d4;
+        return Math.sqrt(((d11 - d2) * (d11 - d2)) + ((d - d10) * (d - d10)));
+    }
+
     private static int a(int i, int i2) {
         double d;
         int i3;
@@ -340,21 +354,6 @@ public final class g {
             i3 = 0;
         }
         return ((int) (i3 + (d * i2))) + i;
-    }
-
-    private double b(double d, double d2, double d3, double d4, double d5, double d6) {
-        double d7 = ((d5 - d3) * (d - d3)) + ((d6 - d4) * (d2 - d4));
-        if (d7 <= 0.0d) {
-            return Math.sqrt(((d - d3) * (d - d3)) + ((d2 - d4) * (d2 - d4)));
-        }
-        double d8 = ((d5 - d3) * (d5 - d3)) + ((d6 - d4) * (d6 - d4));
-        if (d7 >= d8) {
-            return Math.sqrt(((d - d5) * (d - d5)) + ((d2 - d6) * (d2 - d6)));
-        }
-        double d9 = d7 / d8;
-        double d10 = ((d5 - d3) * d9) + d3;
-        double d11 = (d9 * (d6 - d4)) + d4;
-        return Math.sqrt(((d11 - d2) * (d11 - d2)) + ((d - d10) * (d - d10)));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -406,7 +405,7 @@ public final class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static double[] c(double d, double d2, double d3, double d4) {
+    public static double[] b(double d, double d2, double d3, double d4) {
         double radians = Math.toRadians(d);
         double radians2 = Math.toRadians(d2);
         double radians3 = Math.toRadians(d4);
@@ -414,7 +413,7 @@ public final class g {
         return new double[]{Math.toDegrees(asin), Math.toDegrees(Math.atan2(Math.sin(radians3) * Math.sin(d3 / 6378137.0d) * Math.cos(radians), Math.cos(d3 / 6378137.0d) - (Math.sin(radians) * Math.sin(asin))) + radians2)};
     }
 
-    private double d(double d, double d2, double d3, double d4) {
+    private double c(double d, double d2, double d3, double d4) {
         double radians = Math.toRadians(d);
         Math.toRadians(d2);
         double radians2 = Math.toRadians(d3);
@@ -424,240 +423,6 @@ public final class g {
         double sin = Math.sin(radians4 / 2.0d);
         double sin2 = (Math.sin(radians3 / 2.0d) * Math.cos(radians) * Math.cos(radians2) * Math.sin(radians3 / 2.0d)) + (Math.sin(radians4 / 2.0d) * sin);
         return Math.atan2(Math.sqrt(sin2), Math.sqrt(1.0d - sin2)) * 2.0d * 6378137.0d;
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void a(JSONObject jSONObject) {
-        b[] values;
-        if (this.d == null || !this.d.isOpen()) {
-            return;
-        }
-        try {
-            this.d.beginTransaction();
-            for (b bVar : b.values()) {
-                if (jSONObject.has(bVar.g)) {
-                    String string = jSONObject.has(bVar.h) ? jSONObject.getString(bVar.h) : "";
-                    ArrayList<String> arrayList = new ArrayList();
-                    JSONObject jSONObject2 = jSONObject.getJSONObject(bVar.g);
-                    arrayList.add(bVar.a(jSONObject2));
-                    arrayList.addAll(bVar.a(jSONObject2, string, bVar.i));
-                    for (String str : arrayList) {
-                        this.d.execSQL(str);
-                    }
-                }
-            }
-            this.d.setTransactionSuccessful();
-            this.e = -1;
-            this.f = -1;
-            try {
-                this.d.endTransaction();
-            } catch (Exception e) {
-            }
-        } catch (Exception e2) {
-            try {
-                this.d.endTransaction();
-            } catch (Exception e3) {
-            }
-        } catch (Throwable th) {
-            try {
-                this.d.endTransaction();
-            } catch (Exception e4) {
-            }
-            throw th;
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean a() {
-        Cursor cursor;
-        Cursor cursor2 = null;
-        if (this.aeQ.tL().l() && this.f == -1 && this.e == -1 && this.d != null && this.d.isOpen()) {
-            try {
-                cursor = this.d.rawQuery("SELECT COUNT(*) FROM RGCSITE;", null);
-            } catch (Exception e) {
-                cursor = null;
-            } catch (Throwable th) {
-                th = th;
-                cursor = null;
-            }
-            try {
-                cursor.moveToFirst();
-                this.f = cursor.getInt(0);
-                cursor2 = this.d.rawQuery("SELECT COUNT(*) FROM RGCAREA;", null);
-                cursor2.moveToFirst();
-                this.e = cursor2.getInt(0);
-                if (cursor != null) {
-                    try {
-                        cursor.close();
-                    } catch (Exception e2) {
-                    }
-                }
-                if (cursor2 != null) {
-                    try {
-                        cursor2.close();
-                    } catch (Exception e3) {
-                    }
-                }
-            } catch (Exception e4) {
-                if (cursor != null) {
-                    try {
-                        cursor.close();
-                    } catch (Exception e5) {
-                    }
-                }
-                if (cursor2 != null) {
-                    try {
-                        cursor2.close();
-                    } catch (Exception e6) {
-                    }
-                }
-                return this.f != 0 ? false : false;
-            } catch (Throwable th2) {
-                th = th2;
-                if (cursor != null) {
-                    try {
-                        cursor.close();
-                    } catch (Exception e7) {
-                    }
-                }
-                if (cursor2 != null) {
-                    try {
-                        cursor2.close();
-                    } catch (Exception e8) {
-                    }
-                }
-                throw th;
-            }
-        }
-        if (this.f != 0 && this.e == 0) {
-            return true;
-        }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, IF, MOVE_EXCEPTION] complete} */
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public JSONObject b() {
-        Cursor cursor = null;
-        Cursor cursor2 = null;
-        JSONObject jSONObject = new JSONObject();
-        StringBuffer stringBuffer = new StringBuffer();
-        StringBuffer stringBuffer2 = new StringBuffer();
-        int currentTimeMillis = (int) (System.currentTimeMillis() / 86400000);
-        try {
-            if (this.d != null && this.d.isOpen()) {
-                JSONArray jSONArray = new JSONArray();
-                JSONArray jSONArray2 = new JSONArray();
-                JSONArray jSONArray3 = new JSONArray();
-                JSONArray jSONArray4 = new JSONArray();
-                cursor2 = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 0, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.aeQ.tL().p())), null);
-                cursor = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 1, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.aeQ.tL().q())), null);
-                if (cursor2.moveToFirst()) {
-                    HashSet hashSet = new HashSet();
-                    while (!cursor2.isAfterLast()) {
-                        String string = cursor2.getString(0);
-                        String string2 = cursor2.getString(1);
-                        jSONArray3.put(string);
-                        hashSet.add(string2);
-                        if (stringBuffer2.length() > 0) {
-                            stringBuffer2.append(",");
-                        }
-                        stringBuffer2.append("\"").append(string).append("\"");
-                        cursor2.moveToNext();
-                    }
-                    String[] strArr = new String[hashSet.size()];
-                    hashSet.toArray(strArr);
-                    for (String str : strArr) {
-                        jSONArray4.put(str);
-                    }
-                }
-                if (cursor.moveToFirst()) {
-                    HashSet hashSet2 = new HashSet();
-                    while (!cursor.isAfterLast()) {
-                        String string3 = cursor.getString(0);
-                        String string4 = cursor.getString(1);
-                        jSONArray.put(string3);
-                        hashSet2.add(string4);
-                        if (stringBuffer.length() > 0) {
-                            stringBuffer.append(",");
-                        }
-                        stringBuffer.append("\"").append(string3).append("\"");
-                        cursor.moveToNext();
-                    }
-                    String[] strArr2 = new String[hashSet2.size()];
-                    hashSet2.toArray(strArr2);
-                    for (String str2 : strArr2) {
-                        jSONArray2.put(str2);
-                    }
-                }
-                if (jSONArray3.length() != 0) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("gk", jSONArray3);
-                    jSONObject2.put("ver", jSONArray4);
-                    jSONObject.put("addr", jSONObject2);
-                }
-                if (jSONArray.length() != 0) {
-                    JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("gk", jSONArray);
-                    jSONObject3.put("ver", jSONArray2);
-                    jSONObject.put("poi", jSONObject3);
-                }
-            }
-            if (stringBuffer2.length() > 0) {
-                String format = String.format(Locale.US, "UPDATE RGCUPDATE SET timestamp=timestamp+1 WHERE type = %d AND gridkey IN (%s)", 0, stringBuffer2.toString());
-                if (this.d != null) {
-                    this.d.execSQL(format);
-                }
-            }
-            if (stringBuffer.length() > 0) {
-                String format2 = String.format(Locale.US, "UPDATE RGCUPDATE SET timestamp=timestamp+1 WHERE type = %d AND gridkey IN (%s)", 1, stringBuffer.toString());
-                if (this.d != null) {
-                    this.d.execSQL(format2);
-                }
-            }
-            if (cursor2 != null) {
-                try {
-                    cursor2.close();
-                } catch (Exception e) {
-                }
-            }
-            if (cursor != null) {
-                try {
-                    cursor.close();
-                } catch (Exception e2) {
-                }
-            }
-        } catch (Exception e3) {
-            if (cursor2 != null) {
-                try {
-                    cursor2.close();
-                } catch (Exception e4) {
-                }
-            }
-            if (cursor != null) {
-                try {
-                    cursor.close();
-                } catch (Exception e5) {
-                }
-            }
-        } catch (Throwable th) {
-            if (cursor2 != null) {
-                try {
-                    cursor2.close();
-                } catch (Exception e6) {
-                }
-            }
-            if (cursor != null) {
-                try {
-                    cursor.close();
-                } catch (Exception e7) {
-                }
-            }
-            throw th;
-        }
-        if (jSONObject.has("poi") || jSONObject.has("addr")) {
-            return jSONObject;
-        }
-        return null;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:174:0x00af */
@@ -687,7 +452,7 @@ public final class g {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Address d(double d, double d2) {
+    public Address a(double d, double d2) {
         Cursor cursor;
         String str;
         String str2;
@@ -710,23 +475,23 @@ public final class g {
         Cursor cursor5;
         String str15;
         double d3;
-        double d4;
+        double c;
         Cursor cursor6 = null;
         try {
             cursor = this.d.rawQuery(b.SITE.a(this.c, d, d2), null);
             try {
                 try {
                     if (cursor.moveToFirst()) {
-                        double d5 = Double.MAX_VALUE;
+                        double d4 = Double.MAX_VALUE;
                         String str16 = null;
                         String str17 = null;
                         while (!cursor.isAfterLast()) {
                             try {
                                 String string = cursor.getString(2);
                                 String string2 = cursor.getString(3);
-                                d4 = d(d2, d, cursor.getDouble(5), cursor.getDouble(4));
-                                if (d4 >= d5 || d4 > b.SITE.e) {
-                                    d4 = d5;
+                                c = c(d2, d, cursor.getDouble(5), cursor.getDouble(4));
+                                if (c >= d4 || c > b.SITE.e) {
+                                    c = d4;
                                     str = str16;
                                     str2 = str17;
                                 } else {
@@ -739,7 +504,7 @@ public final class g {
                             }
                             try {
                                 cursor.moveToNext();
-                                d5 = d4;
+                                d4 = c;
                                 str16 = str;
                                 str17 = str2;
                             } catch (Exception e2) {
@@ -871,7 +636,7 @@ public final class g {
                         try {
                             try {
                                 if (cursor4.moveToFirst()) {
-                                    double d6 = Double.MAX_VALUE;
+                                    double d5 = Double.MAX_VALUE;
                                     double[] coorEncrypt = Jni.coorEncrypt(d, d2, "wgs842mc");
                                     str15 = "wgs842mc";
                                     while (true) {
@@ -883,16 +648,16 @@ public final class g {
                                             String string3 = cursor4.getString(2);
                                             double[] coorEncrypt2 = Jni.coorEncrypt(cursor4.getDouble(3), cursor4.getDouble(4), "wgs842mc");
                                             double[] coorEncrypt3 = Jni.coorEncrypt(cursor4.getDouble(5), cursor4.getDouble(6), "wgs842mc");
-                                            double b2 = b(coorEncrypt[0], coorEncrypt[1], coorEncrypt2[0], coorEncrypt2[1], coorEncrypt3[0], coorEncrypt3[1]);
-                                            if (b2 >= d6 || b2 > b.ROAD.e) {
+                                            double a2 = a(coorEncrypt[0], coorEncrypt[1], coorEncrypt2[0], coorEncrypt2[1], coorEncrypt3[0], coorEncrypt3[1]);
+                                            if (a2 >= d5 || a2 > b.ROAD.e) {
                                                 str4 = str15;
-                                                d3 = d6;
+                                                d3 = d5;
                                             } else {
-                                                d3 = b2;
+                                                d3 = a2;
                                                 str4 = string3;
                                             }
                                             cursor4.moveToNext();
-                                            d6 = d3;
+                                            d5 = d3;
                                             str15 = d3;
                                         } catch (Exception e9) {
                                             cursor5 = cursor4;
@@ -1150,11 +915,119 @@ public final class g {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
+    public void a(JSONObject jSONObject) {
+        b[] values;
+        if (this.d == null || !this.d.isOpen()) {
+            return;
+        }
+        try {
+            this.d.beginTransaction();
+            for (b bVar : b.values()) {
+                if (jSONObject.has(bVar.g)) {
+                    String string = jSONObject.has(bVar.h) ? jSONObject.getString(bVar.h) : "";
+                    ArrayList<String> arrayList = new ArrayList();
+                    JSONObject jSONObject2 = jSONObject.getJSONObject(bVar.g);
+                    arrayList.add(bVar.a(jSONObject2));
+                    arrayList.addAll(bVar.a(jSONObject2, string, bVar.i));
+                    for (String str : arrayList) {
+                        this.d.execSQL(str);
+                    }
+                }
+            }
+            this.d.setTransactionSuccessful();
+            this.e = -1;
+            this.f = -1;
+            try {
+                this.d.endTransaction();
+            } catch (Exception e) {
+            }
+        } catch (Exception e2) {
+            try {
+                this.d.endTransaction();
+            } catch (Exception e3) {
+            }
+        } catch (Throwable th) {
+            try {
+                this.d.endTransaction();
+            } catch (Exception e4) {
+            }
+            throw th;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean a() {
+        Cursor cursor;
+        Cursor cursor2 = null;
+        if (this.a.l().l() && this.f == -1 && this.e == -1 && this.d != null && this.d.isOpen()) {
+            try {
+                cursor = this.d.rawQuery("SELECT COUNT(*) FROM RGCSITE;", null);
+            } catch (Exception e) {
+                cursor = null;
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+            }
+            try {
+                cursor.moveToFirst();
+                this.f = cursor.getInt(0);
+                cursor2 = this.d.rawQuery("SELECT COUNT(*) FROM RGCAREA;", null);
+                cursor2.moveToFirst();
+                this.e = cursor2.getInt(0);
+                if (cursor != null) {
+                    try {
+                        cursor.close();
+                    } catch (Exception e2) {
+                    }
+                }
+                if (cursor2 != null) {
+                    try {
+                        cursor2.close();
+                    } catch (Exception e3) {
+                    }
+                }
+            } catch (Exception e4) {
+                if (cursor != null) {
+                    try {
+                        cursor.close();
+                    } catch (Exception e5) {
+                    }
+                }
+                if (cursor2 != null) {
+                    try {
+                        cursor2.close();
+                    } catch (Exception e6) {
+                    }
+                }
+                return this.f != 0 ? false : false;
+            } catch (Throwable th2) {
+                th = th2;
+                if (cursor != null) {
+                    try {
+                        cursor.close();
+                    } catch (Exception e7) {
+                    }
+                }
+                if (cursor2 != null) {
+                    try {
+                        cursor2.close();
+                    } catch (Exception e8) {
+                    }
+                }
+                throw th;
+            }
+        }
+        if (this.f != 0 && this.e == 0) {
+            return true;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: Removed duplicated region for block: B:19:0x0095  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public List<Poi> e(double d, double d2) {
+    public List<Poi> b(double d, double d2) {
         Cursor cursor;
         Cursor cursor2;
         ArrayList arrayList = new ArrayList();
@@ -1180,10 +1053,10 @@ public final class g {
                     double d3 = cursor.getDouble(4);
                     double d4 = cursor.getDouble(5);
                     int i3 = cursor.getInt(6);
-                    double d5 = d(d2, d, d4, d3);
-                    if (d5 < b.POI.e) {
+                    double c = c(d2, d, d4, d3);
+                    if (c < b.POI.e) {
                         Poi poi2 = new Poi(new String(Base64.decode(string.getBytes())), new String(Base64.decode(string2.getBytes())), 1.0d);
-                        i = a(i3, Math.round((float) d5));
+                        i = a(i3, Math.round((float) c));
                         if (i > i2) {
                             poi = poi2;
                             cursor.moveToNext();
@@ -1224,5 +1097,131 @@ public final class g {
             arrayList.add(poi);
         }
         return arrayList;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, IF, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION, IF, MOVE_EXCEPTION] complete} */
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public JSONObject b() {
+        Cursor cursor = null;
+        Cursor cursor2 = null;
+        JSONObject jSONObject = new JSONObject();
+        StringBuffer stringBuffer = new StringBuffer();
+        StringBuffer stringBuffer2 = new StringBuffer();
+        int currentTimeMillis = (int) (System.currentTimeMillis() / 86400000);
+        try {
+            if (this.d != null && this.d.isOpen()) {
+                JSONArray jSONArray = new JSONArray();
+                JSONArray jSONArray2 = new JSONArray();
+                JSONArray jSONArray3 = new JSONArray();
+                JSONArray jSONArray4 = new JSONArray();
+                cursor2 = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 0, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.a.l().p())), null);
+                cursor = this.d.rawQuery(String.format("SELECT * FROM RGCUPDATE WHERE type=%d AND %d > timestamp+%d ORDER BY gridkey", 1, Integer.valueOf(currentTimeMillis), Integer.valueOf(this.a.l().q())), null);
+                if (cursor2.moveToFirst()) {
+                    HashSet hashSet = new HashSet();
+                    while (!cursor2.isAfterLast()) {
+                        String string = cursor2.getString(0);
+                        String string2 = cursor2.getString(1);
+                        jSONArray3.put(string);
+                        hashSet.add(string2);
+                        if (stringBuffer2.length() > 0) {
+                            stringBuffer2.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                        }
+                        stringBuffer2.append("\"").append(string).append("\"");
+                        cursor2.moveToNext();
+                    }
+                    String[] strArr = new String[hashSet.size()];
+                    hashSet.toArray(strArr);
+                    for (String str : strArr) {
+                        jSONArray4.put(str);
+                    }
+                }
+                if (cursor.moveToFirst()) {
+                    HashSet hashSet2 = new HashSet();
+                    while (!cursor.isAfterLast()) {
+                        String string3 = cursor.getString(0);
+                        String string4 = cursor.getString(1);
+                        jSONArray.put(string3);
+                        hashSet2.add(string4);
+                        if (stringBuffer.length() > 0) {
+                            stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
+                        }
+                        stringBuffer.append("\"").append(string3).append("\"");
+                        cursor.moveToNext();
+                    }
+                    String[] strArr2 = new String[hashSet2.size()];
+                    hashSet2.toArray(strArr2);
+                    for (String str2 : strArr2) {
+                        jSONArray2.put(str2);
+                    }
+                }
+                if (jSONArray3.length() != 0) {
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put("gk", jSONArray3);
+                    jSONObject2.put("ver", jSONArray4);
+                    jSONObject.put("addr", jSONObject2);
+                }
+                if (jSONArray.length() != 0) {
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.put("gk", jSONArray);
+                    jSONObject3.put("ver", jSONArray2);
+                    jSONObject.put("poi", jSONObject3);
+                }
+            }
+            if (stringBuffer2.length() > 0) {
+                String format = String.format(Locale.US, "UPDATE RGCUPDATE SET timestamp=timestamp+1 WHERE type = %d AND gridkey IN (%s)", 0, stringBuffer2.toString());
+                if (this.d != null) {
+                    this.d.execSQL(format);
+                }
+            }
+            if (stringBuffer.length() > 0) {
+                String format2 = String.format(Locale.US, "UPDATE RGCUPDATE SET timestamp=timestamp+1 WHERE type = %d AND gridkey IN (%s)", 1, stringBuffer.toString());
+                if (this.d != null) {
+                    this.d.execSQL(format2);
+                }
+            }
+            if (cursor2 != null) {
+                try {
+                    cursor2.close();
+                } catch (Exception e) {
+                }
+            }
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                } catch (Exception e2) {
+                }
+            }
+        } catch (Exception e3) {
+            if (cursor2 != null) {
+                try {
+                    cursor2.close();
+                } catch (Exception e4) {
+                }
+            }
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                } catch (Exception e5) {
+                }
+            }
+        } catch (Throwable th) {
+            if (cursor2 != null) {
+                try {
+                    cursor2.close();
+                } catch (Exception e6) {
+                }
+            }
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                } catch (Exception e7) {
+                }
+            }
+            throw th;
+        }
+        if (jSONObject.has("poi") || jSONObject.has("addr")) {
+            return jSONObject;
+        }
+        return null;
     }
 }

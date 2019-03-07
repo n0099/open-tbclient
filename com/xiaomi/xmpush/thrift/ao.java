@@ -1,7 +1,5 @@
 package com.xiaomi.xmpush.thrift;
 
-import com.baidu.fsg.base.BaiduRimConstants;
-import com.baidu.searchbox.ng.ai.apps.event.message.AiAppsLifecycleMessage;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.EnumMap;
@@ -14,9 +12,9 @@ public class ao implements Serializable, Cloneable, org.apache.thrift.a<ao, a> {
     public static final Map<a, org.apache.thrift.meta_data.b> h;
     private static final org.apache.thrift.protocol.j i = new org.apache.thrift.protocol.j("XmPushActionUnSubscription");
     private static final org.apache.thrift.protocol.b j = new org.apache.thrift.protocol.b("debug", (byte) 11, 1);
-    private static final org.apache.thrift.protocol.b k = new org.apache.thrift.protocol.b(BaiduRimConstants.ACTION_TARGET, (byte) 12, 2);
+    private static final org.apache.thrift.protocol.b k = new org.apache.thrift.protocol.b("target", (byte) 12, 2);
     private static final org.apache.thrift.protocol.b l = new org.apache.thrift.protocol.b("id", (byte) 11, 3);
-    private static final org.apache.thrift.protocol.b m = new org.apache.thrift.protocol.b(AiAppsLifecycleMessage.APP_ID_KEY, (byte) 11, 4);
+    private static final org.apache.thrift.protocol.b m = new org.apache.thrift.protocol.b("appId", (byte) 11, 4);
     private static final org.apache.thrift.protocol.b n = new org.apache.thrift.protocol.b("topic", (byte) 11, 5);
     private static final org.apache.thrift.protocol.b o = new org.apache.thrift.protocol.b("packageName", (byte) 11, 6);
     private static final org.apache.thrift.protocol.b p = new org.apache.thrift.protocol.b("category", (byte) 11, 7);
@@ -31,9 +29,9 @@ public class ao implements Serializable, Cloneable, org.apache.thrift.a<ao, a> {
     /* loaded from: classes3.dex */
     public enum a {
         DEBUG(1, "debug"),
-        TARGET(2, BaiduRimConstants.ACTION_TARGET),
+        TARGET(2, "target"),
         ID(3, "id"),
-        APP_ID(4, AiAppsLifecycleMessage.APP_ID_KEY),
+        APP_ID(4, "appId"),
         TOPIC(5, "topic"),
         PACKAGE_NAME(6, "packageName"),
         CATEGORY(7, "category");
@@ -63,9 +61,9 @@ public class ao implements Serializable, Cloneable, org.apache.thrift.a<ao, a> {
     static {
         EnumMap enumMap = new EnumMap(a.class);
         enumMap.put((EnumMap) a.DEBUG, (a) new org.apache.thrift.meta_data.b("debug", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.TARGET, (a) new org.apache.thrift.meta_data.b(BaiduRimConstants.ACTION_TARGET, (byte) 2, new org.apache.thrift.meta_data.g((byte) 12, u.class)));
+        enumMap.put((EnumMap) a.TARGET, (a) new org.apache.thrift.meta_data.b("target", (byte) 2, new org.apache.thrift.meta_data.g((byte) 12, u.class)));
         enumMap.put((EnumMap) a.ID, (a) new org.apache.thrift.meta_data.b("id", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.APP_ID, (a) new org.apache.thrift.meta_data.b(AiAppsLifecycleMessage.APP_ID_KEY, (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
+        enumMap.put((EnumMap) a.APP_ID, (a) new org.apache.thrift.meta_data.b("appId", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.TOPIC, (a) new org.apache.thrift.meta_data.b("topic", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.PACKAGE_NAME, (a) new org.apache.thrift.meta_data.b("packageName", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.CATEGORY, (a) new org.apache.thrift.meta_data.b("category", (byte) 2, new org.apache.thrift.meta_data.c((byte) 11)));

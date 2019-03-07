@@ -7,80 +7,80 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes2.dex */
 public class SharedReference<T> {
     @GuardedBy("itself")
-    private static final Map<Object, Integer> ikH = new IdentityHashMap();
+    private static final Map<Object, Integer> jAj = new IdentityHashMap();
     @GuardedBy("this")
-    private int ikI = 1;
-    private final c<T> ikm;
+    private int jAk = 1;
     @GuardedBy("this")
-    private T mValue;
+    private T jp;
+    private final c<T> jzO;
 
     public SharedReference(T t, c<T> cVar) {
-        this.mValue = (T) g.checkNotNull(t);
-        this.ikm = (c) g.checkNotNull(cVar);
-        aq(t);
+        this.jp = (T) g.checkNotNull(t);
+        this.jzO = (c) g.checkNotNull(cVar);
+        aF(t);
     }
 
-    private static void aq(Object obj) {
-        synchronized (ikH) {
-            Integer num = ikH.get(obj);
+    private static void aF(Object obj) {
+        synchronized (jAj) {
+            Integer num = jAj.get(obj);
             if (num == null) {
-                ikH.put(obj, 1);
+                jAj.put(obj, 1);
             } else {
-                ikH.put(obj, Integer.valueOf(num.intValue() + 1));
+                jAj.put(obj, Integer.valueOf(num.intValue() + 1));
             }
         }
     }
 
-    private static void ar(Object obj) {
-        synchronized (ikH) {
-            Integer num = ikH.get(obj);
+    private static void aG(Object obj) {
+        synchronized (jAj) {
+            Integer num = jAj.get(obj);
             if (num == null) {
                 com.facebook.common.c.a.f("SharedReference", "No entry in sLiveObjects for value of type %s", obj.getClass());
             } else if (num.intValue() == 1) {
-                ikH.remove(obj);
+                jAj.remove(obj);
             } else {
-                ikH.put(obj, Integer.valueOf(num.intValue() - 1));
+                jAj.put(obj, Integer.valueOf(num.intValue() - 1));
             }
         }
     }
 
     public synchronized T get() {
-        return this.mValue;
+        return this.jp;
     }
 
     public synchronized boolean isValid() {
-        return this.ikI > 0;
+        return this.jAk > 0;
     }
 
     public static boolean a(SharedReference<?> sharedReference) {
         return sharedReference != null && sharedReference.isValid();
     }
 
-    public synchronized void bUR() {
-        bUU();
-        this.ikI++;
+    public synchronized void ctP() {
+        ctS();
+        this.jAk++;
     }
 
-    public void bUS() {
+    public void ctQ() {
         T t;
-        if (bUT() == 0) {
+        if (ctR() == 0) {
             synchronized (this) {
-                t = this.mValue;
-                this.mValue = null;
+                t = this.jp;
+                this.jp = null;
             }
-            this.ikm.release(t);
-            ar(t);
+            this.jzO.release(t);
+            aG(t);
         }
     }
 
-    private synchronized int bUT() {
-        bUU();
-        g.checkArgument(this.ikI > 0);
-        this.ikI--;
-        return this.ikI;
+    private synchronized int ctR() {
+        ctS();
+        g.checkArgument(this.jAk > 0);
+        this.jAk--;
+        return this.jAk;
     }
 
-    private void bUU() {
+    private void ctS() {
         if (!a(this)) {
             throw new NullReferenceException();
         }

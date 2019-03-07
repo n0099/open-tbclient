@@ -48,10 +48,10 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
         setError(updateClientInfoResIdl.error.errorno.intValue());
         setErrorString(updateClientInfoResIdl.error.usermsg);
         if (getError() != 0) {
-            a.b(1001, 0, 2, 0, 0);
+            a.c(1001, 0, 2, 0, 0);
             return;
         }
-        a.b(1001, 0, 1, 0, 0);
+        a.c(1001, 0, 1, 0, 0);
         this.groupInfos = new ArrayList();
         if (updateClientInfoResIdl.data != null) {
             int size = updateClientInfoResIdl.data.groupInfo == null ? 0 : updateClientInfoResIdl.data.groupInfo.size();

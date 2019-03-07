@@ -5,36 +5,36 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class b<T> {
-    SoftReference<T> ikE = null;
-    SoftReference<T> ikF = null;
-    SoftReference<T> ikG = null;
+    SoftReference<T> jAg = null;
+    SoftReference<T> jAh = null;
+    SoftReference<T> jAi = null;
 
     public void set(@Nonnull T t) {
-        this.ikE = new SoftReference<>(t);
-        this.ikF = new SoftReference<>(t);
-        this.ikG = new SoftReference<>(t);
+        this.jAg = new SoftReference<>(t);
+        this.jAh = new SoftReference<>(t);
+        this.jAi = new SoftReference<>(t);
     }
 
     @Nullable
     public T get() {
-        if (this.ikE == null) {
+        if (this.jAg == null) {
             return null;
         }
-        return this.ikE.get();
+        return this.jAg.get();
     }
 
     public void clear() {
-        if (this.ikE != null) {
-            this.ikE.clear();
-            this.ikE = null;
+        if (this.jAg != null) {
+            this.jAg.clear();
+            this.jAg = null;
         }
-        if (this.ikF != null) {
-            this.ikF.clear();
-            this.ikF = null;
+        if (this.jAh != null) {
+            this.jAh.clear();
+            this.jAh = null;
         }
-        if (this.ikG != null) {
-            this.ikG.clear();
-            this.ikG = null;
+        if (this.jAi != null) {
+            this.jAi.clear();
+            this.jAi = null;
         }
     }
 }

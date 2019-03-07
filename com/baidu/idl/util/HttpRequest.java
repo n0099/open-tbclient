@@ -1,6 +1,5 @@
 package com.baidu.idl.util;
 
-import com.baidu.ar.util.IoUtils;
 import com.sina.weibo.sdk.utils.WbAuthConstants;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -13,7 +12,8 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLEncoder;
 import org.apache.http.client.utils.URLEncodedUtils;
-/* loaded from: classes6.dex */
+import org.apache.http.protocol.HTTP;
+/* loaded from: classes3.dex */
 public class HttpRequest {
     private static final String TAG = HttpRequest.class.getSimpleName();
 
@@ -67,7 +67,7 @@ public class HttpRequest {
         StringBuilder sb = new StringBuilder("");
         try {
             try {
-                String str3 = "data=" + URLEncoder.encode(str2, "UTF-8");
+                String str3 = "data=" + URLEncoder.encode(str2, HTTP.UTF_8);
                 HttpURLConnection httpURLConnection3 = (HttpURLConnection) new URL(str).openConnection();
                 try {
                     System.setProperty("sun.net.client.defaultConnectTimeout", WbAuthConstants.AUTH_FAILED_NOT_INSTALL_CODE);
@@ -254,7 +254,7 @@ public class HttpRequest {
                                         throw th;
                                     }
                                 }
-                                sb.append(new String(byteArrayOutputStream2.toByteArray(), IoUtils.UTF_8));
+                                sb.append(new String(byteArrayOutputStream2.toByteArray(), "utf-8"));
                                 byteArrayOutputStream2.flush();
                             } catch (UnsupportedEncodingException e12) {
                                 httpURLConnection = httpURLConnection3;

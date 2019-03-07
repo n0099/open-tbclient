@@ -1,10 +1,10 @@
 package com.baidu.tieba.aiapps.apps.p;
 
-import com.baidu.ubc.o;
+import com.baidu.ubc.UBC;
 /* loaded from: classes4.dex */
 public class d implements com.baidu.pyramid.runtime.multiprocess.e {
     @Override // com.baidu.pyramid.runtime.multiprocess.e
-    public void dt(String str) {
-        o.S("765", str, com.baidu.pyramid.runtime.multiprocess.a.getProcessName());
+    public void df(String str) {
+        UBC.onMutilProcessEvent("765", str, com.baidu.pyramid.runtime.multiprocess.a.getProcessName());
     }
 }

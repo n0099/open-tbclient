@@ -5,7 +5,7 @@ import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.im.data.GroupActivityData;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class CreateGroupActivityActivityConfig extends IntentConfig {
     public static final String GROUP_ACTIVITY_AREA = "area";
     public static final String GROUP_ACTIVITY_CONTENT = "content";
@@ -27,7 +27,7 @@ public class CreateGroupActivityActivityConfig extends IntentConfig {
         getIntent().putExtra(GROUP_ACTIVITY_ISEDIT, true);
         getIntent().putExtra("aid", groupActivityData.getActivityId());
         getIntent().putExtra("name", groupActivityData.getgActivityTitle());
-        getIntent().putExtra("time", groupActivityData.getgActivityTime());
+        getIntent().putExtra(GROUP_ACTIVITY_TIME, groupActivityData.getgActivityTime());
         getIntent().putExtra(GROUP_ACTIVITY_AREA, groupActivityData.getgActivityArea());
         getIntent().putExtra("content", groupActivityData.getgActivityContent());
         setRequestCode(i);

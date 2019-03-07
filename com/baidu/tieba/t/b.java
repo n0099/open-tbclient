@@ -1,166 +1,98 @@
 package com.baidu.tieba.t;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.lib.util.f;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.VideoPlatformStatic;
-import com.baidu.tieba.j.g;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
+import android.app.KeyguardManager;
+import android.app.WallpaperManager;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.PowerManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.l;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+/* loaded from: classes.dex */
 public class b {
-    private static b hDD = new b();
+    private KeyguardManager iUe;
+    private PowerManager iUf;
+    private PowerManager.WakeLock iUg;
+    private KeyguardManager.KeyguardLock iUh;
+    private Context mContext;
 
-    public static b bIR() {
-        return hDD;
-    }
-
-    public void bIS() {
-        if (f.hA()) {
-            new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.t.b.1
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                public Void doInBackground(Void... voidArr) {
-                    List bIU = b.bIU();
-                    int size = bIU.size();
-                    for (int i = 0; i < size; i++) {
-                        a aVar = (a) bIU.get(i);
-                        b.this.h(aVar.uuid, aVar.gUQ);
-                    }
-                    return null;
-                }
-            }.execute(new Void[0]);
-        }
-    }
-
-    private static File[] bIT() {
-        File file = new File(g.a.fHU);
-        if (file.exists()) {
-            return file.listFiles();
-        }
-        return null;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public static List<a> bIU() {
-        ArrayList arrayList = new ArrayList();
-        File[] bIT = bIT();
-        if (bIT != null) {
-            for (File file : bIT) {
-                String name = file.getName();
-                JSONObject wK = wK(file.getAbsolutePath() + g.a.fHL + "kpi");
-                if (wK == null) {
-                    com.baidu.tieba.j.d.so(name);
-                } else {
-                    JSONObject wL = wL(file.getAbsolutePath() + g.a.fHL + "debug");
-                    if (wL == null) {
-                        com.baidu.tieba.j.d.so(name);
-                    } else {
-                        arrayList.add(new a(name, a(VideoPlatformStatic.We(), wK, wL)));
-                    }
-                }
-            }
-        }
-        return arrayList;
-    }
-
-    private static JSONObject wK(String str) {
-        File file = new File(str);
-        if (file.exists()) {
-            try {
-                JSONObject jSONObject = new JSONObject(com.baidu.tieba.j.d.J(file));
-                if (aw(jSONObject)) {
-                    return jSONObject;
-                }
-                return null;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return null;
-    }
-
-    private static boolean aw(JSONObject jSONObject) {
-        int optInt = jSONObject.optInt("errorTimes", -1);
-        int optInt2 = jSONObject.optInt("postSuccess", -1);
-        int optInt3 = jSONObject.optInt("posted", -1);
-        return (optInt == -1 || optInt2 == -1 || optInt3 == -1 || (optInt3 != 1 && optInt <= 0)) ? false : true;
-    }
-
-    private static JSONObject wL(String str) {
-        if (!StringUtils.isNull(str) && new File(str).exists()) {
-            try {
-                return new JSONObject().put("running", v(com.baidu.tieba.j.d.sn(str)));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return null;
-    }
-
-    private static JSONArray v(JSONArray jSONArray) {
-        int optInt;
-        boolean z = false;
-        if (jSONArray == null) {
-            return null;
-        }
-        int length = jSONArray.length();
-        for (int i = 0; i < length; i++) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(i);
-            if (optJSONObject != null && ((optInt = optJSONObject.optInt("type")) == 501 || optInt == 503 || optInt == 502)) {
-                z = true;
-                break;
-            }
-        }
-        if (!z) {
-            jSONArray.put(new com.baidu.tieba.m.d(502, "unknown", -4399, "").btE());
-            return jSONArray;
-        }
-        return jSONArray;
-    }
-
-    public static JSONObject a(JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
+    public b() {
         try {
-            JSONObject jSONObject4 = new JSONObject();
-            jSONObject4.put("kpiInfo", jSONObject2);
-            jSONObject4.put("baseInfo", jSONObject);
-            jSONObject4.put("debugInfo", jSONObject3);
-            return jSONObject4;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            this.mContext = TbadkCoreApplication.getInst().getApp();
+            this.iUf = (PowerManager) this.mContext.getSystemService("power");
+            this.iUg = this.iUf.newWakeLock(268435462, "ScreenLockNotify");
+            this.iUg.setReferenceCounted(false);
+            this.iUe = (KeyguardManager) this.mContext.getSystemService("keyguard");
+            this.iUh = this.iUe.newKeyguardLock("ScreenLockUtils");
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
     }
 
-    public void h(String str, JSONObject jSONObject) {
-        new BdAsyncTask<a, Void, Void>() { // from class: com.baidu.tieba.t.b.2
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            /* renamed from: a */
-            public Void doInBackground(a... aVarArr) {
-                if (aVarArr != null && aVarArr.length == 1 && aVarArr[0] != null) {
-                    b.this.a(aVarArr[0]);
-                }
-                return null;
+    public void cit() {
+        try {
+            this.iUh.reenableKeyguard();
+            if (this.iUg != null) {
+                this.iUg.release();
+                this.iUg = null;
             }
-        }.execute(new a(str, jSONObject));
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
     }
 
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(a aVar) {
+    public void ciu() {
         try {
-            c.g(c.ax(aVar.gUQ), TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
-            com.baidu.tieba.j.d.so(aVar.uuid);
+            if (this.iUg == null) {
+                this.iUg = this.iUf.newWakeLock(268435462, "ScreenLockNotify");
+                this.iUg.setReferenceCounted(false);
+            }
+            if (this.iUg != null) {
+                this.iUg.acquire(10000L);
+                this.iUh.disableKeyguard();
+            }
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+    }
+
+    public boolean civ() {
+        try {
+            return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.iUe, new Object[0])).booleanValue();
+        } catch (Throwable th) {
+            th.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean isScreenOn() {
+        return this.iUf.isScreenOn();
+    }
+
+    public static Drawable ciw() {
+        Bitmap bitmap;
+        TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+        try {
+            Drawable drawable = WallpaperManager.getInstance(inst).getDrawable();
+            if (drawable != null && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null) {
+                int min = Math.min(l.aO(inst), bitmap.getWidth());
+                int min2 = Math.min(l.aQ(inst), bitmap.getHeight());
+                try {
+                    return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
+                } catch (Throwable th) {
+                    try {
+                        return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
+                    } catch (Throwable th2) {
+                        BdLog.e(th2.getMessage());
+                        return null;
+                    }
+                }
+            }
+            return null;
         } catch (Exception e) {
-            e.printStackTrace();
+            return null;
         }
     }
 }

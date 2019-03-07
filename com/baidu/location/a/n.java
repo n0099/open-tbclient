@@ -1,11 +1,11 @@
 package com.baidu.location.a;
 
 import android.location.Location;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class n {
     private static long a;
-    private static com.baidu.location.e.a adJ;
-    private static Location ads;
+    private static com.baidu.location.e.a b;
+    private static Location c;
     private static String d;
 
     public static String a() {
@@ -17,7 +17,11 @@ public class n {
     }
 
     public static void a(Location location) {
-        ads = location;
+        c = location;
+    }
+
+    public static void a(com.baidu.location.e.a aVar) {
+        b = aVar;
     }
 
     public static void a(String str) {
@@ -28,15 +32,11 @@ public class n {
         return a;
     }
 
-    public static void c(com.baidu.location.e.a aVar) {
-        adJ = aVar;
+    public static com.baidu.location.e.a c() {
+        return b;
     }
 
-    public static com.baidu.location.e.a ts() {
-        return adJ;
-    }
-
-    public static Location tt() {
-        return ads;
+    public static Location d() {
+        return c;
     }
 }

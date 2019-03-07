@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import tbclient.Realtime.RealtimeResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RealTimeHttpResponse extends HttpResponsedMessage {
     public RealTimeHttpResponse() {
         super(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK);

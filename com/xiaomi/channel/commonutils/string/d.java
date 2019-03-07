@@ -1,6 +1,5 @@
 package com.xiaomi.channel.commonutils.string;
 
-import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -8,6 +7,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Random;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class d {
     public static String a(int i) {
@@ -22,7 +22,7 @@ public class d {
     public static String a(String str) {
         if (str != null) {
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
                 messageDigest.update(c(str));
                 return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
             } catch (NoSuchAlgorithmException e) {
@@ -69,7 +69,7 @@ public class d {
     public static String a(byte[] bArr) {
         String str = "";
         try {
-            MessageDigest messageDigest = MessageDigest.getInstance(AiAppEncryptUtils.ENCRYPT_MD5);
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(bArr);
             str = String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
         } catch (Exception e) {
@@ -92,7 +92,7 @@ public class d {
 
     public static byte[] c(String str) {
         try {
-            return str.getBytes("UTF-8");
+            return str.getBytes(HTTP.UTF_8);
         } catch (UnsupportedEncodingException e) {
             return str.getBytes();
         }

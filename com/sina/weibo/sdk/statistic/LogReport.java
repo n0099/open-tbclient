@@ -3,7 +3,8 @@ package com.sina.weibo.sdk.statistic;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import com.baidu.ar.util.IoUtils;
+import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.sina.weibo.sdk.net.ConnectionFactory;
 import com.sina.weibo.sdk.net.NetStateManager;
 import com.sina.weibo.sdk.utils.LogUtil;
@@ -65,7 +66,7 @@ public class LogReport {
             mParams.put("packagename", mPackageName);
             mParams.put("key_hash", mKeyHash);
             mParams.put("version", mVersionName);
-            mParams.put("channel", mChannel);
+            mParams.put(LogBuilder.KEY_CHANNEL, mChannel);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -170,9 +171,9 @@ public class LogReport {
                     }
                 }
                 try {
-                    jSONObject.put("time", System.currentTimeMillis() / 1000);
+                    jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, System.currentTimeMillis() / 1000);
                     jSONObject.put("length", jSONArray.length());
-                    jSONObject.put("sign", getSign(jSONObject.getString("aid"), jSONObject.getString("appkey"), jSONObject.getLong("time")));
+                    jSONObject.put(SapiUtils.KEY_QR_LOGIN_SIGN, getSign(jSONObject.getString("aid"), jSONObject.getString("appkey"), jSONObject.getLong(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME)));
                     jSONObject.put("content", jSONArray);
                     LogUtil.d(WBAgent.TAG, "post content--- " + jSONObject.toString());
                 } catch (JSONException e3) {
@@ -259,7 +260,7 @@ public class LogReport {
             httpURLConnection.setRequestMethod("POST");
             httpURLConnection.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
             httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-            httpURLConnection.setRequestProperty("Charset", "UTF-8");
+            httpURLConnection.setRequestProperty("Charset", HTTP.UTF_8);
         } catch (Exception e) {
         }
     }
@@ -282,7 +283,7 @@ public class LogReport {
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
-            byte[] bytes = str.getBytes(IoUtils.UTF_8);
+            byte[] bytes = str.getBytes("utf-8");
             GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
             gZIPOutputStream.write(bytes);
             gZIPOutputStream.close();

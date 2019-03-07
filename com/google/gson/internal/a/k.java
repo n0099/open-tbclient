@@ -12,28 +12,28 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes2.dex */
 public final class k extends o<Time> {
-    public static final p iyB = new p() { // from class: com.google.gson.internal.a.k.1
+    public static final p jOm = new p() { // from class: com.google.gson.internal.a.k.1
         @Override // com.google.gson.p
         public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-            if (aVar.ccr() == Time.class) {
+            if (aVar.cBw() == Time.class) {
                 return new k();
             }
             return null;
         }
     };
-    private final DateFormat izj = new SimpleDateFormat("hh:mm:ss a");
+    private final DateFormat jOU = new SimpleDateFormat("hh:mm:ss a");
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.o
     /* renamed from: m */
     public synchronized Time b(com.google.gson.stream.a aVar) throws IOException {
         Time time;
-        if (aVar.ccf() == JsonToken.NULL) {
+        if (aVar.cBk() == JsonToken.NULL) {
             aVar.nextNull();
             time = null;
         } else {
             try {
-                time = new Time(this.izj.parse(aVar.nextString()).getTime());
+                time = new Time(this.jOU.parse(aVar.nextString()).getTime());
             } catch (ParseException e) {
                 throw new JsonSyntaxException(e);
             }
@@ -44,6 +44,6 @@ public final class k extends o<Time> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.o
     public synchronized void a(com.google.gson.stream.b bVar, Time time) throws IOException {
-        bVar.zN(time == null ? null : this.izj.format((Date) time));
+        bVar.FQ(time == null ? null : this.jOU.format((Date) time));
     }
 }

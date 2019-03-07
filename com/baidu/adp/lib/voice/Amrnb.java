@@ -28,7 +28,7 @@ public class Amrnb {
 
     static {
         bLoadLibrary = false;
-        bLoadLibrary = com.baidu.adp.lib.util.h.kI().a("amrnb", 2, new i() { // from class: com.baidu.adp.lib.voice.Amrnb.1
+        bLoadLibrary = com.baidu.adp.lib.util.h.kK().a("amrnb", 2, new i() { // from class: com.baidu.adp.lib.voice.Amrnb.1
             @Override // com.baidu.adp.lib.util.i
             public void O(boolean z) {
                 Amrnb.bLoadLibrary = z;

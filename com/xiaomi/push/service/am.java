@@ -1,4 +1,6 @@
 package com.xiaomi.push.service;
+
+import com.tencent.open.SocialConstants;
 /* loaded from: classes3.dex */
 public abstract class am {
     public static String a = "1";
@@ -33,7 +35,7 @@ public abstract class am {
     public static String D = "ext_notify_title";
     public static String E = "ext_notify_description";
     public static String F = "title";
-    public static String G = "description";
+    public static String G = SocialConstants.PARAM_COMMENT;
     public static String H = "notifyId";
 
     public static String a(int i2) {

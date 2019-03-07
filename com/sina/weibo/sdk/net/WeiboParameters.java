@@ -2,7 +2,6 @@ package com.sina.weibo.sdk.net;
 
 import android.graphics.Bitmap;
 import android.text.TextUtils;
-import com.baidu.webkit.internal.ETAG;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -107,14 +106,14 @@ public class WeiboParameters {
             if (z2) {
                 z = false;
             } else {
-                sb.append(ETAG.ITEM_SEPARATOR);
+                sb.append("&");
                 z = z2;
             }
             Object obj = this.mParams.get(str2);
             if (obj instanceof String) {
                 if (!TextUtils.isEmpty((String) obj)) {
                     try {
-                        sb.append(URLEncoder.encode(str2, "UTF-8") + ETAG.EQUAL + URLEncoder.encode(str, "UTF-8"));
+                        sb.append(URLEncoder.encode(str2, "UTF-8") + "=" + URLEncoder.encode(str, "UTF-8"));
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();
                     }

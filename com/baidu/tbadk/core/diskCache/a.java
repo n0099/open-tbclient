@@ -8,11 +8,10 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.g.f;
-import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static boolean axT = false;
+    private static boolean bFL = false;
     private static Handler sHandler = new Handler() { // from class: com.baidu.tbadk.core.diskCache.a.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -31,8 +30,8 @@ public class a {
         f.f(BdBaseApplication.getInst().getContext(), new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidService.class));
     }
 
-    public static void bp(boolean z) {
-        axT = z;
+    public static void dy(boolean z) {
+        bFL = z;
     }
 
     public static void init() {
@@ -42,8 +41,8 @@ public class a {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        if (!a.axT) {
-                            a.sHandler.sendEmptyMessageDelayed(1, ErrDef.Feature.WEIGHT);
+                        if (!a.bFL) {
+                            a.sHandler.sendEmptyMessageDelayed(1, 10000L);
                             return;
                         }
                         return;

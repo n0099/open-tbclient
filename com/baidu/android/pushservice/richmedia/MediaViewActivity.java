@@ -18,8 +18,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import com.baidu.ar.util.IoUtils;
-import com.baidu.searchbox.ng.ai.apps.impl.map.model.OpenLocationModel;
 /* loaded from: classes3.dex */
 public class MediaViewActivity extends Activity {
     public WebView a;
@@ -51,7 +49,7 @@ public class MediaViewActivity extends Activity {
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             String substring;
-            if (str.startsWith(com.baidu.webkit.sdk.WebView.SCHEME_TEL)) {
+            if (str.startsWith("tel:")) {
                 try {
                     Intent intent = new Intent("android.intent.action.DIAL");
                     intent.setData(Uri.parse(str));
@@ -65,7 +63,7 @@ public class MediaViewActivity extends Activity {
                     MediaViewActivity.this.startActivity(intent2);
                 } catch (ActivityNotFoundException e2) {
                 }
-            } else if (str.startsWith(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO)) {
+            } else if (str.startsWith("mailto:")) {
                 try {
                     Intent intent3 = new Intent("android.intent.action.VIEW");
                     intent3.setData(Uri.parse(str));
@@ -86,7 +84,7 @@ public class MediaViewActivity extends Activity {
                         }
                     }
                     intent4.setData(Uri.parse("sms:" + substring));
-                    intent4.putExtra(OpenLocationModel.ADDRESS, substring);
+                    intent4.putExtra("address", substring);
                     intent4.setType("vnd.android-dir/mms-sms");
                     MediaViewActivity.this.startActivity(intent4);
                 } catch (ActivityNotFoundException e4) {
@@ -142,7 +140,7 @@ public class MediaViewActivity extends Activity {
         settings.setAppCacheEnabled(true);
         settings.setJavaScriptEnabled(true);
         settings.setLightTouchEnabled(true);
-        settings.setDefaultTextEncodingName(IoUtils.UTF_8);
+        settings.setDefaultTextEncodingName("utf-8");
         settings.setSavePassword(false);
         this.a.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         this.a.setWebChromeClient(this.c);

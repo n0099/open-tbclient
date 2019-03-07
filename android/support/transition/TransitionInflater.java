@@ -11,7 +11,6 @@ import android.util.AttributeSet;
 import android.util.Xml;
 import android.view.InflateException;
 import android.view.ViewGroup;
-import com.baidu.fsg.base.BaiduRimConstants;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import org.xmlpull.v1.XmlPullParser;
@@ -172,7 +171,7 @@ public class TransitionInflater {
             int next = xmlPullParser.next();
             if ((next != 3 || xmlPullParser.getDepth() > depth) && next != 1) {
                 if (next == 2) {
-                    if (xmlPullParser.getName().equals(BaiduRimConstants.ACTION_TARGET)) {
+                    if (xmlPullParser.getName().equals("target")) {
                         TypedArray obtainStyledAttributes = this.mContext.obtainStyledAttributes(attributeSet, Styleable.TRANSITION_TARGET);
                         int namedResourceId = TypedArrayUtils.getNamedResourceId(obtainStyledAttributes, xmlPullParser, "targetId", 1, 0);
                         if (namedResourceId != 0) {

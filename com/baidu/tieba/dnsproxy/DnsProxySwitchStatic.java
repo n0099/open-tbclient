@@ -1,12 +1,12 @@
 package com.baidu.tieba.dnsproxy;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class DnsProxySwitchStatic extends com.baidu.adp.lib.b.a {
     static {
         com.baidu.adp.lib.b.d.iQ().i(DnsProxySwitchStatic.class);
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected void aq(int i) {
+    protected void Z(int i) {
     }
 
     @Override // com.baidu.adp.lib.b.a

@@ -11,7 +11,6 @@ import android.media.MediaMetadataRetriever;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
-import com.baidu.searchbox.ng.ai.apps.canvas.model.CanvasToTempFileModel;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -84,7 +83,7 @@ public class ImageUtils {
                 safeDecodeBimtapFile = createBitmap;
             }
             FileOutputStream fileOutputStream = new FileOutputStream(str);
-            if (options != null && options.outMimeType != null && options.outMimeType.contains(CanvasToTempFileModel.IMAGE_EXT_PNG)) {
+            if (options != null && options.outMimeType != null && options.outMimeType.contains("png")) {
                 safeDecodeBimtapFile.compress(Bitmap.CompressFormat.PNG, i2, fileOutputStream);
             } else {
                 safeDecodeBimtapFile.compress(Bitmap.CompressFormat.JPEG, i2, fileOutputStream);
@@ -135,7 +134,7 @@ public class ImageUtils {
             deleteDependon(str);
             makesureFileExist(str);
             FileOutputStream fileOutputStream = new FileOutputStream(str);
-            if (options != null && options.outMimeType != null && options.outMimeType.contains(CanvasToTempFileModel.IMAGE_EXT_PNG)) {
+            if (options != null && options.outMimeType != null && options.outMimeType.contains("png")) {
                 safeDecodeBimtapFile.compress(Bitmap.CompressFormat.PNG, i2, fileOutputStream);
             } else {
                 safeDecodeBimtapFile.compress(Bitmap.CompressFormat.JPEG, i2, fileOutputStream);

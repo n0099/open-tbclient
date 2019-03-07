@@ -4,30 +4,13 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import rx.d;
 /* loaded from: classes2.dex */
 public final class OperatorElementAt<T> implements d.b<T, T> {
-    final boolean iJI;
-    final T iJJ;
     final int index;
+    final boolean jXi;
+    final T jXj;
 
     @Override // rx.functions.f
     public /* bridge */ /* synthetic */ Object call(Object obj) {
         return call((rx.j) ((rx.j) obj));
-    }
-
-    public OperatorElementAt(int i) {
-        this(i, null, false);
-    }
-
-    public OperatorElementAt(int i, T t) {
-        this(i, t, true);
-    }
-
-    private OperatorElementAt(int i, T t, boolean z) {
-        if (i < 0) {
-            throw new IndexOutOfBoundsException(i + " is out of bounds");
-        }
-        this.index = i;
-        this.iJJ = t;
-        this.iJI = z;
     }
 
     public rx.j<? super T> call(final rx.j<? super T> jVar) {
@@ -53,8 +36,8 @@ public final class OperatorElementAt<T> implements d.b<T, T> {
             @Override // rx.e
             public void onCompleted() {
                 if (this.currentIndex <= OperatorElementAt.this.index) {
-                    if (OperatorElementAt.this.iJI) {
-                        jVar.onNext(OperatorElementAt.this.iJJ);
+                    if (OperatorElementAt.this.jXi) {
+                        jVar.onNext(OperatorElementAt.this.jXj);
                         jVar.onCompleted();
                         return;
                     }

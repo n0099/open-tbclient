@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.os.Looper;
 import cn.jpush.android.api.JPushInterface;
 import cn.jpush.android.data.JPushLocalNotification;
-import com.baidu.searchbox.ng.ai.apps.event.message.AiAppsLifecycleMessage;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -56,7 +55,7 @@ public final class a {
     public void a(Context context, String str, String str2, String str3) {
         Intent intent = new Intent(JPushInterface.ACTION_NOTIFICATION_RECEIVED_PROXY);
         intent.putExtra("senderId", str3);
-        intent.putExtra(AiAppsLifecycleMessage.APP_ID_KEY, str2);
+        intent.putExtra("appId", str2);
         intent.putExtra("message", str);
         intent.putExtra("notificaion_type", 1);
         intent.addCategory(str2);

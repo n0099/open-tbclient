@@ -9,7 +9,7 @@ import rx.k;
 import rx.subscriptions.e;
 /* loaded from: classes2.dex */
 public class TestScheduler extends g {
-    static long iIf;
+    static long kcn;
     final Queue<c> queue = new PriorityQueue(11, new a());
     long time;
 
@@ -18,16 +18,16 @@ public class TestScheduler extends g {
     public static final class c {
         final rx.functions.a action;
         private final long count;
-        final g.a iSt;
+        final g.a kcs;
         final long time;
 
         c(g.a aVar, long j, rx.functions.a aVar2) {
-            long j2 = TestScheduler.iIf;
-            TestScheduler.iIf = 1 + j2;
+            long j2 = TestScheduler.kcn;
+            TestScheduler.kcn = 1 + j2;
             this.count = j2;
             this.time = j;
             this.action = aVar2;
-            this.iSt = aVar;
+            this.kcs = aVar;
         }
 
         public String toString() {
@@ -67,14 +67,14 @@ public class TestScheduler extends g {
     }
 
     public void advanceTimeTo(long j, TimeUnit timeUnit) {
-        ed(timeUnit.toNanos(j));
+        ex(timeUnit.toNanos(j));
     }
 
     public void triggerActions() {
-        ed(this.time);
+        ex(this.time);
     }
 
-    private void ed(long j) {
+    private void ex(long j) {
         while (!this.queue.isEmpty()) {
             c peek = this.queue.peek();
             if (peek.time > j) {
@@ -82,7 +82,7 @@ public class TestScheduler extends g {
             }
             this.time = peek.time == 0 ? this.time : peek.time;
             this.queue.remove();
-            if (!peek.iSt.isUnsubscribed()) {
+            if (!peek.kcs.isUnsubscribed()) {
                 peek.action.call();
             }
         }
@@ -96,26 +96,26 @@ public class TestScheduler extends g {
 
     /* loaded from: classes2.dex */
     final class b extends g.a {
-        private final rx.subscriptions.a iSp = new rx.subscriptions.a();
+        private final rx.subscriptions.a kco = new rx.subscriptions.a();
 
         b() {
         }
 
         @Override // rx.k
         public void unsubscribe() {
-            this.iSp.unsubscribe();
+            this.kco.unsubscribe();
         }
 
         @Override // rx.k
         public boolean isUnsubscribed() {
-            return this.iSp.isUnsubscribed();
+            return this.kco.isUnsubscribed();
         }
 
         @Override // rx.g.a
         public k a(rx.functions.a aVar, long j, TimeUnit timeUnit) {
             final c cVar = new c(this, TestScheduler.this.time + timeUnit.toNanos(j), aVar);
             TestScheduler.this.queue.add(cVar);
-            return e.j(new rx.functions.a() { // from class: rx.schedulers.TestScheduler.b.1
+            return e.l(new rx.functions.a() { // from class: rx.schedulers.TestScheduler.b.1
                 @Override // rx.functions.a
                 public void call() {
                     TestScheduler.this.queue.remove(cVar);
@@ -124,10 +124,10 @@ public class TestScheduler extends g {
         }
 
         @Override // rx.g.a
-        public k a(rx.functions.a aVar) {
+        public k c(rx.functions.a aVar) {
             final c cVar = new c(this, 0L, aVar);
             TestScheduler.this.queue.add(cVar);
-            return e.j(new rx.functions.a() { // from class: rx.schedulers.TestScheduler.b.2
+            return e.l(new rx.functions.a() { // from class: rx.schedulers.TestScheduler.b.2
                 @Override // rx.functions.a
                 public void call() {
                     TestScheduler.this.queue.remove(cVar);

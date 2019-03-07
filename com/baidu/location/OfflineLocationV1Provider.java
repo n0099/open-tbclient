@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Binder;
 import com.baidu.location.d.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class OfflineLocationV1Provider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int delete(Uri uri, String str, String[] strArr) {
@@ -32,10 +32,10 @@ public final class OfflineLocationV1Provider extends ContentProvider {
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         String nameForUid = getContext().getPackageManager().getNameForUid(Binder.getCallingUid());
         d.a(getContext());
-        if (d.tI().b(nameForUid)) {
+        if (d.a().b(nameForUid)) {
             return null;
         }
-        return d.tI().p(strArr);
+        return d.a().a(strArr);
     }
 
     @Override // android.content.ContentProvider

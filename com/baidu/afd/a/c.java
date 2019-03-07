@@ -28,7 +28,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, d> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.afd.d dVar, d dVar2) {
-        com.baidu.tbadk.core.data.b.a(dVar);
+        com.baidu.tbadk.core.data.c.a(dVar);
         return dVar2.getView();
     }
 }

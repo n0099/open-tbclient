@@ -1,5 +1,6 @@
 package kotlin.collections;
 
+import com.baidu.ubc.UBC;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Map;
@@ -98,7 +99,7 @@ final class EmptyMap implements Serializable, Map {
     }
 
     public boolean containsValue(Void r2) {
-        kotlin.jvm.internal.p.j(r2, "value");
+        kotlin.jvm.internal.p.k(r2, UBC.CONTENT_KEY_VALUE);
         return false;
     }
 

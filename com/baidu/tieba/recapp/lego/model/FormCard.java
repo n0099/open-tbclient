@@ -1,6 +1,7 @@
 package com.baidu.tieba.recapp.lego.model;
 
 import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.model.BaseLegoCardInfo;
 import com.tencent.open.SocialConstants;
@@ -51,19 +52,19 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
 
     /* loaded from: classes3.dex */
     public static class c extends b {
-        public String gQM;
+        public String iiq;
         public String postUrl;
     }
 
     /* loaded from: classes3.dex */
     public static class d extends b {
-        public String gQN;
-        public h gQO;
+        public String iir;
+        public h iis;
     }
 
     /* loaded from: classes3.dex */
     public static class e extends b {
-        public String[] gQP;
+        public String[] iit;
     }
 
     /* loaded from: classes3.dex */
@@ -78,7 +79,7 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
 
     /* loaded from: classes3.dex */
     public static class h extends b {
-        public String gQQ;
+        public String iiu;
     }
 
     public FormCard(JSONObject jSONObject) throws CardParseException {
@@ -124,7 +125,7 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
             this.commitInfo.type = optJSONObject3.optInt("type", -1);
             this.commitInfo.postUrl = optJSONObject3.optString("post_url", "");
             this.commitInfo.content = optJSONObject3.optString("content", "");
-            this.commitInfo.gQM = optJSONObject3.optString("check_str", "");
+            this.commitInfo.iiq = optJSONObject3.optString("check_str", "");
             this.commitInfo.tag = optJSONObject3.optString("tag", "");
         } else {
             this.commitInfo = null;
@@ -157,7 +158,7 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
                                 c cVar = new c();
                                 cVar.type = optInt;
                                 cVar.content = jSONObject3.optString("content", "");
-                                cVar.gQM = jSONObject3.optString("check_str", "");
+                                cVar.iiq = jSONObject3.optString("check_str", "");
                                 cVar.postUrl = jSONObject3.optString("post_url", "");
                                 cVar.tag = jSONObject3.optString("tag", "");
                                 this.itemList.add(cVar);
@@ -169,13 +170,13 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
                                 dVar.type = optInt;
                                 dVar.content = jSONObject3.optString("content", "");
                                 dVar.tag = jSONObject3.optString("tag", "");
-                                dVar.gQN = jSONObject3.optString("reg_str", "");
+                                dVar.iir = jSONObject3.optString("reg_str", "");
                                 if (jSONObject3.has("veri_code_info") && (jSONObject2 = jSONObject3.getJSONObject("veri_code_info")) != null) {
                                     h hVar = new h();
                                     hVar.content = jSONObject2.optString("content");
-                                    hVar.gQQ = jSONObject2.optString("btn_title");
+                                    hVar.iiu = jSONObject2.optString("btn_title");
                                     hVar.tag = jSONObject2.optString("tag");
-                                    dVar.gQO = hVar;
+                                    dVar.iis = hVar;
                                 }
                                 this.itemList.add(dVar);
                                 continue;
@@ -187,12 +188,12 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
                                 eVar.tag = jSONObject3.optString("tag", "");
                                 eVar.content = jSONObject3.optString("content", "");
                                 eVar.tag = jSONObject3.optString("tag", "");
-                                if (jSONObject3.has("list") && (jSONArray = jSONObject3.getJSONArray("list")) != null && jSONArray.length() > 0) {
+                                if (jSONObject3.has(IntentConfig.LIST) && (jSONArray = jSONObject3.getJSONArray(IntentConfig.LIST)) != null && jSONArray.length() > 0) {
                                     String[] strArr = new String[jSONArray.length()];
                                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                                         strArr[i2] = jSONArray.getString(i2);
                                     }
-                                    eVar.gQP = strArr;
+                                    eVar.iit = strArr;
                                 }
                                 this.itemList.add(eVar);
                                 continue;
@@ -217,10 +218,10 @@ public class FormCard extends BaseLegoCardInfo implements AdvertAppInfo.ILegoAdv
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert
     public int getGoodsStyle() {
-        if (this.appInfo == null || this.appInfo.aqe == null) {
+        if (this.appInfo == null || this.appInfo.bwL == null) {
             return 0;
         }
-        return this.appInfo.aqe.aqr;
+        return this.appInfo.bwL.bwY;
     }
 
     @Override // com.baidu.tbadk.core.data.AdvertAppInfo.ILegoAdvert

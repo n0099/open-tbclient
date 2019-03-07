@@ -1,6 +1,5 @@
 package okhttp3.internal.http2;
 
-import com.baidu.searchbox.ng.ai.apps.system.bluetooth.utils.AiAppsBluetoothConstants;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -524,7 +523,7 @@ public final class Http2Stream {
 
         @Override // okio.AsyncTimeout
         protected IOException newTimeoutException(IOException iOException) {
-            SocketTimeoutException socketTimeoutException = new SocketTimeoutException(AiAppsBluetoothConstants.KEY_TIME_OUT);
+            SocketTimeoutException socketTimeoutException = new SocketTimeoutException("timeout");
             if (iOException != null) {
                 socketTimeoutException.initCause(iOException);
             }

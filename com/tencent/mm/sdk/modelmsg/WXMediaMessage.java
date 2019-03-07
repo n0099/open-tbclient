@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import com.tencent.mm.sdk.b.a;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class WXMediaMessage {
     public static final String ACTION_WXAPPMESSAGE = "com.tencent.mm.sdk.openapi.Intent.ACTION_WXAPPMESSAGE";
     private static final int DESCRIPTION_LENGTH_LIMIT = 1024;
@@ -23,7 +23,7 @@ public final class WXMediaMessage {
     public byte[] thumbData;
     public String title;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public static final String KEY_IDENTIFIER = "_wxobject_identifier_";
 
@@ -36,7 +36,7 @@ public final class WXMediaMessage {
             wXMediaMessage.mediaTagName = bundle.getString("_wxobject_mediatagname");
             wXMediaMessage.messageAction = bundle.getString("_wxobject_message_action");
             wXMediaMessage.messageExt = bundle.getString("_wxobject_message_ext");
-            String pathOldToNew = pathOldToNew(bundle.getString(KEY_IDENTIFIER));
+            String pathOldToNew = pathOldToNew(bundle.getString("_wxobject_identifier_"));
             if (pathOldToNew == null || pathOldToNew.length() <= 0) {
                 return wXMediaMessage;
             }
@@ -74,7 +74,7 @@ public final class WXMediaMessage {
             bundle.putString("_wxobject_description", wXMediaMessage.description);
             bundle.putByteArray("_wxobject_thumbdata", wXMediaMessage.thumbData);
             if (wXMediaMessage.mediaObject != null) {
-                bundle.putString(KEY_IDENTIFIER, pathNewToOld(wXMediaMessage.mediaObject.getClass().getName()));
+                bundle.putString("_wxobject_identifier_", pathNewToOld(wXMediaMessage.mediaObject.getClass().getName()));
                 wXMediaMessage.mediaObject.serialize(bundle);
             }
             bundle.putString("_wxobject_mediatagname", wXMediaMessage.mediaTagName);
@@ -84,7 +84,7 @@ public final class WXMediaMessage {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public interface IMediaObject {
         public static final int TYPE_APPDATA = 7;
         public static final int TYPE_EMOJI = 8;

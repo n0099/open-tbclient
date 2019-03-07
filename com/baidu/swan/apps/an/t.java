@@ -1,0 +1,32 @@
+package com.baidu.swan.apps.an;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+/* loaded from: classes2.dex */
+public class t {
+    public static String b(byte[] bArr, boolean z) {
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+            messageDigest.reset();
+            messageDigest.update(bArr);
+            return toHexString(messageDigest.digest(), "", z);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static String toHexString(byte[] bArr, String str, boolean z) {
+        StringBuilder sb = new StringBuilder();
+        for (byte b : bArr) {
+            String hexString = Integer.toHexString(b & 255);
+            if (z) {
+                hexString = hexString.toUpperCase();
+            }
+            if (hexString.length() == 1) {
+                sb.append("0");
+            }
+            sb.append(hexString).append(str);
+        }
+        return sb.toString();
+    }
+}

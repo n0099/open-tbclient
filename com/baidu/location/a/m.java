@@ -8,8 +8,7 @@ import android.os.Build;
 import android.os.Handler;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 import com.baidu.location.Jni;
-import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
+import com.baidu.tbadk.TbConfig;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -20,9 +19,9 @@ import java.io.RandomAccessFile;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class m extends com.baidu.location.g.e {
-    private static m aef = null;
+    private static m q = null;
     String a = null;
     String b = null;
     String c = null;
@@ -86,7 +85,7 @@ public class m extends com.baidu.location.g.e {
         try {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null && activeNetworkInfo.getType() == 0) {
-                String a = com.baidu.location.e.c.a(com.baidu.location.e.b.tP().e());
+                String a = com.baidu.location.e.c.a(com.baidu.location.e.b.a().e());
                 if (!a.equals("3G")) {
                     if (a.equals("4G")) {
                     }
@@ -128,6 +127,13 @@ public class m extends com.baidu.location.g.e {
             file.delete();
             return false;
         }
+    }
+
+    public static m b() {
+        if (q == null) {
+            q = new m();
+        }
+        return q;
     }
 
     private Handler f() {
@@ -211,8 +217,8 @@ public class m extends com.baidu.location.g.e {
         if (file.exists() || !a("http://" + this.a + "/" + this.b, this.b)) {
             return;
         }
-        String a = com.baidu.location.g.g.a(file, AiAppEncryptUtils.ENCRYPT_SHA256);
-        if (this.d == null || a == null || !com.baidu.location.g.g.n(a, this.d, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
+        String a = com.baidu.location.g.g.a(file, "SHA-256");
+        if (this.d == null || a == null || !com.baidu.location.g.g.b(a, this.d, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCiP7BS5IjEOzrKGR9/Ww9oSDhdX1ir26VOsYjT1T6tk2XumRpkHRwZbrucDcNnvSB4QsqiEJnvTSRi7YMbh2H9sLMkcvHlMV5jAErNvnuskWfcvf7T2mq7EUZI/Hf4oVZhHV0hQJRFVdTcjWI6q2uaaKM3VMh+roDesiE7CR2biQIDAQAB")) {
             return;
         }
         File file2 = new File(com.baidu.location.g.g.h() + File.separator + com.baidu.location.f.replaceFileName);
@@ -224,13 +230,6 @@ public class m extends com.baidu.location.g.e {
         } catch (Exception e) {
             file2.delete();
         }
-    }
-
-    public static m tr() {
-        if (aef == null) {
-            aef = new m();
-        }
-        return aef;
     }
 
     @Override // com.baidu.location.g.e
@@ -245,12 +244,12 @@ public class m extends com.baidu.location.g.e {
         stringBuffer.append(com.baidu.location.f.getFrameVersion());
         stringBuffer.append("&suit=");
         stringBuffer.append(2);
-        if (com.baidu.location.g.b.tZ().b == null) {
+        if (com.baidu.location.g.b.a().b == null) {
             stringBuffer.append("&im=");
-            stringBuffer.append(com.baidu.location.g.b.tZ().a);
+            stringBuffer.append(com.baidu.location.g.b.a().a);
         } else {
             stringBuffer.append("&cu=");
-            stringBuffer.append(com.baidu.location.g.b.tZ().b);
+            stringBuffer.append(com.baidu.location.g.b.a().b);
         }
         stringBuffer.append("&mb=");
         stringBuffer.append(Build.MODEL);
@@ -315,11 +314,11 @@ public class m extends com.baidu.location.g.e {
             } catch (Exception e) {
             }
         }
-        com.baidu.location.g.c.ua().a(System.currentTimeMillis());
+        com.baidu.location.g.c.a().a(System.currentTimeMillis());
     }
 
     public void c() {
-        if (System.currentTimeMillis() - com.baidu.location.g.c.ua().b() > 86400000) {
+        if (System.currentTimeMillis() - com.baidu.location.g.c.a().b() > 86400000) {
             f().postDelayed(new Runnable() { // from class: com.baidu.location.a.m.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -327,15 +326,15 @@ public class m extends com.baidu.location.g.e {
                         m.this.d();
                     }
                 }
-            }, ErrDef.Feature.WEIGHT);
+            }, 10000L);
             f().postDelayed(new Runnable() { // from class: com.baidu.location.a.m.2
                 @Override // java.lang.Runnable
                 public void run() {
                     if (com.baidu.location.e.f.j()) {
-                        com.baidu.location.d.d.tI().m();
+                        com.baidu.location.d.d.a().m();
                     }
                 }
-            }, 5000L);
+            }, TbConfig.NOTIFY_SOUND_INTERVAL);
         }
     }
 }

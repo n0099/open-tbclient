@@ -2,7 +2,7 @@ package com.baidu.tieba.enterForum.multiConcern;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.util.q;
+import com.baidu.tbadk.util.s;
 import java.util.List;
 import tbclient.MultiConcern.DataReq;
 import tbclient.MultiConcern.MultiConcernReqIdl;
@@ -19,7 +19,7 @@ public class MultiConcernRequestMessage extends NetMessage {
         DataReq.Builder builder = new DataReq.Builder();
         builder.arr_forum_id = this.idList;
         if (z) {
-            q.bindCommonParamsToProtobufData(builder, true);
+            s.bindCommonParamsToProtobufData(builder, true);
         }
         MultiConcernReqIdl.Builder builder2 = new MultiConcernReqIdl.Builder();
         builder2.data = builder.build(false);

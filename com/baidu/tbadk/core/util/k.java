@@ -1,37 +1,23 @@
 package com.baidu.tbadk.core.util;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.webkit.internal.ETAG;
+import android.os.Build;
+import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
-public class k {
-    private StringBuilder aAE;
+public class k extends Thread {
+    private String bIx = "1";
 
-    public k() {
-        this.aAE = null;
-        this.aAE = null;
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        super.run();
+        x xVar = new x(TbConfig.SERVER_ADDRESS + TbConfig.IN_PV_ADDRESS);
+        xVar.x("st_type", TbConfig.ST_TYPE_ENTER_FORE);
+        xVar.x("os_version", Build.VERSION.RELEASE);
+        xVar.x("android_sdk", String.valueOf(Build.VERSION.SDK_INT));
+        xVar.x("op_type", this.bIx);
+        xVar.acj();
     }
 
-    public void h(String str, Object obj) {
-        if (!ao.isEmpty(str) && obj != null) {
-            try {
-                if (this.aAE == null) {
-                    this.aAE = new StringBuilder();
-                    this.aAE.append(str);
-                    this.aAE.append(ETAG.EQUAL);
-                    this.aAE.append(obj.toString());
-                } else {
-                    this.aAE.append("|");
-                    this.aAE.append(str);
-                    this.aAE.append(ETAG.EQUAL);
-                    this.aAE.append(obj.toString());
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public String toString() {
-        return this.aAE != null ? this.aAE.toString() : "";
+    public void setOpType(String str) {
+        this.bIx = str;
     }
 }

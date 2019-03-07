@@ -6,17 +6,17 @@ import com.baidu.tbadk.TbPageContext;
 public interface a {
     void a(f fVar);
 
+    void a(TbPageContext<?> tbPageContext);
+
     boolean a(f fVar, int i);
 
-    void cu(String str);
+    void ct(String str);
 
-    void pT();
+    void qV();
 
-    boolean pU();
+    boolean qW();
 
     void release();
-
-    void setContext(TbPageContext<?> tbPageContext);
 
     void stopRecord();
 }

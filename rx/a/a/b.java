@@ -3,17 +3,17 @@ package rx.a.a;
 import rx.g;
 /* loaded from: classes2.dex */
 public class b {
-    private static final b iFB = new b();
+    private static final b jVh = new b();
 
-    public static b ceu() {
-        return iFB;
+    public static b cDF() {
+        return jVh;
     }
 
-    public g cev() {
+    public g cDG() {
         return null;
     }
 
-    public rx.functions.a b(rx.functions.a aVar) {
+    public rx.functions.a d(rx.functions.a aVar) {
         return aVar;
     }
 }

@@ -7,23 +7,23 @@ import java.util.LinkedHashSet;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public final class a implements b {
-    private static final LinkedHashMap<String, Integer> la;
-    private static final LinkedHashMap<String, Integer> lb;
-    private static final LinkedHashSet<String> lc;
+    private static final LinkedHashMap<String, Integer> lc;
+    private static final LinkedHashMap<String, Integer> ld;
+    private static final LinkedHashSet<String> le;
 
     static {
         LinkedHashMap<String, Integer> linkedHashMap = new LinkedHashMap<>();
-        la = linkedHashMap;
+        lc = linkedHashMap;
         linkedHashMap.put("s.jpush.cn", 19000);
-        la.put("sis.jpush.io", 19000);
-        la.put("easytomessage.com", 19000);
+        lc.put("sis.jpush.io", 19000);
+        lc.put("easytomessage.com", 19000);
         LinkedHashMap<String, Integer> linkedHashMap2 = new LinkedHashMap<>();
-        lb = linkedHashMap2;
+        ld = linkedHashMap2;
         linkedHashMap2.put("123.196.118.23", 19000);
-        lb.put("103.229.215.60", 19000);
-        lb.put("117.121.49.100", 19000);
+        ld.put("103.229.215.60", 19000);
+        ld.put("117.121.49.100", 19000);
         LinkedHashSet<String> linkedHashSet = new LinkedHashSet<>();
-        lc = linkedHashSet;
+        le = linkedHashSet;
         linkedHashSet.add("https://tsis.jpush.cn");
     }
 
@@ -53,17 +53,17 @@ public final class a implements b {
 
     @Override // cn.jiguang.c.b
     public final LinkedHashMap<String, Integer> bD() {
-        return la;
+        return lc;
     }
 
     @Override // cn.jiguang.c.b
     public final LinkedHashMap<String, Integer> bE() {
-        return lb;
+        return ld;
     }
 
     @Override // cn.jiguang.c.b
     public final LinkedHashSet<String> bF() {
-        return lc;
+        return le;
     }
 
     @Override // cn.jiguang.c.b

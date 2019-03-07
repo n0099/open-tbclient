@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.text.TextUtils;
 import com.baidu.adp.plugin.install.PluginInstallerService;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
+import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -46,14 +48,14 @@ public class a {
         }
         String a3 = i.a("ro.product.cpu.abilist", "");
         if (!TextUtils.isEmpty(a3)) {
-            String[] split = a3.split(",");
+            String[] split = a3.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
             for (int i = 0; split != null && i < split.length; i++) {
                 if (!TextUtils.isEmpty(split[i])) {
                     arrayList.add(split[i]);
                 }
             }
         }
-        arrayList.add(com.baidu.fsg.face.base.d.h.a);
+        arrayList.add(PassBiometricUtil.CPU_TYPE_ARMEABI);
         return arrayList;
     }
 
@@ -178,6 +180,6 @@ public class a {
 
     private static String b(String str) {
         String[] split;
-        return (str == null || (split = str.split("/")) == null || split.length <= 1) ? com.baidu.fsg.face.base.d.h.a : split[split.length - 2];
+        return (str == null || (split = str.split("/")) == null || split.length <= 1) ? PassBiometricUtil.CPU_TYPE_ARMEABI : split[split.length - 2];
     }
 }

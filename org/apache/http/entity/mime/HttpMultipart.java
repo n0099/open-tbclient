@@ -1,6 +1,5 @@
 package org.apache.http.entity.mime;
 
-import com.baidu.ar.util.SystemInfoUtil;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.apache.http.util.ByteArrayBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class HttpMultipart {
     private final String boundary;
     private final Charset charset;
@@ -19,7 +18,7 @@ public class HttpMultipart {
     private final List<FormBodyPart> parts;
     private final String subType;
     private static final ByteArrayBuffer FIELD_SEP = encode(MIME.DEFAULT_CHARSET, ": ");
-    private static final ByteArrayBuffer CR_LF = encode(MIME.DEFAULT_CHARSET, SystemInfoUtil.LINE_END);
+    private static final ByteArrayBuffer CR_LF = encode(MIME.DEFAULT_CHARSET, "\r\n");
     private static final ByteArrayBuffer TWO_DASHES = encode(MIME.DEFAULT_CHARSET, "--");
 
     private static ByteArrayBuffer encode(Charset charset, String str) {

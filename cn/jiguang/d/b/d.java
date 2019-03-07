@@ -8,32 +8,29 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
+import android.support.v4.view.PointerIconCompat;
 import cn.jiguang.d.d.o;
 import cn.jpush.android.service.PushService;
-import com.baidu.ar.audio.AudioParams;
-import com.baidu.ar.util.Constants;
-import com.baidu.baiduarsdk.ArBridge;
-import com.baidu.searchbox.ng.ai.apps.screenshot.SystemScreenshotManager;
-import com.baidu.searchbox.ng.ai.apps.trace.ErrDef;
+import com.baidu.tbadk.TbConfig;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
 public final class d {
     private static boolean d = false;
     private static final Object j = new Object();
-    private static volatile d lx;
+    private static volatile d lB;
     private HandlerThread c;
     private long g;
     private Context h;
-    private g lu;
-    private f lv;
-    private WeakReference<Service> lw;
+    private WeakReference<Service> lA;
+    private g lx;
+    private f ly;
     private int m;
     private int n;
     private int e = 0;
     private int f = 0;
     private boolean i = false;
-    private final AtomicBoolean ly = new AtomicBoolean(false);
+    private final AtomicBoolean lC = new AtomicBoolean(false);
 
     private d() {
     }
@@ -48,18 +45,18 @@ public final class d {
         dVar.j();
         dVar.e = 0;
         dVar.f = 0;
-        h.bQ().c();
-        dVar.lv.sendEmptyMessageDelayed(Constants.HTTP_ERRCODE_NOT_FIND, SystemScreenshotManager.DELAY_TIME);
-        cn.jiguang.d.f.a.cf().a(dVar.h);
+        h.bP().c();
+        dVar.ly.sendEmptyMessageDelayed(1032, 2000L);
+        cn.jiguang.d.f.a.ce().a(dVar.h);
         cn.jiguang.a.c.c.a(dVar.h, 2);
-        cn.jiguang.d.d.e.bU();
+        cn.jiguang.d.d.e.bT();
         cn.jiguang.d.d.e.a(dVar.h, j2, 1);
-        o.ca().b(dVar.h, true);
+        o.bZ().b(dVar.h, true);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(d dVar, boolean z) {
-        if (dVar.ly.get()) {
+        if (dVar.lC.get()) {
             return;
         }
         if (!z) {
@@ -68,64 +65,64 @@ public final class d {
             }
         }
         cn.jiguang.e.c.a("JiguangTcpManager", "Send heart beat");
-        dVar.lv.removeMessages(1005);
-        if (g.lB.get() || !d) {
+        dVar.ly.removeMessages(1005);
+        if (g.lE.get() || !d) {
             return;
         }
-        dVar.ly.set(true);
-        dVar.lv.removeMessages(ArBridge.MessageType.MSG_TYPE_VIDEO_PLAY_RES);
+        dVar.lC.set(true);
+        dVar.ly.removeMessages(1022);
         Long valueOf = Long.valueOf(cn.jiguang.d.a.a.f());
         int a = cn.jiguang.d.a.d.a();
         long c = cn.jiguang.d.a.d.c(dVar.h);
-        short bY = cn.jiguang.d.d.i.bX().bY();
+        short bX = cn.jiguang.d.d.i.bW().bX();
         long longValue = valueOf.longValue();
-        cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(AudioParams.DEFAULT_AUDIO_BUFFER_SIZE);
-        bVar.C(0);
-        bVar.B(4);
-        bVar.B(2);
-        bVar.j(longValue);
-        bVar.i(a);
-        bVar.j(c);
-        bVar.B(bY);
+        cn.jiguang.api.a.b bVar = new cn.jiguang.api.a.b(20480);
+        bVar.l(0);
+        bVar.k(4);
+        bVar.k(2);
+        bVar.h(longValue);
+        bVar.g(a);
+        bVar.h(c);
+        bVar.k(bX);
         bVar.l(bVar.current(), 0);
         byte[] a2 = cn.jiguang.d.e.a.a.b.a(bVar.toByteArray(), 1);
         if (a2 != null) {
-            cn.jiguang.d.g.c.cg().ch().i(a2);
+            cn.jiguang.d.g.c.cf().cg().j(a2);
         } else {
             cn.jiguang.e.c.c("JiguangTcpManager", "send hb failed:sendData is null");
         }
-        dVar.lv.sendEmptyMessageDelayed(ArBridge.MessageType.MSG_TYPE_VIDEO_PLAY_RES, ErrDef.Feature.WEIGHT);
+        dVar.ly.sendEmptyMessageDelayed(1022, 10000L);
     }
 
     public static void a(byte[] bArr, String str, int i) {
-        h.bQ().a(bArr, str, i);
+        h.bP().a(bArr, str, i);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void b(d dVar) {
-        if (dVar.lw != null && dVar.lw.get() != null) {
-            dVar.lw.get().stopSelf();
+        if (dVar.lA != null && dVar.lA.get() != null) {
+            dVar.lA.get().stopSelf();
         }
-        o.ca().b(dVar.h);
+        o.bZ().b(dVar.h);
         dVar.c();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void b(d dVar, long j2) {
         cn.jiguang.e.c.a("JiguangTcpManager", "Action - onDisconnected - connection:" + j2);
-        h.bQ().b();
+        h.bP().b();
         if (g.a.get() == 0 && cn.jiguang.d.a.d.i(dVar.h)) {
             return;
         }
-        cn.jiguang.d.d.e.bU();
+        cn.jiguang.d.d.e.bT();
         cn.jiguang.d.d.e.a(dVar.h, j2, -1);
         if (d) {
             cn.jiguang.d.d.g.a(dVar.h.getApplicationContext(), false);
         }
         b(false);
         dVar.f = 0;
-        if (dVar.lu != null) {
-            dVar.lu.c();
+        if (dVar.lx != null) {
+            dVar.lx.c();
         }
         if (cn.jiguang.g.a.d(dVar.h.getApplicationContext())) {
             dVar.k();
@@ -138,41 +135,41 @@ public final class d {
         cn.jiguang.d.a.d.c(cn.jiguang.d.a.d, z);
     }
 
-    public static d bO() {
-        if (lx == null) {
+    public static d bN() {
+        if (lB == null) {
             synchronized (j) {
-                if (lx == null) {
-                    lx = new d();
+                if (lB == null) {
+                    lB = new d();
                 }
             }
         }
-        return lx;
+        return lB;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void c(d dVar, long j2) {
         cn.jiguang.e.c.a("JiguangTcpManager", "Action - onHeartbeatSucceed - connection:" + j2);
         if (j2 == g.a.get()) {
-            cn.jiguang.d.d.e.bU();
+            cn.jiguang.d.d.e.bT();
             cn.jiguang.d.d.e.a(dVar.h, j2, 19);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void d(d dVar) {
-        if (cn.jiguang.d.d.i.bX().f()) {
-            dVar.ly.set(false);
+        if (cn.jiguang.d.d.i.bW().f()) {
+            dVar.lC.set(false);
             dVar.f++;
             cn.jiguang.e.c.a("JiguangTcpManager", "Action - onHeartbeatTimeout - timeoutTimes:" + dVar.f);
             if (i()) {
                 cn.jiguang.e.c.a("JiguangTcpManager", "Is connecting now. Give up to retry.");
-                dVar.lv.sendEmptyMessageDelayed(1005, ErrDef.Feature.WEIGHT);
+                dVar.ly.sendEmptyMessageDelayed(1005, 10000L);
             } else if (d && !dVar.h()) {
                 cn.jiguang.e.c.a("JiguangTcpManager", "Already logged in. Give up to retry.");
-                dVar.lv.sendEmptyMessageDelayed(1005, 5000L);
+                dVar.ly.sendEmptyMessageDelayed(1005, TbConfig.NOTIFY_SOUND_INTERVAL);
             } else {
-                if (dVar.lu != null) {
-                    dVar.lu.a();
+                if (dVar.lx != null) {
+                    dVar.lx.a();
                 }
                 dVar.k();
             }
@@ -196,10 +193,10 @@ public final class d {
     }
 
     private void j() {
-        this.lv.removeMessages(ArBridge.MessageType.MSG_TYPE_VIDEO_PLAY_RES);
+        this.ly.removeMessages(1022);
         this.g = System.currentTimeMillis();
         this.f = 0;
-        this.ly.set(false);
+        this.lC.set(false);
     }
 
     private void k() {
@@ -214,9 +211,9 @@ public final class d {
         if (pow > (g * 1000) / 2) {
             pow = (g * 1000) / 2;
         }
-        if ((this.e < 5 || f == 1) && !this.lv.hasMessages(1011)) {
+        if ((this.e < 5 || f == 1) && !this.ly.hasMessages(1011)) {
             cn.jiguang.e.c.a("JiguangTcpManager", "onDisconnected and retry restart conn - delay:" + pow);
-            this.lv.sendEmptyMessageDelayed(1011, pow);
+            this.ly.sendEmptyMessageDelayed(1011, pow);
         }
     }
 
@@ -226,7 +223,7 @@ public final class d {
 
     public final void a(Service service) {
         if (service != null) {
-            this.lw = new WeakReference<>(service);
+            this.lA = new WeakReference<>(service);
         }
     }
 
@@ -238,13 +235,13 @@ public final class d {
                     this.c = new e(this, "JCore");
                     this.c.start();
                 }
-                this.lv = new f(this, this.c.getLooper() == null ? Looper.getMainLooper() : this.c.getLooper());
+                this.ly = new f(this, this.c.getLooper() == null ? Looper.getMainLooper() : this.c.getLooper());
             } catch (Exception e) {
-                this.lv = new f(this, Looper.getMainLooper());
+                this.ly = new f(this, Looper.getMainLooper());
             }
-            o.ca().a(this.h);
-            h.bQ().a(this.h, this.lv);
-            cn.jiguang.d.i.f.ck().a(this.h);
+            o.bZ().a(this.h);
+            h.bP().a(this.h, this.ly);
+            cn.jiguang.d.i.f.cj().a(this.h);
             this.i = true;
         }
     }
@@ -253,29 +250,29 @@ public final class d {
         if (cn.jiguang.d.a.d.i(this.h)) {
             return;
         }
-        this.lv.removeMessages(1006);
-        this.lv.removeMessages(1007);
+        this.ly.removeMessages(PointerIconCompat.TYPE_CELL);
+        this.ly.removeMessages(PointerIconCompat.TYPE_CROSSHAIR);
         if (!bundle.getBoolean("connection-state", false)) {
-            this.lv.sendEmptyMessageDelayed(1007, 3000L);
+            this.ly.sendEmptyMessageDelayed(PointerIconCompat.TYPE_CROSSHAIR, 3000L);
         } else if (g.a.get() == 0) {
             e();
         } else {
-            this.lv.sendEmptyMessageDelayed(1006, 3000L);
+            this.ly.sendEmptyMessageDelayed(PointerIconCompat.TYPE_CELL, 3000L);
         }
     }
 
     public final void a(cn.jiguang.api.h hVar, long j2) {
         int a = ((cn.jiguang.d.e.a.a) hVar).a();
         if (a == 2) {
-            cn.jiguang.d.d.g.a(Message.obtain(this.lv, 7303), j2);
+            cn.jiguang.d.d.g.a(Message.obtain(this.ly, 7303), j2);
         } else if (a == 10) {
             hVar.getHead().b((Long) (-1L));
         }
     }
 
     public final void a(String str, Bundle bundle) {
-        cn.jiguang.d.d.e.bU();
-        cn.jiguang.d.d.e.a(this.h, str, g.a.get(), bundle, this.lv);
+        cn.jiguang.d.d.e.bT();
+        cn.jiguang.d.d.e.a(this.h, str, g.a.get(), bundle, this.ly);
         if (!cn.jiguang.d.a.d.i(this.h)) {
             cn.jiguang.e.c.a("JiguangTcpManager", "jiguang service already started");
             return;
@@ -289,15 +286,15 @@ public final class d {
 
     public final void a(String str, Object obj) {
         j();
-        h.bQ().a(str, obj);
+        h.bP().a(str, obj);
     }
 
     public final void a(boolean z) {
         cn.jiguang.d.a.d.h(this.h, z);
-        if (this.lw == null || this.lw.get() == null || !(this.lw.get() instanceof PushService)) {
+        if (this.lA == null || this.lA.get() == null || !(this.lA.get() instanceof PushService)) {
             return;
         }
-        ((PushService) this.lw.get()).setDozePowerReceiver();
+        ((PushService) this.lA.get()).setDozePowerReceiver();
     }
 
     public final void b(int i) {
@@ -305,44 +302,53 @@ public final class d {
     }
 
     public final void b(String str, Bundle bundle) {
-        cn.jiguang.d.d.e.bU();
-        cn.jiguang.d.d.e.a(this.h, str, g.a.get(), bundle, this.lv);
+        cn.jiguang.d.d.e.bT();
+        cn.jiguang.d.d.e.a(this.h, str, g.a.get(), bundle, this.ly);
         if (cn.jiguang.d.a.d.i(this.h)) {
             cn.jiguang.e.c.a("JiguangTcpManager", "jiguang service already stoped");
             return;
         }
-        cn.jiguang.d.d.i.bX();
+        cn.jiguang.d.d.i.bW();
         if (cn.jiguang.d.d.i.e()) {
             a.a(this.h, false);
             cn.jiguang.d.a.d.b(this.h, true);
-            if (this.lw != null && this.lw.get() != null) {
-                this.lw.get().stopSelf();
+            if (this.lA != null && this.lA.get() != null) {
+                this.lA.get().stopSelf();
             }
             c();
         }
     }
 
     public final void b(boolean z, long j2) {
+        int i = PointerIconCompat.TYPE_WAIT;
         if (cn.jiguang.d.a.d.i(this.h)) {
             cn.jiguang.e.c.a("JiguangTcpManager", "tcp has close by active");
         } else if (g.a.get() == 0) {
             e();
         } else if (j2 > 0) {
             if (z) {
-                this.lv.removeMessages(1005);
+                this.ly.removeMessages(1005);
             }
-            this.lv.sendEmptyMessageDelayed(z ? 1004 : 1005, j2);
+            f fVar = this.ly;
+            if (!z) {
+                i = 1005;
+            }
+            fVar.sendEmptyMessageDelayed(i, j2);
         } else {
-            this.lv.removeMessages(1005);
+            this.ly.removeMessages(1005);
             if (z) {
-                this.lv.removeMessages(1004);
+                this.ly.removeMessages(PointerIconCompat.TYPE_WAIT);
             }
-            this.lv.sendEmptyMessage(z ? 1004 : 1005);
+            f fVar2 = this.ly;
+            if (!z) {
+                i = 1005;
+            }
+            fVar2.sendEmptyMessage(i);
         }
     }
 
-    public final Handler bP() {
-        return this.lv;
+    public final Handler bO() {
+        return this.ly;
     }
 
     public final void c() {
@@ -352,8 +358,8 @@ public final class d {
         b(false);
         this.e = 0;
         this.f = 0;
-        if (this.lu != null) {
-            this.lu.c();
+        if (this.lx != null) {
+            this.lx.c();
         }
     }
 
@@ -363,14 +369,14 @@ public final class d {
         } else if (d && !h()) {
             cn.jiguang.e.c.a("JiguangTcpManager", "Already logged in. Give up to restart.");
         } else {
-            this.lv.removeMessages(1011);
-            this.lv.removeMessages(1005);
+            this.ly.removeMessages(1011);
+            this.ly.removeMessages(1005);
             f();
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:21:0x007d, code lost:
-        if (r3.lu.e() == false) goto L19;
+        if (r3.lx.e() == false) goto L19;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -384,15 +390,15 @@ public final class d {
         } else if (this.m == 102) {
             cn.jiguang.e.c.c("JiguangTcpManager", "login failed:102,give up start connection thread.reset from next app start");
         } else {
-            if (this.lu != null) {
-                cn.jiguang.e.c.a("JiguangTcpManager", "isRunning:" + this.lu.e());
+            if (this.lx != null) {
+                cn.jiguang.e.c.a("JiguangTcpManager", "isRunning:" + this.lx.e());
             }
-            if (this.lu != null) {
-                this.lu.c();
-                this.lu = null;
+            if (this.lx != null) {
+                this.lx.c();
+                this.lx = null;
             }
-            this.lu = new g(this.h.getApplicationContext(), this.lv);
-            this.lu.b();
+            this.lx = new g(this.h.getApplicationContext(), this.ly);
+            this.lx.b();
         }
     }
 }

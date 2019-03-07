@@ -6,7 +6,7 @@ import android.net.NetworkInfo;
 import com.baidu.ubs.analytics.b.b;
 import com.baidu.ubs.analytics.c.f;
 import com.baidu.ubs.analytics.c.i;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static boolean a(Context context, String str) {
         NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();

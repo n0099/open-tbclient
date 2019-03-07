@@ -1,9 +1,5 @@
 package com.baidu.tieba.VideoCacheClient;
 
-import com.baidu.ar.util.IoUtils;
-import com.baidu.ar.util.SystemInfoUtil;
-import com.baidu.mapapi.UIMsg;
-import com.baidu.searchbox.ng.ai.apps.network.NetworkDef;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -16,15 +12,15 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
-    private static a bAW;
+    private static a cMc;
     private List<String> mUrlList = new ArrayList();
     private Object mLock = new Object();
     private boolean mNeedFinish = false;
     private byte[] mBuffer = new byte[1024];
-    private Runnable bea = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
+    private Runnable cnI = new Runnable() { // from class: com.baidu.tieba.VideoCacheClient.a.1
         /* JADX WARN: Code restructure failed: missing block: B:100:0x02d4, code lost:
             r3.printStackTrace();
          */
@@ -32,7 +28,7 @@ public class a {
             r3 = e;
          */
         /* JADX WARN: Code restructure failed: missing block: B:63:0x021d, code lost:
-            com.baidu.tieba.VideoCacheClient.d.log(com.baidu.tieba.VideoCacheClient.a.TAG, "client preload check2: " + r14);
+            com.baidu.tieba.VideoCacheClient.d.as(com.baidu.tieba.VideoCacheClient.a.TAG, "client preload check2: " + r14);
          */
         /* JADX WARN: Code restructure failed: missing block: B:64:0x023c, code lost:
             if (r15.exists() != false) goto L79;
@@ -59,7 +55,7 @@ public class a {
             r3.printStackTrace();
          */
         /* JADX WARN: Code restructure failed: missing block: B:87:0x028d, code lost:
-            com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12027").aB("errormsg", "预加载文件失败").aB(com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper.TouchEventName.TOUCH_ERROR, r3.getMessage()).aB("url", r14));
+            com.baidu.tbadk.core.util.TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12027").bJ("errormsg", "预加载文件失败").bJ("error", r3.getMessage()).bJ("url", r14));
             r3.printStackTrace();
          */
         /* JADX WARN: Code restructure failed: missing block: B:88:0x02b7, code lost:
@@ -120,13 +116,13 @@ public class a {
                     }
                 }
                 if (!a.this.mNeedFinish) {
-                    String VV = a.this.VV();
-                    if (VV != null && !VV.isEmpty()) {
-                        File file = new File(c.bAL + b.jP(VV) + "/header_downloaded");
+                    String avV = a.this.avV();
+                    if (avV != null && !avV.isEmpty()) {
+                        File file = new File(c.cLR + b.qA(avV) + "/header_downloaded");
                         if (file.exists()) {
-                            d.log(a.TAG, "header exists " + VV);
+                            d.as(a.TAG, "header exists " + avV);
                         } else {
-                            d.log(a.TAG, "client preload start: " + VV);
+                            d.as(a.TAG, "client preload start: " + avV);
                             j = 0;
                             i = 0;
                             i2 = 0;
@@ -145,20 +141,20 @@ public class a {
                                 BufferedReader bufferedReader2 = null;
                                 inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(VV);
-                                    int port = b.VW().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(avV);
+                                    int port = b.avW().getPort();
                                     socket = new Socket();
                                     try {
-                                        socket.connect(new InetSocketAddress(NetworkDef.IP_LOOPBACK, port), UIMsg.m_AppUI.MSG_APP_GPS);
-                                        socket.setSoTimeout(UIMsg.m_AppUI.MSG_APP_GPS);
-                                        outputStreamWriter = new OutputStreamWriter(socket.getOutputStream(), IoUtils.UTF_8);
+                                        socket.connect(new InetSocketAddress("127.0.0.1", port), 5000);
+                                        socket.setSoTimeout(5000);
+                                        outputStreamWriter = new OutputStreamWriter(socket.getOutputStream(), "utf-8");
                                         try {
                                             outputStreamWriter.write("GET " + str + " HTTP/1.1\r\n");
-                                            outputStreamWriter.write("Host: " + NetworkDef.IP_LOOPBACK + SystemInfoUtil.LINE_END);
+                                            outputStreamWriter.write("Host: 127.0.0.1\r\n");
                                             if (i2 == 1) {
-                                                outputStreamWriter.write("Range: bytes=" + j3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + SystemInfoUtil.LINE_END);
+                                                outputStreamWriter.write("Range: bytes=" + j3 + Constants.ACCEPT_TIME_SEPARATOR_SERVER + "\r\n");
                                             }
-                                            outputStreamWriter.write(SystemInfoUtil.LINE_END);
+                                            outputStreamWriter.write("\r\n");
                                             outputStreamWriter.flush();
                                             bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                                             j2 = j;
@@ -203,7 +199,7 @@ public class a {
                                                 }
                                             } while (!"".equals(readLine));
                                             inputStream = socket.getInputStream();
-                                            d.log(a.TAG, "client preload check1: " + VV);
+                                            d.as(a.TAG, "client preload check1: " + avV);
                                             int i4 = i;
                                             while (true) {
                                                 try {
@@ -255,7 +251,7 @@ public class a {
                                 i = i3;
                                 j = j2;
                             }
-                            d.log(a.TAG, "client preload end: " + VV);
+                            d.as(a.TAG, "client preload end: " + avV);
                         }
                     }
                 } else {
@@ -292,29 +288,29 @@ public class a {
             j = j2;
         }
     };
-    private Thread mThread = new Thread(this.bea);
+    private Thread mThread = new Thread(this.cnI);
 
     private a() {
         this.mThread.start();
     }
 
-    public static a VU() {
-        if (bAW == null) {
+    public static a avU() {
+        if (cMc == null) {
             synchronized (a.class) {
-                if (bAW == null) {
-                    bAW = new a();
+                if (cMc == null) {
+                    cMc = new a();
                 }
             }
         }
-        return bAW;
+        return cMc;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String VV() {
+    public synchronized String avV() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void jQ(String str) {
+    public synchronized void qB(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

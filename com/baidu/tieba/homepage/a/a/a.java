@@ -10,7 +10,7 @@ import java.util.List;
 import org.json.JSONObject;
 import tbclient.ExcFrsPage.ExcFrsPageResIdl;
 import tbclient.ExcFrsPage.ExcellentTagInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a implements b, j {
     protected boolean mHasMore;
     protected List<Object> mThreadList;
@@ -23,11 +23,11 @@ public class a implements b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void I(JSONObject jSONObject) {
+    public void initByJson(JSONObject jSONObject) {
     }
 
     @Override // com.baidu.tbadk.mvc.b.j
-    public void a(Message message) {
+    public void initByProtobuf(Message message) {
         ExcFrsPageResIdl excFrsPageResIdl;
         if ((message instanceof ExcFrsPageResIdl) && (excFrsPageResIdl = (ExcFrsPageResIdl) message) != null && excFrsPageResIdl.error != null && excFrsPageResIdl.error.errorno.intValue() == 0 && excFrsPageResIdl.data != null) {
             if (excFrsPageResIdl.data.thread_list != null) {
@@ -48,14 +48,14 @@ public class a implements b, j {
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public byte[] Op() {
+    public byte[] toCacheByteArray() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.b
-    public boolean F(byte[] bArr) {
+    public boolean initByByteArray(byte[] bArr) {
         try {
-            a((ExcFrsPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcFrsPageResIdl.class));
+            initByProtobuf((ExcFrsPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcFrsPageResIdl.class));
             return true;
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,23 +1,22 @@
 package com.baidu.tieba.im.chat.officialBar;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.ng.ai.apps.view.coverview.model.ImageCoverViewModel;
 import com.baidu.tbadk.core.data.UserData;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class c {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     public static class a {
-        public String eNj;
-        public long eNq;
-        public String eNr;
-        public int eNs;
         public String fid;
+        public String gdk;
+        public long gdr;
+        public String gds;
+        public int gdt;
         public long picId;
         public String src;
         public long taskId;
@@ -27,7 +26,7 @@ public class c {
         public int userType;
     }
 
-    public static List<a> b(String str, String str2, long j) {
+    public static List<a> g(String str, String str2, long j) {
         return a(str, str2, null, 0L, j);
     }
 
@@ -47,7 +46,7 @@ public class c {
                 JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                 String optString = optJSONObject.optString("title");
                 String optString2 = optJSONObject.optString("url");
-                String optString3 = optJSONObject.optString(ImageCoverViewModel.KEY_SRC);
+                String optString3 = optJSONObject.optString("src");
                 String optString4 = optJSONObject.optString("text");
                 long optLong = optJSONObject.optLong("picId");
                 String optString5 = optJSONObject.optString("msg_src");
@@ -59,14 +58,14 @@ public class c {
                 aVar.fid = str2;
                 aVar.picId = optLong;
                 aVar.taskId = j2;
-                aVar.eNj = optString5;
+                aVar.gdk = optString5;
                 if (i > -1) {
                     aVar.userType = i;
                 }
                 if (userData != null) {
-                    aVar.eNq = j;
-                    aVar.eNr = userData.getUserId();
-                    aVar.eNs = userData.getUserType();
+                    aVar.gdr = j;
+                    aVar.gds = userData.getUserId();
+                    aVar.gdt = userData.getUserType();
                 }
                 linkedList.add(aVar);
             }

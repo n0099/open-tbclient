@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tbadk.util.PageType;
-import com.baidu.tieba.e;
+import com.baidu.tieba.d;
 import com.baidu.tieba.tbadkCore.e.c;
 @SuppressLint({"SetJavaScriptEnabled"})
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity> {
     private static final String JS_PROMPT_ACCOUNT_METHOD_EXIT = "exit";
     private static final String JS_PROMPT_INTERFACE_NAME = "AccountJsBridge";
@@ -30,7 +30,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
     private com.baidu.tieba.tbadkCore.e.b jsPromptInterface = new com.baidu.tieba.tbadkCore.e.b() { // from class: com.baidu.tieba.account.AccountRestoreActivity.1
         @Override // com.baidu.tieba.tbadkCore.e.b
         public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
-            if (TextUtils.equals(AccountRestoreActivity.JS_PROMPT_INTERFACE_NAME, str) && TextUtils.equals("exit", str2)) {
+            if (TextUtils.equals(AccountRestoreActivity.JS_PROMPT_INTERFACE_NAME, str) && TextUtils.equals(AccountRestoreActivity.JS_PROMPT_ACCOUNT_METHOD_EXIT, str2)) {
                 jsPromptResult.confirm();
                 AccountRestoreActivity.this.exitPage();
                 return true;
@@ -42,7 +42,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
         @Override // com.baidu.tieba.tbadkCore.e.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             if (AccountRestoreActivity.this.jsBridge != null) {
-                return AccountRestoreActivity.this.jsBridge.b(str, jsPromptResult);
+                return AccountRestoreActivity.this.jsBridge.a(str, jsPromptResult);
             }
             return false;
         }
@@ -52,15 +52,15 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(e.h.account_restore_activity);
+        setContentView(d.h.account_restore_activity);
         this.jsBridge = new com.baidu.tieba.tbadkCore.e.a();
         this.jsBridge.a(this.jsPromptInterface);
         this.mPageType = getIntent().getStringExtra("page_type");
-        this.mNavigationBar = (NavigationBar) findViewById(e.g.view_navigation_bar);
+        this.mNavigationBar = (NavigationBar) findViewById(d.g.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(getPageContext().getString(e.j.anti_account_restore));
-        ((LinearLayout.LayoutParams) ((TextView) findViewById(e.g.top_view)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-        this.mWebView = (BaseWebView) findViewById(e.g.webview_acc_restore);
+        this.mNavigationBar.setTitleText(getPageContext().getString(d.j.anti_account_restore));
+        ((LinearLayout.LayoutParams) ((TextView) findViewById(d.g.top_view)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        this.mWebView = (BaseWebView) findViewById(d.g.webview_acc_restore);
         this.mWebView.setOnJsPromptCallback(this.jsCallback);
         this.mWebView.loadUrl("http://tieba.baidu.com/mo/q/account_page?_client_version=" + TbConfig.getVersion());
     }

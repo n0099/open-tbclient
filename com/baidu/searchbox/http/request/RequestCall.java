@@ -2,21 +2,22 @@ package com.baidu.searchbox.http.request;
 
 import android.os.Handler;
 import android.text.TextUtils;
-import com.baidu.searchbox.dns.DnsParseResult;
 import com.baidu.searchbox.http.Cancelable;
+import com.baidu.searchbox.http.HttpRuntime;
+import com.baidu.searchbox.http.IHttpDns;
 import com.baidu.searchbox.http.RequestHandler;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.http.callback.StatResponseCallback;
 import com.baidu.searchbox.http.cookie.CookieJarImpl;
-import com.baidu.searchbox.http.dns.HttpDns;
 import com.baidu.searchbox.http.interceptor.LogInterceptor;
-import com.baidu.searchbox.http.interceptor.NetworkStatInterceptor;
 import com.baidu.searchbox.http.interceptor.ParamInterceptor;
 import com.baidu.searchbox.http.response.ResponseException;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.Dns;
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -44,18 +45,15 @@ public class RequestCall implements Cancelable {
         Request okRequest = this.httpRequest.getOkRequest();
         if (shouldCreateNewRequest()) {
             OkHttpClient.Builder newBuilder = this.client.newBuilder();
-            if (this.httpRequest.networkStat != null || this.httpRequest.requestNetStat != null) {
-                newBuilder.addNetworkInterceptor(new NetworkStatInterceptor());
-                HttpDns httpDns = new HttpDns(this.httpRequest.dnsHelper, true);
-                httpDns.setDnsListener(new HttpDns.HttpDnsListener() { // from class: com.baidu.searchbox.http.request.RequestCall.1
-                    @Override // com.baidu.searchbox.http.dns.HttpDns.HttpDnsListener
-                    public void onDnsParse(long j, long j2, DnsParseResult dnsParseResult) {
-                        if (RequestCall.this.httpRequest != null && RequestCall.this.httpRequest.networkStat != null) {
-                            RequestCall.this.httpRequest.networkStat.onDnsParse(RequestCall.this.httpRequest.getOkRequest(), j, j2, dnsParseResult);
-                        }
-                    }
-                });
-                newBuilder.dns(httpDns);
+            if ((this.httpRequest.networkStat != null || this.httpRequest.requestNetStat != null) && HttpRuntime.getHttpContext() != null) {
+                Interceptor newNetworkInterceptor = HttpRuntime.getHttpContext().getNewNetworkInterceptor();
+                if (newNetworkInterceptor != null) {
+                    newBuilder.addNetworkInterceptor(newNetworkInterceptor);
+                }
+                IHttpDns newCloneHttpDns = HttpRuntime.getHttpContext().getNewCloneHttpDns(this.httpRequest);
+                if (newCloneHttpDns != null && (newCloneHttpDns instanceof Dns)) {
+                    newBuilder.dns((Dns) newCloneHttpDns);
+                }
             }
             if (this.httpRequest.connectionTimeout > 0) {
                 newBuilder.connectTimeout(this.httpRequest.connectionTimeout, TimeUnit.MILLISECONDS);
@@ -163,7 +161,7 @@ public class RequestCall implements Cancelable {
             if (this.httpRequest.requestNetStat != null) {
                 this.httpRequest.requestNetStat.startTs = currentTimeMillis;
             }
-            this.realCall.enqueue(new Callback() { // from class: com.baidu.searchbox.http.request.RequestCall.2
+            this.realCall.enqueue(new Callback() { // from class: com.baidu.searchbox.http.request.RequestCall.1
                 @Override // okhttp3.Callback
                 public void onFailure(Call call, IOException iOException) {
                     RequestCall.this.sendFailResult(handler, statResponseCallback, iOException);
@@ -194,7 +192,7 @@ public class RequestCall implements Cancelable {
                 this.httpRequest.networkStat.onStartExecute(this.httpRequest.okRequest, System.currentTimeMillis());
             }
             executePreCheck();
-            this.realCall.enqueue(new Callback() { // from class: com.baidu.searchbox.http.request.RequestCall.3
+            this.realCall.enqueue(new Callback() { // from class: com.baidu.searchbox.http.request.RequestCall.2
                 @Override // okhttp3.Callback
                 public void onFailure(Call call, IOException iOException) {
                     RequestCall.this.sendFailResult(handler, responseCallback, iOException);
@@ -220,7 +218,7 @@ public class RequestCall implements Cancelable {
                 this.httpRequest.networkStat.onFinish(this.httpRequest.okRequest, currentTimeMillis);
             }
             if (handler != null) {
-                handler.post(new Runnable() { // from class: com.baidu.searchbox.http.request.RequestCall.4
+                handler.post(new Runnable() { // from class: com.baidu.searchbox.http.request.RequestCall.3
                     @Override // java.lang.Runnable
                     public void run() {
                         responseCallback.onFail(exc);
@@ -246,7 +244,7 @@ public class RequestCall implements Cancelable {
         }
         if (statResponseCallback != null) {
             if (handler != null) {
-                handler.post(new Runnable() { // from class: com.baidu.searchbox.http.request.RequestCall.5
+                handler.post(new Runnable() { // from class: com.baidu.searchbox.http.request.RequestCall.4
                     @Override // java.lang.Runnable
                     public void run() {
                         statResponseCallback.onFail(exc);
@@ -272,7 +270,7 @@ public class RequestCall implements Cancelable {
                 }
                 final T parseResponse = statResponseCallback.parseResponse(response, response.code(), this.httpRequest.requestNetStat);
                 if (handler != null) {
-                    handler.post(new Runnable() { // from class: com.baidu.searchbox.http.request.RequestCall.6
+                    handler.post(new Runnable() { // from class: com.baidu.searchbox.http.request.RequestCall.5
                         @Override // java.lang.Runnable
                         public void run() {
                             if (parseResponse != null) {
@@ -302,7 +300,7 @@ public class RequestCall implements Cancelable {
                 }
                 final T parseResponse = responseCallback.parseResponse(response, response.code());
                 if (handler != null) {
-                    handler.post(new Runnable() { // from class: com.baidu.searchbox.http.request.RequestCall.7
+                    handler.post(new Runnable() { // from class: com.baidu.searchbox.http.request.RequestCall.6
                         @Override // java.lang.Runnable
                         public void run() {
                             if (parseResponse != null) {

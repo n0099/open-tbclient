@@ -9,13 +9,13 @@ public final class k {
         }
     }
 
-    public static void q(@Nullable Throwable th) {
+    public static void r(@Nullable Throwable th) {
         a(th, Error.class);
         a(th, RuntimeException.class);
     }
 
-    public static RuntimeException r(Throwable th) {
-        q((Throwable) g.checkNotNull(th));
+    public static RuntimeException s(Throwable th) {
+        r((Throwable) g.checkNotNull(th));
         throw new RuntimeException(th);
     }
 }

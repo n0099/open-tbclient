@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import com.baidu.android.pushservice.h.o;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.jni.PushSocket;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -56,7 +57,7 @@ public final class e {
         }
     };
     private long u = 0;
-    private int[] v = {180, 300, 360, HttpStatus.SC_METHOD_FAILURE, 540, 720, 900};
+    private int[] v = {SubsamplingScaleImageView.ORIENTATION_180, 300, 360, HttpStatus.SC_METHOD_FAILURE, 540, 720, 900};
     private int x = 0;
     private final int y = 3;
     private int z = 0;

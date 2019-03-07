@@ -1,6 +1,5 @@
 package com.xiaomi.xmpush.thrift;
 
-import com.baidu.searchbox.ng.ai.apps.event.message.AiAppsLifecycleMessage;
 import java.io.Serializable;
 import java.util.BitSet;
 import java.util.Collections;
@@ -15,7 +14,7 @@ public class q implements Serializable, Cloneable, org.apache.thrift.a<q, a> {
     private static final org.apache.thrift.protocol.j j = new org.apache.thrift.protocol.j("PushMessage");
     private static final org.apache.thrift.protocol.b k = new org.apache.thrift.protocol.b("to", (byte) 12, 1);
     private static final org.apache.thrift.protocol.b l = new org.apache.thrift.protocol.b("id", (byte) 11, 2);
-    private static final org.apache.thrift.protocol.b m = new org.apache.thrift.protocol.b(AiAppsLifecycleMessage.APP_ID_KEY, (byte) 11, 3);
+    private static final org.apache.thrift.protocol.b m = new org.apache.thrift.protocol.b("appId", (byte) 11, 3);
     private static final org.apache.thrift.protocol.b n = new org.apache.thrift.protocol.b("payload", (byte) 11, 4);
     private static final org.apache.thrift.protocol.b o = new org.apache.thrift.protocol.b("createAt", (byte) 10, 5);
     private static final org.apache.thrift.protocol.b p = new org.apache.thrift.protocol.b("ttl", (byte) 10, 6);
@@ -35,7 +34,7 @@ public class q implements Serializable, Cloneable, org.apache.thrift.a<q, a> {
     public enum a {
         TO(1, "to"),
         ID(2, "id"),
-        APP_ID(3, AiAppsLifecycleMessage.APP_ID_KEY),
+        APP_ID(3, "appId"),
         PAYLOAD(4, "payload"),
         CREATE_AT(5, "createAt"),
         TTL(6, "ttl"),
@@ -68,7 +67,7 @@ public class q implements Serializable, Cloneable, org.apache.thrift.a<q, a> {
         EnumMap enumMap = new EnumMap(a.class);
         enumMap.put((EnumMap) a.TO, (a) new org.apache.thrift.meta_data.b("to", (byte) 2, new org.apache.thrift.meta_data.g((byte) 12, u.class)));
         enumMap.put((EnumMap) a.ID, (a) new org.apache.thrift.meta_data.b("id", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
-        enumMap.put((EnumMap) a.APP_ID, (a) new org.apache.thrift.meta_data.b(AiAppsLifecycleMessage.APP_ID_KEY, (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
+        enumMap.put((EnumMap) a.APP_ID, (a) new org.apache.thrift.meta_data.b("appId", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.PAYLOAD, (a) new org.apache.thrift.meta_data.b("payload", (byte) 1, new org.apache.thrift.meta_data.c((byte) 11)));
         enumMap.put((EnumMap) a.CREATE_AT, (a) new org.apache.thrift.meta_data.b("createAt", (byte) 2, new org.apache.thrift.meta_data.c((byte) 10)));
         enumMap.put((EnumMap) a.TTL, (a) new org.apache.thrift.meta_data.b("ttl", (byte) 2, new org.apache.thrift.meta_data.c((byte) 10)));

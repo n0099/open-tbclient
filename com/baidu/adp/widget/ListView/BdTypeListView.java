@@ -5,12 +5,12 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
-import com.baidu.adp.widget.ListView.q;
+import com.baidu.adp.widget.ListView.v;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
-public class BdTypeListView extends BdListView implements m<BdTypeListView> {
-    q mTypeAdapter;
+public class BdTypeListView extends BdListView implements r<BdTypeListView> {
+    v mTypeAdapter;
 
     public BdTypeListView(Context context) {
         super(context);
@@ -32,7 +32,7 @@ public class BdTypeListView extends BdListView implements m<BdTypeListView> {
 
     private void init() {
         if (this.mTypeAdapter == null) {
-            this.mTypeAdapter = new q();
+            this.mTypeAdapter = new v();
         }
         super.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.adp.widget.ListView.BdTypeListView.1
             @Override // android.widget.AdapterView.OnItemClickListener
@@ -55,7 +55,7 @@ public class BdTypeListView extends BdListView implements m<BdTypeListView> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX DEBUG: Return type fixed from 'com.baidu.adp.widget.ListView.BdTypeListView' to match base method */
-    @Override // com.baidu.adp.widget.ListView.BdListView, com.baidu.adp.widget.ListView.j
+    @Override // com.baidu.adp.widget.ListView.BdListView, com.baidu.adp.widget.ListView.o
     /* renamed from: getListView */
     public BdListView getListView2() {
         return this;
@@ -71,12 +71,12 @@ public class BdTypeListView extends BdListView implements m<BdTypeListView> {
     public void setOnItemLongClickListener(AdapterView.OnItemLongClickListener onItemLongClickListener) {
     }
 
-    public void addAdapter(a<h, q.a> aVar) {
+    public void addAdapter(a<m, v.a> aVar) {
         this.mTypeAdapter.addAdapter(aVar);
         setAdapter((ListAdapter) this.mTypeAdapter);
     }
 
-    @Override // com.baidu.adp.widget.ListView.m
+    @Override // com.baidu.adp.widget.ListView.r
     public void addAdapters(List<a> list) {
         Iterator<a> it = list.iterator();
         while (it.hasNext()) {
@@ -85,17 +85,17 @@ public class BdTypeListView extends BdListView implements m<BdTypeListView> {
         setAdapter((ListAdapter) this.mTypeAdapter);
     }
 
-    @Override // com.baidu.adp.widget.ListView.m
-    public void setData(List<h> list) {
+    @Override // com.baidu.adp.widget.ListView.r
+    public void setData(List<m> list) {
         this.mTypeAdapter.setData(list);
     }
 
-    @Override // com.baidu.adp.widget.ListView.m
-    public List<h> getData() {
+    @Override // com.baidu.adp.widget.ListView.r
+    public List<m> getData() {
         return this.mTypeAdapter.getData();
     }
 
-    public h getItem(int i) {
+    public m getItem(int i) {
         return this.mTypeAdapter.getItem(i);
     }
 }

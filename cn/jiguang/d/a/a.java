@@ -9,7 +9,7 @@ public final class a {
     public static String a = "";
     public static int b = -1;
     public static boolean c = false;
-    private static cn.jiguang.g.b.d lg;
+    private static cn.jiguang.g.b.d li;
 
     public static void G(Context context, String str) {
         Z(context).d("device_config_appkey", str);
@@ -24,10 +24,10 @@ public final class a {
     }
 
     private static cn.jiguang.g.b.d Z(Context context) {
-        if (lg == null) {
-            lg = cn.jiguang.g.b.d.O(context, "cn.jpush.preferences.v2");
+        if (li == null) {
+            li = cn.jiguang.g.b.d.O(context, "cn.jpush.preferences.v2");
         }
-        return lg;
+        return li;
     }
 
     public static long a(long j) {

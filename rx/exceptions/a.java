@@ -6,7 +6,7 @@ import rx.e;
 import rx.i;
 /* loaded from: classes2.dex */
 public final class a {
-    public static RuntimeException r(Throwable th) {
+    public static RuntimeException s(Throwable th) {
         if (th instanceof RuntimeException) {
             throw ((RuntimeException) th);
         }
@@ -16,7 +16,7 @@ public final class a {
         throw new RuntimeException(th);
     }
 
-    public static void J(Throwable th) {
+    public static void L(Throwable th) {
         if (th instanceof OnErrorNotImplementedException) {
             throw ((OnErrorNotImplementedException) th);
         }
@@ -58,7 +58,7 @@ public final class a {
         }
     }
 
-    public static Throwable K(Throwable th) {
+    public static Throwable M(Throwable th) {
         int i = 0;
         while (th.getCause() != null) {
             int i2 = i + 1;
@@ -71,7 +71,7 @@ public final class a {
         return th;
     }
 
-    public static void eB(List<? extends Throwable> list) {
+    public static void eF(List<? extends Throwable> list) {
         if (list != null && !list.isEmpty()) {
             if (list.size() == 1) {
                 Throwable th = list.get(0);
@@ -88,22 +88,22 @@ public final class a {
     }
 
     public static void a(Throwable th, e<?> eVar, Object obj) {
-        J(th);
+        L(th);
         eVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
     }
 
     public static void a(Throwable th, i<?> iVar, Object obj) {
-        J(th);
+        L(th);
         iVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
     }
 
     public static void a(Throwable th, e<?> eVar) {
-        J(th);
+        L(th);
         eVar.onError(th);
     }
 
     public static void a(Throwable th, i<?> iVar) {
-        J(th);
+        L(th);
         iVar.onError(th);
     }
 }

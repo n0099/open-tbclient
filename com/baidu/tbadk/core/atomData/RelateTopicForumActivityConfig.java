@@ -9,6 +9,6 @@ public class RelateTopicForumActivityConfig extends IntentConfig {
     public RelateTopicForumActivityConfig(Context context, List list, String str) {
         super(context);
         getIntent().putExtra("data_list", (ArrayList) list);
-        getIntent().putExtra(IntentConfig.TOPIC_ID, str);
+        getIntent().putExtra("topic_id", str);
     }
 }

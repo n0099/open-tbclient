@@ -4,10 +4,11 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class a extends OutputStream {
+    private final int Hd;
     private final int He;
-    private final int Hf;
     private ByteBuffer mBuffer;
 
     public a() {
@@ -15,9 +16,9 @@ public class a extends OutputStream {
     }
 
     public a(int i, int i2) {
-        this.He = i;
-        this.Hf = i2;
-        this.mBuffer = ByteBuffer.allocateDirect(this.He);
+        this.Hd = i;
+        this.He = i2;
+        this.mBuffer = ByteBuffer.allocateDirect(this.Hd);
         this.mBuffer.clear();
     }
 
@@ -37,11 +38,11 @@ public class a extends OutputStream {
         return this.mBuffer.remaining();
     }
 
-    public synchronized void aX(int i) {
+    public synchronized void aH(int i) {
         if (i > this.mBuffer.capacity()) {
             ByteBuffer byteBuffer = this.mBuffer;
             int position = this.mBuffer.position();
-            this.mBuffer = ByteBuffer.allocateDirect(((i / this.Hf) + 1) * this.Hf);
+            this.mBuffer = ByteBuffer.allocateDirect(((i / this.He) + 1) * this.He);
             byteBuffer.clear();
             this.mBuffer.clear();
             this.mBuffer.put(byteBuffer);
@@ -52,7 +53,7 @@ public class a extends OutputStream {
     @Override // java.io.OutputStream
     public synchronized void write(int i) throws IOException {
         if (this.mBuffer.position() + 1 > this.mBuffer.capacity()) {
-            aX(this.mBuffer.capacity() + 1);
+            aH(this.mBuffer.capacity() + 1);
         }
         this.mBuffer.put((byte) i);
     }
@@ -60,7 +61,7 @@ public class a extends OutputStream {
     @Override // java.io.OutputStream
     public synchronized void write(byte[] bArr, int i, int i2) throws IOException {
         if (this.mBuffer.position() + i2 > this.mBuffer.capacity()) {
-            aX(this.mBuffer.capacity() + i2);
+            aH(this.mBuffer.capacity() + i2);
         }
         this.mBuffer.put(bArr, i, i2);
     }
@@ -71,10 +72,10 @@ public class a extends OutputStream {
     }
 
     public synchronized void write(String str) throws IOException {
-        write(str.getBytes("UTF-8"));
+        write(str.getBytes(HTTP.UTF_8));
     }
 
-    public synchronized void ly() throws IOException {
+    public synchronized void lD() throws IOException {
         write(13);
         write(10);
     }

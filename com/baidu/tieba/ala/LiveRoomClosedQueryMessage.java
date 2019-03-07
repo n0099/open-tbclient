@@ -13,7 +13,7 @@ public class LiveRoomClosedQueryMessage extends CustomMessage<List<Object>> {
         super(2921025);
         this.mOriginData = new ArrayList();
         this.mIds = new ArrayList();
-        if (!v.I(list2) && !v.I(list)) {
+        if (!v.T(list2) && !v.T(list)) {
             this.mOriginData.addAll(list2);
             this.mIds.addAll(list);
         }

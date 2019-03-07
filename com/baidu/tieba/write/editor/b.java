@@ -6,33 +6,33 @@ import com.baidu.tbadk.editortools.k;
 public class b extends k {
     public b(Context context, String str) {
         super(context, (String) null, 15);
-        this.aZN = false;
-        this.aZM = 3;
-        this.aYW = new EditorInfoContainer(context, str);
-        this.aZO = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54};
+        this.cjm = false;
+        this.cjl = 3;
+        this.ciu = new EditorInfoContainer(context, str);
+        this.cjn = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54};
     }
 
     public void setFrom(String str) {
-        if (this.aYW instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.aYW).setFrom(str);
+        if (this.ciu instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.ciu).setFrom(str);
         }
     }
 
-    public void ba(String str, int i) {
-        if (this.aYW instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.aYW).ba(str, i);
+    public void bw(String str, int i) {
+        if (this.ciu instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.ciu).bw(str, i);
         }
     }
 
-    public void bmw() {
-        if (this.aYW instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.aYW).bmw();
+    public void aWP() {
+        if (this.ciu instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.ciu).aWP();
         }
     }
 
-    public void bPB() {
-        if (this.aYW instanceof EditorInfoContainer) {
-            ((EditorInfoContainer) this.aYW).bPB();
+    public void cpi() {
+        if (this.ciu instanceof EditorInfoContainer) {
+            ((EditorInfoContainer) this.ciu).cpi();
         }
     }
 }

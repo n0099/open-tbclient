@@ -2,9 +2,6 @@ package cn.jpush.android.a;
 
 import android.support.v4.view.PointerIconCompat;
 import android.util.SparseArray;
-import com.baidu.ar.DuMixState;
-import com.baidu.ar.util.Constants;
-import com.baidu.baiduarsdk.ArBridge;
 /* loaded from: classes3.dex */
 public final class m {
     private static final SparseArray<String> a;
@@ -19,28 +16,28 @@ public final class m {
         a.put(1000, "User clicked and opened the Message");
         a.put(1001, "Message download succeed");
         a.put(1002, "Message received succeed");
-        a.put(1003, "Message silence download succeed");
-        a.put(1004, "Video silence downlaod succeed");
+        a.put(PointerIconCompat.TYPE_HELP, "Message silence download succeed");
+        a.put(PointerIconCompat.TYPE_WAIT, "Video silence downlaod succeed");
         a.put(1005, "User clicked video and jumped to url Message (browser)");
-        a.put(1008, "Video is force closed by user");
-        a.put(1007, "User clicked 'OK'");
-        a.put(1006, "User clicked 'Cancel'");
+        a.put(PointerIconCompat.TYPE_TEXT, "Video is force closed by user");
+        a.put(PointerIconCompat.TYPE_CROSSHAIR, "User clicked 'OK'");
+        a.put(PointerIconCompat.TYPE_CELL, "User clicked 'Cancel'");
         a.put(1011, "Download failed");
         a.put(1012, "User clicked to download again");
         a.put(1013, "The file already exist and same size. Don't download again.");
-        a.put(DuMixState.IMAGE_RECOGNIZE_START, "Invalid param or unexpected result.");
+        a.put(1100, "Invalid param or unexpected result.");
         a.put(1014, "Failed to preload required resource");
         a.put(PointerIconCompat.TYPE_VERTICAL_DOUBLE_ARROW, "User clicked install alert on status bar after downloading finished.");
         a.put(PointerIconCompat.TYPE_TOP_RIGHT_DIAGONAL_DOUBLE_ARROW, "User clicked the webview's url");
         a.put(PointerIconCompat.TYPE_TOP_LEFT_DIAGONAL_DOUBLE_ARROW, "User clicked call action");
         a.put(PointerIconCompat.TYPE_ZOOM_IN, "The Message show in the status bar");
         a.put(PointerIconCompat.TYPE_ZOOM_OUT, "Click applist and show the Message");
-        a.put(1020, "Down image failed");
-        a.put(1021, "Down html failed");
-        a.put(ArBridge.MessageType.MSG_TYPE_VIDEO_PLAY_RES, "Down Message failed");
-        a.put(ArBridge.MessageType.MSG_TYPE_VIDEO_PLAY_FINISH, "Discard the message because it is not in the push time");
-        a.put(ArBridge.MessageType.MSG_TYPE_VIDEO_PLAY_INFO_UPDATE, "Stop push service");
-        a.put(Constants.HTTP_ERRCODE_NOT_FIND, "Resume push service");
+        a.put(PointerIconCompat.TYPE_GRAB, "Down image failed");
+        a.put(PointerIconCompat.TYPE_GRABBING, "Down html failed");
+        a.put(1022, "Down Message failed");
+        a.put(1030, "Discard the message because it is not in the push time");
+        a.put(1031, "Stop push service");
+        a.put(1032, "Resume push service");
     }
 
     public static String a(int i) {

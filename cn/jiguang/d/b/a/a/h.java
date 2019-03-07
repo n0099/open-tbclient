@@ -10,7 +10,7 @@ public final class h extends i {
 
     @Override // cn.jiguang.d.b.a.a.i
     public final int a() {
-        if (this.b && (cn.jiguang.d.a.a.a(cn.jiguang.g.k.c(this.lk.d())) || cn.jiguang.d.a.a.d())) {
+        if (this.b && (cn.jiguang.d.a.a.a(cn.jiguang.g.k.c(this.lm.d())) || cn.jiguang.d.a.a.d())) {
             return 1;
         }
         cn.jiguang.d.b.j L = cn.jiguang.d.d.g.L(cn.jiguang.d.a.a.k());

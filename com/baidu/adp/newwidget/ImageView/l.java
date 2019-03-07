@@ -7,29 +7,29 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes.dex */
 public class l extends k {
-    private boolean IU;
+    private boolean Jc;
     private Rect mRect;
-    private Path oy;
+    private Path ot;
 
     private void d(Rect rect) {
         boolean z = false;
         if (rect != null) {
-            if (this.oy == null || this.IU != this.mArgs.IU) {
+            if (this.ot == null || this.Jc != this.mArgs.Jc) {
                 z = true;
             }
             if (this.mRect == null || !this.mRect.contains(rect)) {
                 z = true;
             }
-            this.IU = this.mArgs.IU;
+            this.Jc = this.mArgs.Jc;
             if (z) {
                 this.mRect = rect;
-                this.oy = new Path();
-                if (this.IU) {
-                    this.oy.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
+                this.ot = new Path();
+                if (this.Jc) {
+                    this.ot.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
                 } else {
-                    this.oy.addRoundRect(new RectF(rect), this.mArgs.mRadius, this.mArgs.mRadius, Path.Direction.CCW);
+                    this.ot.addRoundRect(new RectF(rect), this.mArgs.mRadius, this.mArgs.mRadius, Path.Direction.CCW);
                 }
-                this.oy.close();
+                this.ot.close();
             }
         }
     }
@@ -39,7 +39,7 @@ public class l extends k {
         canvas.save();
         d(drawable.getBounds());
         try {
-            canvas.clipPath(this.oy);
+            canvas.clipPath(this.ot);
         } catch (Exception e) {
         }
         drawable.draw(canvas);

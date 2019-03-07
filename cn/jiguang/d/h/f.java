@@ -1,7 +1,6 @@
 package cn.jiguang.d.h;
 
 import android.content.Context;
-import com.google.zxing.common.StringUtils;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -18,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class f {
     public static File K(Context context, String str) {
@@ -40,7 +40,7 @@ public final class f {
     }
 
     private static void a(File file, ZipOutputStream zipOutputStream, String str) {
-        String str2 = new String((str + (str.trim().length() == 0 ? "" : File.separator) + file.getName()).getBytes("8859_1"), StringUtils.GB2312);
+        String str2 = new String((str + (str.trim().length() == 0 ? "" : File.separator) + file.getName()).getBytes("8859_1"), "GB2312");
         if (file.isDirectory()) {
             File[] listFiles = file.listFiles();
             if (listFiles != null) {
@@ -92,7 +92,7 @@ public final class f {
             return r0
         La:
             r2 = 0
-            e(r4)     // Catch: java.lang.Throwable -> L20
+            f(r4)     // Catch: java.lang.Throwable -> L20
             java.io.ObjectOutputStream r1 = new java.io.ObjectOutputStream     // Catch: java.lang.Throwable -> L20
             java.io.FileOutputStream r3 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L20
             r3.<init>(r4)     // Catch: java.lang.Throwable -> L20
@@ -145,7 +145,7 @@ public final class f {
             r2 = 0
             byte[] r4 = new byte[r2]     // Catch: java.lang.Throwable -> L20
         L10:
-            e(r3)     // Catch: java.lang.Throwable -> L20
+            f(r3)     // Catch: java.lang.Throwable -> L20
             java.io.FileOutputStream r2 = new java.io.FileOutputStream     // Catch: java.lang.Throwable -> L20
             r2.<init>(r3)     // Catch: java.lang.Throwable -> L20
             r2.write(r4)     // Catch: java.lang.Throwable -> L2d
@@ -181,18 +181,11 @@ public final class f {
         return null;
     }
 
-    public static File[] a(File file, boolean z) {
-        if (file != null && file.exists() && file.isDirectory()) {
-            return file.listFiles(new g(z));
-        }
-        return null;
-    }
-
     public static boolean b(File file, String str) {
         byte[] bytes;
         if (str != null) {
             try {
-                bytes = str.getBytes("UTF-8");
+                bytes = str.getBytes(HTTP.UTF_8);
             } catch (Throwable th) {
                 return false;
             }
@@ -200,6 +193,13 @@ public final class f {
             bytes = null;
         }
         return a(file, bytes);
+    }
+
+    public static File[] b(File file, boolean z) {
+        if (file != null && file.exists() && file.isDirectory()) {
+            return file.listFiles(new g(z));
+        }
+        return null;
     }
 
     public static File c(File[] fileArr) {
@@ -219,12 +219,20 @@ public final class f {
         return file;
     }
 
-    public static ArrayList<String> e(InputStream inputStream) {
+    public static File[] c(String str, boolean z) {
+        try {
+            return b(new File(str), z);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static ArrayList<String> f(InputStream inputStream) {
         BufferedReader bufferedReader;
         ArrayList<String> arrayList = new ArrayList<>();
         BufferedReader bufferedReader2 = null;
         try {
-            bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"), 2048);
+            bufferedReader = new BufferedReader(new InputStreamReader(inputStream, HTTP.UTF_8), 2048);
             while (true) {
                 try {
                     String readLine = bufferedReader.readLine();
@@ -254,7 +262,7 @@ public final class f {
         return arrayList;
     }
 
-    private static void e(File file) {
+    private static void f(File file) {
         if (file == null || file.exists()) {
             return;
         }
@@ -268,21 +276,13 @@ public final class f {
         }
     }
 
-    public static File[] e(String str, boolean z) {
-        try {
-            return a(new File(str), z);
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    public static String f(File file) {
-        byte[] g = g(file);
-        if (g == null) {
+    public static String g(File file) {
+        byte[] h = h(file);
+        if (h == null) {
             return null;
         }
         try {
-            return new String(g, "UTF-8");
+            return new String(h, HTTP.UTF_8);
         } catch (UnsupportedEncodingException e) {
             return null;
         }
@@ -296,7 +296,7 @@ public final class f {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:45)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    private static byte[] g(java.io.File r3) {
+    private static byte[] h(java.io.File r3) {
         /*
             r1 = 0
             if (r3 == 0) goto Lf
@@ -337,10 +337,10 @@ public final class f {
             r0 = r2
             goto L25
         */
-        throw new UnsupportedOperationException("Method not decompiled: cn.jiguang.d.h.f.g(java.io.File):byte[]");
+        throw new UnsupportedOperationException("Method not decompiled: cn.jiguang.d.h.f.h(java.io.File):byte[]");
     }
 
-    public static Object h(File file) {
+    public static Object i(File file) {
         ObjectInputStream objectInputStream;
         Throwable th;
         Object obj = null;
@@ -363,14 +363,14 @@ public final class f {
         return obj;
     }
 
-    public static void i(File file) {
+    public static void j(File file) {
         File[] listFiles;
         if (file == null || !file.exists()) {
             return;
         }
         if (file.isDirectory() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {
-                i(file2);
+                j(file2);
                 file2.delete();
             }
         }

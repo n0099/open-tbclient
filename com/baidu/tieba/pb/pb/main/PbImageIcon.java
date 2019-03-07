@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PbImageIcon extends ImageView {
     protected Context mContext;
 

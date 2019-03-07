@@ -22,6 +22,7 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
+import com.baidu.sapi2.utils.enums.ShareDirectionType;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -107,17 +108,19 @@ public final class ShareService extends Service {
             }
             String string = readBundle.getString("IQIYI_TOKEN");
             boolean z = readBundle.getBoolean("EXTRA_OTHER_INFO");
-            ArrayList arrayList = new ArrayList();
-            String string2 = readBundle.getString("FACE_LOGIN_UID");
-            if (!TextUtils.isEmpty(string2) && TextUtils.isEmpty(SapiContext.getInstance(ShareService.a).getFaceLoginUid())) {
-                arrayList.add(new FaceLoginModel.a(string2, 1L));
-            }
-            String string3 = readBundle.getString("V2_FACE_LOGIN_UIDS_TIMES");
-            if (!TextUtils.isEmpty(string3)) {
-                arrayList.addAll(new FaceLoginService().str2ShareModelV2List(string3));
-            }
-            if (!arrayList.isEmpty()) {
-                new FaceLoginService().syncPriWithShare(arrayList, false);
+            if (SapiContext.getInstance(ShareService.a).shareLivingunameEnable()) {
+                ArrayList arrayList = new ArrayList();
+                String string2 = readBundle.getString("FACE_LOGIN_UID");
+                if (!TextUtils.isEmpty(string2) && TextUtils.isEmpty(SapiContext.getInstance(ShareService.a).getFaceLoginUid())) {
+                    arrayList.add(new FaceLoginModel.a(string2, 1L));
+                }
+                String string3 = readBundle.getString("V2_FACE_LOGIN_UIDS_TIMES");
+                if (!TextUtils.isEmpty(string3)) {
+                    arrayList.addAll(new FaceLoginService().str2ShareModelV2List(string3));
+                }
+                if (!arrayList.isEmpty()) {
+                    new FaceLoginService().syncPriWithShare(arrayList, false);
+                }
             }
             boolean z2 = readBundle.getBoolean("VEHICLE_SYSTEM", false);
             if (readBundle.getSerializable("RUNTIME_ENVIRONMENT") != null && (readBundle.getSerializable("RUNTIME_ENVIRONMENT") instanceof Domain) && ((Domain) readBundle.getSerializable("RUNTIME_ENVIRONMENT")) != SapiAccountManager.getInstance().getSapiConfiguration().environment) {
@@ -131,19 +134,19 @@ public final class ShareService extends Service {
             String loginShareDirection = SapiAccountManager.getInstance().getSapiConfiguration().loginShareDirection();
             switch (shareModel.b()) {
                 case VALIDATE:
-                    if (!com.baidu.sapi2.utils.enums.a.b.equals(loginShareDirection)) {
+                    if (!ShareDirectionType.EXPORT.equals(loginShareDirection)) {
                         c.a(ShareService.a, ShareService.b, shareModel, i3, string, z, z2, string4);
                         break;
                     }
                     break;
                 case INVALIDATE:
-                    if (!com.baidu.sapi2.utils.enums.a.b.equals(loginShareDirection)) {
+                    if (!ShareDirectionType.EXPORT.equals(loginShareDirection)) {
                         c.a(ShareService.a, shareModel);
                         break;
                     }
                     break;
                 case SYNC_REQ:
-                    if (!com.baidu.sapi2.utils.enums.a.a.equals(loginShareDirection) || !SapiAccountManager.getInstance().getSession().isGuestAccount()) {
+                    if (!ShareDirectionType.IMPORT.equals(loginShareDirection) || !SapiAccountManager.getInstance().getSession().isGuestAccount()) {
                         ShareService.this.a(parcel2);
                         break;
                     }
@@ -197,7 +200,7 @@ public final class ShareService extends Service {
             bundle.putString("RELOGIN_CREDENTIALS", b.a(a, c.getReloginCredentials().toString()));
         }
         bundle.putSerializable("RUNTIME_ENVIRONMENT", SapiAccountManager.getInstance().getSapiConfiguration().environment);
-        bundle.putInt(ShareCallPacking.EXTRA_SDK_VERSION, 202);
+        bundle.putInt(ShareCallPacking.EXTRA_SDK_VERSION, 200);
         if (SapiContext.getInstance(a).shareLivingunameEnable()) {
             bundle.putString("FACE_LOGIN_UID", SapiContext.getInstance(a).getFaceLoginUid());
             bundle.putString("V2_FACE_LOGIN_UIDS_TIMES", SapiContext.getInstance(a).getV2FaceLivingUnames());

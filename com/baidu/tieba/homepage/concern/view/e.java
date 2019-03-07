@@ -3,50 +3,50 @@ package com.baidu.tieba.homepage.concern.view;
 import android.view.View;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.bb;
+import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.core.view.ThreadLinkView;
-import com.baidu.tieba.e;
-/* loaded from: classes6.dex */
+import com.baidu.tieba.d;
+/* loaded from: classes4.dex */
 public class e extends d {
-    private ThreadLinkView cZb;
+    private ThreadLinkView fHz;
 
     public e(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
     }
 
     @Override // com.baidu.tieba.homepage.concern.view.d
-    protected void aA(View view) {
+    protected void bQ(View view) {
         if (view != null) {
-            this.cZb = (ThreadLinkView) view.findViewById(e.g.card_recommend_god_link_therad);
-            this.cZb.setTag(getTag());
+            this.fHz = (ThreadLinkView) view.findViewById(d.g.card_recommend_god_link_therad);
+            this.fHz.setTag(getTag());
         }
     }
 
     @Override // com.baidu.tieba.card.a
     public int getLayout() {
-        return e.h.card_recgod_link;
+        return d.h.card_recgod_link;
     }
 
     @Override // com.baidu.tieba.homepage.concern.view.d
-    protected void ag(bb bbVar) {
-        if (bbVar != null && !StringUtils.isNull(bbVar.getTid())) {
+    protected void ao(bg bgVar) {
+        if (bgVar != null && !StringUtils.isNull(bgVar.getTid())) {
             if (getView() != null) {
-                getView().setOnClickListener(this.euZ);
+                getView().setOnClickListener(this.fHw);
             }
-            this.cZb.setData(bbVar);
+            this.fHz.setData(bgVar);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.homepage.concern.view.d
-    public void aqu() {
-        super.aqu();
-        this.cZb.gH(this.bOl.getId());
+    public void blA() {
+        super.blA();
+        this.fHz.nt(this.bTk.getId());
     }
 
     @Override // com.baidu.tieba.homepage.concern.view.d, com.baidu.tieba.card.a
-    public void d(TbPageContext<?> tbPageContext, int i) {
-        super.d(tbPageContext, i);
-        this.cZb.onChangeSkinType();
+    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
+        super.onChangeSkinType(tbPageContext, i);
+        this.fHz.onChangeSkinType();
     }
 }

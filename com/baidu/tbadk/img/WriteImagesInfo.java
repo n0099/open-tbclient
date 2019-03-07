@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.k;
-import com.baidu.tbadk.core.util.aq;
-import com.baidu.tbadk.core.util.l;
+import com.baidu.tbadk.core.util.ar;
+import com.baidu.tbadk.core.util.m;
 import java.io.Serializable;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -94,6 +94,13 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         return this.chosedFiles;
     }
 
+    public ImageFileInfo getImageInfoAt(int i) {
+        if (this.chosedFiles == null || i < 0 || i >= this.chosedFiles.size()) {
+            return null;
+        }
+        return this.chosedFiles.get(i);
+    }
+
     public void setChosedFiles(LinkedList<ImageFileInfo> linkedList) {
         this.chosedFiles = linkedList;
     }
@@ -170,7 +177,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     ImageFileInfo imageFileInfo = new ImageFileInfo();
                     imageFileInfo.parseJson(optJSONArray.optJSONObject(i));
-                    imageFileInfo.setIsLong(l.fo(imageFileInfo.getFilePath()));
+                    imageFileInfo.setIsLong(m.mb(imageFileInfo.getFilePath()));
                     this.chosedFiles.add(imageFileInfo);
                 }
             }
@@ -212,7 +219,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
             while (descendingIterator.hasNext()) {
                 ImageFileInfo next = descendingIterator.next();
                 if (next != null && !next.isHasAddPostQualityAction()) {
-                    next.addPersistAction(com.baidu.tbadk.img.effect.d.L(aq.Ee().Ek(), aq.Ee().El()));
+                    next.addPersistAction(com.baidu.tbadk.img.effect.d.ai(ar.adp().adv(), ar.adp().adw()));
                     next.setHasAddPostQualityAction(true);
                 }
             }

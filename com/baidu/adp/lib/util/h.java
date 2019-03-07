@@ -7,6 +7,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.install.PluginInstallerService;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -19,20 +20,20 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 /* loaded from: classes.dex */
 public class h {
-    private static h FN = null;
+    private static h FM = null;
 
-    public static h kI() {
+    public static h kK() {
         h hVar;
-        if (FN == null) {
+        if (FM == null) {
             synchronized (h.class) {
-                if (FN == null) {
-                    FN = new h();
+                if (FM == null) {
+                    FM = new h();
                 }
-                hVar = FN;
+                hVar = FM;
             }
             return hVar;
         }
-        return FN;
+        return FM;
     }
 
     public boolean a(String str, int i, i iVar) {
@@ -166,7 +167,7 @@ public class h {
     }
 
     private String bt(String str) {
-        return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.face.base.b.c.g + File.separator + Plugin.SO_LIB_DIR_NAME + str + PluginInstallerService.APK_LIB_SUFFIX;
+        return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + "files" + File.separator + Plugin.SO_LIB_DIR_NAME + str + PluginInstallerService.APK_LIB_SUFFIX;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [269=5, 282=4] */
@@ -180,9 +181,9 @@ public class h {
         zipInputStream2 = null;
         boolean z = false;
         ArrayList arrayList = new ArrayList();
-        arrayList.add(Plugin.SO_LIB_DIR_NAME + File.separator + com.baidu.fsg.face.base.d.h.c + File.separator + Plugin.SO_LIB_DIR_NAME + str2 + PluginInstallerService.APK_LIB_SUFFIX);
+        arrayList.add(Plugin.SO_LIB_DIR_NAME + File.separator + PassBiometricUtil.CPU_TYPE_X86 + File.separator + Plugin.SO_LIB_DIR_NAME + str2 + PluginInstallerService.APK_LIB_SUFFIX);
         arrayList.add(Plugin.SO_LIB_DIR_NAME + File.separator + "mips" + File.separator + Plugin.SO_LIB_DIR_NAME + str2 + PluginInstallerService.APK_LIB_SUFFIX);
-        arrayList.add(Plugin.SO_LIB_DIR_NAME + File.separator + com.baidu.fsg.face.base.d.h.a + File.separator + Plugin.SO_LIB_DIR_NAME + str2 + PluginInstallerService.APK_LIB_SUFFIX);
+        arrayList.add(Plugin.SO_LIB_DIR_NAME + File.separator + PassBiometricUtil.CPU_TYPE_ARMEABI + File.separator + Plugin.SO_LIB_DIR_NAME + str2 + PluginInstallerService.APK_LIB_SUFFIX);
         File file = new File(str);
         try {
             if (file.exists()) {
@@ -233,19 +234,19 @@ public class h {
                             }
                         }
                     }
-                    com.baidu.adp.lib.g.a.h(zipInputStream);
+                    com.baidu.adp.lib.g.a.i(zipInputStream);
                 } catch (IOException e4) {
                     e = e4;
                     zipInputStream2 = zipInputStream;
                     sb.append("-Error5:");
                     sb.append(e.getClass().getName() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + e.getMessage());
                     sb.append(Constants.ACCEPT_TIME_SEPARATOR_SERVER);
-                    com.baidu.adp.lib.g.a.h(zipInputStream2);
+                    com.baidu.adp.lib.g.a.i(zipInputStream2);
                     return z;
                 } catch (Throwable th3) {
                     th = th3;
                     zipInputStream2 = zipInputStream;
-                    com.baidu.adp.lib.g.a.h(zipInputStream2);
+                    com.baidu.adp.lib.g.a.i(zipInputStream2);
                     throw th;
                 }
             }
@@ -289,24 +290,24 @@ public class h {
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<Object, Object, Object> {
+        String FN;
         String FO;
-        String FP;
-        StringBuilder FQ;
-        i FR;
-        boolean FT = false;
+        StringBuilder FP;
+        i FQ;
+        boolean FR = false;
 
         public a(String str, String str2, StringBuilder sb, i iVar) {
-            this.FO = str;
-            this.FP = str2;
-            this.FQ = sb;
-            this.FR = iVar;
+            this.FN = str;
+            this.FO = str2;
+            this.FP = sb;
+            this.FQ = iVar;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected Object doInBackground(Object... objArr) {
-            this.FT = h.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.FO, this.FQ);
-            if (!this.FT) {
-                h.this.a(this.FP, "".getBytes(), this.FQ);
+            this.FR = h.this.a(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.FN, this.FP);
+            if (!this.FR) {
+                h.this.a(this.FO, "".getBytes(), this.FP);
                 return null;
             }
             return null;
@@ -315,11 +316,11 @@ public class h {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected void onPostExecute(Object obj) {
             super.onPostExecute(obj);
-            if (this.FQ.length() > 0) {
-                BdStatisticsManager.getInstance().error("so", "load_" + this.FO + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.FQ.toString(), new Object[0]);
+            if (this.FP.length() > 0) {
+                BdStatisticsManager.getInstance().error("so", "load_" + this.FN + PluginInstallerService.APK_LIB_SUFFIX, "", -9101, this.FP.toString(), new Object[0]);
             }
-            if (this.FR != null) {
-                this.FR.O(this.FT);
+            if (this.FQ != null) {
+                this.FQ.O(this.FR);
             }
         }
     }

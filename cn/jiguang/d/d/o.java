@@ -8,7 +8,7 @@ import android.os.SystemClock;
 /* loaded from: classes3.dex */
 public final class o {
     private static final Object b = new Object();
-    private static volatile o mf;
+    private static volatile o mi;
     private boolean c;
     private Handler d;
     private long e;
@@ -16,7 +16,18 @@ public final class o {
     public static void a(Context context, boolean z) {
         Bundle bundle = new Bundle();
         bundle.putBoolean("force", false);
-        l.bZ().d(context, "intent.PERIOD_RESUME", bundle);
+        l.bY().d(context, "intent.PERIOD_RESUME", bundle);
+    }
+
+    public static o bZ() {
+        if (mi == null) {
+            synchronized (b) {
+                if (mi == null) {
+                    mi = new o();
+                }
+            }
+        }
+        return mi;
     }
 
     private void c(Context context) {
@@ -30,28 +41,17 @@ public final class o {
         }
     }
 
-    public static o ca() {
-        if (mf == null) {
-            synchronized (b) {
-                if (mf == null) {
-                    mf = new o();
-                }
-            }
-        }
-        return mf;
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void d(Context context) {
         this.d.removeMessages(8000);
         if (this.c) {
             c(context);
-            if (i.bX().f() && !cn.jiguang.d.a.d.i(context)) {
+            if (i.bW().f() && !cn.jiguang.d.a.d.i(context)) {
                 cn.jiguang.d.a.a(context, false, 0L);
             }
             cn.jiguang.a.c.c.a(context, 0);
             try {
-                cn.jiguang.d.i.f.ck().a(context, false);
+                cn.jiguang.d.i.f.cj().a(context, false);
             } catch (OutOfMemoryError e) {
             }
         }

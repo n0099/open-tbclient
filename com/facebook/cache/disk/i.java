@@ -4,25 +4,25 @@ import com.facebook.cache.common.CacheEventListener;
 import java.io.IOException;
 /* loaded from: classes2.dex */
 public class i implements com.facebook.cache.common.a {
-    private static final Object ijL = new Object();
-    private static i ijM;
-    private static int ijN;
-    private com.facebook.cache.common.b ijO;
-    private long ijP;
-    private long ijQ;
-    private long ijR;
-    private IOException ijS;
-    private CacheEventListener.EvictionReason ijT;
-    private i ijU;
-    private String ijc;
+    private static final Object jzn = new Object();
+    private static i jzo;
+    private static int jzp;
+    private String jyF;
+    private com.facebook.cache.common.b jzq;
+    private long jzr;
+    private long jzs;
+    private long jzt;
+    private IOException jzu;
+    private CacheEventListener.EvictionReason jzv;
+    private i jzw;
 
-    public static i bUt() {
-        synchronized (ijL) {
-            if (ijM != null) {
-                i iVar = ijM;
-                ijM = iVar.ijU;
-                iVar.ijU = null;
-                ijN--;
+    public static i ctr() {
+        synchronized (jzn) {
+            if (jzo != null) {
+                i iVar = jzo;
+                jzo = iVar.jzw;
+                iVar.jzw = null;
+                jzp--;
                 return iVar;
             }
             return new i();
@@ -33,60 +33,60 @@ public class i implements com.facebook.cache.common.a {
     }
 
     public i g(com.facebook.cache.common.b bVar) {
-        this.ijO = bVar;
+        this.jzq = bVar;
         return this;
     }
 
-    public i zu(String str) {
-        this.ijc = str;
+    public i Fw(String str) {
+        this.jyF = str;
         return this;
     }
 
-    public i dx(long j) {
-        this.ijP = j;
+    public i ec(long j) {
+        this.jzr = j;
         return this;
     }
 
-    public i dy(long j) {
-        this.ijR = j;
+    public i ed(long j) {
+        this.jzt = j;
         return this;
     }
 
-    public i dz(long j) {
-        this.ijQ = j;
+    public i ee(long j) {
+        this.jzs = j;
         return this;
     }
 
     public i a(IOException iOException) {
-        this.ijS = iOException;
+        this.jzu = iOException;
         return this;
     }
 
     public i a(CacheEventListener.EvictionReason evictionReason) {
-        this.ijT = evictionReason;
+        this.jzv = evictionReason;
         return this;
     }
 
     public void recycle() {
-        synchronized (ijL) {
-            if (ijN < 5) {
+        synchronized (jzn) {
+            if (jzp < 5) {
                 reset();
-                ijN++;
-                if (ijM != null) {
-                    this.ijU = ijM;
+                jzp++;
+                if (jzo != null) {
+                    this.jzw = jzo;
                 }
-                ijM = this;
+                jzo = this;
             }
         }
     }
 
     private void reset() {
-        this.ijO = null;
-        this.ijc = null;
-        this.ijP = 0L;
-        this.ijQ = 0L;
-        this.ijR = 0L;
-        this.ijS = null;
-        this.ijT = null;
+        this.jzq = null;
+        this.jyF = null;
+        this.jzr = 0L;
+        this.jzs = 0L;
+        this.jzt = 0L;
+        this.jzu = null;
+        this.jzv = null;
     }
 }

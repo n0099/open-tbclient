@@ -1,19 +1,20 @@
 package com.baidu.tieba.tbadkCore.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.xiaomi.mipush.sdk.Constants;
 import tbclient.ActHot;
 /* loaded from: classes.dex */
 public class a {
-    private int aDW;
-    private String hoV;
-    private String hoW;
-    private String hoX;
+    private String iFA;
+    private String iFB;
+    private String iFC;
     private int mHeight;
+    private int mImageType;
     private String mTitle;
     private int mWidth;
 
-    public String bEq() {
-        return this.hoV;
+    public String cdO() {
+        return this.iFA;
     }
 
     public int getImageWidth() {
@@ -24,8 +25,8 @@ public class a {
         return this.mHeight;
     }
 
-    public String bEr() {
-        return this.hoW;
+    public String cdP() {
+        return this.iFB;
     }
 
     public String getTitle() {
@@ -33,7 +34,7 @@ public class a {
     }
 
     public String getDescription() {
-        return this.hoX;
+        return this.iFC;
     }
 
     public void a(ActHot actHot) {
@@ -41,7 +42,7 @@ public class a {
             String str = actHot.bsize;
             if (str != null) {
                 try {
-                    String[] split = str.split(",");
+                    String[] split = str.split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                     this.mWidth = com.baidu.adp.lib.g.b.l(split[0], 1);
                     this.mHeight = com.baidu.adp.lib.g.b.l(split[1], 1);
                 } catch (Exception e) {
@@ -54,11 +55,11 @@ public class a {
             if (this.mHeight <= 0) {
                 this.mHeight = 1;
             }
-            this.hoV = actHot.img_src;
-            this.hoW = actHot.link;
+            this.iFA = actHot.img_src;
+            this.iFB = actHot.link;
             this.mTitle = actHot.author_name;
-            this.hoX = actHot.img_des;
-            this.aDW = actHot.img_type.intValue();
+            this.iFC = actHot.img_des;
+            this.mImageType = actHot.img_type.intValue();
         }
     }
 }

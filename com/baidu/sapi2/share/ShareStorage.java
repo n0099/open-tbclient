@@ -8,7 +8,6 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.common.security.MD5Util;
-import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
@@ -24,6 +23,7 @@ import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
+import com.baidu.sapi2.utils.enums.ShareDirectionType;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import java.io.File;
 import java.io.IOException;
@@ -63,7 +63,7 @@ public class ShareStorage {
                         String str;
                         LoginShareStrategy loginShareStrategy = SapiAccountManager.getInstance().getConfignation().loginShareStrategy();
                         String loginShareDirection = SapiAccountManager.getInstance().getConfignation().loginShareDirection();
-                        if (loginShareStrategy == LoginShareStrategy.DISABLED || com.baidu.sapi2.utils.enums.a.a.equals(loginShareDirection)) {
+                        if (loginShareStrategy == LoginShareStrategy.DISABLED || ShareDirectionType.IMPORT.equals(loginShareDirection)) {
                             storageModel.b = 1;
                         }
                         String md5 = MD5Util.toMd5(ShareStorage.this.h.getPackageName().getBytes(), false);
@@ -247,7 +247,7 @@ public class ShareStorage {
             storageModel.url = jSONObject.optString("url");
             storageModel.displayname = jSONObject.optString("displayname");
             storageModel.app = jSONObject.optString("app");
-            storageModel.tpl = jSONObject.optString(BaiduRimConstants.TPL_INIT_KEY);
+            storageModel.tpl = jSONObject.optString("tpl");
             storageModel.a = jSONObject.optString("uid");
             storageModel.pkg = jSONObject.optString("pkg");
             storageModel.b = jSONObject.optInt(FrsActivityConfig.FLAG, -1);
@@ -280,7 +280,7 @@ public class ShareStorage {
                 jSONObject.put("url", this.url);
                 jSONObject.put("displayname", this.displayname);
                 jSONObject.put("app", this.app);
-                jSONObject.put(BaiduRimConstants.TPL_INIT_KEY, this.tpl);
+                jSONObject.put("tpl", this.tpl);
                 jSONObject.put("uid", this.a);
                 jSONObject.put("pkg", this.pkg);
                 jSONObject.put(FrsActivityConfig.FLAG, this.b);

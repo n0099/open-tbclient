@@ -4,9 +4,10 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
 /* loaded from: classes2.dex */
 public final class SchemeTimeCostMoniter {
-    private static final boolean DEBUG = false;
+    private static final boolean DEBUG = SchemeConfig.DEBUG;
     public static final int DEFAULT_THRESHOLD = 100;
     public static final String SP_KEY_OPEN_MONITER = "sp_key_open_moniter";
     public static final String SP_KEY_TIME_COST_THRESHOLD = "sp_key_time_cost_threshold";
@@ -32,9 +33,15 @@ public final class SchemeTimeCostMoniter {
     }
 
     public void schemeStart(String str) {
+        if (DEBUG && this.mOpenMoniter && this.mTimeCostMoniter != null) {
+            this.mTimeCostMoniter.recordStart(str);
+        }
     }
 
     public void schemeEnd(String str) {
+        if (DEBUG && this.mOpenMoniter && this.mTimeCostMoniter != null) {
+            this.mTimeCostMoniter.recordEnd(str);
+        }
     }
 
     /* loaded from: classes2.dex */

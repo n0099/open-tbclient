@@ -25,7 +25,6 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.d.a.a;
-import com.baidu.sapi2.EnhancedService;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
@@ -92,19 +91,19 @@ public class SmsLoginView extends FrameLayout {
         this.isFirstGetCheckCode = true;
         this.context = context;
         this.smsHandler = new SmsHandler();
-        this.rootView = LayoutInflater.from(context).inflate(a.e.layout_sapi_sdk_sms_login_view, (ViewGroup) this, true);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.h.sapi_sdk_sms_login_view, i, 0);
-        boolean z = obtainStyledAttributes.getBoolean(a.h.sapi_sdk_sms_login_view_sapi_sdk_show_keyboard, false);
+        this.rootView = LayoutInflater.from(context).inflate(a.f.layout_sapi_sdk_sms_login_view, (ViewGroup) this, true);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.i.sapi_sdk_sms_login_view, i, 0);
+        boolean z = obtainStyledAttributes.getBoolean(a.i.sapi_sdk_sms_login_view_sapi_sdk_show_keyboard, false);
         obtainStyledAttributes.recycle();
-        this.codeContainer = this.rootView.findViewById(a.d.code_container);
-        this.phone = (EditText) this.rootView.findViewById(a.d.phone);
-        this.loadingContainer = this.rootView.findViewById(a.d.loading_container);
-        this.checkCode = (EditText) this.rootView.findViewById(a.d.check_code);
-        this.getCode = (TextView) this.rootView.findViewById(a.d.get_code);
-        this.prompt = (TextView) this.rootView.findViewById(a.d.prompt);
-        this.separateLine = this.rootView.findViewById(a.d.separate_line);
-        setHintFontSize(this.phone, context.getString(a.f.sapi_sdk_sms_hint_input_phone));
-        setHintFontSize(this.checkCode, context.getString(a.f.sapi_sdk_sms_hint_input_check_code));
+        this.codeContainer = this.rootView.findViewById(a.e.code_container);
+        this.phone = (EditText) this.rootView.findViewById(a.e.phone);
+        this.loadingContainer = this.rootView.findViewById(a.e.loading_container);
+        this.checkCode = (EditText) this.rootView.findViewById(a.e.check_code);
+        this.getCode = (TextView) this.rootView.findViewById(a.e.get_code);
+        this.prompt = (TextView) this.rootView.findViewById(a.e.prompt);
+        this.separateLine = this.rootView.findViewById(a.e.separate_line);
+        setHintFontSize(this.phone, context.getString(a.g.sapi_sdk_sms_hint_input_phone));
+        setHintFontSize(this.checkCode, context.getString(a.g.sapi_sdk_sms_hint_input_check_code));
         this.phone.addTextChangedListener(new PhoneEditTextChangedListener());
         this.checkCode.addTextChangedListener(new CheckCodeTextChangedListener());
         this.getCode.setEnabled(false);
@@ -131,18 +130,18 @@ public class SmsLoginView extends FrameLayout {
     }
 
     public static void notifyStartLogin() {
-        onEvent("show", null);
+        onEvent(StatEvent.LOGIN_SHOW, null);
     }
 
     private void switchNightModeView() {
         if (SapiAccountManager.getInstance().getSapiConfiguration().isNightMode) {
-            this.rootView.setBackgroundColor(getResources().getColor(a.C0071a.sapi_sdk_sms_bg_night_mode));
-            this.phone.setTextColor(getResources().getColor(a.C0071a.sapi_sdk_sms_edit_phone_text_color_night_mode));
-            this.phone.setHintTextColor(getResources().getColor(a.C0071a.sapi_sdk_sms_edit_hint_color_night_mode));
-            this.checkCode.setTextColor(getResources().getColor(a.C0071a.sapi_sdk_sms_edit_check_code_text_color_night_mode));
-            this.checkCode.setHintTextColor(getResources().getColor(a.C0071a.sapi_sdk_sms_edit_check_code_hint_text_color_night_mode));
-            this.prompt.setTextColor(getResources().getColor(a.C0071a.sapi_sdk_sms_prompt_phone_number_error_color_night_mode));
-            this.separateLine.setBackgroundColor(getResources().getColor(a.C0071a.sapi_sdk_separate_line_color_night_mode));
+            this.rootView.setBackgroundColor(getResources().getColor(a.b.sapi_sdk_sms_bg_night_mode));
+            this.phone.setTextColor(getResources().getColor(a.b.sapi_sdk_sms_edit_phone_text_color_night_mode));
+            this.phone.setHintTextColor(getResources().getColor(a.b.sapi_sdk_sms_edit_hint_color_night_mode));
+            this.checkCode.setTextColor(getResources().getColor(a.b.sapi_sdk_sms_edit_check_code_text_color_night_mode));
+            this.checkCode.setHintTextColor(getResources().getColor(a.b.sapi_sdk_sms_edit_check_code_hint_text_color_night_mode));
+            this.prompt.setTextColor(getResources().getColor(a.b.sapi_sdk_sms_prompt_phone_number_error_color_night_mode));
+            this.separateLine.setBackgroundColor(getResources().getColor(a.b.sapi_sdk_separate_line_color_night_mode));
         }
         updateGetCodeColor(false);
     }
@@ -151,21 +150,21 @@ public class SmsLoginView extends FrameLayout {
     public void updateGetCodeColor(boolean z) {
         int color;
         int i;
-        getResources().getColor(a.C0071a.sapi_sdk_sms_get_code_text_color);
+        getResources().getColor(a.b.sapi_sdk_sms_get_code_text_color);
         if (SapiAccountManager.getInstance().getSapiConfiguration().isNightMode) {
-            int color2 = getResources().getColor(a.C0071a.sapi_sdk_sms_bg_night_mode);
+            int color2 = getResources().getColor(a.b.sapi_sdk_sms_bg_night_mode);
             if (z) {
-                color = getResources().getColor(a.C0071a.sapi_sdk_sms_get_code_text_color_night_mode);
+                color = getResources().getColor(a.b.sapi_sdk_sms_get_code_text_color_night_mode);
                 i = color2;
             } else {
-                color = getResources().getColor(a.C0071a.sapi_sdk_sms_get_code_disable_color_night_mode);
+                color = getResources().getColor(a.b.sapi_sdk_sms_get_code_disable_color_night_mode);
                 i = color2;
             }
         } else if (z) {
-            color = getResources().getColor(a.C0071a.sapi_sdk_sms_get_code_text_color);
+            color = getResources().getColor(a.b.sapi_sdk_sms_get_code_text_color);
             i = -1;
         } else {
-            color = getResources().getColor(a.C0071a.sapi_sdk_sms_get_code_disable_color);
+            color = getResources().getColor(a.b.sapi_sdk_sms_get_code_disable_color);
             i = -1;
         }
         GradientDrawable gradientDrawable = (GradientDrawable) this.getCode.getBackground();
@@ -180,7 +179,6 @@ public class SmsLoginView extends FrameLayout {
         }
         PassportSDK.getInstance().release();
         unregisterReceiver();
-        EnhancedService.getInstance(SapiAccountManager.getInstance().getSapiConfiguration(), SapiAccountManager.VERSION_NAME).cancelRequest();
     }
 
     public void clean() {
@@ -189,7 +187,7 @@ public class SmsLoginView extends FrameLayout {
         if (this.timer != null) {
             this.timer.cancel();
         }
-        this.getCode.setText(a.f.sapi_sdk_sms_get_check_code);
+        this.getCode.setText(a.g.sapi_sdk_sms_get_check_code);
         updateGetCodeColor(false);
     }
 
@@ -230,7 +228,7 @@ public class SmsLoginView extends FrameLayout {
             }
             if (length == 10) {
                 if (TextUtils.isEmpty(SmsLoginView.this.loginPhoneNumber)) {
-                    SmsLoginView.this.getCode.setText(a.f.sapi_sdk_sms_get_check_code);
+                    SmsLoginView.this.getCode.setText(a.g.sapi_sdk_sms_get_check_code);
                     SmsLoginView.this.updateGetCodeColor(false);
                     SmsLoginView.this.prompt.setVisibility(8);
                     SmsLoginView.this.prompt.setText("");
@@ -241,13 +239,13 @@ public class SmsLoginView extends FrameLayout {
                     if (SmsLoginView.this.timer != null) {
                         SmsLoginView.this.timer.cancel();
                     }
-                    SmsLoginView.this.getCode.setText(a.f.sapi_sdk_sms_get_check_code);
+                    SmsLoginView.this.getCode.setText(a.g.sapi_sdk_sms_get_check_code);
                     SmsLoginView.this.updateGetCodeColor(true);
                     if (SapiUtils.validateMobile(charSequence.toString())) {
                         SmsLoginView.this.getCode.setEnabled(true);
                     } else {
                         SmsLoginView.this.prompt.setVisibility(0);
-                        SmsLoginView.this.prompt.setText(a.f.sapi_sdk_sms_prompt_phone_number_error);
+                        SmsLoginView.this.prompt.setText(a.g.sapi_sdk_sms_prompt_phone_number_error);
                     }
                 }
                 SmsLoginView.onEvent(StatEvent.FINISH_INPUT_HPONE, null);
@@ -365,7 +363,7 @@ public class SmsLoginView extends FrameLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (SmsLoginView.this.phone.getText().toString().length() == 11) {
-                SmsLoginView.this.isFirstGetCheckCode = SmsLoginView.this.getCode.getText().toString().equals(SmsLoginView.this.context.getString(a.f.sapi_sdk_sms_get_check_code));
+                SmsLoginView.this.isFirstGetCheckCode = SmsLoginView.this.getCode.getText().toString().equals(SmsLoginView.this.context.getString(a.g.sapi_sdk_sms_get_check_code));
                 SmsLoginView.this.prompt.setVisibility(8);
                 SmsLoginView.this.prompt.setText("");
                 SmsLoginView.this.checkCode.requestFocus();
@@ -373,7 +371,7 @@ public class SmsLoginView extends FrameLayout {
                 SmsLoginView.this.timer = new CountDownTimer(60000L, 1000L) { // from class: com.baidu.sapi2.views.SmsLoginView.GetCheckCodeListener.1
                     @Override // android.os.CountDownTimer
                     public void onTick(long j) {
-                        SmsLoginView.this.getCode.setText((j / 1000) + SmsLoginView.this.context.getString(a.f.sapi_sdk_sms_second));
+                        SmsLoginView.this.getCode.setText((j / 1000) + SmsLoginView.this.context.getString(a.g.sapi_sdk_sms_second));
                         SmsLoginView.this.getCode.setEnabled(false);
                         SmsLoginView.this.updateGetCodeColor(false);
                     }
@@ -382,11 +380,11 @@ public class SmsLoginView extends FrameLayout {
                     public void onFinish() {
                         if (SmsLoginView.this.phone.getText().toString().length() == 11) {
                             SmsLoginView.this.getCode.setEnabled(true);
-                            SmsLoginView.this.getCode.setText(a.f.sapi_sdk_sms_re_get_check_code);
+                            SmsLoginView.this.getCode.setText(a.g.sapi_sdk_sms_re_get_check_code);
                             SmsLoginView.this.updateGetCodeColor(true);
                             return;
                         }
-                        SmsLoginView.this.getCode.setText(a.f.sapi_sdk_sms_get_check_code);
+                        SmsLoginView.this.getCode.setText(a.g.sapi_sdk_sms_get_check_code);
                         SmsLoginView.this.updateGetCodeColor(false);
                     }
                 };
@@ -432,10 +430,10 @@ public class SmsLoginView extends FrameLayout {
                     public void onFailure(GetDynamicPwdResult getDynamicPwdResult) {
                         if (SmsLoginView.this.isFirstGetCheckCode) {
                             SmsLoginView.onEvent(StatEvent.FIRST_GET_CHECK_CODE_FAILURE, getDynamicPwdResult.getResultCode() + "");
-                            SmsLoginView.this.getCode.setText(a.f.sapi_sdk_sms_get_check_code);
+                            SmsLoginView.this.getCode.setText(a.g.sapi_sdk_sms_get_check_code);
                         } else {
                             SmsLoginView.onEvent(StatEvent.RE_GET_CHECK_CODE_FAILURE, getDynamicPwdResult.getResultCode() + "");
-                            SmsLoginView.this.getCode.setText(a.f.sapi_sdk_sms_re_get_check_code);
+                            SmsLoginView.this.getCode.setText(a.g.sapi_sdk_sms_re_get_check_code);
                         }
                         if (SmsLoginView.this.timer != null) {
                             SmsLoginView.this.timer.cancel();
@@ -518,7 +516,7 @@ public class SmsLoginView extends FrameLayout {
     /* loaded from: classes2.dex */
     public class EmptyDialog extends Dialog {
         public EmptyDialog(Context context) {
-            super(context, a.g.sapi_sdk_empty_dialog);
+            super(context, a.h.sapi_sdk_empty_dialog);
             setCancelable(false);
             setCanceledOnTouchOutside(false);
             setContentView(new TextView(context));

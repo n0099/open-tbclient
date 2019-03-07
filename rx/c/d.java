@@ -5,7 +5,7 @@ import rx.k;
 /* loaded from: classes2.dex */
 public abstract class d {
     @Deprecated
-    public <T> d.a<T> a(d.a<T> aVar) {
+    public <T> d.a<T> b(d.a<T> aVar) {
         return aVar;
     }
 
@@ -15,17 +15,17 @@ public abstract class d {
     }
 
     @Deprecated
-    public <T> k f(k kVar) {
+    public <T> k e(k kVar) {
         return kVar;
     }
 
     @Deprecated
-    public <T> Throwable U(Throwable th) {
+    public <T> Throwable T(Throwable th) {
         return th;
     }
 
     @Deprecated
-    public <T, R> d.b<? extends R, ? super T> d(d.b<? extends R, ? super T> bVar) {
+    public <T, R> d.b<? extends R, ? super T> e(d.b<? extends R, ? super T> bVar) {
         return bVar;
     }
 }

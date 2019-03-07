@@ -4,13 +4,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
-import com.baidu.ar.parser.ARResourceKey;
-import com.baidu.ar.util.IoUtils;
-import com.baidu.searchbox.ng.ai.apps.BuildConfig;
-import com.baidu.searchbox.ng.ai.apps.ioc.AiAppsRuntime;
-import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
+import com.baidu.ubc.UBC;
 import com.baidu.ubc.m;
-import com.baidu.ubc.o;
 import com.tencent.connect.common.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -28,7 +23,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a implements m {
-    private static final boolean DEBUG = BuildConfig.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -38,18 +33,18 @@ public class a implements m {
 
     @Override // com.baidu.ubc.m
     public boolean a(String str, JSONObject jSONObject, boolean z) {
-        String processUrl = AiAppsRuntime.getAiAppAccountRuntime().processUrl(str + "/tcbox?action=ubc");
-        HttpPost httpPost = new HttpPost(processUrl);
+        String rx2 = com.baidu.tieba.aiapps.apps.c.d.rx(str + "/tcbox?action=ubc");
+        HttpPost httpPost = new HttpPost(rx2);
         if (DEBUG) {
-            Log.d("UploadManager", processUrl);
+            Log.d("UploadManager", rx2);
         }
-        httpPost.setEntity(P(jSONObject));
+        httpPost.setEntity(aY(jSONObject));
         httpPost.setHeader("Content-type", URLEncodedUtils.CONTENT_TYPE);
         b bVar = new b();
-        String Q = Q(jSONObject);
+        String aZ = aZ(jSONObject);
         try {
             try {
-                return b(bVar.executeSafely(httpPost), Q);
+                return b(bVar.executeSafely(httpPost), aZ);
             } catch (Exception e) {
                 if (DEBUG) {
                     Log.d("UploadManager", "requestToServer e:" + e.getMessage());
@@ -58,14 +53,14 @@ public class a implements m {
                     JSONObject jSONObject2 = new JSONObject();
                     try {
                         jSONObject2.put("type", "sendFail");
-                        if (!TextUtils.isEmpty(Q)) {
-                            jSONObject2.put(ARResourceKey.HTTP_AR_MD5, Q);
+                        if (!TextUtils.isEmpty(aZ)) {
+                            jSONObject2.put("md5", aZ);
                         }
-                        jSONObject2.put(com.baidu.fsg.base.statistics.b.k, Log.getStackTraceString(e));
+                        jSONObject2.put("exception", Log.getStackTraceString(e));
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
-                    o.onEvent(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, jSONObject2.toString());
+                    UBC.onEvent(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, jSONObject2.toString());
                 }
                 bVar.close();
                 return false;
@@ -75,15 +70,15 @@ public class a implements m {
         }
     }
 
-    private AbstractHttpEntity P(JSONObject jSONObject) {
+    private AbstractHttpEntity aY(JSONObject jSONObject) {
         UrlEncodedFormEntity urlEncodedFormEntity;
         ArrayList arrayList = new ArrayList();
-        byte[] H = c.H(jSONObject.toString().getBytes());
-        H[0] = 117;
-        H[1] = 123;
-        arrayList.add(new BasicNameValuePair("data", Base64.encodeToString(H, 0)));
+        byte[] O = c.O(jSONObject.toString().getBytes());
+        O[0] = 117;
+        O[1] = 123;
+        arrayList.add(new BasicNameValuePair("data", Base64.encodeToString(O, 0)));
         try {
-            urlEncodedFormEntity = new UrlEncodedFormEntity(arrayList, IoUtils.UTF_8);
+            urlEncodedFormEntity = new UrlEncodedFormEntity(arrayList, "utf-8");
             try {
                 urlEncodedFormEntity.setContentType(URLEncodedUtils.CONTENT_TYPE);
             } catch (UnsupportedEncodingException e) {
@@ -150,7 +145,7 @@ public class a implements m {
                                         }
                                     }
                                 }
-                                int i = new JSONObject(new String(r2.toByteArray())).getInt(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR);
+                                int i = new JSONObject(new String(r2.toByteArray())).getInt("error");
                                 if (i != 0) {
                                     if (DEBUG) {
                                         Log.d("UploadManager", "server error");
@@ -161,12 +156,12 @@ public class a implements m {
                                             jSONObject.put("type", "sendFail");
                                             jSONObject.put("error_no", i);
                                             if (!TextUtils.isEmpty(str)) {
-                                                jSONObject.put(ARResourceKey.HTTP_AR_MD5, str);
+                                                jSONObject.put("md5", str);
                                             }
                                         } catch (JSONException e3) {
                                             e3.printStackTrace();
                                         }
-                                        o.onEvent(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, jSONObject.toString());
+                                        UBC.onEvent(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, jSONObject.toString());
                                     }
                                 }
                                 z = true;
@@ -196,13 +191,13 @@ public class a implements m {
                                     try {
                                         jSONObject2.put("type", "sendFail");
                                         if (!TextUtils.isEmpty(str)) {
-                                            jSONObject2.put(ARResourceKey.HTTP_AR_MD5, str);
+                                            jSONObject2.put("md5", str);
                                         }
-                                        jSONObject2.put(com.baidu.fsg.base.statistics.b.k, Log.getStackTraceString(e));
+                                        jSONObject2.put("exception", Log.getStackTraceString(e));
                                     } catch (JSONException e7) {
                                         e7.printStackTrace();
                                     }
-                                    o.onEvent(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, jSONObject2.toString());
+                                    UBC.onEvent(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, jSONObject2.toString());
                                 }
                                 try {
                                     inputStream.close();
@@ -255,16 +250,16 @@ public class a implements m {
         return z;
     }
 
-    private String Q(JSONObject jSONObject) {
+    private String aZ(JSONObject jSONObject) {
         if (jSONObject == null || !jSONObject.has("metadata")) {
             return "";
         }
         try {
             JSONObject jSONObject2 = jSONObject.getJSONObject("metadata");
-            if (jSONObject2 == null || !jSONObject2.has(ARResourceKey.HTTP_AR_MD5)) {
+            if (jSONObject2 == null || !jSONObject2.has("md5")) {
                 return "";
             }
-            return jSONObject2.getString(ARResourceKey.HTTP_AR_MD5);
+            return jSONObject2.getString("md5");
         } catch (JSONException e) {
             e.printStackTrace();
             return "";

@@ -3,32 +3,32 @@ package com.baidu.location.d;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.location.Jni;
-import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class f {
     private static final String d = String.format(Locale.US, "DELETE FROM LOG WHERE timestamp NOT IN (SELECT timestamp FROM LOG ORDER BY timestamp DESC LIMIT %d);", 3000);
     private static final String e = String.format(Locale.US, "SELECT * FROM LOG ORDER BY timestamp DESC LIMIT %d;", 3);
-    private String a = null;
-    private final a afv = new a(this);
     private final SQLiteDatabase b;
+    private String a = null;
+    private final a c = new a(this);
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes3.dex */
     private class a extends com.baidu.location.g.e {
-        private f afw;
         private int b;
         private long c;
         private String d = null;
         private boolean e = false;
         private boolean f = false;
+        private f q;
 
         a(f fVar) {
-            this.afw = fVar;
+            this.q = fVar;
             this.k = new HashMap();
             this.b = 0;
             this.c = -1L;
@@ -39,7 +39,7 @@ public final class f {
             if (this.e) {
                 return;
             }
-            this.d = this.afw.b();
+            this.d = this.q.b();
             if (this.c != -1 && this.c + 86400000 <= System.currentTimeMillis()) {
                 this.b = 0;
                 this.c = -1L;
@@ -65,7 +65,7 @@ public final class f {
             if (z && this.j != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(this.j);
-                    if (jSONObject != null && jSONObject.has(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR) && jSONObject.getInt(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR) == 161) {
+                    if (jSONObject != null && jSONObject.has("error") && jSONObject.getInt("error") == 161) {
                         this.f = true;
                     }
                 } catch (Exception e) {
@@ -75,7 +75,7 @@ public final class f {
                 this.b++;
                 this.c = System.currentTimeMillis();
             }
-            this.afw.a(this.f);
+            this.q.a(this.f);
             this.e = false;
         }
     }
@@ -123,7 +123,7 @@ public final class f {
                         while (!cursor.isAfterLast()) {
                             jSONArray.put(cursor.getString(1));
                             if (stringBuffer.length() != 0) {
-                                stringBuffer.append(",");
+                                stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                             }
                             stringBuffer.append(cursor.getLong(0));
                             cursor.moveToNext();
@@ -171,7 +171,7 @@ public final class f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a() {
-        this.afv.b();
+        this.c.b();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

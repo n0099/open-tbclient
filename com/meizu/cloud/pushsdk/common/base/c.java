@@ -2,13 +2,13 @@ package com.meizu.cloud.pushsdk.common.base;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.ar.util.SystemInfoUtil;
 import com.meizu.cloud.pushsdk.common.util.Logger;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public class c implements Logger.Callback {
     private String a;
@@ -74,8 +74,8 @@ public class c implements Logger.Callback {
                 sb.append(str3);
                 sb.append(": ");
                 sb.append(str2);
-                this.b.append((CharSequence) this.c.a(sb.toString().getBytes(Charset.forName("UTF-8"))));
-                this.b.append((CharSequence) SystemInfoUtil.LINE_END);
+                this.b.append((CharSequence) this.c.a(sb.toString().getBytes(Charset.forName(HTTP.UTF_8))));
+                this.b.append((CharSequence) "\r\n");
                 this.b.flush();
             }
         } catch (Exception e) {

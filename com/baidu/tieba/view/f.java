@@ -3,19 +3,19 @@ package com.baidu.tieba.view;
 import android.content.Context;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.view.NavigationBar;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface f {
-    void C(int i, boolean z);
+    void I(int i, boolean z);
 
     void a(Context context, NavigationBar navigationBar);
 
-    void brf();
+    void bRz();
 
     void c(float f, boolean z);
-
-    void e(UserData userData);
 
     void onChangeSkinType(int i);
 
     void setOnViewResponseListener(g gVar);
+
+    void setUserData(UserData userData);
 }

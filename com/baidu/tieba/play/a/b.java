@@ -2,8 +2,6 @@ package com.baidu.tieba.play.a;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.ar.util.IoUtils;
-import com.baidu.mapapi.UIMsg;
 import com.baidu.tbadk.core.util.v;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -13,57 +11,58 @@ import java.util.List;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class b {
-    private static b gIT = null;
-    private com.baidu.tieba.play.a.a gIS;
-    private InterfaceC0295b gIU = null;
-    private int gIV = 0;
+    private static b hZa = null;
+    private com.baidu.tieba.play.a.a hYZ;
+    private InterfaceC0292b hZb = null;
+    private int hZc = 0;
 
     /* renamed from: com.baidu.tieba.play.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0295b {
-        void cv(String str, String str2);
+    public interface InterfaceC0292b {
+        void dF(String str, String str2);
     }
 
     private b() {
     }
 
-    public static b btA() {
-        if (gIT == null) {
+    public static b bTV() {
+        if (hZa == null) {
             synchronized (b.class) {
-                if (gIT == null) {
-                    gIT = new b();
+                if (hZa == null) {
+                    hZa = new b();
                 }
             }
         }
-        return gIT;
+        return hZa;
     }
 
-    public void a(InterfaceC0295b interfaceC0295b) {
-        this.gIU = interfaceC0295b;
+    public void a(InterfaceC0292b interfaceC0292b) {
+        this.hZb = interfaceC0292b;
     }
 
-    public boolean ur(String str) {
+    public boolean AW(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (us(str) && this.gIS.btz().size() > this.gIV) {
-            if (this.gIU != null) {
-                InterfaceC0295b interfaceC0295b = this.gIU;
-                List<String> btz = this.gIS.btz();
-                int i = this.gIV;
-                this.gIV = i + 1;
-                interfaceC0295b.cv(btz.get(i), str);
+        if (AX(str) && this.hYZ.bTU().size() > this.hZc) {
+            if (this.hZb != null) {
+                InterfaceC0292b interfaceC0292b = this.hZb;
+                List<String> bTU = this.hYZ.bTU();
+                int i = this.hZc;
+                this.hZc = i + 1;
+                interfaceC0292b.dF(bTU.get(i), str);
             }
             return true;
-        } else if (this.gIS != null && this.gIS.btz() != null && this.gIS.btz().size() <= this.gIV) {
-            this.gIV = 0;
-            this.gIS = null;
+        } else if (this.hYZ != null && this.hYZ.bTU() != null && this.hYZ.bTU().size() <= this.hZc) {
+            this.hZc = 0;
+            this.hYZ = null;
             return false;
         } else {
-            this.gIV = 0;
-            this.gIS = null;
+            this.hZc = 0;
+            this.hYZ = null;
             a aVar = new a();
             aVar.setHost(str);
             aVar.execute(new Void[0]);
@@ -71,19 +70,19 @@ public class b {
         }
     }
 
-    private boolean us(String str) {
-        return (this.gIS == null || TextUtils.isEmpty(str) || !str.equals(this.gIS.getHost()) || v.I(this.gIS.btz()) || this.gIS.df(System.currentTimeMillis()) || this.gIS.btz().size() <= this.gIV) ? false : true;
+    private boolean AX(String str) {
+        return (this.hYZ == null || TextUtils.isEmpty(str) || !str.equals(this.hYZ.getHost()) || v.T(this.hYZ.bTU()) || this.hYZ.dK(System.currentTimeMillis()) || this.hYZ.bTU().size() <= this.hZc) ? false : true;
     }
 
     /* loaded from: classes.dex */
     private class a extends BdAsyncTask<Void, com.baidu.tieba.play.a.a, Void> {
-        private String mHost = null;
+        private String HR = null;
 
         public a() {
         }
 
         public void setHost(String str) {
-            this.mHost = str;
+            this.HR = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -104,14 +103,14 @@ public class b {
             HttpsURLConnection httpsURLConnection2 = null;
             StringBuffer stringBuffer = new StringBuffer();
             try {
-                HttpsURLConnection httpsURLConnection3 = (HttpsURLConnection) new URL("https://180.76.76.112/v2/0011/?dn=" + this.mHost).openConnection();
+                HttpsURLConnection httpsURLConnection3 = (HttpsURLConnection) new URL("https://180.76.76.112/v2/0011/?dn=" + this.HR).openConnection();
                 try {
                     httpsURLConnection3.setDoOutput(true);
                     httpsURLConnection3.setDoInput(true);
                     httpsURLConnection3.setUseCaches(false);
-                    httpsURLConnection3.setConnectTimeout(UIMsg.m_AppUI.MSG_APP_GPS);
+                    httpsURLConnection3.setConnectTimeout(5000);
                     httpsURLConnection3.setReadTimeout(10000);
-                    httpsURLConnection3.setRequestProperty("Host", "httpsdns.baidu.com");
+                    httpsURLConnection3.setRequestProperty(HTTP.TARGET_HOST, "httpsdns.baidu.com");
                     httpsURLConnection3.setHostnameVerifier(new HostnameVerifier() { // from class: com.baidu.tieba.play.a.b.a.1
                         @Override // javax.net.ssl.HostnameVerifier
                         public boolean verify(String str, SSLSession sSLSession) {
@@ -122,7 +121,7 @@ public class b {
                     httpsURLConnection3.connect();
                     inputStream = httpsURLConnection3.getInputStream();
                     try {
-                        inputStreamReader = new InputStreamReader(inputStream, IoUtils.UTF_8);
+                        inputStreamReader = new InputStreamReader(inputStream, "utf-8");
                         try {
                             bufferedReader = new BufferedReader(inputStreamReader);
                             while (true) {
@@ -190,7 +189,7 @@ public class b {
                             }
                             com.baidu.tieba.play.a.a aVar = new com.baidu.tieba.play.a.a();
                             aVar.setStartTime(System.currentTimeMillis());
-                            publishProgress(aVar.uq(stringBuffer.toString()));
+                            publishProgress(aVar.AV(stringBuffer.toString()));
                             if (inputStreamReader != null) {
                                 try {
                                     inputStreamReader.close();
@@ -260,15 +259,15 @@ public class b {
         /* renamed from: a */
         public void onProgressUpdate(com.baidu.tieba.play.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
-            if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.mHost)) {
-                b.this.gIS = aVarArr[0];
-                if (!v.I(aVarArr[0].btz()) && b.this.gIU != null) {
-                    b.this.gIU.cv(aVarArr[0].btz().get(0), aVarArr[0].getHost());
+            if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.HR)) {
+                b.this.hYZ = aVarArr[0];
+                if (!v.T(aVarArr[0].bTU()) && b.this.hZb != null) {
+                    b.this.hZb.dF(aVarArr[0].bTU().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.gIU != null) {
-                b.this.gIU.cv(null, null);
+            if (b.this.hZb != null) {
+                b.this.hZb.dF(null, null);
             }
         }
 

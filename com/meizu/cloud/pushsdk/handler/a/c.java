@@ -8,8 +8,6 @@ import android.net.Uri;
 import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppDateTimeUtil;
-import com.baidu.searchbox.ng.ai.apps.util.AiAppsFileUtils;
 import com.meizu.cloud.pushsdk.NotificationService;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
@@ -110,10 +108,10 @@ public class c extends a<MessageV3> {
             return 0;
         }
         if (System.currentTimeMillis() > Long.valueOf(messageV3.getmTimeDisplaySetting().getEndShowTime()).longValue()) {
-            com.meizu.cloud.pushsdk.util.c.a(c(), "schedule notification expire", 2200, messageV3.getTaskId(), messageV3.getDeviceId());
+            com.meizu.cloud.pushsdk.util.c.a(c(), "schedule notification expire", (int) PushConstants.EXPIRE_NOTIFICATION, messageV3.getTaskId(), messageV3.getDeviceId());
             return 1;
         } else if (System.currentTimeMillis() > Long.valueOf(messageV3.getmTimeDisplaySetting().getStartShowTime()).longValue()) {
-            com.meizu.cloud.pushsdk.util.c.a(c(), "schedule notification on time", 2201, messageV3.getTaskId(), messageV3.getDeviceId());
+            com.meizu.cloud.pushsdk.util.c.a(c(), "schedule notification on time", (int) PushConstants.ONTIME_NOTIFICATION, messageV3.getTaskId(), messageV3.getDeviceId());
             return 2;
         } else {
             com.meizu.cloud.pushsdk.util.c.a(c(), "schedule notification delay", (int) PushConstants.DELAY_NOTIFICATION, messageV3.getTaskId(), messageV3.getDeviceId());
@@ -136,9 +134,9 @@ public class c extends a<MessageV3> {
         intent.setAction(PushConstants.MZ_PUSH_ON_MESSAGE_ACTION);
         intent.putExtra(PushConstants.EXTRA_APP_PUSH_SCHEDULE_NOTIFICATION_MESSAGE, messageV3);
         intent.putExtra("method", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_SCHEDULE_NOTIFICATION);
-        PendingIntent service = PendingIntent.getService(c(), 0, intent, AiAppsFileUtils.GB);
+        PendingIntent service = PendingIntent.getService(c(), 0, intent, 1073741824);
         String startShowTime = messageV3.getmTimeDisplaySetting().getStartShowTime();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(AiAppDateTimeUtil.TIME_FORMAT);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String str = null;
         if (!TextUtils.isEmpty(startShowTime)) {
             str = simpleDateFormat.format(new Date(Long.valueOf(startShowTime).longValue()));

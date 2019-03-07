@@ -2,6 +2,7 @@ package cn.jiguang.g;
 
 import android.content.Context;
 import android.support.v4.app.NotificationManagerCompat;
+import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import cn.jiguang.d.d.aa;
@@ -25,10 +26,10 @@ public final class h {
         a.put(-993, "Invalid socket. Please Retry later!");
         a.put(11, "Failed to register!");
         a.put(1005, "Your appKey and android package name are not matched. Please double check them according to Application you created on Portal.");
-        a.put(1006, "You android package name is not exist, Please register your pacakge name in Portal.");
-        a.put(1007, "Invalid Imei, Register again.");
-        a.put(1008, "Invalid appKey, Please get your Appkey from JIGUANG web console!");
-        a.put(1009, "Your appKey is related to a non-Android App.Please use your Android App's appKey, or add an Android app for this appKey.");
+        a.put(PointerIconCompat.TYPE_CELL, "You android package name is not exist, Please register your pacakge name in Portal.");
+        a.put(PointerIconCompat.TYPE_CROSSHAIR, "Invalid Imei, Register again.");
+        a.put(PointerIconCompat.TYPE_TEXT, "Invalid appKey, Please get your Appkey from JIGUANG web console!");
+        a.put(PointerIconCompat.TYPE_VERTICAL_TEXT, "Your appKey is related to a non-Android App.Please use your Android App's appKey, or add an Android app for this appKey.");
         a.put(10000, "Receiver data parse error");
         a.put(102, "102 - Incorrect password");
         a.put(108, "108 - Incorrect uid");

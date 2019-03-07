@@ -2,37 +2,37 @@ package com.baidu.tieba.frs.f;
 
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.bb;
+import com.baidu.tbadk.core.data.bg;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tieba.frs.k;
-import com.baidu.tieba.tbadkCore.l;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static void w(k kVar) {
-        HashMap<Integer, bb> aEY;
-        if (kVar != null && kVar.aDb() != null && (aEY = kVar.aDb().aEY()) != null) {
+        HashMap<Integer, bg> bfA;
+        if (kVar != null && kVar.bdK() != null && (bfA = kVar.bdK().bfA()) != null) {
             ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
-            for (Map.Entry<Integer, bb> entry : aEY.entrySet()) {
-                bb value = entry.getValue();
+            for (Map.Entry<Integer, bg> entry : bfA.entrySet()) {
+                bg value = entry.getValue();
                 if (value != null && (value instanceof AdvertAppInfo)) {
                     arrayList.add((AdvertAppInfo) value);
                 }
             }
-            com.baidu.tieba.recapp.download.d.bwa().s(arrayList);
+            com.baidu.tieba.recapp.download.d.bWN().u(arrayList);
         }
     }
 
-    public static void a(ResponsedMessage<?> responsedMessage, final k kVar, l lVar) {
+    public static void a(ResponsedMessage<?> responsedMessage, final k kVar, FrsViewData frsViewData) {
         List<DownloadData> data;
         boolean z;
-        if (lVar != null && kVar != null && (responsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) responsedMessage).getData()) != null) {
+        if (frsViewData != null && kVar != null && (responsedMessage instanceof DownloadMessage) && (data = ((DownloadMessage) responsedMessage).getData()) != null) {
             Iterator<DownloadData> it = data.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -44,10 +44,10 @@ public class c {
                 }
             }
             if (z) {
-                com.baidu.adp.lib.g.e.jG().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.f.c.1
+                com.baidu.adp.lib.g.e.jH().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.f.c.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        k.this.aCR();
+                        k.this.bdx();
                     }
                 }, TimeUnit.SECONDS.toMillis(2L));
             }

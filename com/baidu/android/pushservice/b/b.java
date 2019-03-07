@@ -9,8 +9,7 @@ import com.baidu.android.pushservice.j.j;
 import com.baidu.android.pushservice.j.m;
 import com.baidu.android.pushservice.j.n;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
-import com.baidu.ar.util.IoUtils;
-import com.baidu.webkit.internal.ABTestConstants;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -93,17 +92,17 @@ public final class b {
                     f fVar = list.get(i);
                     if (fVar != null) {
                         stringBuffer.append(fVar.c);
-                        stringBuffer.append(",");
+                        stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                         stringBuffer.append(fVar.a);
-                        stringBuffer.append(",");
+                        stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                         stringBuffer.append(fVar.f);
-                        stringBuffer.append(",");
+                        stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                         if (fVar.g) {
                             stringBuffer.append("true");
                         } else {
-                            stringBuffer.append(ABTestConstants.PHOENIX_NET_AD_FIRSTSCREEN_OPT_DISABLE);
+                            stringBuffer.append("false");
                         }
-                        stringBuffer.append(",");
+                        stringBuffer.append(Constants.ACCEPT_TIME_SEPARATOR_SP);
                         stringBuffer.append(fVar.e);
                         if (i != list.size() - 1) {
                             stringBuffer.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
@@ -219,7 +218,7 @@ public final class b {
         ArrayList<f> arrayList = new ArrayList<>();
         try {
             for (String str2 : str.trim().split(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {
-                String[] split = str2.trim().split(",");
+                String[] split = str2.trim().split(Constants.ACCEPT_TIME_SEPARATOR_SP);
                 if (split.length >= 3) {
                     f fVar = new f();
                     fVar.c = split[0].trim();
@@ -244,7 +243,7 @@ public final class b {
         String[] split;
         f fVar = new f();
         try {
-            if (!TextUtils.isEmpty(str) && (split = str.trim().split(",")) != null && split.length >= 3 && !TextUtils.isEmpty(split[0])) {
+            if (!TextUtils.isEmpty(str) && (split = str.trim().split(Constants.ACCEPT_TIME_SEPARATOR_SP)) != null && split.length >= 3 && !TextUtils.isEmpty(split[0])) {
                 fVar.c = split[0].trim();
                 fVar.a = split[1].trim();
                 fVar.f = split[2].trim();
@@ -365,7 +364,7 @@ public final class b {
 
     public String b(String str) {
         try {
-            return com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptAES(str, 0), IoUtils.UTF_8);
+            return com.baidu.android.pushservice.k.b.a(BaiduAppSSOJni.encryptAES(str, 0), "utf-8");
         } catch (Exception e) {
             return "";
         } catch (UnsatisfiedLinkError e2) {

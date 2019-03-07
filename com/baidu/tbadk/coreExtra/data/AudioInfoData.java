@@ -1,18 +1,17 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.ng.ai.apps.view.container.touch.AiAppsTouchHelper;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class AudioInfoData extends com.baidu.tbadk.core.data.i implements Serializable {
+public class AudioInfoData extends com.baidu.tbadk.core.data.k implements Serializable {
     private static final long serialVersionUID = -3295150133270063363L;
     private int errorCode;
     private String errorMsg;
     private String errorUserMsg;
     private String voiceId;
 
-    @Override // com.baidu.tbadk.core.data.i
+    @Override // com.baidu.tbadk.core.data.k
     public void parserJson(String str) {
         if (str != null) {
             try {
@@ -23,11 +22,11 @@ public class AudioInfoData extends com.baidu.tbadk.core.data.i implements Serial
         }
     }
 
-    @Override // com.baidu.tbadk.core.data.i
+    @Override // com.baidu.tbadk.core.data.k
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                JSONObject optJSONObject = jSONObject.optJSONObject(AiAppsTouchHelper.TouchEventName.TOUCH_ERROR);
+                JSONObject optJSONObject = jSONObject.optJSONObject("error");
                 if (optJSONObject != null) {
                     this.errorCode = optJSONObject.optInt("errno", -1);
                     this.errorMsg = optJSONObject.optString("errmsg", null);

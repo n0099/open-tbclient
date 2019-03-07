@@ -1,6 +1,5 @@
 package okio;
 
-import com.baidu.searchbox.ng.ai.apps.util.AiAppEncryptUtils;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
@@ -13,15 +12,15 @@ public final class HashingSource extends ForwardingSource {
     private final MessageDigest messageDigest;
 
     public static HashingSource md5(Source source) {
-        return new HashingSource(source, AiAppEncryptUtils.ENCRYPT_MD5);
+        return new HashingSource(source, "MD5");
     }
 
     public static HashingSource sha1(Source source) {
-        return new HashingSource(source, AiAppEncryptUtils.ENCRYPT_SHA1);
+        return new HashingSource(source, "SHA-1");
     }
 
     public static HashingSource sha256(Source source) {
-        return new HashingSource(source, AiAppEncryptUtils.ENCRYPT_SHA256);
+        return new HashingSource(source, "SHA-256");
     }
 
     public static HashingSource hmacSha1(Source source, ByteString byteString) {

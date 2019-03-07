@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.push;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.aj;
+import com.baidu.tbadk.core.data.al;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.im.message.ResponsePullMessage;
 import com.baidu.tieba.im.util.MessageUtils;
@@ -11,7 +11,7 @@ import protobuf.PushMessage.PushMessageResIdl;
 import protobuf.PushMsgInfo;
 /* loaded from: classes.dex */
 public class PushResponseMessage extends ResponsePullMessage {
-    private aj notificationData;
+    private al notificationData;
 
     public PushResponseMessage() {
         super(202009);
@@ -38,7 +38,7 @@ public class PushResponseMessage extends ResponsePullMessage {
         }
     }
 
-    public aj getNotificationData() {
+    public al getNotificationData() {
         return this.notificationData;
     }
 }

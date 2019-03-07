@@ -21,6 +21,7 @@ public class ForumWriteData implements Serializable {
     public String writeCallFrom;
     public int categoryId = -1;
     public int forumLevel = -1;
+    public int defaultZone = -1;
 
     public ForumWriteData(String str, String str2, PostPrefixData postPrefixData, AntiData antiData) {
         this.forumId = str;
@@ -51,5 +52,9 @@ public class ForumWriteData implements Serializable {
 
     public void setPrivateThread(int i) {
         this.privateThread = i;
+    }
+
+    public void setDefaultZone(int i) {
+        this.defaultZone = i;
     }
 }
