@@ -13,19 +13,19 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public final class Thread2GroupShareView extends LinearLayout {
     private LinearLayout bFu;
-    private TbImageView fYI;
-    private TextView fYJ;
+    private TbImageView fYJ;
+    private TextView fYK;
     private EditText fzZ;
-    private ShareFromPBMsgData gud;
+    private ShareFromPBMsgData gue;
     private TextView title;
 
     public EditText getChatMsgView() {
         return this.fzZ;
     }
 
-    public void af(String str, boolean z) {
-        if (this.fYI != null) {
-            this.fYI.startLoad(str, z ? 17 : 18, false);
+    public void ag(String str, boolean z) {
+        if (this.fYJ != null) {
+            this.fYJ.startLoad(str, z ? 17 : 18, false);
         }
     }
 
@@ -45,17 +45,17 @@ public final class Thread2GroupShareView extends LinearLayout {
         this.bFu = (LinearLayout) findViewById(d.g.share_content);
         this.title = (TextView) findViewById(d.g.share_title_view);
         this.fzZ = (EditText) findViewById(d.g.chat_msg);
-        this.fYI = (TbImageView) findViewById(d.g.chat_group_img);
-        this.fYJ = (TextView) findViewById(d.g.chat_group_desc);
+        this.fYJ = (TbImageView) findViewById(d.g.chat_group_img);
+        this.fYK = (TextView) findViewById(d.g.chat_group_desc);
         al.d(this.title, d.C0236d.cp_cont_b, 1);
         al.d(this.fzZ, d.C0236d.cp_cont_b, 2);
-        al.d(this.fYJ, d.C0236d.cp_cont_f, 1);
+        al.d(this.fYK, d.C0236d.cp_cont_f, 1);
         this.fzZ.setHintTextColor(al.getColor(d.C0236d.cp_cont_e));
         this.fzZ.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
-        bkh();
+        bki();
     }
 
-    public void bkh() {
+    public void bki() {
         this.bFu.setFocusable(true);
         this.bFu.setFocusableInTouchMode(true);
         this.bFu.requestFocus();
@@ -76,13 +76,13 @@ public final class Thread2GroupShareView extends LinearLayout {
     }
 
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
-        this.gud = shareFromPBMsgData;
+        this.gue = shareFromPBMsgData;
         GR();
     }
 
     private void GR() {
-        this.title.setText(this.gud.getTitle());
-        this.fYI.setTag(this.gud.getImageUrl());
-        this.fYJ.setText(this.gud.getContent());
+        this.title.setText(this.gue.getTitle());
+        this.fYJ.setTag(this.gue.getImageUrl());
+        this.fYK.setText(this.gue.getContent());
     }
 }

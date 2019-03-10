@@ -17,8 +17,8 @@ public enum GenericScheduledExecutorServiceFactory {
     }
 
     public static ScheduledExecutorService create() {
-        rx.functions.e<? extends ScheduledExecutorService> cEO = rx.c.c.cEO();
-        return cEO == null ? createDefault() : cEO.call();
+        rx.functions.e<? extends ScheduledExecutorService> cEY = rx.c.c.cEY();
+        return cEY == null ? createDefault() : cEY.call();
     }
 
     static ScheduledExecutorService createDefault() {

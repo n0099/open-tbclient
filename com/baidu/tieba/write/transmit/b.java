@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private static int heI = 3;
+    private static int heJ = 3;
     private Context mContext;
     private List<TransmitForumData> mDataList = new ArrayList();
 
@@ -61,31 +61,31 @@ public class b extends BaseAdapter {
     /* loaded from: classes3.dex */
     public static class a {
         public TextView bSX;
-        public BarImageView heK;
-        public View jpO;
+        public BarImageView heL;
+        public View jqh;
         public int mSkinType = 3;
 
         public a(View view) {
             if (view != null) {
                 this.bSX = (TextView) view.findViewById(d.g.transmit_forum_name);
-                this.heK = (BarImageView) view.findViewById(d.g.forum_avatar);
-                this.jpO = view.findViewById(d.g.divider_line);
+                this.heL = (BarImageView) view.findViewById(d.g.forum_avatar);
+                this.jqh = view.findViewById(d.g.divider_line);
             }
         }
 
         public void a(TransmitForumData transmitForumData) {
             if (transmitForumData != null) {
                 this.bSX.setText(transmitForumData.forumName);
-                this.heK.startLoad(transmitForumData.avatar, 10, false);
+                this.heL.startLoad(transmitForumData.avatar, 10, false);
             }
         }
 
         public void aeK() {
-            if (b.heI != this.mSkinType) {
+            if (b.heJ != this.mSkinType) {
                 al.j(this.bSX, d.C0236d.cp_cont_b);
-                al.l(this.jpO, d.C0236d.cp_bg_line_c);
+                al.l(this.jqh, d.C0236d.cp_bg_line_c);
             }
-            this.mSkinType = b.heI;
+            this.mSkinType = b.heJ;
         }
     }
 
@@ -96,9 +96,9 @@ public class b extends BaseAdapter {
     }
 
     public void onChangeSkinType(int i) {
-        if (heI != i) {
+        if (heJ != i) {
             notifyDataSetChanged();
         }
-        heI = i;
+        heJ = i;
     }
 }

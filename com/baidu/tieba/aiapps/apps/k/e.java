@@ -82,8 +82,8 @@ public class e implements o {
 
     @Override // com.baidu.swan.apps.b.b.o
     public boolean vT() {
-        com.baidu.poly.a azM = d.azM();
-        return azM != null && azM.tu();
+        com.baidu.poly.a azN = d.azN();
+        return azN != null && azN.tu();
     }
 
     @Override // com.baidu.swan.apps.b.b.o

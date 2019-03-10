@@ -57,7 +57,7 @@ public class c implements NetModel.b {
         }
     }
 
-    public void bfe() {
+    public void bff() {
         this.fgA = true;
         if (!this.fgf) {
             if (!this.fgx.qz()) {
@@ -76,7 +76,7 @@ public class c implements NetModel.b {
         }
     }
 
-    public void aBc() {
+    public void aBd() {
         this.fgA = false;
         if (!this.fgf) {
             if (!this.fgx.qz()) {

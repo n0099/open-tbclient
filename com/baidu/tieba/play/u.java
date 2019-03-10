@@ -12,7 +12,7 @@ public class u {
     public static final String cLQ = yM + "/files";
     public static final String cLR = cLQ + "/";
 
-    private static long qz(String str) {
+    private static long qA(String str) {
         File file;
         File file2;
         File[] listFiles;
@@ -27,7 +27,7 @@ public class u {
         return j;
     }
 
-    private static String qA(String str) {
+    private static String qB(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }
@@ -38,13 +38,13 @@ public class u {
         return substring;
     }
 
-    public static long AT(String str) {
+    public static long AU(String str) {
         try {
-            String qA = qA(str);
-            if (StringUtils.isNULL(qA)) {
+            String qB = qB(str);
+            if (StringUtils.isNULL(qB)) {
                 return 0L;
             }
-            return qz(qA);
+            return qA(qB);
         } catch (Exception e) {
             e.printStackTrace();
             return 0L;

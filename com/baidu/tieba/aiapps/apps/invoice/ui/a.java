@@ -30,12 +30,12 @@ public class a extends RecyclerView.Adapter<C0230a> {
     }
 
     public void ay(List<InvoiceInfo> list) {
-        int azq;
+        int azr;
         if (list != null && list.size() > 0) {
             this.cTv.clear();
             this.cTv.addAll(list);
-            if (this.cTv.get(0).mIsDefault != 1 && (azq = azq()) >= 0) {
-                a(this.cTv.get(azq), false);
+            if (this.cTv.get(0).mIsDefault != 1 && (azr = azr()) >= 0) {
+                a(this.cTv.get(azr), false);
             }
             notifyDataSetChanged();
         }
@@ -68,10 +68,10 @@ public class a extends RecyclerView.Adapter<C0230a> {
     public void bI(long j) {
         int bJ;
         if (this.cTv != null && (bJ = bJ(j)) >= 0) {
-            int azq = azq();
-            if (azq >= 0) {
-                this.cTv.get(azq).mIsDefault = 0;
-                notifyItemChanged(azq);
+            int azr = azr();
+            if (azr >= 0) {
+                this.cTv.get(azr).mIsDefault = 0;
+                notifyItemChanged(azr);
             }
             this.cTv.get(bJ).mIsDefault = 1;
             notifyItemChanged(bJ);
@@ -104,7 +104,7 @@ public class a extends RecyclerView.Adapter<C0230a> {
         }
     }
 
-    private int azq() {
+    private int azr() {
         if (this.cTv == null) {
             return -1;
         }
@@ -152,9 +152,9 @@ public class a extends RecyclerView.Adapter<C0230a> {
     public C0230a onCreateViewHolder(ViewGroup viewGroup, int i) {
         C0230a c0230a = new C0230a(LayoutInflater.from(this.mContext).inflate(d.h.invoice_list_item_view, viewGroup, false));
         if (i == 0) {
-            c0230a.cUA.azr();
-        } else if (i == 1) {
             c0230a.cUA.azs();
+        } else if (i == 1) {
+            c0230a.cUA.azt();
         }
         return c0230a;
     }

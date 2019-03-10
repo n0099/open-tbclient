@@ -19,9 +19,9 @@ import java.util.Map;
 import tbclient.T;
 /* loaded from: classes4.dex */
 public class QueryMatchEmotionModel extends BdBaseModel {
-    private static LinkedHashMap<String, List<EmotionImageData>> hzz = new LinkedHashMap<>();
+    private static LinkedHashMap<String, List<EmotionImageData>> hzA = new LinkedHashMap<>();
     private final HttpMessageListener cmZ;
-    private a hzy;
+    private a hzz;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -36,13 +36,13 @@ public class QueryMatchEmotionModel extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003369 && (httpResponsedMessage instanceof QueryMatchEmotionResponseMessage) && QueryMatchEmotionModel.this.hzy != null) {
+                if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003369 && (httpResponsedMessage instanceof QueryMatchEmotionResponseMessage) && QueryMatchEmotionModel.this.hzz != null) {
                     QueryMatchEmotionResponseMessage queryMatchEmotionResponseMessage = (QueryMatchEmotionResponseMessage) httpResponsedMessage;
                     if (queryMatchEmotionResponseMessage.getData() == null) {
-                        QueryMatchEmotionModel.this.hzy.onFail(queryMatchEmotionResponseMessage.getError(), queryMatchEmotionResponseMessage.getErrorString());
+                        QueryMatchEmotionModel.this.hzz.onFail(queryMatchEmotionResponseMessage.getError(), queryMatchEmotionResponseMessage.getErrorString());
                     } else if (httpResponsedMessage.getOrginalMessage() != null && (httpResponsedMessage.getOrginalMessage().getExtra() instanceof String)) {
                         String str = (String) httpResponsedMessage.getOrginalMessage().getExtra();
-                        QueryMatchEmotionModel.this.hzy.p(str, queryMatchEmotionResponseMessage.getData());
+                        QueryMatchEmotionModel.this.hzz.p(str, queryMatchEmotionResponseMessage.getData());
                         QueryMatchEmotionModel.this.q(str, queryMatchEmotionResponseMessage.getData());
                     }
                 }
@@ -60,10 +60,10 @@ public class QueryMatchEmotionModel extends BdBaseModel {
     }
 
     public void a(String str, a aVar) {
-        this.hzy = aVar;
-        if (this.hzy != null) {
-            if (!v.T(Ah(str))) {
-                this.hzy.p(str, hzz.get(str));
+        this.hzz = aVar;
+        if (this.hzz != null) {
+            if (!v.T(Ai(str))) {
+                this.hzz.p(str, hzA.get(str));
                 return;
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_PB_QUERY_MATCH_EMOTION);
@@ -76,28 +76,28 @@ public class QueryMatchEmotionModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void q(String str, List<EmotionImageData> list) {
         if (!TextUtils.isEmpty(str) && !v.T(list)) {
-            if (hzz == null) {
-                hzz = new LinkedHashMap<>();
+            if (hzA == null) {
+                hzA = new LinkedHashMap<>();
             }
-            if (!hzz.containsKey(str)) {
-                if (hzz.size() > 10) {
-                    Map.Entry<String, List<EmotionImageData>> next = hzz.entrySet().iterator().next();
+            if (!hzA.containsKey(str)) {
+                if (hzA.size() > 10) {
+                    Map.Entry<String, List<EmotionImageData>> next = hzA.entrySet().iterator().next();
                     if (next != null) {
-                        hzz.remove(next.getKey());
+                        hzA.remove(next.getKey());
                     } else {
-                        hzz.clear();
+                        hzA.clear();
                     }
                 }
-                hzz.put(str, list);
+                hzA.put(str, list);
             }
         }
     }
 
-    private List<EmotionImageData> Ah(String str) {
-        if (hzz == null || !hzz.containsKey(str)) {
+    private List<EmotionImageData> Ai(String str) {
+        if (hzA == null || !hzA.containsKey(str)) {
             return null;
         }
-        return hzz.get(str);
+        return hzA.get(str);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

@@ -16,7 +16,7 @@ public class NavigationBarCoverTip extends LinearLayout {
     private View fdm;
     private Animation fvD;
     private Animation fvE;
-    private a jij;
+    private a jiD;
     private Activity mActivity;
     private Runnable mHideRunnable;
     private int mSkinType;
@@ -58,17 +58,17 @@ public class NavigationBarCoverTip extends LinearLayout {
                 NavigationBarCoverTip.this.hideTip();
             }
         });
-        aXk();
+        aXl();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void aXk() {
+    private void aXl() {
         this.fvD = AnimationUtils.loadAnimation(getContext(), d.a.in_from_top);
         this.fvD.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.view.NavigationBarCoverTip.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
-                if (NavigationBarCoverTip.this.jij != null) {
-                    NavigationBarCoverTip.this.jij.Rc();
+                if (NavigationBarCoverTip.this.jiD != null) {
+                    NavigationBarCoverTip.this.jiD.Rc();
                 }
                 if (NavigationBarCoverTip.this.mActivity != null) {
                     UtilHelper.changeStatusBarIconAndTextColor(true, NavigationBarCoverTip.this.mActivity);
@@ -91,8 +91,8 @@ public class NavigationBarCoverTip extends LinearLayout {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                if (NavigationBarCoverTip.this.jij != null) {
-                    NavigationBarCoverTip.this.jij.onHide();
+                if (NavigationBarCoverTip.this.jiD != null) {
+                    NavigationBarCoverTip.this.jiD.onHide();
                 }
                 NavigationBarCoverTip.this.release();
             }
@@ -170,6 +170,6 @@ public class NavigationBarCoverTip extends LinearLayout {
     }
 
     public void setCoverTipListener(a aVar) {
-        this.jij = aVar;
+        this.jiD = aVar;
     }
 }

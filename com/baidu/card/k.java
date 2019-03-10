@@ -33,7 +33,7 @@ public class k extends ac {
         this.Zo = (RoundCornerFrameLayout) this.mRootView.findViewById(d.g.frame_video);
         this.XI = (InterviewLiveLayout) this.mRootView.findViewById(d.g.frame_interview_no_video);
         this.Zp = ro();
-        this.Zp.bSW().setBackgroundResource(d.C0236d.transparent);
+        this.Zp.bSX().setBackgroundResource(d.C0236d.transparent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

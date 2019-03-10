@@ -1,18 +1,18 @@
 package com.facebook.imagepipeline.memory;
 /* loaded from: classes2.dex */
 public class n implements s {
-    private static n jJf = null;
+    private static n jJy = null;
 
     private n() {
     }
 
-    public static synchronized n cyZ() {
+    public static synchronized n czj() {
         n nVar;
         synchronized (n.class) {
-            if (jJf == null) {
-                jJf = new n();
+            if (jJy == null) {
+                jJy = new n();
             }
-            nVar = jJf;
+            nVar = jJy;
         }
         return nVar;
     }
@@ -22,19 +22,15 @@ public class n implements s {
     }
 
     @Override // com.facebook.imagepipeline.memory.s
-    public void CG(int i) {
-    }
-
-    @Override // com.facebook.imagepipeline.memory.s
-    public void cza() {
-    }
-
-    @Override // com.facebook.imagepipeline.memory.s
-    public void czb() {
-    }
-
-    @Override // com.facebook.imagepipeline.memory.s
     public void CH(int i) {
+    }
+
+    @Override // com.facebook.imagepipeline.memory.s
+    public void czk() {
+    }
+
+    @Override // com.facebook.imagepipeline.memory.s
+    public void czl() {
     }
 
     @Override // com.facebook.imagepipeline.memory.s
@@ -43,5 +39,9 @@ public class n implements s {
 
     @Override // com.facebook.imagepipeline.memory.s
     public void CJ(int i) {
+    }
+
+    @Override // com.facebook.imagepipeline.memory.s
+    public void CK(int i) {
     }
 }

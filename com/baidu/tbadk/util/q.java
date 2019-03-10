@@ -7,7 +7,7 @@ import android.os.Message;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 /* loaded from: classes.dex */
 public class q {
-    public static final boolean aqd() {
+    public static final boolean aqe() {
         Message message;
         int i = 0;
         Object c = com.baidu.adp.lib.OrmObject.a.a.c(Looper.myQueue(), "mMessages");

@@ -7,8 +7,8 @@ public class f {
     private long byn = 0;
     private String byo = "";
     private String imgUrl = "";
-    private int hkC = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
-    private String hkD = "";
+    private int hkD = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+    private String hkE = "";
     private String rankUrl = "";
 
     public void a(ForumHeadlineImgInfo forumHeadlineImgInfo) {
@@ -16,13 +16,13 @@ public class f {
             this.byn = forumHeadlineImgInfo.img_user_id.longValue();
             this.byo = forumHeadlineImgInfo.img_user_name;
             this.imgUrl = forumHeadlineImgInfo.img_url;
-            this.hkC = forumHeadlineImgInfo.rank_num.intValue();
-            this.hkD = forumHeadlineImgInfo.rank_up_info;
+            this.hkD = forumHeadlineImgInfo.rank_num.intValue();
+            this.hkE = forumHeadlineImgInfo.rank_up_info;
             this.rankUrl = forumHeadlineImgInfo.rank_url;
         }
     }
 
-    public String bIz() {
+    public String bIA() {
         return this.rankUrl;
     }
 

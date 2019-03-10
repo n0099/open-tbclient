@@ -11,33 +11,33 @@ import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public final class g implements p {
-    private final com.google.gson.internal.b jMT;
-    final boolean jOE;
+    private final com.google.gson.internal.b jNm;
+    final boolean jOX;
 
     public g(com.google.gson.internal.b bVar, boolean z) {
-        this.jMT = bVar;
-        this.jOE = z;
+        this.jNm = bVar;
+        this.jOX = z;
     }
 
     @Override // com.google.gson.p
     public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-        Type cBx = aVar.cBx();
-        if (!Map.class.isAssignableFrom(aVar.cBw())) {
+        Type cBH = aVar.cBH();
+        if (!Map.class.isAssignableFrom(aVar.cBG())) {
             return null;
         }
-        Type[] b = C$Gson$Types.b(cBx, C$Gson$Types.g(cBx));
-        return new a(dVar, b[0], a(dVar, b[0]), b[1], dVar.a(com.google.gson.b.a.l(b[1])), this.jMT.b(aVar));
+        Type[] b = C$Gson$Types.b(cBH, C$Gson$Types.g(cBH));
+        return new a(dVar, b[0], a(dVar, b[0]), b[1], dVar.a(com.google.gson.b.a.l(b[1])), this.jNm.b(aVar));
     }
 
     private o<?> a(com.google.gson.d dVar, Type type) {
-        return (type == Boolean.TYPE || type == Boolean.class) ? n.jPi : dVar.a(com.google.gson.b.a.l(type));
+        return (type == Boolean.TYPE || type == Boolean.class) ? n.jPB : dVar.a(com.google.gson.b.a.l(type));
     }
 
     /* loaded from: classes2.dex */
     private final class a<K, V> extends o<Map<K, V>> {
-        private final o<K> jOF;
-        private final o<V> jOG;
-        private final com.google.gson.internal.e<? extends Map<K, V>> jOq;
+        private final com.google.gson.internal.e<? extends Map<K, V>> jOJ;
+        private final o<K> jOY;
+        private final o<V> jOZ;
 
         @Override // com.google.gson.o
         public /* bridge */ /* synthetic */ void a(com.google.gson.stream.b bVar, Object obj) throws IOException {
@@ -45,44 +45,44 @@ public final class g implements p {
         }
 
         public a(com.google.gson.d dVar, Type type, o<K> oVar, Type type2, o<V> oVar2, com.google.gson.internal.e<? extends Map<K, V>> eVar) {
-            this.jOF = new m(dVar, oVar, type);
-            this.jOG = new m(dVar, oVar2, type2);
-            this.jOq = eVar;
+            this.jOY = new m(dVar, oVar, type);
+            this.jOZ = new m(dVar, oVar2, type2);
+            this.jOJ = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: k */
         public Map<K, V> b(com.google.gson.stream.a aVar) throws IOException {
-            JsonToken cBk = aVar.cBk();
-            if (cBk == JsonToken.NULL) {
+            JsonToken cBu = aVar.cBu();
+            if (cBu == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
-            Map<K, V> cAY = this.jOq.cAY();
-            if (cBk == JsonToken.BEGIN_ARRAY) {
+            Map<K, V> cBi = this.jOJ.cBi();
+            if (cBu == JsonToken.BEGIN_ARRAY) {
                 aVar.beginArray();
                 while (aVar.hasNext()) {
                     aVar.beginArray();
-                    K b = this.jOF.b(aVar);
-                    if (cAY.put(b, this.jOG.b(aVar)) != null) {
+                    K b = this.jOY.b(aVar);
+                    if (cBi.put(b, this.jOZ.b(aVar)) != null) {
                         throw new JsonSyntaxException("duplicate key: " + b);
                     }
                     aVar.endArray();
                 }
                 aVar.endArray();
-                return cAY;
+                return cBi;
             }
             aVar.beginObject();
             while (aVar.hasNext()) {
-                com.google.gson.internal.d.jNF.g(aVar);
-                K b2 = this.jOF.b(aVar);
-                if (cAY.put(b2, this.jOG.b(aVar)) != null) {
+                com.google.gson.internal.d.jNY.g(aVar);
+                K b2 = this.jOY.b(aVar);
+                if (cBi.put(b2, this.jOZ.b(aVar)) != null) {
                     throw new JsonSyntaxException("duplicate key: " + b2);
                 }
             }
             aVar.endObject();
-            return cAY;
+            return cBi;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v10, resolved type: com.google.gson.o<V> */
@@ -91,60 +91,60 @@ public final class g implements p {
         public void a(com.google.gson.stream.b bVar, Map<K, V> map) throws IOException {
             int i = 0;
             if (map == null) {
-                bVar.cBv();
-            } else if (!g.this.jOE) {
-                bVar.cBt();
+                bVar.cBF();
+            } else if (!g.this.jOX) {
+                bVar.cBD();
                 for (Map.Entry<K, V> entry : map.entrySet()) {
-                    bVar.FP(String.valueOf(entry.getKey()));
-                    this.jOG.a(bVar, entry.getValue());
+                    bVar.FS(String.valueOf(entry.getKey()));
+                    this.jOZ.a(bVar, entry.getValue());
                 }
-                bVar.cBu();
+                bVar.cBE();
             } else {
                 ArrayList arrayList = new ArrayList(map.size());
                 ArrayList arrayList2 = new ArrayList(map.size());
                 boolean z = false;
                 for (Map.Entry<K, V> entry2 : map.entrySet()) {
-                    com.google.gson.i bf = this.jOF.bf(entry2.getKey());
-                    arrayList.add(bf);
+                    com.google.gson.i bg = this.jOY.bg(entry2.getKey());
+                    arrayList.add(bg);
                     arrayList2.add(entry2.getValue());
-                    z = (bf.cAH() || bf.cAI()) | z;
+                    z = (bg.cAR() || bg.cAS()) | z;
                 }
                 if (z) {
-                    bVar.cBr();
+                    bVar.cBB();
                     while (i < arrayList.size()) {
-                        bVar.cBr();
+                        bVar.cBB();
                         com.google.gson.internal.g.b((com.google.gson.i) arrayList.get(i), bVar);
-                        this.jOG.a(bVar, arrayList2.get(i));
-                        bVar.cBs();
+                        this.jOZ.a(bVar, arrayList2.get(i));
+                        bVar.cBC();
                         i++;
                     }
-                    bVar.cBs();
+                    bVar.cBC();
                     return;
                 }
-                bVar.cBt();
+                bVar.cBD();
                 while (i < arrayList.size()) {
-                    bVar.FP(d((com.google.gson.i) arrayList.get(i)));
-                    this.jOG.a(bVar, arrayList2.get(i));
+                    bVar.FS(d((com.google.gson.i) arrayList.get(i)));
+                    this.jOZ.a(bVar, arrayList2.get(i));
                     i++;
                 }
-                bVar.cBu();
+                bVar.cBE();
             }
         }
 
         private String d(com.google.gson.i iVar) {
-            if (iVar.cAJ()) {
-                com.google.gson.l cAN = iVar.cAN();
-                if (cAN.cAQ()) {
-                    return String.valueOf(cAN.cAF());
+            if (iVar.cAT()) {
+                com.google.gson.l cAX = iVar.cAX();
+                if (cAX.cBa()) {
+                    return String.valueOf(cAX.cAP());
                 }
-                if (cAN.cAP()) {
-                    return Boolean.toString(cAN.getAsBoolean());
+                if (cAX.cAZ()) {
+                    return Boolean.toString(cAX.getAsBoolean());
                 }
-                if (cAN.cAR()) {
-                    return cAN.cAG();
+                if (cAX.cBb()) {
+                    return cAX.cAQ();
                 }
                 throw new AssertionError();
-            } else if (iVar.cAK()) {
+            } else if (iVar.cAU()) {
                 return "null";
             } else {
                 throw new AssertionError();

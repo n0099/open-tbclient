@@ -19,7 +19,7 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.homepage.topic.topicdetail.b.f;
 /* loaded from: classes4.dex */
 public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
-    private com.baidu.tieba.homepage.topic.topicdetail.a.d fPJ;
+    private com.baidu.tieba.homepage.topic.topicdetail.a.d fPK;
     private RecyclerView mRecyclerView;
     private int mSkinType;
     private TextView mTitleView;
@@ -47,8 +47,8 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         LayoutInflater.from(context).inflate(d.h.topic_timeline_view_layout, (ViewGroup) this, true);
         this.mTitleView = (TextView) findViewById(d.g.topic_timeline_title);
         this.mRecyclerView = (RecyclerView) findViewById(d.g.topic_timeline_list);
-        this.fPJ = new com.baidu.tieba.homepage.topic.topicdetail.a.d(context);
-        this.mRecyclerView.setAdapter(this.fPJ);
+        this.fPK = new com.baidu.tieba.homepage.topic.topicdetail.a.d(context);
+        this.mRecyclerView.setAdapter(this.fPK);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
         this.mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         this.mRecyclerView.addItemDecoration(new a(l.h(context, d.e.tbds44), l.h(context, d.e.tbds20), l.h(context, d.e.tbds44)));
@@ -62,8 +62,8 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         }
         setVisibility(0);
         this.mTitleView.setText(fVar.title);
-        this.fPJ.setData(fVar.fOF);
-        this.fPJ.notifyDataSetChanged();
+        this.fPK.setData(fVar.fOF);
+        this.fPK.notifyDataSetChanged();
     }
 
     public void onChangeSkinType() {
@@ -71,7 +71,7 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
             al.j(this.mTitleView, d.C0236d.cp_cont_b);
-            this.fPJ.notifyDataSetChanged();
+            this.fPK.notifyDataSetChanged();
         }
     }
 

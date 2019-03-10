@@ -46,10 +46,10 @@ public class f extends d {
         this.eix = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.f.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ab<com.baidu.tieba.homepage.concern.b.b> aQh = f.this.aQh();
-                if (aQh != null) {
+                ab<com.baidu.tieba.homepage.concern.b.b> aQi = f.this.aQi();
+                if (aQi != null) {
                     view.setTag("2");
-                    aQh.a(view, f.this.fHt);
+                    aQi.a(view, f.this.fHt);
                 }
             }
         };
@@ -151,7 +151,7 @@ public class f extends d {
             VoiceData.VoiceModel voiceModel = Zf.get(0);
             this.ZX.setVoiceModel(voiceModel);
             this.ZX.setTag(voiceModel);
-            this.ZX.bxV();
+            this.ZX.bxW();
             if (voiceModel != null) {
                 this.ZX.uu(voiceModel.voice_status.intValue());
             }
@@ -177,10 +177,10 @@ public class f extends d {
                 this.eir.setImageClickListener(new com.baidu.tbadk.widget.layout.d() { // from class: com.baidu.tieba.homepage.concern.view.f.1
                     @Override // com.baidu.tbadk.widget.layout.d
                     public void a(View view, int i3, boolean z) {
-                        ab<com.baidu.tieba.homepage.concern.b.b> aQh = f.this.aQh();
-                        if (aQh != null) {
+                        ab<com.baidu.tieba.homepage.concern.b.b> aQi = f.this.aQi();
+                        if (aQi != null) {
                             view.setTag("1");
-                            aQh.a(view, f.this.fHt);
+                            aQi.a(view, f.this.fHt);
                         }
                         if (!z) {
                             f.this.a(view, linkedList, i3, f.this.bTk);

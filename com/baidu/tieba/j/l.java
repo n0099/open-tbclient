@@ -3,7 +3,7 @@ package com.baidu.tieba.j;
 public interface l {
     i X(String str, String str2, String str3);
 
-    h bEC();
+    h bED();
 
-    e zg(String str);
+    e zh(String str);
 }

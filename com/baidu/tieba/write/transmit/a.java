@@ -1,9 +1,9 @@
 package com.baidu.tieba.write.transmit;
 /* loaded from: classes3.dex */
 public interface a {
-    boolean cpt();
+    boolean cpD();
 
-    void cpu();
+    void cpE();
 
-    void cpv();
+    void cpF();
 }

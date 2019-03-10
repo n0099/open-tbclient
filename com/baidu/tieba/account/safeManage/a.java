@@ -45,8 +45,8 @@ public class a implements View.OnClickListener {
                 if (a.this.cNf != null) {
                     a.this.cNf.a(aVar);
                 }
-                if (a.this.cNe != null && a.this.cNf != null && a.this.cNf.awx() != null) {
-                    a.this.cNe.a(a.this.cNf.awx().awC());
+                if (a.this.cNe != null && a.this.cNf != null && a.this.cNf.awy() != null) {
+                    a.this.cNe.a(a.this.cNf.awy().awD());
                 }
             }
         }
@@ -58,7 +58,7 @@ public class a implements View.OnClickListener {
         this.cNe = new b(this.cNd, this);
         this.cNf = new AccountSafeModel(this.cNd);
         if (j.kY()) {
-            awD();
+            awE();
         } else {
             this.cNd.showToast(d.j.neterror);
         }
@@ -68,9 +68,9 @@ public class a implements View.OnClickListener {
         return this.cNe.getView();
     }
 
-    private void awD() {
+    private void awE() {
         if (this.cNf != null && !this.cNf.qz()) {
-            this.cNf.awA();
+            this.cNf.awB();
         }
     }
 
@@ -100,7 +100,7 @@ public class a implements View.OnClickListener {
                 ba.adD().c(this.cNd.getPageContext(), new String[]{"http://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
             }
         } else if (view.getId() == d.g.account_status) {
-            AntiHelper.aW(this.cNd, this.cNf != null ? this.cNf.awy() : "");
+            AntiHelper.aW(this.cNd, this.cNf != null ? this.cNf.awz() : "");
         }
     }
 }

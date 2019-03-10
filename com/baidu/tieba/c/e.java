@@ -30,7 +30,7 @@ public class e implements a.InterfaceC0234a {
     private boolean esb = false;
     private boolean isLoading = false;
 
-    public static e aSt() {
+    public static e aSu() {
         if (erV == null) {
             synchronized (e.class) {
                 if (erV == null) {
@@ -46,12 +46,12 @@ public class e implements a.InterfaceC0234a {
     }
 
     private void init() {
+        aSw();
         aSv();
-        aSu();
         this.isLoading = false;
     }
 
-    private void aSu() {
+    private void aSv() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), a.class);
         if (runTask != null) {
             this.erX = (a) runTask.getData();
@@ -61,7 +61,7 @@ public class e implements a.InterfaceC0234a {
         }
     }
 
-    private void aSv() {
+    private void aSw() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), a.class);
         if (runTask != null) {
             this.erW = (a) runTask.getData();
@@ -74,10 +74,10 @@ public class e implements a.InterfaceC0234a {
     public void a(ShareDialogConfig shareDialogConfig) {
         if (shareDialogConfig != null && shareDialogConfig.shareItem != null && !i.isFastDoubleClick()) {
             if (shareDialogConfig.showLocation) {
-                shareDialogConfig.shareItem.cbw = aSz();
+                shareDialogConfig.shareItem.cbw = aSA();
             }
             if (l.lo() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.isLoading) {
-                aSw();
+                aSx();
             }
             shareDialogConfig.setIsShowTransmitShare(true);
             shareDialogConfig.setTransmitForumList(this.mForumList);
@@ -86,13 +86,13 @@ public class e implements a.InterfaceC0234a {
         }
     }
 
-    public void aSw() {
+    public void aSx() {
         this.isLoading = true;
         if (this.erW != null) {
-            this.erW.aSi();
+            this.erW.aSj();
         }
         if (this.erX != null) {
-            this.erX.aSi();
+            this.erX.aSj();
         }
     }
 
@@ -110,10 +110,10 @@ public class e implements a.InterfaceC0234a {
             }
             this.erZ = true;
         }
-        aSx();
+        aSy();
     }
 
-    private void aSx() {
+    private void aSy() {
         if (this.erW == null || this.erZ) {
             if (this.erX == null || this.esb) {
                 this.erZ = false;
@@ -140,12 +140,12 @@ public class e implements a.InterfaceC0234a {
                 }
                 this.erY = null;
                 this.esa = null;
-                aSy();
+                aSz();
             }
         }
     }
 
-    private void aSy() {
+    private void aSz() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016563, this.mForumList));
     }
 
@@ -163,7 +163,7 @@ public class e implements a.InterfaceC0234a {
         return false;
     }
 
-    private Location aSz() {
+    private Location aSA() {
         if (ab.cR(TbadkCoreApplication.getInst())) {
             LocationManager locationManager = (LocationManager) TbadkCoreApplication.getInst().getSystemService(Headers.LOCATION);
             Criteria criteria = new Criteria();

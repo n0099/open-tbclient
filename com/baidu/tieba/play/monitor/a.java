@@ -13,13 +13,13 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class a implements e.a {
     private String ctx;
-    private i hWM;
-    private String hXb;
+    private i hWN;
+    private String hXc;
 
     public a(String str, String str2, i iVar) {
         this.ctx = str;
-        this.hXb = str2;
-        this.hWM = iVar;
+        this.hXc = str2;
+        this.hWN = iVar;
     }
 
     @Override // com.baidu.tieba.j.e.a
@@ -31,10 +31,10 @@ public class a implements e.a {
             TiebaStatic.log(amVar);
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_MOOV_UPLOAD);
             httpMessage.addParam("thread_id", this.ctx);
-            httpMessage.addParam(WebVideoActivityConfig.KEY_VIDEO_URL, this.hXb);
+            httpMessage.addParam(WebVideoActivityConfig.KEY_VIDEO_URL, this.hXc);
             MessageManager.getInstance().sendMessage(httpMessage);
-            if (this.hWM != null) {
-                this.hWM.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.a.1
+            if (this.hWN != null) {
+                this.hWN.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.a.1
                     @Override // com.baidu.tieba.j.b
                     public void bx(JSONObject jSONObject) throws JSONException {
                     }
@@ -59,8 +59,8 @@ public class a implements e.a {
         amVar.T("obj_param1", z ? 1 : 0);
         amVar.bJ("tid", this.ctx);
         TiebaStatic.log(amVar);
-        if (this.hWM != null) {
-            this.hWM.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.a.2
+        if (this.hWN != null) {
+            this.hWN.a(new com.baidu.tieba.j.b() { // from class: com.baidu.tieba.play.monitor.a.2
                 @Override // com.baidu.tieba.j.b
                 public void bx(JSONObject jSONObject) throws JSONException {
                 }

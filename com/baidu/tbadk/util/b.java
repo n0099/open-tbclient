@@ -10,7 +10,7 @@ public class b {
     private b() {
     }
 
-    public static synchronized b apN() {
+    public static synchronized b apO() {
         b bVar;
         synchronized (b.class) {
             if (csW == null) {
@@ -21,14 +21,14 @@ public class b {
         return bVar;
     }
 
-    public void apO() {
-        String apP = apP();
-        if (!TextUtils.isEmpty(apP)) {
-            com.baidu.adp.lib.f.c.jB().a(apP, 10, null, 0, 0, null, new Object[0]);
+    public void apP() {
+        String apQ = apQ();
+        if (!TextUtils.isEmpty(apQ)) {
+            com.baidu.adp.lib.f.c.jB().a(apQ, 10, null, 0, 0, null, new Object[0]);
         }
     }
 
-    public String apP() {
+    public String apQ() {
         return TbadkSettings.getInst().loadString(SignAllForumAdvertActivityConfig.AD_URL, null);
     }
 }

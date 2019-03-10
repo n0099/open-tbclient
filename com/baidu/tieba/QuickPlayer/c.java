@@ -11,7 +11,7 @@ public class c {
         this.mHandlerThread.start();
     }
 
-    public static c avb() {
+    public static c avc() {
         if (cJt == null) {
             synchronized (c.class) {
                 if (cJt == null) {

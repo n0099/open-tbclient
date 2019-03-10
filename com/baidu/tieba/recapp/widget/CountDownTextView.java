@@ -11,8 +11,8 @@ import java.lang.ref.WeakReference;
 public class CountDownTextView extends TextView {
     private int aqg;
     private Runnable cQP;
-    private b ioE;
-    private boolean ioF;
+    private b ioF;
+    private boolean ioG;
     private Handler mHandler;
 
     /* loaded from: classes3.dex */
@@ -23,12 +23,12 @@ public class CountDownTextView extends TextView {
     public CountDownTextView(Context context) {
         super(context);
         this.mHandler = null;
-        this.ioE = null;
-        this.ioF = true;
-        bXS();
+        this.ioF = null;
+        this.ioG = true;
+        bXT();
     }
 
-    private void bXS() {
+    private void bXT() {
         this.cQP = new a();
         this.mHandler = new Handler();
     }
@@ -36,17 +36,17 @@ public class CountDownTextView extends TextView {
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mHandler = null;
-        this.ioE = null;
-        this.ioF = true;
-        bXS();
+        this.ioF = null;
+        this.ioG = true;
+        bXT();
     }
 
     public CountDownTextView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mHandler = null;
-        this.ioE = null;
-        this.ioF = true;
-        bXS();
+        this.ioF = null;
+        this.ioG = true;
+        bXT();
     }
 
     public void update(int i) {
@@ -58,11 +58,11 @@ public class CountDownTextView extends TextView {
     }
 
     public void setTimeoutListener(b bVar) {
-        this.ioE = bVar;
+        this.ioF = bVar;
     }
 
     public void setEnableTimeoutListener(boolean z) {
-        this.ioF = z;
+        this.ioG = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -87,8 +87,8 @@ public class CountDownTextView extends TextView {
     public void lE(int i) {
         if (i > 0) {
             if (this.aqg == 0) {
-                if (this.ioE != null && this.ioF && getVisibility() == 0) {
-                    this.ioE.bh(this);
+                if (this.ioF != null && this.ioG && getVisibility() == 0) {
+                    this.ioF.bh(this);
                 }
                 setText(String.valueOf(this.aqg));
                 this.mHandler.removeCallbacksAndMessages(null);
@@ -112,10 +112,10 @@ public class CountDownTextView extends TextView {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        axH();
+        axI();
     }
 
-    private void axH() {
+    private void axI() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 

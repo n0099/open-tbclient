@@ -83,7 +83,7 @@ public class a {
             if (this.fOq) {
                 com.baidu.tieba.homepage.topic.topictab.b.c cVar = new com.baidu.tieba.homepage.topic.topictab.b.c();
                 cVar.eEV = d.e.tbds78;
-                cVar.fQc = d.C0236d.cp_bg_line_d;
+                cVar.fQd = d.C0236d.cp_bg_line_d;
                 this.mDataList.add(cVar);
             }
             if (dataRes.relate_thread != null && !v.T(dataRes.relate_thread.thread_list)) {
@@ -104,7 +104,7 @@ public class a {
         }
     }
 
-    public boolean bng() {
+    public boolean bnh() {
         return this.fOr;
     }
 }

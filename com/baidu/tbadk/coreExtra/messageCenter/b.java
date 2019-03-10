@@ -554,7 +554,7 @@ public class b {
         if (aVar == null) {
             return null;
         }
-        ImMessageCenterPojo aT = com.baidu.tieba.im.memorycache.b.buF().aT(aVar.gid, aVar.userType);
+        ImMessageCenterPojo aT = com.baidu.tieba.im.memorycache.b.buG().aT(aVar.gid, aVar.userType);
         if (aT == null || aT.getLast_content() == null) {
             return null;
         }

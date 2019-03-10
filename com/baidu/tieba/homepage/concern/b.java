@@ -65,7 +65,7 @@ public class b {
                 b.this.ctJ.h(absListView, i);
             }
             if (i == 0) {
-                t.aQF().aAo();
+                t.aQG().aAp();
             }
         }
 
@@ -122,9 +122,9 @@ public class b {
     public interface a {
         void M(boolean z, boolean z2);
 
-        void blu();
+        void blv();
 
-        void wb(String str);
+        void wc(String str);
     }
 
     public void setTabInForeBackgroundState(boolean z) {
@@ -154,8 +154,8 @@ public class b {
 
     public void setRecommendFrsNavigationAnimDispatcher(x xVar) {
         if (xVar != null) {
-            this.ctJ = xVar.aql();
-            this.cfr = xVar.aqm();
+            this.ctJ = xVar.aqm();
+            this.cfr = xVar.aqn();
         }
     }
 
@@ -167,10 +167,10 @@ public class b {
         }
     }
 
-    public void aBc() {
+    public void aBd() {
         if (!qz() && this.hasMore && this.fGn != null) {
             setIsLoading(true);
-            this.fGn.wb(this.pageTag);
+            this.fGn.wc(this.pageTag);
         }
     }
 
@@ -182,7 +182,7 @@ public class b {
 
     private void WN() {
         if (this.fGn != null) {
-            this.fGn.blu();
+            this.fGn.blv();
         }
     }
 
@@ -271,7 +271,7 @@ public class b {
         bVar.fHb.b(userList);
         bVar.eNQ = new bg();
         bVar.eNQ.a(userList.thread_info);
-        bVar.blx();
+        bVar.bly();
         if (bVar.eNQ.isLinkThread()) {
             bVar.isLinkThread = true;
         }
@@ -302,7 +302,7 @@ public class b {
         if (dataRes.req_unix != null) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("concern_data_res_request_time"), dataRes.req_unix.longValue());
         }
-        if (dataRes.top_user_info != null && blv()) {
+        if (dataRes.top_user_info != null && blw()) {
             if (!ap.isEmpty(builder.top_tips)) {
                 com.baidu.tieba.homepage.concern.b.a aVar = new com.baidu.tieba.homepage.concern.b.a();
                 aVar.bOr = builder.top_tips;
@@ -314,7 +314,7 @@ public class b {
             this.fGp = a2;
             this.mDataList.add(a2);
         }
-        if (dataRes.top_user_info == null && !z2 && this.fGp != null && blv() && this.fGo != null) {
+        if (dataRes.top_user_info == null && !z2 && this.fGp != null && blw() && this.fGo != null) {
             this.mDataList.add(this.fGo);
             this.mDataList.add(this.fGp);
         }
@@ -364,7 +364,7 @@ public class b {
         return true;
     }
 
-    private boolean blv() {
+    private boolean blw() {
         if (TbadkCoreApplication.isLogin()) {
             if (System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("concern_top_user_user_like_time"), 0L) > 86400000) {
                 return true;
@@ -377,7 +377,7 @@ public class b {
         aa.a(new z<DataRes>() { // from class: com.baidu.tieba.homepage.concern.b.4
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.z
-            /* renamed from: blw */
+            /* renamed from: blx */
             public DataRes doInBackground() {
                 l<byte[]> bu = com.baidu.tbadk.core.c.a.aaW().bu("tb.concern_page", TbadkCoreApplication.getCurrentAccount());
                 if (bu == null) {
@@ -404,7 +404,7 @@ public class b {
         });
     }
 
-    private void aWO() {
+    private void aWP() {
         if (this.fGq != null) {
             DataRes.Builder builder = new DataRes.Builder(this.fGq.build(true));
             if (builder.thread_info != null && builder.thread_info.size() > 30) {
@@ -474,7 +474,7 @@ public class b {
                     ConcernData concernData = this.fGq.thread_info.get(i2);
                     if (concernData != null && (threadInfo = concernData.thread_list) != null && threadInfo.tid != null && threadInfo.tid.longValue() == d) {
                         this.fGq.thread_info.remove(i2);
-                        aWO();
+                        aWP();
                         return;
                     }
                 }

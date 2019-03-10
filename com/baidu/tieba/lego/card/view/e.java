@@ -8,11 +8,11 @@ public interface e<T extends ICardInfo> {
 
     void aq(Object obj);
 
-    void bAi();
-
     void bAj();
 
     void bAk();
+
+    void bAl();
 
     void i(BdUniqueId bdUniqueId);
 

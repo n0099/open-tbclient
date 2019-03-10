@@ -31,16 +31,16 @@ import tbclient.RecommendForumListForBottle.ForumInfo;
 public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     private com.baidu.tieba.likedForum.a dCn;
     private a.InterfaceC0271a dCq;
-    private List<TransmitForumData> jkT;
-    private s jqa;
+    private List<TransmitForumData> jlm;
+    private s jqt;
     private ArrayList<HotTopicBussinessData> mForumList;
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean ci(long j) {
-        if (this.jkT == null) {
+        if (this.jlm == null) {
             return false;
         }
-        for (TransmitForumData transmitForumData : this.jkT) {
+        for (TransmitForumData transmitForumData : this.jlm) {
             if (transmitForumData != null && transmitForumData.forumId == j) {
                 return true;
             }
@@ -49,13 +49,13 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cib() {
+    public void cil() {
         HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.mContext, 25005, this.mForumList);
         hotTopicChangeActivityConfig.setUseOriginList(true);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicChangeActivityConfig));
     }
 
-    public HotTopicBussinessData Bq(int i) {
+    public HotTopicBussinessData Br(int i) {
         if (v.T(this.mForumList)) {
             return null;
         }
@@ -65,7 +65,7 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     /* JADX INFO: Access modifiers changed from: protected */
     public d(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, List<TransmitForumData> list) {
         super(context, bdUniqueId, bdUniqueId2);
-        this.jqa = new s() { // from class: com.baidu.tieba.write.transmit.d.1
+        this.jqt = new s() { // from class: com.baidu.tieba.write.transmit.d.1
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, m mVar, BdUniqueId bdUniqueId3, ViewGroup viewGroup, int i, long j) {
                 if (!j.kY()) {
@@ -73,7 +73,7 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
                 }
                 TiebaStatic.log(new am("c12053"));
                 if (!v.T(d.this.mForumList)) {
-                    d.this.cib();
+                    d.this.cil();
                     return;
                 }
                 d.this.dCn = new com.baidu.tieba.likedForum.a(d.this.mPageId);
@@ -101,13 +101,13 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
                     }
                     if (d.this.mForumList == null) {
                         d.this.mForumList = arrayList;
-                        d.this.cib();
+                        d.this.cil();
                     }
                 }
             }
         };
-        setOnAdapterItemClickListener(this.jqa);
-        this.jkT = list;
+        setOnAdapterItemClickListener(this.jqt);
+        this.jlm = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -123,7 +123,7 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, e eVar, a aVar) {
-        al.j(aVar.jqc, d.C0236d.cp_link_tip_a);
+        al.j(aVar.jqv, d.C0236d.cp_link_tip_a);
         al.c(aVar.eOv, d.f.icon_post_add_ba_n);
         return view;
     }
@@ -131,11 +131,11 @@ public class d extends com.baidu.adp.widget.ListView.a<e, a> {
     /* loaded from: classes3.dex */
     public static class a extends v.a {
         public ImageView eOv;
-        public TextView jqc;
+        public TextView jqv;
 
         public a(View view) {
             super(view);
-            this.jqc = (TextView) view.findViewById(d.g.select_by_self);
+            this.jqv = (TextView) view.findViewById(d.g.select_by_self);
             this.eOv = (ImageView) view.findViewById(d.g.add_icon);
         }
     }

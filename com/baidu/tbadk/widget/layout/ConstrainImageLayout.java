@@ -759,7 +759,7 @@ public class ConstrainImageLayout extends ViewGroup {
     protected void dispatchDraw(Canvas canvas) {
         int childCount;
         super.dispatchDraw(canvas);
-        arZ();
+        asa();
         if (!StringUtils.isNull(this.czU) && (childCount = getChildCount()) > 0 && getChildAt(childCount - 1) != null && this.czU != null) {
             TbImageView tbImageView = null;
             int childCount2 = getChildCount();
@@ -780,7 +780,7 @@ public class ConstrainImageLayout extends ViewGroup {
         }
     }
 
-    private void arZ() {
+    private void asa() {
         if (this.czN != null && getChildCount() > 0) {
             View childAt = getChildAt(0);
             int width = childAt.getWidth();

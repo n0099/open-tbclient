@@ -12,28 +12,28 @@ public class w {
     private boolean ctI;
     private final Handler mHandler;
 
-    public void aqi() {
+    public void aqj() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void aqj() {
+    public void aqk() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void aqk() {
+    public void aql() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
     public void fk(boolean z) {
         if (this.ctG != null) {
             if (z || this.ctG.getVisibility() != 8) {
-                aqj();
+                aqk();
             }
         }
     }
@@ -41,7 +41,7 @@ public class w {
     public void fl(boolean z) {
         if (this.ctG != null) {
             if (z || this.ctG.getVisibility() != 0) {
-                aqi();
+                aqj();
             }
         }
     }

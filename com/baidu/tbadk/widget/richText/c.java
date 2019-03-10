@@ -59,7 +59,7 @@ public class c extends ClickableSpan {
         this.urlType = i;
     }
 
-    public void qb(String str) {
+    public void qc(String str) {
         this.cDc = str;
     }
 

@@ -12,21 +12,21 @@ abstract class a<E> extends b<E> {
     @Override // java.util.AbstractCollection, java.util.Collection
     public final int size() {
         LinkedQueueNode<E> lvNext;
-        LinkedQueueNode<E> cEA = cEA();
-        LinkedQueueNode<E> cEy = cEy();
+        LinkedQueueNode<E> cEK = cEK();
+        LinkedQueueNode<E> cEI = cEI();
         int i = 0;
-        while (cEA != cEy && i < Integer.MAX_VALUE) {
+        while (cEK != cEI && i < Integer.MAX_VALUE) {
             do {
-                lvNext = cEA.lvNext();
+                lvNext = cEK.lvNext();
             } while (lvNext == null);
             i++;
-            cEA = lvNext;
+            cEK = lvNext;
         }
         return i;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public final boolean isEmpty() {
-        return cEA() == cEy();
+        return cEK() == cEI();
     }
 }

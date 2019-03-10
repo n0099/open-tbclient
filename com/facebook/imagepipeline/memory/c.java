@@ -15,8 +15,8 @@ public class c extends BasePool<Bitmap> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: CA */
-    public Bitmap Cs(int i) {
+    /* renamed from: CB */
+    public Bitmap Ct(int i) {
         return Bitmap.createBitmap(1, (int) Math.ceil(i / 2.0d), Bitmap.Config.RGB_565);
     }
 
@@ -24,23 +24,9 @@ public class c extends BasePool<Bitmap> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
     /* renamed from: W */
-    public void aX(Bitmap bitmap) {
+    public void aY(Bitmap bitmap) {
         com.facebook.common.internal.g.checkNotNull(bitmap);
         bitmap.recycle();
-    }
-
-    @Override // com.facebook.imagepipeline.memory.BasePool
-    protected int Ct(int i) {
-        return i;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* JADX INFO: Access modifiers changed from: protected */
-    @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: X */
-    public int aY(Bitmap bitmap) {
-        com.facebook.common.internal.g.checkNotNull(bitmap);
-        return bitmap.getAllocationByteCount();
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
@@ -51,8 +37,22 @@ public class c extends BasePool<Bitmap> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
+    /* renamed from: X */
+    public int aZ(Bitmap bitmap) {
+        com.facebook.common.internal.g.checkNotNull(bitmap);
+        return bitmap.getAllocationByteCount();
+    }
+
+    @Override // com.facebook.imagepipeline.memory.BasePool
+    protected int Cv(int i) {
+        return i;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX INFO: Access modifiers changed from: protected */
+    @Override // com.facebook.imagepipeline.memory.BasePool
     /* renamed from: Y */
-    public boolean aZ(Bitmap bitmap) {
+    public boolean ba(Bitmap bitmap) {
         com.facebook.common.internal.g.checkNotNull(bitmap);
         return !bitmap.isRecycled() && bitmap.isMutable();
     }

@@ -31,12 +31,12 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.enterForu
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.enterForum.recommend.b.d dVar, com.baidu.tieba.card.a.a<com.baidu.tieba.enterForum.recommend.view.c> aVar) {
-        if (dVar == null || aVar == null || aVar.aRi() == null) {
+        if (dVar == null || aVar == null || aVar.aRj() == null) {
             return null;
         }
-        aVar.aRi().a(dVar);
+        aVar.aRj().a(dVar);
         if (this.eEz != null) {
-            aVar.aRi().d(this.eEz);
+            aVar.aRj().d(this.eEz);
         }
         return aVar.getView();
     }

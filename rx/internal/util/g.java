@@ -9,13 +9,13 @@ import rx.k;
 /* loaded from: classes2.dex */
 public class g implements k {
     public static final int SIZE;
-    public volatile Object kaM;
+    public volatile Object kbf;
     private Queue<Object> queue;
     private final int size;
 
     static {
         int i = 128;
-        if (f.cEq()) {
+        if (f.cEA()) {
             i = 16;
         }
         String property = System.getProperty("rx.ring-buffer.size");
@@ -29,12 +29,12 @@ public class g implements k {
         SIZE = i;
     }
 
-    public static g cEu() {
-        return ae.cEH() ? new g(false, SIZE) : new g();
+    public static g cEE() {
+        return ae.cER() ? new g(false, SIZE) : new g();
     }
 
-    public static g cEv() {
-        return ae.cEH() ? new g(true, SIZE) : new g();
+    public static g cEF() {
+        return ae.cER() ? new g(true, SIZE) : new g();
     }
 
     private g(Queue<Object> queue, int i) {
@@ -67,7 +67,7 @@ public class g implements k {
             if (queue == null) {
                 z2 = true;
                 z = false;
-            } else if (queue.offer(NotificationLite.bp(obj))) {
+            } else if (queue.offer(NotificationLite.bq(obj))) {
                 z = false;
             }
         }
@@ -80,8 +80,8 @@ public class g implements k {
     }
 
     public void onCompleted() {
-        if (this.kaM == null) {
-            this.kaM = NotificationLite.cDP();
+        if (this.kbf == null) {
+            this.kbf = NotificationLite.cDZ();
         }
     }
 
@@ -96,9 +96,9 @@ public class g implements k {
             Queue<Object> queue = this.queue;
             if (queue != null) {
                 Object poll = queue.poll();
-                obj = this.kaM;
+                obj = this.kbf;
                 if (poll == null && obj != null && queue.peek() == null) {
-                    this.kaM = null;
+                    this.kbf = null;
                 } else {
                     obj = poll;
                 }
@@ -115,7 +115,7 @@ public class g implements k {
                 obj = null;
             } else {
                 Object peek = queue.peek();
-                obj = this.kaM;
+                obj = this.kbf;
                 if (peek != null || obj == null || queue.peek() != null) {
                     obj = peek;
                 }
@@ -124,12 +124,12 @@ public class g implements k {
         return obj;
     }
 
-    public boolean bq(Object obj) {
-        return NotificationLite.bq(obj);
+    public boolean br(Object obj) {
+        return NotificationLite.br(obj);
     }
 
-    public Object bs(Object obj) {
-        return NotificationLite.bs(obj);
+    public Object bt(Object obj) {
+        return NotificationLite.bt(obj);
     }
 
     @Override // rx.k

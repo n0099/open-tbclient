@@ -68,11 +68,11 @@ public class m extends c implements i<bg>, j {
             public void onClick(View view) {
                 if (m.this.XP != null && m.this.XR != null && m.this.XQ != null && !m.this.XR.aaB()) {
                     if (!m.this.XR.aaA()) {
-                        if (com.baidu.tieba.frs.a.bbF().aa(m.this.XR)) {
+                        if (com.baidu.tieba.frs.a.bbG().aa(m.this.XR)) {
                             m.this.XR.dn(true);
                         }
                     } else {
-                        com.baidu.tieba.frs.a.bbF().ab(m.this.XR);
+                        com.baidu.tieba.frs.a.bbG().ab(m.this.XR);
                         m.this.XR.dn(false);
                     }
                     m.this.XN.setVisibility(m.this.XR.aaA() ? 0 : 4);
@@ -116,7 +116,7 @@ public class m extends c implements i<bg>, j {
     public void C(bg bgVar) {
         int i = 4;
         this.XR = bgVar;
-        if (com.baidu.tieba.frs.a.bbF().bbG()) {
+        if (com.baidu.tieba.frs.a.bbG().bbH()) {
             this.mRootView.setVisibility(0);
             this.Xu.b(new a.C0037a(4, false));
             View view = this.XN;

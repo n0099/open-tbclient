@@ -39,7 +39,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
     /* renamed from: c */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         e a;
-        if (this.Tu == null || (a = com.baidu.tieba.lego.card.b.bzH().a(this.Tv, this.Tu, 2)) == null) {
+        if (this.Tu == null || (a = com.baidu.tieba.lego.card.b.bzI().a(this.Tv, this.Tu, 2)) == null) {
             return null;
         }
         if (a instanceof i) {
@@ -80,8 +80,8 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.afd.d, a> imple
                 i2 = 102;
             }
             com.baidu.tieba.recapp.report.b c = com.baidu.tieba.recapp.report.f.c(pR, i2, i);
-            c.BO(str2);
-            com.baidu.tieba.recapp.report.c.bXB().a(c);
+            c.BP(str2);
+            com.baidu.tieba.recapp.report.c.bXC().a(c);
             com.baidu.tieba.lego.card.b.c.a(dVar);
         }
     }

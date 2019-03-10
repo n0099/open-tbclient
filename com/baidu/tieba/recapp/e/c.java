@@ -11,9 +11,9 @@ import com.baidu.tieba.recapp.widget.CountDownTextView;
 public class c extends e {
     private TextView bTX;
     private HeadImageView fCZ;
-    private TextView imT;
-    private CountDownTextView imX;
-    private boolean imY;
+    private TextView imU;
+    private CountDownTextView imY;
+    private boolean imZ;
 
     public c(View view, String str) {
         super(view, str);
@@ -27,44 +27,44 @@ public class c extends e {
         this.fCZ.setDefaultBgResource(d.C0236d.cp_bg_line_e);
         this.fCZ.setIsRound(true);
         this.bTX = (TextView) yd(d.g.user_name);
-        this.imX = (CountDownTextView) yd(d.g.count_down_text);
-        this.imT = (TextView) yd(d.g.action);
+        this.imY = (CountDownTextView) yd(d.g.count_down_text);
+        this.imU = (TextView) yd(d.g.action);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void a(final AdCard.f fVar) {
         super.a(fVar);
-        this.fCZ.startLoad(fVar.iio, 10, false);
+        this.fCZ.startLoad(fVar.iip, 10, false);
         this.bTX.setText(fVar.userName);
-        this.imT.setText(fVar.buttonText);
+        this.imU.setText(fVar.buttonText);
         this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.e.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 s.aT(c.this.mRootView.getContext(), fVar.scheme);
-                if (c.this.inb != null) {
-                    c.this.inb.xW(302);
-                    com.baidu.tieba.recapp.report.c.bXB().a(c.this.inb);
+                if (c.this.inc != null) {
+                    c.this.inc.xW(302);
+                    com.baidu.tieba.recapp.report.c.bXC().a(c.this.inc);
                 }
-                if (c.this.ind != null) {
-                    com.baidu.tieba.lego.card.b.c.a(c.this.ind);
+                if (c.this.ine != null) {
+                    com.baidu.tieba.lego.card.b.c.a(c.this.ine);
                 }
                 c.this.pp(false);
             }
         });
-        this.imX.update(fVar.count);
+        this.imY.update(fVar.count);
         onChangeSkinType();
     }
 
     @Override // com.baidu.tieba.recapp.e.e
-    public void bXF() {
-        super.bXF();
-        this.imX.startCountDown();
+    public void bXG() {
+        super.bXG();
+        this.imY.startCountDown();
     }
 
     @Override // com.baidu.tieba.recapp.e.e
     public void setTimeoutListener(CountDownTextView.b bVar) {
         super.setTimeoutListener(bVar);
-        this.imX.setTimeoutListener(bVar);
+        this.imY.setTimeoutListener(bVar);
     }
 
     @Override // com.baidu.tieba.recapp.e.e
@@ -73,9 +73,9 @@ public class c extends e {
 
     @Override // com.baidu.tieba.recapp.e.e
     public void pp(boolean z) {
-        this.imY = z;
-        if (this.imX != null) {
-            this.imX.setEnableTimeoutListener(this.imY);
+        this.imZ = z;
+        if (this.imY != null) {
+            this.imY.setEnableTimeoutListener(this.imZ);
         }
     }
 }

@@ -40,7 +40,7 @@ public class ad {
         return ke(i);
     }
 
-    public static boolean aqv() {
+    public static boolean aqw() {
         if (!com.baidu.adp.lib.util.j.kZ() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 1) {
             return com.baidu.adp.lib.util.j.la() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2;
         }

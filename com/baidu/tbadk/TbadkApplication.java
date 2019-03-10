@@ -68,9 +68,9 @@ public class TbadkApplication extends TbadkCoreApplication {
         if ((this.isCdnTachometerProcess != null && this.isCdnTachometerProcess.booleanValue()) || this.isPluginInstallProcess) {
             b.I("TbadkApplication_onCreate", "cdn_process");
         } else {
-            boolean aqd = q.aqd();
+            boolean aqe = q.aqe();
             boolean isXiaomiPushSdkShouldOpen = isXiaomiPushSdkShouldOpen();
-            boolean z = aqd && isXiaomiPushSdkShouldOpen;
+            boolean z = aqe && isXiaomiPushSdkShouldOpen;
             b.I("TbadkApplication_onCreate", z ? "plugin_load_delay" : "plugin_load_now");
             if (Build.VERSION.SDK_INT >= 24) {
                 try {
@@ -82,7 +82,7 @@ public class TbadkApplication extends TbadkCoreApplication {
             b.I("TbadkApplication_onCreate", "load_all_plugins");
             String str = TbConfig.getVersion() + "." + TbConfig.BUILD_NUMBER;
             System.currentTimeMillis();
-            PluginPackageManager.ni().a(a.apz(), new com.baidu.tbadk.p.b(), aqd && isXiaomiPushSdkShouldOpen);
+            PluginPackageManager.ni().a(a.apz(), new com.baidu.tbadk.p.b(), aqe && isXiaomiPushSdkShouldOpen);
             PluginSettings nI = com.baidu.adp.plugin.packageManager.pluginSettings.c.nL().nI();
             if (nI != null) {
                 String containerVersion = nI.getContainerVersion();

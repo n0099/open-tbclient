@@ -69,7 +69,7 @@ public class b {
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra("broadcast_data");
             if (serializableExtra instanceof String) {
-                n.tB((String) serializableExtra);
+                n.tC((String) serializableExtra);
             }
         }
     }

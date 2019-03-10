@@ -56,16 +56,16 @@ public class l extends a<com.baidu.tieba.card.data.j> implements e {
         this.ZF = new View.OnClickListener() { // from class: com.baidu.tieba.card.l.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (l.this.aQh() != null) {
-                    l.this.aQh().a(view, l.this.ehE);
+                if (l.this.aQi() != null) {
+                    l.this.aQi().a(view, l.this.ehE);
                 }
             }
         };
         this.bRy = new View.OnClickListener() { // from class: com.baidu.tieba.card.l.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (l.this.aQh() != null) {
-                    l.this.aQh().a(view, l.this.ehE);
+                if (l.this.aQi() != null) {
+                    l.this.aQi().a(view, l.this.ehE);
                 }
             }
         };
@@ -208,16 +208,16 @@ public class l extends a<com.baidu.tieba.card.data.j> implements e {
         }
         mF(lt(1));
         onChangeSkinType(this.mContext, TbadkCoreApplication.getInst().getSkinType());
-        if (n.tC(this.ehE.threadData.getId())) {
+        if (n.tD(this.ehE.threadData.getId())) {
             al.d(this.mTextTitle, d.C0236d.cp_cont_d, 1);
         } else {
             al.d(this.mTextTitle, d.C0236d.cp_cont_b, 1);
         }
-        aQk();
+        aQl();
         this.ehH.cu();
     }
 
-    public void aQk() {
+    public void aQl() {
         if (com.baidu.tbadk.core.i.Wy().WC() && this.ehE != null && this.ehE.WR() != null && this.ehE.WR().Zk() != null) {
             this.cAg.setDefaultBgResource(com.baidu.tbadk.util.e.get());
             this.cAg.startLoad(this.ehE.WR().Zk().cover, 10, false);
@@ -233,14 +233,14 @@ public class l extends a<com.baidu.tieba.card.data.j> implements e {
         }
     }
 
-    public View aQl() {
+    public View aQm() {
         if (this.Xv != null) {
             return this.Xv.getAvatar();
         }
         return null;
     }
 
-    public View aQm() {
+    public View aQn() {
         if (this.Xv != null) {
             return this.Xv.getUserName();
         }
@@ -255,11 +255,11 @@ public class l extends a<com.baidu.tieba.card.data.j> implements e {
     }
 
     private void bw(View view) {
-        if (aQh() != null) {
-            aQh().a(view, this.ehE);
+        if (aQi() != null) {
+            aQi().a(view, this.ehE);
         }
         if (this.ehE != null && this.ehE.WR() != null && this.ehE.WR().Zk() != null) {
-            n.tB(this.ehE.threadData.getId());
+            n.tC(this.ehE.threadData.getId());
             n.a(this.mTextTitle, this.ehE.threadData.getId(), d.C0236d.cp_cont_b, d.C0236d.cp_cont_d);
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
             alaLiveInfoCoreData.fillWithInfoData(this.ehE.WR().Zk());
@@ -303,7 +303,7 @@ public class l extends a<com.baidu.tieba.card.data.j> implements e {
     }
 
     public int lt(int i) {
-        return com.baidu.tieba.a.d.awk().ak(this.Yz, i);
+        return com.baidu.tieba.a.d.awl().ak(this.Yz, i);
     }
 
     public void oo(int i) {

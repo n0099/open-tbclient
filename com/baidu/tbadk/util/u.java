@@ -16,9 +16,9 @@ public final class u {
             return false;
         }
         try {
-            a aqh = a.aqh();
+            a aqi = a.aqi();
             for (String str : strArr) {
-                if (aqh.getProperty(str) != null) {
+                if (aqi.getProperty(str) != null) {
                     return true;
                 }
             }
@@ -38,7 +38,7 @@ public final class u {
             this.ctE.load(new FileInputStream(new File(Environment.getRootDirectory(), "build.prop")));
         }
 
-        public static a aqh() throws IOException {
+        public static a aqi() throws IOException {
             if (ctD == null) {
                 synchronized (a.class) {
                     if (ctD == null) {

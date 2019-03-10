@@ -38,7 +38,7 @@ public class FrsActivity extends BaseFragmentActivity implements com.baidu.tbadk
             if (this.eYc == null) {
                 this.eYc = new com.baidu.tieba.frs.e.f(this, (ViewGroup) getWindow().getDecorView(), getIntent());
             }
-            this.eYc.biB();
+            this.eYc.biC();
         }
     }
 
@@ -85,7 +85,7 @@ public class FrsActivity extends BaseFragmentActivity implements com.baidu.tbadk
         if (this.eYb != null) {
             this.eYb.onDestroy();
         }
-        a.bbF().reset();
+        a.bbG().reset();
         if (!com.baidu.tbadk.core.util.ap.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
             TbadkCoreApplication.getInst().setTaskId("");
         }
@@ -163,15 +163,15 @@ public class FrsActivity extends BaseFragmentActivity implements com.baidu.tbadk
         }
     }
 
-    public FrsFragment bbP() {
+    public FrsFragment bbQ() {
         if (this.eYb == null) {
             return null;
         }
-        return this.eYb.bbP();
+        return this.eYb.bbQ();
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.c
-    public com.baidu.adp.lib.e.b<TbImageView> bbQ() {
+    public com.baidu.adp.lib.e.b<TbImageView> bbR() {
         if (this.eYd == null) {
             this.eYd = FrsCommonImageLayout.y(getPageContext().getPageActivity(), 12);
         }
@@ -194,16 +194,16 @@ public class FrsActivity extends BaseFragmentActivity implements com.baidu.tbadk
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.support.v4.app.FragmentActivity, android.app.Activity, android.support.v4.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
-        bbP().onRequestPermissionsResult(i, strArr, iArr);
+        bbQ().onRequestPermissionsResult(i, strArr, iArr);
     }
 
     public void iR(boolean z) {
-        FragmentTabHost bef;
-        if (this.eYb != null && (bef = this.eYb.bef()) != null && bef.getFragmentTabWidget() != null) {
+        FragmentTabHost beg;
+        if (this.eYb != null && (beg = this.eYb.beg()) != null && beg.getFragmentTabWidget() != null) {
             if (z) {
-                bef.gZ(2);
+                beg.gZ(2);
             } else {
-                bef.gZ(4);
+                beg.gZ(4);
             }
         }
     }
@@ -227,21 +227,21 @@ public class FrsActivity extends BaseFragmentActivity implements com.baidu.tbadk
             TbSingleton.getInstance().setFrsContentViewLoadingShow(z);
         }
         if (TbSingleton.getInstance().isFrsLoadingViewHided()) {
-            bbR();
+            bbS();
         }
     }
 
-    public void bbR() {
+    public void bbS() {
         if (this.eYc != null) {
-            this.eYc.bbR();
+            this.eYc.bbS();
         }
     }
 
     @Override // com.baidu.tbadk.core.util.e.c
     public boolean videoNeedPreload() {
-        if (this.eYb == null || this.eYb.bbP() == null) {
+        if (this.eYb == null || this.eYb.bbQ() == null) {
             return false;
         }
-        return this.eYb.bbP().videoNeedPreload();
+        return this.eYb.bbQ().videoNeedPreload();
     }
 }

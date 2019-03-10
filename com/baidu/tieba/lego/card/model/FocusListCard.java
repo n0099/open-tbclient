@@ -15,10 +15,10 @@ public class FocusListCard extends BaseCardInfo {
 
     /* loaded from: classes2.dex */
     public static class a {
-        public String gGT;
-        public int gGU;
+        public String gGU;
         public int gGV;
-        public long gGW;
+        public int gGW;
+        public long gGX;
         public String scheme;
         public String statistics;
         public String subtitle;
@@ -48,12 +48,12 @@ public class FocusListCard extends BaseCardInfo {
                         aVar.subtitle = optJSONArray.getString(1);
                     }
                     if (optJSONArray.length() > 2) {
-                        aVar.gGT = optJSONArray.getString(2);
+                        aVar.gGU = optJSONArray.getString(2);
                     }
-                    aVar.gGU = com.baidu.tieba.lego.card.d.a.parseColor(optJSONObject.optString("focusColor", ""));
-                    aVar.gGV = com.baidu.tieba.lego.card.d.a.parseColor(optJSONObject.optString("focusColorNight", ""));
+                    aVar.gGV = com.baidu.tieba.lego.card.d.a.parseColor(optJSONObject.optString("focusColor", ""));
+                    aVar.gGW = com.baidu.tieba.lego.card.d.a.parseColor(optJSONObject.optString("focusColorNight", ""));
                     aVar.scheme = optJSONObject.optString("scheme");
-                    aVar.gGW = optJSONObject.optLong("resourceId");
+                    aVar.gGX = optJSONObject.optLong("resourceId");
                     aVar.statistics = this.statistics;
                     this.focusItemList.add(aVar);
                 } catch (Exception e) {

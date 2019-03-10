@@ -26,8 +26,8 @@ public class b {
     private BdBaseViewPagerAdapter bUS;
     private d bUT;
     private ViewPager.OnPageChangeListener bUY;
-    private j gLF;
-    private ListViewPager gLy;
+    private j gLG;
+    private ListViewPager gLz;
     private Context mContext;
     private boolean bUU = false;
     private boolean bUV = true;
@@ -39,7 +39,7 @@ public class b {
         public boolean handleMessage(Message message) {
             switch (message.what) {
                 case 1:
-                    if (b.this.bBm()) {
+                    if (b.this.bBn()) {
                         b.this.afk();
                         return false;
                     }
@@ -60,12 +60,12 @@ public class b {
             if (i == 1) {
                 b.this.afm();
             } else if (i == 0 && (count = b.this.bUS.getCount()) >= 2) {
-                int currentItem = b.this.gLy.getCurrentItem();
+                int currentItem = b.this.gLz.getCurrentItem();
                 int i2 = count - 2;
                 if (currentItem < 1) {
-                    b.this.gLy.setCurrentItem(i2, false);
+                    b.this.gLz.setCurrentItem(i2, false);
                 } else if (currentItem > i2) {
-                    b.this.gLy.setCurrentItem(1, false);
+                    b.this.gLz.setCurrentItem(1, false);
                 }
                 b.this.afl();
             }
@@ -83,9 +83,9 @@ public class b {
             if (b.this.bUT != null && b.this.bUT.ip(i) == i) {
                 if (b.this.bUP != null) {
                     b.this.bUP.setPosition(b.this.bUT.iq(i));
-                    if (b.this.gLF != null) {
+                    if (b.this.gLG != null) {
                         b.this.bUP.setVisibility(8);
-                        b.this.gLF.aI(b.this.bUT.iq(i));
+                        b.this.gLG.aI(b.this.bUT.iq(i));
                     }
                 }
                 if (b.this.bUY != null) {
@@ -96,13 +96,13 @@ public class b {
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bBm() {
-        if (this.gLy == null) {
+    public boolean bBn() {
+        if (this.gLz == null) {
             return false;
         }
         int[] iArr = new int[2];
-        this.gLy.getLocationOnScreen(iArr);
-        int measuredHeight = iArr[1] + (this.gLy.getMeasuredHeight() / 2);
+        this.gLz.getLocationOnScreen(iArr);
+        int measuredHeight = iArr[1] + (this.gLz.getMeasuredHeight() / 2);
         return measuredHeight > 0 && measuredHeight < l.aQ(this.mContext);
     }
 
@@ -115,14 +115,14 @@ public class b {
     }
 
     private void a(Context context, ListViewPager listViewPager, IndicatorView indicatorView, TextView textView) {
-        this.gLy = listViewPager;
+        this.gLz = listViewPager;
         this.bUP = indicatorView;
         this.bUO = textView;
         this.mContext = context;
         this.bUS = new BdBaseViewPagerAdapter(context);
-        if (this.gLy != null) {
-            this.gLy.setAdapter(this.bUS);
-            this.gLy.setOnPageChangeListener(this.bVa);
+        if (this.gLz != null) {
+            this.gLz.setAdapter(this.bUS);
+            this.gLz.setOnPageChangeListener(this.bVa);
         }
     }
 
@@ -132,7 +132,7 @@ public class b {
         } else {
             this.bUP.setVisibility(0);
         }
-        this.gLF = jVar;
+        this.gLG = jVar;
     }
 
     public void setMaxScrollCountLimit(int i) {
@@ -157,7 +157,7 @@ public class b {
             this.bUT.it(1);
             this.bUS.setDatas(this.bUT.afr());
             this.bUS.notifyDataSetChanged();
-            this.gLy.setCurrentItem(this.bUT.afq(), false);
+            this.gLz.setCurrentItem(this.bUT.afq(), false);
             if (this.bUT.afp() > 0) {
                 if (this.bUT.afp() > this.bUW) {
                     if (this.bUO != null) {
@@ -186,12 +186,12 @@ public class b {
                         this.bUP.setVisibility(0);
                         if (this.bUP.getCount() != this.bUT.afp()) {
                             this.bUP.setCount(this.bUT.afp());
-                            if (this.gLF != null) {
-                                this.gLF.uY(this.bUT.afp());
+                            if (this.gLG != null) {
+                                this.gLG.uY(this.bUT.afp());
                                 this.bUP.setVisibility(8);
                             }
-                        } else if (this.gLF != null) {
-                            this.gLF.uY(this.bUT.afp());
+                        } else if (this.gLG != null) {
+                            this.gLG.uY(this.bUT.afp());
                             this.bUP.setVisibility(8);
                         }
                     }
@@ -213,17 +213,17 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void afk() {
         int count;
-        if (this.gLy != null && this.bUS != null) {
+        if (this.gLz != null && this.bUS != null) {
             h aI = i.aI(this.mContext);
             if ((aI == null || !aI.isScroll()) && (count = this.bUS.getCount()) >= 2) {
-                int currentItem = this.gLy.getCurrentItem();
+                int currentItem = this.gLz.getCurrentItem();
                 int i = count - 2;
                 if (currentItem < 1) {
-                    this.gLy.setCurrentItem(i, false);
+                    this.gLz.setCurrentItem(i, false);
                 } else if (currentItem > i) {
-                    this.gLy.setCurrentItem(1, false);
+                    this.gLz.setCurrentItem(1, false);
                 } else {
-                    this.gLy.setCurrentItem(currentItem + 1);
+                    this.gLz.setCurrentItem(currentItem + 1);
                 }
             }
         }

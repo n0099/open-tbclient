@@ -50,7 +50,7 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
                 while (it.hasNext()) {
                     Map.Entry<Uri, a> next = it.next();
                     if (next != null && next.getValue() != null && it.hasNext()) {
-                        next.getValue().avg();
+                        next.getValue().avh();
                         it.remove();
                     }
                 }
@@ -62,7 +62,7 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
     public void addPlayer(IMediaPlayer iMediaPlayer, Uri uri) {
         synchronized (QuickMediaPlayerService.class) {
             if (this.mPlayerList.containsKey(uri) && this.mPlayerList.get(uri) != null) {
-                this.mPlayerList.get(uri).avg();
+                this.mPlayerList.get(uri).avh();
             }
             this.mPlayerList.put(uri, new a(iMediaPlayer));
         }
@@ -139,7 +139,7 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
             boolean z = size() > 3;
             V value = entry.getValue();
             if (z && (value instanceof a)) {
-                ((a) value).avg();
+                ((a) value).avh();
             }
             return z;
         }
@@ -158,7 +158,7 @@ public class QuickMediaPlayerService extends Service implements com.baidu.tieba.
             return (obj instanceof a) && this.cJG == ((a) obj).cJG;
         }
 
-        public void avg() {
+        public void avh() {
             if (this.cJG != null) {
                 try {
                     this.cJG.reset();

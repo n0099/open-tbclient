@@ -25,30 +25,30 @@ public class PostCategoryView extends TextView {
     private LinearLayout eIL;
     private View ftQ;
     private TabMenuPopView fub;
-    private boolean jrn;
-    private LinearLayout jro;
-    private Drawable jrp;
-    private Drawable jrq;
+    private boolean jrG;
+    private LinearLayout jrH;
+    private Drawable jrI;
+    private Drawable jrJ;
     private Context mContext;
 
     public PostCategoryView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        this.jrn = false;
-        this.jrp = al.getDrawable(d.f.icon_title_down);
-        this.jrp.setBounds(0, 0, this.jrp.getIntrinsicWidth(), this.jrp.getIntrinsicHeight());
-        this.jrq = al.getDrawable(d.f.icon_title_up);
-        this.jrq.setBounds(0, 0, this.jrq.getIntrinsicWidth(), this.jrp.getIntrinsicHeight());
-        setCompoundDrawables(null, null, this.jrp, null);
+        this.jrG = false;
+        this.jrI = al.getDrawable(d.f.icon_title_down);
+        this.jrI.setBounds(0, 0, this.jrI.getIntrinsicWidth(), this.jrI.getIntrinsicHeight());
+        this.jrJ = al.getDrawable(d.f.icon_title_up);
+        this.jrJ.setBounds(0, 0, this.jrJ.getIntrinsicWidth(), this.jrI.getIntrinsicHeight());
+        setCompoundDrawables(null, null, this.jrI, null);
         setPadding(0, 0, l.h(getContext(), d.e.ds50), 0);
         this.eIL = (LinearLayout) LayoutInflater.from(this.mContext).inflate(d.h.pop_category, (ViewGroup) null);
-        this.jro = (LinearLayout) this.eIL.findViewById(d.g.pop_category_layout);
-        this.fub = (TabMenuPopView) this.jro.findViewById(d.g.pop_category_view);
+        this.jrH = (LinearLayout) this.eIL.findViewById(d.g.pop_category_layout);
+        this.fub = (TabMenuPopView) this.jrH.findViewById(d.g.pop_category_view);
         this.ftQ = this.eIL.findViewById(d.g.pop_category_grav);
         this.ftQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PostCategoryView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PostCategoryView.this.cpW();
+                PostCategoryView.this.cqg();
             }
         });
     }
@@ -65,10 +65,10 @@ public class PostCategoryView extends TextView {
         this.fub.setOnItemClickCallBack(aVar);
     }
 
-    public void cpV() {
-        if (this.jrn) {
-            setCompoundDrawables(null, null, this.jrp, null);
-            this.jrn = false;
+    public void cqf() {
+        if (this.jrG) {
+            setCompoundDrawables(null, null, this.jrI, null);
+            this.jrG = false;
         } else {
             a(this);
             if (this.bui != null) {
@@ -76,8 +76,8 @@ public class PostCategoryView extends TextView {
                 this.bui.setWidthAsWidthOfDeviceScreen((Activity) this.mContext);
                 this.bui.setHeight(-1);
                 this.bui.showWindowInCustomPosition(0, 0);
-                setCompoundDrawables(null, null, this.jrq, null);
-                this.jrn = true;
+                setCompoundDrawables(null, null, this.jrJ, null);
+                this.jrG = true;
             }
         }
         invalidate();
@@ -101,7 +101,7 @@ public class PostCategoryView extends TextView {
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
                     if (postCategoryView != null) {
-                        postCategoryView.cpV();
+                        postCategoryView.cqf();
                     }
                 }
             });
@@ -111,15 +111,15 @@ public class PostCategoryView extends TextView {
     public void aeK() {
         al.l(this, d.C0236d.cp_bg_line_d);
         al.d(this, d.C0236d.cp_cont_b, 1);
-        if (this.jro != null) {
-            al.l(this.jro, d.C0236d.cp_bg_line_d);
+        if (this.jrH != null) {
+            al.l(this.jrH, d.C0236d.cp_bg_line_d);
         }
         if (this.fub != null) {
             this.fub.aeK();
         }
     }
 
-    public void cpW() {
+    public void cqg() {
         if (this.bui != null) {
             this.bui.dismiss();
         }

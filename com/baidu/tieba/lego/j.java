@@ -23,34 +23,34 @@ public class j {
     public final TbImageView Uy;
     public final View csE;
     public final TextView dfo;
-    public final RelativeLayout gFc;
-    public final LinearLayout gFd;
-    public final TbImageView gFe;
+    public final RelativeLayout gFd;
+    public final LinearLayout gFe;
     public final TbImageView gFf;
     public final TbImageView gFg;
-    public final List<TbImageView> gFh;
-    private LegoListActivity gFi;
+    public final TbImageView gFh;
+    public final List<TbImageView> gFi;
+    private LegoListActivity gFj;
     public final NavigationBar mNavigationBar;
 
     public j(LegoListActivity legoListActivity) {
-        this.gFi = legoListActivity;
-        this.mNavigationBar = (NavigationBar) this.gFi.findViewById(d.g.view_navigation_bar);
+        this.gFj = legoListActivity;
+        this.mNavigationBar = (NavigationBar) this.gFj.findViewById(d.g.view_navigation_bar);
         this.csE = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, legoListActivity.faZ);
-        this.gFc = (RelativeLayout) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, d.h.title_textview, (View.OnClickListener) null);
+        this.gFd = (RelativeLayout) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, d.h.title_textview, (View.OnClickListener) null);
         ((LinearLayout) this.mNavigationBar.getViewGroup(NavigationBar.ControlAlign.HORIZONTAL_CENTER)).setGravity(17);
-        this.dfo = (TextView) this.gFc.findViewById(d.g.lego_title);
-        this.Uy = (TbImageView) this.gFc.findViewById(d.g.lego_title_img);
-        this.gFd = (LinearLayout) this.gFc.findViewById(d.g.ll_right);
-        this.gFe = (TbImageView) this.gFd.findViewById(d.g.iv1);
-        this.gFf = (TbImageView) this.gFd.findViewById(d.g.iv2);
-        this.gFg = (TbImageView) this.gFd.findViewById(d.g.iv3);
-        this.gFh = new ArrayList();
-        this.gFh.add(this.gFe);
-        this.gFh.add(this.gFf);
-        this.gFh.add(this.gFg);
+        this.dfo = (TextView) this.gFd.findViewById(d.g.lego_title);
+        this.Uy = (TbImageView) this.gFd.findViewById(d.g.lego_title_img);
+        this.gFe = (LinearLayout) this.gFd.findViewById(d.g.ll_right);
+        this.gFf = (TbImageView) this.gFe.findViewById(d.g.iv1);
+        this.gFg = (TbImageView) this.gFe.findViewById(d.g.iv2);
+        this.gFh = (TbImageView) this.gFe.findViewById(d.g.iv3);
+        this.gFi = new ArrayList();
+        this.gFi.add(this.gFf);
+        this.gFi.add(this.gFg);
+        this.gFi.add(this.gFh);
     }
 
-    public void xR(String str) {
+    public void xS(String str) {
         al.j(this.dfo, d.C0236d.cp_cont_b);
         this.dfo.setVisibility(0);
         this.Uy.setVisibility(8);
@@ -75,11 +75,11 @@ public class j {
 
     public void df(final List<com.baidu.tieba.lego.c.d> list) {
         if (v.T(list)) {
-            this.gFd.setVisibility(8);
+            this.gFe.setVisibility(8);
             return;
         }
         dg(list);
-        this.gFd.postDelayed(new Runnable() { // from class: com.baidu.tieba.lego.j.2
+        this.gFe.postDelayed(new Runnable() { // from class: com.baidu.tieba.lego.j.2
             @Override // java.lang.Runnable
             public void run() {
                 j.this.dg(list);
@@ -107,28 +107,28 @@ public class j {
     /* JADX INFO: Access modifiers changed from: private */
     public void dg(List<com.baidu.tieba.lego.c.d> list) {
         if (!v.T(list)) {
-            this.gFd.setVisibility(0);
-            for (int i = 0; i < list.size() && i < this.gFh.size(); i++) {
-                this.gFh.get(i).setVisibility(0);
+            this.gFe.setVisibility(0);
+            for (int i = 0; i < list.size() && i < this.gFi.size(); i++) {
+                this.gFi.get(i).setVisibility(0);
                 if (list.get(i).type == 2) {
-                    al.c(this.gFh.get(i), d.f.icon_nav_share_n);
+                    al.c(this.gFi.get(i), d.f.icon_nav_share_n);
                 } else if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                    this.gFh.get(i).startLoad(list.get(i).gKU, 10, false);
+                    this.gFi.get(i).startLoad(list.get(i).gKV, 10, false);
                 } else {
-                    this.gFh.get(i).startLoad(list.get(i).pic, 10, false);
+                    this.gFi.get(i).startLoad(list.get(i).pic, 10, false);
                 }
                 if (!TextUtils.isEmpty(list.get(i).scheme)) {
                     final String str = list.get(i).scheme;
                     if (list.get(i).type == 1) {
-                        this.gFh.get(i).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.j.3
+                        this.gFi.get(i).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.j.3
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
-                                q.f(j.this.gFi.getPageContext(), str);
+                                q.f(j.this.gFj.getPageContext(), str);
                             }
                         });
                     } else if (list.get(i).type == 2) {
                         final com.baidu.tieba.lego.c.d dVar = list.get(i);
-                        this.gFh.get(i).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.j.4
+                        this.gFi.get(i).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.j.4
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
                                 j.this.a(dVar);
@@ -140,8 +140,8 @@ public class j {
             int size = list.size();
             while (true) {
                 int i2 = size;
-                if (i2 < this.gFh.size()) {
-                    this.gFh.get(i2).setVisibility(8);
+                if (i2 < this.gFi.size()) {
+                    this.gFi.get(i2).setVisibility(8);
                     size = i2 + 1;
                 } else {
                     return;
@@ -160,16 +160,16 @@ public class j {
             if (parse != null) {
                 dVar2.imageUri = parse;
             }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.gFi.getActivity(), dVar2, true);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.gFj.getActivity(), dVar2, true);
             shareDialogConfig.setIsCopyLink(true);
             shareDialogConfig.setCopyLinkListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.j.5
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     com.baidu.adp.lib.util.a.bh(dVar2.linkUrl);
-                    com.baidu.adp.lib.util.l.showToast(j.this.gFi.getActivity(), view.getResources().getString(d.j.copy_pb_url_success));
+                    com.baidu.adp.lib.util.l.showToast(j.this.gFj.getActivity(), view.getResources().getString(d.j.copy_pb_url_success));
                 }
             });
-            this.gFi.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+            this.gFj.sendMessage(new CustomMessage(2001276, shareDialogConfig));
         }
     }
 }

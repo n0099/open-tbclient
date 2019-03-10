@@ -121,8 +121,8 @@ public class d extends com.baidu.tbadk.editortools.d implements t.a {
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void a(com.baidu.tieba.tbadkCore.location.a aVar) {
-                if (aVar != null && !StringUtils.isNull(aVar.ceT())) {
-                    d.this.b(2, true, aVar.ceT());
+                if (aVar != null && !StringUtils.isNull(aVar.ceU())) {
+                    d.this.b(2, true, aVar.ceU());
                 } else {
                     onFail(null);
                 }
@@ -159,7 +159,7 @@ public class d extends com.baidu.tbadk.editortools.d implements t.a {
                     writeData2.setVcodeMD5(xVar.getVcode_md5());
                     writeData2.setVcodeUrl(xVar.getVcode_pic_url());
                     writeData2.setVcodeExtra(xVar.agE());
-                    if (com.baidu.tbadk.u.a.pU(xVar.agD())) {
+                    if (com.baidu.tbadk.u.a.pV(xVar.agD())) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(d.this.mContext.getActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG, writeData2, false, xVar.agD())));
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(d.this.mContext.getActivity(), writeData2, IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG)));
@@ -420,18 +420,18 @@ public class d extends com.baidu.tbadk.editortools.d implements t.a {
             this.mContext.showToast(d.j.location_system_permission_prompt);
         } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
             amy();
-        } else if (this.ckd.cfa()) {
+        } else if (this.ckd.cfb()) {
             amv();
         } else {
             this.ckd.qb(false);
             b(1, true, null);
-            this.ckd.ceY();
+            this.ckd.ceZ();
         }
     }
 
     public void amx() {
-        if (this.ckd != null && !com.baidu.tieba.tbadkCore.location.c.ceW().ceX() && UtilHelper.isSystemLocationProviderEnabled(this.mContext.getActivity()) && TbadkCoreApplication.getInst().getLocationShared()) {
-            this.ckd.ceY();
+        if (this.ckd != null && !com.baidu.tieba.tbadkCore.location.c.ceX().ceY() && UtilHelper.isSystemLocationProviderEnabled(this.mContext.getActivity()) && TbadkCoreApplication.getInst().getLocationShared()) {
+            this.ckd.ceZ();
         }
     }
 
@@ -442,7 +442,7 @@ public class d extends com.baidu.tbadk.editortools.d implements t.a {
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 if (j.kY()) {
                     d.this.b(1, true, null);
-                    d.this.ckd.aNJ();
+                    d.this.ckd.aNK();
                 } else {
                     d.this.ckq.amK();
                 }
@@ -459,13 +459,13 @@ public class d extends com.baidu.tbadk.editortools.d implements t.a {
     }
 
     public void amz() {
-        if (this.ckd.aNF()) {
-            if (this.ckd.cfa()) {
-                this.ckq.a(com.baidu.tieba.tbadkCore.location.c.ceW().getLocationData());
+        if (this.ckd.aNG()) {
+            if (this.ckd.cfb()) {
+                this.ckq.a(com.baidu.tieba.tbadkCore.location.c.ceX().getLocationData());
                 return;
             }
             if (l.lo()) {
-                this.ckd.ceY();
+                this.ckd.ceZ();
             }
             b(0, true, null);
             return;
@@ -683,7 +683,7 @@ public class d extends com.baidu.tbadk.editortools.d implements t.a {
         if (!StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble()) && alT() != null) {
             alT().b(new com.baidu.tbadk.editortools.a(2, 12, " "));
         }
-        if (!this.ckd.aNF() && alT() != null) {
+        if (!this.ckd.aNG() && alT() != null) {
             alT().b(new com.baidu.tbadk.editortools.a(20, 8, null));
         }
         if (this.writeImagesInfo != null && this.writeImagesInfo.getChosedFiles() != null && this.writeImagesInfo.getChosedFiles().size() > 0) {
@@ -719,7 +719,7 @@ public class d extends com.baidu.tbadk.editortools.d implements t.a {
             this.cke.getWriteData().setVideoInfo(this.mVideoInfo);
             this.cke.qd(this.writeImagesInfo.size() > 0);
             WriteData writeData2 = this.cke.getWriteData();
-            if (this.ckd == null || !this.ckd.aNF()) {
+            if (this.ckd == null || !this.ckd.aNG()) {
                 z = false;
             }
             writeData2.setHasLocationData(z);
@@ -738,7 +738,7 @@ public class d extends com.baidu.tbadk.editortools.d implements t.a {
                 this.cke.getWriteData().setVoice(null);
                 this.cke.getWriteData().setVoiceDuringTime(-1);
             }
-            if (!this.cke.cfC()) {
+            if (!this.cke.cfD()) {
                 this.mContext.showToast(d.j.write_img_limit);
             } else if (this.ckm == null || !this.ckm.amr()) {
                 if (this.ckl != null) {

@@ -13,7 +13,7 @@ public class c {
 
     public static void a(Application application, boolean z) {
         fM(z);
-        if (axV()) {
+        if (axW()) {
             e(application);
             f(application);
         }
@@ -29,16 +29,16 @@ public class c {
     private static void f(Application application) {
         com.facebook.drawee.a.a.c.initialize(application);
         if (ProcessUtils.isMainProcess()) {
-            axU();
+            axV();
             e.Bf().l(null);
         }
-        a.dy(application).axR();
+        a.dy(application).axS();
         if (com.baidu.swan.apps.c.DEBUG) {
             com.baidu.swan.apps.am.a.G(0, 1);
         }
     }
 
-    private static void axU() {
+    private static void axV() {
         if (com.baidu.swan.apps.core.pms.a.vq()) {
             if (!com.baidu.swan.pms.c.a.AF() && com.baidu.swan.apps.c.DEBUG) {
                 Log.i("SwanAppInitHelper", "在MaxAge时间周期内，不做UpdateCore请求");
@@ -56,7 +56,7 @@ public class c {
         cQW = z;
     }
 
-    public static boolean axV() {
+    public static boolean axW() {
         return !cQW || com.baidu.swan.apps.an.a.hasLollipop();
     }
 }

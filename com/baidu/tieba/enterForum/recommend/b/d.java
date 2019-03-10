@@ -25,7 +25,7 @@ public class d extends com.baidu.tieba.card.data.b {
         this.title = str;
     }
 
-    public int aXe() {
+    public int aXf() {
         return this.eER;
     }
 
@@ -41,7 +41,7 @@ public class d extends com.baidu.tieba.card.data.b {
         this.forumList = list;
     }
 
-    public List<c> aXf() {
+    public List<c> aXg() {
         return this.eET;
     }
 
@@ -49,45 +49,45 @@ public class d extends com.baidu.tieba.card.data.b {
         this.eET = list;
     }
 
-    public List<c> aXg() {
+    public List<c> aXh() {
         if (getForumList().size() <= 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
         if (this.eER == 2) {
-            if (aXh() != null) {
-                arrayList.add(aXh());
+            if (aXi() != null) {
+                arrayList.add(aXi());
             }
         } else {
-            c aXh = aXh();
-            c aXh2 = aXh();
-            if (aXh != null) {
-                arrayList.add(aXh);
+            c aXi = aXi();
+            c aXi2 = aXi();
+            if (aXi != null) {
+                arrayList.add(aXi);
             }
-            if (aXh2 != null) {
-                arrayList.add(aXh2);
+            if (aXi2 != null) {
+                arrayList.add(aXi2);
             }
         }
         bA(arrayList);
         return arrayList;
     }
 
-    private c aXh() {
+    private c aXi() {
         if (getForumList().size() <= 0) {
             return null;
         }
-        b aXi = aXi();
-        b aXi2 = aXi();
-        if (aXi == null && aXi2 == null) {
+        b aXj = aXj();
+        b aXj2 = aXj();
+        if (aXj == null && aXj2 == null) {
             return null;
         }
         c cVar = new c();
-        cVar.b(aXi);
-        cVar.a(aXi2);
+        cVar.b(aXj);
+        cVar.a(aXj2);
         return cVar;
     }
 
-    private b aXi() {
+    private b aXj() {
         b bVar;
         if (this.eES < getForumList().size()) {
             bVar = getForumList().get(this.eES);

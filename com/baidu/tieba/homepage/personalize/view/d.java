@@ -49,11 +49,11 @@ public class d extends com.baidu.tieba.play.operableVideoView.c {
             }
         };
         pe(true);
-        bmZ();
+        bna();
     }
 
-    protected void bmZ() {
-        this.ehM = new com.baidu.afd.videopaster.d(this.mContext, (ViewGroup) bSW());
+    protected void bna() {
+        this.ehM = new com.baidu.afd.videopaster.d(this.mContext, (ViewGroup) bSX());
         this.ehM.a(new d.a() { // from class: com.baidu.tieba.homepage.personalize.view.d.1
             @Override // com.baidu.afd.videopaster.d.a
             public void qs() {
@@ -61,14 +61,14 @@ public class d extends com.baidu.tieba.play.operableVideoView.c {
 
             @Override // com.baidu.afd.videopaster.d.a
             public void qr() {
-                d.this.xs(d.this.hZv);
-                d.this.hZz |= 1;
-                d.this.xs(d.this.hZz);
+                d.this.xs(d.this.hZw);
+                d.this.hZA |= 1;
+                d.this.xs(d.this.hZA);
             }
 
             @Override // com.baidu.afd.videopaster.d.a
             public void qq() {
-                d.this.bUi();
+                d.this.bUj();
             }
 
             @Override // com.baidu.afd.videopaster.d.a
@@ -79,11 +79,11 @@ public class d extends com.baidu.tieba.play.operableVideoView.c {
         a(new c.a() { // from class: com.baidu.tieba.homepage.personalize.view.d.2
             @Override // com.baidu.tieba.play.operableVideoView.c.a
             public void bx(int i, int i2) {
-                if (!d.this.bUk()) {
+                if (!d.this.bUl()) {
                     if (i2 >= i) {
-                        if (d.this.ehM.a(d.this.isFullScreen(), d.this.hZT, "NEWINDEX")) {
+                        if (d.this.ehM.a(d.this.isFullScreen(), d.this.hZU, "NEWINDEX")) {
                         }
-                    } else if (i != 0 && !d.this.hZT && (i2 * 100) / i >= 80 && i > 15000) {
+                    } else if (i != 0 && !d.this.hZU && (i2 * 100) / i >= 80 && i > 15000) {
                         d.this.at(d.this.XR);
                     }
                 }
@@ -111,10 +111,10 @@ public class d extends com.baidu.tieba.play.operableVideoView.c {
 
     @Override // com.baidu.tieba.play.operableVideoView.c, com.baidu.tieba.play.g.a
     public void onCompletion(g gVar) {
-        if (!this.ehM.a(isFullScreen(), this.hZT, "NEWINDEX")) {
-            xs(this.hZv);
-            this.hZz |= 1;
-            xs(this.hZz);
+        if (!this.ehM.a(isFullScreen(), this.hZU, "NEWINDEX")) {
+            xs(this.hZw);
+            this.hZA |= 1;
+            xs(this.hZA);
         }
     }
 
@@ -220,7 +220,7 @@ public class d extends com.baidu.tieba.play.operableVideoView.c {
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.c
-    protected int bna() {
+    protected int bnb() {
         return 1;
     }
 

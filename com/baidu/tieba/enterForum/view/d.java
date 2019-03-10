@@ -55,7 +55,7 @@ public class d extends g {
     private void createView() {
         if (this.eHl != null && this.eku != null && this.ekr != null) {
             this.eku.clear();
-            this.eku.add(new f(1, getString(this.eHl.aWk() == 1 ? d.j.cancel_top : d.j.top, new Object[0]), this.ekr));
+            this.eku.add(new f(1, getString(this.eHl.aWl() == 1 ? d.j.cancel_top : d.j.top, new Object[0]), this.ekr));
             this.eku.add(new f(2, getString(d.j.delete, new Object[0]), this.ekr));
             this.ekr.P(this.eku);
         }

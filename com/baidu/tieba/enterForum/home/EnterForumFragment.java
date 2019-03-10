@@ -35,7 +35,7 @@ public class EnterForumFragment extends BaseFragment {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof BdUniqueId) && ((BdUniqueId) customResponsedMessage.getData()) != null && EnterForumFragment.this.isVisible() && TbadkCoreApplication.getInst().getCurrentActivity() == EnterForumFragment.this.getActivity() && EnterForumFragment.this.eCv != null) {
-                EnterForumFragment.this.eCv.aWE();
+                EnterForumFragment.this.eCv.aWF();
             }
         }
     };
@@ -48,7 +48,7 @@ public class EnterForumFragment extends BaseFragment {
                     EnterForumFragment.this.eCv.iv(true);
                 }
                 if (EnterForumFragment.this.eCw != null) {
-                    EnterForumFragment.this.eCw.aBF();
+                    EnterForumFragment.this.eCw.aBG();
                 }
             }
         }
@@ -57,13 +57,13 @@ public class EnterForumFragment extends BaseFragment {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371 && com.baidu.tieba.enterForum.model.b.aWZ()) {
-                com.baidu.tieba.enterForum.model.b.aXa();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371 && com.baidu.tieba.enterForum.model.b.aXa()) {
+                com.baidu.tieba.enterForum.model.b.aXb();
             }
         }
     };
 
-    public ObservedChangeLinearLayout aWw() {
+    public ObservedChangeLinearLayout aWx() {
         return this.eCA;
     }
 
@@ -88,18 +88,18 @@ public class EnterForumFragment extends BaseFragment {
         this.eCw = cVar;
     }
 
-    public c aWx() {
+    public c aWy() {
         return this.eCw;
     }
 
-    public void aWy() {
-        aWz();
+    public void aWz() {
+        aWA();
         if (this.eCv != null) {
             this.eCv.loadData();
         }
     }
 
-    private void aWz() {
+    private void aWA() {
         if (this.eCv != null) {
             this.eCv.ix(true);
         }
@@ -109,7 +109,7 @@ public class EnterForumFragment extends BaseFragment {
     public void onPrimary() {
         super.onPrimary();
         if (isAdded() && isPrimary()) {
-            aWy();
+            aWz();
             if (this.eCv != null) {
                 refreshImage(this.eCv.getView());
             }

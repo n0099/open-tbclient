@@ -28,12 +28,12 @@ public class MoreButton extends TextView {
             return;
         }
         setVisibility(0);
-        setText(cVar.bzX());
-        if (!TextUtils.isEmpty(cVar.bzZ())) {
+        setText(cVar.bzY());
+        if (!TextUtils.isEmpty(cVar.bAa())) {
             setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.view.MoreButton.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    q.f(tbPageContext, cVar.bzZ());
+                    q.f(tbPageContext, cVar.bAa());
                 }
             });
         } else {

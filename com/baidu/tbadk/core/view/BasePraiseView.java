@@ -235,7 +235,7 @@ public abstract class BasePraiseView<T> extends LinearLayout {
         amVar.T("obj_type", getObjType());
         amVar.T("obj_locate", getObjLocate());
         amVar.T(VideoPlayActivityConfig.OBJ_ID, z ? 1 : 0);
-        amVar.T("obj_param1", com.baidu.tbadk.util.a.apM().afN() ? 1 : 0);
+        amVar.T("obj_param1", com.baidu.tbadk.util.a.apN().afN() ? 1 : 0);
         TiebaStatic.log(amVar);
     }
 

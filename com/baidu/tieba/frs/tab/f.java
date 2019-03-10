@@ -89,7 +89,7 @@ public class f implements a {
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             if (f.this.ftY != null) {
-                f.this.ftY.biq();
+                f.this.ftY.bir();
             }
             if (f.this.mAdapter != null && f.this.ftD != null) {
                 for (ar arVar : f.this.mData) {
@@ -122,7 +122,7 @@ public class f implements a {
         if (context != null && eVar != null) {
             this.mContext = context;
             this.ftY = eVar;
-            this.ftD = eVar.bir();
+            this.ftD = eVar.bis();
             initView();
         }
     }
@@ -139,7 +139,7 @@ public class f implements a {
     }
 
     @Override // com.baidu.tieba.frs.tab.a
-    public int bio() {
+    public int bip() {
         return 0;
     }
 }

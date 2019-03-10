@@ -13,11 +13,11 @@ public class AccountSafeModel extends BdBaseModel {
     private boolean csf;
     private boolean mFinished;
 
-    public com.baidu.tieba.setting.im.more.a awx() {
+    public com.baidu.tieba.setting.im.more.a awy() {
         return this.cMZ;
     }
 
-    public String awy() {
+    public String awz() {
         return this.cNa;
     }
 
@@ -39,40 +39,40 @@ public class AccountSafeModel extends BdBaseModel {
         return false;
     }
 
-    private PrivateInfoNetMessage awz() {
+    private PrivateInfoNetMessage awA() {
         return new PrivateInfoNetMessage();
     }
 
-    public boolean awA() {
+    public boolean awB() {
         if (this.csf) {
             return false;
         }
         this.csf = true;
         this.mFinished = false;
-        sendMessage(awz());
+        sendMessage(awA());
         return true;
     }
 
     public void a(com.baidu.tieba.setting.im.more.a aVar) {
         this.cMZ = aVar;
-        awB();
+        awC();
     }
 
-    private void awB() {
-        SimpleUser awC = awC();
-        if (awC != null) {
-            this.cNb = awC.secureemail;
-            this.cNc = awC.securemobil;
-            this.cNa = awC.ahead_url;
+    private void awC() {
+        SimpleUser awD = awD();
+        if (awD != null) {
+            this.cNb = awD.secureemail;
+            this.cNc = awD.securemobil;
+            this.cNa = awD.ahead_url;
             this.mFinished = true;
         }
     }
 
-    private SimpleUser awC() {
-        if (this.cMZ == null || this.cMZ.awC() == null) {
+    private SimpleUser awD() {
+        if (this.cMZ == null || this.cMZ.awD() == null) {
             return null;
         }
-        return this.cMZ.awC();
+        return this.cMZ.awD();
     }
 
     public boolean qz() {

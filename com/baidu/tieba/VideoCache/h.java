@@ -9,23 +9,23 @@ public class h {
     private long cLL = 0;
     private long cLM = 0;
 
-    public String avK() {
+    public String avL() {
         return this.cLH;
     }
 
-    public void qv(String str) {
+    public void qw(String str) {
         this.cLH = str;
     }
 
-    public String avL() {
+    public String avM() {
         return this.bsH;
     }
 
-    public void qw(String str) {
+    public void qx(String str) {
         this.bsH = str;
     }
 
-    public boolean avM() {
+    public boolean avN() {
         return this.cLI;
     }
 
@@ -33,7 +33,7 @@ public class h {
         this.cLI = z;
     }
 
-    public long avN() {
+    public long avO() {
         return this.cLJ;
     }
 
@@ -41,7 +41,7 @@ public class h {
         this.cLJ = j;
     }
 
-    public long avO() {
+    public long avP() {
         return this.cLK;
     }
 
@@ -61,7 +61,7 @@ public class h {
         this.cLM = j;
     }
 
-    public long avP() {
+    public long avQ() {
         return this.cLM;
     }
 }

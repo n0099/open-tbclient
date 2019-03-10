@@ -41,13 +41,13 @@ public class DeliveryEditActivity extends TbSwanAppBaseActivity implements b.a {
     private void init() {
         this.cRz = new EditAddressView(this, this.cRy);
         setContentView(this.cRz);
-        ayd();
+        aye();
         this.cRz.setDeliveryEditChangedListener(this);
-        if (!c.ayu().ayv()) {
+        if (!c.ayv().ayw()) {
             j.a(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryEditActivity.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    c.ayu().initData();
+                    c.ayv().initData();
                 }
             }, "initRegionData");
         }
@@ -60,37 +60,37 @@ public class DeliveryEditActivity extends TbSwanAppBaseActivity implements b.a {
         }
     }
 
-    private void ayd() {
-        SwanAppBdActionBar axX = axX();
-        if (axX != null) {
-            axX.setLeftFirstViewVisibility(false);
-            axX.setRightExitViewVisibility(false);
-            axX.setLeftSecondViewVisibility(0);
-            axX.setLeftSecondViewText(getString(d.j.delivery_cancel));
-            axX.setLeftSecondViewClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryEditActivity.2
+    private void aye() {
+        SwanAppBdActionBar axY = axY();
+        if (axY != null) {
+            axY.setLeftFirstViewVisibility(false);
+            axY.setRightExitViewVisibility(false);
+            axY.setLeftSecondViewVisibility(0);
+            axY.setLeftSecondViewText(getString(d.j.delivery_cancel));
+            axY.setLeftSecondViewClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryEditActivity.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    DeliveryEditActivity.this.ayf();
+                    DeliveryEditActivity.this.ayg();
                 }
             });
-            axX.setRightTxtZone2Visibility(0);
-            axX.setRightImgZone2Enable(false);
-            axX.setRightTxtZone2Text(d.j.delivery_save);
+            axY.setRightTxtZone2Visibility(0);
+            axY.setRightImgZone2Enable(false);
+            axY.setRightTxtZone2Text(d.j.delivery_save);
             fP(false);
             if (TextUtils.equals(this.mType, "update")) {
-                axX.setTitle(d.j.delivery_title_edit);
+                axY.setTitle(d.j.delivery_title_edit);
             } else if (TextUtils.equals(this.mType, "add")) {
-                axX.setTitle(d.j.delivery_title_add);
+                axY.setTitle(d.j.delivery_title_add);
             }
         }
     }
 
-    private boolean aye() {
-        return this.cRz.getEditAdapter().aye();
+    private boolean ayf() {
+        return this.cRz.getEditAdapter().ayf();
     }
 
-    public void ayf() {
-        if (aye()) {
+    public void ayg() {
+        if (ayf()) {
             this.cRA = new e.a(this).gd("退出后已编辑的信息不会保存").d("退出编辑").c("确定", new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryEditActivity.3
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -111,17 +111,17 @@ public class DeliveryEditActivity extends TbSwanAppBaseActivity implements b.a {
     }
 
     public void fP(boolean z) {
-        SwanAppBdActionBar axX = axX();
-        if (axX != null) {
+        SwanAppBdActionBar axY = axY();
+        if (axY != null) {
             if (z) {
-                axX.setRightTxtZone2OnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryEditActivity.4
+                axY.setRightTxtZone2OnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.DeliveryEditActivity.4
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        DeliveryEditActivity.this.ayg();
+                        DeliveryEditActivity.this.ayh();
                     }
                 });
             } else {
-                axX.setRightTxtZone2OnClickListener(null);
+                axY.setRightTxtZone2OnClickListener(null);
             }
             this.cRB = z;
             fQ(com.baidu.swan.apps.u.a.CT().Ds());
@@ -130,8 +130,8 @@ public class DeliveryEditActivity extends TbSwanAppBaseActivity implements b.a {
 
     private void fQ(boolean z) {
         int parseColor;
-        SwanAppBdActionBar axX = axX();
-        if (axX != null) {
+        SwanAppBdActionBar axY = axY();
+        if (axY != null) {
             if (z) {
                 if (this.cRB) {
                     parseColor = Color.parseColor("#1D3A7F");
@@ -143,11 +143,11 @@ public class DeliveryEditActivity extends TbSwanAppBaseActivity implements b.a {
             } else {
                 parseColor = Color.parseColor("#33666666");
             }
-            axX.setRightTxtZone1TextColor(parseColor);
+            axY.setRightTxtZone1TextColor(parseColor);
         }
     }
 
-    public void ayg() {
+    public void ayh() {
         Map<String, Object> deliveryEditData = this.cRz.getDeliveryEditData();
         if (o(deliveryEditData)) {
             final com.baidu.tieba.aiapps.apps.address.c.b r = com.baidu.tieba.aiapps.apps.address.c.b.r(deliveryEditData);
@@ -184,16 +184,16 @@ public class DeliveryEditActivity extends TbSwanAppBaseActivity implements b.a {
                     }
 
                     @Override // com.baidu.tieba.aiapps.apps.address.b.a.C0226a, com.baidu.tieba.aiapps.apps.address.b.b
-                    public void rq(String str) {
+                    public void rr(String str) {
                         DeliveryEditActivity.this.dismissLoading();
                         com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), str).IK();
                     }
                 };
                 showLoading();
                 if (!TextUtils.isEmpty(r.id)) {
-                    com.baidu.tieba.aiapps.apps.address.b.a.ayp().c(r, c0226a);
+                    com.baidu.tieba.aiapps.apps.address.b.a.ayq().c(r, c0226a);
                 } else {
-                    com.baidu.tieba.aiapps.apps.address.b.a.ayp().a(r, c0226a);
+                    com.baidu.tieba.aiapps.apps.address.b.a.ayq().a(r, c0226a);
                 }
             }
         }
@@ -202,13 +202,13 @@ public class DeliveryEditActivity extends TbSwanAppBaseActivity implements b.a {
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(com.baidu.tieba.aiapps.apps.address.c.b bVar, String str) {
         boolean z;
-        bVar.ayC();
-        List<com.baidu.tieba.aiapps.apps.address.c.b> ays = com.baidu.tieba.aiapps.apps.address.b.a.ayp().ays();
+        bVar.ayD();
+        List<com.baidu.tieba.aiapps.apps.address.c.b> ayt = com.baidu.tieba.aiapps.apps.address.b.a.ayq().ayt();
         if (TextUtils.equals(str, "add")) {
-            if (ays.size() == 0) {
+            if (ayt.size() == 0) {
                 bVar.cSz = true;
             }
-            ays.add(0, bVar);
+            ayt.add(0, bVar);
             z = true;
         } else {
             z = false;
@@ -216,15 +216,15 @@ public class DeliveryEditActivity extends TbSwanAppBaseActivity implements b.a {
         if (TextUtils.equals(str, "update")) {
             int i = 0;
             while (true) {
-                if (i >= ays.size()) {
+                if (i >= ayt.size()) {
                     break;
                 }
-                com.baidu.tieba.aiapps.apps.address.c.b bVar2 = ays.get(i);
+                com.baidu.tieba.aiapps.apps.address.c.b bVar2 = ayt.get(i);
                 if (!TextUtils.equals(bVar2.id, bVar.id)) {
                     i++;
                 } else {
                     bVar2.f(bVar);
-                    ays.add(0, ays.remove(i));
+                    ayt.add(0, ayt.remove(i));
                     z = true;
                     break;
                 }
@@ -236,10 +236,10 @@ public class DeliveryEditActivity extends TbSwanAppBaseActivity implements b.a {
     }
 
     private boolean o(Map<String, Object> map) {
-        if (map.containsKey(ISapiAccount.SAPI_ACCOUNT_PHONE) && !com.baidu.tieba.aiapps.apps.address.c.b.rt(String.valueOf(map.get(ISapiAccount.SAPI_ACCOUNT_PHONE)))) {
+        if (map.containsKey(ISapiAccount.SAPI_ACCOUNT_PHONE) && !com.baidu.tieba.aiapps.apps.address.c.b.ru(String.valueOf(map.get(ISapiAccount.SAPI_ACCOUNT_PHONE)))) {
             com.baidu.swan.apps.res.widget.b.d.a(this, "电话号码格式不正确").IK();
             return false;
-        } else if (map.containsKey("zipcode") && !com.baidu.tieba.aiapps.apps.address.c.b.ru(String.valueOf(map.get("zipcode")))) {
+        } else if (map.containsKey("zipcode") && !com.baidu.tieba.aiapps.apps.address.c.b.rv(String.valueOf(map.get("zipcode")))) {
             com.baidu.swan.apps.res.widget.b.d.a(this, "邮编格式不正确").IK();
             return false;
         } else {

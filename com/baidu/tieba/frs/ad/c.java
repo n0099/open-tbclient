@@ -35,27 +35,27 @@ public class c extends com.baidu.tieba.card.data.b {
         }
     }
 
-    public int beC() {
+    public int beD() {
         return this.fdV;
     }
 
-    public String beD() {
+    public String beE() {
         return this.fdS;
     }
 
-    public String beE() {
+    public String beF() {
         return this.bwC;
     }
 
-    public String beF() {
+    public String beG() {
         return this.fdT;
     }
 
-    public String apP() {
+    public String apQ() {
         return this.bwD;
     }
 
-    public List<MediaData> beG() {
+    public List<MediaData> beH() {
         return this.fdU;
     }
 
@@ -63,7 +63,7 @@ public class c extends com.baidu.tieba.card.data.b {
         this.isLast = z;
     }
 
-    public boolean beH() {
+    public boolean beI() {
         return this.isLast;
     }
 

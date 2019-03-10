@@ -203,7 +203,7 @@ public class TiebaSyncService extends BdBaseService {
             super.onPostExecute(dVar);
             TiebaSyncService.this.mSyncTask = null;
             if (dVar != null) {
-                com.baidu.tbadk.util.b.apN().apO();
+                com.baidu.tbadk.util.b.apO().apP();
                 TiebaSyncService.this.mModel = dVar;
                 com.baidu.tieba.a.a(TiebaSyncService.this.mModel.aiR());
                 if (TiebaSyncService.this.mModel.aiO().hasNewVer() && TbConfig.COULD_UPDATE) {
@@ -340,7 +340,7 @@ public class TiebaSyncService extends BdBaseService {
                     TbadkCoreApplication.getInst().setActivitySwitch(TiebaSyncService.this.mModel.getActivitySwitch());
                 }
                 if (TiebaSyncService.this.mModel.aiU() != null) {
-                    com.baidu.tbadk.util.a.apM().a(TiebaSyncService.this.mModel.aiU());
+                    com.baidu.tbadk.util.a.apN().a(TiebaSyncService.this.mModel.aiU());
                 }
                 if (TiebaSyncService.this.mModel.aiW() != null) {
                     com.baidu.tbadk.a.b.UD().v(TiebaSyncService.this.mModel.aiW());

@@ -26,7 +26,7 @@ public class b {
         public void lI(int i) {
             b.this.mSortType = i;
             TiebaStatic.log(new am("c13369").T("obj_type", i == 1 ? 2 : 1));
-            b.this.aWF();
+            b.this.aWG();
             if (b.this.eDf != null) {
                 b.this.eDf.pc(b.this.mSortType);
             }
@@ -35,7 +35,7 @@ public class b {
     private View.OnClickListener bQJ = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!b.this.eBe.aXF() && view == b.this.mTitle) {
+            if (!b.this.eBe.aXG() && view == b.this.mTitle) {
                 if (b.this.eDe == null) {
                     b.this.eDe = new com.baidu.tieba.enterForum.view.a(b.this.mContext);
                     b.this.eDe.setOnDismissListener(b.this.mOnDismissListener);
@@ -78,8 +78,8 @@ public class b {
         this.mTitle = textView;
     }
 
-    public void aWF() {
-        if (aWG() && this.mTitle != null) {
+    public void aWG() {
+        if (aWH() && this.mTitle != null) {
             switch (this.mSortType) {
                 case 1:
                     this.mTitle.setText(d.j.level_sort);
@@ -92,14 +92,14 @@ public class b {
         }
     }
 
-    public boolean aWG() {
+    public boolean aWH() {
         return this.mSortType == 1 || this.mSortType == 2;
     }
 
     public void setSortType(int i) {
-        if (aWG()) {
+        if (aWH()) {
             this.mSortType = i;
-            aWF();
+            aWG();
         }
     }
 

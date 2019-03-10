@@ -45,7 +45,7 @@ public class f extends com.baidu.tieba.card.data.h implements p {
         }
     }
 
-    public boolean axu() {
+    public boolean axv() {
         return v.S(getDataList()) > 2;
     }
 
@@ -58,7 +58,7 @@ public class f extends com.baidu.tieba.card.data.h implements p {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean aQV() {
+    public boolean aQW() {
         return true;
     }
 

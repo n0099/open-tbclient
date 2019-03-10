@@ -36,16 +36,16 @@ import java.util.List;
 public class HorizontalScrollListView extends MyHorizontalScrollView {
     private LinearLayout cyp;
     private final ArrayList<a> cyq;
-    private boolean gLH;
-    int gLI;
-    private TbPageContext gLJ;
+    private boolean gLI;
+    int gLJ;
+    private TbPageContext gLK;
     private int height;
     private int mSkinType;
     private int width;
 
     public HorizontalScrollListView(Context context) {
         super(context);
-        this.gLH = false;
+        this.gLI = false;
         this.cyq = new ArrayList<>();
         this.mSkinType = 3;
         initView(context);
@@ -53,7 +53,7 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
 
     public HorizontalScrollListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.gLH = false;
+        this.gLI = false;
         this.cyq = new ArrayList<>();
         this.mSkinType = 3;
         initView(context);
@@ -61,14 +61,14 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
 
     public HorizontalScrollListView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.gLH = false;
+        this.gLI = false;
         this.cyq = new ArrayList<>();
         this.mSkinType = 3;
         initView(context);
     }
 
     private void initView(Context context) {
-        this.gLI = (int) context.getResources().getDimension(d.e.ds36);
+        this.gLJ = (int) context.getResources().getDimension(d.e.ds36);
         this.width = (int) context.getResources().getDimension(d.e.ds102);
         this.height = (int) context.getResources().getDimension(d.e.ds102);
         setHorizontalFadingEdgeEnabled(false);
@@ -82,11 +82,11 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
     }
 
     public void setRound(boolean z) {
-        this.gLH = z;
+        this.gLI = z;
         if (z) {
-            this.gLI = (int) getResources().getDimension(d.e.ds36);
+            this.gLJ = (int) getResources().getDimension(d.e.ds36);
         } else {
-            this.gLI = (int) getResources().getDimension(d.e.ds18);
+            this.gLJ = (int) getResources().getDimension(d.e.ds18);
         }
     }
 
@@ -99,7 +99,7 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
         } else {
             dimensionPixelSize = getResources().getDimensionPixelSize(d.e.ds24);
         }
-        this.width = (int) (((getResources().getDisplayMetrics().widthPixels - dimensionPixelSize) - (this.gLI * (((int) (0.5d + d)) - 1))) / d);
+        this.width = (int) (((getResources().getDisplayMetrics().widthPixels - dimensionPixelSize) - (this.gLJ * (((int) (0.5d + d)) - 1))) / d);
     }
 
     public void setRatio(double d) {
@@ -108,7 +108,7 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
 
     public void setData(List<HorRankCard.a> list, TbPageContext tbPageContext) {
         if (v.S(list) > 0 && tbPageContext != null) {
-            this.gLJ = tbPageContext;
+            this.gLK = tbPageContext;
             int S = v.S(this.cyq);
             int S2 = v.S(list);
             if (S > S2) {
@@ -142,14 +142,14 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
     }
 
     private View oM() {
-        return View.inflate(this.gLJ.getPageActivity(), d.h.card_horizontal_rank_list_item, null);
+        return View.inflate(this.gLK.getPageActivity(), d.h.card_horizontal_rank_list_item, null);
     }
 
     private void a(RelativeLayout.LayoutParams layoutParams, int i) {
         if (i == 0) {
             layoutParams.leftMargin = getResources().getDimensionPixelSize(d.e.ds24);
         } else {
-            layoutParams.leftMargin = this.gLI;
+            layoutParams.leftMargin = this.gLJ;
         }
     }
 
@@ -161,121 +161,121 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
                 view.setPadding(0, 0, 0, l.h(getContext(), d.e.ds24));
             }
             a aVar2 = (a) view.getTag();
-            if (this.gLH) {
-                aVar2.gLR.setIsRound(true);
-                aVar2.gLU.setVisibility(8);
+            if (this.gLI) {
+                aVar2.gLS.setIsRound(true);
+                aVar2.gLV.setVisibility(8);
                 if (aVar.rank <= 0) {
-                    aVar2.gLN.setVisibility(8);
                     aVar2.gLO.setVisibility(8);
+                    aVar2.gLP.setVisibility(8);
                 } else {
                     switch (aVar.rank) {
                         case 1:
-                            aVar2.gLN.setVisibility(0);
-                            al.c(aVar2.gLN, d.f.icon_grade_star_no1);
-                            aVar2.gLO.setVisibility(8);
+                            aVar2.gLO.setVisibility(0);
+                            al.c(aVar2.gLO, d.f.icon_grade_star_no1);
+                            aVar2.gLP.setVisibility(8);
                             break;
                         case 2:
-                            aVar2.gLN.setVisibility(0);
-                            al.c(aVar2.gLN, d.f.icon_grade_star_no2);
-                            aVar2.gLO.setVisibility(8);
+                            aVar2.gLO.setVisibility(0);
+                            al.c(aVar2.gLO, d.f.icon_grade_star_no2);
+                            aVar2.gLP.setVisibility(8);
                             break;
                         case 3:
-                            aVar2.gLN.setVisibility(0);
-                            al.c(aVar2.gLN, d.f.icon_grade_star_no3);
-                            aVar2.gLO.setVisibility(8);
+                            aVar2.gLO.setVisibility(0);
+                            al.c(aVar2.gLO, d.f.icon_grade_star_no3);
+                            aVar2.gLP.setVisibility(8);
                             break;
                         default:
-                            aVar2.gLO.setVisibility(0);
-                            aVar2.gLP.getDrawable().setColorFilter(al.getColor(d.C0236d.cp_bg_line_a), PorterDuff.Mode.SRC);
-                            aVar2.gLN.setVisibility(8);
-                            al.j(aVar2.gLQ, d.C0236d.cp_cont_g);
-                            aVar2.gLQ.setText("" + (i + 1));
+                            aVar2.gLP.setVisibility(0);
+                            aVar2.gLQ.getDrawable().setColorFilter(al.getColor(d.C0236d.cp_bg_line_a), PorterDuff.Mode.SRC);
+                            aVar2.gLO.setVisibility(8);
+                            al.j(aVar2.gLR, d.C0236d.cp_cont_g);
+                            aVar2.gLR.setText("" + (i + 1));
                             break;
                     }
                 }
             } else {
-                aVar2.gLR.setIsRound(false);
-                al.j(aVar2.gLU, d.C0236d.cp_cont_g);
-                aVar2.gLN.setVisibility(8);
+                aVar2.gLS.setIsRound(false);
+                al.j(aVar2.gLV, d.C0236d.cp_cont_g);
                 aVar2.gLO.setVisibility(8);
+                aVar2.gLP.setVisibility(8);
                 if (aVar.rank <= 0) {
-                    aVar2.gLU.setVisibility(8);
+                    aVar2.gLV.setVisibility(8);
                 } else {
-                    aVar2.gLU.setVisibility(0);
-                    aVar2.gLU.setText(String.valueOf(aVar.rank));
+                    aVar2.gLV.setVisibility(0);
+                    aVar2.gLV.setText(String.valueOf(aVar.rank));
                     if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                         if (!com.baidu.tieba.lego.card.d.a.uP(aVar.bgColorNight)) {
-                            aVar2.gLU.setBackgroundColor(aVar.bgColorNight);
+                            aVar2.gLV.setBackgroundColor(aVar.bgColorNight);
                         } else {
-                            al.l(aVar2.gLU, com.baidu.tieba.lego.a.gEA[i <= 3 ? i : 3]);
+                            al.l(aVar2.gLV, com.baidu.tieba.lego.a.gEB[i <= 3 ? i : 3]);
                         }
                     } else if (!com.baidu.tieba.lego.card.d.a.uP(aVar.bgColor)) {
-                        aVar2.gLU.setBackgroundColor(aVar.bgColor);
+                        aVar2.gLV.setBackgroundColor(aVar.bgColor);
                     } else {
-                        al.l(aVar2.gLU, com.baidu.tieba.lego.a.gEA[i <= 3 ? i : 3]);
+                        al.l(aVar2.gLV, com.baidu.tieba.lego.a.gEB[i <= 3 ? i : 3]);
                     }
                 }
-                aVar2.gLR.setRadius(0);
+                aVar2.gLS.setRadius(0);
             }
-            if (!TextUtils.isEmpty(aVar.gGZ)) {
-                aVar2.gLR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.view.HorizontalScrollListView.1
+            if (!TextUtils.isEmpty(aVar.gHa)) {
+                aVar2.gLS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.view.HorizontalScrollListView.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
-                        if (!TextUtils.isEmpty(aVar.gGZ)) {
-                            t.aQF().go(true);
-                            i.a((BaseLegoCardInfo) aVar.gHa).di("obj_url", aVar.gGZ).a(aVar.gHa);
-                            q.f(HorizontalScrollListView.this.gLJ, aVar.gGZ);
+                        if (!TextUtils.isEmpty(aVar.gHa)) {
+                            t.aQG().go(true);
+                            i.a((BaseLegoCardInfo) aVar.gHb).di("obj_url", aVar.gHa).a(aVar.gHb);
+                            q.f(HorizontalScrollListView.this.gLK, aVar.gHa);
                         }
                     }
                 });
             } else {
-                aVar2.gLR.setOnClickListener(null);
+                aVar2.gLS.setOnClickListener(null);
             }
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) aVar2.gLR.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) aVar2.gLS.getLayoutParams();
             layoutParams.width = this.width;
             layoutParams.height = this.height;
             a(layoutParams, i);
-            if (this.gLH) {
+            if (this.gLI) {
                 layoutParams.topMargin = getResources().getDimensionPixelSize(d.e.ds10);
             } else {
                 layoutParams.topMargin = 0;
             }
-            aVar2.gLR.setLayoutParams(layoutParams);
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) aVar2.gLU.getLayoutParams();
+            aVar2.gLS.setLayoutParams(layoutParams);
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) aVar2.gLV.getLayoutParams();
             a(layoutParams2, i);
-            aVar2.gLU.setLayoutParams(layoutParams2);
-            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) aVar2.gLM.getLayoutParams();
+            aVar2.gLV.setLayoutParams(layoutParams2);
+            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) aVar2.gLN.getLayoutParams();
             layoutParams3.width = this.width;
             a(layoutParams3, i);
-            aVar2.gLM.setLayoutParams(layoutParams3);
-            RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) aVar2.gLT.getLayoutParams();
+            aVar2.gLN.setLayoutParams(layoutParams3);
+            RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) aVar2.gLU.getLayoutParams();
             layoutParams4.width = this.width;
             a(layoutParams4, i);
-            aVar2.gLT.setLayoutParams(layoutParams4);
-            RelativeLayout.LayoutParams layoutParams5 = (RelativeLayout.LayoutParams) aVar2.gLV.getLayoutParams();
+            aVar2.gLU.setLayoutParams(layoutParams4);
+            RelativeLayout.LayoutParams layoutParams5 = (RelativeLayout.LayoutParams) aVar2.gLW.getLayoutParams();
             layoutParams5.width = this.width;
             a(layoutParams5, i);
-            aVar2.gLV.setLayoutParams(layoutParams5);
-            aVar2.gLR.setTag(aVar.picUrl);
-            aVar2.gLR.startLoad(aVar.picUrl, 10, false);
-            if (!TextUtils.isEmpty(aVar.gGY)) {
-                RelativeLayout.LayoutParams layoutParams6 = (RelativeLayout.LayoutParams) aVar2.gLS.getLayoutParams();
+            aVar2.gLW.setLayoutParams(layoutParams5);
+            aVar2.gLS.setTag(aVar.picUrl);
+            aVar2.gLS.startLoad(aVar.picUrl, 10, false);
+            if (!TextUtils.isEmpty(aVar.gGZ)) {
+                RelativeLayout.LayoutParams layoutParams6 = (RelativeLayout.LayoutParams) aVar2.gLT.getLayoutParams();
                 int h = l.h(getContext(), d.e.ds30);
                 int h2 = l.h(getContext(), d.e.ds6);
                 int h3 = l.h(getContext(), d.e.ds18);
-                int i2 = ((this.width - h) + this.gLI) - h2;
+                int i2 = ((this.width - h) + this.gLJ) - h2;
                 if (i == 0) {
                     i2 = (i2 - h3) + h2;
                 }
                 layoutParams6.setMargins(i2, (this.height - h) + h2, 0, 0);
-                aVar2.gLS.setLayoutParams(layoutParams6);
-                aVar2.gLS.startLoad(aVar.gGY, 10, false);
+                aVar2.gLT.setLayoutParams(layoutParams6);
+                aVar2.gLT.startLoad(aVar.gGZ, 10, false);
             } else {
-                aVar2.gLS.setVisibility(8);
+                aVar2.gLT.setVisibility(8);
             }
             if (aVar.title != null) {
                 aVar2.cyE.setVisibility(0);
-                if (this.gLH) {
+                if (this.gLI) {
                     if (aVar.rank <= 0) {
                         aVar2.cyE.setMaxWidth(this.width);
                     } else {
@@ -300,20 +300,20 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
                 aVar2.mSubtitleTextView.setVisibility(8);
             }
             if (!TextUtils.isEmpty(aVar.postUrl) && !TextUtils.isEmpty(aVar.btnText) && !TextUtils.isEmpty(aVar.btnDone)) {
-                aVar2.gLV.setVisibility(0);
-                a(aVar2.gLW, aVar.isDone, aVar.btnText, aVar.btnDone);
-                aVar2.gLW.setTag(aVar.postUrl);
-                aVar2.gLW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.view.HorizontalScrollListView.2
+                aVar2.gLW.setVisibility(0);
+                a(aVar2.gLX, aVar.isDone, aVar.btnText, aVar.btnDone);
+                aVar2.gLX.setTag(aVar.postUrl);
+                aVar2.gLX.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.view.HorizontalScrollListView.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         if (bc.cZ(HorizontalScrollListView.this.getContext())) {
-                            com.baidu.tieba.lego.a.b.bzz().a(aVar, aVar.postUrl, null, null);
+                            com.baidu.tieba.lego.a.b.bzA().a(aVar, aVar.postUrl, null, null);
                         }
                     }
                 });
                 return;
             }
-            aVar2.gLV.setVisibility(8);
+            aVar2.gLW.setVisibility(8);
         }
     }
 
@@ -358,47 +358,47 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
     /* loaded from: classes2.dex */
     public static class a extends v.a {
         public TextView cyE;
-        public LinearLayout gLM;
-        public ImageView gLN;
-        public FrameLayout gLO;
-        public ImageView gLP;
-        public TextView gLQ;
-        public HeadImageView gLR;
-        public TbImageView gLS;
-        public LinearLayout gLT;
-        public TextView gLU;
-        public LinearLayout gLV;
-        public TextView gLW;
+        public LinearLayout gLN;
+        public ImageView gLO;
+        public FrameLayout gLP;
+        public ImageView gLQ;
+        public TextView gLR;
+        public HeadImageView gLS;
+        public TbImageView gLT;
+        public LinearLayout gLU;
+        public TextView gLV;
+        public LinearLayout gLW;
+        public TextView gLX;
         public TextView mSubtitleTextView;
 
         public a(View view) {
             super(view);
-            this.gLN = null;
             this.gLO = null;
             this.gLP = null;
             this.gLQ = null;
             this.gLR = null;
             this.gLS = null;
-            this.cyE = null;
             this.gLT = null;
-            this.mSubtitleTextView = null;
+            this.cyE = null;
             this.gLU = null;
+            this.mSubtitleTextView = null;
             this.gLV = null;
             this.gLW = null;
-            this.gLM = (LinearLayout) view.findViewById(d.g.ll_name);
-            this.gLO = (FrameLayout) view.findViewById(d.g.fl_left);
-            this.gLP = (ImageView) view.findViewById(d.g.leftBack);
-            this.gLN = (ImageView) view.findViewById(d.g.leftIcon);
-            this.gLQ = (TextView) view.findViewById(d.g.leftText);
-            this.gLR = (HeadImageView) view.findViewById(d.g.head);
-            this.gLR.setGifIconSupport(false);
-            this.gLS = (TbImageView) view.findViewById(d.g.head_icon);
+            this.gLX = null;
+            this.gLN = (LinearLayout) view.findViewById(d.g.ll_name);
+            this.gLP = (FrameLayout) view.findViewById(d.g.fl_left);
+            this.gLQ = (ImageView) view.findViewById(d.g.leftBack);
+            this.gLO = (ImageView) view.findViewById(d.g.leftIcon);
+            this.gLR = (TextView) view.findViewById(d.g.leftText);
+            this.gLS = (HeadImageView) view.findViewById(d.g.head);
+            this.gLS.setGifIconSupport(false);
+            this.gLT = (TbImageView) view.findViewById(d.g.head_icon);
             this.cyE = (TextView) view.findViewById(d.g.m_forum_name_textview);
-            this.gLT = (LinearLayout) view.findViewById(d.g.ll_subtitle);
+            this.gLU = (LinearLayout) view.findViewById(d.g.ll_subtitle);
             this.mSubtitleTextView = (TextView) view.findViewById(d.g.subtitle);
-            this.gLU = (TextView) view.findViewById(d.g.leftTopText);
-            this.gLV = (LinearLayout) view.findViewById(d.g.ll_post);
-            this.gLW = (TextView) view.findViewById(d.g.btn_post);
+            this.gLV = (TextView) view.findViewById(d.g.leftTopText);
+            this.gLW = (LinearLayout) view.findViewById(d.g.ll_post);
+            this.gLX = (TextView) view.findViewById(d.g.btn_post);
         }
     }
 }

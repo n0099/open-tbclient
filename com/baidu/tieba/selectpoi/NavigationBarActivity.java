@@ -16,8 +16,8 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     protected NavigationBar cPN;
     protected NoDataView cpw;
     private RelativeLayout dxT;
-    protected NoNetworkView iqj;
-    private RelativeLayout iqk;
+    protected NoNetworkView iqk;
+    private RelativeLayout iql;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -32,36 +32,36 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
                 NavigationBarActivity.this.finish();
             }
         });
-        if (bYn()) {
-            this.iqj = (NoNetworkView) ((ViewStub) findViewById(d.g.no_network_viewstub)).inflate();
+        if (bYo()) {
+            this.iqk = (NoNetworkView) ((ViewStub) findViewById(d.g.no_network_viewstub)).inflate();
         }
     }
 
     @Override // android.app.Activity
     public void setContentView(View view) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        if (bYn()) {
+        if (bYo()) {
         }
-        this.iqk = new RelativeLayout(getPageContext().getContext());
-        this.iqk.addView(view, new ViewGroup.LayoutParams(-1, -1));
-        this.dxT.addView(this.iqk, 0, layoutParams);
+        this.iql = new RelativeLayout(getPageContext().getContext());
+        this.iql.addView(view, new ViewGroup.LayoutParams(-1, -1));
+        this.dxT.addView(this.iql, 0, layoutParams);
     }
 
-    protected boolean bYn() {
+    protected boolean bYo() {
         return true;
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void setContentView(int i) {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        if (bYn()) {
+        if (bYo()) {
             layoutParams.addRule(3, d.g.no_network_view);
         } else {
             layoutParams.addRule(3, d.g.no_network_viewstub);
         }
-        this.iqk = new RelativeLayout(getPageContext().getContext());
-        this.iqk.addView(LayoutInflater.from(getPageContext().getContext()).inflate(i, (ViewGroup) null), new ViewGroup.LayoutParams(-1, -1));
-        this.dxT.addView(this.iqk, layoutParams);
+        this.iql = new RelativeLayout(getPageContext().getContext());
+        this.iql.addView(LayoutInflater.from(getPageContext().getContext()).inflate(i, (ViewGroup) null), new ViewGroup.LayoutParams(-1, -1));
+        this.dxT.addView(this.iql, layoutParams);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -69,8 +69,8 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         this.cPN.onChangeSkinType(getPageContext(), i);
-        if (this.iqj != null) {
-            this.iqj.onChangeSkinType(getPageContext(), i);
+        if (this.iqk != null) {
+            this.iqk.onChangeSkinType(getPageContext(), i);
         }
         if (this.cpw != null) {
             this.cpw.onChangeSkinType(getPageContext(), i);

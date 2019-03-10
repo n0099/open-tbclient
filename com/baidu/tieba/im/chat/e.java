@@ -10,54 +10,54 @@ import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 /* loaded from: classes.dex */
 public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, a<T>> {
-    protected long gbB;
-    private boolean gbC;
+    protected long gbC;
     private boolean gbD;
-    protected int gbE;
-    protected com.baidu.adp.lib.c.a gbu;
-    protected b gbv;
+    private boolean gbE;
+    protected int gbF;
+    protected com.baidu.adp.lib.c.a gbv;
+    protected b gbw;
     protected TbPageContext<MsglistActivity<?>> mPageContext;
 
     public e(TbPageContext<MsglistActivity<?>> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
-        this.gbu = null;
         this.gbv = null;
-        this.gbB = 0L;
-        this.gbC = false;
+        this.gbw = null;
+        this.gbC = 0L;
         this.gbD = false;
+        this.gbE = false;
         this.mPageContext = tbPageContext;
     }
 
     public void a(com.baidu.adp.lib.c.a aVar) {
-        this.gbu = aVar;
+        this.gbv = aVar;
     }
 
     public void setOnItemViewLongClickListener(b bVar) {
-        this.gbv = bVar;
+        this.gbw = bVar;
     }
 
-    private void bqd() {
-        this.gbB = System.currentTimeMillis() / 1000;
-    }
-
-    public boolean bqe() {
-        return this.gbC;
-    }
-
-    public void kF(boolean z) {
-        this.gbC = z;
+    private void bqe() {
+        this.gbC = System.currentTimeMillis() / 1000;
     }
 
     public boolean bqf() {
         return this.gbD;
     }
 
-    public void kG(boolean z) {
+    public void kF(boolean z) {
         this.gbD = z;
     }
 
+    public boolean bqg() {
+        return this.gbE;
+    }
+
+    public void kG(boolean z) {
+        this.gbE = z;
+    }
+
     public void tz(int i) {
-        this.gbE = i;
+        this.gbF = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -68,21 +68,21 @@ public abstract class e<T> extends com.baidu.adp.widget.ListView.a<ChatMessage, 
         if (chatMessage != null && chatMessage.getCacheData() == null) {
             chatMessage.setCacheData(new MsgCacheData());
         }
-        bqd();
+        bqe();
         return view;
     }
 
     /* loaded from: classes.dex */
     public static class a<T> extends v.a {
-        private T gbF;
+        private T gbG;
 
         public a(View view, T t) {
             super(view);
-            this.gbF = t;
+            this.gbG = t;
         }
 
-        public T bqg() {
-            return this.gbF;
+        public T bqh() {
+            return this.gbG;
         }
     }
 }

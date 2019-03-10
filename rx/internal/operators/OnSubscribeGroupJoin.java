@@ -9,11 +9,11 @@ import rx.subjects.PublishSubject;
 import rx.subscriptions.RefCountSubscription;
 /* loaded from: classes2.dex */
 public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
-    final rx.d<T1> jWg;
-    final rx.d<T2> jWh;
-    final rx.functions.f<? super T1, ? extends rx.d<D1>> jWi;
-    final rx.functions.f<? super T2, ? extends rx.d<D2>> jWj;
-    final rx.functions.g<? super T1, ? super rx.d<T2>, ? extends R> jWk;
+    final rx.d<T2> jWA;
+    final rx.functions.f<? super T1, ? extends rx.d<D1>> jWB;
+    final rx.functions.f<? super T2, ? extends rx.d<D2>> jWC;
+    final rx.functions.g<? super T1, ? super rx.d<T2>, ? extends R> jWD;
+    final rx.d<T1> jWz;
 
     @Override // rx.functions.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -48,8 +48,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             d dVar = new d();
             this.group.add(bVar);
             this.group.add(dVar);
-            OnSubscribeGroupJoin.this.jWg.a((rx.j<? super T1>) bVar);
-            OnSubscribeGroupJoin.this.jWh.a((rx.j<? super T2>) dVar);
+            OnSubscribeGroupJoin.this.jWz.a((rx.j<? super T1>) bVar);
+            OnSubscribeGroupJoin.this.jWA.a((rx.j<? super T2>) dVar);
         }
 
         @Override // rx.k
@@ -110,19 +110,19 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                 int i;
                 ArrayList<Object> arrayList;
                 try {
-                    PublishSubject cFi = PublishSubject.cFi();
-                    rx.b.d dVar = new rx.b.d(cFi);
+                    PublishSubject cFs = PublishSubject.cFs();
+                    rx.b.d dVar = new rx.b.d(cFs);
                     synchronized (ResultManager.this) {
                         ResultManager resultManager = ResultManager.this;
                         i = resultManager.leftIds;
                         resultManager.leftIds = i + 1;
                         ResultManager.this.leftMap().put(Integer.valueOf(i), dVar);
                     }
-                    rx.d a = rx.d.a((d.a) new a(cFi, ResultManager.this.cancel));
+                    rx.d a = rx.d.a((d.a) new a(cFs, ResultManager.this.cancel));
                     a aVar = new a(i);
                     ResultManager.this.group.add(aVar);
-                    OnSubscribeGroupJoin.this.jWi.call(t1).a((rx.j<? super D1>) aVar);
-                    R j = OnSubscribeGroupJoin.this.jWk.j(t1, a);
+                    OnSubscribeGroupJoin.this.jWB.call(t1).a((rx.j<? super D1>) aVar);
+                    R j = OnSubscribeGroupJoin.this.jWD.j(t1, a);
                     synchronized (ResultManager.this) {
                         arrayList = new ArrayList(ResultManager.this.rightMap.values());
                     }
@@ -174,7 +174,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
                     }
                     c cVar = new c(i);
                     ResultManager.this.group.add(cVar);
-                    OnSubscribeGroupJoin.this.jWj.call(t2).a((rx.j<? super D2>) cVar);
+                    OnSubscribeGroupJoin.this.jWC.call(t2).a((rx.j<? super D2>) cVar);
                     synchronized (ResultManager.this) {
                         arrayList = new ArrayList(ResultManager.this.leftMap().values());
                     }
@@ -209,7 +209,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
         /* loaded from: classes2.dex */
         final class a extends rx.j<D1> {
             final int id;
-            boolean jVV = true;
+            boolean jWo = true;
 
             public a(int i) {
                 this.id = i;
@@ -218,8 +218,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             @Override // rx.e
             public void onCompleted() {
                 rx.e<T2> remove;
-                if (this.jVV) {
-                    this.jVV = false;
+                if (this.jWo) {
+                    this.jWo = false;
                     synchronized (ResultManager.this) {
                         remove = ResultManager.this.leftMap().remove(Integer.valueOf(this.id));
                     }
@@ -244,7 +244,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
         /* loaded from: classes2.dex */
         final class c extends rx.j<D2> {
             final int id;
-            boolean jVV = true;
+            boolean jWo = true;
 
             public c(int i) {
                 this.id = i;
@@ -252,8 +252,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
 
             @Override // rx.e
             public void onCompleted() {
-                if (this.jVV) {
-                    this.jVV = false;
+                if (this.jWo) {
+                    this.jWo = false;
                     synchronized (ResultManager.this) {
                         ResultManager.this.rightMap.remove(Integer.valueOf(this.id));
                     }
@@ -275,8 +275,8 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
 
     /* loaded from: classes2.dex */
     static final class a<T> implements d.a<T> {
-        final RefCountSubscription jWm;
-        final rx.d<T> jWn;
+        final RefCountSubscription jWF;
+        final rx.d<T> jWG;
 
         @Override // rx.functions.b
         public /* bridge */ /* synthetic */ void call(Object obj) {
@@ -284,28 +284,28 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
         }
 
         public a(rx.d<T> dVar, RefCountSubscription refCountSubscription) {
-            this.jWm = refCountSubscription;
-            this.jWn = dVar;
+            this.jWF = refCountSubscription;
+            this.jWG = dVar;
         }
 
         public void call(rx.j<? super T> jVar) {
-            rx.k cFn = this.jWm.cFn();
-            C0383a c0383a = new C0383a(jVar, cFn);
-            c0383a.add(cFn);
-            this.jWn.a((rx.j) c0383a);
+            rx.k cFx = this.jWF.cFx();
+            C0386a c0386a = new C0386a(jVar, cFx);
+            c0386a.add(cFx);
+            this.jWG.a((rx.j) c0386a);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: rx.internal.operators.OnSubscribeGroupJoin$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public final class C0383a extends rx.j<T> {
-            private final rx.k jWo;
+        public final class C0386a extends rx.j<T> {
+            private final rx.k jWH;
             final rx.j<? super T> subscriber;
 
-            public C0383a(rx.j<? super T> jVar, rx.k kVar) {
+            public C0386a(rx.j<? super T> jVar, rx.k kVar) {
                 super(jVar);
                 this.subscriber = jVar;
-                this.jWo = kVar;
+                this.jWH = kVar;
             }
 
             @Override // rx.e
@@ -316,13 +316,13 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements d.a<R> {
             @Override // rx.e
             public void onError(Throwable th) {
                 this.subscriber.onError(th);
-                this.jWo.unsubscribe();
+                this.jWH.unsubscribe();
             }
 
             @Override // rx.e
             public void onCompleted() {
                 this.subscriber.onCompleted();
-                this.jWo.unsubscribe();
+                this.jWH.unsubscribe();
             }
         }
     }

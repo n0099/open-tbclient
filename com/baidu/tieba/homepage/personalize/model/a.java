@@ -30,7 +30,7 @@ public class a {
     private final c fHh = new c();
     private final int dfW = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("home_page_max_thread_count", 300);
 
-    public int bmX() {
+    public int bmY() {
         return this.dfW;
     }
 

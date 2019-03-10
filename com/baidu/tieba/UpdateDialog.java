@@ -50,7 +50,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         attributes.alpha = 0.0f;
         getWindow().setAttributes(attributes);
         initData(bundle);
-        avt();
+        avu();
     }
 
     private void initData(Bundle bundle) {
@@ -119,7 +119,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (UpdateDialog.this.cKu) {
-                    UpdateDialog.this.avu();
+                    UpdateDialog.this.avv();
                 }
                 UpdateDialog.this.cLb.dismiss();
                 UpdateDialog.this.finish();
@@ -128,7 +128,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         this.cLb.h(new View.OnClickListener() { // from class: com.baidu.tieba.UpdateDialog.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                UpdateDialog.this.cLb.avq();
+                UpdateDialog.this.cLb.avr();
                 UpdateDialog.this.e(UpdateDialog.this.cKW, UpdateDialog.this.cKX, UpdateDialog.this.cKY);
             }
         });
@@ -170,7 +170,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         }
     }
 
-    private void avt() {
+    private void avu() {
         this.cLc = new b();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(TbConfig.APP_UPDATE_ACTION);
@@ -216,7 +216,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void avu() {
+    public void avv() {
         Intent intent = new Intent(getPageContext().getPageActivity(), TiebaUpdateService.class);
         intent.setAction("action_stop");
         getPageContext().getPageActivity().startService(intent);
@@ -252,7 +252,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         @Override // com.baidu.tieba.e.a
         public void fH(boolean z) {
             boolean z2 = true;
-            if (UpdateDialog.this.avv()) {
+            if (UpdateDialog.this.avw()) {
                 UpdateDialog.this.cLb.dismiss();
                 UpdateDialog.this.finish();
                 return;
@@ -274,18 +274,18 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         }
 
         @Override // com.baidu.tieba.e.a
-        public void avs() {
+        public void avt() {
             UpdateDialog.this.cLb.dismiss();
             UpdateDialog.this.finish();
         }
 
         @Override // com.baidu.tieba.e.a
         public void stopService() {
-            UpdateDialog.this.avu();
+            UpdateDialog.this.avv();
         }
 
         @Override // com.baidu.tieba.e.a
-        public void avr() {
+        public void avs() {
             UpdateDialog.this.finish();
         }
     }
@@ -310,7 +310,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                 UpdateDialog.this.cLb.dismiss();
                 UpdateDialog.this.showToast(UpdateDialog.this.getPageContext().getString(d.j.update_app_error));
                 UpdateDialog.this.finish();
-                UpdateDialog.this.avu();
+                UpdateDialog.this.avv();
             } else {
                 int intExtra = intent.getIntExtra("action_update_download_progress", 0);
                 if (UpdateDialog.this.cLb != null) {
@@ -326,7 +326,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean avv() {
+    public boolean avw() {
         boolean z;
         File lQ;
         PackageInfo packageArchiveInfo;

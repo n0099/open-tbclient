@@ -126,11 +126,11 @@ public class WheelView extends View {
             this.cFj = obtainStyledAttributes.getFloat(d.l.pickerview_wheelview_lineSpacingMultiplier, this.cFj);
             obtainStyledAttributes.recycle();
         }
-        atN();
+        atO();
         dn(context);
     }
 
-    private void atN() {
+    private void atO() {
         if (this.cFj < 1.0f) {
             this.cFj = 1.0f;
         } else if (this.cFj > 4.0f) {
@@ -146,10 +146,10 @@ public class WheelView extends View {
         this.cGx = true;
         this.cGA = 0.0f;
         this.cGB = -1;
-        atO();
+        atP();
     }
 
-    private void atO() {
+    private void atP() {
         this.cGo = new Paint();
         this.cGo.setColor(this.cFg);
         this.cGo.setAntiAlias(true);
@@ -167,9 +167,9 @@ public class WheelView extends View {
         setLayerType(1, null);
     }
 
-    private void atP() {
+    private void atQ() {
         if (this.cGr != null) {
-            atQ();
+            atR();
             int i = (int) (this.cGv * (this.cGF - 1));
             this.cGG = (int) ((i * 2) / 3.141592653589793d);
             this.radius = (int) (i / 3.141592653589793d);
@@ -188,7 +188,7 @@ public class WheelView extends View {
         }
     }
 
-    private void atQ() {
+    private void atR() {
         Rect rect = new Rect();
         for (int i = 0; i < this.cGr.getItemsCount(); i++) {
             String ai = ai(this.cGr.getItem(i));
@@ -204,7 +204,7 @@ public class WheelView extends View {
     }
 
     public void a(ACTION action) {
-        atR();
+        atS();
         if (action == ACTION.FLING || action == ACTION.DAGGLE) {
             this.mOffset = (int) (((this.cGA % this.cGv) + this.cGv) % this.cGv);
             if (this.mOffset > this.cGv / 2.0f) {
@@ -217,11 +217,11 @@ public class WheelView extends View {
     }
 
     public final void au(float f) {
-        atR();
+        atS();
         this.cGn = this.cGm.scheduleWithFixedDelay(new com.baidu.tbadk.widget.timepicker.wheel.d.a(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
     }
 
-    public void atR() {
+    public void atS() {
         if (this.cGn != null && !this.cGn.isCancelled()) {
             this.cGn.cancel(true);
             this.cGn = null;
@@ -259,7 +259,7 @@ public class WheelView extends View {
 
     public final void setAdapter(a aVar) {
         this.cGr = aVar;
-        atP();
+        atQ();
         invalidate();
     }
 
@@ -277,7 +277,7 @@ public class WheelView extends View {
         return Math.max(0, Math.min(this.cGC, this.cGr.getItemsCount() - 1));
     }
 
-    public final void atS() {
+    public final void atT() {
         if (this.cGk != null) {
             postDelayed(new Runnable() { // from class: com.baidu.tbadk.widget.timepicker.wheel.view.WheelView.1
                 @Override // java.lang.Runnable
@@ -357,9 +357,9 @@ public class WheelView extends View {
                     } else {
                         ai = ai(objArr[i4]);
                     }
-                    qd(ai);
                     qe(ai);
                     qf(ai);
+                    qg(ai);
                     float cos = (float) ((this.radius - (Math.cos(d) * this.radius)) - ((Math.sin(d) * this.cGt) / 2.0d));
                     canvas.translate(0.0f, cos);
                     if (cos <= this.cGy && this.cGt + cos >= this.cGy) {
@@ -409,7 +409,7 @@ public class WheelView extends View {
         }
     }
 
-    private void qd(String str) {
+    private void qe(String str) {
         Rect rect = new Rect();
         this.cGp.getTextBounds(str, 0, str.length(), rect);
         int i = this.textSize;
@@ -436,12 +436,12 @@ public class WheelView extends View {
             return "";
         }
         if (obj instanceof com.baidu.tbadk.widget.timepicker.wheel.b.a) {
-            return ((com.baidu.tbadk.widget.timepicker.wheel.b.a) obj).atM();
+            return ((com.baidu.tbadk.widget.timepicker.wheel.b.a) obj).atN();
         }
         return obj instanceof Integer ? String.format(Locale.getDefault(), "%02d", Integer.valueOf(((Integer) obj).intValue())) : obj.toString();
     }
 
-    private void qe(String str) {
+    private void qf(String str) {
         Rect rect = new Rect();
         this.cGp.getTextBounds(str, 0, str.length(), rect);
         switch (this.mGravity) {
@@ -464,7 +464,7 @@ public class WheelView extends View {
         }
     }
 
-    private void qf(String str) {
+    private void qg(String str) {
         Rect rect = new Rect();
         this.cGo.getTextBounds(str, 0, str.length(), rect);
         switch (this.mGravity) {
@@ -490,7 +490,7 @@ public class WheelView extends View {
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         this.cGJ = i;
-        atP();
+        atQ();
         setMeasuredDimension(this.cGH, this.cGG);
     }
 
@@ -503,7 +503,7 @@ public class WheelView extends View {
         switch (motionEvent.getAction()) {
             case 0:
                 this.startTime = System.currentTimeMillis();
-                atR();
+                atS();
                 this.cGI = motionEvent.getRawY();
                 break;
             case 1:
@@ -605,11 +605,11 @@ public class WheelView extends View {
     public void setLineSpacingMultiplier(float f) {
         if (f != 0.0f) {
             this.cFj = f;
-            atN();
+            atO();
         }
     }
 
-    public boolean atT() {
+    public boolean atU() {
         return this.cGx;
     }
 

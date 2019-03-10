@@ -43,7 +43,7 @@ public class NEGFeedBackView extends ImageView {
         this.cIO = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NEGFeedBackView.this.auU();
+                NEGFeedBackView.this.auV();
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - NEGFeedBackView.this.cIK > 500) {
                     NEGFeedBackView.this.bg(view);
@@ -60,7 +60,7 @@ public class NEGFeedBackView extends ImageView {
         setOnClickListener(this.cIO);
         al.c(this, d.f.icon_home_card_delete);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        auV();
+        auW();
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
@@ -91,11 +91,11 @@ public class NEGFeedBackView extends ImageView {
         this.cIL.bg(view);
     }
 
-    public void auU() {
-        this.cIL.auU();
+    public void auV() {
+        this.cIL.auV();
     }
 
-    private void auV() {
+    private void auW() {
         this.cIM = new RotateAnimation(0.0f, 135.0f, 1, 0.5f, 1, 0.5f);
         OvershootInterpolator overshootInterpolator = new OvershootInterpolator();
         this.cIM.setInterpolator(overshootInterpolator);

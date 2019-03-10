@@ -13,7 +13,7 @@ public class a {
     private a() {
     }
 
-    public static a blQ() {
+    public static a blR() {
         return fIM;
     }
 

@@ -35,7 +35,7 @@ public class l extends h<m, n> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, m mVar, n nVar) {
         super.onFillViewHolder(i, view, viewGroup, mVar, nVar);
-        if (mVar.bdV() == 6) {
+        if (mVar.bdW() == 6) {
             nVar.fbN.setText(d.j.attention_no_post_tip);
         } else {
             nVar.fbN.setText(d.j.no_data_text);

@@ -22,10 +22,10 @@ import java.util.Set;
 /* loaded from: classes4.dex */
 public class a extends BaseAdapter {
     private List<EmotionImageData> eHP;
-    private int hAb;
-    private PbEmotionBar.a hAc;
-    private Set<String> heu = new HashSet();
-    private EmotionView.a hyY;
+    private int hAc;
+    private PbEmotionBar.a hAd;
+    private Set<String> hev = new HashSet();
+    private EmotionView.a hyZ;
 
     @Override // android.widget.Adapter
     public int getCount() {
@@ -55,14 +55,14 @@ public class a extends BaseAdapter {
         if (view == null) {
             c0287a = new C0287a();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(d.h.list_item_pb_emotion_bar, (ViewGroup) null);
-            c0287a.heC = (EmotionView) view.findViewById(d.g.iv_emotion);
-            c0287a.heC.aXL();
-            c0287a.heC.setController(this.hyY);
-            c0287a.heC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.1
+            c0287a.heD = (EmotionView) view.findViewById(d.g.iv_emotion);
+            c0287a.heD.aXM();
+            c0287a.heD.setController(this.hyZ);
+            c0287a.heD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.hAc != null && (view2 instanceof EmotionView)) {
-                        a.this.hAc.b(((EmotionView) view2).getData(), ((EmotionView) view2).getIsGif());
+                    if (a.this.hAd != null && (view2 instanceof EmotionView)) {
+                        a.this.hAd.b(((EmotionView) view2).getData(), ((EmotionView) view2).getIsGif());
                         TiebaStatic.log("c12176");
                     }
                 }
@@ -72,7 +72,7 @@ public class a extends BaseAdapter {
             c0287a.fjD.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.hAc != null) {
+                    if (a.this.hAd != null) {
                         ArrayList arrayList = new ArrayList();
                         if (!v.T(a.this.eHP)) {
                             for (EmotionImageData emotionImageData : a.this.eHP) {
@@ -81,7 +81,7 @@ public class a extends BaseAdapter {
                                 }
                             }
                         }
-                        a.this.hAc.b(null, null, arrayList);
+                        a.this.hAd.b(null, null, arrayList);
                     }
                 }
             });
@@ -91,23 +91,23 @@ public class a extends BaseAdapter {
         }
         if (i >= 0) {
             if (i < this.eHP.size()) {
-                c0287a.heC.getLayoutParams().width = this.hAb;
-                c0287a.heC.getLayoutParams().height = this.hAb;
-                c0287a.heC.reset();
-                c0287a.heC.setTag(d.g.iv_emotion, null);
+                c0287a.heD.getLayoutParams().width = this.hAc;
+                c0287a.heD.getLayoutParams().height = this.hAc;
+                c0287a.heD.reset();
+                c0287a.heD.setTag(d.g.iv_emotion, null);
                 EmotionImageData emotionImageData = this.eHP.get(i);
                 if (emotionImageData != null) {
-                    c0287a.heC.a(emotionImageData);
-                    if (this.heu != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
-                        this.heu.add(emotionImageData.getThumbUrl() + c0287a.heC.getLoadProcType());
+                    c0287a.heD.a(emotionImageData);
+                    if (this.hev != null && !TextUtils.isEmpty(emotionImageData.getThumbUrl())) {
+                        this.hev.add(emotionImageData.getThumbUrl() + c0287a.heD.getLoadProcType());
                     }
                 }
-                c0287a.heC.setVisibility(0);
+                c0287a.heD.setVisibility(0);
                 c0287a.fjD.setVisibility(8);
             } else if (i == this.eHP.size()) {
-                c0287a.fjD.getLayoutParams().width = this.hAb;
-                c0287a.fjD.getLayoutParams().height = this.hAb;
-                c0287a.heC.setVisibility(8);
+                c0287a.fjD.getLayoutParams().width = this.hAc;
+                c0287a.fjD.getLayoutParams().height = this.hAc;
+                c0287a.heD.setVisibility(8);
                 c0287a.fjD.setVisibility(0);
             }
         }
@@ -115,38 +115,38 @@ public class a extends BaseAdapter {
     }
 
     public void wD(int i) {
-        if (this.hAb != i) {
-            this.hAb = i;
+        if (this.hAc != i) {
+            this.hAc = i;
             notifyDataSetChanged();
         }
     }
 
     public void a(EmotionView.a aVar) {
-        this.hyY = aVar;
+        this.hyZ = aVar;
     }
 
     public void a(PbEmotionBar.a aVar) {
-        this.hAc = aVar;
+        this.hAd = aVar;
     }
 
     /* renamed from: com.baidu.tieba.pb.pb.main.emotion.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     static class C0287a {
         TextView fjD;
-        EmotionView heC;
+        EmotionView heD;
 
         C0287a() {
         }
     }
 
-    public void bGl() {
+    public void bGm() {
         new BdAsyncTask<Void, Void, Boolean>() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.a.3
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Boolean doInBackground(Void... voidArr) {
-                if (a.this.heu != null) {
-                    for (String str : a.this.heu) {
+                if (a.this.hev != null) {
+                    for (String str : a.this.hev) {
                         if (!TextUtils.isEmpty(str)) {
                             c.anq().pg(str);
                         }

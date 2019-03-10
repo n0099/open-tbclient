@@ -20,7 +20,7 @@ public class a {
     long eyR;
     String name;
 
-    public static final String aVh() {
+    public static final String aVi() {
         String str;
         WifiInfo connectionInfo;
         try {
@@ -36,11 +36,11 @@ public class a {
                         return typeName + "_" + str;
                     }
                 }
-                com.baidu.tieba.dnsproxy.d.aUY().cd("get_connectpoint_null", typeName + "_" + str);
+                com.baidu.tieba.dnsproxy.d.aUZ().cd("get_connectpoint_null", typeName + "_" + str);
             }
         } catch (Throwable th) {
             BdLog.detailException(th);
-            com.baidu.tieba.dnsproxy.d.aUY().cd("get_connectpoint_name", th.getMessage());
+            com.baidu.tieba.dnsproxy.d.aUZ().cd("get_connectpoint_name", th.getMessage());
         }
         return null;
     }

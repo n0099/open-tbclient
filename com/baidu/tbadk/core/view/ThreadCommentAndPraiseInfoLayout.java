@@ -300,11 +300,11 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     protected void aK(View view) {
         if (this.bSr != null && this.XR != null && this.bSs != null && !this.XR.aaB()) {
             if (!this.XR.aaA()) {
-                if (com.baidu.tieba.frs.a.bbF().aa(this.XR)) {
+                if (com.baidu.tieba.frs.a.bbG().aa(this.XR)) {
                     this.XR.dn(true);
                 }
             } else {
-                com.baidu.tieba.frs.a.bbF().ab(this.XR);
+                com.baidu.tieba.frs.a.bbG().ab(this.XR);
                 this.XR.dn(false);
             }
             al.j(this.bSs, this.XR.aaA() ? d.C0236d.cp_link_tip_a : d.f.selector_comment_and_prise_item_text_color);
@@ -352,7 +352,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
 
     protected void aI(View view) {
         if (this.XR != null && this.mContext != null) {
-            com.baidu.tieba.card.n.tB(this.XR.getTid());
+            com.baidu.tieba.card.n.tC(this.XR.getTid());
             PbActivityConfig addLocateParam = new PbActivityConfig(this.mContext).createFromThreadCfg(this.XR, null, this.mStType, 0, true, false, false).addLocateParam("");
             addLocateParam.setForumId(String.valueOf(this.XR.getFid()));
             addLocateParam.setForumName(this.XR.YW());
@@ -546,7 +546,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             if (com.baidu.tbadk.plugins.c.b(this.mPageContext, "com.baidu.tieba.pluginCore")) {
                 ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, dVar, true, true);
                 shareDialogConfig.setIsAlaLive(this.XR.getThreadType() == 49 || this.XR.getThreadType() == 60);
-                com.baidu.tieba.c.e.aSt().a(shareDialogConfig);
+                com.baidu.tieba.c.e.aSu().a(shareDialogConfig);
             }
         }
     }
@@ -682,7 +682,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                     this.mMaskView.setVisibility(8);
                 }
                 this.bSt.setVisibility(8);
-            } else if (this.bSE && com.baidu.tieba.frs.a.bbF().bbG()) {
+            } else if (this.bSE && com.baidu.tieba.frs.a.bbG().bbH()) {
                 if (this.mMaskView == null) {
                     this.mMaskView = new View(getContext());
                     al.l(this.mMaskView, d.C0236d.cp_bg_line_d);

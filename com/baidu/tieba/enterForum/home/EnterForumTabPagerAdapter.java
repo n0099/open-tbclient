@@ -75,7 +75,7 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter {
         }
     }
 
-    public int aWI() {
+    public int aWJ() {
         if (this.eDn instanceof EnterForumFragment) {
             return 1;
         }

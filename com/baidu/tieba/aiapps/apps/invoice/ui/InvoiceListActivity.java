@@ -43,12 +43,12 @@ public class InvoiceListActivity extends TbSwanAppBaseActivity {
             if (InvoiceListActivity.this.cUn != null) {
                 InvoiceListActivity.this.uC();
                 InvoiceListActivity.this.cUn.ay(list);
-                InvoiceListActivity.this.azm();
+                InvoiceListActivity.this.azn();
             }
         }
 
         @Override // com.baidu.tieba.aiapps.apps.invoice.c
-        public void ry(String str) {
+        public void rz(String str) {
             InvoiceListActivity.this.r(true, false);
         }
 
@@ -76,13 +76,13 @@ public class InvoiceListActivity extends TbSwanAppBaseActivity {
     }
 
     private void U(Intent intent) {
-        SwanAppBdActionBar axX = axX();
-        axX.setTitle(getString(d.j.invoice_info_activity_title));
+        SwanAppBdActionBar axY = axY();
+        axY.setTitle(getString(d.j.invoice_info_activity_title));
         if (intent != null) {
             this.cUs = intent.getIntExtra("bar_position", 0);
         }
-        if (axX != null) {
-            axX.setLeftFirstViewVisibility(this.cUs == 0);
+        if (axY != null) {
+            axY.setLeftFirstViewVisibility(this.cUs == 0);
         }
     }
 
@@ -102,7 +102,7 @@ public class InvoiceListActivity extends TbSwanAppBaseActivity {
         this.mLayoutManager = new LinearLayoutManager(this);
         this.cUm.setLayoutManager(this.mLayoutManager);
         this.cUm.setAdapter(this.cUn);
-        azm();
+        azn();
         this.cUn.a(new a.b() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.1
             @Override // com.baidu.tieba.aiapps.apps.invoice.ui.a.b
             public void a(View view, InvoiceInfo invoiceInfo) {
@@ -122,14 +122,14 @@ public class InvoiceListActivity extends TbSwanAppBaseActivity {
         this.cUq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                InvoiceListActivity.this.azp();
+                InvoiceListActivity.this.azq();
             }
         });
-        azn();
+        azo();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void azm() {
+    public void azn() {
         if (this.cSE != null) {
             this.cSE.setTitle(getString(d.j.invoice_empty_title));
             this.cSE.setIcon(d.f.empty_icon_document);
@@ -141,21 +141,21 @@ public class InvoiceListActivity extends TbSwanAppBaseActivity {
         }
     }
 
-    private void azn() {
+    private void azo() {
         if (bc.cZ(this)) {
-            azo();
+            azp();
             return;
         }
         com.baidu.swan.apps.res.widget.b.d.a(this, "请先登录").IK();
         finish();
     }
 
-    private void azo() {
+    private void azp() {
         showLoadingView();
         if (TextUtils.equals(this.mSource, "source_ai_app")) {
-            com.baidu.tieba.aiapps.apps.invoice.d.azf().a(this, this.cUt, this.cUu, this.cUv);
+            com.baidu.tieba.aiapps.apps.invoice.d.azg().a(this, this.cUt, this.cUu, this.cUv);
         } else {
-            com.baidu.tieba.aiapps.apps.invoice.d.azf().a(this.cUv);
+            com.baidu.tieba.aiapps.apps.invoice.d.azg().a(this.cUv);
         }
     }
 
@@ -212,7 +212,7 @@ public class InvoiceListActivity extends TbSwanAppBaseActivity {
     private void i(final InvoiceInfo invoiceInfo) {
         if (invoiceInfo != null) {
             showLoadingView();
-            com.baidu.tieba.aiapps.apps.invoice.d.azf().a(invoiceInfo.mId, new c.d() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.4
+            com.baidu.tieba.aiapps.apps.invoice.d.azg().a(invoiceInfo.mId, new c.d() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.4
                 @Override // com.baidu.tieba.aiapps.apps.invoice.c.d
                 public void bG(long j) {
                     com.baidu.swan.apps.console.c.i("chooseInvoiceTitle", "修改默认发票成功");
@@ -223,7 +223,7 @@ public class InvoiceListActivity extends TbSwanAppBaseActivity {
                 }
 
                 @Override // com.baidu.tieba.aiapps.apps.invoice.c
-                public void ry(String str) {
+                public void rz(String str) {
                     InvoiceListActivity.this.r(false, false);
                 }
 
@@ -257,7 +257,7 @@ public class InvoiceListActivity extends TbSwanAppBaseActivity {
     public void k(final InvoiceInfo invoiceInfo) {
         if (invoiceInfo != null) {
             showLoadingView();
-            com.baidu.tieba.aiapps.apps.invoice.d.azf().a(invoiceInfo.mId, new c.b() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.6
+            com.baidu.tieba.aiapps.apps.invoice.d.azg().a(invoiceInfo.mId, new c.b() { // from class: com.baidu.tieba.aiapps.apps.invoice.ui.InvoiceListActivity.6
                 @Override // com.baidu.tieba.aiapps.apps.invoice.c.b
                 public void bF(long j) {
                     com.baidu.swan.apps.console.c.i("chooseInvoiceTitle", "删除发票成功");
@@ -267,12 +267,12 @@ public class InvoiceListActivity extends TbSwanAppBaseActivity {
                         if (invoiceInfo.mIsDefault == 1) {
                             InvoiceListActivity.this.cUn.bI(j);
                         }
-                        InvoiceListActivity.this.azm();
+                        InvoiceListActivity.this.azn();
                     }
                 }
 
                 @Override // com.baidu.tieba.aiapps.apps.invoice.c
-                public void ry(String str) {
+                public void rz(String str) {
                     InvoiceListActivity.this.r(false, false);
                 }
 
@@ -295,7 +295,7 @@ public class InvoiceListActivity extends TbSwanAppBaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void azp() {
+    public void azq() {
         Intent intent = new Intent(this, InvoiceEditActivity.class);
         intent.putExtra("bar_position", this.cUs);
         intent.putExtra("type", 1);
@@ -314,7 +314,7 @@ public class InvoiceListActivity extends TbSwanAppBaseActivity {
                     com.baidu.swan.apps.res.widget.b.d.l(this, d.j.invoice_toast_create_success).IK();
                     if (this.cUn != null && invoiceInfo != null) {
                         this.cUn.m(invoiceInfo);
-                        azm();
+                        azn();
                         break;
                     }
                     break;

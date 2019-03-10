@@ -152,7 +152,7 @@ public class c extends AsyncTask<d.a, String, C0116c> {
     }
 
     private void b(@NonNull final d.a aVar) {
-        rx.d.bm(aVar).d(new f<d.a, String>() { // from class: com.baidu.swan.apps.media.a.b.c.3
+        rx.d.bn(aVar).d(new f<d.a, String>() { // from class: com.baidu.swan.apps.media.a.b.c.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.f
             /* renamed from: d */
@@ -173,7 +173,7 @@ public class c extends AsyncTask<d.a, String, C0116c> {
                 }
                 return ao;
             }
-        }).b(Schedulers.io()).a(rx.a.b.a.cDH()).c(new rx.functions.b<String>() { // from class: com.baidu.swan.apps.media.a.b.c.2
+        }).b(Schedulers.io()).a(rx.a.b.a.cDR()).c(new rx.functions.b<String>() { // from class: com.baidu.swan.apps.media.a.b.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(String str) {

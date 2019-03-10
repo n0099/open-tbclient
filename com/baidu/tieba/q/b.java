@@ -16,36 +16,36 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class b {
-    private Map<BdUniqueId, ArrayList<am>> iDG;
+    private Map<BdUniqueId, ArrayList<am>> iDH;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public b() {
-        if (this.iDG == null) {
-            this.iDG = new LinkedHashMap();
+        if (this.iDH == null) {
+            this.iDH = new LinkedHashMap();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void s(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.iDG.put(bdUniqueId, null);
+            this.iDH.put(bdUniqueId, null);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void t(BdUniqueId bdUniqueId) {
         if (bdUniqueId != null) {
-            this.iDG.remove(bdUniqueId);
+            this.iDH.remove(bdUniqueId);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, am amVar) {
         if (amVar != null && bdUniqueId != null) {
-            ArrayList<am> arrayList = this.iDG.get(bdUniqueId);
+            ArrayList<am> arrayList = this.iDH.get(bdUniqueId);
             if (arrayList == null) {
                 arrayList = new ArrayList<>();
-                this.iDG.put(bdUniqueId, arrayList);
+                this.iDH.put(bdUniqueId, arrayList);
             }
             arrayList.add(amVar);
         }
@@ -53,13 +53,13 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean u(BdUniqueId bdUniqueId) {
-        return this.iDG.containsKey(bdUniqueId);
+        return this.iDH.containsKey(bdUniqueId);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cdp() {
-        if (this.iDG.size() != 0) {
-            for (Map.Entry<BdUniqueId, ArrayList<am>> entry : this.iDG.entrySet()) {
+    public void cdq() {
+        if (this.iDH.size() != 0) {
+            for (Map.Entry<BdUniqueId, ArrayList<am>> entry : this.iDH.entrySet()) {
                 ArrayList<am> value = entry.getValue();
                 if (value != null) {
                     value.clear();
@@ -71,7 +71,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(BdUniqueId bdUniqueId, boolean z) {
         if (bdUniqueId != null) {
-            ArrayList<am> arrayList = this.iDG.get(bdUniqueId);
+            ArrayList<am> arrayList = this.iDH.get(bdUniqueId);
             if (v.S(arrayList) != 0) {
                 aB(arrayList);
                 arrayList.clear();

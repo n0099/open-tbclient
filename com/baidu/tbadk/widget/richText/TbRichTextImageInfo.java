@@ -127,7 +127,7 @@ public class TbRichTextImageInfo extends OrmObject {
         }
     }
 
-    public String asO() {
+    public String asP() {
         return this.cCT;
     }
 
@@ -139,7 +139,7 @@ public class TbRichTextImageInfo extends OrmObject {
         return this.mWidth;
     }
 
-    public boolean asP() {
+    public boolean asQ() {
         return this.cCU;
     }
 
@@ -147,23 +147,23 @@ public class TbRichTextImageInfo extends OrmObject {
         return this.mSrc;
     }
 
-    public String asQ() {
+    public String asR() {
         return this.cDb;
     }
 
-    public String asR() {
+    public String asS() {
         return this.cCS;
     }
 
-    public String asS() {
+    public String asT() {
         return this.cDa;
     }
 
-    public boolean asT() {
+    public boolean asU() {
         return this.cCV;
     }
 
-    public String asU() {
+    public String asV() {
         return this.cCW;
     }
 
@@ -171,11 +171,11 @@ public class TbRichTextImageInfo extends OrmObject {
         return this.cCX;
     }
 
-    public boolean asV() {
+    public boolean asW() {
         return this.cCY;
     }
 
-    public boolean asW() {
+    public boolean asX() {
         return this.cCZ;
     }
 }

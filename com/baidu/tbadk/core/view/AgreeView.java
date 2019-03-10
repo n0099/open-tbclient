@@ -467,7 +467,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                                 this.bNA.agreeNum++;
                                 this.bNA.disAgreeNum--;
                                 dH(true);
-                                com.baidu.tieba.n.a.bWo().y(getTbPageContext());
+                                com.baidu.tieba.n.a.bWp().y(getTbPageContext());
                                 if (this.bNP != null) {
                                     this.bNP.bxk = 0;
                                     i = 0;
@@ -480,7 +480,7 @@ public class AgreeView extends LinearLayout implements Animator.AnimatorListener
                             this.bNA.diffAgreeNum++;
                             this.bNA.agreeNum++;
                             dH(true);
-                            com.baidu.tieba.n.a.bWo().y(getTbPageContext());
+                            com.baidu.tieba.n.a.bWp().y(getTbPageContext());
                             if (this.bNP != null) {
                                 this.bNP.bxk = 0;
                             }

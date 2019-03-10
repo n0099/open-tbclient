@@ -20,7 +20,7 @@ public class c {
     private final List<BdAsyncTask> czx = new LinkedList();
     private com.baidu.adp.lib.e.a<a.C0212a, com.baidu.tbadk.widget.largeImage.a.a> czy;
 
-    public void arW() {
+    public void arX() {
         for (BdAsyncTask bdAsyncTask : this.czx) {
             if (bdAsyncTask != null) {
                 bdAsyncTask.cancel();
@@ -30,7 +30,7 @@ public class c {
     }
 
     public void onDestory() {
-        arW();
+        arX();
         if (this.czy != null) {
             this.czy.am(0);
             this.czy.clear();
@@ -61,7 +61,7 @@ public class c {
             /* renamed from: a */
             public void entryRemoved(boolean z, a.C0212a c0212a, com.baidu.tbadk.widget.largeImage.a.a aVar, com.baidu.tbadk.widget.largeImage.a.a aVar2) {
                 if (z && c.this.cmz != null && aVar != null) {
-                    aVar.aru();
+                    aVar.arv();
                     c.this.cmz.t(aVar);
                 }
             }
@@ -74,16 +74,16 @@ public class c {
         if (aVar == null) {
             return;
         }
-        aVar.a(this, this.cza, this.czw, arX());
+        aVar.a(this, this.cza, this.czw, arY());
         aVar.execute(new Object[0]);
         this.czx.add(aVar);
     }
 
-    public com.baidu.adp.lib.e.a<a.C0212a, com.baidu.tbadk.widget.largeImage.a.a> arX() {
+    public com.baidu.adp.lib.e.a<a.C0212a, com.baidu.tbadk.widget.largeImage.a.a> arY() {
         return this.czy;
     }
 
-    public com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.largeImage.a.a> arY() {
+    public com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.largeImage.a.a> arZ() {
         return this.cmz;
     }
 
@@ -100,40 +100,40 @@ public class c {
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         protected Object doInBackground(Object[] objArr) {
-            com.baidu.tbadk.widget.largeImage.a.a arC;
+            com.baidu.tbadk.widget.largeImage.a.a arD;
             if (this.czy != null && this.czA.u(this.row, this.column, this.cyN)) {
                 Rect v = this.czA.v(this.row, this.column, this.cyN);
                 this.czA.h(v);
                 if (!i(v)) {
                     try {
-                        arC = this.czC.arY().jA();
-                        if (arC != null) {
-                            if (!arC.g(v)) {
+                        arD = this.czC.arZ().jA();
+                        if (arD != null) {
+                            if (!arD.g(v)) {
                                 System.currentTimeMillis();
-                                arC.aru();
+                                arD.arv();
                             }
                         } else {
-                            arC = this.czA.arC();
+                            arD = this.czA.arD();
                         }
                     } catch (Throwable th) {
                         TbadkCoreApplication.getInst().onAppMemoryLow();
                         this.czy.am((int) (this.czy.getMaxSize() * 0.8d));
                         System.gc();
                         try {
-                            arC = this.czA.arC();
+                            arD = this.czA.arD();
                         } catch (Throwable th2) {
                         }
                     }
                     BitmapFactory.Options options = new BitmapFactory.Options();
                     options.inSampleSize = this.cyN;
-                    options.inBitmap = arC.getBitmap();
+                    options.inBitmap = arD.getBitmap();
                     options.inMutable = true;
                     System.currentTimeMillis();
                     Bitmap decodeRegion = this.czw.decodeRegion(v, options);
                     decodeRegion.prepareToDraw();
-                    arC.setBitmap(decodeRegion);
-                    arC.t(this.row, this.column, this.cyN);
-                    this.czy.put(arC.arx(), arC);
+                    arD.setBitmap(decodeRegion);
+                    arD.t(this.row, this.column, this.cyN);
+                    this.czy.put(arD.ary(), arD);
                     if (this.czB != null) {
                         this.czB.akI();
                     }

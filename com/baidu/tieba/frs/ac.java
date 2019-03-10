@@ -26,7 +26,7 @@ public class ac {
         }
     }
 
-    public List<com.baidu.tbadk.mainTab.b> bcc() {
+    public List<com.baidu.tbadk.mainTab.b> bcd() {
         return this.eYk;
     }
 

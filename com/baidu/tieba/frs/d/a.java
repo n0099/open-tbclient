@@ -14,24 +14,24 @@ public class a {
     public static void a(bg bgVar, int i, BdUniqueId bdUniqueId, b bVar) {
         am a;
         if (bgVar != null && (a = com.baidu.tieba.q.a.a(bgVar, "a006", "common_click", i, bgVar.bDP, false, null, null)) != null) {
-            a.T("list_order", c.bil().a(bVar));
-            com.baidu.tieba.q.c.cdq().b(bdUniqueId, a);
+            a.T("list_order", c.bim().a(bVar));
+            com.baidu.tieba.q.c.cdr().b(bdUniqueId, a);
         }
     }
 
     public static void a(bg bgVar, BdUniqueId bdUniqueId, b bVar, int i) {
         am a;
         if (bgVar != null && (a = com.baidu.tieba.q.a.a(bgVar, "a006", "common_exp", i, false, null, null)) != null) {
-            a.T("list_order", c.bil().a(bVar));
-            com.baidu.tieba.q.c.cdq().a(bdUniqueId, bgVar.getId(), a);
+            a.T("list_order", c.bim().a(bVar));
+            com.baidu.tieba.q.c.cdr().a(bdUniqueId, bgVar.getId(), a);
         }
     }
 
     public static void a(bg bgVar, BdUniqueId bdUniqueId, b bVar) {
         am a;
         if (bgVar != null && (a = com.baidu.tieba.q.a.a(bgVar, "a006", "common_exp", bgVar.bDP, false, null, null)) != null) {
-            a.T("list_order", c.bil().a(bVar));
-            com.baidu.tieba.q.c.cdq().a(bdUniqueId, bgVar.getId(), a);
+            a.T("list_order", c.bim().a(bVar));
+            com.baidu.tieba.q.c.cdr().a(bdUniqueId, bgVar.getId(), a);
         }
     }
 
@@ -60,7 +60,7 @@ public class a {
                     }
                 }
                 b.T("list_order", i);
-                com.baidu.tieba.q.c.cdq().b(bdUniqueId, b);
+                com.baidu.tieba.q.c.cdr().b(bdUniqueId, b);
             }
         }
     }

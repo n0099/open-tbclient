@@ -315,7 +315,7 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                 }
                 if (dataRes.ala_live_insert != null && dataRes.ala_live_insert.ala_live_list != null && dataRes.ala_live_insert.ala_live_list.size() > 0) {
                     this.mFrsInsertLiveData = new f();
-                    this.mFrsInsertLiveData.iEb = dataRes.ala_insert_floor.intValue();
+                    this.mFrsInsertLiveData.iEc = dataRes.ala_insert_floor.intValue();
                     ArrayList arrayList = new ArrayList();
                     for (int i3 = 0; i3 < dataRes.ala_live_insert.ala_live_list.size(); i3++) {
                         if (dataRes.ala_live_insert.ala_live_list.get(i3) != null) {
@@ -325,7 +325,7 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                             arrayList.add(bgVar);
                         }
                     }
-                    this.mFrsInsertLiveData.iEa = arrayList;
+                    this.mFrsInsertLiveData.iEb = arrayList;
                 }
                 if (dataRes.ala_stage_list != null) {
                     this.mFrsStageLiveData = new g();
@@ -338,7 +338,7 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                             arrayList2.add(bgVar2);
                         }
                     }
-                    this.mFrsStageLiveData.iEd = arrayList2;
+                    this.mFrsStageLiveData.iEe = arrayList2;
                 }
                 if (dataRes.school_recom_info != null) {
                     this.schoolRecommendPos = dataRes.school_recom_pos.intValue();
@@ -355,7 +355,7 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                 }
                 this.mSortType = dataRes.sort_type.intValue();
                 this.needLog = dataRes.need_log.intValue();
-                com.baidu.tieba.recapp.d.a.bXw().BI(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.d.a.bXx().BJ(dataRes.asp_shown_info);
                 this.mCardShipinPos = dataRes.card_shipin_pos;
                 if (dataRes.card_shipin_new != null) {
                     for (int i5 = 0; i5 < dataRes.card_shipin_new.size(); i5++) {

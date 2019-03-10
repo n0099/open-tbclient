@@ -11,20 +11,20 @@ public class a {
     public final long delta;
     public final long serverTime;
 
-    public static a azJ() {
+    public static a azK() {
         return new a(0L);
     }
 
     private a(long j) {
         this.delta = TimeUnit.MILLISECONDS.toSeconds(j);
         this.serverTime = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
-        this.cVW = Long.toHexString(rG(this.serverTime + "#" + this.delta));
+        this.cVW = Long.toHexString(rH(this.serverTime + "#" + this.delta));
         this.cVX.put("timestamp", Long.toString(this.serverTime));
         this.cVX.put("delta", Long.toString(this.delta));
         this.cVX.put("rasign", this.cVW);
     }
 
-    private long rG(String str) {
+    private long rH(String str) {
         CRC32 crc32 = new CRC32();
         crc32.reset();
         crc32.update(str.getBytes());

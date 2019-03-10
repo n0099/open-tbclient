@@ -109,7 +109,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.cAt = new QuickVideoView.b() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.5
             @Override // com.baidu.tieba.play.QuickVideoView.b
             public void onSurfaceDestroyed() {
-                AlaVideoContainer.this.aBk();
+                AlaVideoContainer.this.aBl();
             }
         };
         this.cAp = new g.b() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.6
@@ -122,7 +122,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.cAr = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.7
             @Override // java.lang.Runnable
             public void run() {
-                AlaVideoContainer.this.aBk();
+                AlaVideoContainer.this.aBl();
             }
         };
         this.ekR = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.8
@@ -191,7 +191,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.cAt = new QuickVideoView.b() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.5
             @Override // com.baidu.tieba.play.QuickVideoView.b
             public void onSurfaceDestroyed() {
-                AlaVideoContainer.this.aBk();
+                AlaVideoContainer.this.aBl();
             }
         };
         this.cAp = new g.b() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.6
@@ -204,7 +204,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.cAr = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.7
             @Override // java.lang.Runnable
             public void run() {
-                AlaVideoContainer.this.aBk();
+                AlaVideoContainer.this.aBl();
             }
         };
         this.ekR = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.8
@@ -273,7 +273,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.cAt = new QuickVideoView.b() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.5
             @Override // com.baidu.tieba.play.QuickVideoView.b
             public void onSurfaceDestroyed() {
-                AlaVideoContainer.this.aBk();
+                AlaVideoContainer.this.aBl();
             }
         };
         this.cAp = new g.b() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.6
@@ -286,7 +286,7 @@ public class AlaVideoContainer extends LinearLayout {
         this.cAr = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.7
             @Override // java.lang.Runnable
             public void run() {
-                AlaVideoContainer.this.aBk();
+                AlaVideoContainer.this.aBl();
             }
         };
         this.ekR = new Runnable() { // from class: com.baidu.tieba.card.ala.AlaVideoContainer.8
@@ -309,7 +309,7 @@ public class AlaVideoContainer extends LinearLayout {
         layoutParams.height = (this.dbg.getWidth() * 9) / 16;
         this.dbg.setLayoutParams(layoutParams);
         this.ekN = new n(getContext());
-        this.ekN.bTv();
+        this.ekN.bTw();
         this.dbg.setBusiness(this.ekN);
         this.dbg.setOnPreparedListener(this.cJJ);
         this.dbg.setOnSurfaceDestroyedListener(this.cAt);
@@ -405,7 +405,7 @@ public class AlaVideoContainer extends LinearLayout {
         return this.dbg;
     }
 
-    public void aBk() {
+    public void aBl() {
         this.ekD.setVisibility(0);
         this.ekF.setVisibility(0);
         this.ekG.setVisibility(8);
@@ -439,7 +439,7 @@ public class AlaVideoContainer extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        aQO();
+        aQP();
     }
 
     public void startPlayAnimation() {
@@ -448,7 +448,7 @@ public class AlaVideoContainer extends LinearLayout {
         }
     }
 
-    public void aQO() {
+    public void aQP() {
         if (this.ekF != null) {
             this.ekF.cancelAnimation();
         }

@@ -12,26 +12,26 @@ import com.baidu.tieba.play.QuickVideoView;
 /* loaded from: classes.dex */
 public class k {
     private static final String TAG = k.class.getName();
-    private long gYM;
     private long gYN;
-    private boolean gYO;
-
-    public void bEA() {
-        this.gYO = true;
-        this.gYM = SystemClock.elapsedRealtime();
-    }
+    private long gYO;
+    private boolean gYP;
 
     public void bEB() {
+        this.gYP = true;
         this.gYN = SystemClock.elapsedRealtime();
     }
 
+    public void bEC() {
+        this.gYO = SystemClock.elapsedRealtime();
+    }
+
     public void a(String str, long j, long j2, String str2, QuickVideoView quickVideoView) {
-        if (this.gYO) {
-            this.gYO = false;
+        if (this.gYP) {
+            this.gYP = false;
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j3 = this.gYN - this.gYM;
-            long j4 = elapsedRealtime - this.gYN;
-            long j5 = elapsedRealtime - this.gYM;
+            long j3 = this.gYO - this.gYN;
+            long j4 = elapsedRealtime - this.gYO;
+            long j5 = elapsedRealtime - this.gYN;
             if (j.netType() == 2 || j3 <= 17500) {
                 am amVar = new am("c13171");
                 amVar.bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, str2);
@@ -43,17 +43,17 @@ public class k {
                 amVar.T("ptype", j.netType());
                 amVar.bJ("tid", str);
                 amVar.bJ("cuid", TbadkCoreApplication.getInst().getCuid());
-                amVar.T(VideoPlayActivityConfig.OBJ_ID, ad.ke(zf(str2)) ? 1 : 0);
+                amVar.T(VideoPlayActivityConfig.OBJ_ID, ad.ke(zg(str2)) ? 1 : 0);
                 amVar.k("time_stamp", System.currentTimeMillis());
                 TiebaStatic.log(amVar);
                 if (quickVideoView != null) {
-                    quickVideoView.a(str2, j3, j4, j5, j2, j, str, ad.ke(zf(str2)) ? 1 : 0);
+                    quickVideoView.a(str2, j3, j4, j5, j2, j, str, ad.ke(zg(str2)) ? 1 : 0);
                 }
             }
         }
     }
 
-    private int zf(String str) {
+    private int zg(String str) {
         if ("frs".equals(str)) {
             return 2;
         }

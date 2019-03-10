@@ -9,7 +9,7 @@ public class a implements com.baidu.tbadk.core.flow.a.a {
         this.mImgUrl = str;
     }
 
-    public void we(String str) {
+    public void wf(String str) {
         this.fId = str;
     }
 

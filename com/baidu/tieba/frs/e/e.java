@@ -26,11 +26,11 @@ public class e {
         return String.format("%s_%s", objArr);
     }
 
-    public boolean biz() {
+    public boolean biA() {
         return this.fgJ;
     }
 
-    public boolean biA() {
+    public boolean biB() {
         return this.fuv;
     }
 }

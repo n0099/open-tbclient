@@ -48,7 +48,7 @@ public class AdStatic {
                 }
             }
         });
-        com.baidu.tieba.ad.a.awE().a(new h.c() { // from class: com.baidu.tieba.ad.browser.AdStatic.2
+        com.baidu.tieba.ad.a.awF().a(new h.c() { // from class: com.baidu.tieba.ad.browser.AdStatic.2
             @Override // com.baidu.tieba.recapp.h.c
             public int b(Context context, String str, String str2, boolean z, h.d dVar, boolean z2) {
                 if (z2) {
@@ -66,10 +66,10 @@ public class AdStatic {
     }
 
     private static void VK() {
-        com.baidu.tieba.ad.a.awE().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.3
+        com.baidu.tieba.ad.a.awF().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.3
             @Override // com.baidu.tieba.recapp.h.a
             public int e(Context context, String[] strArr) {
-                Bundle pR;
+                Bundle pS;
                 if (context == null || strArr == null || strArr.length == 0) {
                     return 3;
                 }
@@ -118,7 +118,7 @@ public class AdStatic {
                         ((Activity) context).finish();
                     }
                     return 1;
-                } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (pR = ae.pR(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(pR.getString(ClientCookie.PATH_ATTR))) {
+                } else if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str.contains("/changeyinjisuccess") && (pS = ae.pS(str)) != null && "/changeyinjisuccess".equalsIgnoreCase(pS.getString(ClientCookie.PATH_ATTR))) {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001372));
                     return 0;
                 } else {
@@ -144,7 +144,7 @@ public class AdStatic {
         });
     }
 
-    private static String qR(String str) {
+    private static String qS(String str) {
         String str2;
         if (TextUtils.isEmpty(str)) {
             return "";
@@ -208,8 +208,8 @@ public class AdStatic {
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(Context context, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
         TiebaStatic.eventStat(context, "url_1", null);
-        String qR = qR(str);
-        if (!qS(qR) && awF() && jh("com.baidu.searchbox") && qT(qR) && btI) {
+        String qS = qS(str);
+        if (!qT(qS) && awG() && jh("com.baidu.searchbox") && qU(qS) && btI) {
             TiebaStatic.eventStat(context, "url_2", null);
             b(context, str, str2, z, z2, z3, z4);
             return;
@@ -217,15 +217,15 @@ public class AdStatic {
         c(context, str, str2, z, z2, z3, z4);
     }
 
-    private static boolean qS(String str) {
+    private static boolean qT(String str) {
         return str != null;
     }
 
-    private static boolean awF() {
+    private static boolean awG() {
         return com.baidu.adp.lib.b.d.iQ().aO("switch_mbaidu_startup") == 1;
     }
 
-    private static boolean qT(String str) {
+    private static boolean qU(String str) {
         return str.startsWith("http://") || str.startsWith("https://") || !str.contains("://");
     }
 
@@ -264,7 +264,7 @@ public class AdStatic {
     }
 
     private static void VL() {
-        com.baidu.tieba.ad.a.awE().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.4
+        com.baidu.tieba.ad.a.awF().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.4
             @Override // com.baidu.tieba.recapp.h.a
             public int e(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
@@ -336,7 +336,7 @@ public class AdStatic {
     }
 
     private static void VM() {
-        com.baidu.tieba.ad.a.awE().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.5
+        com.baidu.tieba.ad.a.awF().a(new h.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.5
             @Override // com.baidu.tieba.recapp.h.a
             public int e(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

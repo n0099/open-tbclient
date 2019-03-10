@@ -54,7 +54,7 @@ public class a {
                         }
                         TiebaStatic.log(new am("c12239").bJ("uid", TbadkCoreApplication.getCurrentAccount()).bJ(ImageViewerConfig.FORUM_ID, sb.toString()));
                         if (v.T(arrayList)) {
-                            a.this.aAB();
+                            a.this.aAC();
                             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("show_recommend_forums_window_", false);
                             return;
                         } else if (!l.lo()) {
@@ -74,7 +74,7 @@ public class a {
                                             l.showToast(a.this.mContext.getPageActivity(), str);
                                             return;
                                         }
-                                        a.this.aAB();
+                                        a.this.aAC();
                                         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("show_recommend_forums_window_", false);
                                         if (a.this.eBd != null) {
                                             a.this.eBd.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9, null, null, null));
@@ -89,7 +89,7 @@ public class a {
                     }
                     return;
                 }
-                a.this.aAB();
+                a.this.aAC();
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("show_recommend_forums_window_", false);
                 TiebaStatic.log(new am("c12240").bJ("uid", TbadkCoreApplication.getCurrentAccount()));
             }
@@ -137,7 +137,7 @@ public class a {
         this.forumList = list;
         if (!this.isShowing && this.mRootView != null) {
             if (v.T(list)) {
-                aAB();
+                aAC();
                 return;
             }
             if (this.cok == null) {
@@ -163,7 +163,7 @@ public class a {
         }
     }
 
-    public void aAB() {
+    public void aAC() {
         if (this.isShowing) {
             this.isShowing = false;
             if (this.cok != null && this.mRootView != null) {
@@ -176,7 +176,7 @@ public class a {
     }
 
     public void onDestroy() {
-        aAB();
+        aAC();
         if (this.eEj != null) {
             this.eEj.cancelMessage();
         }
@@ -193,7 +193,7 @@ public class a {
         this.eEi.notifyDataSetChanged();
     }
 
-    public View aXb() {
+    public View aXc() {
         return this.cok;
     }
 

@@ -103,10 +103,10 @@ public class e {
                 horizontalTabView.getLocationInWindow(iArr);
                 l.aP(horizontalTabView.getContext());
                 int aQ = l.aQ(horizontalTabView.getContext());
-                int bio = this.ftS.bio();
+                int bip = this.ftS.bip();
                 int measuredHeight = (aQ - iArr[1]) - horizontalTabView.getMeasuredHeight();
-                if (measuredHeight < bio) {
-                    horizontalTabView.getmShowMenuCallBack().rp(bio - measuredHeight);
+                if (measuredHeight < bip) {
+                    horizontalTabView.getmShowMenuCallBack().rp(bip - measuredHeight);
                 }
             }
         }
@@ -124,7 +124,7 @@ public class e {
         }
     }
 
-    public void biq() {
+    public void bir() {
         if (this.bui != null) {
             try {
                 this.bui.dismiss();
@@ -134,7 +134,7 @@ public class e {
         }
     }
 
-    public b bir() {
+    public b bis() {
         return this.ftD;
     }
 }

@@ -7,7 +7,7 @@ import org.apache.http.cookie.ClientCookie;
 public class d {
     private static volatile d eyw = null;
 
-    public static final d aUY() {
+    public static final d aUZ() {
         if (eyw == null) {
             synchronized (d.class) {
                 if (eyw == null) {

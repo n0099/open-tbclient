@@ -60,11 +60,11 @@ public class q implements com.baidu.adp.widget.ListView.m {
         return this.fcc;
     }
 
-    public String bdX() {
+    public String bdY() {
         return this.fcd;
     }
 
-    public boolean bdY() {
+    public boolean bdZ() {
         return this.fce;
     }
 

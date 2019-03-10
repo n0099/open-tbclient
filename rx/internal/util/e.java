@@ -1,7 +1,7 @@
 package rx.internal.util;
 /* loaded from: classes2.dex */
 public final class e<T> {
-    T[] kaJ;
+    T[] kbc;
     final float loadFactor;
     int mask;
     int maxSize;
@@ -13,31 +13,31 @@ public final class e<T> {
 
     public e(int i, float f) {
         this.loadFactor = f;
-        int Dt = rx.internal.util.a.h.Dt(i);
-        this.mask = Dt - 1;
-        this.maxSize = (int) (Dt * f);
-        this.kaJ = (T[]) new Object[Dt];
+        int Du = rx.internal.util.a.h.Du(i);
+        this.mask = Du - 1;
+        this.maxSize = (int) (Du * f);
+        this.kbc = (T[]) new Object[Du];
     }
 
     public boolean add(T t) {
         T t2;
-        T[] tArr = this.kaJ;
+        T[] tArr = this.kbc;
         int i = this.mask;
-        int Dp = Dp(t.hashCode()) & i;
-        T t3 = tArr[Dp];
+        int Dq = Dq(t.hashCode()) & i;
+        T t3 = tArr[Dq];
         if (t3 != null) {
             if (t3.equals(t)) {
                 return false;
             }
             do {
-                Dp = (Dp + 1) & i;
-                t2 = tArr[Dp];
+                Dq = (Dq + 1) & i;
+                t2 = tArr[Dq];
                 if (t2 == null) {
                 }
             } while (!t2.equals(t));
             return false;
         }
-        tArr[Dp] = t;
+        tArr[Dq] = t;
         int i2 = this.size + 1;
         this.size = i2;
         if (i2 >= this.maxSize) {
@@ -48,24 +48,24 @@ public final class e<T> {
 
     public boolean remove(T t) {
         T t2;
-        T[] tArr = this.kaJ;
+        T[] tArr = this.kbc;
         int i = this.mask;
-        int Dp = Dp(t.hashCode()) & i;
-        T t3 = tArr[Dp];
+        int Dq = Dq(t.hashCode()) & i;
+        T t3 = tArr[Dq];
         if (t3 == null) {
             return false;
         }
         if (t3.equals(t)) {
-            return a(Dp, tArr, i);
+            return a(Dq, tArr, i);
         }
         do {
-            Dp = (Dp + 1) & i;
-            t2 = tArr[Dp];
+            Dq = (Dq + 1) & i;
+            t2 = tArr[Dq];
             if (t2 == null) {
                 return false;
             }
         } while (!t2.equals(t));
-        return a(Dp, tArr, i);
+        return a(Dq, tArr, i);
     }
 
     boolean a(int i, T[] tArr, int i2) {
@@ -81,13 +81,13 @@ public final class e<T> {
                     tArr[i] = null;
                     return true;
                 }
-                int Dp = Dp(t.hashCode()) & i2;
+                int Dq = Dq(t.hashCode()) & i2;
                 if (i > i3) {
-                    if (i >= Dp && Dp > i3) {
+                    if (i >= Dq && Dq > i3) {
                         break;
                     }
                     i4 = i3 + 1;
-                } else if (i < Dp && Dp <= i3) {
+                } else if (i < Dq && Dq <= i3) {
                     i4 = i3 + 1;
                 }
             }
@@ -98,11 +98,11 @@ public final class e<T> {
 
     public void terminate() {
         this.size = 0;
-        this.kaJ = (T[]) new Object[0];
+        this.kbc = (T[]) new Object[0];
     }
 
     void rehash() {
-        T[] tArr = this.kaJ;
+        T[] tArr = this.kbc;
         int length = tArr.length;
         int i = length << 1;
         int i2 = i - 1;
@@ -115,24 +115,24 @@ public final class e<T> {
                 do {
                     i3--;
                 } while (tArr[i3] == null);
-                int Dp = Dp(tArr[i3].hashCode()) & i2;
-                if (tArr2[Dp] != null) {
+                int Dq = Dq(tArr[i3].hashCode()) & i2;
+                if (tArr2[Dq] != null) {
                     do {
-                        Dp = (Dp + 1) & i2;
-                    } while (tArr2[Dp] != null);
+                        Dq = (Dq + 1) & i2;
+                    } while (tArr2[Dq] != null);
                 }
-                tArr2[Dp] = tArr[i3];
+                tArr2[Dq] = tArr[i3];
                 i4 = i5;
             } else {
                 this.mask = i2;
                 this.maxSize = (int) (i * this.loadFactor);
-                this.kaJ = tArr2;
+                this.kbc = tArr2;
                 return;
             }
         }
     }
 
-    static int Dp(int i) {
+    static int Dq(int i) {
         int i2 = (-1640531527) * i;
         return i2 ^ (i2 >>> 16);
     }
@@ -141,7 +141,7 @@ public final class e<T> {
         return this.size == 0;
     }
 
-    public T[] cEp() {
-        return this.kaJ;
+    public T[] cEz() {
+        return this.kbc;
     }
 }

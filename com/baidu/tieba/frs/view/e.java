@@ -75,7 +75,7 @@ public class e extends BaseAdapter implements d {
                             return;
                         }
                         ba.adD().c(e.this.mPageContext, new String[]{url});
-                        a.C0309a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", hVar.cdw(), e.this.mForumId, e.this.mForumName, null);
+                        a.C0309a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "CLICK", hVar.cdx(), e.this.mForumId, e.this.mForumName, null);
                         b2.dY("obj_url", hVar.getUrl());
                         b2.save();
                     }
@@ -201,7 +201,7 @@ public class e extends BaseAdapter implements d {
     }
 
     @Override // com.baidu.tieba.frs.d.d
-    public com.baidu.tieba.frs.d.b bfz() {
+    public com.baidu.tieba.frs.d.b bfA() {
         return this.fhf;
     }
 
@@ -295,14 +295,14 @@ public class e extends BaseAdapter implements d {
                     cVar.Uy.startLoad(this.imageUrl, 10, false);
                 }
                 hVar.zj(6);
-                if (hVar.cdv() != 0) {
+                if (hVar.cdw() != 0) {
                     cVar.fAy.setVisibility(0);
-                    if (hVar.cdv() == -1) {
+                    if (hVar.cdw() == -1) {
                         cVar.fAy.setText(this.mContext.getString(d.j.no_rank));
-                    } else if (hVar.cdv() > 999) {
+                    } else if (hVar.cdw() > 999) {
                         cVar.fAy.setText(this.mContext.getString(d.j.rang_orer_thousand));
                     } else {
-                        cVar.fAy.setText(this.mContext.getString(d.j.rang_identify) + String.valueOf(hVar.cdv()));
+                        cVar.fAy.setText(this.mContext.getString(d.j.rang_identify) + String.valueOf(hVar.cdw()));
                     }
                     if (!StringUtils.isNull(hVar.getTitle())) {
                         cVar.titleText.setText(ap.g(hVar.getTitle(), 22, "..."));
@@ -316,8 +316,8 @@ public class e extends BaseAdapter implements d {
                 if (this.fAu != null) {
                     cVar.dcP.setOnClickListener(this.fAu);
                 }
-                if (this.fzu != null && this.fzu.add(hVar.cdw())) {
-                    a.C0309a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", hVar.cdw(), this.mForumId, this.mForumName, null);
+                if (this.fzu != null && this.fzu.add(hVar.cdx())) {
+                    a.C0309a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", hVar.cdx(), this.mForumId, this.mForumName, null);
                     b2.dY("obj_url", hVar.getUrl());
                     b2.save();
                 }
@@ -330,14 +330,14 @@ public class e extends BaseAdapter implements d {
         bVar.titleText.setText(hVar.getTitle());
         bVar.fAx.setText(a2);
         bVar.fAx.setTextColor(this.fAs);
-        if (hVar.cdv() != 0) {
+        if (hVar.cdw() != 0) {
             bVar.fAy.setVisibility(0);
-            if (hVar.cdv() == -1) {
+            if (hVar.cdw() == -1) {
                 bVar.fAy.setText(this.mContext.getString(d.j.no_rank));
-            } else if (hVar.cdv() > 999) {
+            } else if (hVar.cdw() > 999) {
                 bVar.fAy.setText(this.mContext.getString(d.j.rang_orer_thousand));
             } else {
-                bVar.fAy.setText(this.mContext.getString(d.j.rang_identify) + String.valueOf(hVar.cdv()));
+                bVar.fAy.setText(this.mContext.getString(d.j.rang_identify) + String.valueOf(hVar.cdw()));
             }
             if (!StringUtils.isNull(hVar.getTitle())) {
                 bVar.titleText.setText(ap.g(hVar.getTitle(), 22, "..."));
@@ -350,21 +350,21 @@ public class e extends BaseAdapter implements d {
         if (this.fAu != null) {
             bVar.dcP.setOnClickListener(this.fAu);
         }
-        if (this.fzu != null && this.fzu.add(hVar.cdw())) {
-            a.C0309a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", hVar.cdw(), this.mForumId, this.mForumName, null);
+        if (this.fzu != null && this.fzu.add(hVar.cdx())) {
+            a.C0309a b2 = com.baidu.tieba.tbadkCore.d.a.b("ad_tpoint", "PT", "FRS", "c0128", "ad_plat", "VIEW_TRUE", hVar.cdx(), this.mForumId, this.mForumName, null);
             b2.dY("obj_url", hVar.getUrl());
             b2.save();
         }
     }
 
     private String a(h hVar) {
-        if (hVar.cdu() == 1) {
+        if (hVar.cdv() == 1) {
             return TbadkCoreApplication.getInst().getString(d.j.thread_recruit);
         }
-        if (TextUtils.isEmpty(hVar.cdx()) || hVar.cdx().trim().length() == 0) {
+        if (TextUtils.isEmpty(hVar.cdy()) || hVar.cdy().trim().length() == 0) {
             return TbadkCoreApplication.getInst().getString(d.j.top_announcement);
         }
-        return hVar.cdx();
+        return hVar.cdy();
     }
 
     public TbPageContext getTbPageContext() {

@@ -48,10 +48,10 @@ public class n extends v.a {
         com.baidu.tbadk.core.util.al.c(this.fbO, d.f.new_pic_emotion_gray_06);
         this.fbQ.setTag(fbM);
         MessageManager.getInstance().registerListener(this.fbQ);
-        bdW();
+        bdX();
     }
 
-    private void bdW() {
+    private void bdX() {
         if (this.mRootView != null) {
             this.mRootView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() { // from class: com.baidu.tieba.frs.n.2
                 @Override // android.view.View.OnLayoutChangeListener

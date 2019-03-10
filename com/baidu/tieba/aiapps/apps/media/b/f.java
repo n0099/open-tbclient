@@ -34,7 +34,7 @@ public class f implements com.baidu.swan.apps.media.a {
     private Activity cVv;
     private boolean mDetached;
     CustomMessageListener mNetworkChangedListener;
-    private a cVo = a.azx();
+    private a cVo = a.azy();
     private com.baidu.tieba.aiapps.apps.media.b.a.a cVr = new com.baidu.tieba.aiapps.apps.media.b.a.a();
     private volatile boolean cVt = false;
     private String cVw = "AiAppLiveErr";
@@ -79,7 +79,7 @@ public class f implements com.baidu.swan.apps.media.a {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                    f.this.azD();
+                    f.this.azE();
                 }
             }
         };
@@ -89,7 +89,7 @@ public class f implements com.baidu.swan.apps.media.a {
         this.cVv.getWindow().addFlags(128);
     }
 
-    public a azz() {
+    public a azA() {
         return this.cVo;
     }
 
@@ -108,12 +108,12 @@ public class f implements com.baidu.swan.apps.media.a {
             }
             BdLog.d(this.azr + " start()");
             if (this.cVp != null) {
-                azA();
+                azB();
             }
-            azB();
+            azC();
             c(this.cVo);
             c(this.cVo.mSrc, "", "", false);
-            azC();
+            azD();
             this.mDetached = false;
         }
     }
@@ -148,7 +148,7 @@ public class f implements com.baidu.swan.apps.media.a {
         BdLog.d("onBackPressed ");
         if (this.cVo != null && this.ako != null && d(this.cVv, this.ako)) {
             if (this.cVv.getRequestedOrientation() != 1) {
-                this.cVs.bAB();
+                this.cVs.bAC();
             }
             f(this.cVv, 0);
             return true;
@@ -157,7 +157,7 @@ public class f implements com.baidu.swan.apps.media.a {
         return false;
     }
 
-    public void azA() {
+    public void azB() {
         if (this.cVp != null) {
             this.cVp.stop();
             this.cVp.destroy();
@@ -184,7 +184,7 @@ public class f implements com.baidu.swan.apps.media.a {
         }
     }
 
-    private void azB() {
+    private void azC() {
         fY(this.cVo.cVd);
         lR(this.cVo.cVf);
         lS(this.cVo.cVg);
@@ -244,7 +244,7 @@ public class f implements com.baidu.swan.apps.media.a {
         return true;
     }
 
-    private boolean azC() {
+    private boolean azD() {
         boolean z;
         int i;
         int i2;
@@ -277,7 +277,7 @@ public class f implements com.baidu.swan.apps.media.a {
                     i2 = this.cVo.aBE.getWidth();
                     i = this.cVo.aBE.getHeight();
                 } else {
-                    BdStatisticsManager.getInstance().eventStat(BdBaseApplication.getInst(), this.cVw, null, 1, "uid", TbadkCoreApplication.getCurrentAccount(), "mParams", this.cVo.toString(), "position", this.cVo.aBE.toString(), "appver", BdStatisticsManager.getInstance().getAppVersion());
+                    BdStatisticsManager.getInstance().eventStat(BdBaseApplication.getInst(), this.cVw, null, 1, "uid", TbadkCoreApplication.getCurrentAccount(), "mParams", this.cVo.toString(), "position", this.cVo.aBE == null ? "null" : this.cVo.aBE.toString(), "appver", BdStatisticsManager.getInstance().getAppVersion());
                     i = 0;
                     i2 = 0;
                 }
@@ -329,7 +329,7 @@ public class f implements com.baidu.swan.apps.media.a {
         BdLog.d("updatePlayerConfig params: " + aVar.toString());
         if (d(aVar)) {
             this.cVo = aVar;
-            azB();
+            azC();
         }
         this.cVo = aVar;
         c(this.cVo);
@@ -359,12 +359,12 @@ public class f implements com.baidu.swan.apps.media.a {
         int aQ = l.aQ(this.cVv);
         if (z) {
             if (i == 90 || i == -90) {
-                this.cVs.bAB();
+                this.cVs.bAC();
                 aO = aQ;
                 aQ = aO;
             }
         } else if (this.cVv.getRequestedOrientation() != 1) {
-            this.cVs.bAB();
+            this.cVs.bAC();
         }
         if (z) {
             a(this.cVv, i, aO, aQ);
@@ -418,7 +418,7 @@ public class f implements com.baidu.swan.apps.media.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void azD() {
+    public void azE() {
         String EK = this.cVr.EK();
         if (!TextUtils.isEmpty(EK)) {
             BdLog.d(this.azr + " dispatchNetStatusEvent statusData: " + EK);

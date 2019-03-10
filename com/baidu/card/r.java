@@ -59,7 +59,7 @@ public class r extends b<com.baidu.tbadk.core.data.a> {
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0037a c0037a) {
                 if (r.this.Xx != null && r.this.Xx.WR() != null) {
-                    com.baidu.tieba.card.n.tB(r.this.Xx.WR().getId());
+                    com.baidu.tieba.card.n.tC(r.this.Xx.WR().getId());
                     com.baidu.tieba.card.n.a(r.this.Ye.mTitle, r.this.Xx.WR().getId(), d.C0236d.cp_cont_b, d.C0236d.cp_cont_d);
                     com.baidu.tieba.card.n.a(r.this.Ye.XJ, r.this.Xx.WR().getId(), d.C0236d.cp_cont_b, d.C0236d.cp_cont_d);
                 }

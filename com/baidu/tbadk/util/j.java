@@ -11,7 +11,7 @@ public class j {
     private static int ctq;
     private static LinkedHashMap<String, Integer> ctr;
 
-    public static int pE(String str) {
+    public static int pF(String str) {
         if (ctr == null) {
             ctr = new LinkedHashMap<>(20);
         }

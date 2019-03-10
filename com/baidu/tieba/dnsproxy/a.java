@@ -15,8 +15,8 @@ public class a {
     private volatile String imsi;
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public String aUV() {
-        aUW();
+    public String aUW() {
+        aUX();
         if (j.kZ()) {
             return eys[new Random().nextInt(eys.length)];
         }
@@ -35,7 +35,7 @@ public class a {
         return "119.75.222.62";
     }
 
-    protected void aUW() {
+    protected void aUX() {
         this.imsi = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService(ISapiAccount.SAPI_ACCOUNT_PHONE)).getSubscriberId();
         this.eyo = 0;
         if (this.imsi != null) {

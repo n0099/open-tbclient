@@ -18,19 +18,19 @@ import java.util.ArrayList;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private static a ige;
-    private e igf;
+    private static a igf;
+    private e igg;
     private int mScore = 0;
 
-    public static a bWo() {
-        if (ige == null) {
+    public static a bWp() {
+        if (igf == null) {
             synchronized (a.class) {
-                if (ige == null) {
-                    ige = new a();
+                if (igf == null) {
+                    igf = new a();
                 }
             }
         }
-        return ige;
+        return igf;
     }
 
     public void init() {
@@ -73,8 +73,8 @@ public class a {
         if (tbPageContext != null) {
             j jVar = new j(tbPageContext.getContext());
             jVar.setTitleText(tbPageContext.getContext().getString(d.j.is_tieba_pleased));
-            jVar.AP(8);
-            jVar.AO(0);
+            jVar.AQ(8);
+            jVar.AP(0);
             int h = l.h(tbPageContext.getContext(), d.e.ds86);
             int h2 = l.h(tbPageContext.getContext(), d.e.ds138);
             int h3 = l.h(tbPageContext.getContext(), d.e.ds27);
@@ -85,18 +85,18 @@ public class a {
             jVar.a(new j.e() { // from class: com.baidu.tieba.n.a.1
                 @Override // com.baidu.tieba.view.j.e
                 public void xO(int i) {
-                    if (a.this.igf != null) {
-                        a.this.igf.dismiss();
-                        a.this.igf = null;
+                    if (a.this.igg != null) {
+                        a.this.igg.dismiss();
+                        a.this.igg = null;
                         a.this.mScore = i;
                         TiebaStatic.log(new am("c13072").T("obj_type", a.this.mScore));
                         a.this.A(tbPageContext);
                     }
                 }
             });
-            this.igf = new e(tbPageContext.getContext(), jVar.abk());
-            this.igf.al(0.7f);
-            g.a(this.igf, tbPageContext);
+            this.igg = new e(tbPageContext.getContext(), jVar.abk());
+            this.igg.al(0.7f);
+            g.a(this.igg, tbPageContext);
             TiebaStatic.log(new am("c13071"));
         }
     }
@@ -114,9 +114,9 @@ public class a {
             }
             ArrayList arrayList = new ArrayList();
             arrayList.add(aVar);
-            jVar.AN(this.mScore);
-            jVar.AO(0);
+            jVar.AO(this.mScore);
             jVar.AP(0);
+            jVar.AQ(0);
             jVar.qR(false);
             l.h(tbPageContext.getContext(), d.e.ds42);
             int h = l.h(tbPageContext.getContext(), d.e.ds32);
@@ -126,9 +126,9 @@ public class a {
             aVar.a(new j.c() { // from class: com.baidu.tieba.n.a.2
                 @Override // com.baidu.tieba.view.j.c
                 public void onClick() {
-                    if (a.this.igf != null) {
-                        a.this.igf.dismiss();
-                        a.this.igf = null;
+                    if (a.this.igg != null) {
+                        a.this.igg.dismiss();
+                        a.this.igg = null;
                         if (a.this.mScore == 1 || a.this.mScore == 2) {
                             a.this.C(tbPageContext);
                             TiebaStatic.log(new am("c13077"));
@@ -142,9 +142,9 @@ public class a {
             jVar.a(new j.b() { // from class: com.baidu.tieba.n.a.3
                 @Override // com.baidu.tieba.view.j.b
                 public void onClick() {
-                    if (a.this.igf != null) {
-                        a.this.igf.dismiss();
-                        a.this.igf = null;
+                    if (a.this.igg != null) {
+                        a.this.igg.dismiss();
+                        a.this.igg = null;
                         if (a.this.mScore == 1 || a.this.mScore == 2) {
                             TiebaStatic.log(new am("c13078"));
                         } else {
@@ -154,9 +154,9 @@ public class a {
                 }
             });
             jVar.P(arrayList);
-            this.igf = new e(tbPageContext.getContext(), jVar.abk());
-            this.igf.al(0.7f);
-            g.a(this.igf, tbPageContext);
+            this.igg = new e(tbPageContext.getContext(), jVar.abk());
+            this.igg.al(0.7f);
+            g.a(this.igg, tbPageContext);
             if (this.mScore == 1 || this.mScore == 2) {
                 TiebaStatic.log(new am("c13076"));
             } else {

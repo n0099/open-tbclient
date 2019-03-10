@@ -9,7 +9,7 @@ public class e {
     private e() {
     }
 
-    public static e aum() {
+    public static e aun() {
         return cHE;
     }
 

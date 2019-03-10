@@ -26,7 +26,7 @@ public class a extends e {
     private NoDataViewFactory.c cpz;
     private boolean fbe;
     private String from;
-    private List<ICardInfo> gGu;
+    private List<ICardInfo> gGv;
     private TbPageContext mContext;
     private int mCount;
 
@@ -94,10 +94,10 @@ public class a extends e {
 
     private int getAdapterCount() {
         int i = 0;
-        if (this.gGu == null) {
+        if (this.gGv == null) {
             return 0;
         }
-        Iterator<ICardInfo> it = this.gGu.iterator();
+        Iterator<ICardInfo> it = this.gGv.iterator();
         while (true) {
             int i2 = i;
             if (!it.hasNext()) {
@@ -115,7 +115,7 @@ public class a extends e {
     }
 
     private ICardInfo getAdapterItem(int i) {
-        for (ICardInfo iCardInfo : this.gGu) {
+        for (ICardInfo iCardInfo : this.gGv) {
             int adapterCount = iCardInfo.getAdapterCount();
             if (i < adapterCount) {
                 return iCardInfo.getAdapterItem(i);
@@ -129,7 +129,7 @@ public class a extends e {
     public int getItemViewType(int i) {
         ICardInfo adapterItem = getAdapterItem(i);
         if (adapterItem != null) {
-            return com.baidu.tieba.lego.card.e.gGy.get(adapterItem.getAdapterType());
+            return com.baidu.tieba.lego.card.e.gGz.get(adapterItem.getAdapterType());
         }
         return 0;
     }
@@ -141,7 +141,7 @@ public class a extends e {
 
     @Override // com.baidu.adp.widget.ListView.e, android.widget.BaseAdapter, android.widget.Adapter
     public int getViewTypeCount() {
-        return com.baidu.tieba.lego.card.e.gGy.size() + 1;
+        return com.baidu.tieba.lego.card.e.gGz.size() + 1;
     }
 
     @Override // com.baidu.adp.widget.ListView.e, android.widget.Adapter
@@ -176,7 +176,7 @@ public class a extends e {
     }
 
     private void uM(int i) {
-        ICardInfo iCardInfo = this.gGu.get(i);
+        ICardInfo iCardInfo = this.gGv.get(i);
         if (iCardInfo instanceof com.baidu.tieba.lego.card.c.a) {
             ((com.baidu.tieba.lego.card.c.a) iCardInfo).doLoad(iCardInfo, this.mContext);
         }
@@ -186,8 +186,8 @@ public class a extends e {
         if (i < 0) {
             i = 0;
         }
-        if (i >= this.gGu.size()) {
-            return this.gGu.size() - 1;
+        if (i >= this.gGv.size()) {
+            return this.gGv.size() - 1;
         }
         return i;
     }
@@ -199,24 +199,24 @@ public class a extends e {
         if (view instanceof BaseLegoCardView) {
             return (BaseLegoCardView) view;
         }
-        return (BaseLegoCardView) b.bzH().a(this.mContext, iCardInfo, 0);
+        return (BaseLegoCardView) b.bzI().a(this.mContext, iCardInfo, 0);
     }
 
     public void dj(List<ICardInfo> list) {
-        if (this.gGu == null) {
-            this.gGu = new ArrayList();
+        if (this.gGv == null) {
+            this.gGv = new ArrayList();
         } else {
-            this.gGu.clear();
+            this.gGv.clear();
         }
         if (list != null) {
-            this.gGu.addAll(list);
+            this.gGv.addAll(list);
         }
         this.mCount = getAdapterCount();
         notifyDataSetChanged();
     }
 
     protected boolean aoJ() {
-        return this.gGu != null && this.gGu.size() == 0;
+        return this.gGv != null && this.gGv.size() == 0;
     }
 
     public void setFrom(String str) {

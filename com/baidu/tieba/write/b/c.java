@@ -11,19 +11,19 @@ import com.baidu.tieba.write.b.b;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class c {
-    private int iVU;
-    private b joX;
-    private a joY;
+    private int iWo;
+    private b jpq;
+    private a jpr;
     private Context mContext;
     private int mStatusBarHeight;
     private TextView mTitle;
-    private b.a joZ = new b.a() { // from class: com.baidu.tieba.write.b.c.1
+    private b.a jps = new b.a() { // from class: com.baidu.tieba.write.b.c.1
         @Override // com.baidu.tieba.write.b.b.a
         public void lI(int i) {
-            c.this.iVU = i;
-            c.this.aWF();
-            if (c.this.joY != null) {
-                c.this.joY.Bn(c.this.iVU);
+            c.this.iWo = i;
+            c.this.aWG();
+            if (c.this.jpr != null) {
+                c.this.jpr.Bo(c.this.iWo);
             }
         }
     };
@@ -31,17 +31,17 @@ public class c {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view == c.this.mTitle) {
-                if (c.this.joX == null) {
-                    c.this.joX = new b(c.this.mContext);
-                    c.this.joX.setOnDismissListener(c.this.mOnDismissListener);
-                    c.this.joX.a(c.this.joZ);
-                    c.this.joX.po(c.this.mStatusBarHeight);
+                if (c.this.jpq == null) {
+                    c.this.jpq = new b(c.this.mContext);
+                    c.this.jpq.setOnDismissListener(c.this.mOnDismissListener);
+                    c.this.jpq.a(c.this.jps);
+                    c.this.jpq.po(c.this.mStatusBarHeight);
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(new com.baidu.tieba.write.b.a(c.this.mContext.getString(d.j.write_zone_text_profession), 1));
                 arrayList.add(new com.baidu.tieba.write.b.a(c.this.mContext.getString(d.j.write_zone_text_all), 0));
-                c.this.joX.setData(arrayList, c.this.iVU);
-                c.this.joX.bg(c.this.mTitle);
+                c.this.jpq.setData(arrayList, c.this.iWo);
+                c.this.jpq.bg(c.this.mTitle);
                 c.this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_album_retract), (Drawable) null);
             }
         }
@@ -59,19 +59,19 @@ public class c {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void Bn(int i);
+        void Bo(int i);
     }
 
     public c(Context context, TextView textView, int i, int i2) {
         this.mContext = context;
         this.mTitle = textView;
-        this.iVU = i;
+        this.iWo = i;
         this.mStatusBarHeight = i2;
     }
 
-    public void aWF() {
-        if (cpq()) {
-            switch (this.iVU) {
+    public void aWG() {
+        if (cpA()) {
+            switch (this.iWo) {
                 case 0:
                     this.mTitle.setText(d.j.write_zone_all);
                     break;
@@ -83,16 +83,16 @@ public class c {
         }
     }
 
-    public boolean cpq() {
-        return this.iVU == 0 || this.iVU == 1;
+    public boolean cpA() {
+        return this.iWo == 0 || this.iWo == 1;
     }
 
     public void a(a aVar) {
-        this.joY = aVar;
+        this.jpr = aVar;
     }
 
     public void onChangeSkinType(int i) {
-        if (cpq()) {
+        if (cpA()) {
             al.d(this.mTitle, d.C0236d.cp_cont_b, i);
             if (this.mTitle != null) {
                 this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_album_spread), (Drawable) null);

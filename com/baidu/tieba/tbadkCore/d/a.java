@@ -57,9 +57,9 @@ public class a {
     /* loaded from: classes.dex */
     public static class C0309a {
         private final boolean bzd;
-        private final am gFb;
-        private final String iHx;
+        private final am gFc;
         private final String iHy;
+        private final String iHz;
         private final String key;
         private final String line;
         private final String page;
@@ -68,13 +68,13 @@ public class a {
             this.key = str;
             this.line = str2;
             this.page = str3;
-            this.iHx = str4;
-            this.iHy = str5;
+            this.iHy = str4;
+            this.iHz = str5;
             this.bzd = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.gFb = ceI();
+            this.gFc = ceJ();
         }
 
-        private am ceI() {
+        private am ceJ() {
             am amVar = new am(this.key);
             if (!StringUtils.isNull(this.line)) {
                 amVar = amVar.bJ("line", this.line);
@@ -82,11 +82,11 @@ public class a {
             if (!StringUtils.isNull(this.page)) {
                 amVar = amVar.bJ("page", this.page);
             }
-            if (!StringUtils.isNull(this.iHx)) {
-                amVar = amVar.bJ("locate", this.iHx);
-            }
             if (!StringUtils.isNull(this.iHy)) {
-                return amVar.bJ("task", this.iHy);
+                amVar = amVar.bJ("locate", this.iHy);
+            }
+            if (!StringUtils.isNull(this.iHz)) {
+                return amVar.bJ("task", this.iHz);
             }
             return amVar;
         }
@@ -94,33 +94,33 @@ public class a {
         /* JADX INFO: Access modifiers changed from: private */
         public am e(String str, String str2, String str3, String str4, String str5) {
             if (!StringUtils.isNull(str)) {
-                this.gFb.bJ("action_type", str);
+                this.gFc.bJ("action_type", str);
             }
             if (!StringUtils.isNull(str2)) {
-                this.gFb.bJ(VideoPlayActivityConfig.OBJ_ID, str2);
+                this.gFc.bJ(VideoPlayActivityConfig.OBJ_ID, str2);
             }
             if (!StringUtils.isNull(str3)) {
-                this.gFb.bJ(ImageViewerConfig.FORUM_ID, str3);
+                this.gFc.bJ(ImageViewerConfig.FORUM_ID, str3);
             }
             if (!StringUtils.isNull(str4)) {
-                this.gFb.bJ(ImageViewerConfig.FORUM_NAME, str4);
+                this.gFc.bJ(ImageViewerConfig.FORUM_NAME, str4);
             }
             if (!StringUtils.isNull(str5)) {
-                this.gFb.bJ("tid", str5);
+                this.gFc.bJ("tid", str5);
             }
-            this.gFb.T("obj_cpid", 0).T("obj_good_id", 0).bJ("obj_throw_type", "BY_POST").bJ("client_type", "MOBILE_APP").bJ("user_timestamp", String.valueOf(System.currentTimeMillis())).bJ("os", "android").bJ("os_version", Build.VERSION.RELEASE).bJ("log_ver", "1.1");
-            return this.gFb;
+            this.gFc.T("obj_cpid", 0).T("obj_good_id", 0).bJ("obj_throw_type", "BY_POST").bJ("client_type", "MOBILE_APP").bJ("user_timestamp", String.valueOf(System.currentTimeMillis())).bJ("os", "android").bJ("os_version", Build.VERSION.RELEASE).bJ("log_ver", "1.1");
+            return this.gFc;
         }
 
         public C0309a dY(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                this.gFb.bJ(str, str2);
+                this.gFc.bJ(str, str2);
             }
             return this;
         }
 
         public void save() {
-            TiebaStatic.log(this.gFb);
+            TiebaStatic.log(this.gFc);
             if (!this.bzd) {
                 if (TbadkCoreApplication.getInst().isDebugMode()) {
                     throw new IllegalArgumentException();
@@ -130,7 +130,7 @@ public class a {
         }
 
         public void delete(String str) {
-            this.gFb.delete(str);
+            this.gFc.delete(str);
         }
     }
 }

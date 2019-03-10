@@ -61,7 +61,7 @@ public class a {
         this.fFN.add(this.fFT);
         this.fFN.add(this.fFX);
         this.fFN.add(this.fFY);
-        qM("page_concern");
+        qN("page_concern");
     }
 
     public void ay(List<m> list) {
@@ -89,11 +89,11 @@ public class a {
         this.fFY.cnX = bdUniqueId;
     }
 
-    private void qM(String str) {
+    private void qN(String str) {
         if (this.fFN != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.fFN) {
                 if (aVar instanceof com.baidu.tieba.a.f) {
-                    ((com.baidu.tieba.a.f) aVar).qM(str);
+                    ((com.baidu.tieba.a.f) aVar).qN(str);
                 }
             }
         }

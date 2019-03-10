@@ -30,19 +30,19 @@ public class f {
     public void load() {
         if (TextUtils.isEmpty(this.mUrl)) {
             g.log("VideoLoaderImp url == null");
-        } else if (t.qD(this.mUrl) != null) {
+        } else if (t.qE(this.mUrl) != null) {
             if (this.bNi != null) {
                 g.log("complete file has exist, 不需要下载");
                 this.bNi.onSuccess(this.mUrl);
             }
         } else {
-            String qF = t.qF(this.mUrl);
-            if (TextUtils.isEmpty(qF)) {
+            String qG = t.qG(this.mUrl);
+            if (TextUtils.isEmpty(qG)) {
                 this.bNi.bL(this.mUrl, "dir is null");
                 g.log("dir is null " + this.mUrl);
                 return;
             }
-            File file = new File(qF + "/segments");
+            File file = new File(qG + "/segments");
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -52,7 +52,7 @@ public class f {
                 this.bNi.onSuccess(this.mUrl);
                 return;
             }
-            this.bNj = new a(this.mUrl, qF, file2.getAbsolutePath(), this.bNi);
+            this.bNj = new a(this.mUrl, qG, file2.getAbsolutePath(), this.bNi);
             this.bNj.execute(new Void[0]);
         }
     }

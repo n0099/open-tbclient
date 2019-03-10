@@ -70,7 +70,7 @@ public class ConcernFragment extends BaseFragment implements ae {
         }
         this.fFZ.setPageUniqueId(getUniqueId());
         if (this.fGb) {
-            this.fFZ.bgA();
+            this.fFZ.bgB();
             this.fGb = false;
         }
         return this.fFZ;
@@ -142,14 +142,14 @@ public class ConcernFragment extends BaseFragment implements ae {
         if (isPrimary()) {
             if (!this.eOF) {
                 if (this.fFZ != null) {
-                    this.fFZ.blr();
+                    this.fFZ.bls();
                 }
                 this.eOF = true;
             }
             this.fFZ.setViewForeground();
             return;
         }
-        this.fFZ.blt();
+        this.fFZ.blu();
         completePullRefresh();
     }
 
@@ -158,18 +158,18 @@ public class ConcernFragment extends BaseFragment implements ae {
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aBu() {
+    public void aBv() {
         if (this.eOF) {
             this.fFZ.reload();
         }
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aBv() {
+    public void aBw() {
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aBw() {
+    public void aBx() {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a

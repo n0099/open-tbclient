@@ -14,7 +14,7 @@ public class ad extends com.baidu.tieba.card.data.b {
     }
 
     public void Xt() {
-        this.Tu = com.baidu.tieba.lego.card.b.xW(this.card);
+        this.Tu = com.baidu.tieba.lego.card.b.xX(this.card);
         this.bzd = this.Tu != null;
     }
 

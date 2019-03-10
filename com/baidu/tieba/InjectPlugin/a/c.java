@@ -7,7 +7,7 @@ public class c {
         this.cHD = obj;
     }
 
-    public Object auk() {
+    public Object aul() {
         return this.cHD;
     }
 }

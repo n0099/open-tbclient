@@ -22,7 +22,6 @@ import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.swan.apps.process.a.a;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class a {
@@ -65,7 +64,7 @@ public final class a {
         this.aEM = new f();
         this.mMessenger = new Messenger(this.aEM);
         this.aEQ = new ArrayList();
-        this.aER = new ServiceConnection() { // from class: com.baidu.swan.apps.process.messaging.client.a.2
+        this.aER = new ServiceConnection() { // from class: com.baidu.swan.apps.process.messaging.client.a.3
             @Override // android.content.ServiceConnection
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
                 if (a.DEBUG) {
@@ -97,9 +96,9 @@ public final class a {
                 }
                 synchronized (a.this.aEQ) {
                     if (a.this.aEQ.size() > 0) {
-                        Iterator it = a.this.aEQ.iterator();
-                        while (it.hasNext()) {
-                            C0125a c0125a = (C0125a) it.next();
+                        ArrayList arrayList = new ArrayList();
+                        for (C0125a c0125a : a.this.aEQ) {
+                            arrayList.add(c0125a);
                             if (c0125a.aET instanceof SwanAppIPCData) {
                                 a.this.a(c0125a.msgType, (SwanAppIPCData) c0125a.aET);
                             } else if (c0125a.aET instanceof b) {
@@ -110,8 +109,8 @@ public final class a {
                             } else {
                                 a.this.o(c0125a.msgType, c0125a.aET == null ? "" : c0125a.aET.toString());
                             }
-                            it.remove();
                         }
+                        a.this.aEQ.removeAll(arrayList);
                     }
                 }
             }
@@ -176,14 +175,19 @@ public final class a {
         if (DEBUG) {
             Log.i("SwanAppMessengerClient", "onConnectionDown mMsgCachedList.size=" + this.aEQ.size());
         }
-        this.aEN = null;
-        if (this.aEP != null) {
-            this.aEP.Gv();
-        }
-        synchronized (this.aEQ) {
-            this.aEQ.clear();
-        }
-        SwanAppLocalService.startForRebindMsgService(SwanAppProcessInfo.current());
+        aa.j(new Runnable() { // from class: com.baidu.swan.apps.process.messaging.client.a.2
+            @Override // java.lang.Runnable
+            public void run() {
+                a.this.aEN = null;
+                if (a.this.aEP != null) {
+                    a.this.aEP.Gv();
+                }
+                synchronized (a.this.aEQ) {
+                    a.this.aEQ.clear();
+                }
+                SwanAppLocalService.startForRebindMsgService(SwanAppProcessInfo.current());
+            }
+        });
     }
 
     public void a(@Nullable Bundle bundle, @NonNull Class<? extends com.baidu.swan.apps.process.b.a.a> cls) {
@@ -196,9 +200,7 @@ public final class a {
             bVar.mParams = bundle;
             bVar.mDelegation = cls;
             bVar.aEU = cVar;
-            synchronized (this.aEQ) {
-                this.aEQ.add(new C0125a(12, bVar));
-            }
+            this.aEQ.add(new C0125a(12, bVar));
             if (DEBUG) {
                 Log.d("SwanAppMessengerClient", String.format("sendMessage Cached(%d) msg(%d) deleData(%s)", Integer.valueOf(this.aEQ.size()), 12, bVar.toString()));
                 return;
@@ -241,9 +243,7 @@ public final class a {
         SwanAppProcessInfo current = SwanAppProcessInfo.current();
         if (this.aEN == null || this.mMessenger == null || !current.isSwanAppProcess()) {
             if (i == 6) {
-                synchronized (this.aEQ) {
-                    this.aEQ.add(new C0125a(i, str));
-                }
+                this.aEQ.add(new C0125a(i, str));
                 if (DEBUG) {
                     Log.d("SwanAppMessengerClient", String.format("sendMessage Cached(%d) msg(%d) strData(%s)", Integer.valueOf(this.aEQ.size()), Integer.valueOf(i), str));
                     return;
@@ -281,9 +281,7 @@ public final class a {
                 if (DEBUG) {
                     Log.d("SwanAppMessengerClient", String.format("sendMessage Cached(%d) msg(%d) ipcData(%s)", Integer.valueOf(this.aEQ.size()), Integer.valueOf(i), swanAppIPCData.toString()));
                 }
-                synchronized (this.aEQ) {
-                    this.aEQ.add(new C0125a(i, swanAppIPCData));
-                }
+                this.aEQ.add(new C0125a(i, swanAppIPCData));
                 return;
             }
             return;
@@ -319,9 +317,7 @@ public final class a {
             if (DEBUG) {
                 Log.i("SwanAppMessengerClient", "sendMessage: msgType=" + obtain + " Bundle=" + bundle);
             }
-            synchronized (this.aEQ) {
-                this.aEQ.add(new C0125a(i, bundle));
-            }
+            this.aEQ.add(new C0125a(i, bundle));
             if (DEBUG) {
                 Log.d("SwanAppMessengerClient", String.format("sendMessage Cached(%d) msg(%d) bData(%s)", Integer.valueOf(this.aEQ.size()), Integer.valueOf(i), bundle));
                 return;

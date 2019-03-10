@@ -16,44 +16,44 @@ import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class a implements com.facebook.drawee.d.c {
     @Nullable
-    private RoundingParams jDL;
-    private final d jDM;
-    private final f jDN;
+    private RoundingParams jEe;
+    private final d jEf;
+    private final f jEg;
     private final Resources mResources;
-    private final Drawable jDK = new ColorDrawable(0);
-    private final g jDO = new g(this.jDK);
+    private final Drawable jEd = new ColorDrawable(0);
+    private final g jEh = new g(this.jEd);
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(b bVar) {
         int i = 0;
         this.mResources = bVar.getResources();
-        this.jDL = bVar.cvJ();
-        int size = (bVar.cvH() != null ? bVar.cvH().size() : 1) + (bVar.cvI() != null ? 1 : 0);
+        this.jEe = bVar.cvT();
+        int size = (bVar.cvR() != null ? bVar.cvR().size() : 1) + (bVar.cvS() != null ? 1 : 0);
         Drawable[] drawableArr = new Drawable[size + 6];
         drawableArr[0] = a(bVar.getBackground(), null);
-        drawableArr[1] = a(bVar.cvv(), bVar.cvw());
-        drawableArr[2] = a(this.jDO, bVar.cvD(), bVar.cvF(), bVar.cvE(), bVar.cvG());
-        drawableArr[3] = a(bVar.cvB(), bVar.cvC());
-        drawableArr[4] = a(bVar.cvx(), bVar.cvy());
-        drawableArr[5] = a(bVar.cvz(), bVar.cvA());
+        drawableArr[1] = a(bVar.cvF(), bVar.cvG());
+        drawableArr[2] = a(this.jEh, bVar.cvN(), bVar.cvP(), bVar.cvO(), bVar.cvQ());
+        drawableArr[3] = a(bVar.cvL(), bVar.cvM());
+        drawableArr[4] = a(bVar.cvH(), bVar.cvI());
+        drawableArr[5] = a(bVar.cvJ(), bVar.cvK());
         if (size > 0) {
-            if (bVar.cvH() != null) {
-                for (Drawable drawable : bVar.cvH()) {
+            if (bVar.cvR() != null) {
+                for (Drawable drawable : bVar.cvR()) {
                     drawableArr[i + 6] = a(drawable, null);
                     i++;
                 }
             } else {
                 i = 1;
             }
-            if (bVar.cvI() != null) {
-                drawableArr[i + 6] = a(bVar.cvI(), null);
+            if (bVar.cvS() != null) {
+                drawableArr[i + 6] = a(bVar.cvS(), null);
             }
         }
-        this.jDN = new f(drawableArr);
-        this.jDN.Cd(bVar.cvt());
-        this.jDM = new d(e.a(this.jDN, this.jDL));
-        this.jDM.mutate();
-        cvr();
+        this.jEg = new f(drawableArr);
+        this.jEg.Ce(bVar.cvD());
+        this.jEf = new d(e.a(this.jEg, this.jEe));
+        this.jEf.mutate();
+        cvB();
     }
 
     @Nullable
@@ -64,57 +64,57 @@ public class a implements com.facebook.drawee.d.c {
 
     @Nullable
     private Drawable a(@Nullable Drawable drawable, @Nullable n.b bVar) {
-        return e.b(e.a(drawable, this.jDL, this.mResources), bVar);
+        return e.b(e.a(drawable, this.jEe, this.mResources), bVar);
     }
 
-    private void cvq() {
-        this.jDO.i(this.jDK);
+    private void cvA() {
+        this.jEh.i(this.jEd);
     }
 
-    private void cvr() {
-        if (this.jDN != null) {
-            this.jDN.cvf();
-            this.jDN.cvh();
-            cvs();
-            Ce(1);
-            this.jDN.cvi();
-            this.jDN.cvg();
+    private void cvB() {
+        if (this.jEg != null) {
+            this.jEg.cvp();
+            this.jEg.cvr();
+            cvC();
+            Cf(1);
+            this.jEg.cvs();
+            this.jEg.cvq();
         }
     }
 
-    private void cvs() {
-        Cf(1);
-        Cf(2);
-        Cf(3);
-        Cf(4);
-        Cf(5);
-    }
-
-    private void Ce(int i) {
-        if (i >= 0) {
-            this.jDN.Ce(i);
-        }
+    private void cvC() {
+        Cg(1);
+        Cg(2);
+        Cg(3);
+        Cg(4);
+        Cg(5);
     }
 
     private void Cf(int i) {
         if (i >= 0) {
-            this.jDN.Cf(i);
+            this.jEg.Cf(i);
+        }
+    }
+
+    private void Cg(int i) {
+        if (i >= 0) {
+            this.jEg.Cg(i);
         }
     }
 
     private void setProgress(float f) {
-        Drawable drawable = this.jDN.getDrawable(3);
+        Drawable drawable = this.jEg.getDrawable(3);
         if (drawable != null) {
             if (f >= 0.999f) {
                 if (drawable instanceof Animatable) {
                     ((Animatable) drawable).stop();
                 }
-                Cf(3);
+                Cg(3);
             } else {
                 if (drawable instanceof Animatable) {
                     ((Animatable) drawable).start();
                 }
-                Ce(3);
+                Cf(3);
             }
             drawable.setLevel(Math.round(10000.0f * f));
         }
@@ -122,97 +122,97 @@ public class a implements com.facebook.drawee.d.c {
 
     @Override // com.facebook.drawee.d.b
     public Drawable getTopLevelDrawable() {
-        return this.jDM;
+        return this.jEf;
     }
 
     @Override // com.facebook.drawee.d.c
     public void reset() {
-        cvq();
-        cvr();
+        cvA();
+        cvB();
     }
 
     @Override // com.facebook.drawee.d.c
     public void a(Drawable drawable, float f, boolean z) {
-        Drawable a = e.a(drawable, this.jDL, this.mResources);
+        Drawable a = e.a(drawable, this.jEe, this.mResources);
         a.mutate();
-        this.jDO.i(a);
-        this.jDN.cvf();
-        cvs();
-        Ce(2);
+        this.jEh.i(a);
+        this.jEg.cvp();
+        cvC();
+        Cf(2);
         setProgress(f);
         if (z) {
-            this.jDN.cvi();
+            this.jEg.cvs();
         }
-        this.jDN.cvg();
+        this.jEg.cvq();
     }
 
     @Override // com.facebook.drawee.d.c
     public void d(float f, boolean z) {
-        if (this.jDN.getDrawable(3) != null) {
-            this.jDN.cvf();
+        if (this.jEg.getDrawable(3) != null) {
+            this.jEg.cvp();
             setProgress(f);
             if (z) {
-                this.jDN.cvi();
+                this.jEg.cvs();
             }
-            this.jDN.cvg();
+            this.jEg.cvq();
         }
     }
 
     @Override // com.facebook.drawee.d.c
     public void z(Throwable th) {
-        this.jDN.cvf();
-        cvs();
-        if (this.jDN.getDrawable(5) != null) {
-            Ce(5);
+        this.jEg.cvp();
+        cvC();
+        if (this.jEg.getDrawable(5) != null) {
+            Cf(5);
         } else {
-            Ce(1);
+            Cf(1);
         }
-        this.jDN.cvg();
+        this.jEg.cvq();
     }
 
     @Override // com.facebook.drawee.d.c
     public void A(Throwable th) {
-        this.jDN.cvf();
-        cvs();
-        if (this.jDN.getDrawable(4) != null) {
-            Ce(4);
+        this.jEg.cvp();
+        cvC();
+        if (this.jEg.getDrawable(4) != null) {
+            Cf(4);
         } else {
-            Ce(1);
+            Cf(1);
         }
-        this.jDN.cvg();
+        this.jEg.cvq();
     }
 
     @Override // com.facebook.drawee.d.c
     public void h(@Nullable Drawable drawable) {
-        this.jDM.h(drawable);
+        this.jEf.h(drawable);
     }
 
-    private com.facebook.drawee.drawable.c Cg(int i) {
-        com.facebook.drawee.drawable.c Ca = this.jDN.Ca(i);
-        if (Ca.getDrawable() instanceof h) {
-            Ca = (h) Ca.getDrawable();
+    private com.facebook.drawee.drawable.c Ch(int i) {
+        com.facebook.drawee.drawable.c Cb = this.jEg.Cb(i);
+        if (Cb.getDrawable() instanceof h) {
+            Cb = (h) Cb.getDrawable();
         }
-        if (Ca.getDrawable() instanceof m) {
-            return (m) Ca.getDrawable();
+        if (Cb.getDrawable() instanceof m) {
+            return (m) Cb.getDrawable();
         }
-        return Ca;
+        return Cb;
     }
 
-    private m Ch(int i) {
-        com.facebook.drawee.drawable.c Cg = Cg(i);
-        return Cg instanceof m ? (m) Cg : e.a(Cg, n.b.jDB);
+    private m Ci(int i) {
+        com.facebook.drawee.drawable.c Ch = Ch(i);
+        return Ch instanceof m ? (m) Ch : e.a(Ch, n.b.jDU);
     }
 
     public void b(n.b bVar) {
         com.facebook.common.internal.g.checkNotNull(bVar);
-        Ch(2).a(bVar);
+        Ci(2).a(bVar);
     }
 
     public void a(@Nullable RoundingParams roundingParams) {
-        this.jDL = roundingParams;
-        e.a((com.facebook.drawee.drawable.c) this.jDM, this.jDL);
-        for (int i = 0; i < this.jDN.getNumberOfLayers(); i++) {
-            e.a(Cg(i), this.jDL, this.mResources);
+        this.jEe = roundingParams;
+        e.a((com.facebook.drawee.drawable.c) this.jEf, this.jEe);
+        for (int i = 0; i < this.jEg.getNumberOfLayers(); i++) {
+            e.a(Ch(i), this.jEe, this.mResources);
         }
     }
 }

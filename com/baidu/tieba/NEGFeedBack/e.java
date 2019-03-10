@@ -140,7 +140,7 @@ public class e {
         this.cJa.setDefaultReasonArray(strArr);
     }
 
-    public void auU() {
+    public void auV() {
         if (this.aMI != null) {
             this.aMI.dismiss();
             this.aMI = null;
@@ -151,7 +151,7 @@ public class e {
         }
     }
 
-    private void auY() {
+    private void auZ() {
         if (this.cJb && this.cIR.size() != 0) {
             this.cIR.clear();
         }
@@ -212,13 +212,13 @@ public class e {
                 this.cJm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.e.4
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        JSONObject ava = e.this.ava();
+                        JSONObject avb = e.this.avb();
                         if (e.this.mFrom == "3" || e.this.mFrom == "4" || e.this.mFrom == "1") {
-                            e.this.auU();
-                        } else if (ava != null) {
+                            e.this.auV();
+                        } else if (avb != null) {
                             e.this.showLoadingView();
                             CustomMessage customMessage = new CustomMessage(2016489, e.this.mPageContext.getUniqueId());
-                            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2016489, ava);
+                            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2016489, avb);
                             customResponsedMessage.setOrginalMessage(customMessage);
                             MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                         }
@@ -243,13 +243,13 @@ public class e {
         this.csN.dJ(true);
     }
 
-    public void auZ() {
+    public void ava() {
         if (this.csN != null) {
             this.csN.dJ(false);
         }
     }
 
-    public void qj(String str) {
+    public void qk(String str) {
         if (this.mContext != null) {
             this.mFrom = str;
             View view = getView();
@@ -262,7 +262,7 @@ public class e {
             this.aMI.setFocusable(true);
             this.aMI.setTouchable(true);
             this.aMI.setOnDismissListener(this.cJe);
-            auY();
+            auZ();
             this.cIX = new PopupWindow(LayoutInflater.from(this.mContext).inflate(d.h.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
             if (Build.VERSION.SDK_INT >= 22) {
                 this.cIX.setAttachedInDecor(false);
@@ -278,7 +278,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject ava() {
+    public JSONObject avb() {
         int i;
         JSONObject jSONObject = new JSONObject();
         if (this.cIQ == null) {

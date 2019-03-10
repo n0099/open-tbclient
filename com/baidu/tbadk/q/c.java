@@ -160,7 +160,7 @@ public class c extends com.baidu.adp.framework.a.d {
         stringBuffer.append("tiebaclient!!!");
         httpMessage.addParam(SapiUtils.KEY_QR_LOGIN_SIGN, s.bC(stringBuffer.toString()));
         if (httpMessage.getHeaders() != null && "1".equals(httpMessage.getHeaders().get("needSig")) && t.jK()) {
-            httpMessage.addParam("sig", StringU.qk(stringBuffer.toString()));
+            httpMessage.addParam("sig", StringU.ql(stringBuffer.toString()));
         }
         httpMessage.getHeaders().remove("needSig");
     }

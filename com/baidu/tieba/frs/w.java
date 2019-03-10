@@ -9,7 +9,7 @@ public class w {
     private w() {
     }
 
-    public static w bej() {
+    public static w bek() {
         return fcD;
     }
 

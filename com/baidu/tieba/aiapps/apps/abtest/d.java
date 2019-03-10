@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.abtest;
 public class d {
     private static volatile c cRg;
 
-    public static synchronized c aya() {
+    public static synchronized c ayb() {
         c cVar;
         synchronized (d.class) {
             if (cRg == null) {

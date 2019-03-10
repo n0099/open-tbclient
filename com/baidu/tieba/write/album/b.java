@@ -20,14 +20,14 @@ import java.util.List;
 public class b extends BaseAdapter {
     private String eNb;
     private int eNc;
-    private AlbumActivity jmM;
+    private AlbumActivity jnf;
     private LayoutInflater mLayoutInflater;
     private List<com.baidu.tbadk.album.a> mList;
 
     public b(AlbumActivity albumActivity) {
-        this.jmM = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.jmM.getPageContext().getPageActivity());
-        this.eNc = l.aO(this.jmM.getPageContext().getPageActivity()) / 2;
+        this.jnf = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.jnf.getPageContext().getPageActivity());
+        this.eNc = l.aO(this.jnf.getPageContext().getPageActivity()) / 2;
     }
 
     public void b(List<com.baidu.tbadk.album.a> list, String str) {
@@ -60,11 +60,11 @@ public class b extends BaseAdapter {
         } else {
             view = this.mLayoutInflater.inflate(d.h.album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.jmX = (TbImageView) view.findViewById(d.g.item_head);
+            aVar.jnq = (TbImageView) view.findViewById(d.g.item_head);
             aVar.eNf = (TextView) view.findViewById(d.g.item_name);
             aVar.eNg = (ImageView) view.findViewById(d.g.item_arrow);
-            aVar.jmX.setGifIconSupport(false);
-            aVar.jmX.setLongIconSupport(false);
+            aVar.jnq.setGifIconSupport(false);
+            aVar.jnq.setLongIconSupport(false);
             view.setTag(aVar);
         }
         com.baidu.tbadk.album.a item = getItem(i);
@@ -86,9 +86,9 @@ public class b extends BaseAdapter {
             }
             MediaFileInfo UO = item.UO();
             if (UO instanceof VideoFileInfo) {
-                aVar.jmX.startLoad(((VideoFileInfo) UO).videoPath, 37, false);
+                aVar.jnq.startLoad(((VideoFileInfo) UO).videoPath, 37, false);
             } else if (UO instanceof ImageFileInfo) {
-                aVar.jmX.startLoad(((ImageFileInfo) UO).getFilePath(), 35, false);
+                aVar.jnq.startLoad(((ImageFileInfo) UO).getFilePath(), 35, false);
             }
             al.j(aVar.eNf, d.C0236d.cp_cont_b);
             al.k(view, d.f.addresslist_item_bg);
@@ -100,7 +100,7 @@ public class b extends BaseAdapter {
     private class a {
         TextView eNf;
         ImageView eNg;
-        TbImageView jmX;
+        TbImageView jnq;
 
         private a() {
         }

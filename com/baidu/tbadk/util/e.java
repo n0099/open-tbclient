@@ -13,13 +13,13 @@ public class e {
 
     public static int ai(List<Integer> list) {
         if (KM == null) {
-            apS();
+            apT();
         }
         Integer aj = aj(list);
         return aj != null ? aj.intValue() : d.C0236d.cp_atp_a;
     }
 
-    private static void apS() {
+    private static void apT() {
         KM = new LinkedList<>();
         KM.offer(Integer.valueOf(d.C0236d.cp_atp_a));
         KM.offer(Integer.valueOf(d.C0236d.cp_atp_b));

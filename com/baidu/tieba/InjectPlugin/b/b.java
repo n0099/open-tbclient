@@ -44,7 +44,7 @@ public class b extends g {
         this.cHM = list;
     }
 
-    public List<Object> aur() {
+    public List<Object> aus() {
         return this.cHO;
     }
 
@@ -52,7 +52,7 @@ public class b extends g {
         this.cHO = list;
     }
 
-    public List<m> aus() {
+    public List<m> aut() {
         return this.cHN;
     }
 
@@ -60,7 +60,7 @@ public class b extends g {
         this.cHN = list;
     }
 
-    public boolean aut() {
+    public boolean auu() {
         return this.cHP;
     }
 
@@ -76,7 +76,7 @@ public class b extends g {
         this.cHQ = z;
     }
 
-    public int auu() {
+    public int auv() {
         return this.currentPage;
     }
 
@@ -92,7 +92,7 @@ public class b extends g {
         this.bUJ = i;
     }
 
-    public boolean auv() {
+    public boolean auw() {
         return this.cHR;
     }
 
@@ -116,27 +116,27 @@ public class b extends g {
         this.forumId = str;
     }
 
-    public String auw() {
+    public String aux() {
         return this.cHS;
     }
 
-    public void qg(String str) {
+    public void qh(String str) {
         this.cHS = str;
     }
 
-    public String aux() {
+    public String auy() {
         return this.cHT;
     }
 
-    public void qh(String str) {
+    public void qi(String str) {
         this.cHT = str;
     }
 
-    public String auy() {
+    public String auz() {
         return this.cHU;
     }
 
-    public void qi(String str) {
+    public void qj(String str) {
         this.cHU = str;
     }
 }

@@ -33,7 +33,7 @@ public class FrsTabViewPager extends BdBaseViewPager {
                 this.fcI = motionEvent.getRawX();
                 this.fcJ = motionEvent.getRawY();
                 jn(true);
-                if (bem()) {
+                if (ben()) {
                     this.fcM = false;
                     break;
                 }
@@ -56,7 +56,7 @@ public class FrsTabViewPager extends BdBaseViewPager {
             case 2:
                 this.fcK = this.x - this.fcI;
                 this.fcL = this.y - this.fcJ;
-                if (this.fcK < 0.0f && Math.abs(this.fcK) > Math.abs(this.fcL) && bem()) {
+                if (this.fcK < 0.0f && Math.abs(this.fcK) > Math.abs(this.fcL) && ben()) {
                     dW(false);
                     if (this.fcM) {
                         return false;
@@ -72,12 +72,12 @@ public class FrsTabViewPager extends BdBaseViewPager {
 
     public void jn(boolean z) {
         a aVar = new a();
-        aVar.jp(bem());
+        aVar.jp(ben());
         aVar.jq(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void bel() {
+    public void bem() {
         jn(false);
     }
 
@@ -85,7 +85,7 @@ public class FrsTabViewPager extends BdBaseViewPager {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921370, Boolean.valueOf(z)));
     }
 
-    private boolean bem() {
+    private boolean ben() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
@@ -94,7 +94,7 @@ public class FrsTabViewPager extends BdBaseViewPager {
         private boolean fcN;
         private boolean fcO;
 
-        public boolean ben() {
+        public boolean beo() {
             return this.fcN;
         }
 
@@ -102,7 +102,7 @@ public class FrsTabViewPager extends BdBaseViewPager {
             this.fcN = z;
         }
 
-        public boolean beo() {
+        public boolean bep() {
             return this.fcO;
         }
 

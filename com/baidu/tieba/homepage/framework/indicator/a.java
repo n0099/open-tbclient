@@ -20,17 +20,17 @@ public class a {
         this.fJM = -1;
         this.fJN = -1;
         this.fJJ = 0;
-        int bme = bme();
-        if ((bme & 16) > 0) {
+        int bmf = bmf();
+        if ((bmf & 16) > 0) {
             this.fJM = 1;
             i = 2;
         }
-        if ((bme & 32) > 0) {
+        if ((bmf & 32) > 0) {
             this.fJN = i;
             i++;
         }
         int i2 = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("ribao_switch", 0);
-        if ((bme & 1) > 0) {
+        if ((bmf & 1) > 0) {
             this.fJK = i2 == 0 ? i : -1;
             this.fJL = i2 != 0 ? i : -1;
             int i3 = i + 1;
@@ -74,11 +74,11 @@ public class a {
         return -1;
     }
 
-    public int bmd() {
+    public int bme() {
         return this.fJO;
     }
 
-    private int bme() {
+    private int bmf() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("recommend_tab_show", 23);
     }
 

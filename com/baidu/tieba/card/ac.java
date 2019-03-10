@@ -94,7 +94,7 @@ public class ac extends g {
                                 com.baidu.adp.lib.util.l.showToast(ac.this.mContext, d.j.delete_success);
                                 return;
                             } else {
-                                String string = !TextUtils.isEmpty(bVar.iIJ) ? bVar.iIJ : ac.this.getString(d.j.delete_fail, new Object[0]);
+                                String string = !TextUtils.isEmpty(bVar.iIK) ? bVar.iIK : ac.this.getString(d.j.delete_fail, new Object[0]);
                                 if (bVar.mErrCode == 1211066) {
                                     if (ac.this.eks == null) {
                                         ac.this.eks = new com.baidu.tbadk.core.dialog.a(ac.this.mPageContext.getPageActivity());
@@ -122,10 +122,10 @@ public class ac extends g {
                                 com.baidu.adp.lib.util.l.showToast(ac.this.mContext, ac.this.getString(d.j.mute_fail, new Object[0]));
                                 return;
                             } else if (dVar.Id) {
-                                com.baidu.adp.lib.util.l.showToast(ac.this.mContext, !TextUtils.isEmpty(dVar.iIJ) ? dVar.iIJ : ac.this.getString(d.j.mute_success, new Object[0]));
+                                com.baidu.adp.lib.util.l.showToast(ac.this.mContext, !TextUtils.isEmpty(dVar.iIK) ? dVar.iIK : ac.this.getString(d.j.mute_success, new Object[0]));
                                 return;
                             } else {
-                                com.baidu.adp.lib.util.l.showToast(ac.this.mContext, !TextUtils.isEmpty(dVar.iIJ) ? dVar.iIJ : ac.this.getString(d.j.mute_fail, new Object[0]));
+                                com.baidu.adp.lib.util.l.showToast(ac.this.mContext, !TextUtils.isEmpty(dVar.iIK) ? dVar.iIK : ac.this.getString(d.j.mute_fail, new Object[0]));
                                 return;
                             }
                         case 2:
@@ -140,7 +140,7 @@ public class ac extends g {
                                 com.baidu.adp.lib.util.l.showToast(ac.this.mContext, ac.this.getString(d.j.operation_failed, new Object[0]));
                                 return;
                             } else {
-                                ac.this.I(gVar.iIM);
+                                ac.this.I(gVar.iIN);
                                 return;
                             }
                         default:
@@ -160,19 +160,19 @@ public class ac extends g {
                 if (i == 1) {
                     if (ac.this.bTk != null && ac.this.bTk.YR() != null) {
                         if (UtilHelper.isCurrentAccount(ac.this.bTk.YR().getUserId())) {
-                            ac.this.aQK();
+                            ac.this.aQL();
                         } else {
                             ac.this.oq(1);
                         }
                     }
                 } else if (i == 2) {
-                    ac.this.aQL();
-                } else if (i == 3) {
                     ac.this.aQM();
-                } else if (i == 4) {
-                    ac.this.V(ac.this.ekv, true);
-                } else if (i == 5) {
+                } else if (i == 3) {
                     ac.this.aQN();
+                } else if (i == 4) {
+                    ac.this.W(ac.this.ekv, true);
+                } else if (i == 5) {
+                    ac.this.aQO();
                 }
                 ac.this.or(i);
             }
@@ -204,7 +204,7 @@ public class ac extends g {
     private void createView() {
         if (this.bTk != null && this.eku != null && this.ekr != null) {
             this.eku.clear();
-            if (!com.baidu.tieba.frs.g.bci()) {
+            if (!com.baidu.tieba.frs.g.bcj()) {
                 this.eku.add(new f(1, getString(d.j.delete_page, new Object[0]), this.ekr));
                 String str = "";
                 if (this.bTk.YR() != null) {
@@ -214,11 +214,11 @@ public class ac extends g {
                     this.eku.add(new f(2, getString(d.j.thread_forbid, new Object[0]), this.ekr));
                 }
             }
-            if (com.baidu.tieba.frs.g.bch() || com.baidu.tieba.frs.g.bci()) {
+            if (com.baidu.tieba.frs.g.bci() || com.baidu.tieba.frs.g.bcj()) {
                 this.eku.add(new f(3, getString(this.bTk.YM() == 1 ? d.j.cancel_top : d.j.top, new Object[0]), this.ekr));
                 this.eku.add(new f(4, getString(this.bTk.YN() == 1 ? d.j.cancel_good : d.j.commit_good, new Object[0]), this.ekr));
             }
-            if (!com.baidu.tieba.frs.g.bci() && com.baidu.tieba.frs.a.bbF().bbJ() && this.bSM) {
+            if (!com.baidu.tieba.frs.g.bcj() && com.baidu.tieba.frs.a.bbG().bbK() && this.bSM) {
                 this.eku.add(new f(5, getString(d.j.multi_delete, new Object[0]), this.ekr));
             }
             this.ekr.P(this.eku);
@@ -238,20 +238,20 @@ public class ac extends g {
         createView();
     }
 
-    public void aQI() {
+    public void aQJ() {
         if (this.eiT != null && this.eiT.isShowing()) {
             this.eiT.dismiss();
         }
     }
 
-    public void aQJ() {
+    public void aQK() {
         if (this.ekt != null && this.ekt.isShowing()) {
             this.ekt.dismiss();
         }
     }
 
-    public void aQK() {
-        aQI();
+    public void aQL() {
+        aQJ();
         if (this.mPageContext != null) {
             if (this.eiT == null) {
                 this.eiT = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
@@ -287,10 +287,10 @@ public class ac extends g {
     public void oq(int i) {
         if (this.mPageContext != null && this.mPageContext.getPageActivity() != null && this.mPageContext.getPageActivity().getWindow() != null) {
             e eVar = new e(this.mPageContext, this.mPageContext.getPageActivity().getWindow().getDecorView());
-            AntiData bbI = com.baidu.tieba.frs.a.bbF().bbI();
+            AntiData bbJ = com.baidu.tieba.frs.a.bbG().bbJ();
             SparseArray<String> sparseArray = new SparseArray<>();
-            if (bbI != null && bbI.getDelThreadInfoList() != null) {
-                List<DeleteThreadInfo> delThreadInfoList = bbI.getDelThreadInfoList();
+            if (bbJ != null && bbJ.getDelThreadInfoList() != null) {
+                List<DeleteThreadInfo> delThreadInfoList = bbJ.getDelThreadInfoList();
                 for (int i2 = 0; i2 < delThreadInfoList.size(); i2++) {
                     if (!TextUtils.isEmpty(delThreadInfoList.get(i2).text_info)) {
                         sparseArray.put(delThreadInfoList.get(i2).text_id, delThreadInfoList.get(i2).text_info);
@@ -298,18 +298,18 @@ public class ac extends g {
                 }
             }
             JSONArray jSONArray = new JSONArray();
-            List<bg> bbH = com.baidu.tieba.frs.a.bbF().bbH();
-            for (int i3 = 0; i3 < bbH.size(); i3++) {
-                jSONArray.put(bbH.get(i3).getTid());
+            List<bg> bbI = com.baidu.tieba.frs.a.bbG().bbI();
+            for (int i3 = 0; i3 < bbI.size(); i3++) {
+                jSONArray.put(bbI.get(i3).getTid());
             }
             aj ajVar = new aj();
             ajVar.b(sparseArray);
             ajVar.gg(i);
             ajVar.w(jSONArray);
-            ajVar.setFid(com.baidu.tieba.frs.a.bbF().getForumId());
+            ajVar.setFid(com.baidu.tieba.frs.a.bbG().getForumId());
             eVar.setData(ajVar);
             eVar.setDefaultReasonArray(new String[]{getContext().getString(d.j.delete_thread_reason_1), getContext().getString(d.j.delete_thread_reason_2), getContext().getString(d.j.delete_thread_reason_3), getContext().getString(d.j.delete_thread_reason_4), getContext().getString(d.j.delete_thread_reason_5)});
-            eVar.qj("1");
+            eVar.qk("1");
             eVar.a(new e.b() { // from class: com.baidu.tieba.card.ac.3
                 @Override // com.baidu.tieba.NEGFeedBack.e.b
                 public void B(JSONArray jSONArray2) {
@@ -344,7 +344,7 @@ public class ac extends g {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     com.baidu.adp.lib.g.g.b(ac.this.ekt, ac.this.mPageContext);
-                    ac.this.V(ac.this.ekw, false);
+                    ac.this.W(ac.this.ekw, false);
                 }
             });
         }
@@ -408,22 +408,22 @@ public class ac extends g {
             String str = "";
             if (i == 2) {
                 this.bTk.gu(1);
-                str = au(gVar.iIJ, d.j.operation_success);
+                str = au(gVar.iIK, d.j.operation_success);
             } else if (i == 3) {
                 this.bTk.gu(0);
-                str = au(gVar.iIJ, d.j.operation_success);
+                str = au(gVar.iIK, d.j.operation_success);
             } else if (i == 4) {
                 this.bTk.gt(1);
-                str = au(gVar.iIJ, d.j.top_success);
+                str = au(gVar.iIK, d.j.top_success);
             } else if (i == 5) {
                 this.bTk.gt(0);
-                str = au(gVar.iIJ, d.j.operation_success);
+                str = au(gVar.iIK, d.j.operation_success);
             }
             ForumManageModel.e eVar = new ForumManageModel.e();
             eVar.threadId = this.bTk.getId();
             eVar.forumName = this.bTk.YW();
             eVar.forumId = String.valueOf(this.bTk.getFid());
-            eVar.iIK = i;
+            eVar.iIL = i;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921316, eVar));
             if (TextUtils.isEmpty(str)) {
                 str = getString(d.j.operation_success, new Object[0]);
@@ -431,8 +431,8 @@ public class ac extends g {
             com.baidu.adp.lib.util.l.showToast(this.mContext, str);
             return;
         }
-        if (gVar != null && !TextUtils.isEmpty(gVar.iIJ)) {
-            string = gVar.iIJ;
+        if (gVar != null && !TextUtils.isEmpty(gVar.iIK)) {
+            string = gVar.iIK;
         } else {
             string = getString(d.j.operation_failed, new Object[0]);
         }
@@ -462,7 +462,7 @@ public class ac extends g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aQL() {
+    public void aQM() {
         if (this.mContext != null && this.bTk != null && this.bTk.YR() != null) {
             String userId = this.bTk.YR().getUserId();
             String userName = this.bTk.YR().getUserName();
@@ -482,14 +482,14 @@ public class ac extends g {
             String valueOf = String.valueOf(this.bTk.getFid());
             boolean isCurrentAccount = UtilHelper.isCurrentAccount(userId);
             if (jSONArray != null) {
-                this.eja.CG(ap.x(jSONArray));
+                this.eja.CH(ap.x(jSONArray));
             }
             this.eja.a(valueOf, YW, id, null, 0, 1, isCurrentAccount);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void V(String str, boolean z) {
+    public void W(String str, boolean z) {
         int i;
         if (this.bTk != null && this.eja != null) {
             if (this.bTk.YN() == 1) {
@@ -506,7 +506,7 @@ public class ac extends g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aQM() {
+    public void aQN() {
         int i;
         if (this.bTk != null && this.eja != null) {
             if (this.bTk.YM() == 1) {
@@ -521,14 +521,14 @@ public class ac extends g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aQN() {
-        com.baidu.tieba.frs.a.bbF().B(true, false);
+    public void aQO() {
+        com.baidu.tieba.frs.a.bbG().B(true, false);
         TiebaStatic.log(new am("c13125").bJ("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 
     public void dismissAllDialog() {
-        aQI();
         aQJ();
+        aQK();
         dismiss();
     }
 

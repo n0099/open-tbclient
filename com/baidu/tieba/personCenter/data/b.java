@@ -9,17 +9,17 @@ import org.json.JSONObject;
 public class b {
     private int errorCode = -1;
     private String errorMsg = "";
-    private int hLM = 0;
+    private int hLN = 0;
 
     public int getErrorCode() {
         return this.errorCode;
     }
 
     public int aoG() {
-        return this.hLM;
+        return this.hLN;
     }
 
-    public void AA(String str) {
+    public void AB(String str) {
         if (!StringUtils.isNull(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -27,7 +27,7 @@ public class b {
                 this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
-                    this.hLM = optJSONObject.optInt("msg_count");
+                    this.hLN = optJSONObject.optInt("msg_count");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

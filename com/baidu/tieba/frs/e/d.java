@@ -13,7 +13,7 @@ public class d {
     private LruCache<String, String> agK = new LruCache<>(10);
     private l<String> fus = com.baidu.tbadk.core.c.a.aaW().lv("tb.recently_vistited_forum_animation");
 
-    public static d biy() {
+    public static d biz() {
         if (fut == null) {
             synchronized (d.class) {
                 if (fut == null) {
@@ -61,7 +61,7 @@ public class d {
         this.agK.put(str, eVar.toString());
     }
 
-    public e vK(String str) {
+    public e vL(String str) {
         return str == null ? new e(null) : new e(this.agK.get(str));
     }
 }

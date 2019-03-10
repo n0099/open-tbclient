@@ -44,7 +44,7 @@ public class FrsH5ItemView extends FrameLayout {
             public void onPageFinished(WebView webView, String str) {
                 FrsH5ItemView.this.isLoading = false;
                 if (!FrsH5ItemView.this.fqe) {
-                    FrsH5ItemView.this.bhr();
+                    FrsH5ItemView.this.bhs();
                     ViewGroup.LayoutParams layoutParams = FrsH5ItemView.this.getLayoutParams();
                     layoutParams.height = -2;
                     FrsH5ItemView.this.setLayoutParams(layoutParams);
@@ -55,7 +55,7 @@ public class FrsH5ItemView extends FrameLayout {
         this.mOnReceivedErrorListener = new BaseWebView.f() { // from class: com.baidu.tieba.frs.h5.FrsH5ItemView.3
             @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
             public void onReceivedError(WebView webView, int i, String str, String str2) {
-                FrsH5ItemView.this.bhs();
+                FrsH5ItemView.this.bht();
                 FrsH5ItemView.this.fqe = true;
             }
         };
@@ -83,14 +83,14 @@ public class FrsH5ItemView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bhr() {
+    public void bhs() {
         this.mWebView.setVisibility(0);
         this.fqd.setVisibility(8);
         this.mNoDataView.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bhs() {
+    public void bht() {
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.height = (l.aQ(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds100)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.ds90);
         setLayoutParams(layoutParams);

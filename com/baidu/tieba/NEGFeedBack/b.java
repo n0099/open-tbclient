@@ -79,11 +79,11 @@ public class b {
             this.cIE = new LinearLayout(this.mPageContext.getPageActivity());
             this.cIE.setOrientation(1);
         }
-        List<List<a>> auQ = auQ();
-        if (v.T(auQ)) {
+        List<List<a>> auR = auR();
+        if (v.T(auR)) {
             return null;
         }
-        int size = auQ.size();
+        int size = auR.size();
         if (this.cIH == null) {
             this.cIH = new HashMap<>();
         } else {
@@ -91,7 +91,7 @@ public class b {
         }
         int i = 0;
         while (i < size) {
-            View a2 = a(auQ.get(i), i == size + (-1), this.cIE.getChildAt(i));
+            View a2 = a(auR.get(i), i == size + (-1), this.cIE.getChildAt(i));
             if (a2 != null && a2.getParent() == null) {
                 this.cIE.addView(a2);
             }
@@ -103,12 +103,12 @@ public class b {
         return this.cIE;
     }
 
-    private List<List<a>> auQ() {
+    private List<List<a>> auR() {
         int i;
         int i2;
         int i3 = -1;
         if (this.cIC == null || this.cIC.size() == 0) {
-            return auR();
+            return auS();
         }
         int size = this.cIC.size();
         int i4 = this.cIB ? 0 : -1;
@@ -137,7 +137,7 @@ public class b {
         return arrayList;
     }
 
-    private List<List<a>> auR() {
+    private List<List<a>> auS() {
         if (this.cID == null || this.cID.length <= 0) {
             return null;
         }
@@ -266,11 +266,11 @@ public class b {
             this.cIE = new LinearLayout(this.mPageContext.getPageActivity());
             this.cIE.setOrientation(1);
         }
-        List<List<a>> auT = auT();
-        if (v.T(auT)) {
+        List<List<a>> auU = auU();
+        if (v.T(auU)) {
             return null;
         }
-        int size = auT.size();
+        int size = auU.size();
         if (this.cIH == null) {
             this.cIH = new HashMap<>();
         } else {
@@ -278,7 +278,7 @@ public class b {
         }
         int i = 0;
         while (i < size) {
-            View b = b(auT.get(i), i == size + (-1), this.cIE.getChildAt(i));
+            View b = b(auU.get(i), i == size + (-1), this.cIE.getChildAt(i));
             if (b != null && b.getParent() == null) {
                 this.cIE.addView(b);
             }
@@ -290,7 +290,7 @@ public class b {
         return this.cIE;
     }
 
-    private List<List<a>> auS() {
+    private List<List<a>> auT() {
         if (this.cID == null || this.cID.length <= 0) {
             return null;
         }
@@ -310,9 +310,9 @@ public class b {
         return arrayList;
     }
 
-    private List<List<a>> auT() {
+    private List<List<a>> auU() {
         if (this.cIC == null || this.cIC.size() == 0) {
-            return auS();
+            return auT();
         }
         int size = this.cIC.size();
         ArrayList arrayList = new ArrayList();

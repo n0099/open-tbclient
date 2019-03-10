@@ -33,5 +33,5 @@ public interface c {
 
     void cd(String str, String str2);
 
-    void ry(String str);
+    void rz(String str);
 }

@@ -18,25 +18,25 @@ import com.baidu.tieba.lego.c.e;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    private Animation fZj;
     private Animation fZk;
-    private ViewGroup fZp;
-    private a gLk;
-    private b gLl;
+    private Animation fZl;
+    private ViewGroup fZq;
+    private a gLl;
+    private b gLm;
     private boolean isShow = false;
     private View rootView;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void boN();
+        void boO();
     }
 
     public c(ViewGroup viewGroup) {
-        this.fZp = viewGroup;
+        this.fZq = viewGroup;
     }
 
     public void a(a aVar) {
-        this.gLk = aVar;
+        this.gLl = aVar;
     }
 
     public boolean isShowing() {
@@ -47,7 +47,7 @@ public class c {
         if (!this.isShow) {
             this.isShow = true;
             this.rootView = b(context, list, i);
-            this.fZp.addView(this.rootView);
+            this.fZq.addView(this.rootView);
             al.l(this.rootView, d.C0236d.cp_cont_g);
             this.rootView.startAnimation(dR(context));
         }
@@ -63,13 +63,13 @@ public class c {
         View inflate = LayoutInflater.from(context).inflate(d.h.lego_scroll_fragment_more, (ViewGroup) null);
         GridView gridView = (GridView) inflate.findViewById(d.g.scroll_fragment_more_content);
         gridView.setSelector(new ColorDrawable(context.getResources().getColor(17170445)));
-        this.gLl = new b(context, i);
-        this.gLl.setTagList(list);
-        gridView.setAdapter((ListAdapter) this.gLl);
+        this.gLm = new b(context, i);
+        this.gLm.setTagList(list);
+        gridView.setAdapter((ListAdapter) this.gLm);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.lego.indicator.c.1
             @Override // android.widget.AdapterView.OnItemClickListener
             public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-                e item = c.this.gLl.getItem(i2);
+                e item = c.this.gLm.getItem(i2);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016448));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016449, item));
                 c.this.dQ(context);
@@ -79,33 +79,33 @@ public class c {
     }
 
     private Animation dR(Context context) {
-        if (this.fZj == null) {
-            this.fZj = AnimationUtils.loadAnimation(context, d.a.dialog_ani_t2b_enter);
+        if (this.fZk == null) {
+            this.fZk = AnimationUtils.loadAnimation(context, d.a.dialog_ani_t2b_enter);
         }
-        return this.fZj;
+        return this.fZk;
     }
 
     private Animation dS(Context context) {
-        if (this.fZk == null) {
-            this.fZk = AnimationUtils.loadAnimation(context, d.a.dialog_ani_t2b_exit);
+        if (this.fZl == null) {
+            this.fZl = AnimationUtils.loadAnimation(context, d.a.dialog_ani_t2b_exit);
         }
-        this.fZk.setAnimationListener(new com.baidu.adp.lib.g.d() { // from class: com.baidu.tieba.lego.indicator.c.2
+        this.fZl.setAnimationListener(new com.baidu.adp.lib.g.d() { // from class: com.baidu.tieba.lego.indicator.c.2
             @Override // com.baidu.adp.lib.g.d, android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 c.this.isShow = false;
-                if (c.this.gLk != null) {
-                    c.this.gLk.boN();
+                if (c.this.gLl != null) {
+                    c.this.gLl.boO();
                 }
-                c.this.fZp.removeView(c.this.rootView);
+                c.this.fZq.removeView(c.this.rootView);
             }
         });
-        return this.fZk;
+        return this.fZl;
     }
 
     public void ij(int i) {
         al.l(this.rootView, d.C0236d.cp_cont_g);
-        if (this.gLl != null) {
-            this.gLl.notifyDataSetChanged();
+        if (this.gLm != null) {
+            this.gLm.notifyDataSetChanged();
         }
     }
 }

@@ -11,7 +11,7 @@ public class a {
     private List<ForumInfo> fys;
     private BdUniqueId mBdUniqueId;
     private BdUniqueId mRequestId;
-    private InterfaceC0271a gMe = null;
+    private InterfaceC0271a gMf = null;
     private com.baidu.adp.framework.listener.a fKn = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_BOTTLE_FORUM_LIST, 309440) { // from class: com.baidu.tieba.likedForum.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -19,8 +19,8 @@ public class a {
                 if ((responsedMessage instanceof GetBottleForumListHttpResMessage) || (responsedMessage instanceof GetBottleForumListSocketResMessage)) {
                     if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetBottleForumListReqMessage) || a.this.mRequestId == ((GetBottleForumListReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
                         if (responsedMessage.hasError()) {
-                            if (a.this.gMe != null) {
-                                a.this.gMe.a(false, responsedMessage.getError(), responsedMessage.getErrorString(), null);
+                            if (a.this.gMf != null) {
+                                a.this.gMf.a(false, responsedMessage.getError(), responsedMessage.getErrorString(), null);
                                 return;
                             }
                             return;
@@ -31,8 +31,8 @@ public class a {
                         if (responsedMessage instanceof GetBottleForumListSocketResMessage) {
                             a.this.fys = ((GetBottleForumListSocketResMessage) responsedMessage).getBottleForumList();
                         }
-                        if (a.this.gMe != null) {
-                            a.this.gMe.a(true, responsedMessage.getError(), responsedMessage.getErrorString(), a.this.fys);
+                        if (a.this.gMf != null) {
+                            a.this.gMf.a(true, responsedMessage.getError(), responsedMessage.getErrorString(), a.this.fys);
                         }
                     }
                 }
@@ -63,7 +63,7 @@ public class a {
     }
 
     public void a(InterfaceC0271a interfaceC0271a) {
-        this.gMe = interfaceC0271a;
+        this.gMf = interfaceC0271a;
     }
 
     public void destroy() {

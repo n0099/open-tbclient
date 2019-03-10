@@ -29,7 +29,7 @@ public class h extends com.baidu.adp.widget.ListView.a<l, a> implements com.baid
             public void a(View view, l lVar) {
                 if (view != null && h.this.fGQ != null && h.this.fGQ.getView() != null && lVar != null && lVar.WR() != null && !StringUtils.isNull(lVar.WR().getTid())) {
                     am amVar = new am("c12352");
-                    if ((h.this.fGQ.getHeaderImg() != null && view.getId() == h.this.fGQ.getHeaderImg().getId()) || (h.this.fGQ.aQm() != null && view.getId() == h.this.fGQ.aQm().getId())) {
+                    if ((h.this.fGQ.getHeaderImg() != null && view.getId() == h.this.fGQ.getHeaderImg().getId()) || (h.this.fGQ.aQn() != null && view.getId() == h.this.fGQ.aQn().getId())) {
                         amVar.T("obj_locate", 1);
                     } else {
                         amVar.T("obj_locate", 2);
@@ -38,7 +38,7 @@ public class h extends com.baidu.adp.widget.ListView.a<l, a> implements com.baid
                     amVar.bJ("tid", lVar.cZD.getTid());
                     amVar.k(ImageViewerConfig.FORUM_ID, lVar.cZD.getFid());
                     amVar.bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
-                    amVar.T("obj_param1", lVar.aQU() ? 2 : 1);
+                    amVar.T("obj_param1", lVar.aQV() ? 2 : 1);
                     TiebaStatic.log(amVar);
                 }
             }
@@ -79,7 +79,7 @@ public class h extends com.baidu.adp.widget.ListView.a<l, a> implements com.baid
             return null;
         }
         lVar.os(i + 1);
-        t.aQF().b(lVar.tI("c12351"));
+        t.aQG().b(lVar.tJ("c12351"));
         if (aVar.fGT instanceof com.baidu.tieba.a.e) {
             aVar.fGT.setPage(this.Yz);
         }
@@ -99,7 +99,7 @@ public class h extends com.baidu.adp.widget.ListView.a<l, a> implements com.baid
     }
 
     @Override // com.baidu.tieba.a.f
-    public void qM(String str) {
+    public void qN(String str) {
         this.Yz = str;
     }
 }

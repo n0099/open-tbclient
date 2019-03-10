@@ -32,7 +32,7 @@ public class ab extends b<com.baidu.tbadk.core.data.a> {
                         ab.this.rk().a(ab.this.Zh, ab.this.Xx);
                     }
                     String id = ab.this.Xx.WR().getId();
-                    com.baidu.tieba.card.n.tB(id);
+                    com.baidu.tieba.card.n.tC(id);
                     ab.this.cu(id);
                     ab.this.Xp.b(new a.C0037a(1));
                 }
@@ -71,7 +71,7 @@ public class ab extends b<com.baidu.tbadk.core.data.a> {
     public void cu(String str) {
         com.baidu.tieba.card.n.a(this.mTitle, str, d.C0236d.cp_cont_b, d.C0236d.cp_cont_d);
         com.baidu.tieba.card.n.a(this.XJ, str, d.C0236d.cp_cont_b, d.C0236d.cp_cont_d);
-        this.Zh.setReadState(com.baidu.tieba.card.n.tC(str));
+        this.Zh.setReadState(com.baidu.tieba.card.n.tD(str));
     }
 
     @Override // com.baidu.card.j

@@ -2,10 +2,10 @@ package com.coloros.mcssdk.e;
 /* loaded from: classes3.dex */
 public class e {
     private String content;
-    private String jyn;
+    private String jyG;
 
-    public void Fq(String str) {
-        this.jyn = str;
+    public void Ft(String str) {
+        this.jyG = str;
     }
 
     public void setContent(String str) {
@@ -13,6 +13,6 @@ public class e {
     }
 
     public String toString() {
-        return "subscribeId:" + this.jyn + ",content:" + this.content;
+        return "subscribeId:" + this.jyG + ",content:" + this.content;
     }
 }

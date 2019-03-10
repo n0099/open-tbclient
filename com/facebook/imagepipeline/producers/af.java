@@ -12,7 +12,7 @@ public interface af<FETCH_STATE extends s> {
     public interface a {
         void C(Throwable th);
 
-        void ctv();
+        void ctF();
 
         void f(InputStream inputStream, int i) throws IOException;
     }

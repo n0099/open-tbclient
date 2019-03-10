@@ -9,30 +9,30 @@ import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class g {
     @Nullable
-    private i<Boolean> jBi;
-    private com.facebook.imagepipeline.a.a.a jBl;
+    private i<Boolean> jBB;
+    private com.facebook.imagepipeline.a.a.a jBE;
     @Nullable
-    private ImmutableList<a> jBm;
-    private t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> jBn;
-    private com.facebook.drawee.components.a jBv;
-    private Executor jBw;
+    private ImmutableList<a> jBF;
+    private t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> jBG;
+    private com.facebook.drawee.components.a jBO;
+    private Executor jBP;
     private Resources mResources;
 
     public void a(Resources resources, com.facebook.drawee.components.a aVar, com.facebook.imagepipeline.a.a.a aVar2, Executor executor, t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> tVar, @Nullable ImmutableList<a> immutableList, @Nullable i<Boolean> iVar) {
         this.mResources = resources;
-        this.jBv = aVar;
-        this.jBl = aVar2;
-        this.jBw = executor;
-        this.jBn = tVar;
-        this.jBm = immutableList;
-        this.jBi = iVar;
+        this.jBO = aVar;
+        this.jBE = aVar2;
+        this.jBP = executor;
+        this.jBG = tVar;
+        this.jBF = immutableList;
+        this.jBB = iVar;
     }
 
     public d b(i<com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>>> iVar, String str, com.facebook.cache.common.b bVar, Object obj) {
         com.facebook.common.internal.g.c(this.mResources != null, "init() not called");
-        d a = a(this.mResources, this.jBv, this.jBl, this.jBw, this.jBn, this.jBm, iVar, str, bVar, obj);
-        if (this.jBi != null) {
-            a.rp(this.jBi.get().booleanValue());
+        d a = a(this.mResources, this.jBO, this.jBE, this.jBP, this.jBG, this.jBF, iVar, str, bVar, obj);
+        if (this.jBB != null) {
+            a.rp(this.jBB.get().booleanValue());
         }
         return a;
     }

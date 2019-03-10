@@ -91,7 +91,7 @@ public class a {
 
     public void a(b bVar) {
         if (bVar != null) {
-            cu(bVar.blE());
+            cu(bVar.blF());
             this.fHP.setData(bVar.getDataList());
         }
     }
@@ -163,7 +163,7 @@ public class a {
         this.mRefreshView.anC();
     }
 
-    public void aBt() {
+    public void aBu() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this.mRootView);
             this.mRefreshView = null;
@@ -171,25 +171,25 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aCu() {
+    public void aCv() {
         this.fHO.setNextPage(this.dbr);
         this.dbr.id(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.dbr.aeC();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aCw() {
+    public void aCx() {
         this.fHO.setNextPage(null);
     }
 
-    public void aCv() {
+    public void aCw() {
         this.fHO.setNextPage(this.dbr);
         this.dbr.id(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.dbr.aeE();
         this.dbr.setText(this.mPageContext.getResources().getString(d.j.list_has_no_more));
     }
 
-    public void blD() {
+    public void blE() {
         this.fHO.setNextPage(this.dbr);
         this.dbr.aeD();
         this.dbr.id(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
@@ -199,7 +199,7 @@ public class a {
         this.dcE.setRefreshing(true);
     }
 
-    public void aBM() {
+    public void aBN() {
         this.dcE.setRefreshing(false);
     }
 
@@ -208,7 +208,7 @@ public class a {
         startPullRefresh();
     }
 
-    public void aCt() {
+    public void aCu() {
         this.fHP.notifyDataSetChanged();
     }
 
@@ -269,6 +269,6 @@ public class a {
             this.fHN.afm();
         }
         this.fHO.setOnSrollToBottomListener(null);
-        aBM();
+        aBN();
     }
 }

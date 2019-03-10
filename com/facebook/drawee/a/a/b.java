@@ -6,22 +6,22 @@ import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class b {
     @Nullable
-    private final ImmutableList<a> jBg;
+    private final g jBA;
+    private final i<Boolean> jBB;
     @Nullable
-    private final g jBh;
-    private final i<Boolean> jBi;
+    private final ImmutableList<a> jBz;
 
     @Nullable
-    public ImmutableList<a> cun() {
-        return this.jBg;
+    public ImmutableList<a> cux() {
+        return this.jBz;
     }
 
     @Nullable
-    public g cuo() {
-        return this.jBh;
+    public g cuy() {
+        return this.jBA;
     }
 
-    public i<Boolean> cup() {
-        return this.jBi;
+    public i<Boolean> cuz() {
+        return this.jBB;
     }
 }

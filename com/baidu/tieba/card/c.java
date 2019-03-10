@@ -55,7 +55,7 @@ public class c extends e {
         cVar.cyD.setGifIconSupport(false);
         cVar.cyE = (TextView) view.findViewById(d.g.m_forum_name_textview);
         cVar.cyG = (EntelechyUserLikeButton) view.findViewById(d.g.forum_add_love);
-        cVar.fSK = 16908308;
+        cVar.fSL = 16908308;
         return cVar;
     }
 

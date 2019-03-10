@@ -52,16 +52,16 @@ public class e {
     private com.baidu.tbadk.o.a.a Qn;
     private int bgColor;
     private FRSRefreshButton eYV;
-    private ForumWriteData jcL;
-    private boolean jlA;
-    private f jlB;
-    private String jlC;
-    private String jlD;
-    private Animation jlE;
-    private com.baidu.tbadk.core.bigday.a jlF;
-    private View.OnClickListener jlG;
-    private f.a jlH;
-    private a jlz;
+    private ForumWriteData jdf;
+    private a jlS;
+    private boolean jlT;
+    private f jlU;
+    private String jlV;
+    private String jlW;
+    private Animation jlX;
+    private com.baidu.tbadk.core.bigday.a jlY;
+    private View.OnClickListener jlZ;
+    private f.a jma;
     private TbPageContext mContext;
     private String mFrom;
     private ViewGroup mParentView;
@@ -73,12 +73,12 @@ public class e {
     }
 
     public e(TbPageContext tbPageContext, ViewGroup viewGroup, String str, int i) {
-        this.jlA = false;
+        this.jlT = false;
         this.mSkinType = 3;
-        this.jlC = "";
+        this.jlV = "";
         this.mFrom = AlbumActivityConfig.FROM_WRITE;
-        this.jlD = "0";
-        this.jlG = new View.OnClickListener() { // from class: com.baidu.tieba.write.e.1
+        this.jlW = "0";
+        this.jlZ = new View.OnClickListener() { // from class: com.baidu.tieba.write.e.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (e.this.bgColor != 0) {
@@ -87,26 +87,26 @@ public class e {
                 e.this.qW(true);
             }
         };
-        this.jlH = new f.a() { // from class: com.baidu.tieba.write.e.4
+        this.jma = new f.a() { // from class: com.baidu.tieba.write.e.4
             @Override // com.baidu.tieba.write.f.a
-            public void Ba(int i2) {
+            public void Bb(int i2) {
                 if (i2 == 1) {
-                    e.this.jlA = true;
-                    if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_sendthread_maintab") && (e.this.jlB instanceof c)) {
+                    e.this.jlT = true;
+                    if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_sendthread_maintab") && (e.this.jlU instanceof c)) {
                         if (e.this.Qn == null) {
                             e.this.Qn = new com.baidu.tbadk.o.a.a("anim_switch_sendthread_maintab");
                         }
                         e.this.Qn.apt();
                     }
                 } else if (i2 == 2) {
-                    if (e.this.Qn != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_sendthread_maintab") && (e.this.jlB instanceof c)) {
+                    if (e.this.Qn != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_sendthread_maintab") && (e.this.jlU instanceof c)) {
                         e.this.Qn.apu();
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921401, 0));
                 } else if (i2 == 4) {
-                    e.this.jlA = false;
-                    if (e.this.jlz.mRootView.getParent() == e.this.mParentView && e.this.mParentView != null && e.this.jlz.mRootView != null && e.this.mParentView.indexOfChild(e.this.jlz.mRootView) > 0) {
-                        e.this.mParentView.removeView(e.this.jlz.mRootView);
+                    e.this.jlT = false;
+                    if (e.this.jlS.mRootView.getParent() == e.this.mParentView && e.this.mParentView != null && e.this.jlS.mRootView != null && e.this.mParentView.indexOfChild(e.this.jlS.mRootView) > 0) {
+                        e.this.mParentView.removeView(e.this.jlS.mRootView);
                     }
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921401, 1));
                 }
@@ -115,80 +115,80 @@ public class e {
         this.mContext = tbPageContext;
         this.mParentView = viewGroup;
         this.mFrom = str;
-        this.jlz = new a(tbPageContext.getPageActivity());
+        this.jlS = new a(tbPageContext.getPageActivity());
         initView();
-        this.jlB = g.a(i, tbPageContext.getPageActivity(), this.jlz);
-        this.jlB.a(this.jlH);
+        this.jlU = g.a(i, tbPageContext.getPageActivity(), this.jlS);
+        this.jlU.a(this.jma);
     }
 
-    public void Ej(String str) {
+    public void Em(String str) {
         if (str == null) {
             str = "";
         }
-        this.jlC = str;
+        this.jlV = str;
     }
 
     public void a(ForumWriteData forumWriteData) {
-        this.jcL = forumWriteData;
+        this.jdf = forumWriteData;
     }
 
-    public void Ek(String str) {
+    public void En(String str) {
         if ("3".equals(str)) {
             this.writeCallFrom = "1";
         } else {
             this.writeCallFrom = str;
         }
-        this.jlD = str;
+        this.jlW = str;
     }
 
     private void initView() {
-        this.jlz.cof();
-        this.jlz.jlQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.e.5
+        this.jlS.cop();
+        this.jlS.jmj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.e.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.this.El(e.this.jlC);
+                e.this.Eo(e.this.jlV);
             }
         });
-        this.jlz.jlN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.e.6
+        this.jlS.jmg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.e.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.this.cod();
+                e.this.con();
             }
         });
-        this.jlz.jlT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.e.7
+        this.jlS.jmm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.e.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.this.coc();
+                e.this.com();
             }
         });
-        this.jlz.jlW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.e.8
+        this.jlS.jmq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.e.8
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.this.cob();
+                e.this.col();
             }
         });
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.jlE = AnimationUtils.loadAnimation(this.mContext.getPageActivity(), d.a.write_tab_bg_anim);
-        this.jlE.setFillAfter(true);
+        this.jlX = AnimationUtils.loadAnimation(this.mContext.getPageActivity(), d.a.write_tab_bg_anim);
+        this.jlX.setFillAfter(true);
     }
 
     public boolean isShowing() {
-        return this.jlA;
+        return this.jlT;
     }
 
-    public void AY(int i) {
+    public void AZ(int i) {
         this.bgColor = i;
     }
 
     public void a(boolean z, View view, View view2) {
         if (this.mParentView != null) {
-            coe();
-            if (this.jlz.mRootView.getParent() == null) {
-                com.baidu.tbadk.m.e.aY(this.mParentView).a(this.mParentView, this.jlz.mRootView, z);
+            coo();
+            if (this.jlS.mRootView.getParent() == null) {
+                com.baidu.tbadk.m.e.aY(this.mParentView).a(this.mParentView, this.jlS.mRootView, z);
             }
-            this.jlB.b(view, view2);
-            this.jlB.show();
-            TiebaStatic.log(new am("c12052").bJ("obj_locate", this.jlD));
+            this.jlU.b(view, view2);
+            this.jlU.show();
+            TiebaStatic.log(new am("c12052").bJ("obj_locate", this.jlW));
             if (j.la()) {
                 String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_baidu_sim_card_writting_tip", "");
                 if (!ap.isEmpty(string)) {
@@ -199,43 +199,43 @@ public class e {
         }
     }
 
-    public void AZ(int i) {
-        this.jlz.jlY.setIconFade(i);
+    public void Ba(int i) {
+        this.jlS.jms.setIconFade(i);
     }
 
     public void qW(boolean z) {
-        this.jlB.bA(z);
+        this.jlU.bA(z);
         if (!z) {
-            this.jlz.jlY.anN();
+            this.jlS.jms.anN();
         }
     }
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             this.mSkinType = i;
-            this.jlz.jlY.onChangeSkinType(i);
-            al.a(this.jlz.jmc, d.i.bottom_bar_bg);
-            al.k(this.jlz.jlL, d.f.write_tab_background);
-            al.c(this.jlz.jlN, d.f.icon_post_type_photograph_n);
-            al.c(this.jlz.jlQ, d.f.icon_post_type_text_n);
-            al.c(this.jlz.jlT, d.f.icon_post_type_image_n);
-            al.c(this.jlz.jlW, d.f.icon_post_type_live_n);
-            al.j(this.jlz.jlO, d.C0236d.cp_cont_b);
-            al.j(this.jlz.jlR, d.C0236d.cp_cont_b);
-            al.j(this.jlz.jlU, d.C0236d.cp_cont_b);
-            al.j(this.jlz.jlX, d.C0236d.cp_cont_b);
+            this.jlS.jms.onChangeSkinType(i);
+            al.a(this.jlS.jmw, d.i.bottom_bar_bg);
+            al.k(this.jlS.jme, d.f.write_tab_background);
+            al.c(this.jlS.jmg, d.f.icon_post_type_photograph_n);
+            al.c(this.jlS.jmj, d.f.icon_post_type_text_n);
+            al.c(this.jlS.jmm, d.f.icon_post_type_image_n);
+            al.c(this.jlS.jmq, d.f.icon_post_type_live_n);
+            al.j(this.jlS.jmh, d.C0236d.cp_cont_b);
+            al.j(this.jlS.jmk, d.C0236d.cp_cont_b);
+            al.j(this.jlS.jmn, d.C0236d.cp_cont_b);
+            al.j(this.jlS.jmr, d.C0236d.cp_cont_b);
         }
     }
 
     public void onDestroy() {
-        if (this.jlz.mRootView != null && this.jlz.mRootView.getParent() == this.mParentView) {
-            this.mParentView.removeView(this.jlz.mRootView);
+        if (this.jlS.mRootView != null && this.jlS.mRootView.getParent() == this.mParentView) {
+            this.mParentView.removeView(this.jlS.mRootView);
         }
-        this.jlB.onDestroy();
+        this.jlU.onDestroy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cob() {
+    public void col() {
         String str;
         String str2 = null;
         qW(false);
@@ -257,20 +257,20 @@ public class e {
             MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ALA_VERIFY_STRATEGY));
             String str3 = "0";
             com.baidu.adp.lib.d.a.iW().af(false);
-            if (this.jcL != null) {
-                str3 = this.jcL.forumId;
-                str = this.jcL.forumName;
-                str2 = this.jcL.specialForumType;
+            if (this.jdf != null) {
+                str3 = this.jdf.forumId;
+                str = this.jdf.forumName;
+                str2 = this.jdf.specialForumType;
             } else {
                 str = null;
             }
-            TiebaStatic.log(new am("c12611").bJ("obj_locate", this.jlD).T("obj_type", 4));
+            TiebaStatic.log(new am("c12611").bJ("obj_locate", this.jlW).T("obj_type", 4));
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaMasterLiveRoomActivityConfig(TbadkCoreApplication.getInst().getApplicationContext(), str, str3, TbadkCoreApplication.getCurrentAccount(), str2)));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void coc() {
+    public void com() {
         String str;
         String str2;
         int i;
@@ -281,7 +281,7 @@ public class e {
         qW(false);
         PostPrefixData postPrefixData = null;
         AntiData antiData = null;
-        if (this.jcL == null) {
+        if (this.jdf == null) {
             str = "";
             str2 = "";
             i = 0;
@@ -290,15 +290,15 @@ public class e {
             str4 = null;
             str5 = "0";
         } else {
-            String str6 = this.jcL.forumId;
-            String str7 = this.jcL.forumName;
-            postPrefixData = this.jcL.prefixData;
-            antiData = this.jcL.antiData;
-            int i3 = this.jcL.forumLevel;
-            String str8 = this.jcL.avatar;
-            int i4 = this.jcL.privateThread;
-            String str9 = this.jcL.firstDir;
-            str = this.jcL.secondDir;
+            String str6 = this.jdf.forumId;
+            String str7 = this.jdf.forumName;
+            postPrefixData = this.jdf.prefixData;
+            antiData = this.jdf.antiData;
+            int i3 = this.jdf.forumLevel;
+            String str8 = this.jdf.avatar;
+            int i4 = this.jdf.privateThread;
+            String str9 = this.jdf.firstDir;
+            str = this.jdf.secondDir;
             str2 = str9;
             i = i4;
             str3 = str8;
@@ -306,7 +306,7 @@ public class e {
             str4 = str7;
             str5 = str6;
         }
-        TiebaStatic.log(new am("c12611").bJ("obj_locate", this.jlD).T("obj_type", 3));
+        TiebaStatic.log(new am("c12611").bJ("obj_locate", this.jlW).T("obj_type", 3));
         WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.mContext.getPageActivity(), 0, str5, str4, null, null, 0, antiData, 13003, false, false, null, false, false, null, null, postPrefixData, 0);
         writeActivityConfig.getIntent().putExtra("from", this.mFrom);
         writeActivityConfig.setCallFrom(this.writeCallFrom);
@@ -314,10 +314,10 @@ public class e {
         writeActivityConfig.setForumAvatar(str3);
         writeActivityConfig.setAlbumThread(1);
         writeActivityConfig.setPrivateThread(i);
-        writeActivityConfig.setProfessionZone(this.jcL != null ? this.jcL.defaultZone : -1);
+        writeActivityConfig.setProfessionZone(this.jdf != null ? this.jdf.defaultZone : -1);
         writeActivityConfig.setForumDir(str2, str);
-        if (!StringUtils.isNull(this.jlC)) {
-            writeActivityConfig.setTitle(this.jlC, true);
+        if (!StringUtils.isNull(this.jlV)) {
+            writeActivityConfig.setTitle(this.jlV, true);
         }
         if (!a(this.mContext.getPageActivity(), writeActivityConfig)) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, writeActivityConfig));
@@ -325,19 +325,19 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cod() {
+    public void con() {
         qW(false);
-        TiebaStatic.log(new am("c12611").bJ("obj_locate", this.jlD).T("obj_type", 2));
-        if (this.jcL == null) {
-            this.jcL = new ForumWriteData("0", null, null, null);
+        TiebaStatic.log(new am("c12611").bJ("obj_locate", this.jlW).T("obj_type", 2));
+        if (this.jdf == null) {
+            this.jdf = new ForumWriteData("0", null, null, null);
         }
-        this.jcL.mFrom = this.mFrom;
-        this.jcL.writeCallFrom = this.writeCallFrom;
-        i.a(this.mContext, "", this.jcL);
+        this.jdf.mFrom = this.mFrom;
+        this.jdf.writeCallFrom = this.writeCallFrom;
+        i.a(this.mContext, "", this.jdf);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void El(String str) {
+    public void Eo(String str) {
         String str2;
         String str3;
         int i;
@@ -348,7 +348,7 @@ public class e {
         qW(false);
         PostPrefixData postPrefixData = null;
         AntiData antiData = null;
-        if (this.jcL == null) {
+        if (this.jdf == null) {
             str2 = "";
             str3 = "";
             i = 0;
@@ -357,15 +357,15 @@ public class e {
             str5 = null;
             str6 = "0";
         } else {
-            String str7 = this.jcL.forumId;
-            String str8 = this.jcL.forumName;
-            postPrefixData = this.jcL.prefixData;
-            antiData = this.jcL.antiData;
-            int i3 = this.jcL.forumLevel;
-            String str9 = this.jcL.avatar;
-            int i4 = this.jcL.privateThread;
-            String str10 = this.jcL.firstDir;
-            str2 = this.jcL.secondDir;
+            String str7 = this.jdf.forumId;
+            String str8 = this.jdf.forumName;
+            postPrefixData = this.jdf.prefixData;
+            antiData = this.jdf.antiData;
+            int i3 = this.jdf.forumLevel;
+            String str9 = this.jdf.avatar;
+            int i4 = this.jdf.privateThread;
+            String str10 = this.jdf.firstDir;
+            str2 = this.jdf.secondDir;
             str3 = str10;
             i = i4;
             str4 = str9;
@@ -373,7 +373,7 @@ public class e {
             str5 = str8;
             str6 = str7;
         }
-        TiebaStatic.log(new am("c12611").bJ("obj_locate", this.jlD).T("obj_type", 1));
+        TiebaStatic.log(new am("c12611").bJ("obj_locate", this.jlW).T("obj_type", 1));
         WriteActivityConfig writeActivityConfig = new WriteActivityConfig(this.mContext.getPageActivity(), 9, str6, str5, null, null, 0, antiData, 13003, false, false, null, false, false, null, null, postPrefixData, 0);
         writeActivityConfig.getIntent().putExtra("from", this.mFrom);
         writeActivityConfig.setCallFrom(this.writeCallFrom);
@@ -384,31 +384,31 @@ public class e {
         writeActivityConfig.setForumAvatar(str4);
         writeActivityConfig.setPrivateThread(i);
         writeActivityConfig.setForumDir(str3, str2);
-        writeActivityConfig.setProfessionZone(this.jcL != null ? this.jcL.defaultZone : -1);
+        writeActivityConfig.setProfessionZone(this.jdf != null ? this.jdf.defaultZone : -1);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, writeActivityConfig));
     }
 
-    private void coe() {
+    private void coo() {
         if (this.mFrom == "main_tab" && com.baidu.adp.lib.b.d.iQ().aO("android_bigday_switch") != 0 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_bigday_next_showtime_write", 0L)) {
-            this.jlF = com.baidu.tbadk.core.bigday.b.WM().gc(3);
-            if (this.jlF != null && this.jlF.WL()) {
-                this.jlz.jma.startLoad(this.jlF.imgUrl, 41, false);
-                this.jlz.jma.setVisibility(0);
-                this.jlz.jma.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.e.10
+            this.jlY = com.baidu.tbadk.core.bigday.b.WM().gc(3);
+            if (this.jlY != null && this.jlY.WL()) {
+                this.jlS.jmu.startLoad(this.jlY.imgUrl, 41, false);
+                this.jlS.jmu.setVisibility(0);
+                this.jlS.jmu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.e.10
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        if (e.this.jlF != null && !StringUtils.isNULL(e.this.jlF.bvG)) {
-                            ba.adD().c(e.this.mContext, new String[]{e.this.jlF.bvG});
-                            TiebaStatic.log(new am("c13114").k(VideoPlayActivityConfig.OBJ_ID, e.this.jlF.bvI).bJ("obj_to", e.this.jlF.bvG));
+                        if (e.this.jlY != null && !StringUtils.isNULL(e.this.jlY.bvG)) {
+                            ba.adD().c(e.this.mContext, new String[]{e.this.jlY.bvG});
+                            TiebaStatic.log(new am("c13114").k(VideoPlayActivityConfig.OBJ_ID, e.this.jlY.bvI).bJ("obj_to", e.this.jlY.bvG));
                             e.this.qW(false);
                         }
                     }
                 });
-                this.jlz.jma.setOnDrawListener(new TbImageView.b() { // from class: com.baidu.tieba.write.e.11
+                this.jlS.jmu.setOnDrawListener(new TbImageView.b() { // from class: com.baidu.tieba.write.e.11
                     @Override // com.baidu.tbadk.widget.TbImageView.b
                     public void a(TbImageView tbImageView, Canvas canvas) {
-                        if (e.this.jlz.jma.getBdImage() == null && e.this.jlF != null && !ap.isEmpty(e.this.jlF.imgUrl)) {
-                            e.this.jlz.jma.startLoad(e.this.jlF.imgUrl, 41, false);
+                        if (e.this.jlS.jmu.getBdImage() == null && e.this.jlY != null && !ap.isEmpty(e.this.jlY.imgUrl)) {
+                            e.this.jlS.jmu.startLoad(e.this.jlY.imgUrl, 41, false);
                         }
                     }
 
@@ -416,22 +416,22 @@ public class e {
                     public void b(TbImageView tbImageView, Canvas canvas) {
                     }
                 });
-                ViewGroup.LayoutParams layoutParams = this.jlz.jma.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = this.jlS.jmu.getLayoutParams();
                 if (layoutParams instanceof RelativeLayout.LayoutParams) {
                     int aO = (int) (l.aO(this.mContext.getContext()) * 0.546d);
                     layoutParams.width = aO;
                     layoutParams.height = aO;
                     ((RelativeLayout.LayoutParams) layoutParams).topMargin = l.aQ(this.mContext.getContext()) / 5;
-                    this.jlz.jma.setLayoutParams(layoutParams);
+                    this.jlS.jmu.setLayoutParams(layoutParams);
                 }
-                this.jlz.jmb.setVisibility(0);
-                this.jlz.jmb.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.e.2
+                this.jlS.jmv.setVisibility(0);
+                this.jlS.jmv.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.e.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        e.this.jlz.jmb.clearAnimation();
-                        e.this.jlz.jma.clearAnimation();
-                        e.this.jlz.jmb.setVisibility(8);
-                        e.this.jlz.jma.setVisibility(8);
+                        e.this.jlS.jmv.clearAnimation();
+                        e.this.jlS.jmu.clearAnimation();
+                        e.this.jlS.jmv.setVisibility(8);
+                        e.this.jlS.jmu.setVisibility(8);
                         Calendar calendar = Calendar.getInstance();
                         calendar.set(11, 23);
                         calendar.set(12, 59);
@@ -440,9 +440,9 @@ public class e {
                         com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("key_bigday_next_showtime_write", calendar.getTimeInMillis());
                     }
                 });
-                this.jlz.jma.startAnimation(this.jlE);
-                this.jlz.jmb.startAnimation(this.jlE);
-                TiebaStatic.log(new am("c13113").k(VideoPlayActivityConfig.OBJ_ID, this.jlF.bvI).bJ("obj_to", this.jlF.bvG));
+                this.jlS.jmu.startAnimation(this.jlX);
+                this.jlS.jmv.startAnimation(this.jlX);
+                TiebaStatic.log(new am("c13113").k(VideoPlayActivityConfig.OBJ_ID, this.jlY.bvI).bJ("obj_to", this.jlY.bvG));
             }
         }
     }
@@ -466,88 +466,88 @@ public class e {
 
     /* loaded from: classes.dex */
     public class a {
-        public View jlK;
-        public View jlL;
-        public LinearLayout jlM;
-        public TbImageView jlN;
-        public TextView jlO;
-        public LinearLayout jlP;
-        public TbImageView jlQ;
-        public TextView jlR;
-        public LinearLayout jlS;
-        public TbImageView jlT;
-        public TextView jlU;
-        public LinearLayout jlV;
-        public TbImageView jlW;
-        public TextView jlX;
-        public OvalActionButton jlY;
-        public GridLayout jlZ;
-        public TbImageView jma;
-        public View jmb;
-        public TBLottieAnimationView jmc;
+        public View jmd;
+        public View jme;
+        public LinearLayout jmf;
+        public TbImageView jmg;
+        public TextView jmh;
+        public LinearLayout jmi;
+        public TbImageView jmj;
+        public TextView jmk;
+        public LinearLayout jml;
+        public TbImageView jmm;
+        public TextView jmn;
+        public LinearLayout jmo;
+        public TbImageView jmq;
+        public TextView jmr;
+        public OvalActionButton jms;
+        public GridLayout jmt;
+        public TbImageView jmu;
+        public View jmv;
+        public TBLottieAnimationView jmw;
         public View mRootView;
 
         public a(Context context) {
             if (context != null) {
                 this.mRootView = LayoutInflater.from(e.this.mContext.getPageActivity()).inflate(d.h.bottom_write_thread, (ViewGroup) null);
-                this.jlP = (LinearLayout) this.mRootView.findViewById(d.g.home_write_article);
-                this.jlQ = (TbImageView) this.mRootView.findViewById(d.g.home_write_article_icon);
-                this.jlR = (TextView) this.mRootView.findViewById(d.g.home_write_article_title);
-                this.jlM = (LinearLayout) this.mRootView.findViewById(d.g.home_write_photo);
-                this.jlN = (TbImageView) this.mRootView.findViewById(d.g.home_write_photo_icon);
-                this.jlO = (TextView) this.mRootView.findViewById(d.g.home_write_photo_title);
-                this.jlS = (LinearLayout) this.mRootView.findViewById(d.g.home_write_album);
-                this.jlT = (TbImageView) this.mRootView.findViewById(d.g.home_write_album_icon);
-                this.jlU = (TextView) this.mRootView.findViewById(d.g.home_write_album_title);
-                this.jlV = (LinearLayout) this.mRootView.findViewById(d.g.home_write_live);
-                this.jlW = (TbImageView) this.mRootView.findViewById(d.g.home_write_live_icon);
-                this.jlX = (TextView) this.mRootView.findViewById(d.g.home_write_live_title);
-                this.jlY = (OvalActionButton) this.mRootView.findViewById(d.g.write_close_view);
-                this.jlL = this.mRootView.findViewById(d.g.view_background_white);
-                this.jlK = this.mRootView.findViewById(d.g.view_background_translate);
-                this.jlZ = (GridLayout) this.mRootView.findViewById(d.g.type_container);
-                this.jlZ.setMeasureAllChild(true);
-                this.jlZ.setVerNum(1);
-                this.jma = (TbImageView) this.mRootView.findViewById(d.g.write_tab_bigday_img);
-                this.jmb = this.mRootView.findViewById(d.g.write_tab_bigday_close);
-                this.jmc = (TBLottieAnimationView) this.mRootView.findViewById(d.g.bottom_bar_background);
-                this.jmc.setSpeed(1.2f);
-                coh();
+                this.jmi = (LinearLayout) this.mRootView.findViewById(d.g.home_write_article);
+                this.jmj = (TbImageView) this.mRootView.findViewById(d.g.home_write_article_icon);
+                this.jmk = (TextView) this.mRootView.findViewById(d.g.home_write_article_title);
+                this.jmf = (LinearLayout) this.mRootView.findViewById(d.g.home_write_photo);
+                this.jmg = (TbImageView) this.mRootView.findViewById(d.g.home_write_photo_icon);
+                this.jmh = (TextView) this.mRootView.findViewById(d.g.home_write_photo_title);
+                this.jml = (LinearLayout) this.mRootView.findViewById(d.g.home_write_album);
+                this.jmm = (TbImageView) this.mRootView.findViewById(d.g.home_write_album_icon);
+                this.jmn = (TextView) this.mRootView.findViewById(d.g.home_write_album_title);
+                this.jmo = (LinearLayout) this.mRootView.findViewById(d.g.home_write_live);
+                this.jmq = (TbImageView) this.mRootView.findViewById(d.g.home_write_live_icon);
+                this.jmr = (TextView) this.mRootView.findViewById(d.g.home_write_live_title);
+                this.jms = (OvalActionButton) this.mRootView.findViewById(d.g.write_close_view);
+                this.jme = this.mRootView.findViewById(d.g.view_background_white);
+                this.jmd = this.mRootView.findViewById(d.g.view_background_translate);
+                this.jmt = (GridLayout) this.mRootView.findViewById(d.g.type_container);
+                this.jmt.setMeasureAllChild(true);
+                this.jmt.setVerNum(1);
+                this.jmu = (TbImageView) this.mRootView.findViewById(d.g.write_tab_bigday_img);
+                this.jmv = this.mRootView.findViewById(d.g.write_tab_bigday_close);
+                this.jmw = (TBLottieAnimationView) this.mRootView.findViewById(d.g.bottom_bar_background);
+                this.jmw.setSpeed(1.2f);
+                cor();
             }
         }
 
-        public void cof() {
-            this.jlK.setOnClickListener(e.this.jlG);
+        public void cop() {
+            this.jmd.setOnClickListener(e.this.jlZ);
         }
 
-        public void cog() {
-            this.jlK.setOnClickListener(null);
-            this.jlK.setClickable(false);
+        public void coq() {
+            this.jmd.setOnClickListener(null);
+            this.jmd.setClickable(false);
         }
 
-        private void coh() {
+        private void cor() {
             int aO = l.aO(e.this.mContext.getPageActivity());
             int i = (int) (0.15555556f * aO);
-            c(this.jlQ, i);
-            c(this.jlN, i);
-            c(this.jlT, i);
-            c(this.jlW, i);
+            c(this.jmj, i);
+            c(this.jmg, i);
+            c(this.jmm, i);
+            c(this.jmq, i);
             float h = (aO * 1.0f) / l.h(TbadkCoreApplication.getInst(), d.e.tbds1080);
-            ViewGroup.LayoutParams layoutParams = this.jlZ.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.jmt.getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {
                 ((RelativeLayout.LayoutParams) layoutParams).bottomMargin = (int) (l.h(TbadkCoreApplication.getInst(), d.e.tbds418) * h);
-                this.jlZ.setLayoutParams(layoutParams);
+                this.jmt.setLayoutParams(layoutParams);
             }
-            ViewGroup.LayoutParams layoutParams2 = this.jlL.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams2 = this.jme.getLayoutParams();
             if (layoutParams2 instanceof RelativeLayout.LayoutParams) {
                 int h2 = (int) (l.h(TbadkCoreApplication.getInst(), d.e.tbds912) * h);
                 ((RelativeLayout.LayoutParams) layoutParams2).height = h2 <= 0 ? 912 : h2;
-                this.jlL.setLayoutParams(layoutParams2);
+                this.jme.setLayoutParams(layoutParams2);
             }
-            ViewGroup.LayoutParams layoutParams3 = this.jmc.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams3 = this.jmw.getLayoutParams();
             if (layoutParams3 instanceof RelativeLayout.LayoutParams) {
                 ((RelativeLayout.LayoutParams) layoutParams3).height = (int) ((h * l.h(TbadkCoreApplication.getInst(), d.e.tbds800)) - ((l.h(TbadkCoreApplication.getInst(), d.e.tbds135) * h) - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()));
-                this.jmc.setLayoutParams(layoutParams3);
+                this.jmw.setLayoutParams(layoutParams3);
             }
         }
 

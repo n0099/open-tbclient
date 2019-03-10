@@ -21,9 +21,9 @@ public class FeedAdProgressButton extends View {
     private String alI;
     private Paint bOB;
     private float cBV;
-    private int gth;
-    private RectF ioP;
-    private Shader ioQ;
+    private int gti;
+    private RectF ioQ;
+    private Shader ioR;
     private int mProgress;
     private int mRadius;
     private int mTextColor;
@@ -34,7 +34,7 @@ public class FeedAdProgressButton extends View {
         this.mProgress = 0;
         this.mTextColor = -1;
         this.cBV = 10.0f;
-        this.gth = 100;
+        this.gti = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;
         init(context, attributeSet);
@@ -45,7 +45,7 @@ public class FeedAdProgressButton extends View {
         this.mProgress = 0;
         this.mTextColor = -1;
         this.cBV = 10.0f;
-        this.gth = 100;
+        this.gti = 100;
         this.mRadius = 0;
         this.strokeWidth = 0;
         init(context, attributeSet);
@@ -59,13 +59,13 @@ public class FeedAdProgressButton extends View {
         this.strokeWidth = getResources().getDimensionPixelSize(d.e.ds1);
         this.Ji = obtainStyledAttributes.getInteger(d.l.feed_ad_progress_btn_foreground, color2);
         this.mTextColor = obtainStyledAttributes.getColor(d.l.feed_ad_progress_btn_textColor, color);
-        this.gth = obtainStyledAttributes.getInteger(d.l.feed_ad_progress_btn_max, this.gth);
+        this.gti = obtainStyledAttributes.getInteger(d.l.feed_ad_progress_btn_max, this.gti);
         this.mProgress = obtainStyledAttributes.getInteger(d.l.feed_ad_progress_btn_progress, 0);
         this.alI = obtainStyledAttributes.getString(d.l.feed_ad_progress_btn_text);
         this.cBV = obtainStyledAttributes.getDimension(d.l.feed_ad_progress_btn_textSize, (int) getResources().getDimension(d.e.fontsize24));
         this.mRadius = obtainStyledAttributes.getDimensionPixelSize(d.l.feed_ad_progress_btn_radius, dimensionPixelSize);
         obtainStyledAttributes.recycle();
-        this.ioP = new RectF();
+        this.ioQ = new RectF();
         qY();
     }
 
@@ -93,21 +93,21 @@ public class FeedAdProgressButton extends View {
     }
 
     private void aa(Canvas canvas) {
-        if (this.ioP == null) {
-            this.ioP = new RectF();
+        if (this.ioQ == null) {
+            this.ioQ = new RectF();
         }
-        this.ioP.left = this.strokeWidth;
-        this.ioP.top = this.strokeWidth;
-        this.ioP.right = getMeasuredWidth() - this.strokeWidth;
-        this.ioP.bottom = getMeasuredHeight() - this.strokeWidth;
-        float f = this.mProgress / (this.gth + 0.0f);
-        this.ioQ = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.Ji, 0}, new float[]{f, f + 0.001f}, Shader.TileMode.CLAMP);
-        this.IQ.setShader(this.ioQ);
-        canvas.drawRoundRect(this.ioP, this.mRadius, this.mRadius, this.IQ);
+        this.ioQ.left = this.strokeWidth;
+        this.ioQ.top = this.strokeWidth;
+        this.ioQ.right = getMeasuredWidth() - this.strokeWidth;
+        this.ioQ.bottom = getMeasuredHeight() - this.strokeWidth;
+        float f = this.mProgress / (this.gti + 0.0f);
+        this.ioR = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.Ji, 0}, new float[]{f, f + 0.001f}, Shader.TileMode.CLAMP);
+        this.IQ.setShader(this.ioR);
+        canvas.drawRoundRect(this.ioQ, this.mRadius, this.mRadius, this.IQ);
     }
 
     public void setMax(int i) {
-        this.gth = i;
+        this.gti = i;
     }
 
     public void setText(String str) {
@@ -138,7 +138,7 @@ public class FeedAdProgressButton extends View {
     }
 
     public void setProgress(int i) {
-        if (i <= this.gth) {
+        if (i <= this.gti) {
             this.mProgress = i;
             this.alI = this.mProgress + "%";
             postInvalidate();
@@ -146,7 +146,7 @@ public class FeedAdProgressButton extends View {
     }
 
     public int getMax() {
-        return this.gth;
+        return this.gti;
     }
 
     public int getProgress() {
@@ -159,7 +159,7 @@ public class FeedAdProgressButton extends View {
         this.Ji = al.getColor(d.C0236d.cp_link_tip_a_alpha50);
     }
 
-    public void bxV() {
+    public void bxW() {
         al.k(this, d.f.tail_frame_action_btn_bg);
         this.mTextColor = al.getColor(d.C0236d.cp_btn_a);
         this.bOB.setColor(this.mTextColor);

@@ -55,8 +55,8 @@ public class DailyNetModel extends BdBaseModel {
                 }
             }
         };
-        aOQ();
-        aRP();
+        aOR();
+        aRQ();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -66,14 +66,14 @@ public class DailyNetModel extends BdBaseModel {
         registerListener(this.mNetMessageListener);
     }
 
-    private void aRP() {
+    private void aRQ() {
         b bVar = new b(309617);
         bVar.setResponsedClass(DailyPageSocketResMessage.class);
         bVar.L(true);
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void aOQ() {
+    private void aOR() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_DAILY_PAGE, com.baidu.tieba.tbadkCore.a.a.br(TbConfig.URL_DAILY_PAGE, 309617));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(DailyPageHttpResMessage.class);
@@ -84,7 +84,7 @@ public class DailyNetModel extends BdBaseModel {
         mf(1);
     }
 
-    public void aBc() {
+    public void aBd() {
         mf(this.mCurrentPage + 1);
     }
 

@@ -82,7 +82,7 @@ public class InvoiceInfoItemView extends RelativeLayout {
         }
     }
 
-    public boolean azl() {
+    public boolean azm() {
         return this.cUh;
     }
 
@@ -108,7 +108,7 @@ public class InvoiceInfoItemView extends RelativeLayout {
             return this;
         }
 
-        public a rA(String str) {
+        public a rB(String str) {
             this.aVE = str;
             return this;
         }
@@ -118,17 +118,17 @@ public class InvoiceInfoItemView extends RelativeLayout {
             return this;
         }
 
-        public a rB(String str) {
+        public a rC(String str) {
             this.cUj = str;
             return this;
         }
 
-        public a rC(String str) {
+        public a rD(String str) {
             this.cUg = str;
             return this;
         }
 
-        public a rD(String str) {
+        public a rE(String str) {
             this.mErrorMessage = str;
             return this;
         }
@@ -138,7 +138,7 @@ public class InvoiceInfoItemView extends RelativeLayout {
             return this;
         }
 
-        public a rE(String str) {
+        public a rF(String str) {
             this.cUl = str;
             return this;
         }

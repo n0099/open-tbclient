@@ -62,7 +62,7 @@ public class e extends com.baidu.tieba.card.data.b {
             this.fIr = dailyTopic.topic_rank_url;
         }
 
-        public String blJ() {
+        public String blK() {
             return this.fIn;
         }
 
@@ -70,7 +70,7 @@ public class e extends com.baidu.tieba.card.data.b {
             return this.fIo;
         }
 
-        public String blK() {
+        public String blL() {
             return this.fIp;
         }
 
@@ -78,7 +78,7 @@ public class e extends com.baidu.tieba.card.data.b {
             return this.fIq;
         }
 
-        public String blL() {
+        public String blM() {
             return this.fIr;
         }
     }

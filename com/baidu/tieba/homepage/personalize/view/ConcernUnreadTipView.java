@@ -70,7 +70,7 @@ public class ConcernUnreadTipView extends RelativeLayout {
 
     public void setData(e eVar) {
         if (eVar != null) {
-            if (!eVar.bmU()) {
+            if (!eVar.bmV()) {
                 setVisibility(8);
                 return;
             }

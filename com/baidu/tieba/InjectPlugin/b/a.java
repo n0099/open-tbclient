@@ -18,7 +18,7 @@ public class a extends g {
         this.cHK = false;
     }
 
-    public o aup() {
+    public o auq() {
         return this.cHI;
     }
 
@@ -26,7 +26,7 @@ public class a extends g {
         this.cHI = oVar;
     }
 
-    public Object auq() {
+    public Object aur() {
         return this.cHJ;
     }
 

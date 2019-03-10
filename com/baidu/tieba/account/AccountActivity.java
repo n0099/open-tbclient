@@ -63,7 +63,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && AccountActivity.this.cMs != null) {
-                AccountActivity.this.awl();
+                AccountActivity.this.awm();
                 if (AccountActivity.this.cMt != null) {
                     AccountActivity.this.cMt.setData(AccountActivity.this.cMs);
                     AccountActivity.this.cMt.notifyDataSetChanged();
@@ -78,7 +78,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    AccountActivity.this.awo();
+                    AccountActivity.this.awp();
                     return;
                 case 2:
                     if (message.obj instanceof AccountData) {
@@ -97,9 +97,9 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(d.h.account_activity);
-        awl();
-        this.cMv = new com.baidu.tieba.account.safeManage.a(this);
         awm();
+        this.cMv = new com.baidu.tieba.account.safeManage.a(this);
+        awn();
         registerListener(this.cMB);
     }
 
@@ -117,11 +117,11 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void awl() {
+    public void awm() {
         this.cMs = com.baidu.tbadk.core.a.b.WI();
     }
 
-    private void awm() {
+    private void awn() {
         this.cMu = (RelativeLayout) findViewById(d.g.account_container);
         this.cMx = new View.OnClickListener() { // from class: com.baidu.tieba.account.AccountActivity.2
             @Override // android.view.View.OnClickListener
@@ -161,7 +161,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         addCustomView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.account.AccountActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (!AccountActivity.this.cMt.aws()) {
+                if (!AccountActivity.this.cMt.awt()) {
                     AccountActivity.this.cMt.fJ(true);
                     AccountActivity.this.cMw.setText(d.j.done);
                     if (TbadkCoreApplication.getInst().getSkinType() == 2) {
@@ -184,7 +184,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         TextView textView = new TextView(getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
         this.mList.addHeaderView(textView);
-        awq();
+        awr();
         this.mList.setAdapter((ListAdapter) this.cMt);
         this.mList.setOnItemClickListener(new AdapterView.OnItemClickListener() { // from class: com.baidu.tieba.account.AccountActivity.4
             /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.account.AccountActivity */
@@ -193,7 +193,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
                 AccountData accountData;
                 if (AccountActivity.this.cMt.getItemId(i) >= 0) {
-                    if (!AccountActivity.this.cMt.aws() && (accountData = (AccountData) AccountActivity.this.cMt.getItem(i)) != null && accountData.getIsActive() != 1) {
+                    if (!AccountActivity.this.cMt.awt() && (accountData = (AccountData) AccountActivity.this.cMt.getItem(i)) != null && accountData.getIsActive() != 1) {
                         if (TbadkCoreApplication.getInst().shouldNeedCheckUserNameDialog() && TextUtils.isEmpty(accountData.getAccount())) {
                             AccountActivity.this.i(accountData);
                             return;
@@ -207,10 +207,10 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                 TbadkCoreApplication.getInst().login(AccountActivity.this.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(AccountActivity.this.getPageContext().getPageActivity())));
             }
         });
-        awn();
+        awo();
     }
 
-    private void awn() {
+    private void awo() {
         View rootView = this.cMv.getRootView();
         rootView.setLayoutParams(new AbsListView.LayoutParams(-2, -2));
         this.mList.addFooterView(rootView);
@@ -237,12 +237,12 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     public void j(AccountData accountData) {
         if (this.cMy == null) {
             com.baidu.tbadk.lcs.a.c(0, 0, 0, 2, 2);
-            qN("account changed");
+            qO("account changed");
             showLoadingDialog(getPageContext().getString(d.j.account_logining), new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.account.AccountActivity.6
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
                     AccountActivity.this.destroyWaitingDialog();
-                    AccountActivity.this.qO("account changed");
+                    AccountActivity.this.qP("account changed");
                     AccountActivity.this.cMy = null;
                 }
             });
@@ -258,7 +258,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         this.cMy = new d(accountData);
         this.cMy.setPriority(3);
         if (this.cMy != null) {
-            if (awp()) {
+            if (awq()) {
                 this.mHandler.removeMessages(2);
                 Message obtainMessage = this.mHandler.obtainMessage(2);
                 obtainMessage.obj = accountData;
@@ -364,28 +364,28 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             final boolean z2 = (accountData == null || accountData.getID() == null || !accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
             if (z2) {
                 com.baidu.tbadk.lcs.a.c(0, 0, 0, 2, 3);
-                qN("account delete");
+                qO("account delete");
             }
             showLoadingDialog(getPageContext().getString(d.j.deleting), new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.account.AccountActivity.7
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
                     AccountActivity.this.destroyWaitingDialog();
                     if (z2) {
-                        AccountActivity.this.qO("account delete cancel");
+                        AccountActivity.this.qP("account delete cancel");
                     }
                     AccountActivity.this.cMz = null;
                 }
             });
             this.cMz = new a(z, accountData);
             this.cMz.setPriority(3);
-            awo();
+            awp();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void awo() {
+    public void awp() {
         if (this.cMz != null) {
-            if (awp()) {
+            if (awq()) {
                 this.mHandler.removeMessages(1);
                 this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), 200L);
                 return;
@@ -488,7 +488,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         }
     }
 
-    private void qN(String str) {
+    private void qO(String str) {
         BdSocketLinkService.setHasAbsoluteClose(true);
         MessageManager.getInstance().getSocketClient().gL();
         BdSocketLinkService.setAvailable(false);
@@ -496,7 +496,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qO(String str) {
+    public void qP(String str) {
         BdSocketLinkService.setHasAbsoluteClose(false);
         BdSocketLinkService.setAvailable(true);
         BdSocketLinkService.startService(true, str);
@@ -529,7 +529,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         }
     }
 
-    private boolean awp() {
+    private boolean awq() {
         return MessageManager.getInstance().getSocketClient().gO() > 0;
     }
 
@@ -546,7 +546,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         }
     }
 
-    private void awq() {
+    private void awr() {
         this.cMC = new TextView(this);
         this.cMC.setGravity(16);
         this.cMC.setPadding(l.h(this, d.e.tbds44), 0, 0, 0);

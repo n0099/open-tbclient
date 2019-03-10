@@ -40,41 +40,41 @@ public class d extends e {
 
     /* loaded from: classes2.dex */
     private static class a {
-        private static final d gGx = new d();
+        private static final d gGy = new d();
     }
 
-    public static d bzK() {
-        return a.gGx;
+    public static d bzL() {
+        return a.gGy;
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void bzI() {
-        gGy.put(1, gGy.size() + 1);
-        gGy.put(2, gGy.size() + 1);
-        gGy.put(3, gGy.size() + 1);
-        gGy.put(5, gGy.size() + 1);
-        gGy.put(6, gGy.size() + 1);
-        gGy.put(7, gGy.size() + 1);
-        gGy.put(8, gGy.size() + 1);
-        gGy.put(18, gGy.size() + 1);
-        gGy.put(19, gGy.size() + 1);
-        gGy.put(21, gGy.size() + 1);
-        gGy.put(22, gGy.size() + 1);
-        gGy.put(23, gGy.size() + 1);
-        gGy.put(28, gGy.size() + 1);
-        gGz.put(1, BdUniqueId.gen());
-        gGz.put(2, BdUniqueId.gen());
-        gGz.put(3, BdUniqueId.gen());
-        gGz.put(5, BdUniqueId.gen());
-        gGz.put(6, BdUniqueId.gen());
-        gGz.put(7, BdUniqueId.gen());
-        gGz.put(8, BdUniqueId.gen());
-        gGz.put(18, BdUniqueId.gen());
-        gGz.put(19, BdUniqueId.gen());
-        gGz.put(21, BdUniqueId.gen());
-        gGz.put(22, BdUniqueId.gen());
-        gGz.put(23, BdUniqueId.gen());
-        gGz.put(28, BdUniqueId.gen());
+    protected void bzJ() {
+        gGz.put(1, gGz.size() + 1);
+        gGz.put(2, gGz.size() + 1);
+        gGz.put(3, gGz.size() + 1);
+        gGz.put(5, gGz.size() + 1);
+        gGz.put(6, gGz.size() + 1);
+        gGz.put(7, gGz.size() + 1);
+        gGz.put(8, gGz.size() + 1);
+        gGz.put(18, gGz.size() + 1);
+        gGz.put(19, gGz.size() + 1);
+        gGz.put(21, gGz.size() + 1);
+        gGz.put(22, gGz.size() + 1);
+        gGz.put(23, gGz.size() + 1);
+        gGz.put(28, gGz.size() + 1);
+        gGA.put(1, BdUniqueId.gen());
+        gGA.put(2, BdUniqueId.gen());
+        gGA.put(3, BdUniqueId.gen());
+        gGA.put(5, BdUniqueId.gen());
+        gGA.put(6, BdUniqueId.gen());
+        gGA.put(7, BdUniqueId.gen());
+        gGA.put(8, BdUniqueId.gen());
+        gGA.put(18, BdUniqueId.gen());
+        gGA.put(19, BdUniqueId.gen());
+        gGA.put(21, BdUniqueId.gen());
+        gGA.put(22, BdUniqueId.gen());
+        gGA.put(23, BdUniqueId.gen());
+        gGA.put(28, BdUniqueId.gen());
     }
 
     @Override // com.baidu.tieba.lego.card.e

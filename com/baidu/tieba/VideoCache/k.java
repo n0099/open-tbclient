@@ -28,11 +28,11 @@ public class k {
                 }
             } else if (message.what == 3) {
                 if (k.this.cLW != null) {
-                    k.this.cLW.avB();
+                    k.this.cLW.avC();
                 }
             } else if (message.what == 4) {
                 if (message.obj instanceof String) {
-                    k.this.cLW.qm((String) message.obj);
+                    k.this.cLW.qn((String) message.obj);
                 }
             } else if (message.what == 5 && k.this.cLW != null) {
                 k.this.cLW.clearCache();
@@ -49,7 +49,7 @@ public class k {
         this.cLW = new b();
     }
 
-    public static k avQ() {
+    public static k avR() {
         if (cLU == null) {
             synchronized (k.class) {
                 if (cLU == null) {
@@ -66,18 +66,18 @@ public class k {
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void qx(String str) {
+    public void qy(String str) {
         this.mHandler.removeMessages(2);
         Message obtainMessage = this.mHandler.obtainMessage(2);
         obtainMessage.obj = str;
         this.mHandler.sendMessageDelayed(obtainMessage, 1000L);
     }
 
-    public void avB() {
+    public void avC() {
         this.mHandler.sendMessage(this.mHandler.obtainMessage(3));
     }
 
-    public void qm(String str) {
+    public void qn(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(4);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);

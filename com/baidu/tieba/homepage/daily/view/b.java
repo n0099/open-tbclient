@@ -67,9 +67,9 @@ public class b extends com.baidu.tieba.card.a<e> implements AdapterView.OnItemCl
             if (com.baidu.tbadk.plugins.b.fi(true)) {
                 new HotRanklistActivityConfig(getContext()).createNormalConfig("hotforum", "all").start();
             } else {
-                String blL = this.fIF.blL();
-                if (blL != null) {
-                    ba.adD().c(this.mTbPageContext, new String[]{blL});
+                String blM = this.fIF.blM();
+                if (blM != null) {
+                    ba.adD().c(this.mTbPageContext, new String[]{blM});
                 }
             }
             TiebaStatic.log(new am("c13177").T("obj_locate", 5));

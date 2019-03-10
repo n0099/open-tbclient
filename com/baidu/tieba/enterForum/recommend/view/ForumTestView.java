@@ -425,7 +425,7 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
         }
     }
 
-    private void aXk() {
+    private void aXl() {
         this.eFM = ValueAnimator.ofFloat(this.eFz, 0.0f);
         this.eFM.setDuration(200L);
         this.eFM.setInterpolator(new DecelerateInterpolator());
@@ -436,9 +436,9 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
                 if (Math.abs(floatValue) >= Math.abs(ForumTestView.this.eFN)) {
                     if (ForumTestView.this.eFU) {
                         if (ForumTestView.this.eFN > 0.0f) {
-                            ForumTestView.this.aXl();
-                        } else {
                             ForumTestView.this.aXm();
+                        } else {
+                            ForumTestView.this.aXn();
                         }
                         ForumTestView.this.eFU = false;
                     }
@@ -453,11 +453,11 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
                     if (ForumTestView.this.eFU) {
                         if (ForumTestView.this.eFN > 0.0f) {
                             if (ForumTestView.this.pl(2) != null && ForumTestView.this.pl(2).getViewLeft() >= l.aO(ForumTestView.this.getContext())) {
-                                ForumTestView.this.aXl();
+                                ForumTestView.this.aXm();
                                 ForumTestView.this.eFU = false;
                             }
                         } else if (ForumTestView.this.pl(0) != null && ForumTestView.this.pl(0).getViewRight() <= 0.0f) {
-                            ForumTestView.this.aXm();
+                            ForumTestView.this.aXn();
                             ForumTestView.this.eFU = false;
                         }
                     }
@@ -481,7 +481,7 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
         float f2;
         this.eFU = false;
         this.eFV = 0.0f;
-        aXk();
+        aXl();
         if (this.eFs.size() == 2) {
             CellForumTestView cellForumTestView3 = null;
             if (this.eFt.getVisibility() == 0) {
@@ -518,13 +518,13 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
             if (this.eFN >= this.eFz) {
                 this.eFN -= this.eFz;
                 this.eFU = false;
-                aXm();
+                aXn();
             } else if (this.eFN > 0.0f && this.eFN < this.eFz) {
                 this.eFN = this.eFG[0].right - pl.getViewRight();
             } else if (this.eFN > (-this.eFz)) {
                 this.eFN = this.eFG[2].left - pl.getViewLeft();
             } else {
-                aXl();
+                aXm();
                 this.eFN += this.eFz;
                 this.eFU = false;
             }
@@ -534,7 +534,7 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXl() {
+    public void aXm() {
         this.eFt.setIndex(this.eFt.getIndex() + 1);
         this.eFu.setIndex(this.eFu.getIndex() + 1);
         this.eFv.setIndex(this.eFv.getIndex() + 1);
@@ -544,7 +544,7 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXm() {
+    public void aXn() {
         this.eFt.setIndex(this.eFt.getIndex() - 1);
         this.eFu.setIndex(this.eFu.getIndex() - 1);
         this.eFv.setIndex(this.eFv.getIndex() - 1);
@@ -660,7 +660,7 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
         this.eFQ = true;
         this.eFw.setVisibility(0);
         this.eFw.setAlpha(1.0f);
-        aXn();
+        aXo();
         if (this.eFt.getIndex() == i && this.eFt.getVisibility() == 0) {
             cellForumTestView = this.eFt;
         } else if (this.eFu.getIndex() == i && this.eFu.getVisibility() == 0) {
@@ -740,7 +740,7 @@ public class ForumTestView extends FrameLayout implements com.baidu.tieba.enterF
         this.eFO.start();
     }
 
-    private void aXn() {
+    private void aXo() {
         this.eFt.setMoveLeft(this.eFt.getViewLeft());
         this.eFt.setMoveTop(this.eFt.getViewTop());
         this.eFt.setMoveRight(this.eFt.getViewRight());

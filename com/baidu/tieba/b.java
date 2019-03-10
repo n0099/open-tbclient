@@ -20,8 +20,8 @@ public class b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && r.bWG().bWB() != null) {
-                r.bWG().bWB().bWt();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016522 && r.bWH().bWC() != null) {
+                r.bWH().bWC().bWu();
             }
         }
     };
@@ -30,7 +30,7 @@ public class b {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016521) {
-                b.this.auc();
+                b.this.aud();
             }
         }
     };
@@ -41,14 +41,14 @@ public class b {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016520 && b.this.cHp != 0) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof BaseActivity) {
-                    if (b.this.aud()) {
+                    if (b.this.aue()) {
                         BaseActivity baseActivity = (BaseActivity) data;
                         Intent intent = new Intent(baseActivity.getActivity(), LogoActivity.class);
                         intent.putExtra("splash", true);
                         intent.setFlags(65536);
                         baseActivity.startActivity(intent);
                     }
-                } else if ((data instanceof BaseFragmentActivity) && b.this.aud()) {
+                } else if ((data instanceof BaseFragmentActivity) && b.this.aue()) {
                     BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) data;
                     Intent intent2 = new Intent(baseFragmentActivity.getActivity(), LogoActivity.class);
                     intent2.putExtra("splash", true);
@@ -77,7 +77,7 @@ public class b {
     private boolean cHr = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static b aub() {
+    public static b auc() {
         if (cHs == null) {
             synchronized (b.class) {
                 if (cHs == null) {
@@ -93,20 +93,20 @@ public class b {
         MessageManager.getInstance().registerListener(this.cHv);
         MessageManager.getInstance().registerListener(this.cHt);
         MessageManager.getInstance().registerListener(this.cHw);
-        if (r.bWG().bWB() != null) {
-            r.bWG().bWB().bWs();
+        if (r.bWH().bWC() != null) {
+            r.bWH().bWC().bWt();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void auc() {
+    public void aud() {
         this.cHr = true;
         this.cHp = System.currentTimeMillis() / 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aud() {
-        aue();
+    public boolean aue() {
+        auf();
         this.cHr = false;
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         if (this.cHq) {
@@ -115,12 +115,12 @@ public class b {
         } else if (currentTimeMillis - this.cHp <= 2 || currentTimeMillis - this.cHp <= this.interval) {
             return false;
         } else {
-            l bWB = r.bWG().bWB();
-            return (bWB != null ? bWB.bWu() : 3) < 3;
+            l bWC = r.bWH().bWC();
+            return (bWC != null ? bWC.bWv() : 3) < 3;
         }
     }
 
-    private void aue() {
+    private void auf() {
         com.baidu.tbadk.coreExtra.data.d adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
         if (adAdSense != null) {
             this.interval = adAdSense.agf();

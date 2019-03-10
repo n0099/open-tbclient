@@ -30,8 +30,8 @@ public class j extends b<h> {
         this.bNt = new View.OnClickListener() { // from class: com.baidu.tieba.card.j.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (j.this.aQh() != null) {
-                    j.this.aQh().a(view, null);
+                if (j.this.aQi() != null) {
+                    j.this.aQi().a(view, null);
                 }
             }
         };

@@ -3,11 +3,11 @@ package kotlin.b;
 /* loaded from: classes2.dex */
 public class f extends e {
     public static final a cI(int i, int i2) {
-        return a.jSA.al(i, i2, -1);
+        return a.jST.al(i, i2, -1);
     }
 
     public static final c cJ(int i, int i2) {
-        return i2 <= Integer.MIN_VALUE ? c.jSE.cCA() : new c(i, i2 - 1);
+        return i2 <= Integer.MIN_VALUE ? c.jSX.cCK() : new c(i, i2 - 1);
     }
 
     public static final int cK(int i, int i2) {

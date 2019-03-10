@@ -22,7 +22,7 @@ public class g implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        avJ();
+        avK();
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:47:0x0144, code lost:
@@ -65,24 +65,24 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private synchronized void avJ() {
+    private synchronized void avK() {
         File file;
-        long qu;
+        long qv;
         File[] fileArr;
         int i;
         long j;
         long o;
         long j2;
         j.as(TAG, "merge ...");
-        String qA = m.qA(this.bNk);
-        if (qA != null && !qA.isEmpty() && ((file = new File(i.cLR + qA + "/completed")) == null || !file.exists())) {
-            File file2 = new File(i.cLR + qA + "/completed.temp");
+        String qB = m.qB(this.bNk);
+        if (qB != null && !qB.isEmpty() && ((file = new File(i.cLR + qB + "/completed")) == null || !file.exists())) {
+            File file2 = new File(i.cLR + qB + "/completed.temp");
             if (file2 != null && file2.exists()) {
                 file2.delete();
             }
-            File file3 = new File(i.cLR + qA + "/segments");
+            File file3 = new File(i.cLR + qB + "/segments");
             if (file3 != null && file3.exists()) {
-                qu = qu(qA);
+                qv = qv(qB);
                 File[] listFiles = file3.listFiles();
                 if (listFiles != null && listFiles.length != 0) {
                     ArrayList arrayList = new ArrayList();
@@ -129,7 +129,7 @@ public class g implements Runnable {
             }
             if (j + o == j2) {
             }
-        } else if (m.o(fileArr[i]) + j == qu) {
+        } else if (m.o(fileArr[i]) + j == qv) {
             i++;
         }
     }
@@ -243,7 +243,7 @@ public class g implements Runnable {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long qu(String str) {
+    private long qv(String str) {
         FileInputStream fileInputStream;
         FileInputStream fileInputStream2;
         DataInputStream dataInputStream;

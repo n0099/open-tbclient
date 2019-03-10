@@ -116,65 +116,65 @@ public class k extends c {
         return this.threadData;
     }
 
-    public boolean aQY() {
+    public boolean aQZ() {
         return (this.threadData == null || v.S(this.threadData.Zf()) == 0) ? false : true;
     }
 
-    public boolean aQZ() {
+    public boolean aRa() {
         return this.threadData == null || this.threadData.ZM();
     }
 
-    public am aRa() {
+    public am aRb() {
         SmartApp ZD;
-        if (aQY()) {
-            am tG = tG(eln);
-            if (tG != null) {
-                tG.setPosition(this.position);
+        if (aQZ()) {
+            am tH = tH(eln);
+            if (tH != null) {
+                tH.setPosition(this.position);
                 if (WR() != null) {
                     bg WR = WR();
-                    tG.T("obj_name", WR.aap() != null && (WR.aap().ces() != null || WR.aap().asF() != null) ? 1 : 0);
+                    tH.T("obj_name", WR.aap() != null && (WR.aap().cet() != null || WR.aap().asG() != null) ? 1 : 0);
                     if (WR.YR() != null) {
-                        tG.T("ab_type", WR.YR().hadConcerned() ? 1 : 0);
+                        tH.T("ab_type", WR.YR().hadConcerned() ? 1 : 0);
                     }
-                    tG.T("is_full", WR.aaG() ? 1 : 0);
+                    tH.T("is_full", WR.aaG() ? 1 : 0);
                 }
             }
-            return tG;
-        } else if (aQZ()) {
-            am tG2 = tG(elt);
-            if (tG2 != null) {
-                tG2.setPosition(this.position);
+            return tH;
+        } else if (aRa()) {
+            am tH2 = tH(elt);
+            if (tH2 != null) {
+                tH2.setPosition(this.position);
                 if (WR() != null && (ZD = WR().ZD()) != null) {
-                    tG2.bJ("obj_type", ZD.id);
-                    tG2.bJ("obj_name", ZD.name);
-                    return tG2;
+                    tH2.bJ("obj_type", ZD.id);
+                    tH2.bJ("obj_name", ZD.name);
+                    return tH2;
                 }
-                return tG2;
+                return tH2;
             }
-            return tG2;
+            return tH2;
         } else {
-            am tG3 = tG(eli);
-            if (tG3 != null) {
-                tG3.setPosition(this.position);
-                tG3.bJ("ab_tag", aQQ()).bJ("ab_action", SmsLoginView.StatEvent.LOGIN_SHOW);
+            am tH3 = tH(eli);
+            if (tH3 != null) {
+                tH3.setPosition(this.position);
+                tH3.bJ("ab_tag", aQR()).bJ("ab_action", SmsLoginView.StatEvent.LOGIN_SHOW);
                 if (WR() != null) {
                     bg WR2 = WR();
-                    boolean z = (WR2.aap() == null || (WR2.aap().ces() == null && WR2.aap().asF() == null)) ? false : true;
-                    tG3.T("obj_name", z ? 1 : 0);
-                    if (z && WR2.aap().ces() != null && WR2.aap().ces().asw() != null && WR2.aap().ces().asw().size() > 0) {
-                        tG3.T("obj_to", WR2.aap().iGO ? 2 : 1);
+                    boolean z = (WR2.aap() == null || (WR2.aap().cet() == null && WR2.aap().asG() == null)) ? false : true;
+                    tH3.T("obj_name", z ? 1 : 0);
+                    if (z && WR2.aap().cet() != null && WR2.aap().cet().asx() != null && WR2.aap().cet().asx().size() > 0) {
+                        tH3.T("obj_to", WR2.aap().iGP ? 2 : 1);
                     }
                     if (WR2.YR() != null) {
-                        tG3.T("ab_type", WR2.YR().hadConcerned() ? 1 : 0);
+                        tH3.T("ab_type", WR2.YR().hadConcerned() ? 1 : 0);
                     }
-                    tG3.T("is_full", WR2.aaG() ? 1 : 0);
+                    tH3.T("is_full", WR2.aaG() ? 1 : 0);
                 }
             }
-            return tG3;
+            return tH3;
         }
     }
 
-    public am tI(String str) {
+    public am tJ(String str) {
         int i;
         am amVar = new am(str);
         if (this.threadData != null) {
@@ -187,108 +187,108 @@ public class k extends c {
             }
             amVar.T("obj_type", i);
             amVar.bJ(VideoPlayActivityConfig.OBJ_ID, this.threadData.YR().getUserId());
-            amVar.T("obj_param1", aQU() ? 2 : 1);
+            amVar.T("obj_param1", aQV() ? 2 : 1);
         }
         return amVar;
     }
 
-    public am tJ(String str) {
-        am tG = tG(str);
-        if (tG != null) {
-            tG.bJ("ab_tag", aQQ()).bJ("ab_action", SmsLoginView.StatEvent.LOGIN_SHOW);
+    public am tK(String str) {
+        am tH = tH(str);
+        if (tH != null) {
+            tH.bJ("ab_tag", aQR()).bJ("ab_action", SmsLoginView.StatEvent.LOGIN_SHOW);
             if (WR() != null) {
                 bg WR = WR();
-                boolean z = (WR.aap() == null || (WR.aap().ces() == null && WR.aap().asF() == null)) ? false : true;
-                tG.T("obj_name", z ? 1 : 0);
-                if (z && WR.aap().ces() != null && WR.aap().ces().asw() != null && WR.aap().ces().asw().size() > 0) {
-                    tG.T("obj_to", WR.aap().iGO ? 2 : 1);
+                boolean z = (WR.aap() == null || (WR.aap().cet() == null && WR.aap().asG() == null)) ? false : true;
+                tH.T("obj_name", z ? 1 : 0);
+                if (z && WR.aap().cet() != null && WR.aap().cet().asx() != null && WR.aap().cet().asx().size() > 0) {
+                    tH.T("obj_to", WR.aap().iGP ? 2 : 1);
                 }
             }
         }
-        return tG;
-    }
-
-    public am aRb() {
-        am tG;
-        SmartApp ZD;
-        if (aQY()) {
-            tG = tG(elo);
-        } else if (aQZ()) {
-            am tG2 = tG(elu);
-            if (tG2 != null && WR() != null && (ZD = WR().ZD()) != null) {
-                tG2.bJ("obj_type", ZD.id);
-                tG2.bJ("obj_name", ZD.name);
-                return tG2;
-            }
-            return tG2;
-        } else {
-            tG = tG(elj);
-            if (tG != null) {
-                tG.bJ("ab_tag", aQQ()).bJ("ab_action", "click");
-            }
-        }
-        if (tG != null && WR() != null) {
-            tG.T("is_full", WR().aaG() ? 1 : 0);
-        }
-        return tG;
+        return tH;
     }
 
     public am aRc() {
-        if (aQY()) {
-            return tG(elp);
+        am tH;
+        SmartApp ZD;
+        if (aQZ()) {
+            tH = tH(elo);
+        } else if (aRa()) {
+            am tH2 = tH(elu);
+            if (tH2 != null && WR() != null && (ZD = WR().ZD()) != null) {
+                tH2.bJ("obj_type", ZD.id);
+                tH2.bJ("obj_name", ZD.name);
+                return tH2;
+            }
+            return tH2;
+        } else {
+            tH = tH(elj);
+            if (tH != null) {
+                tH.bJ("ab_tag", aQR()).bJ("ab_action", "click");
+            }
+        }
+        if (tH != null && WR() != null) {
+            tH.T("is_full", WR().aaG() ? 1 : 0);
+        }
+        return tH;
+    }
+
+    public am aRd() {
+        if (aQZ()) {
+            return tH(elp);
         }
         am av = av(elk, 0);
         if (av != null) {
-            av.bJ("ab_tag", aQQ()).bJ("ab_action", "click");
+            av.bJ("ab_tag", aQR()).bJ("ab_action", "click");
             return av;
         }
         return av;
     }
 
-    public am aRd() {
-        if (l.W(this.threadData)) {
-            return R(elw, true);
-        }
-        if (aQY()) {
-            return tG(elq);
-        }
-        am tG = tG(ell);
-        if (tG != null) {
-            tG.bJ("ab_tag", aQQ()).bJ("ab_action", "click");
-            return tG;
-        }
-        return tG;
-    }
-
     public am aRe() {
-        if (aQY()) {
-            return tG(elr);
+        if (l.W(this.threadData)) {
+            return S(elw, true);
         }
-        am tG = tG(elm);
-        if (tG != null) {
-            tG.bJ("ab_tag", aQQ()).bJ("ab_action", "click");
-            return tG;
+        if (aQZ()) {
+            return tH(elq);
         }
-        return tG;
+        am tH = tH(ell);
+        if (tH != null) {
+            tH.bJ("ab_tag", aQR()).bJ("ab_action", "click");
+            return tH;
+        }
+        return tH;
     }
 
     public am aRf() {
-        return tG(els);
+        if (aQZ()) {
+            return tH(elr);
+        }
+        am tH = tH(elm);
+        if (tH != null) {
+            tH.bJ("ab_tag", aQR()).bJ("ab_action", "click");
+            return tH;
+        }
+        return tH;
     }
 
     public am aRg() {
-        return R(elv, true);
+        return tH(els);
     }
 
-    public am tK(String str) {
-        am tG = tG(str);
-        if (this.threadData != null && this.threadData.YR() != null) {
-            tG.T("ab_type", this.threadData.YR().hadConcerned() ? 1 : 0);
-        }
-        return tG;
+    public am aRh() {
+        return S(elv, true);
     }
 
     public am tL(String str) {
-        return tG(str);
+        am tH = tH(str);
+        if (this.threadData != null && this.threadData.YR() != null) {
+            tH.T("ab_type", this.threadData.YR().hadConcerned() ? 1 : 0);
+        }
+        return tH;
+    }
+
+    public am tM(String str) {
+        return tH(str);
     }
 }

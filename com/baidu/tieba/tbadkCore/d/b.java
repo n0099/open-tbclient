@@ -5,60 +5,60 @@ import com.baidu.adp.lib.util.j;
 import com.tencent.open.SocialConstants;
 /* loaded from: classes.dex */
 public class b {
-    private com.baidu.adp.lib.stats.a iHz;
-    private final int iHA = 10;
-    private final int iHB = 3000;
-    public String iHC = null;
+    private com.baidu.adp.lib.stats.a iHA;
+    private final int iHB = 10;
+    private final int iHC = 3000;
+    public String iHD = null;
     public boolean bMq = false;
 
     public b(String str) {
-        au(str, false);
+        av(str, false);
     }
 
-    public void au(String str, boolean z) {
-        this.iHC = str;
+    public void av(String str, boolean z) {
+        this.iHD = str;
         this.bMq = z;
-        this.iHz = new com.baidu.adp.lib.stats.a("dbg");
+        this.iHA = new com.baidu.adp.lib.stats.a("dbg");
         c.v(str, getNetType(), z);
     }
 
     public void start() {
-        this.iHz.jL();
+        this.iHA.jL();
     }
 
     public void a(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        e ceJ;
-        if (this.iHz != null && (ceJ = ceJ()) != null) {
+        e ceK;
+        if (this.iHA != null && (ceK = ceK()) != null) {
             if (z) {
-                if (ceJ.iHH != null) {
-                    ceJ.iHH.num++;
+                if (ceK.iHI != null) {
+                    ceK.iHI.num++;
                     if (z2) {
-                        ceJ.iHH.iHE += j2;
-                        ceJ.iHH.size += j;
+                        ceK.iHI.iHF += j2;
+                        ceK.iHI.size += j;
                     } else {
-                        ceJ.iHH.iHF++;
+                        ceK.iHI.iHG++;
                     }
                 } else {
                     return;
                 }
-            } else if (ceJ.iHI != null) {
-                ceJ.iHI.num++;
+            } else if (ceK.iHJ != null) {
+                ceK.iHJ.num++;
                 if (z2) {
-                    ceJ.iHI.iHE += j3;
-                    ceJ.iHI.size += j;
+                    ceK.iHJ.iHF += j3;
+                    ceK.iHJ.size += j;
                     j2 = j3;
                 } else {
-                    ceJ.iHI.iHF++;
+                    ceK.iHJ.iHG++;
                     j2 = j3;
                 }
             } else {
                 return;
             }
-            this.iHz = null;
+            this.iHA = null;
             if (z2) {
-                c.a(ceJ, 10);
+                c.a(ceK, 10);
             }
-            if (this.iHC == "frsStat") {
+            if (this.iHD == "frsStat") {
                 if (!z2 || j2 > 3000) {
                     com.baidu.adp.lib.stats.a aVar = new com.baidu.adp.lib.stats.a("dbg");
                     aVar.append(SocialConstants.PARAM_ACT, "frs");
@@ -75,20 +75,20 @@ public class b {
     }
 
     public void destory() {
-        e ceJ;
-        if (this.iHz != null && (ceJ = ceJ()) != null && ceJ.iHJ != null) {
-            long jM = this.iHz.jM();
+        e ceK;
+        if (this.iHA != null && (ceK = ceK()) != null && ceK.iHK != null) {
+            long jM = this.iHA.jM();
             if (jM > 3000) {
-                d dVar = ceJ.iHJ;
-                dVar.iHE = jM + dVar.iHE;
-                ceJ.iHJ.num++;
-                c.a(ceJ, 10);
+                d dVar = ceK.iHK;
+                dVar.iHF = jM + dVar.iHF;
+                ceK.iHK.num++;
+                c.a(ceK, 10);
             }
         }
     }
 
-    private e ceJ() {
-        return c.w(this.iHC, getNetType(), this.bMq);
+    private e ceK() {
+        return c.w(this.iHD, getNetType(), this.bMq);
     }
 
     private String getNetType() {

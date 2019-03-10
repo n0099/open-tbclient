@@ -68,7 +68,7 @@ public class e {
                 this.mRootView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.e.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        e.this.aWP();
+                        e.this.aWQ();
                     }
                 });
             }
@@ -81,7 +81,7 @@ public class e {
         }
     }
 
-    public void aWP() {
+    public void aWQ() {
         if (this.eDH != null) {
             g.a(this.eDH);
         }

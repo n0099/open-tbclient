@@ -28,12 +28,12 @@ public class b extends com.baidu.swan.apps.u.b.a {
 
     @Override // com.baidu.swan.apps.b.b.f
     public String vy() {
-        return d.rx(String.format("%s/ma/reset", d.getHost()));
+        return d.ry(String.format("%s/ma/reset", d.getHost()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
     public String vz() {
-        return d.rx(String.format("%s/ma/update", d.getHost()));
+        return d.ry(String.format("%s/ma/update", d.getHost()));
     }
 
     @Override // com.baidu.swan.apps.b.b.f
@@ -47,12 +47,12 @@ public class b extends com.baidu.swan.apps.u.b.a {
             return null;
         }
         HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments(str);
-        for (Map.Entry<String, String> entry : com.baidu.tieba.aiapps.apps.i.a.azJ().cVX.entrySet()) {
+        for (Map.Entry<String, String> entry : com.baidu.tieba.aiapps.apps.i.a.azK().cVX.entrySet()) {
             addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
         }
         HttpUrl build = addPathSegments.build();
         Request.Builder builder = new Request.Builder();
-        builder.url(d.rx(build.toString()));
+        builder.url(d.ry(build.toString()));
         builder.post(com.baidu.swan.apps.setting.oauth.c.n(map));
         return builder.build();
     }

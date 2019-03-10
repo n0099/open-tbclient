@@ -55,7 +55,7 @@ public class a {
         edit.apply();
     }
 
-    public void axR() {
+    public void axS() {
         int dB = dB(this.mContext);
         int dA = dA(this.mContext);
         if (DEBUG) {
@@ -74,7 +74,7 @@ public class a {
             t(this.mContext, dB);
             u(this.mContext, dA);
         } else {
-            axS();
+            axT();
         }
     }
 
@@ -89,7 +89,7 @@ public class a {
         com.baidu.swan.apps.am.a.G(0, i);
     }
 
-    private void axS() {
+    private void axT() {
         if (DEBUG) {
             Log.d(TAG, "新旧版本一样:" + dA(this.mContext));
         }

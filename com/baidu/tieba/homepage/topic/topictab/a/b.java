@@ -10,7 +10,7 @@ import java.util.List;
 public class b {
     private r eEv;
     private c fOm;
-    private a fPN;
+    private a fPO;
     private List<com.baidu.adp.widget.ListView.a> mAdapters;
     private TbPageContext mPageContext;
 
@@ -23,9 +23,9 @@ public class b {
 
     private void initAdapters() {
         this.mAdapters = new ArrayList();
-        this.fPN = new a(this.mPageContext);
+        this.fPO = new a(this.mPageContext);
         this.fOm = new c(this.mPageContext);
-        this.mAdapters.add(this.fPN);
+        this.mAdapters.add(this.fPO);
         this.mAdapters.add(this.fOm);
     }
 

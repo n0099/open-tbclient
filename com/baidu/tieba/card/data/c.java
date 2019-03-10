@@ -41,11 +41,11 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         this.ekX = i;
     }
 
-    public void tD(String str) {
+    public void tE(String str) {
         this.ekY = str;
     }
 
-    public int aQP() {
+    public int aQQ() {
         return this.ekX;
     }
 
@@ -62,15 +62,15 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         return this.mSource;
     }
 
-    public String aQQ() {
+    public String aQR() {
         return this.ekY;
     }
 
-    public String aQR() {
+    public String aQS() {
         return this.ekZ;
     }
 
-    public void tE(String str) {
+    public void tF(String str) {
         this.ekZ = str;
     }
 
@@ -83,7 +83,7 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         return true;
     }
 
-    public void tF(String str) {
+    public void tG(String str) {
         this.ela = str;
     }
 
@@ -91,7 +91,7 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         return this.ela;
     }
 
-    public Integer aQS() {
+    public Integer aQT() {
         return this.elb;
     }
 
@@ -99,29 +99,29 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         this.elb = num;
     }
 
-    public am tG(String str) {
-        return R(str, false);
+    public am tH(String str) {
+        return S(str, false);
     }
 
-    public am R(String str, boolean z) {
+    public am S(String str, boolean z) {
         bg WR = WR();
         if (WR == null) {
             return null;
         }
-        am bJ = new am(str).bJ(ImageViewerConfig.FORUM_ID, String.valueOf(WR.getFid())).bJ("tid", String.valueOf(WR.getTid())).bJ(VideoPlayActivityConfig.OBJ_ID, getExtra()).bJ("obj_param1", getWeight()).T("obj_param2", 1).bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).T("obj_locate", aQP()).bJ("uid", TbadkCoreApplication.getCurrentAccount()).bJ("obj_param3", com.baidu.tieba.card.n.aQx());
+        am bJ = new am(str).bJ(ImageViewerConfig.FORUM_ID, String.valueOf(WR.getFid())).bJ("tid", String.valueOf(WR.getTid())).bJ(VideoPlayActivityConfig.OBJ_ID, getExtra()).bJ("obj_param1", getWeight()).T("obj_param2", 1).bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).T("obj_locate", aQQ()).bJ("uid", TbadkCoreApplication.getCurrentAccount()).bJ("obj_param3", com.baidu.tieba.card.n.aQy());
         if (!z) {
-            bJ.T("obj_type", aQT());
+            bJ.T("obj_type", aQU());
         } else {
             if (WR.bDr > 0) {
                 bJ.T("midpageflag", 1);
             } else {
                 bJ.T("midpageflag", 0);
             }
-            bJ.bJ("ab_tag", aQQ());
-            bJ.T("is_vertical", aQS().intValue());
+            bJ.bJ("ab_tag", aQR());
+            bJ.T("is_vertical", aQT().intValue());
         }
-        if (WR.aap() != null && WR.aap().ces() != null && WR.aap().ces().asw() != null && WR.aap().ces().asw().size() > 0) {
-            bJ.T("obj_to", WR.aap().iGO ? 2 : 1);
+        if (WR.aap() != null && WR.aap().cet() != null && WR.aap().cet().asx() != null && WR.aap().cet().asx().size() > 0) {
+            bJ.T("obj_to", WR.aap().iGP ? 2 : 1);
         }
         return bJ;
     }
@@ -131,9 +131,9 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         if (WR == null) {
             return null;
         }
-        am bJ = new am(str).bJ(ImageViewerConfig.FORUM_ID, String.valueOf(WR.getFid())).bJ("tid", String.valueOf(WR.getTid())).T(VideoPlayActivityConfig.OBJ_ID, V(WR)).T("obj_param2", 1).bJ("obj_param1", getWeight()).bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).T("obj_locate", aQP()).bJ("obj_name", aQQ()).bJ("uid", TbadkCoreApplication.getCurrentAccount()).bJ("obj_param3", com.baidu.tieba.card.n.aQx());
+        am bJ = new am(str).bJ(ImageViewerConfig.FORUM_ID, String.valueOf(WR.getFid())).bJ("tid", String.valueOf(WR.getTid())).T(VideoPlayActivityConfig.OBJ_ID, V(WR)).T("obj_param2", 1).bJ("obj_param1", getWeight()).bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, getSource()).T("obj_locate", aQQ()).bJ("obj_name", aQR()).bJ("uid", TbadkCoreApplication.getCurrentAccount()).bJ("obj_param3", com.baidu.tieba.card.n.aQy());
         if (i == 0) {
-            bJ.T("obj_type", aQT());
+            bJ.T("obj_type", aQU());
         } else {
             bJ.T("obj_type", i);
         }
@@ -141,7 +141,7 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         return bJ;
     }
 
-    private int aQT() {
+    private int aQU() {
         int i;
         int i2 = 0;
         bg WR = WR();
@@ -188,7 +188,7 @@ public abstract class c extends com.baidu.tbadk.core.data.a implements ae {
         this.elc = i;
     }
 
-    public boolean aQU() {
+    public boolean aQV() {
         return this.elc == 1;
     }
 

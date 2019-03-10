@@ -29,19 +29,19 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.card.data.k kVar) {
-                com.baidu.tieba.card.t.aQF().go(true);
-                com.baidu.tieba.a.d.awk().bA("page_recommend", "show_");
+                com.baidu.tieba.card.t.aQG().go(true);
+                com.baidu.tieba.a.d.awl().bA("page_recommend", "show_");
                 if (view != null && g.this.fLQ != null && kVar != null && kVar.WR() != null && !StringUtils.isNull(kVar.WR().getTid())) {
                     if ((view.getTag() instanceof String) && !com.baidu.tieba.homepage.personalize.f.cM(com.baidu.adp.lib.g.b.d(kVar.WR().getTid(), 0L))) {
                         com.baidu.tieba.homepage.personalize.f.cL(com.baidu.adp.lib.g.b.d(kVar.WR().getTid(), 0L));
-                        g.this.fLQ.a(com.baidu.adp.lib.g.b.d(kVar.WR().getTid(), 0L), kVar.getWeight(), kVar.getSource(), kVar.aQP(), kVar.aQQ(), com.baidu.adp.lib.g.b.l((String) view.getTag(), 1));
+                        g.this.fLQ.a(com.baidu.adp.lib.g.b.d(kVar.WR().getTid(), 0L), kVar.getWeight(), kVar.getSource(), kVar.aQQ(), kVar.aQR(), com.baidu.adp.lib.g.b.l((String) view.getTag(), 1));
                     }
                     g.this.b(view, kVar);
                 }
             }
         };
         this.mPageContext = tbPageContext;
-        bmL();
+        bmM();
     }
 
     public void b(com.baidu.adp.widget.ListView.r rVar) {
@@ -53,18 +53,18 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         int i;
         int id = view.getId();
         if (view.getId() == d.g.thread_card_root || id == d.g.thread_info_commont_container) {
-            TiebaStatic.log(kVar.aRb());
-            com.baidu.tieba.a.d.awk().a("page_recommend", "clk_", kVar.aRb());
+            TiebaStatic.log(kVar.aRc());
+            com.baidu.tieba.a.d.awl().a("page_recommend", "clk_", kVar.aRc());
             i = 1;
         } else if (id == d.g.forum_name_text) {
-            TiebaStatic.log(kVar.aRc());
-            com.baidu.tieba.a.d.awk().a("page_recommend", "clk_", kVar.aRc());
+            TiebaStatic.log(kVar.aRd());
+            com.baidu.tieba.a.d.awl().a("page_recommend", "clk_", kVar.aRd());
             i = 9;
         } else {
             i = 0;
         }
         if (i != 0) {
-            com.baidu.tieba.q.c.cdq().b(this.cnX, com.baidu.tieba.q.a.a(kVar.threadData, "a002", "common_click", i, kVar.aQP(), false, null, null));
+            com.baidu.tieba.q.c.cdr().b(this.cnX, com.baidu.tieba.q.a.a(kVar.threadData, "a002", "common_click", i, kVar.aQQ(), false, null, null));
         }
     }
 
@@ -112,13 +112,13 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         zVar.a(kVar);
         zVar.rx().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         zVar.rx().a(this.Xq);
-        com.baidu.tieba.card.t.aQF().b(kVar.aRa());
-        com.baidu.tieba.a.d.awk().b(kVar.aRa());
-        com.baidu.tieba.q.c.cdq().a(this.cnX, kVar.threadData != null ? kVar.threadData.getId() : null, com.baidu.tieba.q.a.a(kVar.threadData, "a002", "common_exp", kVar.aQP(), false, null, null));
+        com.baidu.tieba.card.t.aQG().b(kVar.aRb());
+        com.baidu.tieba.a.d.awl().b(kVar.aRb());
+        com.baidu.tieba.q.c.cdr().a(this.cnX, kVar.threadData != null ? kVar.threadData.getId() : null, com.baidu.tieba.q.a.a(kVar.threadData, "a002", "common_exp", kVar.aQQ(), false, null, null));
         return zVar.getView();
     }
 
-    private void bmL() {
+    private void bmM() {
         com.baidu.tieba.card.data.k.eli = "c10705";
         com.baidu.tieba.card.data.k.elj = "c10730";
         com.baidu.tieba.card.data.k.elk = "c10731";
@@ -137,7 +137,7 @@ public class g extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     @Override // com.baidu.tieba.a.f
-    public void qM(String str) {
+    public void qN(String str) {
         this.Yz = str;
     }
 }

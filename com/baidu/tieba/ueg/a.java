@@ -5,5 +5,5 @@ import com.baidu.adp.BdUniqueId;
 public interface a {
     void p(BdUniqueId bdUniqueId);
 
-    void ti(String str);
+    void tj(String str);
 }

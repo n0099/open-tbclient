@@ -30,7 +30,7 @@ public class b extends com.baidu.adp.widget.ListView.a<bg, com.baidu.tieba.card.
         this.fdX = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.daily.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: beI */
+            /* renamed from: beJ */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(b.this.mPageContext.getPageActivity());
             }
@@ -102,9 +102,9 @@ public class b extends com.baidu.adp.widget.ListView.a<bg, com.baidu.tieba.card.
                     amVar.bJ("tid", bgVar.getTid());
                     amVar.k(ImageViewerConfig.FORUM_ID, bgVar.getFid());
                     int i = 2;
-                    if (view.getId() == b.this.fHY.blN() || view.getId() == b.this.fHY.blO()) {
+                    if (view.getId() == b.this.fHY.blO() || view.getId() == b.this.fHY.blP()) {
                         i = 1;
-                    } else if (view.getId() == b.this.fHY.blP()) {
+                    } else if (view.getId() == b.this.fHY.blQ()) {
                         i = 3;
                     }
                     amVar.T("obj_locate", i);
@@ -137,16 +137,16 @@ public class b extends com.baidu.adp.widget.ListView.a<bg, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bg bgVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.a> aVar) {
-        if (bgVar == null || aVar == null || aVar.aRi() == null) {
+        if (bgVar == null || aVar == null || aVar.aRj() == null) {
             return null;
         }
         am amVar = new am("c13176");
         amVar.T("obj_type", 1);
         amVar.bJ("tid", bgVar.getTid());
         amVar.k(ImageViewerConfig.FORUM_ID, bgVar.getFid());
-        t.aQF().b(amVar);
-        aVar.aRi().d(this.dqn);
-        aVar.aRi().a(bgVar);
+        t.aQG().b(amVar);
+        aVar.aRj().d(this.dqn);
+        aVar.aRj().a(bgVar);
         return aVar.getView();
     }
 }

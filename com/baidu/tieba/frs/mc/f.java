@@ -78,10 +78,10 @@ public class f {
         rVar2.a(bdTypeRecyclerView);
         com.baidu.tieba.frs.l lVar = new com.baidu.tieba.frs.l(frsNewAreaFragment.getPageContext(), com.baidu.tieba.frs.m.fbK);
         lVar.a(bdTypeRecyclerView);
-        com.baidu.adp.widget.ListView.a<? extends bg, ? extends v.a> a = com.baidu.tieba.frs.c.bbO().a(frsNewAreaFragment.getPageContext(), bg.bCy, this.frO.getUniqueId(), true);
-        com.baidu.adp.widget.ListView.a<? extends bg, ? extends v.a> b = com.baidu.tieba.frs.c.bbO().b(frsNewAreaFragment.getPageContext(), bg.bCG, this.frO.getUniqueId());
-        com.baidu.adp.widget.ListView.a<?, ?> a2 = com.baidu.tieba.recapp.r.bWG().a(this.frO, AdvertAppInfo.bwk);
-        com.baidu.adp.widget.ListView.a<?, ?> a3 = com.baidu.tieba.recapp.r.bWG().a(this.frO, AdvertAppInfo.bwt);
+        com.baidu.adp.widget.ListView.a<? extends bg, ? extends v.a> a = com.baidu.tieba.frs.c.bbP().a(frsNewAreaFragment.getPageContext(), bg.bCy, this.frO.getUniqueId(), true);
+        com.baidu.adp.widget.ListView.a<? extends bg, ? extends v.a> b = com.baidu.tieba.frs.c.bbP().b(frsNewAreaFragment.getPageContext(), bg.bCG, this.frO.getUniqueId());
+        com.baidu.adp.widget.ListView.a<?, ?> a2 = com.baidu.tieba.recapp.r.bWH().a(this.frO, AdvertAppInfo.bwk);
+        com.baidu.adp.widget.ListView.a<?, ?> a3 = com.baidu.tieba.recapp.r.bWH().a(this.frO, AdvertAppInfo.bwt);
         p pVar = new p(frsNewAreaFragment.getPageContext(), bg.bBf, this.frO.getUniqueId());
         pVar.a(bdTypeRecyclerView);
         this.mAdapters.add(qVar);
@@ -130,21 +130,21 @@ public class f {
         this.fdC.setData(arrayList);
         this.eAl = arrayList;
         this.fhs = frsViewData;
-        bfc();
+        bfd();
     }
 
-    private void bfc() {
-        com.baidu.tieba.frs.d.b bfz;
+    private void bfd() {
+        com.baidu.tieba.frs.d.b bfA;
         if (this.fhs != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.mAdapters) {
-                if ((aVar instanceof com.baidu.tieba.frs.d.d) && (bfz = ((com.baidu.tieba.frs.d.d) aVar).bfz()) != null) {
+                if ((aVar instanceof com.baidu.tieba.frs.d.d) && (bfA = ((com.baidu.tieba.frs.d.d) aVar).bfA()) != null) {
                     if (this.fhs.needLog == 1) {
-                        bfz.ftb = true;
+                        bfA.ftb = true;
                     } else {
-                        bfz.ftb = false;
+                        bfA.ftb = false;
                     }
                     if (this.fhs.getForum() != null) {
-                        bfz.ftd = this.fhs.getForum().getId();
+                        bfA.ftd = this.fhs.getForum().getId();
                     }
                 }
             }
@@ -169,11 +169,11 @@ public class f {
         }
     }
 
-    public HashMap<Integer, bg> bfA() {
+    public HashMap<Integer, bg> bfB() {
         return this.fhr;
     }
 
-    public void bfF() {
+    public void bfG() {
         if (this.fdC != null && this.fdC.getData() != null && this.fdC.getData().size() != 0) {
             for (m mVar : this.fdC.getData()) {
                 if ((mVar instanceof bf) && ((bf) mVar).threadData.YM() != 0) {
@@ -238,13 +238,13 @@ public class f {
             return false;
         }
         this.fqa = new ArrayList();
-        ArrayList<BdUniqueId> cdD = com.baidu.tieba.tbadkCore.q.cdD();
-        if (cdD == null || cdD.size() <= 0) {
+        ArrayList<BdUniqueId> cdE = com.baidu.tieba.tbadkCore.q.cdE();
+        if (cdE == null || cdE.size() <= 0) {
             return false;
         }
-        int size = cdD.size();
+        int size = cdE.size();
         for (int i = 0; i < size; i++) {
-            com.baidu.tieba.frs.h<ICardInfo, ? extends v.a> a = com.baidu.tieba.frs.c.bbO().a(this.frO.getPageContext(), cdD.get(i), this.frO.getUniqueId());
+            com.baidu.tieba.frs.h<ICardInfo, ? extends v.a> a = com.baidu.tieba.frs.c.bbP().a(this.frO.getPageContext(), cdE.get(i), this.frO.getUniqueId());
             if (a != null) {
                 this.mAdapters.add(a);
                 this.fqa.add(a);

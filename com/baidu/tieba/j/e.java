@@ -13,9 +13,9 @@ public interface e {
 
     void a(a aVar);
 
-    void bEd();
-
     void bEe();
 
     void bEf();
+
+    void bEg();
 }

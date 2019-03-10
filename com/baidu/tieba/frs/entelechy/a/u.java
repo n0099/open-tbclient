@@ -56,12 +56,12 @@ public class u extends com.baidu.tieba.frs.h<bg, com.baidu.card.z<bg>> implement
                         TiebaStatic.log(new am("c13010").T("obj_type", 3).k(ImageViewerConfig.FORUM_ID, bgVar.getFid()).bJ("tid", bgVar.getTid()));
                     }
                     if (view.getId() == d.g.user_name || view.getId() == d.g.user_avatar) {
-                        c.bil().a(u.this.fhf, bgVar, 2);
+                        c.bim().a(u.this.fhf, bgVar, 2);
                         com.baidu.tieba.frs.d.a.a(bgVar, 2, u.this.mPageId, u.this.fhf);
                     } else if (view.getId() == d.g.thread_info_commont_container) {
                         com.baidu.tieba.frs.d.a.a(bgVar, 5, u.this.mPageId, u.this.fhf);
                     } else if (view.getId() != d.g.card_home_page_normal_thread_user_icon) {
-                        c.bil().a(u.this.fhf, bgVar, 1);
+                        c.bim().a(u.this.fhf, bgVar, 1);
                         com.baidu.tieba.frs.d.a.a(bgVar, 1, u.this.mPageId, u.this.fhf);
                     } else {
                         TiebaStatic.log(new am("c10134").T("obj_type", 3));
@@ -200,7 +200,7 @@ public class u extends com.baidu.tieba.frs.h<bg, com.baidu.card.z<bg>> implement
         if (this.fhf != null) {
             bgVar.bDP = (i + 1) - (this.eYw != null ? this.eYw.getTopThreadSize() : 0);
         }
-        c.bil().a(this.fhf, bgVar);
+        c.bim().a(this.fhf, bgVar);
         ae(bgVar);
         bgVar.ZV();
         com.baidu.tieba.frs.d.a.a(bgVar, this.mPageId, this.fhf);
@@ -214,7 +214,7 @@ public class u extends com.baidu.tieba.frs.h<bg, com.baidu.card.z<bg>> implement
         if (this.fhc == null) {
             this.fhc = new HashSet<>();
         }
-        c.bil().a(bgVar, this.fhc);
+        c.bim().a(bgVar, this.fhc);
     }
 
     @Override // com.baidu.tieba.card.z
@@ -228,7 +228,7 @@ public class u extends com.baidu.tieba.frs.h<bg, com.baidu.card.z<bg>> implement
     }
 
     @Override // com.baidu.tieba.a.f
-    public void qM(String str) {
+    public void qN(String str) {
         this.Yz = str;
     }
 
@@ -242,7 +242,7 @@ public class u extends com.baidu.tieba.frs.h<bg, com.baidu.card.z<bg>> implement
     }
 
     @Override // com.baidu.tieba.frs.d.d
-    public b bfz() {
+    public b bfA() {
         return this.fhf;
     }
 }

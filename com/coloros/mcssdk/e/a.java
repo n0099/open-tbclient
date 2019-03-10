@@ -5,44 +5,44 @@ import android.text.TextUtils;
 /* loaded from: classes3.dex */
 public class a extends c {
     String content;
-    long jxZ;
-    long jya;
-    int jyb;
-    String jyd;
+    long jys;
+    long jyt;
+    int jyu;
+    String jyw;
     String title;
-    String jyc = "08:00-22:00";
-    int jye = 0;
-    int jyf = 0;
-
-    public void BN(int i) {
-        this.jyb = i;
-    }
+    String jyv = "08:00-22:00";
+    int jyx = 0;
+    int jyy = 0;
 
     public void BO(int i) {
-        this.jye = i;
+        this.jyu = i;
     }
 
     public void BP(int i) {
-        this.jyf = i;
+        this.jyx = i;
     }
 
-    public void Fk(String str) {
+    public void BQ(int i) {
+        this.jyy = i;
+    }
+
+    public void Fn(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.jyc = str;
+        this.jyv = str;
     }
 
-    public void Fl(String str) {
-        this.jyd = str;
+    public void Fo(String str) {
+        this.jyw = str;
     }
 
     public void ea(long j) {
-        this.jxZ = j;
+        this.jys = j;
     }
 
     public void eb(long j) {
-        this.jya = j;
+        this.jyt = j;
     }
 
     @Override // com.coloros.mcssdk.e.c
@@ -60,19 +60,19 @@ public class a extends c {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("messageID:" + this.jyk);
-        sb.append(",taskID:" + this.jyl);
+        sb.append("messageID:" + this.jyD);
+        sb.append(",taskID:" + this.jyE);
         sb.append(",appPackage:" + this.appPackage);
         sb.append(",title:" + this.title);
-        sb.append(",rule:" + this.jyd);
+        sb.append(",rule:" + this.jyw);
         sb.append(",content:" + this.content);
-        sb.append(",balanceTime:" + this.jyb);
-        sb.append(",startTime:" + this.jxZ);
-        sb.append(",endTime:" + this.jya);
-        sb.append(",balanceTime:" + this.jyb);
-        sb.append(",timeRanges:" + this.jyc);
-        sb.append(",forcedDelivery:" + this.jye);
-        sb.append(",distinctBycontent:" + this.jyf);
+        sb.append(",balanceTime:" + this.jyu);
+        sb.append(",startTime:" + this.jys);
+        sb.append(",endTime:" + this.jyt);
+        sb.append(",balanceTime:" + this.jyu);
+        sb.append(",timeRanges:" + this.jyv);
+        sb.append(",forcedDelivery:" + this.jyx);
+        sb.append(",distinctBycontent:" + this.jyy);
         return sb.toString();
     }
 }

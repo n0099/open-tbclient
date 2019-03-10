@@ -51,7 +51,7 @@ public class a {
     }
 
     public void aec() {
-        if (com.baidu.tbadk.util.a.apM().afN()) {
+        if (com.baidu.tbadk.util.a.apN().afN()) {
             if (this.bNr != null) {
                 this.bNr.bOd = d.j.action_like;
                 this.bNr.bOg = d.C0236d.cp_cont_j;

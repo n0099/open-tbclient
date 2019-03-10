@@ -13,11 +13,11 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes.dex */
 public class l {
     static {
-        bTi();
         bTj();
+        bTk();
     }
 
-    private static void bTi() {
+    private static void bTj() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PLAY_STATISTICS_CMD, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_STATISTICS);
         tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
@@ -25,7 +25,7 @@ public class l {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    private static void bTj() {
+    private static void bTk() {
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_DURATION_STATISTICS);
         tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
@@ -49,7 +49,7 @@ public class l {
         httpMessage.addParam("obj_type", str);
         httpMessage.addParam("playduration", j2);
         if (zVar != null) {
-            httpMessage.addParam("video_md5", zVar.hYU);
+            httpMessage.addParam("video_md5", zVar.hYV);
         }
         httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam("obj_param2", str2);
@@ -61,17 +61,17 @@ public class l {
         if (httpMessage != null && zVar != null) {
             httpMessage.addParam("tid", zVar.ctx);
             httpMessage.addParam(ImageViewerConfig.FORUM_ID, zVar.ele);
-            httpMessage.addParam("obj_to", zVar.hYQ);
+            httpMessage.addParam("obj_to", zVar.hYR);
             httpMessage.addParam(VideoPlayActivityConfig.OBJ_ID, zVar.byy);
-            httpMessage.addParam("obj_param3", zVar.hYR);
+            httpMessage.addParam("obj_param3", zVar.hYS);
             httpMessage.addParam(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, zVar.mSource);
             httpMessage.addParam("obj_locate", zVar.mLocate);
-            httpMessage.addParam("obj_param1", zVar.hYS);
-            if (!StringUtils.isNull(zVar.hYV)) {
-                httpMessage.addParam("topic_type", zVar.hYV);
-            }
+            httpMessage.addParam("obj_param1", zVar.hYT);
             if (!StringUtils.isNull(zVar.hYW)) {
-                httpMessage.addParam("is_vertical", zVar.hYW);
+                httpMessage.addParam("topic_type", zVar.hYW);
+            }
+            if (!StringUtils.isNull(zVar.hYX)) {
+                httpMessage.addParam("is_vertical", zVar.hYX);
             }
         }
     }

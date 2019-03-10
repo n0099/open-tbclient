@@ -203,13 +203,13 @@ public class AdTbWebViewActivity extends AdBaseWebViewActivity {
     public View createWebView() {
         if (this.cNx == null) {
             this.cNx = new com.baidu.tieba.ad.browser.a(getPageContext().getPageActivity());
-            awG();
+            awH();
         }
         return this.cNx;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void awG() {
+    public void awH() {
         this.cNx.getSettings().setJavaScriptEnabled(true);
         this.cNx.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
         this.cNx.getSettings().setAllowFileAccess(true);
@@ -407,7 +407,7 @@ public class AdTbWebViewActivity extends AdBaseWebViewActivity {
     @Override // com.baidu.tieba.ad.browser.AdBaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.ceS();
+            this.jsBridge.ceT();
         }
         if (this.cNx != null) {
             this.cNx.getSettings().setBuiltInZoomControls(true);
@@ -574,7 +574,7 @@ public class AdTbWebViewActivity extends AdBaseWebViewActivity {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            int c = com.baidu.tieba.ad.a.awE().c(AdTbWebViewActivity.this.getPageContext().getPageActivity(), new String[]{str});
+            int c = com.baidu.tieba.ad.a.awF().c(AdTbWebViewActivity.this.getPageContext().getPageActivity(), new String[]{str});
             if (c == 1) {
                 AdTbWebViewActivity.this.finish();
                 return true;

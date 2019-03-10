@@ -96,7 +96,7 @@ public class b {
         if (bVar != null) {
             hashMap.put("name", Boolean.valueOf(!TextUtils.isEmpty(bVar.userName)));
             hashMap.put(ISapiAccount.SAPI_ACCOUNT_PHONE, Boolean.valueOf(!TextUtils.isEmpty(bVar.cSs)));
-            hashMap.put("region", Boolean.valueOf(!TextUtils.isEmpty(bVar.ayA())));
+            hashMap.put("region", Boolean.valueOf(!TextUtils.isEmpty(bVar.ayB())));
             hashMap.put("street", Boolean.valueOf(TextUtils.isEmpty(bVar.cSx) ? false : true));
         }
         return hashMap;
@@ -202,7 +202,7 @@ public class b {
         aVar2.type = ISapiAccount.SAPI_ACCOUNT_PHONE;
         aVar2.cSr = true;
         arrayList.add(aVar2);
-        a aVar3 = new a("所在地区", bVar.ayA(), "地区选择");
+        a aVar3 = new a("所在地区", bVar.ayB(), "地区选择");
         aVar3.type = "region";
         arrayList.add(aVar3);
         a aVar4 = new a("详细地址", bVar.cSx, "街道门牌信息");
@@ -215,7 +215,7 @@ public class b {
         return arrayList;
     }
 
-    private String ayA() {
+    private String ayB() {
         StringBuilder sb = new StringBuilder();
         if (this.cSu != null && !TextUtils.isEmpty(this.cSu.name)) {
             sb.append(this.cSu.name);
@@ -229,20 +229,20 @@ public class b {
         return sb.toString();
     }
 
-    public String ayB() {
+    public String ayC() {
         StringBuilder sb = new StringBuilder();
-        sb.append(ayA());
+        sb.append(ayB());
         sb.append(" " + this.cSx);
         return sb.toString();
     }
 
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.userName) || TextUtils.isEmpty(this.cSs) || TextUtils.isEmpty(ayA()) || TextUtils.isEmpty(this.cSx) || this.cSs.length() != 11 || !this.cSs.startsWith("1")) ? false : true;
+        return (TextUtils.isEmpty(this.userName) || TextUtils.isEmpty(this.cSs) || TextUtils.isEmpty(ayB()) || TextUtils.isEmpty(this.cSx) || this.cSs.length() != 11 || !this.cSs.startsWith("1")) ? false : true;
     }
 
-    public static boolean rt(String str) {
+    public static boolean ru(String str) {
         if (!TextUtils.isEmpty(str) && str.length() == 11 && str.startsWith("1")) {
-            return rv(str);
+            return rw(str);
         }
         return false;
     }
@@ -276,16 +276,16 @@ public class b {
         }
     }
 
-    public static boolean ru(String str) {
-        return str.length() == 6 && rv(str);
+    public static boolean rv(String str) {
+        return str.length() == 6 && rw(str);
     }
 
-    public static boolean rv(String str) {
+    public static boolean rw(String str) {
         return Pattern.compile("[0-9]*").matcher(str).matches();
     }
 
-    public void ayC() {
-        if (rt(this.cSs)) {
+    public void ayD() {
+        if (ru(this.cSs)) {
             this.cSt = this.cSs.substring(0, 3) + "*****" + this.cSs.substring(8);
         }
     }

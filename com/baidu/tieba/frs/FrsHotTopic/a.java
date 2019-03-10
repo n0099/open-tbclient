@@ -12,10 +12,10 @@ public class a {
     private static FrsLinkHashMap<String, Long> faD = new FrsLinkHashMap<>();
 
     private a() {
-        bdb();
+        bdc();
     }
 
-    public static a bda() {
+    public static a bdb() {
         if (faC == null) {
             synchronized (a.class) {
                 if (faC == null) {
@@ -26,7 +26,7 @@ public class a {
         return faC;
     }
 
-    private static void bdb() {
+    private static void bdc() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.frs.FrsHotTopic.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -64,14 +64,14 @@ public class a {
             }
             if (!z || (z && faD.get(str).longValue() != j)) {
                 faD.put(str, Long.valueOf(j));
-                bdc();
+                bdd();
                 return true;
             }
         }
         return false;
     }
 
-    private void bdc() {
+    private void bdd() {
         BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.frs.FrsHotTopic.a.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */

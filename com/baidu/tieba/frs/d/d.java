@@ -3,5 +3,5 @@ package com.baidu.tieba.frs.d;
 public interface d {
     public static final b fhf = new b();
 
-    b bfz();
+    b bfA();
 }

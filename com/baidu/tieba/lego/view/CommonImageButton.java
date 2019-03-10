@@ -40,10 +40,10 @@ public class CommonImageButton extends FrameLayout {
 
     public void a(com.baidu.tieba.lego.card.model.a aVar) {
         if (aVar != null) {
-            if (!aVar.bzS()) {
-                com.baidu.tieba.lego.a.b.bzz().g(aVar, aVar.bzQ());
+            if (!aVar.bzT()) {
+                com.baidu.tieba.lego.a.b.bzA().g(aVar, aVar.bzR());
             }
-            if (aVar.bzU()) {
+            if (aVar.bzV()) {
                 c(aVar);
             } else {
                 b(aVar);
@@ -54,15 +54,15 @@ public class CommonImageButton extends FrameLayout {
     private void b(com.baidu.tieba.lego.card.model.a aVar) {
         this.mTitle.setVisibility(8);
         this.eKV.setVisibility(0);
-        this.eKV.startLoad(1 == TbadkCoreApplication.getInst().getSkinType() ? aVar.bzV() : aVar.getImageUrl(), 10, false);
+        this.eKV.startLoad(1 == TbadkCoreApplication.getInst().getSkinType() ? aVar.bzW() : aVar.getImageUrl(), 10, false);
     }
 
     private void c(com.baidu.tieba.lego.card.model.a aVar) {
         this.eKV.setVisibility(8);
-        int bzW = aVar.bzW();
-        if (bzW != 0) {
+        int bzX = aVar.bzX();
+        if (bzX != 0) {
             this.mTitle.setVisibility(0);
-            al.k(this.mTitle, bzW);
+            al.k(this.mTitle, bzX);
             return;
         }
         this.mTitle.setVisibility(8);

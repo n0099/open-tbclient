@@ -13,15 +13,15 @@ import com.baidu.tieba.imMessageCenter.mention.FeedData;
 import tbclient.AgreeList;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId gzt = BdUniqueId.gen();
     public static final BdUniqueId gzu = BdUniqueId.gen();
     public static final BdUniqueId gzv = BdUniqueId.gen();
     public static final BdUniqueId gzw = BdUniqueId.gen();
     public static final BdUniqueId gzx = BdUniqueId.gen();
+    public static final BdUniqueId gzy = BdUniqueId.gen();
     private String fname;
-    private String gzA;
-    private BdUniqueId gzy;
-    private boolean gzz;
+    private boolean gzA;
+    private String gzB;
+    private BdUniqueId gzz;
     private boolean isNew;
     private long msgId;
     private OriginalThreadInfo originalThreadInfo;
@@ -38,7 +38,7 @@ public class a extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return this.gzy;
+        return this.gzz;
     }
 
     public void a(AgreeList agreeList) {
@@ -64,13 +64,13 @@ public class a extends com.baidu.tieba.card.data.b {
             this.fname = bgVar.YW();
             this.thread_id = bgVar.getId();
             this.threadType = bgVar.threadType;
-            this.gzA = "c12927";
+            this.gzB = "c12927";
             if (agreeList.type.intValue() == 3) {
-                this.gzy = gzt;
+                this.gzz = gzu;
                 this.title = TbadkCoreApplication.getInst().getResources().getString(d.j.agree_my_thread);
                 return;
             }
-            this.gzy = gzu;
+            this.gzz = gzv;
             this.title = TbadkCoreApplication.getInst().getResources().getString(d.j.agree_my_post);
         }
     }
@@ -86,7 +86,7 @@ public class a extends com.baidu.tieba.card.data.b {
             this.thread_id = feedData.getThread_id();
             this.threadType = feedData.getThread_Type();
             this.title = feedData.getContent();
-            this.gzz = feedData.getIsFloor();
+            this.gzA = feedData.getIsFloor();
             this.postFrom = feedData.getPostFrom();
             this.quote_pid = feedData.getQuote_pid();
             this.isNew = feedData.isNew();
@@ -95,7 +95,7 @@ public class a extends com.baidu.tieba.card.data.b {
             this.originalThreadInfo.threadId = this.thread_id;
             this.originalThreadInfo.threadType = this.threadType;
             this.originalThreadInfo.showPicUrl = feedData.getThreadImgUrl();
-            this.gzA = "c12928";
+            this.gzB = "c12928";
             if (feedData.getType() == 1) {
                 this.originalThreadInfo.postId = feedData.getQuote_pid();
                 String str = "";
@@ -111,9 +111,9 @@ public class a extends com.baidu.tieba.card.data.b {
                     this.originalThreadInfo.title = this.originalThreadInfo.title.replace("\n", " ");
                 }
                 if (feedData.getIsFloor()) {
-                    this.gzy = gzv;
+                    this.gzz = gzw;
                 } else {
-                    this.gzy = gzw;
+                    this.gzz = gzx;
                 }
             } else {
                 this.originalThreadInfo.postId = "0";
@@ -122,7 +122,7 @@ public class a extends com.baidu.tieba.card.data.b {
                 } else {
                     this.originalThreadInfo.title = feedData.getTitle();
                 }
-                this.gzy = gzx;
+                this.gzz = gzy;
             }
             this.originalThreadInfo.setShowData();
         }
@@ -168,11 +168,11 @@ public class a extends com.baidu.tieba.card.data.b {
         return this.msgId;
     }
 
-    public boolean bxS() {
-        return this.gzz;
+    public boolean bxT() {
+        return this.gzA;
     }
 
-    public String bxT() {
+    public String bxU() {
         return this.quote_pid;
     }
 
@@ -184,8 +184,8 @@ public class a extends com.baidu.tieba.card.data.b {
         this.isNew = z;
     }
 
-    public String bxU() {
-        return this.gzA;
+    public String bxV() {
+        return this.gzB;
     }
 
     public MetaData getThreadAuthor() {

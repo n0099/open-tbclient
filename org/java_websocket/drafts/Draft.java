@@ -22,10 +22,10 @@ import org.java_websocket.exceptions.LimitExedeedException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes2.dex */
 public abstract class Draft {
-    public static int jUf = 1000;
-    public static int jUg = 64;
-    protected WebSocket.Role jTT = null;
-    protected Framedata.Opcode jUh = null;
+    public static int jUy = 1000;
+    public static int jUz = 64;
+    protected WebSocket.Role jUm = null;
+    protected Framedata.Opcode jUA = null;
 
     /* loaded from: classes2.dex */
     public enum CloseHandshakeType {
@@ -50,15 +50,15 @@ public abstract class Draft {
 
     public abstract void a(org.java_websocket.c cVar, Framedata framedata) throws InvalidDataException;
 
-    public abstract List<Framedata> ay(String str, boolean z);
+    public abstract List<Framedata> az(String str, boolean z);
 
     public abstract List<Framedata> b(ByteBuffer byteBuffer, boolean z);
 
     public abstract b b(b bVar) throws InvalidHandshakeException;
 
-    public abstract CloseHandshakeType cCQ();
+    public abstract CloseHandshakeType cDa();
 
-    public abstract Draft cCR();
+    public abstract Draft cDb();
 
     public abstract List<Framedata> q(ByteBuffer byteBuffer) throws InvalidDataException;
 
@@ -109,7 +109,7 @@ public abstract class Draft {
             i eVar = new e();
             i iVar2 = eVar;
             iVar2.j(Short.parseShort(split[1]));
-            iVar2.Gh(split[2]);
+            iVar2.Gk(split[2]);
             iVar = eVar;
         } else if (!"GET".equalsIgnoreCase(split[0])) {
             throw new InvalidHandshakeException("Invalid request method received: " + split[0] + " Status line: " + p);
@@ -118,7 +118,7 @@ public abstract class Draft {
                 throw new InvalidHandshakeException("Invalid status line received: " + split[2] + " Status line: " + p);
             }
             d dVar = new d();
-            dVar.Gg(split[1]);
+            dVar.Gj(split[1]);
             iVar = dVar;
         }
         String p2 = p(byteBuffer);
@@ -127,8 +127,8 @@ public abstract class Draft {
             if (split2.length != 2) {
                 throw new InvalidHandshakeException("not an http header");
             }
-            if (iVar.Gj(split2[0])) {
-                iVar.put(split2[0], iVar.Gi(split2[0]) + "; " + split2[1].replaceFirst("^ +", ""));
+            if (iVar.Gm(split2[0])) {
+                iVar.put(split2[0], iVar.Gl(split2[0]) + "; " + split2[1].replaceFirst("^ +", ""));
             } else {
                 iVar.put(split2[0], split2[1].replaceFirst("^ +", ""));
             }
@@ -142,7 +142,7 @@ public abstract class Draft {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public boolean b(f fVar) {
-        return fVar.Gi("Upgrade").equalsIgnoreCase("websocket") && fVar.Gi(HTTP.CONN_DIRECTIVE).toLowerCase(Locale.ENGLISH).contains(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
+        return fVar.Gl("Upgrade").equalsIgnoreCase("websocket") && fVar.Gl(HTTP.CONN_DIRECTIVE).toLowerCase(Locale.ENGLISH).contains(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE);
     }
 
     public List<Framedata> a(Framedata.Opcode opcode, ByteBuffer byteBuffer, boolean z) {
@@ -150,10 +150,10 @@ public abstract class Draft {
         if (opcode != Framedata.Opcode.BINARY && opcode != Framedata.Opcode.TEXT) {
             throw new IllegalArgumentException("Only Opcode.BINARY or  Opcode.TEXT are allowed");
         }
-        if (this.jUh != null) {
+        if (this.jUA != null) {
             iVar = new org.java_websocket.framing.c();
         } else {
-            this.jUh = opcode;
+            this.jUA = opcode;
             if (opcode == Framedata.Opcode.BINARY) {
                 iVar = new org.java_websocket.framing.a();
             } else {
@@ -163,11 +163,11 @@ public abstract class Draft {
         iVar.t(byteBuffer);
         iVar.rG(z);
         try {
-            iVar.cDb();
+            iVar.cDl();
             if (z) {
-                this.jUh = null;
+                this.jUA = null;
             } else {
-                this.jUh = opcode;
+                this.jUA = opcode;
             }
             return Collections.singletonList(iVar);
         } catch (InvalidDataException e) {
@@ -186,25 +186,25 @@ public abstract class Draft {
             sb.append(((org.java_websocket.c.a) fVar).getResourceDescriptor());
             sb.append(" HTTP/1.1");
         } else if (fVar instanceof h) {
-            sb.append("HTTP/1.1 101 ").append(((h) fVar).cDj());
+            sb.append("HTTP/1.1 101 ").append(((h) fVar).cDt());
         } else {
             throw new IllegalArgumentException("unknown role");
         }
         sb.append("\r\n");
-        Iterator<String> cDk = fVar.cDk();
-        while (cDk.hasNext()) {
-            String next = cDk.next();
-            String Gi = fVar.Gi(next);
+        Iterator<String> cDu = fVar.cDu();
+        while (cDu.hasNext()) {
+            String next = cDu.next();
+            String Gl = fVar.Gl(next);
             sb.append(next);
             sb.append(": ");
-            sb.append(Gi);
+            sb.append(Gl);
             sb.append("\r\n");
         }
         sb.append("\r\n");
-        byte[] FC = org.java_websocket.e.c.FC(sb.toString());
+        byte[] FF = org.java_websocket.e.c.FF(sb.toString());
         byte[] content = z ? fVar.getContent() : null;
-        ByteBuffer allocate = ByteBuffer.allocate((content == null ? 0 : content.length) + FC.length);
-        allocate.put(FC);
+        ByteBuffer allocate = ByteBuffer.allocate((content == null ? 0 : content.length) + FF.length);
+        allocate.put(FF);
         if (content != null) {
             allocate.put(content);
         }
@@ -213,10 +213,10 @@ public abstract class Draft {
     }
 
     public f r(ByteBuffer byteBuffer) throws InvalidHandshakeException {
-        return a(byteBuffer, this.jTT);
+        return a(byteBuffer, this.jUm);
     }
 
-    public int Dn(int i) throws LimitExedeedException, InvalidDataException {
+    public int Do(int i) throws LimitExedeedException, InvalidDataException {
         if (i < 0) {
             throw new InvalidDataException(1002, "Negative count");
         }
@@ -225,10 +225,10 @@ public abstract class Draft {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int c(f fVar) {
-        String Gi = fVar.Gi("Sec-WebSocket-Version");
-        if (Gi.length() > 0) {
+        String Gl = fVar.Gl("Sec-WebSocket-Version");
+        if (Gl.length() > 0) {
             try {
-                return new Integer(Gi.trim()).intValue();
+                return new Integer(Gl.trim()).intValue();
             } catch (NumberFormatException e) {
                 return -1;
             }
@@ -237,7 +237,7 @@ public abstract class Draft {
     }
 
     public void a(WebSocket.Role role) {
-        this.jTT = role;
+        this.jUm = role;
     }
 
     public String toString() {

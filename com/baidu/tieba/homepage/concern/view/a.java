@@ -56,25 +56,25 @@ public class a extends com.baidu.tieba.card.a<j> implements com.baidu.tieba.a.e 
         this.eiw = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.aQh() != null) {
-                    a.this.aQh().a(view, a.this.ehE);
+                if (a.this.aQi() != null) {
+                    a.this.aQi().a(view, a.this.ehE);
                 }
-                a.this.aQC();
+                a.this.aQD();
             }
         };
         this.ZF = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.a.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.aQh() != null) {
-                    a.this.aQh().a(view, a.this.ehE);
+                if (a.this.aQi() != null) {
+                    a.this.aQi().a(view, a.this.ehE);
                 }
             }
         };
         this.bRy = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.aQh() != null) {
-                    a.this.aQh().a(view, a.this.ehE);
+                if (a.this.aQi() != null) {
+                    a.this.aQi().a(view, a.this.ehE);
                 }
             }
         };
@@ -194,11 +194,11 @@ public class a extends com.baidu.tieba.card.a<j> implements com.baidu.tieba.a.e 
         }
         this.fHi.setData(jVar.threadData);
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        if (n.tC(this.ehE.threadData.getId())) {
+        if (n.tD(this.ehE.threadData.getId())) {
             n.a(this.mTitle, this.ehE.WR().getId(), d.C0236d.cp_cont_b, d.C0236d.cp_cont_d);
         }
         this.fHi.setUserAfterClickListener(this.ZF);
-        this.bSI = "feed#" + jVar.aQP();
+        this.bSI = "feed#" + jVar.aQQ();
         bg WR = jVar.WR();
         if (this.fHi.getHeaderImg() != null) {
             if (this.fHi.getIsSimpleThread()) {
@@ -247,7 +247,7 @@ public class a extends com.baidu.tieba.card.a<j> implements com.baidu.tieba.a.e 
         return null;
     }
 
-    public void aQC() {
+    public void aQD() {
         if (this.mPageContext != null && this.ehE != null && this.ehE.threadData != null && this.ehE.threadData.YR() != null && this.ehE.threadData.Zk() != null) {
             boolean z = false;
             String str = "";
@@ -290,6 +290,6 @@ public class a extends com.baidu.tieba.card.a<j> implements com.baidu.tieba.a.e 
     }
 
     public int lt(int i) {
-        return com.baidu.tieba.a.d.awk().ak(this.Yz, i);
+        return com.baidu.tieba.a.d.awl().ak(this.Yz, i);
     }
 }

@@ -56,7 +56,7 @@ public class InvoiceListItemView extends FrameLayout {
         setClickable(true);
     }
 
-    public void azr() {
+    public void azs() {
         this.mTopView = LayoutInflater.from(this.mContext).inflate(d.h.invoice_item_top_company_view, (ViewGroup) null);
         ((TextView) this.mTopView.findViewById(d.g.invoice_company_title_txt)).setTextColor(getResources().getColor(d.C0236d.invoice_top_title_color));
         ((TextView) this.mTopView.findViewById(d.g.tax_number_txt)).setTextColor(getResources().getColor(d.C0236d.invoice_top_tax_number_color));
@@ -66,7 +66,7 @@ public class InvoiceListItemView extends FrameLayout {
         }
     }
 
-    public void azs() {
+    public void azt() {
         this.mTopView = LayoutInflater.from(this.mContext).inflate(d.h.invoice_item_top_personage_view, (ViewGroup) null);
         ((TextView) this.mTopView.findViewById(d.g.invoice_personal_title_txt)).setTextColor(getResources().getColor(d.C0236d.invoice_top_title_color));
         ((CommonTagView) this.mTopView.findViewById(d.g.invoice_personal_tag)).setTextColor(getResources().getColor(d.C0236d.invoice_top_tag_color));

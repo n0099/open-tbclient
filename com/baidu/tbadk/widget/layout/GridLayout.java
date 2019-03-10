@@ -226,7 +226,7 @@ public class GridLayout extends ViewGroup {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup
-    /* renamed from: ash */
+    /* renamed from: asi */
     public a generateDefaultLayoutParams() {
         return new a(-1, -1);
     }

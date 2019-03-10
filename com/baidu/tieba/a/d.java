@@ -14,7 +14,7 @@ public class d {
     private a cMq;
     private List<am> cMr;
 
-    public static d awk() {
+    public static d awl() {
         if (cMp == null) {
             synchronized (c.class) {
                 if (cMp == null) {
@@ -40,9 +40,9 @@ public class d {
         return this.cMq.ak(str, i);
     }
 
-    public void qL(String str) {
+    public void qM(String str) {
         if (this.cMq != null) {
-            this.cMq.qK(str);
+            this.cMq.qL(str);
         }
     }
 
@@ -56,7 +56,7 @@ public class d {
     }
 
     public void bA(String str, String str2) {
-        if (!v.T(this.cMr) && this.cMm != null && this.cMm.awi()) {
+        if (!v.T(this.cMr) && this.cMm != null && this.cMm.awj()) {
             int i = -1;
             for (am amVar : this.cMr) {
                 if (amVar != null) {
@@ -74,7 +74,7 @@ public class d {
     }
 
     public void a(String str, String str2, am amVar) {
-        if (amVar != null && this.cMm != null && this.cMm.awi()) {
+        if (amVar != null && this.cMm != null && this.cMm.awj()) {
             HashMap hashMap = new HashMap();
             List<Object> params = amVar.getParams();
             if (params != null) {
@@ -98,14 +98,14 @@ public class d {
     }
 
     public void onPageStart(String str) {
-        if (ap.isEmpty(str) || this.cMm == null || !this.cMm.awi()) {
-            com.baidu.ubs.analytics.a.EM(str);
+        if (ap.isEmpty(str) || this.cMm == null || !this.cMm.awj()) {
+            com.baidu.ubs.analytics.a.EP(str);
         }
     }
 
     public void onPageEnd(String str) {
-        if (ap.isEmpty(str) || this.cMm == null || !this.cMm.awi()) {
-            com.baidu.ubs.analytics.a.EN(str);
+        if (ap.isEmpty(str) || this.cMm == null || !this.cMm.awj()) {
+            com.baidu.ubs.analytics.a.EQ(str);
         }
     }
 

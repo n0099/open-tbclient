@@ -36,7 +36,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921386) {
-                    RecommendForumHeaderView.this.aXp();
+                    RecommendForumHeaderView.this.aXq();
                 }
             }
         };
@@ -48,7 +48,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
                     if (RecommendForumHeaderView.this.eGc == null || RecommendForumHeaderView.this.eGc.getVisibility() == 8) {
                         RecommendForumHeaderView.this.eGe = false;
                     } else {
-                        RecommendForumHeaderView.this.aXo();
+                        RecommendForumHeaderView.this.aXp();
                     }
                 }
             }
@@ -93,7 +93,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
         this.eGc.setVisibility(0);
         this.eGc.setData(list);
         if (!this.eGe) {
-            aXo();
+            aXp();
             this.eGe = true;
         }
     }
@@ -114,7 +114,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != this.eGc && this.eGd != null) {
-            aXp();
+            aXq();
         }
     }
 
@@ -126,7 +126,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXo() {
+    public void aXp() {
         if (this.eGd == null) {
             this.eGd = new com.baidu.tieba.c.d(this.mPageContext, this.eGc);
             this.eGd.oK(d.f.bg_tip_blue_up);
@@ -139,9 +139,9 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
         }
     }
 
-    public void aXp() {
+    public void aXq() {
         if (this.eGd != null) {
-            this.eGd.aSr();
+            this.eGd.aSs();
         }
     }
 }

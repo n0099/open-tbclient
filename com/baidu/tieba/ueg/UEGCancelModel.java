@@ -10,20 +10,20 @@ import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes.dex */
 public class UEGCancelModel extends BdBaseModel {
-    private a iTK;
-    private final com.baidu.adp.framework.listener.a iTL = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_UEG_CANCEL, 309615) { // from class: com.baidu.tieba.ueg.UEGCancelModel.1
+    private a iUe;
+    private final com.baidu.adp.framework.listener.a iUf = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_UEG_CANCEL, 309615) { // from class: com.baidu.tieba.ueg.UEGCancelModel.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             UEGCancelResponsedMessage uEGCancelResponsedMessage;
             if (responsedMessage != null) {
-                if (((responsedMessage instanceof UEGCancelSocketResponseMessage) || (responsedMessage instanceof UEGCancelResponsedMessage)) && UEGCancelModel.this.iTK != null) {
+                if (((responsedMessage instanceof UEGCancelSocketResponseMessage) || (responsedMessage instanceof UEGCancelResponsedMessage)) && UEGCancelModel.this.iUe != null) {
                     if (responsedMessage instanceof UEGCancelSocketResponseMessage) {
                         UEGCancelSocketResponseMessage uEGCancelSocketResponseMessage = (UEGCancelSocketResponseMessage) responsedMessage;
                         if (uEGCancelSocketResponseMessage != null && uEGCancelSocketResponseMessage.getError() == 0) {
-                            UEGCancelModel.this.iTK.d(uEGCancelSocketResponseMessage.getData());
+                            UEGCancelModel.this.iUe.d(uEGCancelSocketResponseMessage.getData());
                         }
                     } else if ((responsedMessage instanceof UEGCancelResponsedMessage) && (uEGCancelResponsedMessage = (UEGCancelResponsedMessage) responsedMessage) != null && uEGCancelResponsedMessage.getError() == 0) {
-                        UEGCancelModel.this.iTK.d(uEGCancelResponsedMessage.getData());
+                        UEGCancelModel.this.iUe.d(uEGCancelResponsedMessage.getData());
                     }
                 }
             }
@@ -38,7 +38,7 @@ public class UEGCancelModel extends BdBaseModel {
     public UEGCancelModel() {
         com.baidu.tieba.tbadkCore.a.a.a(309615, UEGCancelSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
-        registerListener(this.iTL);
+        registerListener(this.iUf);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -60,10 +60,10 @@ public class UEGCancelModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.iTK = aVar;
+        this.iUe = aVar;
     }
 
     public void onDestroy() {
-        MessageManager.getInstance().unRegisterListener(this.iTL);
+        MessageManager.getInstance().unRegisterListener(this.iUf);
     }
 }

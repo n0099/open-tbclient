@@ -64,8 +64,8 @@ public class c {
             long j5;
             long parseInt;
             j.as(c.TAG, "test run in " + c.this);
-            while (e.avH().y(c.this)) {
-                e.avH().qq(c.this.bNk);
+            while (e.avI().y(c.this)) {
+                e.avI().qr(c.this.bNk);
                 try {
                     j.as(c.TAG, "mDownloadRunnable sleep in..." + c.this);
                     Thread.sleep(100L);
@@ -78,14 +78,14 @@ public class c {
                 }
             }
             if (!c.this.cLq) {
-                e.avH().w(c.this);
+                e.avI().w(c.this);
             }
             while (true) {
                 if (c.this.cLq) {
                     break;
                 }
                 j.as(c.TAG, "download in " + c.this);
-                if (c.this.avD()) {
+                if (c.this.avE()) {
                     break;
                 }
                 c.this.cLs = -1L;
@@ -275,7 +275,7 @@ public class c {
                         } else {
                             try {
                                 j.as(c.TAG, "download start waitting ...... ");
-                                while (c.this.avE()) {
+                                while (c.this.avF()) {
                                     try {
                                         Thread.sleep(20L);
                                     } catch (InterruptedException e8) {
@@ -363,7 +363,7 @@ public class c {
                                         if (str2 != null) {
                                             fileOutputStream.close();
                                         }
-                                        k.avQ().o(inputStream);
+                                        k.avR().o(inputStream);
                                         c.this.cLs = j4;
                                     } catch (Exception e12) {
                                         httpURLConnection2 = httpURLConnection;
@@ -395,7 +395,7 @@ public class c {
                                             }
                                             if (!c.this.cLq) {
                                             }
-                                            e.avH().x(c.this);
+                                            e.avI().x(c.this);
                                             j.as(c.TAG, "test run out ***************************************************************" + c.this);
                                         } catch (Throwable th2) {
                                             th = th2;
@@ -485,7 +485,7 @@ public class c {
                     break;
                 }
             }
-            e.avH().x(c.this);
+            e.avI().x(c.this);
             j.as(c.TAG, "test run out ***************************************************************" + c.this);
         }
     };
@@ -514,7 +514,7 @@ public class c {
         if (this.bNk != null) {
             this.cLh = j;
             this.cLi = j2;
-            this.cLu = m.qA(this.bNk);
+            this.cLu = m.qB(this.bNk);
             if (this.cLu != null) {
                 File file = new File(i.cLR + this.cLu);
                 File file2 = new File(file.getAbsolutePath() + "/segments");
@@ -533,7 +533,7 @@ public class c {
                     this.cLr = false;
                     this.cLs = -1L;
                     this.cLt = false;
-                    l.avR().k(this.cLy);
+                    l.avS().k(this.cLy);
                 }
             }
         }
@@ -544,8 +544,8 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean avD() {
-        if (m.qz(this.cLu) > this.bWP) {
+    public boolean avE() {
+        if (m.qA(this.cLu) > this.bWP) {
             m.O(new File(i.cLR + this.cLu + "/segments"));
             TiebaStatic.log(new am("c12028").bJ("errormsg", "校验到缓存文件片段大小有异常").bJ("url", this.bNk));
             j.as(TAG, "cache error !");
@@ -565,7 +565,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean avE() {
+    public boolean avF() {
         if (!this.cLo || this.cLn != -1) {
             return false;
         }
@@ -590,7 +590,7 @@ public class c {
             return;
         }
         if (file == null || !file.exists()) {
-            k.avQ().qx(this.bNk);
+            k.avR().qy(this.bNk);
         }
     }
 

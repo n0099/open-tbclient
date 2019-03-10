@@ -9,7 +9,7 @@ import java.io.File;
 /* loaded from: classes.dex */
 public class b extends BdAsyncTask<Void, Void, String> {
     public static final String cQv = File.separator;
-    private a jgN;
+    private a jhh;
     private String mPath;
     private String mUrl;
 
@@ -21,7 +21,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
     public b(String str, String str2, a aVar) {
         this.mPath = str;
         this.mUrl = str2;
-        this.jgN = aVar;
+        this.jhh = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -40,7 +40,7 @@ public class b extends BdAsyncTask<Void, Void, String> {
         e eVar = new e();
         eVar.jr().setUrl(this.mUrl);
         if (new com.baidu.adp.lib.network.http.c(eVar).a(str, null, 3, 3000, -1, -1, true, true)) {
-            return cmF();
+            return cmP();
         }
         return "";
     }
@@ -49,16 +49,16 @@ public class b extends BdAsyncTask<Void, Void, String> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
     public void onPostExecute(String str) {
-        if (this.jgN != null) {
+        if (this.jhh != null) {
             if (!ap.isEmpty(str)) {
-                this.jgN.b(true, str, this.mUrl);
+                this.jhh.b(true, str, this.mUrl);
             } else {
-                this.jgN.b(false, null, null);
+                this.jhh.b(false, null, null);
             }
         }
     }
 
-    private String cmF() {
+    private String cmP() {
         File file = new File(this.mPath + cQv + "videosplash.temp");
         File file2 = new File(this.mPath + cQv + (s.bC(this.mUrl) + ".mp4"));
         if (file2.exists()) {

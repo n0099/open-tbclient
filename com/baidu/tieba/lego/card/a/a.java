@@ -8,7 +8,7 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lego.f;
 /* loaded from: classes.dex */
 public abstract class a<T extends v.a> extends com.baidu.adp.widget.ListView.a<ICardInfo, T> implements f {
-    protected int gGA;
+    protected int gGB;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context, BdUniqueId bdUniqueId) {
@@ -16,6 +16,6 @@ public abstract class a<T extends v.a> extends com.baidu.adp.widget.ListView.a<I
     }
 
     public void setBusinessType(int i) {
-        this.gGA = i;
+        this.gGB = i;
     }
 }

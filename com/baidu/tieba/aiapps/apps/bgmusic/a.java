@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.bgmusic;
 public class a {
     private static volatile SwanAppBgMusicPlayerImpl cSZ;
 
-    public static synchronized SwanAppBgMusicPlayerImpl ayI() {
+    public static synchronized SwanAppBgMusicPlayerImpl ayJ() {
         SwanAppBgMusicPlayerImpl swanAppBgMusicPlayerImpl;
         synchronized (a.class) {
             if (cSZ == null) {

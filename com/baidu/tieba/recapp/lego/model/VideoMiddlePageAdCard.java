@@ -64,8 +64,8 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, com
         this.operateData.parseFromJson(optJSONObject3);
         this.parallelChargeInfo = new b.a();
         this.parallelChargeInfo.parseFromJson(jSONObject);
-        if (TextUtils.isEmpty(this.operateData.iij)) {
-            this.operateData.iij = this.userName;
+        if (TextUtils.isEmpty(this.operateData.iik)) {
+            this.operateData.iik = this.userName;
         }
     }
 
@@ -131,7 +131,7 @@ public class VideoMiddlePageAdCard extends BaseLegoCardInfo implements h, b, com
             }
             jSONObject.put(WriteVideoActivityConfig.VIDEO_INFO, jSONObject2);
             jSONObject.put(WebVideoActivityConfig.KEY_TAIL_FRAME, this.tailFrame.toJson());
-            jSONObject.put("operate", this.operateData.bFy());
+            jSONObject.put("operate", this.operateData.bFz());
             if (this.adFacadeData != null && this.adFacadeData.pS() != null) {
                 jSONObject.put("extraparams", this.adFacadeData.pS().ext);
             }

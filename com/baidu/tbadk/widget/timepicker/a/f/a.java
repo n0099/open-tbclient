@@ -59,7 +59,7 @@ public class a {
     public void initViews() {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2, 80);
         LayoutInflater from = LayoutInflater.from(this.context);
-        if (atz()) {
+        if (atA()) {
             this.cFA = (ViewGroup) from.inflate(d.h.layout_basepickerview, (ViewGroup) null, false);
             this.cFA.setBackgroundColor(0);
             this.cFz = (ViewGroup) this.cFA.findViewById(d.g.content_container);
@@ -95,7 +95,7 @@ public class a {
     }
 
     public void show() {
-        if (atz()) {
+        if (atA()) {
             showDialog();
         } else if (!isShowing()) {
             this.isShowing = true;
@@ -112,15 +112,15 @@ public class a {
     }
 
     public boolean isShowing() {
-        if (atz()) {
+        if (atA()) {
             return false;
         }
         return this.TF.getParent() != null || this.isShowing;
     }
 
     public void dismiss() {
-        if (atz()) {
-            aty();
+        if (atA()) {
+            atz();
         } else if (!this.cFC) {
             if (this.cFH) {
                 this.cFD.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tbadk.widget.timepicker.a.f.a.2
@@ -130,7 +130,7 @@ public class a {
 
                     @Override // android.view.animation.Animation.AnimationListener
                     public void onAnimationEnd(Animation animation) {
-                        a.this.atw();
+                        a.this.atx();
                     }
 
                     @Override // android.view.animation.Animation.AnimationListener
@@ -139,13 +139,13 @@ public class a {
                 });
                 this.cFz.startAnimation(this.cFD);
             } else {
-                atw();
+                atx();
             }
             this.cFC = true;
         }
     }
 
-    public void atw() {
+    public void atx() {
         this.cEt.decorView.post(new Runnable() { // from class: com.baidu.tbadk.widget.timepicker.a.f.a.3
             @Override // java.lang.Runnable
             public void run() {
@@ -169,7 +169,7 @@ public class a {
 
     public void fw(boolean z) {
         ViewGroup viewGroup;
-        if (atz()) {
+        if (atA()) {
             viewGroup = this.cFA;
         } else {
             viewGroup = this.TF;
@@ -196,7 +196,7 @@ public class a {
         return this;
     }
 
-    public void atx() {
+    public void aty() {
         if (this.mDialog != null) {
             this.mDialog.setCancelable(this.cEt.cFl);
         }
@@ -233,7 +233,7 @@ public class a {
         }
     }
 
-    private void aty() {
+    private void atz() {
         if (this.mDialog != null) {
             this.mDialog.dismiss();
         }
@@ -243,7 +243,7 @@ public class a {
         return this.mDialog;
     }
 
-    public boolean atz() {
+    public boolean atA() {
         return false;
     }
 }

@@ -22,7 +22,7 @@ public class b extends a implements View.OnClickListener {
     }
 
     private void initView(Context context) {
-        atx();
+        aty();
         initViews();
         initAnim();
         if (this.cEt.cEw == null) {
@@ -58,7 +58,7 @@ public class b extends a implements View.OnClickListener {
         if (this.cEt.cEv != null) {
             this.cFL.a(new com.baidu.tbadk.widget.timepicker.a.d.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.b.1
                 @Override // com.baidu.tbadk.widget.timepicker.a.d.b
-                public void atv() {
+                public void atw() {
                     try {
                         b.this.cEt.cEv.p(c.cFN.parse(b.this.cFL.getTime()));
                     } catch (ParseException e) {
@@ -69,27 +69,27 @@ public class b extends a implements View.OnClickListener {
         }
         this.cFL.fy(this.cEt.cEG);
         if (this.cEt.startYear != 0 && this.cEt.endYear != 0 && this.cEt.startYear <= this.cEt.endYear) {
-            atA();
+            atB();
         }
         if (this.cEt.cED != null && this.cEt.cEE != null) {
             if (this.cEt.cED.getTimeInMillis() > this.cEt.cEE.getTimeInMillis()) {
                 throw new IllegalArgumentException("startDate can't be later than endDate");
             }
-            atB();
+            atC();
         } else if (this.cEt.cED != null) {
             if (this.cEt.cED.get(1) < 1900) {
                 throw new IllegalArgumentException("The startDate can not as early as 1900");
             }
-            atB();
+            atC();
         } else if (this.cEt.cEE != null) {
             if (this.cEt.cEE.get(1) > 2100) {
                 throw new IllegalArgumentException("The endDate should not be later than 2100");
             }
-            atB();
+            atC();
         } else {
-            atB();
+            atC();
         }
-        atD();
+        atE();
         this.cFL.c(this.cEt.cEH, this.cEt.cEI, this.cEt.cEJ, this.cEt.cEK, this.cEt.cEL, this.cEt.cEM);
         this.cFL.h(this.cEt.cEN, this.cEt.cEO, this.cEt.cEP, this.cEt.cEQ, this.cEt.cER, this.cEt.cES);
         fx(this.cEt.cFl);
@@ -102,17 +102,17 @@ public class b extends a implements View.OnClickListener {
         this.cFL.fz(this.cEt.cFm);
     }
 
-    private void atA() {
+    private void atB() {
         this.cFL.setStartYear(this.cEt.startYear);
         this.cFL.lc(this.cEt.endYear);
     }
 
-    private void atB() {
+    private void atC() {
         this.cFL.a(this.cEt.cED, this.cEt.cEE);
-        atC();
+        atD();
     }
 
-    private void atC() {
+    private void atD() {
         if (this.cEt.cED != null && this.cEt.cEE != null) {
             if (this.cEt.cEC == null || this.cEt.cEC.getTimeInMillis() < this.cEt.cED.getTimeInMillis() || this.cEt.cEC.getTimeInMillis() > this.cEt.cEE.getTimeInMillis()) {
                 this.cEt.cEC = this.cEt.cED;
@@ -124,7 +124,7 @@ public class b extends a implements View.OnClickListener {
         }
     }
 
-    private void atD() {
+    private void atE() {
         int i;
         int i2;
         int i3;
@@ -154,12 +154,12 @@ public class b extends a implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (((String) view.getTag()).equals("submit")) {
-            atE();
+            atF();
         }
         dismiss();
     }
 
-    public void atE() {
+    public void atF() {
         if (this.cEt.cEu != null) {
             try {
                 this.cEt.cEu.a(c.cFN.parse(this.cFL.getTime()), this.cFG);
@@ -170,7 +170,7 @@ public class b extends a implements View.OnClickListener {
     }
 
     @Override // com.baidu.tbadk.widget.timepicker.a.f.a
-    public boolean atz() {
+    public boolean atA() {
         return this.cEt.cFk;
     }
 }

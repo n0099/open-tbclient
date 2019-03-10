@@ -41,20 +41,20 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
     private EditText eIe;
     private ImageView eIf;
     private float ezn;
-    private int gvM;
-    private HListView hzL;
-    private com.baidu.tieba.pb.pb.main.emotion.view.a hzM;
-    private double hzN;
-    private int hzO;
+    private int gvN;
+    private HListView hzM;
+    private com.baidu.tieba.pb.pb.main.emotion.view.a hzN;
+    private double hzO;
     private int hzP;
     private int hzQ;
     private int hzR;
-    private b hzS;
-    private RelativeLayout hzT;
-    private boolean hzU;
+    private int hzS;
+    private b hzT;
+    private RelativeLayout hzU;
     private boolean hzV;
-    private com.baidu.tieba.pb.pb.main.emotion.view.b hzW;
-    private TextWatcher hzX;
+    private boolean hzW;
+    private com.baidu.tieba.pb.pb.main.emotion.view.b hzX;
+    private TextWatcher hzY;
     private com.baidu.tieba.pb.pb.main.emotion.a.a mData;
     private float mDownX;
     private int mFlingDistance;
@@ -78,8 +78,8 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
 
     public PbEmotionBar(Context context) {
         super(context);
-        this.hzV = false;
-        this.hzX = new TextWatcher() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.3
+        this.hzW = false;
+        this.hzY = new TextWatcher() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.3
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -93,27 +93,27 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
                 if (editable != null) {
                     String trim = editable.toString().trim();
                     if (TextUtils.isEmpty(trim)) {
-                        if (PbEmotionBar.this.mData != null && !v.T(PbEmotionBar.this.mData.aXK())) {
-                            PbEmotionBar.this.hzM.setData(PbEmotionBar.this.mData.aXK());
-                            PbEmotionBar.this.hzM.notifyDataSetChanged();
+                        if (PbEmotionBar.this.mData != null && !v.T(PbEmotionBar.this.mData.aXL())) {
+                            PbEmotionBar.this.hzN.setData(PbEmotionBar.this.mData.aXL());
+                            PbEmotionBar.this.hzN.notifyDataSetChanged();
                             return;
                         }
                         return;
                     }
-                    if (PbEmotionBar.this.hzW == null) {
-                        PbEmotionBar.this.hzW = new com.baidu.tieba.pb.pb.main.emotion.view.b();
-                        PbEmotionBar.this.hzW.a(PbEmotionBar.this.eHN);
+                    if (PbEmotionBar.this.hzX == null) {
+                        PbEmotionBar.this.hzX = new com.baidu.tieba.pb.pb.main.emotion.view.b();
+                        PbEmotionBar.this.hzX.a(PbEmotionBar.this.eHN);
                     }
-                    PbEmotionBar.this.hzW.Aj(trim);
+                    PbEmotionBar.this.hzX.Ak(trim);
                 }
             }
         };
         this.eHN = new SearchEmotionModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.4
             @Override // com.baidu.tieba.face.SearchEmotionModel.a
             public void a(String str, com.baidu.tieba.face.data.a aVar) {
-                if (aVar != null && !v.T(aVar.aXK()) && PbEmotionBar.this.eIe.getText().toString().trim().equals(str)) {
-                    PbEmotionBar.this.hzM.setData(aVar.aXK());
-                    PbEmotionBar.this.hzM.notifyDataSetChanged();
+                if (aVar != null && !v.T(aVar.aXL()) && PbEmotionBar.this.eIe.getText().toString().trim().equals(str)) {
+                    PbEmotionBar.this.hzN.setData(aVar.aXL());
+                    PbEmotionBar.this.hzN.notifyDataSetChanged();
                 }
             }
 
@@ -126,8 +126,8 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
 
     public PbEmotionBar(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hzV = false;
-        this.hzX = new TextWatcher() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.3
+        this.hzW = false;
+        this.hzY = new TextWatcher() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.3
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -141,27 +141,27 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
                 if (editable != null) {
                     String trim = editable.toString().trim();
                     if (TextUtils.isEmpty(trim)) {
-                        if (PbEmotionBar.this.mData != null && !v.T(PbEmotionBar.this.mData.aXK())) {
-                            PbEmotionBar.this.hzM.setData(PbEmotionBar.this.mData.aXK());
-                            PbEmotionBar.this.hzM.notifyDataSetChanged();
+                        if (PbEmotionBar.this.mData != null && !v.T(PbEmotionBar.this.mData.aXL())) {
+                            PbEmotionBar.this.hzN.setData(PbEmotionBar.this.mData.aXL());
+                            PbEmotionBar.this.hzN.notifyDataSetChanged();
                             return;
                         }
                         return;
                     }
-                    if (PbEmotionBar.this.hzW == null) {
-                        PbEmotionBar.this.hzW = new com.baidu.tieba.pb.pb.main.emotion.view.b();
-                        PbEmotionBar.this.hzW.a(PbEmotionBar.this.eHN);
+                    if (PbEmotionBar.this.hzX == null) {
+                        PbEmotionBar.this.hzX = new com.baidu.tieba.pb.pb.main.emotion.view.b();
+                        PbEmotionBar.this.hzX.a(PbEmotionBar.this.eHN);
                     }
-                    PbEmotionBar.this.hzW.Aj(trim);
+                    PbEmotionBar.this.hzX.Ak(trim);
                 }
             }
         };
         this.eHN = new SearchEmotionModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.4
             @Override // com.baidu.tieba.face.SearchEmotionModel.a
             public void a(String str, com.baidu.tieba.face.data.a aVar) {
-                if (aVar != null && !v.T(aVar.aXK()) && PbEmotionBar.this.eIe.getText().toString().trim().equals(str)) {
-                    PbEmotionBar.this.hzM.setData(aVar.aXK());
-                    PbEmotionBar.this.hzM.notifyDataSetChanged();
+                if (aVar != null && !v.T(aVar.aXL()) && PbEmotionBar.this.eIe.getText().toString().trim().equals(str)) {
+                    PbEmotionBar.this.hzN.setData(aVar.aXL());
+                    PbEmotionBar.this.hzN.notifyDataSetChanged();
                 }
             }
 
@@ -174,8 +174,8 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
 
     public PbEmotionBar(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.hzV = false;
-        this.hzX = new TextWatcher() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.3
+        this.hzW = false;
+        this.hzY = new TextWatcher() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.3
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i2, int i22, int i3) {
             }
@@ -189,27 +189,27 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
                 if (editable != null) {
                     String trim = editable.toString().trim();
                     if (TextUtils.isEmpty(trim)) {
-                        if (PbEmotionBar.this.mData != null && !v.T(PbEmotionBar.this.mData.aXK())) {
-                            PbEmotionBar.this.hzM.setData(PbEmotionBar.this.mData.aXK());
-                            PbEmotionBar.this.hzM.notifyDataSetChanged();
+                        if (PbEmotionBar.this.mData != null && !v.T(PbEmotionBar.this.mData.aXL())) {
+                            PbEmotionBar.this.hzN.setData(PbEmotionBar.this.mData.aXL());
+                            PbEmotionBar.this.hzN.notifyDataSetChanged();
                             return;
                         }
                         return;
                     }
-                    if (PbEmotionBar.this.hzW == null) {
-                        PbEmotionBar.this.hzW = new com.baidu.tieba.pb.pb.main.emotion.view.b();
-                        PbEmotionBar.this.hzW.a(PbEmotionBar.this.eHN);
+                    if (PbEmotionBar.this.hzX == null) {
+                        PbEmotionBar.this.hzX = new com.baidu.tieba.pb.pb.main.emotion.view.b();
+                        PbEmotionBar.this.hzX.a(PbEmotionBar.this.eHN);
                     }
-                    PbEmotionBar.this.hzW.Aj(trim);
+                    PbEmotionBar.this.hzX.Ak(trim);
                 }
             }
         };
         this.eHN = new SearchEmotionModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.4
             @Override // com.baidu.tieba.face.SearchEmotionModel.a
             public void a(String str, com.baidu.tieba.face.data.a aVar) {
-                if (aVar != null && !v.T(aVar.aXK()) && PbEmotionBar.this.eIe.getText().toString().trim().equals(str)) {
-                    PbEmotionBar.this.hzM.setData(aVar.aXK());
-                    PbEmotionBar.this.hzM.notifyDataSetChanged();
+                if (aVar != null && !v.T(aVar.aXL()) && PbEmotionBar.this.eIe.getText().toString().trim().equals(str)) {
+                    PbEmotionBar.this.hzN.setData(aVar.aXL());
+                    PbEmotionBar.this.hzN.notifyDataSetChanged();
                 }
             }
 
@@ -225,16 +225,16 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
         inflate(getContext(), d.h.layout_pb_emotion_bar, this);
         setOrientation(1);
         setBackgroundColor(getResources().getColor(d.C0236d.cp_bg_line_d));
-        this.hzL = (HListView) findViewById(d.g.lv_emotion);
-        this.hzM = new com.baidu.tieba.pb.pb.main.emotion.view.a();
-        this.hzM.a(this);
-        this.hzL.setAdapter((ListAdapter) this.hzM);
-        this.hzL.setDividerWidth(l.h(getContext(), d.e.ds7));
-        this.hzL.setSelector(getResources().getDrawable(d.f.transparent_bg));
-        this.hzT = (RelativeLayout) findViewById(d.g.layout_search);
+        this.hzM = (HListView) findViewById(d.g.lv_emotion);
+        this.hzN = new com.baidu.tieba.pb.pb.main.emotion.view.a();
+        this.hzN.a(this);
+        this.hzM.setAdapter((ListAdapter) this.hzN);
+        this.hzM.setDividerWidth(l.h(getContext(), d.e.ds7));
+        this.hzM.setSelector(getResources().getDrawable(d.f.transparent_bg));
+        this.hzU = (RelativeLayout) findViewById(d.g.layout_search);
         this.eIe = (EditText) findViewById(d.g.edit_search);
         this.eIf = (ImageView) findViewById(d.g.iv_search);
-        this.eIe.addTextChangedListener(this.hzX);
+        this.eIe.addTextChangedListener(this.hzY);
         this.eIe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -247,18 +247,18 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
                 int i5 = i4 - i3;
                 int length = 30 - (spanned.length() - i5);
                 String obj = spanned.toString();
-                int pN = ab.pN(obj);
+                int pO = ab.pO(obj);
                 if (i5 > 0) {
                     int i6 = i3;
                     while (i6 < i5 + i3 && obj.length() < i6) {
-                        int d = pN - ab.d(obj.charAt(i6));
+                        int d = pO - ab.d(obj.charAt(i6));
                         i6++;
-                        pN = d;
+                        pO = d;
                     }
                 } else {
-                    pN += ab.pN(charSequence.toString());
+                    pO += ab.pO(charSequence.toString());
                 }
-                if (pN > 30 || length <= 0) {
+                if (pO > 30 || length <= 0) {
                     return "";
                 }
                 if (length >= i2 - i) {
@@ -272,12 +272,12 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
         this.mMaximumVelocity = ViewConfiguration.getMaximumFlingVelocity();
         this.mMinimumVelocity = ViewConfiguration.getMinimumFlingVelocity();
         this.mFlingDistance = l.h(getContext(), d.e.ds150);
-        this.hzP = l.h(getContext(), d.e.ds58);
-        this.hzQ = l.h(getContext(), d.e.ds114);
-        this.gvM = l.h(getContext(), d.e.ds10);
-        this.hzO = this.mScreenWidth - l.h(getContext(), d.e.tbds196);
-        this.hzN = (this.hzP - this.hzQ) * (1.0d / this.hzO);
-        this.hzR = l.h(getContext(), d.e.ds100);
+        this.hzQ = l.h(getContext(), d.e.ds58);
+        this.hzR = l.h(getContext(), d.e.ds114);
+        this.gvN = l.h(getContext(), d.e.ds10);
+        this.hzP = this.mScreenWidth - l.h(getContext(), d.e.tbds196);
+        this.hzO = (this.hzQ - this.hzR) * (1.0d / this.hzP);
+        this.hzS = l.h(getContext(), d.e.ds100);
         onChangeSkinType();
     }
 
@@ -288,7 +288,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
             case 0:
                 return false;
             case 1:
-                if (((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin == this.hzO && J(motionEvent)) {
+                if (((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin == this.hzP && J(motionEvent)) {
                     ob(true);
                     break;
                 }
@@ -309,7 +309,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
         if (((RelativeLayout.LayoutParams) getLayoutParams()).leftMargin > 0) {
             return true;
         }
-        if (this.hzL.getChildCount() <= 0 || this.hzL.getFirstVisiblePosition() != 0 || (childAt = this.hzL.getChildAt(0)) == null || childAt.getLeft() < 0 || motionEvent.getRawX() <= this.ezn) {
+        if (this.hzM.getChildCount() <= 0 || this.hzM.getFirstVisiblePosition() != 0 || (childAt = this.hzM.getChildAt(0)) == null || childAt.getLeft() < 0 || motionEvent.getRawX() <= this.ezn) {
             setCanShowEmotionPreview(true);
             return false;
         }
@@ -323,17 +323,17 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
         boolean dispatchTouchEvent2;
         this.mParent.requestDisallowInterceptTouchEvent(true);
         if (!onInterceptTouchEvent(motionEvent)) {
-            if (this.hzV && motionEvent.getAction() == 2) {
+            if (this.hzW && motionEvent.getAction() == 2) {
                 MotionEvent obtain = MotionEvent.obtain(motionEvent);
                 obtain.setAction(0);
                 dispatchTouchEvent2 = super.dispatchTouchEvent(obtain);
             } else {
                 dispatchTouchEvent2 = super.dispatchTouchEvent(motionEvent);
             }
-            this.hzV = false;
+            this.hzW = false;
             dispatchTouchEvent = dispatchTouchEvent2;
         } else {
-            this.hzV = true;
+            this.hzW = true;
             dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
         }
         switch (motionEvent.getAction()) {
@@ -386,12 +386,12 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
                 setCanShowEmotionPreview(false);
                 int rawX2 = layoutParams.leftMargin + ((int) (motionEvent.getRawX() - this.ezn));
                 if (rawX2 >= 0) {
-                    i = rawX2 > this.hzO ? this.hzO : rawX2;
+                    i = rawX2 > this.hzP ? this.hzP : rawX2;
                 }
                 if (layoutParams.leftMargin != i) {
                     layoutParams.leftMargin = i;
                     int wC = wC(i);
-                    if (wC <= this.hzQ && wC >= this.hzP) {
+                    if (wC <= this.hzR && wC >= this.hzQ) {
                         wE(i);
                         wD(wC);
                         wF(layoutParams.leftMargin);
@@ -410,20 +410,20 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public int wC(int i) {
-        return (int) ((this.hzN * i) + this.hzQ);
+        return (int) ((this.hzO * i) + this.hzR);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void wD(int i) {
-        this.hzL.getLayoutParams().height = (this.gvM * 2) + i;
-        this.hzM.wD(i);
+        this.hzM.getLayoutParams().height = (this.gvN * 2) + i;
+        this.hzN.wD(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void wE(int i) {
-        float f = 1.0f - ((i * 1.0f) / this.hzO);
-        this.hzT.getLayoutParams().height = (int) (this.hzR * f);
-        this.hzT.setAlpha(f);
+        float f = 1.0f - ((i * 1.0f) / this.hzP);
+        this.hzU.getLayoutParams().height = (int) (this.hzS * f);
+        this.hzU.setAlpha(f);
         this.eIf.setScaleX(f);
         this.eIf.setScaleY(f);
         this.eIe.setTextSize(0, f * l.h(getContext(), d.e.fontsize32));
@@ -464,7 +464,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
             return;
         }
         int i = layoutParams.leftMargin;
-        int i2 = this.hzO;
+        int i2 = this.hzP;
         if (z) {
             i2 = 0;
             TiebaStatic.log("c12175");
@@ -489,8 +489,8 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
     }
 
     public void setOnEmotionClickListener(final a aVar) {
-        if (aVar != null && this.hzM != null) {
-            this.hzM.a(new a() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.8
+        if (aVar != null && this.hzN != null) {
+            this.hzN.a(new a() { // from class: com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.8
                 @Override // com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.a
                 public void b(EmotionImageData emotionImageData, boolean z) {
                     aVar.b(emotionImageData, z);
@@ -499,7 +499,7 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
                 @Override // com.baidu.tieba.pb.pb.main.emotion.view.PbEmotionBar.a
                 public void b(String str, List<String> list, List<String> list2) {
                     if (PbEmotionBar.this.mData != null) {
-                        aVar.b(PbEmotionBar.this.eIe.getText().toString(), PbEmotionBar.this.mData.bNJ(), list2);
+                        aVar.b(PbEmotionBar.this.eIe.getText().toString(), PbEmotionBar.this.mData.bNK(), list2);
                         TiebaStatic.log("c12177");
                     }
                 }
@@ -509,12 +509,12 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setCanShowEmotionPreview(boolean z) {
-        this.hzU = z;
+        this.hzV = z;
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public boolean aXM() {
-        return this.hzU;
+    public boolean aXN() {
+        return this.hzV;
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
@@ -523,22 +523,22 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public void aXP() {
+    public void aXQ() {
     }
 
     @Override // com.baidu.tieba.face.view.EmotionView.a
-    public void aXQ() {
+    public void aXR() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void wF(int i) {
-        if (this.hzS != null) {
-            this.hzS.onMove((this.hzO - i) * (1.0f / this.hzO));
+        if (this.hzT != null) {
+            this.hzT.onMove((this.hzP - i) * (1.0f / this.hzP));
         }
     }
 
     public void setOnMoveListener(b bVar) {
-        this.hzS = bVar;
+        this.hzT = bVar;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
@@ -546,15 +546,15 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
     }
 
     public void onDestroy() {
-        if (this.hzM != null) {
-            this.hzM.bGl();
+        if (this.hzN != null) {
+            this.hzN.bGm();
         }
-        beY();
+        beZ();
     }
 
-    public void beY() {
-        if (this.hzW != null) {
-            this.hzW.beY();
+    public void beZ() {
+        if (this.hzX != null) {
+            this.hzX.beZ();
         }
     }
 
@@ -562,12 +562,12 @@ public class PbEmotionBar extends LinearLayout implements EmotionView.a {
         al.j(this.eIe, d.C0236d.cp_cont_b);
         this.eIe.setHintTextColor(al.getColor(d.C0236d.cp_cont_e));
         al.l(this, d.C0236d.cp_bg_line_d);
-        if (this.hzM != null) {
-            this.hzM.notifyDataSetChanged();
+        if (this.hzN != null) {
+            this.hzN.notifyDataSetChanged();
         }
     }
 
     public int getMaxLeftMargin() {
-        return this.hzO;
+        return this.hzP;
     }
 }

@@ -40,7 +40,7 @@ public class e {
         return i;
     }
 
-    public static int Cc(int i) {
+    public static int Cd(int i) {
         int i2 = i >>> 24;
         if (i2 == 255) {
             return -1;

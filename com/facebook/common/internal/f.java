@@ -14,7 +14,7 @@ public final class f {
         return Arrays.hashCode(objArr);
     }
 
-    public static a aD(Object obj) {
+    public static a aE(Object obj) {
         return new a(t(obj.getClass()));
     }
 
@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes2.dex */
     public static final class a {
         private final String className;
-        private C0329a jzC;
-        private C0329a jzD;
-        private boolean jzE;
+        private C0332a jzV;
+        private C0332a jzW;
+        private boolean jzX;
 
         private a(String str) {
-            this.jzC = new C0329a();
-            this.jzD = this.jzC;
-            this.jzE = false;
+            this.jzV = new C0332a();
+            this.jzW = this.jzV;
+            this.jzX = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -45,7 +45,7 @@ public final class f {
             return r(str, obj);
         }
 
-        public a ax(String str, boolean z) {
+        public a ay(String str, boolean z) {
             return r(str, String.valueOf(z));
         }
 
@@ -54,45 +54,45 @@ public final class f {
         }
 
         public String toString() {
-            boolean z = this.jzE;
+            boolean z = this.jzX;
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
             String str = "";
-            for (C0329a c0329a = this.jzC.jzF; c0329a != null; c0329a = c0329a.jzF) {
-                if (!z || c0329a.value != null) {
+            for (C0332a c0332a = this.jzV.jzY; c0332a != null; c0332a = c0332a.jzY) {
+                if (!z || c0332a.value != null) {
                     append.append(str);
                     str = ", ";
-                    if (c0329a.name != null) {
-                        append.append(c0329a.name).append('=');
+                    if (c0332a.name != null) {
+                        append.append(c0332a.name).append('=');
                     }
-                    append.append(c0329a.value);
+                    append.append(c0332a.value);
                 }
             }
             return append.append('}').toString();
         }
 
-        private C0329a ctx() {
-            C0329a c0329a = new C0329a();
-            this.jzD.jzF = c0329a;
-            this.jzD = c0329a;
-            return c0329a;
+        private C0332a ctH() {
+            C0332a c0332a = new C0332a();
+            this.jzW.jzY = c0332a;
+            this.jzW = c0332a;
+            return c0332a;
         }
 
         private a r(String str, @Nullable Object obj) {
-            C0329a ctx = ctx();
-            ctx.value = obj;
-            ctx.name = (String) g.checkNotNull(str);
+            C0332a ctH = ctH();
+            ctH.value = obj;
+            ctH.name = (String) g.checkNotNull(str);
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public static final class C0329a {
-            C0329a jzF;
+        public static final class C0332a {
+            C0332a jzY;
             String name;
             Object value;
 
-            private C0329a() {
+            private C0332a() {
             }
         }
     }

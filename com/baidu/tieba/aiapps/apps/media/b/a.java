@@ -42,7 +42,7 @@ public final class a extends com.baidu.swan.apps.model.a.a.a {
 
     public static a a(JSONObject jSONObject, @NonNull a aVar) {
         if (jSONObject == null) {
-            return azx();
+            return azy();
         }
         a aVar2 = new a();
         aVar2.a(jSONObject, (com.baidu.swan.apps.model.a.a.a) aVar);
@@ -60,7 +60,7 @@ public final class a extends com.baidu.swan.apps.model.a.a.a {
         return aVar2;
     }
 
-    public static a azx() {
+    public static a azy() {
         return new a();
     }
 }

@@ -50,7 +50,7 @@ public class RecommendModel extends BdBaseModel {
         registerListener(this.mNetMessageListener);
     }
 
-    public void aXj() {
+    public void aXk() {
         if (!j.kM()) {
             if (this.eEY != null) {
                 this.eEY.a(-1, null);

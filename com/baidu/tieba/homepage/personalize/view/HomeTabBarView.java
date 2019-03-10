@@ -75,9 +75,9 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         }
     }
 
-    public boolean bmc() {
+    public boolean bmd() {
         if (this.fOd != null) {
-            return this.fOd.bmc();
+            return this.fOd.bmd();
         }
         return false;
     }

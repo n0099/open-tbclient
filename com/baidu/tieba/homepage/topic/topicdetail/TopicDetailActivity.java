@@ -31,7 +31,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         adjustResizeForSoftInput();
         this.fOe.a(this);
         loadData();
-        this.fOf.getEditor().bnk();
+        this.fOf.getEditor().bnl();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -68,7 +68,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             this.fOf.iD(true);
             return;
         }
-        this.fOf.aBt();
+        this.fOf.aBu();
         this.fOf.cE(false);
         if (this.fOf != null && this.fOf.getEditor() != null) {
             this.fOf.getEditor().setTopicId(longExtra);
@@ -83,7 +83,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             this.fOf.iD(true);
             return;
         }
-        this.fOf.aBt();
+        this.fOf.aBu();
         this.fOf.setData(aVar);
     }
 

@@ -51,76 +51,76 @@ import java.util.Set;
 import tbclient.Lego.DataRes;
 /* loaded from: classes2.dex */
 public class LegoListFragment extends BaseFragment {
-    public static Set<String> gGd;
+    public static Set<String> gGe;
     private NoNetworkView dok;
     private String from;
     private a fvR;
-    private e gEB;
-    private long gEF;
-    private g gET;
-    private l gEX;
-    private boolean gFA;
+    private e gEC;
+    private long gEG;
+    private g gEU;
+    private l gEY;
     private boolean gFB;
-    private c gFI;
-    private LinearLayout gFM;
-    private LegoListView gFN;
-    private com.baidu.tieba.lego.c.c gFO;
-    private com.baidu.tieba.lego.model.a gFP;
-    private RelativeLayout gFR;
-    private ImageView gFS;
+    private boolean gFC;
+    private c gFJ;
+    private LinearLayout gFN;
+    private LegoListView gFO;
+    private com.baidu.tieba.lego.c.c gFP;
+    private com.baidu.tieba.lego.model.a gFQ;
+    private RelativeLayout gFS;
     private ImageView gFT;
-    private TbImageView gFU;
+    private ImageView gFU;
     private TbImageView gFV;
-    private a.C0268a gFW;
-    private int gFX;
-    private String gFY;
-    private float gFZ;
-    private j gFy;
+    private TbImageView gFW;
+    private a.C0268a gFX;
+    private int gFY;
+    private String gFZ;
+    private j gFz;
+    private float gGa;
     private String itemId;
     private Rect rect;
     private h refreshView;
     private int screenWidth;
-    private boolean gFQ = false;
-    private boolean gEO = false;
+    private boolean gFR = false;
+    private boolean gEP = false;
     private int cZV = -1;
     private int fay = -1;
     private boolean fbe = false;
-    private int gGa = 0;
-    private View gGb = null;
-    private k gGc = null;
-    private com.baidu.tieba.lego.card.view.k gGe = new com.baidu.tieba.lego.card.view.k() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.1
+    private int gGb = 0;
+    private View gGc = null;
+    private k gGd = null;
+    private com.baidu.tieba.lego.card.view.k gGf = new com.baidu.tieba.lego.card.view.k() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.1
         @Override // com.baidu.tieba.lego.card.view.k
-        public void xV(String str) {
-            if (LegoListFragment.this.gEX != null) {
-                LegoListFragment.this.gEX.ye(str);
+        public void xW(String str) {
+            if (LegoListFragment.this.gEY != null) {
+                LegoListFragment.this.gEY.yf(str);
             }
         }
     };
-    private d gGf = new d() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.7
+    private d gGg = new d() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.7
         @Override // com.baidu.tieba.lego.d
         public void a(int i, long j, String str, String str2) {
-            LegoListFragment.this.gFP.a(2, j, str, i, str2);
+            LegoListFragment.this.gFQ.a(2, j, str, i, str2);
         }
 
         @Override // com.baidu.tieba.lego.d
         public void i(long j, String str) {
-            LegoListFragment.this.gFP.p(j, str);
+            LegoListFragment.this.gFQ.p(j, str);
         }
     };
-    private View.OnLayoutChangeListener gGg = new View.OnLayoutChangeListener() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.8
+    private View.OnLayoutChangeListener gGh = new View.OnLayoutChangeListener() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.8
         @Override // android.view.View.OnLayoutChangeListener
         public void onLayoutChange(View view, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
-            LegoListFragment.this.gFI.uW(LegoListFragment.this.bzD());
+            LegoListFragment.this.gFJ.uW(LegoListFragment.this.bzE());
             if (!LegoListFragment.this.isFullScreen()) {
-                LegoListFragment.this.gFI.bAG();
+                LegoListFragment.this.gFJ.bAH();
             }
         }
     };
     private View.OnTouchListener ccU = new View.OnTouchListener() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.9
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (LegoListFragment.this.gFI.bAI()) {
-                if (LegoListFragment.this.gFN != null && view == LegoListFragment.this.gFN.getListView() && LegoListFragment.this.fvR != null) {
+            if (LegoListFragment.this.gFJ.bAJ()) {
+                if (LegoListFragment.this.gFO != null && view == LegoListFragment.this.gFO.getListView() && LegoListFragment.this.fvR != null) {
                     LegoListFragment.this.fvR.onTouchEvent(motionEvent);
                 }
                 return false;
@@ -145,35 +145,35 @@ public class LegoListFragment extends BaseFragment {
     };
     private AbsListView.OnScrollListener mOnScrollListener = new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.11
         private int ctH = 0;
-        private int gGi = 0;
-        private boolean gGj = false;
-        private int gGk = -1;
-        private int gGl = 0;
+        private int gGj = 0;
+        private boolean gGk = false;
+        private int gGl = -1;
+        private int gGm = 0;
 
         @Override // android.widget.AbsListView.OnScrollListener
         public void onScrollStateChanged(AbsListView absListView, int i) {
             View findFocus;
-            LegoListFragment.this.gGa = i;
-            if (1 == i && LegoListFragment.this.gGb != null && (findFocus = LegoListFragment.this.gGb.findFocus()) != null) {
+            LegoListFragment.this.gGb = i;
+            if (1 == i && LegoListFragment.this.gGc != null && (findFocus = LegoListFragment.this.gGc.findFocus()) != null) {
                 findFocus.clearFocus();
             }
             if (i == 0) {
                 LegoListFragment.this.F(1, LegoListFragment.this.fbe);
-                if (this.gGj) {
-                    LegoListFragment.this.gFI.uU(b.gHs);
-                    LegoListFragment.this.gFN.getListView().setSelectionFromTop(this.gGk, this.gGl);
-                    LegoListFragment.this.gFI.bAG();
-                    LegoListFragment.this.gFN.getListView().post(new Runnable() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.11.1
+                if (this.gGk) {
+                    LegoListFragment.this.gFJ.uU(b.gHt);
+                    LegoListFragment.this.gFO.getListView().setSelectionFromTop(this.gGl, this.gGm);
+                    LegoListFragment.this.gFJ.bAH();
+                    LegoListFragment.this.gFO.getListView().post(new Runnable() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.11.1
                         @Override // java.lang.Runnable
                         public void run() {
                             LegoListFragment.this.F(1, LegoListFragment.this.fbe);
-                            AnonymousClass11.this.gGj = false;
+                            AnonymousClass11.this.gGk = false;
                         }
                     });
                 }
             }
-            if (LegoListFragment.this.gGc != null) {
-                LegoListFragment.this.gGc.onScrollStateChanged(absListView, i);
+            if (LegoListFragment.this.gGd != null) {
+                LegoListFragment.this.gGd.onScrollStateChanged(absListView, i);
             }
         }
 
@@ -185,15 +185,15 @@ public class LegoListFragment extends BaseFragment {
             double d;
             int i6;
             int i7;
-            if (LegoListFragment.this.gFI.bAI() && LegoListFragment.this.gFN != null && LegoListFragment.this.gFN.getListView() != null && LegoListFragment.this.gFN.getListView().getChildAt(0) != null) {
-                LegoListFragment.this.gFI.bAG();
+            if (LegoListFragment.this.gFJ.bAJ() && LegoListFragment.this.gFO != null && LegoListFragment.this.gFO.getListView() != null && LegoListFragment.this.gFO.getListView().getChildAt(0) != null) {
+                LegoListFragment.this.gFJ.bAH();
                 boolean z2 = true;
                 if (i == this.ctH && LegoListFragment.this.fbe) {
                     z2 = false;
                 }
-                boolean z3 = ((i + i2) + (-1) != this.gGi || LegoListFragment.this.fbe) ? z2 : false;
+                boolean z3 = ((i + i2) + (-1) != this.gGj || LegoListFragment.this.fbe) ? z2 : false;
                 boolean z4 = false;
-                if (this.gGi < (i + i2) - 1) {
+                if (this.gGj < (i + i2) - 1) {
                     z4 = false;
                     z = true;
                 } else if (this.ctH > i) {
@@ -202,7 +202,7 @@ public class LegoListFragment extends BaseFragment {
                 } else {
                     z = false;
                 }
-                if (z && !this.gGj) {
+                if (z && !this.gGk) {
                     BaseAdapter adapter = LegoListFragment.this.getAdapter();
                     if (!z4) {
                         if (adapter != null && adapter.getCount() > (i + i2) - 1) {
@@ -222,14 +222,14 @@ public class LegoListFragment extends BaseFragment {
                                 i7 = ((BaseLegoCardInfo) item2).getPage();
                             }
                             if (i9 != 0 && i7 != 0 && i9 < i7) {
-                                this.gGj = true;
-                                this.gGk = (i + i2) - 1;
-                                this.gGl = 0;
-                                b.gHs = i7;
-                                LegoListFragment.this.gFN.getListView().post(new Runnable() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.11.2
+                                this.gGk = true;
+                                this.gGl = (i + i2) - 1;
+                                this.gGm = 0;
+                                b.gHt = i7;
+                                LegoListFragment.this.gFO.getListView().post(new Runnable() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.11.2
                                     @Override // java.lang.Runnable
                                     public void run() {
-                                        LegoListFragment.this.gFN.getListView().smoothScrollToPositionFromTop(AnonymousClass11.this.gGk, AnonymousClass11.this.gGl, 400);
+                                        LegoListFragment.this.gFO.getListView().smoothScrollToPositionFromTop(AnonymousClass11.this.gGl, AnonymousClass11.this.gGm, 400);
                                     }
                                 });
                             }
@@ -269,19 +269,19 @@ public class LegoListFragment extends BaseFragment {
                                     i12 = i6;
                                     ratio = d;
                                 }
-                                this.gGj = true;
+                                this.gGk = true;
                                 if (ratio > 2.67d) {
-                                    this.gGk = i + 1;
-                                    this.gGl = (int) ((com.baidu.adp.lib.util.l.s(LegoListFragment.this.getActivity()).widthPixels * 1.78d) + 0.5d);
+                                    this.gGl = i + 1;
+                                    this.gGm = (int) ((com.baidu.adp.lib.util.l.s(LegoListFragment.this.getActivity()).widthPixels * 1.78d) + 0.5d);
                                 } else {
-                                    this.gGk = i12;
-                                    this.gGl = 0;
+                                    this.gGl = i12;
+                                    this.gGm = 0;
                                 }
-                                b.gHs = i4;
-                                LegoListFragment.this.gFN.getListView().post(new Runnable() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.11.3
+                                b.gHt = i4;
+                                LegoListFragment.this.gFO.getListView().post(new Runnable() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.11.3
                                     @Override // java.lang.Runnable
                                     public void run() {
-                                        LegoListFragment.this.gFN.getListView().smoothScrollToPositionFromTop(AnonymousClass11.this.gGk, AnonymousClass11.this.gGl, 400);
+                                        LegoListFragment.this.gFO.getListView().smoothScrollToPositionFromTop(AnonymousClass11.this.gGl, AnonymousClass11.this.gGm, 400);
                                     }
                                 });
                             }
@@ -289,9 +289,9 @@ public class LegoListFragment extends BaseFragment {
                     }
                 }
                 this.ctH = i;
-                this.gGi = (i + i2) - 1;
-                if (this.gGl > 0) {
-                    this.gGi--;
+                this.gGj = (i + i2) - 1;
+                if (this.gGm > 0) {
+                    this.gGj--;
                 }
                 LegoListFragment.this.fay = i;
                 LegoListFragment.this.cZV = (i + i2) - 1;
@@ -301,51 +301,51 @@ public class LegoListFragment extends BaseFragment {
             }
         }
     };
-    private Runnable fUJ = new Runnable() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.12
+    private Runnable fUK = new Runnable() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.12
         @Override // java.lang.Runnable
         public void run() {
-            if (LegoListFragment.this.gEX != null) {
-                LegoListFragment.this.gEX.bAV();
+            if (LegoListFragment.this.gEY != null) {
+                LegoListFragment.this.gEY.bAW();
             }
         }
     };
 
-    public static void bzB() {
-        if (gGd == null) {
-            gGd = new HashSet();
+    public static void bzC() {
+        if (gGe == null) {
+            gGe = new HashSet();
         } else {
-            gGd.clear();
+            gGe.clear();
         }
     }
 
-    public int bzC() {
-        return this.gGa;
+    public int bzD() {
+        return this.gGb;
     }
 
     public void b(j jVar) {
-        this.gFy = jVar;
+        this.gFz = jVar;
     }
 
     public void a(c cVar) {
-        this.gFI = cVar;
-        this.gFI.a(this.gGe);
+        this.gFJ = cVar;
+        this.gFJ.a(this.gGf);
     }
 
     @Override // android.support.v4.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
-        if (configuration != null && this.gFR != null) {
+        if (configuration != null && this.gFS != null) {
             if (configuration.orientation == 2) {
-                this.gFR.setVisibility(8);
-            } else if (this.gFB) {
-                this.gFR.setVisibility(0);
+                this.gFS.setVisibility(8);
+            } else if (this.gFC) {
+                this.gFS.setVisibility(0);
             } else {
-                this.gFR.setVisibility(8);
+                this.gFS.setVisibility(8);
             }
         }
     }
 
     public void dp(long j) {
-        this.gEF = j;
+        this.gEG = j;
     }
 
     public void setItemId(String str) {
@@ -353,114 +353,114 @@ public class LegoListFragment extends BaseFragment {
     }
 
     public void setImmersive(boolean z) {
-        this.gEO = z;
+        this.gEP = z;
     }
 
     public boolean isFullScreen() {
-        return !this.gFI.bAI();
+        return !this.gFJ.bAJ();
     }
 
-    public int bzD() {
+    public int bzE() {
         int[] iArr = new int[2];
-        this.gFN.getLocationOnScreen(iArr);
+        this.gFO.getLocationOnScreen(iArr);
         return iArr[1];
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void F(int i, boolean z) {
-        if (this.gEX != null && this.gFN != null && this.gFN.getListView() != null && this.gFN.gEC != null && this.gFN.gEC.getCount() != 0) {
-            this.gEX.a(this.fay, this.cZV, z, i);
+        if (this.gEY != null && this.gFO != null && this.gFO.getListView() != null && this.gFO.gED != null && this.gFO.gED.getCount() != 0) {
+            this.gEY.a(this.fay, this.cZV, z, i);
         }
     }
 
     public void a(k kVar) {
-        this.gGc = kVar;
+        this.gGd = kVar;
     }
 
     public void b(RelativeLayout relativeLayout) {
-        this.gFR = relativeLayout;
+        this.gFS = relativeLayout;
     }
 
     @Override // android.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.screenWidth = com.baidu.adp.lib.util.l.aO(getActivity());
         FrameLayout frameLayout = new FrameLayout(getActivity());
-        this.gFM = new LinearLayout(getActivity());
-        this.gFM.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        this.gFM.setOrientation(1);
+        this.gFN = new LinearLayout(getActivity());
+        this.gFN.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        this.gFN.setOrientation(1);
         this.dok = new NoNetworkView(getActivity());
-        if (!this.gFB) {
-            this.gFM.addView(this.dok);
+        if (!this.gFC) {
+            this.gFN.addView(this.dok);
             if (com.baidu.adp.lib.util.l.lo()) {
                 this.dok.setVisibility(8);
             } else {
                 this.dok.setVisibility(0);
             }
         }
-        this.gFN = a(this.gGf);
-        this.gFN.setDrawingCacheEnabled(false);
-        this.gEB = new e();
-        this.gEB.gKV = this.gEF;
-        this.gEB.itemId = this.itemId;
-        this.gFO = new com.baidu.tieba.lego.c.c(this.gEB);
-        this.gFN.a(this.gFO, true);
-        this.gFM.addView(this.gFN);
-        this.gFN.getListView().setOnScrollListener(this.mOnScrollListener);
-        this.gFN.getListView().addOnLayoutChangeListener(this.gGg);
-        this.gFN.getListView().setOnTouchListener(this.ccU);
+        this.gFO = a(this.gGg);
+        this.gFO.setDrawingCacheEnabled(false);
+        this.gEC = new e();
+        this.gEC.gKW = this.gEG;
+        this.gEC.itemId = this.itemId;
+        this.gFP = new com.baidu.tieba.lego.c.c(this.gEC);
+        this.gFO.a(this.gFP, true);
+        this.gFN.addView(this.gFO);
+        this.gFO.getListView().setOnScrollListener(this.mOnScrollListener);
+        this.gFO.getListView().addOnLayoutChangeListener(this.gGh);
+        this.gFO.getListView().setOnTouchListener(this.ccU);
         this.fvR = new com.baidu.tieba.f.a();
         this.fvR.a(this.dMw);
-        this.gEX = this.gFN.getPlaySwitchController();
-        frameLayout.addView(this.gFM, new FrameLayout.LayoutParams(-1, -1));
-        if (this.gFB) {
-            this.gFR.setVisibility(0);
-            this.gFT = (ImageView) this.gFR.findViewById(d.g.btn_share);
+        this.gEY = this.gFO.getPlaySwitchController();
+        frameLayout.addView(this.gFN, new FrameLayout.LayoutParams(-1, -1));
+        if (this.gFC) {
+            this.gFS.setVisibility(0);
+            this.gFU = (ImageView) this.gFS.findViewById(d.g.btn_share);
+            com.baidu.adp.lib.util.l.b(getActivity(), this.gFU, 20, 20, 20, 20);
+            this.gFU.setVisibility(8);
+            this.gFT = (ImageView) this.gFS.findViewById(d.g.btn_close);
             com.baidu.adp.lib.util.l.b(getActivity(), this.gFT, 20, 20, 20, 20);
-            this.gFT.setVisibility(8);
-            this.gFS = (ImageView) this.gFR.findViewById(d.g.btn_close);
-            com.baidu.adp.lib.util.l.b(getActivity(), this.gFS, 20, 20, 20, 20);
-            this.gFS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.13
+            this.gFT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.13
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     LegoListFragment.this.oS();
                 }
             });
             getBaseFragmentActivity().setSwipeBackEnabled(false);
-            if (this.gFA && this.gFW != null && this.gFW.isValid()) {
+            if (this.gFB && this.gFX != null && this.gFX.isValid()) {
                 frameLayout.setBackgroundColor(getActivity().getResources().getColor(d.C0236d.black_alpha100));
-                this.gFX = com.baidu.adp.lib.util.l.r(getActivity());
-                this.rect = this.gFW.rect;
-                this.rect.top -= this.gFX;
-                this.rect.bottom -= this.gFX;
-                this.gFU = new TbImageView(getActivity());
-                this.gFU.setScaleType(ImageView.ScaleType.FIT_XY);
+                this.gFY = com.baidu.adp.lib.util.l.r(getActivity());
+                this.rect = this.gFX.rect;
+                this.rect.top -= this.gFY;
+                this.rect.bottom -= this.gFY;
+                this.gFV = new TbImageView(getActivity());
+                this.gFV.setScaleType(ImageView.ScaleType.FIT_XY);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.rect.right - this.rect.left, this.rect.bottom - this.rect.top);
                 layoutParams.setMargins(this.rect.left, this.rect.top, 0, 0);
-                this.gFU.setLayoutParams(layoutParams);
-                this.gFU.startLoad(this.gFW.picUrl, 17, false);
-                frameLayout.addView(this.gFU, layoutParams);
-                if (this.gFW.bzM()) {
-                    Rect rect = this.gFW.gGD;
-                    this.gFZ = com.baidu.adp.lib.util.l.h(getActivity(), d.e.ds10);
-                    this.gFV = new TbImageView(getActivity());
-                    this.gFV.setScaleType(ImageView.ScaleType.FIT_XY);
+                this.gFV.setLayoutParams(layoutParams);
+                this.gFV.startLoad(this.gFX.picUrl, 17, false);
+                frameLayout.addView(this.gFV, layoutParams);
+                if (this.gFX.bzN()) {
+                    Rect rect = this.gFX.gGE;
+                    this.gGa = com.baidu.adp.lib.util.l.h(getActivity(), d.e.ds10);
+                    this.gFW = new TbImageView(getActivity());
+                    this.gFW.setScaleType(ImageView.ScaleType.FIT_XY);
                     FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(this.screenWidth, (int) (this.screenWidth * (((rect.bottom - rect.top) * 1.0d) / (rect.right - rect.left))));
-                    layoutParams2.setMargins(0, (int) (((this.screenWidth / (this.rect.right - this.rect.left)) * (this.rect.bottom - this.rect.top)) + this.gFZ), 0, 0);
-                    this.gFV.setLayoutParams(layoutParams2);
-                    this.gFV.startLoad(this.gFW.gGC, 17, false);
-                    frameLayout.addView(this.gFV, layoutParams2);
-                    this.gFV.setVisibility(8);
+                    layoutParams2.setMargins(0, (int) (((this.screenWidth / (this.rect.right - this.rect.left)) * (this.rect.bottom - this.rect.top)) + this.gGa), 0, 0);
+                    this.gFW.setLayoutParams(layoutParams2);
+                    this.gFW.startLoad(this.gFX.gGD, 17, false);
+                    frameLayout.addView(this.gFW, layoutParams2);
+                    this.gFW.setVisibility(8);
                 }
                 l(this.rect);
-                this.gFM.setVisibility(8);
+                this.gFN.setVisibility(8);
             }
-            r.bWG().bWC().b(this.gEF, this.itemId, this.from);
-        } else if (this.gFR != null) {
-            this.gFR.setVisibility(8);
+            r.bWH().bWD().b(this.gEG, this.itemId, this.from);
+        } else if (this.gFS != null) {
+            this.gFS.setVisibility(8);
         }
         FragmentActivity activity = getActivity();
         if (activity != null) {
-            this.gGb = activity.getWindow().getDecorView();
+            this.gGc = activity.getWindow().getDecorView();
         }
         return frameLayout;
     }
@@ -468,30 +468,30 @@ public class LegoListFragment extends BaseFragment {
     private void l(Rect rect) {
         float f = this.screenWidth / (rect.right - rect.left);
         AnimatorSet animatorSet = new AnimatorSet();
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.gFU, "scaleX", 1.0f, f);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.gFU, "scaleY", 1.0f, f);
-        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.gFU, "translationX", -rect.left);
-        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.gFU, "translationY", -rect.top);
-        this.gFU.setPivotX(0.0f);
-        this.gFU.setPivotY(0.0f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.gFV, "scaleX", 1.0f, f);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.gFV, "scaleY", 1.0f, f);
+        ObjectAnimator ofFloat3 = ObjectAnimator.ofFloat(this.gFV, "translationX", -rect.left);
+        ObjectAnimator ofFloat4 = ObjectAnimator.ofFloat(this.gFV, "translationY", -rect.top);
+        this.gFV.setPivotX(0.0f);
+        this.gFV.setPivotY(0.0f);
         animatorSet.setDuration(500L);
         animatorSet.play(ofFloat).with(ofFloat2).with(ofFloat3).with(ofFloat4);
         animatorSet.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.14
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                LegoListFragment.this.gFM.setVisibility(8);
-                LegoListFragment.this.gFU.setVisibility(0);
+                LegoListFragment.this.gFN.setVisibility(8);
+                LegoListFragment.this.gFV.setVisibility(0);
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                if (LegoListFragment.this.gFW.bzM()) {
-                    LegoListFragment.this.gFM.setVisibility(8);
-                    LegoListFragment.this.bzE();
+                if (LegoListFragment.this.gFX.bzN()) {
+                    LegoListFragment.this.gFN.setVisibility(8);
+                    LegoListFragment.this.bzF();
                     return;
                 }
-                LegoListFragment.this.gFM.setVisibility(0);
-                LegoListFragment.this.gFU.setVisibility(8);
+                LegoListFragment.this.gFN.setVisibility(0);
+                LegoListFragment.this.gFV.setVisibility(8);
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -506,26 +506,26 @@ public class LegoListFragment extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bzE() {
-        this.gFV.setVisibility(0);
+    public void bzF() {
+        this.gFW.setVisibility(0);
         AnimatorSet animatorSet = new AnimatorSet();
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.gFV, "translationY", -this.gFZ);
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.gFV, "alpha", 0.0f, 1.0f);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.gFW, "translationY", -this.gGa);
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(this.gFW, "alpha", 0.0f, 1.0f);
         animatorSet.setDuration(500L);
         animatorSet.play(ofFloat).with(ofFloat2);
         animatorSet.start();
         animatorSet.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.2
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                LegoListFragment.this.gFM.setVisibility(8);
-                LegoListFragment.this.gFU.setVisibility(0);
+                LegoListFragment.this.gFN.setVisibility(8);
+                LegoListFragment.this.gFV.setVisibility(0);
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
+                LegoListFragment.this.gFW.setVisibility(8);
                 LegoListFragment.this.gFV.setVisibility(8);
-                LegoListFragment.this.gFU.setVisibility(8);
-                LegoListFragment.this.gFM.setVisibility(0);
+                LegoListFragment.this.gFN.setVisibility(0);
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -539,29 +539,29 @@ public class LegoListFragment extends BaseFragment {
     }
 
     public void oS() {
-        if (this.gFV == null) {
+        if (this.gFW == null) {
             getActivity().finish();
             return;
         }
-        this.gFU.startLoad(this.gFW.picUrl, 17, false);
-        float f = this.rect.top - this.gFX;
+        this.gFV.startLoad(this.gFX.picUrl, 17, false);
+        float f = this.rect.top - this.gFY;
         float f2 = this.screenWidth / (this.rect.right - this.rect.left);
         AnimationSet animationSet = new AnimationSet(false);
         TranslateAnimation translateAnimation = new TranslateAnimation(0.0f, this.rect.left, 0.0f, f);
         ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 1.0f / f2, 1.0f, 1.0f / f2);
-        this.gFU.setPivotX(0.5f);
-        this.gFU.setPivotY(0.5f);
+        this.gFV.setPivotX(0.5f);
+        this.gFV.setPivotY(0.5f);
         animationSet.addAnimation(translateAnimation);
         animationSet.addAnimation(scaleAnimation);
         animationSet.setDuration(200L);
-        this.gFU.startAnimation(animationSet);
+        this.gFV.startAnimation(animationSet);
         animationSet.setFillAfter(true);
         animationSet.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.3
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
-                LegoListFragment.this.gFM.setVisibility(8);
-                if (LegoListFragment.this.gFW.bzM()) {
-                    LegoListFragment.this.gFV.setVisibility(8);
+                LegoListFragment.this.gFN.setVisibility(8);
+                if (LegoListFragment.this.gFX.bzN()) {
+                    LegoListFragment.this.gFW.setVisibility(8);
                 }
             }
 
@@ -577,9 +577,9 @@ public class LegoListFragment extends BaseFragment {
     }
 
     private LegoListView a(com.baidu.tieba.lego.d dVar) {
-        LegoListView legoListView = new LegoListView(getPageContext().getPageActivity(), this.gEO);
-        legoListView.gEC.setFrom(this.from);
-        if (this.gFB) {
+        LegoListView legoListView = new LegoListView(getPageContext().getPageActivity(), this.gEP);
+        legoListView.gED.setFrom(this.from);
+        if (this.gFC) {
             legoListView.setFriction(ViewConfiguration.getScrollFriction() * 12.0f);
         }
         legoListView.i(getUniqueId());
@@ -589,22 +589,22 @@ public class LegoListFragment extends BaseFragment {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dh(List<com.baidu.tieba.lego.c.d> list) {
-        if (this.gFT != null) {
+        if (this.gFU != null) {
             if (v.T(list)) {
-                this.gFT.setVisibility(8);
+                this.gFU.setVisibility(8);
                 return;
             }
             for (int i = 0; i < list.size(); i++) {
                 if (list.get(i).type == 2) {
                     final com.baidu.tieba.lego.c.d dVar = list.get(i);
                     if (!TextUtils.isEmpty(list.get(i).scheme)) {
-                        this.gFT.setVisibility(0);
-                        this.gFT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.4
+                        this.gFU.setVisibility(0);
+                        this.gFU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.4
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
                                 if (LegoListFragment.this.mIsLogin) {
-                                    if (LegoListFragment.this.gFy != null) {
-                                        LegoListFragment.this.gFy.a(dVar);
+                                    if (LegoListFragment.this.gFz != null) {
+                                        LegoListFragment.this.gFz.a(dVar);
                                         return;
                                     }
                                     return;
@@ -621,24 +621,24 @@ public class LegoListFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (!TextUtils.isEmpty(this.gFY)) {
-            this.gFO.yh(this.gFY);
-            if (this.gFO.bBh()) {
-                dh(this.gFO.bBg());
-                this.gFN.a(this.gFO, true);
+        if (!TextUtils.isEmpty(this.gFZ)) {
+            this.gFP.yi(this.gFZ);
+            if (this.gFP.bBi()) {
+                dh(this.gFP.bBh());
+                this.gFO.a(this.gFP, true);
                 return;
             }
         }
-        if (isAdded() && isPrimary() && !this.gFQ) {
-            bzF();
+        if (isAdded() && isPrimary() && !this.gFR) {
+            bzG();
         }
     }
 
-    private void bzF() {
+    private void bzG() {
         if (com.baidu.adp.lib.util.j.kY()) {
             a(getView(), false, getResources().getDimensionPixelSize(d.e.ds360));
         }
-        this.gFN.setViewForeground();
+        this.gFO.setViewForeground();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
@@ -648,8 +648,8 @@ public class LegoListFragment extends BaseFragment {
     }
 
     private void fb() {
-        this.gFP = com.baidu.tieba.lego.d.b.bBl().b(getPageContext(), getUniqueId());
-        this.gFP.a(new com.baidu.tieba.lego.model.b() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.5
+        this.gFQ = com.baidu.tieba.lego.d.b.bBm().b(getPageContext(), getUniqueId());
+        this.gFQ.a(new com.baidu.tieba.lego.model.b() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.5
             @Override // com.baidu.tieba.lego.model.b
             public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
                 if (z) {
@@ -657,21 +657,21 @@ public class LegoListFragment extends BaseFragment {
                 }
                 DataRes dataRes = (DataRes) message;
                 if (!z || (dataRes != null && dataRes.cards != null)) {
-                    LegoListFragment.this.gFQ = true;
-                    LegoListFragment.this.gFO.a(z, dataRes, z2, i);
-                    if (TextUtils.isEmpty(LegoListFragment.this.gFO.bBe()) || TextUtils.isEmpty(LegoListFragment.this.gFO.bBf())) {
-                        if (LegoListFragment.this.gFy != null) {
-                            LegoListFragment.this.gFy.xR(LegoListFragment.this.gFO.getTitle());
+                    LegoListFragment.this.gFR = true;
+                    LegoListFragment.this.gFP.a(z, dataRes, z2, i);
+                    if (TextUtils.isEmpty(LegoListFragment.this.gFP.bBf()) || TextUtils.isEmpty(LegoListFragment.this.gFP.bBg())) {
+                        if (LegoListFragment.this.gFz != null) {
+                            LegoListFragment.this.gFz.xS(LegoListFragment.this.gFP.getTitle());
                         }
-                    } else if (LegoListFragment.this.gFy != null) {
-                        LegoListFragment.this.gFy.dj(LegoListFragment.this.gFO.bBe(), LegoListFragment.this.gFO.bBf());
+                    } else if (LegoListFragment.this.gFz != null) {
+                        LegoListFragment.this.gFz.dj(LegoListFragment.this.gFP.bBf(), LegoListFragment.this.gFP.bBg());
                     }
-                    if (LegoListFragment.this.gFy != null) {
-                        LegoListFragment.this.gFy.df(LegoListFragment.this.gFO.bBg());
+                    if (LegoListFragment.this.gFz != null) {
+                        LegoListFragment.this.gFz.df(LegoListFragment.this.gFP.bBh());
                     }
-                    LegoListFragment.this.gFN.a(LegoListFragment.this.gFO, false);
-                    if (LegoListFragment.this.gEO && LegoListFragment.this.gFB) {
-                        LegoListFragment.this.dh(LegoListFragment.this.gFO.bBg());
+                    LegoListFragment.this.gFO.a(LegoListFragment.this.gFP, false);
+                    if (LegoListFragment.this.gEP && LegoListFragment.this.gFC) {
+                        LegoListFragment.this.dh(LegoListFragment.this.gFP.bBh());
                     }
                 } else if (LegoListFragment.this.getPageContext() != null && LegoListFragment.this.getPageContext().getResources() != null) {
                     LegoListFragment.this.showNetRefreshView(LegoListFragment.this.getView(), LegoListFragment.this.getPageContext().getResources().getString(d.j.neterror), false);
@@ -681,8 +681,8 @@ public class LegoListFragment extends BaseFragment {
             @Override // com.baidu.tieba.lego.model.b
             public void a(long j, String str, String str2, int i) {
                 LegoListFragment.this.bY(LegoListFragment.this.getView());
-                if (LegoListFragment.this.gFO.hasData()) {
-                    LegoListFragment.this.gFN.a(LegoListFragment.this.gFO, false);
+                if (LegoListFragment.this.gFP.hasData()) {
+                    LegoListFragment.this.gFO.a(LegoListFragment.this.gFP, false);
                 } else if (LegoListFragment.this.getPageContext() != null && LegoListFragment.this.getPageContext().getResources() != null) {
                     LegoListFragment.this.showNetRefreshView(LegoListFragment.this.getView(), LegoListFragment.this.getPageContext().getResources().getString(d.j.net_error_text, str2, Integer.valueOf(i)), false);
                 }
@@ -696,22 +696,22 @@ public class LegoListFragment extends BaseFragment {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, boolean z, int i) {
-        if (this.gET == null) {
+        if (this.gEU == null) {
             if (i < 0) {
-                this.gET = new g(getActivity());
+                this.gEU = new g(getActivity());
             } else {
-                this.gET = new g(getActivity(), i);
+                this.gEU = new g(getActivity(), i);
             }
-            this.gET.onChangeSkinType();
+            this.gEU.onChangeSkinType();
         }
-        this.gET.attachView(view, z);
+        this.gEU.attachView(view, z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bY(View view) {
-        if (this.gET != null) {
-            this.gET.dettachView(view);
-            this.gET = null;
+        if (this.gEU != null) {
+            this.gEU.dettachView(view);
+            this.gEU = null;
         }
     }
 
@@ -721,9 +721,9 @@ public class LegoListFragment extends BaseFragment {
             this.refreshView = new h(getPageContext().getPageActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.lego.activity.LegoListFragment.6
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (LegoListFragment.this.gFP != null) {
-                        LegoListFragment.this.gFP.a(2, LegoListFragment.this.gEB.gKV, LegoListFragment.this.gEB.itemId, 1, "");
-                        LegoListFragment.this.aBt();
+                    if (LegoListFragment.this.gFQ != null) {
+                        LegoListFragment.this.gFQ.a(2, LegoListFragment.this.gEC.gKW, LegoListFragment.this.gEC.itemId, 1, "");
+                        LegoListFragment.this.aBu();
                         LegoListFragment.this.a(LegoListFragment.this.getView(), false, LegoListFragment.this.getResources().getDimensionPixelSize(d.e.ds360));
                     }
                 }
@@ -736,7 +736,7 @@ public class LegoListFragment extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aBt() {
+    public void aBu() {
         if (this.refreshView != null) {
             this.refreshView.dettachView(getView());
             this.refreshView = null;
@@ -746,32 +746,32 @@ public class LegoListFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onPause() {
         super.onPause();
-        this.gFN.setViewBackGround();
-        if (this.gEX != null) {
-            this.gEX.md(false);
-            this.gEX.bAU();
+        this.gFO.setViewBackGround();
+        if (this.gEY != null) {
+            this.gEY.md(false);
+            this.gEY.bAV();
         }
-        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.fUJ);
+        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.fUK);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onResume() {
         super.onResume();
-        this.gFN.setViewForeground();
-        if (this.gEX != null) {
-            this.gEX.md(true);
-            com.baidu.adp.lib.g.e.jH().postDelayed(this.fUJ, 200L);
+        this.gFO.setViewForeground();
+        if (this.gEY != null) {
+            this.gEY.md(true);
+            com.baidu.adp.lib.g.e.jH().postDelayed(this.fUK, 200L);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        this.gFN.onDestory();
-        if (this.gEX != null) {
-            this.gEX.destroy();
+        this.gFO.onDestory();
+        if (this.gEY != null) {
+            this.gEY.destroy();
         }
-        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.fUJ);
+        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.fUK);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -779,27 +779,27 @@ public class LegoListFragment extends BaseFragment {
         if (this.dok != null) {
             this.dok.onChangeSkinType(i.aK(getActivity()), i);
         }
-        if (this.gFR != null) {
-            getBaseFragmentActivity().getLayoutMode().onModeChanged(this.gFR);
+        if (this.gFS != null) {
+            getBaseFragmentActivity().getLayoutMode().onModeChanged(this.gFS);
         }
         super.onChangeSkinType(i);
     }
 
-    public void xU(String str) {
-        this.gFY = str;
+    public void xV(String str) {
+        this.gFZ = str;
     }
 
     public void dl(String str, String str2) {
-        this.gFW = a.C0268a.xY(str);
-        this.gFW.xZ(str2);
+        this.gFX = a.C0268a.xZ(str);
+        this.gFX.ya(str2);
     }
 
     public void lT(boolean z) {
-        this.gFA = z;
+        this.gFB = z;
     }
 
     public void lU(boolean z) {
-        this.gFB = z;
+        this.gFC = z;
     }
 
     public void setFrom(String str) {
@@ -807,13 +807,13 @@ public class LegoListFragment extends BaseFragment {
     }
 
     public BaseAdapter getAdapter() {
-        if (this.gFN == null) {
+        if (this.gFO == null) {
             return null;
         }
-        return this.gFN.gEC;
+        return this.gFO.gED;
     }
 
     public l getPlaySwitchController() {
-        return this.gEX;
+        return this.gEY;
     }
 }

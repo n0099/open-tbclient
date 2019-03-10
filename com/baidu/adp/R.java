@@ -1175,16 +1175,16 @@ public final class R {
         public static final int send_error = 0x7f0807ba;
         public static final int share_to = 0x7f0807f7;
         public static final int status_bar_notification_info_overflow = 0x7f080014;
-        public static final int voice_err_create_file_fail = 0x7f080943;
-        public static final int voice_err_file_fail = 0x7f080944;
-        public static final int voice_err_init_fail = 0x7f080945;
-        public static final int voice_err_load_lib_fail = 0x7f080948;
-        public static final int voice_err_no_file = 0x7f080949;
-        public static final int voice_err_other = 0x7f08094a;
-        public static final int voice_err_play = 0x7f08094b;
-        public static final int voice_err_sdcard_nospace = 0x7f08094c;
-        public static final int voice_record_short_tip = 0x7f08094e;
-        public static final int voice_record_timeout_tip = 0x7f08094f;
+        public static final int voice_err_create_file_fail = 0x7f080944;
+        public static final int voice_err_file_fail = 0x7f080945;
+        public static final int voice_err_init_fail = 0x7f080946;
+        public static final int voice_err_load_lib_fail = 0x7f080949;
+        public static final int voice_err_no_file = 0x7f08094a;
+        public static final int voice_err_other = 0x7f08094b;
+        public static final int voice_err_play = 0x7f08094c;
+        public static final int voice_err_sdcard_nospace = 0x7f08094d;
+        public static final int voice_record_short_tip = 0x7f08094f;
+        public static final int voice_record_timeout_tip = 0x7f080950;
     }
 
     /* loaded from: classes.dex */

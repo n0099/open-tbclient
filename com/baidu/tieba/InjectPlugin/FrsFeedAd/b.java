@@ -17,7 +17,7 @@ public class b implements m, com.baidu.tieba.InjectPlugin.a {
     }
 
     @Override // com.baidu.tieba.InjectPlugin.a
-    public Object aug() {
+    public Object auh() {
         return this.cHB;
     }
 
@@ -25,7 +25,7 @@ public class b implements m, com.baidu.tieba.InjectPlugin.a {
         this.cHB = obj;
     }
 
-    public int auh() {
+    public int aui() {
         return this.cHC;
     }
 
@@ -41,7 +41,7 @@ public class b implements m, com.baidu.tieba.InjectPlugin.a {
         }
     }
 
-    public static List<BdUniqueId> aui() {
+    public static List<BdUniqueId> auj() {
         ArrayList arrayList = new ArrayList();
         for (int i = 0; i < cHA.size(); i++) {
             arrayList.add(cHA.valueAt(i));

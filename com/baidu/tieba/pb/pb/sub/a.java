@@ -18,8 +18,8 @@ public class a {
     private com.baidu.tieba.f.b dMv;
     private boolean fny = false;
     private View.OnTouchListener fnz;
-    private BlankView hBx;
-    private InterfaceC0288a hBy;
+    private BlankView hBy;
+    private InterfaceC0288a hBz;
     private NavigationBar mNavigationBar;
     private static final int fnw = l.h(TbadkCoreApplication.getInst(), d.e.ds160);
     private static final int TOUCH_SLOP = l.h(TbadkCoreApplication.getInst(), d.e.ds20);
@@ -27,11 +27,11 @@ public class a {
     /* renamed from: com.baidu.tieba.pb.pb.sub.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public interface InterfaceC0288a {
-        void bgB();
-
         void bgC();
 
-        boolean bgD();
+        void bgD();
+
+        boolean bgE();
     }
 
     public a(BaseActivity baseActivity, View view, NavigationBar navigationBar) {
@@ -56,9 +56,9 @@ public class a {
         this.dMv.a(new a.InterfaceC0243a() { // from class: com.baidu.tieba.pb.pb.sub.a.3
             @Override // com.baidu.tieba.f.a.InterfaceC0243a
             public void aR(int i, int i2) {
-                if (a.this.hBy != null && a.this.hBy.bgD() && Math.abs(i2) > a.TOUCH_SLOP) {
-                    if (a.this.hBx != null) {
-                        a.this.hBx.setBackgroundResource(d.C0236d.transparent);
+                if (a.this.hBz != null && a.this.hBz.bgE() && Math.abs(i2) > a.TOUCH_SLOP) {
+                    if (a.this.hBy != null) {
+                        a.this.hBy.setBackgroundResource(d.C0236d.transparent);
                     }
                     a.this.cNd.finish();
                 }
@@ -66,7 +66,7 @@ public class a {
 
             @Override // com.baidu.tieba.f.a.InterfaceC0243a
             public void aS(int i, int i2) {
-                a.this.bgE();
+                a.this.bgF();
             }
 
             @Override // com.baidu.tieba.f.a.InterfaceC0243a
@@ -81,39 +81,39 @@ public class a {
         }
     }
 
-    public void bgE() {
-        if (this.fny && this.mNavigationBar != null && this.hBx != null && this.hBx.getVisibility() == 0) {
+    public void bgF() {
+        if (this.fny && this.mNavigationBar != null && this.hBy != null && this.hBy.getVisibility() == 0) {
             this.mNavigationBar.setStatusBarVisibility(0);
             this.cNd.setExcludeHeight(0);
-            if (this.hBy != null) {
-                this.hBy.bgB();
+            if (this.hBz != null) {
+                this.hBz.bgC();
             }
-            this.hBx.bgL();
+            this.hBy.bgM();
         }
     }
 
-    public void bgF() {
+    public void bgG() {
         ViewGroup viewGroup;
         if (!this.fny && (viewGroup = (ViewGroup) this.cNd.findViewById(16908290)) != null && (viewGroup.getParent() instanceof LinearLayout)) {
-            this.hBx = new BlankView(this.cNd.getPageContext().getPageActivity());
-            this.hBx.setBackgroundResource(d.C0236d.transparent);
-            ((LinearLayout) viewGroup.getParent()).addView(this.hBx, 0, new LinearLayout.LayoutParams(-1, fnw));
-            this.hBx.setVisibility(0);
-            this.hBx.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.4
+            this.hBy = new BlankView(this.cNd.getPageContext().getPageActivity());
+            this.hBy.setBackgroundResource(d.C0236d.transparent);
+            ((LinearLayout) viewGroup.getParent()).addView(this.hBy, 0, new LinearLayout.LayoutParams(-1, fnw));
+            this.hBy.setVisibility(0);
+            this.hBy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.sub.a.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     a.this.cNd.finish();
                 }
             });
-            this.hBx.setScrollCallBack(new BlankView.a() { // from class: com.baidu.tieba.pb.pb.sub.a.5
+            this.hBy.setScrollCallBack(new BlankView.a() { // from class: com.baidu.tieba.pb.pb.sub.a.5
                 @Override // com.baidu.tieba.pb.pb.sub.BlankView.a
-                public void bgH() {
-                    if (a.this.hBx != null) {
-                        a.this.hBx.setVisibility(8);
+                public void bgI() {
+                    if (a.this.hBy != null) {
+                        a.this.hBy.setVisibility(8);
                     }
                     a.this.fny = false;
-                    if (a.this.hBy != null) {
-                        a.this.hBy.bgC();
+                    if (a.this.hBz != null) {
+                        a.this.hBz.bgD();
                     }
                 }
             });
@@ -123,16 +123,16 @@ public class a {
     }
 
     public void a(InterfaceC0288a interfaceC0288a) {
-        this.hBy = interfaceC0288a;
+        this.hBz = interfaceC0288a;
     }
 
-    public boolean bgG() {
+    public boolean bgH() {
         return this.fny;
     }
 
     public void qP(int i) {
-        if (this.hBx != null) {
-            al.k(this.hBx, i);
+        if (this.hBy != null) {
+            al.k(this.hBy, i);
         }
     }
 }

@@ -85,7 +85,7 @@ public class c implements com.baidu.swan.apps.a.c {
             q(list);
         }
         if (list != null && !list.isEmpty()) {
-            rx.d.bm("").a(Schedulers.io()).c(new rx.functions.b<String>() { // from class: com.baidu.swan.apps.env.c.1
+            rx.d.bn("").a(Schedulers.io()).c(new rx.functions.b<String>() { // from class: com.baidu.swan.apps.env.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 public void call(String str) {

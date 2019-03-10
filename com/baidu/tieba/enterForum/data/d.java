@@ -28,11 +28,11 @@ public class d extends b implements com.baidu.tbadk.mvc.b.a {
         setType(1);
     }
 
-    public String aWj() {
+    public String aWk() {
         return this.mContent;
     }
 
-    public int aWk() {
+    public int aWl() {
         return this.eox;
     }
 
@@ -48,11 +48,11 @@ public class d extends b implements com.baidu.tbadk.mvc.b.a {
         this.eBT = i;
     }
 
-    public int aWl() {
+    public int aWm() {
         return this.eBT;
     }
 
-    public int aWm() {
+    public int aWn() {
         return this.eBW;
     }
 
@@ -60,7 +60,7 @@ public class d extends b implements com.baidu.tbadk.mvc.b.a {
         return this.eBX;
     }
 
-    public int aWn() {
+    public int aWo() {
         return this.eBV;
     }
 
@@ -76,11 +76,11 @@ public class d extends b implements com.baidu.tbadk.mvc.b.a {
         return this.eBU;
     }
 
-    public ThemeColorInfo aWo() {
+    public ThemeColorInfo aWp() {
         return this.eBY;
     }
 
-    public ArrayList<Integer> aWp() {
+    public ArrayList<Integer> aWq() {
         if (this.eBY == null || this.eBY.day == null || this.eBY.night == null) {
             return null;
         }
@@ -102,11 +102,11 @@ public class d extends b implements com.baidu.tbadk.mvc.b.a {
         }
     }
 
-    public boolean aWq() {
+    public boolean aWr() {
         return this.eBW == 1 && this.eBX == 1 && this.bzW != null && this.bzW.private_forum_status.intValue() == 1;
     }
 
-    public boolean aWr() {
+    public boolean aWs() {
         return this.eBW == 1 && this.eBX == 1 && this.bzW != null && this.bzW.private_forum_status.intValue() == 1 && this.bzW.private_forum_audit_status.intValue() == 2;
     }
 
@@ -134,7 +134,7 @@ public class d extends b implements com.baidu.tbadk.mvc.b.a {
         }
     }
 
-    public long aWs() {
+    public long aWt() {
         return this.eCa;
     }
 

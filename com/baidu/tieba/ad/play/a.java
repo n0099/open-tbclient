@@ -53,7 +53,7 @@ public class a implements MediaController.MediaPlayerControl {
         public void handleMessage(Message message) {
             super.handleMessage(message);
             if (message.what == 200) {
-                a.this.awI();
+                a.this.awJ();
             }
         }
     };
@@ -126,7 +126,7 @@ public class a implements MediaController.MediaPlayerControl {
             try {
                 this.bsl.start();
                 this.mCurrentState = 3;
-                awI();
+                awJ();
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -262,7 +262,7 @@ public class a implements MediaController.MediaPlayerControl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void awI() {
+    public void awJ() {
         this.mHandler.removeMessages(200);
         if (this.bsl != null && this.cNF != null) {
             int currentPosition = this.bsl.getCurrentPosition();

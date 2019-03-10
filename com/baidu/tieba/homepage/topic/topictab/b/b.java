@@ -6,8 +6,8 @@ import com.baidu.tieba.d;
 import tbclient.NewTopicList.PkModule;
 /* loaded from: classes4.dex */
 public class b {
-    public a fPR;
     public a fPS;
+    public a fPT;
     public int from;
     public long pkId;
     public long topicId;
@@ -17,22 +17,22 @@ public class b {
         if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
             this.pkId = pkModule.pk_id.longValue();
             this.userPkId = pkModule.user_pk_id.longValue();
-            this.fPR = new a();
-            this.fPR.fPT = pkModule.agree.pk_num.longValue();
-            this.fPR.fPU = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(d.j.topic_detail_pk_support) : pkModule.agree.pk_desc;
-            this.fPR.fPV = pkModule.agree.last_username;
-            this.fPR.fPW = pkModule.agree.pk_icon;
-            this.fPR.fPX = pkModule.agree.has_clicked.longValue() == 1;
-            this.fPR.fPY = pkModule.agree.pk_index.longValue();
-            this.fPR.fPZ = pkModule.agree.pk_icon_after;
             this.fPS = new a();
-            this.fPS.fPT = pkModule.disagree.pk_num.longValue();
-            this.fPS.fPU = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(d.j.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
-            this.fPS.fPV = pkModule.disagree.last_username;
-            this.fPS.fPW = pkModule.disagree.pk_icon;
-            this.fPS.fPX = pkModule.disagree.has_clicked.longValue() == 1;
-            this.fPS.fPY = pkModule.disagree.pk_index.longValue();
-            this.fPS.fPZ = pkModule.disagree.pk_icon_after;
+            this.fPS.fPU = pkModule.agree.pk_num.longValue();
+            this.fPS.fPV = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(d.j.topic_detail_pk_support) : pkModule.agree.pk_desc;
+            this.fPS.fPW = pkModule.agree.last_username;
+            this.fPS.fPX = pkModule.agree.pk_icon;
+            this.fPS.fPY = pkModule.agree.has_clicked.longValue() == 1;
+            this.fPS.fPZ = pkModule.agree.pk_index.longValue();
+            this.fPS.fQa = pkModule.agree.pk_icon_after;
+            this.fPT = new a();
+            this.fPT.fPU = pkModule.disagree.pk_num.longValue();
+            this.fPT.fPV = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(d.j.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
+            this.fPT.fPW = pkModule.disagree.last_username;
+            this.fPT.fPX = pkModule.disagree.pk_icon;
+            this.fPT.fPY = pkModule.disagree.has_clicked.longValue() == 1;
+            this.fPT.fPZ = pkModule.disagree.pk_index.longValue();
+            this.fPT.fQa = pkModule.disagree.pk_icon_after;
         }
     }
 
@@ -40,34 +40,34 @@ public class b {
         if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
             this.pkId = pkModule.pk_id.longValue();
             this.userPkId = pkModule.user_pk_id.longValue();
-            this.fPR = new a();
-            this.fPR.fPT = pkModule.agree.pk_num.longValue();
-            this.fPR.fPU = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(d.j.topic_detail_pk_support) : pkModule.agree.pk_desc;
-            this.fPR.fPV = pkModule.agree.last_username;
-            this.fPR.fPW = pkModule.agree.pk_icon;
-            this.fPR.fPX = pkModule.agree.has_clicked.longValue() == 1;
-            this.fPR.fPY = pkModule.agree.pk_index.longValue();
-            this.fPR.fPZ = pkModule.agree.pk_icon_after;
             this.fPS = new a();
-            this.fPS.fPT = pkModule.disagree.pk_num.longValue();
-            this.fPS.fPU = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(d.j.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
-            this.fPS.fPV = pkModule.disagree.last_username;
-            this.fPS.fPW = pkModule.disagree.pk_icon;
-            this.fPS.fPX = pkModule.disagree.has_clicked.longValue() == 1;
-            this.fPS.fPY = pkModule.disagree.pk_index.longValue();
-            this.fPS.fPZ = pkModule.disagree.pk_icon_after;
+            this.fPS.fPU = pkModule.agree.pk_num.longValue();
+            this.fPS.fPV = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(d.j.topic_detail_pk_support) : pkModule.agree.pk_desc;
+            this.fPS.fPW = pkModule.agree.last_username;
+            this.fPS.fPX = pkModule.agree.pk_icon;
+            this.fPS.fPY = pkModule.agree.has_clicked.longValue() == 1;
+            this.fPS.fPZ = pkModule.agree.pk_index.longValue();
+            this.fPS.fQa = pkModule.agree.pk_icon_after;
+            this.fPT = new a();
+            this.fPT.fPU = pkModule.disagree.pk_num.longValue();
+            this.fPT.fPV = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(d.j.topic_detail_pk_oppose) : pkModule.disagree.pk_desc;
+            this.fPT.fPW = pkModule.disagree.last_username;
+            this.fPT.fPX = pkModule.disagree.pk_icon;
+            this.fPT.fPY = pkModule.disagree.has_clicked.longValue() == 1;
+            this.fPT.fPZ = pkModule.disagree.pk_index.longValue();
+            this.fPT.fQa = pkModule.disagree.pk_icon_after;
         }
     }
 
     /* loaded from: classes4.dex */
     public class a {
-        public long fPT;
-        public String fPU;
+        public long fPU;
         public String fPV;
         public String fPW;
-        public boolean fPX;
-        public long fPY;
-        public String fPZ;
+        public String fPX;
+        public boolean fPY;
+        public long fPZ;
+        public String fQa;
 
         public a() {
         }

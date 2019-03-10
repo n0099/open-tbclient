@@ -51,7 +51,7 @@ public class e {
             aVar.dr(true);
             aVar.b(frsFragment.getPageContext()).aaZ();
             if (!k.isEmpty(g.getImageUrl())) {
-                frsShareCardView.af(g.getImageUrl(), false);
+                frsShareCardView.ag(g.getImageUrl(), false);
             }
         }
     }

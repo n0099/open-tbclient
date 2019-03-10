@@ -561,7 +561,7 @@ public class GifView extends TbImageView implements View.OnClickListener, h, Run
             anl();
             return;
         }
-        boolean apX = l.apX();
+        boolean apY = l.apY();
         com.baidu.adp.base.h aI = i.aI(getContext());
         if (aI != null) {
             bdUniqueId = aI.getUniqueId();
@@ -577,8 +577,8 @@ public class GifView extends TbImageView implements View.OnClickListener, h, Run
         this.mPageId = bdUniqueId;
         this.cmg = null;
         reset();
-        String str = apX ? this.mGifInfo.mDynamicUrl : this.mGifInfo.mStaticUrl;
-        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) c.jB().a(this.mGifInfo.mSharpText, this.mType, this.mGifInfo.mGid, this.mGifInfo.mSharpText, Boolean.valueOf(apX), str);
+        String str = apY ? this.mGifInfo.mDynamicUrl : this.mGifInfo.mStaticUrl;
+        com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) c.jB().a(this.mGifInfo.mSharpText, this.mType, this.mGifInfo.mGid, this.mGifInfo.mSharpText, Boolean.valueOf(apY), str);
         if (aVar != null) {
             stopLoading();
             setGif(aVar);
@@ -589,7 +589,7 @@ public class GifView extends TbImageView implements View.OnClickListener, h, Run
             setHasNoImage(true, this.clQ);
         } else if (!z) {
             startLoading();
-            c.jB().a(this.mGifInfo.mSharpText, this.mType, this.cmj, 0, 0, this.mPageId, this.mGifInfo.mGid, this.mGifInfo.mSharpText, Boolean.valueOf(apX), str);
+            c.jB().a(this.mGifInfo.mSharpText, this.mType, this.cmj, 0, 0, this.mPageId, this.mGifInfo.mGid, this.mGifInfo.mSharpText, Boolean.valueOf(apY), str);
         }
     }
 
@@ -673,15 +673,15 @@ public class GifView extends TbImageView implements View.OnClickListener, h, Run
     public void onClick(View view) {
         if (this.ccm == null || !this.ccm.ay(view)) {
             if (this.mGifInfo != null) {
-                boolean apX = l.apX();
-                String str = apX ? this.mGifInfo.mDynamicUrl : this.mGifInfo.mStaticUrl;
-                com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) c.jB().a(this.mGifInfo.mSharpText, this.mType, this.mGifInfo.mGid, this.mGifInfo.mSharpText, Boolean.valueOf(apX), str);
+                boolean apY = l.apY();
+                String str = apY ? this.mGifInfo.mDynamicUrl : this.mGifInfo.mStaticUrl;
+                com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) c.jB().a(this.mGifInfo.mSharpText, this.mType, this.mGifInfo.mGid, this.mGifInfo.mSharpText, Boolean.valueOf(apY), str);
                 if (aVar != null) {
                     this.mGifInfo.mLoadFailed = false;
                     setGif(aVar);
                 } else {
                     startLoading();
-                    c.jB().a(this.mGifInfo.mSharpText, this.mType, this.cmj, 0, 0, this.mPageId, this.mGifInfo.mGid, this.mGifInfo.mSharpText, Boolean.valueOf(apX), str);
+                    c.jB().a(this.mGifInfo.mSharpText, this.mType, this.cmj, 0, 0, this.mPageId, this.mGifInfo.mGid, this.mGifInfo.mSharpText, Boolean.valueOf(apY), str);
                     return;
                 }
             }

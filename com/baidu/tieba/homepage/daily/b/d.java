@@ -8,23 +8,23 @@ public class d extends com.baidu.tieba.card.data.b {
     private String fIj;
     private boolean fIk;
 
-    public String blG() {
+    public String blH() {
         return this.fIi;
     }
 
-    public void wg(String str) {
+    public void wh(String str) {
         this.fIi = str;
     }
 
-    public String blH() {
+    public String blI() {
         return this.fIj;
     }
 
-    public void wh(String str) {
+    public void wi(String str) {
         this.fIj = str;
     }
 
-    public boolean blI() {
+    public boolean blJ() {
         return this.fIk;
     }
 

@@ -88,25 +88,25 @@ public class h extends b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.e.b
-    public void bis() {
+    public void bit() {
         if (this.mState == 0) {
             this.mState = 1;
             if (this.fuq != null) {
                 this.fuq.onStateChanged(this.mState);
             }
             this.fud.start();
+            bix();
             biw();
             biv();
-            biu();
             if (this.fur) {
-                bix();
+                biy();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.e.b
-    public void bit() {
+    public void biu() {
         if (this.mState == 2) {
             this.mState = 3;
             if (this.fuq != null) {
@@ -116,7 +116,7 @@ public class h extends b {
         }
     }
 
-    private void biu() {
+    private void biv() {
         final Rect rect;
         if (this.mIntent != null && (rect = (Rect) this.mIntent.getParcelableExtra("info_forum_head_background_rect")) != null) {
             ArrayList<Integer> integerArrayListExtra = this.mIntent.getIntegerArrayListExtra("info_forum_head_background_color");
@@ -171,7 +171,7 @@ public class h extends b {
         }
     }
 
-    private void biv() {
+    private void biw() {
         final Rect rect;
         if (this.mIntent != null && (rect = (Rect) this.mIntent.getParcelableExtra("info_forum_name_rect")) != null) {
             String stringExtra = this.mIntent.getStringExtra("info_forum_name_text");
@@ -219,7 +219,7 @@ public class h extends b {
         }
     }
 
-    private void biw() {
+    private void bix() {
         final Rect rect;
         if (this.mIntent != null && (rect = (Rect) this.mIntent.getParcelableExtra("info_forum_image_rect")) != null) {
             String stringExtra = this.mIntent.getStringExtra("info_forum_image_url");
@@ -267,7 +267,7 @@ public class h extends b {
         }
     }
 
-    private void bix() {
+    private void biy() {
         if (this.mIntent != null) {
             this.fup.fuD.post(new Runnable() { // from class: com.baidu.tieba.frs.e.h.8
                 @Override // java.lang.Runnable

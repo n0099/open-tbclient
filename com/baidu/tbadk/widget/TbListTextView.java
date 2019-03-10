@@ -93,7 +93,7 @@ public class TbListTextView extends TextView {
                 BdLog.e(e.getMessage());
             }
         }
-        return a.arc();
+        return a.ard();
     }
 
     private boolean b(CharSequence charSequence, int i) {
@@ -148,7 +148,7 @@ public class TbListTextView extends TextView {
             return new a(true, list, list2);
         }
 
-        public static a arc() {
+        public static a ard() {
             return new a(false, null, null);
         }
 

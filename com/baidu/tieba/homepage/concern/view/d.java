@@ -52,8 +52,8 @@ public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.
         this.fHv = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.aQh() != null) {
-                    d.this.aQh().a(view, d.this.fHt);
+                if (d.this.aQi() != null) {
+                    d.this.aQi().a(view, d.this.fHt);
                 }
                 if (d.this.fHt != null && !StringUtils.isNull(d.this.fHt.fHb.getName()) && !StringUtils.isNull(d.this.fHt.fHb.getUserId())) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(d.this.mPageContext.getPageActivity()).createNormalConfig(com.baidu.adp.lib.g.b.d(d.this.fHt.fHb.getUserId(), 0L), false, d.this.fHt.fHb.isGod())));
@@ -63,8 +63,8 @@ public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.
         this.fHw = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.d.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.aQh() != null) {
-                    d.this.aQh().a(view, d.this.fHt);
+                if (d.this.aQi() != null) {
+                    d.this.aQi().a(view, d.this.fHt);
                 }
                 d.this.ajY();
             }
@@ -72,8 +72,8 @@ public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.
         this.ZF = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.d.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.aQh() != null) {
-                    d.this.aQh().a(view, d.this.fHt);
+                if (d.this.aQi() != null) {
+                    d.this.aQi().a(view, d.this.fHt);
                 }
             }
         };
@@ -81,8 +81,8 @@ public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getId() == d.g.thread_info_commont_container && d.this.bTk != null) {
-                    n.tB(d.this.bTk.getId());
-                    d.this.blA();
+                    n.tC(d.this.bTk.getId());
+                    d.this.blB();
                 }
             }
         };
@@ -158,16 +158,16 @@ public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.
                 this.dqy.onChangeSkinType();
             }
             this.ehB.a(this.fHt.metaData);
-            String blz = this.fHt.fHb.blz();
-            if (StringUtils.isNull(blz)) {
+            String blA = this.fHt.fHb.blA();
+            if (StringUtils.isNull(blA)) {
                 this.fHq.setVisibility(8);
             } else {
                 this.fHq.setVisibility(0);
-                this.fHq.setText(blz);
+                this.fHq.setText(blA);
             }
             this.bTk = bVar.eNQ;
-            if (n.tC(this.bTk.getId())) {
-                blA();
+            if (n.tD(this.bTk.getId())) {
+                blB();
             }
             this.dqz.setData(this.bTk);
             n.b(this.bTk, this.mTitle);
@@ -191,15 +191,15 @@ public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void blA() {
+    public void blB() {
         n.a(this.mTitle, this.bTk.getId(), d.C0236d.cp_cont_b, d.C0236d.cp_cont_d);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void ajY() {
         if (this.fHt != null && this.bTk != null) {
-            n.tB(this.bTk.getId());
-            blA();
+            n.tC(this.bTk.getId());
+            blB();
             PbActivityConfig createCfgForPersonCenter = new PbActivityConfig(this.mPageContext.getPageActivity()).createCfgForPersonCenter(this.bTk.getId(), this.bTk.Zh(), n.YE(), 18005);
             createCfgForPersonCenter.setStartFrom(this.currentPageType);
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createCfgForPersonCenter));
@@ -230,6 +230,6 @@ public abstract class d extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.
     }
 
     public int lt(int i) {
-        return com.baidu.tieba.a.d.awk().ak(this.Yz, i);
+        return com.baidu.tieba.a.d.awl().ak(this.Yz, i);
     }
 }

@@ -32,22 +32,22 @@ public class a {
     private NoNetworkView dbq;
     private PbListView dbr;
     protected BdSwipeRefreshLayout dcE;
-    private e gyF;
-    private boolean gyI;
-    private View gzk;
-    private InterfaceC0264a gzl;
+    private e gyG;
+    private boolean gyJ;
+    private View gzl;
+    private InterfaceC0264a gzm;
     private TbPageContext mContext;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
     private i mPullView;
-    private View.OnClickListener gyQ = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.a.1
+    private View.OnClickListener gyR = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.a.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.dbr != null && a.this.gzl != null) {
+            if (a.this.dbr != null && a.this.gzm != null) {
                 a.this.dbr.id(0);
                 a.this.dbr.setOnClickListener(null);
                 a.this.dbr.aeC();
-                a.this.gzl.bfd();
+                a.this.gzm.bfe();
             }
         }
     };
@@ -55,8 +55,8 @@ public class a {
         @Override // com.baidu.tbadk.core.view.h.c
         public void dR(boolean z) {
             if (j.kY()) {
-                if (a.this.gzl != null) {
-                    a.this.gzl.bfe();
+                if (a.this.gzm != null) {
+                    a.this.gzm.bff();
                 }
             } else if (a.this.dcE != null) {
                 a.this.dcE.setRefreshing(false);
@@ -67,24 +67,24 @@ public class a {
     /* renamed from: com.baidu.tieba.imMessageCenter.mention.agree.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     public interface InterfaceC0264a {
-        void bfd();
-
         void bfe();
+
+        void bff();
     }
 
     public a(TbPageContext tbPageContext, View view) {
         this.mContext = tbPageContext;
-        this.gzk = view.findViewById(d.g.agree_me_layout);
+        this.gzl = view.findViewById(d.g.agree_me_layout);
         p(tbPageContext);
-        this.gyF = new e(tbPageContext, this.Qq);
+        this.gyG = new e(tbPageContext, this.Qq);
     }
 
     public void a(InterfaceC0264a interfaceC0264a) {
-        this.gzl = interfaceC0264a;
+        this.gzm = interfaceC0264a;
     }
 
     private void p(TbPageContext tbPageContext) {
-        if (this.gzk != null) {
+        if (this.gzl != null) {
             if (this.mPullView == null) {
                 this.mPullView = new i(tbPageContext);
                 this.mPullView.setListPullRefreshListener(this.dhu);
@@ -100,16 +100,16 @@ public class a {
             this.dbr.setTextSize(d.e.tbfontsize33);
             this.dbr.setTextColor(al.getColor(d.C0236d.cp_cont_d));
             this.dbr.ia(d.C0236d.cp_cont_e);
-            this.dbr.setOnClickListener(this.gyQ);
-            this.dbq = (NoNetworkView) this.gzk.findViewById(d.g.no_networkview);
+            this.dbr.setOnClickListener(this.gyR);
+            this.dbq = (NoNetworkView) this.gzl.findViewById(d.g.no_networkview);
             this.dbq.onChangeSkinType(this.mContext, TbadkCoreApplication.getInst().getSkinType());
-            this.mNavigationBar = (NavigationBar) this.gzk.findViewById(d.g.view_navigation_bar);
+            this.mNavigationBar = (NavigationBar) this.gzl.findViewById(d.g.view_navigation_bar);
             this.mNavigationBar.showBottomLine();
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setCenterTextTitle(this.mContext.getString(d.j.agree_me));
-            this.dcE = (BdSwipeRefreshLayout) this.gzk.findViewById(d.g.agree_me_pull_refresh_layout);
+            this.dcE = (BdSwipeRefreshLayout) this.gzl.findViewById(d.g.agree_me_pull_refresh_layout);
             this.dcE.setProgressView(this.mPullView);
-            this.Qq = (BdTypeRecyclerView) this.gzk.findViewById(d.g.agree_me_recycler_view);
+            this.Qq = (BdTypeRecyclerView) this.gzl.findViewById(d.g.agree_me_recycler_view);
             ((DefaultItemAnimator) this.Qq.getItemAnimator()).setSupportsChangeAnimations(false);
             this.Qq.setLayoutManager(new LinearLayoutManager(this.mContext.getContext()));
             this.Qq.setFadingEdgeLength(0);
@@ -126,11 +126,11 @@ public class a {
             this.Qq.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.imMessageCenter.mention.agree.a.4
                 @Override // com.baidu.adp.widget.ListView.BdListView.e
                 public void onScrollToBottom() {
-                    if (a.this.dbr != null && a.this.gzl != null) {
+                    if (a.this.dbr != null && a.this.gzm != null) {
                         a.this.dbr.id(0);
                         a.this.dbr.setOnClickListener(null);
                         a.this.dbr.showLoading();
-                        a.this.gzl.bfd();
+                        a.this.gzm.bfe();
                     }
                 }
             });
@@ -138,12 +138,12 @@ public class a {
     }
 
     public void c(boolean z, ArrayList<m> arrayList) {
-        if (this.dcE != null && this.dbr != null && this.Qq != null && this.gyF != null) {
+        if (this.dcE != null && this.dbr != null && this.Qq != null && this.gyG != null) {
             this.dcE.setRefreshing(false);
             if (z) {
                 this.dbr.id(0);
                 this.dbr.aeD();
-                this.dbr.setOnClickListener(this.gyQ);
+                this.dbr.setOnClickListener(this.gyR);
             } else {
                 this.dbr.id(0);
                 this.dbr.aeD();
@@ -156,8 +156,8 @@ public class a {
                     this.mNoDataView.setLayoutParams(new RecyclerView.LayoutParams(-1, -1));
                     al.l(this.mNoDataView, d.C0236d.cp_bg_line_d);
                 }
-                if (this.mNoDataView.getParent() == null && !this.gyI) {
-                    this.gyI = true;
+                if (this.mNoDataView.getParent() == null && !this.gyJ) {
+                    this.gyJ = true;
                     this.Qq.addHeaderView(this.mNoDataView, 0);
                     this.mNoDataView.setVisibility(0);
                     this.mNoDataView.onChangeSkinType(this.mContext, TbadkCoreApplication.getInst().getSkinType());
@@ -166,10 +166,10 @@ public class a {
                 return;
             }
             this.Qq.removeHeaderView(this.mNoDataView);
-            this.gyI = false;
+            this.gyJ = false;
             this.Qq.setNextPage(this.dbr);
-            this.gyF.setData(arrayList);
-            this.gyF.notifyDataSetChanged();
+            this.gyG.setData(arrayList);
+            this.gyG.notifyDataSetChanged();
         }
     }
 
@@ -197,16 +197,16 @@ public class a {
         if (this.mNavigationBar != null) {
             this.mNavigationBar.onChangeSkinType(this.mContext, i);
         }
-        if (this.gyF != null) {
-            this.gyF.notifyDataSetChanged();
+        if (this.gyG != null) {
+            this.gyG.notifyDataSetChanged();
         }
-        al.l(this.gzk, d.C0236d.cp_bg_line_e);
+        al.l(this.gzl, d.C0236d.cp_bg_line_e);
         al.l(this.dcE, d.C0236d.cp_bg_line_e);
     }
 
     public void onDestroy() {
-        if (this.gyF != null) {
-            this.gyF.onDestory();
+        if (this.gyG != null) {
+            this.gyG.onDestory();
         }
         if (this.mPullView != null) {
             this.mPullView.release();
@@ -214,8 +214,8 @@ public class a {
     }
 
     public void d(s sVar) {
-        if (this.gyF != null) {
-            this.gyF.d(sVar);
+        if (this.gyG != null) {
+            this.gyG.d(sVar);
         }
     }
 
@@ -227,6 +227,6 @@ public class a {
     }
 
     public View getRootView() {
-        return this.gzk;
+        return this.gzl;
     }
 }

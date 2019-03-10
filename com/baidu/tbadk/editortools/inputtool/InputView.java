@@ -168,7 +168,7 @@ public class InputView extends EditText implements l {
     private void a(p pVar) {
         if (pVar != null && !TextUtils.isEmpty(pVar.getName()) && !TextUtils.isEmpty(pVar.getUrl())) {
             String obj = getText().toString();
-            if (this.cjU && com.baidu.tieba.face.a.uf(obj) >= 10 && getContext() != null) {
+            if (this.cjU && com.baidu.tieba.face.a.ug(obj) >= 10 && getContext() != null) {
                 e.aca().showToast(d.j.too_many_face);
             } else {
                 b.a(getContext(), pVar, this);
@@ -179,7 +179,7 @@ public class InputView extends EditText implements l {
     private void b(p pVar) {
         if (!this.cjT || pVar.agt() == EmotionGroupType.LOCAL) {
             String obj = getText().toString();
-            if (this.cjU && com.baidu.tieba.face.a.uf(obj) >= 10 && getContext() != null) {
+            if (this.cjU && com.baidu.tieba.face.a.ug(obj) >= 10 && getContext() != null) {
                 e.aca().showToast(d.j.too_many_face);
             } else {
                 b.b(getContext(), pVar, this);

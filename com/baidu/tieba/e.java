@@ -61,9 +61,9 @@ public class e extends Dialog {
 
     /* loaded from: classes.dex */
     interface a {
-        void avr();
-
         void avs();
+
+        void avt();
 
         void fG(boolean z);
 
@@ -84,10 +84,10 @@ public class e extends Dialog {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view.getId() == e.this.cKD.getId()) {
-                    e.this.cKP.avr();
+                    e.this.cKP.avs();
                     e.this.dp(e.this.mContext);
                 } else if (view.getId() == e.this.cKF.getId()) {
-                    e.this.cKP.avr();
+                    e.this.cKP.avs();
                 }
             }
         };
@@ -197,7 +197,7 @@ public class e extends Dialog {
         this.cKC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.e.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.this.cKP.avr();
+                e.this.cKP.avs();
             }
         });
         this.cKB.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.e.4
@@ -220,10 +220,10 @@ public class e extends Dialog {
                 }
             }
         });
-        avp();
+        avq();
     }
 
-    private void avp() {
+    private void avq() {
         WindowManager.LayoutParams attributes;
         Window window = getWindow();
         if (window != null && (attributes = window.getAttributes()) != null) {
@@ -301,7 +301,7 @@ public class e extends Dialog {
             this.cKJ.setVisibility(0);
             return;
         }
-        this.cKP.avs();
+        this.cKP.avt();
     }
 
     public void a(VersionData versionData, CombineDownload combineDownload, a aVar) {
@@ -310,7 +310,7 @@ public class e extends Dialog {
         this.cKP = aVar;
     }
 
-    public void avq() {
+    public void avr() {
         this.cKJ.setVisibility(8);
         this.cKw.setVisibility(0);
     }

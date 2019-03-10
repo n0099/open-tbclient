@@ -25,7 +25,7 @@ public class q {
     public void onEvent(String str, String str2, int i) {
         if (com.baidu.pyramid.runtime.multiprocess.a.tR()) {
             if (UBC.getUBCContext() != null || !TextUtils.isEmpty(str)) {
-                d.crK().h(str, str2, i);
+                d.crU().h(str, str2, i);
                 return;
             }
             return;
@@ -40,7 +40,7 @@ public class q {
     public void onEvent(String str, JSONObject jSONObject, int i) {
         if (com.baidu.pyramid.runtime.multiprocess.a.tR()) {
             if (UBC.getUBCContext() != null || !TextUtils.isEmpty(str)) {
-                d.crK().a(str, jSONObject, i);
+                d.crU().a(str, jSONObject, i);
                 return;
             }
             return;
@@ -68,7 +68,7 @@ public class q {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return d.crK().beginFlow(str, str2, i);
+            return d.crU().beginFlow(str, str2, i);
         }
         return v(str, str2, i);
     }
@@ -78,7 +78,7 @@ public class q {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return d.crK().beginFlow(str, jSONObject, i);
+            return d.crU().beginFlow(str, jSONObject, i);
         }
         return v(str, jSONObject.toString(), i);
     }

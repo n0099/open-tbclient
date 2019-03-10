@@ -7,13 +7,13 @@ import kotlin.jvm.internal.p;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class b<T> implements c<T> {
-    private final kotlin.jvm.a.a<T> jSL;
-    private final kotlin.jvm.a.b<T, T> jSM;
+    private final kotlin.jvm.a.a<T> jTe;
+    private final kotlin.jvm.a.b<T, T> jTf;
 
     /* loaded from: classes2.dex */
     public static final class a implements Iterator<T> {
         private T GD;
-        private int jSJ = -2;
+        private int jTc = -2;
 
         @Override // java.util.Iterator
         public void remove() {
@@ -24,44 +24,44 @@ public final class b<T> implements c<T> {
         a() {
         }
 
-        private final void cCB() {
+        private final void cCL() {
             T t;
-            if (this.jSJ == -2) {
-                t = (T) b.this.jSL.invoke();
+            if (this.jTc == -2) {
+                t = (T) b.this.jTe.invoke();
             } else {
-                kotlin.jvm.a.b bVar = b.this.jSM;
+                kotlin.jvm.a.b bVar = b.this.jTf;
                 T t2 = this.GD;
                 if (t2 == null) {
-                    p.cCr();
+                    p.cCB();
                 }
                 t = (T) bVar.invoke(t2);
             }
             this.GD = t;
-            this.jSJ = this.GD == null ? 0 : 1;
+            this.jTc = this.GD == null ? 0 : 1;
         }
 
         @Override // java.util.Iterator
         public T next() {
-            if (this.jSJ < 0) {
-                cCB();
+            if (this.jTc < 0) {
+                cCL();
             }
-            if (this.jSJ == 0) {
+            if (this.jTc == 0) {
                 throw new NoSuchElementException();
             }
             T t = this.GD;
             if (t == null) {
                 throw new TypeCastException("null cannot be cast to non-null type T");
             }
-            this.jSJ = -1;
+            this.jTc = -1;
             return t;
         }
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            if (this.jSJ < 0) {
-                cCB();
+            if (this.jTc < 0) {
+                cCL();
             }
-            return this.jSJ == 1;
+            return this.jTc == 1;
         }
     }
 
@@ -71,8 +71,8 @@ public final class b<T> implements c<T> {
     public b(kotlin.jvm.a.a<? extends T> aVar, kotlin.jvm.a.b<? super T, ? extends T> bVar) {
         p.k(aVar, "getInitialValue");
         p.k(bVar, "getNextValue");
-        this.jSL = aVar;
-        this.jSM = bVar;
+        this.jTe = aVar;
+        this.jTf = bVar;
     }
 
     @Override // kotlin.sequences.c

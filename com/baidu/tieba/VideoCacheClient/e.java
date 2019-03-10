@@ -28,18 +28,18 @@ public class e {
         public boolean handleMessage(Message message) {
             if (message.what == 1) {
                 if (message.obj instanceof String) {
-                    e.this.qm((String) message.obj);
+                    e.this.qn((String) message.obj);
                 }
             } else if (message.what == 2) {
                 if (message.obj instanceof String) {
-                    e.this.qs((String) message.obj);
+                    e.this.qt((String) message.obj);
                 }
             } else if (message.what == 3) {
                 d.as(e.TAG, "got MSG_CHECK");
-                e.this.avZ();
+                e.this.awa();
                 e.this.mHandler.sendMessageDelayed(e.this.mHandler.obtainMessage(3), TbConfig.NOTIFY_SOUND_INTERVAL);
             } else if (message.what == 4) {
-                e.this.awa();
+                e.this.awb();
             } else if (message.what == 5 && (message.obj instanceof String)) {
                 int i = message.arg1;
                 e.this.aj((String) message.obj, i);
@@ -60,7 +60,7 @@ public class e {
             if (file.exists()) {
                 file.delete();
             }
-            b.avW().avY();
+            b.avX().avZ();
             e.this.cJw = false;
             com.baidu.adp.lib.g.e.jH().postDelayed(e.this.cJE, 1000L);
         }
@@ -69,7 +69,7 @@ public class e {
         @Override // java.lang.Runnable
         public void run() {
             if (!e.this.cJw) {
-                e.this.avd();
+                e.this.ave();
                 com.baidu.adp.lib.g.e.jH().postDelayed(e.this.cJE, 1000L);
             }
         }
@@ -103,13 +103,13 @@ public class e {
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void qG(String str) {
+    public void qH(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(1);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);
     }
 
-    public void qH(String str) {
+    public void qI(String str) {
         Message obtainMessage = this.mHandler.obtainMessage(2);
         obtainMessage.obj = str;
         this.mHandler.sendMessage(obtainMessage);
@@ -117,7 +117,7 @@ public class e {
 
     private void bZ(String str, String str2) {
         try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("http://127.0.0.1:" + b.avW().getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str + str2)).openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL("http://127.0.0.1:" + b.avX().getPort() + "/video_cache?origin_url=" + URLEncoder.encode(str + str2)).openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
             inputStream.read();
             inputStream.close();
@@ -133,17 +133,17 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qm(String str) {
+    public void qn(String str) {
         bZ(str, "?file_access=1");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void qs(String str) {
+    public void qt(String str) {
         bZ(str, "?stop_cache=1");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void avZ() {
+    public void awa() {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.cMg >= 86400000) {
             bZ("", "delete_expired_files");
@@ -156,11 +156,11 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void awa() {
+    public void awb() {
         bZ("", "clear_cache");
     }
 
-    public void avd() {
+    public void ave() {
         try {
             this.mContext.bindService(new Intent(this.mContext, VideoCacheService.class), this.mServiceConnection, 1);
         } catch (Exception e) {

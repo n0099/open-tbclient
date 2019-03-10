@@ -326,7 +326,7 @@ public class y implements q {
             sb.append("tiebaclient!!!");
             x(SapiUtils.KEY_QR_LOGIN_SIGN, com.baidu.adp.lib.util.s.bC(sb.toString()));
             if (this.bJo.adF().bJr) {
-                x("sig", StringU.qk(sb.toString()));
+                x("sig", StringU.ql(sb.toString()));
             }
         }
         if (TbConfig.getDebugSwitch()) {

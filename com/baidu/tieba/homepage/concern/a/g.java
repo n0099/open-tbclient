@@ -32,7 +32,7 @@ public class g extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
                 k kVar = g.this.eiq;
                 if (view != null && g.this.fGO != null && g.this.fGO.getView() != null && kVar != null && kVar.WR() != null && !StringUtils.isNull(kVar.WR().getTid())) {
                     am amVar = new am("c12352");
-                    if ((g.this.fGO.getHeaderImg() == null || view.getId() != g.this.fGO.getHeaderImg().getId()) && (g.this.fGO.aQm() == null || view.getId() != g.this.fGO.aQm().getId())) {
+                    if ((g.this.fGO.getHeaderImg() == null || view.getId() != g.this.fGO.getHeaderImg().getId()) && (g.this.fGO.aQn() == null || view.getId() != g.this.fGO.aQn().getId())) {
                         if (view.getId() == g.this.fGO.ejE.getId()) {
                             amVar.T("obj_locate", 3);
                         } else {
@@ -80,26 +80,26 @@ public class g extends com.baidu.adp.widget.ListView.a<k, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, k kVar, com.baidu.tieba.card.a.a<v> aVar) {
-        if (kVar == null || aVar == null || aVar.aRi() == null) {
+        if (kVar == null || aVar == null || aVar.aRj() == null) {
             return null;
         }
         this.eiq = kVar;
         kVar.os(i + 1);
-        t.aQF().b(kVar.tI("c12351"));
+        t.aQG().b(kVar.tJ("c12351"));
         bh bhVar = new bh(kVar.WR());
         bhVar.stType = "personalize_page";
         bhVar.bDS = 9;
         bhVar.bDT = 4;
         bhVar.bDU = 4;
-        if (aVar.aRi() instanceof com.baidu.tieba.a.e) {
-            aVar.aRi().setPage(this.Yz);
+        if (aVar.aRj() instanceof com.baidu.tieba.a.e) {
+            aVar.aRj().setPage(this.Yz);
         }
-        aVar.aRi().a(bhVar);
+        aVar.aRj().a(bhVar);
         return aVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void qM(String str) {
+    public void qN(String str) {
         this.Yz = str;
     }
 }

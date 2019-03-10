@@ -219,9 +219,9 @@ public class AdvertAppInfo extends bg {
             }
             if (com.baidu.adp.lib.b.d.iQ().aO("is_support_lego_ad_style") == 1 && !TextUtils.isEmpty(this.bwL.lego_card)) {
                 try {
-                    ICardInfo xX = com.baidu.tieba.lego.card.b.xX(this.bwL.lego_card);
-                    if (xX != null) {
-                        ICardInfo viewItem = xX.getViewItem(0, 1);
+                    ICardInfo xY = com.baidu.tieba.lego.card.b.xY(this.bwL.lego_card);
+                    if (xY != null) {
+                        ICardInfo viewItem = xY.getViewItem(0, 1);
                         if (viewItem instanceof ILegoAdvert) {
                             this.legoCard = (ILegoAdvert) viewItem;
                             this.legoCard.setAdvertAppInfo(this);

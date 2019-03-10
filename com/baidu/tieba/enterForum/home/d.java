@@ -18,14 +18,14 @@ public class d implements com.baidu.tieba.c.a {
         @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
         public void a(EnterForumModel.a aVar) {
             if (d.this.eDy != null) {
-                if (aVar == null || !aVar.eDZ || aVar.eEa == null || aVar.eEa.aVZ() == null) {
+                if (aVar == null || !aVar.eDZ || aVar.eEa == null || aVar.eEa.aWa() == null) {
                     d.this.eDy.a(null, false, 1, 0);
                     return;
                 }
                 ArrayList<TransmitForumData> arrayList = new ArrayList<>();
-                ArrayList<com.baidu.tieba.enterForum.data.d> aWt = aVar.eEa.aVZ().aWt();
-                if (v.S(aWt) > 0) {
-                    Iterator<com.baidu.tieba.enterForum.data.d> it = aWt.iterator();
+                ArrayList<com.baidu.tieba.enterForum.data.d> aWu = aVar.eEa.aWa().aWu();
+                if (v.S(aWu) > 0) {
+                    Iterator<com.baidu.tieba.enterForum.data.d> it = aWu.iterator();
                     while (it.hasNext()) {
                         com.baidu.tieba.enterForum.data.d next = it.next();
                         if (next != null && !StringUtils.isNull(next.getId()) && !StringUtils.isNull(next.getName())) {
@@ -59,7 +59,7 @@ public class d implements com.baidu.tieba.c.a {
     }
 
     @Override // com.baidu.tieba.c.a
-    public void aSi() {
+    public void aSj() {
         if (this.eDy != null && this.eCI != null) {
             this.eCI.iz(true);
         }

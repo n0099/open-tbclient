@@ -10,6 +10,6 @@ public class LogoActivityStatic {
     static {
         TbadkCoreApplication.getInst().RegisterIntent(LogoActivityConfig.class, LogoActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(SecretHintActivityConfig.class, SecretHintActivity.class);
-        cIt = b.aub();
+        cIt = b.auc();
     }
 }

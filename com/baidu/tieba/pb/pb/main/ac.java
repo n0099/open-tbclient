@@ -28,7 +28,7 @@ public class ac {
         this.bFG.setLineSpacing(this.mContext.getResources().getDimensionPixelSize(d.e.ds2), 1.0f);
     }
 
-    public void zW(String str) {
+    public void zX(String str) {
         if (this.bsn != null) {
             if (com.baidu.tbadk.core.util.ap.isEmpty(str) || this.fwQ > 0) {
                 onDestory();

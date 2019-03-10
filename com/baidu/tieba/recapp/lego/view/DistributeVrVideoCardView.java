@@ -34,16 +34,16 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
     private ImageView aau;
     private View bhH;
     private RelativeLayout eVc;
-    private View gIf;
-    private VideoInfo hEH;
-    private a ikc;
-    DistributeVrVideoCard ikd;
-    private CardGLTextureView ike;
-    private TbImageView ikf;
-    private ImageView ikg;
-    private VideoListMediaControllerView ikh;
-    private View iki;
-    private boolean ikj;
+    private View gIg;
+    private VideoInfo hEI;
+    private a ikd;
+    DistributeVrVideoCard ike;
+    private CardGLTextureView ikf;
+    private TbImageView ikg;
+    private ImageView ikh;
+    private VideoListMediaControllerView iki;
+    private View ikj;
+    private boolean ikk;
     private boolean isBackground;
     private TextView mErrorTip;
     private Handler mHandler;
@@ -51,9 +51,9 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
     public DistributeVrVideoCardView(TbPageContext tbPageContext) {
         super(tbPageContext);
         this.eVc = null;
-        this.ike = null;
+        this.ikf = null;
         this.isBackground = false;
-        this.ikj = true;
+        this.ikk = true;
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.recapp.lego.view.DistributeVrVideoCardView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
@@ -61,32 +61,32 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
                 switch (message.what) {
                     case 30001:
                         if (DistributeVrVideoCardView.this.mContext != null && DistributeVrVideoCardView.this.mContext.getPageActivity() != null && !DistributeVrVideoCardView.this.mContext.getPageActivity().isFinishing()) {
-                            if (DistributeVrVideoCardView.this.ike == null || DistributeVrVideoCardView.this.ike.isDestroyed()) {
+                            if (DistributeVrVideoCardView.this.ikf == null || DistributeVrVideoCardView.this.ikf.isDestroyed()) {
                                 DistributeVrVideoCardView.this.mHandler.removeMessages(30001);
-                                if (DistributeVrVideoCardView.this.ikc != null) {
-                                    DistributeVrVideoCardView.this.ikc.destroy();
+                                if (DistributeVrVideoCardView.this.ikd != null) {
+                                    DistributeVrVideoCardView.this.ikd.destroy();
                                     return;
                                 }
                                 return;
                             }
-                            if (DistributeVrVideoCardView.this.ikd.getPage() <= 0) {
-                                if (DistributeVrVideoCardView.this.gHt != null && (viewGroup = (ViewGroup) DistributeVrVideoCardView.this.gHt.getParent()) != null) {
+                            if (DistributeVrVideoCardView.this.ike.getPage() <= 0) {
+                                if (DistributeVrVideoCardView.this.gHu != null && (viewGroup = (ViewGroup) DistributeVrVideoCardView.this.gHu.getParent()) != null) {
                                     int[] iArr = new int[2];
                                     viewGroup.getLocationOnScreen(iArr);
                                     if (Math.abs(iArr[1]) > l.r(DistributeVrVideoCardView.this.mContext.getPageActivity())) {
-                                        if (DistributeVrVideoCardView.this.ikc != null) {
-                                            DistributeVrVideoCardView.this.ikc.pausePlay();
+                                        if (DistributeVrVideoCardView.this.ikd != null) {
+                                            DistributeVrVideoCardView.this.ikd.pausePlay();
                                         }
-                                    } else if (DistributeVrVideoCardView.this.ikc != null && !DistributeVrVideoCardView.this.isBackground) {
-                                        DistributeVrVideoCardView.this.ikc.continuePlay();
+                                    } else if (DistributeVrVideoCardView.this.ikd != null && !DistributeVrVideoCardView.this.isBackground) {
+                                        DistributeVrVideoCardView.this.ikd.continuePlay();
                                     }
                                 }
-                            } else if (b.gHs == DistributeVrVideoCardView.this.ikd.getPage()) {
-                                if (DistributeVrVideoCardView.this.ikc != null && !DistributeVrVideoCardView.this.isBackground) {
-                                    DistributeVrVideoCardView.this.ikc.continuePlay();
+                            } else if (b.gHt == DistributeVrVideoCardView.this.ike.getPage()) {
+                                if (DistributeVrVideoCardView.this.ikd != null && !DistributeVrVideoCardView.this.isBackground) {
+                                    DistributeVrVideoCardView.this.ikd.continuePlay();
                                 }
-                            } else if (DistributeVrVideoCardView.this.ikc != null) {
-                                DistributeVrVideoCardView.this.ikc.pausePlay();
+                            } else if (DistributeVrVideoCardView.this.ikd != null) {
+                                DistributeVrVideoCardView.this.ikd.pausePlay();
                             }
                             DistributeVrVideoCardView.this.mHandler.removeMessages(30001);
                             DistributeVrVideoCardView.this.mHandler.sendEmptyMessageDelayed(30001, TimeUnit.SECONDS.toMillis(1L));
@@ -102,24 +102,24 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View bAd() {
+    protected View bAe() {
         this.eVc = (RelativeLayout) LayoutInflater.from(getContext()).inflate(d.h.card_distribute_vr_video_view, (ViewGroup) null);
-        this.ike = new CardGLTextureView(this.mContext.getPageActivity());
-        this.eVc.addView((View) this.ike, 0, new ViewGroup.LayoutParams(-1, -1));
-        this.ikf = (TbImageView) this.eVc.findViewById(d.g.ad_thumbnail);
-        this.ikg = (ImageView) this.eVc.findViewById(d.g.ad_play_button);
+        this.ikf = new CardGLTextureView(this.mContext.getPageActivity());
+        this.eVc.addView((View) this.ikf, 0, new ViewGroup.LayoutParams(-1, -1));
+        this.ikg = (TbImageView) this.eVc.findViewById(d.g.ad_thumbnail);
+        this.ikh = (ImageView) this.eVc.findViewById(d.g.ad_play_button);
         this.bhH = this.eVc.findViewById(d.g.ad_loading_view);
         this.mErrorTip = (TextView) this.eVc.findViewById(d.g.ad_error_tips);
-        this.ikg.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.DistributeVrVideoCardView.2
+        this.ikh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recapp.lego.view.DistributeVrVideoCardView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 DistributeVrVideoCardView.this.startPlay();
             }
         });
         this.aau = (ImageView) this.eVc.findViewById(d.g.play_icon);
-        this.iki = this.eVc.findViewById(d.g.replay);
-        this.gIf = this.eVc.findViewById(d.g.card_layout_media_controller);
-        this.ikh = this.eVc.findViewById(d.g.card_media_controller);
+        this.ikj = this.eVc.findViewById(d.g.replay);
+        this.gIg = this.eVc.findViewById(d.g.card_layout_media_controller);
+        this.iki = this.eVc.findViewById(d.g.card_media_controller);
         return this.eVc;
     }
 
@@ -127,7 +127,7 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
     public void setClickListener(View.OnClickListener onClickListener) {
         this.mErrorTip.setOnClickListener(onClickListener);
         this.aau.setOnClickListener(onClickListener);
-        this.iki.setOnClickListener(onClickListener);
+        this.ikj.setOnClickListener(onClickListener);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -140,31 +140,31 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     /* renamed from: a */
     public void e(DistributeVrVideoCard distributeVrVideoCard) {
-        if (this.ike != null && this.mContext != null && distributeVrVideoCard != null && distributeVrVideoCard.getVideoInfo() != null) {
-            if (this.ikd == null || this.ikd.getVideoInfo() == null || !TextUtils.equals(this.ikd.getVideoInfo().videoUrl, distributeVrVideoCard.getVideoInfo().videoUrl) || this.ike.isDestroyed()) {
-                if (this.ike.isDestroyed()) {
-                    this.eVc.removeView(this.ike);
-                    this.ike = new CardGLTextureView(this.mContext.getPageActivity());
-                    this.eVc.addView((View) this.ike, 0, new ViewGroup.LayoutParams(-1, -1));
+        if (this.ikf != null && this.mContext != null && distributeVrVideoCard != null && distributeVrVideoCard.getVideoInfo() != null) {
+            if (this.ike == null || this.ike.getVideoInfo() == null || !TextUtils.equals(this.ike.getVideoInfo().videoUrl, distributeVrVideoCard.getVideoInfo().videoUrl) || this.ikf.isDestroyed()) {
+                if (this.ikf.isDestroyed()) {
+                    this.eVc.removeView(this.ikf);
+                    this.ikf = new CardGLTextureView(this.mContext.getPageActivity());
+                    this.eVc.addView((View) this.ikf, 0, new ViewGroup.LayoutParams(-1, -1));
                 }
-                this.ikd = distributeVrVideoCard;
+                this.ike = distributeVrVideoCard;
                 VideoInfo.Builder builder = new VideoInfo.Builder();
                 builder.video_width = Integer.valueOf(distributeVrVideoCard.getVideoInfo().videoWidth);
                 builder.video_height = Integer.valueOf(distributeVrVideoCard.getVideoInfo().videoHeight);
                 builder.video_url = distributeVrVideoCard.getVideoInfo().videoUrl;
-                builder.video_md5 = distributeVrVideoCard.getVideoInfo().gHc;
+                builder.video_md5 = distributeVrVideoCard.getVideoInfo().gHd;
                 builder.video_length = Integer.valueOf(distributeVrVideoCard.getVideoInfo().eot);
-                builder.thumbnail_width = Integer.valueOf(distributeVrVideoCard.getVideoInfo().gHd);
-                builder.thumbnail_height = Integer.valueOf(distributeVrVideoCard.getVideoInfo().gHe);
+                builder.thumbnail_width = Integer.valueOf(distributeVrVideoCard.getVideoInfo().gHe);
+                builder.thumbnail_height = Integer.valueOf(distributeVrVideoCard.getVideoInfo().gHf);
                 builder.thumbnail_url = distributeVrVideoCard.getVideoInfo().thumbUrl;
                 builder.play_count = Integer.valueOf(distributeVrVideoCard.getVideoInfo().cDi);
                 builder.video_duration = Integer.valueOf(distributeVrVideoCard.getVideoInfo().videoDuration);
-                this.hEH = builder.build(false);
-                if (this.hEH != null && !ap.isEmpty(this.hEH.video_url)) {
-                    long bXc = (this.ikc == null || !this.hEH.video_url.equalsIgnoreCase(this.ikc.getVideoPath())) ? 0L : this.ikc.bXc();
-                    this.ikc = new a(this);
-                    if (bXc > 0) {
-                        this.ikc.va((int) bXc);
+                this.hEI = builder.build(false);
+                if (this.hEI != null && !ap.isEmpty(this.hEI.video_url)) {
+                    long bXd = (this.ikd == null || !this.hEI.video_url.equalsIgnoreCase(this.ikd.getVideoPath())) ? 0L : this.ikd.bXd();
+                    this.ikd = new a(this);
+                    if (bXd > 0) {
+                        this.ikd.va((int) bXd);
                     }
                     ViewGroup.LayoutParams layoutParams = this.eVc.getLayoutParams();
                     if (layoutParams != null) {
@@ -172,20 +172,20 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
                         layoutParams.height = l.aQ(getContext());
                         this.eVc.setLayoutParams(layoutParams);
                     }
-                    this.ikf.startLoad(this.hEH.thumbnail_url, 10, false);
-                    if (distributeVrVideoCard.getVideoInfo().gHg) {
+                    this.ikg.startLoad(this.hEI.thumbnail_url, 10, false);
+                    if (distributeVrVideoCard.getVideoInfo().gHh) {
                         if (com.baidu.tieba.recapp.lego.a.a.al(this.mContext.getPageActivity())) {
-                            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gIf.getLayoutParams();
+                            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.gIg.getLayoutParams();
                             layoutParams2.bottomMargin = (int) (this.mContext.getResources().getDimension(d.e.ds32) + 0.5f);
-                            this.gIf.setLayoutParams(layoutParams2);
+                            this.gIg.setLayoutParams(layoutParams2);
                         } else {
-                            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.gIf.getLayoutParams();
+                            RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.gIg.getLayoutParams();
                             layoutParams3.bottomMargin = (int) (this.mContext.getResources().getDimension(d.e.ds30) + 0.5f);
-                            this.gIf.setLayoutParams(layoutParams3);
+                            this.gIg.setLayoutParams(layoutParams3);
                         }
-                        this.gIf.setVisibility(0);
+                        this.gIg.setVisibility(0);
                     } else {
-                        this.gIf.setVisibility(8);
+                        this.gIg.setVisibility(8);
                     }
                     startPlay();
                 }
@@ -195,40 +195,40 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
 
     @Override // com.baidu.tieba.recapp.view.IVrPlayView
     public GLTextureView getGLView() {
-        return this.ike;
+        return this.ikf;
     }
 
     @Override // com.baidu.tieba.recapp.view.IVrPlayView
     public void loading() {
         this.mErrorTip.setVisibility(8);
         this.bhH.setVisibility(0);
-        this.ikg.setVisibility(0);
+        this.ikh.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.recapp.view.IVrPlayView
     public void error() {
         this.aau.setImageDrawable(this.mContext.getResources().getDrawable(d.f.icon_video_midpause));
-        this.ikg.setVisibility(8);
+        this.ikh.setVisibility(8);
         this.bhH.setVisibility(8);
         this.mErrorTip.setVisibility(0);
-        this.ikf.setVisibility(0);
+        this.ikg.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.recapp.view.IVrPlayView
     public void play() {
         this.aau.setImageDrawable(this.mContext.getResources().getDrawable(d.f.icon_video_midplay));
-        this.ikg.setVisibility(8);
+        this.ikh.setVisibility(8);
         this.bhH.setVisibility(8);
         this.mErrorTip.setVisibility(8);
-        this.ikf.setVisibility(8);
-        this.ikh.showProgress();
+        this.ikg.setVisibility(8);
+        this.iki.showProgress();
     }
 
     @Override // com.baidu.tieba.recapp.view.IVrPlayView
     public void buffer() {
         this.aau.setImageDrawable(this.mContext.getResources().getDrawable(d.f.icon_video_midpause));
         cE(true);
-        this.iki.setVisibility(8);
+        this.ikj.setVisibility(8);
     }
 
     public void cE(boolean z) {
@@ -241,25 +241,25 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
 
     @Override // com.baidu.tieba.recapp.view.IVrPlayView
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
-        this.ikh.setPlayer(mediaPlayerControl);
+        this.iki.setPlayer(mediaPlayerControl);
     }
 
     public void setOnProgressUpdateListener(VideoControllerView.b bVar) {
-        this.ikh.setOnProgressUpdatedListener(bVar);
+        this.iki.setOnProgressUpdatedListener(bVar);
     }
 
     public void setOnDragListener(VideoControllerView.a aVar) {
-        this.ikh.setOnDragingListener(aVar);
+        this.iki.setOnDragingListener(aVar);
     }
 
     @Override // com.baidu.tieba.recapp.view.IVrPlayView
     public void setOnSeekBarChangeListener(SeekBar.OnSeekBarChangeListener onSeekBarChangeListener) {
-        this.ikh.setOnSeekBarChangeListener(onSeekBarChangeListener);
+        this.iki.setOnSeekBarChangeListener(onSeekBarChangeListener);
     }
 
     @Override // com.baidu.tieba.recapp.view.IVrPlayView
     public void setSeekBarTime(int i, int i2) {
-        this.ikh.ax(i, i2);
+        this.iki.ax(i, i2);
     }
 
     @Override // com.baidu.tieba.recapp.view.IVrPlayView
@@ -284,9 +284,9 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
         }
         this.bhH.setVisibility(8);
         this.mErrorTip.setVisibility(8);
-        this.ikf.setVisibility(0);
         this.ikg.setVisibility(0);
-        this.ikh.destroy();
+        this.ikh.setVisibility(0);
+        this.iki.destroy();
     }
 
     @Override // com.baidu.tieba.recapp.view.IVrPlayView
@@ -294,8 +294,8 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
         this.aau.setImageDrawable(this.mContext.getResources().getDrawable(d.f.icon_video_midpause));
         this.mErrorTip.setVisibility(8);
         this.bhH.setVisibility(8);
+        this.ikh.setVisibility(0);
         this.ikg.setVisibility(0);
-        this.ikf.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.recapp.view.IVrPlayView
@@ -309,36 +309,36 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
 
     @Override // com.baidu.tieba.recapp.i
     public boolean isPlayStarted() {
-        if (this.ikc == null) {
+        if (this.ikd == null) {
             return false;
         }
-        int playStatus = this.ikc.getPlayStatus();
+        int playStatus = this.ikd.getPlayStatus();
         return playStatus == 0 || playStatus == 1;
     }
 
     @Override // com.baidu.tieba.recapp.i
     public boolean isPlaying() {
-        if (this.ikc == null) {
+        if (this.ikd == null) {
             return false;
         }
-        return this.ikc.getPlayStatus() == 1;
+        return this.ikd.getPlayStatus() == 1;
     }
 
     @Override // com.baidu.tieba.recapp.i
     public void startPlay() {
-        if (this.ikj) {
-            this.ikj = false;
-            if (!q.cdE()) {
+        if (this.ikk) {
+            this.ikk = false;
+            if (!q.cdF()) {
                 return;
             }
         }
-        if (this.ikd != null && this.hEH != null && this.ikc != null) {
+        if (this.ike != null && this.hEI != null && this.ikd != null) {
             this.mHandler.removeMessages(30001);
             this.mHandler.sendEmptyMessage(30001);
             e.jH().postDelayed(new Runnable() { // from class: com.baidu.tieba.recapp.lego.view.DistributeVrVideoCardView.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    DistributeVrVideoCardView.this.ikc.startPlay(DistributeVrVideoCardView.this.hEH.video_url);
+                    DistributeVrVideoCardView.this.ikd.startPlay(DistributeVrVideoCardView.this.hEI.video_url);
                 }
             }, TimeUnit.SECONDS.toSeconds(1L));
         }
@@ -347,8 +347,8 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
     @Override // com.baidu.tieba.recapp.i
     public void stopPlay() {
         this.mHandler.removeMessages(30001);
-        if (this.ikc != null) {
-            this.ikc.stopPlay();
+        if (this.ikd != null) {
+            this.ikd.stopPlay();
         }
     }
 
@@ -359,15 +359,15 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
 
     @Override // com.baidu.tieba.recapp.i
     public String getPlayUrl() {
-        return (this.ikd == null || this.hEH == null) ? "" : this.hEH.video_url;
+        return (this.ike == null || this.hEI == null) ? "" : this.hEI.video_url;
     }
 
     @Override // com.baidu.tieba.recapp.i
     public long getCurrentPosition() {
-        if (this.ikc == null) {
+        if (this.ikd == null) {
             return 0L;
         }
-        return this.ikc.getCurrentPos();
+        return this.ikd.getCurrentPos();
     }
 
     @Override // com.baidu.tieba.recapp.i
@@ -375,9 +375,9 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
         if (this.mHandler != null) {
             this.mHandler.removeMessages(30001);
             this.mHandler = null;
-            if (this.ikc != null) {
-                this.ikc.va(0);
-                this.ikc.destroy();
+            if (this.ikd != null) {
+                this.ikd.va(0);
+                this.ikd.destroy();
             }
         }
     }
@@ -392,13 +392,13 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.baidu.tieba.lego.card.view.e
-    public void bAj() {
+    public void bAk() {
         this.isBackground = false;
-        super.bAj();
-        if (this.ike == null || this.ike.isDestroyed()) {
-            e(this.ikd);
-        } else if (this.ikc != null) {
-            this.ikc.continuePlay();
+        super.bAk();
+        if (this.ikf == null || this.ikf.isDestroyed()) {
+            e(this.ike);
+        } else if (this.ikd != null) {
+            this.ikd.continuePlay();
         }
     }
 
@@ -406,9 +406,9 @@ public class DistributeVrVideoCardView extends BaseLegoCardView<DistributeVrVide
     public void Pq() {
         this.isBackground = true;
         super.Pq();
-        if (this.ikc != null) {
-            this.ikc.pausePlay();
-            this.ikc.bXd();
+        if (this.ikd != null) {
+            this.ikd.pausePlay();
+            this.ikd.bXe();
         }
     }
 }

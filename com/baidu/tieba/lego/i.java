@@ -10,31 +10,31 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class i implements e {
-    final am gFb;
+    final am gFc;
 
     private i(BaseLegoCardInfo baseLegoCardInfo) {
         this(baseLegoCardInfo.getStatistics(), baseLegoCardInfo.getStatTab(), baseLegoCardInfo.getCardType(), baseLegoCardInfo.getItemId());
     }
 
     private i(String str, int i, int i2, String str2) {
-        this.gFb = new am(str);
-        this.gFb.T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i);
-        this.gFb.T("obj_type", i2);
+        this.gFc = new am(str);
+        this.gFc.T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, i);
+        this.gFc.T("obj_type", i2);
         if (!TextUtils.isEmpty(str2)) {
-            this.gFb.bJ("obj_card", str2);
+            this.gFc.bJ("obj_card", str2);
         }
     }
 
     @Override // com.baidu.tieba.lego.e
     public void a(ICardInfo iCardInfo) {
         b(iCardInfo);
-        TiebaStatic.log(this.gFb);
+        TiebaStatic.log(this.gFc);
     }
 
     @Override // com.baidu.tieba.lego.e
     public e di(String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            this.gFb.bJ(str, str2);
+            this.gFc.bJ(str, str2);
         }
         return this;
     }
@@ -42,7 +42,7 @@ public class i implements e {
     @Override // com.baidu.tieba.lego.e
     public e bb(String str, int i) {
         if (!TextUtils.isEmpty(str)) {
-            this.gFb.T(str, i);
+            this.gFc.T(str, i);
         }
         return this;
     }
@@ -50,7 +50,7 @@ public class i implements e {
     @Override // com.baidu.tieba.lego.e
     public e z(String str, long j) {
         if (!TextUtils.isEmpty(str)) {
-            this.gFb.bJ(str, String.valueOf(j));
+            this.gFc.bJ(str, String.valueOf(j));
         }
         return this;
     }
@@ -58,7 +58,7 @@ public class i implements e {
     private void b(ICardInfo iCardInfo) {
         BaseLegoCardInfo baseLegoCardInfo = (BaseLegoCardInfo) iCardInfo;
         if (!TextUtils.isEmpty(baseLegoCardInfo.getStatistics()) && !TextUtils.isEmpty(baseLegoCardInfo.getsExtras())) {
-            List<Object> params = this.gFb.getParams();
+            List<Object> params = this.gFc.getParams();
             for (String str : baseLegoCardInfo.getsExtras().split("&")) {
                 String[] split = str.split("=");
                 if (split.length == 2) {
@@ -74,11 +74,11 @@ public class i implements e {
                         }
                     }
                     if (!z) {
-                        this.gFb.bJ(str2, str3);
+                        this.gFc.bJ(str2, str3);
                     }
                 }
             }
-            di("obj_param3", n.aQx());
+            di("obj_param3", n.aQy());
         }
     }
 

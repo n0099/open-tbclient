@@ -54,7 +54,7 @@ class s {
         return this.aFK.length() == 0;
     }
 
-    public JSONObject crY() {
+    public JSONObject csi() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {

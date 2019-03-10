@@ -44,11 +44,11 @@ public class f {
         return this.height;
     }
 
-    public String atk() {
+    public String atl() {
         return this.cDh;
     }
 
-    public boolean atl() {
+    public boolean atm() {
         return this.cDg == 15;
     }
 

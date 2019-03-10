@@ -17,9 +17,9 @@ import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class c {
-    private static c iDH;
-    private SparseArray<HashSet<String>> iDK;
-    private a iDL;
+    private static c iDI;
+    private SparseArray<HashSet<String>> iDL;
+    private a iDM;
     Handler mUIHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.q.c.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -44,79 +44,79 @@ public class c {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (c.this.iDK != null) {
-                    c.this.iDK.clear();
+                if (c.this.iDL != null) {
+                    c.this.iDL.clear();
                 }
-                c.this.iDI.cdp();
+                c.this.iDJ.cdq();
             }
         }
     };
-    private int iDJ = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("card_show_statistic_max_count", 200);
-    private final b iDI = new b();
+    private int iDK = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("card_show_statistic_max_count", 200);
+    private final b iDJ = new b();
 
     private c() {
         MessageManager.getInstance().registerListener(this.bvr);
     }
 
-    public static c cdq() {
-        if (iDH == null) {
+    public static c cdr() {
+        if (iDI == null) {
             synchronized (c.class) {
-                if (iDH == null) {
-                    iDH = new c();
+                if (iDI == null) {
+                    iDI = new c();
                 }
             }
         }
-        return iDH;
+        return iDI;
     }
 
     public void s(BdUniqueId bdUniqueId) {
         l.lm();
         if (bdUniqueId != null) {
-            this.iDI.s(bdUniqueId);
+            this.iDJ.s(bdUniqueId);
         }
     }
 
     public void t(BdUniqueId bdUniqueId) {
         l.lm();
         if (bdUniqueId != null) {
-            this.iDI.t(bdUniqueId);
+            this.iDJ.t(bdUniqueId);
             v(bdUniqueId);
         }
     }
 
     private void v(BdUniqueId bdUniqueId) {
-        if (this.iDK != null) {
-            this.iDK.remove(bdUniqueId.getId());
+        if (this.iDL != null) {
+            this.iDL.remove(bdUniqueId.getId());
         }
     }
 
     public void b(BdUniqueId bdUniqueId, am amVar) {
-        this.iDI.a(bdUniqueId, true);
+        this.iDJ.a(bdUniqueId, true);
         TiebaStatic.log(amVar);
     }
 
     public void a(BdUniqueId bdUniqueId, String str, am amVar) {
         if (bdUniqueId != null && amVar != null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (!this.iDI.u(bdUniqueId)) {
+            if (!this.iDJ.u(bdUniqueId)) {
                 BdLog.e("error, bdUniqueId not register");
                 return;
             }
             if (TextUtils.isEmpty(str)) {
                 BdLog.e("id is null, statistic key is=" + amVar.getKey());
             }
-            if (this.iDK == null) {
-                this.iDK = new SparseArray<>();
+            if (this.iDL == null) {
+                this.iDL = new SparseArray<>();
             }
-            HashSet<String> hashSet = this.iDK.get(bdUniqueId.getId());
+            HashSet<String> hashSet = this.iDL.get(bdUniqueId.getId());
             if (hashSet == null) {
                 hashSet = new HashSet<>();
-                this.iDK.put(bdUniqueId.getId(), hashSet);
+                this.iDL.put(bdUniqueId.getId(), hashSet);
             }
             String str2 = amVar.getKey() + "_" + str;
-            if (!hashSet.contains(str2) && !bim()) {
+            if (!hashSet.contains(str2) && !bin()) {
                 hashSet.add(str2);
-                this.iDI.a(bdUniqueId, amVar);
+                this.iDJ.a(bdUniqueId, amVar);
                 if (BdLog.isDebugMode()) {
                     BdLog.d("add show statistic log success" + (System.currentTimeMillis() - currentTimeMillis));
                 }
@@ -124,29 +124,29 @@ public class c {
         }
     }
 
-    private boolean bim() {
-        if (this.iDL == null) {
-            this.iDL = new a();
+    private boolean bin() {
+        if (this.iDM == null) {
+            this.iDM = new a();
         }
-        if (this.iDL.ftn) {
+        if (this.iDM.ftn) {
             return true;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        if (this.iDL.isRunning) {
-            this.iDL.count++;
-            if (currentTimeMillis - this.iDL.ftm < 120000) {
-                if (this.iDL.count >= this.iDJ) {
-                    this.iDL.ftn = true;
-                    a(this.iDL);
+        if (this.iDM.isRunning) {
+            this.iDM.count++;
+            if (currentTimeMillis - this.iDM.ftm < 120000) {
+                if (this.iDM.count >= this.iDK) {
+                    this.iDM.ftn = true;
+                    a(this.iDM);
                     return true;
                 }
             } else {
-                this.iDL.isRunning = false;
-                this.iDL.count = 0;
+                this.iDM.isRunning = false;
+                this.iDM.count = 0;
             }
         } else {
-            this.iDL.isRunning = true;
-            this.iDL.ftm = currentTimeMillis;
+            this.iDM.isRunning = true;
+            this.iDM.ftm = currentTimeMillis;
         }
         return false;
     }
@@ -163,7 +163,7 @@ public class c {
         if (BdLog.isDebugMode()) {
             BdLog.d("logStatisticByKey start write log ");
         }
-        this.iDI.a(bdUniqueId, z);
+        this.iDJ.a(bdUniqueId, z);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

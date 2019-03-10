@@ -17,7 +17,7 @@ public class a {
     public interface b {
         void C(boolean z, boolean z2);
 
-        void bbL();
+        void bbM();
 
         void pR(int i);
     }
@@ -27,11 +27,11 @@ public class a {
         this.eXT = new ArrayList<>();
     }
 
-    public static a bbF() {
+    public static a bbG() {
         return C0245a.eXW;
     }
 
-    public boolean bbG() {
+    public boolean bbH() {
         return this.eXU;
     }
 
@@ -48,7 +48,7 @@ public class a {
         }
         if (this.eXT.size() > 29) {
             if (this.eXV != null) {
-                this.eXV.bbL();
+                this.eXV.bbM();
                 return false;
             }
             return false;
@@ -60,7 +60,7 @@ public class a {
         return true;
     }
 
-    public List<bg> bbH() {
+    public List<bg> bbI() {
         return this.eXT;
     }
 
@@ -101,7 +101,7 @@ public class a {
         private static a eXW = new a();
     }
 
-    public AntiData bbI() {
+    public AntiData bbJ() {
         return this.bWO;
     }
 
@@ -141,7 +141,7 @@ public class a {
         }
     }
 
-    public boolean bbJ() {
+    public boolean bbK() {
         return this.bWO != null && this.bWO.isMultiDeleteEnable();
     }
 }

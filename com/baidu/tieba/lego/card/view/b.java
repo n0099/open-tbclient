@@ -4,11 +4,11 @@ public class b implements Runnable {
     private int cZV;
     private int fay;
     private boolean fbe;
-    private l gEX;
-    private boolean gHT = false;
+    private l gEY;
+    private boolean gHU = false;
 
     public b(l lVar) {
-        this.gEX = lVar;
+        this.gEY = lVar;
     }
 
     public void jj(boolean z) {
@@ -24,16 +24,16 @@ public class b implements Runnable {
     }
 
     public void mb(boolean z) {
-        this.gHT = z;
+        this.gHU = z;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        if (this.gEX != null) {
-            if (!this.gHT) {
-                this.gEX.a(this.fay, this.cZV, this.fbe, 2);
+        if (this.gEY != null) {
+            if (!this.gHU) {
+                this.gEY.a(this.fay, this.cZV, this.fbe, 2);
             }
-            this.gEX.a(this.fay, this.cZV, this.fbe, 1);
+            this.gEY.a(this.fay, this.cZV, this.fbe, 1);
         }
     }
 }

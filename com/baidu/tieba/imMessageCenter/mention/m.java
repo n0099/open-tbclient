@@ -49,28 +49,28 @@ public class m extends com.baidu.adp.base.c {
     private BdSwipeRefreshLayout dcE;
     private final h.c dhu;
     private com.baidu.tieba.frs.profession.permission.c fcw;
-    private PbListView gyE;
-    private com.baidu.tieba.imMessageCenter.mention.base.e gyF;
-    private com.baidu.tieba.imMessageCenter.mention.base.f gyG;
+    private final ReplyMessageFragment gyA;
+    private PbListView gyF;
+    private com.baidu.tieba.imMessageCenter.mention.base.e gyG;
     private com.baidu.tieba.imMessageCenter.mention.base.f gyH;
-    private boolean gyI;
+    private com.baidu.tieba.imMessageCenter.mention.base.f gyI;
     private boolean gyJ;
-    private aj gyK;
-    private AttentionHostData gyL;
-    private int gyM;
+    private boolean gyK;
+    private aj gyL;
+    private AttentionHostData gyM;
     private int gyN;
     private int gyO;
-    private BdListView.b gyP;
-    private View.OnClickListener gyQ;
-    private ReplyMeModel gyR;
-    private com.baidu.tbadk.editortools.pb.g gyS;
-    private com.baidu.tieba.imMessageCenter.mention.base.a gyT;
-    private String gyU;
-    private long gyV;
+    private int gyP;
+    private BdListView.b gyQ;
+    private View.OnClickListener gyR;
+    private ReplyMeModel gyS;
+    private com.baidu.tbadk.editortools.pb.g gyT;
+    private com.baidu.tieba.imMessageCenter.mention.base.a gyU;
+    private String gyV;
     private long gyW;
-    private DataModel<MessageCenterActivity> gyX;
-    private final ReplyMeModel.a gyY;
-    private final ReplyMessageFragment gyz;
+    private long gyX;
+    private DataModel<MessageCenterActivity> gyY;
+    private final ReplyMeModel.a gyZ;
     private String mForumId;
     private NoDataView mNoDataView;
     private com.baidu.tbadk.core.view.i mPullView;
@@ -80,19 +80,19 @@ public class m extends com.baidu.adp.base.c {
 
     public m(ReplyMessageFragment replyMessageFragment) {
         super(replyMessageFragment.getPageContext());
-        this.gyM = 0;
         this.gyN = 0;
-        this.gyO = d.C0236d.cp_bg_line_e;
-        this.gyP = new BdListView.b() { // from class: com.baidu.tieba.imMessageCenter.mention.m.1
+        this.gyO = 0;
+        this.gyP = d.C0236d.cp_bg_line_e;
+        this.gyQ = new BdListView.b() { // from class: com.baidu.tieba.imMessageCenter.mention.m.1
             @Override // com.baidu.adp.widget.ListView.BdListView.b
             public void onClick(View view) {
-                if (view != m.this.gyG.getView()) {
-                    if (view == m.this.gyH.getView()) {
+                if (view != m.this.gyH.getView()) {
+                    if (view == m.this.gyI.getView()) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AgreeMeActivityConfig(m.this.getPageContext().getPageActivity())));
                         com.baidu.tbadk.coreExtra.messageCenter.b.ahA().ahQ();
                         com.baidu.tbadk.coreExtra.messageCenter.b.ahA().iC(0);
-                        m.this.gyN = 0;
-                        m.this.uB(m.this.gyN);
+                        m.this.gyO = 0;
+                        m.this.uB(m.this.gyO);
                         TiebaStatic.log("c12926");
                         return;
                     }
@@ -101,20 +101,20 @@ public class m extends com.baidu.adp.base.c {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtMessageActivityConfig(m.this.getPageContext().getPageActivity())));
                 com.baidu.tbadk.coreExtra.messageCenter.b.ahA().ahP();
                 com.baidu.tbadk.coreExtra.messageCenter.b.ahA().setMsgAtme(0);
-                m.this.gyM = 0;
-                m.this.uA(m.this.gyM);
+                m.this.gyN = 0;
+                m.this.uA(m.this.gyN);
                 TiebaStatic.log("c12925");
                 TiebaStatic.eventStat(m.this.getPageContext().getPageActivity(), "msg_atme_tab_click", "click", 1, new Object[0]);
             }
         };
-        this.gyQ = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.m.7
+        this.gyR = new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.m.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (m.this.gyE != null && m.this.gyz != null) {
-                    m.this.gyE.id(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-                    m.this.gyE.setOnClickListener(null);
-                    m.this.gyE.aeC();
-                    m.this.gyz.bfd();
+                if (m.this.gyF != null && m.this.gyA != null) {
+                    m.this.gyF.id(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                    m.this.gyF.setOnClickListener(null);
+                    m.this.gyF.aeC();
+                    m.this.gyA.bfe();
                 }
             }
         };
@@ -122,41 +122,41 @@ public class m extends com.baidu.adp.base.c {
             @Override // com.baidu.tbadk.core.view.h.c
             public void dR(boolean z) {
                 if (com.baidu.adp.lib.util.j.kY()) {
-                    if (m.this.gyz != null) {
-                        m.this.gyz.bfe();
+                    if (m.this.gyA != null) {
+                        m.this.gyA.bff();
                     }
                 } else if (m.this.dcE != null) {
                     m.this.dcE.setRefreshing(false);
                 }
             }
         };
-        this.gyR = null;
-        this.gyY = new ReplyMeModel.a() { // from class: com.baidu.tieba.imMessageCenter.mention.m.4
+        this.gyS = null;
+        this.gyZ = new ReplyMeModel.a() { // from class: com.baidu.tieba.imMessageCenter.mention.m.4
             @Override // com.baidu.tieba.imMessageCenter.mention.ReplyMeModel.a
             public void a(long j, long j2, long j3, String str, long j4) {
                 m.this.mForumId = String.valueOf(j);
-                m.this.gyU = str;
-                m.this.gyV = j2;
-                m.this.gyW = j3;
+                m.this.gyV = str;
+                m.this.gyW = j2;
+                m.this.gyX = j3;
                 m.this.x(m.this.mForumId, j4);
             }
         };
         this.mScrollListener = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.imMessageCenter.mention.m.6
             @Override // android.support.v7.widget.RecyclerView.OnScrollListener
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-                if (i != 0 && m.this.gyS != null) {
-                    m.this.gyS.amQ();
+                if (i != 0 && m.this.gyT != null) {
+                    m.this.gyT.amQ();
                 }
                 super.onScrollStateChanged(recyclerView, i);
             }
         };
-        this.gyz = replyMessageFragment;
-        this.gyK = new aj(replyMessageFragment.getPageContext());
-        this.gyK.a(new aj.a() { // from class: com.baidu.tieba.imMessageCenter.mention.m.9
+        this.gyA = replyMessageFragment;
+        this.gyL = new aj(replyMessageFragment.getPageContext());
+        this.gyL.a(new aj.a() { // from class: com.baidu.tieba.imMessageCenter.mention.m.9
             @Override // com.baidu.tbadk.core.util.aj.a
             public void e(boolean z, int i) {
-                if (z && m.this.gyS != null) {
-                    m.this.gyS.amM();
+                if (z && m.this.gyT != null) {
+                    m.this.gyT.amM();
                 }
             }
         });
@@ -170,7 +170,7 @@ public class m extends com.baidu.adp.base.c {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         m.this.lM(true);
-                        m.this.gyz.bfe();
+                        m.this.gyA.bff();
                     }
                 });
                 this.mRefreshView.setTitle(null);
@@ -184,10 +184,10 @@ public class m extends com.baidu.adp.base.c {
                 this.mRefreshView.po(null);
             }
             this.mRefreshView.onChangeSkinType();
-            if (!this.gyJ) {
+            if (!this.gyK) {
                 this.Qq.addHeaderView(this.mRefreshView.anD(), 0);
             }
-            this.gyJ = true;
+            this.gyK = true;
         }
     }
 
@@ -196,14 +196,14 @@ public class m extends com.baidu.adp.base.c {
         if (this.Qq != null) {
             lM(false);
             if (z) {
-                this.gyE.id(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-                this.gyE.aeD();
-                this.gyE.setOnClickListener(this.gyQ);
+                this.gyF.id(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                this.gyF.aeD();
+                this.gyF.setOnClickListener(this.gyR);
             } else {
-                this.gyE.id(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-                this.gyE.aeD();
-                this.gyE.setText(this.mContext.getResources().getString(d.j.list_no_more));
-                this.gyE.setOnClickListener(null);
+                this.gyF.id(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                this.gyF.aeD();
+                this.gyF.setText(this.mContext.getResources().getString(d.j.list_no_more));
+                this.gyF.setOnClickListener(null);
             }
             if (v.T(arrayList)) {
                 if (this.mNoDataView == null) {
@@ -211,27 +211,27 @@ public class m extends com.baidu.adp.base.c {
                     this.mNoDataView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
                     al.l(this.mNoDataView, d.C0236d.cp_bg_line_d);
                 }
-                if (this.mNoDataView.getParent() == null && !this.gyI) {
-                    this.gyI = true;
+                if (this.mNoDataView.getParent() == null && !this.gyJ) {
+                    this.gyJ = true;
                     this.Qq.addHeaderView(this.mNoDataView);
                     this.mNoDataView.setVisibility(0);
                     this.mNoDataView.onChangeSkinType(this.mContext, TbadkCoreApplication.getInst().getSkinType());
                 }
                 this.Qq.setNextPage(null);
-                this.gyO = d.C0236d.cp_bg_line_d;
+                this.gyP = d.C0236d.cp_bg_line_d;
             } else {
                 this.Qq.removeHeaderView(this.mNoDataView);
-                this.gyI = false;
+                this.gyJ = false;
                 if (this.mRefreshView != null) {
                     this.Qq.removeHeaderView(this.mRefreshView.anD());
-                    this.gyJ = false;
+                    this.gyK = false;
                 }
-                if (this.gyF != null) {
-                    this.gyF.setData(arrayList);
-                    this.gyF.notifyDataSetChanged();
+                if (this.gyG != null) {
+                    this.gyG.setData(arrayList);
+                    this.gyG.notifyDataSetChanged();
                 }
-                this.Qq.setNextPage(this.gyE);
-                this.gyO = d.C0236d.cp_bg_line_e;
+                this.Qq.setNextPage(this.gyF);
+                this.gyP = d.C0236d.cp_bg_line_e;
             }
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -239,8 +239,8 @@ public class m extends com.baidu.adp.base.c {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void notifyDataSetChanged() {
-        if (this.gyF != null) {
-            this.gyF.notifyDataSetChanged();
+        if (this.gyG != null) {
+            this.gyG.notifyDataSetChanged();
         }
     }
 
@@ -251,26 +251,26 @@ public class m extends com.baidu.adp.base.c {
         }
         this.mRootView = viewGroup;
         if (this.mPullView == null) {
-            this.mPullView = new com.baidu.tbadk.core.view.i(this.gyz.getPageContext());
+            this.mPullView = new com.baidu.tbadk.core.view.i(this.gyA.getPageContext());
             this.mPullView.setListPullRefreshListener(this.dhu);
         }
-        this.mPullView.setTag(this.gyz.getUniqueId());
-        if (this.gyE == null) {
-            this.gyE = new PbListView(this.gyz.getContext());
-            this.gyE.getView();
+        this.mPullView.setTag(this.gyA.getUniqueId());
+        if (this.gyF == null) {
+            this.gyF = new PbListView(this.gyA.getContext());
+            this.gyF.getView();
         }
-        this.gyE.ib(d.C0236d.cp_bg_line_e);
-        this.gyE.setHeight(com.baidu.adp.lib.util.l.h(this.gyz.getContext(), d.e.tbds182));
-        this.gyE.aez();
-        this.gyE.setTextSize(d.e.tbfontsize33);
-        this.gyE.setTextColor(al.getColor(d.C0236d.cp_cont_d));
-        this.gyE.ia(d.C0236d.cp_cont_e);
-        this.gyE.setOnClickListener(this.gyQ);
+        this.gyF.ib(d.C0236d.cp_bg_line_e);
+        this.gyF.setHeight(com.baidu.adp.lib.util.l.h(this.gyA.getContext(), d.e.tbds182));
+        this.gyF.aez();
+        this.gyF.setTextSize(d.e.tbfontsize33);
+        this.gyF.setTextColor(al.getColor(d.C0236d.cp_cont_d));
+        this.gyF.ia(d.C0236d.cp_cont_e);
+        this.gyF.setOnClickListener(this.gyR);
         this.dcE = (BdSwipeRefreshLayout) this.mRootView.findViewById(d.g.reply_me_pull_refresh_layout);
         this.dcE.setProgressView(this.mPullView);
         this.Qq = (BdTypeRecyclerView) this.mRootView.findViewById(d.g.replyme_lv);
-        this.gyF = new com.baidu.tieba.imMessageCenter.mention.base.e(this.gyz.getPageContext(), this.Qq);
-        this.gyF.b(new ab() { // from class: com.baidu.tieba.imMessageCenter.mention.m.11
+        this.gyG = new com.baidu.tieba.imMessageCenter.mention.base.e(this.gyA.getPageContext(), this.Qq);
+        this.gyG.b(new ab() { // from class: com.baidu.tieba.imMessageCenter.mention.m.11
             @Override // com.baidu.tieba.card.ab
             public void a(View view, com.baidu.tieba.card.data.b bVar) {
                 long d;
@@ -281,22 +281,22 @@ public class m extends com.baidu.adp.base.c {
                         m.this.notifyDataSetChanged();
                     }
                     if (view.getId() == d.g.message_bottom_reply_container) {
-                        m.this.gyT = aVar;
-                        if (aVar.bxS()) {
-                            d = com.baidu.adp.lib.g.b.d(aVar.bxT(), 0L);
+                        m.this.gyU = aVar;
+                        if (aVar.bxT()) {
+                            d = com.baidu.adp.lib.g.b.d(aVar.bxU(), 0L);
                         } else {
                             d = com.baidu.adp.lib.g.b.d(aVar.getPost_id(), 0L);
                         }
-                        if (m.this.gyL == null) {
-                            m.this.gyL = new AttentionHostData();
+                        if (m.this.gyM == null) {
+                            m.this.gyM = new AttentionHostData();
                         }
-                        if (m.this.gyT != null) {
-                            m.this.gyL.parserWithMetaData(m.this.gyT.getThreadAuthor());
+                        if (m.this.gyU != null) {
+                            m.this.gyM.parserWithMetaData(m.this.gyU.getThreadAuthor());
                         }
-                        m.this.gyR.a(d, 2, aVar.getFname(), aVar.getThread_id());
-                        if (aVar.bxU() != null) {
-                            am T = new am(aVar.bxU()).T("obj_locate", 3);
-                            if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.gzx) {
+                        m.this.gyS.a(d, 2, aVar.getFname(), aVar.getThread_id());
+                        if (aVar.bxV() != null) {
+                            am T = new am(aVar.bxV()).T("obj_locate", 3);
+                            if (aVar.getType() == com.baidu.tieba.imMessageCenter.mention.base.a.gzy) {
                                 T.T("obj_type", 1);
                             } else {
                                 T.T("obj_type", 2);
@@ -318,23 +318,23 @@ public class m extends com.baidu.adp.base.c {
                 View view = viewHolder.itemView;
             }
         });
-        this.Qq.setNextPage(this.gyE);
+        this.Qq.setNextPage(this.gyF);
         this.Qq.setOnSrollToBottomListener(new BdListView.e() { // from class: com.baidu.tieba.imMessageCenter.mention.m.13
             @Override // com.baidu.adp.widget.ListView.BdListView.e
             public void onScrollToBottom() {
-                if (m.this.gyE != null) {
-                    m.this.gyE.id(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-                    m.this.gyE.setOnClickListener(null);
-                    m.this.gyE.showLoading();
-                    m.this.gyz.bfd();
+                if (m.this.gyF != null) {
+                    m.this.gyF.id(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
+                    m.this.gyF.setOnClickListener(null);
+                    m.this.gyF.showLoading();
+                    m.this.gyA.bfe();
                 }
             }
         });
         this.Qq.setOnScrollListener(this.mScrollListener);
-        bxP();
-        this.gyR = new ReplyMeModel(this.gyz.getPageContext());
-        this.gyR.a(this.gyY);
-        this.gyX = new DataModel<MessageCenterActivity>(com.baidu.adp.base.i.aK(this.gyz.getPageContext().getContext())) { // from class: com.baidu.tieba.imMessageCenter.mention.m.14
+        bxQ();
+        this.gyS = new ReplyMeModel(this.gyA.getPageContext());
+        this.gyS.a(this.gyZ);
+        this.gyY = new DataModel<MessageCenterActivity>(com.baidu.adp.base.i.aK(this.gyA.getPageContext().getContext())) { // from class: com.baidu.tieba.imMessageCenter.mention.m.14
             @Override // com.baidu.adp.base.BdBaseModel
             public boolean cancelLoadData() {
                 return false;
@@ -354,17 +354,17 @@ public class m extends com.baidu.adp.base.c {
             public WriteData oN(String str) {
                 WriteData writeData = new WriteData();
                 writeData.setForumId(m.this.mForumId);
-                writeData.setForumName(m.this.gyU);
-                writeData.setThreadId(m.this.gyT.getThread_id());
+                writeData.setForumName(m.this.gyV);
+                writeData.setThreadId(m.this.gyU.getThread_id());
                 writeData.setIsAd(false);
                 writeData.setFloorNum(0);
-                if (m.this.gyT.bxS()) {
-                    writeData.setFloor(m.this.gyV > 0 ? String.valueOf(m.this.gyV) : m.this.gyT.getOriginalThreadInfo().postId);
+                if (m.this.gyU.bxT()) {
+                    writeData.setFloor(m.this.gyW > 0 ? String.valueOf(m.this.gyW) : m.this.gyU.getOriginalThreadInfo().postId);
                 } else {
-                    writeData.setFloor(m.this.gyT.getPost_id());
+                    writeData.setFloor(m.this.gyU.getPost_id());
                 }
-                if (m.this.gyW > 0) {
-                    writeData.setRepostId(String.valueOf(m.this.gyW));
+                if (m.this.gyX > 0) {
+                    writeData.setRepostId(String.valueOf(m.this.gyX));
                 }
                 writeData.setType(2);
                 return writeData;
@@ -375,37 +375,37 @@ public class m extends com.baidu.adp.base.c {
                 return null;
             }
         };
-        this.gyS = (com.baidu.tbadk.editortools.pb.g) new com.baidu.tbadk.editortools.pb.h().dd(this.gyz.getPageContext().getContext());
-        this.gyS.a(this.gyz.getPageContext());
-        this.gyS.b(this.gyX);
-        this.gyS.e(this.gyz.getPageContext());
-        this.gyS.alT().eH(true);
-        this.gyS.alT().onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        if (this.gyS.alT() != null) {
+        this.gyT = (com.baidu.tbadk.editortools.pb.g) new com.baidu.tbadk.editortools.pb.h().dd(this.gyA.getPageContext().getContext());
+        this.gyT.a(this.gyA.getPageContext());
+        this.gyT.b(this.gyY);
+        this.gyT.e(this.gyA.getPageContext());
+        this.gyT.alT().eH(true);
+        this.gyT.alT().onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        if (this.gyT.alT() != null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(12);
-            this.mRootView.addView(this.gyS.alT(), layoutParams);
-            this.gyS.alT().hide();
+            this.mRootView.addView(this.gyT.alT(), layoutParams);
+            this.gyT.alT().hide();
         }
-        this.gyS.a(new com.baidu.tbadk.editortools.pb.c() { // from class: com.baidu.tieba.imMessageCenter.mention.m.2
+        this.gyT.a(new com.baidu.tbadk.editortools.pb.c() { // from class: com.baidu.tieba.imMessageCenter.mention.m.2
             @Override // com.baidu.tbadk.editortools.pb.c
             public void ams() {
-                if (m.this.gyz.getBaseFragmentActivity() != null) {
-                    m.this.gyz.getBaseFragmentActivity().showProgressBar();
+                if (m.this.gyA.getBaseFragmentActivity() != null) {
+                    m.this.gyA.getBaseFragmentActivity().showProgressBar();
                 }
             }
         });
-        this.gyS.b(new NewWriteModel.d() { // from class: com.baidu.tieba.imMessageCenter.mention.m.3
+        this.gyT.b(new NewWriteModel.d() { // from class: com.baidu.tieba.imMessageCenter.mention.m.3
             @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
             public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, x xVar, WriteData writeData, AntiData antiData) {
-                if (m.this.gyz.getBaseFragmentActivity() != null) {
-                    m.this.gyz.getBaseFragmentActivity().hideProgressBar();
-                    m.this.gyS.alT().hide();
+                if (m.this.gyA.getBaseFragmentActivity() != null) {
+                    m.this.gyA.getBaseFragmentActivity().hideProgressBar();
+                    m.this.gyT.alT().hide();
                     if (!z && postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 238010) {
-                        m.this.gyK.a(m.this.gyL);
-                        m.this.gyK.a(postWriteCallBackData.getReplyPrivacyTip());
+                        m.this.gyL.a(m.this.gyM);
+                        m.this.gyL.a(postWriteCallBackData.getReplyPrivacyTip());
                     } else if (postWriteCallBackData != null && xVar == null && !AntiHelper.aB(postWriteCallBackData.getErrorCode(), postWriteCallBackData.getErrorString()) && postWriteCallBackData.getErrorCode() != 230277 && postWriteCallBackData.getErrorCode() != 230278) {
-                        m.this.gyz.showToast(postWriteCallBackData.getErrorString());
+                        m.this.gyA.showToast(postWriteCallBackData.getErrorString());
                     }
                 }
             }
@@ -413,26 +413,26 @@ public class m extends com.baidu.adp.base.c {
         return this.mRootView;
     }
 
-    private void bxP() {
-        this.gyG = new com.baidu.tieba.imMessageCenter.mention.base.f(this.gyz.getPageContext());
-        this.gyH = new com.baidu.tieba.imMessageCenter.mention.base.f(this.gyz.getPageContext());
-        this.gyG.aY(this.gyz.getString(d.j.at_me), d.f.icon_im_at);
-        uA(this.gyM);
-        this.gyH.aY(this.gyz.getString(d.j.agree_me), d.f.icon_im_laud);
-        uB(this.gyN);
-        this.gyH.uC(8);
-        this.Qq.addHeaderView(this.gyG.getView());
+    private void bxQ() {
+        this.gyH = new com.baidu.tieba.imMessageCenter.mention.base.f(this.gyA.getPageContext());
+        this.gyI = new com.baidu.tieba.imMessageCenter.mention.base.f(this.gyA.getPageContext());
+        this.gyH.aY(this.gyA.getString(d.j.at_me), d.f.icon_im_at);
+        uA(this.gyN);
+        this.gyI.aY(this.gyA.getString(d.j.agree_me), d.f.icon_im_laud);
+        uB(this.gyO);
+        this.gyI.uC(8);
         this.Qq.addHeaderView(this.gyH.getView());
-        this.Qq.setOnHeaderClickListener(this.gyP);
+        this.Qq.addHeaderView(this.gyI.getView());
+        this.Qq.setOnHeaderClickListener(this.gyQ);
     }
 
     public void onChangeSkinType(int i) {
-        if (this.gyS != null && this.gyS.alT() != null) {
-            this.gyS.alT().onChangeSkinType(i);
+        if (this.gyT != null && this.gyT.alT() != null) {
+            this.gyT.alT().onChangeSkinType(i);
         }
-        if (this.gyE != null) {
-            this.gyE.setTextColor(al.getColor(d.C0236d.cp_cont_d));
-            this.gyE.ic(i);
+        if (this.gyF != null) {
+            this.gyF.setTextColor(al.getColor(d.C0236d.cp_cont_d));
+            this.gyF.ic(i);
         }
         if (this.mPullView != null) {
             this.mPullView.ic(i);
@@ -441,22 +441,22 @@ public class m extends com.baidu.adp.base.c {
             this.mNoDataView.onChangeSkinType(this.mContext, i);
             al.l(this.mNoDataView, d.C0236d.cp_bg_line_d);
         }
-        if (this.gyG != null) {
-            this.gyG.bxV();
-        }
         if (this.gyH != null) {
-            this.gyH.bxV();
+            this.gyH.bxW();
+        }
+        if (this.gyI != null) {
+            this.gyI.bxW();
         }
         notifyDataSetChanged();
-        al.l(this.Qq, this.gyO);
+        al.l(this.Qq, this.gyP);
         al.l(this.dcE, d.C0236d.cp_bg_line_e);
     }
 
     public boolean onBackPressed() {
-        if (this.gyS == null || this.gyS.alT() == null || this.gyS.alT().getVisibility() != 0) {
+        if (this.gyT == null || this.gyT.alT() == null || this.gyT.alT().getVisibility() != 0) {
             return false;
         }
-        this.gyS.amQ();
+        this.gyT.amQ();
         return true;
     }
 
@@ -471,46 +471,46 @@ public class m extends com.baidu.adp.base.c {
 
     public void a(NewsNotifyMessage newsNotifyMessage) {
         if (newsNotifyMessage != null) {
-            this.gyM = newsNotifyMessage.getMsgAtme();
-            this.gyN = newsNotifyMessage.getMsgAgree();
-            uA(this.gyM);
-            uB(this.gyN);
+            this.gyN = newsNotifyMessage.getMsgAtme();
+            this.gyO = newsNotifyMessage.getMsgAgree();
+            uA(this.gyN);
+            uB(this.gyO);
         }
     }
 
-    public void bxQ() {
-        uA(this.gyM);
-        uB(this.gyN);
+    public void bxR() {
+        uA(this.gyN);
+        uB(this.gyO);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void uA(int i) {
-        if (this.gyG != null) {
-            boolean z = false;
-            if (i > 0 && !com.baidu.tbadk.coreExtra.messageCenter.d.aih().aim()) {
-                z = true;
-            }
-            this.gyG.E(i, z);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void uB(int i) {
         if (this.gyH != null) {
             boolean z = false;
-            if (i > 0 && !com.baidu.tbadk.coreExtra.messageCenter.d.aih().aiy()) {
+            if (i > 0 && !com.baidu.tbadk.coreExtra.messageCenter.d.aih().aim()) {
                 z = true;
             }
             this.gyH.E(i, z);
         }
     }
 
-    public boolean onActivityResult(int i, int i2, Intent intent) {
-        if (this.gyS != null) {
-            if (i == 12005) {
-                this.gyS.amT();
+    /* JADX INFO: Access modifiers changed from: private */
+    public void uB(int i) {
+        if (this.gyI != null) {
+            boolean z = false;
+            if (i > 0 && !com.baidu.tbadk.coreExtra.messageCenter.d.aih().aiy()) {
+                z = true;
             }
-            this.gyS.onActivityResult(i, i2, intent);
+            this.gyI.E(i, z);
+        }
+    }
+
+    public boolean onActivityResult(int i, int i2, Intent intent) {
+        if (this.gyT != null) {
+            if (i == 12005) {
+                this.gyT.amT();
+            }
+            this.gyT.onActivityResult(i, i2, intent);
         }
         if (i == 25035) {
             d(i2, intent);
@@ -520,9 +520,9 @@ public class m extends com.baidu.adp.base.c {
     }
 
     private void d(int i, Intent intent) {
-        this.gyS.alT().akq();
-        this.gyS.amQ();
-        this.gyS.alT().ame();
+        this.gyT.alT().akq();
+        this.gyT.amQ();
+        this.gyT.alT().ame();
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra(PbFullScreenEditorActivityConfig.EDITOR_DATA);
             if (serializableExtra instanceof PbEditorData) {
@@ -530,14 +530,14 @@ public class m extends com.baidu.adp.base.c {
                 WriteData writeData = new WriteData();
                 writeData.setContent(pbEditorData.getContent());
                 writeData.setSubPbReplyPrefix(pbEditorData.getSubPbReplyPrefix());
-                this.gyS.b(writeData);
-                this.gyS.setVoiceModel(pbEditorData.getVoiceModel());
-                com.baidu.tbadk.editortools.k jw = this.gyS.alT().jw(6);
+                this.gyT.b(writeData);
+                this.gyT.setVoiceModel(pbEditorData.getVoiceModel());
+                com.baidu.tbadk.editortools.k jw = this.gyT.alT().jw(6);
                 if (jw != null && jw.ciu != null) {
                     jw.ciu.a(new com.baidu.tbadk.editortools.a(52, 0, pbEditorData.getVoiceModel()));
                 }
                 if (i == -1) {
-                    this.gyS.amM();
+                    this.gyT.amM();
                 }
             }
         }
@@ -546,7 +546,7 @@ public class m extends com.baidu.adp.base.c {
     /* JADX INFO: Access modifiers changed from: private */
     public void x(String str, long j) {
         if (this.fcw == null) {
-            this.fcw = new com.baidu.tieba.frs.profession.permission.c(this.gyz.getPageContext());
+            this.fcw = new com.baidu.tieba.frs.profession.permission.c(this.gyA.getPageContext());
             this.fcw.a(new c.a() { // from class: com.baidu.tieba.imMessageCenter.mention.m.5
                 @Override // com.baidu.tieba.frs.profession.permission.c.a
                 public void jl(boolean z) {
@@ -558,11 +558,11 @@ public class m extends com.baidu.adp.base.c {
 
                 @Override // com.baidu.tieba.frs.profession.permission.c.a
                 public void jm(boolean z) {
-                    if (z && m.this.gyS != null && m.this.gyT != null) {
-                        if (!m.this.gyT.bxS() || m.this.gyT.getReplyer() == null) {
-                            m.this.gyS.oX(null);
+                    if (z && m.this.gyT != null && m.this.gyU != null) {
+                        if (!m.this.gyU.bxT() || m.this.gyU.getReplyer() == null) {
+                            m.this.gyT.oX(null);
                         } else {
-                            m.this.gyS.oX(m.this.gyT.getReplyer().getName_show());
+                            m.this.gyT.oX(m.this.gyU.getReplyer().getName_show());
                         }
                     }
                 }
@@ -573,24 +573,24 @@ public class m extends com.baidu.adp.base.c {
 
     @Override // com.baidu.adp.base.c
     public void destroy() {
+        if (this.gyT != null) {
+            this.gyT.onDestory();
+        }
+        if (this.gyL != null) {
+            this.gyL.onDestroy();
+        }
         if (this.gyS != null) {
-            this.gyS.onDestory();
+            this.gyS.a((ReplyMeModel.a) null);
+            this.gyS.onDestroy();
         }
-        if (this.gyK != null) {
-            this.gyK.onDestroy();
-        }
-        if (this.gyR != null) {
-            this.gyR.a((ReplyMeModel.a) null);
-            this.gyR.onDestroy();
-        }
-        if (this.gyK != null) {
-            this.gyK.a((aj.a) null);
+        if (this.gyL != null) {
+            this.gyL.a((aj.a) null);
         }
     }
 
     public void d(s sVar) {
-        if (this.gyF != null) {
-            this.gyF.d(sVar);
+        if (this.gyG != null) {
+            this.gyG.d(sVar);
         }
     }
 }

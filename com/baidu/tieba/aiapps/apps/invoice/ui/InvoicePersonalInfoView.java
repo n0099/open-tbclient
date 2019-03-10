@@ -26,8 +26,8 @@ public class InvoicePersonalInfoView extends InvoiceBaseInfoView {
 
     private void init(Context context) {
         setOrientation(1);
-        this.cTF = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().fT(true).rA(context.getString(d.j.invoice_desc_name)).fU(true).rB(context.getString(d.j.invoice_hint_personal_name)).rC("\\S+$").rD(context.getString(d.j.invoice_err_msg_personal_name)));
-        this.cTI = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().rA(context.getString(d.j.invoice_desc_mobile)).fU(true).lO(2).rB(context.getString(d.j.invoice_hint_mobile)));
+        this.cTF = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().fT(true).rB(context.getString(d.j.invoice_desc_name)).fU(true).rC(context.getString(d.j.invoice_hint_personal_name)).rD("\\S+$").rE(context.getString(d.j.invoice_err_msg_personal_name)));
+        this.cTI = new InvoiceInfoItemView(context).a(new InvoiceInfoItemView.a().rB(context.getString(d.j.invoice_desc_mobile)).fU(true).lO(2).rC(context.getString(d.j.invoice_hint_mobile)));
         this.cTE = new InvoiceInfoItemView[]{this.cTF, this.cTI};
         for (int i = 0; i < this.cTE.length; i++) {
             addView(this.cTE[i], i);

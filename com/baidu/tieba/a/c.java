@@ -12,7 +12,7 @@ public class c {
     private int mChannel;
 
     public c() {
-        awg();
+        awh();
     }
 
     public void a(ArrayList<Integer> arrayList, b bVar) {
@@ -58,8 +58,8 @@ public class c {
         if (ap.isEmpty(lx)) {
             return 0;
         }
-        SampleResult EO = com.baidu.ubs.analytics.a.EO(lx);
-        return (EO == SampleResult.T1 || EO == SampleResult.T2 || EO == SampleResult.T3 || EO == SampleResult.T4 || EO == SampleResult.T5) ? 1 : 0;
+        SampleResult ER = com.baidu.ubs.analytics.a.ER(lx);
+        return (ER == SampleResult.T1 || ER == SampleResult.T2 || ER == SampleResult.T3 || ER == SampleResult.T4 || ER == SampleResult.T5) ? 1 : 0;
     }
 
     private String lx(int i) {
@@ -69,37 +69,37 @@ public class c {
         return null;
     }
 
-    private void awg() {
+    private void awh() {
         this.mChannel = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_abtest_channel", 0);
-        awh();
+        awi();
     }
 
     public void ly(int i) {
         if (i == 1 || i == 0) {
             this.mChannel = i;
             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_abtest_channel", this.mChannel);
-            awh();
+            awi();
         }
     }
 
-    private void awh() {
+    private void awi() {
         if (!this.cMo && this.mChannel == 1) {
-            this.cMo = awj();
+            this.cMo = awk();
             if (!this.cMo) {
                 this.mChannel = 0;
             }
         }
     }
 
-    public boolean awi() {
+    public boolean awj() {
         return this.cMo;
     }
 
-    public boolean awj() {
+    public boolean awk() {
         boolean z = true;
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
             try {
-                com.baidu.ubs.analytics.a.a(new c.a().eI(TbadkCoreApplication.getInst()).rn(false).dY(30L).BK(1).ro(false).dZ(15L).BL(1000).csb());
+                com.baidu.ubs.analytics.a.a(new c.a().eI(TbadkCoreApplication.getInst()).rn(false).dY(30L).BL(1).ro(false).dZ(15L).BM(1000).csl());
             } catch (Exception e) {
                 e.printStackTrace();
                 z = false;

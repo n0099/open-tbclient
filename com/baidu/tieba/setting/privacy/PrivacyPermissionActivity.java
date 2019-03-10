@@ -26,9 +26,9 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
     private RecyclerView mRecyclerView;
     private View mRootView;
     private List<a> mDataList = new ArrayList();
-    private String[] iuL = {"android.permission.CAMERA", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.RECORD_AUDIO", "android.permission.ACCESS_FINE_LOCATION"};
-    private String[] iuM = {getString(d.j.allow_to_use_camera), getString(d.j.allow_to_use_sdcard), getString(d.j.allow_to_use_record), getString(d.j.allow_to_use_location)};
-    private String[] iuN = {getString(d.j.privacy_camera_info), getString(d.j.privacy_sdcard_info), getString(d.j.privacy_record_info), getString(d.j.privacy_location_info)};
+    private String[] iuM = {"android.permission.CAMERA", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.RECORD_AUDIO", "android.permission.ACCESS_FINE_LOCATION"};
+    private String[] iuN = {getString(d.j.allow_to_use_camera), getString(d.j.allow_to_use_sdcard), getString(d.j.allow_to_use_record), getString(d.j.allow_to_use_location)};
+    private String[] iuO = {getString(d.j.privacy_camera_info), getString(d.j.privacy_sdcard_info), getString(d.j.privacy_record_info), getString(d.j.privacy_location_info)};
     private RecyclerView.Adapter mAdapter = new RecyclerView.Adapter() { // from class: com.baidu.tieba.setting.privacy.PrivacyPermissionActivity.1
         @Override // android.support.v7.widget.RecyclerView.Adapter
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
@@ -58,7 +58,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             if (aVar == null) {
                 return 0;
             }
-            return aVar.fRm;
+            return aVar.fRn;
         }
 
         @Override // android.support.v7.widget.RecyclerView.Adapter
@@ -69,7 +69,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
 
     /* loaded from: classes3.dex */
     public static class a {
-        public int fRm = 0;
+        public int fRn = 0;
         public String info;
         public boolean isOpen;
         public String name;
@@ -88,15 +88,15 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         this.mRecyclerView = (RecyclerView) findViewById(d.g.recycler_view);
         this.mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         this.mRecyclerView.setAdapter(this.mAdapter);
-        for (int i = 0; i < this.iuL.length; i++) {
+        for (int i = 0; i < this.iuM.length; i++) {
             a aVar = new a();
-            aVar.fRm = 0;
-            aVar.name = this.iuM[i];
-            aVar.info = this.iuN[i];
+            aVar.fRn = 0;
+            aVar.name = this.iuN[i];
+            aVar.info = this.iuO[i];
             this.mDataList.add(aVar);
         }
         a aVar2 = new a();
-        aVar2.fRm = 1;
+        aVar2.fRn = 1;
         this.mDataList.add(aVar2);
     }
 
@@ -104,12 +104,12 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.mDataList.size() >= this.iuL.length) {
+        if (this.mDataList.size() >= this.iuM.length) {
             int i = 0;
             while (true) {
                 int i2 = i;
-                if (i2 < this.iuL.length) {
-                    this.mDataList.get(i2).isOpen = ab.au(getActivity(), this.iuL[i2]);
+                if (i2 < this.iuM.length) {
+                    this.mDataList.get(i2).isOpen = ab.au(getActivity(), this.iuM[i2]);
                     i = i2 + 1;
                 } else {
                     this.mAdapter.notifyDataSetChanged();
@@ -129,8 +129,8 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
 
     /* loaded from: classes3.dex */
     public static class c extends RecyclerView.ViewHolder {
-        private TbSettingTextTipView iuR;
-        private TextView iuS;
+        private TbSettingTextTipView iuS;
+        private TextView iuT;
         private View.OnClickListener mOnClickListener;
         private int mSkinType;
 
@@ -149,32 +149,32 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
                     }
                 }
             };
-            this.iuR = (TbSettingTextTipView) view.findViewById(d.g.privacy_name);
-            this.iuR.setOnClickListener(this.mOnClickListener);
-            this.iuS = (TextView) view.findViewById(d.g.privacy_info);
+            this.iuS = (TbSettingTextTipView) view.findViewById(d.g.privacy_name);
+            this.iuS.setOnClickListener(this.mOnClickListener);
+            this.iuT = (TextView) view.findViewById(d.g.privacy_info);
         }
 
         public void a(a aVar) {
             String string;
             if (aVar != null && this.itemView != null) {
-                this.iuR.setText(aVar.name);
-                TbSettingTextTipView tbSettingTextTipView = this.iuR;
+                this.iuS.setText(aVar.name);
+                TbSettingTextTipView tbSettingTextTipView = this.iuS;
                 if (aVar.isOpen) {
                     string = this.itemView.getContext().getString(d.j.privacy_permisson_open);
                 } else {
                     string = this.itemView.getContext().getString(d.j.privacy_permisson_closed);
                 }
                 tbSettingTextTipView.setTip(string);
-                this.iuS.setText(aVar.info);
+                this.iuT.setText(aVar.info);
             }
         }
 
         public void onChangeSkinType(int i) {
             if (i != this.mSkinType) {
-                this.iuR.onChangeSkinType(i);
-                al.k(this.iuR, d.f.more_all);
-                al.l(this.iuS, d.C0236d.common_color_10238);
-                al.j(this.iuS, d.C0236d.cp_cont_c);
+                this.iuS.onChangeSkinType(i);
+                al.k(this.iuS, d.f.more_all);
+                al.l(this.iuT, d.C0236d.common_color_10238);
+                al.j(this.iuT, d.C0236d.cp_cont_c);
                 this.mSkinType = i;
             }
         }
@@ -182,7 +182,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
 
     /* loaded from: classes3.dex */
     public static class b extends RecyclerView.ViewHolder {
-        private TextView iuP;
+        private TextView iuQ;
         private View.OnClickListener mOnClickListener;
         private int mSkinType;
 
@@ -195,13 +195,13 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
                     com.baidu.tbadk.browser.a.ar(b.this.itemView.getContext(), TbConfig.PRIVACY_DETAIL_URL);
                 }
             };
-            this.iuP = (TextView) view;
-            this.iuP.setOnClickListener(this.mOnClickListener);
+            this.iuQ = (TextView) view;
+            this.iuQ.setOnClickListener(this.mOnClickListener);
         }
 
         public void onChangeSkinType(int i) {
             if (i != this.mSkinType) {
-                al.j(this.iuP, d.C0236d.cp_link_tip_a);
+                al.j(this.iuQ, d.C0236d.cp_link_tip_a);
                 al.k(this.itemView, d.f.more_all);
                 this.mSkinType = i;
             }

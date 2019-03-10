@@ -49,12 +49,12 @@ public class s {
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.d.bWN().a(advertAppInfo.bwF, advertAppInfo.bwE, str2, i, com.baidu.tieba.recapp.download.d.Bx(advertAppInfo.bwF).intValue(), null, true, false, true, advertAppInfo.bwL.userPortrait, downloadStaticsData, advertAppInfo.bwL.userName);
+        com.baidu.tieba.recapp.download.d.bWO().a(advertAppInfo.bwF, advertAppInfo.bwE, str2, i, com.baidu.tieba.recapp.download.d.By(advertAppInfo.bwF).intValue(), null, true, false, true, advertAppInfo.bwL.userPortrait, downloadStaticsData, advertAppInfo.bwL.userName);
         return true;
     }
 
     public static final void f(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.d.bWN().u(advertAppInfo.bwE, advertAppInfo.bwF, true);
+        com.baidu.tieba.recapp.download.d.bWO().u(advertAppInfo.bwE, advertAppInfo.bwF, true);
     }
 
     public static final void aS(Context context, String str) {
@@ -166,11 +166,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.bWG().sendFRS(z, str, str2, str3, list, str4);
+        r.bWH().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.bWG().a(z, str, str2, str3, str4, list, str5);
+        r.bWH().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int f(TbPageContext tbPageContext, String str) {
@@ -189,15 +189,15 @@ public class s {
 
     private static boolean g(TbPageContext tbPageContext, String str) {
         String[] strArr = {str};
-        h bWD = r.bWG().bWD();
-        if (bWD == null) {
+        h bWE = r.bWH().bWE();
+        if (bWE == null) {
             return false;
         }
-        if (bWD.qQ(str)) {
-            bWD.a(tbPageContext.getPageActivity(), strArr, true);
+        if (bWE.qR(str)) {
+            bWE.a(tbPageContext.getPageActivity(), strArr, true);
             return true;
         }
-        return bWD.d(tbPageContext.getPageActivity(), strArr);
+        return bWE.d(tbPageContext.getPageActivity(), strArr);
     }
 
     public static int aT(Context context, String str) {
@@ -216,14 +216,14 @@ public class s {
 
     private static boolean aU(Context context, String str) {
         String[] strArr = {str};
-        h bWD = r.bWG().bWD();
-        if (bWD == null) {
+        h bWE = r.bWH().bWE();
+        if (bWE == null) {
             return false;
         }
-        if (bWD.qQ(str)) {
-            bWD.a(context, strArr, true);
+        if (bWE.qR(str)) {
+            bWE.a(context, strArr, true);
             return true;
         }
-        return bWD.d(context, strArr);
+        return bWE.d(context, strArr);
     }
 }

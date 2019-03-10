@@ -34,7 +34,7 @@ public class VideoControllerView extends RelativeLayout {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void awL();
+        void awM();
     }
 
     /* loaded from: classes3.dex */
@@ -54,11 +54,11 @@ public class VideoControllerView extends RelativeLayout {
                 switch (message.what) {
                     case 1:
                         if (!VideoControllerView.this.cxT && VideoControllerView.this.mShowing && VideoControllerView.this.cNP != null) {
-                            int awK = VideoControllerView.this.awK();
+                            int awL = VideoControllerView.this.awL();
                             if (VideoControllerView.this.cNT != null) {
-                                VideoControllerView.this.cNT.lz(awK);
+                                VideoControllerView.this.cNT.lz(awL);
                             }
-                            sendMessageDelayed(obtainMessage(1), VideoControllerView.this.cNO - (awK % VideoControllerView.this.cNO));
+                            sendMessageDelayed(obtainMessage(1), VideoControllerView.this.cNO - (awL % VideoControllerView.this.cNO));
                             return;
                         }
                         return;
@@ -85,7 +85,7 @@ public class VideoControllerView extends RelativeLayout {
                         VideoControllerView.this.cNQ.setText(ap.hz(VideoControllerView.this.cNW));
                     }
                     if (VideoControllerView.this.cNU != null) {
-                        VideoControllerView.this.cNU.awL();
+                        VideoControllerView.this.cNU.awM();
                     }
                     if (VideoControllerView.this.cNV != null) {
                         VideoControllerView.this.cNV.onProgressChanged(seekBar, VideoControllerView.this.cNW, z);
@@ -118,11 +118,11 @@ public class VideoControllerView extends RelativeLayout {
                 switch (message.what) {
                     case 1:
                         if (!VideoControllerView.this.cxT && VideoControllerView.this.mShowing && VideoControllerView.this.cNP != null) {
-                            int awK = VideoControllerView.this.awK();
+                            int awL = VideoControllerView.this.awL();
                             if (VideoControllerView.this.cNT != null) {
-                                VideoControllerView.this.cNT.lz(awK);
+                                VideoControllerView.this.cNT.lz(awL);
                             }
-                            sendMessageDelayed(obtainMessage(1), VideoControllerView.this.cNO - (awK % VideoControllerView.this.cNO));
+                            sendMessageDelayed(obtainMessage(1), VideoControllerView.this.cNO - (awL % VideoControllerView.this.cNO));
                             return;
                         }
                         return;
@@ -149,7 +149,7 @@ public class VideoControllerView extends RelativeLayout {
                         VideoControllerView.this.cNQ.setText(ap.hz(VideoControllerView.this.cNW));
                     }
                     if (VideoControllerView.this.cNU != null) {
-                        VideoControllerView.this.cNU.awL();
+                        VideoControllerView.this.cNU.awM();
                     }
                     if (VideoControllerView.this.cNV != null) {
                         VideoControllerView.this.cNV.onProgressChanged(seekBar, VideoControllerView.this.cNW, z);
@@ -182,11 +182,11 @@ public class VideoControllerView extends RelativeLayout {
                 switch (message.what) {
                     case 1:
                         if (!VideoControllerView.this.cxT && VideoControllerView.this.mShowing && VideoControllerView.this.cNP != null) {
-                            int awK = VideoControllerView.this.awK();
+                            int awL = VideoControllerView.this.awL();
                             if (VideoControllerView.this.cNT != null) {
-                                VideoControllerView.this.cNT.lz(awK);
+                                VideoControllerView.this.cNT.lz(awL);
                             }
-                            sendMessageDelayed(obtainMessage(1), VideoControllerView.this.cNO - (awK % VideoControllerView.this.cNO));
+                            sendMessageDelayed(obtainMessage(1), VideoControllerView.this.cNO - (awL % VideoControllerView.this.cNO));
                             return;
                         }
                         return;
@@ -213,7 +213,7 @@ public class VideoControllerView extends RelativeLayout {
                         VideoControllerView.this.cNQ.setText(ap.hz(VideoControllerView.this.cNW));
                     }
                     if (VideoControllerView.this.cNU != null) {
-                        VideoControllerView.this.cNU.awL();
+                        VideoControllerView.this.cNU.awM();
                     }
                     if (VideoControllerView.this.cNV != null) {
                         VideoControllerView.this.cNV.onProgressChanged(seekBar, VideoControllerView.this.cNW, z);
@@ -279,7 +279,7 @@ public class VideoControllerView extends RelativeLayout {
         }
     }
 
-    public void awJ() {
+    public void awK() {
         this.mShowing = false;
         this.mHandler.removeMessages(1);
         this.cNS.setProgress(0);
@@ -289,7 +289,7 @@ public class VideoControllerView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int awK() {
+    public int awL() {
         if (this.cNP == null || this.cxT) {
             return 0;
         }

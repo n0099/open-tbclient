@@ -11,15 +11,15 @@ public class t extends s {
 
     /* loaded from: classes2.dex */
     public static final class a implements kotlin.sequences.c<T> {
-        final /* synthetic */ Iterable jRY;
+        final /* synthetic */ Iterable jSr;
 
         public a(Iterable iterable) {
-            this.jRY = iterable;
+            this.jSr = iterable;
         }
 
         @Override // kotlin.sequences.c
         public Iterator<T> iterator() {
-            return this.jRY.iterator();
+            return this.jSr.iterator();
         }
     }
 
@@ -62,7 +62,7 @@ public class t extends s {
 
     public static final <T> HashSet<T> c(Iterable<? extends T> iterable) {
         kotlin.jvm.internal.p.k(iterable, "$receiver");
-        return (HashSet) n.a(iterable, new HashSet(aa.CZ(n.a(iterable, 12))));
+        return (HashSet) n.a(iterable, new HashSet(aa.Da(n.a(iterable, 12))));
     }
 
     public static final <T, A extends Appendable> A a(Iterable<? extends T> iterable, A a2, CharSequence charSequence, CharSequence charSequence2, CharSequence charSequence3, int i, CharSequence charSequence4, kotlin.jvm.a.b<? super T, ? extends CharSequence> bVar) {

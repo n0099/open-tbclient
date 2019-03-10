@@ -4,9 +4,9 @@ import com.baidu.adp.BdUniqueId;
 import tbclient.FrsPage.StarEnter;
 /* loaded from: classes3.dex */
 public class h implements com.baidu.adp.widget.ListView.m {
-    private int hkC;
-    private String iEs;
-    private int iEt;
+    private int hkD;
+    private String iEt;
+    private int iEu;
     private String icon;
     private String obj_id;
     private int time;
@@ -15,20 +15,20 @@ public class h implements com.baidu.adp.widget.ListView.m {
     private String url;
     private int weight;
 
-    public int cdu() {
-        return this.iEt;
+    public int cdv() {
+        return this.iEu;
     }
 
     public void zi(int i) {
-        this.iEt = i;
+        this.iEu = i;
     }
 
-    public int cdv() {
-        return this.hkC;
+    public int cdw() {
+        return this.hkD;
     }
 
     public void zj(int i) {
-        this.hkC = i;
+        this.hkD = i;
     }
 
     public String getIcon() {
@@ -67,12 +67,12 @@ public class h implements com.baidu.adp.widget.ListView.m {
         this.time = i;
     }
 
-    public String cdw() {
+    public String cdx() {
         return this.obj_id;
     }
 
-    public String cdx() {
-        return this.iEs;
+    public String cdy() {
+        return this.iEt;
     }
 
     public void a(StarEnter starEnter) {
@@ -85,7 +85,7 @@ public class h implements com.baidu.adp.widget.ListView.m {
         zj(starEnter.rank_num.intValue());
         zi(starEnter.bazhu_mark.intValue());
         this.obj_id = starEnter.obj_id;
-        this.iEs = starEnter.text;
+        this.iEt = starEnter.text;
     }
 
     @Override // com.baidu.adp.widget.ListView.m

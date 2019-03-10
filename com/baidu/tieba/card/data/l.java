@@ -77,13 +77,13 @@ public class l extends c implements com.baidu.tbadk.core.util.e.a {
         return this.cZD.bCX;
     }
 
-    public am tI(String str) {
+    public am tJ(String str) {
         am amVar = new am(str);
         if (this.cZD != null) {
             amVar.k(ImageViewerConfig.FORUM_ID, this.cZD.getFid());
             amVar.bJ("tid", this.cZD.getTid());
             amVar.T("obj_type", 2);
-            amVar.T("obj_param1", aQU() ? 2 : 1);
+            amVar.T("obj_param1", aQV() ? 2 : 1);
             if (this.cZD.YR() != null) {
                 amVar.bJ(VideoPlayActivityConfig.OBJ_ID, this.cZD.YR().getUserId());
             }
@@ -91,44 +91,44 @@ public class l extends c implements com.baidu.tbadk.core.util.e.a {
         return amVar;
     }
 
-    public am aRa() {
-        am R = R(elQ, true);
-        if (R != null && WR() != null) {
+    public am aRb() {
+        am S = S(elQ, true);
+        if (S != null && WR() != null) {
             bg WR = WR();
-            R.T("obj_name", WR.aap() != null && (WR.aap().ces() != null || WR.aap().asF() != null) ? 1 : 0);
+            S.T("obj_name", WR.aap() != null && (WR.aap().cet() != null || WR.aap().asG() != null) ? 1 : 0);
             if (WR.YR() != null) {
-                R.T("ab_type", WR.YR().hadConcerned() ? 1 : 0);
+                S.T("ab_type", WR.YR().hadConcerned() ? 1 : 0);
             }
         }
-        return R;
+        return S;
     }
 
     public am b(bg bgVar, int i) {
         if (bgVar.aab() != null && bgVar.aab().channelId > 0) {
-            return R(elR, true);
+            return S(elR, true);
         }
-        am R = R(elv, true);
-        if (R != null && i != -1) {
-            R.T("click_locate", i);
-            return R;
+        am S = S(elv, true);
+        if (S != null && i != -1) {
+            S.T("click_locate", i);
+            return S;
         }
-        return R;
+        return S;
     }
 
     public am Y(bg bgVar) {
         return b(bgVar, -1);
     }
 
-    public am aRh() {
-        return R(elT, true);
+    public am aRi() {
+        return S(elT, true);
     }
 
-    public am aRc() {
-        return R(elP, true);
+    public am aRd() {
+        return S(elP, true);
     }
 
     public am Z(bg bgVar) {
-        return (bgVar.aab() == null || bgVar.aab().channelId <= 0) ? R(elw, true) : R(elS, true);
+        return (bgVar.aab() == null || bgVar.aab().channelId <= 0) ? S(elw, true) : S(elS, true);
     }
 
     @Override // com.baidu.tbadk.core.util.e.a

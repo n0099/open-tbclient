@@ -9,45 +9,45 @@ import java.util.List;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class d {
-    private static d jEV;
-    private int jEW;
+    private static d jFo;
+    private int jFp;
     @Nullable
-    private List<c.a> jEX;
-    private final c.a jEY = new a();
+    private List<c.a> jFq;
+    private final c.a jFr = new a();
 
     private d() {
-        cvZ();
+        cwj();
     }
 
     public void ey(@Nullable List<c.a> list) {
-        this.jEX = list;
-        cvZ();
+        this.jFq = list;
+        cwj();
     }
 
     public c s(InputStream inputStream) throws IOException {
         g.checkNotNull(inputStream);
-        byte[] bArr = new byte[this.jEW];
-        int a = a(this.jEW, inputStream, bArr);
-        if (this.jEX != null) {
-            for (c.a aVar : this.jEX) {
+        byte[] bArr = new byte[this.jFp];
+        int a = a(this.jFp, inputStream, bArr);
+        if (this.jFq != null) {
+            for (c.a aVar : this.jFq) {
                 c j = aVar.j(bArr, a);
-                if (j != null && j != c.jET) {
+                if (j != null && j != c.jFm) {
                     return j;
                 }
             }
         }
-        c j2 = this.jEY.j(bArr, a);
+        c j2 = this.jFr.j(bArr, a);
         if (j2 == null) {
-            return c.jET;
+            return c.jFm;
         }
         return j2;
     }
 
-    private void cvZ() {
-        this.jEW = this.jEY.getHeaderSize();
-        if (this.jEX != null) {
-            for (c.a aVar : this.jEX) {
-                this.jEW = Math.max(this.jEW, aVar.getHeaderSize());
+    private void cwj() {
+        this.jFp = this.jFr.getHeaderSize();
+        if (this.jFq != null) {
+            for (c.a aVar : this.jFq) {
+                this.jFp = Math.max(this.jFp, aVar.getHeaderSize());
             }
         }
     }
@@ -67,19 +67,19 @@ public class d {
         return com.facebook.common.internal.a.a(inputStream, bArr, 0, i);
     }
 
-    public static synchronized d cwa() {
+    public static synchronized d cwk() {
         d dVar;
         synchronized (d.class) {
-            if (jEV == null) {
-                jEV = new d();
+            if (jFo == null) {
+                jFo = new d();
             }
-            dVar = jEV;
+            dVar = jFo;
         }
         return dVar;
     }
 
     public static c t(InputStream inputStream) throws IOException {
-        return cwa().s(inputStream);
+        return cwk().s(inputStream);
     }
 
     public static c u(InputStream inputStream) {

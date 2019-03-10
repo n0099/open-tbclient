@@ -13,7 +13,7 @@ public class a {
         return this.tabId;
     }
 
-    public boolean bgU() {
+    public boolean bgV() {
         return 1 == this.fox;
     }
 }

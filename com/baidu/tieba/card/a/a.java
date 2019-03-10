@@ -11,7 +11,7 @@ public class a<T extends com.baidu.tieba.card.a> extends v.a {
         this.emI = t;
     }
 
-    public T aRi() {
+    public T aRj() {
         return this.emI;
     }
 }

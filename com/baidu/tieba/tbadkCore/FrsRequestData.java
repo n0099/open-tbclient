@@ -25,8 +25,8 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int cid;
     private int ctime;
     private int dataSize;
-    private String iEC;
     private String iED;
+    private String iEE;
     private int isGood;
     private String kw;
     private String lastId;
@@ -45,14 +45,14 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     private int updateType;
     private int withGroup;
     private int rn = 90;
-    private int iEB = 30;
+    private int iEC = 30;
     private String bSI = "";
     private int mSortType = -1;
     private int mLoadType = 1;
-    private int iEE = 0;
+    private int iEF = 0;
     private int callFrom = 0;
-    private HashMap<String, String> iEF = null;
-    private long iEG = 0;
+    private HashMap<String, String> iEG = null;
+    private long iEH = 0;
 
     public void setLastClickTid(long j) {
         this.mLastClickTid = j;
@@ -186,16 +186,16 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         this.refreshCount = i;
     }
 
-    public void Cq(String str) {
-        this.iEC = str;
-    }
-
-    public void setObjSource(String str) {
+    public void Cr(String str) {
         this.iED = str;
     }
 
+    public void setObjSource(String str) {
+        this.iEE = str;
+    }
+
     public void zm(int i) {
-        this.iEE = i;
+        this.iEF = i;
     }
 
     public void setCallFrom(int i) {
@@ -209,14 +209,14 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
 
     @Override // com.baidu.tbadk.mvc.b.g
     public HashMap<String, String> aoa() {
-        return this.iEF;
+        return this.iEG;
     }
 
     public void dV(String str, String str2) {
-        if (this.iEF == null) {
-            this.iEF = new HashMap<>();
+        if (this.iEG == null) {
+            this.iEG = new HashMap<>();
         }
-        this.iEF.put(str, str2);
+        this.iEG.put(str, str2);
     }
 
     @Override // com.baidu.tbadk.mvc.b.k
@@ -225,7 +225,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.kw = this.kw;
         builder.pn = Integer.valueOf(this.pn);
         builder.rn = Integer.valueOf(this.rn);
-        builder.rn_need = Integer.valueOf(this.iEB);
+        builder.rn_need = Integer.valueOf(this.iEC);
         builder.with_group = Integer.valueOf(this.withGroup);
         builder.is_good = Integer.valueOf(this.isGood);
         builder.cid = Integer.valueOf(this.cid);
@@ -243,13 +243,13 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
         builder.yuelaou_locate = this.bSI;
         builder.sort_type = Integer.valueOf(this.mSortType);
         builder.last_click_tid = Long.valueOf(this.mLastClickTid);
-        builder.app_pos = com.baidu.tieba.recapp.d.a.bXw().bXz();
+        builder.app_pos = com.baidu.tieba.recapp.d.a.bXx().bXA();
         builder.load_type = Integer.valueOf(this.mLoadType);
-        builder.obj_locate = this.iEC;
-        builder.obj_source = this.iED;
-        builder.is_selection = Integer.valueOf(this.iEE);
+        builder.obj_locate = this.iED;
+        builder.obj_source = this.iEE;
+        builder.is_selection = Integer.valueOf(this.iEF);
         builder.call_from = Integer.valueOf(this.callFrom);
-        builder.hot_thread_id = Long.valueOf(this.iEG);
+        builder.hot_thread_id = Long.valueOf(this.iEH);
         AdParam.Builder builder2 = new AdParam.Builder();
         builder2.refresh_count = Integer.valueOf(this.refreshCount);
         builder2.load_count = Integer.valueOf(this.loadCount);
@@ -267,7 +267,7 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public void dP(long j) {
-        this.iEG = j;
+        this.iEH = j;
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
@@ -286,6 +286,6 @@ public class FrsRequestData extends OrmObject implements com.baidu.tbadk.mvc.b.e
     }
 
     public void zn(int i) {
-        this.iEB = i;
+        this.iEC = i;
     }
 }

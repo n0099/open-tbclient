@@ -153,7 +153,7 @@ public class a extends BaseAdapter {
         this.cMJ = z;
     }
 
-    public boolean aws() {
+    public boolean awt() {
         return this.cMJ;
     }
 

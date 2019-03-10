@@ -3,27 +3,27 @@ package rx.internal.util.a;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public class y<E> extends aa<E> {
-    static final int kbe = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
-    private static final Object kbk = new Object();
-    private static final long kbo;
-    private static final int kbp;
-    private static final long kbr;
-    private static final long kbs;
+    private static final long kbH;
+    private static final int kbI;
+    private static final long kbK;
+    private static final long kbL;
+    static final int kbx = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
+    private static final Object kbD = new Object();
 
     static {
-        int arrayIndexScale = ae.kby.arrayIndexScale(Object[].class);
+        int arrayIndexScale = ae.kbR.arrayIndexScale(Object[].class);
         if (4 == arrayIndexScale) {
-            kbp = 2;
+            kbI = 2;
         } else if (8 == arrayIndexScale) {
-            kbp = 3;
+            kbI = 3;
         } else {
             throw new IllegalStateException("Unknown pointer size");
         }
-        kbo = ae.kby.arrayBaseOffset(Object[].class);
+        kbH = ae.kbR.arrayBaseOffset(Object[].class);
         try {
-            kbs = ae.kby.objectFieldOffset(ad.class.getDeclaredField("producerIndex"));
+            kbL = ae.kbR.objectFieldOffset(ad.class.getDeclaredField("producerIndex"));
             try {
-                kbr = ae.kby.objectFieldOffset(aa.class.getDeclaredField("consumerIndex"));
+                kbK = ae.kbR.objectFieldOffset(aa.class.getDeclaredField("consumerIndex"));
             } catch (NoSuchFieldException e) {
                 InternalError internalError = new InternalError();
                 internalError.initCause(e);
@@ -37,15 +37,15 @@ public class y<E> extends aa<E> {
     }
 
     public y(int i) {
-        int Dt = h.Dt(i);
-        long j = Dt - 1;
-        E[] eArr = (E[]) new Object[Dt + 1];
-        this.kbx = eArr;
-        this.kbw = j;
-        Dr(Dt);
-        this.kbv = eArr;
-        this.kbu = j;
-        this.kbc = j - 1;
+        int Du = h.Du(i);
+        long j = Du - 1;
+        E[] eArr = (E[]) new Object[Du + 1];
+        this.kbQ = eArr;
+        this.kbP = j;
+        Ds(Du);
+        this.kbO = eArr;
+        this.kbN = j;
+        this.kbv = j - 1;
         eq(0L);
     }
 
@@ -59,16 +59,16 @@ public class y<E> extends aa<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.kbx;
+        E[] eArr = this.kbQ;
         long j = this.producerIndex;
-        long j2 = this.kbw;
+        long j2 = this.kbP;
         long A = A(j, j2);
-        if (j < this.kbc) {
+        if (j < this.kbv) {
             return a(eArr, e, j, A);
         }
-        int i = this.kbf;
+        int i = this.kby;
         if (b(eArr, A(i + j, j2)) == null) {
-            this.kbc = (i + j) - 1;
+            this.kbv = (i + j) - 1;
             return a(eArr, e, j, A);
         } else if (b(eArr, A(1 + j, j2)) != null) {
             return a(eArr, e, j, A);
@@ -86,11 +86,11 @@ public class y<E> extends aa<E> {
 
     private void a(E[] eArr, long j, long j2, E e, long j3) {
         E[] eArr2 = (E[]) new Object[eArr.length];
-        this.kbx = eArr2;
-        this.kbc = (j + j3) - 1;
+        this.kbQ = eArr2;
+        this.kbv = (j + j3) - 1;
         b(eArr2, j2, e);
         b(eArr, eArr2);
-        b(eArr, j2, kbk);
+        b(eArr, j2, kbD);
         eq(j + 1);
     }
 
@@ -104,12 +104,12 @@ public class y<E> extends aa<E> {
 
     @Override // java.util.Queue
     public final E poll() {
-        E[] eArr = this.kbv;
+        E[] eArr = this.kbO;
         long j = this.consumerIndex;
-        long j2 = this.kbu;
+        long j2 = this.kbN;
         long A = A(j, j2);
         E e = (E) b(eArr, A);
-        boolean z = e == kbk;
+        boolean z = e == kbD;
         if (e != null && !z) {
             b(eArr, A, (Object) null);
             er(j + 1);
@@ -122,7 +122,7 @@ public class y<E> extends aa<E> {
     }
 
     private E a(E[] eArr, long j, long j2) {
-        this.kbv = eArr;
+        this.kbO = eArr;
         long A = A(j, j2);
         E e = (E) b(eArr, A);
         if (e == null) {
@@ -135,52 +135,52 @@ public class y<E> extends aa<E> {
 
     @Override // java.util.Queue
     public final E peek() {
-        E[] eArr = this.kbv;
+        E[] eArr = this.kbO;
         long j = this.consumerIndex;
-        long j2 = this.kbu;
+        long j2 = this.kbN;
         E e = (E) b(eArr, A(j, j2));
-        if (e == kbk) {
+        if (e == kbD) {
             return b(N(eArr), j, j2);
         }
         return e;
     }
 
     private E b(E[] eArr, long j, long j2) {
-        this.kbv = eArr;
+        this.kbO = eArr;
         return (E) b(eArr, A(j, j2));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public final int size() {
-        long cEC = cEC();
+        long cEM = cEM();
         while (true) {
-            long cED = cED();
-            long cEC2 = cEC();
-            if (cEC == cEC2) {
-                return (int) (cED - cEC2);
+            long cEN = cEN();
+            long cEM2 = cEM();
+            if (cEM == cEM2) {
+                return (int) (cEN - cEM2);
             }
-            cEC = cEC2;
+            cEM = cEM2;
         }
     }
 
-    private void Dr(int i) {
-        this.kbf = Math.min(i / 4, kbe);
+    private void Ds(int i) {
+        this.kby = Math.min(i / 4, kbx);
     }
 
-    private long cED() {
-        return ae.kby.getLongVolatile(this, kbs);
+    private long cEN() {
+        return ae.kbR.getLongVolatile(this, kbL);
     }
 
-    private long cEC() {
-        return ae.kby.getLongVolatile(this, kbr);
+    private long cEM() {
+        return ae.kbR.getLongVolatile(this, kbK);
     }
 
     private void eq(long j) {
-        ae.kby.putOrderedLong(this, kbs, j);
+        ae.kbR.putOrderedLong(this, kbL, j);
     }
 
     private void er(long j) {
-        ae.kby.putOrderedLong(this, kbr, j);
+        ae.kbR.putOrderedLong(this, kbK, j);
     }
 
     private static long A(long j, long j2) {
@@ -188,14 +188,14 @@ public class y<E> extends aa<E> {
     }
 
     private static long ew(long j) {
-        return kbo + (j << kbp);
+        return kbH + (j << kbI);
     }
 
     private static void b(Object[] objArr, long j, Object obj) {
-        ae.kby.putOrderedObject(objArr, j, obj);
+        ae.kbR.putOrderedObject(objArr, j, obj);
     }
 
     private static <E> Object b(E[] eArr, long j) {
-        return ae.kby.getObjectVolatile(eArr, j);
+        return ae.kbR.getObjectVolatile(eArr, j);
     }
 }

@@ -8,6 +8,6 @@ public class e {
     }
 
     public static a Rx() {
-        return com.baidu.tieba.aiapps.apps.l.b.azO();
+        return com.baidu.tieba.aiapps.apps.l.b.azP();
     }
 }

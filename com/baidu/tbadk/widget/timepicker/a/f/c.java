@@ -121,7 +121,7 @@ public class c {
                     c.this.cFQ.setCurrentItem(au - 1);
                 }
                 if (c.this.cFZ != null) {
-                    c.this.cFZ.atv();
+                    c.this.cFZ.atw();
                 }
             }
         });
@@ -144,7 +144,7 @@ public class c {
                     c.this.cFQ.setCurrentItem(au - 1);
                 }
                 if (c.this.cFZ != null) {
-                    c.this.cFZ.atv();
+                    c.this.cFZ.atw();
                 }
             }
         });
@@ -161,7 +161,7 @@ public class c {
         this.cFR.setVisibility(this.cEB[3] ? 0 : 8);
         this.cFS.setVisibility(this.cEB[4] ? 0 : 8);
         this.cFT.setVisibility(this.cEB[5] ? 0 : 8);
-        atF();
+        atG();
     }
 
     private void g(int i, int i2, int i3, int i4, int i5, int i6) {
@@ -323,7 +323,7 @@ public class c {
                     c.this.a(i8, c.this.cFP.getCurrentItem() + 1, 1, 31, asList, asList2);
                 }
                 if (c.this.cFZ != null) {
-                    c.this.cFZ.atv();
+                    c.this.cFZ.atw();
                 }
             }
         });
@@ -359,7 +359,7 @@ public class c {
                     c.this.a(c.this.cFY, i8, 1, 31, asList, asList2);
                 }
                 if (c.this.cFZ != null) {
-                    c.this.cFZ.atv();
+                    c.this.cFZ.atw();
                 }
             }
         });
@@ -376,7 +376,7 @@ public class c {
         this.cFR.setVisibility(this.cEB[3] ? 0 : 8);
         this.cFS.setVisibility(this.cEB[4] ? 0 : 8);
         this.cFT.setVisibility(this.cEB[5] ? 0 : 8);
-        atF();
+        atG();
     }
 
     private void a(WheelView wheelView) {
@@ -384,7 +384,7 @@ public class c {
             wheelView.setOnItemSelectedListener(new com.baidu.tbadk.widget.timepicker.wheel.c.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.c.5
                 @Override // com.baidu.tbadk.widget.timepicker.wheel.c.b
                 public void ld(int i) {
-                    c.this.cFZ.atv();
+                    c.this.cFZ.atw();
                 }
             });
         }
@@ -419,7 +419,7 @@ public class c {
         }
     }
 
-    private void atF() {
+    private void atG() {
         this.cFQ.setTextSize(this.textSize);
         this.cFP.setTextSize(this.textSize);
         this.cFO.setTextSize(this.textSize);
@@ -428,7 +428,7 @@ public class c {
         this.cFT.setTextSize(this.textSize);
     }
 
-    private void atG() {
+    private void atH() {
         this.cFQ.setTextColorOut(this.cFg);
         this.cFP.setTextColorOut(this.cFg);
         this.cFO.setTextColorOut(this.cFg);
@@ -437,7 +437,7 @@ public class c {
         this.cFT.setTextColorOut(this.cFg);
     }
 
-    private void atH() {
+    private void atI() {
         this.cFQ.setTextColorCenter(this.cFh);
         this.cFP.setTextColorCenter(this.cFh);
         this.cFO.setTextColorCenter(this.cFh);
@@ -446,7 +446,7 @@ public class c {
         this.cFT.setTextColorCenter(this.cFh);
     }
 
-    private void atI() {
+    private void atJ() {
         this.cFQ.setDividerColor(this.cFi);
         this.cFP.setDividerColor(this.cFi);
         this.cFO.setDividerColor(this.cFi);
@@ -455,7 +455,7 @@ public class c {
         this.cFT.setDividerColor(this.cFi);
     }
 
-    private void atJ() {
+    private void atK() {
         this.cFQ.setDividerType(this.cFo);
         this.cFP.setDividerType(this.cFo);
         this.cFO.setDividerType(this.cFo);
@@ -464,7 +464,7 @@ public class c {
         this.cFT.setDividerType(this.cFo);
     }
 
-    private void atK() {
+    private void atL() {
         this.cFQ.setLineSpacingMultiplier(this.cFj);
         this.cFP.setLineSpacingMultiplier(this.cFj);
         this.cFO.setLineSpacingMultiplier(this.cFj);
@@ -528,7 +528,7 @@ public class c {
 
     public String getTime() {
         if (this.cEG) {
-            return atL();
+            return atM();
         }
         StringBuilder sb = new StringBuilder();
         if (this.cFY == this.startYear) {
@@ -543,7 +543,7 @@ public class c {
         return sb.toString();
     }
 
-    private String atL() {
+    private String atM() {
         int currentItem;
         boolean z;
         StringBuilder sb = new StringBuilder();
@@ -629,27 +629,27 @@ public class c {
 
     public void setLineSpacingMultiplier(float f) {
         this.cFj = f;
-        atK();
+        atL();
     }
 
     public void setDividerColor(int i) {
         this.cFi = i;
-        atI();
+        atJ();
     }
 
     public void setDividerType(WheelView.DividerType dividerType) {
         this.cFo = dividerType;
-        atJ();
+        atK();
     }
 
     public void setTextColorCenter(int i) {
         this.cFh = i;
-        atH();
+        atI();
     }
 
     public void setTextColorOut(int i) {
         this.cFg = i;
-        atG();
+        atH();
     }
 
     public void fz(boolean z) {

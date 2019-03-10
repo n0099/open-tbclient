@@ -58,7 +58,7 @@ public class ac implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    public static String pQ(String str) {
+    public static String pR(String str) {
         BufferedReader bufferedReader;
         StringBuilder sb = new StringBuilder();
         try {
@@ -114,11 +114,11 @@ public class ac implements Thread.UncaughtExceptionHandler {
         ByteArrayOutputStream byteArrayOutputStream3;
         PrintStream printStream3 = null;
         if (TbConfig.getDebugSwitch() && l(th)) {
-            aqr();
+            aqs();
         }
         if (l(th)) {
             try {
-                Exception exc = new Exception(((th.getMessage() + pQ("cat proc/" + Process.myPid() + "/status")) + "\n===========================\n") + pQ("cat proc/" + Process.myPid() + "/maps"));
+                Exception exc = new Exception(((th.getMessage() + pR("cat proc/" + Process.myPid() + "/status")) + "\n===========================\n") + pR("cat proc/" + Process.myPid() + "/maps"));
                 this.ctP = new ExceptionData();
                 byteArrayOutputStream = new ByteArrayOutputStream();
                 try {
@@ -134,8 +134,8 @@ public class ac implements Thread.UncaughtExceptionHandler {
                     } catch (Exception e) {
                         com.baidu.adp.lib.util.n.b((OutputStream) printStream);
                         com.baidu.adp.lib.util.n.b((OutputStream) byteArrayOutputStream);
-                        int aqs = aqs();
-                        if (!aqu()) {
+                        int aqt = aqt();
+                        if (!aqv()) {
                         }
                     } catch (Throwable th2) {
                         printStream3 = printStream;
@@ -157,8 +157,8 @@ public class ac implements Thread.UncaughtExceptionHandler {
                 byteArrayOutputStream = null;
             }
         }
-        int aqs2 = aqs();
-        if (!aqu()) {
+        int aqt2 = aqt();
+        if (!aqv()) {
             return;
         }
         try {
@@ -175,7 +175,7 @@ public class ac implements Thread.UncaughtExceptionHandler {
                         this.ctP.info = new String(byteArray);
                         this.ctP.mExcep = th;
                     }
-                    aqq();
+                    aqr();
                     if (!z) {
                         a(thread, th);
                     }
@@ -183,8 +183,8 @@ public class ac implements Thread.UncaughtExceptionHandler {
                     if (!TextUtils.isEmpty(this.ctP.info)) {
                         BdLog.e(this.ctP.info);
                     }
-                    BdLog.e("hourCrash = " + aqs2);
-                    if (aqs2 >= aqt()) {
+                    BdLog.e("hourCrash = " + aqt2);
+                    if (aqt2 >= aqu()) {
                         b(thread, th);
                     }
                     com.baidu.adp.lib.util.n.b((OutputStream) printStream2);
@@ -266,7 +266,7 @@ public class ac implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    private void aqq() {
+    private void aqr() {
         if (this.ctP != null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016301, this.ctP));
             if (this.ctP.appendInfo != null) {
@@ -530,7 +530,7 @@ public class ac implements Thread.UncaughtExceptionHandler {
         return false;
     }
 
-    private void aqr() {
+    private void aqs() {
         try {
             File file = new File(ctQ);
             if (!file.exists()) {
@@ -542,7 +542,7 @@ public class ac implements Thread.UncaughtExceptionHandler {
         }
     }
 
-    private int aqs() {
+    private int aqt() {
         int i;
         long j = 0;
         String str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log";
@@ -568,11 +568,11 @@ public class ac implements Thread.UncaughtExceptionHandler {
         return i2;
     }
 
-    private int aqt() {
+    private int aqu() {
         return com.baidu.adp.lib.stats.switchs.a.kq().getMaxAlertCount("alert_crash", 5);
     }
 
-    private boolean aqu() {
+    private boolean aqv() {
         int i;
         int i2;
         int i3 = 10;

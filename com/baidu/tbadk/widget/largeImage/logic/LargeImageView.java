@@ -43,12 +43,12 @@ public class LargeImageView extends DragImageView {
 
     @Override // com.baidu.tbadk.widget.DragImageView, android.view.View
     public void computeScroll() {
-        this.czu.arJ();
+        this.czu.arK();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
     protected float o(Bitmap bitmap) {
-        return this.czu.arM();
+        return this.czu.arN();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
@@ -58,11 +58,11 @@ public class LargeImageView extends DragImageView {
 
     @Override // com.baidu.tbadk.widget.DragImageView
     protected float p(Bitmap bitmap) {
-        return this.czu.arN();
+        return this.czu.arO();
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
-    public void aqF() {
+    public void aqG() {
         this.czu.a(getImageBitmap(), getImageData());
     }
 

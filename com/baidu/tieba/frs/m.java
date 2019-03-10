@@ -6,7 +6,7 @@ public class m implements com.baidu.adp.widget.ListView.m {
     public static final BdUniqueId fbK = BdUniqueId.gen();
     private int fbL;
 
-    public int bdV() {
+    public int bdW() {
         return this.fbL;
     }
 

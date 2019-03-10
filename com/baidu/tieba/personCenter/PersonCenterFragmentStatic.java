@@ -9,11 +9,11 @@ import com.baidu.tieba.person.ProfileSocketResponseMessage;
 /* loaded from: classes4.dex */
 public class PersonCenterFragmentStatic {
     static {
-        aBa();
-        a.bXT();
+        aBb();
+        a.bXU();
     }
 
-    private static void aBa() {
+    private static void aBb() {
         com.baidu.tieba.tbadkCore.a.a.a(303012, ProfileSocketResponseMessage.class, false, false);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, com.baidu.tieba.tbadkCore.a.a.br("c/u/user/profile", 303012));
         tbHttpMessageTask.setIsNeedLogin(false);

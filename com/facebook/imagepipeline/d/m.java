@@ -11,58 +11,58 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class m {
-    private final ar jGX;
-    private final l jHO;
-    private final boolean jHW;
-    ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jHX;
-    ai<com.facebook.imagepipeline.f.d> jHY;
-    ai<com.facebook.imagepipeline.f.d> jHZ;
-    private final af jHl;
-    private final boolean jHq;
-    private final boolean jHy;
-    ai<Void> jIa;
-    ai<Void> jIb;
-    private ai<com.facebook.imagepipeline.f.d> jIc;
-    ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jId;
-    ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jIe;
-    ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jIf;
-    ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jIg;
-    ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jIh;
-    ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jIi;
-    Map<ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>>, ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>>> jIj = new HashMap();
-    Map<ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>>, ai<Void>> jIk = new HashMap();
+    private final af jHE;
+    private final boolean jHJ;
+    private final boolean jHR;
+    private final ar jHq;
+    ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jIA;
+    ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jIB;
+    Map<ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>>, ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>>> jIC = new HashMap();
+    Map<ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>>, ai<Void>> jID = new HashMap();
+    private final l jIh;
+    private final boolean jIp;
+    ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jIq;
+    ai<com.facebook.imagepipeline.f.d> jIr;
+    ai<com.facebook.imagepipeline.f.d> jIs;
+    ai<Void> jIt;
+    ai<Void> jIu;
+    private ai<com.facebook.imagepipeline.f.d> jIv;
+    ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jIw;
+    ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jIx;
+    ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jIy;
+    ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jIz;
 
     public m(l lVar, af afVar, boolean z, boolean z2, ar arVar, boolean z3) {
-        this.jHO = lVar;
-        this.jHl = afVar;
-        this.jHq = z;
-        this.jHy = z2;
-        this.jGX = arVar;
-        this.jHW = z3;
+        this.jIh = lVar;
+        this.jHE = afVar;
+        this.jHJ = z;
+        this.jHR = z2;
+        this.jHq = arVar;
+        this.jIp = z3;
     }
 
     public ai<Void> c(ImageRequest imageRequest) {
         d(imageRequest);
-        switch (imageRequest.cAi()) {
+        switch (imageRequest.cAs()) {
             case 0:
-                return cye();
+                return cyo();
             case 1:
             default:
-                throw new IllegalArgumentException("Unsupported uri scheme for encoded image fetch! Uri is: " + I(imageRequest.cAh()));
+                throw new IllegalArgumentException("Unsupported uri scheme for encoded image fetch! Uri is: " + I(imageRequest.cAr()));
             case 2:
             case 3:
-                return cyg();
+                return cyq();
         }
     }
 
     private static void d(ImageRequest imageRequest) {
         com.facebook.common.internal.g.checkNotNull(imageRequest);
-        com.facebook.common.internal.g.checkArgument(imageRequest.czw().getValue() <= ImageRequest.RequestLevel.ENCODED_MEMORY_CACHE.getValue());
+        com.facebook.common.internal.g.checkArgument(imageRequest.czG().getValue() <= ImageRequest.RequestLevel.ENCODED_MEMORY_CACHE.getValue());
     }
 
     public ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> e(ImageRequest imageRequest) {
         ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> g = g(imageRequest);
-        if (imageRequest.cAr() != null) {
+        if (imageRequest.cAB() != null) {
             return u(g);
         }
         return g;
@@ -74,121 +74,121 @@ public class m {
 
     private ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> g(ImageRequest imageRequest) {
         com.facebook.common.internal.g.checkNotNull(imageRequest);
-        Uri cAh = imageRequest.cAh();
-        com.facebook.common.internal.g.checkNotNull(cAh, "Uri is null.");
-        switch (imageRequest.cAi()) {
+        Uri cAr = imageRequest.cAr();
+        com.facebook.common.internal.g.checkNotNull(cAr, "Uri is null.");
+        switch (imageRequest.cAs()) {
             case 0:
-                return cyc();
+                return cym();
             case 1:
             default:
-                throw new IllegalArgumentException("Unsupported uri scheme! Uri is: " + I(cAh));
+                throw new IllegalArgumentException("Unsupported uri scheme! Uri is: " + I(cAr));
             case 2:
-                return cyj();
+                return cyt();
             case 3:
-                return cyi();
+                return cys();
             case 4:
-                return cyk();
+                return cyu();
             case 5:
-                return cym();
+                return cyw();
             case 6:
-                return cyl();
+                return cyv();
             case 7:
-                return cyn();
+                return cyx();
         }
-    }
-
-    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> cyc() {
-        if (this.jHX == null) {
-            this.jHX = q(cyf());
-        }
-        return this.jHX;
-    }
-
-    private synchronized ai<com.facebook.imagepipeline.f.d> cyd() {
-        if (this.jHZ == null) {
-            this.jHZ = this.jHO.a(cyf(), this.jGX);
-        }
-        return this.jHZ;
-    }
-
-    private synchronized ai<Void> cye() {
-        if (this.jIb == null) {
-            this.jIb = l.m(cyd());
-        }
-        return this.jIb;
-    }
-
-    private synchronized ai<com.facebook.imagepipeline.f.d> cyf() {
-        if (this.jIc == null) {
-            this.jIc = l.a(r(this.jHO.a(this.jHl)));
-            this.jIc = this.jHO.a(this.jIc, this.jHq, this.jHW);
-        }
-        return this.jIc;
-    }
-
-    private synchronized ai<Void> cyg() {
-        if (this.jIa == null) {
-            this.jIa = l.m(cyh());
-        }
-        return this.jIa;
-    }
-
-    private synchronized ai<com.facebook.imagepipeline.f.d> cyh() {
-        if (this.jHY == null) {
-            this.jHY = this.jHO.a(r(this.jHO.cxZ()), this.jGX);
-        }
-        return this.jHY;
-    }
-
-    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> cyi() {
-        if (this.jId == null) {
-            this.jId = p(this.jHO.cxZ());
-        }
-        return this.jId;
-    }
-
-    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> cyj() {
-        if (this.jIe == null) {
-            this.jIe = t(this.jHO.cyb());
-        }
-        return this.jIe;
-    }
-
-    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> cyk() {
-        if (this.jIf == null) {
-            this.jIf = a(this.jHO.cxW(), new au[]{this.jHO.cxX(), this.jHO.cxY()});
-        }
-        return this.jIf;
-    }
-
-    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> cyl() {
-        if (this.jIg == null) {
-            this.jIg = p(this.jHO.cya());
-        }
-        return this.jIg;
     }
 
     private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> cym() {
-        if (this.jIh == null) {
-            this.jIh = p(this.jHO.cxV());
+        if (this.jIq == null) {
+            this.jIq = q(cyp());
         }
-        return this.jIh;
+        return this.jIq;
     }
 
-    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> cyn() {
-        if (this.jIi == null) {
-            ai<com.facebook.imagepipeline.f.d> cxU = this.jHO.cxU();
-            if (com.facebook.common.g.c.jAE && (!this.jHy || com.facebook.common.g.c.jAH == null)) {
-                cxU = this.jHO.o(cxU);
-            }
-            l lVar = this.jHO;
-            this.jIi = q(this.jHO.a(l.a(cxU), true, this.jHW));
+    private synchronized ai<com.facebook.imagepipeline.f.d> cyn() {
+        if (this.jIs == null) {
+            this.jIs = this.jIh.a(cyp(), this.jHq);
         }
-        return this.jIi;
+        return this.jIs;
+    }
+
+    private synchronized ai<Void> cyo() {
+        if (this.jIu == null) {
+            this.jIu = l.m(cyn());
+        }
+        return this.jIu;
+    }
+
+    private synchronized ai<com.facebook.imagepipeline.f.d> cyp() {
+        if (this.jIv == null) {
+            this.jIv = l.a(r(this.jIh.a(this.jHE)));
+            this.jIv = this.jIh.a(this.jIv, this.jHJ, this.jIp);
+        }
+        return this.jIv;
+    }
+
+    private synchronized ai<Void> cyq() {
+        if (this.jIt == null) {
+            this.jIt = l.m(cyr());
+        }
+        return this.jIt;
+    }
+
+    private synchronized ai<com.facebook.imagepipeline.f.d> cyr() {
+        if (this.jIr == null) {
+            this.jIr = this.jIh.a(r(this.jIh.cyj()), this.jHq);
+        }
+        return this.jIr;
+    }
+
+    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> cys() {
+        if (this.jIw == null) {
+            this.jIw = p(this.jIh.cyj());
+        }
+        return this.jIw;
+    }
+
+    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> cyt() {
+        if (this.jIx == null) {
+            this.jIx = t(this.jIh.cyl());
+        }
+        return this.jIx;
+    }
+
+    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> cyu() {
+        if (this.jIy == null) {
+            this.jIy = a(this.jIh.cyg(), new au[]{this.jIh.cyh(), this.jIh.cyi()});
+        }
+        return this.jIy;
+    }
+
+    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> cyv() {
+        if (this.jIz == null) {
+            this.jIz = p(this.jIh.cyk());
+        }
+        return this.jIz;
+    }
+
+    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> cyw() {
+        if (this.jIA == null) {
+            this.jIA = p(this.jIh.cyf());
+        }
+        return this.jIA;
+    }
+
+    private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> cyx() {
+        if (this.jIB == null) {
+            ai<com.facebook.imagepipeline.f.d> cye = this.jIh.cye();
+            if (com.facebook.common.g.c.jAX && (!this.jHR || com.facebook.common.g.c.jBa == null)) {
+                cye = this.jIh.o(cye);
+            }
+            l lVar = this.jIh;
+            this.jIB = q(this.jIh.a(l.a(cye), true, this.jIp));
+        }
+        return this.jIB;
     }
 
     private ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> p(ai<com.facebook.imagepipeline.f.d> aiVar) {
-        return a(aiVar, new au[]{this.jHO.cxY()});
+        return a(aiVar, new au[]{this.jIh.cyi()});
     }
 
     private ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> a(ai<com.facebook.imagepipeline.f.d> aiVar, au<com.facebook.imagepipeline.f.d>[] auVarArr) {
@@ -196,47 +196,47 @@ public class m {
     }
 
     private ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> q(ai<com.facebook.imagepipeline.f.d> aiVar) {
-        return t(this.jHO.e(aiVar));
+        return t(this.jIh.e(aiVar));
     }
 
     private ai<com.facebook.imagepipeline.f.d> r(ai<com.facebook.imagepipeline.f.d> aiVar) {
-        if (com.facebook.common.g.c.jAE && (!this.jHy || com.facebook.common.g.c.jAH == null)) {
-            aiVar = this.jHO.o(aiVar);
+        if (com.facebook.common.g.c.jAX && (!this.jHR || com.facebook.common.g.c.jBa == null)) {
+            aiVar = this.jIh.o(aiVar);
         }
-        return this.jHO.i(this.jHO.j(s(aiVar)));
+        return this.jIh.i(this.jIh.j(s(aiVar)));
     }
 
     private ai<com.facebook.imagepipeline.f.d> s(ai<com.facebook.imagepipeline.f.d> aiVar) {
-        return this.jHO.f(this.jHO.h(this.jHO.g(aiVar)));
+        return this.jIh.f(this.jIh.h(this.jIh.g(aiVar)));
     }
 
     private ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> t(ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> aiVar) {
-        return this.jHO.b(this.jHO.a(this.jHO.c(this.jHO.d(aiVar)), this.jGX));
+        return this.jIh.b(this.jIh.a(this.jIh.c(this.jIh.d(aiVar)), this.jHq));
     }
 
     private ai<com.facebook.imagepipeline.f.d> b(ai<com.facebook.imagepipeline.f.d> aiVar, au<com.facebook.imagepipeline.f.d>[] auVarArr) {
-        as n = this.jHO.n(this.jHO.a(l.a(aiVar), true, this.jHW));
-        l lVar = this.jHO;
+        as n = this.jIh.n(this.jIh.a(l.a(aiVar), true, this.jIp));
+        l lVar = this.jIh;
         return l.a(b(auVarArr), n);
     }
 
     private ai<com.facebook.imagepipeline.f.d> b(au<com.facebook.imagepipeline.f.d>[] auVarArr) {
-        return this.jHO.a(this.jHO.a(auVarArr), true, this.jHW);
+        return this.jIh.a(this.jIh.a(auVarArr), true, this.jIp);
     }
 
     private synchronized ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> u(ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> aiVar) {
-        if (!this.jIj.containsKey(aiVar)) {
-            this.jIj.put(aiVar, this.jHO.k(this.jHO.l(aiVar)));
+        if (!this.jIC.containsKey(aiVar)) {
+            this.jIC.put(aiVar, this.jIh.k(this.jIh.l(aiVar)));
         }
-        return this.jIj.get(aiVar);
+        return this.jIC.get(aiVar);
     }
 
     private synchronized ai<Void> v(ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> aiVar) {
-        if (!this.jIk.containsKey(aiVar)) {
-            l lVar = this.jHO;
-            this.jIk.put(aiVar, l.m(aiVar));
+        if (!this.jID.containsKey(aiVar)) {
+            l lVar = this.jIh;
+            this.jID.put(aiVar, l.m(aiVar));
         }
-        return this.jIk.get(aiVar);
+        return this.jID.get(aiVar);
     }
 
     private static String I(Uri uri) {

@@ -7,8 +7,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class a {
-    private static a iNI;
-    private InterfaceC0298a iNJ = cgV();
+    private static a iOc;
+    private InterfaceC0298a iOd = chf();
 
     /* renamed from: com.baidu.tieba.r.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -22,53 +22,53 @@ public class a {
         void onResume(Activity activity);
     }
 
-    private boolean cgU() {
+    private boolean che() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("pref_key_crab_sdk_enable", 1) == 1;
     }
 
     private a() {
     }
 
-    private InterfaceC0298a cgV() {
+    private InterfaceC0298a chf() {
         CustomResponsedMessage runTask;
-        if (!cgU() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0298a.class)) == null) {
+        if (!che() || (runTask = MessageManager.getInstance().runTask(2016565, InterfaceC0298a.class)) == null) {
             return null;
         }
         return (InterfaceC0298a) runTask.getData();
     }
 
-    public static a cgW() {
-        if (iNI == null) {
+    public static a chg() {
+        if (iOc == null) {
             synchronized (a.class) {
-                if (iNI == null) {
-                    iNI = new a();
+                if (iOc == null) {
+                    iOc = new a();
                 }
             }
         }
-        return iNI;
+        return iOc;
     }
 
     public void d(Application application) {
-        if (this.iNJ != null) {
-            this.iNJ.d(application);
+        if (this.iOd != null) {
+            this.iOd.d(application);
         }
     }
 
     public void onPause(Activity activity) {
-        if (this.iNJ != null) {
-            this.iNJ.onPause(activity);
+        if (this.iOd != null) {
+            this.iOd.onPause(activity);
         }
     }
 
     public void onResume(Activity activity) {
-        if (this.iNJ != null) {
-            this.iNJ.onResume(activity);
+        if (this.iOd != null) {
+            this.iOd.onResume(activity);
         }
     }
 
     public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
-        if (this.iNJ != null) {
-            this.iNJ.behaviorRecordEvent(motionEvent, activity);
+        if (this.iOd != null) {
+            this.iOd.behaviorRecordEvent(motionEvent, activity);
         }
     }
 }
