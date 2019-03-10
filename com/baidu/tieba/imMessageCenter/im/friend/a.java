@@ -19,15 +19,15 @@ public class a extends BaseAdapter {
         public void onClick(View view) {
             Object tag = view.getTag();
             if (tag != null && (tag instanceof BlackListItemData)) {
-                a.this.gvH.a(view, (BlackListItemData) tag);
+                a.this.gvI.a(view, (BlackListItemData) tag);
             }
         }
     };
-    private IMBlackListActivity gvH;
+    private IMBlackListActivity gvI;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(IMBlackListActivity iMBlackListActivity) {
-        this.gvH = iMBlackListActivity;
+        this.gvI = iMBlackListActivity;
     }
 
     public void setData(ArrayList<BlackListItemData> arrayList) {
@@ -76,36 +76,36 @@ public class a extends BaseAdapter {
         return null;
     }
 
-    private C0261a bwO() {
+    private C0261a bwP() {
         C0261a c0261a = new C0261a();
-        c0261a.rootView = LayoutInflater.from(this.gvH.getPageContext().getContext()).inflate(d.h.im_black_list_item, (ViewGroup) null);
-        c0261a.gvJ = (HeadImageView) c0261a.rootView.findViewById(d.g.header_view);
-        c0261a.gvJ.setIsRound(true);
+        c0261a.rootView = LayoutInflater.from(this.gvI.getPageContext().getContext()).inflate(d.h.im_black_list_item, (ViewGroup) null);
+        c0261a.gvK = (HeadImageView) c0261a.rootView.findViewById(d.g.header_view);
+        c0261a.gvK.setIsRound(true);
         c0261a.dBb = (TextView) c0261a.rootView.findViewById(d.g.user_name);
-        c0261a.gvK = (Button) c0261a.rootView.findViewById(d.g.remove_button);
+        c0261a.gvL = (Button) c0261a.rootView.findViewById(d.g.remove_button);
         c0261a.rootView.setTag(c0261a);
-        c0261a.gvK.setOnClickListener(this.dHs);
+        c0261a.gvL.setOnClickListener(this.dHs);
         return c0261a;
     }
 
     private C0261a a(Object obj, BlackListItemData blackListItemData) {
         C0261a c0261a;
         if (obj == null) {
-            c0261a = bwO();
+            c0261a = bwP();
         } else {
             c0261a = (C0261a) obj;
         }
-        a(c0261a, blackListItemData.brX());
+        a(c0261a, blackListItemData.brY());
         c0261a.dBb.setText(blackListItemData.ajR());
-        c0261a.gvK.setTag(blackListItemData);
-        this.gvH.getLayoutMode().onModeChanged(c0261a.rootView);
+        c0261a.gvL.setTag(blackListItemData);
+        this.gvI.getLayoutMode().onModeChanged(c0261a.rootView);
         return c0261a;
     }
 
     private void a(C0261a c0261a, String str) {
         if (str != null) {
-            c0261a.gvJ.setTag(str);
-            c0261a.gvJ.startLoad(str, 12, false);
+            c0261a.gvK.setTag(str);
+            c0261a.gvK.startLoad(str, 12, false);
         }
     }
 
@@ -114,8 +114,8 @@ public class a extends BaseAdapter {
     /* loaded from: classes4.dex */
     public class C0261a {
         public TextView dBb;
-        public HeadImageView gvJ;
-        public Button gvK;
+        public HeadImageView gvK;
+        public Button gvL;
         public View rootView;
 
         private C0261a() {

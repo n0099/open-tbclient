@@ -20,11 +20,11 @@ import com.baidu.tieba.d;
 public class c {
     private NoNetworkView dbq;
     private PluginErrorTipView eCy;
-    private com.baidu.tieba.personCenter.b.c hME;
-    private com.baidu.tieba.view.d hMF;
-    private View hMG;
-    private FrameLayout hMH;
-    private a hMI;
+    private com.baidu.tieba.personCenter.b.c hMF;
+    private com.baidu.tieba.view.d hMG;
+    private View hMH;
+    private FrameLayout hMI;
+    private a hMJ;
     private BdTypeListView mListView;
     private NavigationBar mNavigationBar;
     private TbPageContext mPageContext;
@@ -43,27 +43,27 @@ public class c {
             this.dbq = (NoNetworkView) view.findViewById(d.g.person_center_no_network_view);
             this.mNavigationBar = (NavigationBar) view.findViewById(d.g.person_center_navigation_bar);
             this.eCy = (PluginErrorTipView) view.findViewById(d.g.person_center_plugin_error_tip_view);
-            this.hMH = (FrameLayout) view.findViewById(d.g.layout_container);
+            this.hMI = (FrameLayout) view.findViewById(d.g.layout_container);
             this.mListView = (BdTypeListView) view.findViewById(d.g.person_center_listview);
             AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, (int) tbPageContext.getResources().getDimension(d.e.ds200));
-            this.hMG = new View(tbPageContext.getPageActivity());
-            this.hMG.setLayoutParams(layoutParams);
-            this.mListView.addFooterView(this.hMG);
-            this.hME = new com.baidu.tieba.personCenter.b.c(this.mListView, tbPageContext, bdUniqueId);
-            this.hMF = new com.baidu.tieba.view.d(1);
+            this.hMH = new View(tbPageContext.getPageActivity());
+            this.hMH.setLayoutParams(layoutParams);
+            this.mListView.addFooterView(this.hMH);
+            this.hMF = new com.baidu.tieba.personCenter.b.c(this.mListView, tbPageContext, bdUniqueId);
+            this.hMG = new com.baidu.tieba.view.d(1);
         }
     }
 
     public void b(com.baidu.tieba.personCenter.data.e eVar) {
         if (eVar != null) {
-            this.hME.b(eVar);
+            this.hMF.b(eVar);
             if (com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("clicked_blue_tip", false) || eVar.getUserData() == null || eVar.getUserData().getPersonPrivate() == null) {
             }
         }
     }
 
     public void notifyDataSetChanged() {
-        this.hME.notifyDataSetChanged();
+        this.hMF.notifyDataSetChanged();
     }
 
     public void Q(int i, String str) {
@@ -73,7 +73,7 @@ public class c {
     public void initView() {
         FrameLayout.LayoutParams layoutParams;
         this.mTitle = this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(d.j.mine));
-        this.hMF.a(this.mPageContext.getPageActivity(), this.mNavigationBar);
+        this.hMG.a(this.mPageContext.getPageActivity(), this.mNavigationBar);
         View bottomLine = this.mNavigationBar.getBottomLine();
         if (bottomLine != null) {
             if (bottomLine.getLayoutParams() instanceof FrameLayout.LayoutParams) {
@@ -84,12 +84,12 @@ public class c {
             }
             bottomLine.setLayoutParams(layoutParams);
         }
-        this.hMF.bRz();
-        this.hMF.setOnViewResponseListener(null);
+        this.hMG.bRA();
+        this.hMG.setOnViewResponseListener(null);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public boolean aXr() {
+    public boolean aXs() {
         if (this.refreshView != null) {
             return this.refreshView.isViewAttached();
         }
@@ -97,19 +97,19 @@ public class c {
     }
 
     public void a(a aVar) {
-        this.hMI = aVar;
+        this.hMJ = aVar;
     }
 
-    public void aBs() {
-        if (!aXr()) {
+    public void aBt() {
+        if (!aXs()) {
             if (this.refreshView == null) {
                 this.refreshView = new h(this.mPageContext.getPageActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.personCenter.view.c.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (j.kM()) {
-                            c.this.aBt();
-                            if (c.this.hMI != null) {
-                                c.this.hMI.cy(view);
+                            c.this.aBu();
+                            if (c.this.hMJ != null) {
+                                c.this.hMJ.cy(view);
                             }
                         }
                     }
@@ -117,15 +117,15 @@ public class c {
             }
             this.refreshView.jR(this.mPageContext.getResources().getDimensionPixelSize(d.e.ds180) - UtilHelper.getImmersiveStickyBarHeight());
             this.refreshView.po(this.mPageContext.getString(d.j.neterror));
-            this.refreshView.attachView(this.hMH, false);
+            this.refreshView.attachView(this.hMI, false);
             this.refreshView.anC();
             this.refreshView.onChangeSkinType();
         }
     }
 
-    public void aBt() {
+    public void aBu() {
         if (this.refreshView != null) {
-            this.refreshView.dettachView(this.hMH);
+            this.refreshView.dettachView(this.hMI);
             this.refreshView = null;
         }
     }
@@ -133,14 +133,14 @@ public class c {
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
             al.j(this.mTitle, d.C0236d.cp_cont_b);
-            al.l(this.hMG, d.C0236d.cp_bg_line_d);
+            al.l(this.hMH, d.C0236d.cp_bg_line_d);
             al.l(this.mListView, d.C0236d.cp_bg_line_d);
             this.mNavigationBar.onChangeSkinType(this.mPageContext, i);
             al.f(this.mNavigationBar.getBarBgView(), d.C0236d.cp_bg_line_d, i);
-            this.hME.onChangeSkinType();
+            this.hMF.onChangeSkinType();
             this.dbq.onChangeSkinType(this.mPageContext, i);
             this.eCy.onChangeSkinType(this.mPageContext, i);
-            this.hMF.onChangeSkinType(i);
+            this.hMG.onChangeSkinType(i);
             if (this.refreshView != null) {
                 this.refreshView.onChangeSkinType();
             }
@@ -149,24 +149,24 @@ public class c {
     }
 
     public void onDestroy() {
-        if (this.hME != null) {
-            this.hME.bQr();
+        if (this.hMF != null) {
+            this.hMF.bQs();
         }
     }
 
     public void I(int i, boolean z) {
-        this.hMF.I(i, z);
-    }
-
-    public void bQq() {
-        if (this.hME != null) {
-            this.hME.bQq();
-        }
+        this.hMG.I(i, z);
     }
 
     public void bQr() {
-        if (this.hME != null) {
-            this.hME.bQr();
+        if (this.hMF != null) {
+            this.hMF.bQr();
+        }
+    }
+
+    public void bQs() {
+        if (this.hMF != null) {
+            this.hMF.bQs();
         }
     }
 }

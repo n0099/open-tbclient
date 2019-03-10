@@ -5,14 +5,14 @@ import com.baidu.adp.base.BdBaseApplication;
 public class c {
     private static c csX;
 
-    public static c apQ() {
+    public static c apR() {
         if (csX == null) {
             csX = new c();
         }
         return csX;
     }
 
-    public String pC(String str) {
+    public String pD(String str) {
         String str2;
         if (BdBaseApplication.getInst().getContext().getResources().getDisplayMetrics().densityDpi <= 240) {
             str2 = "hdpi";

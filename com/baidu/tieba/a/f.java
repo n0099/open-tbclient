@@ -1,5 +1,5 @@
 package com.baidu.tieba.a;
 /* loaded from: classes3.dex */
 public interface f {
-    void qM(String str);
+    void qN(String str);
 }

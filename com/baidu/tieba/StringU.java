@@ -27,7 +27,7 @@ public class StringU {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String qk(String str) {
+    public static String ql(String str) {
         String str2;
         String str3 = "";
         if (cKp && !TextUtils.isEmpty(str)) {

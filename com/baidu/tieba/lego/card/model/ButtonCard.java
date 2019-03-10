@@ -34,10 +34,10 @@ public class ButtonCard extends BaseCardInfo {
         this.bgColor = com.baidu.tieba.lego.card.d.a.parseColor(jSONObject.optString("bg_color"));
         this.bgPicUrl = jSONObject.optString("bg_pic_url", "");
         this.btnColorStyle = jSONObject.optInt("btn_color_style", -1);
-        yb(this.btnScheme);
+        yc(this.btnScheme);
     }
 
-    private void yb(String str) {
+    private void yc(String str) {
         if (TextUtils.isEmpty(str)) {
             this.phoneNumber = "";
         } else {

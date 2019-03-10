@@ -19,7 +19,7 @@ public class c {
     private Map<d, List<d>> cSo = new HashMap();
     private Map<d, List<d>> cSp = new HashMap();
 
-    public static c ayu() {
+    public static c ayv() {
         if (cSq == null) {
             synchronized (c.class) {
                 if (cSq == null) {
@@ -31,23 +31,23 @@ public class c {
     }
 
     public void initData() {
-        C(ayz());
+        C(ayA());
         this.aIa = true;
     }
 
-    public boolean ayv() {
+    public boolean ayw() {
         return this.aIa;
     }
 
-    public List<d> ayw() {
+    public List<d> ayx() {
         return this.cSn;
     }
 
-    public Map<d, List<d>> ayx() {
+    public Map<d, List<d>> ayy() {
         return this.cSo;
     }
 
-    public Map<d, List<d>> ayy() {
+    public Map<d, List<d>> ayz() {
         return this.cSp;
     }
 
@@ -61,10 +61,10 @@ public class c {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     if (optJSONObject != null && (aU = d.aU(optJSONObject)) != null) {
                         this.cSn.add(aU);
-                        if (aU.ayD()) {
+                        if (aU.ayE()) {
                             this.cSo.put(aU, aU.aeA);
                             for (d dVar : aU.aeA) {
-                                if (dVar.ayD()) {
+                                if (dVar.ayE()) {
                                     this.cSp.put(dVar, dVar.aeA);
                                 }
                             }
@@ -78,7 +78,7 @@ public class c {
         }
     }
 
-    private JSONArray ayz() {
+    private JSONArray ayA() {
         JSONArray jSONArray;
         Exception e;
         InputStream open;

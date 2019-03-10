@@ -72,7 +72,7 @@ public class InvoiceInfoEditView extends FrameLayout implements e {
                     InvoiceInfoEditView.this.cTS.setDisplayedChild(1);
                 }
                 if (InvoiceInfoEditView.this.cTX != null) {
-                    InvoiceInfoEditView.this.cTX.aze();
+                    InvoiceInfoEditView.this.cTX.azf();
                 }
             }
         };
@@ -92,7 +92,7 @@ public class InvoiceInfoEditView extends FrameLayout implements e {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                InvoiceInfoEditView.this.azk();
+                InvoiceInfoEditView.this.azl();
             }
         };
         this.cTU.setTextChangedListener(this.cTV);
@@ -105,20 +105,20 @@ public class InvoiceInfoEditView extends FrameLayout implements e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void azk() {
+    public void azl() {
         if (this.cTX != null) {
-            if (azg()) {
-                this.cTX.azc();
-            } else {
+            if (azh()) {
                 this.cTX.azd();
+            } else {
+                this.cTX.aze();
             }
         }
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.e
-    public boolean azg() {
+    public boolean azh() {
         e currentInvoiceView = getCurrentInvoiceView();
-        return currentInvoiceView != null && currentInvoiceView.azg();
+        return currentInvoiceView != null && currentInvoiceView.azh();
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.e
@@ -143,9 +143,9 @@ public class InvoiceInfoEditView extends FrameLayout implements e {
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.e
-    public boolean azh() {
+    public boolean azi() {
         e currentInvoiceView = getCurrentInvoiceView();
-        return currentInvoiceView != null && currentInvoiceView.azh();
+        return currentInvoiceView != null && currentInvoiceView.azi();
     }
 
     private e getCurrentInvoiceView() {

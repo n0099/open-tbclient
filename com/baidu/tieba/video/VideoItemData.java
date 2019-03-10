@@ -21,7 +21,7 @@ public class VideoItemData implements Parcelable, b, Serializable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Ao */
+        /* renamed from: Ap */
         public VideoItemData[] newArray(int i) {
             return new VideoItemData[i];
         }

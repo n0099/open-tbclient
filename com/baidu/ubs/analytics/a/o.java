@@ -6,21 +6,21 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 final class o {
-    private SQLiteDatabase jww = f.csf().getDatabase();
+    private SQLiteDatabase jwP = f.csp().getDatabase();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(n nVar) {
-        this.jww.execSQL("INSERT INTO tb_ab_sessionlog(_startTime,_keepTime,_endTime,_sessionId) VALUES (?,?,?,?);", new String[]{nVar.N(), nVar.P(), nVar.O(), nVar.I()});
+        this.jwP.execSQL("INSERT INTO tb_ab_sessionlog(_startTime,_keepTime,_endTime,_sessionId) VALUES (?,?,?,?);", new String[]{nVar.N(), nVar.P(), nVar.O(), nVar.I()});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void b(n nVar) {
-        this.jww.execSQL("UPDATE tb_ab_sessionlog SET _keepTime= ? , _endTime = ? WHERE _sessionId= ?", new String[]{nVar.P(), nVar.O(), nVar.I()});
+        this.jwP.execSQL("UPDATE tb_ab_sessionlog SET _keepTime= ? , _endTime = ? WHERE _sessionId= ?", new String[]{nVar.P(), nVar.O(), nVar.I()});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final List<n> cse() {
-        Cursor rawQuery = this.jww.rawQuery("SELECT * FROM  tb_ab_sessionlog", null);
+    public final List<n> cso() {
+        Cursor rawQuery = this.jwP.rawQuery("SELECT * FROM  tb_ab_sessionlog", null);
         ArrayList arrayList = new ArrayList();
         while (rawQuery.moveToNext()) {
             n nVar = new n();
@@ -35,13 +35,13 @@ final class o {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void EQ(String str) {
-        this.jww.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
+    public final void ET(String str) {
+        this.jwP.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final boolean ER(String str) {
-        Cursor rawQuery = this.jww.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
+    public final boolean EU(String str) {
+        Cursor rawQuery = this.jwP.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
         int count = rawQuery.getCount();
         rawQuery.close();
         return count > 0;

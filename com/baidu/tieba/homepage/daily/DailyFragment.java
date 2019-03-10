@@ -31,21 +31,21 @@ public class DailyFragment extends BaseFragment implements BdListView.e, h.c, ae
         @Override // com.baidu.tieba.homepage.daily.model.a.InterfaceC0250a
         public void a(b bVar, boolean z, boolean z2) {
             DailyFragment.this.fHK.hideLoadingView();
-            DailyFragment.this.fHK.aBM();
+            DailyFragment.this.fHK.aBN();
             DailyFragment.this.fHK.a(bVar);
-            if (!DailyFragment.this.fHJ.blM()) {
-                DailyFragment.this.fHK.aCw();
+            if (!DailyFragment.this.fHJ.blN()) {
+                DailyFragment.this.fHK.aCx();
             } else if (z2) {
-                DailyFragment.this.fHK.blD();
+                DailyFragment.this.fHK.blE();
             } else {
-                DailyFragment.this.fHK.aCv();
+                DailyFragment.this.fHK.aCw();
             }
         }
 
         @Override // com.baidu.tieba.homepage.daily.model.a.InterfaceC0250a
         public void J(int i, String str) {
             DailyFragment.this.fHK.hideLoadingView();
-            DailyFragment.this.fHK.aBM();
+            DailyFragment.this.fHK.aBN();
             if (DailyFragment.this.fHJ.aoJ()) {
                 DailyFragment.this.fHK.showNetRefreshView(DailyFragment.this.fHK.getRootView(), str);
                 return;
@@ -53,7 +53,7 @@ public class DailyFragment extends BaseFragment implements BdListView.e, h.c, ae
             if (j.kY()) {
                 DailyFragment.this.showToast(str);
             }
-            DailyFragment.this.fHK.blD();
+            DailyFragment.this.fHK.blE();
         }
     };
 
@@ -97,23 +97,23 @@ public class DailyFragment extends BaseFragment implements BdListView.e, h.c, ae
         }
     }
 
-    public void aCt() {
-        this.fHK.aCt();
+    public void aCu() {
+        this.fHK.aCu();
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aBu() {
+    public void aBv() {
         if (this.eEu) {
             this.fHK.reload();
         }
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aBv() {
+    public void aBw() {
     }
 
     @Override // com.baidu.tieba.frs.ae
-    public void aBw() {
+    public void aBx() {
     }
 
     @Override // com.baidu.tieba.frs.ae
@@ -152,19 +152,19 @@ public class DailyFragment extends BaseFragment implements BdListView.e, h.c, ae
     public void onScrollToBottom() {
         if (this.fHJ.hasMore()) {
             if (!this.fHJ.qz()) {
-                this.fHK.aCu();
-                this.fHJ.aBc();
+                this.fHK.aCv();
+                this.fHJ.aBd();
                 return;
             }
             return;
         }
-        this.fHK.aCv();
+        this.fHK.aCw();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     protected void onNetRefreshButtonClicked() {
         if (j.kY()) {
-            this.fHK.aBt();
+            this.fHK.aBu();
             this.fHK.showLoadingView();
             this.fHJ.refresh();
         }

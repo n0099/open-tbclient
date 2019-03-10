@@ -17,14 +17,14 @@ public class b extends c<UserMuteListActivity> {
     private View btW;
     private BaseActivity<UserMuteListActivity> cNd;
     private NoNetworkView eCx;
-    private a iuV;
+    private a iuW;
     private NavigationBar mNavigationBar;
     private NoDataView mNoDataView;
 
     public b(BaseActivity<UserMuteListActivity> baseActivity, a aVar) {
         super(baseActivity.getPageContext());
         this.cNd = baseActivity;
-        this.iuV = aVar;
+        this.iuW = aVar;
         initUI();
     }
 
@@ -53,13 +53,13 @@ public class b extends c<UserMuteListActivity> {
         this.eCx.onChangeSkinType(this.cNd.getPageContext(), skinType);
     }
 
-    public void bhs() {
+    public void bht() {
         this.Pi.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.hU(d.j.user_mute_list_no_data_text));
     }
 
-    public void caJ() {
+    public void caK() {
         this.Pi.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.hU(d.j.refresh_view_title_text));

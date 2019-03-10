@@ -76,7 +76,7 @@ public class SmartBubbleAnimatedView extends View {
         a(attributeSet, i);
     }
 
-    public void bex() {
+    public void bey() {
         this.mAnimator = ValueAnimator.ofFloat(0.0f, 1.1f);
         if (this.fdk) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
@@ -110,12 +110,12 @@ public class SmartBubbleAnimatedView extends View {
         com.baidu.adp.lib.g.e.jH().postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.SmartBubbleAnimatedView.2
             @Override // java.lang.Runnable
             public void run() {
-                SmartBubbleAnimatedView.this.bey();
+                SmartBubbleAnimatedView.this.bez();
             }
         }, this.fdf);
     }
 
-    public void bey() {
+    public void bez() {
         if (this.fdk) {
             if (this.fdi != null) {
                 this.fdi.aeS();

@@ -15,8 +15,8 @@ public class a {
     public void a(String str, b bVar) {
         if (!StringUtils.isNull(str)) {
             C0291a c0291a = new C0291a();
-            c0291a.hKg = str;
-            c0291a.hKh = bVar;
+            c0291a.hKh = str;
+            c0291a.hKi = bVar;
             c0291a.execute("");
         }
     }
@@ -24,8 +24,8 @@ public class a {
     /* renamed from: com.baidu.tieba.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
     private static class C0291a extends BdAsyncTask<String, Integer, ImageUploadResult> {
-        public String hKg;
-        public b hKh;
+        public String hKh;
+        public b hKi;
 
         private C0291a() {
         }
@@ -35,7 +35,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: q */
         public ImageUploadResult doInBackground(String... strArr) {
-            return new com.baidu.tbadk.img.f("user_pics").P(m.lP(this.hKg), false);
+            return new com.baidu.tbadk.img.f("user_pics").P(m.lP(this.hKh), false);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -44,14 +44,14 @@ public class a {
         /* renamed from: a */
         public void onPostExecute(ImageUploadResult imageUploadResult) {
             super.onPostExecute(imageUploadResult);
-            if (this.hKh != null) {
+            if (this.hKi != null) {
                 int i = 0;
                 String str = "";
                 if (imageUploadResult != null) {
                     i = imageUploadResult.error_code;
                     str = imageUploadResult.error_msg;
                 }
-                this.hKh.a(i, str, imageUploadResult);
+                this.hKi.a(i, str, imageUploadResult);
             }
         }
     }

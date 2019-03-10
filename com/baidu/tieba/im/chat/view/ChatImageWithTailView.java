@@ -10,9 +10,9 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ChatImageWithTailView extends LinearLayout {
     private TbImageView eIz;
-    private ChatClipImageItemView geW;
-    private LinearLayout geX;
-    private TextView geY;
+    private ChatClipImageItemView geX;
+    private LinearLayout geY;
+    private TextView geZ;
 
     public ChatImageWithTailView(Context context) {
         super(context);
@@ -26,30 +26,30 @@ public class ChatImageWithTailView extends LinearLayout {
 
     public void aX(Context context) {
         LayoutInflater.from(context).inflate(d.h.chat_image_with_tail_item, this);
-        this.geW = (ChatClipImageItemView) findViewById(d.g.img_msgitem_image_new);
-        this.geW.setContentDescription(getContext().getString(d.j.editor_image));
-        this.geW.setDefaultResource(d.f.pic_image_h_not);
-        this.geX = (LinearLayout) findViewById(d.g.small_tail);
+        this.geX = (ChatClipImageItemView) findViewById(d.g.img_msgitem_image_new);
+        this.geX.setContentDescription(getContext().getString(d.j.editor_image));
+        this.geX.setDefaultResource(d.f.pic_image_h_not);
+        this.geY = (LinearLayout) findViewById(d.g.small_tail);
         this.eIz = (TbImageView) findViewById(d.g.tail_icon);
         this.eIz.setDefaultResource(d.f.icon);
         this.eIz.setAutoChangeStyle(false);
-        this.geY = (TextView) findViewById(d.g.tail_game_from);
+        this.geZ = (TextView) findViewById(d.g.tail_game_from);
     }
 
     public ChatClipImageItemView getImage() {
-        return this.geW;
-    }
-
-    public void setImage(ChatClipImageItemView chatClipImageItemView) {
-        this.geW = chatClipImageItemView;
-    }
-
-    public LinearLayout getTail() {
         return this.geX;
     }
 
+    public void setImage(ChatClipImageItemView chatClipImageItemView) {
+        this.geX = chatClipImageItemView;
+    }
+
+    public LinearLayout getTail() {
+        return this.geY;
+    }
+
     public void setTail(LinearLayout linearLayout) {
-        this.geX = linearLayout;
+        this.geY = linearLayout;
     }
 
     public TbImageView getIcon() {
@@ -61,11 +61,11 @@ public class ChatImageWithTailView extends LinearLayout {
     }
 
     public TextView getFromSource() {
-        return this.geY;
+        return this.geZ;
     }
 
     public void setFromSource(TextView textView) {
-        this.geY = textView;
+        this.geZ = textView;
     }
 
     public void setIsSupportNight(boolean z) {

@@ -67,7 +67,7 @@ public class ae {
         return str3;
     }
 
-    public static Bundle pR(String str) {
+    public static Bundle pS(String str) {
         URL url;
         String query;
         String[] split;
@@ -147,7 +147,7 @@ public class ae {
         }
     }
 
-    public static String pS(String str) {
+    public static String pT(String str) {
         if (!ap.isEmpty(str) && !str.contains("page_type")) {
             StringBuilder sb = new StringBuilder(str);
             if (str.contains("?")) {

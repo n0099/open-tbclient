@@ -125,7 +125,7 @@ public class h extends com.baidu.tbadk.editortools.c {
             jw.cjk = 1;
             jw.cji = d.f.new_pbeditor_face_button;
         }
-        if (com.baidu.tieba.tbadkCore.voice.c.cfB() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, alT.getContext()), k.class)) != null && (kVar = (k) runTask.getData()) != null) {
+        if (com.baidu.tieba.tbadkCore.voice.c.cfC() && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, alT.getContext()), k.class)) != null && (kVar = (k) runTask.getData()) != null) {
             kVar.cji = d.f.new_pbeditor_voice_button;
             kVar.cjk = 2;
             alT.b(kVar);

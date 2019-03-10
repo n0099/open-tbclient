@@ -74,7 +74,7 @@ public class b extends com.baidu.tieba.card.a<c> {
     public void a(c cVar) {
         if (cVar != null) {
             this.fdI = cVar;
-            this.fdF.startLoad(cVar.beD(), 10, false);
+            this.fdF.startLoad(cVar.beE(), 10, false);
             this.fdF.setRadius(l.h(getContext(), d.e.tbds26));
             this.fdF.setDrawerType(1);
             this.fdF.setDrawBorder(true);
@@ -82,20 +82,20 @@ public class b extends com.baidu.tieba.card.a<c> {
             this.fdF.setBorderWidth(l.h(getContext(), d.e.tbds1));
             this.fdF.setDefaultResource(d.f.transparent_bg);
             this.fdF.setDefaultBgResource(d.f.transparent_bg);
-            this.fdG.setText(cVar.beE());
-            this.fdH.setText(cVar.beF());
+            this.fdG.setText(cVar.beF());
+            this.fdH.setText(cVar.beG());
             al.j(this.fdG, d.C0236d.cp_cont_b);
             al.j(this.fdH, d.C0236d.cp_cont_d);
             al.k(this.cMu, d.f.ad_list_item_bg);
-            if (v.S(cVar.beG()) > 0) {
+            if (v.S(cVar.beH()) > 0) {
                 f fVar = new f(3);
                 fVar.h(1.0d);
                 this.eir.setVisibility(0);
                 this.eir.setFromCDN(true);
                 this.eir.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds20));
                 this.eir.setImageProcessor(fVar);
-                this.eir.setImageMediaList(cVar.beG());
-                if (!cVar.beH()) {
+                this.eir.setImageMediaList(cVar.beH());
+                if (!cVar.beI()) {
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, l.h(getContext(), d.e.tbds16));
                     layoutParams.addRule(12);
                     this.aLa.setLayoutParams(layoutParams);
@@ -107,7 +107,7 @@ public class b extends com.baidu.tieba.card.a<c> {
                 return;
             }
             this.eir.setVisibility(8);
-            if (!cVar.beH()) {
+            if (!cVar.beI()) {
                 RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, l.h(getContext(), d.e.tbds1));
                 layoutParams2.addRule(12);
                 this.aLa.setLayoutParams(layoutParams2);

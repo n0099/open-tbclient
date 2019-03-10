@@ -10,8 +10,8 @@ public class a<T extends com.baidu.tieba.frs.entelechy.view.a> extends com.baidu
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.a.a
-    /* renamed from: bfy */
-    public T aRi() {
+    /* renamed from: bfz */
+    public T aRj() {
         return (T) this.emI;
     }
 

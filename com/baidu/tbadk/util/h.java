@@ -18,7 +18,7 @@ public class h {
     private h() {
     }
 
-    public static h apU() {
+    public static h apV() {
         return ctk;
     }
 
@@ -33,7 +33,7 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean apV() {
+    public boolean apW() {
         int i;
         long j = 0;
         byte[] mg = com.baidu.tbadk.core.util.m.mg(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/crash_hour_record.log");
@@ -69,7 +69,7 @@ public class h {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            return Boolean.valueOf(h.this.apV());
+            return Boolean.valueOf(h.this.apW());
         }
 
         /* JADX DEBUG: Method merged with bridge method */

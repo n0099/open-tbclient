@@ -31,16 +31,16 @@ public class e extends com.baidu.tbadk.b.a {
     /* loaded from: classes2.dex */
     private class a extends BdAsyncTask<Object, Integer, h> {
         private String bsH;
-        private HashMap<String, String> gFt;
-        private com.baidu.adp.base.d gFu;
+        private HashMap<String, String> gFu;
+        private com.baidu.adp.base.d gFv;
         private volatile x mNetwork = null;
         private String postUrl;
 
         public a(String str, String str2, HashMap<String, String> hashMap, com.baidu.adp.base.d dVar) {
             this.bsH = str;
             this.postUrl = str2;
-            this.gFt = hashMap;
-            this.gFu = dVar;
+            this.gFu = hashMap;
+            this.gFv = dVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -51,11 +51,11 @@ public class e extends com.baidu.tbadk.b.a {
             h hVar = new h();
             try {
                 this.mNetwork = new x(TbConfig.SERVER_ADDRESS + this.postUrl);
-                Set<String> keySet = this.gFt.keySet();
+                Set<String> keySet = this.gFu.keySet();
                 if (keySet.size() > 0) {
                     for (String str : keySet) {
                         if (!"url".equalsIgnoreCase(str)) {
-                            this.mNetwork.x(str, this.gFt.get(str));
+                            this.mNetwork.x(str, this.gFu.get(str));
                         }
                     }
                 }
@@ -88,10 +88,10 @@ public class e extends com.baidu.tbadk.b.a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: a */
         public void onPostExecute(h hVar) {
-            if (this.gFu != null) {
-                this.gFu.m(hVar);
+            if (this.gFv != null) {
+                this.gFv.m(hVar);
             }
-            com.baidu.tieba.lego.a.a.bzx().a(this.postUrl, this.gFt, hVar);
+            com.baidu.tieba.lego.a.a.bzy().a(this.postUrl, this.gFu, hVar);
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -101,8 +101,8 @@ public class e extends com.baidu.tbadk.b.a {
                 this.mNetwork = null;
             }
             super.cancel(true);
-            if (this.gFu != null) {
-                this.gFu.m(null);
+            if (this.gFv != null) {
+                this.gFv.m(null);
             }
         }
     }

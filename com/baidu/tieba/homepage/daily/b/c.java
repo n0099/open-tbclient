@@ -6,11 +6,11 @@ public class c extends com.baidu.tieba.card.data.b {
     public static final BdUniqueId fIf = BdUniqueId.gen();
     private String fIg;
 
-    public String blF() {
+    public String blG() {
         return this.fIg;
     }
 
-    public void wf(String str) {
+    public void wg(String str) {
         this.fIg = str;
     }
 

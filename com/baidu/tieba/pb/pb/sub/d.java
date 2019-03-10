@@ -11,37 +11,37 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class d {
-    private com.baidu.tieba.pb.pb.sub.a.b hCT;
-    private com.baidu.tieba.pb.pb.sub.a.d hCU;
-    private s hCV;
-    private NewSubPbActivity hCa;
+    private com.baidu.tieba.pb.pb.sub.a.b hCU;
+    private com.baidu.tieba.pb.pb.sub.a.d hCV;
+    private s hCW;
+    private NewSubPbActivity hCb;
     private BdTypeListView mListView;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private View.OnClickListener mCommonClickListener = null;
     private boolean erm = false;
-    private boolean hCW = true;
+    private boolean hCX = true;
 
     public d(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
-        this.hCa = newSubPbActivity;
+        this.hCb = newSubPbActivity;
         this.mListView = bdTypeListView;
     }
 
     public void initAdapters() {
-        this.hCT = new com.baidu.tieba.pb.pb.sub.a.b(this.hCa, PostData.iGj);
-        this.hCT.t(this.mCommonClickListener);
-        this.hCT.setOnAdapterItemClickListener(this.hCV);
-        this.hCT.setFromCDN(this.hCW);
-        this.mAdapters.add(this.hCT);
-        this.hCU = new com.baidu.tieba.pb.pb.sub.a.d(this.hCa, com.baidu.tieba.pb.pb.sub.b.b.hDJ);
+        this.hCU = new com.baidu.tieba.pb.pb.sub.a.b(this.hCb, PostData.iGk);
+        this.hCU.t(this.mCommonClickListener);
+        this.hCU.setOnAdapterItemClickListener(this.hCW);
+        this.hCU.setFromCDN(this.hCX);
         this.mAdapters.add(this.hCU);
-        this.mAdapters.add(new com.baidu.tieba.pb.pb.sub.a.c(this.hCa, com.baidu.tieba.pb.pb.sub.b.a.hDI));
+        this.hCV = new com.baidu.tieba.pb.pb.sub.a.d(this.hCb, com.baidu.tieba.pb.pb.sub.b.b.hDK);
+        this.mAdapters.add(this.hCV);
+        this.mAdapters.add(new com.baidu.tieba.pb.pb.sub.a.c(this.hCb, com.baidu.tieba.pb.pb.sub.b.a.hDJ));
         this.mListView.addAdapters(this.mAdapters);
     }
 
     public void b(bg bgVar, List<m> list) {
-        this.hCT.aj(bgVar);
-        if (this.hCa.bOh().bLG()) {
-            this.hCT.Aq(this.hCa.bOh().bKQ());
+        this.hCU.aj(bgVar);
+        if (this.hCb.bOi().bLH()) {
+            this.hCU.Ar(this.hCb.bOi().bKR());
         }
         this.mListView.setData(list);
         this.mListView.getAdapter().notifyDataSetChanged();
@@ -60,15 +60,15 @@ public class d {
     }
 
     public void c(View.OnLongClickListener onLongClickListener) {
-        this.hCT.setOnLongClickListener(onLongClickListener);
+        this.hCU.setOnLongClickListener(onLongClickListener);
     }
 
     public void setOnImageClickListener(TbRichTextView.h hVar) {
-        this.hCT.setOnImageClickListener(hVar);
+        this.hCU.setOnImageClickListener(hVar);
     }
 
     public void setFromCDN(boolean z) {
-        this.hCW = z;
+        this.hCX = z;
     }
 
     public void notifyDataSetChanged() {

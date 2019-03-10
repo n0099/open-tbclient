@@ -120,7 +120,7 @@ public class j {
         return this.Vh;
     }
 
-    public void qo(String str) {
+    public void qp(String str) {
         this.Vh = str;
     }
 
@@ -133,7 +133,7 @@ public class j {
     }
 
     public void Th() {
-        if (this.mId != null && this.mId.equals(this.aDt) && e.crL().jI(this.mId)) {
+        if (this.mId != null && this.mId.equals(this.aDt) && e.crV().jI(this.mId)) {
             this.bpo = UBC.getUBCContext().Fp();
         }
     }

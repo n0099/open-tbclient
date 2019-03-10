@@ -84,7 +84,7 @@ public abstract class a<T extends com.baidu.tieba.card.data.b> implements View.O
         this.efx = abVar;
     }
 
-    public ab<T> aQh() {
+    public ab<T> aQi() {
         return this.efx;
     }
 

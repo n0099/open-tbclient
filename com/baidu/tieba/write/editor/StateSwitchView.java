@@ -10,11 +10,11 @@ import com.baidu.tieba.tbadkCore.PbEditor.EditorInfoView;
 /* loaded from: classes3.dex */
 public class StateSwitchView extends EditorInfoView {
     private int bQf;
-    private d hvH;
-    private String joH;
-    private String joI;
-    private int joJ;
-    private int joK;
+    private d hvI;
+    private String jpa;
+    private String jpb;
+    private int jpc;
+    private int jpd;
     private int mSkinType;
     private int mState;
 
@@ -32,7 +32,7 @@ public class StateSwitchView extends EditorInfoView {
     private void initUI() {
         int dimension = (int) getResources().getDimension(d.e.ds26);
         setPadding(dimension, 0, dimension, 0);
-        aLb();
+        aLc();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -40,21 +40,21 @@ public class StateSwitchView extends EditorInfoView {
         this.mState = 0;
     }
 
-    public void aSm() {
+    public void aSn() {
         if (this.mState == 0) {
             this.mState = 1;
         } else {
             this.mState = 0;
         }
-        aLb();
-        cpl();
+        aLc();
+        cpv();
     }
 
-    private void aLb() {
+    private void aLc() {
         if (this.mState == 1) {
-            setText(this.joI);
+            setText(this.jpb);
         } else {
-            setText(this.joH);
+            setText(this.jpa);
         }
     }
 
@@ -62,31 +62,31 @@ public class StateSwitchView extends EditorInfoView {
         if (i == 0 || i == 1) {
             this.mState = i;
         }
-        aLb();
-        cpl();
+        aLc();
+        cpv();
     }
 
     public void setStateString(String str, String str2) {
-        this.joH = str;
-        this.joI = str2;
-        aLb();
+        this.jpa = str;
+        this.jpb = str2;
+        aLc();
     }
 
     public void setLeftStateDrawable(int i, int i2) {
-        this.joJ = i;
-        this.joK = i2;
-        cpl();
+        this.jpc = i;
+        this.jpd = i2;
+        cpv();
     }
 
-    private void cpl() {
+    private void cpv() {
         int dimensionPixelSize = getResources().getDimensionPixelSize(d.e.ds48);
-        if (this.mState == 1 && this.joK > 0) {
-            Drawable drawable = al.getDrawable(this.joK);
+        if (this.mState == 1 && this.jpd > 0) {
+            Drawable drawable = al.getDrawable(this.jpd);
             drawable.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
             setCompoundDrawables(drawable, null, null, null);
             setCompoundDrawablePadding(getResources().getDimensionPixelSize(d.e.ds8));
-        } else if (this.mState == 0 && this.joJ > 0) {
-            Drawable drawable2 = al.getDrawable(this.joJ);
+        } else if (this.mState == 0 && this.jpc > 0) {
+            Drawable drawable2 = al.getDrawable(this.jpc);
             drawable2.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
             setCompoundDrawables(drawable2, null, null, null);
             setCompoundDrawablePadding(getResources().getDimensionPixelSize(d.e.ds8));
@@ -98,8 +98,8 @@ public class StateSwitchView extends EditorInfoView {
     }
 
     public void hideTip() {
-        if (this.hvH != null) {
-            this.hvH.aSr();
+        if (this.hvI != null) {
+            this.hvI.aSs();
         }
     }
 
@@ -118,7 +118,7 @@ public class StateSwitchView extends EditorInfoView {
             if (this.bQf > 0) {
                 al.k(this, this.bQf);
             }
-            cpl();
+            cpv();
             this.mSkinType = i;
         }
     }

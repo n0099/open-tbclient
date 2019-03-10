@@ -137,19 +137,19 @@ public class TbRichText extends OrmObject {
                             tbRichTextData = null;
                         }
                         TbRichTextData tbRichTextData2 = new TbRichTextData(8);
-                        tbRichTextData2.a(next.asD());
+                        tbRichTextData2.a(next.asE());
                         this.cCu.add(tbRichTextData2);
-                        this.cAy.add(next.asD());
+                        this.cAy.add(next.asE());
                     } else if (z && next.getType() == 32) {
                         if (tbRichTextData != null) {
                             this.cCu.add(tbRichTextData);
                         }
                         TbRichTextData tbRichTextData3 = new TbRichTextData(32);
                         tbRichTextData3.setVideoUrl(next.getVideoUrl());
-                        tbRichTextData3.a(next.asH());
+                        tbRichTextData3.a(next.asI());
                         this.cCu.add(tbRichTextData3);
                         tbRichTextData = new TbRichTextData(1);
-                        CharSequence D = next.D(tbRichTextData.asC());
+                        CharSequence D = next.D(tbRichTextData.asD());
                         if (D != null) {
                             tbRichTextData.append(D);
                         }
@@ -159,7 +159,7 @@ public class TbRichText extends OrmObject {
                             tbRichTextData = null;
                         }
                         TbRichTextData tbRichTextData4 = new TbRichTextData(512);
-                        tbRichTextData4.a(next.asF());
+                        tbRichTextData4.a(next.asG());
                         this.cCu.add(tbRichTextData4);
                     } else if (next.getType() == 17) {
                         if (tbRichTextData != null) {
@@ -167,7 +167,7 @@ public class TbRichText extends OrmObject {
                             tbRichTextData = null;
                         }
                         TbRichTextData tbRichTextData5 = new TbRichTextData(17);
-                        tbRichTextData5.a(next.asI());
+                        tbRichTextData5.a(next.asJ());
                         this.cCu.add(tbRichTextData5);
                     } else if (next.getType() == 20) {
                         if (tbRichTextData != null) {
@@ -175,7 +175,7 @@ public class TbRichText extends OrmObject {
                             tbRichTextData = null;
                         }
                         TbRichTextData tbRichTextData6 = new TbRichTextData(20);
-                        tbRichTextData6.a(next.asJ());
+                        tbRichTextData6.a(next.asK());
                         this.cCu.add(tbRichTextData6);
                     } else if (next.getType() == 1280) {
                         if (tbRichTextData != null) {
@@ -183,7 +183,7 @@ public class TbRichText extends OrmObject {
                             tbRichTextData = null;
                         }
                         TbRichTextData tbRichTextData7 = new TbRichTextData(1280);
-                        tbRichTextData7.a(next.asL());
+                        tbRichTextData7.a(next.asM());
                         this.cCu.add(tbRichTextData7);
                     } else {
                         if (tbRichTextData == null) {
@@ -191,13 +191,13 @@ public class TbRichText extends OrmObject {
                         }
                         if (next.getType() == 1024) {
                             TbRichTextData tbRichTextData8 = new TbRichTextData(1024);
-                            tbRichTextData8.a(next.asM());
+                            tbRichTextData8.a(next.asN());
                             this.cCu.add(tbRichTextData8);
                         }
                         if (next.getType() == 18 || next.getType() == 2) {
                             tbRichTextData.fu(true);
                         }
-                        CharSequence D2 = next.D(tbRichTextData.asC());
+                        CharSequence D2 = next.D(tbRichTextData.asD());
                         if (D2 != null) {
                             tbRichTextData.append(D2);
                         }
@@ -212,7 +212,7 @@ public class TbRichText extends OrmObject {
         }
     }
 
-    public ArrayList<TbRichTextData> asw() {
+    public ArrayList<TbRichTextData> asx() {
         return this.cCu;
     }
 
@@ -225,8 +225,8 @@ public class TbRichText extends OrmObject {
         for (int i = 0; i < size; i++) {
             TbRichTextData tbRichTextData = this.cCu.get(i);
             String tbRichTextData2 = tbRichTextData.toString();
-            if (tbRichTextData.getType() == 1 && tbRichTextData.asK() > 0) {
-                tbRichTextData2 = tbRichTextData2.substring(tbRichTextData.asK());
+            if (tbRichTextData.getType() == 1 && tbRichTextData.asL() > 0) {
+                tbRichTextData2 = tbRichTextData2.substring(tbRichTextData.asL());
             }
             if (i == size - 1 && tbRichTextData.getType() == 1 && this.hasAppendTime) {
                 sb.append(tbRichTextData2.substring(0, tbRichTextData2.length() - this.appendLength));
@@ -234,11 +234,11 @@ public class TbRichText extends OrmObject {
                 sb.append(this.cCv);
             } else if (tbRichTextData.getType() == 512) {
                 sb.append(this.cCw);
-            } else if (tbRichTextData.getType() == 32 && tbRichTextData.asH() != null) {
-                if (StringUtils.isNull(tbRichTextData.asH().atk())) {
+            } else if (tbRichTextData.getType() == 32 && tbRichTextData.asI() != null) {
+                if (StringUtils.isNull(tbRichTextData.asI().atl())) {
                     sb.append(tbRichTextData2);
                 } else {
-                    sb.append(this.cCx).append(tbRichTextData.asH().atk());
+                    sb.append(this.cCx).append(tbRichTextData.asI().atl());
                 }
             } else {
                 sb.append(tbRichTextData2);
@@ -262,7 +262,7 @@ public class TbRichText extends OrmObject {
         return this.cAy.size();
     }
 
-    public ArrayList<TbRichTextImageInfo> asx() {
+    public ArrayList<TbRichTextImageInfo> asy() {
         return this.cAy;
     }
 }

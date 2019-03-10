@@ -42,11 +42,11 @@ public class BaseCardInfo extends BaseLegoCardInfo {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String getTouidFromPostUrl(String str) {
-        return !TextUtils.isEmpty(str) ? b.a.xT(str).xS("touid") : "";
+        return !TextUtils.isEmpty(str) ? b.a.xU(str).xT("touid") : "";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String getFidFromPostUrl(String str) {
-        return !TextUtils.isEmpty(str) ? b.a.xT(str).xS(ImageViewerConfig.FORUM_ID) : "";
+        return !TextUtils.isEmpty(str) ? b.a.xU(str).xT(ImageViewerConfig.FORUM_ID) : "";
     }
 }

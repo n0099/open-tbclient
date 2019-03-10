@@ -15,7 +15,7 @@ public class a implements com.baidu.tbadk.core.flow.a.a {
         }
     }
 
-    public String bQu() {
+    public String bQv() {
         return this.fId;
     }
 

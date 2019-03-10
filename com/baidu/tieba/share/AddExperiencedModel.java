@@ -24,9 +24,9 @@ public class AddExperiencedModel extends BdBaseModel {
     public static int MAX_ADD_NORMAL = 3;
     public static String USELESS_FORUM_ID = "24981790";
     private HttpMessageListener bKq;
-    private a ivn;
-    private ContriInfo ivo;
-    private Runnable ivp;
+    private a ivo;
+    private ContriInfo ivp;
+    private Runnable ivq;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -35,11 +35,11 @@ public class AddExperiencedModel extends BdBaseModel {
 
     public AddExperiencedModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.ivp = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
+        this.ivq = new Runnable() { // from class: com.baidu.tieba.share.AddExperiencedModel.1
             @Override // java.lang.Runnable
             public void run() {
-                if (AddExperiencedModel.this.ivn != null) {
-                    AddExperiencedModel.this.ivn.a(AddExperiencedModel.this.ivo);
+                if (AddExperiencedModel.this.ivo != null) {
+                    AddExperiencedModel.this.ivo.a(AddExperiencedModel.this.ivp);
                 }
             }
         };
@@ -48,8 +48,8 @@ public class AddExperiencedModel extends BdBaseModel {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                 if (httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
-                    AddExperiencedModel.this.ivo = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                    e.jH().postDelayed(AddExperiencedModel.this.ivp, 2000L);
+                    AddExperiencedModel.this.ivp = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
+                    e.jH().postDelayed(AddExperiencedModel.this.ivq, 2000L);
                 }
             }
         };
@@ -70,11 +70,11 @@ public class AddExperiencedModel extends BdBaseModel {
         sendMessage(httpMessage);
     }
 
-    public static boolean BW(String str) {
+    public static boolean BX(String str) {
         return b.d(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str);
     }
 
-    public static boolean BX(String str) {
+    public static boolean BY(String str) {
         String str2;
         boolean z;
         l<String> bv = com.baidu.tbadk.core.c.a.aaW().bv("tb.share_add_experienced", TbadkCoreApplication.getCurrentAccount());
@@ -124,10 +124,10 @@ public class AddExperiencedModel extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.ivn = aVar;
+        this.ivo = aVar;
     }
 
     public void onDestroy() {
-        e.jH().removeCallbacks(this.ivp);
+        e.jH().removeCallbacks(this.ivq);
     }
 }

@@ -34,11 +34,11 @@ public class ScrollTextView extends TextView implements Runnable {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (this.cvx.isFinished()) {
-            ara();
+            arb();
         }
     }
 
-    private void ara() {
+    private void arb() {
         int height = (getHeight() - getPaddingBottom()) - getPaddingTop();
         int lineHeight = height + (getLineHeight() * (getLineCount() - 1));
         this.cvx.startScroll(0, height * (-1), 0, lineHeight, (int) (lineHeight * this.speed));
@@ -50,7 +50,7 @@ public class ScrollTextView extends TextView implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         if (this.cvx.isFinished()) {
-            ara();
+            arb();
         } else {
             post(this);
         }

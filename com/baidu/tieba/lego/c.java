@@ -7,7 +7,7 @@ public interface c {
 
     void b(String str, String str2, String str3, List<com.baidu.tieba.lego.c.e> list);
 
-    void blR();
+    void blS();
 
     void de(List<com.baidu.tieba.lego.c.d> list);
 

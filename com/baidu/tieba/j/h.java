@@ -9,17 +9,17 @@ public interface h {
 
     void at(int i, String str);
 
-    void bEg();
-
     void bEh();
 
     void bEi();
 
     void bEj();
 
+    void bEk();
+
     void g(int i, int i2, String str);
 
-    void yX(String str);
-
     void yY(String str);
+
+    void yZ(String str);
 }

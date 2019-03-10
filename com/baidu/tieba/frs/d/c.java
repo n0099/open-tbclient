@@ -74,7 +74,7 @@ public class c {
         MessageManager.getInstance().registerListener(this.bvr);
     }
 
-    public static c bil() {
+    public static c bim() {
         if (ftk == null) {
             synchronized (t.class) {
                 if (ftk == null) {
@@ -85,7 +85,7 @@ public class c {
         return ftk;
     }
 
-    private boolean bim() {
+    private boolean bin() {
         if (this.fti == null) {
             this.fti = new a();
         }
@@ -127,14 +127,14 @@ public class c {
             }
             if (bgVar.getTid() != null && !hashSet.contains(bgVar.getTid())) {
                 hashSet.add(bgVar.getTid());
-                t.aQF().b(new am("c11662").T("obj_param1", 1).bJ("post_id", bgVar.getTid()));
+                t.aQG().b(new am("c11662").T("obj_param1", 1).bJ("post_id", bgVar.getTid()));
             }
         }
     }
 
     public void b(bg bgVar, boolean z) {
         if (bgVar != null) {
-            t.aQF().b(new am("c12125").bJ("tid", bgVar.getId()).T("obj_locate", z ? 2 : 1).k(VideoPlayActivityConfig.OBJ_ID, bgVar.Zk() != null ? bgVar.Zk().live_id : -1L).T("obj_type", 1));
+            t.aQG().b(new am("c12125").bJ("tid", bgVar.getId()).T("obj_locate", z ? 2 : 1).k(VideoPlayActivityConfig.OBJ_ID, bgVar.Zk() != null ? bgVar.Zk().live_id : -1L).T("obj_type", 1));
         }
     }
 
@@ -147,7 +147,7 @@ public class c {
             amVar.bJ("obj_param1", bgVar.bCX);
             amVar.T("obj_locate", 1);
             amVar.bJ("tid", bgVar.getTid());
-            t.aQF().b(amVar);
+            t.aQG().b(amVar);
         }
     }
 
@@ -164,7 +164,7 @@ public class c {
             if (bVar.ftf >= 0) {
                 tid = tid + "_" + bVar.ftf;
             }
-            if (!hashSet.contains(tid) && !bim()) {
+            if (!hashSet.contains(tid) && !bin()) {
                 hashSet.add(tid);
                 am amVar = new am("c11439");
                 amVar.bJ(ImageViewerConfig.FORUM_ID, bVar.ftd);
@@ -183,9 +183,9 @@ public class c {
                 if (bgVar.bDP >= 0) {
                     amVar.T("obj_floor", bgVar.bDP);
                 }
-                boolean z = (bgVar.aap() == null || (bgVar.aap().ces() == null && bgVar.aap().asF() == null)) ? false : true;
-                if (z && bgVar.aap().ces() != null && bgVar.aap().ces().asw() != null && bgVar.aap().ces().asw().size() > 0) {
-                    amVar.T("obj_name", bgVar.aap().iGO ? 3 : 2);
+                boolean z = (bgVar.aap() == null || (bgVar.aap().cet() == null && bgVar.aap().asG() == null)) ? false : true;
+                if (z && bgVar.aap().cet() != null && bgVar.aap().cet().asx() != null && bgVar.aap().cet().asx().size() > 0) {
+                    amVar.T("obj_name", bgVar.aap().iGP ? 3 : 2);
                 } else {
                     amVar.T("obj_name", z ? 1 : 0);
                 }
@@ -194,7 +194,7 @@ public class c {
                 if (z2 && bgVar.YR() != null && !StringUtils.isNull(bgVar.YR().getName_show())) {
                     amVar.bJ("obj_name", bgVar.YR().getName_show());
                 }
-                t.aQF().b(amVar);
+                t.aQG().b(amVar);
                 if (bgVar.ZL()) {
                     am amVar2 = new am("c12099");
                     amVar2.bJ(ImageViewerConfig.FORUM_ID, bVar.ftd);
@@ -206,20 +206,20 @@ public class c {
                     amVar2.bJ("tid", bgVar.getTid());
                     amVar2.T(VideoPlayActivityConfig.OBJ_ID, V(bgVar));
                     amVar2.bJ("uid", TbadkCoreApplication.getCurrentAccount());
-                    t.aQF().b(amVar2);
+                    t.aQG().b(amVar2);
                 }
                 if (bgVar.YV()) {
                     am amVar3 = new am("c13169");
                     amVar3.bJ(ImageViewerConfig.FORUM_ID, bVar.ftd);
                     amVar3.bJ("tid", bgVar.getTid());
                     amVar3.bJ("uid", TbadkCoreApplication.getCurrentAccount());
-                    t.aQF().b(amVar3);
+                    t.aQG().b(amVar3);
                 }
                 if (bVar.fte == 501) {
                     am amVar4 = new am("c13259");
                     amVar4.bJ(ImageViewerConfig.FORUM_ID, bVar.ftd);
                     amVar4.bJ("tid", bgVar.getTid());
-                    t.aQF().b(amVar4);
+                    t.aQG().b(amVar4);
                 }
             }
         }
@@ -227,7 +227,7 @@ public class c {
 
     public void a(b bVar, bg bgVar, int i) {
         if (bVar != null && bVar.ftb && bgVar != null && bgVar.getTid() != null) {
-            t.aQF().hQ(true);
+            t.aQG().hQ(true);
             am amVar = new am("c11438");
             amVar.bJ(ImageViewerConfig.FORUM_ID, bVar.ftd);
             amVar.T("obj_locate", a(bVar));
@@ -265,7 +265,7 @@ public class c {
                 am amVar3 = new am("c13260");
                 amVar3.bJ(ImageViewerConfig.FORUM_ID, bVar.ftd);
                 amVar3.bJ("tid", bgVar.getTid());
-                t.aQF().b(amVar3);
+                t.aQG().b(amVar3);
             }
         }
     }

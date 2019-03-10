@@ -40,7 +40,7 @@ import java.util.regex.Pattern;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class i {
-    private static void vM(String str) {
+    private static void vN(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }
@@ -86,11 +86,11 @@ public class i {
             Matcher matcher = Pattern.compile(".*fr=(.*)&kw=(.*)").matcher(decode);
             if (matcher.find()) {
                 if (!"mpush".equals(matcher.group(1)) && "bpush".equals(matcher.group(1))) {
-                    vM(decode);
+                    vN(decode);
                 }
                 dVar.forumName = matcher.group(2);
             } else {
-                vM(decode);
+                vN(decode);
                 int indexOf = decode.indexOf("kw=");
                 if (indexOf < 0 || (length = indexOf + "kw=".length()) > decode.length()) {
                     return null;
@@ -218,7 +218,7 @@ public class i {
                 str = bgVar.bDC.id;
                 str2 = valueOf;
             }
-            if (bgVar.Zn() > 0 && com.baidu.tieba.tbadkCore.util.e.cfq()) {
+            if (bgVar.Zn() > 0 && com.baidu.tieba.tbadkCore.util.e.cfr()) {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createHistoryCfg(bgVar.getTid(), String.valueOf(bgVar.Zn()), false, true, "frs_page");
             } else {
                 createFromThreadCfg = new PbActivityConfig(frsFragment.getPageContext().getPageActivity()).createFromThreadCfg(bgVar, frsFragment.getForumName(), "frs_page", 18003, true, false, z);

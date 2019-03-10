@@ -16,12 +16,12 @@ public final class b extends c {
     public final com.coloros.mcssdk.e.c aF(Intent intent) {
         try {
             com.coloros.mcssdk.e.b bVar = new com.coloros.mcssdk.e.b();
-            bVar.BQ(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("command"))));
+            bVar.BR(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("command"))));
             bVar.q(Integer.parseInt(com.coloros.mcssdk.c.a.a(intent.getStringExtra("code"))));
             bVar.setContent(com.coloros.mcssdk.c.a.a(intent.getStringExtra("content")));
             bVar.setAppKey(com.coloros.mcssdk.c.a.a(intent.getStringExtra(WBConstants.SSO_APP_KEY)));
-            bVar.Fm(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appSecret")));
-            bVar.Fo(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
+            bVar.Fp(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appSecret")));
+            bVar.Fr(com.coloros.mcssdk.c.a.a(intent.getStringExtra("appPackage")));
             com.coloros.mcssdk.c.c.a("OnHandleIntent-message:" + bVar.toString());
             return bVar;
         } catch (Exception e) {

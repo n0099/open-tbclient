@@ -6,39 +6,39 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes3.dex */
 final class f {
-    private static f jwy;
-    private static SQLiteOpenHelper jwz;
-    private AtomicInteger jwA = new AtomicInteger();
-    private SQLiteDatabase jwB;
+    private static f jwR;
+    private static SQLiteOpenHelper jwS;
+    private AtomicInteger jwT = new AtomicInteger();
+    private SQLiteDatabase jwU;
 
     f() {
     }
 
     private static synchronized void b(Context context) {
         synchronized (f.class) {
-            if (jwy == null) {
-                jwy = new f();
-                jwz = new d(context);
+            if (jwR == null) {
+                jwR = new f();
+                jwS = new d(context);
             }
         }
     }
 
-    public static synchronized f csf() {
+    public static synchronized f csp() {
         f fVar;
         synchronized (f.class) {
-            if (jwy == null) {
-                b(com.baidu.ubs.analytics.d.csd().getContext());
+            if (jwR == null) {
+                b(com.baidu.ubs.analytics.d.csn().getContext());
             }
-            fVar = jwy;
+            fVar = jwR;
         }
         return fVar;
     }
 
     public final synchronized SQLiteDatabase getDatabase() {
-        if (this.jwA.incrementAndGet() == 1) {
-            com.baidu.ubs.analytics.d.b.EV("***************新建立了 一个数据库的实例****************");
-            this.jwB = jwz.getWritableDatabase();
+        if (this.jwT.incrementAndGet() == 1) {
+            com.baidu.ubs.analytics.d.b.EY("***************新建立了 一个数据库的实例****************");
+            this.jwU = jwS.getWritableDatabase();
         }
-        return this.jwB;
+        return this.jwU;
     }
 }

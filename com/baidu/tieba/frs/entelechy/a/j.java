@@ -102,9 +102,9 @@ public class j extends com.baidu.tieba.frs.h<bf, a<b>> implements com.baidu.tieb
             zVar.mLocate = qA(bgVar.ZY());
             zVar.ele = this.fhf.ftd;
             zVar.ctx = bgVar.getTid();
-            zVar.hYT = bgVar.mRecomAbTag;
+            zVar.hYU = bgVar.mRecomAbTag;
             if (bgVar.Zi() != null) {
-                zVar.hYU = bgVar.Zi().video_md5;
+                zVar.hYV = bgVar.Zi().video_md5;
             }
             bgVar.ZV();
         }
@@ -116,12 +116,12 @@ public class j extends com.baidu.tieba.frs.h<bf, a<b>> implements com.baidu.tieb
     @Override // com.baidu.tieba.frs.h, com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bf bfVar, a aVar) {
-        if (aVar == null || aVar.aRi() == null) {
+        if (aVar == null || aVar.aRj() == null) {
             return null;
         }
-        aVar.aRi().setVideoStatsData(ag(bfVar.threadData));
-        aVar.aRi().a(bfVar.threadData);
-        aVar.aRi().d(this.dqn);
+        aVar.aRj().setVideoStatsData(ag(bfVar.threadData));
+        aVar.aRj().a(bfVar.threadData);
+        aVar.aRj().d(this.dqn);
         com.baidu.tieba.frs.d.a.a(bfVar.threadData, this.mPageId, this.fhf);
         return aVar.getView();
     }
@@ -137,7 +137,7 @@ public class j extends com.baidu.tieba.frs.h<bf, a<b>> implements com.baidu.tieb
     }
 
     @Override // com.baidu.tieba.frs.d.d
-    public com.baidu.tieba.frs.d.b bfz() {
+    public com.baidu.tieba.frs.d.b bfA() {
         return this.fhf;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.invoice;
 public class g {
     private static volatile f cTu;
 
-    public static synchronized f azi() {
+    public static synchronized f azj() {
         f fVar;
         synchronized (g.class) {
             if (cTu == null) {

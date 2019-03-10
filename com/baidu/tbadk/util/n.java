@@ -51,10 +51,10 @@ public class n extends BdAsyncTask<String, String, b> {
         if (TextUtils.isEmpty(this.url)) {
             return new b(false, "url is null");
         }
-        if (!aqa()) {
+        if (!aqb()) {
             return new b(false, "make file error");
         }
-        if (!aqb()) {
+        if (!aqc()) {
             return new b(false, "download error");
         }
         return new b(true, null);
@@ -75,14 +75,14 @@ public class n extends BdAsyncTask<String, String, b> {
                 this.cts.onError(-1, bVar.getMessage());
             }
         } else {
-            aqc();
+            aqd();
             if (this.cts != null) {
                 this.cts.onSuccess(this.imagePath);
             }
         }
     }
 
-    private boolean aqa() {
+    private boolean aqb() {
         File externalStoragePublicDirectory;
         String lowerCase;
         try {
@@ -111,7 +111,7 @@ public class n extends BdAsyncTask<String, String, b> {
             } else {
                 lowerCase = UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase();
             }
-            this.imagePath = this.ctt + lowerCase + pJ(this.url);
+            this.imagePath = this.ctt + lowerCase + pK(this.url);
             this.ctu = new File(this.imagePath);
             if (this.ctu.exists()) {
                 this.ctu.delete();
@@ -127,7 +127,7 @@ public class n extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private boolean aqb() {
+    private boolean aqc() {
         return o(this.url, this.imagePath, 3);
     }
 
@@ -159,7 +159,7 @@ public class n extends BdAsyncTask<String, String, b> {
         try {
             a2 = a(new URL(str), i, i2);
             try {
-                fileOutputStream = new FileOutputStream(pI(str2), true);
+                fileOutputStream = new FileOutputStream(pJ(str2), true);
                 try {
                     a2.connect();
                     responseCode = a2.getResponseCode();
@@ -172,7 +172,7 @@ public class n extends BdAsyncTask<String, String, b> {
                             }
                         } catch (Exception e) {
                         }
-                        this.imagePath = this.ctt + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + pJ(headerField2);
+                        this.imagePath = this.ctt + (this.from == 1 ? "shareDialogTempImg" : UUID.randomUUID().toString().replace(Constants.ACCEPT_TIME_SEPARATOR_SERVER, "").toLowerCase()) + pK(headerField2);
                         this.ctu = new File(this.imagePath);
                         if (this.ctu.exists()) {
                             this.ctu.delete();
@@ -268,7 +268,7 @@ public class n extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private File pI(String str) {
+    private File pJ(String str) {
         com.baidu.adp.lib.util.f.bo(str);
         return new File(str);
     }
@@ -319,13 +319,13 @@ public class n extends BdAsyncTask<String, String, b> {
         }
     }
 
-    private void aqc() {
+    private void aqd() {
         if (this.ctu != null) {
             TbadkCoreApplication.getInst().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(this.ctu)));
         }
     }
 
-    private String pJ(String str) {
+    private String pK(String str) {
         if (TextUtils.isEmpty(str)) {
             return ".jpg";
         }

@@ -56,7 +56,7 @@ public class v {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                v.this.bmO();
+                v.this.bmP();
                 if (v.this.fMp != null) {
                     v.this.ay(v.this.fMp);
                 }
@@ -101,11 +101,11 @@ public class v {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            com.baidu.afd.videopaster.data.b vQ;
+            com.baidu.afd.videopaster.data.b vR;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (!StringUtils.isNull(str, true) && (vQ = v.this.vQ(str)) != null) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921395, vQ));
+                if (!StringUtils.isNull(str, true) && (vR = v.this.vR(str)) != null) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921395, vR));
                 }
             }
         }
@@ -165,23 +165,23 @@ public class v {
         this.fFN.add(this.fMI);
         this.fFN.add(this.fMJ);
         this.fFN.add(this.fMK);
+        bmO();
         bmN();
-        bmM();
-        qM("page_recommend");
+        qN("page_recommend");
     }
 
-    private void bmM() {
+    private void bmN() {
         if (!bg.bBm.get()) {
             AdvertAppInfo.bwz.set(false);
             return;
         }
-        this.fML = com.baidu.tieba.recapp.r.bWG().c(this.mPageContext, AdvertAppInfo.bwq);
-        this.fMM = com.baidu.tieba.recapp.r.bWG().c(this.mPageContext, AdvertAppInfo.bwt);
-        this.fMN = com.baidu.tieba.recapp.r.bWG().c(this.mPageContext, AdvertAppInfo.bwu);
-        this.fMO = com.baidu.tieba.recapp.r.bWG().c(this.mPageContext, AdvertAppInfo.bwv);
-        this.fMP = com.baidu.tieba.recapp.r.bWG().c(this.mPageContext, AdvertAppInfo.bww);
-        this.fMQ = com.baidu.tieba.recapp.r.bWG().c(this.mPageContext, AdvertAppInfo.bwx);
-        this.fMR = com.baidu.tieba.recapp.r.bWG().c(this.mPageContext, AdvertAppInfo.bwy);
+        this.fML = com.baidu.tieba.recapp.r.bWH().c(this.mPageContext, AdvertAppInfo.bwq);
+        this.fMM = com.baidu.tieba.recapp.r.bWH().c(this.mPageContext, AdvertAppInfo.bwt);
+        this.fMN = com.baidu.tieba.recapp.r.bWH().c(this.mPageContext, AdvertAppInfo.bwu);
+        this.fMO = com.baidu.tieba.recapp.r.bWH().c(this.mPageContext, AdvertAppInfo.bwv);
+        this.fMP = com.baidu.tieba.recapp.r.bWH().c(this.mPageContext, AdvertAppInfo.bww);
+        this.fMQ = com.baidu.tieba.recapp.r.bWH().c(this.mPageContext, AdvertAppInfo.bwx);
+        this.fMR = com.baidu.tieba.recapp.r.bWH().c(this.mPageContext, AdvertAppInfo.bwy);
         this.fFN.add(this.fML);
         this.fFN.add(this.fMM);
         this.fFN.add(this.fMN);
@@ -353,21 +353,21 @@ public class v {
         }
     }
 
-    private void bmN() {
-        this.fMT = bmO();
+    private void bmO() {
+        this.fMT = bmP();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bmO() {
+    public boolean bmP() {
         if (this.fqa == null || this.fqa.size() <= 0) {
             this.fqa = new ArrayList();
-            ArrayList<BdUniqueId> cdD = com.baidu.tieba.tbadkCore.q.cdD();
-            if (cdD == null || cdD.size() <= 0) {
+            ArrayList<BdUniqueId> cdE = com.baidu.tieba.tbadkCore.q.cdE();
+            if (cdE == null || cdE.size() <= 0) {
                 return false;
             }
-            int size = cdD.size();
+            int size = cdE.size();
             for (int i = 0; i < size; i++) {
-                com.baidu.tieba.lego.card.a.a a = com.baidu.tieba.lego.d.b.bBl().a(this.mPageContext, cdD.get(i), 2);
+                com.baidu.tieba.lego.card.a.a a = com.baidu.tieba.lego.d.b.bBm().a(this.mPageContext, cdE.get(i), 2);
                 if (this.fMS) {
                     a.setBusinessType(3);
                 }
@@ -415,11 +415,11 @@ public class v {
         }
     }
 
-    private void qM(String str) {
+    private void qN(String str) {
         if (this.fFN != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.fFN) {
                 if (aVar instanceof com.baidu.tieba.a.f) {
-                    ((com.baidu.tieba.a.f) aVar).qM(str);
+                    ((com.baidu.tieba.a.f) aVar).qN(str);
                 }
             }
         }
@@ -431,7 +431,7 @@ public class v {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.afd.videopaster.data.b vQ(String str) {
+    public com.baidu.afd.videopaster.data.b vR(String str) {
         int i;
         int i2;
         com.baidu.tieba.card.data.l lVar;

@@ -49,7 +49,7 @@ public class SendVideoSuccessShareModel extends BdBaseModel {
         return false;
     }
 
-    public void Dp(String str) {
+    public void Ds(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_VIDEO_INFO_BY_LOGVID);
         httpMessage.addParam("video_id", str);
         sendMessage(httpMessage);

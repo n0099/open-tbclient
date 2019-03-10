@@ -155,7 +155,7 @@ public class j {
             fuY.setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.frs.f.j.4
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    j.biF();
+                    j.biG();
                 }
             });
             fuY.setCancelable(true);
@@ -223,19 +223,19 @@ public class j {
 
     public static void d(FrsFragment frsFragment, int i) {
         if (frsFragment != null) {
-            FrsViewData bcR = frsFragment.bcR();
-            FrsModelController bcp = frsFragment.bcp();
-            if (bcR != null) {
-                if (bcp != null || bcR.getForum() == null) {
+            FrsViewData bcS = frsFragment.bcS();
+            FrsModelController bcq = frsFragment.bcq();
+            if (bcS != null) {
+                if (bcq != null || bcS.getForum() == null) {
                     int i2 = 0;
-                    if (bcR.getUserData() != null) {
-                        i2 = bcR.getUserData().getIsMem();
+                    if (bcS.getUserData() != null) {
+                        i2 = bcS.getUserData().getIsMem();
                     }
-                    WriteActivityConfig writeActivityConfig = new WriteActivityConfig(frsFragment.getPageContext().getPageActivity(), i, bcR.getForum().getId(), frsFragment.getForumName(), null, null, 0, bcR.getAnti(), 13003, false, false, null, false, false, null, null, bcR.getForum().getPrefixData(), i2);
-                    if (w.bej().qp(1) != null) {
-                        writeActivityConfig.setCategroyId(bcp.bhI());
+                    WriteActivityConfig writeActivityConfig = new WriteActivityConfig(frsFragment.getPageContext().getPageActivity(), i, bcS.getForum().getId(), frsFragment.getForumName(), null, null, 0, bcS.getAnti(), 13003, false, false, null, false, false, null, null, bcS.getForum().getPrefixData(), i2);
+                    if (w.bek().qp(1) != null) {
+                        writeActivityConfig.setCategroyId(bcq.bhJ());
                     }
-                    ForumData forum = bcR.getForum();
+                    ForumData forum = bcS.getForum();
                     writeActivityConfig.setForumDir(forum.getFirst_class(), forum.getSecond_class());
                     frsFragment.sendMessage(new CustomMessage(2002001, writeActivityConfig));
                 }
@@ -243,7 +243,7 @@ public class j {
         }
     }
 
-    public static void biF() {
+    public static void biG() {
         fuZ = null;
         fuY = null;
         PluginPackageManager.ni().a((com.baidu.adp.plugin.packageManager.d) null);

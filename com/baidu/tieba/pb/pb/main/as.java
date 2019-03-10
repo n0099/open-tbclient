@@ -7,33 +7,33 @@ import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 /* loaded from: classes4.dex */
 public class as {
     private EditText fPk;
-    private PostWriteCallBackData hrF;
-    private com.baidu.tieba.write.b hyL = new com.baidu.tieba.write.b();
-    private com.baidu.tieba.write.b hyM;
-    private EditText hyN;
+    private PostWriteCallBackData hrG;
+    private com.baidu.tieba.write.b hyM = new com.baidu.tieba.write.b();
+    private com.baidu.tieba.write.b hyN;
+    private EditText hyO;
 
     public as() {
-        this.hyL.AV(d.C0236d.cp_btn_a);
-        this.hyL.AW(d.C0236d.cp_cont_h_alpha85);
-        this.hyM = new com.baidu.tieba.write.b();
-        this.hyM.AV(d.C0236d.cp_btn_a);
-        this.hyM.AW(d.C0236d.cp_cont_h_alpha85);
+        this.hyM.AW(d.C0236d.cp_btn_a);
+        this.hyM.AX(d.C0236d.cp_cont_h_alpha85);
+        this.hyN = new com.baidu.tieba.write.b();
+        this.hyN.AW(d.C0236d.cp_btn_a);
+        this.hyN.AX(d.C0236d.cp_cont_h_alpha85);
     }
 
     public void nZ(boolean z) {
-        if (this.hyN != null && this.hyN.getText() != null) {
-            int selectionEnd = this.hyN.getSelectionEnd();
-            SpannableStringBuilder b = this.hyL.b(this.hyN.getText());
+        if (this.hyO != null && this.hyO.getText() != null) {
+            int selectionEnd = this.hyO.getSelectionEnd();
+            SpannableStringBuilder b = this.hyM.b(this.hyO.getText());
             if (b != null) {
-                this.hyL.qV(true);
-                this.hyN.setText(b);
-                if (z && this.hyL.cnM() >= 0) {
-                    this.hyN.requestFocus();
-                    this.hyN.setSelection(this.hyL.cnM());
+                this.hyM.qV(true);
+                this.hyO.setText(b);
+                if (z && this.hyM.cnW() >= 0) {
+                    this.hyO.requestFocus();
+                    this.hyO.setSelection(this.hyM.cnW());
                 } else {
-                    this.hyN.setSelection(selectionEnd);
+                    this.hyO.setSelection(selectionEnd);
                 }
-                this.hyL.qU(this.hyL.cnM() >= 0);
+                this.hyM.qU(this.hyM.cnW() >= 0);
             }
         }
     }
@@ -41,56 +41,56 @@ public class as {
     public void oa(boolean z) {
         if (this.fPk != null && this.fPk.getText() != null) {
             int selectionEnd = this.fPk.getSelectionEnd();
-            SpannableStringBuilder b = this.hyM.b(this.fPk.getText());
+            SpannableStringBuilder b = this.hyN.b(this.fPk.getText());
             if (b != null) {
-                this.hyM.qV(true);
+                this.hyN.qV(true);
                 this.fPk.setText(b);
-                if (z && this.hyM.cnM() >= 0) {
+                if (z && this.hyN.cnW() >= 0) {
                     this.fPk.requestFocus();
-                    this.fPk.setSelection(this.hyM.cnM());
+                    this.fPk.setSelection(this.hyN.cnW());
                 } else {
                     this.fPk.setSelection(selectionEnd);
                 }
-                this.hyM.qU(this.hyM.cnM() >= 0);
+                this.hyN.qU(this.hyN.cnW() >= 0);
             }
         }
     }
 
-    public void bNw() {
-        this.hyM.Ei(null);
+    public void bNx() {
+        this.hyN.El(null);
+        this.hyN.aE(null);
+        this.hyN.qU(false);
+    }
+
+    public void bNy() {
+        this.hyM.El(null);
         this.hyM.aE(null);
         this.hyM.qU(false);
     }
 
-    public void bNx() {
-        this.hyL.Ei(null);
-        this.hyL.aE(null);
-        this.hyL.qU(false);
-    }
-
     public void f(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
-            this.hyL.aE(postWriteCallBackData.getSensitiveWords());
-            this.hyL.Ei(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.v.T(this.hyL.cnL())) {
+            this.hyM.aE(postWriteCallBackData.getSensitiveWords());
+            this.hyM.El(postWriteCallBackData.getErrorString());
+            if (!com.baidu.tbadk.core.util.v.T(this.hyM.cnV())) {
                 nZ(true);
-                this.hrF = postWriteCallBackData;
+                this.hrG = postWriteCallBackData;
             }
         }
     }
 
     public void g(PostWriteCallBackData postWriteCallBackData) {
         if (postWriteCallBackData != null) {
-            this.hyM.aE(postWriteCallBackData.getSensitiveWords());
-            this.hyM.Ei(postWriteCallBackData.getErrorString());
-            if (!com.baidu.tbadk.core.util.v.T(this.hyM.cnL())) {
+            this.hyN.aE(postWriteCallBackData.getSensitiveWords());
+            this.hyN.El(postWriteCallBackData.getErrorString());
+            if (!com.baidu.tbadk.core.util.v.T(this.hyN.cnV())) {
                 oa(true);
             }
         }
     }
 
     public void k(EditText editText) {
-        this.hyN = editText;
+        this.hyO = editText;
     }
 
     public void l(EditText editText) {
@@ -98,34 +98,34 @@ public class as {
     }
 
     public void onDestroy() {
-        this.hyN = null;
+        this.hyO = null;
         this.fPk = null;
     }
 
     public void onChangeSkinType() {
-        this.hyL.onChangeSkinType();
         this.hyM.onChangeSkinType();
-        if (this.hyL.cnN()) {
+        this.hyN.onChangeSkinType();
+        if (this.hyM.cnX()) {
             nZ(false);
         }
-        if (this.hyM.cnN()) {
+        if (this.hyN.cnX()) {
             oa(false);
         }
-    }
-
-    public com.baidu.tieba.write.b bNy() {
-        return this.hyL;
     }
 
     public com.baidu.tieba.write.b bNz() {
         return this.hyM;
     }
 
-    public EditText bNA() {
+    public com.baidu.tieba.write.b bNA() {
+        return this.hyN;
+    }
+
+    public EditText bNB() {
         return this.fPk;
     }
 
-    public PostWriteCallBackData bNB() {
-        return this.hrF;
+    public PostWriteCallBackData bNC() {
+        return this.hrG;
     }
 }

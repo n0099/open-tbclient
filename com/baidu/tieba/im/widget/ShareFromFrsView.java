@@ -15,10 +15,10 @@ public class ShareFromFrsView extends LinearLayout {
     private TextView dfo;
     private HeadImageView fAa;
     private ShareFromFrsMsgData fAd;
-    private TextView gtT;
     private TextView gtU;
     private TextView gtV;
     private TextView gtW;
+    private TextView gtX;
 
     public ShareFromFrsView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -36,26 +36,26 @@ public class ShareFromFrsView extends LinearLayout {
         LayoutInflater.from(getContext()).inflate(d.h.share_from_frs_view, this);
         this.dfo = (TextView) findViewById(d.g.frs_name);
         this.fAa = (HeadImageView) findViewById(d.g.frs_img);
-        this.gtU = (TextView) findViewById(d.g.frs_member_num);
-        this.gtW = (TextView) findViewById(d.g.frs_post_num);
-        this.gtT = (TextView) findViewById(d.g.frs_member_num_label);
-        this.gtV = (TextView) findViewById(d.g.frs_post_num_label);
+        this.gtV = (TextView) findViewById(d.g.frs_member_num);
+        this.gtX = (TextView) findViewById(d.g.frs_post_num);
+        this.gtU = (TextView) findViewById(d.g.frs_member_num_label);
+        this.gtW = (TextView) findViewById(d.g.frs_post_num_label);
     }
 
     public void setIsLeft(boolean z) {
         if (z) {
             this.dfo.setTextColor(getContext().getResources().getColor(d.C0236d.cp_cont_b));
+            this.gtV.setTextColor(getContext().getResources().getColor(d.C0236d.cp_cont_f));
+            this.gtX.setTextColor(getContext().getResources().getColor(d.C0236d.cp_cont_f));
             this.gtU.setTextColor(getContext().getResources().getColor(d.C0236d.cp_cont_f));
             this.gtW.setTextColor(getContext().getResources().getColor(d.C0236d.cp_cont_f));
-            this.gtT.setTextColor(getContext().getResources().getColor(d.C0236d.cp_cont_f));
-            this.gtV.setTextColor(getContext().getResources().getColor(d.C0236d.cp_cont_f));
             return;
         }
         this.dfo.setTextColor(getContext().getResources().getColor(d.C0236d.cp_cont_g));
+        this.gtV.setTextColor(getContext().getResources().getColor(d.C0236d.cp_cont_g));
+        this.gtX.setTextColor(getContext().getResources().getColor(d.C0236d.cp_cont_g));
         this.gtU.setTextColor(getContext().getResources().getColor(d.C0236d.cp_cont_g));
         this.gtW.setTextColor(getContext().getResources().getColor(d.C0236d.cp_cont_g));
-        this.gtT.setTextColor(getContext().getResources().getColor(d.C0236d.cp_cont_g));
-        this.gtV.setTextColor(getContext().getResources().getColor(d.C0236d.cp_cont_g));
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
@@ -68,8 +68,8 @@ public class ShareFromFrsView extends LinearLayout {
         this.fAa.setDefaultResource(d.f.icon_default_ba_120);
         this.fAa.setAutoChangeStyle(false);
         this.fAa.startLoad(this.fAd.getImageUrl(), 10, false);
-        this.gtU.setText(ap.ax(this.fAd.getMemberNum()));
-        this.gtW.setText(ap.ax(this.fAd.getPostNum()));
+        this.gtV.setText(ap.ax(this.fAd.getMemberNum()));
+        this.gtX.setText(ap.ax(this.fAd.getPostNum()));
     }
 
     private String mM(String str) {

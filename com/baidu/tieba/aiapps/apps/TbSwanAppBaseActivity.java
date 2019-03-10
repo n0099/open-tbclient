@@ -31,7 +31,7 @@ public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
             UtilHelper.useNavigationBarStyleImmersiveSticky(this);
             ((LinearLayout) inflate.findViewById(d.g.ai_apps_title_bar_container)).addView(createStateBarFillView(), 0);
         }
-        axW();
+        axX();
         super.setContentView(inflate);
     }
 
@@ -52,7 +52,7 @@ public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
         this.csN.setCancelable(true);
     }
 
-    private void axW() {
+    private void axX() {
         if (this.cQX != null) {
             this.cQX.setLeftTitleInvalidate(true);
             this.cQX.setRightTxtZone1Visibility(8);
@@ -79,7 +79,7 @@ public class TbSwanAppBaseActivity extends BaseActivity<TbSwanAppBaseActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public SwanAppBdActionBar axX() {
+    public SwanAppBdActionBar axY() {
         return this.cQX;
     }
 

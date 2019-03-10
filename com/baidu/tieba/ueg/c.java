@@ -11,8 +11,8 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import tbclient.BlockPopInfo;
 /* loaded from: classes.dex */
 public class c {
-    private static BlockPopInfo iTN;
-    private static BlockPopInfo iTO;
+    private static BlockPopInfo iUh;
+    private static BlockPopInfo iUi;
     private CustomMessageListener dgB = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.ueg.c.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
@@ -55,12 +55,12 @@ public class c {
         }
     }
 
-    public boolean cic() {
-        return a(iTN);
+    public boolean cim() {
+        return a(iUh);
     }
 
-    public boolean cid() {
-        return a(iTO);
+    public boolean cin() {
+        return a(iUi);
     }
 
     private void b(final BlockPopInfo blockPopInfo) {
@@ -91,10 +91,10 @@ public class c {
     }
 
     public static void d(BlockPopInfo blockPopInfo) {
-        iTN = blockPopInfo;
+        iUh = blockPopInfo;
     }
 
     public static void e(BlockPopInfo blockPopInfo) {
-        iTO = blockPopInfo;
+        iUi = blockPopInfo;
     }
 }

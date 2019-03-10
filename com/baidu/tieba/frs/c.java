@@ -16,7 +16,7 @@ public class c implements ad {
     private c() {
     }
 
-    public static ad bbO() {
+    public static ad bbP() {
         ad adVar = eXZ.get();
         return adVar == null ? eYa : adVar;
     }

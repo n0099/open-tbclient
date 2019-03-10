@@ -11,7 +11,7 @@ public class b {
     private List<a> fIe;
     private List<m> mDataList = new ArrayList();
 
-    public List<a> blE() {
+    public List<a> blF() {
         return this.fIe;
     }
 
@@ -31,7 +31,7 @@ public class b {
             if (godBanner != null && !StringUtils.isNull(godBanner.pic_url)) {
                 a aVar = new a();
                 aVar.lf(godBanner.pic_url);
-                aVar.we(godBanner.link_url);
+                aVar.wf(godBanner.link_url);
                 aVar.setTitle(godBanner.intro);
                 this.fIe.add(aVar);
                 if (v.S(this.fIe) == 5) {

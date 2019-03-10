@@ -14,13 +14,13 @@ public class a {
     public static class C0263a {
         public String cbs;
         public String fnS;
-        public int gwS;
-        public String gwT;
+        public int gwT;
         public String gwU;
-        public int gwV;
-        public String gwW;
+        public String gwV;
+        public int gwW;
         public String gwX;
-        public String gww;
+        public String gwY;
+        public String gwx;
         public String postId;
         public String threadId;
         public int threadType;
@@ -28,7 +28,7 @@ public class a {
         public int type;
     }
 
-    public static C0263a xI(String str) {
+    public static C0263a xJ(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -37,9 +37,9 @@ public class a {
             JSONArray jSONArray = new JSONArray(str);
             if (jSONArray.length() > 0) {
                 JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                c0263a.gwT = optJSONObject.optString("title");
-                c0263a.gww = optJSONObject.optString("content");
-                c0263a.gwW = optJSONObject.optString("quote_content");
+                c0263a.gwU = optJSONObject.optString("title");
+                c0263a.gwx = optJSONObject.optString("content");
+                c0263a.gwX = optJSONObject.optString("quote_content");
                 c0263a.cbs = optJSONObject.optString(ImageViewerConfig.FORUM_NAME);
                 c0263a.threadId = optJSONObject.optString("thread_id");
                 c0263a.postId = optJSONObject.optString("post_id");
@@ -48,14 +48,14 @@ public class a {
                 c0263a.threadType = optJSONObject.optInt("thread_type");
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
                 if (optJSONObject2 != null) {
-                    c0263a.gwU = optJSONObject2.optString("id");
-                    c0263a.gwX = optJSONObject2.optString(IntentConfig.PORTRAIT);
-                    c0263a.gwV = optJSONObject2.optInt("gender");
+                    c0263a.gwV = optJSONObject2.optString("id");
+                    c0263a.gwY = optJSONObject2.optString(IntentConfig.PORTRAIT);
+                    c0263a.gwW = optJSONObject2.optInt("gender");
                 }
                 JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
                 if (optJSONObject3 != null) {
                     c0263a.fnS = optJSONObject3.optString("id");
-                    c0263a.gwS = optJSONObject3.optInt("gender");
+                    c0263a.gwT = optJSONObject3.optInt("gender");
                 }
             }
             return c0263a;

@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.media.a;
 public class b {
     private static volatile a cVc;
 
-    public static synchronized a azw() {
+    public static synchronized a azx() {
         a aVar;
         synchronized (b.class) {
             if (cVc == null) {

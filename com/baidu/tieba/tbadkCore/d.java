@@ -19,7 +19,7 @@ import tbclient.User;
 /* loaded from: classes3.dex */
 public class d {
     public static final Wire WIRE = new Wire(new Class[0]);
-    private static d iDV;
+    private static d iDW;
     private com.baidu.adp.lib.cache.l<byte[]> dfX;
     private j responseData = null;
 
@@ -28,23 +28,23 @@ public class d {
         this.dfX = BdCacheService.iy().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
-    public static d cdr() {
-        if (iDV == null) {
+    public static d cds() {
+        if (iDW == null) {
             synchronized (d.class) {
-                if (iDV == null) {
-                    iDV = new d();
+                if (iDW == null) {
+                    iDW = new d();
                 }
             }
         }
-        return iDV;
+        return iDW;
     }
 
-    public long cds() {
+    public long cdt() {
         long j = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_frs_cache_time", TbConfig.APP_OVERDUR_DRAFT_BOX);
         return j < 0 ? TbConfig.APP_OVERDUR_DRAFT_BOX : j;
     }
 
-    public boolean Co(String str) {
+    public boolean Cp(String str) {
         if (this.dfX != null && str != null) {
             byte[] bArr = this.dfX.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
@@ -222,14 +222,14 @@ public class d {
     public void c(String str, byte[] bArr, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.dfX.a(TbadkCoreApplication.getCurrentAccount() + str, bArr, cds());
+                this.dfX.a(TbadkCoreApplication.getCurrentAccount() + str, bArr, cdt());
                 return;
             }
-            this.dfX.b(TbadkCoreApplication.getCurrentAccount() + str, bArr, cds());
+            this.dfX.b(TbadkCoreApplication.getCurrentAccount() + str, bArr, cdt());
         }
     }
 
-    public void at(String str, boolean z) {
+    public void au(String str, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
                 this.dfX.remove(TbadkCoreApplication.getCurrentAccount() + str);

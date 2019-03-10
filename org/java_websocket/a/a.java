@@ -221,9 +221,9 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
             InputStream inputStream = this.socket.getInputStream();
             this.ostream = this.socket.getOutputStream();
             sendHandshake();
-            this.writeThread = new Thread(new RunnableC0377a());
+            this.writeThread = new Thread(new RunnableC0380a());
             this.writeThread.start();
-            byte[] bArr = new byte[c.jTK];
+            byte[] bArr = new byte[c.jUd];
             while (!isClosing() && !isClosed() && (read = inputStream.read(bArr)) != -1) {
                 try {
                     this.engine.k(ByteBuffer.wrap(bArr, 0, read));
@@ -234,7 +234,7 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
                     this.engine.closeConnection(PointerIconCompat.TYPE_CELL, e2.getMessage());
                 }
             }
-            this.engine.cCM();
+            this.engine.cCW();
             this.connectReadThread = null;
         } catch (Exception e3) {
             onWebsocketError(this.engine, e3);
@@ -266,7 +266,7 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
         }
         int port = getPort();
         d dVar = new d();
-        dVar.Gg(rawPath);
+        dVar.Gj(rawPath);
         dVar.put(HTTP.TARGET_HOST, this.uri.getHost() + ((port == 80 || port == 443) ? "" : ":" + port));
         if (this.headers != null) {
             for (Map.Entry<String, String> entry : this.headers.entrySet()) {
@@ -367,8 +367,8 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
 
     /* renamed from: org.java_websocket.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private class RunnableC0377a implements Runnable {
-        private RunnableC0377a() {
+    private class RunnableC0380a implements Runnable {
+        private RunnableC0380a() {
         }
 
         @Override // java.lang.Runnable
@@ -377,11 +377,11 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
             while (!Thread.interrupted()) {
                 try {
                     try {
-                        ByteBuffer take = a.this.engine.jTL.take();
+                        ByteBuffer take = a.this.engine.jUe.take();
                         a.this.ostream.write(take.array(), 0, take.limit());
                         a.this.ostream.flush();
                     } catch (InterruptedException e) {
-                        for (ByteBuffer byteBuffer : a.this.engine.jTL) {
+                        for (ByteBuffer byteBuffer : a.this.engine.jUe) {
                             a.this.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
                             a.this.ostream.flush();
                         }
@@ -493,6 +493,6 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
         if (iOException instanceof SSLException) {
             onError(iOException);
         }
-        this.engine.cCM();
+        this.engine.cCW();
     }
 }

@@ -49,12 +49,12 @@ public class k extends com.baidu.tieba.frs.h<bf, com.baidu.card.z<bg>> implement
             public void a(View view, bg bgVar) {
                 if (view != null && bgVar != null) {
                     if (view.getId() == d.g.user_name || view.getId() == d.g.user_avatar) {
-                        c.bil().a(k.this.fhf, bgVar, 2);
+                        c.bim().a(k.this.fhf, bgVar, 2);
                         com.baidu.tieba.frs.d.a.a(bgVar, 2, k.this.mPageId, k.this.fhf);
                     } else if (view.getId() == d.g.thread_info_commont_container) {
                         com.baidu.tieba.frs.d.a.a(bgVar, 5, k.this.mPageId, k.this.fhf);
                     } else if (view.getId() != d.g.card_home_page_normal_thread_user_icon) {
-                        c.bil().a(k.this.fhf, bgVar, 7);
+                        c.bim().a(k.this.fhf, bgVar, 7);
                         com.baidu.tieba.frs.d.a.a(bgVar, 1, k.this.mPageId, k.this.fhf);
                     } else {
                         TiebaStatic.log(new am("c10134").T("obj_type", 3));
@@ -179,7 +179,7 @@ public class k extends com.baidu.tieba.frs.h<bf, com.baidu.card.z<bg>> implement
         if (this.fhf != null) {
             bfVar.threadData.bDP = (bfVar.position + 1) - (this.eYw != null ? this.eYw.getTopThreadSize() : 0);
         }
-        c.bil().a(this.fhf, bfVar.threadData);
+        c.bim().a(this.fhf, bfVar.threadData);
         com.baidu.tieba.frs.d.a.a(bfVar.threadData, this.mPageId, this.fhf);
         if (bfVar != null) {
             bfVar.threadData.ZV();
@@ -198,7 +198,7 @@ public class k extends com.baidu.tieba.frs.h<bf, com.baidu.card.z<bg>> implement
     }
 
     @Override // com.baidu.tieba.a.f
-    public void qM(String str) {
+    public void qN(String str) {
         this.Yz = str;
     }
 
@@ -207,7 +207,7 @@ public class k extends com.baidu.tieba.frs.h<bf, com.baidu.card.z<bg>> implement
     }
 
     @Override // com.baidu.tieba.frs.d.d
-    public b bfz() {
+    public b bfA() {
         return this.fhf;
     }
 

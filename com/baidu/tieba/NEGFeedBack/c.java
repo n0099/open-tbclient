@@ -75,7 +75,7 @@ public class c {
                     c.this.cIR.remove(aVar);
                 }
             }
-            c.this.auX();
+            c.this.auY();
         }
     };
     private View.OnClickListener cJd = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.c.2
@@ -95,12 +95,12 @@ public class c {
                     customResponsedMessage2.setOrginalMessage(customMessage2);
                     MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
                 }
-                c.this.auU();
+                c.this.auV();
                 com.baidu.tbadk.core.view.e eVar = new com.baidu.tbadk.core.view.e();
                 eVar.bPN = 1500L;
                 eVar.j(c.this.mContext.getResources().getString(d.j.reduce_related_thread_recommend));
                 if (c.this.cIW != null) {
-                    c.this.cIW.a(arrayList, c.this.auW(), c.this.cIQ);
+                    c.this.cIW.a(arrayList, c.this.auX(), c.this.cIQ);
                 }
             }
         }
@@ -122,7 +122,7 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c.this.auU();
+            c.this.auV();
         }
     };
 
@@ -168,7 +168,7 @@ public class c {
             this.aMI.setFocusable(true);
             this.aMI.setTouchable(true);
             this.aMI.setOnDismissListener(this.cJe);
-            auY();
+            auZ();
             this.cIX = new PopupWindow(LayoutInflater.from(this.mContext).inflate(d.h.view_negative_feedback_bottom, (ViewGroup) null), -1, -1);
             if (Build.VERSION.SDK_INT >= 22) {
                 this.cIX.setAttachedInDecor(false);
@@ -282,7 +282,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String auW() {
+    public String auX() {
         if (v.T(this.cIR)) {
             return "";
         }
@@ -299,7 +299,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void auX() {
+    public void auY() {
         int size = this.cIR.size();
         if (size > 0) {
             String string = this.mContext.getResources().getString(d.j.feedback_selected_reason, Integer.valueOf(size));
@@ -347,7 +347,7 @@ public class c {
         this.cJa.setDefaultReasonArray(strArr);
     }
 
-    public void auU() {
+    public void auV() {
         if (this.aMI != null) {
             this.aMI.dismiss();
             this.aMI = null;
@@ -361,13 +361,13 @@ public class c {
     /* JADX INFO: Access modifiers changed from: protected */
     public void onDetachedFromWindow() {
         MessageManager.getInstance().unRegisterListener(this.cJf);
-        auU();
+        auV();
     }
 
-    private void auY() {
+    private void auZ() {
         if (this.cJb && this.cIR.size() != 0) {
             this.cIR.clear();
-            auX();
+            auY();
         }
     }
 

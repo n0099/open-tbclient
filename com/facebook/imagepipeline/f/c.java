@@ -7,49 +7,49 @@ import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 /* loaded from: classes2.dex */
 public class c extends a {
-    private final int jDa;
-    private final g jIA;
+    private final int jDt;
     @GuardedBy("this")
-    private com.facebook.common.references.a<Bitmap> jIz;
+    private com.facebook.common.references.a<Bitmap> jIS;
+    private final g jIT;
     private volatile Bitmap mBitmap;
 
     public c(Bitmap bitmap, com.facebook.common.references.c<Bitmap> cVar, g gVar, int i) {
         this.mBitmap = (Bitmap) com.facebook.common.internal.g.checkNotNull(bitmap);
-        this.jIz = com.facebook.common.references.a.a(this.mBitmap, (com.facebook.common.references.c) com.facebook.common.internal.g.checkNotNull(cVar));
-        this.jIA = gVar;
-        this.jDa = i;
+        this.jIS = com.facebook.common.references.a.a(this.mBitmap, (com.facebook.common.references.c) com.facebook.common.internal.g.checkNotNull(cVar));
+        this.jIT = gVar;
+        this.jDt = i;
     }
 
     public c(com.facebook.common.references.a<Bitmap> aVar, g gVar, int i) {
-        this.jIz = (com.facebook.common.references.a) com.facebook.common.internal.g.checkNotNull(aVar.ctH());
-        this.mBitmap = this.jIz.get();
-        this.jIA = gVar;
-        this.jDa = i;
+        this.jIS = (com.facebook.common.references.a) com.facebook.common.internal.g.checkNotNull(aVar.ctR());
+        this.mBitmap = this.jIS.get();
+        this.jIT = gVar;
+        this.jDt = i;
     }
 
     @Override // com.facebook.imagepipeline.f.b, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        com.facebook.common.references.a<Bitmap> cyz = cyz();
-        if (cyz != null) {
-            cyz.close();
+        com.facebook.common.references.a<Bitmap> cyJ = cyJ();
+        if (cyJ != null) {
+            cyJ.close();
         }
     }
 
-    private synchronized com.facebook.common.references.a<Bitmap> cyz() {
+    private synchronized com.facebook.common.references.a<Bitmap> cyJ() {
         com.facebook.common.references.a<Bitmap> aVar;
-        aVar = this.jIz;
-        this.jIz = null;
+        aVar = this.jIS;
+        this.jIS = null;
         this.mBitmap = null;
         return aVar;
     }
 
     @Override // com.facebook.imagepipeline.f.b
     public synchronized boolean isClosed() {
-        return this.jIz == null;
+        return this.jIS == null;
     }
 
     @Override // com.facebook.imagepipeline.f.a
-    public Bitmap cyx() {
+    public Bitmap cyH() {
         return this.mBitmap;
     }
 
@@ -60,12 +60,12 @@ public class c extends a {
 
     @Override // com.facebook.imagepipeline.f.e
     public int getWidth() {
-        return (this.jDa == 90 || this.jDa == 270) ? T(this.mBitmap) : S(this.mBitmap);
+        return (this.jDt == 90 || this.jDt == 270) ? T(this.mBitmap) : S(this.mBitmap);
     }
 
     @Override // com.facebook.imagepipeline.f.e
     public int getHeight() {
-        return (this.jDa == 90 || this.jDa == 270) ? S(this.mBitmap) : T(this.mBitmap);
+        return (this.jDt == 90 || this.jDt == 270) ? S(this.mBitmap) : T(this.mBitmap);
     }
 
     private static int S(@Nullable Bitmap bitmap) {
@@ -82,12 +82,12 @@ public class c extends a {
         return bitmap.getHeight();
     }
 
-    public int cyA() {
-        return this.jDa;
+    public int cyK() {
+        return this.jDt;
     }
 
     @Override // com.facebook.imagepipeline.f.b
-    public g cyy() {
-        return this.jIA;
+    public g cyI() {
+        return this.jIT;
     }
 }

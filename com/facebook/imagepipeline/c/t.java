@@ -8,7 +8,7 @@ public interface t<K, V> {
     com.facebook.common.references.a<V> a(K k, com.facebook.common.references.a<V> aVar);
 
     @Nullable
-    com.facebook.common.references.a<V> aW(K k);
+    com.facebook.common.references.a<V> aX(K k);
 
     boolean b(Predicate<K> predicate);
 }

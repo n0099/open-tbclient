@@ -24,26 +24,26 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
     private TextView bNS;
     private TextView bjI;
     private TbImageView eFa;
-    private int jpA;
-    private int jpB;
-    private int jpC;
-    private a jpD;
-    private TextView jpr;
-    private View jps;
-    private EditText jpt;
-    private View jpu;
-    private View jpv;
-    private TextView jpw;
-    private int jpx;
-    private int jpy;
-    private int jpz;
+    private TextView jpK;
+    private View jpL;
+    private EditText jpM;
+    private View jpN;
+    private View jpO;
+    private TextView jpP;
+    private int jpQ;
+    private int jpR;
+    private int jpS;
+    private int jpT;
+    private int jpU;
+    private int jpV;
+    private a jpW;
     private TextView mContentView;
     private View mRootView;
     private int mSkinType;
 
     /* loaded from: classes3.dex */
     public interface a {
-        void Eu(String str);
+        void Ex(String str);
     }
 
     public ShareSdkView(Context context) {
@@ -69,20 +69,20 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
         setGravity(16);
         LayoutInflater.from(context).inflate(d.h.share_sdk_view, (ViewGroup) this, true);
         this.mRootView = findViewById(d.g.share_sdk_content_root);
-        this.jpr = (TextView) findViewById(d.g.share_sdk_forum);
-        this.jps = findViewById(d.g.share_sdk_content_container);
+        this.jpK = (TextView) findViewById(d.g.share_sdk_forum);
+        this.jpL = findViewById(d.g.share_sdk_content_container);
         this.bNR = (HeadImageView) findViewById(d.g.share_sdk_appicon);
         this.bNS = (TextView) findViewById(d.g.share_sdk_appname);
         this.mContentView = (TextView) findViewById(d.g.share_sdk_content);
         this.eFa = (TbImageView) findViewById(d.g.share_sdk_img);
-        this.jpt = (EditText) findViewById(d.g.share_sdk_edit);
-        this.jpu = findViewById(d.g.share_sdk_content_line);
+        this.jpM = (EditText) findViewById(d.g.share_sdk_edit);
+        this.jpN = findViewById(d.g.share_sdk_content_line);
         this.bjI = (TextView) findViewById(d.g.share_sdk_cancel);
-        this.jpv = findViewById(d.g.share_sdk_action_line);
-        this.jpw = (TextView) findViewById(d.g.share_sdk_share);
+        this.jpO = findViewById(d.g.share_sdk_action_line);
+        this.jpP = (TextView) findViewById(d.g.share_sdk_share);
         setOnClickListener(this);
         this.bjI.setOnClickListener(this);
-        this.jpw.setOnClickListener(this);
+        this.jpP.setOnClickListener(this);
         this.bNR.setIsRound(true);
         this.bNR.setIsPreDrawBorder(true);
         this.bNR.setDrawBorder(true);
@@ -90,13 +90,13 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
         this.bNR.setDefaultResource(d.C0236d.cp_bg_line_e);
         this.bNR.setRadius(l.h(context, d.e.ds70));
         this.eFa.setDefaultBgResource(d.f.pic_share_default_applets);
-        this.jpx = (l.aO(getContext()) - l.h(getContext(), d.e.tbds516)) / l.h(getContext(), d.e.tbds45);
-        this.jpA = l.h(getContext(), d.e.tbds27);
-        this.jpB = l.h(getContext(), d.e.tbds11);
-        this.jpC = l.h(getContext(), d.e.tbds36);
-        this.jpy = this.jpA;
-        this.jpz = this.jpA;
-        this.jpt.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.share.ShareSdkView.1
+        this.jpQ = (l.aO(getContext()) - l.h(getContext(), d.e.tbds516)) / l.h(getContext(), d.e.tbds45);
+        this.jpT = l.h(getContext(), d.e.tbds27);
+        this.jpU = l.h(getContext(), d.e.tbds11);
+        this.jpV = l.h(getContext(), d.e.tbds36);
+        this.jpR = this.jpT;
+        this.jpS = this.jpT;
+        this.jpM.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.write.share.ShareSdkView.1
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -107,22 +107,22 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                if (editable.length() > ShareSdkView.this.jpx * 2) {
-                    if (ShareSdkView.this.jpy != 0) {
-                        ShareSdkView.this.jpy = 0;
-                        ShareSdkView.this.jpz = ShareSdkView.this.jpB;
-                        ShareSdkView.this.jpt.setPadding(ShareSdkView.this.jpC, ShareSdkView.this.jpy, ShareSdkView.this.jpC, ShareSdkView.this.jpz);
+                if (editable.length() > ShareSdkView.this.jpQ * 2) {
+                    if (ShareSdkView.this.jpR != 0) {
+                        ShareSdkView.this.jpR = 0;
+                        ShareSdkView.this.jpS = ShareSdkView.this.jpU;
+                        ShareSdkView.this.jpM.setPadding(ShareSdkView.this.jpV, ShareSdkView.this.jpR, ShareSdkView.this.jpV, ShareSdkView.this.jpS);
                     }
-                } else if (editable.length() > ShareSdkView.this.jpx) {
-                    if (ShareSdkView.this.jpy != ShareSdkView.this.jpB) {
-                        ShareSdkView.this.jpy = ShareSdkView.this.jpB;
-                        ShareSdkView.this.jpz = ShareSdkView.this.jpB;
-                        ShareSdkView.this.jpt.setPadding(ShareSdkView.this.jpC, ShareSdkView.this.jpy, ShareSdkView.this.jpC, ShareSdkView.this.jpz);
+                } else if (editable.length() > ShareSdkView.this.jpQ) {
+                    if (ShareSdkView.this.jpR != ShareSdkView.this.jpU) {
+                        ShareSdkView.this.jpR = ShareSdkView.this.jpU;
+                        ShareSdkView.this.jpS = ShareSdkView.this.jpU;
+                        ShareSdkView.this.jpM.setPadding(ShareSdkView.this.jpV, ShareSdkView.this.jpR, ShareSdkView.this.jpV, ShareSdkView.this.jpS);
                     }
-                } else if (ShareSdkView.this.jpy != ShareSdkView.this.jpA) {
-                    ShareSdkView.this.jpy = ShareSdkView.this.jpA;
-                    ShareSdkView.this.jpz = ShareSdkView.this.jpA;
-                    ShareSdkView.this.jpt.setPadding(ShareSdkView.this.jpC, ShareSdkView.this.jpy, ShareSdkView.this.jpC, ShareSdkView.this.jpz);
+                } else if (ShareSdkView.this.jpR != ShareSdkView.this.jpT) {
+                    ShareSdkView.this.jpR = ShareSdkView.this.jpT;
+                    ShareSdkView.this.jpS = ShareSdkView.this.jpT;
+                    ShareSdkView.this.jpM.setPadding(ShareSdkView.this.jpV, ShareSdkView.this.jpR, ShareSdkView.this.jpV, ShareSdkView.this.jpS);
                 }
             }
         });
@@ -130,7 +130,7 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
     }
 
     public void setOnShareListener(a aVar) {
-        this.jpD = aVar;
+        this.jpW = aVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -139,10 +139,10 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
             if (getParent() != null) {
                 ((ViewGroup) getParent()).removeView(this);
             }
-        } else if (view == this.jpw && bc.cZ(getContext())) {
-            String obj = this.jpt.getText().toString();
-            if (this.jpD != null) {
-                this.jpD.Eu(obj);
+        } else if (view == this.jpP && bc.cZ(getContext())) {
+            String obj = this.jpM.getText().toString();
+            if (this.jpW != null) {
+                this.jpW.Ex(obj);
             }
             if (getParent() != null) {
                 ((ViewGroup) getParent()).removeView(this);
@@ -155,8 +155,8 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
             ((ViewGroup) getParent()).removeView(this);
             return;
         }
-        this.jpr.setText(String.format(getResources().getString(d.j.share_sdk_forum), cVar.jpm));
-        this.bNR.startLoad(cVar.jpl, 10, false);
+        this.jpK.setText(String.format(getResources().getString(d.j.share_sdk_forum), cVar.jpF));
+        this.bNR.startLoad(cVar.jpE, 10, false);
         this.bNS.setText(cVar.appName);
         if (StringUtils.isNull(cVar.content)) {
             this.mContentView.setVisibility(8);
@@ -180,7 +180,7 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
-        this.jpD = null;
+        this.jpW = null;
         super.onDetachedFromWindow();
     }
 
@@ -190,20 +190,20 @@ public class ShareSdkView extends LinearLayout implements View.OnClickListener {
             this.mSkinType = skinType;
             al.l(this, d.C0236d.black_alpha30);
             al.k(this.mRootView, d.f.share_sdk_bg);
-            al.j(this.jpr, d.C0236d.cp_cont_b);
-            al.l(this.jps, d.C0236d.cp_bg_line_e);
+            al.j(this.jpK, d.C0236d.cp_cont_b);
+            al.l(this.jpL, d.C0236d.cp_bg_line_e);
             this.bNR.setBorderColor(al.getColor(d.C0236d.cp_cont_g));
             this.bNR.setIsNight(this.mSkinType == 1);
             al.j(this.bNS, d.C0236d.cp_cont_f);
             al.j(this.mContentView, d.C0236d.cp_cont_b);
             this.eFa.setIsNight(this.mSkinType == 1);
-            this.jpt.setHintTextColor(al.getColor(d.C0236d.cp_cont_e));
-            this.jpt.setTextColor(al.getColor(d.C0236d.cp_cont_b));
-            al.k(this.jpt, d.f.share_sdk_input_shape_bg);
-            al.l(this.jpu, d.C0236d.cp_bg_line_c);
+            this.jpM.setHintTextColor(al.getColor(d.C0236d.cp_cont_e));
+            this.jpM.setTextColor(al.getColor(d.C0236d.cp_cont_b));
+            al.k(this.jpM, d.f.share_sdk_input_shape_bg);
+            al.l(this.jpN, d.C0236d.cp_bg_line_c);
             al.j(this.bjI, d.C0236d.cp_cont_b);
-            al.l(this.jpv, d.C0236d.cp_bg_line_c);
-            al.j(this.jpw, d.C0236d.cp_link_tip_a);
+            al.l(this.jpO, d.C0236d.cp_bg_line_c);
+            al.j(this.jpP, d.C0236d.cp_link_tip_a);
         }
     }
 }

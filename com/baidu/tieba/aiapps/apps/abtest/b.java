@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.abtest;
 public class b {
     private static volatile a cRb;
 
-    public static synchronized a axY() {
+    public static synchronized a axZ() {
         a aVar;
         synchronized (b.class) {
             if (cRb == null) {

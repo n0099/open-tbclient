@@ -139,13 +139,13 @@ public class FrsLiteProgramListFragment extends BaseFragment {
         }
     }
 
-    public void vE(String str) {
+    public void vF(String str) {
         this.mForumId = str;
         this.fsM.setVisibility(8);
         showNetRefreshView(this.mRootView, getPageContext().getResources().getString(d.j.net_error_text, getPageContext().getResources().getString(d.j.neterror), 0), false);
     }
 
-    public void vF(String str) {
+    public void vG(String str) {
         this.fsM.setVisibility(8);
         this.fsR.setVisibility(0);
         this.fsR.loadUrl(str);

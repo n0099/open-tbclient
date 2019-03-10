@@ -8,28 +8,28 @@ import android.widget.MediaController;
 public class j {
     private MediaController.MediaPlayerControl cNP;
     private a eig;
-    private c hWr;
-    private b hWs;
-    private int hWp = 1000;
-    private int hWq = 0;
+    private c hWs;
+    private b hWt;
+    private int hWq = 1000;
+    private int hWr = 0;
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.j.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message != null && message.what == 1 && j.this.cNP != null && j.this.cNP.isPlaying()) {
                 int currentPosition = j.this.cNP.getCurrentPosition();
                 int duration = j.this.cNP.getDuration();
-                if (currentPosition < j.this.hWq) {
+                if (currentPosition < j.this.hWr) {
                     if (j.this.eig != null) {
                         j.this.eig.qE();
                     }
-                } else if (currentPosition == j.this.hWq && j.this.hWr != null) {
-                    j.this.hWr.aBn();
+                } else if (currentPosition == j.this.hWr && j.this.hWs != null) {
+                    j.this.hWs.aBo();
                 }
-                if (j.this.hWs != null) {
-                    j.this.hWs.aW(duration, currentPosition);
+                if (j.this.hWt != null) {
+                    j.this.hWt.aW(duration, currentPosition);
                 }
-                j.this.hWq = currentPosition;
-                j.this.bTh();
+                j.this.hWr = currentPosition;
+                j.this.bTi();
             }
         }
     };
@@ -46,7 +46,7 @@ public class j {
 
     /* loaded from: classes.dex */
     public interface c {
-        void aBn();
+        void aBo();
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
@@ -54,8 +54,8 @@ public class j {
     }
 
     public void start() {
-        this.hWq = 0;
-        bTh();
+        this.hWr = 0;
+        bTi();
     }
 
     public void stop() {
@@ -63,9 +63,9 @@ public class j {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bTh() {
+    public void bTi() {
         this.mHandler.removeMessages(1);
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.hWp);
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.hWq);
     }
 
     public void a(a aVar) {
@@ -73,10 +73,10 @@ public class j {
     }
 
     public void a(c cVar) {
-        this.hWr = cVar;
+        this.hWs = cVar;
     }
 
     public void a(b bVar) {
-        this.hWs = bVar;
+        this.hWt = bVar;
     }
 }

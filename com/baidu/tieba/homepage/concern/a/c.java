@@ -30,7 +30,7 @@ public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.card.a
                     boolean z = view == c.this.fGD.getHeaderImg();
                     am amVar = new am("c12352");
                     amVar.T("obj_locate", z ? 1 : 2);
-                    amVar.bJ("obj_type", jVar.aQR());
+                    amVar.bJ("obj_type", jVar.aQS());
                     amVar.bJ("tid", jVar.threadData.getTid());
                     amVar.k(ImageViewerConfig.FORUM_ID, jVar.threadData.getFid());
                     amVar.bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, "1");
@@ -65,21 +65,21 @@ public class c extends com.baidu.adp.widget.ListView.a<j, com.baidu.tieba.card.a
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, j jVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.concern.view.a> aVar) {
-        if (jVar == null || aVar == null || aVar.aRi() == null) {
+        if (jVar == null || aVar == null || aVar.aRj() == null) {
             return null;
         }
         jVar.os(i + 1);
-        t.aQF().b(jVar.tH("c12351"));
-        if (aVar.aRi() instanceof com.baidu.tieba.a.e) {
-            aVar.aRi().setPage(this.Yz);
+        t.aQG().b(jVar.tI("c12351"));
+        if (aVar.aRj() instanceof com.baidu.tieba.a.e) {
+            aVar.aRj().setPage(this.Yz);
         }
-        aVar.aRi().a(jVar);
-        aVar.aRi().d(this.eEz);
+        aVar.aRj().a(jVar);
+        aVar.aRj().d(this.eEz);
         return aVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void qM(String str) {
+    public void qN(String str) {
         this.Yz = str;
     }
 }

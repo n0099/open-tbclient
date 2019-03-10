@@ -39,7 +39,7 @@ public final class au {
                 createFromThreadCfg.addLocateParam(aVar.WU());
             }
             createFromThreadCfg.setJumpGodReply(z);
-            com.baidu.tieba.card.n.tB(WR.getTid());
+            com.baidu.tieba.card.n.tC(WR.getTid());
             MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
         }
     }

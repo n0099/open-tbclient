@@ -14,43 +14,43 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class c {
-    private static c imG;
-    private CustomMessageListener imI = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.c.1
+    private static c imH;
+    private CustomMessageListener imJ = new CustomMessageListener(2000994) { // from class: com.baidu.tieba.recapp.report.c.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.kY() && c.this.imH != null) {
-                c.this.imH.bXD();
+            if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && j.kY() && c.this.imI != null) {
+                c.this.imI.bXE();
             }
         }
     };
-    private d imH = new g();
+    private d imI = new g();
 
-    public static c bXB() {
-        if (imG == null) {
+    public static c bXC() {
+        if (imH == null) {
             synchronized (c.class) {
-                if (imG == null) {
-                    imG = new c();
+                if (imH == null) {
+                    imH = new c();
                 }
             }
         }
-        return imG;
+        return imH;
     }
 
-    private boolean bXC() {
+    private boolean bXD() {
         return com.baidu.adp.lib.b.d.iQ().aO("ad_log_open") != 0;
     }
 
     private c() {
-        MessageManager.getInstance().registerListener(this.imI);
+        MessageManager.getInstance().registerListener(this.imJ);
     }
 
     public void a(b bVar) {
-        if (bXC() && bVar != null && this.imH != null) {
+        if (bXD() && bVar != null && this.imI != null) {
             if (j.kY()) {
-                this.imH.b(bVar);
+                this.imI.b(bVar);
             } else {
-                this.imH.c(bVar);
+                this.imI.c(bVar);
             }
         }
     }

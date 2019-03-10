@@ -98,7 +98,7 @@ public class a extends y {
         if (file == null) {
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "can not save to album : " + file).toString());
         } else {
-            d.bm(file).d(new f<File, File>() { // from class: com.baidu.swan.apps.media.d.a.a.3
+            d.bn(file).d(new f<File, File>() { // from class: com.baidu.swan.apps.media.d.a.a.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.f
                 /* renamed from: z */
@@ -109,7 +109,7 @@ public class a extends y {
                     }
                     return null;
                 }
-            }).b(Schedulers.io()).a(rx.a.b.a.cDH()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.d.a.a.2
+            }).b(Schedulers.io()).a(rx.a.b.a.cDR()).c(new rx.functions.b<File>() { // from class: com.baidu.swan.apps.media.d.a.a.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 /* renamed from: y */

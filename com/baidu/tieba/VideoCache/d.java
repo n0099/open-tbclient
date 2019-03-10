@@ -9,11 +9,11 @@ public class d {
         return this.fileName;
     }
 
-    public void qo(String str) {
+    public void qp(String str) {
         this.fileName = str;
     }
 
-    public long avF() {
+    public long avG() {
         return this.cLA;
     }
 
@@ -21,7 +21,7 @@ public class d {
         this.cLA = j;
     }
 
-    public long avG() {
+    public long avH() {
         return this.currentSize;
     }
 

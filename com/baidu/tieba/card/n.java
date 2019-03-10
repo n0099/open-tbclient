@@ -15,19 +15,19 @@ import com.baidu.tieba.tbadkCore.util.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class n {
-    public static void tB(String str) {
+    public static void tC(String str) {
         d readThreadHistory;
-        if (!StringUtils.isNull(str) && (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) != null && !readThreadHistory.CP(str)) {
-            readThreadHistory.CN(str);
+        if (!StringUtils.isNull(str) && (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) != null && !readThreadHistory.CQ(str)) {
+            readThreadHistory.CO(str);
         }
     }
 
-    public static boolean tC(String str) {
+    public static boolean tD(String str) {
         d readThreadHistory;
-        return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.CO(str)) ? false : true;
+        return (StringUtils.isNull(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.CP(str)) ? false : true;
     }
 
-    public static String aQx() {
+    public static String aQy() {
         return String.valueOf(System.currentTimeMillis() / 1000);
     }
 
@@ -37,7 +37,7 @@ public class n {
 
     public static void a(TextView textView, String str, int i, int i2) {
         if (textView instanceof TextView) {
-            if (tC(str)) {
+            if (tD(str)) {
                 al.j(textView, i2);
             } else {
                 al.j(textView, i);

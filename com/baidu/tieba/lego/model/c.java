@@ -13,40 +13,40 @@ import java.io.IOException;
 import tbclient.Lego.DataRes;
 /* loaded from: classes2.dex */
 public class c implements a {
-    private LegoPageModel gLr;
-    private b gLs;
-    private LegoPageModel.a gLt = new LegoPageModel.a() { // from class: com.baidu.tieba.lego.model.c.1
+    private LegoPageModel gLs;
+    private b gLt;
+    private LegoPageModel.a gLu = new LegoPageModel.a() { // from class: com.baidu.tieba.lego.model.c.1
         @Override // com.baidu.tieba.lego.model.LegoPageModel.a
         public void a(long j, String str, DataRes dataRes, boolean z, int i) {
-            if (c.this.gLs != null) {
-                c.this.gLs.a(true, dataRes, !z, j, str, i);
+            if (c.this.gLt != null) {
+                c.this.gLt.a(true, dataRes, !z, j, str, i);
             }
         }
 
         @Override // com.baidu.tieba.lego.model.LegoPageModel.a
         public void b(long j, String str, DataRes dataRes, boolean z) {
-            if (c.this.gLs != null) {
-                c.this.gLs.a(j, str, dataRes, z);
+            if (c.this.gLt != null) {
+                c.this.gLt.a(j, str, dataRes, z);
             }
         }
 
         @Override // com.baidu.tieba.lego.model.LegoPageModel.a
         public void b(long j, String str, int i, String str2) {
-            if (c.this.gLs != null) {
-                c.this.gLs.a(j, str, str2, i);
+            if (c.this.gLt != null) {
+                c.this.gLt.a(j, str, str2, i);
             }
         }
     };
 
     public c(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.gLr = new LegoPageModel(tbPageContext, bdUniqueId);
-        this.gLr.a(this.gLt);
+        this.gLs = new LegoPageModel(tbPageContext, bdUniqueId);
+        this.gLs.a(this.gLu);
     }
 
     @Override // com.baidu.tieba.lego.model.a
     public void a(int i, long j, String str, int i2, String str2) {
-        if (this.gLr != null) {
-            this.gLr.b(i, j, str, i2, str2);
+        if (this.gLs != null) {
+            this.gLs.b(i, j, str, i2, str2);
         }
     }
 
@@ -56,7 +56,7 @@ public class c implements a {
         aa.a(new z<DataRes>() { // from class: com.baidu.tieba.lego.model.c.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.z
-            /* renamed from: bzu */
+            /* renamed from: bzv */
             public DataRes doInBackground() {
                 byte[] bArr = (byte[]) lu.get(j + "_" + (TextUtils.isEmpty(str) ? "" : str));
                 if (bArr == null || bArr.length == 0) {
@@ -81,15 +81,15 @@ public class c implements a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(long j, String str, DataRes dataRes) {
         if (j >= 0) {
-            if (this.gLs != null) {
-                this.gLs.a(false, dataRes, false, j, str, 1);
+            if (this.gLt != null) {
+                this.gLt.a(false, dataRes, false, j, str, 1);
             }
-            this.gLr.b(2, j, str, 1, "");
+            this.gLs.b(2, j, str, 1, "");
         }
     }
 
     @Override // com.baidu.tieba.lego.model.a
     public void a(b bVar) {
-        this.gLs = bVar;
+        this.gLt = bVar;
     }
 }

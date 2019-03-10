@@ -75,7 +75,7 @@ public class AutoBannerView extends RelativeLayout {
         return i > 0 && i <= v.S(this.mData);
     }
 
-    public void wi(String str) {
+    public void wj(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 ba.adD().c((TbPageContext) i.aK(getContext()), new String[]{str});

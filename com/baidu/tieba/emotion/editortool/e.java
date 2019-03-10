@@ -22,7 +22,7 @@ public class e {
     private ArrayList<com.baidu.tbadk.editortools.emotiontool.c> eAV = new ArrayList<>();
     private final List<com.baidu.tbadk.editortools.emotiontool.a> eAW = new ArrayList();
 
-    public static e aVM() {
+    public static e aVN() {
         return eAU;
     }
 
@@ -38,7 +38,7 @@ public class e {
         }
     }
 
-    public void aVN() {
+    public void aVO() {
         new a().execute(new Void[0]);
     }
 
@@ -93,7 +93,7 @@ public class e {
         return false;
     }
 
-    public boolean tW(String str) {
+    public boolean tX(String str) {
         if (str == null || !oJ(str)) {
             return false;
         }
@@ -107,11 +107,11 @@ public class e {
         return false;
     }
 
-    public boolean tX(String str) {
+    public boolean tY(String str) {
         return com.baidu.tbadk.imageManager.d.cmF.equals(str) || str.startsWith(com.baidu.tbadk.imageManager.d.cmG);
     }
 
-    public String tY(String str) {
+    public String tZ(String str) {
         if (str.startsWith("#(meme,")) {
             String replace = str.replace("#(meme,", "");
             String substring = replace.substring(0, replace.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SP));
@@ -122,7 +122,7 @@ public class e {
         return "";
     }
 
-    public boolean tZ(String str) {
+    public boolean ua(String str) {
         if (!com.baidu.tbadk.imageManager.d.cmF.equals(str) && str.startsWith("#(meme,")) {
             String replace = str.replace("#(meme,", "");
             String substring = replace.substring(0, replace.indexOf(Constants.ACCEPT_TIME_SEPARATOR_SP));
@@ -131,7 +131,7 @@ public class e {
         return false;
     }
 
-    public String ac(String str, boolean z) {
+    public String ad(String str, boolean z) {
         String substring;
         if (str == null) {
             return null;
@@ -184,16 +184,16 @@ public class e {
                 break;
             }
         }
-        if (aVar == null && str != null && (cA = cA(str, ac(str2, false))) != null) {
+        if (aVar == null && str != null && (cA = cA(str, ad(str2, false))) != null) {
             aVar = new com.baidu.adp.widget.ImageView.a(cA, false, str2);
         }
         c(str2, aVar, false);
         return aVar;
     }
 
-    public String ab(String str, boolean z) {
-        if (!d.aVL().isEmpty()) {
-            List<com.baidu.tbadk.editortools.emotiontool.c> groups = d.aVL().getGroups();
+    public String ac(String str, boolean z) {
+        if (!d.aVM().isEmpty()) {
+            List<com.baidu.tbadk.editortools.emotiontool.c> groups = d.aVM().getGroups();
             if (z) {
                 for (com.baidu.tbadk.editortools.emotiontool.c cVar : groups) {
                     if (cVar.oJ(str)) {
@@ -210,14 +210,14 @@ public class e {
     public void c(String str, com.baidu.adp.widget.ImageView.a aVar, boolean z) {
         if (aVar != null) {
             if (z) {
-                com.baidu.tbadk.imageManager.c.anq().b(ab(str, z), aVar, true);
+                com.baidu.tbadk.imageManager.c.anq().b(ac(str, z), aVar, true);
                 return;
             }
             com.baidu.tbadk.imageManager.c.anq().b(str, aVar, false);
         }
     }
 
-    public ArrayList<com.baidu.tbadk.editortools.emotiontool.c> aVO() {
+    public ArrayList<com.baidu.tbadk.editortools.emotiontool.c> aVP() {
         return this.eAV;
     }
 

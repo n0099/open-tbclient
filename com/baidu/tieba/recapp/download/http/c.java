@@ -15,8 +15,8 @@ public class c {
     private static boolean Dk;
     private static String Dl;
     private long Dq;
-    private g iia;
-    private d iib;
+    private g iib;
+    private d iic;
 
     public void init() {
         System.setProperty("http.keepAlive", "false");
@@ -36,33 +36,33 @@ public class c {
     }
 
     public i b(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.iia = new g();
-        a(this.iia, z);
-        this.iia.bWW().setUrl(str);
-        this.iib = new d(this.iia);
-        this.iib.e(i, i3, i4);
-        return this.iia.bWX();
+        this.iib = new g();
+        a(this.iib, z);
+        this.iib.bWX().setUrl(str);
+        this.iic = new d(this.iib);
+        this.iic.e(i, i3, i4);
+        return this.iib.bWY();
     }
 
     public i b(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.iia = new g();
-        a(this.iia, z);
-        this.iia.bWW().setUrl(str);
+        this.iib = new g();
+        a(this.iib, z);
+        this.iib.bWX().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.iia.bWW().a(basicNameValuePair);
+                this.iib.bWX().a(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.iia.bWW().y(next.getName(), next.getValue());
+                this.iib.bWX().y(next.getName(), next.getValue());
             }
         }
-        this.iib = new d(this.iia);
-        this.iib.g(i, i2, -1);
-        return this.iia.bWX();
+        this.iic = new d(this.iib);
+        this.iic.g(i, i2, -1);
+        return this.iib.bWY();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2) {
@@ -70,11 +70,11 @@ public class c {
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2, boolean z3) {
-        this.iia = new g();
-        b(this.iia);
-        this.iia.bWW().setUrl(str);
-        this.iib = new d(this.iia);
-        return this.iib.a(str2, jVar, i, i2, i3, i4, z2, z3);
+        this.iib = new g();
+        b(this.iib);
+        this.iib.bWX().setUrl(str);
+        this.iic = new d(this.iib);
+        return this.iic.a(str2, jVar, i, i2, i3, i4, z2, z3);
     }
 
     public c() {
@@ -82,54 +82,54 @@ public class c {
     }
 
     public void cancel() {
-        if (this.iib != null) {
-            this.iib.cancel();
+        if (this.iic != null) {
+            this.iic.cancel();
         }
     }
 
     public boolean isCanceled() {
-        if (this.iib != null) {
-            return this.iib.jk();
+        if (this.iic != null) {
+            return this.iic.jk();
         }
         return false;
     }
 
     public void jl() {
-        if (this.iib != null) {
-            this.iib.jl();
+        if (this.iic != null) {
+            this.iic.jl();
         }
     }
 
-    public g bWV() {
-        return this.iia;
+    public g bWW() {
+        return this.iib;
     }
 
     private void a(g gVar, boolean z) {
         if (gVar != null) {
             if (!TextUtils.isEmpty(Dh)) {
-                gVar.bWW().y("Cookie", Dh);
+                gVar.bWX().y("Cookie", Dh);
             } else {
-                gVar.bWW().y("Cookie", "");
+                gVar.bWX().y("Cookie", "");
             }
             if (!TextUtils.isEmpty(Dj)) {
-                gVar.bWW().y("client_user_token", Dj);
+                gVar.bWX().y("client_user_token", Dj);
             }
             if (!TextUtils.isEmpty(Di)) {
-                gVar.bWW().y("User-Agent", Di);
+                gVar.bWX().y("User-Agent", Di);
             }
             if (z) {
-                gVar.bWW().y("Accept-Encoding", "gzip");
+                gVar.bWX().y("Accept-Encoding", "gzip");
             } else {
-                gVar.bWW().y("Accept-Encoding", "");
+                gVar.bWX().y("Accept-Encoding", "");
             }
             if (Dk) {
-                gVar.bWW().y(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+                gVar.bWX().y(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             } else {
-                gVar.bWW().y(HTTP.CONN_DIRECTIVE, "close");
+                gVar.bWX().y(HTTP.CONN_DIRECTIVE, "close");
             }
-            gVar.bWW().y("client_logid", String.valueOf(this.Dq));
+            gVar.bWX().y("client_logid", String.valueOf(this.Dq));
             if (!TextUtils.isEmpty(Dl)) {
-                gVar.bWW().y("cuid", Dl);
+                gVar.bWX().y("cuid", Dl);
             }
         }
     }

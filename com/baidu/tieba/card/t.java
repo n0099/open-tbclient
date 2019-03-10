@@ -9,7 +9,7 @@ public class t {
     private static t ejW;
     private List<am> cMr;
 
-    public static t aQF() {
+    public static t aQG() {
         if (ejW == null) {
             synchronized (t.class) {
                 if (ejW == null) {
@@ -66,7 +66,7 @@ public class t {
         }
     }
 
-    public void aAo() {
+    public void aAp() {
         if (com.baidu.tbadk.core.util.v.S(this.cMr) != 0) {
             for (am amVar : this.cMr) {
                 if (amVar != null) {

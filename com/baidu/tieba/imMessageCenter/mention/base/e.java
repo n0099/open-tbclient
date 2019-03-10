@@ -12,11 +12,11 @@ import java.util.List;
 public class e {
     private BdTypeRecyclerView Qq;
     private ArrayList<m> eAl;
-    private b gzK;
     private b gzL;
     private b gzM;
     private b gzN;
     private b gzO;
+    private b gzP;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new LinkedList();
 
     public e(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
@@ -27,16 +27,16 @@ public class e {
     }
 
     private void q(TbPageContext tbPageContext) {
-        this.gzK = new b(tbPageContext, a.gzt);
         this.gzL = new b(tbPageContext, a.gzu);
-        this.gzM = new b(tbPageContext, a.gzx);
-        this.gzN = new b(tbPageContext, a.gzw);
-        this.gzO = new b(tbPageContext, a.gzv);
-        this.mAdapters.add(this.gzK);
+        this.gzM = new b(tbPageContext, a.gzv);
+        this.gzN = new b(tbPageContext, a.gzy);
+        this.gzO = new b(tbPageContext, a.gzx);
+        this.gzP = new b(tbPageContext, a.gzw);
         this.mAdapters.add(this.gzL);
         this.mAdapters.add(this.gzM);
         this.mAdapters.add(this.gzN);
         this.mAdapters.add(this.gzO);
+        this.mAdapters.add(this.gzP);
         this.Qq.addAdapters(this.mAdapters);
     }
 
@@ -63,8 +63,8 @@ public class e {
     }
 
     public void b(ab abVar) {
+        this.gzP.b(abVar);
         this.gzO.b(abVar);
         this.gzN.b(abVar);
-        this.gzM.b(abVar);
     }
 }

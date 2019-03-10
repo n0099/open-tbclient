@@ -14,9 +14,9 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class WritePrefixItemLayout extends LinearLayout {
     private TextView dOe;
-    private TextView jmf;
-    private ImageView jmg;
-    private View jmh;
+    private ImageView jmA;
+    private View jmB;
+    private TextView jmz;
     private Context mContext;
 
     public WritePrefixItemLayout(Context context) {
@@ -34,13 +34,13 @@ public class WritePrefixItemLayout extends LinearLayout {
         setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         setOrientation(1);
         this.dOe = (TextView) findViewById(d.g.prefix_text);
-        this.jmf = (TextView) findViewById(d.g.prefix_no_tip);
-        this.jmg = (ImageView) findViewById(d.g.prefix_checked);
-        this.jmh = findViewById(d.g.prefix_item_divider);
+        this.jmz = (TextView) findViewById(d.g.prefix_no_tip);
+        this.jmA = (ImageView) findViewById(d.g.prefix_checked);
+        this.jmB = findViewById(d.g.prefix_item_divider);
         this.dOe.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-        al.j(this.jmf, d.C0236d.cp_cont_d);
-        this.jmg.setBackgroundDrawable(al.getDrawable(d.f.icon_set_list_ok_s));
-        al.l(this.jmh, d.C0236d.cp_bg_line_c);
+        al.j(this.jmz, d.C0236d.cp_cont_d);
+        this.jmA.setBackgroundDrawable(al.getDrawable(d.f.icon_set_list_ok_s));
+        al.l(this.jmB, d.C0236d.cp_bg_line_c);
         al.k(this, d.f.addresslist_item_bg);
     }
 
@@ -53,20 +53,20 @@ public class WritePrefixItemLayout extends LinearLayout {
     }
 
     public void qX(boolean z) {
-        this.jmf.setVisibility(z ? 0 : 8);
+        this.jmz.setVisibility(z ? 0 : 8);
     }
 
     public void qY(boolean z) {
         if (z) {
-            this.jmg.setVisibility(0);
+            this.jmA.setVisibility(0);
         } else {
-            this.jmg.setVisibility(8);
+            this.jmA.setVisibility(8);
         }
     }
 
     public void setDividerStyle(boolean z) {
         if (!z) {
-            ((LinearLayout.LayoutParams) this.jmh.getLayoutParams()).setMargins(l.h(this.mContext, d.e.ds30), 0, l.h(this.mContext, d.e.ds30), 0);
+            ((LinearLayout.LayoutParams) this.jmB.getLayoutParams()).setMargins(l.h(this.mContext, d.e.ds30), 0, l.h(this.mContext, d.e.ds30), 0);
         }
     }
 }

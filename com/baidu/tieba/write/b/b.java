@@ -24,9 +24,9 @@ public class b extends PopupWindow {
     private View.OnClickListener cPX;
     private ViewGroup eGF;
     private View eGH;
-    private a joT;
-    private TextView joU;
-    private TextView joV;
+    private a jpm;
+    private TextView jpn;
+    private TextView jpo;
     private Context mContext;
     private View mLine;
     private final View.OnClickListener mOnClickListener;
@@ -42,20 +42,20 @@ public class b extends PopupWindow {
         this.cPX = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == b.this.joU) {
-                    if (b.this.joT != null) {
-                        b.this.joT.lI(1);
+                if (view == b.this.jpn) {
+                    if (b.this.jpm != null) {
+                        b.this.jpm.lI(1);
                     }
-                } else if (view == b.this.joV && b.this.joT != null) {
-                    b.this.joT.lI(0);
+                } else if (view == b.this.jpo && b.this.jpm != null) {
+                    b.this.jpm.lI(0);
                 }
-                b.this.aXu();
+                b.this.aXv();
             }
         };
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.write.b.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                b.this.aXu();
+                b.this.aXv();
             }
         };
         this.mContext = context;
@@ -68,8 +68,8 @@ public class b extends PopupWindow {
         setBackgroundDrawable(new ColorDrawable(0));
     }
 
-    private View aXs() {
-        aXt();
+    private View aXt() {
+        aXu();
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         FrameLayout frameLayout2 = new FrameLayout(this.mContext);
         this.eGF = frameLayout2;
@@ -81,38 +81,38 @@ public class b extends PopupWindow {
         return frameLayout;
     }
 
-    private void aXt() {
+    private void aXu() {
         this.eGH = LayoutInflater.from(this.mContext).inflate(d.h.layout_profession_select, (ViewGroup) null);
-        this.joU = (TextView) this.eGH.findViewById(d.g.profession_select_title_profession);
+        this.jpn = (TextView) this.eGH.findViewById(d.g.profession_select_title_profession);
         this.mLine = this.eGH.findViewById(d.g.profession_select_line);
-        this.joV = (TextView) this.eGH.findViewById(d.g.profession_select_title_all);
-        this.joU.setOnClickListener(this.cPX);
-        this.joV.setOnClickListener(this.cPX);
+        this.jpo = (TextView) this.eGH.findViewById(d.g.profession_select_title_all);
+        this.jpn.setOnClickListener(this.cPX);
+        this.jpo.setOnClickListener(this.cPX);
     }
 
     public void setData(List<com.baidu.tieba.write.b.a> list, int i) {
         if (list != null) {
-            View aXs = aXs();
+            View aXt = aXt();
             for (com.baidu.tieba.write.b.a aVar : list) {
-                if (aVar.joS == 1) {
-                    this.joU.setText(aVar.joR);
+                if (aVar.jpl == 1) {
+                    this.jpn.setText(aVar.jpk);
                 } else {
-                    this.joV.setText(aVar.joR);
+                    this.jpo.setText(aVar.jpk);
                 }
                 if (i == 1) {
-                    al.j(this.joU, d.C0236d.common_color_10140);
-                    al.j(this.joV, d.C0236d.cp_cont_j);
+                    al.j(this.jpn, d.C0236d.common_color_10140);
+                    al.j(this.jpo, d.C0236d.cp_cont_j);
                 } else {
-                    al.j(this.joV, d.C0236d.common_color_10140);
-                    al.j(this.joU, d.C0236d.cp_cont_j);
+                    al.j(this.jpo, d.C0236d.common_color_10140);
+                    al.j(this.jpn, d.C0236d.cp_cont_j);
                 }
             }
-            setContentView(aXs);
+            setContentView(aXt);
         }
     }
 
     public void a(a aVar) {
-        this.joT = aVar;
+        this.jpm = aVar;
     }
 
     public void bg(View view) {
@@ -121,7 +121,7 @@ public class b extends PopupWindow {
                 int[] iArr = new int[2];
                 view.getLocationInWindow(iArr);
                 if (g.showPopupWindowAsDropDown(this, view, iArr[0] - (view.getWidth() / 2), 0)) {
-                    aXw();
+                    aXx();
                     return;
                 }
                 return;
@@ -130,7 +130,7 @@ public class b extends PopupWindow {
             int[] iArr2 = new int[2];
             view.getLocationInWindow(iArr2);
             if (g.showPopupWindowAtLocation(this, view, 0, iArr2[0] + (view.getWidth() / 2), height)) {
-                aXw();
+                aXx();
             }
         }
     }
@@ -141,19 +141,19 @@ public class b extends PopupWindow {
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        aXu();
+        aXv();
     }
 
-    public void aXu() {
-        aXx();
+    public void aXv() {
+        aXy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXv() {
+    public void aXw() {
         super.dismiss();
     }
 
-    private void aXw() {
+    private void aXx() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setInterpolator(new DecelerateInterpolator());
@@ -164,7 +164,7 @@ public class b extends PopupWindow {
         this.eGF.startAnimation(alphaAnimation);
     }
 
-    private void aXx() {
+    private void aXy() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setFillAfter(true);
@@ -183,7 +183,7 @@ public class b extends PopupWindow {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                b.this.aXv();
+                b.this.aXw();
             }
         });
         this.eGH.startAnimation(translateAnimation);

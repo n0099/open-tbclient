@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class t implements o {
-    private List<AppData> iha;
+    private List<AppData> ihb;
 
     @Override // com.baidu.tieba.recapp.o
     public com.baidu.adp.widget.ListView.a<?, ?> a(n nVar, BdUniqueId bdUniqueId) {
@@ -58,35 +58,35 @@ public class t implements o {
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public j bWA() {
-        return b.bWq();
+    public j bWB() {
+        return b.bWr();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public l bWB() {
-        return b.bWq();
+    public l bWC() {
+        return b.bWr();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public com.baidu.tieba.p.a bWC() {
-        return com.baidu.tieba.ad.statis.a.awM();
+    public com.baidu.tieba.p.a bWD() {
+        return com.baidu.tieba.ad.statis.a.awN();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public h bWD() {
-        return com.baidu.tieba.ad.a.awE();
+    public h bWE() {
+        return com.baidu.tieba.ad.a.awF();
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public List<AppData> bWE() {
-        if (this.iha == null) {
-            this.iha = new ArrayList();
+    public List<AppData> bWF() {
+        if (this.ihb == null) {
+            this.ihb = new ArrayList();
         }
-        return this.iha;
+        return this.ihb;
     }
 
     @Override // com.baidu.tieba.recapp.o
-    public void bWF() {
-        AdDebugService.updateFloatView(this.iha != null ? StringUtils.string(Integer.valueOf(this.iha.size())) : "0");
+    public void bWG() {
+        AdDebugService.updateFloatView(this.ihb != null ? StringUtils.string(Integer.valueOf(this.ihb.size())) : "0");
     }
 }

@@ -50,7 +50,7 @@ public class RecommendFragment extends BaseFragment implements h.c, a {
     public void onLazyLoad() {
         if (!this.eEu) {
             this.eEt.cE(false);
-            this.eEs.aXj();
+            this.eEs.aXk();
             this.eEu = true;
         }
     }
@@ -58,29 +58,29 @@ public class RecommendFragment extends BaseFragment implements h.c, a {
     @Override // com.baidu.tbadk.core.view.h.c
     public void dR(boolean z) {
         if (this.eEs != null) {
-            this.eEs.aXj();
+            this.eEs.aXk();
         }
     }
 
     @Override // com.baidu.tieba.enterForum.recommend.a
     public void loadData() {
         if (j.kY()) {
-            this.eEt.aBt();
+            this.eEt.aBu();
             this.eEt.cE(false);
-            this.eEs.aXj();
+            this.eEs.aXk();
         }
     }
 
     @Override // com.baidu.tieba.enterForum.recommend.a
     public void a(int i, com.baidu.tieba.enterForum.recommend.b.a aVar) {
         this.eEt.hideLoadingView();
-        this.eEt.aBM();
+        this.eEt.aBN();
         if (i != 0 || aVar == null) {
             this.eEt.iD(false);
             return;
         }
-        this.eEt.aBt();
-        this.eEt.aOA();
+        this.eEt.aBu();
+        this.eEt.aOB();
         this.eEt.setData(aVar);
     }
 

@@ -30,7 +30,7 @@ public class PostPraiseView extends BasePraiseView<PostData> {
                 if ((customResponsedMessage.getData() instanceof PostData) && PostPraiseView.this.mData != 0 && !TextUtils.isEmpty(((PostData) PostPraiseView.this.mData).getId()) && (postData = (PostData) customResponsedMessage.getData()) != null && ((PostData) PostPraiseView.this.mData).getId().equals(postData.getId())) {
                     ((PostData) PostPraiseView.this.mData).af(postData.aak());
                     ((PostData) PostPraiseView.this.mData).ag(postData.aal());
-                    ((PostData) PostPraiseView.this.mData).pZ(postData.beW());
+                    ((PostData) PostPraiseView.this.mData).pZ(postData.beX());
                     ((PostData) PostPraiseView.this.mData).gA(postData.aan());
                     PostPraiseView.this.GR();
                 }
@@ -59,7 +59,7 @@ public class PostPraiseView extends BasePraiseView<PostData> {
         Context context = getContext();
         long num = getNum();
         context.getString(this.bOd);
-        if (!com.baidu.tbadk.util.a.apM().afN()) {
+        if (!com.baidu.tbadk.util.a.apN().afN()) {
         }
         if (num > 0) {
             string = ap.az(num);
@@ -68,7 +68,7 @@ public class PostPraiseView extends BasePraiseView<PostData> {
         }
         this.bOi.setText(string);
         this.bOi.setContentDescription(context.getString(this.bOd) + num);
-        if (this.mData != 0 && ((PostData) this.mData).beW() && aej()) {
+        if (this.mData != 0 && ((PostData) this.mData).beX() && aej()) {
             this.bOj.setImageDrawable(W(this.bOf, this.bOe));
             this.bOi.setTextColor(createColorStateList(this.bOh, this.bOg));
             return;
@@ -82,20 +82,20 @@ public class PostPraiseView extends BasePraiseView<PostData> {
         if (this.mData == 0) {
             return 0;
         }
-        if (((PostData) this.mData).beW() && aej()) {
+        if (((PostData) this.mData).beX() && aej()) {
             ((PostData) this.mData).gA(2);
             ((PostData) this.mData).pZ(false);
             ((PostData) this.mData).af(((PostData) this.mData).aak() - 1);
             ((PostData) this.mData).ag(((PostData) this.mData).aal());
             i = 1;
         } else {
-            if (((PostData) this.mData).beW() && ((PostData) this.mData).aan() == 5) {
+            if (((PostData) this.mData).beX() && ((PostData) this.mData).aan() == 5) {
                 ((PostData) this.mData).ag(((PostData) this.mData).aal() - 1);
             }
             ((PostData) this.mData).pZ(true);
             ((PostData) this.mData).af(((PostData) this.mData).aak() + 1);
             ((PostData) this.mData).gA(2);
-            com.baidu.tieba.n.a.bWo().y(getTbPageContext());
+            com.baidu.tieba.n.a.bWp().y(getTbPageContext());
             i = 0;
         }
         return i;

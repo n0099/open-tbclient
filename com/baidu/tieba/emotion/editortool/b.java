@@ -19,7 +19,7 @@ public class b {
         this.eAP = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c aVD() {
+    public com.baidu.tbadk.editortools.emotiontool.c aVE() {
         return this.eAP;
     }
 
@@ -27,7 +27,7 @@ public class b {
         this.eAM = emotionGroupType;
     }
 
-    public EmotionGroupType aVE() {
+    public EmotionGroupType aVF() {
         return this.eAM;
     }
 
@@ -43,7 +43,7 @@ public class b {
         this.column = i;
     }
 
-    public int aVF() {
+    public int aVG() {
         return this.column;
     }
 
@@ -51,7 +51,7 @@ public class b {
         this.eAR = i;
     }
 
-    public int aVG() {
+    public int aVH() {
         return this.eAR;
     }
 
@@ -59,7 +59,7 @@ public class b {
         this.eAQ = i;
     }
 
-    public int aVH() {
+    public int aVI() {
         return this.eAQ;
     }
 
@@ -67,7 +67,7 @@ public class b {
         this.eAN = i;
     }
 
-    public int aVI() {
+    public int aVJ() {
         return this.eAN;
     }
 
@@ -75,7 +75,7 @@ public class b {
         this.startIndex = i;
     }
 
-    public int aVJ() {
+    public int aVK() {
         return this.startIndex;
     }
 
@@ -95,7 +95,7 @@ public class b {
         this.eAO = i;
     }
 
-    public int aVK() {
+    public int aVL() {
         return this.eAO;
     }
 }

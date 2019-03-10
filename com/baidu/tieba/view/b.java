@@ -7,24 +7,24 @@ import android.os.Bundle;
 /* loaded from: classes.dex */
 public class b extends TimePickerDialog {
     private int aFU;
-    private int jht;
-    private boolean jhu;
+    private int jhN;
+    private boolean jhO;
 
     public b(Context context, TimePickerDialog.OnTimeSetListener onTimeSetListener, int i, int i2, boolean z) {
         super(context, onTimeSetListener, i, i2, z);
         this.aFU = -1;
-        this.jht = -1;
-        this.jhu = false;
+        this.jhN = -1;
+        this.jhO = false;
         this.aFU = i;
-        this.jht = i2;
+        this.jhN = i2;
     }
 
     @Override // android.app.TimePickerDialog
     public void updateTime(int i, int i2) {
         super.updateTime(i, i2);
         this.aFU = i;
-        this.jht = i2;
-        this.jhu = false;
+        this.jhN = i2;
+        this.jhO = false;
     }
 
     @Override // android.app.TimePickerDialog, android.app.Dialog
@@ -38,7 +38,7 @@ public class b extends TimePickerDialog {
             bundle = new Bundle();
         }
         bundle.putInt("hour_key", this.aFU);
-        bundle.putInt("min_key", this.jht);
+        bundle.putInt("min_key", this.jhN);
         return bundle;
     }
 
@@ -47,24 +47,24 @@ public class b extends TimePickerDialog {
         super.onRestoreInstanceState(bundle);
         updateTime(0, 0);
         this.aFU = bundle.getInt("hour_key");
-        this.jht = bundle.getInt("min_key");
-        updateTime(this.aFU, this.jht);
+        this.jhN = bundle.getInt("min_key");
+        updateTime(this.aFU, this.jhN);
     }
 
     @Override // android.app.TimePickerDialog, android.content.DialogInterface.OnClickListener
     public void onClick(DialogInterface dialogInterface, int i) {
         if (i == -1) {
-            this.jhu = true;
-        } else if (this.aFU >= 0 && this.jht >= 0) {
-            updateTime(this.aFU, this.jht);
+            this.jhO = true;
+        } else if (this.aFU >= 0 && this.jhN >= 0) {
+            updateTime(this.aFU, this.jhN);
         }
         super.onClick(dialogInterface, i);
     }
 
     @Override // android.app.Dialog
     protected void onStop() {
-        if (!this.jhu) {
-            updateTime(this.aFU, this.jht);
+        if (!this.jhO) {
+            updateTime(this.aFU, this.jhN);
         }
         super.onStop();
     }

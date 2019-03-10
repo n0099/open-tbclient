@@ -3,7 +3,7 @@ package kotlin.collections;
 import java.util.Iterator;
 /* loaded from: classes2.dex */
 public abstract class m implements Iterator<Character> {
-    public abstract char cCi();
+    public abstract char cCs();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -12,8 +12,8 @@ public abstract class m implements Iterator<Character> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: cCh */
+    /* renamed from: cCr */
     public final Character next() {
-        return Character.valueOf(cCi());
+        return Character.valueOf(cCs());
     }
 }

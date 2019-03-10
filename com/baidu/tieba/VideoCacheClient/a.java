@@ -116,13 +116,13 @@ public class a {
                     }
                 }
                 if (!a.this.mNeedFinish) {
-                    String avV = a.this.avV();
-                    if (avV != null && !avV.isEmpty()) {
-                        File file = new File(c.cLR + b.qA(avV) + "/header_downloaded");
+                    String avW = a.this.avW();
+                    if (avW != null && !avW.isEmpty()) {
+                        File file = new File(c.cLR + b.qB(avW) + "/header_downloaded");
                         if (file.exists()) {
-                            d.as(a.TAG, "header exists " + avV);
+                            d.as(a.TAG, "header exists " + avW);
                         } else {
-                            d.as(a.TAG, "client preload start: " + avV);
+                            d.as(a.TAG, "client preload start: " + avW);
                             j = 0;
                             i = 0;
                             i2 = 0;
@@ -141,8 +141,8 @@ public class a {
                                 BufferedReader bufferedReader2 = null;
                                 inputStream = null;
                                 try {
-                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(avV);
-                                    int port = b.avW().getPort();
+                                    String str = "/video_cache/pre_load?origin_url=" + URLEncoder.encode(avW);
+                                    int port = b.avX().getPort();
                                     socket = new Socket();
                                     try {
                                         socket.connect(new InetSocketAddress("127.0.0.1", port), 5000);
@@ -199,7 +199,7 @@ public class a {
                                                 }
                                             } while (!"".equals(readLine));
                                             inputStream = socket.getInputStream();
-                                            d.as(a.TAG, "client preload check1: " + avV);
+                                            d.as(a.TAG, "client preload check1: " + avW);
                                             int i4 = i;
                                             while (true) {
                                                 try {
@@ -251,7 +251,7 @@ public class a {
                                 i = i3;
                                 j = j2;
                             }
-                            d.as(a.TAG, "client preload end: " + avV);
+                            d.as(a.TAG, "client preload end: " + avW);
                         }
                     }
                 } else {
@@ -294,7 +294,7 @@ public class a {
         this.mThread.start();
     }
 
-    public static a avU() {
+    public static a avV() {
         if (cMc == null) {
             synchronized (a.class) {
                 if (cMc == null) {
@@ -306,11 +306,11 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized String avV() {
+    public synchronized String avW() {
         return this.mUrlList.isEmpty() ? null : this.mUrlList.get(0);
     }
 
-    public synchronized void qB(String str) {
+    public synchronized void qC(String str) {
         this.mUrlList.clear();
         this.mUrlList.add(str);
         synchronized (this.mLock) {

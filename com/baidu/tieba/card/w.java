@@ -122,18 +122,18 @@ public class w extends a<bg> implements e {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.XR != null) {
-            if (aQh() != null) {
-                aQh().a(view, (View) this.XR, (Object) this.eki);
+            if (aQi() != null) {
+                aQi().a(view, (View) this.XR, (Object) this.eki);
             }
             if (view == getView()) {
-                n.tB(this.XR.getTid());
+                n.tC(this.XR.getTid());
                 n.a(this.ekh, this.XR.getTid(), d.C0236d.cp_cont_b, d.C0236d.cp_cont_d);
-                aQG();
+                aQH();
             }
         }
     }
 
-    private void aQG() {
+    private void aQH() {
         if (this.XR != null && this.XR.YR() != null && this.XR.YR().getName_show() != null) {
             long fid = this.XR.getFid();
             if (this.XR.bDC != null) {

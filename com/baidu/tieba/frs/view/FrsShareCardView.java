@@ -29,7 +29,7 @@ public class FrsShareCardView extends LinearLayout {
         return this.fzZ;
     }
 
-    public void af(String str, boolean z) {
+    public void ag(String str, boolean z) {
         if (this.fAa != null) {
             this.fAa.startLoad(str, 15, false);
         }
@@ -64,10 +64,10 @@ public class FrsShareCardView extends LinearLayout {
         al.d(this.fzZ, d.C0236d.cp_cont_b, 2);
         this.fzZ.setHintTextColor(al.getColor(d.C0236d.cp_cont_e));
         this.fzZ.setPadding(context.getResources().getDimensionPixelSize(d.e.ds20), 0, 0, 0);
-        bkh();
+        bki();
     }
 
-    public void bkh() {
+    public void bki() {
         this.bFu.setFocusable(true);
         this.bFu.setFocusableInTouchMode(true);
         this.bFu.requestFocus();

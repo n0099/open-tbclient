@@ -26,10 +26,10 @@ public class j {
     private RadioButton flk;
     private RadioButton fll;
     private RadioButton flm;
-    private LinearLayout jiA;
-    private d jix;
-    private b jiy;
-    private e jiz;
+    private d jiR;
+    private b jiS;
+    private e jiT;
+    private LinearLayout jiU;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.view.j.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
@@ -64,8 +64,8 @@ public class j {
                 j.this.fll.setChecked(true);
                 j.this.mScore = 5;
             }
-            if (j.this.jiz != null) {
-                j.this.jiz.xO(j.this.mScore);
+            if (j.this.jiT != null) {
+                j.this.jiT.xO(j.this.mScore);
             }
         }
     };
@@ -112,7 +112,7 @@ public class j {
             this.fll.setOnClickListener(this.mOnClickListener);
             this.flm = (RadioButton) this.view.findViewById(d.g.comment_grade_5);
             this.flm.setOnClickListener(this.mOnClickListener);
-            this.jiA = (LinearLayout) this.view.findViewById(d.g.comment_grade);
+            this.jiU = (LinearLayout) this.view.findViewById(d.g.comment_grade);
         }
     }
 
@@ -136,7 +136,7 @@ public class j {
         this.flm.setEnabled(z);
     }
 
-    public void AN(int i) {
+    public void AO(int i) {
         switch (i) {
             case 1:
                 this.fli.setChecked(true);
@@ -178,12 +178,12 @@ public class j {
         }
     }
 
-    public void AO(int i) {
-        this.jiA.setVisibility(i);
+    public void AP(int i) {
+        this.jiU.setVisibility(i);
     }
 
     public void C(int i, int i2, int i3, int i4) {
-        this.jiA.setPadding(i, i2, i3, i4);
+        this.jiU.setPadding(i, i2, i3, i4);
     }
 
     public void setTitlePadding(int i, int i2, int i3, int i4) {
@@ -194,8 +194,8 @@ public class j {
         this.btX.setTextSize(0, l.h(this.bFy, i));
     }
 
-    public d cmP() {
-        return this.jix;
+    public d cmZ() {
+        return this.jiR;
     }
 
     public void P(List<a> list) {
@@ -219,14 +219,14 @@ public class j {
     }
 
     public void a(b bVar) {
-        this.jiy = bVar;
+        this.jiS = bVar;
     }
 
     public void a(e eVar) {
-        this.jiz = eVar;
+        this.jiT = eVar;
     }
 
-    public void AP(int i) {
+    public void AQ(int i) {
         this.bFC.setVisibility(i);
     }
 
@@ -236,7 +236,7 @@ public class j {
         al.l(this.bFB, d.C0236d.cp_bg_line_c);
         al.k(this.bFC, d.f.bg_bottom_up_list_dialog_item);
         al.j(this.bFC, d.C0236d.cp_cont_f);
-        al.k(this.jiA, d.f.bg_bottom_up_list_dialog_item);
+        al.k(this.jiU, d.f.bg_bottom_up_list_dialog_item);
         if (this.aMF != null) {
             for (a aVar : this.aMF) {
                 aVar.onChangeSkinType();
@@ -250,11 +250,11 @@ public class j {
         } else {
             this.btX.setVisibility(8);
         }
-        if (this.jiy != null) {
+        if (this.jiS != null) {
             this.bFC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.j.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    j.this.jiy.onClick();
+                    j.this.jiS.onClick();
                 }
             });
         }
@@ -266,8 +266,8 @@ public class j {
     public static class a {
         private String alI;
         private View bFo;
-        private j jiC;
-        private c jiD;
+        private j jiW;
+        private c jiX;
         private TextView mTextView;
         private View mView;
         private int mTextColor = d.f.person_more_pop_cancel_text_selector;
@@ -277,11 +277,11 @@ public class j {
         private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.view.j.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.jiD != null) {
-                    a.this.jiD.onClick();
+                if (a.this.jiX != null) {
+                    a.this.jiX.onClick();
                 }
-                if (a.this.jiC != null && a.this.jiC.cmP() != null) {
-                    a.this.jiC.cmP().lI(a.this.mId);
+                if (a.this.jiW != null && a.this.jiW.cmZ() != null) {
+                    a.this.jiW.cmZ().lI(a.this.mId);
                 }
             }
         };
@@ -289,7 +289,7 @@ public class j {
 
         public a(String str, j jVar) {
             this.alI = str;
-            this.jiC = jVar;
+            this.jiW = jVar;
             initView();
             initListener();
         }
@@ -299,7 +299,7 @@ public class j {
         }
 
         public void a(c cVar) {
-            this.jiD = cVar;
+            this.jiX = cVar;
             initListener();
         }
 
@@ -310,8 +310,8 @@ public class j {
         }
 
         private void initView() {
-            if (this.jiC != null && this.jiC.getContext() != null) {
-                this.mView = LayoutInflater.from(this.jiC.getContext()).inflate(d.h.bottom_up_list_dialog_item, this.jiC.abi(), false);
+            if (this.jiW != null && this.jiW.getContext() != null) {
+                this.mView = LayoutInflater.from(this.jiW.getContext()).inflate(d.h.bottom_up_list_dialog_item, this.jiW.abi(), false);
                 this.mTextView = (TextView) this.mView.findViewById(d.g.item_view);
                 this.mTextView.setText(this.alI);
                 this.mTextView.setGravity(this.bFq);

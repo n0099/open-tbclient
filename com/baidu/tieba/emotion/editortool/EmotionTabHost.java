@@ -167,9 +167,9 @@ public class EmotionTabHost extends NoPressedLinearLayout implements l, EmotionT
         this.eAD = z;
     }
 
-    private ArrayList<com.baidu.tbadk.editortools.emotiontool.c> aVC() {
+    private ArrayList<com.baidu.tbadk.editortools.emotiontool.c> aVD() {
         ArrayList<com.baidu.tbadk.editortools.emotiontool.c> arrayList = new ArrayList<>();
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = e.aVM().aVO().iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = e.aVN().aVP().iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
             if (next.amj() != EmotionGroupType.BIG_EMOTION || this.eAC) {
@@ -183,11 +183,11 @@ public class EmotionTabHost extends NoPressedLinearLayout implements l, EmotionT
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setup() {
-        this.eAz = e.aVM().aVO();
+        this.eAz = e.aVN().aVP();
         if (!this.eAC || !this.eAD) {
-            this.eAA = aVC();
+            this.eAA = aVD();
             if (!this.eAD && this.eAz != null) {
-                this.eAz = new ArrayList<>(e.aVM().aVO());
+                this.eAz = new ArrayList<>(e.aVN().aVP());
                 int i = 0;
                 while (true) {
                     if (i < this.eAz.size()) {
@@ -203,11 +203,11 @@ public class EmotionTabHost extends NoPressedLinearLayout implements l, EmotionT
                 }
             }
         } else {
-            this.eAA = e.aVM().aVO();
+            this.eAA = e.aVN().aVP();
         }
         if ((this.eAz == null || this.eAz.size() <= 0) && this.eAE < 3) {
             this.eAE++;
-            e.aVM().aVN();
+            e.aVN().aVO();
             return;
         }
         this.eAx.setDatas(this.eAz);

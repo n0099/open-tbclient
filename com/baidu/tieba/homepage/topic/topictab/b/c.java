@@ -4,12 +4,12 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class c extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fQb = BdUniqueId.gen();
+    public static final BdUniqueId fQc = BdUniqueId.gen();
     public int eEV;
-    public int fQc = d.C0236d.cp_bg_line_c;
+    public int fQd = d.C0236d.cp_bg_line_c;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fQb;
+        return fQc;
     }
 }

@@ -31,7 +31,7 @@ public class AutoBannerView extends RelativeLayout {
                 if (AutoBannerView.this.fIy != null && AutoBannerView.this.checkIndex(i)) {
                     AutoBannerView.this.fIy.y(i, str);
                 }
-                AutoBannerView.this.wi(str);
+                AutoBannerView.this.wj(str);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -96,7 +96,7 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void wi(String str) {
+    public void wj(String str) {
         if (!TextUtils.isEmpty(str)) {
             ba.adD().c((TbPageContext) i.aK(getContext()), new String[]{str});
         }

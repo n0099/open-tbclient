@@ -7,7 +7,7 @@ public class a {
     private static a csV;
     private com.baidu.tbadk.coreExtra.data.a cab;
 
-    public static a apM() {
+    public static a apN() {
         if (csV == null) {
             synchronized (a.class) {
                 if (csV == null) {
@@ -27,7 +27,7 @@ public class a {
         z = (aVar == null || this.cab == null || aVar.afN() != this.cab.afN()) ? true : true;
         this.cab = aVar;
         if (z) {
-            pB("zan_or_cai_smallflow");
+            pC("zan_or_cai_smallflow");
         }
     }
 
@@ -39,7 +39,7 @@ public class a {
         return this.cab.afN();
     }
 
-    private void pB(String str) {
+    private void pC(String str) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
     }
 }

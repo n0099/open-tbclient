@@ -5,10 +5,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import com.tencent.connect.common.Constants;
 import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class n extends SQLiteOpenHelper {
     private static final boolean DEBUG = g.DEBUG;
@@ -97,24 +94,10 @@ public class n extends SQLiteOpenHelper {
         try {
             sQLiteDatabase = super.getReadableDatabase();
         } catch (Exception e) {
-            e.printStackTrace();
+            boolean delete = new File(this.mContext.getDatabasePath("OpenStat.db").getPath()).delete();
             if (DEBUG) {
+                Log.e("OpenStatDbHelper", "DbOpenHelper.getReadableDatabase() fail, delete db : " + delete);
                 throw new RuntimeException(e);
-            }
-            if (new File(this.mContext.getDatabasePath("OpenStat.db").getPath()).delete()) {
-                sQLiteDatabase = super.getReadableDatabase();
-                t.Tt().putString("ubc_version_md5", "0");
-                if (!DEBUG) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("type", "delDB");
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
-                    }
-                    r.onEvent(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, jSONObject.toString());
-                }
-            } else if (DEBUG) {
-                Log.d("OpenStatDbHelper", "DbOpenHelper.getReadableDatabase() throw Exception, but failed to delete it.");
             }
         }
         return sQLiteDatabase;
@@ -126,27 +109,20 @@ public class n extends SQLiteOpenHelper {
         Exception e;
         try {
             sQLiteDatabase = super.getWritableDatabase();
-        } catch (Exception e2) {
-            sQLiteDatabase = null;
-            e = e2;
-        }
-        try {
-            sQLiteDatabase.enableWriteAheadLogging();
-        } catch (Exception e3) {
-            e = e3;
-            e.printStackTrace();
-            if (DEBUG) {
-                throw new RuntimeException(e);
-            }
-            if (new File(this.mContext.getDatabasePath("OpenStat.db").getPath()).delete()) {
-                sQLiteDatabase = super.getWritableDatabase();
+            try {
                 sQLiteDatabase.enableWriteAheadLogging();
-                t.Tt().putString("ubc_version_md5", "0");
-                r.onEvent(Constants.VIA_REPORT_TYPE_SHARE_TO_TROOPBAR, "delDB");
-            } else if (DEBUG) {
-                Log.d("OpenStatDbHelper", "DbOpenHelper.getWritableDatabase() throw Exception, but failed to delete it.");
+            } catch (Exception e2) {
+                e = e2;
+                boolean delete = new File(this.mContext.getDatabasePath("OpenStat.db").getPath()).delete();
+                if (DEBUG) {
+                    Log.e("OpenStatDbHelper", "DbOpenHelper.getWritableDatabase() fail, delete db : " + delete);
+                    throw new RuntimeException(e);
+                }
+                return sQLiteDatabase;
             }
-            return sQLiteDatabase;
+        } catch (Exception e3) {
+            sQLiteDatabase = null;
+            e = e3;
         }
         return sQLiteDatabase;
     }

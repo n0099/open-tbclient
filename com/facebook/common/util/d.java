@@ -9,7 +9,7 @@ import javax.annotation.Nullable;
 import org.apache.http.HttpHost;
 /* loaded from: classes2.dex */
 public class d {
-    private static final String jAD = Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "display_photo").getPath();
+    private static final String jAW = Uri.withAppendedPath(ContactsContract.AUTHORITY_URI, "display_photo").getPath();
 
     public static boolean s(@Nullable Uri uri) {
         String A = A(uri);
@@ -25,7 +25,7 @@ public class d {
     }
 
     public static boolean v(Uri uri) {
-        return u(uri) && "com.android.contacts".equals(uri.getAuthority()) && !uri.getPath().startsWith(jAD);
+        return u(uri) && "com.android.contacts".equals(uri.getAuthority()) && !uri.getPath().startsWith(jAW);
     }
 
     public static boolean w(Uri uri) {
@@ -98,7 +98,7 @@ public class d {
         }
     }
 
-    public static Uri BW(int i) {
+    public static Uri BX(int i) {
         return new Uri.Builder().scheme("res").path(String.valueOf(i)).build();
     }
 }

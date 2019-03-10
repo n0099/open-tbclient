@@ -25,19 +25,19 @@ public class ak {
     private final Handler.Callback fcZ = new Handler.Callback() { // from class: com.baidu.tieba.frs.ak.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
-            if ((message.what == 1 || message.what == 2) && ak.this.bew()) {
+            if ((message.what == 1 || message.what == 2) && ak.this.bex()) {
                 ak.this.mHandler.sendEmptyMessageDelayed(message.what, 100L);
                 return true;
             }
             switch (message.what) {
                 case 1:
-                    ak.this.bev();
+                    ak.this.bew();
                     return true;
                 case 2:
-                    ak.this.bet();
+                    ak.this.beu();
                     return true;
                 case 3:
-                    ak.this.beu();
+                    ak.this.bev();
                     return true;
                 default:
                     return false;
@@ -78,7 +78,7 @@ public class ak {
     };
     private boolean fcW = UtilHelper.canUseStyleImmersiveSticky();
 
-    public com.baidu.tieba.f.b bes() {
+    public com.baidu.tieba.f.b bet() {
         return this.dMv;
     }
 
@@ -93,53 +93,53 @@ public class ak {
     public ak(Context context, k kVar, com.baidu.tieba.frs.vc.f fVar) {
         this.mContext = context;
         this.fcT = kVar;
-        this.mNavigationBar = kVar.aDp();
-        this.fcS = kVar.bde();
+        this.mNavigationBar = kVar.aDq();
+        this.fcS = kVar.bdf();
         this.fcU = fVar;
-        aCm();
+        aCn();
         this.dMv = new com.baidu.tieba.f.b(context);
         this.dMv.a(this.dMw);
     }
 
-    public void bet() {
+    public void beu() {
         G(false, false);
     }
 
-    public void beu() {
+    public void bev() {
         G(false, true);
     }
 
     public void G(boolean z, boolean z2) {
-        if (this.fcS != null && this.fcT != null && this.fcT.bdp() != null && this.fcT.bdp().bfK()) {
+        if (this.fcS != null && this.fcT != null && this.fcT.bdq() != null && this.fcT.bdq().bfL()) {
             F(false, true);
         }
     }
 
-    public void bev() {
-        if (this.fcS != null && this.fcT != null && this.fcT.bdp() != null && !this.fcT.bdp().bfK()) {
+    public void bew() {
+        if (this.fcS != null && this.fcT != null && this.fcT.bdq() != null && !this.fcT.bdq().bfL()) {
             F(true, true);
         }
     }
 
-    public void aqi() {
+    public void aqj() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void aqj() {
+    public void aqk() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void aqk() {
+    public void aql() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
-    public boolean bew() {
+    public boolean bex() {
         return bG(this.fcS);
     }
 
@@ -156,23 +156,23 @@ public class ak {
 
     public void hideFloatingView() {
         if (this.fcX && this.fcY && this.fcS != null && this.ctH >= this.fcV) {
-            aqj();
+            aqk();
         }
     }
 
     public void showFloatingView() {
         if (this.fcX && this.fcY && this.fcS != null) {
-            aqi();
+            aqj();
         }
     }
 
-    private void aCm() {
-        if (this.fcT != null && this.fcT.bdf() != null) {
-            View bdf = this.fcT.bdf();
-            if (this.fcW && bdf.getLayoutParams() != null) {
-                ViewGroup.LayoutParams layoutParams = bdf.getLayoutParams();
+    private void aCn() {
+        if (this.fcT != null && this.fcT.bdg() != null) {
+            View bdg = this.fcT.bdg();
+            if (this.fcW && bdg.getLayoutParams() != null) {
+                ViewGroup.LayoutParams layoutParams = bdg.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight();
-                bdf.setLayoutParams(layoutParams);
+                bdg.setLayoutParams(layoutParams);
                 jt(true);
                 return;
             }
@@ -181,12 +181,12 @@ public class ak {
     }
 
     private void jt(boolean z) {
-        if (this.fcT != null && this.fcT.bdf() != null) {
-            View bdf = this.fcT.bdf();
-            if (this.fcW && z && bdf.getVisibility() != 0) {
-                bdf.setVisibility(0);
-            } else if (!z && bdf.getVisibility() != 8) {
-                bdf.setVisibility(8);
+        if (this.fcT != null && this.fcT.bdg() != null) {
+            View bdg = this.fcT.bdg();
+            if (this.fcW && z && bdg.getVisibility() != 0) {
+                bdg.setVisibility(0);
+            } else if (!z && bdg.getVisibility() != 8) {
+                bdg.setVisibility(8);
             }
         }
     }

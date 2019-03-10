@@ -18,7 +18,7 @@ public class SettingTextNormalImageView extends FrameLayout {
     private ImageView agD;
     private TextView ahH;
     private LinearLayout ceE;
-    private TbImageView ius;
+    private TbImageView iut;
     private Context mContext;
 
     public SettingTextNormalImageView(Context context, AttributeSet attributeSet) {
@@ -39,7 +39,7 @@ public class SettingTextNormalImageView extends FrameLayout {
     public void jg(int i) {
         al.d(this.ahH, d.C0236d.common_color_10039, 1);
         al.b(this.agD, d.f.icon_arrow_gray_right_n, i);
-        this.ius.invalidate();
+        this.iut.invalidate();
     }
 
     public void setText(String str) {
@@ -47,16 +47,16 @@ public class SettingTextNormalImageView extends FrameLayout {
     }
 
     public void setLocalIcon(int i) {
-        this.ius.clearCornerFlag();
-        this.ius.setConrers(0);
-        this.ius.setImageResource(i);
+        this.iut.clearCornerFlag();
+        this.iut.setConrers(0);
+        this.iut.setImageResource(i);
     }
 
     private void akr() {
         LayoutInflater.from(this.mContext).inflate(d.h.setting_text_normal_image_view, (ViewGroup) this, true);
         this.ceE = (LinearLayout) findViewById(d.g.container);
         this.ahH = (TextView) findViewById(d.g.text);
-        this.ius = (TbImageView) findViewById(d.g.icon);
+        this.iut = (TbImageView) findViewById(d.g.icon);
         this.agD = (ImageView) findViewById(d.g.arrow);
     }
 

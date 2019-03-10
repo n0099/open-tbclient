@@ -46,10 +46,10 @@ public class d extends BaseAdapter {
         return (e.a) v.c(this.fIm, i);
     }
 
-    public String blL() {
+    public String blM() {
         e.a aVar = (e.a) v.c(this.fIm, 0);
         if (aVar != null) {
-            return aVar.blL();
+            return aVar.blM();
         }
         return null;
     }
@@ -75,9 +75,9 @@ public class d extends BaseAdapter {
         }
         e.a item = getItem(i);
         if (item != null) {
-            aVar.fIK.startLoad(item.blJ(), 10, false);
+            aVar.fIK.startLoad(item.blK(), 10, false);
             aVar.fIC.setText(this.mContext.getString(d.j.daily_topic_name, b(aVar.fIC.getPaint(), item.Ya(), this.fII)));
-            aVar.fIL.setText(item.blK());
+            aVar.fIL.setText(item.blL());
         }
         aVar.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         return view;

@@ -30,7 +30,7 @@ public class b {
         }
     }
 
-    public void bij() {
+    public void bik() {
         if (this.fsZ && this.fta >= 0) {
             rg(this.fta);
         }
@@ -50,8 +50,8 @@ public class b {
     private void rg(int i) {
         FrameLayout frameLayout;
         String string;
-        k bcu = this.fqT.bcu();
-        if (bcu != null && bcu.getListView() != null && (frameLayout = (FrameLayout) bcu.bdM()) != null) {
+        k bcv = this.fqT.bcv();
+        if (bcv != null && bcv.getListView() != null && (frameLayout = (FrameLayout) bcv.bdN()) != null) {
             if (this.flf == null && this.fqT.getPageContext() != null) {
                 this.flf = new TextView(this.fqT.getPageContext().getPageActivity());
                 this.flf.setTextSize(0, this.fqT.getResources().getDimensionPixelSize(d.e.fontsize28));

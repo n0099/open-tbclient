@@ -14,10 +14,10 @@ import javax.net.ssl.SSLSession;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class b {
-    private static b hZa = null;
-    private com.baidu.tieba.play.a.a hYZ;
-    private InterfaceC0292b hZb = null;
-    private int hZc = 0;
+    private static b hZb = null;
+    private com.baidu.tieba.play.a.a hZa;
+    private InterfaceC0292b hZc = null;
+    private int hZd = 0;
 
     /* renamed from: com.baidu.tieba.play.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -28,41 +28,41 @@ public class b {
     private b() {
     }
 
-    public static b bTV() {
-        if (hZa == null) {
+    public static b bTW() {
+        if (hZb == null) {
             synchronized (b.class) {
-                if (hZa == null) {
-                    hZa = new b();
+                if (hZb == null) {
+                    hZb = new b();
                 }
             }
         }
-        return hZa;
+        return hZb;
     }
 
     public void a(InterfaceC0292b interfaceC0292b) {
-        this.hZb = interfaceC0292b;
+        this.hZc = interfaceC0292b;
     }
 
-    public boolean AW(String str) {
+    public boolean AX(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (AX(str) && this.hYZ.bTU().size() > this.hZc) {
-            if (this.hZb != null) {
-                InterfaceC0292b interfaceC0292b = this.hZb;
-                List<String> bTU = this.hYZ.bTU();
-                int i = this.hZc;
-                this.hZc = i + 1;
-                interfaceC0292b.dF(bTU.get(i), str);
+        if (AY(str) && this.hZa.bTV().size() > this.hZd) {
+            if (this.hZc != null) {
+                InterfaceC0292b interfaceC0292b = this.hZc;
+                List<String> bTV = this.hZa.bTV();
+                int i = this.hZd;
+                this.hZd = i + 1;
+                interfaceC0292b.dF(bTV.get(i), str);
             }
             return true;
-        } else if (this.hYZ != null && this.hYZ.bTU() != null && this.hYZ.bTU().size() <= this.hZc) {
-            this.hZc = 0;
-            this.hYZ = null;
+        } else if (this.hZa != null && this.hZa.bTV() != null && this.hZa.bTV().size() <= this.hZd) {
+            this.hZd = 0;
+            this.hZa = null;
             return false;
         } else {
-            this.hZc = 0;
-            this.hYZ = null;
+            this.hZd = 0;
+            this.hZa = null;
             a aVar = new a();
             aVar.setHost(str);
             aVar.execute(new Void[0]);
@@ -70,8 +70,8 @@ public class b {
         }
     }
 
-    private boolean AX(String str) {
-        return (this.hYZ == null || TextUtils.isEmpty(str) || !str.equals(this.hYZ.getHost()) || v.T(this.hYZ.bTU()) || this.hYZ.dK(System.currentTimeMillis()) || this.hYZ.bTU().size() <= this.hZc) ? false : true;
+    private boolean AY(String str) {
+        return (this.hZa == null || TextUtils.isEmpty(str) || !str.equals(this.hZa.getHost()) || v.T(this.hZa.bTV()) || this.hZa.dK(System.currentTimeMillis()) || this.hZa.bTV().size() <= this.hZd) ? false : true;
     }
 
     /* loaded from: classes.dex */
@@ -189,7 +189,7 @@ public class b {
                             }
                             com.baidu.tieba.play.a.a aVar = new com.baidu.tieba.play.a.a();
                             aVar.setStartTime(System.currentTimeMillis());
-                            publishProgress(aVar.AV(stringBuffer.toString()));
+                            publishProgress(aVar.AW(stringBuffer.toString()));
                             if (inputStreamReader != null) {
                                 try {
                                     inputStreamReader.close();
@@ -260,14 +260,14 @@ public class b {
         public void onProgressUpdate(com.baidu.tieba.play.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
             if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.HR)) {
-                b.this.hYZ = aVarArr[0];
-                if (!v.T(aVarArr[0].bTU()) && b.this.hZb != null) {
-                    b.this.hZb.dF(aVarArr[0].bTU().get(0), aVarArr[0].getHost());
+                b.this.hZa = aVarArr[0];
+                if (!v.T(aVarArr[0].bTV()) && b.this.hZc != null) {
+                    b.this.hZc.dF(aVarArr[0].bTV().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.hZb != null) {
-                b.this.hZb.dF(null, null);
+            if (b.this.hZc != null) {
+                b.this.hZc.dF(null, null);
             }
         }
 

@@ -24,7 +24,7 @@ public final class a implements h {
     private a() {
     }
 
-    public static a awE() {
+    public static a awF() {
         return cNl;
     }
 
@@ -78,7 +78,7 @@ public final class a implements h {
         String str2 = strArr[0];
         h.b bVar = this.bLx.get(mR(str2));
         if (bVar != null) {
-            bVar.k(context, mQ(qP(str2)));
+            bVar.k(context, mQ(qQ(str2)));
             return true;
         }
         Iterator<h.a> it = this.mListeners.iterator();
@@ -104,7 +104,7 @@ public final class a implements h {
         return z4;
     }
 
-    private String qP(String str) {
+    private String qQ(String str) {
         int lastIndexOf;
         if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
@@ -158,7 +158,7 @@ public final class a implements h {
     }
 
     @Override // com.baidu.tieba.recapp.h
-    public boolean qQ(String str) {
+    public boolean qR(String str) {
         return bLz.matcher(str).find();
     }
 }

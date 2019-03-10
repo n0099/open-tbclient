@@ -31,7 +31,7 @@ public class g extends a {
         this.stType = str;
     }
 
-    public String aQX() {
+    public String aQY() {
         return this.eht;
     }
 

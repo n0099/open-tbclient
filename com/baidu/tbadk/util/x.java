@@ -6,17 +6,17 @@ public class x {
     private View.OnTouchListener ccU;
     private w ctJ;
 
-    public w aql() {
+    public w aqm() {
         return this.ctJ;
     }
 
-    public View.OnTouchListener aqm() {
+    public View.OnTouchListener aqn() {
         return this.ccU;
     }
 
     public void onDestroy() {
         if (this.ctJ != null) {
-            this.ctJ.aqk();
+            this.ctJ.aql();
         }
     }
 }

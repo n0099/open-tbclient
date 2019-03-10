@@ -46,56 +46,56 @@ public class TbRichTextItem extends OrmObject {
         this.cCK = tbRichTextLinkImageInfo;
     }
 
-    public TbRichTextLinkImageInfo asL() {
+    public TbRichTextLinkImageInfo asM() {
         if (this.mType == 1280) {
             return this.cCK;
         }
         return null;
     }
 
-    public TbRichTextLinkButtonInfo asM() {
+    public TbRichTextLinkButtonInfo asN() {
         if (this.mType == 1024) {
             return this.cCL;
         }
         return null;
     }
 
-    public TbRichTextImageInfo asD() {
+    public TbRichTextImageInfo asE() {
         if (this.mType == 8) {
             return this.cCF;
         }
         return null;
     }
 
-    public f asH() {
+    public f asI() {
         if (this.mType != 32) {
             return null;
         }
         return this.cCJ;
     }
 
-    public TbRichTextVoiceInfo asF() {
+    public TbRichTextVoiceInfo asG() {
         if (this.mType == 512 || this.mType == 768) {
             return this.bTm;
         }
         return null;
     }
 
-    public TbRichTextEmotionInfo asI() {
+    public TbRichTextEmotionInfo asJ() {
         if (this.mType == 17) {
             return this.cCI;
         }
         return null;
     }
 
-    public TbRichTextMemeInfo asJ() {
+    public TbRichTextMemeInfo asK() {
         if (this.mType == 20) {
             return this.cCM;
         }
         return null;
     }
 
-    private SpannableString asX() {
+    private SpannableString asY() {
         if (this.mType != 1 || this.cDe == null) {
             return null;
         }
@@ -111,8 +111,8 @@ public class TbRichTextItem extends OrmObject {
             if (B != null) {
                 spannableStringBuilder.append(B);
             }
-            if (this.cDe.asy() == 1) {
-                b = b(this.mType, this.cDe.getText(), this.cDe.asz(), 0);
+            if (this.cDe.asz() == 1) {
+                b = b(this.mType, this.cDe.getText(), this.cDe.asA(), 0);
             } else {
                 b = b(this.mType, this.cDe.getText(), this.cDe.getText(), 0);
             }
@@ -148,23 +148,23 @@ public class TbRichTextItem extends OrmObject {
         if (this.mType != 32 || this.cDe == null) {
             return null;
         }
-        if (this.cDe.asy() == 1) {
-            return this.cDe.asz();
+        if (this.cDe.asz() == 1) {
+            return this.cDe.asA();
         }
         return this.cDe.getText();
     }
 
-    private SpannableString asY() {
+    private SpannableString asZ() {
         if ((this.mType != 2 && this.mType != 18) || this.cDe == null) {
             return null;
         }
-        if (this.cDe.asy() == 1) {
-            return b(this.mType, this.cDe.getText(), this.cDe.asz(), 0);
+        if (this.cDe.asz() == 1) {
+            return b(this.mType, this.cDe.getText(), this.cDe.asA(), 0);
         }
-        return b(this.mType, this.cDe.getText(), this.cDe.getLink(), this.cDe.asA());
+        return b(this.mType, this.cDe.getText(), this.cDe.getLink(), this.cDe.asB());
     }
 
-    private SpannableString asZ() {
+    private SpannableString ata() {
         if (this.mType != 256 || this.cDe == null) {
             return null;
         }
@@ -177,12 +177,12 @@ public class TbRichTextItem extends OrmObject {
         }
         SpannableString spannableString = new SpannableString(text);
         c cVar = new c(this.mType, text);
-        cVar.qb(this.cDe.getLink());
+        cVar.qc(this.cDe.getLink());
         spannableString.setSpan(cVar, 0, text.length() - 1, 33);
         return spannableString;
     }
 
-    private SpannableString ata() {
+    private SpannableString atb() {
         if (this.mType != 16 || this.cDe == null) {
             return null;
         }
@@ -241,7 +241,7 @@ public class TbRichTextItem extends OrmObject {
         return spannableString;
     }
 
-    private SpannableString atb() {
+    private SpannableString atc() {
         if (this.mType != 1024 || this.cCL == null) {
             return null;
         }
@@ -258,9 +258,9 @@ public class TbRichTextItem extends OrmObject {
     public CharSequence D(ArrayList<b> arrayList) {
         switch (this.mType) {
             case 1:
-                return asX();
-            case 2:
                 return asY();
+            case 2:
+                return asZ();
             case 4:
                 return C(arrayList);
             case 8:
@@ -268,22 +268,22 @@ public class TbRichTextItem extends OrmObject {
             default:
                 return null;
             case 16:
-                return ata();
+                return atb();
             case 18:
-                return asY();
+                return asZ();
             case 32:
                 return z(arrayList);
             case 128:
                 return A(arrayList);
             case 256:
-                return asZ();
+                return ata();
             case 1024:
-                return atb();
+                return atc();
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:8:0x002b, code lost:
-        if (r7.cCJ.atl() != false) goto L9;
+        if (r7.cCJ.atm() != false) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -360,7 +360,7 @@ public class TbRichTextItem extends OrmObject {
                     break;
             }
             if (this.mType != 1 && this.cDe != null) {
-                this.cDe.asB();
+                this.cDe.asC();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -417,7 +417,7 @@ public class TbRichTextItem extends OrmObject {
                 }
             }
             if (this.mType != 1 && this.cDe != null) {
-                this.cDe.asB();
+                this.cDe.asC();
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

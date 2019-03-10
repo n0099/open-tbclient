@@ -67,12 +67,12 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
                 if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
                     forumRecommendSocketResponseMessage forumrecommendsocketresponsemessage = (forumRecommendSocketResponseMessage) responsedMessage;
                     if (forumrecommendsocketresponsemessage.getHotSearchInfoData() != null) {
-                        str = forumrecommendsocketresponsemessage.getHotSearchInfoData().aWi();
+                        str = forumrecommendsocketresponsemessage.getHotSearchInfoData().aWj();
                     }
                 } else if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
                     forumRecommendHttpResponseMessage forumrecommendhttpresponsemessage = (forumRecommendHttpResponseMessage) responsedMessage;
                     if (forumrecommendhttpresponsemessage.getHotSearchInfoData() != null) {
-                        str = forumrecommendhttpresponsemessage.getHotSearchInfoData().aWi();
+                        str = forumrecommendhttpresponsemessage.getHotSearchInfoData().aWj();
                     }
                 }
                 if (TextUtils.isEmpty(str)) {
@@ -94,12 +94,12 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
                     if (aVar.fragment instanceof RecommendFragment) {
                         if (c.this.eDv != null) {
                             for (a aVar2 : c.this.eDv) {
-                                aVar2.aWM();
+                                aVar2.aWN();
                             }
                         }
                     } else if ((aVar.fragment instanceof EnterForumFragment) && c.this.eDv != null) {
                         for (a aVar3 : c.this.eDv) {
-                            aVar3.aWL();
+                            aVar3.aWM();
                         }
                     }
                     if (i == 0) {
@@ -121,7 +121,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         this.eDo.registerListener(this.eDw);
     }
 
-    private void aWJ() {
+    private void aWK() {
         forumRecommendRequestMessage forumrecommendrequestmessage = new forumRecommendRequestMessage();
         forumrecommendrequestmessage.set_like_forum(Integer.valueOf(TbadkCoreApplication.isLogin() ? 1 : 0));
         forumrecommendrequestmessage.set_topic(0);
@@ -137,7 +137,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
             M(bundle);
             this.dbq = (NoNetworkView) this.mRootView.findViewById(d.g.view_no_network);
             this.dbq.a(this);
-            aWJ();
+            aWK();
         }
     }
 
@@ -217,7 +217,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
     }
 
     public boolean pg(int i) {
-        return this.eDp != null && this.eDq.aWI() == i;
+        return this.eDp != null && this.eDq.aWJ() == i;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -258,7 +258,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         }
     }
 
-    public void aWK() {
+    public void aWL() {
         if (this.eDo != null && this.eDr != null && this.bUR != null && this.eDq != null) {
             FragmentManager supportFragmentManager = this.eDo.getActivity().getSupportFragmentManager();
             if (!supportFragmentManager.isDestroyed()) {
@@ -315,7 +315,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         }
     }
 
-    public void aBE() {
+    public void aBF() {
         if (this.eDu != null) {
             this.eDu.clearAnimation();
             if (this.eDu.getVisibility() != 0) {
@@ -330,7 +330,7 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
         }
     }
 
-    public void aBF() {
+    public void aBG() {
         if (this.eDu != null && this.eDu.getVisibility() != 8) {
             if (this.dcJ == null) {
                 this.dcJ = new AlphaAnimation(1.0f, 0.0f);
@@ -370,10 +370,10 @@ public class c extends com.baidu.adp.base.c implements NoNetworkView.a {
 
     /* loaded from: classes4.dex */
     public static abstract class a {
-        public void aWL() {
+        public void aWM() {
         }
 
-        public void aWM() {
+        public void aWN() {
         }
     }
 }

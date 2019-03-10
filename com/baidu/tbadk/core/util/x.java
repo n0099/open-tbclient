@@ -238,7 +238,7 @@ public class x {
         stringBuffer.append("tiebaclient!!!");
         this.bJp.x(SapiUtils.KEY_QR_LOGIN_SIGN, com.baidu.adp.lib.util.s.bC(stringBuffer.toString()));
         if (this.bJo.adF().bJr) {
-            this.bJp.x("sig", StringU.qk(stringBuffer.toString()));
+            this.bJp.x("sig", StringU.ql(stringBuffer.toString()));
         }
     }
 

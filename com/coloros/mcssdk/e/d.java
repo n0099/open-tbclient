@@ -4,10 +4,10 @@ public class d extends c {
     private String aui;
     private String content;
     private String description;
-    private String jym;
+    private String jyF;
 
-    public void Fp(String str) {
-        this.jym = str;
+    public void Fs(String str) {
+        this.jyF = str;
     }
 
     public void ei(String str) {
@@ -28,6 +28,6 @@ public class d extends c {
     }
 
     public String toString() {
-        return "messageID:" + this.jyk + ",taskID:" + this.jyl + ",globalID:" + this.jym + ",appPackage:" + this.appPackage + ",content:" + this.content + ",description:" + this.description + ",appID:" + this.aui;
+        return "messageID:" + this.jyD + ",taskID:" + this.jyE + ",globalID:" + this.jyF + ",appPackage:" + this.appPackage + ",content:" + this.content + ",description:" + this.description + ",appID:" + this.aui;
     }
 }

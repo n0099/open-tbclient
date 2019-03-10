@@ -45,7 +45,7 @@ public class c implements NetModel.b {
         this.fsn.fsi = i;
     }
 
-    public void vC(String str) {
+    public void vD(String str) {
         this.fsn.fsh = 1;
         this.fsn.forum_id = str;
         loadData();
@@ -132,7 +132,7 @@ public class c implements NetModel.b {
                 if (bVar.fsk == 1) {
                     cM(bVar.fsl, str);
                 } else if (bVar.fsk == 3) {
-                    vD(bVar.fsl);
+                    vE(bVar.fsl);
                 }
             }
             if (this.fso != null) {
@@ -158,7 +158,7 @@ public class c implements NetModel.b {
     private void a(b bVar) {
         if (bVar != null && bVar.errorCode == 0) {
             if (!bVar.fsj && bVar.fsk == 2) {
-                vD(bVar.fsl);
+                vE(bVar.fsl);
             }
             if (this.fso != null) {
                 this.fso.jl(bVar.fsj);
@@ -190,7 +190,7 @@ public class c implements NetModel.b {
         aVar.aaZ();
     }
 
-    public void vD(String str) {
+    public void vE(String str) {
         final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mContext.getPageActivity());
         aVar.dr(false);
         aVar.dq(false);

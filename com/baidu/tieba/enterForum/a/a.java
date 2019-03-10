@@ -39,15 +39,15 @@ public class a extends BaseAdapter {
     private boolean eBh = true;
     private f.a eBi = new f.a() { // from class: com.baidu.tieba.enterForum.a.a.6
         @Override // com.baidu.tieba.tbadkCore.util.f.a
-        public void ua(String str) {
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.util.f.a
-        public void aVY() {
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.util.f.a
         public void ub(String str) {
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.util.f.a
+        public void aVZ() {
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.util.f.a
+        public void uc(String str) {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.f.a
@@ -117,7 +117,7 @@ public class a extends BaseAdapter {
                 if (this.mData.get(i) instanceof com.baidu.tieba.enterForum.data.c) {
                     com.baidu.tieba.enterForum.data.c cVar3 = (com.baidu.tieba.enterForum.data.c) this.mData.get(i);
                     this.eBf.h(dVar.eBq);
-                    this.eBf.aWF();
+                    this.eBf.aWG();
                     if (cVar3 != null) {
                         dVar.mTitle.setText(cVar3.mTitle);
                         al.j(dVar.mTitle, d.C0236d.cp_cont_b);
@@ -211,10 +211,10 @@ public class a extends BaseAdapter {
                 return view;
             case 4:
                 View view2 = this.eBe.getView();
-                this.eBe.aXI();
+                this.eBe.aXJ();
                 return view2;
             case 5:
-                aVX();
+                aVY();
                 if (view == null || !(view.getTag() instanceof C0238a)) {
                     view = this.mPageContext.getPageActivity().getLayoutInflater().inflate(d.h.enter_forum_list_bar_creator_item, (ViewGroup) null);
                     C0238a c0238a2 = new C0238a();
@@ -267,10 +267,10 @@ public class a extends BaseAdapter {
                     c0238a.mImage.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.a.a.5
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view3) {
-                            String aWh;
-                            String aWh2;
+                            String aWi;
+                            String aWi2;
                             TiebaStatic.log("c13379");
-                            if (a.this.eBg.aWW()) {
+                            if (a.this.eBg.aWX()) {
                                 if (a.this.eBd != null) {
                                     a.this.eBd.dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(14, null, null, null));
                                     return;
@@ -278,17 +278,17 @@ public class a extends BaseAdapter {
                                 return;
                             }
                             boolean z = false;
-                            ForumCreateInfoData aWb = a.this.eBg.aWV().aWb();
-                            if (aWb != null) {
-                                switch (aWb.aWg()) {
+                            ForumCreateInfoData aWc = a.this.eBg.aWW().aWc();
+                            if (aWc != null) {
+                                switch (aWc.aWh()) {
                                     case 220012:
                                         BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
-                                        if (ap.isEmpty(aWb.aWh())) {
-                                            aWh2 = a.this.mPageContext.getResources().getString(d.j.create_forum_block_tip);
+                                        if (ap.isEmpty(aWc.aWi())) {
+                                            aWi2 = a.this.mPageContext.getResources().getString(d.j.create_forum_block_tip);
                                         } else {
-                                            aWh2 = aWb.aWh();
+                                            aWi2 = aWc.aWi();
                                         }
-                                        blockPopInfoData.block_info = aWh2;
+                                        blockPopInfoData.block_info = aWi2;
                                         blockPopInfoData.ahead_info = a.this.mPageContext.getResources().getString(d.j.create_forum_feed);
                                         blockPopInfoData.ok_info = a.this.mPageContext.getResources().getString(d.j.know);
                                         blockPopInfoData.ahead_url = "http://tieba.baidu.com/mo/q/userappeal";
@@ -313,12 +313,12 @@ public class a extends BaseAdapter {
                                 }
                             }
                             if (!z) {
-                                if (ap.isEmpty(aWb.aWh())) {
-                                    aWh = a.this.mPageContext.getResources().getString(d.j.create_forum_err);
+                                if (ap.isEmpty(aWc.aWi())) {
+                                    aWi = a.this.mPageContext.getResources().getString(d.j.create_forum_err);
                                 } else {
-                                    aWh = aWb.aWh();
+                                    aWi = aWc.aWi();
                                 }
-                                com.baidu.tbadk.coreExtra.d.a.a(a.this.mPageContext, (String) null, aWh, a.this.mPageContext.getResources().getString(d.j.know), (String) null, new a.b() { // from class: com.baidu.tieba.enterForum.a.a.5.3
+                                com.baidu.tbadk.coreExtra.d.a.a(a.this.mPageContext, (String) null, aWi, a.this.mPageContext.getResources().getString(d.j.know), (String) null, new a.b() { // from class: com.baidu.tieba.enterForum.a.a.5.3
                                     @Override // com.baidu.tbadk.core.dialog.a.b
                                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
                                         aVar.dismiss();
@@ -365,25 +365,25 @@ public class a extends BaseAdapter {
         }
     }
 
-    public int aVV() {
+    public int aVW() {
         if (this.eBe == null || this.eBe.getView() == null) {
             return 0;
         }
         return this.eBe.getView().getHeight();
     }
 
-    public boolean aVW() {
+    public boolean aVX() {
         if (this.eBe == null) {
             return false;
         }
-        return this.eBe.aVW();
+        return this.eBe.aVX();
     }
 
     public void onPrimary() {
         this.eBh = true;
     }
 
-    public void aVX() {
+    public void aVY() {
         if (this.eBh) {
             TiebaStatic.log("c13378");
             this.eBh = false;

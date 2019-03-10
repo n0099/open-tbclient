@@ -9,15 +9,15 @@ import com.baidu.tieba.f.a;
 /* loaded from: classes4.dex */
 public class c {
     private static final int TOUCH_SLOP = l.h(TbadkCoreApplication.getInst(), d.e.ds20);
-    private boolean hlY;
     private boolean hlZ;
-    private final a hma;
-    private final com.baidu.tieba.f.b hmb;
-    private a.InterfaceC0243a hmc = new a.InterfaceC0243a() { // from class: com.baidu.tieba.pb.pb.godreply.c.1
+    private boolean hma;
+    private final a hmb;
+    private final com.baidu.tieba.f.b hmc;
+    private a.InterfaceC0243a hmd = new a.InterfaceC0243a() { // from class: com.baidu.tieba.pb.pb.godreply.c.1
         @Override // com.baidu.tieba.f.a.InterfaceC0243a
         public void aR(int i, int i2) {
-            if (c.this.hma.isActive() && !c.this.bJc() && c.this.hma.bIY().bJh() && Math.abs(i2) > c.TOUCH_SLOP) {
-                c.this.hma.n(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.1
+            if (c.this.hmb.isActive() && !c.this.bJd() && c.this.hmb.bIZ().bJi() && Math.abs(i2) > c.TOUCH_SLOP) {
+                c.this.hmb.n(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.1
                     @Override // java.lang.Runnable
                     public void run() {
                         c.this.nf(false);
@@ -30,10 +30,10 @@ public class c {
 
         @Override // com.baidu.tieba.f.a.InterfaceC0243a
         public void aS(int i, int i2) {
-            if (c.this.hma.isActive() && !c.this.bJc() && !c.this.isFullscreen()) {
+            if (c.this.hmb.isActive() && !c.this.bJd() && !c.this.isFullscreen()) {
                 c.this.nf(true);
                 c.this.setFullscreen(true);
-                c.this.hma.bIY().o(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.2
+                c.this.hmb.bIZ().o(new Runnable() { // from class: com.baidu.tieba.pb.pb.godreply.c.1.2
                     @Override // java.lang.Runnable
                     public void run() {
                         c.this.nf(false);
@@ -46,40 +46,40 @@ public class c {
         public void aT(int i, int i2) {
         }
     };
-    private View.OnTouchListener hmd = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.godreply.c.2
+    private View.OnTouchListener hme = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.pb.godreply.c.2
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            c.this.hmb.onTouchEvent(motionEvent);
+            c.this.hmc.onTouchEvent(motionEvent);
             return false;
         }
     };
 
     public c(a aVar) {
-        this.hma = aVar;
-        this.hmb = new com.baidu.tieba.f.b(aVar.hlC.getPageContext().getPageActivity());
-        this.hmb.a(this.hmc);
+        this.hmb = aVar;
+        this.hmc = new com.baidu.tieba.f.b(aVar.hlD.getPageContext().getPageActivity());
+        this.hmc.a(this.hmd);
     }
 
     public void initialize() {
-        d bIY = this.hma.bIY();
-        if (bIY.bJe()) {
-            bIY.getListView().setOnTouchListener(this.hmd);
+        d bIZ = this.hmb.bIZ();
+        if (bIZ.bJf()) {
+            bIZ.getListView().setOnTouchListener(this.hme);
         }
     }
 
-    public boolean bJc() {
-        return this.hlY;
-    }
-
-    public void nf(boolean z) {
-        this.hlY = z;
-    }
-
-    public boolean isFullscreen() {
+    public boolean bJd() {
         return this.hlZ;
     }
 
-    public void setFullscreen(boolean z) {
+    public void nf(boolean z) {
         this.hlZ = z;
+    }
+
+    public boolean isFullscreen() {
+        return this.hma;
+    }
+
+    public void setFullscreen(boolean z) {
+        this.hma = z;
     }
 }

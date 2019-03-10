@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.media.video;
 public class b {
     private static volatile a cVC;
 
-    public static synchronized a azE() {
+    public static synchronized a azF() {
         a aVar;
         synchronized (b.class) {
             if (cVC == null) {

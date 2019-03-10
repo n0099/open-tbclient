@@ -116,11 +116,11 @@ public class MutiImgMoreLayout extends LinearLayout implements i<com.baidu.tbadk
         VoiceData.VoiceModel voiceModel = Zf.get(0);
         this.ZX.setVoiceModel(voiceModel);
         this.ZX.setTag(voiceModel);
-        this.ZX.bxV();
+        this.ZX.bxW();
         if (voiceModel != null) {
             this.ZX.uu(voiceModel.voice_status.intValue());
         }
-        this.ZX.cfA();
+        this.ZX.cfB();
         this.aaa = true;
     }
 

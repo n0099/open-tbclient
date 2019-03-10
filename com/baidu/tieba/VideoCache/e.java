@@ -16,7 +16,7 @@ public class e {
     private e() {
     }
 
-    public static e avH() {
+    public static e avI() {
         if (cLB == null) {
             synchronized (e.class) {
                 if (cLB == null) {
@@ -70,7 +70,7 @@ public class e {
         return z;
     }
 
-    public synchronized boolean qp(String str) {
+    public synchronized boolean qq(String str) {
         boolean z;
         if (str != null) {
             if (!str.isEmpty()) {
@@ -81,7 +81,7 @@ public class e {
                         break;
                     }
                     Map.Entry<String, c> next = it.next();
-                    if (next != null && (next.getKey() instanceof String) && str.equals(m.qA(next.getKey()))) {
+                    if (next != null && (next.getKey() instanceof String) && str.equals(m.qB(next.getKey()))) {
                         z = true;
                         break;
                     }
@@ -96,7 +96,7 @@ public class e {
         this.cLD = cVar;
     }
 
-    public c avI() {
+    public c avJ() {
         return this.cLD;
     }
 
@@ -108,7 +108,7 @@ public class e {
         this.cLE.remove(cVar);
     }
 
-    public synchronized void qq(String str) {
+    public synchronized void qr(String str) {
         if (str != null) {
             if (!str.isEmpty()) {
                 ArrayList arrayList = new ArrayList();
@@ -145,7 +145,7 @@ public class e {
         return z;
     }
 
-    public synchronized boolean qr(String str) {
+    public synchronized boolean qs(String str) {
         boolean z;
         if (str != null) {
             if (!str.isEmpty()) {
@@ -156,7 +156,7 @@ public class e {
                         break;
                     }
                     c next = it.next();
-                    if (next != null && str.equals(m.qA(next.getVideoUrl()))) {
+                    if (next != null && str.equals(m.qB(next.getVideoUrl()))) {
                         z = true;
                         break;
                     }
@@ -175,7 +175,7 @@ public class e {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void qs(String str) {
+    public synchronized void qt(String str) {
         if (str != null) {
             Iterator<Map.Entry<String, c>> it = this.cLC.entrySet().iterator();
             while (true) {

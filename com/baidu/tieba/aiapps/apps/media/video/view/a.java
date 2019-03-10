@@ -44,17 +44,17 @@ public class a extends c implements com.baidu.swan.apps.media.a {
                             a.this.pausePlay();
                         }
                         ViewGroup viewGroup = (ViewGroup) a.this.mActivity.getWindow().getDecorView();
-                        ViewGroup viewGroup2 = (ViewGroup) a.this.bSW().getParent();
+                        ViewGroup viewGroup2 = (ViewGroup) a.this.bSX().getParent();
                         if (viewGroup2 != null) {
-                            viewGroup2.removeView(a.this.bSW());
+                            viewGroup2.removeView(a.this.bSX());
                         }
-                        viewGroup.addView(a.this.bSW());
+                        viewGroup.addView(a.this.bSX());
                         a.this.fZ(true);
                         if (ql) {
-                            a.this.gHW.postDelayed(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1.1
+                            a.this.gHX.postDelayed(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1.1
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    a.this.bAK();
+                                    a.this.bAL();
                                 }
                             }, 100L);
                         }
@@ -71,21 +71,21 @@ public class a extends c implements com.baidu.swan.apps.media.a {
                         if (ql) {
                             a.this.pausePlay();
                         }
-                        ViewGroup viewGroup = (ViewGroup) a.this.bSW().getParent();
+                        ViewGroup viewGroup = (ViewGroup) a.this.bSX().getParent();
                         if (viewGroup != null) {
-                            viewGroup.removeView(a.this.bSW());
+                            viewGroup.removeView(a.this.bSX());
                         }
                         a.this.ako.MK();
-                        a.this.ako.a(a.this.bSW(), a.this.cVR);
+                        a.this.ako.a(a.this.bSX(), a.this.cVR);
                         if (a.this.mActivity.getResources().getConfiguration().orientation == 2) {
                             a.this.mActivity.setRequestedOrientation(1);
                         }
                         a.this.fZ(false);
                         if (ql) {
-                            a.this.gHW.postDelayed(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1.2
+                            a.this.gHX.postDelayed(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.1.2
                                 @Override // java.lang.Runnable
                                 public void run() {
-                                    a.this.bAK();
+                                    a.this.bAL();
                                 }
                             }, 100L);
                         }
@@ -113,7 +113,7 @@ public class a extends c implements com.baidu.swan.apps.media.a {
             }
 
             @Override // com.baidu.tieba.play.c.o
-            public void azH() {
+            public void azI() {
                 a.this.cVT = false;
             }
 
@@ -129,7 +129,7 @@ public class a extends c implements com.baidu.swan.apps.media.a {
             }
 
             @Override // com.baidu.tieba.play.c.o
-            public void azI() {
+            public void azJ() {
                 d.a(a.this.Ei(), a.this.getSlaveId(), "play", new JSONObject());
                 a.this.cVT = true;
             }
@@ -138,7 +138,7 @@ public class a extends c implements com.baidu.swan.apps.media.a {
         this.cVS.a(new ConfigurationChangedListenFragment.a() { // from class: com.baidu.tieba.aiapps.apps.media.video.view.a.3
             @Override // com.baidu.tieba.aiapps.apps.media.video.view.ConfigurationChangedListenFragment.a
             public void onConfigurationChanged(Configuration configuration) {
-                if (a.this.bSC()) {
+                if (a.this.bSD()) {
                     a.this.setFullScreenToDestroySurface();
                     a.this.onConfigurationChanged(configuration);
                 }
@@ -148,13 +148,13 @@ public class a extends c implements com.baidu.swan.apps.media.a {
         oP(false);
     }
 
-    public com.baidu.tieba.aiapps.apps.media.video.c azF() {
+    public com.baidu.tieba.aiapps.apps.media.video.c azG() {
         return this.cVP;
     }
 
     public void a(com.baidu.tieba.aiapps.apps.media.video.c cVar) {
         this.cVP = cVar;
-        azG();
+        azH();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -164,7 +164,7 @@ public class a extends c implements com.baidu.swan.apps.media.a {
         JSONObject jSONObject = new JSONObject();
         try {
             if (z) {
-                if (bSD()) {
+                if (bSE()) {
                     width = l.aO(this.mActivity);
                     height = l.aQ(this.mActivity);
                 } else {
@@ -184,19 +184,19 @@ public class a extends c implements com.baidu.swan.apps.media.a {
         d.a(Ei(), getSlaveId(), "fullscreenchange", jSONObject);
     }
 
-    private void azG() {
+    private void azH() {
         if (this.cVP.cVD) {
             setVolume(0);
         }
         getVideoView().setLooping(this.cVP.mLoop);
         if (this.cVP.cVj) {
-            bSF();
+            bSG();
         }
         oZ(!this.cVP.cVK);
         if (!StringUtils.isNull(this.cVP.cVE)) {
             setThumbnail(this.cVP.cVE);
         }
-        bSW().setVisibility(this.cVP.hidden ? 8 : 0);
+        bSX().setVisibility(this.cVP.hidden ? 8 : 0);
     }
 
     @Override // com.baidu.swan.apps.media.a
@@ -225,7 +225,7 @@ public class a extends c implements com.baidu.swan.apps.media.a {
             return;
         }
         if (this.cVQ) {
-            bAK();
+            bAL();
         }
         this.cVQ = false;
     }
@@ -246,7 +246,7 @@ public class a extends c implements com.baidu.swan.apps.media.a {
             return;
         }
         if (this.cVQ) {
-            bAK();
+            bAL();
         }
         this.cVQ = false;
     }
@@ -256,50 +256,50 @@ public class a extends c implements com.baidu.swan.apps.media.a {
         if (!this.isFullScreen) {
             return false;
         }
-        if (bSD()) {
-            bSG();
+        if (bSE()) {
+            bSH();
         } else {
-            bAB();
+            bAC();
         }
         return true;
     }
 
     @Override // com.baidu.swan.apps.media.a
     public void onDestroy() {
-        ViewGroup viewGroup = (ViewGroup) bSW().getParent();
+        ViewGroup viewGroup = (ViewGroup) bSX().getParent();
         if (viewGroup != null) {
-            bnQ();
-            viewGroup.removeView(bSW());
+            bnR();
+            viewGroup.removeView(bSX());
             this.ako.MK();
         }
         if (this.dbg != null) {
             this.dbg.stopPlayback();
         }
-        bSB();
+        bSC();
         b.b(this);
     }
 
     public void ga(boolean z) {
         if (z != this.isFullScreen) {
             setFullScreenToDestroySurface();
-            if (bSD()) {
+            if (bSE()) {
                 if (this.US) {
-                    bSG();
+                    bSH();
                 } else {
-                    bSF();
+                    bSG();
                 }
                 oR(this.US);
                 return;
             }
-            bAB();
+            bAC();
         }
     }
 
     @Override // com.baidu.tieba.play.c
     public void cf(String str, String str2) {
         if (!j.kM()) {
-            bnQ();
-            e.jH().removeCallbacks(this.gII);
+            bnR();
+            e.jH().removeCallbacks(this.gIJ);
             this.ekJ.setVisibility(0);
             return;
         }

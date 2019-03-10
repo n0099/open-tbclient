@@ -5,49 +5,49 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes.dex */
 public class b {
-    private static b iNK;
+    private static b iOe;
     private boolean mInited = false;
-    private a iNL = cgY();
+    private a iOf = chi();
 
     /* loaded from: classes.dex */
     public interface a {
         void d(Application application);
     }
 
-    private boolean cgX() {
+    private boolean chh() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("pref_key_jpush_sdk_enable", 0) == 1;
     }
 
     private b() {
     }
 
-    private a cgY() {
+    private a chi() {
         CustomResponsedMessage runTask;
-        if (!cgX() || (runTask = MessageManager.getInstance().runTask(2156672, a.class)) == null) {
+        if (!chh() || (runTask = MessageManager.getInstance().runTask(2156672, a.class)) == null) {
             return null;
         }
         return (a) runTask.getData();
     }
 
-    public static b cgZ() {
-        if (iNK == null) {
+    public static b chj() {
+        if (iOe == null) {
             synchronized (b.class) {
-                if (iNK == null) {
-                    iNK = new b();
+                if (iOe == null) {
+                    iOe = new b();
                 }
             }
         }
-        return iNK;
+        return iOe;
     }
 
     public void d(Application application) {
-        if (!this.mInited && this.iNL != null) {
-            this.iNL.d(application);
+        if (!this.mInited && this.iOf != null) {
+            this.iOf.d(application);
             this.mInited = true;
         }
     }
 
-    public boolean cha() {
+    public boolean chk() {
         return this.mInited;
     }
 }

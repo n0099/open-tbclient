@@ -6,37 +6,37 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 /* loaded from: classes.dex */
 public class AlaPlayAnimationView extends ImageView {
-    private ObjectAnimator jgZ;
-    private boolean jha;
-    private boolean jhb;
+    private ObjectAnimator jht;
+    private boolean jhu;
+    private boolean jhv;
 
     public AlaPlayAnimationView(Context context) {
         super(context);
-        this.jha = false;
-        this.jhb = false;
+        this.jhu = false;
+        this.jhv = false;
         init();
     }
 
     public AlaPlayAnimationView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.jha = false;
-        this.jhb = false;
+        this.jhu = false;
+        this.jhv = false;
         init();
     }
 
     private void init() {
-        this.jgZ = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
-        this.jgZ.setRepeatMode(1);
-        this.jgZ.setRepeatCount(-1);
-        this.jgZ.setDuration(700L);
+        this.jht = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
+        this.jht.setRepeatMode(1);
+        this.jht.setRepeatCount(-1);
+        this.jht.setDuration(700L);
         setVisibility(8);
-        this.jha = false;
+        this.jhu = false;
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (this.jhb) {
+        if (this.jhv) {
             startPlayAnimation();
         }
     }
@@ -44,30 +44,30 @@ public class AlaPlayAnimationView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        cmL();
+        cmV();
     }
 
     public void setAutoStartPlay(boolean z) {
-        this.jhb = z;
+        this.jhv = z;
     }
 
     public void startPlayAnimation() {
-        if (!this.jha) {
-            this.jha = true;
-            if (this.jgZ != null) {
+        if (!this.jhu) {
+            this.jhu = true;
+            if (this.jht != null) {
                 setVisibility(0);
-                this.jgZ.start();
+                this.jht.start();
             }
         }
     }
 
-    public void cmL() {
-        if (this.jgZ != null) {
-            this.jgZ.setRepeatCount(-1);
-            this.jgZ.cancel();
+    public void cmV() {
+        if (this.jht != null) {
+            this.jht.setRepeatCount(-1);
+            this.jht.cancel();
             clearAnimation();
         }
-        this.jha = false;
+        this.jhu = false;
         setVisibility(8);
     }
 }

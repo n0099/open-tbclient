@@ -32,7 +32,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         this.fdX = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.concern.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: beI */
+            /* renamed from: beJ */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(b.this.mPageContext.getPageActivity());
             }
@@ -113,7 +113,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
                     } else {
                         amVar.T("obj_locate", 1);
                     }
-                    amVar.T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.bly());
+                    amVar.T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.blz());
                     TiebaStatic.log(amVar);
                 }
             }
@@ -145,18 +145,18 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         if (bVar.fHb == null || aVar == null || StringUtils.isNull(bVar.fHb.getName()) || StringUtils.isNull(bVar.fHb.getUserId())) {
             return null;
         }
-        if (aVar.aRi() instanceof com.baidu.tieba.a.e) {
-            aVar.aRi().setPage(this.Yz);
+        if (aVar.aRj() instanceof com.baidu.tieba.a.e) {
+            aVar.aRj().setPage(this.Yz);
         }
-        aVar.aRi().a(bVar);
-        aVar.aRi().d(this.eEz);
-        aVar.aRi().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        t.aQF().b(new am("c12353").k("uid", TbadkCoreApplication.getCurrentAccountId()).bJ(VideoPlayActivityConfig.OBJ_ID, bVar.fHb.getUserId()).T("obj_type", 1).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.bly()).bJ("tid", bVar.eNQ.getTid()));
+        aVar.aRj().a(bVar);
+        aVar.aRj().d(this.eEz);
+        aVar.aRj().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        t.aQG().b(new am("c12353").k("uid", TbadkCoreApplication.getCurrentAccountId()).bJ(VideoPlayActivityConfig.OBJ_ID, bVar.fHb.getUserId()).T("obj_type", 1).T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bVar.blz()).bJ("tid", bVar.eNQ.getTid()));
         return aVar.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void qM(String str) {
+    public void qN(String str) {
         this.Yz = str;
     }
 }

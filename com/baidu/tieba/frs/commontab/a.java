@@ -37,7 +37,7 @@ public class a {
                 Iterator it = ((AbsDelegateAdapterList) customResponsedMessage.getData()).iterator();
                 while (it.hasNext()) {
                     com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
-                    if ((aVar instanceof com.baidu.tieba.card.y) && "FrsHottopicDelegateAdapter".equals(((com.baidu.tieba.card.y) aVar).aQH()) && a.this.mAdapters != null) {
+                    if ((aVar instanceof com.baidu.tieba.card.y) && "FrsHottopicDelegateAdapter".equals(((com.baidu.tieba.card.y) aVar).aQI()) && a.this.mAdapters != null) {
                         ((com.baidu.tieba.card.y) aVar).a(a.this.ffZ.getPageContext(), a.this.ffZ.getUniqueId());
                         if (a.this.fgf) {
                             ((com.baidu.tieba.card.y) aVar).setFrom("c13010");
@@ -82,30 +82,30 @@ public class a {
             this.fgc.setFrom("c13010");
             this.fgd.setFrom("c13010");
             this.fge.setFrom("c13010");
-            qM("page_frs_dynamic");
+            qN("page_frs_dynamic");
         }
         if (frsCommonTabFragment.tabId == 502) {
             b(frsViewData);
         }
         bdTypeRecyclerView.addAdapters(this.mAdapters);
-        bfc();
+        bfd();
     }
 
     public void setData(ArrayList<com.baidu.adp.widget.ListView.m> arrayList) {
         this.Qq.setData(arrayList);
     }
 
-    private void bfc() {
+    private void bfd() {
         if (this.ffZ != null && !v.T(this.mAdapters)) {
             for (com.baidu.adp.widget.ListView.a aVar : this.mAdapters) {
                 if (aVar instanceof com.baidu.tieba.frs.d.d) {
                     com.baidu.tieba.frs.d.d dVar = (com.baidu.tieba.frs.d.d) aVar;
-                    if (dVar.bfz() != null) {
-                        dVar.bfz().ftb = this.ffZ.fgl;
-                        dVar.bfz().ftd = this.ffZ.forumId;
-                        dVar.bfz().fte = this.ffZ.tabId;
+                    if (dVar.bfA() != null) {
+                        dVar.bfA().ftb = this.ffZ.fgl;
+                        dVar.bfA().ftd = this.ffZ.forumId;
+                        dVar.bfA().fte = this.ffZ.tabId;
                         if (this.ffZ.tabId == 502) {
-                            dVar.bfz().ftg = 10;
+                            dVar.bfA().ftg = 10;
                         }
                     }
                 }
@@ -125,11 +125,11 @@ public class a {
         }
     }
 
-    private void qM(String str) {
+    private void qN(String str) {
         if (this.mAdapters != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.mAdapters) {
                 if (aVar instanceof f) {
-                    ((f) aVar).qM(str);
+                    ((f) aVar).qN(str);
                 }
             }
         }

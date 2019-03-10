@@ -49,7 +49,7 @@ public class b {
                     b.this.dbr.setOnClickListener(null);
                     if (b.this.hasMore) {
                         b.this.dbr.showLoading();
-                        b.this.ffZ.bfd();
+                        b.this.ffZ.bfe();
                         return;
                     }
                     b.this.dbr.setText(b.this.ffZ.getResources().getString(d.j.list_has_no_more));
@@ -69,7 +69,7 @@ public class b {
                 if (b.this.fbl != null) {
                     b.this.fbl.c(b.this.Qq.getFirstVisiblePosition(), b.this.Qq.getLastVisiblePosition(), this.fgv, true);
                 }
-                t.aQF().hQ(true);
+                t.aQG().hQ(true);
             }
         }
 
@@ -204,13 +204,13 @@ public class b {
 
     public void resume() {
         if (this.fbl != null) {
-            this.fbl.bAV();
+            this.fbl.bAW();
         }
     }
 
     public void pause() {
         if (this.fbl != null) {
-            this.fbl.bAU();
+            this.fbl.bAV();
         }
     }
 
@@ -220,7 +220,7 @@ public class b {
         }
     }
 
-    public void vi(String str) {
+    public void vj(String str) {
         bg bgVar;
         if (!StringUtils.isNull(str) && this.fgs != null && !v.T(this.fgs.threadList)) {
             Iterator<com.baidu.adp.widget.ListView.m> it = this.fgs.threadList.iterator();
@@ -246,7 +246,7 @@ public class b {
         }
     }
 
-    public void bcd() {
+    public void bce() {
         this.Qq.scrollToPosition(0);
     }
 
@@ -254,7 +254,7 @@ public class b {
         this.fgr.notifyDataSetChanged();
     }
 
-    public void aCt() {
+    public void aCu() {
         this.mPullView.aw(false);
     }
 }

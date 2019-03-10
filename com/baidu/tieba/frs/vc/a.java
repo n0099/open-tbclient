@@ -36,7 +36,7 @@ public class a implements View.OnClickListener {
                     @Override // java.lang.Runnable
                     public void run() {
                         if (a.this.eDH != null) {
-                            a.this.biI();
+                            a.this.biJ();
                         }
                     }
                 }, 3000L);
@@ -86,10 +86,10 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        biI();
+        biJ();
     }
 
-    public void biI() {
+    public void biJ() {
         if (this.eDH != null) {
             this.eDH.dismiss();
             this.eDH = null;
@@ -98,6 +98,6 @@ public class a implements View.OnClickListener {
 
     public void destory() {
         this.mHandler.removeCallbacksAndMessages(null);
-        biI();
+        biJ();
     }
 }

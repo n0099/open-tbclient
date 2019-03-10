@@ -75,7 +75,8 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     private com.baidu.tieba.homepage.topic.topicdetail.model.a fPm;
     a.RunnableC0251a fPn;
     private int fPo;
-    private NewWriteModel.d fPp;
+    private int fPp;
+    private NewWriteModel.d fPq;
     private View faL;
     private BdTypeRecyclerView fxJ;
     private ImageView mBackImageView;
@@ -96,6 +97,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         this.fPg = null;
         this.mHasMore = true;
         this.fPo = 0;
+        this.fPp = 44;
         this.emQ = new NoNetworkView.a() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.1
             @Override // com.baidu.tbadk.core.view.NoNetworkView.a
             public void dP(boolean z) {
@@ -107,22 +109,22 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         this.ckm = new com.baidu.tbadk.editortools.pb.b() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.6
             @Override // com.baidu.tbadk.editortools.pb.b
             public boolean amr() {
-                if (TopicDetailView.this.fPj.cnN()) {
-                    TopicDetailView.this.mPageContext.showToast(TopicDetailView.this.fPj.cnP());
+                if (TopicDetailView.this.fPj.cnX()) {
+                    TopicDetailView.this.mPageContext.showToast(TopicDetailView.this.fPj.cnZ());
                     TopicDetailView.this.kt(true);
                     return true;
                 }
                 return false;
             }
         };
-        this.fPp = new NewWriteModel.d() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.7
+        this.fPq = new NewWriteModel.d() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.7
             @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
             public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, x xVar, WriteData writeData, AntiData antiData) {
                 if (z && TopicDetailView.this.fPh != null && TopicDetailView.this.fPh.alT() != null) {
                     TopicDetailView.this.fPh.alT().hide();
                 }
                 if (z) {
-                    TopicDetailView.this.fPj.Ei(null);
+                    TopicDetailView.this.fPj.El(null);
                     TopicDetailView.this.fPj.aE(null);
                     TopicDetailView.this.fPj.qU(false);
                     if (postWriteCallBackData != null) {
@@ -135,8 +137,8 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                     }
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isSensitiveError()) {
                     TopicDetailView.this.fPj.aE(postWriteCallBackData.getSensitiveWords());
-                    TopicDetailView.this.fPj.Ei(postWriteCallBackData.getErrorString());
-                    if (!v.T(TopicDetailView.this.fPj.cnL())) {
+                    TopicDetailView.this.fPj.El(postWriteCallBackData.getErrorString());
+                    if (!v.T(TopicDetailView.this.fPj.cnV())) {
                         TopicDetailView.this.kt(true);
                     }
                 }
@@ -156,7 +158,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             public void onScrolled(RecyclerView recyclerView, int i, int i2) {
                 super.onScrolled(recyclerView, i, i2);
                 TopicDetailView.this.fPo += i2;
-                TopicDetailView.this.bnn();
+                TopicDetailView.this.bno();
             }
         };
         this.mOnScrollToBottomListener = new BdListView.e() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.9
@@ -164,7 +166,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             public void onScrollToBottom() {
                 if (TopicDetailView.this.mHasMore) {
                     if (!l.lo()) {
-                        TopicDetailView.this.aCw();
+                        TopicDetailView.this.aCx();
                         return;
                     }
                     int size = TopicDetailView.this.mTopicDetailData.mDataList.size();
@@ -200,7 +202,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         this.fPf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TopicDetailView.this.bnm();
+                TopicDetailView.this.bnn();
             }
         });
         this.fPg = (TextView) findViewById(d.g.editor_tool_opinion_text_view);
@@ -249,13 +251,13 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         this.fPh = (a) new b().dd(getContext());
         if (this.fPh != null) {
             this.fPh.a(this.mPageContext);
-            this.fPh.b(this.fPp);
+            this.fPh.b(this.fPq);
             this.fPh.a(this.ckm);
             this.fPh.alT().eH(true);
             this.fPh.a((BaseActivity) getContext(), bundle);
             this.fPh.amQ();
             this.fPh.alT().setId(d.g.topic_editor);
-            this.fPk = this.fPh.bnl().getInputView();
+            this.fPk = this.fPh.bnm().getInputView();
             this.fPk.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.5
                 @Override // android.text.TextWatcher
                 public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -268,7 +270,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                 @Override // android.text.TextWatcher
                 public void afterTextChanged(Editable editable) {
                     if (TopicDetailView.this.fPj != null) {
-                        if (!TopicDetailView.this.fPj.cnO()) {
+                        if (!TopicDetailView.this.fPj.cnY()) {
                             TopicDetailView.this.kt(false);
                         }
                         TopicDetailView.this.fPj.qV(false);
@@ -285,18 +287,18 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             if (b != null) {
                 this.fPj.qV(true);
                 this.fPk.setText(b);
-                if (z && this.fPj.cnM() >= 0) {
+                if (z && this.fPj.cnW() >= 0) {
                     this.fPk.requestFocus();
-                    this.fPk.setSelection(this.fPj.cnM());
+                    this.fPk.setSelection(this.fPj.cnW());
                 } else {
                     this.fPk.setSelection(selectionEnd);
                 }
-                this.fPj.qU(this.fPj.cnM() >= 0);
+                this.fPj.qU(this.fPj.cnW() >= 0);
             }
         }
     }
 
-    public void bnm() {
+    public void bnn() {
         if (bc.cZ(getContext())) {
             this.fPh.amT();
             setEditorTopViewAboveEditor();
@@ -334,11 +336,11 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             this.mHasMore = this.mTopicDetailData.hasMore;
             if (this.mHasMore && this.mTopicDetailData.mDataList.size() <= 4) {
                 this.mHasMore = false;
-                aCv();
+                aCw();
             } else if (!this.mHasMore) {
-                aCv();
+                aCw();
             } else {
-                aCu();
+                aCv();
             }
             if (!StringUtils.isNull(aVar.bAk)) {
                 this.mNavigationBar.setCenterTextTitle(String.format(getContext().getString(d.j.daily_topic_name), ap.g(aVar.bAk, 14, "...")));
@@ -347,9 +349,9 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             this.fxJ.addHeaderView(this.fPb);
             this.fPc.setData(aVar.mDataList);
             if (this.mTopicDetailData.fOp.fOu != null) {
-                if (this.mTopicDetailData.fOp.fOu.fPR.fPX) {
+                if (this.mTopicDetailData.fOp.fOu.fPS.fPY) {
                     sG(1);
-                } else if (this.mTopicDetailData.fOp.fOu.fPS.fPX) {
+                } else if (this.mTopicDetailData.fOp.fOu.fPT.fPY) {
                     sG(2);
                 } else {
                     sG(0);
@@ -360,21 +362,21 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
                 this.fPg.setVisibility(8);
             }
             this.fPf.setPadding(h, 0, 0, 0);
-            bnn();
+            bno();
         }
     }
 
     public void setNextData(int i, boolean z, List<m> list) {
         this.mHasMore = z;
         if (!this.mHasMore) {
-            aCv();
+            aCw();
         } else {
-            aCu();
+            aCv();
         }
         if (i == 0 && list != null && !v.T(list)) {
             for (m mVar : list) {
                 if (mVar instanceof com.baidu.tieba.homepage.topic.topicdetail.b.c) {
-                    ((com.baidu.tieba.homepage.topic.topicdetail.b.c) mVar).fOA = this.mTopicDetailData.bng();
+                    ((com.baidu.tieba.homepage.topic.topicdetail.b.c) mVar).fOA = this.mTopicDetailData.bnh();
                 }
             }
             this.mTopicDetailData.mDataList.addAll(list);
@@ -383,17 +385,17 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aCw() {
+    public void aCx() {
         this.fxJ.setNextPage(null);
     }
 
-    public void aCu() {
+    public void aCv() {
         this.mHasMore = true;
         this.fxJ.setNextPage(this.dbr);
         this.dbr.aeC();
     }
 
-    public void aCv() {
+    public void aCw() {
         this.fxJ.setNextPage(this.dbr);
         this.dbr.aeD();
     }
@@ -443,7 +445,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             this.mSkinType = skinType;
-            bnn();
+            bno();
             al.j(this.mNavigationBar.mCenterText, d.C0236d.cp_btn_a);
             al.k(this.fPe, d.C0236d.cp_cont_g);
             al.j(this.fPf, d.C0236d.cp_cont_d);
@@ -482,7 +484,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     }
 
     public void cE(boolean z) {
-        if (!aXq()) {
+        if (!aXr()) {
             if (this.cXq == null) {
                 this.cXq = new g(getContext());
                 this.cXq.onChangeSkinType();
@@ -498,7 +500,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         }
     }
 
-    public boolean aXq() {
+    public boolean aXr() {
         if (this.cXq != null) {
             return this.cXq.isViewAttached();
         }
@@ -506,7 +508,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
     }
 
     public void iD(boolean z) {
-        if (!aXr()) {
+        if (!aXs()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetailView.2
                     @Override // android.view.View.OnClickListener
@@ -524,7 +526,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         }
     }
 
-    public void aBt() {
+    public void aBu() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this);
             this.mRefreshView = null;
@@ -532,7 +534,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
         this.fxJ.setVisibility(0);
     }
 
-    public boolean aXr() {
+    public boolean aXs() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
@@ -557,7 +559,7 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             com.baidu.adp.lib.g.e.jH().removeCallbacks(this.fPn);
         }
         hideLoadingView();
-        aBt();
+        aBu();
     }
 
     public a getEditor() {
@@ -604,30 +606,26 @@ public class TopicDetailView extends RelativeLayout implements View.OnClickListe
             cVar2.fOz = 2;
             cVar2.fOy = this.fPl;
             cVar2.topicId = this.mTopicDetailData.topicId;
-            cVar2.fOA = this.mTopicDetailData.bng();
+            cVar2.fOA = this.mTopicDetailData.bnh();
             this.mTopicDetailData.mDataList.add(i, cVar2);
             this.fPc.setData(this.mTopicDetailData.mDataList);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bnn() {
+    public void bno() {
         if (this.mTopicDetailData != null && this.fPb != null) {
-            if (StringUtils.isNull(this.mTopicDetailData.fOp.fOt)) {
-                this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(bno()));
-            } else if (!StringUtils.isNull(this.mTopicDetailData.fOp.fOt)) {
-                if (this.fPo > 44) {
-                    this.mNavigationBar.getBarBgView().setAlpha(1.0f);
-                    this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(bno()));
-                    return;
-                }
-                al.l(this.mNavigationBar.getBarBgView(), d.C0236d.transparent);
-                this.mNavigationBar.getBarBgView().setAlpha(0.0f);
+            if (this.fPo > this.fPp) {
+                this.mNavigationBar.getBarBgView().setAlpha(1.0f);
+                this.mNavigationBar.getBarBgView().setBackgroundDrawable(new BitmapDrawable(bnp()));
+                return;
             }
+            al.l(this.mNavigationBar.getBarBgView(), d.C0236d.transparent);
+            this.mNavigationBar.getBarBgView().setAlpha(0.0f);
         }
     }
 
-    public Bitmap bno() {
+    public Bitmap bnp() {
         Bitmap drawingCache;
         com.baidu.adp.widget.ImageView.a bdImage = this.fPb.getmBgImg().getBdImage();
         if (bdImage != null) {

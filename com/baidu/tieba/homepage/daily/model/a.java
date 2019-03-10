@@ -38,11 +38,11 @@ public class a {
                     if (cw != null) {
                         dataList.add(cw);
                     }
-                    boolean z2 = (a.this.fIt.blE() == null && cw == null) ? false : true;
+                    boolean z2 = (a.this.fIt.blF() == null && cw == null) ? false : true;
                     if (dailyInfo != null) {
                         d dVar = new d();
-                        dVar.wh(dailyInfo.tab_name);
-                        dVar.wg(dailyInfo.update_time);
+                        dVar.wi(dailyInfo.tab_name);
+                        dVar.wh(dailyInfo.update_time);
                         dVar.kj(z2);
                         dataList.add(dVar);
                     }
@@ -70,7 +70,7 @@ public class a {
                                     dataList.add(bgVar);
                                 } else {
                                     c cVar = new c();
-                                    cVar.wf(aaD);
+                                    cVar.wg(aaD);
                                     dataList.add(cVar);
                                     dataList.add(bgVar);
                                 }
@@ -146,8 +146,8 @@ public class a {
         this.fIs.refresh();
     }
 
-    public void aBc() {
-        this.fIs.aBc();
+    public void aBd() {
+        this.fIs.aBd();
     }
 
     public void a(InterfaceC0250a interfaceC0250a) {
@@ -158,7 +158,7 @@ public class a {
         return this.mHasMore;
     }
 
-    public boolean blM() {
+    public boolean blN() {
         return this.fIu;
     }
 

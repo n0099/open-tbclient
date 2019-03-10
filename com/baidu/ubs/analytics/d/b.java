@@ -8,48 +8,48 @@ import java.util.TimeZone;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 public final class b {
-    private static boolean jwn;
-    private static boolean jxl;
-    private static StringBuffer jxm = new StringBuffer();
+    private static boolean jwG;
+    private static boolean jxE;
+    private static StringBuffer jxF = new StringBuffer();
 
     static {
-        if (com.baidu.ubs.analytics.d.csd() != null) {
-            jwn = !a.csw();
-            jxl = true;
-            jxm.append("ABsdkLog-");
-            jxm.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-            jxm.append("_");
+        if (com.baidu.ubs.analytics.d.csn() != null) {
+            jwG = !a.csG();
+            jxE = true;
+            jxF.append("ABsdkLog-");
+            jxF.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+            jxF.append("_");
             try {
-                jxm.append(a(com.baidu.ubs.analytics.c.i.k(com.baidu.ubs.analytics.d.csd().getContext()).getBytes(HTTP.UTF_8)));
+                jxF.append(a(com.baidu.ubs.analytics.c.i.k(com.baidu.ubs.analytics.d.csn().getContext()).getBytes(HTTP.UTF_8)));
             } catch (UnsupportedEncodingException e) {
                 j.a(e);
             } catch (Exception e2) {
                 j.a(e2);
             }
-            jxm.append(".log");
+            jxF.append(".log");
         }
     }
 
-    public static String csy() {
-        return jxm.toString();
+    public static String csI() {
+        return jxF.toString();
     }
 
-    public static void EV(String str) {
-        if (jwn) {
+    public static void EY(String str) {
+        if (jwG) {
             Log.w("BaiDuUbs", str);
         }
         a("w", "BaiDuUbs", str);
     }
 
-    public static void EW(String str) {
-        if (jwn) {
+    public static void EZ(String str) {
+        if (jwG) {
             Log.e("BaiDuUbs", str);
         }
         a("e", "BaiDuUbs", str);
     }
 
     private static void a(final String str, final String str2, final String str3) {
-        if (jxl) {
+        if (jxE) {
             c.a(new d() { // from class: com.baidu.ubs.analytics.d.b.1
                 @Override // com.baidu.ubs.analytics.d.d
                 protected final void a() {
@@ -63,7 +63,7 @@ public final class b {
                     stringBuffer.append(str2);
                     stringBuffer.append("\t");
                     stringBuffer.append(str3);
-                    g.b(stringBuffer.toString(), a.jxi, b.jxm.toString());
+                    g.b(stringBuffer.toString(), a.jxB, b.jxF.toString());
                 }
             });
         }

@@ -10,23 +10,23 @@ public class a {
     private List<C0310a> poi_info;
     private String sn;
 
-    public String ceT() {
+    public String ceU() {
         return this.formatted_address;
     }
 
-    public List<C0310a> ceU() {
+    public List<C0310a> ceV() {
         return this.poi_info;
     }
 
-    public void CE(String str) {
+    public void CF(String str) {
         this.formatted_address = str;
     }
 
-    public String ceV() {
+    public String ceW() {
         return this.sn;
     }
 
-    public void CF(String str) {
+    public void CG(String str) {
         this.sn = str;
     }
 
@@ -64,7 +64,7 @@ public class a {
             return this.addr;
         }
 
-        public String ceV() {
+        public String ceW() {
             return this.sn;
         }
 

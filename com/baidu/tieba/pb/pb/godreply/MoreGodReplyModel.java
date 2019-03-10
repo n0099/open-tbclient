@@ -13,26 +13,26 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class MoreGodReplyModel extends BdBaseModel<e> {
-    private final PbModel hlS;
-    private int hlT;
+    private final PbModel hlT;
     private int hlU;
-    private z.a hlV;
-    private final z.a hlW;
+    private int hlV;
+    private z.a hlW;
+    private final z.a hlX;
     private boolean isLoading;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public MoreGodReplyModel(e eVar, PbModel pbModel) {
         super(eVar);
         this.isLoading = false;
-        this.hlT = -1;
         this.hlU = -1;
-        this.hlW = new z.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
+        this.hlV = -1;
+        this.hlX = new z.a() { // from class: com.baidu.tieba.pb.pb.godreply.MoreGodReplyModel.1
             @Override // com.baidu.tieba.pb.pb.main.z.a
             public void ac(List<PostData> list) {
                 MoreGodReplyModel.this.isLoading = false;
-                k bIk = MoreGodReplyModel.this.hlS.getPbData().bIk();
-                if (bIk != null) {
-                    List<PostData> list2 = bIk.hkW;
+                k bIl = MoreGodReplyModel.this.hlT.getPbData().bIl();
+                if (bIl != null) {
+                    List<PostData> list2 = bIl.hkX;
                     int size = list2.size();
                     if (!v.T(list)) {
                         for (PostData postData : list) {
@@ -41,26 +41,26 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
                             }
                         }
                     }
-                    MoreGodReplyModel.this.hlS.a(MoreGodReplyModel.this.hlS.getPbData(), size);
+                    MoreGodReplyModel.this.hlT.a(MoreGodReplyModel.this.hlT.getPbData(), size);
                 }
-                if (MoreGodReplyModel.this.hlT > 0) {
-                    MoreGodReplyModel.this.hlU = MoreGodReplyModel.this.hlT;
+                if (MoreGodReplyModel.this.hlU > 0) {
+                    MoreGodReplyModel.this.hlV = MoreGodReplyModel.this.hlU;
                 }
-                if (MoreGodReplyModel.this.hlV != null) {
-                    MoreGodReplyModel.this.hlV.ac(list);
+                if (MoreGodReplyModel.this.hlW != null) {
+                    MoreGodReplyModel.this.hlW.ac(list);
                 }
             }
 
             @Override // com.baidu.tieba.pb.pb.main.z.a
             public void j(int i, String str, String str2) {
                 MoreGodReplyModel.this.isLoading = false;
-                if (MoreGodReplyModel.this.hlV != null) {
-                    MoreGodReplyModel.this.hlV.j(i, str, str2);
+                if (MoreGodReplyModel.this.hlW != null) {
+                    MoreGodReplyModel.this.hlW.j(i, str, str2);
                 }
             }
         };
-        this.hlS = pbModel;
-        this.hlS.bLt().b(this.hlW);
+        this.hlT = pbModel;
+        this.hlT.bLu().b(this.hlX);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -80,25 +80,25 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         return false;
     }
 
-    public boolean bIZ() {
-        k bIk;
-        com.baidu.tieba.pb.data.d pbData = this.hlS.getPbData();
-        if (pbData == null || (bIk = pbData.bIk()) == null) {
+    public boolean bJa() {
+        k bIl;
+        com.baidu.tieba.pb.data.d pbData = this.hlT.getPbData();
+        if (pbData == null || (bIl = pbData.bIl()) == null) {
             return false;
         }
-        if (this.hlU < 0) {
-            this.hlU = bIk.getCount();
+        if (this.hlV < 0) {
+            this.hlV = bIl.getCount();
         }
-        List<Long> list = bIk.hkX;
+        List<Long> list = bIl.hkY;
         int size = list.size();
-        int i = this.hlU;
-        if (size <= i || bIk.hkW.size() >= 100) {
+        int i = this.hlV;
+        if (size <= i || bIl.hkX.size() >= 100) {
             return false;
         }
         int min = Math.min(100, Math.min(i + 20, size));
-        this.hlT = min;
+        this.hlU = min;
         this.isLoading = true;
-        this.hlS.bLt().dC(list.subList(i, min));
+        this.hlT.bLu().dC(list.subList(i, min));
         Log.d("more_god_reply", "load from " + i + " to " + min);
         return true;
     }
@@ -107,25 +107,25 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
         return this.isLoading;
     }
 
-    public PbModel bJa() {
-        return this.hlS;
+    public PbModel bJb() {
+        return this.hlT;
     }
 
-    public List<m> bJb() {
-        com.baidu.tieba.pb.data.d pbData = this.hlS.getPbData();
-        if (pbData == null || pbData.bIk() == null || v.T(pbData.bIk().hkW)) {
+    public List<m> bJc() {
+        com.baidu.tieba.pb.data.d pbData = this.hlT.getPbData();
+        if (pbData == null || pbData.bIl() == null || v.T(pbData.bIl().hkX)) {
             return null;
         }
-        k bIk = pbData.bIk();
+        k bIl = pbData.bIl();
         ArrayList arrayList = new ArrayList();
-        List<PostData> list = bIk.hkW;
+        List<PostData> list = bIl.hkX;
         int size = list.size();
         int i = 0;
         while (i < size) {
             PostData postData = list.get(i);
             if (postData != null) {
                 arrayList.add(postData);
-                postData.iGR = i < size + (-1);
+                postData.iGS = i < size + (-1);
             }
             i++;
         }
@@ -144,19 +144,19 @@ public class MoreGodReplyModel extends BdBaseModel<e> {
     }
 
     public void a(z.a aVar) {
-        this.hlV = aVar;
+        this.hlW = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean HA() {
-        k bIk;
-        com.baidu.tieba.pb.data.d pbData = this.hlS.getPbData();
-        if (pbData == null || (bIk = pbData.bIk()) == null) {
+        k bIl;
+        com.baidu.tieba.pb.data.d pbData = this.hlT.getPbData();
+        if (pbData == null || (bIl = pbData.bIl()) == null) {
             return false;
         }
-        if (this.hlU < 0) {
-            this.hlU = bIk.getCount();
+        if (this.hlV < 0) {
+            this.hlV = bIl.getCount();
         }
-        return bIk.hkX.size() > this.hlU && bIk.hkW.size() < 100;
+        return bIl.hkY.size() > this.hlV && bIl.hkX.size() < 100;
     }
 }

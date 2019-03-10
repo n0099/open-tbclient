@@ -45,7 +45,7 @@ public class c extends com.baidu.swan.apps.model.a.a.a {
             cVar2.cVJ = jSONObject.optBoolean("danmuBtn", cVar.cVJ);
             cVar2.mLoop = jSONObject.optBoolean("loop", cVar.mLoop);
             cVar2.cVK = jSONObject.optBoolean("controls", cVar.cVK);
-            cVar2.mSrc = rF(jSONObject.optString("src", cVar.mSrc));
+            cVar2.mSrc = rG(jSONObject.optString("src", cVar.mSrc));
             cVar2.cVL = jSONObject.optBoolean("showPlayBtn", cVar.cVL);
             cVar2.cVM = jSONObject.optBoolean("showMuteBtn", cVar.cVM);
             cVar2.cVN = jSONObject.optBoolean("showCenterPlayBtn", cVar.cVN);
@@ -96,7 +96,7 @@ public class c extends com.baidu.swan.apps.model.a.a.a {
         return jSONObject2.toString();
     }
 
-    private static String rF(String str) {
+    private static String rG(String str) {
         return (!com.baidu.swan.apps.storage.b.gV(str) || com.baidu.swan.apps.ae.b.IX() == null) ? str : com.baidu.swan.apps.storage.b.b(str, com.baidu.swan.apps.ae.b.IX());
     }
 

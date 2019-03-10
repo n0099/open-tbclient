@@ -10,7 +10,7 @@ public class aa {
     private aa() {
     }
 
-    public static aa bep() {
+    public static aa beq() {
         return fcQ;
     }
 

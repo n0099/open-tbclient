@@ -51,13 +51,13 @@ public class a extends PopupWindow {
                 } else if (view == a.this.eGJ && a.this.eGG != null) {
                     a.this.eGG.lI(2);
                 }
-                a.this.aXu();
+                a.this.aXv();
             }
         };
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.aXu();
+                a.this.aXv();
             }
         };
         this.mContext = context;
@@ -70,8 +70,8 @@ public class a extends PopupWindow {
         setBackgroundDrawable(new ColorDrawable(0));
     }
 
-    private View aXs() {
-        aXt();
+    private View aXt() {
+        aXu();
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         FrameLayout frameLayout2 = new FrameLayout(this.mContext);
         this.eGF = frameLayout2;
@@ -83,7 +83,7 @@ public class a extends PopupWindow {
         return frameLayout;
     }
 
-    private void aXt() {
+    private void aXu() {
         this.eGH = LayoutInflater.from(this.mContext).inflate(d.h.layout_sort_select, (ViewGroup) null);
         this.eGI = (TextView) this.eGH.findViewById(d.g.sort_type_level_text);
         this.mLine = this.eGH.findViewById(d.g.sort_select_line);
@@ -94,7 +94,7 @@ public class a extends PopupWindow {
 
     public void setData(List<i> list, int i) {
         if (list != null) {
-            View aXs = aXs();
+            View aXt = aXt();
             for (i iVar : list) {
                 if (iVar.sortType == 1) {
                     this.eGI.setText(iVar.eCd);
@@ -109,7 +109,7 @@ public class a extends PopupWindow {
                     al.j(this.eGI, d.C0236d.cp_cont_j);
                 }
             }
-            setContentView(aXs);
+            setContentView(aXt);
         }
     }
 
@@ -121,7 +121,7 @@ public class a extends PopupWindow {
         if (view != null) {
             if (Build.VERSION.SDK_INT < 24) {
                 if (g.showPopupWindowAsDropDown(this, view)) {
-                    aXw();
+                    aXx();
                     return;
                 }
                 return;
@@ -129,7 +129,7 @@ public class a extends PopupWindow {
             int[] iArr = new int[2];
             view.getLocationInWindow(iArr);
             if (g.showPopupWindowAtLocation(this, view, 0, iArr[0] - this.mContext.getResources().getDimensionPixelOffset(d.e.tbds44), iArr[1] + view.getHeight() + this.mContext.getResources().getDimensionPixelOffset(d.e.tbds20))) {
-                aXw();
+                aXx();
             }
         }
     }
@@ -140,19 +140,19 @@ public class a extends PopupWindow {
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        aXu();
+        aXv();
     }
 
-    public void aXu() {
-        aXx();
+    public void aXv() {
+        aXy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aXv() {
+    public void aXw() {
         super.dismiss();
     }
 
-    private void aXw() {
+    private void aXx() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setInterpolator(new DecelerateInterpolator());
@@ -163,7 +163,7 @@ public class a extends PopupWindow {
         this.eGF.startAnimation(alphaAnimation);
     }
 
-    private void aXx() {
+    private void aXy() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setFillAfter(true);
@@ -182,7 +182,7 @@ public class a extends PopupWindow {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                a.this.aXv();
+                a.this.aXw();
             }
         });
         this.eGH.startAnimation(translateAnimation);

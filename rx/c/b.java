@@ -5,9 +5,9 @@ public abstract class b {
     public void D(Throwable th) {
     }
 
-    public final String bC(Object obj) {
+    public final String bD(Object obj) {
         try {
-            return bD(obj);
+            return bE(obj);
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             return obj.getClass().getName() + ".errorRendering";
@@ -17,7 +17,7 @@ public abstract class b {
         }
     }
 
-    protected String bD(Object obj) throws InterruptedException {
+    protected String bE(Object obj) throws InterruptedException {
         return null;
     }
 }

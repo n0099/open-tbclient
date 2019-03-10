@@ -96,26 +96,26 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
                 if (this.dcL != i && RecommendView.this.eGz != null) {
                     this.dcL = i;
                     if (this.dcL == 1) {
-                        RecommendView.this.eGz.aBE();
+                        RecommendView.this.eGz.aBF();
                         return;
                     }
                     if (RecommendView.this.a(recyclerView)) {
-                        RecommendView.this.eGz.aBF();
+                        RecommendView.this.eGz.aBG();
                     } else {
-                        RecommendView.this.eGz.aBE();
+                        RecommendView.this.eGz.aBF();
                     }
-                    RecommendView.this.eGw.aXp();
+                    RecommendView.this.eGw.aXq();
                 }
             }
         };
         this.eGD = new c.a() { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.5
             @Override // com.baidu.tieba.enterForum.home.c.a
-            public void aWM() {
+            public void aWN() {
                 if (RecommendView.this.eGz != null) {
                     if (RecommendView.this.a(RecommendView.this.Qq)) {
-                        RecommendView.this.eGz.aBF();
+                        RecommendView.this.eGz.aBG();
                     } else {
-                        RecommendView.this.eGz.aBE();
+                        RecommendView.this.eGz.aBF();
                     }
                 }
             }
@@ -158,11 +158,11 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
     public void setData(com.baidu.tieba.enterForum.recommend.b.a aVar) {
         if (aVar != null) {
             this.eGy = aVar;
-            if (v.T(aVar.aXd()) && v.T(aVar.aXc())) {
+            if (v.T(aVar.aXe()) && v.T(aVar.aXd())) {
                 showNoDataView();
                 return;
             }
-            aOA();
+            aOB();
             List<f> cx = aVar.cx(this.eGA);
             this.eGA = 0L;
             f fVar = (f) v.c(cx, 1);
@@ -200,18 +200,18 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
         }
     }
 
-    public void aBM() {
+    public void aBN() {
         this.ddF.setRefreshing(false);
     }
 
-    public void aOA() {
+    public void aOB() {
         if (this.Qq != null) {
             this.Qq.setVisibility(0);
         }
     }
 
     public void cE(boolean z) {
-        if (!aXq()) {
+        if (!aXr()) {
             if (this.cXq == null) {
                 this.cXq = new g(getContext());
                 this.cXq.onChangeSkinType();
@@ -227,7 +227,7 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
         }
     }
 
-    public boolean aXq() {
+    public boolean aXr() {
         if (this.cXq != null) {
             return this.cXq.isViewAttached();
         }
@@ -235,7 +235,7 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
     }
 
     public void iD(boolean z) {
-        if (!aXr()) {
+        if (!aXs()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new com.baidu.tbadk.m.h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.recommend.view.RecommendView.6
                     @Override // android.view.View.OnClickListener
@@ -272,14 +272,14 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
         this.Qq.setVisibility(8);
     }
 
-    public void aBt() {
+    public void aBu() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this);
             this.mRefreshView = null;
         }
     }
 
-    public boolean aXr() {
+    public boolean aXs() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
@@ -332,8 +332,8 @@ public class RecommendView extends FrameLayout implements ForumTestView.a {
         if (this.eGz != null) {
             this.eGz.b(this.eGD);
         }
-        aBM();
+        aBN();
         hideLoadingView();
-        aBt();
+        aBu();
     }
 }

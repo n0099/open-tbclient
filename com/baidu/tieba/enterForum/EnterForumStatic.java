@@ -32,22 +32,22 @@ public class EnterForumStatic {
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(ForumTestActivityConfig.class, ForumTestActivity.class);
-        aVQ();
         aVR();
         aVS();
         aVT();
+        aVU();
     }
 
-    private static void aVQ() {
-        c.ceK();
+    private static void aVR() {
+        c.ceL();
         if (eBc == null) {
             eBc = new EnterForumModel(null);
             eBc.a(new EnterForumModel.b() { // from class: com.baidu.tieba.enterForum.EnterForumStatic.1
                 @Override // com.baidu.tieba.enterForum.model.EnterForumModel.b
                 public void a(EnterForumModel.a aVar) {
-                    e aVZ = aVar.eEa.aVZ();
+                    e aWa = aVar.eEa.aWa();
                     ArrayList arrayList = new ArrayList();
-                    Iterator<d> it = aVZ.aWt().iterator();
+                    Iterator<d> it = aWa.aWu().iterator();
                     while (it.hasNext()) {
                         arrayList.add(it.next().getName());
                     }
@@ -83,7 +83,7 @@ public class EnterForumStatic {
         });
     }
 
-    private static void aVR() {
+    private static void aVS() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2016562, new CustomMessageTask.CustomRunnable<Object>() { // from class: com.baidu.tieba.enterForum.EnterForumStatic.4
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<com.baidu.tieba.c.a> run(CustomMessage<Object> customMessage) {
@@ -94,12 +94,12 @@ public class EnterForumStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
     }
 
-    private static void aVS() {
+    private static void aVT() {
         com.baidu.tieba.tbadkCore.a.a.a(309630, ResponseSocketRecommendMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309630, CmdConfigHttp.CMD_RECOMMEND_FORUM, TbConfig.URL_ENTER_RECOMMEND_FORUM, ResponseHttpRecommendMessage.class, false, false, true, false);
     }
 
-    private static void aVT() {
+    private static void aVU() {
         com.baidu.tieba.tbadkCore.a.a.a(309633, ResponseSocketTestCloseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309633, CmdConfigHttp.CMD_RECOMMEND_TEST_CLOSE, TbConfig.URL_RECOMMEND_FORUM_TEST_CLOSE, ResponseHttpTestCloseMessage.class, false, false, true, false);
     }

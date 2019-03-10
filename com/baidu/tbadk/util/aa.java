@@ -68,7 +68,7 @@ public class aa {
         }
     }
 
-    public static void aqp() {
+    public static void aqq() {
         BdAsyncTask.removeAllTask(ctK);
     }
 }

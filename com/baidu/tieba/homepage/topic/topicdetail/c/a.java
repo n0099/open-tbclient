@@ -11,7 +11,7 @@ public class a<T extends View> extends RecyclerView.ViewHolder {
         this.fOG = t;
     }
 
-    public T bnh() {
+    public T bni() {
         return this.fOG;
     }
 }

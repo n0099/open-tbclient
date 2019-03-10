@@ -26,8 +26,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements com.baidu.tieba.leg
     /* loaded from: classes2.dex */
     public static class b {
         public String desc;
-        public int gHn;
         public int gHo;
+        public int gHp;
         public int lines;
         public String pic;
         public String picId;
@@ -51,24 +51,24 @@ public class PlayPicInfoCard extends BaseCardInfo implements com.baidu.tieba.leg
     /* loaded from: classes2.dex */
     public static class a {
         public String aSu;
-        public com.baidu.tieba.lego.card.model.b gHl;
-        public com.baidu.tieba.lego.card.model.a gHm;
+        public com.baidu.tieba.lego.card.model.b gHm;
+        public com.baidu.tieba.lego.card.model.a gHn;
         public String mForumName;
 
         private a(JSONObject jSONObject) {
             if (jSONObject != null) {
                 this.mForumName = jSONObject.optString("lbText");
                 this.aSu = jSONObject.optString("lbScheme");
-                this.gHl = new com.baidu.tieba.lego.card.model.b();
-                this.gHl.content = jSONObject.optString("rText");
-                this.gHl.type = jSONObject.optInt("rIconType");
-                this.gHl.url = jSONObject.optString("rIcon");
-                this.gHl.gHb = jSONObject.optString("rIconN");
+                this.gHm = new com.baidu.tieba.lego.card.model.b();
+                this.gHm.content = jSONObject.optString("rText");
+                this.gHm.type = jSONObject.optInt("rIconType");
+                this.gHm.url = jSONObject.optString("rIcon");
+                this.gHm.gHc = jSONObject.optString("rIconN");
                 JSONObject optJSONObject = jSONObject.optJSONObject("cb");
                 if (optJSONObject != null) {
-                    this.gHm = new com.baidu.tieba.lego.card.model.a(optJSONObject);
-                    if (!this.gHm.isValid()) {
-                        this.gHm = null;
+                    this.gHn = new com.baidu.tieba.lego.card.model.a(optJSONObject);
+                    if (!this.gHn.isValid()) {
+                        this.gHn = null;
                     }
                 }
             }
@@ -85,22 +85,22 @@ public class PlayPicInfoCard extends BaseCardInfo implements com.baidu.tieba.leg
 
     /* loaded from: classes2.dex */
     public static class c {
-        public String gHp;
-        public int gHq;
+        public String gHq;
         public int gHr;
+        public int gHs;
         public String picUrl;
 
         private c(JSONObject jSONObject) {
             if (jSONObject != null) {
                 this.picUrl = jSONObject.optString("pic");
-                this.gHp = jSONObject.optString("picN");
-                this.gHq = jSONObject.optInt("xPos");
-                this.gHr = jSONObject.optInt("yPos");
+                this.gHq = jSONObject.optString("picN");
+                this.gHr = jSONObject.optInt("xPos");
+                this.gHs = jSONObject.optInt("yPos");
             }
         }
 
         public boolean isValid() {
-            return (TextUtils.isEmpty(this.picUrl) && TextUtils.isEmpty(this.gHp) && this.gHq == 0 && this.gHr == 0) ? false : true;
+            return (TextUtils.isEmpty(this.picUrl) && TextUtils.isEmpty(this.gHq) && this.gHr == 0 && this.gHs == 0) ? false : true;
         }
 
         public static c bw(JSONObject jSONObject) {
@@ -132,8 +132,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements com.baidu.tieba.leg
                 bVar.pic = optString;
                 bVar.scheme = optJSONObject.optString("scheme");
                 bVar.desc = optJSONObject.optString("desc");
-                bVar.gHn = com.baidu.tieba.lego.card.d.a.parseColor(optJSONObject.optString("descColor", ""));
-                bVar.gHo = com.baidu.tieba.lego.card.d.a.parseColor(optJSONObject.optString("descColorNight", ""));
+                bVar.gHo = com.baidu.tieba.lego.card.d.a.parseColor(optJSONObject.optString("descColor", ""));
+                bVar.gHp = com.baidu.tieba.lego.card.d.a.parseColor(optJSONObject.optString("descColorNight", ""));
                 int optInt = optJSONObject.optInt("mLines");
                 bVar.lines = optInt <= 1 ? 1 : optInt;
                 this.imageResList.add(bVar);

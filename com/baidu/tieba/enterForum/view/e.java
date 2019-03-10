@@ -74,7 +74,7 @@ public class e {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                e.this.aVW();
+                e.this.aVX();
             }
         }
     };
@@ -112,7 +112,7 @@ public class e {
         this.eHp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.e.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.this.aXG();
+                e.this.aXH();
             }
         });
         this.eHq = (TextView) this.mRootView.findViewById(d.g.done);
@@ -211,7 +211,7 @@ public class e {
         }
     }
 
-    public boolean aVW() {
+    public boolean aVX() {
         if (this.eBs) {
             fJ(false);
             return true;
@@ -244,11 +244,11 @@ public class e {
         }
     }
 
-    public boolean aXF() {
+    public boolean aXG() {
         return this.eBs;
     }
 
-    public void aXG() {
+    public void aXH() {
         this.eHt = !this.eHt;
         com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("key_recently_visited_forum_extend_state", this.eHt);
         if (this.eHt) {
@@ -256,10 +256,10 @@ public class e {
         } else {
             TiebaStatic.log(new am("c13004"));
         }
-        aXH();
+        aXI();
     }
 
-    private void aXH() {
+    private void aXI() {
         if (this.eHt) {
             this.eHr.setVisibility(0);
             al.c(this.eHp, d.f.icon_ba_show);
@@ -273,7 +273,7 @@ public class e {
     public void eJ(boolean z) {
         if (z && !com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("recnbar" + TbadkCoreApplication.getCurrentAccount(), false)) {
             this.eHn.setVisibility(0);
-            aXH();
+            aXI();
             return;
         }
         this.eHn.setVisibility(8);
@@ -282,14 +282,14 @@ public class e {
 
     public void n(LinkedList<VisitedForumData> linkedList) {
         if (this.eHs != null && linkedList != null) {
-            aXH();
+            aXI();
             this.eHs.l(linkedList);
             notifyDataSetChanged();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void aXI() {
+    public void aXJ() {
         if (this.eHo != null) {
             this.eHo.refresh();
         }
@@ -326,7 +326,7 @@ public class e {
             al.j(this.mTitle, d.C0236d.cp_cont_b);
             al.j(this.eHq, d.C0236d.cp_link_tip_a);
             al.l(this.mRootView, d.C0236d.cp_bg_line_f);
-            aXH();
+            aXI();
             notifyDataSetChanged();
         }
     }

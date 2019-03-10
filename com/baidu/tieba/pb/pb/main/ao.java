@@ -10,22 +10,22 @@ import com.baidu.tbadk.core.util.UtilHelper;
 /* loaded from: classes4.dex */
 public class ao extends com.baidu.tbadk.core.view.userLike.c {
     private String ctx;
-    public boolean hvI;
-    private int hvJ;
+    public boolean hvJ;
     private int hvK;
+    private int hvL;
     public boolean isBigV;
     private TbPageContext mPageContext;
 
     public ao(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar, int i) {
         super(tbPageContext, bVar);
-        this.hvI = false;
+        this.hvJ = false;
         this.isBigV = false;
-        this.hvJ = 0;
-        this.hvJ = i;
+        this.hvK = 0;
+        this.hvK = i;
         this.mPageContext = tbPageContext;
-        if (this.hvJ == 1) {
+        if (this.hvK == 1) {
             super.setFromType("4");
-        } else if (this.hvJ == 3) {
+        } else if (this.hvK == 3) {
             super.setFromType("5");
         } else {
             super.setFromType("0");
@@ -37,10 +37,10 @@ public class ao extends com.baidu.tbadk.core.view.userLike.c {
     }
 
     public void wx(int i) {
-        this.hvK = i;
+        this.hvL = i;
     }
 
-    private int bMi() {
+    private int bMj() {
         String fromPageKey = UtilHelper.getFromPageKey(this.mPageContext);
         if (fromPageKey == null) {
             return 3;
@@ -72,27 +72,27 @@ public class ao extends com.baidu.tbadk.core.view.userLike.c {
         int i2 = 2;
         if (view != null && view.getAlpha() >= 0.4d) {
             String userId = this.bUx != null ? this.bUx.getUserId() : "";
-            TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12408").T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bMi()).bJ(VideoPlayActivityConfig.OBJ_ID, userId).bJ("tid", this.ctx));
-            if (this.hvJ != 1) {
-                i = this.hvJ == 3 ? 2 : 0;
+            TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12408").T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, bMj()).bJ(VideoPlayActivityConfig.OBJ_ID, userId).bJ("tid", this.ctx));
+            if (this.hvK != 1) {
+                i = this.hvK == 3 ? 2 : 0;
             }
             com.baidu.tbadk.core.util.am amVar = new com.baidu.tbadk.core.util.am("c12507");
             amVar.T("obj_locate", i);
             amVar.bJ(VideoPlayActivityConfig.OBJ_ID, userId);
             amVar.bJ("tid", this.ctx);
-            amVar.T("obj_param1", this.hvK);
+            amVar.T("obj_param1", this.hvL);
             if (!com.baidu.tbadk.core.util.ap.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                 amVar.bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, TbadkCoreApplication.getInst().getTaskId());
             }
             TiebaStatic.log(amVar);
             super.onClick(view);
-            if (this.hvI && this.bUx != null) {
+            if (this.hvJ && this.bUx != null) {
                 TiebaStatic.log(new com.baidu.tbadk.core.util.am("c11924").bJ(VideoPlayActivityConfig.OBJ_ID, this.bUx.getUserId()));
             }
             if (this.isBigV && this.bUx != null) {
-                if (this.hvJ == 1) {
+                if (this.hvK == 1) {
                     i2 = 1;
-                } else if (this.hvJ != 2) {
+                } else if (this.hvK != 2) {
                     i2 = 0;
                 }
                 TiebaStatic.log(new com.baidu.tbadk.core.util.am("c12150").T("obj_locate", i2).bJ(VideoPlayActivityConfig.OBJ_ID, this.bUx.getUserId()));

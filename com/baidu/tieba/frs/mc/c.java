@@ -41,8 +41,8 @@ public class c {
         this.fqV = new FrsSmartLoadMoreModel(frsFragment, kVar);
         this.fqV.a(this.fqW);
         this.fqU.a(this.fqW);
-        this.eYT = frsFragment.bcu();
-        this.eZk = frsFragment.bcp();
+        this.eYT = frsFragment.bcv();
+        this.eZk = frsFragment.bcq();
         this.fqV.setSortType(this.eZk.getSortType());
         this.fqU.setSortType(this.eZk.getSortType());
     }
@@ -53,18 +53,18 @@ public class c {
 
     public ArrayList<m> a(boolean z, boolean z2, ArrayList<m> arrayList, com.baidu.tieba.tbadkCore.data.f fVar, boolean z3, boolean z4) {
         if (this.eZk != null) {
-            boolean bhS = this.fqT.bcp().bhS();
-            if (this.eZk.bhT()) {
-                return this.fqV.a(z, bhS, arrayList, z3, z4);
+            boolean bhT = this.fqT.bcq().bhT();
+            if (this.eZk.bhU()) {
+                return this.fqV.a(z, bhT, arrayList, z3, z4);
             }
-            return this.fqU.a(z, bhS, z2, arrayList, fVar);
+            return this.fqU.a(z, bhT, z2, arrayList, fVar);
         }
         return arrayList;
     }
 
     public void resetData() {
         if (this.eZk != null) {
-            if (this.eZk.bhT()) {
+            if (this.eZk.bhU()) {
                 this.fqV.resetData();
             } else {
                 this.fqU.resetData();
@@ -73,7 +73,7 @@ public class c {
     }
 
     public boolean cd(List<Long> list) {
-        if (this.eZk == null || this.eZk.bhT()) {
+        if (this.eZk == null || this.eZk.bhU()) {
             return false;
         }
         return this.fqU.cd(list);
@@ -82,48 +82,48 @@ public class c {
     public void a(String str, String str2, FrsViewData frsViewData) {
         if (this.eZk != null && this.eYT != null && frsViewData != null) {
             this.fqT.eYY = System.currentTimeMillis();
-            if (this.eZk.bhT()) {
-                if (this.fqV.bcv() == 1 && !this.eZk.qz()) {
+            if (this.eZk.bhU()) {
+                if (this.fqV.bcw() == 1 && !this.eZk.qz()) {
                     this.fqV.setSortType(this.eZk.getSortType());
-                    this.fqV.bhB();
+                    this.fqV.bhC();
                     int pn = this.fqV.getPn();
                     this.fqV.setPn(pn);
                     this.eZk.qZ(pn + 1);
                 }
-            } else if (this.eZk.bhK() == 1) {
+            } else if (this.eZk.bhL() == 1) {
                 if (!this.fqU.isLoading && !this.eZk.qz()) {
                     int pn2 = this.fqU.getPn();
                     if (this.fqU.cd(frsViewData.getThreadListIds())) {
-                        this.fqU.bhB();
+                        this.fqU.bhC();
                         this.fqU.setSortType(this.eZk.getSortType());
                         this.fqU.a(com.baidu.adp.lib.g.b.d(str2, 0L), frsViewData.getThreadListIds(), str, pn2, frsViewData.isBrandForum);
-                    } else if (this.fqU.bcv() == 1) {
-                        this.fqU.bhB();
+                    } else if (this.fqU.bcw() == 1) {
+                        this.fqU.bhC();
                         this.fqU.setPn(pn2);
                         this.eZk.qZ(pn2 + 1);
                         this.fqU.loadingDone = false;
                         this.fqU.loadIndex = 0;
                     }
                 }
-            } else if (!this.eZk.bhM()) {
-                this.eZk.aRR();
+            } else if (!this.eZk.bhN()) {
+                this.eZk.aRS();
             }
         }
     }
 
-    public int bcv() {
+    public int bcw() {
         if (this.eZk == null) {
             return -1;
         }
-        if (this.eZk.bhT()) {
-            return this.fqV.bcv();
+        if (this.eZk.bhU()) {
+            return this.fqV.bcw();
         }
-        return this.fqU.bcv();
+        return this.fqU.bcw();
     }
 
     public void setHasMore(int i) {
         if (this.eZk != null) {
-            if (this.eZk.bhT()) {
+            if (this.eZk.bhU()) {
                 this.fqV.setHasMore(i);
             } else {
                 this.fqU.setHasMore(i);
@@ -135,7 +135,7 @@ public class c {
         if (this.eZk == null) {
             return 1;
         }
-        if (this.eZk.bhT()) {
+        if (this.eZk.bhU()) {
             return this.fqV.getPn();
         }
         return this.fqU.getPn();
@@ -143,7 +143,7 @@ public class c {
 
     public void setPn(int i) {
         if (this.eZk != null) {
-            if (this.eZk.bhT()) {
+            if (this.eZk.bhU()) {
                 this.fqV.setPn(i);
             } else {
                 this.fqU.setPn(i);
@@ -152,16 +152,16 @@ public class c {
     }
 
     public ArrayList<m> getDataList() {
-        return this.eZk.bhT() ? this.fqV.getDataList() : this.eZk.bhO();
+        return this.eZk.bhU() ? this.fqV.getDataList() : this.eZk.bhP();
     }
 
-    public FrsSmartLoadMoreModel bhE() {
+    public FrsSmartLoadMoreModel bhF() {
         return this.fqV;
     }
 
     public void e(m mVar) {
         if (mVar != null) {
-            if (this.eZk.bhT()) {
+            if (this.eZk.bhU()) {
                 this.fqV.e(mVar);
             } else {
                 this.fqU.e(mVar);

@@ -9,7 +9,7 @@ import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 public class b {
     public static void putBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            a.azV().putBoolean(str, z);
+            a.azW().putBoolean(str, z);
         } else {
             DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), d.class, e.d(1, str, String.valueOf(z)));
         }
@@ -17,7 +17,7 @@ public class b {
 
     public static boolean getBoolean(String str, boolean z) {
         if (ProcessUtils.isMainProcess()) {
-            return a.azV().getBoolean(str, z);
+            return a.azW().getBoolean(str, z);
         }
         return DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), c.class, e.d(1, str, String.valueOf(z))).mResult.getBoolean("result_value");
     }
@@ -36,7 +36,7 @@ public class b {
             private static final a cWF = new a();
         }
 
-        public static a azV() {
+        public static a azW() {
             return C0232a.cWF;
         }
     }
@@ -102,7 +102,7 @@ public class b {
         protected Bundle a(e eVar) {
             switch (eVar.aSW) {
                 case 1:
-                    a.azV().putBoolean(eVar.aSX, Boolean.parseBoolean(eVar.aSY));
+                    a.azW().putBoolean(eVar.aSX, Boolean.parseBoolean(eVar.aSY));
                     break;
             }
             return Bundle.EMPTY;
@@ -121,7 +121,7 @@ public class b {
             Bundle bundle = new Bundle();
             switch (eVar.aSW) {
                 case 1:
-                    bundle.putBoolean("result_value", a.azV().getBoolean(eVar.aSX, Boolean.parseBoolean(eVar.aSY)));
+                    bundle.putBoolean("result_value", a.azW().getBoolean(eVar.aSX, Boolean.parseBoolean(eVar.aSY)));
                     break;
             }
             return bundle;

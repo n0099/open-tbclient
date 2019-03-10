@@ -94,7 +94,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         return cAT + "/" + TbConfig.getTempDirName() + "/animation/";
     }
 
-    public static boolean pX(String str) {
+    public static boolean pY(String str) {
         File file = new File(str);
         if (file.exists()) {
             return true;
@@ -109,7 +109,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
 
     public static InputStream bX(String str, String str2) {
         String animationPath = getAnimationPath();
-        if (pX(animationPath)) {
+        if (pY(animationPath)) {
             String str3 = animationPath + str + "/";
             if (new File(str3).exists()) {
                 File file = new File(str3 + str2);
@@ -134,12 +134,12 @@ public class TBLottieAnimationView extends LottieAnimationView {
 
     public void setAnimationDir(String str, LottieAnimationView.CacheStrategy cacheStrategy) {
         if (!ap.isEmpty(str)) {
-            qa(str);
+            qb(str);
             a(str, cacheStrategy);
         }
     }
 
-    private void qa(String str) {
+    private void qb(String str) {
         if (!ap.isEmpty(str)) {
             a aVar = new a();
             aVar.setPath(str);
@@ -163,7 +163,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
             }
             final boolean z = this.cBc;
             cancelAnimation();
-            asi();
+            asj();
             InputStream bX = bX(str, "data.json");
             if (bX != null) {
                 this.cBa = e.a.a(getContext(), bX, new h() { // from class: com.baidu.tbadk.widget.lottie.TBLottieAnimationView.2
@@ -194,7 +194,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         }
     }
 
-    private void asi() {
+    private void asj() {
         if (this.cBa != null) {
             this.cBa.cancel();
             this.cBa = null;
@@ -242,7 +242,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
         this.cBd = false;
     }
 
-    public void asj() {
+    public void ask() {
         this.cBd = true;
     }
 }

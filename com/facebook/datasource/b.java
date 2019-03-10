@@ -6,10 +6,10 @@ import javax.annotation.Nullable;
 public interface b<T> {
     void a(d<T> dVar, Executor executor);
 
-    boolean cub();
+    boolean cul();
 
     @Nullable
-    Throwable cud();
+    Throwable cun();
 
     float getProgress();
 

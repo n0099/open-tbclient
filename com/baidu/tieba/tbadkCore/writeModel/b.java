@@ -12,8 +12,8 @@ public class b {
     private String colorMsg;
     final int errorCode;
     private String errorString;
-    private String iJY;
     private String iJZ;
+    private String iKa;
     private int isCopyTWZhibo;
     private CustomDialogData mActDialogData;
     private ContriInfo mContriInfo;
@@ -35,19 +35,19 @@ public class b {
         return this.errorCode != 0;
     }
 
-    public boolean cfD() {
+    public boolean cfE() {
         return this.errorCode == 5 || this.errorCode == 6;
     }
 
-    public boolean cfE() {
+    public boolean cfF() {
         return this.errorCode == 1990055;
     }
 
-    public boolean cfF() {
+    public boolean cfG() {
         return this.errorCode == 3250012;
     }
 
-    public boolean cfG() {
+    public boolean cfH() {
         return this.errorCode == 227001;
     }
 
@@ -63,7 +63,7 @@ public class b {
         this.errorString = str;
     }
 
-    public AntiData bbI() {
+    public AntiData bbJ() {
         return this.antiData;
     }
 
@@ -107,20 +107,20 @@ public class b {
         return this.isCopyTWZhibo;
     }
 
-    public String cfH() {
-        return this.iJY;
-    }
-
-    public void CT(String str) {
-        this.iJY = str;
-    }
-
     public String cfI() {
         return this.iJZ;
     }
 
     public void CU(String str) {
         this.iJZ = str;
+    }
+
+    public String cfJ() {
+        return this.iKa;
+    }
+
+    public void CV(String str) {
+        this.iKa = str;
     }
 
     public CustomDialogData getActivityDialog() {

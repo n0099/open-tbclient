@@ -34,7 +34,7 @@ public class b {
         return this.cyM;
     }
 
-    public Rect arA() {
+    public Rect arB() {
         return this.cyW;
     }
 
@@ -42,28 +42,28 @@ public class b {
         if (aVar == null) {
             return null;
         }
-        return aVar.ary();
+        return aVar.arz();
     }
 
-    public Point[] arB() {
-        arD();
-        int arz = arz();
-        int i = (this.cyP.top / arz) / this.cyM;
-        int i2 = (this.cyP.left / arz) / this.cyM;
+    public Point[] arC() {
+        arE();
+        int arA = arA();
+        int i = (this.cyP.top / arA) / this.cyM;
+        int i2 = (this.cyP.left / arA) / this.cyM;
         Point point = new Point();
         point.y = i;
         point.x = i2;
         Point point2 = new Point();
-        point2.y = (((this.cyP.bottom / arz) / this.cyM) * arz) + 1;
-        point2.x = (arz * ((this.cyP.right / arz) / this.cyM)) + 1;
+        point2.y = (((this.cyP.bottom / arA) / this.cyM) * arA) + 1;
+        point2.x = (arA * ((this.cyP.right / arA) / this.cyM)) + 1;
         return new Point[]{point, point2};
     }
 
-    public a arC() {
+    public a arD() {
         return new a(this.cyM);
     }
 
-    public Rect arD() {
+    public Rect arE() {
         this.mMatrix.mapRect(this.cyO, this.cyQ);
         a(this.cyP, this.cyO);
         return this.cyP;
@@ -77,11 +77,11 @@ public class b {
         return this.cyR;
     }
 
-    public int arE() {
+    public int arF() {
         return this.cyS;
     }
 
-    public List<a> arF() {
+    public List<a> arG() {
         return this.cyU;
     }
 
@@ -89,11 +89,11 @@ public class b {
         this.cyT = f;
     }
 
-    public float arG() {
+    public float arH() {
         return this.cyT;
     }
 
-    public int arz() {
+    public int arA() {
         int i = 1;
         while (i < Math.round(this.cyT)) {
             i *= 2;
@@ -108,7 +108,7 @@ public class b {
         }
     }
 
-    public a arH() {
+    public a arI() {
         return this.cyV;
     }
 
@@ -125,7 +125,7 @@ public class b {
     }
 
     public boolean u(int i, int i2, int i3) {
-        if (i3 == arz()) {
+        if (i3 == arA()) {
             return v(i, i2, i3).intersect(this.cyP);
         }
         return false;

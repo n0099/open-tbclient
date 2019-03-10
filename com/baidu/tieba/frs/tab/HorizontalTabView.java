@@ -73,7 +73,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
         boolean rq(int i);
     }
 
-    public void bin() {
+    public void bio() {
         final as asVar;
         if (this.eKv != null) {
             ArrayList arrayList = new ArrayList();
@@ -212,7 +212,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
                     }
                 }
                 if (this.fts.getState() == TabItemView.ftK || this.fts.getState() == TabItemView.STATE_EXPANDED) {
-                    this.ftq.biq();
+                    this.ftq.bir();
                     boolean z2 = this.fts.getState() == TabItemView.ftK;
                     this.fts.setState(TabItemView.ftL);
                     d rj = rj(this.fts.getTabId());
@@ -288,7 +288,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
                             if (HorizontalTabView.this.ftB != null) {
                                 HorizontalTabView.this.ftB.b(HorizontalTabView.this.ri(1));
                             }
-                            HorizontalTabView.this.bin();
+                            HorizontalTabView.this.bio();
                             return;
                         } else if (((TabItemView) view).getTabId() == 302) {
                             Iterator it = HorizontalTabView.this.mData.iterator();

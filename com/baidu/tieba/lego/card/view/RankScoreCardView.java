@@ -20,37 +20,37 @@ import com.baidu.tieba.tbadkCore.q;
 /* loaded from: classes2.dex */
 public class RankScoreCardView extends BaseCardView<RankScoreCard> {
     private TbImageView eIr;
-    private TextView fYJ;
-    LinearLayout gFM;
-    private TextView gKi;
-    private final int gKk;
+    private TextView fYK;
+    LinearLayout gFN;
+    private TextView gKj;
     private final int gKl;
-    private RelativeLayout gKo;
-    private TextView gKp;
-    private RelativeLayout gKq;
-    private TextView gKr;
+    private final int gKm;
+    private RelativeLayout gKp;
+    private TextView gKq;
+    private RelativeLayout gKr;
     private TextView gKs;
+    private TextView gKt;
     private TextView title;
 
     public RankScoreCardView(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.gKk = com.baidu.adp.lib.util.l.aO(tbPageContext.getPageActivity());
-        this.gKl = tbPageContext.getResources().getDimensionPixelSize(d.e.ds24) * 2;
+        this.gKl = com.baidu.adp.lib.util.l.aO(tbPageContext.getPageActivity());
+        this.gKm = tbPageContext.getResources().getDimensionPixelSize(d.e.ds24) * 2;
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View bAd() {
-        this.gFM = (LinearLayout) LayoutInflater.from(getContext()).inflate(d.h.card_rank_score, (ViewGroup) null);
-        this.gKo = (RelativeLayout) A(this.gFM, d.g.rl_content);
-        this.title = (TextView) A(this.gFM, d.g.score_title);
-        this.fYJ = (TextView) A(this.gFM, d.g.desc);
-        this.gKp = (TextView) A(this.gFM, d.g.desc2);
-        this.gKq = (RelativeLayout) A(this.gFM, d.g.rl_pic);
-        this.eIr = (TbImageView) A(this.gFM, d.g.pic);
-        this.gKr = (TextView) A(this.gFM, d.g.leftTopText);
-        this.gKs = (TextView) A(this.gFM, d.g.right);
-        this.gKi = (TextView) A(this.gFM, d.g.btn_post);
-        return this.gFM;
+    protected View bAe() {
+        this.gFN = (LinearLayout) LayoutInflater.from(getContext()).inflate(d.h.card_rank_score, (ViewGroup) null);
+        this.gKp = (RelativeLayout) A(this.gFN, d.g.rl_content);
+        this.title = (TextView) A(this.gFN, d.g.score_title);
+        this.fYK = (TextView) A(this.gFN, d.g.desc);
+        this.gKq = (TextView) A(this.gFN, d.g.desc2);
+        this.gKr = (RelativeLayout) A(this.gFN, d.g.rl_pic);
+        this.eIr = (TbImageView) A(this.gFN, d.g.pic);
+        this.gKs = (TextView) A(this.gFN, d.g.leftTopText);
+        this.gKt = (TextView) A(this.gFN, d.g.right);
+        this.gKj = (TextView) A(this.gFN, d.g.btn_post);
+        return this.gFN;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,30 +58,30 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
     public void a(RankScoreCard rankScoreCard, int i) {
         com.baidu.tbadk.r.a.a(this.mContext, getRootView());
-        al.k(this.gFM, d.f.addresslist_item_bg);
+        al.k(this.gFN, d.f.addresslist_item_bg);
         al.j(this.title, d.C0236d.cp_cont_f);
-        al.j(this.fYJ, d.C0236d.cp_cont_f);
-        al.j(this.gKs, d.C0236d.cp_other_b);
+        al.j(this.fYK, d.C0236d.cp_cont_f);
+        al.j(this.gKt, d.C0236d.cp_other_b);
         setDesc2Color(rankScoreCard);
         setRightScoreColor(rankScoreCard);
     }
 
     private void setDesc2Color(RankScoreCard rankScoreCard) {
         if (rankScoreCard != null && !TextUtils.isEmpty(rankScoreCard.getDesc2())) {
-            a(this.gKp, rankScoreCard.getD2Color(), rankScoreCard.getD2ColorN(), d.C0236d.cp_cont_f);
+            a(this.gKq, rankScoreCard.getD2Color(), rankScoreCard.getD2ColorN(), d.C0236d.cp_cont_f);
         }
     }
 
     private void setRightScoreColor(RankScoreCard rankScoreCard) {
         if (rankScoreCard != null && !TextUtils.isEmpty(rankScoreCard.getSubTitle())) {
-            a(this.gKs, rankScoreCard.getScoreColor(), rankScoreCard.getScoreColorNight(), d.C0236d.cp_other_b);
+            a(this.gKt, rankScoreCard.getScoreColor(), rankScoreCard.getScoreColorNight(), d.C0236d.cp_other_b);
         }
     }
 
     private void a(RankScoreCard rankScoreCard) {
         if (rankScoreCard != null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eIr.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gKo.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gKp.getLayoutParams();
             if (rankScoreCard.getRatio() > 0.0d) {
                 layoutParams.height = (int) ((layoutParams.width * rankScoreCard.getRatio()) + 0.5d);
             } else {
@@ -89,7 +89,7 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
             }
             this.eIr.setLayoutParams(layoutParams);
             layoutParams2.height = layoutParams.height;
-            this.gKo.setLayoutParams(layoutParams2);
+            this.gKp.setLayoutParams(layoutParams2);
         }
     }
 
@@ -105,74 +105,74 @@ public class RankScoreCardView extends BaseCardView<RankScoreCard> {
             this.title.setVisibility(4);
         }
         if (!TextUtils.isEmpty(rankScoreCard.getDesc())) {
-            this.fYJ.setVisibility(0);
-            this.fYJ.setText(rankScoreCard.getDesc());
+            this.fYK.setVisibility(0);
+            this.fYK.setText(rankScoreCard.getDesc());
         } else {
-            this.fYJ.setVisibility(4);
+            this.fYK.setVisibility(4);
         }
         if (!TextUtils.isEmpty(rankScoreCard.getDesc2())) {
-            this.gKp.setText(rankScoreCard.getDesc2());
+            this.gKq.setText(rankScoreCard.getDesc2());
             setDesc2Color(rankScoreCard);
             if (!TextUtils.isEmpty(rankScoreCard.getD2Scheme())) {
-                this.gKp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.RankScoreCardView.1
+                this.gKq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.RankScoreCardView.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         q.f(RankScoreCardView.this.mContext, rankScoreCard.getD2Scheme());
                     }
                 });
             } else {
-                this.gKp.setOnClickListener(null);
+                this.gKq.setOnClickListener(null);
             }
         } else {
-            this.gKp.setVisibility(4);
+            this.gKq.setVisibility(4);
         }
         if (!TextUtils.isEmpty(rankScoreCard.getPostUrl()) && !TextUtils.isEmpty(rankScoreCard.getBtnText()) && !TextUtils.isEmpty(rankScoreCard.getBtnDone())) {
-            this.gKi.setVisibility(0);
-            a(this.gKi, rankScoreCard.isDone(), rankScoreCard.getBtnText(), rankScoreCard.getBtnDone());
-            this.gKi.setTag(rankScoreCard.getPostUrl());
-            this.gKi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.RankScoreCardView.2
+            this.gKj.setVisibility(0);
+            a(this.gKj, rankScoreCard.isDone(), rankScoreCard.getBtnText(), rankScoreCard.getBtnDone());
+            this.gKj.setTag(rankScoreCard.getPostUrl());
+            this.gKj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.RankScoreCardView.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (bc.cZ(RankScoreCardView.this.getContext())) {
-                        com.baidu.tieba.lego.a.b.bzz().a(rankScoreCard, rankScoreCard.getPostUrl(), null, null);
+                        com.baidu.tieba.lego.a.b.bzA().a(rankScoreCard, rankScoreCard.getPostUrl(), null, null);
                     }
                 }
             });
-            this.gKs.setVisibility(8);
+            this.gKt.setVisibility(8);
         } else {
-            this.gKi.setVisibility(8);
-            this.gKs.setVisibility(0);
-            al.j(this.gKs, d.C0236d.cp_cont_h);
+            this.gKj.setVisibility(8);
+            this.gKt.setVisibility(0);
+            al.j(this.gKt, d.C0236d.cp_cont_h);
             try {
-                this.gKs.setText(ap.as(Long.parseLong(rankScoreCard.getSubTitle())));
+                this.gKt.setText(ap.as(Long.parseLong(rankScoreCard.getSubTitle())));
             } catch (Exception e) {
-                this.gKs.setText(rankScoreCard.getSubTitle());
+                this.gKt.setText(rankScoreCard.getSubTitle());
                 setRightScoreColor(rankScoreCard);
             }
-            this.gKs.setMaxWidth((this.gKk - this.gKl) / 2);
+            this.gKt.setMaxWidth((this.gKl - this.gKm) / 2);
         }
         a(rankScoreCard);
         if (TextUtils.isEmpty(rankScoreCard.getPicUrl())) {
-            this.gKq.setVisibility(8);
+            this.gKr.setVisibility(8);
         } else {
-            this.gKq.setVisibility(0);
+            this.gKr.setVisibility(0);
             this.eIr.setTag(rankScoreCard.getPicUrl());
             this.eIr.startLoad(rankScoreCard.getPicUrl(), 10, false);
             if (rankScoreCard.getRank() <= 0) {
-                this.gKr.setVisibility(8);
+                this.gKs.setVisibility(8);
             } else {
-                this.gKr.setVisibility(0);
+                this.gKs.setVisibility(0);
                 int rank = rankScoreCard.getRank() - 1;
                 if (rank >= 0) {
                     i = rank > 3 ? 3 : rank;
                 }
                 if (rankScoreCard.getRank() <= 3) {
-                    al.j(this.gKr, d.C0236d.cp_btn_a);
+                    al.j(this.gKs, d.C0236d.cp_btn_a);
                 } else {
-                    al.j(this.gKr, d.C0236d.cp_cont_g);
+                    al.j(this.gKs, d.C0236d.cp_cont_g);
                 }
-                al.l(this.gKr, com.baidu.tieba.lego.a.gEA[i]);
-                this.gKr.setText(rankScoreCard.getRank() + "");
+                al.l(this.gKs, com.baidu.tieba.lego.a.gEB[i]);
+                this.gKs.setText(rankScoreCard.getRank() + "");
             }
         }
         setCardOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lego.card.view.RankScoreCardView.3

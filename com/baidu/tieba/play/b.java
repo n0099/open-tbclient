@@ -5,7 +5,7 @@ public class b implements Runnable {
     private int fay;
     private boolean fbe;
     private m fbl;
-    private boolean gHT = false;
+    private boolean gHU = false;
 
     public b(m mVar) {
         this.fbl = mVar;
@@ -24,13 +24,13 @@ public class b implements Runnable {
     }
 
     public void mb(boolean z) {
-        this.gHT = z;
+        this.gHU = z;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         if (this.fbl != null) {
-            if (!this.gHT) {
+            if (!this.gHU) {
                 this.fbl.a(this.fay, this.cZV, this.fbe, 2);
             } else {
                 this.fbl.a(this.fay, this.cZV, this.fbe, 1);

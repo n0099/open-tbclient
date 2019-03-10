@@ -23,7 +23,7 @@ public class ImageOverlayView extends ViewGroup {
 
     /* loaded from: classes4.dex */
     public interface a {
-        void bkj();
+        void bkk();
     }
 
     public ImageOverlayView(Context context) {
@@ -32,7 +32,7 @@ public class ImageOverlayView extends ViewGroup {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (ImageOverlayView.this.fAi != null) {
-                    ImageOverlayView.this.fAi.bkj();
+                    ImageOverlayView.this.fAi.bkk();
                 }
             }
         };
@@ -44,7 +44,7 @@ public class ImageOverlayView extends ViewGroup {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (ImageOverlayView.this.fAi != null) {
-                    ImageOverlayView.this.fAi.bkj();
+                    ImageOverlayView.this.fAi.bkk();
                 }
             }
         };
@@ -56,7 +56,7 @@ public class ImageOverlayView extends ViewGroup {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (ImageOverlayView.this.fAi != null) {
-                    ImageOverlayView.this.fAi.bkj();
+                    ImageOverlayView.this.fAi.bkk();
                 }
             }
         };
@@ -69,10 +69,10 @@ public class ImageOverlayView extends ViewGroup {
         this.fAf = i4;
         this.fAg = i5;
         this.fAh = i6;
-        bki();
+        bkj();
     }
 
-    private void bki() {
+    private void bkj() {
         for (int i = 0; i < this.fAe; i++) {
             HeadImageView headImageView = new HeadImageView(getContext());
             headImageView.setLayoutParams(new ViewGroup.LayoutParams(this.mImageWidth, this.mImageHeight));

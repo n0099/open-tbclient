@@ -87,12 +87,12 @@ public class a implements TabLayout.OnTabSelectedListener {
     private BannerView.a fpR = new BannerView.a() { // from class: com.baidu.tieba.frs.good.a.3
         @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
         public void akc() {
-            a.this.bhi();
+            a.this.bhj();
         }
 
         @Override // com.baidu.tbadk.coreExtra.view.BannerView.a
         public void akd() {
-            a.this.bhk();
+            a.this.bhl();
         }
     };
 
@@ -180,7 +180,7 @@ public class a implements TabLayout.OnTabSelectedListener {
     /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: com.baidu.tieba.frs.good.FrsGoodFragment */
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Multi-variable type inference failed */
-    public void bhi() {
+    public void bhj() {
         if (this.ccy != null) {
             String value = this.ccy.getValue();
             if (this.ccy.Xo() == 1) {
@@ -263,11 +263,11 @@ public class a implements TabLayout.OnTabSelectedListener {
         }
     }
 
-    public void aOA() {
+    public void aOB() {
         this.faU.setVisibility(0);
     }
 
-    public void bdx() {
+    public void bdy() {
         if (this.fpK != null) {
             this.fpK.notifyDataSetChanged();
         }
@@ -290,7 +290,7 @@ public class a implements TabLayout.OnTabSelectedListener {
                 }
             }
             if (v.S(tabData) > 1) {
-                bhm();
+                bhn();
                 this.fpO = true;
                 a(tabData, this.fpI);
                 a(tabData, this.fpJ);
@@ -355,7 +355,7 @@ public class a implements TabLayout.OnTabSelectedListener {
         return this.faU;
     }
 
-    public void bhj() {
+    public void bhk() {
         this.fpK.notifyDataSetInvalidated();
     }
 
@@ -380,7 +380,7 @@ public class a implements TabLayout.OnTabSelectedListener {
         }
     }
 
-    public void bhk() {
+    public void bhl() {
         if (this.fpL != null) {
             this.fpN = false;
             this.faU.removeHeaderView(this.fpL);
@@ -392,7 +392,7 @@ public class a implements TabLayout.OnTabSelectedListener {
             this.mPullView.ic(i);
         }
         if (this.fpK != null) {
-            this.fpK.bfF();
+            this.fpK.bfG();
             this.fpK.notifyDataSetChanged();
             this.fpK.onChangeSkinType(i);
         }
@@ -414,19 +414,19 @@ public class a implements TabLayout.OnTabSelectedListener {
         this.dcE.setRefreshing(true);
     }
 
-    public b bhl() {
+    public b bhm() {
         return this.fpK;
     }
 
-    public RelativeLayout bdL() {
+    public RelativeLayout bdM() {
         return this.cMu;
     }
 
-    public View beK() {
+    public View beL() {
         return this.dcE;
     }
 
-    public void bdN() {
+    public void bdO() {
         if (com.baidu.tbadk.o.m.apl().apm()) {
             int lastVisiblePosition = this.faU.getLastVisiblePosition();
             for (int i = 0; i <= lastVisiblePosition; i++) {
@@ -470,20 +470,20 @@ public class a implements TabLayout.OnTabSelectedListener {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aCu() {
+    public void aCv() {
         this.faU.setNextPage(this.dbr);
         this.dbr.id(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.dbr.aeC();
     }
 
-    public void aCv() {
+    public void aCw() {
         this.faU.setNextPage(this.dbr);
         this.dbr.id(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
         this.dbr.aeD();
         this.dbr.setText(this.fpH.getResources().getString(d.j.list_has_no_more));
     }
 
-    public void aCw() {
+    public void aCx() {
         this.faU.setNextPage(null);
     }
 
@@ -502,8 +502,8 @@ public class a implements TabLayout.OnTabSelectedListener {
                     this.fpP = intValue;
                     a(intValue, this.fpJ, false);
                     this.fpH.qY(this.fpP);
-                    t.aQF().hQ(false);
-                    c.cdq().b(this.fpH.getUniqueId(), false);
+                    t.aQG().hQ(false);
+                    c.cdr().b(this.fpH.getUniqueId(), false);
                 }
             }
             a(tab);
@@ -529,7 +529,7 @@ public class a implements TabLayout.OnTabSelectedListener {
         }
     }
 
-    private void bhm() {
+    private void bhn() {
         if (this.fpI == null) {
             this.fpI = (TabLayout) LayoutInflater.from(this.fpH.getContext()).inflate(d.h.frs_good_second_layout, (ViewGroup) null);
             this.fpI.setLayoutParams(new RecyclerView.LayoutParams(-1, l.h(this.fpH.getContext(), d.e.tbds126)));

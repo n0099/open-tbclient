@@ -7,10 +7,10 @@ import java.io.File;
 public class m {
     private static final String TAG = m.class.getSimpleName();
 
-    public static long qy(String str) {
+    public static long qz(String str) {
         long j;
         long j2 = 0;
-        long qz = qz(str);
+        long qA = qA(str);
         if (str == null || str.isEmpty()) {
             j = 0;
         } else {
@@ -25,10 +25,10 @@ public class m {
                 j2 = file3.length();
             }
         }
-        return j + j2 + qz;
+        return j + j2 + qA;
     }
 
-    public static long qz(String str) {
+    public static long qA(String str) {
         File file;
         File file2;
         File[] listFiles;
@@ -43,7 +43,7 @@ public class m {
         return j;
     }
 
-    public static long avS() {
+    public static long avT() {
         StatFs statFs = new StatFs(TbadkCoreApplication.getInst().getCacheDir().getPath());
         return statFs.getAvailableBlocks() * statFs.getBlockSize();
     }
@@ -79,7 +79,7 @@ public class m {
         }
     }
 
-    public static String qA(String str) {
+    public static String qB(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }

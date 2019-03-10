@@ -39,8 +39,8 @@ public class e extends d {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.homepage.concern.view.d
-    public void blA() {
-        super.blA();
+    public void blB() {
+        super.blB();
         this.fHz.nt(this.bTk.getId());
     }
 

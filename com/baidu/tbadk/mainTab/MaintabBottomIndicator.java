@@ -36,7 +36,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     private View col;
 
     /* renamed from: com  reason: collision with root package name */
-    private TBLottieAnimationView f3com;
+    private TBLottieAnimationView f8com;
     private OvalActionButton con;
     private TBLottieAnimationView coo;
     private int cop;
@@ -79,9 +79,9 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         layoutParams.gravity = 17;
         this.cok.setLayoutParams(layoutParams);
         this.col = this.cok.findViewById(d.g.container_common_item);
-        this.f3com = (TBLottieAnimationView) this.cok.findViewById(d.g.view_bottom_icon);
-        this.f3com.setSpeed(1.2f);
-        this.f3com.asj();
+        this.f8com = (TBLottieAnimationView) this.cok.findViewById(d.g.view_bottom_icon);
+        this.f8com.setSpeed(1.2f);
+        this.f8com.ask();
         this.mTextView = (TextView) this.cok.findViewById(d.g.view_bottom_text);
         this.con = (OvalActionButton) this.cok.findViewById(d.g.view_write_icon);
         this.coo = (TBLottieAnimationView) this.cok.findViewById(d.g.animation_view);
@@ -121,7 +121,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         super.onLayout(z, i, i2, i3, i4);
         Set<Map.Entry<String, TbFragmentTabIndicator.a>> entrySet = this.cob.entrySet();
         if (entrySet != null && (it = entrySet.iterator()) != null) {
-            while (it.hasNext() && this.mTextView != null && this.f3com != null) {
+            while (it.hasNext() && this.mTextView != null && this.f8com != null) {
                 TbFragmentTabIndicator.a value = it.next().getValue();
                 if (value != null) {
                     int measuredWidth = value.view.getMeasuredWidth();
@@ -132,7 +132,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
                         left = (this.mTextView.getLeft() + ((int) (this.mTextView.getMeasuredWidth() * 0.14d))) - measuredWidth;
                     }
                     if (this.cnQ == 1) {
-                        measuredHeight = this.f3com.getTop();
+                        measuredHeight = this.f8com.getTop();
                         measuredHeight2 = this.coq;
                     } else {
                         measuredHeight = getMeasuredHeight() / 2;
@@ -200,7 +200,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
             scaleAnimation.setDuration(300L);
             this.coo.startAnimation(scaleAnimation);
             this.coo.setVisibility(4);
-            this.f3com.setVisibility(0);
+            this.f8com.setVisibility(0);
             com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_lottie_show_count", 4);
         }
     }
@@ -244,7 +244,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
                     this.coo.a(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.mainTab.MaintabBottomIndicator.1
                         @Override // android.animation.Animator.AnimatorListener
                         public void onAnimationStart(Animator animator) {
-                            MaintabBottomIndicator.this.f3com.setVisibility(8);
+                            MaintabBottomIndicator.this.f8com.setVisibility(8);
                             MaintabBottomIndicator.this.coo.setVisibility(0);
                         }
 
@@ -269,50 +269,50 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setAnimationResId(int i) {
         this.nf = i;
-        al.a(this.f3com, this.nf);
+        al.a(this.f8com, this.nf);
     }
 
     public void anS() {
-        al.a(this.f3com, d.i.icon_refresh1);
+        al.a(this.f8com, d.i.icon_refresh1);
         setText(d.j.refresh);
-        this.f3com.G(false);
+        this.f8com.G(false);
         cu();
     }
 
     public void anT() {
-        al.a(this.f3com, d.i.icon_refresh2);
+        al.a(this.f8com, d.i.icon_refresh2);
         setText(d.j.refresh);
-        this.f3com.G(true);
+        this.f8com.G(true);
         cu();
     }
 
     public void anU() {
-        al.a(this.f3com, d.i.icon_refresh3);
+        al.a(this.f8com, d.i.icon_refresh3);
         setText(d.j.home_recommend);
-        this.f3com.G(false);
+        this.f8com.G(false);
         cu();
     }
 
     public void cu() {
-        if (this.f3com != null) {
-            this.f3com.cu();
+        if (this.f8com != null) {
+            this.f8com.cu();
         }
     }
 
     public boolean isAnimating() {
-        return this.f3com.isAnimating();
+        return this.f8com.isAnimating();
     }
 
     public void eU(boolean z) {
         setAnimationResId(this.nf);
-        this.f3com.G(false);
+        this.f8com.G(false);
         setText(d.j.home_recommend);
         if (z) {
-            this.f3com.cu();
+            this.f8com.cu();
             return;
         }
-        this.f3com.cancelAnimation();
-        this.f3com.setFrame(0);
+        this.f8com.cancelAnimation();
+        this.f8com.setFrame(0);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -345,7 +345,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
             }
             if (this.nf != 0) {
                 try {
-                    al.a(this.f3com, this.nf);
+                    al.a(this.f8com, this.nf);
                 } catch (Resources.NotFoundException e) {
                 }
             }
@@ -357,11 +357,11 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
         super.eT(z);
         if (this.nf != 0) {
             if (z) {
-                this.f3com.cu();
+                this.f8com.cu();
                 return;
             }
-            this.f3com.cancelAnimation();
-            this.f3com.setFrame(0);
+            this.f8com.cancelAnimation();
+            this.f8com.setFrame(0);
         }
     }
 
@@ -369,7 +369,7 @@ public class MaintabBottomIndicator extends TbFragmentTabIndicator {
     public void setSelected(boolean z) {
         super.setSelected(z);
         if (z) {
-            this.f3com.setProgress(1.0f);
+            this.f8com.setProgress(1.0f);
         }
     }
 

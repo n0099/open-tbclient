@@ -17,11 +17,11 @@ public interface f {
 
     void n(String str, int i, String str2);
 
-    void yT(String str);
-
     void yU(String str);
 
-    boolean yV(String str);
+    void yV(String str);
 
     boolean yW(String str);
+
+    boolean yX(String str);
 }

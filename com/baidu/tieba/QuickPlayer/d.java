@@ -30,7 +30,7 @@ public class d {
             d.this.cJx = IQuickMediaPlayerService.Stub.asInterface(iBinder);
             if (d.this.cJy) {
                 d.this.cJy = false;
-                d.this.ave();
+                d.this.avf();
             }
             if (d.this.cJD != null) {
                 d.this.cJD.a(d.this.cJx);
@@ -48,7 +48,7 @@ public class d {
         @Override // java.lang.Runnable
         public void run() {
             if (!d.this.cJw) {
-                d.this.avd();
+                d.this.ave();
                 com.baidu.adp.lib.g.e.jH().postDelayed(d.this.cJE, 1000L);
             }
         }
@@ -61,18 +61,18 @@ public class d {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void avf();
+        void avg();
     }
 
     private d() {
-        avd();
+        ave();
         com.baidu.adp.lib.g.e.jH().postDelayed(this.cJE, 1000L);
         this.cJz = new HashSet();
         this.cJA = new HashSet();
         this.cJB = new HashSet();
     }
 
-    public static d avc() {
+    public static d avd() {
         if (cJv == null) {
             synchronized (d.class) {
                 if (cJv == null) {
@@ -84,7 +84,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void avd() {
+    public void ave() {
         try {
             this.mContext.bindService(new Intent(this.mContext, QuickMediaPlayerService.class), this.mServiceConnection, 1);
         } catch (Exception e) {
@@ -93,11 +93,11 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ave() {
+    public void avf() {
         this.cJC = true;
         for (b bVar : this.cJz) {
             if (bVar != null) {
-                bVar.avf();
+                bVar.avg();
             }
         }
         this.cJC = false;

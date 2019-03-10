@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.media.b;
 public class e {
     private static volatile d cVn;
 
-    public static synchronized d azy() {
+    public static synchronized d azz() {
         d dVar;
         synchronized (e.class) {
             if (cVn == null) {

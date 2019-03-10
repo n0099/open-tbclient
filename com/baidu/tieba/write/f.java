@@ -7,53 +7,53 @@ import com.baidu.tieba.write.e;
 /* loaded from: classes.dex */
 public abstract class f {
     protected View bIp;
-    protected a jlH;
-    protected e.a jlz;
+    protected e.a jlS;
+    protected a jma;
     protected View mAnchorView;
     protected Context mContext;
     protected int mState = 4;
-    protected Rect jmd = new Rect();
-    protected Rect jme = new Rect();
+    protected Rect jmx = new Rect();
+    protected Rect jmy = new Rect();
 
     /* loaded from: classes.dex */
     public interface a {
-        void Ba(int i);
+        void Bb(int i);
     }
 
-    public abstract void cnV();
+    public abstract void cof();
 
-    public abstract void cnX();
+    public abstract void coh();
 
-    public abstract void cnY();
+    public abstract void coi();
 
     public abstract void onDestroy();
 
     public f(Context context, e.a aVar) {
         this.mContext = context;
-        this.jlz = aVar;
+        this.jlS = aVar;
     }
 
     public void a(a aVar) {
-        this.jlH = aVar;
+        this.jma = aVar;
     }
 
     public void b(View view, View view2) {
         this.mAnchorView = view;
         this.bIp = view2;
         if (this.bIp != null) {
-            this.bIp.getGlobalVisibleRect(this.jmd);
+            this.bIp.getGlobalVisibleRect(this.jmx);
         }
     }
 
     public void show() {
-        cnV();
+        cof();
     }
 
     public void bA(boolean z) {
         if (z) {
-            cnX();
+            coh();
         } else {
-            cnY();
+            coi();
         }
     }
 }

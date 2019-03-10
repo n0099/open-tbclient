@@ -30,11 +30,11 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.topic.topicdetail.b.d dVar, com.baidu.tieba.card.a.a<e> aVar) {
-        if (dVar == null || aVar == null || aVar.aRi() == null) {
+        if (dVar == null || aVar == null || aVar.aRj() == null) {
             return null;
         }
-        aVar.aRi().a(dVar);
-        aVar.aRi().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        aVar.aRj().a(dVar);
+        aVar.aRj().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         return aVar.getView();
     }
 }

@@ -84,17 +84,17 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
     public void onClick(View view) {
         this.fzA.registerListener();
         if (view == this.fng) {
-            com.baidu.tieba.frs.a.bbF().reset();
+            com.baidu.tieba.frs.a.bbG().reset();
         } else if (view == this.fzB) {
-            if (!v.T(com.baidu.tieba.frs.a.bbF().bbH())) {
+            if (!v.T(com.baidu.tieba.frs.a.bbG().bbI())) {
                 TiebaStatic.log(new am("c13122").T("obj_type", 1));
                 setData(1);
-                vR("2");
+                vS("2");
             }
-        } else if (view == this.fzC && !v.T(com.baidu.tieba.frs.a.bbF().bbH())) {
+        } else if (view == this.fzC && !v.T(com.baidu.tieba.frs.a.bbG().bbI())) {
             TiebaStatic.log(new am("c13122").T("obj_type", 2));
             setData(2);
-            vR("2");
+            vS("2");
         }
     }
 
@@ -102,24 +102,24 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
         this.pageContext = tbPageContext;
     }
 
-    private void vR(String str) {
+    private void vS(String str) {
         if (this.pageContext != null) {
             if (this.fzE == null) {
                 this.fzE = new com.baidu.tieba.NEGFeedBack.e(this.pageContext, this);
             }
-            this.fzE.qj(str);
+            this.fzE.qk(str);
         }
     }
 
-    public void bdS() {
+    public void bdT() {
         if (this.fzE != null) {
-            this.fzE.auZ();
+            this.fzE.ava();
         }
     }
 
-    public void auU() {
+    public void auV() {
         if (this.fzE != null) {
-            this.fzE.auU();
+            this.fzE.auV();
         }
     }
 
@@ -129,9 +129,9 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
                 this.fzE = new com.baidu.tieba.NEGFeedBack.e(this.pageContext, this);
             }
             SparseArray<String> sparseArray = new SparseArray<>();
-            AntiData bbI = com.baidu.tieba.frs.a.bbF().bbI();
-            if (bbI != null && bbI.getDelThreadInfoList() != null) {
-                List<DeleteThreadInfo> delThreadInfoList = bbI.getDelThreadInfoList();
+            AntiData bbJ = com.baidu.tieba.frs.a.bbG().bbJ();
+            if (bbJ != null && bbJ.getDelThreadInfoList() != null) {
+                List<DeleteThreadInfo> delThreadInfoList = bbJ.getDelThreadInfoList();
                 for (int i2 = 0; i2 < delThreadInfoList.size(); i2++) {
                     if (!TextUtils.isEmpty(delThreadInfoList.get(i2).text_info)) {
                         sparseArray.put(delThreadInfoList.get(i2).text_id, delThreadInfoList.get(i2).text_info);
@@ -139,15 +139,15 @@ public class FrsMultiDelBottomMenuView extends RelativeLayout implements View.On
                 }
             }
             JSONArray jSONArray = new JSONArray();
-            List<bg> bbH = com.baidu.tieba.frs.a.bbF().bbH();
-            for (int i3 = 0; i3 < bbH.size(); i3++) {
-                jSONArray.put(bbH.get(i3).getTid());
+            List<bg> bbI = com.baidu.tieba.frs.a.bbG().bbI();
+            for (int i3 = 0; i3 < bbI.size(); i3++) {
+                jSONArray.put(bbI.get(i3).getTid());
             }
             aj ajVar = new aj();
             ajVar.b(sparseArray);
             ajVar.gg(i);
             ajVar.w(jSONArray);
-            ajVar.setFid(com.baidu.tieba.frs.a.bbF().getForumId());
+            ajVar.setFid(com.baidu.tieba.frs.a.bbG().getForumId());
             this.fzE.setDefaultReasonArray(new String[]{getContext().getString(d.j.delete_thread_reason_1), getContext().getString(d.j.delete_thread_reason_2), getContext().getString(d.j.delete_thread_reason_3), getContext().getString(d.j.delete_thread_reason_4), getContext().getString(d.j.delete_thread_reason_5)});
             this.fzE.setData(ajVar);
         }

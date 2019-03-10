@@ -26,12 +26,12 @@ public class f {
                     f.this.Qn.apt();
                 }
             } else if (i == 2) {
-                f.this.biC();
+                f.this.biD();
                 if (f.this.Qn != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
                     f.this.Qn.apu();
                 }
             } else if (i == 0) {
-                f.this.biE();
+                f.this.biF();
             }
         }
     };
@@ -50,16 +50,16 @@ public class f {
         this.fuw.a(this.fux);
     }
 
-    public void biB() {
+    public void biC() {
         if (this.mParent != null) {
-            biE();
+            biF();
             this.mParent.addView(this.fup.mRootView);
-            biD();
-            this.fuw.bis();
+            biE();
+            this.fuw.bit();
         }
     }
 
-    public void bbR() {
+    public void bbS() {
         if (this.mParent != null) {
             hide();
         }
@@ -72,8 +72,8 @@ public class f {
             com.baidu.adp.lib.g.e.jH().postDelayed(this.mHideRunnable, 10L);
             return;
         }
-        biC();
-        this.fuw.bit();
+        biD();
+        this.fuw.biu();
     }
 
     public static boolean ae(Intent intent) {
@@ -81,7 +81,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void biC() {
+    public void biD() {
         if (this.mParent != null && (this.mParent.getChildAt(0) instanceof SwipeBackLayout)) {
             this.mParent.getChildAt(0).setVisibility(0);
         }
@@ -90,7 +90,7 @@ public class f {
         }
     }
 
-    private void biD() {
+    private void biE() {
         View findViewById;
         if (this.mParent != null && (this.mParent.getChildAt(0) instanceof SwipeBackLayout)) {
             this.mParent.getChildAt(0).setVisibility(8);
@@ -101,7 +101,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void biE() {
+    public void biF() {
         ViewParent parent = this.fup.mRootView.getParent();
         if (parent instanceof ViewGroup) {
             ((ViewGroup) parent).removeView(this.fup.mRootView);

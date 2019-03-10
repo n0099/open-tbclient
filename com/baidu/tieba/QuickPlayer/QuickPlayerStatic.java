@@ -19,7 +19,7 @@ public class QuickPlayerStatic {
                 new Thread(new Runnable() { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        d.avc();
+                        d.avd();
                     }
                 }).start();
             }
@@ -30,7 +30,7 @@ public class QuickPlayerStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getCmd() == 2001011 && (customResponsedMessage instanceof BackgroundSwitchMessage) && (customResponsedMessage.getData() instanceof Boolean) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                QuickPlayerStatic.avo();
+                QuickPlayerStatic.avp();
             }
         }
     };
@@ -56,16 +56,16 @@ public class QuickPlayerStatic {
         new Thread(new Runnable() { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.5
             @Override // java.lang.Runnable
             public void run() {
-                d.avc();
+                d.avd();
             }
         }).start();
-        avn();
+        avo();
         MessageManager.getInstance().registerListener(cJW);
         MessageManager.getInstance().registerListener(cJV);
         MessageManager.getInstance().registerListener(cJX);
     }
 
-    private static void avn() {
+    private static void avo() {
         CustomMessageTask customMessageTask = new CustomMessageTask(2016490, new CustomMessageTask.CustomRunnable<com.baidu.tieba.play.h>() { // from class: com.baidu.tieba.QuickPlayer.QuickPlayerStatic.2
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
@@ -78,7 +78,7 @@ public class QuickPlayerStatic {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void avo() {
+    public static void avp() {
         Intent intent = new Intent(TbadkCoreApplication.getInst(), QuickMediaPlayerService.class);
         intent.putExtra(QuickMediaPlayerService.KEY_RELEASE_ALL_PLAYERS, true);
         TbadkCoreApplication.getInst().startService(intent);

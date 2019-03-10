@@ -32,7 +32,7 @@ public class ab {
         return false;
     }
 
-    public List<FrsTabInfo> beq() {
+    public List<FrsTabInfo> ber() {
         return this.eYj;
     }
 
@@ -47,7 +47,7 @@ public class ab {
         }
     }
 
-    public void ber() {
+    public void bes() {
         boolean z;
         LinkedList linkedList = new LinkedList();
         LinkedList linkedList2 = new LinkedList();
@@ -82,7 +82,7 @@ public class ab {
         return this.mContext;
     }
 
-    public List<com.baidu.tbadk.mainTab.b> bcc() {
+    public List<com.baidu.tbadk.mainTab.b> bcd() {
         return this.eYk;
     }
 
@@ -110,7 +110,7 @@ public class ab {
         return this.forumGameLabel;
     }
 
-    public void vb(String str) {
+    public void vc(String str) {
         this.fcR = str;
     }
 }

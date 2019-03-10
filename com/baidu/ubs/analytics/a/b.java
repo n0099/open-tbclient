@@ -3,17 +3,17 @@ package com.baidu.ubs.analytics.a;
 import java.util.List;
 /* loaded from: classes3.dex */
 public final class b {
-    private c jwv = new c();
+    private c jwO = new c();
 
     public final void a(a aVar) {
-        this.jwv.b(aVar);
+        this.jwO.b(aVar);
     }
 
-    public final List<a> cse() {
-        return this.jwv.cse();
+    public final List<a> cso() {
+        return this.jwO.cso();
     }
 
     public final void a(int i) {
-        this.jwv.a(i);
+        this.jwO.a(i);
     }
 }

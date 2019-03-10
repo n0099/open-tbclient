@@ -106,39 +106,39 @@ public class EnterForumModel extends BdBaseModel {
         return this.unique_id;
     }
 
-    public long aWR() {
+    public long aWS() {
         return this.eDW;
     }
 
-    public long aWS() {
+    public long aWT() {
         return this.eDU;
     }
 
-    public long aWT() {
+    public long aWU() {
         return this.eDV;
     }
 
-    public long aWU() {
+    public long aWV() {
         return this.eDT;
     }
 
-    public com.baidu.tieba.enterForum.data.a aWV() {
+    public com.baidu.tieba.enterForum.data.a aWW() {
         return this.eDN;
     }
 
-    public boolean aWW() {
+    public boolean aWX() {
         if (!TbadkApplication.isLogin()) {
             return false;
         }
-        if (this.eDN == null || this.eDN.aWb() == null) {
+        if (this.eDN == null || this.eDN.aWc() == null) {
             return true;
         }
-        return this.eDN.aWb().aWf();
+        return this.eDN.aWc().aWg();
     }
 
-    public boolean aWX() {
-        if (TbadkApplication.isLogin() && com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("enter_forum_create_forum", true) && this.eDN != null && this.eDN.aWb() != null) {
-            return this.eDN.aWb().aWe();
+    public boolean aWY() {
+        if (TbadkApplication.isLogin() && com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("enter_forum_create_forum", true) && this.eDN != null && this.eDN.aWc() != null) {
+            return this.eDN.aWc().aWf();
         }
         return false;
     }
@@ -159,11 +159,11 @@ public class EnterForumModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         cancelMessage();
-        aWY();
+        aWZ();
         return true;
     }
 
-    private void aWY() {
+    private void aWZ() {
         if (this.eDQ != null) {
             this.eDQ.destory();
             this.eDQ = null;
@@ -175,7 +175,7 @@ public class EnterForumModel extends BdBaseModel {
     }
 
     public void onPause() {
-        aWO();
+        aWP();
     }
 
     public boolean iz(boolean z) {
@@ -262,7 +262,7 @@ public class EnterForumModel extends BdBaseModel {
                 b((forumRecommendHttpResponseMessage) responsedMessage);
             }
         }
-        if (this.eDN.aVZ().aWt().size() == 0 && !this.eDR && !this.eDS) {
+        if (this.eDN.aWa().aWu().size() == 0 && !this.eDR && !this.eDS) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001630, 2));
             this.eDS = true;
         }
@@ -378,8 +378,8 @@ public class EnterForumModel extends BdBaseModel {
                     } catch (Exception e) {
                         aVar.dy(false);
                     }
-                    if (aVar.isSuccess() && !aVar.aWd()) {
-                        aVar.aVZ().aWu();
+                    if (aVar.isSuccess() && !aVar.aWe()) {
+                        aVar.aWa().aWv();
                     }
                 }
                 return aVar;
@@ -445,7 +445,7 @@ public class EnterForumModel extends BdBaseModel {
         bdAsyncTask.execute(new Void[0]);
     }
 
-    private void aWO() {
+    private void aWP() {
         if (TbadkCoreApplication.getCurrentAccount() != null) {
             aa.a(new z<Object>() { // from class: com.baidu.tieba.enterForum.model.EnterForumModel.4
                 @Override // com.baidu.tbadk.util.z
@@ -463,9 +463,9 @@ public class EnterForumModel extends BdBaseModel {
     /* JADX INFO: Access modifiers changed from: private */
     public void c(VisitedForumData visitedForumData) {
         if (visitedForumData != null && this.eDN != null) {
-            int size = this.eDN.aVZ().aWt().size();
+            int size = this.eDN.aWa().aWu().size();
             for (int i = 0; i < size; i++) {
-                if (this.eDN.aVZ().aWt().get(i).getId().equals(visitedForumData.getForumId())) {
+                if (this.eDN.aWa().aWu().get(i).getId().equals(visitedForumData.getForumId())) {
                     this.eDO.a(visitedForumData);
                     this.eDO.pe(200);
                 }

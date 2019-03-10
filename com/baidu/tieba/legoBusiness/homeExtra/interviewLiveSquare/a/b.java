@@ -34,7 +34,7 @@ public class b extends com.baidu.tbadk.b.a {
         hVar.bsH = str;
         if (obj instanceof com.baidu.tieba.lego.card.model.a) {
             com.baidu.tieba.lego.card.model.a aVar = (com.baidu.tieba.lego.card.model.a) obj;
-            boolean bzR = aVar.bzR();
+            boolean bzS = aVar.bzS();
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
             Intent intent = new Intent(context, AlarmReceiver.class);
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -61,9 +61,9 @@ public class b extends com.baidu.tbadk.b.a {
                 j2 = j;
                 i2 = i;
             }
-            am amVar = new am(aVar.bzT());
+            am amVar = new am(aVar.bzU());
             amVar.bJ(VideoPlayActivityConfig.OBJ_ID, "");
-            if (bzR) {
+            if (bzS) {
                 amVar.bJ("obj_type", "2");
                 BdToast.b(context, context.getString(d.j.interview_close_tip)).abh();
                 PendingIntent broadcast = PendingIntent.getBroadcast(context, i, intent, 536870912);

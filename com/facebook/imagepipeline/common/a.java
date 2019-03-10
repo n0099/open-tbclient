@@ -6,31 +6,31 @@ import javax.annotation.concurrent.Immutable;
 @Immutable
 /* loaded from: classes2.dex */
 public class a {
-    private static final a jGr = cwD().cwL();
-    public final int jGs;
-    public final boolean jGt;
-    public final boolean jGu;
-    public final boolean jGv;
-    public final boolean jGw;
-    public final Bitmap.Config jGx;
+    private static final a jGK = cwN().cwV();
+    public final int jGL;
+    public final boolean jGM;
+    public final boolean jGN;
+    public final boolean jGO;
+    public final boolean jGP;
+    public final Bitmap.Config jGQ;
     @Nullable
-    public final com.facebook.imagepipeline.decoder.b jGy;
+    public final com.facebook.imagepipeline.decoder.b jGR;
 
     public a(b bVar) {
-        this.jGs = bVar.cwE();
-        this.jGt = bVar.cwF();
-        this.jGu = bVar.cwG();
-        this.jGv = bVar.cwH();
-        this.jGw = bVar.cwJ();
-        this.jGx = bVar.cwK();
-        this.jGy = bVar.cwI();
+        this.jGL = bVar.cwO();
+        this.jGM = bVar.cwP();
+        this.jGN = bVar.cwQ();
+        this.jGO = bVar.cwR();
+        this.jGP = bVar.cwT();
+        this.jGQ = bVar.cwU();
+        this.jGR = bVar.cwS();
     }
 
-    public static a cwC() {
-        return jGr;
+    public static a cwM() {
+        return jGK;
     }
 
-    public static b cwD() {
+    public static b cwN() {
         return new b();
     }
 
@@ -42,14 +42,14 @@ public class a {
             return false;
         }
         a aVar = (a) obj;
-        return this.jGt == aVar.jGt && this.jGu == aVar.jGu && this.jGv == aVar.jGv && this.jGw == aVar.jGw && this.jGx == aVar.jGx && this.jGy == aVar.jGy;
+        return this.jGM == aVar.jGM && this.jGN == aVar.jGN && this.jGO == aVar.jGO && this.jGP == aVar.jGP && this.jGQ == aVar.jGQ && this.jGR == aVar.jGR;
     }
 
     public int hashCode() {
-        return (((((((this.jGv ? 1 : 0) + (((this.jGu ? 1 : 0) + (((this.jGt ? 1 : 0) + (this.jGs * 31)) * 31)) * 31)) * 31) + (this.jGw ? 1 : 0)) * 31) + this.jGx.ordinal()) * 31) + (this.jGy != null ? this.jGy.hashCode() : 0);
+        return (((((((this.jGO ? 1 : 0) + (((this.jGN ? 1 : 0) + (((this.jGM ? 1 : 0) + (this.jGL * 31)) * 31)) * 31)) * 31) + (this.jGP ? 1 : 0)) * 31) + this.jGQ.ordinal()) * 31) + (this.jGR != null ? this.jGR.hashCode() : 0);
     }
 
     public String toString() {
-        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.jGs), Boolean.valueOf(this.jGt), Boolean.valueOf(this.jGu), Boolean.valueOf(this.jGv), Boolean.valueOf(this.jGw), this.jGx.name(), this.jGy);
+        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.jGL), Boolean.valueOf(this.jGM), Boolean.valueOf(this.jGN), Boolean.valueOf(this.jGO), Boolean.valueOf(this.jGP), this.jGQ.name(), this.jGR);
     }
 }

@@ -10,7 +10,7 @@ public class a implements com.baidu.tieba.p.a {
         private static a cOa = new a();
     }
 
-    public static a awM() {
+    public static a awN() {
         return C0220a.cOa;
     }
 

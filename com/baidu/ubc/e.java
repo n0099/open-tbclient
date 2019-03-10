@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class e {
-    private static volatile e jvZ;
+    private static volatile e jws;
     private HashSet<String> bpa = new HashSet<>();
     private HashSet<String> bpb = new HashSet<>();
     private HashSet<String> bpc = new HashSet<>();
@@ -25,47 +25,47 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static e crL() {
-        if (jvZ == null) {
+    public static e crV() {
+        if (jws == null) {
             synchronized (e.class) {
-                if (jvZ == null) {
-                    jvZ = new e();
+                if (jws == null) {
+                    jws = new e();
                 }
             }
         }
-        return jvZ;
+        return jws;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(c cVar, Context context) {
         this.mContext = context;
         this.bpi = 360000;
-        r crW = r.crW();
-        this.bpj = crW.getInt("ubc_data_expire_time", 259200000);
-        this.bpk = crW.getInt("ubc_database_limit", 4000);
-        cVar.crJ().a(this.bpa, this.bpd, this.bpb, this.bpc, this.bpe, this.bpf, this.bpg, this.bph);
+        r csg = r.csg();
+        this.bpj = csg.getInt("ubc_data_expire_time", 259200000);
+        this.bpk = csg.getInt("ubc_database_limit", 4000);
+        cVar.crT().a(this.bpa, this.bpd, this.bpb, this.bpc, this.bpe, this.bpf, this.bpg, this.bph);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void ev(List<h> list) {
         for (h hVar : list) {
-            if ("0".equals(hVar.crM())) {
+            if ("0".equals(hVar.crW())) {
                 this.bpa.add(hVar.getId());
             } else {
                 this.bpa.remove(hVar.getId());
             }
-            if ("1".equals(hVar.crN())) {
+            if ("1".equals(hVar.crX())) {
                 this.bpb.add(hVar.getId());
             } else {
                 this.bpb.remove(hVar.getId());
             }
-            if ("1".equals(hVar.crO())) {
+            if ("1".equals(hVar.crY())) {
                 this.bpc.add(hVar.getId());
             } else {
                 this.bpc.remove(hVar.getId());
             }
-            if (hVar.crP() >= 1 && hVar.crP() <= 100) {
-                this.bpe.put(hVar.getId(), String.valueOf(hVar.crP()));
+            if (hVar.crZ() >= 1 && hVar.crZ() <= 100) {
+                this.bpe.put(hVar.getId(), String.valueOf(hVar.crZ()));
             } else {
                 this.bpe.remove(hVar.getId());
             }
@@ -74,8 +74,8 @@ public class e {
             } else {
                 this.bpf.remove(hVar.getId());
             }
-            if (hVar.crR() != 0 && hVar.crQ() != 0) {
-                i iVar = new i(hVar.getId(), hVar.crR(), hVar.crQ());
+            if (hVar.csb() != 0 && hVar.csa() != 0) {
+                i iVar = new i(hVar.getId(), hVar.csb(), hVar.csa());
                 this.bpg.put(iVar.getId(), iVar);
             }
             if (TextUtils.equals(hVar.getIdType(), "1")) {
@@ -130,10 +130,10 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void BD(int i) {
+    public void BE(int i) {
         if (i >= this.bpj) {
             this.bpj = i;
-            r.crW().putInt("ubc_data_expire_time", i);
+            r.csg().putInt("ubc_data_expire_time", i);
         }
     }
 
@@ -143,10 +143,10 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void BE(int i) {
+    public void BF(int i) {
         if (i >= this.bpk) {
             this.bpk = i;
-            r.crW().putInt("ubc_database_limit", i);
+            r.csg().putInt("ubc_database_limit", i);
         }
     }
 

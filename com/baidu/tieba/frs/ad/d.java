@@ -23,7 +23,7 @@ public class d extends h<c, com.baidu.tieba.card.a.a<b>> {
         this.fdX = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.ad.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: beI */
+            /* renamed from: beJ */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(d.this.mPageContext.getPageActivity());
             }
@@ -106,7 +106,7 @@ public class d extends h<c, com.baidu.tieba.card.a.a<b>> {
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, c cVar, com.baidu.tieba.card.a.a<b> aVar) {
         super.onFillViewHolder(i, view, viewGroup, cVar, aVar);
-        aVar.aRi().a(cVar);
+        aVar.aRj().a(cVar);
         return aVar.getView();
     }
 }

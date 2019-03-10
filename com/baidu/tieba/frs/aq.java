@@ -40,7 +40,7 @@ public class aq {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (aq.this.fdm != null) {
-                    aq.this.bez();
+                    aq.this.beA();
                     aq.this.fdm.setAlpha(1.0f);
                 }
             }
@@ -74,7 +74,7 @@ public class aq {
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i) {
         if (viewGroup != null && view != null) {
             this.fdm = view;
-            bez();
+            beA();
             viewGroup.addView(this.fdm, layoutParams);
             this.fdm.setVisibility(0);
             this.fdn = i;
@@ -86,7 +86,7 @@ public class aq {
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         if (viewGroup != null && view != null) {
             this.fdm = view;
-            bez();
+            beA();
             viewGroup.addView(this.fdm, layoutParams);
             this.fdm.setVisibility(0);
         }
@@ -99,7 +99,7 @@ public class aq {
         }
     }
 
-    public void bez() {
+    public void beA() {
         com.baidu.adp.lib.g.e.jH().removeCallbacks(this.mHideTipRunnable);
         if (this.fdm != null) {
             if (this.fdo != null && this.fdo.isRunning()) {
@@ -114,6 +114,6 @@ public class aq {
     }
 
     public void onDestroy() {
-        bez();
+        beA();
     }
 }

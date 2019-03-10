@@ -6,9 +6,9 @@ import tbclient.RedpacketRain;
 public class n {
     private long aEo;
     private String cNa;
-    private String hgB;
-    private String iHm;
-    private List<String> iHn;
+    private String hgC;
+    private String iHn;
+    private List<String> iHo;
     private long mStartTime;
     private int mType;
 
@@ -17,9 +17,9 @@ public class n {
             this.mStartTime = redpacketRain.start_time.longValue() * 1000;
             this.aEo = redpacketRain.end_time.longValue() * 1000;
             this.cNa = redpacketRain.jump_url;
-            this.iHm = redpacketRain.float_url;
-            this.iHn = redpacketRain.dynamic_img;
-            this.hgB = redpacketRain.activity_id;
+            this.iHn = redpacketRain.float_url;
+            this.iHo = redpacketRain.dynamic_img;
+            this.hgC = redpacketRain.activity_id;
             this.mType = redpacketRain.show_type.intValue();
         }
     }
@@ -32,20 +32,20 @@ public class n {
         return this.aEo;
     }
 
-    public String awy() {
+    public String awz() {
         return this.cNa;
     }
 
-    public String ceE() {
-        return this.iHm;
-    }
-
-    public List<String> ceF() {
+    public String ceF() {
         return this.iHn;
     }
 
-    public String ceG() {
-        return this.hgB;
+    public List<String> ceG() {
+        return this.iHo;
+    }
+
+    public String ceH() {
+        return this.hgC;
     }
 
     public void setStartTime(long j) {
@@ -56,20 +56,20 @@ public class n {
         this.aEo = j;
     }
 
-    public void CB(String str) {
+    public void CC(String str) {
         this.cNa = str;
     }
 
-    public void CC(String str) {
-        this.iHm = str;
+    public void CD(String str) {
+        this.iHn = str;
     }
 
     public void dV(List<String> list) {
-        this.iHn = list;
+        this.iHo = list;
     }
 
-    public void CD(String str) {
-        this.hgB = str;
+    public void CE(String str) {
+        this.hgC = str;
     }
 
     public int getType() {

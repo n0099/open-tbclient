@@ -76,7 +76,7 @@ public class i extends b<g> {
         this.efG.addView(this.ehl);
         this.ehl.setSelector(d.f.list_selector_transparent);
         this.ehl.setPadding(tbPageContext.getResources().getDimensionPixelSize(d.e.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(d.e.ds4), 0);
-        aQj();
+        aQk();
         if (this.ehm == null) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < 10; i++) {
@@ -139,7 +139,7 @@ public class i extends b<g> {
             gVar.getDataList().clear();
             gVar.getDataList().addAll(arrayList.subList(0, 10));
         }
-        this.eht = gVar.aQX();
+        this.eht = gVar.aQY();
         this.stType = gVar.getStType();
         if (!h(gVar.getDataList(), this.ehp)) {
             boolean z = com.baidu.tbadk.core.util.v.S(gVar.getDataList()) != com.baidu.tbadk.core.util.v.S(this.ehp);
@@ -168,7 +168,7 @@ public class i extends b<g> {
         }
     }
 
-    private e tA(String str) {
+    private e tB(String str) {
         if (com.baidu.tbadk.core.util.v.S(this.ehp) > 0) {
             for (com.baidu.tieba.horizonalList.widget.c cVar : this.ehp) {
                 if (cVar != null && (cVar instanceof e)) {
@@ -184,9 +184,9 @@ public class i extends b<g> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(long j, boolean z) {
-        e tA = tA(String.valueOf(j));
-        if (tA != null) {
-            tA.isLiked = z;
+        e tB = tB(String.valueOf(j));
+        if (tB != null) {
+            tB.isLiked = z;
         }
         if (this.ehm != null) {
             this.ehm.setData(this.ehp);
@@ -226,7 +226,7 @@ public class i extends b<g> {
         return z2;
     }
 
-    private void aQj() {
+    private void aQk() {
         this.ccA = new View.OnClickListener() { // from class: com.baidu.tieba.card.i.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -237,7 +237,7 @@ public class i extends b<g> {
                             String valueOf = String.valueOf(view.getTag(d.g.tag_forum_id));
                             if (ap.bv(str)) {
                                 i.this.bUp.dW(str, valueOf);
-                                TiebaStatic.log(new am(i.this.cyt).bJ(ImageViewerConfig.FORUM_ID, valueOf).bJ("obj_param3", n.aQx()));
+                                TiebaStatic.log(new am(i.this.cyt).bJ(ImageViewerConfig.FORUM_ID, valueOf).bJ("obj_param3", n.aQy()));
                             }
                         }
                     } else if (view.getTag(d.g.tag_forum_name) != null) {
@@ -245,9 +245,9 @@ public class i extends b<g> {
                         String valueOf2 = String.valueOf(view.getTag(d.g.tag_forum_id));
                         if (ap.bv(str2)) {
                             if (view.getId() == d.g.m_forum_name_textview) {
-                                TiebaStatic.log(new am(i.this.ehs).bJ(ImageViewerConfig.FORUM_ID, valueOf2).bJ("obj_param3", n.aQx()));
+                                TiebaStatic.log(new am(i.this.ehs).bJ(ImageViewerConfig.FORUM_ID, valueOf2).bJ("obj_param3", n.aQy()));
                             } else {
-                                TiebaStatic.log(new am(i.this.ehr).bJ(ImageViewerConfig.FORUM_ID, valueOf2).bJ("obj_param3", n.aQx()));
+                                TiebaStatic.log(new am(i.this.ehr).bJ(ImageViewerConfig.FORUM_ID, valueOf2).bJ("obj_param3", n.aQy()));
                             }
                             if (!StringUtils.isNull(i.this.stType) && !StringUtils.isNull(i.this.eht)) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(i.this.getView().getContext()).createCfgForpersonalized(str2, i.this.stType, i.this.eht)));

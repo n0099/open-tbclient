@@ -17,8 +17,8 @@ import com.xiaomi.mipush.sdk.Constants;
 import tbclient.SkinInfo;
 /* loaded from: classes.dex */
 public class ThreadSkinView extends TbImageView {
-    private SkinInfo hhZ;
-    private a.C0309a hia;
+    private SkinInfo hia;
+    private a.C0309a hib;
     private TbPageContext mTbPageContext;
 
     public ThreadSkinView(Context context) {
@@ -46,16 +46,16 @@ public class ThreadSkinView extends TbImageView {
             return;
         }
         this.mTbPageContext = tbPageContext;
-        if (this.hhZ != skinInfo && c0309a != null) {
-            this.hia = c0309a;
-            this.hia.delete("action_type");
-            this.hia.dY(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
-            this.hia.dY("obj_url", skinInfo.url);
-            this.hia.dY("obj_name", skinInfo.monitor_id);
-            this.hia.dY("action_type", "VIEW_TRUE");
-            this.hia.save();
+        if (this.hia != skinInfo && c0309a != null) {
+            this.hib = c0309a;
+            this.hib.delete("action_type");
+            this.hib.dY(VideoPlayActivityConfig.OBJ_ID, skinInfo.obj_id);
+            this.hib.dY("obj_url", skinInfo.url);
+            this.hib.dY("obj_name", skinInfo.monitor_id);
+            this.hib.dY("action_type", "VIEW_TRUE");
+            this.hib.save();
         }
-        this.hhZ = skinInfo;
+        this.hia = skinInfo;
         int aO = l.aO(tbPageContext.getPageActivity());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = aO;
@@ -82,13 +82,13 @@ public class ThreadSkinView extends TbImageView {
 
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.hhZ != null && !StringUtils.isNull(this.hhZ.url)) {
-            if (this.hia != null) {
-                this.hia.delete("action_type");
-                this.hia.dY("action_type", "CLICK");
-                this.hia.save();
+        if (this.hia != null && !StringUtils.isNull(this.hia.url)) {
+            if (this.hib != null) {
+                this.hib.delete("action_type");
+                this.hib.dY("action_type", "CLICK");
+                this.hib.save();
             }
-            ba.adD().c(this.mTbPageContext, new String[]{this.hhZ.url});
+            ba.adD().c(this.mTbPageContext, new String[]{this.hia.url});
         }
     }
 }

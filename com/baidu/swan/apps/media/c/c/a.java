@@ -146,14 +146,14 @@ public class a {
                 if (this.aBi != null) {
                     this.aBi.eY(b.aAR);
                 }
-                d.bm("").b(Schedulers.io()).d(new f<String, Boolean>() { // from class: com.baidu.swan.apps.media.c.c.a.3
+                d.bn("").b(Schedulers.io()).d(new f<String, Boolean>() { // from class: com.baidu.swan.apps.media.c.c.a.3
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // rx.functions.f
                     /* renamed from: fa */
                     public Boolean call(String str) {
                         return Boolean.valueOf(a.this.EH());
                     }
-                }).a(rx.a.b.a.cDH()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.media.c.c.a.2
+                }).a(rx.a.b.a.cDR()).c(new rx.functions.b<Boolean>() { // from class: com.baidu.swan.apps.media.c.c.a.2
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // rx.functions.b
                     /* renamed from: c */

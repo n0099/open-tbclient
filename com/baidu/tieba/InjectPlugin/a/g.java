@@ -21,11 +21,11 @@ public class g {
         return this.pageContext;
     }
 
-    public b aun() {
+    public b auo() {
         return this.cHH;
     }
 
-    public int auo() {
+    public int aup() {
         return this.cHG;
     }
 }

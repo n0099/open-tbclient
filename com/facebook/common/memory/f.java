@@ -7,87 +7,87 @@ import javax.annotation.concurrent.NotThreadSafe;
 /* loaded from: classes2.dex */
 public class f extends InputStream {
     private final InputStream Hn;
-    private final byte[] jzN;
-    private final com.facebook.common.references.c<byte[]> jzO;
-    private int jzP = 0;
-    private int jzQ = 0;
+    private final byte[] jAg;
+    private final com.facebook.common.references.c<byte[]> jAh;
+    private int jAi = 0;
+    private int jAj = 0;
     private boolean mClosed = false;
 
     public f(InputStream inputStream, byte[] bArr, com.facebook.common.references.c<byte[]> cVar) {
         this.Hn = (InputStream) com.facebook.common.internal.g.checkNotNull(inputStream);
-        this.jzN = (byte[]) com.facebook.common.internal.g.checkNotNull(bArr);
-        this.jzO = (com.facebook.common.references.c) com.facebook.common.internal.g.checkNotNull(cVar);
+        this.jAg = (byte[]) com.facebook.common.internal.g.checkNotNull(bArr);
+        this.jAh = (com.facebook.common.references.c) com.facebook.common.internal.g.checkNotNull(cVar);
     }
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        com.facebook.common.internal.g.checkState(this.jzQ <= this.jzP);
-        ctD();
-        if (!ctC()) {
+        com.facebook.common.internal.g.checkState(this.jAj <= this.jAi);
+        ctN();
+        if (!ctM()) {
             return -1;
         }
-        byte[] bArr = this.jzN;
-        int i = this.jzQ;
-        this.jzQ = i + 1;
+        byte[] bArr = this.jAg;
+        int i = this.jAj;
+        this.jAj = i + 1;
         return bArr[i] & 255;
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr, int i, int i2) throws IOException {
-        com.facebook.common.internal.g.checkState(this.jzQ <= this.jzP);
-        ctD();
-        if (!ctC()) {
+        com.facebook.common.internal.g.checkState(this.jAj <= this.jAi);
+        ctN();
+        if (!ctM()) {
             return -1;
         }
-        int min = Math.min(this.jzP - this.jzQ, i2);
-        System.arraycopy(this.jzN, this.jzQ, bArr, i, min);
-        this.jzQ += min;
+        int min = Math.min(this.jAi - this.jAj, i2);
+        System.arraycopy(this.jAg, this.jAj, bArr, i, min);
+        this.jAj += min;
         return min;
     }
 
     @Override // java.io.InputStream
     public int available() throws IOException {
-        com.facebook.common.internal.g.checkState(this.jzQ <= this.jzP);
-        ctD();
-        return (this.jzP - this.jzQ) + this.Hn.available();
+        com.facebook.common.internal.g.checkState(this.jAj <= this.jAi);
+        ctN();
+        return (this.jAi - this.jAj) + this.Hn.available();
     }
 
     @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         if (!this.mClosed) {
             this.mClosed = true;
-            this.jzO.release(this.jzN);
+            this.jAh.release(this.jAg);
             super.close();
         }
     }
 
     @Override // java.io.InputStream
     public long skip(long j) throws IOException {
-        com.facebook.common.internal.g.checkState(this.jzQ <= this.jzP);
-        ctD();
-        int i = this.jzP - this.jzQ;
+        com.facebook.common.internal.g.checkState(this.jAj <= this.jAi);
+        ctN();
+        int i = this.jAi - this.jAj;
         if (i >= j) {
-            this.jzQ = (int) (this.jzQ + j);
+            this.jAj = (int) (this.jAj + j);
             return j;
         }
-        this.jzQ = this.jzP;
+        this.jAj = this.jAi;
         return i + this.Hn.skip(j - i);
     }
 
-    private boolean ctC() throws IOException {
-        if (this.jzQ < this.jzP) {
+    private boolean ctM() throws IOException {
+        if (this.jAj < this.jAi) {
             return true;
         }
-        int read = this.Hn.read(this.jzN);
+        int read = this.Hn.read(this.jAg);
         if (read <= 0) {
             return false;
         }
-        this.jzP = read;
-        this.jzQ = 0;
+        this.jAi = read;
+        this.jAj = 0;
         return true;
     }
 
-    private void ctD() throws IOException {
+    private void ctN() throws IOException {
         if (this.mClosed) {
             throw new IOException("stream already closed");
         }

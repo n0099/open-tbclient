@@ -21,7 +21,7 @@ public final class b extends Handler {
                 this.cGd.a(WheelView.ACTION.FLING);
                 return;
             case 3000:
-                this.cGd.atS();
+                this.cGd.atT();
                 return;
             default:
                 return;

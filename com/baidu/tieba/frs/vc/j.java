@@ -39,7 +39,7 @@ public class j {
         this.bFG.setEllipsize(TextUtils.TruncateAt.END);
     }
 
-    public void uZ(String str) {
+    public void va(String str) {
         String str2;
         if (!ap.isEmpty(str) && this.bsn != null && this.fqT.isPrimary() && this.fwQ <= 0) {
             this.fwQ++;

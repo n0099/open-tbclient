@@ -30,8 +30,8 @@ public class f extends com.baidu.adp.widget.ListView.a<bg, com.baidu.tieba.card.
                     amVar.T("obj_type", 2);
                     amVar.bJ("tid", bgVar.getTid());
                     amVar.k(ImageViewerConfig.FORUM_ID, bgVar.getFid());
-                    if (view.getId() != f.this.fIb.blN() && view.getId() != f.this.fIb.blO()) {
-                        if (view.getId() == f.this.fIb.blP()) {
+                    if (view.getId() != f.this.fIb.blO() && view.getId() != f.this.fIb.blP()) {
+                        if (view.getId() == f.this.fIb.blQ()) {
                             i = 3;
                         }
                     } else {
@@ -64,16 +64,16 @@ public class f extends com.baidu.adp.widget.ListView.a<bg, com.baidu.tieba.card.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, bg bgVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.daily.view.c> aVar) {
-        if (bgVar == null || aVar == null || aVar.aRi() == null) {
+        if (bgVar == null || aVar == null || aVar.aRj() == null) {
             return null;
         }
         am amVar = new am("c13176");
         amVar.T("obj_type", 2);
         amVar.bJ("tid", bgVar.getTid());
         amVar.k(ImageViewerConfig.FORUM_ID, bgVar.getFid());
-        t.aQF().b(amVar);
-        aVar.aRi().d(this.dqn);
-        aVar.aRi().a(bgVar);
+        t.aQG().b(amVar);
+        aVar.aRj().d(this.dqn);
+        aVar.aRj().a(bgVar);
         return aVar.getView();
     }
 }

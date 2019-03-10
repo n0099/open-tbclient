@@ -35,7 +35,7 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         this.fdX = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.personalize.a.m.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: beI */
+            /* renamed from: beJ */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(m.this.mPageContext.getPageActivity());
             }
@@ -103,19 +103,19 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             public boolean a(View view, com.baidu.tieba.card.data.k kVar, String str) {
                 if (kVar != null && kVar.threadData != null && kVar.threadData.ZD() != null) {
                     m.this.a(kVar.threadData, view);
-                    TiebaStatic.log(kVar.aRb());
                     TiebaStatic.log(kVar.aRc());
-                    m.this.d(kVar.threadData, kVar.aQP());
+                    TiebaStatic.log(kVar.aRd());
+                    m.this.d(kVar.threadData, kVar.aQQ());
                     return true;
                 }
                 return false;
             }
         };
         this.mPageContext = tbPageContext;
-        bmL();
+        bmM();
     }
 
-    private void bmL() {
+    private void bmM() {
         com.baidu.tieba.card.data.k.elt = "c13388";
         com.baidu.tieba.card.data.k.elu = "c13389";
     }
@@ -163,9 +163,9 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 com.baidu.tieba.card.data.k kVar = (com.baidu.tieba.card.data.k) mVar;
                 if (kVar != null && kVar.threadData != null && kVar.threadData.ZD() != null) {
                     m.this.a(kVar.threadData, view);
-                    TiebaStatic.log(kVar.aRb());
                     TiebaStatic.log(kVar.aRc());
-                    m.this.d(kVar.threadData, kVar.aQP());
+                    TiebaStatic.log(kVar.aRd());
+                    m.this.d(kVar.threadData, kVar.aQQ());
                 }
             }
         });
@@ -185,9 +185,9 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
         zVar.a(kVar);
         zVar.rx().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         zVar.rx().a(this.Xq);
-        com.baidu.tieba.card.t.aQF().b(kVar.aRa());
-        com.baidu.tieba.a.d.awk().a("page_recommend", "show_", kVar.aRa());
-        e(kVar.threadData, kVar.aQP());
+        com.baidu.tieba.card.t.aQG().b(kVar.aRb());
+        com.baidu.tieba.a.d.awl().a("page_recommend", "show_", kVar.aRb());
+        e(kVar.threadData, kVar.aQQ());
         return zVar.getView();
     }
 
@@ -196,7 +196,7 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     @Override // com.baidu.tieba.a.f
-    public void qM(String str) {
+    public void qN(String str) {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -218,7 +218,7 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                         return;
                     }
                 }
-                com.baidu.tieba.card.n.tB(bgVar.getTid());
+                com.baidu.tieba.card.n.tC(bgVar.getTid());
             }
         }
     }
@@ -226,14 +226,14 @@ public class m extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: private */
     public void d(bg bgVar, int i) {
         if (bgVar != null && bgVar.ZD() != null) {
-            com.baidu.tieba.q.c.cdq().b(this.cnX, com.baidu.tieba.q.a.a(bgVar, "a002", "common_click", 1, i, bgVar.ZD().id));
+            com.baidu.tieba.q.c.cdr().b(this.cnX, com.baidu.tieba.q.a.a(bgVar, "a002", "common_click", 1, i, bgVar.ZD().id));
         }
     }
 
     private void e(bg bgVar, int i) {
         if (bgVar != null && bgVar.ZD() != null) {
             String str = bgVar.ZD().id;
-            com.baidu.tieba.q.c.cdq().a(this.cnX, str, com.baidu.tieba.q.a.a(bgVar, "a002", "common_exp", i, str));
+            com.baidu.tieba.q.c.cdr().a(this.cnX, str, com.baidu.tieba.q.a.a(bgVar, "a002", "common_exp", i, str));
         }
     }
 }

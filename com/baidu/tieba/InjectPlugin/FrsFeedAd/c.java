@@ -5,7 +5,7 @@ public class c {
     private int cHC;
     private int threadType;
 
-    public Object aug() {
+    public Object auh() {
         return this.cHB;
     }
 
@@ -21,7 +21,7 @@ public class c {
         this.threadType = i;
     }
 
-    public int auh() {
+    public int aui() {
         return this.cHC;
     }
 

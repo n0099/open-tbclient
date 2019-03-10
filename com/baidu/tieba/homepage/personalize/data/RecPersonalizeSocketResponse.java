@@ -29,9 +29,9 @@ public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
             }
             h.fNw = false;
             if (h.f(this) && personalizedResIdl.data != null && personalizedResIdl.data.thread_list != null && personalizedResIdl.data.thread_list.size() == 0) {
-                this.resultData = h.bmV();
+                this.resultData = h.bmW();
                 h.fNw = true;
-                h.bmW();
+                h.bmX();
                 return;
             }
             this.resultData = personalizedResIdl.data;

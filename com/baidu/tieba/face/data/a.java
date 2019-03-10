@@ -15,7 +15,7 @@ public class a {
         this.dXz = i;
     }
 
-    public int aXJ() {
+    public int aXK() {
         return this.dSy;
     }
 
@@ -23,7 +23,7 @@ public class a {
         this.dSy = i;
     }
 
-    public List<EmotionImageData> aXK() {
+    public List<EmotionImageData> aXL() {
         return this.eHP;
     }
 

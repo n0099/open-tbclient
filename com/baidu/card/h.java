@@ -86,7 +86,7 @@ public class h extends f {
         PostData aap = aVar.WR().aap();
         if (this.XE != null && aap != null && aap.YR() != null && aap.YR().getUserId() != null) {
             this.XE.bJ("tid", aVar.WR().tid).bJ("post_id", aap.getId()).bJ("uid", aap.YR().getUserId());
-            com.baidu.tieba.card.t.aQF().b(this.XE);
+            com.baidu.tieba.card.t.aQG().b(this.XE);
         }
         this.XD.setData(aVar.WR());
     }

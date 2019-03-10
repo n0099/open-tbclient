@@ -4,10 +4,10 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes2.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State jRP = State.NotReady;
-    private T jRQ;
+    private State jSi = State.NotReady;
+    private T jSj;
 
-    protected abstract void cCe();
+    protected abstract void cCo();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -16,14 +16,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (!kotlin.jvm.internal.p.h(this.jRP, State.Failed)) {
-            switch (this.jRP) {
+        if (!kotlin.jvm.internal.p.h(this.jSi, State.Failed)) {
+            switch (this.jSi) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return cCd();
+                    return cCn();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -32,26 +32,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.jRP = State.NotReady;
-            return this.jRQ;
+            this.jSi = State.NotReady;
+            return this.jSj;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean cCd() {
-        this.jRP = State.Failed;
-        cCe();
-        return kotlin.jvm.internal.p.h(this.jRP, State.Ready);
+    private final boolean cCn() {
+        this.jSi = State.Failed;
+        cCo();
+        return kotlin.jvm.internal.p.h(this.jSi, State.Ready);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void bi(T t) {
-        this.jRQ = t;
-        this.jRP = State.Ready;
+    public final void bj(T t) {
+        this.jSj = t;
+        this.jSi = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.jRP = State.Done;
+        this.jSi = State.Done;
     }
 }

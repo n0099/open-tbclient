@@ -28,7 +28,7 @@ public class e {
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             if (message.what == 111) {
-                e.this.biW();
+                e.this.biX();
                 return true;
             }
             return false;
@@ -59,7 +59,7 @@ public class e {
         this.mHideRunnable = new Runnable() { // from class: com.baidu.tieba.frs.vc.e.3
             @Override // java.lang.Runnable
             public void run() {
-                e.this.biX();
+                e.this.biY();
             }
         };
         initView();
@@ -70,9 +70,9 @@ public class e {
         this.fvC.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.e.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                e.this.biX();
-                if (e.this.fvB != null && !e.this.fvB.bcS() && e.this.fvB.bcu() != null) {
-                    e.this.fvB.bcu().startPullRefresh();
+                e.this.biY();
+                if (e.this.fvB != null && !e.this.fvB.bcT() && e.this.fvB.bcv() != null) {
+                    e.this.fvB.bcv().startPullRefresh();
                 }
             }
         });
@@ -86,7 +86,7 @@ public class e {
         al.j(this.fvC, d.C0236d.cp_link_tip_a);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(14);
-        layoutParams.topMargin = this.fvB.aDp().getBottom() + l.h(TbadkCoreApplication.getInst(), d.e.ds8);
+        layoutParams.topMargin = this.fvB.aDq().getBottom() + l.h(TbadkCoreApplication.getInst(), d.e.ds8);
         this.fvC.setLayoutParams(layoutParams);
     }
 
@@ -108,7 +108,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void biW() {
+    public void biX() {
         if (this.fvC.getParent() == null) {
             this.fvj.addView(this.fvC);
             this.fvC.clearAnimation();
@@ -119,7 +119,7 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void biX() {
+    public void biY() {
         if (this.fvC.getParent() != null) {
             this.fay = -1;
             this.fvF = -1;

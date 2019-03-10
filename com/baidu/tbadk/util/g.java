@@ -90,7 +90,7 @@ public class g {
         this.cth = aVar;
     }
 
-    public long apT() {
+    public long apU() {
         return this.ctc;
     }
 }

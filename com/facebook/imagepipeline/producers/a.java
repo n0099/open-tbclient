@@ -1,21 +1,21 @@
 package com.facebook.imagepipeline.producers;
 /* loaded from: classes2.dex */
 public class a implements ai<com.facebook.imagepipeline.f.d> {
-    private final ai<com.facebook.imagepipeline.f.d> jJF;
+    private final ai<com.facebook.imagepipeline.f.d> jJY;
 
     public a(ai<com.facebook.imagepipeline.f.d> aiVar) {
-        this.jJF = aiVar;
+        this.jJY = aiVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        this.jJF.a(new C0339a(jVar), ajVar);
+        this.jJY.a(new C0342a(jVar), ajVar);
     }
 
     /* renamed from: com.facebook.imagepipeline.producers.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0339a extends m<com.facebook.imagepipeline.f.d, com.facebook.imagepipeline.f.d> {
-        private C0339a(j<com.facebook.imagepipeline.f.d> jVar) {
+    private static class C0342a extends m<com.facebook.imagepipeline.f.d, com.facebook.imagepipeline.f.d> {
+        private C0342a(j<com.facebook.imagepipeline.f.d> jVar) {
             super(jVar);
         }
 
@@ -25,13 +25,13 @@ public class a implements ai<com.facebook.imagepipeline.f.d> {
         /* renamed from: a */
         public void d(com.facebook.imagepipeline.f.d dVar, boolean z) {
             if (dVar == null) {
-                czH().e(null, z);
+                czR().e(null, z);
                 return;
             }
             if (!com.facebook.imagepipeline.f.d.d(dVar)) {
-                dVar.cyF();
+                dVar.cyP();
             }
-            czH().e(dVar, z);
+            czR().e(dVar, z);
         }
     }
 }

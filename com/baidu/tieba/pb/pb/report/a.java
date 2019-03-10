@@ -28,45 +28,45 @@ public class a implements com.baidu.tieba.ueg.a {
                 UEGReportResponsedMessage uEGReportResponsedMessage = (UEGReportResponsedMessage) httpResponsedMessage;
                 String url = uEGReportResponsedMessage.getUrl();
                 if (!StringUtils.isNull(url)) {
-                    a.this.Al(url);
+                    a.this.Am(url);
                     return;
                 }
                 String errorString = uEGReportResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString)) {
                     errorString = a.this.mContext.getString(d.j.neterror);
                 }
-                a.this.hBt.j(errorString);
+                a.this.hBu.j(errorString);
             }
         }
     };
-    private b hBs = new b();
-    private e hBt = new e();
+    private b hBt = new b();
+    private e hBu = new e();
     private Context mContext;
     private com.baidu.tbadk.core.view.b mWaitingDialog;
 
     public a(Context context) {
         this.mContext = context;
-        this.hBt.bPN = 1000L;
+        this.hBu.bPN = 1000L;
     }
 
     @Override // com.baidu.tieba.ueg.a
     public void p(BdUniqueId bdUniqueId) {
         this.Zq = bdUniqueId;
-        this.hBs.setTag(bdUniqueId);
+        this.hBt.setTag(bdUniqueId);
         this.bKq.setTag(bdUniqueId);
         this.bKq.setSelfListener(true);
         MessageManager.getInstance().registerListener(this.bKq);
     }
 
-    public void Ak(String str) {
+    public void Al(String str) {
         showLoadingDialog();
-        this.hBs.Ak(str);
+        this.hBt.Al(str);
     }
 
     @Override // com.baidu.tieba.ueg.a
-    public void ti(String str) {
+    public void tj(String str) {
         showLoadingDialog();
-        this.hBs.ti(str);
+        this.hBt.tj(str);
     }
 
     private void showLoadingDialog() {
@@ -94,7 +94,7 @@ public class a implements com.baidu.tieba.ueg.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Al(String str) {
+    public void Am(String str) {
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.mContext, this.mContext.getString(d.j.pb_web_view_report_title), str, true)));
     }
 }

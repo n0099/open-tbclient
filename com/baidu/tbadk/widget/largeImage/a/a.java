@@ -38,7 +38,7 @@ public class a {
         this.aIf = new Canvas();
     }
 
-    public void aru() {
+    public void arv() {
         if (this.mBitmap != null && !this.mBitmap.isRecycled() && this.mBitmap.isMutable()) {
             this.aIf.setBitmap(this.mBitmap);
             this.aIf.drawColor(-1, PorterDuff.Mode.CLEAR);
@@ -57,11 +57,11 @@ public class a {
         return this.mBitmap;
     }
 
-    public Rect arv() {
+    public Rect arw() {
         return this.cyJ;
     }
 
-    public Rect arw() {
+    public Rect arx() {
         return this.cyK;
     }
 
@@ -79,11 +79,11 @@ public class a {
         this.cyI.cyN = i3;
     }
 
-    public C0212a arx() {
+    public C0212a ary() {
         return this.cyI;
     }
 
-    public Rect ary() {
+    public Rect arz() {
         int i = this.cyM * this.cyI.column * this.cyI.cyN;
         int i2 = this.cyM * this.cyI.row * this.cyI.cyN;
         this.cyL.set(i, i2, (this.cyM * this.cyI.cyN) + i, (this.cyM * this.cyI.cyN) + i2);
@@ -113,7 +113,7 @@ public class a {
         public boolean equals(Object obj) {
             if (obj instanceof C0212a) {
                 C0212a c0212a = (C0212a) obj;
-                return this.row == c0212a.getRow() && this.column == c0212a.amX() && this.cyN == c0212a.arz();
+                return this.row == c0212a.getRow() && this.column == c0212a.amX() && this.cyN == c0212a.arA();
             }
             return false;
         }
@@ -130,7 +130,7 @@ public class a {
             return this.column;
         }
 
-        public int arz() {
+        public int arA() {
             return this.cyN;
         }
     }

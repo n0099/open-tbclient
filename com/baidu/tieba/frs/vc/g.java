@@ -57,7 +57,7 @@ public class g {
         this.mBdUniqueId = bdUniqueId;
     }
 
-    public boolean bjm() {
+    public boolean bjn() {
         return this.dqK != null && this.dqK.getVisibility() == 0;
     }
 
@@ -100,7 +100,7 @@ public class g {
                 this.dqL.setLayoutParams(layoutParams2);
             }
             if (this.dqK != null) {
-                this.dqK.auU();
+                this.dqK.auV();
             }
         }
     }

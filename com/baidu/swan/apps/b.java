@@ -2001,15 +2001,15 @@ public final class b {
         public static final int swan_webview_show_file_chooser_failed = 2131232830;
         public static final int swanapp_copy = 2131232831;
         public static final int swanapp_search = 2131232832;
-        public static final int united_scheme_err_message_action_acl_check_fail = 2131232991;
-        public static final int united_scheme_err_message_action_allow_close = 2131232992;
-        public static final int united_scheme_err_message_action_notfound = 2131232993;
-        public static final int united_scheme_err_message_action_sec_check_fail = 2131232994;
-        public static final int united_scheme_err_message_module_notfound = 2131232995;
-        public static final int united_scheme_err_message_not_support = 2131232996;
-        public static final int united_scheme_err_message_ok = 2131232997;
-        public static final int united_scheme_err_message_params_parse_fail = 2131232998;
-        public static final int united_scheme_err_message_parse_fail = 2131232999;
+        public static final int united_scheme_err_message_action_acl_check_fail = 2131232992;
+        public static final int united_scheme_err_message_action_allow_close = 2131232993;
+        public static final int united_scheme_err_message_action_notfound = 2131232994;
+        public static final int united_scheme_err_message_action_sec_check_fail = 2131232995;
+        public static final int united_scheme_err_message_module_notfound = 2131232996;
+        public static final int united_scheme_err_message_not_support = 2131232997;
+        public static final int united_scheme_err_message_ok = 2131232998;
+        public static final int united_scheme_err_message_params_parse_fail = 2131232999;
+        public static final int united_scheme_err_message_parse_fail = 2131233000;
     }
 
     /* loaded from: classes.dex */

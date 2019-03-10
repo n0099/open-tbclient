@@ -19,8 +19,8 @@ public class ImageProblemItemView extends FrameLayout {
     protected TextView ahH;
     protected LinearLayout ceE;
     protected TextView ceF;
-    protected LinearLayout gCE;
-    protected TextView gCF;
+    protected LinearLayout gCF;
+    protected TextView gCG;
     protected Context mContext;
 
     public ImageProblemItemView(Context context, AttributeSet attributeSet) {
@@ -68,19 +68,19 @@ public class ImageProblemItemView extends FrameLayout {
 
     public void setHelpText(String str) {
         if (TextUtils.isEmpty(str)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gCE.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gCF.getLayoutParams();
             layoutParams.bottomMargin = (int) getResources().getDimension(d.e.ds26);
-            this.gCE.setLayoutParams(layoutParams);
-            this.gCF.setText("");
-            this.gCF.setVisibility(8);
+            this.gCF.setLayoutParams(layoutParams);
+            this.gCG.setText("");
+            this.gCG.setVisibility(8);
             return;
         }
-        this.gCE.setVisibility(0);
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gCE.getLayoutParams();
-        layoutParams2.bottomMargin = (int) getResources().getDimension(d.e.ds10);
-        this.gCE.setLayoutParams(layoutParams2);
-        this.gCF.setText(str);
         this.gCF.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.gCF.getLayoutParams();
+        layoutParams2.bottomMargin = (int) getResources().getDimension(d.e.ds10);
+        this.gCF.setLayoutParams(layoutParams2);
+        this.gCG.setText(str);
+        this.gCG.setVisibility(0);
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -120,8 +120,8 @@ public class ImageProblemItemView extends FrameLayout {
         this.ahH = (TextView) findViewById(d.g.text);
         this.ceF = (TextView) findViewById(d.g.tip);
         this.agD = (ImageView) findViewById(d.g.arrow2);
-        this.gCE = (LinearLayout) findViewById(d.g.ll_container);
-        this.gCF = (TextView) findViewById(d.g.tv_help);
+        this.gCF = (LinearLayout) findViewById(d.g.ll_container);
+        this.gCG = (TextView) findViewById(d.g.tv_help);
     }
 
     protected void c(AttributeSet attributeSet) {

@@ -5,76 +5,76 @@ import com.baidu.tieba.lego.card.f;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    private final String gGJ;
-    private final int gGK;
-    private final String gGL;
+    private final String gGK;
+    private final int gGL;
     private final String gGM;
-    private final int gGN;
-    private final String gGO;
+    private final String gGN;
+    private final int gGO;
     private final String gGP;
     private final String gGQ;
-    private boolean gGR = false;
+    private final String gGR;
     private boolean gGS = false;
+    private boolean gGT = false;
     private final String mIconUrl;
 
     public a(JSONObject jSONObject) {
         this.mIconUrl = jSONObject.optString("bIcon");
-        this.gGJ = jSONObject.optString("bIconN");
-        this.gGK = jSONObject.optInt("bIconType");
-        this.gGL = jSONObject.optString("bSelIcon");
-        this.gGM = jSONObject.optString("bSelIconN");
-        this.gGN = jSONObject.optInt("bSelIconType");
-        this.gGO = jSONObject.optString("clickAction");
-        this.gGP = jSONObject.optString("preAction");
-        this.gGQ = jSONObject.optString("statKey");
+        this.gGK = jSONObject.optString("bIconN");
+        this.gGL = jSONObject.optInt("bIconType");
+        this.gGM = jSONObject.optString("bSelIcon");
+        this.gGN = jSONObject.optString("bSelIconN");
+        this.gGO = jSONObject.optInt("bSelIconType");
+        this.gGP = jSONObject.optString("clickAction");
+        this.gGQ = jSONObject.optString("preAction");
+        this.gGR = jSONObject.optString("statKey");
     }
 
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.mIconUrl) && TextUtils.isEmpty(this.gGJ) && TextUtils.isEmpty(this.gGL) && TextUtils.isEmpty(this.gGM) && TextUtils.isEmpty(this.gGO) && TextUtils.isEmpty(this.gGP) && TextUtils.isEmpty(this.gGQ) && this.gGK == 0 && this.gGN == 0) ? false : true;
-    }
-
-    public String bzP() {
-        return this.gGO;
+        return (TextUtils.isEmpty(this.mIconUrl) && TextUtils.isEmpty(this.gGK) && TextUtils.isEmpty(this.gGM) && TextUtils.isEmpty(this.gGN) && TextUtils.isEmpty(this.gGP) && TextUtils.isEmpty(this.gGQ) && TextUtils.isEmpty(this.gGR) && this.gGL == 0 && this.gGO == 0) ? false : true;
     }
 
     public String bzQ() {
         return this.gGP;
     }
 
-    public boolean bzR() {
-        return this.gGR;
-    }
-
-    public void lX(boolean z) {
-        this.gGR = z;
+    public String bzR() {
+        return this.gGQ;
     }
 
     public boolean bzS() {
         return this.gGS;
     }
 
-    public void lY(boolean z) {
+    public void lX(boolean z) {
         this.gGS = z;
     }
 
-    public String bzT() {
-        return this.gGQ;
+    public boolean bzT() {
+        return this.gGT;
     }
 
-    public boolean bzU() {
-        return bzW() > 0;
+    public void lY(boolean z) {
+        this.gGT = z;
+    }
+
+    public String bzU() {
+        return this.gGR;
+    }
+
+    public boolean bzV() {
+        return bzX() > 0;
     }
 
     public String getImageUrl() {
-        return this.gGR ? this.gGL : this.mIconUrl;
+        return this.gGS ? this.gGM : this.mIconUrl;
     }
 
-    public String bzV() {
-        return this.gGR ? this.gGM : this.gGJ;
+    public String bzW() {
+        return this.gGS ? this.gGN : this.gGK;
     }
 
-    public int bzW() {
-        return uO(this.gGR ? this.gGN : this.gGK);
+    public int bzX() {
+        return uO(this.gGS ? this.gGO : this.gGL);
     }
 
     private static int uO(int i) {

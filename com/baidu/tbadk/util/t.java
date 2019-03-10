@@ -16,7 +16,7 @@ public class t {
     private static t ctB = null;
     private CustomMessageListener mNetworkChangedListener;
 
-    public static t aqe() {
+    public static t aqf() {
         if (ctB == null) {
             synchronized (ctA) {
                 if (ctB == null) {
@@ -34,7 +34,7 @@ public class t {
     public void UX() {
         try {
             if (this.mNetworkChangedListener == null) {
-                this.mNetworkChangedListener = aqf();
+                this.mNetworkChangedListener = aqg();
                 MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
             }
         } catch (Exception e) {
@@ -43,26 +43,26 @@ public class t {
         }
     }
 
-    private CustomMessageListener aqf() {
+    private CustomMessageListener aqg() {
         return new CustomMessageListener(2000994) { // from class: com.baidu.tbadk.util.t.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                    t.this.aqg();
+                    t.this.aqh();
                 }
             }
         };
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aqg() {
+    public void aqh() {
         try {
             boolean kY = com.baidu.adp.lib.util.j.kY();
             if (kY) {
                 if (com.baidu.adp.lib.util.j.kZ()) {
                     ar.adp().dE(true);
-                    com.baidu.tieba.recapp.d.a.bXw().BH(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
+                    com.baidu.tieba.recapp.d.a.bXx().BI(((WifiManager) TbadkCoreApplication.getInst().getSystemService("wifi")).getConnectionInfo().getBSSID());
                 } else if (com.baidu.adp.lib.util.j.la()) {
                     ar.adp().dE(false);
                 }

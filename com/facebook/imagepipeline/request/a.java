@@ -13,44 +13,44 @@ import javax.annotation.concurrent.Immutable;
 /* loaded from: classes2.dex */
 public class a {
     @Nullable
-    private final List<b> jLQ;
-    private final boolean jLR;
+    private final List<b> jMj;
+    private final boolean jMk;
     private final String mMediaId;
     private final String mSource;
 
-    private a(C0341a c0341a) {
-        this.mMediaId = c0341a.mMediaId;
-        this.jLQ = c0341a.jLQ;
-        this.jLR = c0341a.jLR;
-        this.mSource = c0341a.mSource;
+    private a(C0344a c0344a) {
+        this.mMediaId = c0344a.mMediaId;
+        this.jMj = c0344a.jMj;
+        this.jMk = c0344a.jMk;
+        this.mSource = c0344a.mSource;
     }
 
     public String getMediaId() {
         return this.mMediaId;
     }
 
-    public int cAw() {
-        if (this.jLQ == null) {
+    public int cAG() {
+        if (this.jMj == null) {
             return 0;
         }
-        return this.jLQ.size();
+        return this.jMj.size();
     }
 
     public List<b> a(Comparator<b> comparator) {
-        int cAw = cAw();
-        if (cAw == 0) {
+        int cAG = cAG();
+        if (cAG == 0) {
             return Collections.emptyList();
         }
-        ArrayList arrayList = new ArrayList(cAw);
-        for (int i = 0; i < cAw; i++) {
-            arrayList.add(this.jLQ.get(i));
+        ArrayList arrayList = new ArrayList(cAG);
+        for (int i = 0; i < cAG; i++) {
+            arrayList.add(this.jMj.get(i));
         }
         Collections.sort(arrayList, comparator);
         return arrayList;
     }
 
-    public boolean cAx() {
-        return this.jLR;
+    public boolean cAH() {
+        return this.jMk;
     }
 
     public String getSource() {
@@ -60,23 +60,23 @@ public class a {
     public boolean equals(Object obj) {
         if (obj instanceof a) {
             a aVar = (a) obj;
-            return f.equal(this.mMediaId, aVar.mMediaId) && this.jLR == aVar.jLR && f.equal(this.jLQ, aVar.jLQ);
+            return f.equal(this.mMediaId, aVar.mMediaId) && this.jMk == aVar.jMk && f.equal(this.jMj, aVar.jMj);
         }
         return false;
     }
 
     public int hashCode() {
-        return f.hashCode(this.mMediaId, Boolean.valueOf(this.jLR), this.jLQ, this.mSource);
+        return f.hashCode(this.mMediaId, Boolean.valueOf(this.jMk), this.jMj, this.mSource);
     }
 
     public String toString() {
-        return String.format(null, "%s-%b-%s-%s", this.mMediaId, Boolean.valueOf(this.jLR), this.jLQ, this.mSource);
+        return String.format(null, "%s-%b-%s-%s", this.mMediaId, Boolean.valueOf(this.jMk), this.jMj, this.mSource);
     }
 
     /* loaded from: classes2.dex */
     public static final class b {
         @Nullable
-        private final ImageRequest.CacheChoice jLH;
+        private final ImageRequest.CacheChoice jMa;
         private final int mHeight;
         private final Uri mUri;
         private final int mWidth;
@@ -85,7 +85,7 @@ public class a {
             this.mUri = uri;
             this.mWidth = i;
             this.mHeight = i2;
-            this.jLH = cacheChoice;
+            this.jMa = cacheChoice;
         }
 
         public Uri getUri() {
@@ -101,14 +101,14 @@ public class a {
         }
 
         @Nullable
-        public ImageRequest.CacheChoice cAg() {
-            return this.jLH;
+        public ImageRequest.CacheChoice cAq() {
+            return this.jMa;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof b) {
                 b bVar = (b) obj;
-                return f.equal(this.mUri, bVar.mUri) && this.mWidth == bVar.mWidth && this.mHeight == bVar.mHeight && this.jLH == bVar.jLH;
+                return f.equal(this.mUri, bVar.mUri) && this.mWidth == bVar.mWidth && this.mHeight == bVar.mHeight && this.jMa == bVar.jMa;
             }
             return false;
         }
@@ -118,47 +118,47 @@ public class a {
         }
 
         public String toString() {
-            return String.format(null, "%dx%d %s %s", Integer.valueOf(this.mWidth), Integer.valueOf(this.mHeight), this.mUri, this.jLH);
+            return String.format(null, "%dx%d %s %s", Integer.valueOf(this.mWidth), Integer.valueOf(this.mHeight), this.mUri, this.jMa);
         }
     }
 
-    public static C0341a FM(String str) {
-        return new C0341a(str);
+    public static C0344a FP(String str) {
+        return new C0344a(str);
     }
 
     /* renamed from: com.facebook.imagepipeline.request.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0341a {
-        private List<b> jLQ;
-        private boolean jLR;
+    public static class C0344a {
+        private List<b> jMj;
+        private boolean jMk;
         private final String mMediaId;
         private String mSource;
 
-        private C0341a(String str) {
-            this.jLR = false;
+        private C0344a(String str) {
+            this.jMk = false;
             this.mSource = "request";
             this.mMediaId = str;
         }
 
-        public C0341a a(Uri uri, int i, int i2, ImageRequest.CacheChoice cacheChoice) {
-            if (this.jLQ == null) {
-                this.jLQ = new ArrayList();
+        public C0344a a(Uri uri, int i, int i2, ImageRequest.CacheChoice cacheChoice) {
+            if (this.jMj == null) {
+                this.jMj = new ArrayList();
             }
-            this.jLQ.add(new b(uri, i, i2, cacheChoice));
+            this.jMj.add(new b(uri, i, i2, cacheChoice));
             return this;
         }
 
-        public C0341a ry(boolean z) {
-            this.jLR = z;
+        public C0344a ry(boolean z) {
+            this.jMk = z;
             return this;
         }
 
-        public C0341a FN(String str) {
+        public C0344a FQ(String str) {
             this.mSource = str;
             return this;
         }
 
-        public a cAy() {
+        public a cAI() {
             return new a(this);
         }
     }

@@ -31,11 +31,11 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.b bVar, com.baidu.tieba.card.a.a aVar) {
-        if (aVar.aRi() == null) {
+        if (aVar.aRj() == null) {
             return null;
         }
-        aVar.aRi().a(bVar);
-        com.baidu.tieba.card.t.aQF().b(new am("c10714").bJ("obj_param3", com.baidu.tieba.card.n.aQx()));
+        aVar.aRj().a(bVar);
+        com.baidu.tieba.card.t.aQG().b(new am("c10714").bJ("obj_param3", com.baidu.tieba.card.n.aQy()));
         return aVar.getView();
     }
 

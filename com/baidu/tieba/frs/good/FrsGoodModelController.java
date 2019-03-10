@@ -100,7 +100,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         bundle.putBoolean(FrsActivityConfig.IS_SELECTION, this.fpA);
     }
 
-    public boolean bhn() {
+    public boolean bho() {
         FrsRequestData frsRequestData = (FrsRequestData) FrsRequestData.objectWithJson(FrsRequestData.jsonWithObject(this.fpW), FrsRequestData.class);
         frsRequestData.setPn(1);
         a(frsRequestData, 3);
@@ -153,7 +153,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
             }
             frsRequestData.setUpdateType(this.mType);
             frsRequestData.setNeedCache(false);
-            bhp();
+            bhq();
         }
     }
 
@@ -165,7 +165,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
                 this.fpW = frsRequestData;
                 this.mPn = this.fpW.getPn();
                 this.eYL = this.fpW.getKw();
-                this.fpU.vx(this.eYL);
+                this.fpU.vy(this.eYL);
                 this.fpU.setFrom(this.mFrom);
                 this.fpU.setPn(this.mPn);
                 this.fpU.setFlag(this.mFlag);
@@ -183,11 +183,11 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         FrsRequestData frsRequestData;
         if (mvcSocketResponsedMessage != null) {
             e.b bVar = new e.b();
-            bVar.iDX = mvcSocketResponsedMessage.getError() < -13 || mvcSocketResponsedMessage.getError() > -10;
+            bVar.iDY = mvcSocketResponsedMessage.getError() < -13 || mvcSocketResponsedMessage.getError() > -10;
             bVar.isSuccess = !mvcSocketResponsedMessage.hasError();
             bVar.errorCode = mvcSocketResponsedMessage.getError();
             bVar.errorMsg = mvcSocketResponsedMessage.getErrorString();
-            bVar.iDY = mvcSocketResponsedMessage.getDownSize();
+            bVar.iDZ = mvcSocketResponsedMessage.getDownSize();
             this.fpX = bVar;
             FrsRequestData frsRequestData2 = null;
             j data = mvcSocketResponsedMessage.getData();
@@ -228,11 +228,11 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         FrsRequestData frsRequestData;
         if (mvcHttpResponsedMessage != null) {
             e.b bVar = new e.b();
-            bVar.iDX = mvcHttpResponsedMessage.getError() < -13 || mvcHttpResponsedMessage.getError() > -10;
+            bVar.iDY = mvcHttpResponsedMessage.getError() < -13 || mvcHttpResponsedMessage.getError() > -10;
             bVar.isSuccess = !mvcHttpResponsedMessage.hasError();
             bVar.errorCode = mvcHttpResponsedMessage.getError();
             bVar.errorMsg = mvcHttpResponsedMessage.getErrorString();
-            bVar.iDY = mvcHttpResponsedMessage.getDownSize();
+            bVar.iDZ = mvcHttpResponsedMessage.getDownSize();
             this.fpX = bVar;
             FrsRequestData frsRequestData2 = null;
             j data = mvcHttpResponsedMessage.getData();
@@ -266,7 +266,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         }
     }
 
-    public void bcL() {
+    public void bcM() {
         if (this.eYw != null && this.eYw.getForum() != null && this.eYw.getForum().getBannerListData() != null) {
             String lastIds = this.eYw.getForum().getBannerListData().getLastIds();
             if (!TextUtils.isEmpty(lastIds)) {
@@ -279,28 +279,28 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         return this.mType;
     }
 
-    public FrsViewData bho() {
+    public FrsViewData bhp() {
         return this.eYw;
     }
 
-    private void bhp() {
+    private void bhq() {
         this.eDT = System.currentTimeMillis();
         this.fpV.aov();
     }
 
-    public long aWR() {
+    public long aWS() {
         return this.eDW;
     }
 
-    public long aWS() {
+    public long aWT() {
         return this.eDU;
     }
 
-    public long aWT() {
+    public long aWU() {
         return this.eDV;
     }
 
-    public long aWU() {
+    public long aWV() {
         return this.eDT;
     }
 
@@ -310,10 +310,10 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
 
     public void mf(int i) {
         this.fpZ = i;
-        bhn();
+        bho();
     }
 
-    public boolean bhq() {
+    public boolean bhr() {
         return this.fpZ < 100;
     }
 

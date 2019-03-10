@@ -45,20 +45,20 @@ public class a {
                 a.this.fij.dismiss();
             } else {
                 a.this.fim = true;
-                a.this.vj(vVar.name);
-                if (a.this.fih.bhV() != null) {
+                a.this.vk(vVar.name);
+                if (a.this.fih.bhW() != null) {
                     a.this.fil = vVar.fcB;
                     a.this.fij.dismiss();
                     if (a.this.fil != 7) {
-                        y.aqo();
-                        e.cfp();
+                        y.aqp();
+                        e.cfq();
                     } else {
-                        e.cfo();
+                        e.cfp();
                     }
-                    if (a.this.fih.bhV() != null && a.this.fih.bhW() != null) {
-                        a.this.fih.bhV().rc(vVar.fcB);
-                        a.this.fih.bhW().startPullRefresh();
-                        a.this.bfO();
+                    if (a.this.fih.bhW() != null && a.this.fih.bhX() != null) {
+                        a.this.fih.bhW().rc(vVar.fcB);
+                        a.this.fih.bhX().startPullRefresh();
+                        a.this.bfP();
                     }
                 }
             }
@@ -67,7 +67,7 @@ public class a {
     private View.OnClickListener fio = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!com.baidu.tieba.frs.a.bbF().bbG()) {
+            if (!com.baidu.tieba.frs.a.bbG().bbH()) {
                 if (!j.kM()) {
                     a.this.fih.showToast(d.j.neterror);
                 } else if (!com.baidu.tbadk.core.util.v.T(a.this.fik)) {
@@ -92,7 +92,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vj(String str) {
+    public void vk(String str) {
         this.eBq.setText(str);
     }
 
@@ -113,7 +113,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bfO() {
+    public void bfP() {
         am amVar = new am("c11437");
         amVar.T("obj_type", this.fil);
         amVar.bJ(ImageViewerConfig.FORUM_ID, this.ele);
@@ -143,9 +143,9 @@ public class a {
 
     public void setData(List<FrsTabInfo> list, int i) {
         if (com.baidu.tbadk.core.util.v.T(list)) {
+            bfR();
+        } else if (this.fih != null && this.fih.bhW() != null) {
             bfQ();
-        } else if (this.fih != null && this.fih.bhV() != null) {
-            bfP();
             ArrayList arrayList = new ArrayList(list);
             if (!bW(arrayList)) {
                 if (!this.fim) {
@@ -167,7 +167,7 @@ public class a {
                 qC(i);
             }
         } else {
-            bfQ();
+            bfR();
         }
     }
 
@@ -179,9 +179,9 @@ public class a {
             v vVar3 = this.fik.get(0);
             if (vVar3 != null) {
                 qB(vVar3.fcB);
-                vj(vVar3.name);
-                if (this.fih != null && this.fih.bhV() != null) {
-                    this.fih.bhV().rc(vVar3.fcB);
+                vk(vVar3.name);
+                if (this.fih != null && this.fih.bhW() != null) {
+                    this.fih.bhW().rc(vVar3.fcB);
                     return;
                 }
                 return;
@@ -208,22 +208,22 @@ public class a {
         }
         if (!z) {
             if (TbadkCoreApplication.isLogin() && i == 6) {
-                vj(TbadkCoreApplication.getInst().getResources().getString(d.j.attention_users_thread));
+                vk(TbadkCoreApplication.getInst().getResources().getString(d.j.attention_users_thread));
                 return;
             }
             v vVar4 = this.fik.get(0);
             if (vVar4 != null) {
                 qB(vVar4.fcB);
-                vj(vVar4.name);
-                if (this.fih != null && this.fih.bhV() != null) {
-                    this.fih.bhV().rc(vVar4.fcB);
+                vk(vVar4.name);
+                if (this.fih != null && this.fih.bhW() != null) {
+                    this.fih.bhW().rc(vVar4.fcB);
                 }
             }
         } else if (vVar != null) {
             qB(vVar.fcB);
-            vj(vVar.name);
-            if (this.fih != null && this.fih.bhV() != null) {
-                this.fih.bhV().rc(vVar.fcB);
+            vk(vVar.name);
+            if (this.fih != null && this.fih.bhW() != null) {
+                this.fih.bhW().rc(vVar.fcB);
             }
         }
     }
@@ -239,13 +239,13 @@ public class a {
         return true;
     }
 
-    private void bfP() {
+    private void bfQ() {
         if (this.eBq != null) {
             this.eBq.setVisibility(0);
         }
     }
 
-    private void bfQ() {
+    private void bfR() {
         if (this.eBq != null) {
             this.eBq.setVisibility(8);
         }

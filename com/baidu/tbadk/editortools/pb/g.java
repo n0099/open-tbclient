@@ -87,7 +87,7 @@ public class g extends com.baidu.tbadk.editortools.d {
                     writeData.setVcodeMD5(xVar.getVcode_md5());
                     writeData.setVcodeUrl(xVar.getVcode_pic_url());
                     writeData.setVcodeExtra(xVar.agE());
-                    if (com.baidu.tbadk.u.a.pU(xVar.agD())) {
+                    if (com.baidu.tbadk.u.a.pV(xVar.agD())) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(g.this.agj().getPageActivity(), IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG, writeData, false, xVar.agD())));
                     } else {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(g.this.agj().getPageActivity(), writeData, IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_REG)));
@@ -252,7 +252,7 @@ public class g extends com.baidu.tbadk.editortools.d {
                 this.cke.getWriteData().setVoice(null);
                 this.cke.getWriteData().setVoiceDuringTime(-1);
             }
-            if (!this.cke.cfC()) {
+            if (!this.cke.cfD()) {
                 agj().showToast(d.j.write_img_limit);
             } else if (this.ckm == null || !this.ckm.amr()) {
                 if (this.ckl != null) {

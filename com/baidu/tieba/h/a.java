@@ -24,39 +24,39 @@ public class a {
         }
     }
 
-    public String bkl() {
+    public String bkm() {
         return this.mTitle;
     }
 
-    public String bkm() {
+    public String bkn() {
         return this.fAF;
     }
 
-    public String bkn() {
+    public String bko() {
         return this.fAG;
     }
 
-    public String bko() {
+    public String bkp() {
         return this.fAH;
     }
 
-    public String bkp() {
+    public String bkq() {
         return this.fAI;
     }
 
-    public String bkq() {
+    public String bkr() {
         return this.mImgUrl;
     }
 
-    public void vT(String str) {
+    public void vU(String str) {
         this.mImgUrl = str;
     }
 
-    public String bkr() {
+    public String bks() {
         return this.cNa;
     }
 
-    public void vU(String str) {
+    public void vV(String str) {
         this.cNa = str;
     }
 }

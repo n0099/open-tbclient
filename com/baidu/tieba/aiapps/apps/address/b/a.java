@@ -34,7 +34,7 @@ public class a {
         private static final a cSm = new a();
     }
 
-    public static a ayp() {
+    public static a ayq() {
         return c.cSm;
     }
 
@@ -62,7 +62,7 @@ public class a {
         a(null, bVar, linkedHashMap, IntentConfig.LIST);
     }
 
-    public List<com.baidu.tieba.aiapps.apps.address.c.b> ayq() {
+    public List<com.baidu.tieba.aiapps.apps.address.c.b> ayr() {
         String ap = com.baidu.swan.c.b.ap(AppRuntime.getAppContext(), "delivery_data.json");
         if (!TextUtils.isEmpty(ap)) {
             try {
@@ -76,7 +76,7 @@ public class a {
         return this.cRG;
     }
 
-    public void ayr() {
+    public void ays() {
         j.a(new Runnable() { // from class: com.baidu.tieba.aiapps.apps.address.b.a.1
             @Override // java.lang.Runnable
             public void run() {
@@ -85,7 +85,7 @@ public class a {
         }, "saveCacheToLocal");
     }
 
-    public List<com.baidu.tieba.aiapps.apps.address.c.b> ays() {
+    public List<com.baidu.tieba.aiapps.apps.address.c.b> ayt() {
         if (this.cRG == null) {
             this.cRG = new ArrayList();
         }
@@ -157,8 +157,8 @@ public class a {
                 }
             }
         }
-        String rs = rs(str);
-        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(rs)).addParam("data", jSONObject.toString()).cookieManager(com.baidu.tieba.aiapps.apps.a.a.Dp())).build().executeAsyncOnUIBack(bVar3);
+        String rt = rt(str);
+        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) HttpManager.getDefault(AppRuntime.getAppContext()).postFormRequest().url(rt)).addParam("data", jSONObject.toString()).cookieManager(com.baidu.tieba.aiapps.apps.a.a.Dp())).build().executeAsyncOnUIBack(bVar3);
     }
 
     private Map<String, String> a(com.baidu.tieba.aiapps.apps.address.c.b bVar) {
@@ -208,12 +208,12 @@ public class a {
         /* renamed from: I */
         public void onSuccess(String str, int i) {
             if (this.cSl != null) {
-                this.cSl.ayl();
+                this.cSl.aym();
                 if (!TextUtils.isEmpty(str) && i == 200) {
                     try {
                         JSONObject jSONObject = new JSONObject(str);
                         if (!TextUtils.equals(jSONObject.optString("errno"), "0")) {
-                            this.cSl.rq(jSONObject.optString("tipmsg"));
+                            this.cSl.rr(jSONObject.optString("tipmsg"));
                             return;
                         }
                         String str2 = this.mType;
@@ -252,10 +252,10 @@ public class a {
                         }
                         switch (c) {
                             case 0:
-                                List<com.baidu.tieba.aiapps.apps.address.c.b> rw = com.baidu.tieba.aiapps.apps.address.c.c.rw(str);
-                                a.this.cRG = rw;
-                                this.cSl.g(rw, i);
-                                a.this.ayr();
+                                List<com.baidu.tieba.aiapps.apps.address.c.b> rx2 = com.baidu.tieba.aiapps.apps.address.c.c.rx(str);
+                                a.this.cRG = rx2;
+                                this.cSl.g(rx2, i);
+                                a.this.ays();
                                 return;
                             case 1:
                                 this.cSl.am(str, i);
@@ -287,13 +287,13 @@ public class a {
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             if (this.cSl != null) {
-                this.cSl.ayl();
+                this.cSl.aym();
                 this.cSl.onFailure();
             }
         }
     }
 
-    private String rs(String str) {
+    private String rt(String str) {
         String str2 = "";
         char c2 = 65535;
         switch (str.hashCode()) {
@@ -351,7 +351,7 @@ public class a {
                 break;
         }
         if (!TextUtils.isEmpty(str2)) {
-            return d.rx(d.ayR() + str2);
+            return d.ry(d.ayS() + str2);
         }
         return str2;
     }
@@ -360,7 +360,7 @@ public class a {
     /* loaded from: classes4.dex */
     public static class C0226a implements com.baidu.tieba.aiapps.apps.address.b.b {
         @Override // com.baidu.tieba.aiapps.apps.address.b.b
-        public void ayl() {
+        public void aym() {
         }
 
         @Override // com.baidu.tieba.aiapps.apps.address.b.b
@@ -384,7 +384,7 @@ public class a {
         }
 
         @Override // com.baidu.tieba.aiapps.apps.address.b.b
-        public void rq(String str) {
+        public void rr(String str) {
         }
     }
 }

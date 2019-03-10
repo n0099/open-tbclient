@@ -20,19 +20,19 @@ public abstract class b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bis();
+    public abstract void bit();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void bit();
+    public abstract void biu();
 
     public b(g gVar, Intent intent) {
         this.fur = true;
         this.fgJ = false;
         this.fup = gVar;
         this.mIntent = intent;
-        e vK = d.biy().vK(this.mIntent.getStringExtra("info_forum_name_text"));
-        this.fur = vK.biA();
-        this.fgJ = vK.biz();
+        e vL = d.biz().vL(this.mIntent.getStringExtra("info_forum_name_text"));
+        this.fur = vL.biB();
+        this.fgJ = vL.biA();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.fup.fuE.getLayoutParams();
         if (layoutParams != null) {
             layoutParams.topMargin = this.fgJ ? l.h(TbadkCoreApplication.getInst(), d.e.tbds152) : l.h(TbadkCoreApplication.getInst(), d.e.tbds121);

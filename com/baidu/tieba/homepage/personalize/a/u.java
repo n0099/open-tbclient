@@ -48,12 +48,12 @@ public class u extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.personalize.data.g gVar, com.baidu.tieba.card.a.a<a> aVar) {
-        if (gVar == null || aVar == null || aVar.aRi() == null) {
+        if (gVar == null || aVar == null || aVar.aRj() == null) {
             return null;
         }
         TiebaStatic.log(new am("c12884"));
-        aVar.aRi().a(gVar);
-        return aVar.aRi().getView();
+        aVar.aRj().a(gVar);
+        return aVar.aRj().getView();
     }
 
     /* loaded from: classes4.dex */

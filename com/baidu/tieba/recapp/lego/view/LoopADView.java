@@ -16,12 +16,12 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes3.dex */
 public class LoopADView extends LinearLayout {
-    private a ikl;
-    private int ikm;
+    private a ikm;
     private int ikn;
-    private Resources iko;
-    private AdCard.d[] ikp;
-    private int ikq;
+    private int iko;
+    private Resources ikp;
+    private AdCard.d[] ikq;
+    private int ikr;
     private Context mContext;
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -33,7 +33,7 @@ public class LoopADView extends LinearLayout {
 
     /* loaded from: classes3.dex */
     public interface a {
-        String BD(String str);
+        String BE(String str);
 
         void b(TbImageView tbImageView, AdCard.b bVar);
 
@@ -41,7 +41,7 @@ public class LoopADView extends LinearLayout {
     }
 
     public void setBussinessType(int i) {
-        this.ikq = i;
+        this.ikr = i;
     }
 
     public LoopADView(Context context) {
@@ -55,13 +55,13 @@ public class LoopADView extends LinearLayout {
     public LoopADView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = null;
-        this.ikl = null;
-        this.ikm = 0;
+        this.ikm = null;
         this.ikn = 0;
-        this.iko = null;
+        this.iko = 0;
         this.ikp = null;
+        this.ikq = null;
         this.mContext = context.getApplicationContext();
-        this.iko = this.mContext.getResources();
+        this.ikp = this.mContext.getResources();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
         layoutParams.gravity = 17;
         setLayoutParams(layoutParams);
@@ -69,20 +69,20 @@ public class LoopADView extends LinearLayout {
     }
 
     public void a(AdCard.d[] dVarArr, int i, int i2, int i3, int i4) {
-        if (dVarArr != null && dVarArr.length > 0 && i3 <= i2 && dVarArr != this.ikp) {
-            this.ikp = dVarArr;
+        if (dVarArr != null && dVarArr.length > 0 && i3 <= i2 && dVarArr != this.ikq) {
+            this.ikq = dVarArr;
             if (i2 == 0 || i3 == 0) {
-                if (this.ikq == 2 || this.ikq == 1) {
-                    i2 = (int) this.iko.getDimension(d.e.ds570);
-                    i3 = (int) this.iko.getDimension(d.e.ds302);
-                } else if (this.ikq == 4) {
-                    i2 = (int) this.iko.getDimension(d.e.ds500);
-                    i3 = (int) this.iko.getDimension(d.e.ds265);
+                if (this.ikr == 2 || this.ikr == 1) {
+                    i2 = (int) this.ikp.getDimension(d.e.ds570);
+                    i3 = (int) this.ikp.getDimension(d.e.ds302);
+                } else if (this.ikr == 4) {
+                    i2 = (int) this.ikp.getDimension(d.e.ds500);
+                    i3 = (int) this.ikp.getDimension(d.e.ds265);
                 }
             }
             c(i2, i3, i4);
-            if (this.ikl != null) {
-                this.ikl.reset();
+            if (this.ikm != null) {
+                this.ikm.reset();
             }
             reset();
             a(dVarArr, i);
@@ -92,13 +92,13 @@ public class LoopADView extends LinearLayout {
     private void c(float f, float f2, int i) {
         float f3 = f / f2;
         float f4 = 0.0f;
-        if (this.ikq == 1 || this.ikq == 2) {
-            f4 = this.iko.getDimension(d.e.ds40);
-        } else if (this.ikq == 4) {
-            f4 = this.iko.getDimension(d.e.ds40) + this.iko.getDimension(d.e.ds60) + this.iko.getDimension(d.e.ds16);
+        if (this.ikr == 1 || this.ikr == 2) {
+            f4 = this.ikp.getDimension(d.e.ds40);
+        } else if (this.ikr == 4) {
+            f4 = this.ikp.getDimension(d.e.ds40) + this.ikp.getDimension(d.e.ds60) + this.ikp.getDimension(d.e.ds16);
         }
-        this.ikm = (int) (((int) ((l.aS(this.mContext)[0] - f4) - ((int) this.iko.getDimension(d.e.ds4)))) * 0.75f);
-        this.ikn = (int) (this.ikm / f3);
+        this.ikn = (int) (((int) ((l.aS(this.mContext)[0] - f4) - ((int) this.ikp.getDimension(d.e.ds4)))) * 0.75f);
+        this.iko = (int) (this.ikn / f3);
     }
 
     private void a(AdCard.d[] dVarArr, int i) {
@@ -132,10 +132,10 @@ public class LoopADView extends LinearLayout {
         if (view != null && dVar != null) {
             TbImageView tbImageView = (TbImageView) view.findViewById(d.g.loop_image_view);
             TextView textView = (TextView) view.findViewById(d.g.loop_text_view);
-            j(tbImageView, this.ikm, this.ikn);
-            j(view, this.ikm, -2);
-            if (this.ikl != null) {
-                this.ikl.b(tbImageView, dVar.iik);
+            j(tbImageView, this.ikn, this.iko);
+            j(view, this.ikn, -2);
+            if (this.ikm != null) {
+                this.ikm.b(tbImageView, dVar.iil);
             }
             tbImageView.startLoad(dVar.pic, i, false);
             if (itemType == ItemType.WITHOUT_BOTTOM_TITLE) {
@@ -143,8 +143,8 @@ public class LoopADView extends LinearLayout {
                 textView.setVisibility(8);
             } else if (itemType == ItemType.WITH_BOTTOM_TITLE) {
                 textView.setVisibility(0);
-                if (this.ikl != null) {
-                    textView.setText(this.ikl.BD(dVar.title));
+                if (this.ikm != null) {
+                    textView.setText(this.ikm.BE(dVar.title));
                 }
             }
         }
@@ -159,7 +159,7 @@ public class LoopADView extends LinearLayout {
         return true;
     }
 
-    public void bxV() {
+    public void bxW() {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View childAt = getChildAt(i);
@@ -170,7 +170,7 @@ public class LoopADView extends LinearLayout {
     }
 
     public void setOnClickCallbackListener(a aVar) {
-        this.ikl = aVar;
+        this.ikm = aVar;
     }
 
     private void reset() {

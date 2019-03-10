@@ -69,8 +69,8 @@ public class v extends a<bh> implements e {
         this.ZF = new View.OnClickListener() { // from class: com.baidu.tieba.card.v.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (v.this.aQh() != null) {
-                    v.this.aQh().a(view, v.this.eka);
+                if (v.this.aQi() != null) {
+                    v.this.aQi().a(view, v.this.eka);
                 }
             }
         };
@@ -78,11 +78,11 @@ public class v extends a<bh> implements e {
             @Override // com.baidu.tieba.card.OriginalThreadCardView.a
             public void a(OriginalThreadInfo originalThreadInfo) {
                 if (v.this.eka != null && v.this.eka.threadData != null) {
-                    if (v.this.aQh() != null) {
-                        v.this.aQh().a(v.this.ejE, v.this.eka);
+                    if (v.this.aQi() != null) {
+                        v.this.aQi().a(v.this.ejE, v.this.eka);
                     }
                     String id = v.this.eka.threadData.getId();
-                    n.tB(id);
+                    n.tC(id);
                     v.this.cu(id);
                 }
             }
@@ -125,11 +125,11 @@ public class v extends a<bh> implements e {
         this.dqz.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.v.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (v.this.aQh() != null) {
-                    v.this.aQh().a(view2, v.this.eka);
+                if (v.this.aQi() != null) {
+                    v.this.aQi().a(view2, v.this.eka);
                 }
                 if (v.this.eka != null && v.this.eka.threadData != null) {
-                    n.tB(v.this.eka.threadData.getId());
+                    n.tC(v.this.eka.threadData.getId());
                     v.this.cu(v.this.eka.threadData.getId());
                 }
             }
@@ -140,11 +140,11 @@ public class v extends a<bh> implements e {
         this.dro.setForumAfterClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.card.v.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (v.this.aQh() != null) {
-                    v.this.aQh().a(view2, v.this.eka);
+                if (v.this.aQi() != null) {
+                    v.this.aQi().a(view2, v.this.eka);
                 }
                 if (view2 != v.this.dro.bSP && v.this.eka != null && v.this.eka.threadData != null) {
-                    n.tB(v.this.eka.threadData.getId());
+                    n.tC(v.this.eka.threadData.getId());
                     v.this.cu(v.this.eka.threadData.getId());
                 }
             }
@@ -284,7 +284,7 @@ public class v extends a<bh> implements e {
         setPageUniqueId(getTag());
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         cu(bgVar.getId());
-        if (this.dqz.isInFrsAllThread() && com.baidu.tieba.frs.a.bbF().bbG()) {
+        if (this.dqz.isInFrsAllThread() && com.baidu.tieba.frs.a.bbG().bbH()) {
             this.mMaskView.setVisibility(0);
             if (bgVar.aaA() || bgVar.aaB()) {
                 al.l(this.mMaskView, d.C0236d.cp_bg_line_d);
@@ -354,12 +354,12 @@ public class v extends a<bh> implements e {
     private void ajY() {
         if (this.eka != null && this.eka.threadData != null) {
             bg bgVar = this.eka.threadData;
-            n.tB(bgVar.getId());
+            n.tC(bgVar.getId());
             cu(bgVar.getId());
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createFromThreadCfg(bgVar, null, this.eka.stType, 18003, true, false, false);
             createFromThreadCfg.setStartFrom(this.currentPageType);
             createFromThreadCfg.setIsShareThread(true);
-            n.tB(bgVar.getTid());
+            n.tC(bgVar.getTid());
             this.mPageContext.sendMessage(new CustomMessage(2004001, createFromThreadCfg));
         }
     }
@@ -368,7 +368,7 @@ public class v extends a<bh> implements e {
     public void cu(String str) {
         n.a(this.mTitle, str, d.C0236d.cp_cont_b, d.C0236d.cp_cont_d);
         n.a(this.XJ, str, d.C0236d.cp_cont_b, d.C0236d.cp_cont_d);
-        this.ejE.setReadState(n.tC(str));
+        this.ejE.setReadState(n.tD(str));
     }
 
     public void b(bg bgVar) {
@@ -393,8 +393,8 @@ public class v extends a<bh> implements e {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (aQh() != null) {
-            aQh().a(view, this.eka);
+        if (aQi() != null) {
+            aQi().a(view, this.eka);
         }
         if (view == getView()) {
             ajY();
@@ -408,7 +408,7 @@ public class v extends a<bh> implements e {
         return null;
     }
 
-    public View aQm() {
+    public View aQn() {
         if (this.dqy != null) {
             return this.dqy.Zx;
         }
@@ -442,6 +442,6 @@ public class v extends a<bh> implements e {
     }
 
     public int lt(int i) {
-        return com.baidu.tieba.a.d.awk().ak(this.Yz, i);
+        return com.baidu.tieba.a.d.awl().ak(this.Yz, i);
     }
 }

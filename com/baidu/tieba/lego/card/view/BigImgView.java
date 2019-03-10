@@ -14,7 +14,7 @@ public class BigImgView extends BaseCardView<BigImgCard> {
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    protected View bAd() {
+    protected View bAe() {
         this.Uy = new TbImageView(getContext());
         return this.Uy;
     }

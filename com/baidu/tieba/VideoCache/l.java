@@ -7,7 +7,7 @@ public class l {
     private static l cLY;
     private ExecutorService cLZ = Executors.newFixedThreadPool(10);
 
-    public static l avR() {
+    public static l avS() {
         if (cLY == null) {
             synchronized (l.class) {
                 if (cLY == null) {

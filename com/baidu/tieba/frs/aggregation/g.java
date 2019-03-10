@@ -94,7 +94,7 @@ public class g extends com.baidu.tieba.card.data.b implements com.baidu.tbadk.co
         return this.feP;
     }
 
-    public boolean beW() {
+    public boolean beX() {
         return this.hasAgree;
     }
 

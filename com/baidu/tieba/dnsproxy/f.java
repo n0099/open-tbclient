@@ -3,7 +3,7 @@ package com.baidu.tieba.dnsproxy;
 public class f {
     private static f eyN = null;
 
-    public static final f aVg() {
+    public static final f aVh() {
         if (eyN == null) {
             synchronized (f.class) {
                 if (eyN == null) {
@@ -17,11 +17,11 @@ public class f {
     private f() {
     }
 
-    public boolean tR(String str) {
+    public boolean tS(String str) {
         return true;
     }
 
-    public boolean tS(String str) {
+    public boolean tT(String str) {
         return false;
     }
 }

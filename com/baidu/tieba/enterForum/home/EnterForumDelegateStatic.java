@@ -157,7 +157,7 @@ public class EnterForumDelegateStatic extends com.baidu.tbadk.mainTab.b {
                     }
                 });
                 al.j(textView, d.C0236d.cp_btn_a);
-                bubbleLayout.AR(al.getColor(d.C0236d.cp_link_tip_a_alpha95));
+                bubbleLayout.AS(al.getColor(d.C0236d.cp_link_tip_a_alpha95));
                 return bubbleLayout;
             }
 

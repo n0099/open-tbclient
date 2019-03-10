@@ -31,7 +31,7 @@ public class d {
     }
 
     public void initSetting() {
-        com.baidu.tieba.tbadkCore.util.a.cfl();
+        com.baidu.tieba.tbadkCore.util.a.cfm();
     }
 
     public void aii() {

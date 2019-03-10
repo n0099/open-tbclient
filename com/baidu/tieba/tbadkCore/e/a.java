@@ -23,7 +23,7 @@ public class a {
         }
     }
 
-    public void ceS() {
+    public void ceT() {
         this.eCr.clear();
     }
 

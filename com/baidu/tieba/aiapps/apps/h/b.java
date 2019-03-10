@@ -3,7 +3,7 @@ package com.baidu.tieba.aiapps.apps.h;
 public class b {
     private static volatile a cUX;
 
-    public static synchronized a azv() {
+    public static synchronized a azw() {
         a aVar;
         synchronized (b.class) {
             if (cUX == null) {

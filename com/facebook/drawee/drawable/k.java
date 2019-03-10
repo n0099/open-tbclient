@@ -18,25 +18,25 @@ import javax.annotation.Nullable;
 public class k extends BitmapDrawable implements j, o {
     private final Path cUN;
     @Nullable
-    private p jCA;
-    private boolean jDb;
-    private boolean jDc;
-    private final float[] jDd;
-    final float[] jDe;
-    final RectF jDf;
-    final RectF jDg;
-    final RectF jDh;
-    final RectF jDi;
-    final Matrix jDj;
-    final Matrix jDk;
-    final Matrix jDl;
-    final Matrix jDm;
-    final Matrix jDn;
-    final Matrix jDo;
-    private float jDp;
-    private boolean jDq;
-    private boolean jDr;
-    private WeakReference<Bitmap> jDs;
+    private p jCT;
+    final RectF jDA;
+    final RectF jDB;
+    final Matrix jDC;
+    final Matrix jDD;
+    final Matrix jDE;
+    final Matrix jDF;
+    final Matrix jDG;
+    final Matrix jDH;
+    private float jDI;
+    private boolean jDJ;
+    private boolean jDK;
+    private WeakReference<Bitmap> jDL;
+    private boolean jDu;
+    private boolean jDv;
+    private final float[] jDw;
+    final float[] jDx;
+    final RectF jDy;
+    final RectF jDz;
     private int mBorderColor;
     private final Paint mBorderPaint;
     private float mBorderWidth;
@@ -45,29 +45,29 @@ public class k extends BitmapDrawable implements j, o {
 
     public k(Resources resources, Bitmap bitmap, @Nullable Paint paint) {
         super(resources, bitmap);
-        this.jDb = false;
-        this.jDc = false;
-        this.jDd = new float[8];
-        this.jDe = new float[8];
-        this.jDf = new RectF();
-        this.jDg = new RectF();
-        this.jDh = new RectF();
-        this.jDi = new RectF();
-        this.jDj = new Matrix();
-        this.jDk = new Matrix();
-        this.jDl = new Matrix();
-        this.jDm = new Matrix();
-        this.jDn = new Matrix();
-        this.jDo = new Matrix();
+        this.jDu = false;
+        this.jDv = false;
+        this.jDw = new float[8];
+        this.jDx = new float[8];
+        this.jDy = new RectF();
+        this.jDz = new RectF();
+        this.jDA = new RectF();
+        this.jDB = new RectF();
+        this.jDC = new Matrix();
+        this.jDD = new Matrix();
+        this.jDE = new Matrix();
+        this.jDF = new Matrix();
+        this.jDG = new Matrix();
+        this.jDH = new Matrix();
         this.mBorderWidth = 0.0f;
         this.mBorderColor = 0;
-        this.jDp = 0.0f;
+        this.jDI = 0.0f;
         this.mPath = new Path();
         this.cUN = new Path();
-        this.jDq = true;
+        this.jDJ = true;
         this.mPaint = new Paint();
         this.mBorderPaint = new Paint(1);
-        this.jDr = true;
+        this.jDK = true;
         if (paint != null) {
             this.mPaint.set(paint);
         }
@@ -77,34 +77,34 @@ public class k extends BitmapDrawable implements j, o {
 
     @Override // com.facebook.drawee.drawable.j
     public void rs(boolean z) {
-        this.jDb = z;
-        this.jDq = true;
+        this.jDu = z;
+        this.jDJ = true;
         invalidateSelf();
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void setRadius(float f) {
         com.facebook.common.internal.g.checkState(f >= 0.0f);
-        Arrays.fill(this.jDd, f);
-        this.jDc = f != 0.0f;
-        this.jDq = true;
+        Arrays.fill(this.jDw, f);
+        this.jDv = f != 0.0f;
+        this.jDJ = true;
         invalidateSelf();
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void f(float[] fArr) {
         if (fArr == null) {
-            Arrays.fill(this.jDd, 0.0f);
-            this.jDc = false;
+            Arrays.fill(this.jDw, 0.0f);
+            this.jDv = false;
         } else {
             com.facebook.common.internal.g.checkArgument(fArr.length == 8, "radii should have exactly 8 values");
-            System.arraycopy(fArr, 0, this.jDd, 0, 8);
-            this.jDc = false;
+            System.arraycopy(fArr, 0, this.jDw, 0, 8);
+            this.jDv = false;
             for (int i = 0; i < 8; i++) {
-                this.jDc = (fArr[i] > 0.0f) | this.jDc;
+                this.jDv = (fArr[i] > 0.0f) | this.jDv;
             }
         }
-        this.jDq = true;
+        this.jDJ = true;
         invalidateSelf();
     }
 
@@ -113,23 +113,23 @@ public class k extends BitmapDrawable implements j, o {
         if (this.mBorderColor != i || this.mBorderWidth != f) {
             this.mBorderColor = i;
             this.mBorderWidth = f;
-            this.jDq = true;
+            this.jDJ = true;
             invalidateSelf();
         }
     }
 
     @Override // com.facebook.drawee.drawable.j
     public void aV(float f) {
-        if (this.jDp != f) {
-            this.jDp = f;
-            this.jDq = true;
+        if (this.jDI != f) {
+            this.jDI = f;
+            this.jDJ = true;
             invalidateSelf();
         }
     }
 
     @Override // com.facebook.drawee.drawable.o
     public void a(@Nullable p pVar) {
-        this.jCA = pVar;
+        this.jCT = pVar;
     }
 
     @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
@@ -149,15 +149,15 @@ public class k extends BitmapDrawable implements j, o {
 
     @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!cvm()) {
+        if (!cvw()) {
             super.draw(canvas);
             return;
         }
-        cvn();
-        cvo();
+        cvx();
+        cvy();
         mm();
         int save = canvas.save();
-        canvas.concat(this.jDn);
+        canvas.concat(this.jDG);
         canvas.drawPath(this.mPath, this.mPaint);
         if (this.mBorderWidth > 0.0f) {
             this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
@@ -167,71 +167,71 @@ public class k extends BitmapDrawable implements j, o {
         canvas.restoreToCount(save);
     }
 
-    boolean cvm() {
-        return this.jDb || this.jDc || this.mBorderWidth > 0.0f;
+    boolean cvw() {
+        return this.jDu || this.jDv || this.mBorderWidth > 0.0f;
     }
 
-    private void cvn() {
-        if (this.jCA != null) {
-            this.jCA.e(this.jDl);
-            this.jCA.b(this.jDf);
+    private void cvx() {
+        if (this.jCT != null) {
+            this.jCT.e(this.jDE);
+            this.jCT.b(this.jDy);
         } else {
-            this.jDl.reset();
-            this.jDf.set(getBounds());
+            this.jDE.reset();
+            this.jDy.set(getBounds());
         }
-        this.jDh.set(0.0f, 0.0f, getBitmap().getWidth(), getBitmap().getHeight());
-        this.jDi.set(getBounds());
-        this.jDj.setRectToRect(this.jDh, this.jDi, Matrix.ScaleToFit.FILL);
-        if (!this.jDl.equals(this.jDm) || !this.jDj.equals(this.jDk)) {
-            this.jDr = true;
-            this.jDl.invert(this.jDn);
-            this.jDo.set(this.jDl);
-            this.jDo.preConcat(this.jDj);
-            this.jDm.set(this.jDl);
-            this.jDk.set(this.jDj);
+        this.jDA.set(0.0f, 0.0f, getBitmap().getWidth(), getBitmap().getHeight());
+        this.jDB.set(getBounds());
+        this.jDC.setRectToRect(this.jDA, this.jDB, Matrix.ScaleToFit.FILL);
+        if (!this.jDE.equals(this.jDF) || !this.jDC.equals(this.jDD)) {
+            this.jDK = true;
+            this.jDE.invert(this.jDG);
+            this.jDH.set(this.jDE);
+            this.jDH.preConcat(this.jDC);
+            this.jDF.set(this.jDE);
+            this.jDD.set(this.jDC);
         }
-        if (!this.jDf.equals(this.jDg)) {
-            this.jDq = true;
-            this.jDg.set(this.jDf);
+        if (!this.jDy.equals(this.jDz)) {
+            this.jDJ = true;
+            this.jDz.set(this.jDy);
         }
     }
 
-    private void cvo() {
-        if (this.jDq) {
+    private void cvy() {
+        if (this.jDJ) {
             this.cUN.reset();
-            this.jDf.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
-            if (this.jDb) {
-                this.cUN.addCircle(this.jDf.centerX(), this.jDf.centerY(), Math.min(this.jDf.width(), this.jDf.height()) / 2.0f, Path.Direction.CW);
+            this.jDy.inset(this.mBorderWidth / 2.0f, this.mBorderWidth / 2.0f);
+            if (this.jDu) {
+                this.cUN.addCircle(this.jDy.centerX(), this.jDy.centerY(), Math.min(this.jDy.width(), this.jDy.height()) / 2.0f, Path.Direction.CW);
             } else {
-                for (int i = 0; i < this.jDe.length; i++) {
-                    this.jDe[i] = (this.jDd[i] + this.jDp) - (this.mBorderWidth / 2.0f);
+                for (int i = 0; i < this.jDx.length; i++) {
+                    this.jDx[i] = (this.jDw[i] + this.jDI) - (this.mBorderWidth / 2.0f);
                 }
-                this.cUN.addRoundRect(this.jDf, this.jDe, Path.Direction.CW);
+                this.cUN.addRoundRect(this.jDy, this.jDx, Path.Direction.CW);
             }
-            this.jDf.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
+            this.jDy.inset((-this.mBorderWidth) / 2.0f, (-this.mBorderWidth) / 2.0f);
             this.mPath.reset();
-            this.jDf.inset(this.jDp, this.jDp);
-            if (this.jDb) {
-                this.mPath.addCircle(this.jDf.centerX(), this.jDf.centerY(), Math.min(this.jDf.width(), this.jDf.height()) / 2.0f, Path.Direction.CW);
+            this.jDy.inset(this.jDI, this.jDI);
+            if (this.jDu) {
+                this.mPath.addCircle(this.jDy.centerX(), this.jDy.centerY(), Math.min(this.jDy.width(), this.jDy.height()) / 2.0f, Path.Direction.CW);
             } else {
-                this.mPath.addRoundRect(this.jDf, this.jDd, Path.Direction.CW);
+                this.mPath.addRoundRect(this.jDy, this.jDw, Path.Direction.CW);
             }
-            this.jDf.inset(-this.jDp, -this.jDp);
+            this.jDy.inset(-this.jDI, -this.jDI);
             this.mPath.setFillType(Path.FillType.WINDING);
-            this.jDq = false;
+            this.jDJ = false;
         }
     }
 
     private void mm() {
         Bitmap bitmap = getBitmap();
-        if (this.jDs == null || this.jDs.get() != bitmap) {
-            this.jDs = new WeakReference<>(bitmap);
+        if (this.jDL == null || this.jDL.get() != bitmap) {
+            this.jDL = new WeakReference<>(bitmap);
             this.mPaint.setShader(new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
-            this.jDr = true;
+            this.jDK = true;
         }
-        if (this.jDr) {
-            this.mPaint.getShader().setLocalMatrix(this.jDo);
-            this.jDr = false;
+        if (this.jDK) {
+            this.mPaint.getShader().setLocalMatrix(this.jDH);
+            this.jDK = false;
         }
     }
 }

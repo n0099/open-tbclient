@@ -31,13 +31,13 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
         a(new Animator.AnimatorListener() { // from class: com.baidu.tbadk.widget.ContinuousAnimationView.1
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
-                ContinuousAnimationView.this.aqz();
+                ContinuousAnimationView.this.aqA();
                 ContinuousAnimationView.this.ctT = true;
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                ContinuousAnimationView.this.aqw();
+                ContinuousAnimationView.this.aqx();
                 if (ContinuousAnimationView.this.ctU) {
                     ContinuousAnimationView.this.ctU = false;
                 }
@@ -47,12 +47,12 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationCancel(Animator animator) {
-                ContinuousAnimationView.this.aqx();
+                ContinuousAnimationView.this.aqy();
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
-                ContinuousAnimationView.this.aqy();
+                ContinuousAnimationView.this.aqz();
                 if (ContinuousAnimationView.this.ctU) {
                     ContinuousAnimationView.this.cancelAnimation();
                     ContinuousAnimationView.this.ctU = false;
@@ -91,10 +91,6 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aqw() {
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public void aqx() {
     }
 
@@ -104,6 +100,10 @@ public class ContinuousAnimationView extends TBLottieAnimationView implements Bd
 
     /* JADX INFO: Access modifiers changed from: private */
     public void aqz() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void aqA() {
     }
 
     @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.b

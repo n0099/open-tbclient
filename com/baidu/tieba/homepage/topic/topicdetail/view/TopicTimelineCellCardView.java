@@ -23,7 +23,7 @@ import com.baidu.tieba.d;
 public class TopicTimelineCellCardView extends LinearLayout implements View.OnClickListener {
     private TextView dUq;
     private LinearLayout ejk;
-    private com.baidu.tieba.homepage.topic.topicdetail.b.e fPI;
+    private com.baidu.tieba.homepage.topic.topicdetail.b.e fPJ;
     private int mHeight;
     private int mSkinType;
     private TextView mTitleView;
@@ -71,7 +71,7 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
             return;
         }
         setVisibility(0);
-        this.fPI = eVar;
+        this.fPJ = eVar;
         this.dUq.setText(eVar.fOE);
         this.mTitleView.setText(eVar.title);
         if (StringUtils.isNull(eVar.aZA)) {
@@ -103,9 +103,9 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.fPI != null) {
-            TiebaStatic.log(new am("c13353").k("tid", this.fPI.tid).k("topic_id", this.fPI.topicId).T("obj_locate", this.fPI.index + 1));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getContext()).createNormalCfg(String.valueOf(this.fPI.tid), "", "")));
+        if (this.fPJ != null) {
+            TiebaStatic.log(new am("c13353").k("tid", this.fPJ.tid).k("topic_id", this.fPJ.topicId).T("obj_locate", this.fPJ.index + 1));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getContext()).createNormalCfg(String.valueOf(this.fPJ.tid), "", "")));
         }
     }
 

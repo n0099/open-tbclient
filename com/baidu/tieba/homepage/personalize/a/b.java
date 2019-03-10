@@ -34,19 +34,19 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 if (b.this.fLN.drz != view) {
                     if (view == b.this.fLN.drn.getCommentContainer()) {
                         b.this.b(jVar);
-                        com.baidu.tieba.q.c.cdq().b(b.this.cnX, com.baidu.tieba.q.a.a(jVar.threadData, "a002", "common_click", 5, jVar.aQP(), false, null, null));
+                        com.baidu.tieba.q.c.cdr().b(b.this.cnX, com.baidu.tieba.q.a.a(jVar.threadData, "a002", "common_click", 5, jVar.aQQ(), false, null, null));
                         return;
                     } else if (view == b.this.fLN.dro.bTy.getCommentContainer()) {
                         b.this.b(jVar);
                         return;
-                    } else if (b.this.fLN.aQl() == null || view.getId() != b.this.fLN.aQl().getId()) {
-                        if (b.this.fLN.aQm() != null && view.getId() == b.this.fLN.aQm().getId()) {
-                            com.baidu.tieba.q.c.cdq().b(b.this.cnX, com.baidu.tieba.q.a.a(jVar.threadData, "a002", "common_click", 2, jVar.aQP(), false, null, null));
+                    } else if (b.this.fLN.aQm() == null || view.getId() != b.this.fLN.aQm().getId()) {
+                        if (b.this.fLN.aQn() != null && view.getId() == b.this.fLN.aQn().getId()) {
+                            com.baidu.tieba.q.c.cdr().b(b.this.cnX, com.baidu.tieba.q.a.a(jVar.threadData, "a002", "common_click", 2, jVar.aQQ(), false, null, null));
                             return;
                         }
                         return;
                     } else {
-                        com.baidu.tieba.q.c.cdq().b(b.this.cnX, com.baidu.tieba.q.a.a(jVar.threadData, "a002", "common_click", 2, jVar.aQP(), false, null, null));
+                        com.baidu.tieba.q.c.cdr().b(b.this.cnX, com.baidu.tieba.q.a.a(jVar.threadData, "a002", "common_click", 2, jVar.aQQ(), false, null, null));
                         return;
                     }
                 }
@@ -61,15 +61,15 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 }
                 am amVar = new am("c11824");
                 amVar.bJ("uid", TbadkCoreApplication.getCurrentAccount());
-                amVar.bJ("ab_tag", jVar.aQQ());
+                amVar.bJ("ab_tag", jVar.aQR());
                 amVar.k("liveid", j);
                 amVar.T("obj_type", i);
                 amVar.bJ("tid", str);
                 amVar.bJ("obj_param1", jVar.getExtra());
                 amVar.bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, jVar.getSource());
-                amVar.T("obj_floor", jVar.aQP());
+                amVar.T("obj_floor", jVar.aQQ());
                 TiebaStatic.log(amVar);
-                com.baidu.tieba.q.c.cdq().b(b.this.cnX, com.baidu.tieba.q.a.a(jVar.threadData, "a002", "common_click", 1, jVar.aQP(), false, null, null));
+                com.baidu.tieba.q.c.cdr().b(b.this.cnX, com.baidu.tieba.q.a.a(jVar.threadData, "a002", "common_click", 1, jVar.aQQ(), false, null, null));
             }
         };
         this.mPageContext = tbPageContext;
@@ -120,16 +120,16 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             amVar.T("obj_type", i2);
             amVar.bJ("obj_param3", str);
             amVar.bJ("tid", tid);
-            amVar.bJ("ab_tag", jVar.aQQ());
+            amVar.bJ("ab_tag", jVar.aQR());
             amVar.k("liveid", j);
             amVar.k(ImageViewerConfig.FORUM_ID, jVar.WR().getFid());
             amVar.bJ("uid", TbadkCoreApplication.getCurrentAccount());
             amVar.bJ("obj_param1", jVar.getExtra());
             amVar.bJ(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, jVar.getSource());
-            amVar.T("obj_floor", jVar.aQP());
+            amVar.T("obj_floor", jVar.aQQ());
             TiebaStatic.log(amVar);
         }
-        com.baidu.tieba.q.c.cdq().a(this.cnX, jVar.threadData != null ? jVar.threadData.getId() : null, com.baidu.tieba.q.a.a(jVar.threadData, "a002", "common_exp", jVar.aQP(), false, null, null));
+        com.baidu.tieba.q.c.cdr().a(this.cnX, jVar.threadData != null ? jVar.threadData.getId() : null, com.baidu.tieba.q.a.a(jVar.threadData, "a002", "common_exp", jVar.aQQ(), false, null, null));
         return aVar.getView();
     }
 
@@ -162,7 +162,7 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     }
 
     @Override // com.baidu.tieba.a.f
-    public void qM(String str) {
+    public void qN(String str) {
         this.Yz = str;
     }
 }

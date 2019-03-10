@@ -47,13 +47,13 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.daily.b.d dVar, a aVar) {
         if (aVar != null && dVar != null) {
-            String blH = !StringUtils.isNull(dVar.blH()) ? dVar.blH() : this.mContext.getString(d.j.daily_default_title);
-            String blG = !StringUtils.isNull(dVar.blG()) ? dVar.blG() : "";
-            int length = blH.length();
-            int length2 = blG.length();
+            String blI = !StringUtils.isNull(dVar.blI()) ? dVar.blI() : this.mContext.getString(d.j.daily_default_title);
+            String blH = !StringUtils.isNull(dVar.blH()) ? dVar.blH() : "";
+            int length = blI.length();
+            int length2 = blH.length();
             int color = al.getColor(d.C0236d.cp_cont_b);
             int color2 = al.getColor(d.C0236d.cp_cont_d);
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(blH + blG);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(blI + blH);
             spannableStringBuilder.setSpan(new AbsoluteSizeSpan(this.tbds42), 0, length, 33);
             spannableStringBuilder.setSpan(new ForegroundColorSpan(color), 0, length, 33);
             spannableStringBuilder.setSpan(new AbsoluteSizeSpan(this.tbds34), length, length + length2, 33);
@@ -61,7 +61,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             aVar.fIa.setText(spannableStringBuilder);
             al.j(aVar.fIa, d.C0236d.cp_cont_b);
             al.l(aVar.fIa, d.C0236d.cp_bg_line_d);
-            if (dVar.blI()) {
+            if (dVar.blJ()) {
                 aVar.cKN.setVisibility(0);
                 al.l(aVar.cKN, d.C0236d.cp_bg_line_e);
             } else {

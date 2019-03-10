@@ -12,24 +12,24 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes2.dex */
 public class a {
-    private ImageView fZf;
-    private TextView fZg;
-    private Animation fZj;
+    private ImageView fZg;
+    private TextView fZh;
     private Animation fZk;
-    private SlidingTabLayout gLh;
+    private Animation fZl;
+    private SlidingTabLayout gLi;
     private Context mContext;
     private View rootView;
-    private boolean fZl = true;
-    private d gLi = new d() { // from class: com.baidu.tieba.lego.indicator.a.1
+    private boolean fZm = true;
+    private d gLj = new d() { // from class: com.baidu.tieba.lego.indicator.a.1
         @Override // com.baidu.adp.lib.g.d
         public void b(Animation animation) {
-            if (a.this.fZg != null) {
-                if (animation == a.this.fZj) {
-                    a.this.fZg.setVisibility(0);
-                    a.this.fZg.setClickable(true);
-                } else if (animation == a.this.fZk) {
-                    a.this.fZg.setVisibility(8);
-                    a.this.fZg.setClickable(false);
+            if (a.this.fZh != null) {
+                if (animation == a.this.fZk) {
+                    a.this.fZh.setVisibility(0);
+                    a.this.fZh.setClickable(true);
+                } else if (animation == a.this.fZl) {
+                    a.this.fZh.setVisibility(8);
+                    a.this.fZh.setClickable(false);
                 }
             }
         }
@@ -38,70 +38,70 @@ public class a {
     public a(Context context, View view) {
         this.rootView = view;
         this.mContext = context;
-        this.fZg = (TextView) view.findViewById(d.g.tab_widget_switch);
-        this.fZf = (ImageView) view.findViewById(d.g.tab_widget_more);
-        this.gLh = (SlidingTabLayout) view.findViewById(d.g.tab_widget_sliding_tab);
+        this.fZh = (TextView) view.findViewById(d.g.tab_widget_switch);
+        this.fZg = (ImageView) view.findViewById(d.g.tab_widget_more);
+        this.gLi = (SlidingTabLayout) view.findViewById(d.g.tab_widget_sliding_tab);
     }
 
     public void v(View.OnClickListener onClickListener) {
-        if (this.fZf != null) {
-            this.fZf.setOnClickListener(onClickListener);
+        if (this.fZg != null) {
+            this.fZg.setOnClickListener(onClickListener);
         }
     }
 
     public void setViewPager(ViewPager viewPager, int i) {
-        if (this.gLh != null) {
-            this.gLh.setViewPager(viewPager, i);
+        if (this.gLi != null) {
+            this.gLi.setViewPager(viewPager, i);
         }
     }
 
     public void onChangeSkinType(int i) {
         al.l(this.rootView, d.C0236d.cp_bg_line_e);
-        al.l(this.fZg, d.C0236d.cp_bg_line_e);
-        al.d(this.fZg, d.C0236d.cp_cont_f, 1);
-        if (this.fZl) {
-            al.c(this.fZf, d.f.lego_icon_triangle_down_normal);
+        al.l(this.fZh, d.C0236d.cp_bg_line_e);
+        al.d(this.fZh, d.C0236d.cp_cont_f, 1);
+        if (this.fZm) {
+            al.c(this.fZg, d.f.lego_icon_triangle_down_normal);
         } else {
-            al.c(this.fZf, d.f.lego_icon_triangle_up_normal);
+            al.c(this.fZg, d.f.lego_icon_triangle_up_normal);
         }
-        al.k(this.fZf, d.f.lego_btn_more_selector);
-        if (this.gLh != null) {
-            this.gLh.onChangeSkinType(i);
+        al.k(this.fZg, d.f.lego_btn_more_selector);
+        if (this.gLi != null) {
+            this.gLi.onChangeSkinType(i);
         }
     }
 
     public void VU() {
-        this.fZl = false;
-        if (this.fZg != null) {
-            this.fZg.clearAnimation();
-            this.fZg.setVisibility(0);
-            this.fZg.startAnimation(getInAnimation());
+        this.fZm = false;
+        if (this.fZh != null) {
+            this.fZh.clearAnimation();
+            this.fZh.setVisibility(0);
+            this.fZh.startAnimation(getInAnimation());
         }
-        al.c(this.fZf, d.f.lego_icon_triangle_up_normal);
+        al.c(this.fZg, d.f.lego_icon_triangle_up_normal);
     }
 
-    public void bpf() {
-        this.fZl = true;
-        if (this.fZg != null) {
-            this.fZg.clearAnimation();
-            this.fZg.startAnimation(getOutAnimation());
+    public void bpg() {
+        this.fZm = true;
+        if (this.fZh != null) {
+            this.fZh.clearAnimation();
+            this.fZh.startAnimation(getOutAnimation());
         }
-        al.c(this.fZf, d.f.lego_icon_triangle_down_normal);
+        al.c(this.fZg, d.f.lego_icon_triangle_down_normal);
     }
 
     private Animation getInAnimation() {
-        if (this.fZj == null) {
-            this.fZj = AnimationUtils.loadAnimation(this.mContext, d.a.fade_in);
-            this.fZj.setAnimationListener(this.gLi);
+        if (this.fZk == null) {
+            this.fZk = AnimationUtils.loadAnimation(this.mContext, d.a.fade_in);
+            this.fZk.setAnimationListener(this.gLj);
         }
-        return this.fZj;
+        return this.fZk;
     }
 
     private Animation getOutAnimation() {
-        if (this.fZk == null) {
-            this.fZk = AnimationUtils.loadAnimation(this.mContext, d.a.fade_out);
-            this.fZk.setAnimationListener(this.gLi);
+        if (this.fZl == null) {
+            this.fZl = AnimationUtils.loadAnimation(this.mContext, d.a.fade_out);
+            this.fZl.setAnimationListener(this.gLj);
         }
-        return this.fZk;
+        return this.fZl;
     }
 }

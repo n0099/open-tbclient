@@ -11,13 +11,13 @@ public class z {
     public String ctx;
     public String ela;
     public String ele;
-    public String hYQ;
     public String hYR;
     public String hYS;
     public String hYT;
     public String hYU;
     public String hYV;
     public String hYW;
+    public String hYX;
     public String mFloor;
     public String mLocate;
     public String mSource;
@@ -43,35 +43,35 @@ public class z {
             } else {
                 amVar.T(ChannelHomeActivityConfig.PARAM_OBJ_SOURCE, 0);
             }
-            if (!StringUtils.isNull(this.hYQ)) {
-                amVar.bJ("obj_param1", this.hYQ);
+            if (!StringUtils.isNull(this.hYR)) {
+                amVar.bJ("obj_param1", this.hYR);
             } else {
                 amVar.T("obj_param1", 0);
             }
-            if (!StringUtils.isNull(this.hYR)) {
-                amVar.bJ("obj_param2", this.hYR);
-            }
             if (!StringUtils.isNull(this.hYS)) {
-                amVar.bJ("obj_param3", this.hYS);
+                amVar.bJ("obj_param2", this.hYS);
+            }
+            if (!StringUtils.isNull(this.hYT)) {
+                amVar.bJ("obj_param3", this.hYT);
             }
             if (!StringUtils.isNull(this.byy)) {
                 amVar.bJ(VideoPlayActivityConfig.OBJ_ID, this.byy);
             }
-            if (!StringUtils.isNull(this.hYT)) {
-                amVar.bJ("ab_tag", this.hYT);
+            if (!StringUtils.isNull(this.hYU)) {
+                amVar.bJ("ab_tag", this.hYU);
             } else {
                 amVar.T("ab_tag", 0);
             }
-            if (!StringUtils.isNull(this.hYV)) {
-                amVar.bJ("topic_type", this.hYV);
+            if (!StringUtils.isNull(this.hYW)) {
+                amVar.bJ("topic_type", this.hYW);
             }
             if (!StringUtils.isNull(this.ela)) {
                 amVar.bJ("extra", this.ela);
             } else {
                 amVar.T("extra", 0);
             }
-            if (!StringUtils.isNull(this.hYW)) {
-                amVar.bJ("is_vertical", this.hYW);
+            if (!StringUtils.isNull(this.hYX)) {
+                amVar.bJ("is_vertical", this.hYX);
             }
             if (!StringUtils.isNull(this.mFloor)) {
                 amVar.bJ("obj_floor", this.mFloor);
@@ -80,7 +80,7 @@ public class z {
         return amVar;
     }
 
-    public z bTT() {
+    public z bTU() {
         z zVar = new z();
         zVar.mLocate = this.mLocate;
         zVar.mType = this.mType;
@@ -88,13 +88,13 @@ public class z {
         zVar.ele = this.ele;
         zVar.mUid = this.mUid;
         zVar.mSource = this.mSource;
-        zVar.hYQ = this.hYQ;
         zVar.hYR = this.hYR;
         zVar.hYS = this.hYS;
-        zVar.byy = this.byy;
         zVar.hYT = this.hYT;
+        zVar.byy = this.byy;
         zVar.hYU = this.hYU;
         zVar.hYV = this.hYV;
+        zVar.hYW = this.hYW;
         zVar.mFloor = this.mFloor;
         return zVar;
     }

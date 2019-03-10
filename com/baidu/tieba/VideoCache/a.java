@@ -7,11 +7,11 @@ public class a {
     private List<d> cLe = new ArrayList();
     private long cLf = 0;
 
-    public List<d> avw() {
+    public List<d> avx() {
         return this.cLe;
     }
 
-    public long avx() {
+    public long avy() {
         return this.cLf;
     }
 
@@ -19,7 +19,7 @@ public class a {
         if (this.cLe != null) {
             this.cLe.add(dVar);
             if (dVar != null) {
-                this.cLf += dVar.avG();
+                this.cLf += dVar.avH();
             }
         }
     }
@@ -28,7 +28,7 @@ public class a {
         if (this.cLe != null) {
             this.cLe.remove(dVar);
             if (dVar != null) {
-                this.cLf -= dVar.avG();
+                this.cLf -= dVar.avH();
             }
         }
     }
@@ -37,13 +37,13 @@ public class a {
         if (this.cLe != null) {
             d dVar = this.cLe.get(i);
             if (dVar != null) {
-                this.cLf -= dVar.avG();
+                this.cLf -= dVar.avH();
             }
             this.cLe.remove(i);
         }
     }
 
-    public int avy() {
+    public int avz() {
         if (this.cLe != null) {
             return this.cLe.size();
         }

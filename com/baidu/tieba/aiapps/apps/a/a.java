@@ -82,7 +82,7 @@ public final class a {
     }
 
     public static String dE(Context context) {
-        return !ayb() ? "" : TbadkCoreApplication.getCurrentBduss();
+        return !ayc() ? "" : TbadkCoreApplication.getCurrentBduss();
     }
 
     public static String dF(Context context) {
@@ -95,12 +95,12 @@ public final class a {
     }
 
     public static String bl(Context context) {
-        return !ayb() ? "" : TbadkCoreApplication.getCurrentAccount();
+        return !ayc() ? "" : TbadkCoreApplication.getCurrentAccount();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String l(Context context, String str, String str2) {
-        return !ayb() ? str2 : SapiAccountManager.getInstance().getSession(str);
+        return !ayc() ? str2 : SapiAccountManager.getInstance().getSession(str);
     }
 
     public static Map<String, String> a(Context context, @NonNull Set<String> set) {
@@ -189,7 +189,7 @@ public final class a {
     }
 
     public static void a(Context context, final com.baidu.swan.apps.an.c.a<Bundle> aVar, @Nullable String... strArr) {
-        if (!ayb()) {
+        if (!ayc()) {
             throw new IllegalStateException("must call in MainProcess");
         }
         a(new InterfaceC0221a() { // from class: com.baidu.tieba.aiapps.apps.a.a.3
@@ -281,7 +281,7 @@ public final class a {
     }
 
     public static boolean bk(Context context) {
-        if (ayb()) {
+        if (ayc()) {
             return TbadkCoreApplication.isLogin();
         }
         return false;
@@ -320,7 +320,7 @@ public final class a {
     }
 
     public static void b(Activity activity, String str, final com.baidu.swan.apps.a.a aVar) {
-        if (!ayb()) {
+        if (!ayc()) {
             aVar.onResult(-1);
             return;
         }
@@ -350,7 +350,7 @@ public final class a {
         com.baidu.swan.apps.statistic.c.f(z, str);
     }
 
-    private static boolean ayb() {
+    private static boolean ayc() {
         return ProcessUtils.isMainProcess();
     }
 

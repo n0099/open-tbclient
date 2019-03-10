@@ -65,7 +65,7 @@ public class b extends com.baidu.tbadk.editortools.c {
                             case 8:
                                 if (b.this.a(aVar.agj(), (int) SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE)) {
                                     aVar.amM();
-                                    TiebaStatic.log(new am("c13363").bJ("topic_id", String.valueOf(aVar.bnj())));
+                                    TiebaStatic.log(new am("c13363").bJ("topic_id", String.valueOf(aVar.bnk())));
                                     return;
                                 }
                                 return;

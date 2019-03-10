@@ -24,16 +24,16 @@ public class b implements CustomMessageTask.CustomRunnable<bg>, z {
         if (customMessage != null && (customMessage.getData() instanceof bg)) {
             bg data = customMessage.getData();
             if (customMessage.getCmd() == 2921018) {
-                com.baidu.tieba.frs.d.c.bil().a(this.fqy, data, 1);
+                com.baidu.tieba.frs.d.c.bim().a(this.fqy, data, 1);
                 com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.fqy);
             } else if (customMessage.getCmd() == 2921016) {
-                com.baidu.tieba.frs.d.c.bil().a(this.fqy, data, 2);
+                com.baidu.tieba.frs.d.c.bim().a(this.fqy, data, 2);
                 com.baidu.tieba.frs.d.a.a(data, 2, this.mPageId, this.fqy);
             } else if (customMessage.getCmd() == 2921019) {
-                com.baidu.tieba.frs.d.c.bil().a(this.fqy, data, 4);
+                com.baidu.tieba.frs.d.c.bim().a(this.fqy, data, 4);
                 com.baidu.tieba.frs.d.a.a(data, 1, this.mPageId, this.fqy);
             } else if (customMessage.getCmd() == 2921017) {
-                com.baidu.tieba.frs.d.c.bil().a(this.fqy, data);
+                com.baidu.tieba.frs.d.c.bim().a(this.fqy, data);
                 com.baidu.tieba.frs.d.a.a(data, this.mPageId, this.fqy);
             }
         }

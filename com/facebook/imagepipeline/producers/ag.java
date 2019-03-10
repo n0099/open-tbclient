@@ -4,53 +4,53 @@ import com.facebook.common.internal.ImmutableMap;
 import com.facebook.imagepipeline.request.ImageRequest;
 /* loaded from: classes2.dex */
 public class ag implements ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> {
-    private final com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> jBn;
-    private final com.facebook.imagepipeline.c.f jGm;
-    private final ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jJF;
+    private final com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> jBG;
+    private final com.facebook.imagepipeline.c.f jGF;
+    private final ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jJY;
 
     public ag(com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> tVar, com.facebook.imagepipeline.c.f fVar, ai<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> aiVar) {
-        this.jBn = tVar;
-        this.jGm = fVar;
-        this.jJF = aiVar;
+        this.jBG = tVar;
+        this.jGF = fVar;
+        this.jJY = aiVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jVar, aj ajVar) {
-        al czv = ajVar.czv();
+        al czF = ajVar.czF();
         String id = ajVar.getId();
-        ImageRequest czu = ajVar.czu();
-        Object cuQ = ajVar.cuQ();
-        com.facebook.imagepipeline.request.b cAr = czu.cAr();
-        if (cAr == null || cAr.cAz() == null) {
-            this.jJF.a(jVar, ajVar);
+        ImageRequest czE = ajVar.czE();
+        Object cva = ajVar.cva();
+        com.facebook.imagepipeline.request.b cAB = czE.cAB();
+        if (cAB == null || cAB.cAJ() == null) {
+            this.jJY.a(jVar, ajVar);
             return;
         }
-        czv.em(id, czF());
-        com.facebook.cache.common.b b = this.jGm.b(czu, cuQ);
-        com.facebook.common.references.a<com.facebook.imagepipeline.f.b> aW = this.jBn.aW(b);
-        if (aW != null) {
-            czv.a(id, czF(), czv.FH(id) ? ImmutableMap.of("cached_value_found", "true") : null);
+        czF.em(id, czP());
+        com.facebook.cache.common.b b = this.jGF.b(czE, cva);
+        com.facebook.common.references.a<com.facebook.imagepipeline.f.b> aX = this.jBG.aX(b);
+        if (aX != null) {
+            czF.a(id, czP(), czF.FK(id) ? ImmutableMap.of("cached_value_found", "true") : null);
             jVar.aM(1.0f);
-            jVar.e(aW, true);
-            aW.close();
+            jVar.e(aX, true);
+            aX.close();
             return;
         }
-        a aVar = new a(jVar, b, cAr instanceof com.facebook.imagepipeline.request.c, this.jBn);
-        czv.a(id, czF(), czv.FH(id) ? ImmutableMap.of("cached_value_found", "false") : null);
-        this.jJF.a(aVar, ajVar);
+        a aVar = new a(jVar, b, cAB instanceof com.facebook.imagepipeline.request.c, this.jBG);
+        czF.a(id, czP(), czF.FK(id) ? ImmutableMap.of("cached_value_found", "false") : null);
+        this.jJY.a(aVar, ajVar);
     }
 
     /* loaded from: classes2.dex */
     public static class a extends m<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>, com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> {
-        private final com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> jBn;
-        private final boolean jKX;
-        private final com.facebook.cache.common.b jzq;
+        private final com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> jBG;
+        private final boolean jLq;
+        private final com.facebook.cache.common.b jzJ;
 
         public a(j<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> jVar, com.facebook.cache.common.b bVar, boolean z, com.facebook.imagepipeline.c.t<com.facebook.cache.common.b, com.facebook.imagepipeline.f.b> tVar) {
             super(jVar);
-            this.jzq = bVar;
-            this.jKX = z;
-            this.jBn = tVar;
+            this.jzJ = bVar;
+            this.jLq = z;
+            this.jBG = tVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -60,17 +60,17 @@ public class ag implements ai<com.facebook.common.references.a<com.facebook.imag
         public void d(com.facebook.common.references.a<com.facebook.imagepipeline.f.b> aVar, boolean z) {
             if (aVar == null) {
                 if (z) {
-                    czH().e(null, true);
+                    czR().e(null, true);
                 }
-            } else if (z || this.jKX) {
-                com.facebook.common.references.a<com.facebook.imagepipeline.f.b> a = this.jBn.a(this.jzq, aVar);
+            } else if (z || this.jLq) {
+                com.facebook.common.references.a<com.facebook.imagepipeline.f.b> a = this.jBG.a(this.jzJ, aVar);
                 try {
-                    czH().aM(1.0f);
-                    j<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> czH = czH();
+                    czR().aM(1.0f);
+                    j<com.facebook.common.references.a<com.facebook.imagepipeline.f.b>> czR = czR();
                     if (a != null) {
                         aVar = a;
                     }
-                    czH.e(aVar, z);
+                    czR.e(aVar, z);
                 } finally {
                     com.facebook.common.references.a.c(a);
                 }
@@ -78,7 +78,7 @@ public class ag implements ai<com.facebook.common.references.a<com.facebook.imag
         }
     }
 
-    protected String czF() {
+    protected String czP() {
         return "PostprocessedBitmapMemoryCacheProducer";
     }
 }

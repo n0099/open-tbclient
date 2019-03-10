@@ -26,8 +26,8 @@ public class b implements m {
             this.fAK = new ArrayList();
             if (!StringUtils.isNull(this.fAL)) {
                 a aVar = new a();
-                aVar.vT(this.fAL);
-                aVar.vU(this.fAM);
+                aVar.vU(this.fAL);
+                aVar.vV(this.fAM);
                 this.fAK.add(aVar);
             }
             if (!v.T(esport.billboard)) {
@@ -40,11 +40,11 @@ public class b implements m {
         }
     }
 
-    public int bks() {
+    public int bkt() {
         return this.ekX;
     }
 
-    public List<a> bkt() {
+    public List<a> bku() {
         return this.fAK;
     }
 

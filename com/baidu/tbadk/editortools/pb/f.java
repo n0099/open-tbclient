@@ -189,7 +189,7 @@ public class f extends com.baidu.tbadk.editortools.c {
                                 }
                             case 20:
                                 dVar2.alT().b(new com.baidu.tbadk.editortools.a(2, 7, null));
-                                com.baidu.tieba.tbadkCore.location.c.ceW().qa(true);
+                                com.baidu.tieba.tbadkCore.location.c.ceX().qa(true);
                                 MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(false, null, null, null));
                                 return;
                             case 27:
@@ -274,7 +274,7 @@ public class f extends com.baidu.tbadk.editortools.c {
         com.baidu.tbadk.editortools.imagetool.d dVar2 = new com.baidu.tbadk.editortools.imagetool.d(alT.getContext(), 3);
         dVar2.cji = d.f.new_pbeditor_image_button;
         alT.b(dVar2);
-        if (com.baidu.tieba.tbadkCore.voice.c.cfB() && p.b(this.forumName, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, alT.getContext()), k.class)) != null && (kVar2 = (k) runTask.getData()) != null) {
+        if (com.baidu.tieba.tbadkCore.voice.c.cfC() && p.b(this.forumName, true) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, alT.getContext()), k.class)) != null && (kVar2 = (k) runTask.getData()) != null) {
             kVar2.cji = d.f.new_pbeditor_voice_button;
             kVar2.cjk = 4;
             alT.b(kVar2);

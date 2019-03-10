@@ -9,19 +9,19 @@ public class ForumCreateInfoData extends OrmObject {
     private int eBP = 0;
     private String eBQ = null;
 
-    public boolean aWe() {
+    public boolean aWf() {
         return this.eBN != 0;
     }
 
-    public boolean aWf() {
+    public boolean aWg() {
         return this.eBO != 0;
     }
 
-    public int aWg() {
+    public int aWh() {
         return this.eBP;
     }
 
-    public String aWh() {
+    public String aWi() {
         return this.eBQ;
     }
 

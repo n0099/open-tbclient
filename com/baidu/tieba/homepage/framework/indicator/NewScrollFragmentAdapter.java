@@ -102,15 +102,15 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         return this.fJE.getType(i);
     }
 
-    public int blW() {
-        return this.fJE.bmd();
+    public int blX() {
+        return this.fJE.bme();
     }
 
     public int st(int i) {
         return this.fJE.sz(i);
     }
 
-    public void blX() {
+    public void blY() {
         if (this.fJt == null && this.fJE.sz(3) != -1) {
             CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921303, BaseFragment.class);
             if (runTask != null) {
@@ -128,10 +128,10 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
 
     @Override // android.support.v4.view.PagerAdapter
     public int getCount() {
-        return aJp();
+        return aJq();
     }
 
-    private int aJp() {
+    private int aJq() {
         int i = 1;
         if (this.fJE.sz(1) == -1 || this.fJs == null) {
             i = 0;
@@ -167,7 +167,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                 ((BaseFragment) obj).setPrimary(true);
             }
             if ((obj instanceof PersonalizeFragment) && i == 0) {
-                ((PersonalizeFragment) obj).aCt();
+                ((PersonalizeFragment) obj).aCu();
             }
             if (obj instanceof ae) {
                 ((ae) obj).showFloatingView();
@@ -243,7 +243,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         }
     }
 
-    public boolean blY() {
+    public boolean blZ() {
         return false;
     }
 
@@ -262,13 +262,13 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         }
     }
 
-    public void blZ() {
+    public void bma() {
         if (this.fJs != null) {
-            this.fJs.blZ();
+            this.fJs.bma();
         }
     }
 
-    public void bma() {
+    public void bmb() {
     }
 
     public void c(DataRes dataRes, boolean z, boolean z2) {
@@ -286,17 +286,17 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         }
     }
 
-    public void bmb() {
+    public void bmc() {
         if (this.fJx != null) {
-            this.fJx.aBu();
+            this.fJx.aBv();
         }
     }
 
-    public void aCt() {
+    public void aCu() {
         switch (ss(this.currentIndex)) {
             case 1:
                 if (this.fJs != null) {
-                    this.fJs.aCt();
+                    this.fJs.aCu();
                     return;
                 }
                 return;
@@ -306,19 +306,19 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                 return;
             case 4:
                 if (this.fJu != null) {
-                    this.fJu.aCt();
+                    this.fJu.aCu();
                     return;
                 }
                 return;
             case 5:
                 if (this.fJv != null) {
-                    this.fJv.aCt();
+                    this.fJv.aCu();
                     return;
                 }
                 return;
             case 6:
                 if (this.fJw != null) {
-                    ((ae) this.fJw).aBu();
+                    ((ae) this.fJw).aBv();
                     return;
                 }
                 return;
@@ -327,7 +327,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
 
     public void sv(int i) {
         if (i == 1 && this.fJs != null) {
-            this.fJs.bmn();
+            this.fJs.bmo();
         }
     }
 
@@ -347,10 +347,10 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
             this.fJB = -1;
             if (f == 0.0f) {
                 if (fragment instanceof ae) {
-                    ((ae) fragment).aBw();
+                    ((ae) fragment).aBx();
                 }
                 if (fragment3 instanceof ae) {
-                    ((ae) fragment3).aBw();
+                    ((ae) fragment3).aBx();
                 }
                 if (fragment2 != null) {
                     fragment2.setMenuVisibility(true);
@@ -360,13 +360,13 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                 return;
             }
             if (fragment instanceof ae) {
-                ((ae) fragment).aBv();
+                ((ae) fragment).aBw();
             }
             if (fragment2 instanceof ae) {
-                ((ae) fragment2).aBv();
+                ((ae) fragment2).aBw();
             }
             if (fragment3 instanceof ae) {
-                ((ae) fragment3).aBv();
+                ((ae) fragment3).aBw();
             }
         }
     }

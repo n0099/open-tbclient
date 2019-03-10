@@ -10,7 +10,7 @@ public class z {
     private z() {
     }
 
-    public static z bek() {
+    public static z bel() {
         return fcH;
     }
 

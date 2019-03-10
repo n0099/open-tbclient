@@ -98,7 +98,7 @@ public class a {
         }
     }
 
-    public e aVZ() {
+    public e aWa() {
         return this.eBF;
     }
 
@@ -110,7 +110,7 @@ public class a {
         this.eBG = hVar;
     }
 
-    public List<com.baidu.tieba.enterForum.multiConcern.b> aWa() {
+    public List<com.baidu.tieba.enterForum.multiConcern.b> aWb() {
         return this.eBH;
     }
 
@@ -122,7 +122,7 @@ public class a {
         this.eBI = forumCreateInfoData;
     }
 
-    public ForumCreateInfoData aWb() {
+    public ForumCreateInfoData aWc() {
         return this.eBI;
     }
 
@@ -130,7 +130,7 @@ public class a {
         this.eBJ = privateForumPopInfoData;
     }
 
-    public PrivateForumPopInfoData aWc() {
+    public PrivateForumPopInfoData aWd() {
         return this.eBJ;
     }
 
@@ -142,7 +142,7 @@ public class a {
         return this.Jy;
     }
 
-    public boolean aWd() {
+    public boolean aWe() {
         return System.currentTimeMillis() / com.baidu.tbadk.data.d.cgT.longValue() == (((long) this.time) * 1000) / com.baidu.tbadk.data.d.cgT.longValue();
     }
 

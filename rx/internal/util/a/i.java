@@ -10,41 +10,41 @@ public final class i<E> extends m<E> {
         if (e == null) {
             throw new NullPointerException("Null is not a valid element");
         }
-        E[] eArr = this.jSa;
-        long j = this.kbq;
-        long cED = cED();
-        long es = es(cED);
+        E[] eArr = this.jSt;
+        long j = this.kbJ;
+        long cEN = cEN();
+        long es = es(cEN);
         if (b(eArr, es) != null) {
-            if (cED - cEC() > j) {
+            if (cEN - cEM() > j) {
                 return false;
             }
             do {
             } while (b(eArr, es) != null);
             a(eArr, es, e);
-            eu(1 + cED);
+            eu(1 + cEN);
             return true;
         }
         a(eArr, es, e);
-        eu(1 + cED);
+        eu(1 + cEN);
         return true;
     }
 
     @Override // java.util.Queue
     public E poll() {
-        long cEC;
-        long cEG = cEG();
+        long cEM;
+        long cEQ = cEQ();
         do {
-            cEC = cEC();
-            if (cEC >= cEG) {
-                long cED = cED();
-                if (cEC >= cED) {
+            cEM = cEM();
+            if (cEM >= cEQ) {
+                long cEN = cEN();
+                if (cEM >= cEN) {
                     return null;
                 }
-                ev(cED);
+                ev(cEN);
             }
-        } while (!z(cEC, 1 + cEC));
-        long es = es(cEC);
-        E[] eArr = this.jSa;
+        } while (!z(cEM, 1 + cEM));
+        long es = es(cEM);
+        E[] eArr = this.jSt;
         E a = a(eArr, es);
         b(eArr, es, null);
         return a;
@@ -53,36 +53,36 @@ public final class i<E> extends m<E> {
     @Override // java.util.Queue
     public E peek() {
         E et;
-        long cEG = cEG();
+        long cEQ = cEQ();
         do {
-            long cEC = cEC();
-            if (cEC >= cEG) {
-                long cED = cED();
-                if (cEC >= cED) {
+            long cEM = cEM();
+            if (cEM >= cEQ) {
+                long cEN = cEN();
+                if (cEM >= cEN) {
                     return null;
                 }
-                ev(cED);
+                ev(cEN);
             }
-            et = et(es(cEC));
+            et = et(es(cEM));
         } while (et == null);
         return et;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long cEC = cEC();
+        long cEM = cEM();
         while (true) {
-            long cED = cED();
-            long cEC2 = cEC();
-            if (cEC == cEC2) {
-                return (int) (cED - cEC2);
+            long cEN = cEN();
+            long cEM2 = cEM();
+            if (cEM == cEM2) {
+                return (int) (cEN - cEM2);
             }
-            cEC = cEC2;
+            cEM = cEM2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return cEC() == cED();
+        return cEM() == cEN();
     }
 }

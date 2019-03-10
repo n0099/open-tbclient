@@ -161,7 +161,7 @@ public class e implements a {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
                         if (e.this.bZz != null) {
-                            e.this.bZz.atE();
+                            e.this.bZz.atF();
                             e.this.bZz.dismiss();
                         }
                         am amVar = new am("c13250");
@@ -181,7 +181,7 @@ public class e implements a {
                     }
                 });
             }
-        }).kR(18).b(new boolean[]{false, false, false, true, true, false}).b("年", "月", "日", "时", "分", "秒").at(2.0f).e(0, 0, 0, 0, 0, 0).fv(false).kS(al.getColor(d.C0236d.cp_bg_line_b)).kU(al.getColor(d.C0236d.cp_cont_b)).kV(al.getColor(d.C0236d.cp_cont_d)).kT(al.getColor(d.C0236d.black_alpha30)).kQ(al.getColor(d.C0236d.cp_bg_line_d)).atu();
+        }).kR(18).b(new boolean[]{false, false, false, true, true, false}).b("年", "月", "日", "时", "分", "秒").at(2.0f).e(0, 0, 0, 0, 0, 0).fv(false).kS(al.getColor(d.C0236d.cp_bg_line_b)).kU(al.getColor(d.C0236d.cp_cont_b)).kV(al.getColor(d.C0236d.cp_cont_d)).kT(al.getColor(d.C0236d.black_alpha30)).kQ(al.getColor(d.C0236d.cp_bg_line_d)).atv();
         this.bZz.show();
         am amVar = new am("c13249");
         amVar.bJ("uid", TbadkCoreApplication.getCurrentAccount());

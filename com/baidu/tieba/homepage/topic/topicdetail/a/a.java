@@ -23,7 +23,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         this.fdX = new com.baidu.adp.lib.e.b<>(new com.baidu.adp.lib.e.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.homepage.topic.topicdetail.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.e.c
-            /* renamed from: beI */
+            /* renamed from: beJ */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(a.this.mPageContext.getPageActivity());
             }
@@ -90,7 +90,7 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
             @Override // com.baidu.adp.widget.ListView.s
             public void a(View view, m mVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
                 com.baidu.tieba.homepage.topic.topicdetail.view.d dVar;
-                if ((view.getTag() instanceof com.baidu.tieba.card.a.a) && (dVar = (com.baidu.tieba.homepage.topic.topicdetail.view.d) ((com.baidu.tieba.card.a.a) view.getTag()).aRi()) != null) {
+                if ((view.getTag() instanceof com.baidu.tieba.card.a.a) && (dVar = (com.baidu.tieba.homepage.topic.topicdetail.view.d) ((com.baidu.tieba.card.a.a) view.getTag()).aRj()) != null) {
                     dVar.ajY();
                 }
             }
@@ -114,10 +114,10 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: a */
     public View onFillViewHolder(int i, View view, ViewGroup viewGroup, com.baidu.tieba.homepage.topic.topicdetail.b.c cVar, com.baidu.tieba.card.a.a<com.baidu.tieba.homepage.topic.topicdetail.view.d> aVar) {
-        if (cVar == null || aVar == null || aVar.aRi() == null) {
+        if (cVar == null || aVar == null || aVar.aRj() == null) {
             return null;
         }
-        aVar.aRi().a(cVar);
+        aVar.aRj().a(cVar);
         return aVar.getView();
     }
 }

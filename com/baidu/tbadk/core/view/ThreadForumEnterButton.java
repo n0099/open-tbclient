@@ -74,7 +74,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
     public void onChangeSkinType() {
         if (this.threadData != null && this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            al.l(this.bSP, com.baidu.tbadk.util.j.pE(this.threadData.getId()));
+            al.l(this.bSP, com.baidu.tbadk.util.j.pF(this.threadData.getId()));
             al.j(this.bSP, d.C0236d.cp_cont_b);
         }
     }

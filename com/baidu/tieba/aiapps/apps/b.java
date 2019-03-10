@@ -14,7 +14,7 @@ public class b implements b.c {
         return new a();
     }
 
-    public static void axT() {
+    public static void axU() {
         com.baidu.swan.apps.b.a.b.a(new b());
     }
 

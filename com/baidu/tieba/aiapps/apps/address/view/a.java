@@ -40,11 +40,11 @@ public class a {
     }
 
     private void initData(Context context) {
-        this.cSn = com.baidu.tieba.aiapps.apps.address.b.c.ayu().ayw();
-        this.cSo = com.baidu.tieba.aiapps.apps.address.b.c.ayu().ayx();
-        this.cSp = com.baidu.tieba.aiapps.apps.address.b.c.ayu().ayy();
-        ayE();
+        this.cSn = com.baidu.tieba.aiapps.apps.address.b.c.ayv().ayx();
+        this.cSo = com.baidu.tieba.aiapps.apps.address.b.c.ayv().ayy();
+        this.cSp = com.baidu.tieba.aiapps.apps.address.b.c.ayv().ayz();
         ayF();
+        ayG();
         this.cSO = new d.a(context);
         this.cSP = new BdMultiPicker.b() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.1
             @Override // com.baidu.swan.apps.res.ui.BdMultiPicker.b
@@ -60,13 +60,13 @@ public class a {
         };
     }
 
-    private void ayE() {
+    private void ayF() {
         this.aFL.put(0);
         this.aFL.put(0);
         this.aFL.put(0);
     }
 
-    private void ayF() {
+    private void ayG() {
         if (this.cSn.size() > 0) {
             this.aFK.put(aD(this.cSn));
         }
@@ -120,7 +120,7 @@ public class a {
         return jSONArray;
     }
 
-    public void ayG() {
+    public void ayH() {
         if (this.aOU == null) {
             this.aOU = this.cSO.j(this.aFK).k(this.aFL).a(this.cSP).d("城市选择").b(d.j.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.address.view.a.3
                 @Override // android.content.DialogInterface.OnClickListener

@@ -57,14 +57,14 @@ public class LinearGradientView extends View {
 
     private void init() {
         this.mPath = new Path();
-        aqY();
+        aqZ();
     }
 
     @Override // android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         if (i > 0 && i2 > 0) {
-            this.cvr = aqZ();
+            this.cvr = ara();
         }
     }
 
@@ -72,11 +72,11 @@ public class LinearGradientView extends View {
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         if (this.cvs == null) {
-            this.cvr = aqZ();
+            this.cvr = ara();
         }
         int width = getWidth();
         int height = getHeight();
-        aqX();
+        aqY();
         if (this.cvu == 0) {
             canvas.drawRect(0.0f, 0.0f, width, height, this.cvs);
         } else {
@@ -84,7 +84,7 @@ public class LinearGradientView extends View {
         }
     }
 
-    private void aqX() {
+    private void aqY() {
         if ((getWidth() != this.mWidth || getHeight() != this.mHeight || this.cvt != this.mRadius) && this.cvu != 0) {
             this.mWidth = getWidth();
             this.mHeight = getHeight();
@@ -125,7 +125,7 @@ public class LinearGradientView extends View {
         this.cvo = i2;
         this.cvp = i3;
         this.cvq = i4;
-        this.cvr = aqZ();
+        this.cvr = ara();
         invalidate();
     }
 
@@ -137,25 +137,25 @@ public class LinearGradientView extends View {
             this.cvo = com.baidu.tieba.lego.card.d.a.parseColor(str2);
             this.cvp = com.baidu.tieba.lego.card.d.a.parseColor(str3);
             this.cvq = com.baidu.tieba.lego.card.d.a.parseColor(str4);
-            this.cvr = aqZ();
+            this.cvr = ara();
             invalidate();
         }
     }
 
-    private void aqY() {
+    private void aqZ() {
         this.cvn = com.baidu.tieba.lego.card.d.a.parseColor("#2BB8FF");
         this.cvo = com.baidu.tieba.lego.card.d.a.parseColor("#2BB8FF");
         this.cvp = com.baidu.tieba.lego.card.d.a.parseColor("#249BD6");
         this.cvq = com.baidu.tieba.lego.card.d.a.parseColor("#246CD6");
-        this.cvr = aqZ();
+        this.cvr = ara();
     }
 
     public void setDefaultGradientColor() {
-        aqY();
+        aqZ();
         invalidate();
     }
 
-    private LinearGradient aqZ() {
+    private LinearGradient ara() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         boolean z = skinType == 1;
         this.cvr = new LinearGradient(0.0f, 0.0f, getHeight(), getHeight(), new int[]{z ? this.cvp : this.cvn, z ? this.cvq : this.cvo}, (float[]) null, Shader.TileMode.CLAMP);
@@ -166,7 +166,7 @@ public class LinearGradientView extends View {
 
     public void changeSkinType(int i) {
         if (this.mSkinType != i) {
-            this.cvr = aqZ();
+            this.cvr = ara();
             invalidate();
         }
         this.mSkinType = i;

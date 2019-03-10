@@ -96,7 +96,7 @@ public class KuangFloatingViewController {
 
     public void showFloatingView() {
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        layoutParams.type = c.Aj(com.baidu.sapi2.activity.BaseActivity.EXTRA_PARAM_FROM_PASS_SDK_ENTER);
+        layoutParams.type = c.Ak(com.baidu.sapi2.activity.BaseActivity.EXTRA_PARAM_FROM_PASS_SDK_ENTER);
         layoutParams.flags = 65800;
         layoutParams.format = -3;
         layoutParams.x = 0;

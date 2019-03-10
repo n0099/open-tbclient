@@ -17,10 +17,10 @@ import java.util.ArrayList;
 public class ShutDownValidateTipView extends FrameLayout {
     private ArrayList<a> bQU;
     private boolean bSu;
-    private TextView gxh;
-    private ImageView gxi;
-    private TextView gxj;
+    private TextView gxi;
+    private ImageView gxj;
     private TextView gxk;
+    private TextView gxl;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -47,15 +47,15 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     public void init(Context context) {
         addView(LayoutInflater.from(context).inflate(d.h.shut_down_validate_tip, (ViewGroup) null));
-        this.gxi = (ImageView) findViewById(d.g.no_network_icon);
-        this.gxj = (TextView) findViewById(d.g.no_network_guide1);
-        this.gxk = (TextView) findViewById(d.g.no_network_guide2);
-        this.gxh = (TextView) findViewById(d.g.no_network_showmore);
+        this.gxj = (ImageView) findViewById(d.g.no_network_icon);
+        this.gxk = (TextView) findViewById(d.g.no_network_guide1);
+        this.gxl = (TextView) findViewById(d.g.no_network_guide2);
+        this.gxi = (TextView) findViewById(d.g.no_network_showmore);
     }
 
     public void setShutDownClickListener(View.OnClickListener onClickListener) {
-        if (this.gxh != null) {
-            this.gxh.setOnClickListener(onClickListener);
+        if (this.gxi != null) {
+            this.gxi.setOnClickListener(onClickListener);
         }
     }
 
@@ -122,16 +122,16 @@ public class ShutDownValidateTipView extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        al.c(this.gxi, d.f.icon_error);
+        al.c(this.gxj, d.f.icon_error);
         al.k(findViewById(d.g.no_network_parent), d.f.bg_no_network);
         if (i == 1) {
-            this.gxj.setTextColor(-10523526);
-            this.gxk.setTextColor(-8682095);
-            this.gxh.setTextColor(-10523526);
+            this.gxk.setTextColor(-10523526);
+            this.gxl.setTextColor(-8682095);
+            this.gxi.setTextColor(-10523526);
             return;
         }
-        this.gxj.setTextColor(-14277082);
-        this.gxk.setTextColor(-5065030);
-        this.gxh.setTextColor(-14277082);
+        this.gxk.setTextColor(-14277082);
+        this.gxl.setTextColor(-5065030);
+        this.gxi.setTextColor(-14277082);
     }
 }

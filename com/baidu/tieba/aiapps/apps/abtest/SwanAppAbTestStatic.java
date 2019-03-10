@@ -27,7 +27,7 @@ public class SwanAppAbTestStatic {
     public static int cRc = 0;
 
     static {
-        axZ();
+        aya();
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new CustomMessageTask.CustomRunnable<String>() { // from class: com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic.1
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(final CustomMessage<String> customMessage) {
@@ -117,10 +117,10 @@ public class SwanAppAbTestStatic {
         });
     }
 
-    private static void axZ() {
+    private static void aya() {
         com.baidu.tieba.aiapps.apps.c.a(TbadkCoreApplication.getInst(), true);
         if (Build.VERSION.SDK_INT > 21 && !TbadkCoreApplication.getInst().isRemoteProcess()) {
-            com.baidu.tieba.aiapps.apps.b.axT();
+            com.baidu.tieba.aiapps.apps.b.axU();
         }
     }
 }

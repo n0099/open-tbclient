@@ -10,8 +10,8 @@ import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class BubbleLayout extends FrameLayout {
     public static float DEFAULT_STROKE_WIDTH = -1.0f;
-    private ArrowDirection jiO;
-    private a jiP;
+    private ArrowDirection jji;
+    private a jjj;
     private float mArrowHeight;
     private float mArrowPosition;
     private float mArrowWidth;
@@ -38,7 +38,7 @@ public class BubbleLayout extends FrameLayout {
         this.mBubbleColor = obtainStyledAttributes.getColor(d.l.BubbleLayout_bl_bubbleColor, -1);
         this.mStrokeWidth = obtainStyledAttributes.getDimension(d.l.BubbleLayout_bl_strokeWidth, DEFAULT_STROKE_WIDTH);
         this.mStrokeColor = obtainStyledAttributes.getColor(d.l.BubbleLayout_bl_strokeColor, -7829368);
-        this.jiO = ArrowDirection.fromInt(obtainStyledAttributes.getInt(d.l.BubbleLayout_bl_arrowDirection, ArrowDirection.LEFT.getValue()));
+        this.jji = ArrowDirection.fromInt(obtainStyledAttributes.getInt(d.l.BubbleLayout_bl_arrowDirection, ArrowDirection.LEFT.getValue()));
         obtainStyledAttributes.recycle();
         initPadding();
     }
@@ -51,15 +51,15 @@ public class BubbleLayout extends FrameLayout {
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
-        if (this.jiP != null) {
-            this.jiP.draw(canvas);
+        if (this.jjj != null) {
+            this.jjj.draw(canvas);
         }
         super.dispatchDraw(canvas);
     }
 
     private void initDrawable(int i, int i2, int i3, int i4) {
         if (i2 >= i && i4 >= i3) {
-            this.jiP = new a(new RectF(i, i3, i2, i4), this.mArrowWidth, this.mCornersRadius, this.mArrowHeight, this.mArrowPosition, this.mStrokeWidth, this.mStrokeColor, this.mBubbleColor, this.jiO);
+            this.jjj = new a(new RectF(i, i3, i2, i4), this.mArrowWidth, this.mCornersRadius, this.mArrowHeight, this.mArrowPosition, this.mStrokeWidth, this.mStrokeColor, this.mBubbleColor, this.jji);
         }
     }
 
@@ -68,7 +68,7 @@ public class BubbleLayout extends FrameLayout {
         int paddingRight = getPaddingRight();
         int paddingTop = getPaddingTop();
         int paddingBottom = getPaddingBottom();
-        switch (this.jiO) {
+        switch (this.jji) {
             case LEFT:
                 paddingLeft = (int) (paddingLeft + this.mArrowWidth);
                 break;
@@ -96,7 +96,7 @@ public class BubbleLayout extends FrameLayout {
         int paddingRight = getPaddingRight();
         int paddingTop = getPaddingTop();
         int paddingBottom = getPaddingBottom();
-        switch (this.jiO) {
+        switch (this.jji) {
             case LEFT:
                 paddingLeft = (int) (paddingLeft - this.mArrowWidth);
                 break;
@@ -130,14 +130,14 @@ public class BubbleLayout extends FrameLayout {
         return this;
     }
 
-    public BubbleLayout AR(int i) {
+    public BubbleLayout AS(int i) {
         this.mBubbleColor = i;
         requestLayout();
         return this;
     }
 
     public ArrowDirection getArrowDirection() {
-        return this.jiO;
+        return this.jji;
     }
 
     public float getArrowWidth() {

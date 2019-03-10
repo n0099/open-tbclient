@@ -8,12 +8,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b extends c {
-    public static final String jyg = null;
+    public static final String jyz = null;
     private String appKey;
     private String content;
-    private String jyh;
-    private String jyi;
-    private String jyj;
+    private String jyA;
+    private String jyB;
+    private String jyC;
     private String params;
     private int responseCode = -2;
     private int xE;
@@ -32,7 +32,7 @@ public class b extends c {
                     JSONObject jSONObject = jSONArray.getJSONObject(i);
                     e eVar = new e();
                     eVar.setContent(jSONObject.getString(str4));
-                    eVar.Fq(jSONObject.getString(str3));
+                    eVar.Ft(jSONObject.getString(str3));
                     arrayList.add(eVar);
                 } catch (JSONException e2) {
                     e = e2;
@@ -49,12 +49,12 @@ public class b extends c {
         return arrayList;
     }
 
-    public void BQ(int i) {
+    public void BR(int i) {
         this.xE = i;
     }
 
-    public void Fm(String str) {
-        this.jyh = str;
+    public void Fp(String str) {
+        this.jyA = str;
     }
 
     public int getCommand() {
@@ -87,6 +87,6 @@ public class b extends c {
     }
 
     public String toString() {
-        return "type:4105,messageID:" + this.jyk + ",taskID:" + this.jyl + ",appPackage:" + this.appPackage + ",appKey:" + this.appKey + ",appSecret:" + this.jyh + ",registerID:" + this.jyi + ",sdkVersion:" + this.jyj + ",command:" + this.xE + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
+        return "type:4105,messageID:" + this.jyD + ",taskID:" + this.jyE + ",appPackage:" + this.appPackage + ",appKey:" + this.appKey + ",appSecret:" + this.jyA + ",registerID:" + this.jyB + ",sdkVersion:" + this.jyC + ",command:" + this.xE + ",params:" + this.params + ",responseCode:" + this.responseCode + ",content:" + this.content;
     }
 }

@@ -32,16 +32,16 @@ public class FrsAllThreadFragment extends BaseFragment implements ag {
     }
 
     @Override // com.baidu.tieba.frs.ag
-    public void bcd() {
+    public void bce() {
         if (this.eYm != null) {
             this.eYm.scrollToPosition(0);
         }
     }
 
     @Override // com.baidu.tieba.frs.ag
-    public void aCt() {
+    public void aCu() {
         if (this.dcE != null) {
-            bcd();
+            bce();
             this.dcE.setRefreshing(true);
         }
     }

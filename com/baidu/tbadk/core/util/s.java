@@ -173,7 +173,7 @@ public class s {
         String str5;
         if (com.baidu.adp.lib.util.l.lo() && dVar != null) {
             String str6 = "";
-            boolean pG = com.baidu.tbadk.util.l.pG(str2);
+            boolean pH = com.baidu.tbadk.util.l.pH(str2);
             boolean z5 = false;
             if (com.baidu.tbadk.core.util.a.e.getInstance() != null) {
                 z5 = true;
@@ -192,10 +192,10 @@ public class s {
                 z4 = j > ((long) com.baidu.tbadk.core.util.a.e.getInstance().getCDNImageTimeData().buy);
             }
             boolean z6 = false;
-            if (pG && z5) {
+            if (pH && z5) {
                 z6 = com.baidu.tbadk.core.util.a.e.getInstance().isShouldCDNFallBack();
             }
-            if (pG && kZ && z6) {
+            if (pH && kZ && z6) {
                 if (z) {
                     p.getInstance().insertNormalData(j, str);
                 } else {
@@ -205,7 +205,7 @@ public class s {
                     }
                 }
             }
-            if (pG) {
+            if (pH) {
                 bIL = str;
             }
             boolean z7 = false;
@@ -213,7 +213,7 @@ public class s {
                 z7 = true;
             }
             synchronized (syncLock) {
-                r a2 = a(kZ, pG, str2, z7);
+                r a2 = a(kZ, pH, str2, z7);
                 boolean z8 = bII.bIN;
                 if (a2 != null) {
                     a2.num++;
@@ -261,7 +261,7 @@ public class s {
             if (TextUtils.isEmpty(str6)) {
                 str6 = t.acy().acz();
             }
-            if (!pG || !TextUtils.isEmpty("")) {
+            if (!pH || !TextUtils.isEmpty("")) {
                 str4 = "";
             } else {
                 str4 = t.acy().mu(str);
@@ -293,7 +293,7 @@ public class s {
             aVar.append("status", String.valueOf(dVar.CM));
             aVar.append("up", String.valueOf(dVar.CE));
             aVar.append("down", String.valueOf(dVar.CF));
-            aVar.append("isCDN", pG ? "1" : "0");
+            aVar.append("isCDN", pH ? "1" : "0");
             aVar.append("isWebp", bool.booleanValue() ? "1" : "0");
             aVar.append("isMobileProxy", z3 ? "1" : "0");
             aVar.append("exception", dVar.CK);
@@ -308,7 +308,7 @@ public class s {
                 aVar.append("tracecode2", dVar.CQ);
             }
             BdStatisticsManager.getInstance().debug(SocialConstants.PARAM_IMG_URL, aVar);
-            if (pG && !TextUtils.isEmpty(str6) && TextUtils.isEmpty(str4) && !z) {
+            if (pH && !TextUtils.isEmpty(str6) && TextUtils.isEmpty(str4) && !z) {
                 bII.bIM++;
             }
         }

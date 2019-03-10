@@ -14,7 +14,7 @@ public class a {
         }
     }
 
-    public int aua() {
+    public int aub() {
         String string;
         if (TbadkCoreApplication.getCurrentAccount() == null) {
             string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("app_entrance_nologin", "");

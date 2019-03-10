@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends BaseAdapter {
-    private final int fZo;
+    private final int fZp;
     private Context mContext;
     private int padding;
     private List<e> tagList = new ArrayList();
@@ -26,7 +26,7 @@ public class b extends BaseAdapter {
         this.mContext = context;
         this.textSize = context.getResources().getDimensionPixelSize(d.e.fontsize28);
         this.padding = context.getResources().getDimensionPixelSize(d.e.ds16);
-        this.fZo = i;
+        this.fZp = i;
     }
 
     public void setTagList(List<e> list) {
@@ -74,7 +74,7 @@ public class b extends BaseAdapter {
         }
         textView.setText(ap.g(eVar.tag_name, 8, null));
         al.d(textView, d.C0236d.cp_cont_f, 1);
-        if (i == this.fZo) {
+        if (i == this.fZp) {
             al.k(textView, d.f.btn_label_white_s);
             return textView;
         }

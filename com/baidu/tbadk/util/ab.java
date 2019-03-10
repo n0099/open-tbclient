@@ -22,7 +22,7 @@ public class ab {
         return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ((c >= '0' && c <= '9') || c == ' ');
     }
 
-    public static int pN(String str) {
+    public static int pO(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -37,7 +37,7 @@ public class ab {
         return i;
     }
 
-    public static int pO(String str) {
+    public static int pP(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -48,13 +48,13 @@ public class ab {
             if (substring.length() >= 2) {
                 i += 2;
             } else {
-                i += pN(substring);
+                i += pO(substring);
             }
         }
         return i;
     }
 
-    public static int pP(String str) {
+    public static int pQ(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -74,7 +74,7 @@ public class ab {
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (pP(substring) > i) {
+            if (pQ(substring) > i) {
                 break;
             }
             i2++;
@@ -87,7 +87,7 @@ public class ab {
         if (StringUtils.isNull(str)) {
             return "";
         }
-        if (pN(str) > i) {
+        if (pO(str) > i) {
             return p(str, 0, i - 2) + "...";
         }
         return str;
@@ -159,7 +159,7 @@ public class ab {
         String str2 = str;
         while (i2 <= codePointCount) {
             String substring = str.substring(0, str.offsetByCodePoints(0, i2));
-            if (pO(substring) > i) {
+            if (pP(substring) > i) {
                 break;
             }
             i2++;

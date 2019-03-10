@@ -19,7 +19,7 @@ public class c {
         @Override // java.lang.Runnable
         public void run() {
             if (c.this.erw != null && c.this.erx != null) {
-                c.this.erw.setData(c.this.erx.ceF(), 100);
+                c.this.erw.setData(c.this.erx.ceG(), 100);
                 c.this.erw.cu();
             }
         }
@@ -29,7 +29,7 @@ public class c {
         public void run() {
             if (c.this.erw != null && c.this.erx != null) {
                 c.this.erw.stopAnimation();
-                c.this.erw.setData(c.this.erx.ceE());
+                c.this.erw.setData(c.this.erx.ceF());
             }
         }
     };
@@ -49,20 +49,20 @@ public class c {
         this.mFrom = i;
         this.erw.setCallback(new FloatingAnimationView.a() { // from class: com.baidu.tieba.c.c.4
             @Override // com.baidu.tieba.view.FloatingAnimationView.a
-            public void aSo() {
-                if (c.this.erx != null && !ap.isEmpty(c.this.erx.awy())) {
+            public void aSp() {
+                if (c.this.erx != null && !ap.isEmpty(c.this.erx.awz())) {
                     TiebaStatic.log(new am("c12913").T("obj_locate", 2).T("obj_type", c.this.mFrom));
                     if (c.this.erx.getType() == 2) {
                         c.this.erw.qP(false);
                         com.baidu.tbadk.core.sharedPref.b.getInstance().putInt("key_collection_tag_state", 1);
                     }
-                    ba.adD().c(c.this.mPageContext, new String[]{c.this.erx.awy()});
+                    ba.adD().c(c.this.mPageContext, new String[]{c.this.erx.awz()});
                 }
             }
 
             @Override // com.baidu.tieba.view.FloatingAnimationView.a
-            public void aSp() {
-                c.this.aSn();
+            public void aSq() {
+                c.this.aSo();
                 c.this.onDestroy();
                 c.this.erw.setVisibility(8);
                 TiebaStatic.log(new am("c12913").T("obj_locate", 3).T("obj_type", c.this.mFrom));
@@ -78,17 +78,17 @@ public class c {
             }
             this.erx = nVar;
             if (this.erx.getType() == 1) {
-                aSk();
-            } else if (this.erx.getType() == 2) {
                 aSl();
+            } else if (this.erx.getType() == 2) {
+                aSm();
             }
-            aSm();
+            aSn();
         }
     }
 
-    private void aSk() {
+    private void aSl() {
         String lastId = getLastId();
-        if (this.erx == null || lastId.equals(this.erx.ceG()) || ap.isEmpty(this.erx.awy()) || ap.isEmpty(this.erx.ceE())) {
+        if (this.erx == null || lastId.equals(this.erx.ceH()) || ap.isEmpty(this.erx.awz()) || ap.isEmpty(this.erx.ceF())) {
             this.erw.setVisibility(8);
             return;
         }
@@ -96,8 +96,8 @@ public class c {
             TiebaStatic.log(new am("c12912").T("obj_locate", this.mFrom));
         }
         this.erw.setVisibility(0);
-        this.erw.setData(this.erx.ceE());
-        if (this.erx.getStartTime() > 0 && this.erx.getEndTime() > 0 && this.erx.getEndTime() > this.erx.getStartTime() && !v.T(this.erx.ceF())) {
+        this.erw.setData(this.erx.ceF());
+        if (this.erx.getStartTime() > 0 && this.erx.getEndTime() > 0 && this.erx.getEndTime() > this.erx.getStartTime() && !v.T(this.erx.ceG())) {
             com.baidu.adp.lib.g.e.jH().removeCallbacks(this.ery);
             com.baidu.adp.lib.g.e.jH().removeCallbacks(this.erz);
             com.baidu.adp.lib.g.e.jH().postDelayed(this.ery, this.erx.getStartTime() - System.currentTimeMillis());
@@ -105,21 +105,21 @@ public class c {
         }
     }
 
-    private void aSl() {
+    private void aSm() {
         String lastId = getLastId();
-        if (this.erx == null || lastId.equals(this.erx.ceG()) || ap.isEmpty(this.erx.awy()) || ap.isEmpty(this.erx.ceE())) {
+        if (this.erx == null || lastId.equals(this.erx.ceH()) || ap.isEmpty(this.erx.awz()) || ap.isEmpty(this.erx.ceF())) {
             this.erw.setVisibility(8);
             return;
         }
         this.erw.setVisibility(0);
-        this.erw.setData(this.erx.ceE());
+        this.erw.setData(this.erx.ceF());
         com.baidu.adp.lib.g.e.jH().removeCallbacks(this.erA);
         com.baidu.adp.lib.g.e.jH().postDelayed(this.erA, UtilHelper.getNextDayMorning() - System.currentTimeMillis());
     }
 
-    public void aSm() {
+    public void aSn() {
         if (this.erw != null && this.erx != null) {
-            if (getLastId().equals(this.erx.ceG())) {
+            if (getLastId().equals(this.erx.ceH())) {
                 this.erw.setVisibility(8);
             }
             if (this.erx.getType() == 2) {
@@ -147,7 +147,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aSn() {
+    public void aSo() {
         String str;
         if (this.erx != null) {
             int type = this.erx.getType();
@@ -156,7 +156,7 @@ public class c {
             } else {
                 str = "key_redpacket_float_frs_last_id_" + type;
             }
-            com.baidu.tbadk.core.sharedPref.b.getInstance().putString(str, this.erx.ceG());
+            com.baidu.tbadk.core.sharedPref.b.getInstance().putString(str, this.erx.ceH());
         }
     }
 
