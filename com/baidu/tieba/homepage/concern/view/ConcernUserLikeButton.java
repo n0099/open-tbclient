@@ -13,29 +13,29 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.homepage.HomePageStatic;
 /* loaded from: classes4.dex */
 public class ConcernUserLikeButton extends CommonUserLikeButton {
-    private boolean bUo;
-    private boolean fHG;
-    private int fHH;
+    private boolean bUp;
+    private boolean fHF;
+    private int fHG;
 
     public ConcernUserLikeButton(Context context) {
         super(context);
-        this.bUo = false;
-        this.fHG = false;
-        this.fHH = l.h(TbadkCoreApplication.getInst(), d.e.tbds10);
+        this.bUp = false;
+        this.fHF = false;
+        this.fHG = l.h(TbadkCoreApplication.getInst(), d.e.tbds10);
     }
 
     public ConcernUserLikeButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bUo = false;
-        this.fHG = false;
-        this.fHH = l.h(TbadkCoreApplication.getInst(), d.e.tbds10);
+        this.bUp = false;
+        this.fHF = false;
+        this.fHG = l.h(TbadkCoreApplication.getInst(), d.e.tbds10);
     }
 
     public ConcernUserLikeButton(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.bUo = false;
-        this.fHG = false;
-        this.fHH = l.h(TbadkCoreApplication.getInst(), d.e.tbds10);
+        this.bUp = false;
+        this.fHF = false;
+        this.fHG = l.h(TbadkCoreApplication.getInst(), d.e.tbds10);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -48,16 +48,16 @@ public class ConcernUserLikeButton extends CommonUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.bUm) {
+        if (this.bUn) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            al.j(this, d.C0236d.cp_cont_e);
+            al.j(this, d.C0277d.cp_cont_e);
             setBackgroundDrawable(null);
             return;
         }
         setCompoundDrawablesWithIntrinsicBounds(al.getDrawable(d.f.btn_concern_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
-        setCompoundDrawablePadding(this.fHH);
+        setCompoundDrawablePadding(this.fHG);
         al.j(this, d.f.btn_concern_like_focus_color);
-        if (this.bUo) {
+        if (this.bUp) {
             al.k(this, d.f.btn_transparent_focus_border_bg);
         } else {
             al.k(this, d.f.btn_focus_border_bg);
@@ -69,24 +69,24 @@ public class ConcernUserLikeButton extends CommonUserLikeButton {
         Drawable drawable = getCompoundDrawables()[0];
         if (drawable != null) {
             float measureText = getPaint().measureText(getText().toString());
-            canvas.translate((getMeasuredWidth() - ((drawable.getBounds().right - drawable.getBounds().left) + (measureText + (this.fHH * 3)))) / 2.0f, 0.0f);
+            canvas.translate((getMeasuredWidth() - ((drawable.getBounds().right - drawable.getBounds().left) + (measureText + (this.fHG * 3)))) / 2.0f, 0.0f);
         }
         super.onDraw(canvas);
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void dU(boolean z) {
-        this.bUm = z;
+        this.bUn = z;
         if (z) {
             setClickable(false);
-            setText(this.bUk);
+            setText(this.bUl);
             setPadding(0, 0, 0, 0);
-            this.fHG = true;
+            this.fHF = true;
         } else {
             setClickable(true);
-            setText(this.bUl);
+            setText(this.bUm);
             setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds10), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(d.e.tbds6), 0);
-            this.fHG = false;
+            this.fHF = false;
         }
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -95,7 +95,7 @@ public class ConcernUserLikeButton extends CommonUserLikeButton {
     public void aR(View view) {
         super.aR(view);
         if (!TbadkCoreApplication.isLogin()) {
-            HomePageStatic.fFM = true;
+            HomePageStatic.fFL = true;
         } else {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("concern_top_user_user_like_time"), System.currentTimeMillis());
         }

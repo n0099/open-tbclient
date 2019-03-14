@@ -7,7 +7,7 @@ import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class d {
-    public static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static PathType gY(String str) {
         if (TextUtils.isEmpty(str)) {

@@ -6,13 +6,13 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
 /* loaded from: classes.dex */
 public class a {
-    private static volatile a bWf = null;
-    private boolean bWe;
-    private int bWg;
+    private static volatile a bWg = null;
+    private boolean bWf;
+    private int bWh;
 
     private a() {
-        this.bWe = false;
-        this.bWg = 0;
+        this.bWf = false;
+        this.bWh = 0;
         try {
             d dVar = new d("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
             dVar.T(true);
@@ -20,10 +20,10 @@ public class a {
             if (dVar.hA()) {
                 String content = dVar.getContent();
                 if (content != null) {
-                    this.bWg = Integer.parseInt(content);
+                    this.bWh = Integer.parseInt(content);
                 }
-                if (this.bWg == 1 || this.bWg == 2) {
-                    this.bWe = true;
+                if (this.bWh == 1 || this.bWh == 2) {
+                    this.bWf = true;
                 }
             }
         } catch (Throwable th) {
@@ -32,25 +32,25 @@ public class a {
     }
 
     public static a afJ() {
-        if (bWf == null) {
+        if (bWg == null) {
             synchronized (a.class) {
-                if (bWf == null) {
-                    bWf = new a();
+                if (bWg == null) {
+                    bWg = new a();
                 }
             }
         }
-        return bWf;
+        return bWg;
     }
 
     public boolean afK() {
-        return this.bWe;
+        return this.bWf;
     }
 
     public int afL() {
-        return this.bWg;
+        return this.bWh;
     }
 
     public String afM() {
-        return this.bWe ? "pub_env=" + this.bWg + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
+        return this.bWf ? "pub_env=" + this.bWh + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

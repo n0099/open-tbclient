@@ -5,7 +5,7 @@ public class i {
     private boolean chr;
     private String method;
 
-    public boolean alw() {
+    public boolean alv() {
         return this.chq;
     }
 
@@ -13,7 +13,7 @@ public class i {
         this.chq = z;
     }
 
-    public void alx() {
+    public void alw() {
         this.chq = false;
     }
 

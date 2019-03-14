@@ -42,7 +42,7 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(nf(str), com.baidu.tbadk.imageManager.c.anq().pi(nf(str)), i, i2);
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(nf(str), com.baidu.tbadk.imageManager.c.anp().pi(nf(str)), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.oy() == null || checkIsValidPicMemoryCache.oy().isRecycled()) {
             return null;
         }
@@ -65,7 +65,7 @@ public class m implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
             aVar.aO(i);
             aVar.aP(i2);
-            com.baidu.tbadk.imageManager.c.anq().c(nf(str), aVar);
+            com.baidu.tbadk.imageManager.c.anp().c(nf(str), aVar);
         }
     }
 

@@ -13,7 +13,7 @@ import com.baidu.swan.apps.scheme.j;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 /* loaded from: classes2.dex */
 public abstract class b extends y {
-    protected String aPK;
+    protected String aPL;
     protected String mCallback;
 
     protected abstract void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str);
@@ -23,7 +23,7 @@ public abstract class b extends y {
     public b(j jVar, String str) {
         super(jVar, str);
         this.mCallback = null;
-        this.aPK = null;
+        this.aPL = null;
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.y

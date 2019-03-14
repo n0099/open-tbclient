@@ -2,22 +2,21 @@ package com.baidu.swan.apps.core.container.a;
 
 import android.util.Log;
 import com.baidu.swan.apps.b.c.i;
-import com.baidu.swan.apps.c;
 /* loaded from: classes2.dex */
 public class a implements i {
-    private static final boolean DEBUG = c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     /* renamed from: com.baidu.swan.apps.core.container.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0102a {
-        public static final a apA = new a();
+    private static class C0131a {
+        public static final a apB = new a();
     }
 
     private a() {
     }
 
     public static a xT() {
-        return C0102a.apA;
+        return C0131a.apB;
     }
 
     @Override // com.baidu.swan.apps.b.c.i

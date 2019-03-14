@@ -5,23 +5,23 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
-    private List<View> aYE = new ArrayList();
+    private List<View> aYF = new ArrayList();
 
     public synchronized void ak(View view) {
         if (view != null) {
-            this.aYE.add(view);
+            this.aYF.add(view);
         }
     }
 
     public synchronized boolean al(View view) {
-        return view == null ? false : this.aYE.remove(view);
+        return view == null ? false : this.aYF.remove(view);
     }
 
     public List<View> MM() {
-        return this.aYE;
+        return this.aYF;
     }
 
     public void clear() {
-        this.aYE.clear();
+        this.aYF.clear();
     }
 }

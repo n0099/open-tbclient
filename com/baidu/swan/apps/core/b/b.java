@@ -4,7 +4,7 @@ import com.baidu.swan.apps.b.c.e;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class b {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void xQ() {
         e ee = com.baidu.swan.apps.w.e.Ec().ee(com.baidu.swan.apps.w.e.Ec().yB());

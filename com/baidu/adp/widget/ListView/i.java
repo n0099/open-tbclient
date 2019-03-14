@@ -3,65 +3,65 @@ package com.baidu.adp.widget.ListView;
 import com.baidu.tbadk.BaseActivity;
 /* loaded from: classes.dex */
 public class i {
-    private float PT = 8.0f;
-    private float PU = 15.0f;
-    private float PV = 4.0f;
-    private float PW = 60.0f;
-    private int PY = BaseActivity.SHOW_SOFT_KEYBOARD_DELAY;
+    private float PU = 8.0f;
+    private float PV = 15.0f;
+    private float PW = 4.0f;
+    private float PY = 60.0f;
     private int PZ = BaseActivity.SHOW_SOFT_KEYBOARD_DELAY;
-    private int Qa = 500;
-    private float Qb = 0.4f;
-    private float Qc = 1.0f;
-    private float Qd = 20.0f;
-    private float Qe = 10.0f;
-    private int Qf = 360;
-    private float Qg = 5.0f;
+    private int Qa = BaseActivity.SHOW_SOFT_KEYBOARD_DELAY;
+    private int Qb = 500;
+    private float Qc = 0.4f;
+    private float Qd = 1.0f;
+    private float Qe = 20.0f;
+    private float Qf = 10.0f;
+    private int Qg = 360;
+    private float Qh = 5.0f;
 
     public float oU() {
-        return this.PT;
-    }
-
-    public float oV() {
         return this.PU;
     }
 
-    public float oW() {
+    public float oV() {
         return this.PV;
     }
 
-    public float oX() {
+    public float oW() {
         return this.PW;
     }
 
-    public int oY() {
+    public float oX() {
         return this.PY;
     }
 
-    public int oZ() {
+    public int oY() {
         return this.PZ;
     }
 
-    public int pa() {
+    public int oZ() {
         return this.Qa;
     }
 
-    public float pb() {
+    public int pa() {
         return this.Qb;
     }
 
-    public float pc() {
+    public float pb() {
         return this.Qc;
     }
 
-    public float pd() {
+    public float pc() {
         return this.Qd;
     }
 
-    public float pe() {
+    public float pd() {
         return this.Qe;
     }
 
-    public int pf() {
+    public float pe() {
         return this.Qf;
+    }
+
+    public int pf() {
+        return this.Qg;
     }
 }

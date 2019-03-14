@@ -7,7 +7,7 @@ import okhttp3.RequestBody;
 import okio.BufferedSink;
 /* loaded from: classes2.dex */
 public final class d extends RequestBody {
-    private final FormBody aCi;
+    private final FormBody aCj;
     private MediaType contentType;
 
     public static d a(FormBody formBody, MediaType mediaType) {
@@ -17,7 +17,7 @@ public final class d extends RequestBody {
     }
 
     private d(FormBody formBody) {
-        this.aCi = formBody;
+        this.aCj = formBody;
     }
 
     public void a(MediaType mediaType) {
@@ -26,16 +26,16 @@ public final class d extends RequestBody {
 
     @Override // okhttp3.RequestBody
     public MediaType contentType() {
-        return this.contentType == null ? this.aCi.contentType() : this.contentType;
+        return this.contentType == null ? this.aCj.contentType() : this.contentType;
     }
 
     @Override // okhttp3.RequestBody
     public long contentLength() {
-        return this.aCi.contentLength();
+        return this.aCj.contentLength();
     }
 
     @Override // okhttp3.RequestBody
     public void writeTo(BufferedSink bufferedSink) throws IOException {
-        this.aCi.writeTo(bufferedSink);
+        this.aCj.writeTo(bufferedSink);
     }
 }

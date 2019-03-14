@@ -1,6 +1,7 @@
 package cn.jiguang.d.h;
 
 import android.content.Context;
+import com.google.zxing.common.StringUtils;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -40,7 +41,7 @@ public final class f {
     }
 
     private static void a(File file, ZipOutputStream zipOutputStream, String str) {
-        String str2 = new String((str + (str.trim().length() == 0 ? "" : File.separator) + file.getName()).getBytes("8859_1"), "GB2312");
+        String str2 = new String((str + (str.trim().length() == 0 ? "" : File.separator) + file.getName()).getBytes("8859_1"), StringUtils.GB2312);
         if (file.isDirectory()) {
             File[] listFiles = file.listFiles();
             if (listFiles != null) {

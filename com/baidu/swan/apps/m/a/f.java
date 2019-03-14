@@ -5,18 +5,18 @@ import android.util.Log;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f<T> extends a {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    public boolean avo = true;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    public boolean avp = true;
     public T mData;
 
     public f() {
-        this.avi = "message";
+        this.avj = "message";
     }
 
     @Override // com.baidu.swan.apps.m.a.a
     public String eB(String str) {
         if (this.mData instanceof String) {
-            String encode = this.avo ? Uri.encode((String) this.mData) : (String) this.mData;
+            String encode = this.avp ? Uri.encode((String) this.mData) : (String) this.mData;
             if (DEBUG) {
                 Log.d("SwanAppWebMessage", "mData: " + this.mData);
                 Log.d("SwanAppWebMessage", "encode mData: " + encode);

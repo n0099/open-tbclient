@@ -87,8 +87,8 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     private final Runnable mShareRunnable = new Runnable() { // from class: com.baidu.tbadk.browser.BaseWebViewActivity.2
         @Override // java.lang.Runnable
         public void run() {
-            com.baidu.tbadk.coreExtra.c.d createShareContent;
-            if (com.baidu.tbadk.plugins.c.b(BaseWebViewActivity.this.getPageContext(), "com.baidu.tieba.pluginCore") && (createShareContent = BaseWebViewActivity.this.createShareContent(null, null, null, null)) != null) {
+            com.baidu.tbadk.coreExtra.c.d createShareContent = BaseWebViewActivity.this.createShareContent(null, null, null, null);
+            if (createShareContent != null) {
                 BaseWebViewActivity.this.mView.a(createShareContent);
             }
         }
@@ -163,7 +163,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             this.mView.kP(this.mUrlTitle);
         }
         if (!this.mView.VQ() && UtilHelper.canUseStyleImmersiveSticky()) {
-            bc.b(this.mView.btW, d.C0236d.cp_link_tip_b, false);
+            bc.b(this.mView.btY, d.C0277d.cp_link_tip_b, false);
         }
         if (!this.mIsTranslucent) {
             adjustResizeForSoftInput();
@@ -720,9 +720,9 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             if (kU.Ek != null) {
                 str3 = kU.Ek;
             }
-            if (kU.bvB != null) {
+            if (kU.bvD != null) {
                 str = str3;
-                str2 = kU.bvB;
+                str2 = kU.bvD;
                 ae.a aVar = new ae.a(str, str2);
                 if (this.mCookieInfo == null && (this.mCookieInfo == null || !this.mCookieInfo.equals(aVar))) {
                     z = true;

@@ -289,7 +289,7 @@ public final class PassportSDK {
         this.socialLoginDTO = webSocialLoginDTO;
         this.thirdPartyService = getThirdPartyService();
         if (this.thirdPartyService != null) {
-            this.thirdPartyService.loadThirdPartyLogin(this.context, webSocialLoginDTO.socialType, BaseActivity.EXTRA_PARAM_FROM_PASS_SDK_ENTER);
+            this.thirdPartyService.loadThirdPartyLogin(this.context, webSocialLoginDTO.socialType, 2002);
         }
     }
 
@@ -314,7 +314,7 @@ public final class PassportSDK {
         Intent intent = new Intent(this.context, RegisterActivity.class);
         if (webRegDTO.regType == WebRegDTO.EXTRA_REGISTER_FAST) {
             intent = new Intent(this.context, FastRegActivity.class);
-            intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, BaseActivity.EXTRA_PARAM_FROM_PASS_SDK_ENTER);
+            intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2002);
         }
         intent.setFlags(268435456);
         this.context.startActivity(intent);

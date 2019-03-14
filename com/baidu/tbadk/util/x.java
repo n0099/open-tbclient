@@ -4,19 +4,19 @@ import android.view.View;
 /* loaded from: classes.dex */
 public class x {
     private View.OnTouchListener ccU;
-    private w ctJ;
+    private w ctG;
 
-    public w aqm() {
-        return this.ctJ;
+    public w aql() {
+        return this.ctG;
     }
 
-    public View.OnTouchListener aqn() {
+    public View.OnTouchListener aqm() {
         return this.ccU;
     }
 
     public void onDestroy() {
-        if (this.ctJ != null) {
-            this.ctJ.aql();
+        if (this.ctG != null) {
+            this.ctG.aqk();
         }
     }
 }

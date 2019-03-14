@@ -7,18 +7,18 @@ import com.baidu.tbadk.coreExtra.data.y;
 import java.util.Date;
 /* loaded from: classes.dex */
 public class a {
-    private long aEo;
-    private CustomMessageListener bvr = new CustomMessageListener(2001371) { // from class: com.baidu.tieba.u.a.1
+    private long aEp;
+    private CustomMessageListener bvt = new CustomMessageListener(2001371) { // from class: com.baidu.tieba.u.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                a.this.cmO();
+                a.this.cmR();
             }
         }
     };
-    private long jhe;
-    private y jhf;
+    private long jgW;
+    private y jgX;
     private long mInterval;
     private long mStartTime;
 
@@ -27,13 +27,13 @@ public class a {
     }
 
     private void init() {
-        cmO();
-        this.jhe = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_video_splash_last_show_time", 0L);
-        MessageManager.getInstance().registerListener(this.bvr);
+        cmR();
+        this.jgW = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong("key_video_splash_last_show_time", 0L);
+        MessageManager.getInstance().registerListener(this.bvt);
     }
 
-    public boolean cmN() {
-        if (this.mStartTime == 0 || this.aEo == 0 || this.mInterval == 0) {
+    public boolean cmQ() {
+        if (this.mStartTime == 0 || this.aEp == 0 || this.mInterval == 0) {
             return false;
         }
         Date date = new Date();
@@ -41,26 +41,26 @@ public class a {
     }
 
     private boolean q(Date date) {
-        return date != null && date.getTime() >= this.mStartTime && date.getTime() <= this.aEo;
+        return date != null && date.getTime() >= this.mStartTime && date.getTime() <= this.aEp;
     }
 
     private boolean r(Date date) {
-        return date != null && date.getTime() - this.jhe >= this.mInterval;
+        return date != null && date.getTime() - this.jgW >= this.mInterval;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cmO() {
-        if (this.jhf == null) {
-            this.jhf = new y();
+    public void cmR() {
+        if (this.jgX == null) {
+            this.jgX = new y();
         }
-        this.jhf.parseJson(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_video_splash_config", ""));
-        this.mStartTime = this.jhf.agH();
-        this.aEo = this.jhf.agI();
-        this.mInterval = this.jhf.agJ();
+        this.jgX.parseJson(com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_video_splash_config", ""));
+        this.mStartTime = this.jgX.agH();
+        this.aEp = this.jgX.agI();
+        this.mInterval = this.jgX.agJ();
     }
 
     public void dX(long j) {
-        this.jhe = j;
+        this.jgW = j;
         com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("key_video_splash_last_show_time", j);
     }
 }

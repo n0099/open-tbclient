@@ -15,7 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class SwanAppNetworkUtils {
-    protected static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static boolean a(OkHttpClient okHttpClient, String str) {
         boolean z;

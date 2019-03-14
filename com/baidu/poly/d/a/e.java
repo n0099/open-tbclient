@@ -6,23 +6,23 @@ import java.util.Map;
 /* loaded from: classes2.dex */
 public class e extends c {
     private static final String TAG = e.class.getSimpleName();
-    private static e ahf;
+    private static e ahg;
 
     private e() {
     }
 
     public static e tK() {
-        if (ahf == null) {
+        if (ahg == null) {
             synchronized (e.class) {
-                if (ahf == null) {
-                    ahf = new e();
+                if (ahg == null) {
+                    ahg = new e();
                 }
             }
         }
-        return ahf;
+        return ahg;
     }
 
     @Override // com.baidu.poly.d.a.c, com.baidu.poly.d.a.d
-    public void a(Activity activity, Map<String, String> map, a.C0054a c0054a) {
+    public void a(Activity activity, Map<String, String> map, a.C0083a c0083a) {
     }
 }

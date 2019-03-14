@@ -7,17 +7,17 @@ import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
 /* loaded from: classes3.dex */
 public class c implements a {
-    private PublicKey jxS;
+    private PublicKey jxK;
 
     public c(String str) throws Exception {
-        Fi(str);
+        Fg(str);
     }
 
-    private void Fi(String str) throws Exception {
+    private void Fg(String str) throws Exception {
         if (com.baidu.ueg.a.a.m(str)) {
             throw new Exception("PubKey can not be blank.");
         }
-        this.jxS = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(com.baidu.ueg.lib.a.Fj(str.replaceAll("-----BEGIN PUBLIC KEY-----", "").replaceAll("-----END PUBLIC KEY-----", ""))));
+        this.jxK = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(com.baidu.ueg.lib.a.Fh(str.replaceAll("-----BEGIN PUBLIC KEY-----", "").replaceAll("-----END PUBLIC KEY-----", ""))));
     }
 
     @Override // com.baidu.ueg.encrypt.a
@@ -26,7 +26,7 @@ public class c implements a {
             throw new Exception("Plaintext can not be blank.");
         }
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-        cipher.init(1, this.jxS);
+        cipher.init(1, this.jxK);
         return com.baidu.ueg.lib.a.U(cipher.doFinal(str.getBytes()));
     }
 }

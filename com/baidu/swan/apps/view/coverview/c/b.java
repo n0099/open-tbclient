@@ -7,10 +7,10 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.an.aa;
-import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.b.b.g;
-import com.baidu.swan.apps.c;
+import com.baidu.swan.apps.b.c.c;
 import com.baidu.swan.apps.res.widget.b.d;
 import com.baidu.swan.apps.w.e;
 import com.baidu.swan.menu.f;
@@ -21,22 +21,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
-    private static final boolean DEBUG = c.DEBUG;
-    private com.baidu.swan.apps.core.c.b aZp;
-    private h apW;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private com.baidu.swan.apps.core.c.b aZq;
+    private h apX;
     private Context mContext;
 
     public b(h hVar, com.baidu.swan.apps.core.c.b bVar) {
-        this.apW = hVar;
-        this.aZp = bVar;
+        this.apX = hVar;
+        this.aZq = bVar;
         if (bVar != null) {
             this.mContext = bVar.getContext();
         }
     }
 
     public void MU() {
-        if (this.apW != null && this.aZp != null && this.mContext != null) {
-            this.apW.a(new f() { // from class: com.baidu.swan.apps.view.coverview.c.b.1
+        if (this.apX != null && this.aZq != null && this.mContext != null) {
+            this.apX.a(new f() { // from class: com.baidu.swan.apps.view.coverview.c.b.1
                 @Override // com.baidu.swan.menu.f
                 public boolean a(View view, k kVar) {
                     return b.this.b(kVar);
@@ -47,12 +47,12 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean b(k kVar) {
-        if (this.aZp == null || this.mContext == null) {
+        if (this.aZq == null || this.mContext == null) {
             return false;
         }
         switch (kVar.getItemId()) {
             case 4:
-                this.aZp.yv();
+                this.aZq.yv();
                 return true;
             case 5:
                 MW();
@@ -61,7 +61,7 @@ public class b {
                 Na();
                 return true;
             case 34:
-                this.aZp.yu();
+                this.aZq.yu();
                 return true;
             case 35:
                 MX();
@@ -97,20 +97,20 @@ public class b {
             if (eq) {
                 fVar.mValue = "deletemyswan";
                 if (com.baidu.swan.apps.database.favorite.a.eo(Ji)) {
-                    d.l(this.mContext.getApplicationContext(), b.h.aiapps_cancel_fav_success).dw(2).IN();
+                    d.l(this.mContext.getApplicationContext(), a.h.aiapps_cancel_fav_success).dw(2).IN();
                 } else {
-                    d.l(this.mContext.getApplicationContext(), b.h.aiapps_cancel_fav_fail).dw(2).IK();
+                    d.l(this.mContext.getApplicationContext(), a.h.aiapps_cancel_fav_fail).dw(2).IK();
                 }
             } else {
                 fVar.mValue = "addmyswan";
                 if (com.baidu.swan.apps.database.favorite.a.en(Ji)) {
                     com.baidu.swan.apps.database.favorite.a.AN();
-                    d.l(this.mContext.getApplicationContext(), b.h.aiapps_fav_success).dw(2).IN();
+                    d.l(this.mContext.getApplicationContext(), a.h.aiapps_fav_success).dw(2).IN();
                 } else {
-                    d.l(this.mContext.getApplicationContext(), b.h.aiapps_fav_fail).dw(2).IK();
+                    d.l(this.mContext.getApplicationContext(), a.h.aiapps_fav_fail).dw(2).IK();
                 }
             }
-            this.aZp.a(fVar);
+            this.aZq.a(fVar);
         }
     }
 
@@ -120,13 +120,13 @@ public class b {
         }
         boolean Ds = com.baidu.swan.apps.u.a.CT().Ds();
         com.baidu.swan.apps.u.a.CT().be(!Ds);
-        if (this.aZp.Sy() != null && (this.aZp.Sy() instanceof SwanAppActivity)) {
-            ((SwanAppActivity) this.aZp.Sy()).aK(com.baidu.swan.apps.u.a.CT().Ds());
+        if (this.aZq.Sy() != null && (this.aZq.Sy() instanceof SwanAppActivity)) {
+            ((SwanAppActivity) this.aZq.Sy()).aK(com.baidu.swan.apps.u.a.CT().Ds());
         }
         if (Ds) {
-            d.l(this.mContext.getApplicationContext(), b.h.aiapps_browser_menu_toast_day_mode).dx(b.e.aiapps_day_mode_toast_icon).dw(2).IN();
+            d.l(this.mContext.getApplicationContext(), a.h.aiapps_browser_menu_toast_day_mode).dx(a.e.aiapps_day_mode_toast_icon).dw(2).IN();
         } else {
-            d.l(this.mContext.getApplicationContext(), b.h.aiapps_browser_menu_toast_night_mode).dx(b.e.aiapps_night_mode_toast_icon).dw(2).IN();
+            d.l(this.mContext.getApplicationContext(), a.h.aiapps_browser_menu_toast_night_mode).dx(a.e.aiapps_night_mode_toast_icon).dw(2).IN();
         }
     }
 
@@ -138,9 +138,9 @@ public class b {
         if (com.baidu.swan.apps.ae.b.IX() != null) {
             uB = com.baidu.swan.apps.ae.b.IX().uB();
         } else {
-            uB = ((SwanAppActivity) this.aZp.Sy()).uB();
+            uB = ((SwanAppActivity) this.aZq.Sy()).uB();
         }
-        com.baidu.swan.apps.ah.a.d(this.aZp.getContext(), uB);
+        com.baidu.swan.apps.ah.a.d(this.aZq.getContext(), uB);
         hU("addshortcut");
     }
 
@@ -148,9 +148,9 @@ public class b {
         if (DEBUG) {
             Log.d("SwanAppMenuHelper", "restart");
         }
-        if (this.aZp instanceof com.baidu.swan.apps.core.c.d) {
-            com.baidu.swan.apps.core.c.d dVar = (com.baidu.swan.apps.core.c.d) this.aZp;
-            com.baidu.swan.apps.b.c.c yG = dVar.yG();
+        if (this.aZq instanceof com.baidu.swan.apps.core.c.d) {
+            com.baidu.swan.apps.core.c.d dVar = (com.baidu.swan.apps.core.c.d) this.aZq;
+            c yG = dVar.yG();
             if (yG == null) {
                 if (DEBUG) {
                     Log.e("SwanAppMenuHelper", Log.getStackTraceString(new Exception("mCurWebViewManager is null.")));
@@ -173,13 +173,13 @@ public class b {
         }
         com.baidu.swan.apps.core.c.e uz = e.Ec().uz();
         if (uz == null) {
-            if (this.aZp != null) {
-                d.l(this.aZp.getContext(), b.h.aiapps_open_fragment_failed_toast).IK();
+            if (this.aZq != null) {
+                d.l(this.aZq.getContext(), a.h.aiapps_open_fragment_failed_toast).IK();
                 return;
             }
             return;
         }
-        uz.dY("navigateTo").A(com.baidu.swan.apps.core.c.e.aqI, com.baidu.swan.apps.core.c.e.aqK).a("about", null).commit();
+        uz.dY("navigateTo").A(com.baidu.swan.apps.core.c.e.aqJ, com.baidu.swan.apps.core.c.e.aqL).a("about", null).commit();
         hU("about");
     }
 
@@ -187,12 +187,12 @@ public class b {
         if (DEBUG) {
             Log.d("SwanAppMenuHelper", "startSettingFragment");
         }
-        com.baidu.swan.apps.core.c.e uz = this.aZp.uz();
+        com.baidu.swan.apps.core.c.e uz = this.aZq.uz();
         if (uz == null) {
-            d.l(this.mContext, b.h.aiapps_open_fragment_failed_toast).IK();
+            d.l(this.mContext, a.h.aiapps_open_fragment_failed_toast).IK();
             return;
         }
-        uz.dY("navigateTo").A(com.baidu.swan.apps.core.c.e.aqI, com.baidu.swan.apps.core.c.e.aqK).a("setting", null).commit();
+        uz.dY("navigateTo").A(com.baidu.swan.apps.core.c.e.aqJ, com.baidu.swan.apps.core.c.e.aqL).a("setting", null).commit();
         hU("permission");
     }
 
@@ -208,7 +208,7 @@ public class b {
                     public void run() {
                         try {
                             if (!TextUtils.isEmpty(str) && TextUtils.equals(new JSONObject(str).optString("result"), "success")) {
-                                d.l(com.baidu.swan.apps.u.a.Cy(), b.h.aiapps_report_tips).dw(2).IK();
+                                d.l(com.baidu.swan.apps.u.a.Cy(), a.h.aiapps_report_tips).dw(2).IK();
                             }
                         } catch (JSONException e) {
                             if (b.DEBUG) {
@@ -225,7 +225,7 @@ public class b {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.swan.apps.statistic.a.f fVar = new com.baidu.swan.apps.statistic.a.f();
             fVar.mValue = str;
-            this.aZp.a(fVar);
+            this.aZq.a(fVar);
         }
     }
 }

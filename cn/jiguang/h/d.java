@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import cn.jiguang.d.h.x;
 import cn.jiguang.g.f;
 import com.baidu.sapi2.base.network.Apn;
-import com.baidu.sapi2.scheme.SapiScheme;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
@@ -195,7 +194,7 @@ public class d {
                 cVar.q(2998);
                 cVar.R("网络错误");
                 if (e instanceof SocketTimeoutException) {
-                    cVar.q(SapiScheme.REQUEST_CODE_START_SC_APP_VERIFY);
+                    cVar.q(3001);
                     cVar.R("请求超时");
                 } else if (e instanceof UnknownHostException) {
                     cVar.q(3003);

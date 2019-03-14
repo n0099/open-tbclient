@@ -3,19 +3,19 @@ package org.java_websocket.d;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
 public class b implements a {
-    private final String jUU;
+    private final String jUM;
 
     public b(String str) {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        this.jUU = str;
+        this.jUM = str;
     }
 
     @Override // org.java_websocket.d.a
-    public boolean Gn(String str) {
+    public boolean Gl(String str) {
         for (String str2 : str.replaceAll(" ", "").split(Constants.ACCEPT_TIME_SEPARATOR_SP)) {
-            if (this.jUU.equals(str2)) {
+            if (this.jUM.equals(str2)) {
                 return true;
             }
         }
@@ -23,18 +23,18 @@ public class b implements a {
     }
 
     @Override // org.java_websocket.d.a
-    public String cDv() {
-        return this.jUU;
+    public String cDy() {
+        return this.jUM;
     }
 
     @Override // org.java_websocket.d.a
-    public a cDw() {
-        return new b(cDv());
+    public a cDz() {
+        return new b(cDy());
     }
 
     @Override // org.java_websocket.d.a
     public String toString() {
-        return cDv();
+        return cDy();
     }
 
     public boolean equals(Object obj) {
@@ -44,10 +44,10 @@ public class b implements a {
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
-        return this.jUU.equals(((b) obj).jUU);
+        return this.jUM.equals(((b) obj).jUM);
     }
 
     public int hashCode() {
-        return this.jUU.hashCode();
+        return this.jUM.hashCode();
     }
 }

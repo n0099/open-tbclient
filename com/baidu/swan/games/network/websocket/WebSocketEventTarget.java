@@ -12,8 +12,8 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketListener {
-    protected static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    protected SocketTaskState bew;
+    protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    protected SocketTaskState bex;
 
     /* loaded from: classes2.dex */
     protected enum SocketTaskState {
@@ -25,7 +25,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
     /* JADX INFO: Access modifiers changed from: package-private */
     public WebSocketEventTarget(JSRuntime jSRuntime) {
         super(jSRuntime);
-        this.bew = SocketTaskState.IDLE;
+        this.bex = SocketTaskState.IDLE;
     }
 
     private void j(String str, Object obj) {
@@ -37,8 +37,8 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onOpen(Map<String, String> map) {
-        this.bew = SocketTaskState.OPEN;
-        j("open", new e.C0174e(new JSONObject(map)));
+        this.bex = SocketTaskState.OPEN;
+        j("open", new e.C0203e(new JSONObject(map)));
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
@@ -55,13 +55,13 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onClose(JSONObject jSONObject) {
-        this.bew = SocketTaskState.CLOSE;
+        this.bex = SocketTaskState.CLOSE;
         j("close", new e.a(jSONObject == null ? 0 : jSONObject.optInt("code", 0), jSONObject == null ? "" : jSONObject.optString("reason")));
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onError(Throwable th, JSONObject jSONObject) {
-        if (this.bew == SocketTaskState.IDLE) {
+        if (this.bex == SocketTaskState.IDLE) {
             j("error", new e.b(th.getMessage()));
         }
     }

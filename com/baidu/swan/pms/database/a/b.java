@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.text.TextUtils;
 import com.baidu.sapi2.activity.social.WXLoginActivity;
-import com.baidu.sapi2.utils.SapiUtils;
 import java.util.List;
 /* loaded from: classes2.dex */
 public abstract class b<T> {
@@ -24,7 +23,7 @@ public abstract class b<T> {
             int columnIndex4 = cursor.getColumnIndex("version_code");
             int columnIndex5 = cursor.getColumnIndex("size");
             int columnIndex6 = cursor.getColumnIndex("md5");
-            int columnIndex7 = cursor.getColumnIndex(SapiUtils.KEY_QR_LOGIN_SIGN);
+            int columnIndex7 = cursor.getColumnIndex("sign");
             int columnIndex8 = cursor.getColumnIndex("downloadUrl");
             int columnIndex9 = cursor.getColumnIndex("_id");
             int columnIndex10 = cursor.getColumnIndex("file_path");
@@ -36,7 +35,7 @@ public abstract class b<T> {
             if (TextUtils.isEmpty(string)) {
                 return false;
             }
-            fVar.blV = string;
+            fVar.blW = string;
             fVar.category = cursor.getInt(columnIndex2);
             fVar.versionName = cursor.getString(columnIndex3);
             fVar.versionCode = cursor.getInt(columnIndex4);
@@ -48,7 +47,7 @@ public abstract class b<T> {
             fVar.currentSize = cursor.getLong(columnIndex11);
             fVar.createTime = cursor.getLong(columnIndex12);
             fVar.updateTime = cursor.getLong(columnIndex13);
-            fVar.acG = cursor.getLong(columnIndex9);
+            fVar.acH = cursor.getLong(columnIndex9);
             fVar.state = cursor.getInt(columnIndex14);
             return true;
         }
@@ -57,13 +56,13 @@ public abstract class b<T> {
 
     public ContentValues e(com.baidu.swan.pms.model.f fVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("bundle_id", fVar.blV);
+        contentValues.put("bundle_id", fVar.blW);
         contentValues.put("category", Integer.valueOf(fVar.category));
         contentValues.put("version_name", fVar.versionName);
         contentValues.put("version_code", Integer.valueOf(fVar.versionCode));
         contentValues.put("size", Long.valueOf(fVar.size));
         contentValues.put("md5", fVar.md5);
-        contentValues.put(SapiUtils.KEY_QR_LOGIN_SIGN, fVar.sign);
+        contentValues.put("sign", fVar.sign);
         contentValues.put("downloadUrl", fVar.downloadUrl);
         contentValues.put("file_path", fVar.filePath);
         contentValues.put("current_size", Long.valueOf(fVar.currentSize));

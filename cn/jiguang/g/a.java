@@ -44,6 +44,7 @@ import cn.jpush.android.service.DaemonService;
 import cn.jpush.android.service.DataProvider;
 import cn.jpush.android.service.PushReceiver;
 import cn.jpush.android.service.PushService;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.xiaomi.mipush.sdk.Constants;
@@ -87,7 +88,7 @@ public final class a {
         arrayList.add("358673013795895");
         b.add("004999010640000");
         b.add("00000000000000");
-        b.add("000000000000000");
+        b.add(Config.NULL_DEVICE_ID);
         c = new ArrayList<>();
         d = new ArrayList<>();
         c.add("android.permission.INTERNET");
@@ -206,7 +207,7 @@ public final class a {
                     if (readLine == null) {
                         break;
                     } else if (readLine.contains("Processor")) {
-                        int indexOf = readLine.indexOf(":");
+                        int indexOf = readLine.indexOf(Config.TRACE_TODAY_VISIT_SPLIT);
                         if (indexOf >= 0 && indexOf < readLine.length() - 1) {
                             str = readLine.substring(indexOf + 1).trim();
                         }

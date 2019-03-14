@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 import java.nio.channels.FileChannel;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static boolean vx() {
         return com.baidu.swan.apps.u.a.CK().vx();

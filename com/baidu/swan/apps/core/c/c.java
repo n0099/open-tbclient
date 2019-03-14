@@ -10,18 +10,18 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.SwanAppErrorActivity;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.an.m;
-import com.baidu.swan.apps.b;
 /* loaded from: classes2.dex */
 public class c extends b {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private TextView aqi;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private TextView aqj;
+    private TextView aqk;
     private LinearLayout mRootLayout;
 
     @Override // com.baidu.swan.support.v4.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        View inflate = layoutInflater.inflate(b.g.aiapps_error_fragment, viewGroup, false);
+        View inflate = layoutInflater.inflate(a.g.aiapps_error_fragment, viewGroup, false);
         O(inflate);
         M(inflate);
         if (yj()) {
@@ -42,7 +42,7 @@ public class c extends b {
         if (!TextUtils.isEmpty(a)) {
             dR(a);
         }
-        this.apV.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.c.c.1
+        this.apW.setLeftZoneOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.core.c.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 c.this.ye();
@@ -66,14 +66,14 @@ public class c extends b {
             }
             return;
         }
-        this.mRootLayout = (LinearLayout) view.findViewById(b.f.error_layout);
-        this.mRootLayout.setBackgroundColor(getResources().getColor(b.c.aiapps_error_fragment_background));
-        this.aqi = (TextView) view.findViewById(b.f.ai_apps_error_msg);
-        this.aqi.setText(uB.mErrorMsg);
-        this.aqi.setTextColor(getResources().getColor(b.c.aiapps_error_msg_color));
-        this.aqj = (TextView) view.findViewById(b.f.ai_apps_error_text_one);
-        this.aqj.setText(uB.axI);
-        this.aqj.setTextColor(getResources().getColor(b.c.aiapps_error_detail_color));
+        this.mRootLayout = (LinearLayout) view.findViewById(a.f.error_layout);
+        this.mRootLayout.setBackgroundColor(getResources().getColor(a.c.aiapps_error_fragment_background));
+        this.aqj = (TextView) view.findViewById(a.f.ai_apps_error_msg);
+        this.aqj.setText(uB.mErrorMsg);
+        this.aqj.setTextColor(getResources().getColor(a.c.aiapps_error_msg_color));
+        this.aqk = (TextView) view.findViewById(a.f.ai_apps_error_text_one);
+        this.aqk.setText(uB.axJ);
+        this.aqk.setTextColor(getResources().getColor(a.c.aiapps_error_detail_color));
     }
 
     @Override // com.baidu.swan.apps.core.c.b

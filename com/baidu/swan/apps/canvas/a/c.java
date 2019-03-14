@@ -40,11 +40,11 @@ public class c extends a {
             unitedSchemeEntity.result = bQ(201);
             return false;
         }
-        if (TextUtils.isEmpty(c.aBC) && (yP = com.baidu.swan.apps.w.e.Ec().yP()) != null) {
-            c.aBC = yP.yB();
+        if (TextUtils.isEmpty(c.aBD) && (yP = com.baidu.swan.apps.w.e.Ec().yP()) != null) {
+            c.aBD = yP.yB();
         }
-        if (TextUtils.isEmpty(c.aBC) || TextUtils.isEmpty(c.id)) {
-            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasGetImageData slave id = " + c.aBC + " ; canvas id = " + c.id);
+        if (TextUtils.isEmpty(c.aBD) || TextUtils.isEmpty(c.id)) {
+            com.baidu.swan.apps.console.c.e("SwanAppCanvas", "CanvasGetImageData slave id = " + c.aBD + " ; canvas id = " + c.id);
             unitedSchemeEntity.result = bQ(201);
             return false;
         }

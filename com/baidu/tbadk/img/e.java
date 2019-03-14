@@ -3,6 +3,7 @@ package com.baidu.tbadk.img;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.m;
 import com.baidu.tbadk.img.effect.ImageOperation;
@@ -114,9 +115,9 @@ public class e {
         long iC = m.iC(str);
         if (iC >= 20971520) {
             i = 60;
-        } else if (iC >= 10485760 && iC < 20971520) {
+        } else if (iC >= Config.FULL_TRACE_LOG_LIMIT && iC < 20971520) {
             i = 75;
-        } else if (iC >= 7340032 && iC < 10485760) {
+        } else if (iC >= 7340032 && iC < Config.FULL_TRACE_LOG_LIMIT) {
             i = 85;
         } else {
             i = (iC < 5242880 || iC >= 7340032) ? 100 : 95;

@@ -108,7 +108,7 @@ class NotificationCompatApi21 {
         Parcelable[] parcelableArr = new Parcelable[unreadConversation.getMessages().length];
         for (int i = 0; i < parcelableArr.length; i++) {
             Bundle bundle2 = new Bundle();
-            bundle2.putString(KEY_TEXT, unreadConversation.getMessages()[i]);
+            bundle2.putString("text", unreadConversation.getMessages()[i]);
             bundle2.putString(KEY_AUTHOR, str);
             parcelableArr[i] = bundle2;
         }
@@ -142,7 +142,7 @@ class NotificationCompatApi21 {
                 } else if (!(parcelableArray[i] instanceof Bundle)) {
                     break;
                 } else {
-                    strArr2[i] = ((Bundle) parcelableArray[i]).getString(KEY_TEXT);
+                    strArr2[i] = ((Bundle) parcelableArray[i]).getString("text");
                     if (strArr2[i] == null) {
                         break;
                     }

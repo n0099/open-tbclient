@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.coremedia.iso.boxes.UserBox;
 import com.xiaomi.channel.commonutils.network.d;
 import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.network.HostManager;
@@ -113,7 +114,7 @@ public class HostManagerV2 extends HostManager {
         if (str.equals("wap")) {
             arrayList3.add(new com.xiaomi.channel.commonutils.network.a("conpt", a(d.k(this.sAppContext))));
         }
-        arrayList3.add(new com.xiaomi.channel.commonutils.network.a("uuid", str2));
+        arrayList3.add(new com.xiaomi.channel.commonutils.network.a(UserBox.TYPE, str2));
         arrayList3.add(new com.xiaomi.channel.commonutils.network.a(IntentConfig.LIST, join(arrayList, Constants.ACCEPT_TIME_SEPARATOR_SP)));
         Fallback localFallback = getLocalFallback("resolver.msg.xiaomi.net");
         String format = String.format(Locale.US, "http://%1$s/gslb/?ver=3.0", "resolver.msg.xiaomi.net:" + this.c);

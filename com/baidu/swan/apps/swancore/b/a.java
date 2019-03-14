@@ -3,7 +3,8 @@ package com.baidu.swan.apps.swancore.b;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.c;
+import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.core.i.c;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.Iterator;
@@ -11,7 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = c.DEBUG;
+    private static final boolean DEBUG = b.DEBUG;
 
     public static boolean hh(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -30,7 +31,7 @@ public class a {
             return false;
         }
         String path = parse.getPath();
-        String str2 = com.baidu.swan.apps.core.i.c.Ab().As() != null ? com.baidu.swan.apps.core.i.c.Ab().As().aTf + "/abtest/config.js" : "/abtest/config.js";
+        String str2 = c.Ab().As() != null ? c.Ab().As().aTg + "/abtest/config.js" : "/abtest/config.js";
         if (DEBUG) {
             Log.d("SwanCoreConfigHelper", "path:" + path);
             Log.d("SwanCoreConfigHelper", "configCheckPath:" + str2);

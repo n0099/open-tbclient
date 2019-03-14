@@ -3,7 +3,6 @@ package cn.jiguang.d.b;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.view.PointerIconCompat;
 import android.text.TextUtils;
 import cn.jiguang.api.SdkType;
 import cn.jiguang.d.h.t;
@@ -248,7 +247,7 @@ public final class g implements Runnable {
                     if (i2 != 108) {
                         if (i2 == 102) {
                             cn.jiguang.d.a.a.i();
-                            this.d.sendEmptyMessageDelayed(PointerIconCompat.TYPE_HELP, 100L);
+                            this.d.sendEmptyMessageDelayed(1003, 100L);
                         } else if (i2 == 1012) {
                             cn.jiguang.d.a.a.a();
                         }

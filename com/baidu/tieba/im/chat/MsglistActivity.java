@@ -14,38 +14,40 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     protected abstract void initView();
 
     @Override // com.baidu.tieba.im.chat.d
-    public void bqd() {
-        bpF();
+    public void bqc() {
+        bpE();
     }
 
-    public void bpF() {
+    public void bpE() {
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    protected void onCreate(Bundle bundle) {
+    public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         if (!T(bundle)) {
             finish();
             return;
         }
         initView();
-        adjustResizeForSoftInput(d.C0236d.common_color_10022, false);
-        if (this.gcx != null) {
-            this.gcx.setImageUploadUIProgressCallback(this.gcC);
+        adjustResizeForSoftInput(d.C0277d.common_color_10022, false);
+        if (this.gcw != null) {
+            this.gcw.setImageUploadUIProgressCallback(this.gcB);
         }
-        bqj();
+        bqi();
         if (a((d) this)) {
             loadDraft();
-            bpD();
-            j.gcv = l.apX();
+            bpC();
+            j.gcu = l.apW();
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, android.app.Activity
-    protected void onNewIntent(Intent intent) {
+    public void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        if (this.gcx != null) {
-            this.gcx.onDestroy();
+        if (this.gcw != null) {
+            this.gcw.onDestroy();
         }
         setIntent(intent);
         if (!T(null)) {
@@ -53,18 +55,19 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             return;
         }
         initView();
-        adjustResizeForSoftInput(d.C0236d.common_color_10022, false);
-        bqj();
+        adjustResizeForSoftInput(d.C0277d.common_color_10022, false);
+        bqi();
         if (a((d) this)) {
             loadDraft();
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
-    protected void onChangeSkinType(int i) {
+    public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.gcw != null) {
-            this.gcw.onChangeSkinType(i);
+        if (this.gcv != null) {
+            this.gcv.onChangeSkinType(i);
         }
     }
 
@@ -72,35 +75,37 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        if (this.gcw != null) {
-            this.gcw.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            bpA();
+        if (this.gcv != null) {
+            this.gcv.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            bpz();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bpA() {
+    public void bpz() {
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
-            this.gcw.showReceiver();
+            this.gcv.showReceiver();
         } else {
-            this.gcw.closeReceiver();
+            this.gcv.closeReceiver();
         }
     }
 
     protected boolean loadDraft() {
-        return this.gcx.loadDraft();
+        return this.gcw.loadDraft();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        bpE();
+        bpD();
     }
 
-    protected void bpD() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void bpC() {
     }
 
-    protected void bpE() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void bpD() {
     }
 }

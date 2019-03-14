@@ -14,12 +14,12 @@ import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes4.dex */
 public class j implements com.baidu.tbadk.mvc.b.j {
     protected boolean Jy;
-    protected ArrayList<FeedData> gyq = new ArrayList<>();
+    protected ArrayList<FeedData> gyp = new ArrayList<>();
     protected an page = new an();
-    protected h gyr = new h();
+    protected h gyq = new h();
 
-    public ArrayList<FeedData> bxN() {
-        return this.gyq;
+    public ArrayList<FeedData> bxM() {
+        return this.gyp;
     }
 
     public an getPage() {
@@ -35,13 +35,13 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                 for (int i = 0; i < optJSONArray2.length(); i++) {
                     FeedData feedData = new FeedData();
                     feedData.parserJson(optJSONArray2.optJSONObject(i));
-                    this.gyq.add(feedData);
+                    this.gyp.add(feedData);
                     if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.S(feedData.getPraiseList()) == 0) {
-                        this.gyq.remove(feedData);
+                        this.gyp.remove(feedData);
                     }
                 }
             }
-            this.gyr.parserJson(jSONObject.optJSONObject("message"));
+            this.gyq.parserJson(jSONObject.optJSONObject("message"));
             this.page.parserJson(jSONObject.optJSONObject("page"));
             this.Jy = true;
         } catch (Exception e) {
@@ -60,9 +60,9 @@ public class j implements com.baidu.tbadk.mvc.b.j {
                     for (int i = 0; i < list.size(); i++) {
                         FeedData feedData = new FeedData();
                         feedData.parserProtoBuf(list.get(i));
-                        this.gyq.add(feedData);
+                        this.gyp.add(feedData);
                         if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && v.S(feedData.getPraiseList()) == 0) {
-                            this.gyq.remove(feedData);
+                            this.gyp.remove(feedData);
                         }
                     }
                 }

@@ -1,19 +1,19 @@
 package com.baidu.swan.pms.b.a.c;
 /* loaded from: classes2.dex */
 public class d {
-    private static d bmt;
-    private com.baidu.swan.pms.b.a.b.b bmu = new com.baidu.swan.pms.b.a.b.b();
+    private static d bmu;
+    private com.baidu.swan.pms.b.a.b.b bmv = new com.baidu.swan.pms.b.a.b.b();
 
     public static d RT() {
-        if (bmt != null) {
-            return bmt;
+        if (bmu != null) {
+            return bmu;
         }
         synchronized (d.class) {
-            if (bmt == null) {
-                bmt = new d();
+            if (bmu == null) {
+                bmu = new d();
             }
         }
-        return bmt;
+        return bmu;
     }
 
     private d() {
@@ -23,7 +23,7 @@ public class d {
         if (fVar == null) {
             return null;
         }
-        if (this.bmu.a(fVar, fVar.bmA)) {
+        if (this.bmv.a(fVar, fVar.bmB)) {
             fVar.RU().G(fVar.RV());
             return new k(fVar, true);
         }
@@ -32,14 +32,14 @@ public class d {
 
     public synchronized <T> void g(f<T> fVar) {
         fVar.cS(false);
-        this.bmu.b(fVar);
+        this.bmv.b(fVar);
     }
 
     public synchronized void c(b bVar) {
-        this.bmu.a(bVar);
+        this.bmv.a(bVar);
     }
 
     public synchronized void d(b bVar) {
-        this.bmu.b(bVar);
+        this.bmv.b(bVar);
     }
 }

@@ -12,19 +12,19 @@ import com.baidu.tieba.frs.tab.e;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class g implements a {
-    private TabMenuPopView.a fdu = new TabMenuPopView.a() { // from class: com.baidu.tieba.frs.tab.g.1
+    private TabMenuPopView.a fdt = new TabMenuPopView.a() { // from class: com.baidu.tieba.frs.tab.g.1
         @Override // com.baidu.tieba.frs.TabMenuPopView.a
         public void a(View view, ar arVar) {
-            if (g.this.ftY != null) {
-                g.this.ftY.bir();
+            if (g.this.ftX != null) {
+                g.this.ftX.biq();
             }
-            g.this.fua.ro(arVar.fcB);
+            g.this.ftZ.ro(arVar.fcA);
         }
     };
-    private List<ar> ffQ;
-    private e ftY;
-    private e.b fua;
-    private TabMenuPopView fub;
+    private List<ar> ffP;
+    private e ftX;
+    private e.b ftZ;
+    private TabMenuPopView fua;
     private View mContentView;
     private Context mContext;
     private View mTopLine;
@@ -33,26 +33,26 @@ public class g implements a {
     public void a(Context context, e eVar) {
         if (context != null && eVar != null) {
             this.mContext = context;
-            this.ftY = eVar;
-            this.fua = eVar.bis();
+            this.ftX = eVar;
+            this.ftZ = eVar.bir();
             this.mContentView = LayoutInflater.from(this.mContext).inflate(d.h.tab_menu_multline_view, (ViewGroup) null);
             this.mTopLine = this.mContentView.findViewById(d.g.top_line);
-            this.fub = (TabMenuPopView) this.mContentView.findViewById(d.g.categorycontainer);
-            this.fub.setOnItemClickCallBack(this.fdu);
+            this.fua = (TabMenuPopView) this.mContentView.findViewById(d.g.categorycontainer);
+            this.fua.setOnItemClickCallBack(this.fdt);
         }
     }
 
     @Override // com.baidu.tieba.frs.tab.a
     public void setData(List<ar> list) {
         if (list != null) {
-            this.ffQ = list;
+            this.ffP = list;
             ar arVar = new ar();
-            arVar.fcB = 0;
+            arVar.fcA = 0;
             arVar.name = this.mContext.getResources().getString(d.j.all);
             arVar.isSelected = false;
-            al.l(this.mContentView, d.C0236d.cp_bg_line_d);
-            al.l(this.mTopLine, d.C0236d.cp_bg_line_b);
-            this.fub.setData(this.ffQ, arVar);
+            al.l(this.mContentView, d.C0277d.cp_bg_line_d);
+            al.l(this.mTopLine, d.C0277d.cp_bg_line_b);
+            this.fua.setData(this.ffP, arVar);
         }
     }
 
@@ -62,7 +62,7 @@ public class g implements a {
     }
 
     @Override // com.baidu.tieba.frs.tab.a
-    public int bip() {
+    public int bio() {
         this.mContentView.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
         return this.mContentView.getMeasuredHeight();
     }

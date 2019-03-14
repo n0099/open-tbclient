@@ -6,9 +6,9 @@ import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.an.aa;
 import com.baidu.swan.apps.an.n;
-import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.core.h.b;
 import com.baidu.swan.apps.scheme.actions.h.f;
 import com.baidu.swan.apps.scheme.actions.y;
@@ -40,16 +40,16 @@ public class g extends y {
         }
         final com.baidu.swan.apps.model.b ap = com.baidu.swan.apps.model.b.ap(b, Ec.DL());
         if (!aa.a(Ec.DK(), ap, true)) {
-            com.baidu.swan.apps.console.c.e("relaunch", "page params error : pageParam=" + ap.axH);
+            com.baidu.swan.apps.console.c.e("relaunch", "page params error : pageParam=" + ap.axI);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
         String a = a.a(unitedSchemeEntity, LegoListActivityConfig.PARAMS, "initData");
-        if (!TextUtils.isEmpty(a) && ap != null && !TextUtils.isEmpty(ap.axH) && com.baidu.swan.apps.ae.b.IX() != null) {
-            com.baidu.swan.apps.ae.b.IX().au(a, ap.axH);
+        if (!TextUtils.isEmpty(a) && ap != null && !TextUtils.isEmpty(ap.axI) && com.baidu.swan.apps.ae.b.IX() != null) {
+            com.baidu.swan.apps.ae.b.IX().au(a, ap.axI);
         }
         final b.a x = com.baidu.swan.apps.core.h.b.x(Ec.DO());
-        final String we = x.asE.we();
+        final String we = x.asF.we();
         if (DEBUG) {
             Log.d("ReLaunchAction", "webview idx: " + we);
         }
@@ -61,12 +61,12 @@ public class g extends y {
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         Ec.showLoadingView();
-        f.JL().a(bVar, ap.axH, we, new f.a() { // from class: com.baidu.swan.apps.scheme.actions.h.g.1
+        f.JL().a(bVar, ap.axI, we, new f.a() { // from class: com.baidu.swan.apps.scheme.actions.h.g.1
             @Override // com.baidu.swan.apps.scheme.actions.h.f.a
             public void eP(String str) {
                 com.baidu.swan.apps.console.c.i("relaunch", "check pages success");
                 Ec.uC();
-                a.a(unitedSchemeEntity, callbackHandler, bVar, we, ap.axH, optString);
+                a.a(unitedSchemeEntity, callbackHandler, bVar, we, ap.axI, optString);
                 g.this.b(x, ap, uz);
             }
 
@@ -75,7 +75,7 @@ public class g extends y {
                 com.baidu.swan.apps.console.c.e("relaunch", "check pages failed");
                 Ec.uC();
                 if (g.DEBUG) {
-                    com.baidu.swan.apps.res.widget.b.d.a(context, context.getString(b.h.aiapps_open_pages_failed) + i).IK();
+                    com.baidu.swan.apps.res.widget.b.d.a(context, context.getString(a.h.aiapps_open_pages_failed) + i).IK();
                 }
                 a.c(unitedSchemeEntity, callbackHandler, optString);
             }
@@ -86,15 +86,15 @@ public class g extends y {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final b.a aVar, final com.baidu.swan.apps.model.b bVar, final com.baidu.swan.apps.core.c.e eVar) {
         if (DEBUG) {
-            Log.d("ReLaunchAction", "tryToExecutePageRoute start. isReady : " + aVar.asF);
+            Log.d("ReLaunchAction", "tryToExecutePageRoute start. isReady : " + aVar.asG);
         }
-        com.baidu.swan.apps.core.h.b.a(aVar, new b.InterfaceC0105b() { // from class: com.baidu.swan.apps.scheme.actions.h.g.2
-            @Override // com.baidu.swan.apps.core.h.b.InterfaceC0105b
+        com.baidu.swan.apps.core.h.b.a(aVar, new b.InterfaceC0134b() { // from class: com.baidu.swan.apps.scheme.actions.h.g.2
+            @Override // com.baidu.swan.apps.core.h.b.InterfaceC0134b
             public void onReady() {
                 if (g.DEBUG) {
                     Log.d("ReLaunchAction", "tryToExecutePageRoute onReady start.");
                 }
-                a.a(aVar.asE, bVar);
+                a.a(aVar.asF, bVar);
                 g.a(eVar, bVar);
                 if (g.DEBUG) {
                     Log.d("ReLaunchAction", "tryToExecutePageRoute onReady end.");

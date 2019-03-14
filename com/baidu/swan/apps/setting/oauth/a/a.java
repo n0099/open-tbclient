@@ -8,15 +8,15 @@ import okhttp3.Request;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class a extends g<C0142a> {
-    protected final boolean aRr;
+public class a extends g<C0171a> {
+    protected final boolean aRs;
     protected final Activity mActivity;
     protected final String mScope;
 
     public a(Activity activity, boolean z, String str) {
         this.mActivity = activity;
         this.mScope = str;
-        this.aRr = z;
+        this.aRs = z;
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
@@ -34,7 +34,7 @@ public class a extends g<C0142a> {
             }
             jSONObject.put("open", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("permit", Boolean.toString(this.aRr));
+            jSONObject3.put("permit", Boolean.toString(this.aRs));
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put(this.mScope, jSONObject3);
             jSONObject.put("accredits", jSONObject4);
@@ -54,7 +54,7 @@ public class a extends g<C0142a> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.b
     /* renamed from: B */
-    public C0142a C(JSONObject jSONObject) throws JSONException {
+    public C0171a C(JSONObject jSONObject) throws JSONException {
         String str;
         JSONObject jSONObject2;
         JSONObject ae = com.baidu.swan.apps.setting.oauth.c.ae(jSONObject);
@@ -70,7 +70,7 @@ public class a extends g<C0142a> {
             str = jSONObject3.optString("code", "");
             jSONObject2 = jSONObject3.optJSONObject("opendata");
         }
-        return new C0142a(this.aRr, str, jSONObject2);
+        return new C0171a(this.aRs, str, jSONObject2);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -82,19 +82,19 @@ public class a extends g<C0142a> {
 
     /* renamed from: com.baidu.swan.apps.setting.oauth.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0142a {
-        public final boolean aRs;
-        public final JSONObject aRt;
+    public static class C0171a {
+        public final boolean aRt;
+        public final JSONObject aRu;
         public final String code;
 
-        private C0142a(boolean z, String str, JSONObject jSONObject) {
+        private C0171a(boolean z, String str, JSONObject jSONObject) {
             this.code = str == null ? "" : str;
-            this.aRs = z;
-            this.aRt = jSONObject;
+            this.aRt = z;
+            this.aRu = jSONObject;
         }
 
         public String toString() {
-            return String.format("Result(%b):%s", Boolean.valueOf(this.aRs), this.code);
+            return String.format("Result(%b):%s", Boolean.valueOf(this.aRt), this.code);
         }
     }
 }

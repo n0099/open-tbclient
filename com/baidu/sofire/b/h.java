@@ -6,7 +6,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sofire.ac.F;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayInputStream;
@@ -149,15 +148,15 @@ public final class h {
                     byte[] encoded = a.getEncoded();
                     if (encoded != null) {
                         e.a(context, encoded);
-                        jSONObject.put(SapiUtils.KEY_QR_LOGIN_SIGN, o.a(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", "")));
+                        jSONObject.put("sign", o.a(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", "")));
                         com.baidu.sofire.b.a();
                     }
                 } else {
-                    jSONObject.put(SapiUtils.KEY_QR_LOGIN_SIGN, "");
+                    jSONObject.put("sign", "");
                 }
                 jSONObject.put("app", e.e(packageInfo.applicationInfo.loadLabel(packageManager).toString()));
             } else {
-                jSONObject.put(SapiUtils.KEY_QR_LOGIN_SIGN, "");
+                jSONObject.put("sign", "");
                 jSONObject.put("app", "");
             }
             String jSONObject2 = jSONObject.toString();

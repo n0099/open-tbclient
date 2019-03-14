@@ -12,16 +12,16 @@ import com.baidu.tbadk.core.view.ThreadLinkView;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class l extends b<com.baidu.tbadk.core.data.a> {
-    private ThreadLinkView XK;
-    private TextView XL;
-    private com.baidu.tbadk.core.data.a Xx;
+    private ThreadLinkView XL;
+    private TextView XM;
+    private com.baidu.tbadk.core.data.a Xy;
     private View mRootView;
 
     public l(Context context) {
         super(context);
         this.mRootView = LayoutInflater.from(context).inflate(d.h.card_link_layout, (ViewGroup) null, true);
-        this.XK = (ThreadLinkView) this.mRootView.findViewById(d.g.link_thread_root);
-        this.XL = (TextView) this.mRootView.findViewById(d.g.link_seg_title);
+        this.XL = (ThreadLinkView) this.mRootView.findViewById(d.g.link_thread_root);
+        this.XM = (TextView) this.mRootView.findViewById(d.g.link_seg_title);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -38,23 +38,23 @@ public class l extends b<com.baidu.tbadk.core.data.a> {
             getView().setVisibility(8);
             return;
         }
-        this.Xx = aVar;
+        this.Xy = aVar;
         bg WR = aVar.WR();
-        com.baidu.tieba.card.n.b(WR, this.XL);
-        this.XK.setData(WR);
+        com.baidu.tieba.card.n.b(WR, this.XM);
+        this.XL.setData(WR);
     }
 
     @Override // com.baidu.card.j
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        this.XK.onChangeSkinType();
-        if (this.Xx != null && this.Xx.WR() != null) {
-            com.baidu.tieba.card.n.a(this.XL, this.Xx.WR().getId(), d.C0236d.cp_cont_b, d.C0236d.cp_cont_d);
+        this.XL.onChangeSkinType();
+        if (this.Xy != null && this.Xy.WR() != null) {
+            com.baidu.tieba.card.n.a(this.XM, this.Xy.WR().getId(), d.C0277d.cp_cont_b, d.C0277d.cp_cont_d);
         }
     }
 
     @Override // com.baidu.card.b
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         super.setPageUniqueId(bdUniqueId);
-        this.XK.setTag(bdUniqueId);
+        this.XL.setTag(bdUniqueId);
     }
 }

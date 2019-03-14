@@ -2,28 +2,28 @@ package com.baidu.swan.games.glsurface;
 
 import android.content.Context;
 import android.util.Log;
-import com.baidu.swan.apps.c;
+import com.baidu.swan.apps.b;
 import java.util.ArrayDeque;
 import java.util.Queue;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = c.DEBUG;
-    private static volatile a bcU;
-    private Queue<DuMixGameSurfaceView> bcV = new ArrayDeque();
+    private static final boolean DEBUG = b.DEBUG;
+    private static volatile a bcV;
+    private Queue<DuMixGameSurfaceView> bcW = new ArrayDeque();
 
     public static a Os() {
-        if (bcU == null) {
+        if (bcV == null) {
             synchronized (a.class) {
-                if (bcU == null) {
-                    bcU = new a();
+                if (bcV == null) {
+                    bcV = new a();
                 }
             }
         }
-        return bcU;
+        return bcV;
     }
 
     public DuMixGameSurfaceView cw(Context context) {
-        if (this.bcV.isEmpty()) {
+        if (this.bcW.isEmpty()) {
             if (DEBUG) {
                 Log.d("SwanGameSurfaceView", "obtainSurfaceView crateNew.");
             }
@@ -32,12 +32,12 @@ public class a {
         if (DEBUG) {
             Log.d("SwanGameSurfaceView", "obtainSurfaceView take from pool.");
         }
-        return this.bcV.remove();
+        return this.bcW.remove();
     }
 
     public void f(DuMixGameSurfaceView duMixGameSurfaceView) {
-        if (!this.bcV.contains(duMixGameSurfaceView)) {
-            this.bcV.add(duMixGameSurfaceView);
+        if (!this.bcW.contains(duMixGameSurfaceView)) {
+            this.bcW.add(duMixGameSurfaceView);
         }
     }
 

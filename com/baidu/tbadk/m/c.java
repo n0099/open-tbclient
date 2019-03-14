@@ -74,22 +74,22 @@ public class c extends a {
         this.cnx.setImageResource(0);
     }
 
-    public void anC() {
+    public void anB() {
         this.cnA.setVisibility(0);
         this.cnz.setVisibility(0);
-        al.d(this.cny, d.C0236d.cp_cont_d, 1);
+        al.d(this.cny, d.C0277d.cp_cont_d, 1);
     }
 
     public void onChangeSkinType() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         al.c(this.cnx, d.f.new_pic_emotion_gray_09);
-        al.c(this.cny, d.C0236d.cp_cont_d, 1, skinType);
-        al.c(this.cnz, d.C0236d.cp_cont_j, 1, skinType);
-        al.c(this.cnA, d.C0236d.cp_link_tip_a, 1, skinType);
-        al.l(this.attachedView, d.C0236d.cp_bg_line_d);
+        al.c(this.cny, d.C0277d.cp_cont_d, 1, skinType);
+        al.c(this.cnz, d.C0277d.cp_cont_j, 1, skinType);
+        al.c(this.cnA, d.C0277d.cp_link_tip_a, 1, skinType);
+        al.l(this.attachedView, d.C0277d.cp_bg_line_d);
     }
 
-    public View anD() {
+    public View anC() {
         return this.attachedView;
     }
 

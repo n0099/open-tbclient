@@ -11,7 +11,7 @@ public class QrLoginUtils {
     public static boolean isJoinQrLoginSchema(String str) {
         try {
             URL url = new URL(str);
-            return ServiceManager.getInstance().getIsAccountManager().getConfignation().getEnvironment().getURL(true).equals(new StringBuilder().append(url.getProtocol()).append("://").append(url.getHost()).toString()) && !TextUtils.isEmpty(str) && str.contains(SapiUtils.KEY_QR_LOGIN_SIGN) && str.contains("/v2/api/qrcode") && str.contains("prompt");
+            return ServiceManager.getInstance().getIsAccountManager().getConfignation().getEnvironment().getURL(true).equals(new StringBuilder().append(url.getProtocol()).append("://").append(url.getHost()).toString()) && !TextUtils.isEmpty(str) && str.contains("sign") && str.contains("/v2/api/qrcode") && str.contains("prompt");
         } catch (MalformedURLException e) {
             return false;
         }

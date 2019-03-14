@@ -6,101 +6,101 @@ import android.os.SystemClock;
 import java.util.Arrays;
 /* loaded from: classes2.dex */
 public class f extends a {
-    private final Drawable[] jCV;
-    int jDh;
-    int jDi;
-    long jDj;
-    int[] jDk;
-    int[] jDl;
-    boolean[] jDm;
-    int jDn;
+    private final Drawable[] jCN;
+    int jCZ;
+    int jDa;
+    long jDb;
+    int[] jDc;
+    int[] jDd;
+    boolean[] jDe;
+    int jDf;
     int mAlpha;
 
     public f(Drawable[] drawableArr) {
         super(drawableArr);
         com.facebook.common.internal.g.c(drawableArr.length >= 1, "At least one layer required!");
-        this.jCV = drawableArr;
-        this.jDk = new int[drawableArr.length];
-        this.jDl = new int[drawableArr.length];
+        this.jCN = drawableArr;
+        this.jDc = new int[drawableArr.length];
+        this.jDd = new int[drawableArr.length];
         this.mAlpha = 255;
-        this.jDm = new boolean[drawableArr.length];
-        this.jDn = 0;
+        this.jDe = new boolean[drawableArr.length];
+        this.jDf = 0;
         resetInternal();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void invalidateSelf() {
-        if (this.jDn == 0) {
+        if (this.jDf == 0) {
             super.invalidateSelf();
         }
     }
 
-    public void cvp() {
-        this.jDn++;
+    public void cvs() {
+        this.jDf++;
     }
 
-    public void cvq() {
-        this.jDn--;
+    public void cvt() {
+        this.jDf--;
         invalidateSelf();
     }
 
     public void Ce(int i) {
-        this.jDi = i;
-        if (this.jDh == 1) {
-            this.jDh = 0;
+        this.jDa = i;
+        if (this.jCZ == 1) {
+            this.jCZ = 0;
         }
     }
 
     private void resetInternal() {
-        this.jDh = 2;
-        Arrays.fill(this.jDk, 0);
-        this.jDk[0] = 255;
-        Arrays.fill(this.jDl, 0);
-        this.jDl[0] = 255;
-        Arrays.fill(this.jDm, false);
-        this.jDm[0] = true;
+        this.jCZ = 2;
+        Arrays.fill(this.jDc, 0);
+        this.jDc[0] = 255;
+        Arrays.fill(this.jDd, 0);
+        this.jDd[0] = 255;
+        Arrays.fill(this.jDe, false);
+        this.jDe[0] = true;
     }
 
     public void Cf(int i) {
-        this.jDh = 0;
-        this.jDm[i] = true;
+        this.jCZ = 0;
+        this.jDe[i] = true;
         invalidateSelf();
     }
 
     public void Cg(int i) {
-        this.jDh = 0;
-        this.jDm[i] = false;
+        this.jCZ = 0;
+        this.jDe[i] = false;
         invalidateSelf();
     }
 
-    public void cvr() {
-        this.jDh = 0;
-        Arrays.fill(this.jDm, true);
+    public void cvu() {
+        this.jCZ = 0;
+        Arrays.fill(this.jDe, true);
         invalidateSelf();
     }
 
-    public void cvs() {
-        this.jDh = 2;
-        for (int i = 0; i < this.jCV.length; i++) {
-            this.jDl[i] = this.jDm[i] ? 255 : 0;
+    public void cvv() {
+        this.jCZ = 2;
+        for (int i = 0; i < this.jCN.length; i++) {
+            this.jDd[i] = this.jDe[i] ? 255 : 0;
         }
         invalidateSelf();
     }
 
     private boolean aU(float f) {
         boolean z = true;
-        for (int i = 0; i < this.jCV.length; i++) {
-            this.jDl[i] = (int) (((this.jDm[i] ? 1 : -1) * 255 * f) + this.jDk[i]);
-            if (this.jDl[i] < 0) {
-                this.jDl[i] = 0;
+        for (int i = 0; i < this.jCN.length; i++) {
+            this.jDd[i] = (int) (((this.jDe[i] ? 1 : -1) * 255 * f) + this.jDc[i]);
+            if (this.jDd[i] < 0) {
+                this.jDd[i] = 0;
             }
-            if (this.jDl[i] > 255) {
-                this.jDl[i] = 255;
+            if (this.jDd[i] > 255) {
+                this.jDd[i] = 255;
             }
-            if (this.jDm[i] && this.jDl[i] < 255) {
+            if (this.jDe[i] && this.jDd[i] < 255) {
                 z = false;
             }
-            if (!this.jDm[i] && this.jDl[i] > 0) {
+            if (!this.jDe[i] && this.jDd[i] > 0) {
                 z = false;
             }
         }
@@ -110,23 +110,23 @@ public class f extends a {
     @Override // com.facebook.drawee.drawable.a, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
         boolean z = true;
-        switch (this.jDh) {
+        switch (this.jCZ) {
             case 0:
-                System.arraycopy(this.jDl, 0, this.jDk, 0, this.jCV.length);
-                this.jDj = cvt();
-                boolean aU = aU(this.jDi == 0 ? 1.0f : 0.0f);
-                this.jDh = aU ? 2 : 1;
+                System.arraycopy(this.jDd, 0, this.jDc, 0, this.jCN.length);
+                this.jDb = cvw();
+                boolean aU = aU(this.jDa == 0 ? 1.0f : 0.0f);
+                this.jCZ = aU ? 2 : 1;
                 z = aU;
                 break;
             case 1:
-                com.facebook.common.internal.g.checkState(this.jDi > 0);
-                boolean aU2 = aU(((float) (cvt() - this.jDj)) / this.jDi);
-                this.jDh = aU2 ? 2 : 1;
+                com.facebook.common.internal.g.checkState(this.jDa > 0);
+                boolean aU2 = aU(((float) (cvw() - this.jDb)) / this.jDa);
+                this.jCZ = aU2 ? 2 : 1;
                 z = aU2;
                 break;
         }
-        for (int i = 0; i < this.jCV.length; i++) {
-            a(canvas, this.jCV[i], (this.jDl[i] * this.mAlpha) / 255);
+        for (int i = 0; i < this.jCN.length; i++) {
+            a(canvas, this.jCN[i], (this.jDd[i] * this.mAlpha) / 255);
         }
         if (!z) {
             invalidateSelf();
@@ -135,9 +135,9 @@ public class f extends a {
 
     private void a(Canvas canvas, Drawable drawable, int i) {
         if (drawable != null && i > 0) {
-            this.jDn++;
+            this.jDf++;
             drawable.mutate().setAlpha(i);
-            this.jDn--;
+            this.jDf--;
             drawable.draw(canvas);
         }
     }
@@ -155,7 +155,7 @@ public class f extends a {
         return this.mAlpha;
     }
 
-    protected long cvt() {
+    protected long cvw() {
         return SystemClock.uptimeMillis();
     }
 }

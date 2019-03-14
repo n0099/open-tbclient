@@ -2,31 +2,31 @@ package com.coloros.mcssdk.e;
 /* loaded from: classes3.dex */
 public abstract class c {
     String appPackage;
-    int jyD;
-    String jyE;
+    int jyv;
+    String jyw;
 
     public void BS(int i) {
-        this.jyD = i;
+        this.jyv = i;
     }
 
-    public void Fq(String str) {
-        this.jyE = str;
+    public void Fo(String str) {
+        this.jyw = str;
     }
 
-    public void Fr(String str) {
+    public void Fp(String str) {
         this.appPackage = str;
     }
 
-    public String csU() {
-        return this.jyE;
+    public String csX() {
+        return this.jyw;
     }
 
-    public String csV() {
+    public String csY() {
         return this.appPackage;
     }
 
     public int getMessageID() {
-        return this.jyD;
+        return this.jyv;
     }
 
     public abstract int getType();

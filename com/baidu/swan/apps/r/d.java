@@ -6,12 +6,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.swan.apps.model.a.a.a {
-    public boolean awF;
-    public int awG;
+    public boolean awG;
     public int awH;
-    public String awI;
-    public boolean awJ;
+    public int awI;
+    public String awJ;
     public boolean awK;
+    public boolean awL;
     public String color;
     public int fontSize;
     public String fontWeight;
@@ -29,25 +29,25 @@ public class d extends com.baidu.swan.apps.model.a.a.a {
     @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
-        if (this.aBE == null) {
-            this.aBE = new com.baidu.swan.apps.model.a.a.b();
+        if (this.aBF == null) {
+            this.aBF = new com.baidu.swan.apps.model.a.a.b();
         }
         this.value = jSONObject.optString(UBC.CONTENT_KEY_VALUE);
         this.type = jSONObject.optString("type");
         this.maxLength = jSONObject.optInt("maxLength");
-        this.awG = jSONObject.optInt("cursorSpacing");
-        this.awH = jSONObject.optInt("cursor");
+        this.awH = jSONObject.optInt("cursorSpacing");
+        this.awI = jSONObject.optInt("cursor");
         this.selectionStart = jSONObject.optInt("selectionStart");
         this.selectionEnd = jSONObject.optInt("selectionEnd");
-        this.awI = jSONObject.optString("confirmType");
+        this.awJ = jSONObject.optString("confirmType");
         JSONObject optJSONObject = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
         this.fontSize = optJSONObject.optInt("fontSize");
         this.fontWeight = optJSONObject.optString("fontWeight");
         this.color = optJSONObject.optString("color");
         this.textAlign = optJSONObject.optString("textAlign");
-        this.awF = jSONObject.optInt("password") == 1;
-        this.awJ = jSONObject.optInt("confirmHold") == 1;
-        this.awK = jSONObject.optInt("adjustPosition", 1) == 1;
+        this.awG = jSONObject.optInt("password") == 1;
+        this.awK = jSONObject.optInt("confirmHold") == 1;
+        this.awL = jSONObject.optInt("adjustPosition", 1) == 1;
     }
 
     public void G(JSONObject jSONObject) {

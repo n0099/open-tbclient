@@ -7,8 +7,8 @@ public class b extends g {
     private boolean cqc;
     private boolean cqd;
 
-    public void apa() {
-        if (!this.cqc && m.apl().apm()) {
+    public void aoZ() {
+        if (!this.cqc && m.apk().apl()) {
             this.cqc = true;
             if (Build.VERSION.SDK_INT >= 16) {
                 if (this.cqb == null) {
@@ -19,15 +19,15 @@ public class b extends g {
         }
     }
 
-    public void apb() {
+    public void apa() {
         if (Build.VERSION.SDK_INT >= 16 && this.cqb != null) {
             this.cqb.stop();
         }
     }
 
-    public void apc() {
+    public void apb() {
         o oVar;
-        if (!this.cqd && this.cqb != null && this.cqb.getFps() >= 0 && (oVar = (o) m.apl().ka(this.mSubType)) != null) {
+        if (!this.cqd && this.cqb != null && this.cqb.getFps() >= 0 && (oVar = (o) m.apk().ka(this.mSubType)) != null) {
             oVar.a(this);
             this.cqd = true;
         }

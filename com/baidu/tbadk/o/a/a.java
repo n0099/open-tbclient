@@ -12,7 +12,7 @@ public class a {
         this.crC = str;
     }
 
-    public void apt() {
+    public void aps() {
         if (Build.VERSION.SDK_INT >= 16) {
             if (this.crB == null) {
                 this.crB = new c();
@@ -21,7 +21,7 @@ public class a {
         }
     }
 
-    public void apu() {
+    public void apt() {
         if (this.crB != null && Build.VERSION.SDK_INT >= 16) {
             this.crB.stop();
             ae(this.crC, this.crB.getFps());

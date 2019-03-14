@@ -6,8 +6,8 @@ import android.util.Log;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 /* loaded from: classes2.dex */
 public final class c {
-    public static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private static b aSE;
+    public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static b aSF;
 
     public static synchronized void c(a aVar) {
         synchronized (c.class) {
@@ -20,16 +20,16 @@ public final class c {
                     Log.d("SwanAppLaunchFunnelUBC", "record: " + aVar.toString());
                 }
                 if (TextUtils.equals(IntentConfig.START, aVar.id)) {
-                    if (aSE != null) {
-                        aSE.clearAll();
-                        aSE = null;
+                    if (aSF != null) {
+                        aSF.clearAll();
+                        aSF = null;
                     }
-                    aSE = new b();
+                    aSF = new b();
                 }
-                if (aSE != null) {
-                    aSE.a(aVar);
+                if (aSF != null) {
+                    aSF.a(aVar);
                     if (TextUtils.equals("narun", aVar.id) || TextUtils.equals("error", aVar.id) || TextUtils.equals("cancel", aVar.id)) {
-                        aSE.Ku();
+                        aSF.Ku();
                     }
                 } else if (DEBUG) {
                     Log.w("SwanAppLaunchFunnelUBC", "sFlow is null");
@@ -43,7 +43,7 @@ public final class c {
             Log.d("SwanAppLaunchFunnelUBC", "launchinfo is null");
             return;
         }
-        Bundle bundle = bVar.axP;
+        Bundle bundle = bVar.axQ;
         if (bundle == null) {
             if (DEBUG) {
                 Log.d("SwanAppLaunchFunnelUBC", "launchinfo has no extra data");
@@ -70,27 +70,27 @@ public final class c {
     }
 
     public static void t(com.baidu.swan.apps.v.b.b bVar) {
-        if (bVar != null && aSE != null) {
-            aSE.aSx = bVar.axW;
-            aSE.mAppId = bVar.mAppId;
-            aSE.mSource = bVar.axF;
-            Bundle bundle = bVar.axP;
+        if (bVar != null && aSF != null) {
+            aSF.aSy = bVar.axX;
+            aSF.mAppId = bVar.mAppId;
+            aSF.mSource = bVar.axG;
+            Bundle bundle = bVar.axQ;
             if (bundle != null) {
-                aSE.aSA = bundle.getString("aiapp_extra_need_download", "");
-                aSE.aSB = bundle.getString("aiapp_extra_pkg_download", "0");
+                aSF.aSB = bundle.getString("aiapp_extra_need_download", "");
+                aSF.aSC = bundle.getString("aiapp_extra_pkg_download", "0");
             }
         }
     }
 
     public static void e(com.baidu.swan.apps.v.b.c cVar) {
-        if (cVar != null && aSE != null) {
-            aSE.aSx = cVar.axW;
-            aSE.mAppId = cVar.mAppId;
-            aSE.mSource = cVar.mFrom;
+        if (cVar != null && aSF != null) {
+            aSF.aSy = cVar.axX;
+            aSF.mAppId = cVar.mAppId;
+            aSF.mSource = cVar.mFrom;
             Bundle DC = cVar.DC();
             if (DC != null) {
-                aSE.aSA = DC.getString("aiapp_extra_need_download", "");
-                aSE.aSB = DC.getString("aiapp_extra_pkg_download", "0");
+                aSF.aSB = DC.getString("aiapp_extra_need_download", "");
+                aSF.aSC = DC.getString("aiapp_extra_pkg_download", "0");
             }
         }
     }

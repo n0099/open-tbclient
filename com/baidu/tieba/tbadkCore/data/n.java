@@ -4,22 +4,22 @@ import java.util.List;
 import tbclient.RedpacketRain;
 /* loaded from: classes.dex */
 public class n {
-    private long aEo;
-    private String cNa;
-    private String hgC;
-    private String iHn;
-    private List<String> iHo;
+    private long aEp;
+    private String cMX;
+    private String hgB;
+    private String iHf;
+    private List<String> iHg;
     private long mStartTime;
     private int mType;
 
     public void a(RedpacketRain redpacketRain) {
         if (redpacketRain != null) {
             this.mStartTime = redpacketRain.start_time.longValue() * 1000;
-            this.aEo = redpacketRain.end_time.longValue() * 1000;
-            this.cNa = redpacketRain.jump_url;
-            this.iHn = redpacketRain.float_url;
-            this.iHo = redpacketRain.dynamic_img;
-            this.hgC = redpacketRain.activity_id;
+            this.aEp = redpacketRain.end_time.longValue() * 1000;
+            this.cMX = redpacketRain.jump_url;
+            this.iHf = redpacketRain.float_url;
+            this.iHg = redpacketRain.dynamic_img;
+            this.hgB = redpacketRain.activity_id;
             this.mType = redpacketRain.show_type.intValue();
         }
     }
@@ -29,23 +29,23 @@ public class n {
     }
 
     public long getEndTime() {
-        return this.aEo;
+        return this.aEp;
     }
 
-    public String awz() {
-        return this.cNa;
-    }
-
-    public String ceF() {
-        return this.iHn;
-    }
-
-    public List<String> ceG() {
-        return this.iHo;
+    public String awy() {
+        return this.cMX;
     }
 
     public String ceH() {
-        return this.hgC;
+        return this.iHf;
+    }
+
+    public List<String> ceI() {
+        return this.iHg;
+    }
+
+    public String ceJ() {
+        return this.hgB;
     }
 
     public void setStartTime(long j) {
@@ -53,23 +53,23 @@ public class n {
     }
 
     public void setEndTime(long j) {
-        this.aEo = j;
+        this.aEp = j;
     }
 
-    public void CC(String str) {
-        this.cNa = str;
+    public void CA(String str) {
+        this.cMX = str;
     }
 
-    public void CD(String str) {
-        this.iHn = str;
+    public void CB(String str) {
+        this.iHf = str;
     }
 
     public void dV(List<String> list) {
-        this.iHo = list;
+        this.iHg = list;
     }
 
-    public void CE(String str) {
-        this.hgC = str;
+    public void CC(String str) {
+        this.hgB = str;
     }
 
     public int getType() {

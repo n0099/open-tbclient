@@ -6,11 +6,6 @@ public class be extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected String getName() {
-        return "android_shouzhu_update";
-    }
-
-    @Override // com.baidu.adp.lib.b.a
     protected String[] iG() {
         return null;
     }
@@ -21,12 +16,17 @@ public class be extends com.baidu.adp.lib.b.a {
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int iI() {
-        return 0;
+    protected int iJ() {
+        return 10;
     }
 
     @Override // com.baidu.adp.lib.b.a
-    protected int iJ() {
-        return 10;
+    protected String getName() {
+        return "portrait_cdn_open";
+    }
+
+    @Override // com.baidu.adp.lib.b.a
+    protected int iI() {
+        return 0;
     }
 }

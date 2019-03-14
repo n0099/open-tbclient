@@ -18,31 +18,31 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class a implements b {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    protected com.baidu.swan.games.e.d.b bbo;
-    public final String bbp;
-    private EventTarget bbq;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    protected com.baidu.swan.games.e.d.b bbp;
+    public final String bbq;
     private EventTarget bbr;
-    private com.baidu.swan.games.e.b.a bbs;
-    private com.baidu.swan.games.e.b.b bbt;
-    private com.baidu.swan.games.e.a.a bbu;
-    private List<JSEvent> bbv;
-    private boolean bbw;
+    private EventTarget bbs;
+    private com.baidu.swan.games.e.b.a bbt;
+    private com.baidu.swan.games.e.b.b bbu;
+    private com.baidu.swan.games.e.a.a bbv;
+    private List<JSEvent> bbw;
+    private boolean bbx;
     private Context mContext;
     private int mCurState = 0;
-    private boolean bbx = false;
+    private boolean bby = false;
 
     @NonNull
     public abstract EventTarget NQ();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(@NonNull String str, @NonNull com.baidu.swan.games.e.d.b bVar, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        this.bbp = str;
-        this.bbo = bVar;
+        this.bbq = str;
+        this.bbp = bVar;
         if (!TextUtils.isEmpty(Oa())) {
-            this.bbq = NQ();
-            this.bbr = NR();
-            this.bbv = new ArrayList();
+            this.bbr = NQ();
+            this.bbs = NR();
+            this.bbw = new ArrayList();
             onCreate();
         }
     }
@@ -63,51 +63,51 @@ public abstract class a implements b {
         if (DEBUG) {
             Log.d("SwanAppV8Engine", "initEngine start.");
         }
-        this.bbo.a(this);
+        this.bbp.a(this);
         if (DEBUG) {
             Log.d("SwanAppV8Engine", "initEngine end.");
         }
     }
 
     public void finish() {
-        if (!this.bbw) {
+        if (!this.bbx) {
             if (DEBUG) {
                 Log.d("SwanAppV8Engine", "finish called.");
             }
-            this.bbw = true;
+            this.bbx = true;
             onFinish();
         }
     }
 
     public boolean isFinishing() {
-        return this.bbw;
+        return this.bbx;
     }
 
     @Override // com.baidu.swan.games.e.b
     public com.baidu.swan.games.e.b.b NU() {
-        return this.bbt;
+        return this.bbu;
     }
 
     @Override // com.baidu.swan.games.e.b
     public EventTarget NV() {
-        return this.bbq;
-    }
-
-    @Override // com.baidu.swan.games.e.b
-    public EventTarget NW() {
         return this.bbr;
     }
 
     @Override // com.baidu.swan.games.e.b
+    public EventTarget NW() {
+        return this.bbs;
+    }
+
+    @Override // com.baidu.swan.games.e.b
     public com.baidu.swan.games.e.a.a NX() {
-        return this.bbu;
+        return this.bbv;
     }
 
     public boolean dispatchEvent(final JSEvent jSEvent) {
         if (DEBUG) {
             Log.d("SwanAppV8Engine", "dispatchEvent event: " + (jSEvent != null ? jSEvent.type : ""));
         }
-        if (this.bbq == null || !JSEvent.isValid(jSEvent)) {
+        if (this.bbr == null || !JSEvent.isValid(jSEvent)) {
             if (DEBUG) {
                 Log.e("SwanAppV8Engine", "dispatchEvent globalObject or event is invalid.");
             }
@@ -120,10 +120,10 @@ public abstract class a implements b {
                     if (a.DEBUG) {
                         Log.d("SwanAppV8Engine", "dispatchEvent add to pending list.");
                     }
-                    a.this.bbv.add(jSEvent);
+                    a.this.bbw.add(jSEvent);
                     return;
                 }
-                a.this.bbq.dispatchEvent(jSEvent);
+                a.this.bbr.dispatchEvent(jSEvent);
             }
         });
         return true;
@@ -131,29 +131,29 @@ public abstract class a implements b {
 
     @Override // com.baidu.swan.games.e.b
     public void aS(String str, String str2) {
-        this.bbs.aS(str, str2);
+        this.bbt.aS(str, str2);
     }
 
     @Override // com.baidu.swan.apps.core.container.a
     public void evaluateJavascript(String str, ValueCallback<String> valueCallback) {
-        this.bbs.evaluateJavascript(str, valueCallback);
+        this.bbt.evaluateJavascript(str, valueCallback);
     }
 
     @Override // com.baidu.swan.apps.core.container.a
     public boolean isDestroyed() {
-        return this.bbw;
+        return this.bbx;
     }
 
     public void addJavascriptInterface(@NonNull Object obj, @NonNull String str) {
         if (DEBUG) {
             Log.d("SwanAppV8Engine", "addJavascriptInterface object: " + obj + " ,name: " + str);
         }
-        this.bbs.addJavascriptInterface(obj, str);
+        this.bbt.addJavascriptInterface(obj, str);
     }
 
     @Override // com.baidu.swan.games.e.b
     public void throwJSException(JSExceptionType jSExceptionType, String str) {
-        this.bbs.throwJSException(jSExceptionType, str);
+        this.bbt.throwJSException(jSExceptionType, str);
     }
 
     @Override // com.baidu.swan.games.e.b, com.baidu.searchbox.v8engine.JSRuntime
@@ -179,8 +179,8 @@ public abstract class a implements b {
     }
 
     public String getUrl() {
-        if (this.bbo != null) {
-            return this.bbo.zu();
+        if (this.bbp != null) {
+            return this.bbp.zu();
         }
         return null;
     }
@@ -198,7 +198,7 @@ public abstract class a implements b {
     }
 
     public String EV() {
-        return "[" + this.bbp + "] : ";
+        return "[" + this.bbq + "] : ";
     }
 
     private d NY() {
@@ -226,7 +226,7 @@ public abstract class a implements b {
     }
 
     public boolean isLoaded() {
-        return this.bbx;
+        return this.bby;
     }
 
     @Override // com.baidu.swan.apps.core.container.a
@@ -265,7 +265,7 @@ public abstract class a implements b {
     }
 
     protected String Oa() {
-        return this.bbo.zu();
+        return this.bbp.zu();
     }
 
     @Override // com.baidu.swan.games.e.b

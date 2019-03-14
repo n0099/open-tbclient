@@ -5,22 +5,22 @@ import android.content.Context;
 import android.provider.Settings;
 import android.view.Window;
 import android.view.WindowManager;
-import com.baidu.swan.apps.c;
+import com.baidu.swan.apps.b;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = c.DEBUG;
+    private static final boolean DEBUG = b.DEBUG;
 
     /* renamed from: com.baidu.swan.apps.aj.c.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0082a {
-        public static final a aUg = new a();
+    private static class C0112a {
+        public static final a aUh = new a();
     }
 
     private a() {
     }
 
     public static a Lj() {
-        return C0082a.aUg;
+        return C0112a.aUh;
     }
 
     public void a(Activity activity, float f) {

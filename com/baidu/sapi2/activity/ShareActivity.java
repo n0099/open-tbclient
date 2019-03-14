@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.d.a.a;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -318,7 +319,7 @@ public class ShareActivity extends Activity {
             public void onBdussExpired(GetUserInfoResult getUserInfoResult) {
                 if (ShareActivity.this.hasOpenLoginPage) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put("device", Build.MODEL);
+                    hashMap.put(Config.DEVICE_PART, Build.MODEL);
                     hashMap.put("uid", currentAccount.uid);
                     hashMap.put("bduss", currentAccount.bduss);
                     StatService.onEvent("share_bduss_expired", hashMap, false);
@@ -334,7 +335,7 @@ public class ShareActivity extends Activity {
             @Override // com.baidu.sapi2.callback.SapiCallback
             public void onFailure(GetUserInfoResult getUserInfoResult) {
                 HashMap hashMap = new HashMap();
-                hashMap.put("device", Build.MODEL);
+                hashMap.put(Config.DEVICE_PART, Build.MODEL);
                 hashMap.put("code", getUserInfoResult.getResultCode() + "");
                 hashMap.put("msg", getUserInfoResult.getResultMsg());
                 hashMap.put("has_active_network", SapiUtils.hasActiveNetwork(ShareActivity.this) + "");

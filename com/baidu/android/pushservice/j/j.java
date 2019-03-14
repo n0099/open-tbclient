@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
+import com.baidu.mobstat.Config;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class j {
@@ -61,12 +62,12 @@ public class j {
         }
         try {
             SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.app_stat", 0).edit();
-            edit.putString("pkg_list", TextUtils.join(":", list));
+            edit.putString("pkg_list", TextUtils.join(Config.TRACE_TODAY_VISIT_SPLIT, list));
             edit.putLong("last_save", System.currentTimeMillis());
             for (String str : list) {
                 PackageInfo a = m.a(context, str);
                 if (a != null) {
-                    edit.putString(str, a.versionCode + ":" + a.versionName);
+                    edit.putString(str, a.versionCode + Config.TRACE_TODAY_VISIT_SPLIT + a.versionName);
                 }
             }
             edit.apply();

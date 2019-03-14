@@ -4,7 +4,6 @@ import android.graphics.PointF;
 import com.airbnb.lottie.model.a.b;
 import com.airbnb.lottie.model.a.f;
 import com.airbnb.lottie.model.a.m;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f implements b {
@@ -25,7 +24,7 @@ public class f implements b {
     public static class a {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static f t(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
-            return new f(jSONObject.optString("nm"), com.airbnb.lottie.model.a.e.h(jSONObject.optJSONObject("p"), eVar), f.a.i(jSONObject.optJSONObject(NotifyType.SOUND), eVar), b.a.e(jSONObject.optJSONObject("r"), eVar));
+            return new f(jSONObject.optString("nm"), com.airbnb.lottie.model.a.e.h(jSONObject.optJSONObject("p"), eVar), f.a.i(jSONObject.optJSONObject("s"), eVar), b.a.e(jSONObject.optJSONObject("r"), eVar));
         }
     }
 

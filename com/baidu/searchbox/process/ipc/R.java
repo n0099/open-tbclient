@@ -4,6 +4,6 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class string {
-        public static final int app_name = 0x7f08016e;
+        public static final int app_name = 0x7f080187;
     }
 }

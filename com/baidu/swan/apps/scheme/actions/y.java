@@ -10,7 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public abstract class y extends c<com.baidu.swan.apps.scheme.j> {
-    protected static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public abstract boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar);
 

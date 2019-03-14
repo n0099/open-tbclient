@@ -7,51 +7,51 @@ import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class a {
-    private static a jBQ = null;
-    private final Runnable jBS = new Runnable() { // from class: com.facebook.drawee.components.a.1
+    private static a jBI = null;
+    private final Runnable jBK = new Runnable() { // from class: com.facebook.drawee.components.a.1
         @Override // java.lang.Runnable
         public void run() {
-            a.cuN();
-            for (InterfaceC0339a interfaceC0339a : a.this.jBR) {
-                interfaceC0339a.release();
+            a.cuQ();
+            for (InterfaceC0432a interfaceC0432a : a.this.jBJ) {
+                interfaceC0432a.release();
             }
-            a.this.jBR.clear();
+            a.this.jBJ.clear();
         }
     };
-    private final Set<InterfaceC0339a> jBR = new HashSet();
+    private final Set<InterfaceC0432a> jBJ = new HashSet();
     private final Handler mUiHandler = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.facebook.drawee.components.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0339a {
+    public interface InterfaceC0432a {
         void release();
     }
 
-    public static synchronized a cuM() {
+    public static synchronized a cuP() {
         a aVar;
         synchronized (a.class) {
-            if (jBQ == null) {
-                jBQ = new a();
+            if (jBI == null) {
+                jBI = new a();
             }
-            aVar = jBQ;
+            aVar = jBI;
         }
         return aVar;
     }
 
-    public void a(InterfaceC0339a interfaceC0339a) {
-        cuN();
-        if (this.jBR.add(interfaceC0339a) && this.jBR.size() == 1) {
-            this.mUiHandler.post(this.jBS);
+    public void a(InterfaceC0432a interfaceC0432a) {
+        cuQ();
+        if (this.jBJ.add(interfaceC0432a) && this.jBJ.size() == 1) {
+            this.mUiHandler.post(this.jBK);
         }
     }
 
-    public void b(InterfaceC0339a interfaceC0339a) {
-        cuN();
-        this.jBR.remove(interfaceC0339a);
+    public void b(InterfaceC0432a interfaceC0432a) {
+        cuQ();
+        this.jBJ.remove(interfaceC0432a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void cuN() {
+    public static void cuQ() {
         g.checkState(Looper.getMainLooper().getThread() == Thread.currentThread());
     }
 }

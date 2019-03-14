@@ -77,10 +77,10 @@ public class TiebaStatic {
     }
 
     public static void net(com.baidu.tbadk.core.util.a.a aVar) {
-        if (aVar != null && aVar.adH().bLT.CI <= 180000) {
+        if (aVar != null && aVar.adH().bLU.CI <= 180000) {
             try {
-                if (aVar.adH().bLT.CI >= 0 && aVar.adH().bLT.connectTime >= 0 && aVar.adH().bLT.CG >= 0) {
-                    int i = aVar.adG().bLR;
+                if (aVar.adH().bLU.CI >= 0 && aVar.adH().bLU.connectTime >= 0 && aVar.adH().bLU.CG >= 0) {
+                    int i = aVar.adG().bLS;
                     if (!aVar.adG().acK()) {
                         i = aVar.adG().Dd;
                     }
@@ -89,10 +89,10 @@ public class TiebaStatic {
                     if (i != 0) {
                         str = aVar.adG().mErrorString;
                     }
-                    if (aVar.adF().bLQ) {
-                        BdStatisticsManager.getInstance().imgNet(i == 0 ? null : aVar.adF().adJ(), adB, aVar.adH().bLT.CF, aVar.adH().bLT.CE, aVar.adH().bLT.CI, aVar.adH().bLT.connectTime, aVar.adH().bLT.CG, aVar.adH().bLT.CH, i, str, new Object[0]);
+                    if (aVar.adF().bLR) {
+                        BdStatisticsManager.getInstance().imgNet(i == 0 ? null : aVar.adF().adJ(), adB, aVar.adH().bLU.CF, aVar.adH().bLU.CE, aVar.adH().bLU.CI, aVar.adH().bLU.connectTime, aVar.adH().bLU.CG, aVar.adH().bLU.CH, i, str, new Object[0]);
                     } else {
-                        BdStatisticsManager.getInstance().net(aVar.adF().adJ(), adB, aVar.adH().bLT.CF, aVar.adH().bLT.CE, aVar.adH().bLT.CI, aVar.adH().bLT.connectTime, aVar.adH().bLT.CG, aVar.adH().bLT.CH, i, str, new Object[0]);
+                        BdStatisticsManager.getInstance().net(aVar.adF().adJ(), adB, aVar.adH().bLU.CF, aVar.adH().bLU.CE, aVar.adH().bLU.CI, aVar.adH().bLU.connectTime, aVar.adH().bLU.CG, aVar.adH().bLU.CH, i, str, new Object[0]);
                     }
                 }
             } catch (Exception e) {
@@ -276,7 +276,7 @@ public class TiebaStatic {
             s.acn();
             s.aco();
             s.acp();
-            com.baidu.tbadk.o.j.apj();
+            com.baidu.tbadk.o.j.aph();
             com.baidu.adp.lib.f.d.jD();
             BdStatisticsManager.getInstance().save();
             sendMultiProcessBroadcast();

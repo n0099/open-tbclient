@@ -11,9 +11,9 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class d extends AlertDialog {
-    private TextView bFa;
-    private CircleView1080 bFc;
-    private int bFd;
+    private TextView bFc;
+    private CircleView1080 bFe;
+    private int bFf;
     private String mMessage;
     private TextView mTextView;
 
@@ -33,36 +33,36 @@ public class d extends AlertDialog {
                 layoutParams.topMargin = l.h(getContext(), d.e.tbds50);
                 findViewById.setLayoutParams(layoutParams);
             }
-            this.bFa = (TextView) window.findViewById(d.g.text_progress_dialog_message);
-            if (this.bFa.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.bFa.getLayoutParams();
+            this.bFc = (TextView) window.findViewById(d.g.text_progress_dialog_message);
+            if (this.bFc.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.bFc.getLayoutParams();
                 layoutParams2.topMargin = l.h(getContext(), d.e.tbds35);
-                this.bFa.setLayoutParams(layoutParams2);
+                this.bFc.setLayoutParams(layoutParams2);
             }
             if (!StringUtils.isNull(this.mMessage)) {
-                this.bFa.setText(this.mMessage);
+                this.bFc.setText(this.mMessage);
             }
             this.mTextView = (TextView) window.findViewById(d.g.text_progress_dialog_percent);
-            this.bFc = (CircleView1080) window.findViewById(d.g.circle_progress_dialog);
+            this.bFe = (CircleView1080) window.findViewById(d.g.circle_progress_dialog);
         }
     }
 
     public void setPercent(int i) {
-        if (i != this.bFd) {
-            this.bFd = i;
+        if (i != this.bFf) {
+            this.bFf = i;
             if (this.mTextView != null) {
                 this.mTextView.setText(i + "%");
             }
-            if (this.bFc != null) {
-                this.bFc.setProgress(i);
+            if (this.bFe != null) {
+                this.bFe.setProgress(i);
             }
         }
     }
 
     public void setMessage(String str) {
         this.mMessage = str;
-        if (this.bFa != null) {
-            this.bFa.setText(this.mMessage);
+        if (this.bFc != null) {
+            this.bFc.setText(this.mMessage);
         }
     }
 }

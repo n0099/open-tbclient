@@ -1033,7 +1033,7 @@ public class BdListView extends ListView implements o<BdListView> {
     /* loaded from: classes.dex */
     private static class i {
         private static float sRatio = 3.0f;
-        private BdListView Pi;
+        private BdListView Pj;
         private com.baidu.adp.widget.ListView.c mBdIListPullView;
         private boolean mIsRecored = false;
         private int mStartY = 0;
@@ -1052,7 +1052,7 @@ public class BdListView extends ListView implements o<BdListView> {
 
         public i(BdListView bdListView, com.baidu.adp.widget.ListView.c cVar) {
             this.mBdIListPullView = null;
-            this.Pi = null;
+            this.Pj = null;
             if (cVar == null) {
                 throw new InvalidParameterException("PullRefresh view is null");
             }
@@ -1060,11 +1060,11 @@ public class BdListView extends ListView implements o<BdListView> {
                 throw new InvalidParameterException("PullRefresh listView is null");
             }
             this.mBdIListPullView = cVar;
-            this.Pi = bdListView;
+            this.Pj = bdListView;
             View view = this.mBdIListPullView.getView();
             view.setPadding(0, -this.mBdIListPullView.oO(), 0, 0);
             view.invalidate();
-            this.Pi.addPullRefreshView(view);
+            this.Pj.addPullRefreshView(view);
         }
 
         public com.baidu.adp.widget.ListView.c getBdIListPullView() {
@@ -1095,7 +1095,7 @@ public class BdListView extends ListView implements o<BdListView> {
             if (motionEvent.getAction() == 0 && getBdIListPullView().isEnable()) {
                 this.mIsRecored = false;
                 this.mIsBack = false;
-                if (i == 0 && !this.mIsRecored && this.Pi.getChildAt(0) != null && this.Pi.getChildAt(0).getTop() >= 0) {
+                if (i == 0 && !this.mIsRecored && this.Pj.getChildAt(0) != null && this.Pj.getChildAt(0).getTop() >= 0) {
                     this.mIsRecored = true;
                     this.mStartY = (int) motionEvent.getY();
                 }
@@ -1134,13 +1134,13 @@ public class BdListView extends ListView implements o<BdListView> {
                         return;
                     case 2:
                         int y = (int) motionEvent.getY();
-                        if (!this.mIsRecored && i == 0 && this.Pi.getChildAt(0) != null && this.Pi.getChildAt(0).getTop() >= 0) {
+                        if (!this.mIsRecored && i == 0 && this.Pj.getChildAt(0) != null && this.Pj.getChildAt(0).getTop() >= 0) {
                             this.mIsRecored = true;
                             this.mStartY = y;
                         }
                         if (this.mState != 2 && this.mIsRecored) {
                             if (this.mState == 0) {
-                                this.Pi.setSelection(0);
+                                this.Pj.setSelection(0);
                                 if (((int) ((y - this.mStartY) / sRatio)) < com.baidu.adp.lib.util.l.h(this.mBdIListPullView.getContext(), R.dimen.adp_list_view_pull_maxoffset) && y - this.mStartY > 0) {
                                     this.mState = 1;
                                     this.mBdIListPullView.aw(this.mIsBack.booleanValue());
@@ -1157,7 +1157,7 @@ public class BdListView extends ListView implements o<BdListView> {
                                     }
                                 }
                             } else if (this.mState == 1) {
-                                this.Pi.setSelection(0);
+                                this.Pj.setSelection(0);
                                 if (((int) ((y - this.mStartY) / sRatio)) >= com.baidu.adp.lib.util.l.h(this.mBdIListPullView.getContext(), R.dimen.adp_list_view_pull_maxoffset)) {
                                     this.mState = 0;
                                     this.mIsBack = true;

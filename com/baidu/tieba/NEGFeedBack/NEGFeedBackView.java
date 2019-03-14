@@ -17,11 +17,11 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class NEGFeedBackView extends ImageView {
-    private long cIK;
-    c cIL;
-    private RotateAnimation cIM;
-    private RotateAnimation cIN;
-    private View.OnClickListener cIO;
+    private long cIH;
+    c cII;
+    private RotateAnimation cIJ;
+    private RotateAnimation cIK;
+    private View.OnClickListener cIL;
     private int cln;
     private int clo;
     private Context mContext;
@@ -39,16 +39,16 @@ public class NEGFeedBackView extends ImageView {
     public NEGFeedBackView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
         this.mContext = null;
-        this.cIK = 0L;
-        this.cIO = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
+        this.cIH = 0L;
+        this.cIL = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NEGFeedBackView.this.auV();
+                NEGFeedBackView.this.auU();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - NEGFeedBackView.this.cIK > 500) {
+                if (currentTimeMillis - NEGFeedBackView.this.cIH > 500) {
                     NEGFeedBackView.this.bg(view);
                 }
-                NEGFeedBackView.this.cIK = currentTimeMillis;
+                NEGFeedBackView.this.cIH = currentTimeMillis;
             }
         };
         this.mContext = tbPageContext.getPageActivity();
@@ -56,15 +56,15 @@ public class NEGFeedBackView extends ImageView {
     }
 
     private void g(TbPageContext tbPageContext) {
-        this.cIL = new c(tbPageContext, this);
-        setOnClickListener(this.cIO);
+        this.cII = new c(tbPageContext, this);
+        setOnClickListener(this.cIL);
         al.c(this, d.f.icon_home_card_delete);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        auW();
+        auV();
     }
 
     public void setUniqueId(BdUniqueId bdUniqueId) {
-        this.cIL.setUniqueId(bdUniqueId);
+        this.cII.setUniqueId(bdUniqueId);
     }
 
     public void setDefaultLayout() {
@@ -88,47 +88,47 @@ public class NEGFeedBackView extends ImageView {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bg(View view) {
-        this.cIL.bg(view);
+        this.cII.bg(view);
     }
 
-    public void auV() {
-        this.cIL.auV();
+    public void auU() {
+        this.cII.auU();
     }
 
-    private void auW() {
-        this.cIM = new RotateAnimation(0.0f, 135.0f, 1, 0.5f, 1, 0.5f);
+    private void auV() {
+        this.cIJ = new RotateAnimation(0.0f, 135.0f, 1, 0.5f, 1, 0.5f);
         OvershootInterpolator overshootInterpolator = new OvershootInterpolator();
-        this.cIM.setInterpolator(overshootInterpolator);
-        this.cIM.setDuration(250L);
-        this.cIM.setFillAfter(true);
-        this.cIN = new RotateAnimation(135.0f, 0.0f, 1, 0.5f, 1, 0.5f);
-        this.cIN.setInterpolator(overshootInterpolator);
-        this.cIN.setDuration(250L);
-        this.cIN.setFillAfter(true);
+        this.cIJ.setInterpolator(overshootInterpolator);
+        this.cIJ.setDuration(250L);
+        this.cIJ.setFillAfter(true);
+        this.cIK = new RotateAnimation(135.0f, 0.0f, 1, 0.5f, 1, 0.5f);
+        this.cIK.setInterpolator(overshootInterpolator);
+        this.cIK.setDuration(250L);
+        this.cIK.setFillAfter(true);
     }
 
     public void setCWRotateAnimation() {
         clearAnimation();
-        startAnimation(this.cIM);
+        startAnimation(this.cIJ);
     }
 
     public void setACRotateAnimation() {
         clearAnimation();
-        startAnimation(this.cIN);
+        startAnimation(this.cIK);
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.cIL.onDetachedFromWindow();
+        this.cII.onDetachedFromWindow();
     }
 
     public void setData(aj ajVar) {
-        this.cIL.setData(ajVar);
+        this.cII.setData(ajVar);
     }
 
     public void setFirstRowSingleColumn(boolean z) {
-        this.cIL.setFirstRowSingleColumn(z);
+        this.cII.setFirstRowSingleColumn(z);
     }
 
     public void onChangeSkinType() {
@@ -136,11 +136,11 @@ public class NEGFeedBackView extends ImageView {
     }
 
     public void setEventCallback(a aVar) {
-        this.cIL.setEventCallback(aVar);
+        this.cII.setEventCallback(aVar);
     }
 
     public void setDefaultReasonArray(String[] strArr) {
-        this.cIL.setDefaultReasonArray(strArr);
+        this.cII.setDefaultReasonArray(strArr);
     }
 
     public void a(ViewGroup viewGroup, int i, int i2) {

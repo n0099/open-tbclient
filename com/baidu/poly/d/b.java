@@ -6,19 +6,19 @@ import com.baidu.poly.d.a;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class b {
-    private static b agX;
-    private a agi;
+    private static b agY;
+    private a agj;
 
     private b(a aVar) {
-        this.agi = aVar;
+        this.agj = aVar;
     }
 
     public static void b(a aVar) {
-        agX = new b(aVar);
+        agY = new b(aVar);
     }
 
     public static b tH() {
-        return agX;
+        return agY;
     }
 
     public void a(Bundle bundle, final String str, final a.c cVar, final com.baidu.poly.a.a<Map<String, String>> aVar) {
@@ -27,13 +27,13 @@ public class b {
             @Override // com.baidu.poly.a.a
             /* renamed from: k */
             public void onSuccess(Map<String, String> map) {
-                b.this.agi.a(map, str, new a.C0054a() { // from class: com.baidu.poly.d.b.1.1
-                    @Override // com.baidu.poly.d.a.C0054a
+                b.this.agj.a(map, str, new a.C0083a() { // from class: com.baidu.poly.d.b.1.1
+                    @Override // com.baidu.poly.d.a.C0083a
                     public void onResult(int i, String str2) {
                         cVar.onResult(i, str2);
                     }
 
-                    @Override // com.baidu.poly.d.a.C0054a
+                    @Override // com.baidu.poly.d.a.C0083a
                     public void onFail(String str2) {
                         cVar.onFail(str2);
                     }

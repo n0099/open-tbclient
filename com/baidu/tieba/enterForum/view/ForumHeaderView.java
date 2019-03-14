@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class ForumHeaderView extends LinearLayout implements View.OnClickListener {
-    private LinearLayout eGU;
-    private TextView eGV;
-    private ImageView eGW;
+    private LinearLayout eGQ;
+    private TextView eGR;
+    private ImageView eGS;
 
     public ForumHeaderView(Context context) {
         super(context);
@@ -42,11 +42,11 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void init() {
         setOrientation(1);
         LayoutInflater.from(getContext()).inflate(d.h.layout_enterforum_search, (ViewGroup) this, true);
-        this.eGU = (LinearLayout) findViewById(d.g.search_container);
-        this.eGV = (TextView) findViewById(d.g.search_text);
-        this.eGW = (ImageView) findViewById(d.g.search_icon);
+        this.eGQ = (LinearLayout) findViewById(d.g.search_container);
+        this.eGR = (TextView) findViewById(d.g.search_text);
+        this.eGS = (ImageView) findViewById(d.g.search_icon);
         setDescendantFocusability(262144);
-        this.eGU.setOnClickListener(this);
+        this.eGQ.setOnClickListener(this);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -60,18 +60,16 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
             TiebaStatic.eventStat(getContext(), "notlogin_8", "click", 1, new Object[0]);
         }
         TiebaStatic.log(new am("c13367").bJ("obj_location", "1"));
-        if (com.baidu.tbadk.plugins.c.ay(getContext(), "com.baidu.tieba.pluginCore")) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(getContext())));
-        }
+        MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(getContext())));
     }
 
     public void setSearchHint(String str) {
-        this.eGV.setText(UtilHelper.getFixedText(str, 20));
+        this.eGR.setText(UtilHelper.getFixedText(str, 20));
     }
 
     public void onChangeSkinType() {
-        al.c(this.eGW, d.f.icon_ba_search_n);
-        al.j(this.eGV, d.C0236d.cp_cont_d);
-        al.k(this.eGU, d.f.enter_forum_search_bg);
+        al.c(this.eGS, d.f.icon_ba_search_n);
+        al.j(this.eGR, d.C0277d.cp_cont_d);
+        al.k(this.eGQ, d.f.enter_forum_search_bg);
     }
 }

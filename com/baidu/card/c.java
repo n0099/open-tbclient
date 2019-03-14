@@ -4,17 +4,17 @@ import android.view.View;
 import android.widget.RelativeLayout;
 /* loaded from: classes3.dex */
 public class c {
-    private RelativeLayout.LayoutParams Xr;
-    private int Xs;
-    private View Xt;
-    protected x Xu;
+    private RelativeLayout.LayoutParams Xs;
+    private int Xt;
+    private View Xu;
+    protected x Xv;
 
     public RelativeLayout.LayoutParams rl() {
-        return this.Xr;
+        return this.Xs;
     }
 
     public void a(RelativeLayout.LayoutParams layoutParams) {
-        this.Xr = layoutParams;
+        this.Xs = layoutParams;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -22,7 +22,7 @@ public class c {
     }
 
     public void b(x xVar) {
-        this.Xu = xVar;
+        this.Xv = xVar;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -30,18 +30,18 @@ public class c {
     }
 
     public int rn() {
-        return this.Xs;
-    }
-
-    public void bx(int i) {
-        this.Xs = i;
-    }
-
-    public View getDecorView() {
         return this.Xt;
     }
 
+    public void bx(int i) {
+        this.Xt = i;
+    }
+
+    public View getDecorView() {
+        return this.Xu;
+    }
+
     public void I(View view) {
-        this.Xt = view;
+        this.Xu = view;
     }
 }

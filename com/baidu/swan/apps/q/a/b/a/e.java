@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.sapi2.utils.SapiGIDEvent;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.setting.a.g;
 import com.baidu.swan.apps.setting.oauth.OAuthException;
@@ -14,7 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class e extends com.baidu.swan.apps.setting.oauth.a.e {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private String mStoken;
 
     public e(Activity activity, g.a aVar, Bundle bundle) {
@@ -61,7 +60,7 @@ public class e extends com.baidu.swan.apps.setting.oauth.a.e {
                 Log.d("LoginRequest", "LoginPreparation isLogin : " + bH + " call stack:" + Log.getStackTraceString(new Exception()));
             }
             if (!bH) {
-                e.this.Jn().Jc().a(e.this.mActivity, e.this.aRE, this);
+                e.this.Jn().Jc().a(e.this.mActivity, e.this.aRF, this);
                 return false;
             }
             e.this.a(new b());
@@ -74,12 +73,12 @@ public class e extends com.baidu.swan.apps.setting.oauth.a.e {
             switch (i) {
                 case -2:
                     com.baidu.swan.apps.setting.oauth.c.a("login error ERR_BY_UESR_REFUSE", (Boolean) true);
-                    m(new OAuthException("login cancel by user", (int) SapiGIDEvent.BUSINESS_GET_GID));
+                    m(new OAuthException("login cancel by user", 10004));
                     return;
                 case -1:
                 default:
                     com.baidu.swan.apps.setting.oauth.c.a("login error ERR_BY_LOGIN", (Boolean) true);
-                    m(new OAuthException("system login error", (int) SapiGIDEvent.BUSINESS_GET_GID));
+                    m(new OAuthException("system login error", 10004));
                     return;
                 case 0:
                     com.baidu.swan.apps.setting.oauth.c.a("Login Preparation ok, is already login", (Boolean) false);
@@ -94,12 +93,12 @@ public class e extends com.baidu.swan.apps.setting.oauth.a.e {
     /* loaded from: classes4.dex */
     public class b extends com.baidu.swan.apps.setting.oauth.d {
         private b() {
-            if (e.this.aRD != null && e.this.aRC != null && e.this.aRC.aQV) {
-                long j = e.this.aRC.aQW;
+            if (e.this.aRE != null && e.this.aRD != null && e.this.aRD.aQW) {
+                long j = e.this.aRD.aQX;
                 if (e.DEBUG) {
                     Log.d("LoginRequest", "send timeout " + j + "ms msg");
                 }
-                e.this.aRD.sendEmptyMessageDelayed(1, j >= 0 ? j : 0L);
+                e.this.aRE.sendEmptyMessageDelayed(1, j >= 0 ? j : 0L);
             }
         }
 

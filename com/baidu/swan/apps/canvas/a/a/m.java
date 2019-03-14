@@ -16,7 +16,7 @@ public class m extends a {
                 this.mRect = new Rect(ad, ad2, com.baidu.swan.apps.an.x.ad((float) jSONArray.optDouble(2)) + ad, com.baidu.swan.apps.an.x.ad((float) jSONArray.optDouble(3)) + ad2);
             }
         } catch (Exception e) {
-            if (com.baidu.swan.apps.c.DEBUG) {
+            if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
             }
         }

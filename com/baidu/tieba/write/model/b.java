@@ -3,22 +3,22 @@ package com.baidu.tieba.write.model;
 import com.baidu.tieba.write.a.c;
 /* loaded from: classes3.dex */
 public class b {
-    private com.baidu.tieba.write.a.b jpi = null;
-    private c jpj = null;
+    private com.baidu.tieba.write.a.b jpa = null;
+    private c jpb = null;
 
-    public com.baidu.tieba.write.a.b cpy() {
-        return this.jpi;
+    public com.baidu.tieba.write.a.b cpB() {
+        return this.jpa;
     }
 
     public void a(com.baidu.tieba.write.a.b bVar) {
-        this.jpi = bVar;
+        this.jpa = bVar;
     }
 
-    public c cpz() {
-        return this.jpj;
+    public c cpC() {
+        return this.jpb;
     }
 
     public void a(c cVar) {
-        this.jpj = cVar;
+        this.jpb = cVar;
     }
 }

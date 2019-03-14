@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.util.ba;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
-    private TextView cKi;
-    private TextView cKj;
-    private TextView cKk;
-    private ClickableSpan cKl = new ClickableSpan() { // from class: com.baidu.tieba.SecretHintActivity.1
+    private TextView cKf;
+    private TextView cKg;
+    private TextView cKh;
+    private ClickableSpan cKi = new ClickableSpan() { // from class: com.baidu.tieba.SecretHintActivity.1
         /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.SecretHintActivity */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.text.style.ClickableSpan
@@ -38,10 +38,10 @@ public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
 
         @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
-            textPaint.setColor(SecretHintActivity.this.getResources().getColor(d.C0236d.cp_link_tip_c));
+            textPaint.setColor(SecretHintActivity.this.getResources().getColor(d.C0277d.cp_link_tip_c));
         }
     };
-    private View.OnClickListener cKm = new View.OnClickListener() { // from class: com.baidu.tieba.SecretHintActivity.2
+    private View.OnClickListener cKj = new View.OnClickListener() { // from class: com.baidu.tieba.SecretHintActivity.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             SecretHintActivity.this.showDialog();
@@ -50,7 +50,7 @@ public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
             TiebaStatic.log(amVar);
         }
     };
-    private View.OnClickListener cKn = new View.OnClickListener() { // from class: com.baidu.tieba.SecretHintActivity.3
+    private View.OnClickListener cKk = new View.OnClickListener() { // from class: com.baidu.tieba.SecretHintActivity.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             com.baidu.tbadk.core.sharedPref.b.getInstance().putBoolean("key_secret_is_show", true);
@@ -78,20 +78,20 @@ public class SecretHintActivity extends BaseActivity<SecretHintActivity> {
     }
 
     private void initUI() {
-        this.cKi = (TextView) findViewById(d.g.secret_hint_footer);
-        this.cKj = (TextView) findViewById(d.g.unok_text);
-        this.cKk = (TextView) findViewById(d.g.ok_text);
+        this.cKf = (TextView) findViewById(d.g.secret_hint_footer);
+        this.cKg = (TextView) findViewById(d.g.unok_text);
+        this.cKh = (TextView) findViewById(d.g.ok_text);
         SpannableString spannableString = new SpannableString(getString(d.j.secret_hint_footer));
-        spannableString.setSpan(this.cKl, 39, 45, 33);
-        spannableString.setSpan(new ForegroundColorSpan(al.getColor(0, d.C0236d.cp_link_tip_a)), 39, 45, 33);
-        this.cKi.setText(spannableString);
-        this.cKi.setMovementMethod(LinkMovementMethod.getInstance());
+        spannableString.setSpan(this.cKi, 39, 45, 33);
+        spannableString.setSpan(new ForegroundColorSpan(al.getColor(0, d.C0277d.cp_link_tip_a)), 39, 45, 33);
+        this.cKf.setText(spannableString);
+        this.cKf.setMovementMethod(LinkMovementMethod.getInstance());
         onChangeSkinType(0);
     }
 
     private void initListener() {
-        this.cKj.setOnClickListener(this.cKm);
-        this.cKk.setOnClickListener(this.cKn);
+        this.cKg.setOnClickListener(this.cKj);
+        this.cKh.setOnClickListener(this.cKk);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

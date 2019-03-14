@@ -3,7 +3,7 @@ package com.baidu.swan.apps.ak;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public final class c<ValueT> {
-    private a<ValueT> aVH;
+    private a<ValueT> aVI;
     public final String id;
     private ValueT jp;
 
@@ -25,13 +25,13 @@ public final class c<ValueT> {
     }
 
     public c<ValueT> a(a<ValueT> aVar) {
-        this.aVH = aVar;
+        this.aVI = aVar;
         update();
         return this;
     }
 
     public boolean update() {
-        return b(this.aVH);
+        return b(this.aVI);
     }
 
     public boolean b(a<ValueT> aVar) {

@@ -4,21 +4,21 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 /* loaded from: classes2.dex */
 public class k {
-    public boolean OZ;
-    public int bkO;
-    private int bkP = 0;
-    public f bkQ;
+    public boolean Pa;
+    public int bkP;
+    private int bkQ = 0;
+    public f bkR;
     public int mIconResId;
     public int mId;
 
     public k(int i, int i2, int i3, boolean z) {
-        this.bkO = -1;
+        this.bkP = -1;
         this.mIconResId = -1;
-        this.OZ = true;
+        this.Pa = true;
         this.mId = i;
-        this.bkO = i2;
+        this.bkP = i2;
         this.mIconResId = i3;
-        this.OZ = z;
+        this.Pa = z;
     }
 
     public int getItemId() {
@@ -27,7 +27,7 @@ public class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void setTitle(int i) {
-        this.bkO = i;
+        this.bkP = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -37,25 +37,25 @@ public class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(f fVar) {
-        this.bkQ = fVar;
+        this.bkR = fVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean isEnable() {
-        return this.OZ;
+        return this.Pa;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f Rh() {
-        return this.bkQ;
+        return this.bkR;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String getTitle(Context context) {
-        if (this.bkO <= 0) {
+        if (this.bkP <= 0) {
             return null;
         }
-        return context.getResources().getString(this.bkO);
+        return context.getResources().getString(this.bkP);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -68,7 +68,7 @@ public class k {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int Ri() {
-        return this.bkP;
+        return this.bkQ;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -76,6 +76,6 @@ public class k {
         if (kVar == null) {
             return null;
         }
-        return new k(kVar.mId, kVar.bkO, kVar.mIconResId, kVar.OZ);
+        return new k(kVar.mId, kVar.bkP, kVar.mIconResId, kVar.Pa);
     }
 }

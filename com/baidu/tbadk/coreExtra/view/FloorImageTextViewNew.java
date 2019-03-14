@@ -27,11 +27,11 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(d.h.floorimage_textview_layout_new, (ViewGroup) this, true);
-        al.l(this, d.C0236d.black_alpha50);
+        al.l(this, d.C0277d.black_alpha50);
         this.ccQ = (TbRichTextView) findViewById(d.g.textview);
         this.ccQ.setVerticalScrollBarEnabled(true);
         this.ccQ.setTextSize(cbV);
-        this.ccQ.setTextColor(al.getColor(d.C0236d.white_alpha83));
+        this.ccQ.setTextColor(al.getColor(d.C0277d.white_alpha83));
         this.ccR = (EditorScrollView) findViewById(d.g.scrollview);
         this.ccR.setPadding(0, TOP, 0, BOTTOM);
         this.ccR.setOnTouchListener(this.cbY);
@@ -41,7 +41,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
     private void d(Pair<Integer, Integer> pair) {
         if (pair != null) {
             if (((Integer) pair.second).intValue() > 5) {
-                if (akg()) {
+                if (akf()) {
                     this.ccS = ccY + TOP + BOTTOM;
                 } else {
                     this.ccS = ccX + TOP + BOTTOM;
@@ -53,7 +53,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         }
     }
 
-    private boolean akg() {
+    private boolean akf() {
         float aR = l.aR(getContext());
         int aQ = l.aQ(getContext());
         int aO = l.aO(getContext());
@@ -71,7 +71,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         this.cbW = imageUrlData;
         if (imageUrlData != null && imageUrlData.richTextArray != null && imageUrlData.richTextArray.length() > 0) {
             setVisibility(0);
-            com.baidu.tieba.view.c.cmX().setColor(TbadkCoreApplication.getInst().getResources().getColor(d.C0236d.transparent));
+            com.baidu.tieba.view.c.cna().setColor(TbadkCoreApplication.getInst().getResources().getColor(d.C0277d.transparent));
             TbRichText a = TbRichTextView.a(getContext(), imageUrlData.richTextArray, false);
             d(oe(a.toString()));
             this.ccQ.setText(a);

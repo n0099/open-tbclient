@@ -25,7 +25,7 @@ public abstract class b<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
     public int getItemViewType(int i) {
-        if (this.cpv && aoJ()) {
+        if (this.cpv && aoI()) {
             return -1;
         }
         return jT(i);
@@ -38,10 +38,10 @@ public abstract class b<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if (this.cpv && aoJ()) {
-            return aoI();
+        if (this.cpv && aoI()) {
+            return aoH();
         }
-        aoH();
+        aoG();
         int itemViewType = getItemViewType(i);
         Class<?> cls = this.cpo[itemViewType];
         int i2 = this.cpp[itemViewType];

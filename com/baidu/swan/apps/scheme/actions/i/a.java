@@ -21,7 +21,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import org.apache.http.cookie.ClientCookie;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -177,7 +176,7 @@ public class a extends y {
                 jSONObject.put("message", str2);
             }
             if (z) {
-                jSONObject.put(ClientCookie.PATH_ATTR, str);
+                jSONObject.put("path", str);
             }
         } catch (JSONException e) {
             e.printStackTrace();

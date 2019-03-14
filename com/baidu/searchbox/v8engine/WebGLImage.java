@@ -10,6 +10,7 @@ import android.webkit.ValueCallback;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.smallgame.sdk.Log;
+import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -174,7 +175,7 @@ public class WebGLImage extends EventTargetImpl {
         if (v8Engine != null) {
             postImageJSCallback(v8Engine, true);
             Log.d(TAG, "onLoadSuccess: " + str + " isAsset: " + z);
-            dispatchEvent(new JSEvent("load"));
+            dispatchEvent(new JSEvent(TrackLoadSettingsAtom.TYPE));
             return;
         }
         throw new Exception("can't get the v8engine instance.");

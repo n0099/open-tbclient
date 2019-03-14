@@ -21,21 +21,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class d {
-    private static com.baidu.poly.a cWe = null;
-    private static volatile d cWf;
+    private static com.baidu.poly.a cWa = null;
+    private static volatile d cWb;
     private Context mContext;
 
-    public static synchronized d dJ(Context context) {
+    public static synchronized d dI(Context context) {
         d dVar;
         synchronized (d.class) {
-            if (cWf == null) {
+            if (cWb == null) {
                 synchronized (d.class) {
-                    if (cWf == null) {
-                        cWf = new d(context.getApplicationContext());
+                    if (cWb == null) {
+                        cWb = new d(context.getApplicationContext());
                     }
                 }
             }
-            dVar = cWf;
+            dVar = cWb;
         }
         return dVar;
     }
@@ -45,7 +45,7 @@ public final class d {
     }
 
     public void a(Context context, String str, final com.baidu.swan.apps.aa.a.b bVar) {
-        if (!com.baidu.tbadk.pay.c.aoX().aoY()) {
+        if (!com.baidu.tbadk.pay.c.aoW().aoX()) {
             l.showToast(TbadkCoreApplication.getInst(), d.j.plugin_pay_wallet_not_found);
         } else if (context instanceof Activity) {
             Bundle bundle = new Bundle();
@@ -63,7 +63,7 @@ public final class d {
     }
 
     public void a(Context context, String str, final com.baidu.swan.apps.aa.a.a aVar) {
-        if (!com.baidu.tbadk.pay.c.aoX().aoY()) {
+        if (!com.baidu.tbadk.pay.c.aoW().aoX()) {
             l.showToast(TbadkCoreApplication.getInst(), d.j.plugin_pay_wallet_not_found);
         } else if (context instanceof Activity) {
             Bundle bundle = new Bundle();
@@ -103,7 +103,7 @@ public final class d {
                 jSONObject = new JSONObject(optString);
             }
             if (bVar.uB() != null) {
-                jSONObject.put("swanFrom", bVar.uB().axF);
+                jSONObject.put("swanFrom", bVar.uB().axG);
             }
             jSONObject.put("cuid", bJ);
             jSONObject.put("appId", com.baidu.swan.apps.ae.b.Ji());
@@ -199,15 +199,15 @@ public final class d {
     }
 
     private static com.baidu.poly.a ad(Activity activity) {
-        if (cWe != null) {
-            return cWe;
+        if (cWa != null) {
+            return cWa;
         }
-        cWe = new a.C0049a().a(new com.baidu.poly.d.b.a(activity)).bE(a.b.agk).bf(activity);
-        return cWe;
+        cWa = new a.C0078a().a(new com.baidu.poly.d.b.a(activity)).bE(a.b.agl).bf(activity);
+        return cWa;
     }
 
-    public static com.baidu.poly.a azN() {
-        return cWe;
+    public static com.baidu.poly.a azM() {
+        return cWa;
     }
 
     public boolean bK(Context context) {

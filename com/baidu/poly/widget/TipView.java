@@ -12,9 +12,9 @@ import android.widget.TextView;
 import com.baidu.poly.b;
 /* loaded from: classes2.dex */
 public class TipView extends LinearLayout {
-    private TextView ahH;
-    private ImageView ahI;
-    private Animation ahJ;
+    private TextView ahI;
+    private ImageView ahJ;
+    private Animation ahK;
 
     public TipView(Context context) {
         this(context, null);
@@ -31,22 +31,22 @@ public class TipView extends LinearLayout {
 
     private void initView(Context context) {
         LayoutInflater.from(context).inflate(b.d.view_tip, (ViewGroup) this, true);
-        this.ahI = (ImageView) findViewById(b.c.tip_loading_view);
-        this.ahH = (TextView) findViewById(b.c.tip_text_view);
-        this.ahJ = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
+        this.ahJ = (ImageView) findViewById(b.c.tip_loading_view);
+        this.ahI = (TextView) findViewById(b.c.tip_text_view);
+        this.ahK = AnimationUtils.loadAnimation(context, b.a.loading_rotate);
     }
 
     public void setText(String str) {
-        this.ahH.setText(str);
+        this.ahI.setText(str);
     }
 
     public void setLoading(boolean z) {
         if (z) {
-            this.ahI.setVisibility(0);
-            this.ahI.startAnimation(this.ahJ);
+            this.ahJ.setVisibility(0);
+            this.ahJ.startAnimation(this.ahK);
             return;
         }
-        this.ahI.clearAnimation();
-        this.ahI.setVisibility(8);
+        this.ahJ.clearAnimation();
+        this.ahJ.setVisibility(8);
     }
 }

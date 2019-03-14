@@ -25,9 +25,9 @@ public class PushDialogUserLikeButton extends CommonUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.bUm) {
+        if (this.bUn) {
             setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
-            al.c(this, d.C0236d.cp_cont_d, 1, i);
+            al.c(this, d.C0277d.cp_cont_d, 1, i);
             setBackgroundDrawable(null);
             return;
         }
@@ -36,7 +36,7 @@ public class PushDialogUserLikeButton extends CommonUserLikeButton {
         drawable.setBounds(0, 0, h, h);
         setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
         setTextSize(0, l.h(TbadkCoreApplication.getInst().getContext(), d.e.tbds34));
-        setTextColor(ContextCompat.getColor(getContext(), d.C0236d.cp_cont_g));
+        setTextColor(ContextCompat.getColor(getContext(), d.C0277d.cp_cont_g));
         setBackgroundResource(d.f.selector_like_btn);
     }
 }

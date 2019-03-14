@@ -2,7 +2,6 @@ package com.baidu.tbadk.o;
 
 import android.os.Process;
 import android.support.v4.media.session.PlaybackStateCompat;
-import android.support.v4.view.PointerIconCompat;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import java.io.BufferedReader;
@@ -16,7 +15,7 @@ public class m {
     private long cqW = 86400;
     private long cqU = com.baidu.tbadk.core.sharedPref.b.getInstance().getLong(cqV, 0);
 
-    public static m apl() {
+    public static m apk() {
         if (cqY == null) {
             synchronized (m.class) {
                 if (cqY == null) {
@@ -32,7 +31,7 @@ public class m {
         this.cqX = this.cqW;
     }
 
-    public boolean apm() {
+    public boolean apl() {
         if (!this.cqT || (System.currentTimeMillis() - this.cqU) / 1000 <= this.cqX) {
             return this.cqT;
         }
@@ -52,7 +51,7 @@ public class m {
         }
         this.cqT = z;
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            n.apr().aps();
+            n.apq().apr();
         }
     }
 
@@ -88,7 +87,7 @@ public class m {
         return "WIFI";
     }
 
-    public long apn() {
+    public long apm() {
         try {
             Runtime runtime = Runtime.getRuntime();
             return (runtime.totalMemory() - runtime.freeMemory()) / PlaybackStateCompat.ACTION_SET_CAPTIONING_ENABLED;
@@ -99,7 +98,7 @@ public class m {
     }
 
     public l ka(int i) {
-        if (apm()) {
+        if (apl()) {
             switch (i) {
                 case 1000:
                     o oVar = new o();
@@ -113,10 +112,10 @@ public class m {
                     j jVar = new j();
                     jVar.subType = "im";
                     return jVar;
-                case PointerIconCompat.TYPE_HELP /* 1003 */:
+                case 1003:
                 default:
                     return null;
-                case PointerIconCompat.TYPE_WAIT /* 1004 */:
+                case 1004:
                     o oVar3 = new o();
                     oVar3.subType = "photo_live";
                     return oVar3;
@@ -144,7 +143,7 @@ public class m {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int apo() {
+    public int apn() {
         BufferedReader bufferedReader;
         Process process;
         Process process2;

@@ -50,11 +50,11 @@ public class q extends a {
     @Override // com.baidu.tbadk.core.util.d.a, com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a pi = com.baidu.tbadk.imageManager.c.anq().pi(str);
+        com.baidu.adp.widget.ImageView.a pi = com.baidu.tbadk.imageManager.c.anp().pi(str);
         if (pi != null) {
-            pi.Oe.Og = "memory";
-            pi.Oe.Oh = 0L;
-            pi.Oe.Oi = true;
+            pi.Of.Oh = "memory";
+            pi.Of.Oi = 0L;
+            pi.Of.Oj = true;
         }
         return pi;
     }

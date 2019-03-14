@@ -19,17 +19,17 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.topictab.b.a> {
-    private TextView bFH;
-    private TbImageView eFa;
-    private LinearLayout fOV;
-    private CellTopicLinearLayout fPF;
+    private TextView bFJ;
+    private TbImageView eEW;
+    private LinearLayout fOU;
+    private CellTopicLinearLayout fPE;
+    private TextView fQf;
     private TextView fQg;
-    private TextView fQh;
-    private View fQi;
-    private TopicPkView fQj;
-    private ThreadGodReplyLayout fQk;
-    private View fQl;
-    private com.baidu.tieba.homepage.topic.topictab.b.a fQm;
+    private View fQh;
+    private TopicPkView fQi;
+    private ThreadGodReplyLayout fQj;
+    private View fQk;
+    private com.baidu.tieba.homepage.topic.topictab.b.a fQl;
     private int mSkinType;
     private TextView mTitleView;
 
@@ -37,36 +37,36 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
         super(tbPageContext);
         this.mSkinType = 3;
         View view = getView();
-        this.fPF = (CellTopicLinearLayout) view.findViewById(d.g.cell_topic_root);
-        this.fQg = (TextView) view.findViewById(d.g.cell_topic_index);
+        this.fPE = (CellTopicLinearLayout) view.findViewById(d.g.cell_topic_root);
+        this.fQf = (TextView) view.findViewById(d.g.cell_topic_index);
         this.mTitleView = (TextView) view.findViewById(d.g.cell_topic_title);
-        this.fQh = (TextView) view.findViewById(d.g.cell_topic_partake);
-        this.bFH = (TextView) view.findViewById(d.g.cell_topic_des);
-        this.fOV = (LinearLayout) view.findViewById(d.g.cell_topic_img_layout);
-        this.eFa = (TbImageView) view.findViewById(d.g.cell_topic_img);
-        this.fQi = view.findViewById(d.g.cell_topic_img_placeholder);
-        this.fQj = (TopicPkView) view.findViewById(d.g.cell_topic_pk);
-        this.fQk = (ThreadGodReplyLayout) view.findViewById(d.g.cell_topic_god_reply);
-        this.fQl = view.findViewById(d.g.cell_topic_bottom_placeholder);
-        ViewGroup.LayoutParams layoutParams = this.eFa.getLayoutParams();
+        this.fQg = (TextView) view.findViewById(d.g.cell_topic_partake);
+        this.bFJ = (TextView) view.findViewById(d.g.cell_topic_des);
+        this.fOU = (LinearLayout) view.findViewById(d.g.cell_topic_img_layout);
+        this.eEW = (TbImageView) view.findViewById(d.g.cell_topic_img);
+        this.fQh = view.findViewById(d.g.cell_topic_img_placeholder);
+        this.fQi = (TopicPkView) view.findViewById(d.g.cell_topic_pk);
+        this.fQj = (ThreadGodReplyLayout) view.findViewById(d.g.cell_topic_god_reply);
+        this.fQk = view.findViewById(d.g.cell_topic_bottom_placeholder);
+        ViewGroup.LayoutParams layoutParams = this.eEW.getLayoutParams();
         layoutParams.height = ((l.aO(getContext()) - l.h(getContext(), d.e.tbds88)) * 9) / 16;
-        this.eFa.setLayoutParams(layoutParams);
-        this.eFa.setRadius(l.h(this.mContext, d.e.tbds22));
-        this.eFa.setConrers(15);
-        this.fPF.setTopicOnClickListener(this);
+        this.eEW.setLayoutParams(layoutParams);
+        this.eEW.setRadius(l.h(this.mContext, d.e.tbds22));
+        this.eEW.setConrers(15);
+        this.fPE.setTopicOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
+        this.fQi.onChangeSkinType();
         this.fQj.onChangeSkinType();
-        this.fQk.onChangeSkinType();
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            al.j(this.fQg, d.C0236d.cp_cont_m);
-            al.j(this.mTitleView, d.C0236d.cp_cont_b);
-            al.j(this.fQh, d.C0236d.cp_cont_d);
-            al.j(this.bFH, d.C0236d.cp_cont_f);
-            this.eFa.setIsNight(this.mSkinType == 1);
+            al.j(this.fQf, d.C0277d.cp_cont_m);
+            al.j(this.mTitleView, d.C0277d.cp_cont_b);
+            al.j(this.fQg, d.C0277d.cp_cont_d);
+            al.j(this.bFJ, d.C0277d.cp_cont_f);
+            this.eEW.setIsNight(this.mSkinType == 1);
         }
     }
 
@@ -79,56 +79,56 @@ public class a extends com.baidu.tieba.card.a<com.baidu.tieba.homepage.topic.top
     @Override // com.baidu.tieba.card.a
     public void a(com.baidu.tieba.homepage.topic.topictab.b.a aVar) {
         if (aVar != null) {
-            this.fQm = aVar;
-            this.fQg.setText(String.valueOf(aVar.index));
+            this.fQl = aVar;
+            this.fQf.setText(String.valueOf(aVar.index));
             if (aVar.index == 1) {
-                al.k(this.fQg, d.f.topic_rank_one_bg);
+                al.k(this.fQf, d.f.topic_rank_one_bg);
             } else if (aVar.index == 2) {
-                al.k(this.fQg, d.f.topic_rank_two_bg);
+                al.k(this.fQf, d.f.topic_rank_two_bg);
             } else if (aVar.index == 3) {
-                al.k(this.fQg, d.f.topic_rank_three_bg);
+                al.k(this.fQf, d.f.topic_rank_three_bg);
             } else {
-                al.k(this.fQg, d.f.topic_rank_other_bg);
+                al.k(this.fQf, d.f.topic_rank_other_bg);
             }
-            String str = aVar.bAk;
+            String str = aVar.bAm;
             if (str.length() > 14) {
                 str = str.substring(0, 13) + "...";
             }
             this.mTitleView.setText(String.format(this.mTbPageContext.getString(d.j.daily_topic_name), str));
-            if (aVar.bAl == 0) {
-                this.fQh.setText("NEW");
+            if (aVar.bAn == 0) {
+                this.fQg.setText("NEW");
             } else {
-                this.fQh.setText(String.format(this.mTbPageContext.getString(d.j.topic_partake_default), ap.as(aVar.bAl)));
+                this.fQg.setText(String.format(this.mTbPageContext.getString(d.j.topic_partake_default), ap.as(aVar.bAn)));
             }
-            this.bFH.setText(aVar.bAm);
-            if (StringUtils.isNull(aVar.fOs)) {
-                this.fOV.setVisibility(8);
-                this.fQj.setUserColor(d.C0236d.cp_cont_d);
+            this.bFJ.setText(aVar.bAo);
+            if (StringUtils.isNull(aVar.fOr)) {
+                this.fOU.setVisibility(8);
+                this.fQi.setUserColor(d.C0277d.cp_cont_d);
             } else {
-                this.fOV.setVisibility(0);
-                this.eFa.startLoad(aVar.fOs, 10, false);
-                this.fQj.setUserColor(d.C0236d.cp_btn_a);
+                this.fOU.setVisibility(0);
+                this.eEW.startLoad(aVar.fOr, 10, false);
+                this.fQi.setUserColor(d.C0277d.cp_btn_a);
+            }
+            if (aVar.fPP == null) {
+                this.fQh.setVisibility(8);
+                this.fQi.setVisibility(8);
+            } else {
+                this.fQh.setVisibility(0);
+                this.fQi.setVisibility(0);
+                this.fQi.setData(aVar.fPP);
             }
             if (aVar.fPQ == null) {
-                this.fQi.setVisibility(8);
                 this.fQj.setVisibility(8);
-            } else {
-                this.fQi.setVisibility(0);
-                this.fQj.setVisibility(0);
-                this.fQj.setData(aVar.fPQ);
-            }
-            if (aVar.fPR == null) {
-                this.fQk.setVisibility(8);
                 return;
             }
-            this.fQk.setVisibility(0);
-            this.fQk.setData(aVar.fPR);
+            this.fQj.setVisibility(0);
+            this.fQj.setData(aVar.fPQ);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        TiebaStatic.log(new am("c13351").k("topic_id", this.fQm.topicId).T("obj_locate", this.fQm.index));
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TopicDetailActivityConfig(getContext(), this.fQm.topicId)));
+        TiebaStatic.log(new am("c13351").k("topic_id", this.fQl.topicId).T("obj_locate", this.fQl.index));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TopicDetailActivityConfig(getContext(), this.fQl.topicId)));
     }
 }

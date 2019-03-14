@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,20 +16,20 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class a {
     private static final boolean DEBUG = h.DEBUG;
-    private static volatile int ahK = 0;
+    private static volatile int ahL = 0;
     private static volatile String sProcessName;
 
     public static int tQ() {
-        int i = ahK;
+        int i = ahL;
         if (i == 0) {
             String processName = getProcessName();
             String packageName = f.getAppContext().getPackageName();
-            if (TextUtils.equals(processName, packageName) || (processName.startsWith(packageName) && !processName.contains(":"))) {
+            if (TextUtils.equals(processName, packageName) || (processName.startsWith(packageName) && !processName.contains(Config.TRACE_TODAY_VISIT_SPLIT))) {
                 i = i | 1 | 2;
             } else {
                 i |= 4;
             }
-            ahK = i;
+            ahL = i;
         }
         return i;
     }

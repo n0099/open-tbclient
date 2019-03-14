@@ -3,41 +3,29 @@ package com.baidu.tieba.homepage.framework;
 import android.util.SparseArray;
 /* loaded from: classes4.dex */
 public class a {
-    private static a fIM = new a();
-    private long fIN = 0;
+    private static a fIL = new a();
+    private long fIM = 0;
+    private SparseArray<Long> fIN = new SparseArray<>();
     private SparseArray<Long> fIO = new SparseArray<>();
     private SparseArray<Long> fIP = new SparseArray<>();
     private SparseArray<Long> fIQ = new SparseArray<>();
-    private SparseArray<Long> fIR = new SparseArray<>();
 
     private a() {
     }
 
-    public static a blR() {
-        return fIM;
+    public static a blQ() {
+        return fIL;
     }
 
     public long getCreateTime() {
-        return this.fIN;
+        return this.fIM;
     }
 
     public void setCreateTime(long j) {
-        this.fIN = j;
+        this.fIM = j;
     }
 
     public long sm(int i) {
-        Long l = this.fIP.get(i);
-        if (l == null) {
-            return -1L;
-        }
-        return l.longValue();
-    }
-
-    public void m(long j, int i) {
-        this.fIP.put(i, Long.valueOf(j));
-    }
-
-    public long sn(int i) {
         Long l = this.fIO.get(i);
         if (l == null) {
             return -1L;
@@ -45,12 +33,24 @@ public class a {
         return l.longValue();
     }
 
-    public void n(long j, int i) {
+    public void m(long j, int i) {
         this.fIO.put(i, Long.valueOf(j));
     }
 
+    public long sn(int i) {
+        Long l = this.fIN.get(i);
+        if (l == null) {
+            return -1L;
+        }
+        return l.longValue();
+    }
+
+    public void n(long j, int i) {
+        this.fIN.put(i, Long.valueOf(j));
+    }
+
     public long so(int i) {
-        Long l = this.fIQ.get(i);
+        Long l = this.fIP.get(i);
         if (l == null) {
             return -1L;
         }
@@ -58,11 +58,11 @@ public class a {
     }
 
     public void o(long j, int i) {
-        this.fIQ.put(i, Long.valueOf(j));
+        this.fIP.put(i, Long.valueOf(j));
     }
 
     public long sp(int i) {
-        Long l = this.fIR.get(i);
+        Long l = this.fIQ.get(i);
         if (l == null) {
             return -1L;
         }
@@ -70,6 +70,6 @@ public class a {
     }
 
     public void p(long j, int i) {
-        this.fIR.put(i, Long.valueOf(j));
+        this.fIQ.put(i, Long.valueOf(j));
     }
 }

@@ -14,8 +14,8 @@ import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class CommonTagView extends TextView {
     private boolean Jd;
-    private int Oo;
-    private boolean cTD;
+    private int Op;
+    private boolean cTz;
     private int mBorderColor;
     private int mBorderWidth;
     private Context mContext;
@@ -33,7 +33,7 @@ public class CommonTagView extends TextView {
     public CommonTagView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.Jd = true;
-        this.cTD = true;
+        this.cTz = true;
         b(context, attributeSet, i);
     }
 
@@ -41,13 +41,13 @@ public class CommonTagView extends TextView {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d.l.CommonTagView);
         this.mBorderWidth = obtainStyledAttributes.getDimensionPixelOffset(d.l.CommonTagView_borderWidth, 1);
         this.mBorderColor = obtainStyledAttributes.getColor(d.l.CommonTagView_tgViewBorderColor, ViewCompat.MEASURED_STATE_MASK);
-        this.Oo = obtainStyledAttributes.getDimensionPixelOffset(d.l.CommonTagView_cornerRadius, 3);
+        this.Op = obtainStyledAttributes.getDimensionPixelOffset(d.l.CommonTagView_cornerRadius, 3);
         obtainStyledAttributes.recycle();
         setPadding(getPaddingLeft() == 0 ? x.dip2px(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? x.dip2px(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? x.dip2px(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? x.dip2px(context, 1.0f) : getPaddingBottom());
-        dI(context);
+        dH(context);
     }
 
-    private void dI(Context context) {
+    private void dH(Context context) {
         this.mContext = context;
         this.mPaint = new Paint();
         this.mRectF = new RectF();
@@ -60,7 +60,7 @@ public class CommonTagView extends TextView {
             this.mPaint.setStyle(Paint.Style.STROKE);
             this.mPaint.setAntiAlias(true);
             this.mPaint.setStrokeWidth(this.mBorderWidth);
-            if (this.cTD && this.mBorderColor != getCurrentTextColor()) {
+            if (this.cTz && this.mBorderColor != getCurrentTextColor()) {
                 this.mBorderColor = getCurrentTextColor();
             }
             this.mPaint.setColor(this.mBorderColor);
@@ -68,7 +68,7 @@ public class CommonTagView extends TextView {
             this.mRectF.top = this.mBorderWidth * 0.5f;
             this.mRectF.right = getMeasuredWidth() - (this.mBorderWidth * 0.5f);
             this.mRectF.bottom = getMeasuredHeight() - (this.mBorderWidth * 0.5f);
-            canvas.drawRoundRect(this.mRectF, this.Oo, this.Oo, this.mPaint);
+            canvas.drawRoundRect(this.mRectF, this.Op, this.Op, this.mPaint);
         }
     }
 }

@@ -12,16 +12,16 @@ import com.baidu.swan.pms.model.i;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes2.dex */
 class a extends SQLiteOpenHelper {
-    private static volatile a blF;
-    private ConcurrentHashMap<Class<?>, com.baidu.swan.pms.database.b.a> blE;
+    private static volatile a blG;
+    private ConcurrentHashMap<Class<?>, com.baidu.swan.pms.database.b.a> blF;
 
     private void RF() {
-        this.blE = new ConcurrentHashMap<>();
-        this.blE.put(g.class, new e());
-        this.blE.put(i.class, new f());
-        this.blE.put(com.baidu.swan.pms.model.a.class, new com.baidu.swan.pms.database.b.b());
-        this.blE.put(com.baidu.swan.pms.model.e.class, new d());
-        this.blE.put(c.class, new com.baidu.swan.pms.database.b.c());
+        this.blF = new ConcurrentHashMap<>();
+        this.blF.put(g.class, new e());
+        this.blF.put(i.class, new f());
+        this.blF.put(com.baidu.swan.pms.model.a.class, new com.baidu.swan.pms.database.b.b());
+        this.blF.put(com.baidu.swan.pms.model.e.class, new d());
+        this.blF.put(c.class, new com.baidu.swan.pms.database.b.c());
     }
 
     private a() {
@@ -34,26 +34,26 @@ class a extends SQLiteOpenHelper {
     }
 
     public static a RG() {
-        if (blF == null) {
+        if (blG == null) {
             synchronized (a.class) {
-                if (blF == null) {
-                    blF = new a();
+                if (blG == null) {
+                    blG = new a();
                 }
             }
         }
-        return blF;
+        return blG;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        for (com.baidu.swan.pms.database.b.a aVar : this.blE.values()) {
+        for (com.baidu.swan.pms.database.b.a aVar : this.blF.values()) {
             aVar.onCreate(sQLiteDatabase);
         }
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        for (com.baidu.swan.pms.database.b.a aVar : this.blE.values()) {
+        for (com.baidu.swan.pms.database.b.a aVar : this.blF.values()) {
             aVar.onUpgrade(sQLiteDatabase, i, i2);
         }
     }

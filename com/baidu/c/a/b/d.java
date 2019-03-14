@@ -5,45 +5,45 @@ import android.text.TextUtils;
 import android.view.View;
 /* loaded from: classes3.dex */
 public class d implements c {
-    private static volatile d acW = null;
-    private c acX;
+    private static volatile d acX = null;
+    private c acY;
 
     public static d sj() {
-        if (acW == null) {
+        if (acX == null) {
             synchronized (d.class) {
-                if (acW == null) {
-                    acW = new d();
+                if (acX == null) {
+                    acX = new d();
                 }
             }
         }
-        return acW;
+        return acX;
     }
 
     public void b(c cVar) {
-        this.acX = cVar;
+        this.acY = cVar;
     }
 
     @Override // com.baidu.c.a.b.c
     public View Z(Context context, String str) {
-        if (this.acX == null || context == null || TextUtils.isEmpty(str)) {
+        if (this.acY == null || context == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        return this.acX.Z(context, str);
+        return this.acY.Z(context, str);
     }
 
     @Override // com.baidu.c.a.b.c
     public boolean a(String str, View view, com.baidu.c.a.a.a aVar) {
-        if (this.acX == null || view == null || aVar == null) {
+        if (this.acY == null || view == null || aVar == null) {
             return false;
         }
-        return this.acX.a(str, view, aVar);
+        return this.acY.a(str, view, aVar);
     }
 
     @Override // com.baidu.c.a.b.c
     public boolean a(String str, View view, String str2, String str3) {
-        if (this.acX == null || view == null || TextUtils.isEmpty(str2)) {
+        if (this.acY == null || view == null || TextUtils.isEmpty(str2)) {
             return false;
         }
-        return this.acX.a(str, view, str2, str3);
+        return this.acY.a(str, view, str2, str3);
     }
 }

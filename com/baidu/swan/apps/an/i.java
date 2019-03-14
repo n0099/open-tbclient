@@ -8,7 +8,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /* loaded from: classes2.dex */
 public class i {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [85=6, 87=5, 88=5, 89=5, 90=5] */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:14:0x0024 */

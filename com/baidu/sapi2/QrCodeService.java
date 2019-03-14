@@ -51,7 +51,7 @@ public class QrCodeService extends AbstractService {
     }
 
     public void getQrCodeContent(SapiCallback<GetQrCodeImageResult> sapiCallback, String str) {
-        a(sapiCallback, str, SapiUtils.QR_LOGIN_LP_PC, true);
+        a(sapiCallback, str, "pc", true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -61,7 +61,7 @@ public class QrCodeService extends AbstractService {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void getQrCodeImage(SapiCallback<GetQrCodeImageResult> sapiCallback, String str) {
-        a(sapiCallback, str, SapiUtils.QR_LOGIN_LP_PC, false);
+        a(sapiCallback, str, "pc", false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -80,7 +80,7 @@ public class QrCodeService extends AbstractService {
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
         httpHashMapWrap.put("tpl", this.configuration.tpl);
         httpHashMapWrap.put("appid", this.configuration.appId);
-        httpHashMapWrap.put(SapiUtils.KEY_QR_LOGIN_LP, TextUtils.isEmpty(str2) ? SapiUtils.QR_LOGIN_LP_PC : str2);
+        httpHashMapWrap.put(SapiUtils.KEY_QR_LOGIN_LP, TextUtils.isEmpty(str2) ? "pc" : str2);
         httpHashMapWrap.put("client", "android");
         httpHashMapWrap.put("apiver", "v3");
         httpHashMapWrap.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, String.valueOf(System.currentTimeMillis()));
@@ -119,7 +119,7 @@ public class QrCodeService extends AbstractService {
                         case 0:
                             getQrCodeImageResult.imageUrl = "https://" + jSONObject.optString("imgurl");
                             getQrCodeImageResult.prompt = jSONObject.optString("prompt");
-                            getQrCodeImageResult.channelId = jSONObject.optString(SapiUtils.KEY_QR_LOGIN_SIGN);
+                            getQrCodeImageResult.channelId = jSONObject.optString("sign");
                             if (z) {
                                 getQrCodeImageResult.contentUrl = jSONObject.optString("qrcontent_url");
                             }
@@ -370,7 +370,7 @@ public class QrCodeService extends AbstractService {
         }
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
         Map<String, String> urlParamsToMap = SapiUtils.urlParamsToMap(str);
-        httpHashMapWrap.put(SapiUtils.KEY_QR_LOGIN_SIGN, urlParamsToMap.get(SapiUtils.KEY_QR_LOGIN_SIGN));
+        httpHashMapWrap.put("sign", urlParamsToMap.get("sign"));
         httpHashMapWrap.put(IntentConfig.CMD, str2);
         if (!TextUtils.isEmpty(this.configuration.clientId)) {
             httpHashMapWrap.put("clientid", this.configuration.clientId);

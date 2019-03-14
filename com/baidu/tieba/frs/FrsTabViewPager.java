@@ -8,11 +8,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 /* loaded from: classes4.dex */
 public class FrsTabViewPager extends BdBaseViewPager {
+    private float fcH;
     private float fcI;
     private float fcJ;
     private float fcK;
-    private float fcL;
-    private boolean fcM;
+    private boolean fcL;
     private float x;
     private float y;
 
@@ -30,11 +30,11 @@ public class FrsTabViewPager extends BdBaseViewPager {
         this.y = motionEvent.getRawY();
         switch (motionEvent.getAction()) {
             case 0:
-                this.fcI = motionEvent.getRawX();
-                this.fcJ = motionEvent.getRawY();
+                this.fcH = motionEvent.getRawX();
+                this.fcI = motionEvent.getRawY();
                 jn(true);
-                if (ben()) {
-                    this.fcM = false;
+                if (bem()) {
+                    this.fcL = false;
                     break;
                 }
                 break;
@@ -54,15 +54,15 @@ public class FrsTabViewPager extends BdBaseViewPager {
                 jn(false);
                 break;
             case 2:
-                this.fcK = this.x - this.fcI;
-                this.fcL = this.y - this.fcJ;
-                if (this.fcK < 0.0f && Math.abs(this.fcK) > Math.abs(this.fcL) && ben()) {
+                this.fcJ = this.x - this.fcH;
+                this.fcK = this.y - this.fcI;
+                if (this.fcJ < 0.0f && Math.abs(this.fcJ) > Math.abs(this.fcK) && bem()) {
                     dW(false);
-                    if (this.fcM) {
+                    if (this.fcL) {
                         return false;
                     }
                     jo(true);
-                    this.fcM = true;
+                    this.fcL = true;
                     return false;
                 }
                 break;
@@ -72,12 +72,12 @@ public class FrsTabViewPager extends BdBaseViewPager {
 
     public void jn(boolean z) {
         a aVar = new a();
-        aVar.jp(ben());
+        aVar.jp(bem());
         aVar.jq(z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
     }
 
-    public void bem() {
+    public void bel() {
         jn(false);
     }
 
@@ -85,29 +85,29 @@ public class FrsTabViewPager extends BdBaseViewPager {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921370, Boolean.valueOf(z)));
     }
 
-    private boolean ben() {
+    private boolean bem() {
         return getCurrentItem() == getAdapter().getCount() + (-1);
     }
 
     /* loaded from: classes4.dex */
     public static class a {
+        private boolean fcM;
         private boolean fcN;
-        private boolean fcO;
+
+        public boolean ben() {
+            return this.fcM;
+        }
+
+        public void jp(boolean z) {
+            this.fcM = z;
+        }
 
         public boolean beo() {
             return this.fcN;
         }
 
-        public void jp(boolean z) {
-            this.fcN = z;
-        }
-
-        public boolean bep() {
-            return this.fcO;
-        }
-
         public void jq(boolean z) {
-            this.fcO = z;
+            this.fcN = z;
         }
     }
 }

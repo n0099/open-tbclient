@@ -22,8 +22,8 @@ import com.tencent.connect.common.Constants;
 /* loaded from: classes3.dex */
 public class ImageViewerBottomLayout extends LinearLayout implements View.OnClickListener, View.OnTouchListener {
     public static final int cdC = l.h(TbadkApplication.getInst(), d.e.tbds130);
-    private AgreeView bSc;
-    private TextView bSd;
+    private AgreeView bSd;
+    private TextView bSe;
     private ImageUrlData cbW;
     private a cdA;
     private TextView cdD;
@@ -64,16 +64,16 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
         al.c(this.cdE, d.f.icon_picture_unfold_white_n);
         this.cdG = (TbImageView) findViewById(d.g.comment_icon);
         al.c(this.cdG, d.f.icon_picture_comment_white_n);
-        this.bSd = (TextView) findViewById(d.g.comment_num);
-        this.bSd.setText("0");
-        this.bSc = (AgreeView) findViewById(d.g.agree_and_disagreeview);
-        this.bSc.setIsFromBigpic(true);
-        this.bSc.setAgreeAnimationResource(d.i.agree_bigpic);
-        this.bSc.setDisagreeAnimationResource(d.i.disagree_bigpic);
+        this.bSe = (TextView) findViewById(d.g.comment_num);
+        this.bSe.setText("0");
+        this.bSd = (AgreeView) findViewById(d.g.agree_and_disagreeview);
+        this.bSd.setIsFromBigpic(true);
+        this.bSd.setAgreeAnimationResource(d.i.agree_bigpic);
+        this.bSd.setDisagreeAnimationResource(d.i.disagree_bigpic);
         com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
-        dVar.bxh = 13;
-        dVar.bxm = 10;
-        this.bSc.setStatisticData(dVar);
+        dVar.bxj = 13;
+        dVar.bxo = 10;
+        this.bSd.setStatisticData(dVar);
     }
 
     public void setExpandButtonListener(a aVar) {
@@ -89,10 +89,10 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
         if (imageUrlData != null && imageUrlData.agreeData != null) {
             setVisibility(0);
             if (imageUrlData.commentNum != null) {
-                this.bSd.setText(imageUrlData.commentNum);
+                this.bSe.setText(imageUrlData.commentNum);
             }
             if (imageUrlData.agreeData != null) {
-                this.bSc.setData(imageUrlData.agreeData);
+                this.bSd.setData(imageUrlData.agreeData);
             }
             if (!this.cdH) {
                 this.cdF.setVisibility(4);
@@ -110,7 +110,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
 
     private void initListener() {
         this.cdG.setOnClickListener(this);
-        this.bSd.setOnClickListener(this);
+        this.bSe.setOnClickListener(this);
         this.cdF.setOnClickListener(this);
         setOnTouchListener(this);
     }
@@ -127,9 +127,9 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.cdG || view == this.bSd) {
+        if (view == this.cdG || view == this.bSe) {
             TiebaStatic.log(new am("c12942").bJ("obj_type", "2").bJ("obj_locate", Constants.VIA_REPORT_TYPE_SET_AVATAR));
-            ajY();
+            ajX();
         } else if (view == this.cdF) {
             if (this.cdD.getText().toString().equals(getContext().getString(d.j.expand))) {
                 this.cdD.setText(getContext().getString(d.j.fold));
@@ -154,7 +154,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
         return true;
     }
 
-    private void ajY() {
+    private void ajX() {
         if (this.cbW != null) {
             PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(String.valueOf(this.cbW.threadId), String.valueOf(this.cbW.postId), this.cbW.mIsSeeHost, this.cbW.mIsReserver, null);
             createHistoryCfg.setJumpToCommentArea(true);

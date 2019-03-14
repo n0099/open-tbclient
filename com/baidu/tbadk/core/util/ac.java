@@ -7,35 +7,35 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 /* loaded from: classes.dex */
 public class ac {
-    private static ac bJN;
-    private static final BdUniqueId bJO = BdUniqueId.gen();
+    private static ac bJO;
+    private static final BdUniqueId bJP = BdUniqueId.gen();
 
     public static synchronized ac acT() {
         ac acVar;
         synchronized (ac.class) {
-            if (bJN == null) {
-                bJN = new ac();
+            if (bJO == null) {
+                bJO = new ac();
             }
-            acVar = bJN;
+            acVar = bJO;
         }
         return acVar;
     }
 
     /* loaded from: classes.dex */
     public class a extends BdAsyncTask<String, String, String> {
-        private final String bJP;
-        private final boolean bJQ;
+        private final String bJQ;
         private final boolean bJR;
         private final boolean bJS;
+        private final boolean bJT;
         private final String imageUrl;
 
         public a(String str, String str2, boolean z, boolean z2, boolean z3) {
             this.imageUrl = str;
-            this.bJP = str2;
-            this.bJQ = z;
-            this.bJR = z2;
-            this.bJS = z3;
-            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ac.bJO));
+            this.bJQ = str2;
+            this.bJR = z;
+            this.bJS = z2;
+            this.bJT = z3;
+            setParallel(new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, ac.bJP));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -43,7 +43,7 @@ public class ac {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public String doInBackground(String... strArr) {
             try {
-                ac.this.c(this.imageUrl, this.bJP, this.bJQ, this.bJR, this.bJS);
+                ac.this.c(this.imageUrl, this.bJQ, this.bJR, this.bJS, this.bJT);
             } finally {
                 return null;
             }
@@ -61,7 +61,7 @@ public class ac {
                     if (mD > 0) {
                         if (z) {
                             Bitmap mf = ao.adk().mf(mK);
-                            com.baidu.tbadk.imageManager.c.anq().jM(mD);
+                            com.baidu.tbadk.imageManager.c.anp().jM(mD);
                             if (mf != null) {
                                 a(str, mf, z2, ao.adk().mC(mK), z3, mK);
                             }
@@ -104,7 +104,7 @@ public class ac {
     }
 
     private static void a(String str, com.baidu.adp.widget.ImageView.a aVar) {
-        com.baidu.tbadk.imageManager.c.anq().c(str, aVar);
+        com.baidu.tbadk.imageManager.c.anp().c(str, aVar);
     }
 
     public Bitmap a(Bitmap bitmap, boolean z, boolean z2, String str) {

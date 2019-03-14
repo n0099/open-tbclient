@@ -11,20 +11,20 @@ import com.facebook.drawee.drawable.n;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class a extends Drawable {
-    private String jCH;
+    private int jCA;
+    private int jCB;
+    private int jCC;
+    private String jCD;
+    private n.b jCE;
+    private int jCF;
+    private int jCG;
+    private int jCH;
     private int jCI;
     private int jCJ;
     private int jCK;
-    private String jCL;
-    private n.b jCM;
-    private int jCN;
-    private int jCO;
-    private int jCP;
-    private int jCQ;
-    private int jCR;
-    private int jCS;
+    private String jCz;
     private int mFrameCount;
-    private int bFq = 80;
+    private int bFs = 80;
     private final Paint mPaint = new Paint(1);
     private final Matrix mMatrix = new Matrix();
     private final Rect mRect = new Rect();
@@ -35,36 +35,36 @@ public class a extends Drawable {
     }
 
     public void reset() {
-        this.jCI = -1;
-        this.jCJ = -1;
-        this.jCK = -1;
+        this.jCA = -1;
+        this.jCB = -1;
+        this.jCC = -1;
         this.mFrameCount = -1;
-        this.jCN = -1;
-        this.jCL = null;
-        FI(null);
+        this.jCF = -1;
+        this.jCD = null;
+        FG(null);
         invalidateSelf();
     }
 
-    public void FI(@Nullable String str) {
+    public void FG(@Nullable String str) {
         if (str == null) {
             str = "none";
         }
-        this.jCH = str;
+        this.jCz = str;
         invalidateSelf();
     }
 
     public void setDimensions(int i, int i2) {
-        this.jCI = i;
-        this.jCJ = i2;
+        this.jCA = i;
+        this.jCB = i2;
         invalidateSelf();
     }
 
     public void Ca(int i) {
-        this.jCK = i;
+        this.jCC = i;
     }
 
     public void a(n.b bVar) {
-        this.jCM = bVar;
+        this.jCE = bVar;
     }
 
     @Override // android.graphics.drawable.Drawable
@@ -81,25 +81,25 @@ public class a extends Drawable {
         this.mPaint.setColor(-26624);
         canvas.drawRect(bounds.left, bounds.top, bounds.right, bounds.bottom, this.mPaint);
         this.mPaint.setStyle(Paint.Style.FILL);
-        this.mPaint.setColor(a(this.jCI, this.jCJ, this.jCM));
+        this.mPaint.setColor(a(this.jCA, this.jCB, this.jCE));
         canvas.drawRect(bounds.left, bounds.top, bounds.right, bounds.bottom, this.mPaint);
         this.mPaint.setStyle(Paint.Style.FILL);
         this.mPaint.setStrokeWidth(0.0f);
         this.mPaint.setColor(-1);
-        this.jCR = this.jCO;
-        this.jCS = this.jCP;
-        a(canvas, "ID: %s", this.jCH);
+        this.jCJ = this.jCG;
+        this.jCK = this.jCH;
+        a(canvas, "ID: %s", this.jCz);
         a(canvas, "D: %dx%d", Integer.valueOf(bounds.width()), Integer.valueOf(bounds.height()));
-        a(canvas, "I: %dx%d", Integer.valueOf(this.jCI), Integer.valueOf(this.jCJ));
-        a(canvas, "I: %d KiB", Integer.valueOf(this.jCK / 1024));
-        if (this.jCL != null) {
-            a(canvas, "i format: %s", this.jCL);
+        a(canvas, "I: %dx%d", Integer.valueOf(this.jCA), Integer.valueOf(this.jCB));
+        a(canvas, "I: %d KiB", Integer.valueOf(this.jCC / 1024));
+        if (this.jCD != null) {
+            a(canvas, "i format: %s", this.jCD);
         }
         if (this.mFrameCount > 0) {
-            a(canvas, "anim: f %d, l %d", Integer.valueOf(this.mFrameCount), Integer.valueOf(this.jCN));
+            a(canvas, "anim: f %d, l %d", Integer.valueOf(this.mFrameCount), Integer.valueOf(this.jCF));
         }
-        if (this.jCM != null) {
-            a(canvas, "scale: %s", this.jCM);
+        if (this.jCE != null) {
+            a(canvas, "scale: %s", this.jCE);
         }
     }
 
@@ -119,21 +119,21 @@ public class a extends Drawable {
     private void a(Rect rect, int i, int i2) {
         int min = Math.min(40, Math.max(12, Math.min(rect.width() / i2, rect.height() / i)));
         this.mPaint.setTextSize(min);
-        this.jCQ = min + 8;
-        if (this.bFq == 80) {
-            this.jCQ *= -1;
+        this.jCI = min + 8;
+        if (this.bFs == 80) {
+            this.jCI *= -1;
         }
-        this.jCO = rect.left + 10;
-        this.jCP = this.bFq == 80 ? rect.bottom - 10 : rect.top + 10 + 12;
+        this.jCG = rect.left + 10;
+        this.jCH = this.bFs == 80 ? rect.bottom - 10 : rect.top + 10 + 12;
     }
 
     private void a(Canvas canvas, String str, @Nullable Object... objArr) {
         if (objArr == null) {
-            canvas.drawText(str, this.jCR, this.jCS, this.mPaint);
+            canvas.drawText(str, this.jCJ, this.jCK, this.mPaint);
         } else {
-            canvas.drawText(String.format(str, objArr), this.jCR, this.jCS, this.mPaint);
+            canvas.drawText(String.format(str, objArr), this.jCJ, this.jCK, this.mPaint);
         }
-        this.jCS += this.jCQ;
+        this.jCK += this.jCI;
     }
 
     int a(int i, int i2, @Nullable n.b bVar) {

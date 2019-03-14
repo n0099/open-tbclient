@@ -62,7 +62,7 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
         this.businessFrom = businessFrom;
         this.wxRespCode = getIntent().getStringExtra("code");
         this.wxRespState = getIntent().getStringExtra(KEY_BASE_RESP_STATE);
-        this.wxRespErrorCode = getIntent().getIntExtra(KEY_BASE_RESP_ERROR_CODE, -1);
+        this.wxRespErrorCode = getIntent().getIntExtra("error_code", -1);
         if (this.wxRespErrorCode == 0) {
             if (businessFrom == 2003) {
                 Intent intent = new Intent();

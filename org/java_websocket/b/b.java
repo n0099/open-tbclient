@@ -4,17 +4,17 @@ import org.java_websocket.exceptions.InvalidDataException;
 import org.java_websocket.framing.Framedata;
 /* loaded from: classes2.dex */
 public interface b {
-    boolean Gh(String str);
+    boolean Gf(String str);
 
-    boolean Gi(String str);
+    boolean Gg(String str);
 
     void c(Framedata framedata) throws InvalidDataException;
 
-    String cDi();
+    String cDl();
 
-    String cDj();
+    String cDm();
 
-    b cDk();
+    b cDn();
 
     void d(Framedata framedata);
 

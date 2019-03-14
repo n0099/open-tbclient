@@ -8,6 +8,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.appsearchlib.Info;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -54,7 +55,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
         addParam("fmt", "json");
         addParam("android_id", androidId());
         addParam("ot", "2");
-        addParam("ct", "2");
+        addParam(Config.EXCEPTION_CRASH_TYPE, "2");
         addParam("nt", String.valueOf(com.baidu.adp.lib.util.j.netType()));
         addParam("uid", SapiAccountManager.getInstance().getSession("uid"));
         addParam("is_https", 1);
@@ -63,7 +64,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
     private static JSONObject create(String str, String str2) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("k", str);
+            jSONObject.put(Config.APP_KEY, str);
             jSONObject.put("v", str2);
             return jSONObject;
         } catch (JSONException e) {

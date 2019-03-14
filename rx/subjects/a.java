@@ -6,10 +6,10 @@ import rx.internal.operators.NotificationLite;
 import rx.subjects.SubjectSubscriptionManager;
 /* loaded from: classes2.dex */
 public final class a<T> extends c<T, T> {
-    private static final Object[] kcN = new Object[0];
-    private final SubjectSubscriptionManager<T> kcO;
+    private static final Object[] kcF = new Object[0];
+    private final SubjectSubscriptionManager<T> kcG;
 
-    public static <T> a<T> cFr() {
+    public static <T> a<T> cFu() {
         return g(null, false);
     }
 
@@ -32,25 +32,25 @@ public final class a<T> extends c<T, T> {
 
     protected a(d.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
         super(aVar);
-        this.kcO = subjectSubscriptionManager;
+        this.kcG = subjectSubscriptionManager;
     }
 
     @Override // rx.e
     public void onCompleted() {
-        if (this.kcO.getLatest() == null || this.kcO.active) {
-            Object cDZ = NotificationLite.cDZ();
-            for (SubjectSubscriptionManager.b<T> bVar : this.kcO.terminate(cDZ)) {
-                bVar.bF(cDZ);
+        if (this.kcG.getLatest() == null || this.kcG.active) {
+            Object cEc = NotificationLite.cEc();
+            for (SubjectSubscriptionManager.b<T> bVar : this.kcG.terminate(cEc)) {
+                bVar.bF(cEc);
             }
         }
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        if (this.kcO.getLatest() == null || this.kcO.active) {
+        if (this.kcG.getLatest() == null || this.kcG.active) {
             Object O = NotificationLite.O(th);
             ArrayList arrayList = null;
-            for (SubjectSubscriptionManager.b<T> bVar : this.kcO.terminate(O)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.kcG.terminate(O)) {
                 try {
                     bVar.bF(O);
                 } catch (Throwable th2) {
@@ -66,9 +66,9 @@ public final class a<T> extends c<T, T> {
 
     @Override // rx.e
     public void onNext(T t) {
-        if (this.kcO.getLatest() == null || this.kcO.active) {
+        if (this.kcG.getLatest() == null || this.kcG.active) {
             Object bq = NotificationLite.bq(t);
-            for (SubjectSubscriptionManager.b<T> bVar : this.kcO.next(bq)) {
+            for (SubjectSubscriptionManager.b<T> bVar : this.kcG.next(bq)) {
                 bVar.bF(bq);
             }
         }

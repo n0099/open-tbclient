@@ -23,21 +23,21 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps.b.c.c<SystemWebViewImpl> {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private static int asH = 10;
-    private FrameLayout aqq;
-    private String asI;
-    private d asJ;
-    protected PullToRefreshSysWebView asK;
-    private List<g> asL;
-    private com.baidu.swan.apps.view.d.a<SystemWebViewImpl> asM;
-    private com.baidu.swan.apps.core.e.d asN;
-    private com.baidu.swan.apps.core.e.c asO;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static int asI = 10;
+    private FrameLayout aqr;
+    private String asJ;
+    private d asK;
+    protected PullToRefreshSysWebView asL;
+    private List<g> asM;
+    private com.baidu.swan.apps.view.d.a<SystemWebViewImpl> asN;
+    private com.baidu.swan.apps.core.e.d asO;
+    private com.baidu.swan.apps.core.e.c asP;
     protected Context mContext;
 
     public c(Context context) {
         super(context);
-        this.asL = new ArrayList();
+        this.asM = new ArrayList();
         this.mContext = context;
     }
 
@@ -45,7 +45,7 @@ public class c extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
     @Override // com.baidu.swan.apps.core.b
     public void a(b.a aVar) {
         super.a(aVar);
-        aVar.aon = true;
+        aVar.aoo = true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -53,17 +53,17 @@ public class c extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
     public void xu() {
         super.xu();
         zQ();
-        k kVar = new k(this.aod);
+        k kVar = new k(this.aoe);
         kVar.f(this);
-        this.aod.a(kVar);
+        this.aoe.a(kVar);
     }
 
     @Override // com.baidu.swan.apps.core.b, com.baidu.swan.apps.b.c.e
     public void onResume() {
         super.onResume();
         com.baidu.swan.apps.u.a.CJ().c(this);
-        if (this.asJ != null) {
-            this.asJ.onResume();
+        if (this.asK != null) {
+            this.asK.onResume();
         }
         if (com.baidu.swan.apps.ae.b.IX() != null) {
             com.baidu.swan.apps.ae.b.IX().Jg().bk(true);
@@ -74,8 +74,8 @@ public class c extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
     public void onPause() {
         super.onPause();
         com.baidu.swan.apps.u.a.CJ().d(this);
-        if (this.asJ != null) {
-            this.asJ.onPause();
+        if (this.asK != null) {
+            this.asK.onPause();
         }
         if (com.baidu.swan.apps.ae.b.IX() != null) {
             com.baidu.swan.apps.ae.b.IX().Jg().bk(false);
@@ -117,23 +117,23 @@ public class c extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
     public void a(FrameLayout frameLayout, com.baidu.swan.apps.ae.a.d dVar) {
         if (frameLayout != null) {
             frameLayout.setBackgroundColor(dVar.mBackgroundColor);
-            if (dVar.aOG) {
-                this.asK = new PullToRefreshSysWebView(this.mContext, this, PullToRefreshBase.HEADERTYPE.SWAN_APP_HEADER);
-                a(this.asK);
-                a(frameLayout, this.asK);
+            if (dVar.aOH) {
+                this.asL = new PullToRefreshSysWebView(this.mContext, this, PullToRefreshBase.HEADERTYPE.SWAN_APP_HEADER);
+                a(this.asL);
+                a(frameLayout, this.asL);
             } else {
                 a(frameLayout, wc());
             }
-            this.aqq = frameLayout;
-            if (this.asM == null) {
-                this.asM = new com.baidu.swan.apps.view.d.a<>(this.mContext, this, frameLayout);
+            this.aqr = frameLayout;
+            if (this.asN == null) {
+                this.asN = new com.baidu.swan.apps.view.d.a<>(this.mContext, this, frameLayout);
             }
         }
     }
 
     protected void a(PullToRefreshSysWebView pullToRefreshSysWebView) {
         if (pullToRefreshSysWebView != null) {
-            this.asK.setOnRefreshListener(new PullToRefreshBase.a<SystemWebViewImpl>() { // from class: com.baidu.swan.apps.core.h.c.1
+            this.asL.setOnRefreshListener(new PullToRefreshBase.a<SystemWebViewImpl>() { // from class: com.baidu.swan.apps.core.h.c.1
                 @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase.a
                 public void a(PullToRefreshBase<SystemWebViewImpl> pullToRefreshBase) {
                     com.baidu.swan.apps.w.e.Ec().a(c.this.we(), new com.baidu.swan.apps.m.a.b("PullDownRefresh"));
@@ -148,7 +148,7 @@ public class c extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
 
     @Override // com.baidu.swan.apps.b.c.c
     public PullToRefreshBaseWebView vW() {
-        return this.asK;
+        return this.asL;
     }
 
     @Override // com.baidu.swan.apps.b.c.c
@@ -175,43 +175,43 @@ public class c extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
     }
 
     private void zQ() {
-        this.asI = String.valueOf(asH);
-        asH++;
+        this.asJ = String.valueOf(asI);
+        asI++;
     }
 
     @Override // com.baidu.swan.apps.b.c.e
     public String we() {
-        return this.asI;
+        return this.asJ;
     }
 
     @Override // com.baidu.swan.apps.b.c.c
     public boolean a(com.baidu.swan.apps.scheme.actions.j.d dVar) {
-        if (dVar == null || this.aqq == null) {
+        if (dVar == null || this.aqr == null) {
             return false;
         }
-        if (this.asK != null) {
-            this.asK.bB(false);
-            this.asK.setPullRefreshEnabled(false);
+        if (this.asL != null) {
+            this.asL.bB(false);
+            this.asL.setPullRefreshEnabled(false);
         }
-        if (this.asJ == null) {
+        if (this.asK == null) {
             if (DEBUG && this.mActivity == null) {
                 Log.e("SwanAppSysSlaveManager", Log.getStackTraceString(new Exception("activity context is null.")));
             }
-            this.asJ = bC(this.mActivity != null ? this.mActivity : this.mContext);
-            if (dVar.aBE == null) {
-                dVar.aBE = com.baidu.swan.apps.model.a.a.b.EO();
+            this.asK = bC(this.mActivity != null ? this.mActivity : this.mContext);
+            if (dVar.aBF == null) {
+                dVar.aBF = com.baidu.swan.apps.model.a.a.b.EO();
             }
-            a(this.aqq, this.asJ.wc());
-            if (this.asJ.wc() != null) {
-                this.asJ.wc().setVisibility(dVar.hidden ? 8 : 0);
+            a(this.aqr, this.asK.wc());
+            if (this.asK.wc() != null) {
+                this.asK.wc().setVisibility(dVar.hidden ? 8 : 0);
             }
-            this.asJ.loadUrl(dVar.mSrc);
-            this.asJ.d(dVar);
-            if (this.asN != null) {
-                this.asN.a(this.asJ);
-            }
+            this.asK.loadUrl(dVar.mSrc);
+            this.asK.d(dVar);
             if (this.asO != null) {
-                this.asJ.a(this.asO);
+                this.asO.a(this.asK);
+            }
+            if (this.asP != null) {
+                this.asK.a(this.asP);
             }
             return true;
         }
@@ -225,14 +225,14 @@ public class c extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
 
     @Override // com.baidu.swan.apps.b.c.c
     public boolean b(com.baidu.swan.apps.scheme.actions.j.d dVar) {
-        if (this.asJ != null) {
-            this.asJ.loadUrl(dVar.mSrc);
-            this.asJ.d(dVar);
-            if (dVar.aBE == null) {
-                dVar.aBE = com.baidu.swan.apps.model.a.a.b.EO();
+        if (this.asK != null) {
+            this.asK.loadUrl(dVar.mSrc);
+            this.asK.d(dVar);
+            if (dVar.aBF == null) {
+                dVar.aBF = com.baidu.swan.apps.model.a.a.b.EO();
             }
-            if (this.asJ.wc() != null) {
-                this.asJ.wc().setVisibility(dVar.hidden ? 8 : 0);
+            if (this.asK.wc() != null) {
+                this.asK.wc().setVisibility(dVar.hidden ? 8 : 0);
             }
             return true;
         }
@@ -241,19 +241,19 @@ public class c extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
 
     @Override // com.baidu.swan.apps.b.c.c
     public boolean c(com.baidu.swan.apps.scheme.actions.j.d dVar) {
-        if (this.asJ != null) {
-            if (this.asN != null) {
-                this.asN.b(this.asJ);
-            }
+        if (this.asK != null) {
             if (this.asO != null) {
-                this.asO = null;
+                this.asO.b(this.asK);
             }
-            c(this.aqq, this.asJ.wc());
-            this.asJ.d(dVar);
-            this.asJ.destroy();
-            this.asJ = null;
-            if (this.asK != null) {
-                this.asK.setPullRefreshEnabled(true);
+            if (this.asP != null) {
+                this.asP = null;
+            }
+            c(this.aqr, this.asK.wc());
+            this.asK.d(dVar);
+            this.asK.destroy();
+            this.asK = null;
+            if (this.asL != null) {
+                this.asL.setPullRefreshEnabled(true);
                 return true;
             }
             return true;
@@ -263,24 +263,24 @@ public class c extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
 
     @Override // com.baidu.swan.apps.b.c.c
     public boolean vY() {
-        if (this.asJ == null || !this.asJ.wc().canGoBack()) {
+        if (this.asK == null || !this.asK.wc().canGoBack()) {
             return false;
         }
-        this.asJ.wc().goBack();
+        this.asK.wc().goBack();
         return true;
     }
 
     @Override // com.baidu.swan.apps.b.c.c
     public void a(g gVar) {
         if (gVar != null) {
-            this.asL.add(gVar);
+            this.asM.add(gVar);
         }
     }
 
     @Override // com.baidu.swan.apps.b.c.c
     public void b(g gVar) {
         if (gVar != null) {
-            this.asL.remove(gVar);
+            this.asM.remove(gVar);
             gVar.release();
         }
     }
@@ -291,14 +291,14 @@ public class c extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        Iterator<g> it = this.asL.iterator();
+        Iterator<g> it = this.asM.iterator();
         while (true) {
             if (!it.hasNext()) {
                 gVar = null;
                 break;
             }
             gVar = it.next();
-            if (gVar != null && TextUtils.equals(str, gVar.amu)) {
+            if (gVar != null && TextUtils.equals(str, gVar.amv)) {
                 break;
             }
         }
@@ -309,14 +309,14 @@ public class c extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
     public void destroy() {
         c((com.baidu.swan.apps.scheme.actions.j.d) null);
         vZ();
-        com.baidu.swan.apps.camera.a.wn().dq(this.asI);
+        com.baidu.swan.apps.camera.a.wn().dq(this.asJ);
         zR();
         super.destroy();
-        this.asL.clear();
+        this.asM.clear();
         com.baidu.swan.apps.u.a.CJ().e(this);
-        com.baidu.swan.apps.media.b.eS(this.asI);
-        if (this.asM != null) {
-            this.asM.destroy();
+        com.baidu.swan.apps.media.b.eS(this.asJ);
+        if (this.asN != null) {
+            this.asN.destroy();
         }
     }
 
@@ -330,45 +330,45 @@ public class c extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
     }
 
     private void zR() {
-        com.baidu.swan.apps.textarea.c.b hr = com.baidu.swan.apps.textarea.c.a.Lw().hr(this.asI);
+        com.baidu.swan.apps.textarea.c.b hr = com.baidu.swan.apps.textarea.c.a.Lw().hr(this.asJ);
         if (hr != null) {
-            hr.ht(this.asI);
+            hr.ht(this.asJ);
         }
     }
 
     @Override // com.baidu.swan.apps.b.c.c
     public void bN(int i) {
         wc().setVisibility(i);
-        if (this.asM != null) {
-            this.asM.ey(i);
+        if (this.asN != null) {
+            this.asN.ey(i);
         }
         if (vW() != null) {
             vW().setVisibility(i);
         }
-        if (this.asJ != null && this.asJ.wc() != null) {
-            com.baidu.swan.apps.scheme.actions.j.d wf = this.asJ.wf();
-            this.asJ.wc().setVisibility(i == 0 && wf != null && !wf.hidden ? 0 : 8);
+        if (this.asK != null && this.asK.wc() != null) {
+            com.baidu.swan.apps.scheme.actions.j.d wf = this.asK.wf();
+            this.asK.wc().setVisibility(i == 0 && wf != null && !wf.hidden ? 0 : 8);
         }
     }
 
     @Override // com.baidu.swan.apps.b.c.c
     public com.baidu.swan.apps.view.d.a wa() {
-        return this.asM;
+        return this.asN;
     }
 
     @Override // com.baidu.swan.apps.b.c.c
     public void a(com.baidu.swan.apps.core.e.d dVar) {
-        this.asN = dVar;
+        this.asO = dVar;
     }
 
     @Override // com.baidu.swan.apps.b.c.c
     public void a(com.baidu.swan.apps.core.e.c cVar) {
-        this.asO = cVar;
+        this.asP = cVar;
     }
 
     @Override // com.baidu.swan.apps.b.c.c
     public boolean bO(int i) {
-        NeutralHeaderLoadingLayout neutralHeaderLoadingLayout = (NeutralHeaderLoadingLayout) this.asK.getHeaderLoadingLayout();
+        NeutralHeaderLoadingLayout neutralHeaderLoadingLayout = (NeutralHeaderLoadingLayout) this.asL.getHeaderLoadingLayout();
         if (neutralHeaderLoadingLayout == null) {
             return false;
         }
@@ -380,6 +380,6 @@ public class c extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps
     @Nullable
     /* renamed from: zS */
     public d vX() {
-        return this.asJ;
+        return this.asK;
     }
 }

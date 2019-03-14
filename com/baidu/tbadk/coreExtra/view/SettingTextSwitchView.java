@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class SettingTextSwitchView extends FrameLayout {
-    private TextView ahH;
+    private TextView ahI;
     private LinearLayout ceE;
     protected TextView ceF;
     private BdSwitchView ceG;
@@ -24,7 +24,7 @@ public class SettingTextSwitchView extends FrameLayout {
     public SettingTextSwitchView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        akr();
+        akq();
         c(attributeSet);
         jg(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -32,14 +32,14 @@ public class SettingTextSwitchView extends FrameLayout {
     public SettingTextSwitchView(Context context) {
         super(context);
         this.mContext = context;
-        akr();
+        akq();
         jg(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public SettingTextSwitchView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = context;
-        akr();
+        akq();
         c(attributeSet);
         jg(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -50,9 +50,9 @@ public class SettingTextSwitchView extends FrameLayout {
 
     public void jg(int i) {
         this.ceG.setBackgroundRes(al.hq(d.f.bg_switch_open), al.hq(d.f.bg_switch_close), al.hq(d.f.btn_handle));
-        al.d(this.ahH, d.C0236d.cp_cont_b, 1);
+        al.d(this.ahI, d.C0277d.cp_cont_b, 1);
         if (this.ceF != null) {
-            al.d(this.ceF, d.C0236d.cp_cont_d, 1);
+            al.d(this.ceF, d.C0277d.cp_cont_d, 1);
         }
     }
 
@@ -77,17 +77,17 @@ public class SettingTextSwitchView extends FrameLayout {
     }
 
     public void setText(String str) {
-        this.ahH.setText(str);
+        this.ahI.setText(str);
     }
 
     public void setSwitchStateChangeListener(BdSwitchView.a aVar) {
         this.ceG.setOnSwitchStateChangeListener(aVar);
     }
 
-    private void akr() {
+    private void akq() {
         LayoutInflater.from(this.mContext).inflate(d.h.setting_text_switch_view, (ViewGroup) this, true);
         this.ceE = (LinearLayout) findViewById(d.g.container);
-        this.ahH = (TextView) findViewById(d.g.text);
+        this.ahI = (TextView) findViewById(d.g.text);
         this.ceG = (BdSwitchView) findViewById(d.g.button);
         this.ceG.setFocusable(true);
         this.ceF = (TextView) findViewById(d.g.tip);
@@ -114,13 +114,13 @@ public class SettingTextSwitchView extends FrameLayout {
             }
         }
         if (string != null) {
-            this.ahH.setText(string);
+            this.ahI.setText(string);
         }
         if (color > -1) {
-            this.ahH.setTextColor(color);
+            this.ahI.setTextColor(color);
         }
         if (dimension > -1.0f) {
-            this.ahH.setTextSize(0, dimension);
+            this.ahI.setTextSize(0, dimension);
         }
         this.ceE.setClickable(false);
         this.ceE.setFocusable(false);
@@ -154,10 +154,10 @@ public class SettingTextSwitchView extends FrameLayout {
     }
 
     public void setTextLeftMargin(int i) {
-        if (this.ahH.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ahH.getLayoutParams();
+        if (this.ahI.getLayoutParams() instanceof LinearLayout.LayoutParams) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.ahI.getLayoutParams();
             layoutParams.leftMargin = this.mContext.getResources().getDimensionPixelSize(i);
-            this.ahH.setLayoutParams(layoutParams);
+            this.ahI.setLayoutParams(layoutParams);
         }
     }
 

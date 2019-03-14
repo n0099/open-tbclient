@@ -38,7 +38,7 @@ public class p extends y {
             }
         }
         com.baidu.swan.apps.console.c.i("OpenStatisticEvent", "OpenStat : " + optParamsAsJo);
-        com.baidu.swan.ubc.r.onEvent(optString, optParamsAsJo);
+        com.baidu.swan.ubc.q.onEvent(optString, optParamsAsJo);
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }

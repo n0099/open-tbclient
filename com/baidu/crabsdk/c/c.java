@@ -10,8 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes3.dex */
 public final class c {
-    private static SimpleDateFormat acf;
-    private static PackageManager acg;
+    private static SimpleDateFormat acg;
+    private static PackageManager ach;
 
     public static void a(SharedPreferences.Editor editor, boolean z) {
         if (rW() < 9 || z) {
@@ -22,10 +22,10 @@ public final class c {
     }
 
     public static String e(Date date) {
-        if (acf == null) {
-            acf = new SimpleDateFormat("MM-dd HH:mm:ss");
+        if (acg == null) {
+            acg = new SimpleDateFormat("MM-dd HH:mm:ss");
         }
-        return acf.format(date);
+        return acg.format(date);
     }
 
     public static String f(Throwable th) {
@@ -56,11 +56,11 @@ public final class c {
     }
 
     public static boolean g(Context context, String str) {
-        if (acg == null) {
-            acg = context.getPackageManager();
+        if (ach == null) {
+            ach = context.getPackageManager();
         }
         try {
-            return acg.checkPermission(str, context.getPackageName()) == 0;
+            return ach.checkPermission(str, context.getPackageName()) == 0;
         } catch (RuntimeException e) {
             return false;
         }

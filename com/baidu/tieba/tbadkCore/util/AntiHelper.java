@@ -51,7 +51,7 @@ public class AntiHelper {
         return i == 3250002 || i == 3250001 || i == 3250003 || i == 3250004 || i == 3250013;
     }
 
-    public static com.baidu.tbadk.core.dialog.a aV(Context context, String str) {
+    public static com.baidu.tbadk.core.dialog.a aU(Context context, String str) {
         return i(context, str, 0);
     }
 
@@ -116,7 +116,7 @@ public class AntiHelper {
 
     public static boolean a(Context context, AntiData antiData, OperationType operationType, PageType pageType) {
         if (!f(antiData)) {
-            cff();
+            cfh();
         }
         if (c(antiData) || e(antiData)) {
             if (antiData.isHas_chance()) {
@@ -295,7 +295,7 @@ public class AntiHelper {
 
     public static boolean e(Context context, int i, String str) {
         if (zA(i)) {
-            aW(context, str);
+            aV(context, str);
             return true;
         }
         return false;
@@ -305,7 +305,7 @@ public class AntiHelper {
         return i == 3250012;
     }
 
-    public static void aW(Context context, String str) {
+    public static void aV(Context context, String str) {
         if (context != null && !ap.isEmpty(str)) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new Pair("nomenu", "1"));
@@ -314,7 +314,7 @@ public class AntiHelper {
         }
     }
 
-    private static void cff() {
+    private static void cfh() {
         com.baidu.tbadk.core.sharedPref.b.getInstance().remove("anti_vcode_no_longer_tip");
     }
 }

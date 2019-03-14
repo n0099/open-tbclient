@@ -8,14 +8,6 @@ public class f {
     private String lng;
     private String name = null;
 
-    public String getLat() {
-        return this.lat;
-    }
-
-    public String getLng() {
-        return this.lng;
-    }
-
     public String getName() {
         return this.name;
     }

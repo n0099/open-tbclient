@@ -4,18 +4,18 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.m;
 /* loaded from: classes4.dex */
 public class h implements m {
+    public static final BdUniqueId hkG = BdUniqueId.gen();
     public static final BdUniqueId hkH = BdUniqueId.gen();
-    public static final BdUniqueId hkI = BdUniqueId.gen();
-    public long hkJ;
-    public String hkK;
+    public long hkI;
+    public String hkJ;
     public BdUniqueId mType;
     public boolean isNew = true;
     public int sortType = 0;
-    public String hkL = "";
-    public boolean hkM = false;
+    public String hkK = "";
+    public boolean hkL = false;
 
     public h(BdUniqueId bdUniqueId) {
-        this.mType = hkI;
+        this.mType = hkH;
         this.mType = bdUniqueId;
     }
 

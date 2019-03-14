@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.android.common.so.SoUtils;
-import com.baidu.swan.apps.c;
+import com.baidu.mobstat.Config;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -31,7 +31,7 @@ import java.util.zip.ZipFile;
 public final class SoLoader {
     private static final String TAG = "SoLoader";
     private StringBuilder sb = new StringBuilder();
-    private static final boolean DEBUG = c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final Set<String> sLoadedLibraries = Collections.synchronizedSet(new HashSet());
     private static final List<File> soSources = new ArrayList();
 
@@ -79,7 +79,7 @@ public final class SoLoader {
             if (DEBUG) {
                 Log.e(TAG, "SoLoader load exception.", th);
             }
-            this.sb.append(str3 + ":::" + str2 + ":" + Log.getStackTraceString(th));
+            this.sb.append(str3 + ":::" + str2 + Config.TRACE_TODAY_VISIT_SPLIT + Log.getStackTraceString(th));
             return false;
         }
     }
@@ -206,7 +206,7 @@ public final class SoLoader {
             if (DEBUG) {
                 Log.e(TAG, "SoLoader load exception.", th);
             }
-            this.sb.append(str2 + ":::" + simpleName + ":" + Log.getStackTraceString(th));
+            this.sb.append(str2 + ":::" + simpleName + Config.TRACE_TODAY_VISIT_SPLIT + Log.getStackTraceString(th));
             return false;
         }
     }
@@ -598,7 +598,7 @@ public final class SoLoader {
         if (str == null) {
             str = "/vendor/lib:/system/lib";
         }
-        String[] split = str.split(":");
+        String[] split = str.split(Config.TRACE_TODAY_VISIT_SPLIT);
         for (String str2 : split) {
             File file = new File(str2);
             if (!soSources.contains(file)) {

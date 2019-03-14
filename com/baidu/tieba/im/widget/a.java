@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
+import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -33,7 +34,7 @@ public class a<T> {
                         if (TextUtils.isEmpty(optString4)) {
                             ?? r2 = (T) new ShareFromPBMsgData();
                             r2.setContent(optJSONObject.optString("themeContent"));
-                            r2.setForumName(optJSONObject.optString("forumName"));
+                            r2.setForumName(optJSONObject.optString(TbTitleActivityConfig.FORUM_NAME));
                             r2.setImageUrl(optJSONObject.optString("themeImageUrl"));
                             r2.setPostId(optJSONObject.optString("postID"));
                             r2.setThreadId(optJSONObject.optString("themeID"));
@@ -45,7 +46,7 @@ public class a<T> {
                         } else {
                             ?? r1 = (T) new ShareFromGameCenterMsgData();
                             r1.setContent(optJSONObject.optString("themeContent"));
-                            r1.setForumName(optJSONObject.optString("forumName"));
+                            r1.setForumName(optJSONObject.optString(TbTitleActivityConfig.FORUM_NAME));
                             r1.setImageUrl(optJSONObject.optString("themeImageUrl"));
                             r1.setPostId(optJSONObject.optString("postID"));
                             r1.setThreadId(optJSONObject.optString("themeID"));
@@ -60,7 +61,7 @@ public class a<T> {
                         }
                     } else if (4 == this.subType) {
                         ?? r12 = (T) new ShareFromFrsMsgData();
-                        r12.setName(optJSONObject.optString("forumName"));
+                        r12.setName(optJSONObject.optString(TbTitleActivityConfig.FORUM_NAME));
                         r12.setImageUrl(optJSONObject.optString("themeImageUrl"));
                         r12.setMemberNum(optJSONObject.optInt("memberNum"));
                         r12.setPostNum(optJSONObject.optInt("postNum"));
@@ -78,7 +79,7 @@ public class a<T> {
         return this.subType;
     }
 
-    public T bww() {
+    public T bwv() {
         return this.payload;
     }
 }

@@ -16,7 +16,7 @@ import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 /* loaded from: classes.dex */
 public class a {
-    private C0199a bZH;
+    private C0233a bZI;
     private com.baidu.adp.base.d mLoadDataCallBack;
     private TbPageContext mPageContext;
 
@@ -33,25 +33,25 @@ public class a {
     }
 
     public void a(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
-        if (this.bZH == null) {
-            this.bZH = new C0199a();
-            this.bZH.setPriority(2);
-            this.bZH.en(z);
-            this.bZH.setPortrait(str);
-            this.bZH.setToUid(str2);
-            this.bZH.setIsGod(z2);
-            this.bZH.setFrom(str3);
-            this.bZH.setPageId(bdUniqueId);
-            this.bZH.setForumId(str4);
-            this.bZH.setInLive(str5);
-            this.bZH.execute(new Integer[0]);
+        if (this.bZI == null) {
+            this.bZI = new C0233a();
+            this.bZI.setPriority(2);
+            this.bZI.en(z);
+            this.bZI.setPortrait(str);
+            this.bZI.setToUid(str2);
+            this.bZI.setIsGod(z2);
+            this.bZI.setFrom(str3);
+            this.bZI.setPageId(bdUniqueId);
+            this.bZI.setForumId(str4);
+            this.bZI.setInLive(str5);
+            this.bZI.execute(new Integer[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tbadk.coreExtra.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0199a extends BdAsyncTask<Integer, Integer, String> {
+    public class C0233a extends BdAsyncTask<Integer, Integer, String> {
         private String authSid;
         private String forumId;
         private String from;
@@ -65,7 +65,7 @@ public class a {
         private String toUid;
         private AuthTokenData tokenData;
 
-        private C0199a() {
+        private C0233a() {
             this.mNetwork = null;
             this.isGod = false;
             this.from = "0";
@@ -146,8 +146,8 @@ public class a {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
-            super.onPostExecute((C0199a) str);
-            a.this.bZH = null;
+            super.onPostExecute((C0233a) str);
+            a.this.bZI = null;
             if (this.mNetwork != null) {
                 UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
                 aVar.Jy = this.mNetwork.acH().adG().isRequestSuccess();
@@ -157,9 +157,9 @@ public class a {
                 aVar.isGod = this.isGod;
                 aVar.N(str, this.showToastAfterAttentionSuc);
                 if (this.mNetwork.acH().adG().isRequestSuccess()) {
-                    aVar.bYy = null;
+                    aVar.bYz = null;
                 }
-                if (!AntiHelper.e(a.this.getContext(), this.mNetwork.acL(), aVar.bYx)) {
+                if (!AntiHelper.e(a.this.getContext(), this.mNetwork.acL(), aVar.bYy)) {
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                     updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
                     MessageManager.getInstance().dispatchResponsedMessageToUI(updateAttentionMessage);
@@ -174,9 +174,9 @@ public class a {
                 this.mNetwork.ji();
                 this.mNetwork = null;
             }
-            if (a.this.bZH != null) {
-                a.this.bZH.cancel();
-                a.this.bZH = null;
+            if (a.this.bZI != null) {
+                a.this.bZI.cancel();
+                a.this.bZI = null;
             }
             if (a.this.mLoadDataCallBack != null) {
                 a.this.mLoadDataCallBack.m(false);
@@ -192,8 +192,8 @@ public class a {
     }
 
     public void cancel() {
-        if (this.bZH != null) {
-            this.bZH.cancel();
+        if (this.bZI != null) {
+            this.bZI.cancel();
         }
     }
 }

@@ -1,7 +1,6 @@
 package com.baidu.tieba.frs.entelechy.a;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.s;
 import com.baidu.tbadk.core.data.bg;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import java.util.ArrayList;
@@ -13,17 +12,17 @@ public interface z {
 
     void b(ArrayList<com.baidu.adp.widget.ListView.m> arrayList, FrsViewData frsViewData);
 
-    HashMap<Integer, bg> bfB();
+    HashMap<Integer, bg> bfA();
 
-    int bfC();
+    int bfB();
 
-    void bfD();
+    void bfC();
+
+    int bfD();
 
     int bfE();
 
-    int bfF();
-
-    void bfG();
+    void bfF();
 
     List<com.baidu.adp.widget.ListView.m> getDatas();
 
@@ -39,5 +38,5 @@ public interface z {
 
     void setFromCDN(boolean z);
 
-    void setOnAdapterItemClickListener(s sVar);
+    void setOnAdapterItemClickListener(com.baidu.adp.widget.ListView.s sVar);
 }

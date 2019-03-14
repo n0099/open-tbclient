@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public abstract class a {
-    private static volatile a blA;
+    private static volatile a blB;
 
     public abstract boolean N(String str, int i);
 
@@ -28,13 +28,13 @@ public abstract class a {
     public abstract boolean jj(String str);
 
     public static a RA() {
-        if (blA == null) {
+        if (blB == null) {
             synchronized (a.class) {
-                if (blA == null) {
-                    blA = new b();
+                if (blB == null) {
+                    blB = new b();
                 }
             }
         }
-        return blA;
+        return blB;
     }
 }

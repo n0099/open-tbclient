@@ -1,10 +1,10 @@
 package kotlin.collections;
 /* loaded from: classes2.dex */
 public final /* synthetic */ class c {
-    public static final /* synthetic */ int[] jSk = new int[State.values().length];
+    public static final /* synthetic */ int[] jSc = new int[State.values().length];
 
     static {
-        jSk[State.Done.ordinal()] = 1;
-        jSk[State.Ready.ordinal()] = 2;
+        jSc[State.Done.ordinal()] = 1;
+        jSc[State.Ready.ordinal()] = 2;
     }
 }

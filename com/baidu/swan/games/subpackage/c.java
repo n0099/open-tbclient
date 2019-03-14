@@ -7,8 +7,8 @@ import com.baidu.swan.games.subpackage.aps.SwanGameSubPackageAPSInfo;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class c {
-    private static c bfl;
-    private HashMap<String, a> bfm = new HashMap<>();
+    private static c bfm;
+    private HashMap<String, a> bfn = new HashMap<>();
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -23,14 +23,14 @@ public class c {
     }
 
     public static c Pg() {
-        if (bfl == null) {
+        if (bfm == null) {
             synchronized (c.class) {
-                if (bfl == null) {
-                    bfl = new c();
+                if (bfm == null) {
+                    bfm = new c();
                 }
             }
         }
-        return bfl;
+        return bfm;
     }
 
     public void a(String str, a aVar) {
@@ -52,12 +52,12 @@ public class c {
                 swanGameSubPackageAPSInfo.appId = IX.id;
                 swanGameSubPackageAPSInfo.appVersion = IX.getVersion();
                 swanGameSubPackageAPSInfo.key = gi;
-                swanGameSubPackageAPSInfo.bfs = e.Ec().DL();
-                swanGameSubPackageAPSInfo.bft = com.baidu.swan.games.subpackage.a.Pf().L(str, 1);
-                swanGameSubPackageAPSInfo.bfv = a2;
-                swanGameSubPackageAPSInfo.bfw = com.baidu.swan.games.subpackage.a.Pf().L(str, 2);
+                swanGameSubPackageAPSInfo.bft = e.Ec().DL();
+                swanGameSubPackageAPSInfo.bfu = com.baidu.swan.games.subpackage.a.Pf().L(str, 1);
+                swanGameSubPackageAPSInfo.bfw = a2;
+                swanGameSubPackageAPSInfo.bfx = com.baidu.swan.games.subpackage.a.Pf().L(str, 2);
                 BR.a(11, swanGameSubPackageAPSInfo);
-                this.bfm.put(a2, aVar);
+                this.bfn.put(a2, aVar);
                 return;
             }
             aVar.cG(2113);
@@ -69,10 +69,10 @@ public class c {
         if (bundle != null) {
             bundle.setClassLoader(getClass().getClassLoader());
             SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo = (SwanGameSubPackageAPSInfo) bundle.getParcelable("ai_apps_data");
-            if (swanGameSubPackageAPSInfo != null && (aVar = this.bfm.get(swanGameSubPackageAPSInfo.bfv)) != null) {
-                com.baidu.swan.games.subpackage.a.Pf().D(swanGameSubPackageAPSInfo.bft, true);
+            if (swanGameSubPackageAPSInfo != null && (aVar = this.bfn.get(swanGameSubPackageAPSInfo.bfw)) != null) {
+                com.baidu.swan.games.subpackage.a.Pf().D(swanGameSubPackageAPSInfo.bfu, true);
                 aVar.Ph();
-                this.bfm.remove(swanGameSubPackageAPSInfo.bfv);
+                this.bfn.remove(swanGameSubPackageAPSInfo.bfw);
             }
         }
     }
@@ -82,9 +82,9 @@ public class c {
         if (bundle != null) {
             bundle.setClassLoader(getClass().getClassLoader());
             SwanGameSubPackageAPSInfo swanGameSubPackageAPSInfo = (SwanGameSubPackageAPSInfo) bundle.getParcelable("ai_apps_data");
-            if (swanGameSubPackageAPSInfo != null && (aVar = this.bfm.get(swanGameSubPackageAPSInfo.bfv)) != null) {
+            if (swanGameSubPackageAPSInfo != null && (aVar = this.bfn.get(swanGameSubPackageAPSInfo.bfw)) != null) {
                 aVar.cG(swanGameSubPackageAPSInfo.resultCode);
-                this.bfm.remove(swanGameSubPackageAPSInfo.bfv);
+                this.bfn.remove(swanGameSubPackageAPSInfo.bfw);
             }
         }
     }
@@ -96,7 +96,7 @@ public class c {
             long j = bundle.getLong("aigames_sub_package_bytes_read_key");
             long j2 = bundle.getLong("aigames_sub_package_content_length_key");
             String string = bundle.getString("aigames_sub_package_callback_key");
-            if (!TextUtils.isEmpty(string) && (aVar = this.bfm.get(string)) != null) {
+            if (!TextUtils.isEmpty(string) && (aVar = this.bfn.get(string)) != null) {
                 if (j2 == -1 && j != 0) {
                     aVar.d(0, j, j2);
                 } else if (j2 <= 0 || j > j2 || j == 0) {

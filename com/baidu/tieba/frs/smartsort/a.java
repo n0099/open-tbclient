@@ -12,44 +12,44 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class a {
-    private static volatile a fsW;
-    private boolean fsU = false;
-    private final HashMap<String, ArrayList<d>> fsV = new HashMap<>();
+    private static volatile a fsV;
+    private boolean fsT = false;
+    private final HashMap<String, ArrayList<d>> fsU = new HashMap<>();
 
     private a() {
     }
 
-    public static a bid() {
-        if (fsW == null) {
+    public static a bic() {
+        if (fsV == null) {
             synchronized (a.class) {
-                if (fsW == null) {
-                    fsW = new a();
+                if (fsV == null) {
+                    fsV = new a();
                 }
             }
         }
-        return fsW;
+        return fsV;
     }
 
-    public String bie() {
+    public String bid() {
         return "frs_smart_sort_last_time_" + TbadkCoreApplication.getCurrentAccount();
     }
 
-    public synchronized long vH(String str) {
-        d vI;
-        vI = vI(str);
-        return vI != null ? vI.lastTime : 0L;
+    public synchronized long vF(String str) {
+        d vG;
+        vG = vG(str);
+        return vG != null ? vG.lastTime : 0L;
     }
 
     public synchronized void r(String str, long j) {
         if (!TextUtils.isEmpty(str)) {
-            String bie = bie();
-            ArrayList<d> arrayList = this.fsV.get(bie);
+            String bid = bid();
+            ArrayList<d> arrayList = this.fsU.get(bid);
             ArrayList<d> arrayList2 = arrayList == null ? new ArrayList<>() : arrayList;
-            d vI = vI(str);
+            d vG = vG(str);
             boolean z = false;
-            if (vI != null) {
-                if (vI.lastTime != j) {
-                    vI.lastTime = j;
+            if (vG != null) {
+                if (vG.lastTime != j) {
+                    vG.lastTime = j;
                     z = true;
                 }
             } else {
@@ -60,13 +60,13 @@ public class a {
                 z = true;
             }
             if (z) {
-                d(bie, arrayList2);
+                d(bid, arrayList2);
             }
         }
     }
 
     private synchronized void d(String str, ArrayList<d> arrayList) {
-        JSONObject bil;
+        JSONObject bik;
         if (!TextUtils.isEmpty(str) && arrayList != null) {
             JSONArray jSONArray = new JSONArray();
             int min = Math.min(30, arrayList.size());
@@ -74,26 +74,26 @@ public class a {
             ArrayList<d> arrayList2 = new ArrayList<>();
             for (int i = size; i < min; i++) {
                 d dVar = arrayList.get(i);
-                if (!TextUtils.isEmpty(dVar.forumName) && (bil = dVar.bil()) != null) {
-                    jSONArray.put(bil);
+                if (!TextUtils.isEmpty(dVar.forumName) && (bik = dVar.bik()) != null) {
+                    jSONArray.put(bik);
                     arrayList2.add(dVar);
                 }
             }
             if (!v.T(arrayList2)) {
-                this.fsV.put(str, arrayList2);
-                if (!this.fsU) {
-                    bif();
+                this.fsU.put(str, arrayList2);
+                if (!this.fsT) {
+                    bie();
                 } else {
-                    vJ(jSONArray.toString());
+                    vH(jSONArray.toString());
                 }
             }
         }
     }
 
-    private synchronized d vI(String str) {
+    private synchronized d vG(String str) {
         d dVar;
         if (!TextUtils.isEmpty(str)) {
-            ArrayList<d> arrayList = this.fsV.get(bie());
+            ArrayList<d> arrayList = this.fsU.get(bid());
             if (arrayList != null) {
                 int i = 0;
                 while (true) {
@@ -117,15 +117,15 @@ public class a {
         return dVar;
     }
 
-    private void vJ(final String str) {
+    private void vH(final String str) {
         aa.a(new z<l<String>>() { // from class: com.baidu.tieba.frs.smartsort.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.z
-            /* renamed from: bih */
+            /* renamed from: big */
             public l<String> doInBackground() {
-                l big = a.this.big();
-                if (big != null) {
-                    big.e("frs_smart_sort_last_time", str);
+                l bif = a.this.bif();
+                if (bif != null) {
+                    bif.e("frs_smart_sort_last_time", str);
                     return null;
                 }
                 return null;
@@ -133,20 +133,20 @@ public class a {
         }, null);
     }
 
-    public void bif() {
+    public void bie() {
         aa.a(new z<l<String>>() { // from class: com.baidu.tieba.frs.smartsort.a.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.z
-            /* renamed from: bih */
+            /* renamed from: big */
             public l<String> doInBackground() {
-                l big = a.this.big();
-                if (big != null) {
-                    String str = (String) big.get("frs_smart_sort_last_time");
+                l bif = a.this.bif();
+                if (bif != null) {
+                    String str = (String) bif.get("frs_smart_sort_last_time");
                     if (str != null) {
-                        ArrayList vK = a.this.vK(str);
-                        a.this.fsV.put(a.this.bie(), vK);
+                        ArrayList vI = a.this.vI(str);
+                        a.this.fsU.put(a.this.bid(), vI);
                     }
-                    a.this.fsU = true;
+                    a.this.fsT = true;
                     return null;
                 }
                 return null;
@@ -155,12 +155,12 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public l<String> big() {
+    public l<String> bif() {
         return com.baidu.tbadk.core.c.a.aaW().bv("frs_smart_sort_last_time", TbadkCoreApplication.getCurrentAccount());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ArrayList<d> vK(String str) {
+    public ArrayList<d> vI(String str) {
         ArrayList<d> arrayList = new ArrayList<>();
         if (!TextUtils.isEmpty(str)) {
             try {

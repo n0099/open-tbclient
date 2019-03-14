@@ -6,12 +6,12 @@ import android.view.View;
 import android.view.ViewConfiguration;
 /* loaded from: classes.dex */
 public class a {
-    private InterfaceC0214a cHf;
-    private float cHg;
-    private long cHh;
-    private long cHi;
-    private boolean cHj;
-    private boolean cHk;
+    private InterfaceC0248a cHc;
+    private float cHd;
+    private long cHe;
+    private long cHf;
+    private boolean cHg;
+    private boolean cHh;
     private float mDownX;
     private int mMaximumVelocity;
     private int mMinimumVelocity;
@@ -21,10 +21,10 @@ public class a {
 
     /* renamed from: com.baidu.tbadk.widget.viewpager.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0214a {
-        void atZ();
+    public interface InterfaceC0248a {
+        void atY();
 
-        void aua();
+        void atZ();
 
         void w(float f, float f2);
     }
@@ -47,41 +47,41 @@ public class a {
         switch (motionEvent.getAction()) {
             case 0:
                 this.mDownX = motionEvent.getX();
-                this.cHg = motionEvent.getY();
-                this.cHh = System.currentTimeMillis();
-                this.cHj = true;
+                this.cHd = motionEvent.getY();
+                this.cHe = System.currentTimeMillis();
+                this.cHg = true;
                 break;
             case 1:
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.cHh < 100 && currentTimeMillis - this.cHi < 500) {
-                    this.cHk = true;
+                if (currentTimeMillis - this.cHe < 100 && currentTimeMillis - this.cHf < 500) {
+                    this.cHh = true;
                 } else {
-                    this.cHk = false;
+                    this.cHh = false;
                 }
                 VelocityTracker velocityTracker = this.mVelocityTracker;
                 velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
-                if (Math.abs(velocityTracker.getYVelocity()) > this.mMinimumVelocity && Math.abs(this.cHg - motionEvent.getY()) > 50.0f) {
-                    this.cHk = false;
-                    this.cHj = false;
+                if (Math.abs(velocityTracker.getYVelocity()) > this.mMinimumVelocity && Math.abs(this.cHd - motionEvent.getY()) > 50.0f) {
+                    this.cHh = false;
+                    this.cHg = false;
                 }
-                if (this.cHk) {
-                    if (this.cHf != null) {
-                        this.cHf.w(motionEvent.getRawX(), motionEvent.getRawY());
+                if (this.cHh) {
+                    if (this.cHc != null) {
+                        this.cHc.w(motionEvent.getRawX(), motionEvent.getRawY());
                     }
-                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.cHg - motionEvent.getY()) && this.cHf != null) {
-                    this.cHf.aua();
+                } else if (Math.abs(this.mDownX - motionEvent.getX()) > this.mTouchSlop && (this.mDownX - motionEvent.getX()) - 50.0f > Math.abs(this.cHd - motionEvent.getY()) && this.cHc != null) {
+                    this.cHc.atZ();
                 }
-                if (!this.cHk && this.cHj && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.cHg - motionEvent.getY()) < 30.0f) {
+                if (!this.cHh && this.cHg && Math.abs(this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(this.cHd - motionEvent.getY()) < 30.0f) {
                     this.mView.postDelayed(new Runnable() { // from class: com.baidu.tbadk.widget.viewpager.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!a.this.cHk && a.this.cHj && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.cHg - motionEvent.getY()) < 30.0f && a.this.cHf != null) {
-                                a.this.cHf.atZ();
+                            if (!a.this.cHh && a.this.cHg && Math.abs(a.this.mDownX - motionEvent.getX()) < 30.0f && Math.abs(a.this.cHd - motionEvent.getY()) < 30.0f && a.this.cHc != null) {
+                                a.this.cHc.atY();
                             }
                         }
                     }, 300L);
                 }
-                this.cHi = currentTimeMillis;
+                this.cHf = currentTimeMillis;
                 releaseVelocityTracker();
                 break;
             case 3:
@@ -91,8 +91,8 @@ public class a {
         return true;
     }
 
-    public void setEventListener(InterfaceC0214a interfaceC0214a) {
-        this.cHf = interfaceC0214a;
+    public void setEventListener(InterfaceC0248a interfaceC0248a) {
+        this.cHc = interfaceC0248a;
     }
 
     private void releaseVelocityTracker() {

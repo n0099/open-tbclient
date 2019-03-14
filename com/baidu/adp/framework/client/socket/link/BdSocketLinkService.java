@@ -24,6 +24,7 @@ import com.baidu.adp.lib.util.l;
 import com.baidu.adp.lib.webSocket.h;
 import com.baidu.adp.lib.webSocket.j;
 import com.baidu.adp.lib.webSocket.k;
+import com.baidu.mobstat.Config;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class BdSocketLinkService extends BdBaseService {
@@ -105,7 +106,7 @@ public class BdSocketLinkService extends BdBaseService {
                 z = BdSocketLinkService.connStateCallBack.e(i, null);
             }
             if (!z && i != 1 && l.lo()) {
-                BdSocketLinkService.reConnStra.al("onClose:" + i + ":" + str);
+                BdSocketLinkService.reConnStra.al("onClose:" + i + Config.TRACE_TODAY_VISIT_SPLIT + str);
             }
         }
     };

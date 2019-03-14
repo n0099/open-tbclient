@@ -3,7 +3,6 @@ package com.baidu.swan.ubc;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
-import android.util.Log;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import java.io.BufferedReader;
 import java.io.File;
@@ -14,7 +13,6 @@ import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public class b {
-    private static final boolean DEBUG = g.DEBUG;
     private Context mContext;
 
     public b(Context context) {
@@ -22,77 +20,60 @@ public class b {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [123=4] */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:64:0x0160 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:66:0x0162 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:68:0x00ea */
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x0157 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r1v11 */
-    /* JADX WARN: Type inference failed for: r1v12, types: [java.io.FileOutputStream] */
-    /* JADX WARN: Type inference failed for: r1v13, types: [java.io.FileOutputStream] */
-    /* JADX WARN: Type inference failed for: r1v6, types: [byte[]] */
-    /* JADX WARN: Type inference failed for: r1v7 */
-    /* JADX WARN: Type inference failed for: r1v8 */
-    /* JADX WARN: Type inference failed for: r1v9, types: [java.io.FileOutputStream] */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x0126 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(i iVar, boolean z) {
+    public void a(h hVar, boolean z) {
         File file;
+        FileOutputStream fileOutputStream;
         File file2 = new File(this.mContext.getFilesDir(), "ubcdir");
         if (!file2.exists()) {
             file2.mkdirs();
         }
-        if (TextUtils.isEmpty(iVar.getFileName())) {
+        if (TextUtils.isEmpty(hVar.getFileName())) {
             file = new File(file2, z ? "filereal" : "filedata");
         } else {
             File file3 = new File(file2, "proc");
             if (!file3.exists()) {
                 file3.mkdirs();
             }
-            file = new File(file3, iVar.getFileName());
+            file = new File(file3, hVar.getFileName());
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("bizId", iVar.getId());
-            jSONObject.put("timestamp", iVar.getTime());
+            jSONObject.put("bizId", hVar.getId());
+            jSONObject.put("timestamp", hVar.getTime());
             jSONObject.put("eventType", "0");
-            if (!TextUtils.isEmpty(iVar.getContent())) {
-                jSONObject.put("content", iVar.getContent());
-            } else if (iVar.Tf() != null) {
-                jSONObject.put("content", iVar.Tf().toString());
+            if (!TextUtils.isEmpty(hVar.getContent())) {
+                jSONObject.put("content", hVar.getContent());
+            } else if (hVar.Tf() != null) {
+                jSONObject.put("content", hVar.Tf().toString());
             }
-            if (!TextUtils.isEmpty(iVar.Te())) {
-                jSONObject.put(ImageViewerConfig.ABTEST, iVar.Te());
+            if (!TextUtils.isEmpty(hVar.Te())) {
+                jSONObject.put(ImageViewerConfig.ABTEST, hVar.Te());
             }
-            if (!TextUtils.isEmpty(iVar.getCategory())) {
-                jSONObject.put("c", iVar.getCategory());
+            if (!TextUtils.isEmpty(hVar.getCategory())) {
+                jSONObject.put("c", hVar.getCategory());
             }
-            if (iVar.Ta()) {
+            if (hVar.Ta()) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", d.SW().jN(iVar.getId()));
+            jSONObject.put("idtype", d.SW().jN(hVar.getId()));
         } catch (JSONException e) {
-            if (DEBUG) {
-                Log.d("UBCFileData", e.getMessage());
-            }
         }
-        if (DEBUG) {
-            Log.d("UBCFileData", "saveEvent:" + jSONObject.toString());
-        }
-        ?? bytes = jSONObject.toString().getBytes();
-        byte[] encode = Base64.encode(bytes, 2);
+        byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
         try {
+            fileOutputStream = new FileOutputStream(file, true);
             try {
-                bytes = new FileOutputStream(file, true);
                 try {
-                    bytes.write(encode);
-                    bytes.write("\n".getBytes());
-                    bytes.flush();
-                    if (bytes != 0) {
+                    fileOutputStream.write(encode);
+                    fileOutputStream.write("\n".getBytes());
+                    fileOutputStream.flush();
+                    if (fileOutputStream != null) {
                         try {
-                            bytes.close();
+                            fileOutputStream.close();
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
@@ -100,9 +81,9 @@ public class b {
                 } catch (Exception e3) {
                     e = e3;
                     e.printStackTrace();
-                    if (bytes != 0) {
+                    if (fileOutputStream != null) {
                         try {
-                            bytes.close();
+                            fileOutputStream.close();
                         } catch (Exception e4) {
                             e4.printStackTrace();
                         }
@@ -110,9 +91,9 @@ public class b {
                 }
             } catch (Throwable th) {
                 th = th;
-                if (bytes != 0) {
+                if (fileOutputStream != null) {
                     try {
-                        bytes.close();
+                        fileOutputStream.close();
                     } catch (Exception e5) {
                         e5.printStackTrace();
                     }
@@ -121,11 +102,11 @@ public class b {
             }
         } catch (Exception e6) {
             e = e6;
-            bytes = 0;
+            fileOutputStream = null;
         } catch (Throwable th2) {
             th = th2;
-            bytes = 0;
-            if (bytes != 0) {
+            fileOutputStream = null;
+            if (fileOutputStream != null) {
             }
             throw th;
         }
@@ -133,17 +114,13 @@ public class b {
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [186=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x00cb A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean a(u uVar, boolean z) {
+    public boolean a(t tVar, boolean z) {
         BufferedReader bufferedReader;
         File file = new File(this.mContext.getFilesDir(), "ubcdir");
         if (!file.exists()) {
             file.mkdir();
         }
-        boolean b = z ? false : b(uVar);
+        boolean b = z ? false : b(tVar);
         File file2 = new File(file, z ? "filereal" : "filedata");
         if (file2.exists()) {
             try {
@@ -152,82 +129,63 @@ public class b {
                 long j2 = 0;
                 while (true) {
                     try {
-                        try {
-                            String readLine = bufferedReader.readLine();
-                            if (readLine == null) {
-                                break;
-                            }
-                            JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
-                            if (jSONObject.has(ImageViewerConfig.ABTEST)) {
-                                uVar.jV("1");
-                            }
-                            long j3 = jSONObject.getLong("timestamp");
-                            if (j3 > 0) {
-                                if (j3 < j) {
-                                    j = j3;
-                                }
-                                if (j3 > j2) {
-                                    j2 = j3;
-                                }
-                            }
-                            uVar.aI(jSONObject);
-                            b = true;
-                        } catch (Exception e) {
-                            e = e;
-                            if (DEBUG) {
-                                Log.d("UBCFileData", "getExceptionList read fail:", e);
-                            }
-                            if (bufferedReader != null) {
-                                try {
-                                    bufferedReader.close();
-                                } catch (Exception e2) {
-                                    if (DEBUG) {
-                                        Log.d("UBCFileData", "getExceptionList close fail:", e2);
-                                    }
-                                }
-                            }
-                            return b;
+                        String readLine = bufferedReader.readLine();
+                        if (readLine == null) {
+                            break;
                         }
+                        JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
+                        if (jSONObject.has(ImageViewerConfig.ABTEST)) {
+                            tVar.jV("1");
+                        }
+                        long j3 = jSONObject.getLong("timestamp");
+                        if (j3 > 0) {
+                            if (j3 < j) {
+                                j = j3;
+                            }
+                            if (j3 > j2) {
+                                j2 = j3;
+                            }
+                        }
+                        tVar.aI(jSONObject);
+                        b = true;
+                    } catch (Exception e) {
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (Exception e2) {
+                            }
+                        }
+                        return b;
                     } catch (Throwable th) {
                         th = th;
                         if (bufferedReader != null) {
                             try {
                                 bufferedReader.close();
                             } catch (Exception e3) {
-                                if (DEBUG) {
-                                    Log.d("UBCFileData", "getExceptionList close fail:", e3);
-                                }
                             }
                         }
                         throw th;
                     }
                 }
-                uVar.g(j, j2);
+                tVar.g(j, j2);
                 if (bufferedReader != null) {
                     try {
                         bufferedReader.close();
                     } catch (Exception e4) {
-                        if (DEBUG) {
-                            Log.d("UBCFileData", "getExceptionList close fail:", e4);
-                        }
                     }
                 }
             } catch (Exception e5) {
-                e = e5;
                 bufferedReader = null;
             } catch (Throwable th2) {
                 th = th2;
                 bufferedReader = null;
-                if (bufferedReader != null) {
-                }
-                throw th;
             }
         }
         return b;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [254=4] */
-    private boolean b(u uVar) {
+    private boolean b(t tVar) {
         File[] listFiles;
         BufferedReader bufferedReader;
         File file = new File(this.mContext.getFilesDir() + File.separator + "ubcdir", "proc");
@@ -249,7 +207,7 @@ public class b {
                             }
                             JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
                             if (jSONObject.has(ImageViewerConfig.ABTEST)) {
-                                uVar.jV("1");
+                                tVar.jV("1");
                             }
                             long j3 = jSONObject.getLong("timestamp");
                             if (j3 > 0) {
@@ -260,25 +218,21 @@ public class b {
                                     j2 = j3;
                                 }
                             }
-                            if (DEBUG) {
-                                Log.d("UBCFileData", jSONObject.toString());
-                            }
-                            uVar.aI(jSONObject);
+                            tVar.aI(jSONObject);
                             i++;
-                        } catch (Throwable th) {
-                            th = th;
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
                             if (bufferedReader != null) {
                                 try {
                                     bufferedReader.close();
-                                } catch (Exception e) {
-                                    e.printStackTrace();
+                                } catch (Exception e2) {
+                                    e2.printStackTrace();
                                 }
                             }
-                            throw th;
                         }
-                    } catch (Exception e2) {
-                        e = e2;
-                        e.printStackTrace();
+                    } catch (Throwable th) {
+                        th = th;
                         if (bufferedReader != null) {
                             try {
                                 bufferedReader.close();
@@ -286,12 +240,10 @@ public class b {
                                 e3.printStackTrace();
                             }
                         }
+                        throw th;
                     }
                 } while (i < 10);
-                uVar.g(j, j2);
-                if (DEBUG) {
-                    Log.d("UBCFileData", "line num " + i + " delete file ");
-                }
+                tVar.g(j, j2);
                 if (bufferedReader != null) {
                     try {
                         bufferedReader.close();

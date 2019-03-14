@@ -3,7 +3,6 @@ package com.baidu.location.b;
 import android.content.SharedPreferences;
 import com.baidu.location.Jni;
 import com.baidu.location.g.g;
-import com.baidu.tbadk.TbConfig;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.HashMap;
@@ -579,7 +578,7 @@ public class d {
     }
 
     public void d() {
-        if (System.currentTimeMillis() - com.baidu.location.g.c.a().d() > TbConfig.APP_OVERDUR_DRAFT_BOX) {
+        if (System.currentTimeMillis() - com.baidu.location.g.c.a().d() > 604800000) {
             com.baidu.location.g.c.a().c(System.currentTimeMillis());
             e();
         }

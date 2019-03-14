@@ -4,7 +4,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
-import com.baidu.tbadk.TbConfig;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -180,7 +179,7 @@ public final class h extends a {
         ArrayList<cn.jiguang.d.d.a> a;
         this.h.set(true);
         try {
-            Thread.sleep(TbConfig.NOTIFY_SOUND_INTERVAL);
+            Thread.sleep(5000L);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

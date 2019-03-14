@@ -4,14 +4,14 @@ import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.an.aa;
-import com.baidu.swan.apps.c;
+import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
 import com.baidu.swan.apps.performance.e;
 import java.util.Locale;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class a {
-    private static final boolean DEBUG = c.DEBUG;
+    private static final boolean DEBUG = b.DEBUG;
 
     public static void a(final com.baidu.swan.apps.core.container.a aVar, com.baidu.swan.apps.m.a.a aVar2) {
         String format;
@@ -19,11 +19,11 @@ public final class a {
         if (aVar != null && aVar2 != null) {
             e.as("postMessage", "dispatchJSEvent start.");
             if (aVar.xS()) {
-                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.avi);
+                format = String.format(Locale.getDefault(), "var %s = new Event('%s');", NotificationCompat.CATEGORY_EVENT, aVar2.avj);
                 n = "";
             } else {
                 format = String.format(Locale.getDefault(), "var %s = new Object();", NotificationCompat.CATEGORY_EVENT);
-                n = n(NotificationCompat.CATEGORY_EVENT, "type", aVar2.avi);
+                n = n(NotificationCompat.CATEGORY_EVENT, "type", aVar2.avj);
             }
             final String format2 = String.format(Locale.getDefault(), "javascript:(function(){%s %s %s})();", format, n + aVar2.eB(NotificationCompat.CATEGORY_EVENT), String.format(Locale.getDefault(), "%s.dispatchEvent(%s);", a(aVar), NotificationCompat.CATEGORY_EVENT));
             e.as("postMessage", "dispatchJSEvent buildEvent");

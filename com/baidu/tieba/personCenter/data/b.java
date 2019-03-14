@@ -2,32 +2,31 @@ package com.baidu.tieba.personCenter.data;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class b {
     private int errorCode = -1;
     private String errorMsg = "";
-    private int hLN = 0;
+    private int hLH = 0;
 
     public int getErrorCode() {
         return this.errorCode;
     }
 
-    public int aoG() {
-        return this.hLN;
+    public int aoF() {
+        return this.hLH;
     }
 
-    public void AB(String str) {
+    public void Az(String str) {
         if (!StringUtils.isNull(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.errorCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE, -1);
+                this.errorCode = jSONObject.optInt("error_code", -1);
                 this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE, "");
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
-                    this.hLN = optJSONObject.optInt("msg_count");
+                    this.hLH = optJSONObject.optInt("msg_count");
                 }
             } catch (JSONException e) {
                 e.printStackTrace();

@@ -4,54 +4,54 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c {
-    final int kaX;
-    Object[] kaY;
-    Object[] kaZ;
-    int kba;
+    final int kaP;
+    Object[] kaQ;
+    Object[] kaR;
+    int kaS;
     volatile int size;
 
     public void add(Object obj) {
         if (this.size == 0) {
-            this.kaY = new Object[this.kaX + 1];
-            this.kaZ = this.kaY;
-            this.kaY[0] = obj;
-            this.kba = 1;
+            this.kaQ = new Object[this.kaP + 1];
+            this.kaR = this.kaQ;
+            this.kaQ[0] = obj;
+            this.kaS = 1;
             this.size = 1;
-        } else if (this.kba == this.kaX) {
-            Object[] objArr = new Object[this.kaX + 1];
+        } else if (this.kaS == this.kaP) {
+            Object[] objArr = new Object[this.kaP + 1];
             objArr[0] = obj;
-            this.kaZ[this.kaX] = objArr;
-            this.kaZ = objArr;
-            this.kba = 1;
+            this.kaR[this.kaP] = objArr;
+            this.kaR = objArr;
+            this.kaS = 1;
             this.size++;
         } else {
-            this.kaZ[this.kba] = obj;
-            this.kba++;
+            this.kaR[this.kaS] = obj;
+            this.kaS++;
             this.size++;
         }
     }
 
-    public Object[] cEx() {
-        return this.kaY;
+    public Object[] cEA() {
+        return this.kaQ;
     }
 
     public int size() {
         return this.size;
     }
 
-    List<Object> cEy() {
-        int i = this.kaX;
+    List<Object> cEB() {
+        int i = this.kaP;
         int i2 = this.size;
         ArrayList arrayList = new ArrayList(i2 + 1);
         int i3 = 0;
-        Object[] cEx = cEx();
+        Object[] cEA = cEA();
         int i4 = 0;
         while (i3 < i2) {
-            arrayList.add(cEx[i4]);
+            arrayList.add(cEA[i4]);
             i3++;
             i4++;
             if (i4 == i) {
-                cEx = (Object[]) cEx[i];
+                cEA = (Object[]) cEA[i];
                 i4 = 0;
             }
         }
@@ -59,6 +59,6 @@ public class c {
     }
 
     public String toString() {
-        return cEy().toString();
+        return cEB().toString();
     }
 }

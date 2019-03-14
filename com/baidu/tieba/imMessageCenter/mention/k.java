@@ -1,6 +1,7 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import android.text.TextUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.util.s;
 import java.util.HashMap;
@@ -8,7 +9,7 @@ import tbclient.ReplyMe.DataReq;
 import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes4.dex */
 public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
-    private int gyE;
+    private int gyD;
     private String ids;
     private int mPn = 1;
 
@@ -20,36 +21,36 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
 
     public void toNextPage() {
         this.mPn++;
-        this.gyE = 4;
+        this.gyD = 4;
     }
 
     public void reset() {
         this.mPn = 1;
-        this.gyE = 1;
+        this.gyD = 1;
         this.ids = null;
     }
 
     public int getUpdateType() {
-        return this.gyE;
+        return this.gyD;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> anZ() {
+    public HashMap<String, Object> anY() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
-        hashMap.put("pn", String.valueOf(this.mPn));
+        hashMap.put(Config.PACKAGE_NAME, String.valueOf(this.mPn));
         hashMap.put("q_type", Integer.valueOf(com.baidu.tbadk.core.i.Wy().getViewImageQuality()));
         hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
         hashMap.put("scr_h", Integer.valueOf(com.baidu.adp.lib.util.l.aQ(TbadkCoreApplication.getInst().getApp())));
         hashMap.put("scr_w", Integer.valueOf(com.baidu.adp.lib.util.l.aO(TbadkCoreApplication.getInst().getApp())));
-        if (this.gyE == 4 && !TextUtils.isEmpty(this.ids)) {
+        if (this.gyD == 4 && !TextUtils.isEmpty(this.ids)) {
             hashMap.put("ids", this.ids);
         }
         return hashMap;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> aoa() {
+    public HashMap<String, String> anZ() {
         return null;
     }
 
@@ -80,12 +81,12 @@ public class k implements com.baidu.tbadk.mvc.b.e, com.baidu.tbadk.mvc.b.h {
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public String anW() {
+    public String anV() {
         return "tb_user_replyme";
     }
 
     @Override // com.baidu.tbadk.mvc.b.e
-    public boolean anX() {
+    public boolean anW() {
         return true;
     }
 

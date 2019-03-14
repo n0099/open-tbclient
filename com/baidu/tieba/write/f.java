@@ -6,54 +6,54 @@ import android.view.View;
 import com.baidu.tieba.write.e;
 /* loaded from: classes.dex */
 public abstract class f {
-    protected View bIp;
-    protected e.a jlS;
-    protected a jma;
+    protected View bIq;
+    protected e.a jlK;
+    protected a jlS;
     protected View mAnchorView;
     protected Context mContext;
     protected int mState = 4;
-    protected Rect jmx = new Rect();
-    protected Rect jmy = new Rect();
+    protected Rect jmo = new Rect();
+    protected Rect jmq = new Rect();
 
     /* loaded from: classes.dex */
     public interface a {
         void Bb(int i);
     }
 
-    public abstract void cof();
-
-    public abstract void coh();
-
     public abstract void coi();
+
+    public abstract void cok();
+
+    public abstract void col();
 
     public abstract void onDestroy();
 
     public f(Context context, e.a aVar) {
         this.mContext = context;
-        this.jlS = aVar;
+        this.jlK = aVar;
     }
 
     public void a(a aVar) {
-        this.jma = aVar;
+        this.jlS = aVar;
     }
 
     public void b(View view, View view2) {
         this.mAnchorView = view;
-        this.bIp = view2;
-        if (this.bIp != null) {
-            this.bIp.getGlobalVisibleRect(this.jmx);
+        this.bIq = view2;
+        if (this.bIq != null) {
+            this.bIq.getGlobalVisibleRect(this.jmo);
         }
     }
 
     public void show() {
-        cof();
+        coi();
     }
 
     public void bA(boolean z) {
         if (z) {
-            coh();
+            cok();
         } else {
-            coi();
+            col();
         }
     }
 }

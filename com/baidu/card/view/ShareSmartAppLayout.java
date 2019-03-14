@@ -14,10 +14,10 @@ import com.baidu.tieba.card.ab;
 import com.baidu.tieba.d;
 /* loaded from: classes3.dex */
 public class ShareSmartAppLayout extends LinearLayout implements i<a> {
-    private a Xx;
-    private ab<a> YA;
-    private boolean ZO;
-    public AppletsCellView aaG;
+    private a Xy;
+    private ab<a> YB;
+    private boolean ZP;
+    public AppletsCellView aaH;
 
     public ShareSmartAppLayout(Context context) {
         this(context, null);
@@ -25,8 +25,8 @@ public class ShareSmartAppLayout extends LinearLayout implements i<a> {
 
     public ShareSmartAppLayout(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.ZO = true;
-        this.Xx = null;
+        this.ZP = true;
+        this.Xy = null;
         initUI();
     }
 
@@ -34,11 +34,11 @@ public class ShareSmartAppLayout extends LinearLayout implements i<a> {
         LayoutInflater.from(getContext()).inflate(d.h.share_smart_app_layout, (ViewGroup) this, true);
         setOrientation(1);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        this.aaG = (AppletsCellView) findViewById(d.g.card_home_page_normal_thread_share_info);
+        this.aaH = (AppletsCellView) findViewById(d.g.card_home_page_normal_thread_share_info);
     }
 
     public void setFromCDN(boolean z) {
-        this.ZO = z;
+        this.ZP = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,20 +50,20 @@ public class ShareSmartAppLayout extends LinearLayout implements i<a> {
             return;
         }
         setVisibility(0);
-        this.Xx = aVar;
+        this.Xy = aVar;
         bg WR = aVar.WR();
-        this.aaG.setData(WR.ZD());
-        this.aaG.setForumId(String.valueOf(WR.getFid()));
-        AppletsCellView appletsCellView = this.aaG;
-        AppletsCellView appletsCellView2 = this.aaG;
+        this.aaH.setData(WR.ZD());
+        this.aaH.setForumId(String.valueOf(WR.getFid()));
+        AppletsCellView appletsCellView = this.aaH;
+        AppletsCellView appletsCellView2 = this.aaH;
         appletsCellView.setFrom("frs_card");
     }
 
     public ab<a> getSubClickListener() {
-        return this.YA;
+        return this.YB;
     }
 
     public void setSubClickListener(ab<a> abVar) {
-        this.YA = abVar;
+        this.YB = abVar;
     }
 }

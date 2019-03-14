@@ -9,7 +9,6 @@ import android.text.TextUtils;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.sina.weibo.sdk.auth.AccessTokenKeeper;
 import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WbAuthListener;
@@ -114,7 +113,7 @@ public class AuthWebViewClient extends BaseWebViewClient {
     private void handleRedirectUrl(String str) {
         Bundle parseUrl = Utility.parseUrl(str);
         String string = parseUrl.getString("error");
-        String string2 = parseUrl.getString(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
+        String string2 = parseUrl.getString("error_code");
         String string3 = parseUrl.getString("error_description");
         WbAuthListener wbAuthListener = null;
         if (this.param.getBaseData() != null && !TextUtils.isEmpty(this.param.getBaseData().getCallback())) {

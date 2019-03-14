@@ -11,14 +11,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private static Boolean iIR = true;
-    private static Boolean iIS = true;
+    private static Boolean iIJ = true;
+    private static Boolean iIK = true;
 
-    public static void CI(String str) {
+    public static void CG(String str) {
         aC(13, str);
     }
 
-    public static void cfg() {
+    public static void cfi() {
         zB(2);
     }
 
@@ -32,11 +32,11 @@ public class a {
         TiebaDatabase.getInstance().getMainDBDatabaseManager().f("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), (str == null || str.length() == 0) ? "0" : "0"});
     }
 
-    public static ArrayList<String> cfh() {
+    public static ArrayList<String> cfj() {
         return zC(0);
     }
 
-    public static ArrayList<String> cfi() {
+    public static ArrayList<String> cfk() {
         return zC(1);
     }
 
@@ -67,11 +67,11 @@ public class a {
         return arrayList;
     }
 
-    public static void CJ(String str) {
+    public static void CH(String str) {
         aD(0, str);
     }
 
-    public static void CK(String str) {
+    public static void CI(String str) {
         aD(1, str);
     }
 
@@ -93,7 +93,7 @@ public class a {
         }
     }
 
-    public static void CL(String str) {
+    public static void CJ(String str) {
         aE(0, str);
     }
 
@@ -113,11 +113,11 @@ public class a {
         }
     }
 
-    public static void cfj() {
+    public static void cfl() {
         zD(0);
     }
 
-    public static void cfk() {
+    public static void cfm() {
         zD(1);
     }
 
@@ -135,7 +135,7 @@ public class a {
         }
     }
 
-    public static ArrayList<MarkData> cfl() {
+    public static ArrayList<MarkData> cfn() {
         Cursor cursor;
         Throwable th;
         Exception e;
@@ -192,7 +192,7 @@ public class a {
     }
 
     public static void j(Boolean bool) {
-        iIR = bool;
+        iIJ = bool;
     }
 
     public static void aii() {
@@ -217,7 +217,7 @@ public class a {
         }
     }
 
-    public static void cfm() {
+    public static void cfo() {
         if (TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().length() > 0 && TbadkCoreApplication.getCurrentAccountName() != null) {
             com.baidu.adp.base.a.b mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
             try {

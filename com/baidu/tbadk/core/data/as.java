@@ -1,28 +1,29 @@
 package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class as {
-    private ArrayList<UserData> bzN = new ArrayList<>();
-    private ArrayList<UserData> bzO = new ArrayList<>();
-    private an bzP = new an();
-    private int bzQ = 0;
-    private int bzR = 0;
-    public int bzS;
-    public String bzT;
+    private ArrayList<UserData> bzP = new ArrayList<>();
+    private ArrayList<UserData> bzQ = new ArrayList<>();
+    private an bzR = new an();
+    private int bzS = 0;
+    private int bzT = 0;
+    public int bzU;
+    public String bzV;
     public boolean hasMore;
     public int pageNum;
     public int type;
 
     public ArrayList<UserData> XN() {
-        return this.bzN;
+        return this.bzP;
     }
 
     public ArrayList<UserData> XO() {
-        return this.bzO;
+        return this.bzQ;
     }
 
     public void parserJson(JSONObject jSONObject) {
@@ -35,7 +36,7 @@ public class as {
                         for (int i = 0; i < optJSONArray.length(); i++) {
                             UserData userData = new UserData();
                             userData.parserJson(optJSONArray.getJSONObject(i));
-                            this.bzN.add(userData);
+                            this.bzP.add(userData);
                         }
                     }
                     if (optJSONArray2 != null) {
@@ -43,17 +44,17 @@ public class as {
                             UserData userData2 = new UserData();
                             userData2.parserJson(optJSONArray2.getJSONObject(i2));
                             userData2.mAttentionType = 1;
-                            this.bzO.add(userData2);
+                            this.bzQ.add(userData2);
                         }
                     }
-                    this.bzP.parserJson(jSONObject.optJSONObject("page"));
-                    if (this.bzP != null) {
-                        this.pageNum = this.bzP.XI();
-                        this.bzS = this.bzP.XG();
-                        this.hasMore = this.bzP.XK() == 1;
+                    this.bzR.parserJson(jSONObject.optJSONObject("page"));
+                    if (this.bzR != null) {
+                        this.pageNum = this.bzR.XI();
+                        this.bzU = this.bzR.XG();
+                        this.hasMore = this.bzR.XK() == 1;
                     }
-                    this.bzQ = jSONObject.optInt("tafriendnum", 0);
-                    this.bzR = jSONObject.optInt("commonfriendnum", 0);
+                    this.bzS = jSONObject.optInt("tafriendnum", 0);
+                    this.bzT = jSONObject.optInt("commonfriendnum", 0);
                 } else {
                     JSONArray optJSONArray3 = jSONObject.optJSONArray("follow_list");
                     JSONArray optJSONArray4 = jSONObject.optJSONArray("common_follow_list");
@@ -61,7 +62,7 @@ public class as {
                         for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
                             UserData userData3 = new UserData();
                             userData3.parserJson(optJSONArray3.getJSONObject(i3));
-                            this.bzN.add(userData3);
+                            this.bzP.add(userData3);
                         }
                     }
                     if (optJSONArray4 != null) {
@@ -70,15 +71,15 @@ public class as {
                             userData4.parserJson(optJSONArray4.getJSONObject(i4));
                             userData4.mAttentionType = 1;
                             userData4.setHave_attention(1);
-                            this.bzO.add(userData4);
+                            this.bzQ.add(userData4);
                         }
                     }
-                    this.pageNum = jSONObject.optInt("pn");
-                    this.bzS = jSONObject.optInt("total_follow_num", 0);
+                    this.pageNum = jSONObject.optInt(Config.PACKAGE_NAME);
+                    this.bzU = jSONObject.optInt("total_follow_num", 0);
                     this.hasMore = jSONObject.optInt("has_more", 0) == 1;
                 }
                 this.type = jSONObject.optInt("type", 0);
-                this.bzT = jSONObject.optString("block_text");
+                this.bzV = jSONObject.optString("block_text");
             } catch (Exception e) {
                 BdLog.detailException(e);
             }

@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a extends v.a {
-    private TextView bTX;
+    private TextView bTY;
     private View cmm;
     private View cmn;
     private HeadImageView cmo;
@@ -32,7 +32,7 @@ public class a extends v.a {
         this.cmo.setAutoChangeStyle(false);
         this.cmo.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.cmp = (ImageView) view.findViewById(d.g.ala_follow_living_img);
-        this.bTX = (TextView) view.findViewById(d.g.ala_follow_user_name);
+        this.bTY = (TextView) view.findViewById(d.g.ala_follow_user_name);
     }
 
     public void a(int i, com.baidu.tbadk.data.a aVar) {
@@ -46,7 +46,7 @@ public class a extends v.a {
                 }
                 this.cmo.setDrawBorder(false);
                 if (!TextUtils.isEmpty(aVar.cgN)) {
-                    this.bTX.setText(aVar.cgN);
+                    this.bTY.setText(aVar.cgN);
                 }
                 this.cmp.setVisibility(8);
                 this.cmn.getLayoutParams().width = this.mPageContext.getPageActivity().getResources().getDimensionPixelSize(d.e.tbds44);
@@ -56,13 +56,13 @@ public class a extends v.a {
                     this.cmo.startLoad(aVar.cgL.liveCover, 10, false);
                     this.cmo.setDrawBorder(true);
                     this.cmo.setBorderWidth(1);
-                    this.cmo.setBorderColor(this.mPageContext.getPageActivity().getResources().getColor(d.C0236d.black_alpha15));
+                    this.cmo.setBorderColor(this.mPageContext.getPageActivity().getResources().getColor(d.C0277d.black_alpha15));
                     String str = aVar.cgL.userName;
                     if (!TextUtils.isEmpty(str)) {
                         if (k.bz(str) > 8) {
                             str = ap.g(str, 8, "...");
                         }
-                        this.bTX.setText(str);
+                        this.bTY.setText(str);
                     }
                 }
                 this.cmp.setVisibility(0);
@@ -75,7 +75,7 @@ public class a extends v.a {
                 this.cmm.setVisibility(8);
             }
             al.c(this.cmp, d.f.btn_story_live);
-            al.j(this.bTX, d.C0236d.cp_cont_f);
+            al.j(this.bTY, d.C0277d.cp_cont_f);
         }
     }
 }

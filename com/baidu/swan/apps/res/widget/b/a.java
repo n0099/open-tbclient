@@ -19,7 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.b.d;
 import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -27,9 +27,9 @@ import java.lang.ref.WeakReference;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes2.dex */
 public final class a {
-    private static WeakReference<b> aMU;
-    private static Toast aMV;
-    private static boolean aMT = com.baidu.swan.apps.c.DEBUG;
+    private static WeakReference<b> aMV;
+    private static Toast aMW;
+    private static boolean aMU = com.baidu.swan.apps.b.DEBUG;
     private static Handler mHandler = new Handler(Looper.getMainLooper());
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -38,11 +38,11 @@ public final class a {
         boolean z3 = true;
         final Context applicationContext = context.getApplicationContext();
         Resources resources = context.getResources();
-        final RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(applicationContext).inflate(b.g.aiapps_normal_toast_view, (ViewGroup) null);
-        relativeLayout.setBackground(resources.getDrawable(b.e.aiapps_normal_toast_view_bg));
+        final RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(applicationContext).inflate(a.g.aiapps_normal_toast_view, (ViewGroup) null);
+        relativeLayout.setBackground(resources.getDrawable(a.e.aiapps_normal_toast_view_bg));
         relativeLayout.setClickable(true);
-        if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) relativeLayout.findViewById(b.f.normal_toast_text)) != null) {
-            textView.setTextColor(resources.getColor(b.c.aiapps_white_text));
+        if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) relativeLayout.findViewById(a.f.normal_toast_text)) != null) {
+            textView.setTextColor(resources.getColor(a.c.aiapps_white_text));
             textView.setText(charSequence);
             boolean z4 = i2 >= 2;
             if (z4 || !z) {
@@ -58,12 +58,12 @@ public final class a {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.aMV = new Toast(applicationContext);
-                    a.aMV.setView(relativeLayout);
-                    a.aMV.setGravity(17, 0, 0);
-                    c.a(a.aMV, b.i.toast_animation);
-                    a.aMV.show();
-                    if (a.aMT) {
+                    Toast unused = a.aMW = new Toast(applicationContext);
+                    a.aMW.setView(relativeLayout);
+                    a.aMW.setGravity(17, 0, 0);
+                    c.a(a.aMW, a.i.toast_animation);
+                    a.aMW.show();
+                    if (a.aMU) {
                         Log.d("SingleToast", "mSystemToast.show() invoked in show");
                     }
                 }
@@ -76,7 +76,7 @@ public final class a {
         bVar.setMask(z2);
         bVar.setGravity(17, 0, 0);
         bVar.setDuration(i);
-        bVar.dq(b.i.toast_animation);
+        bVar.dq(a.i.toast_animation);
         bVar.show();
     }
 
@@ -84,23 +84,23 @@ public final class a {
     public static void a(@NonNull final Context context, @NonNull CharSequence charSequence, int i) {
         final Context applicationContext = context.getApplicationContext();
         Resources resources = context.getResources();
-        final RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(applicationContext).inflate(b.g.aiapps_normal_toast_view, (ViewGroup) null);
-        relativeLayout.setBackground(resources.getDrawable(b.e.aiapps_normal_toast_view_bg));
-        TextView textView = (TextView) relativeLayout.findViewById(b.f.normal_toast_text);
+        final RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(applicationContext).inflate(a.g.aiapps_normal_toast_view, (ViewGroup) null);
+        relativeLayout.setBackground(resources.getDrawable(a.e.aiapps_normal_toast_view_bg));
+        TextView textView = (TextView) relativeLayout.findViewById(a.f.normal_toast_text);
         if (textView != null) {
-            textView.setTextColor(resources.getColor(b.c.aiapps_white_text));
+            textView.setTextColor(resources.getColor(a.c.aiapps_white_text));
             textView.setText(charSequence);
         }
         if (c.bU(applicationContext)) {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.aMV = new Toast(applicationContext);
-                    a.aMV.setView(relativeLayout);
-                    a.aMV.setGravity(81, 0, (int) context.getResources().getDimension(b.d.aiapps_clickable_toast_view_margin_bottom));
-                    c.a(a.aMV, b.i.toast_animation);
-                    a.aMV.show();
-                    if (a.aMT) {
+                    Toast unused = a.aMW = new Toast(applicationContext);
+                    a.aMW.setView(relativeLayout);
+                    a.aMW.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
+                    c.a(a.aMW, a.i.toast_animation);
+                    a.aMW.show();
+                    if (a.aMU) {
                         Log.d("SingleToast", "mSystemToast.show() invoked in showToastBottom");
                     }
                 }
@@ -110,9 +110,9 @@ public final class a {
         b bVar = new b(applicationContext);
         a(bVar);
         bVar.setView(relativeLayout);
-        bVar.setGravity(81, 0, (int) context.getResources().getDimension(b.d.aiapps_clickable_toast_view_margin_bottom));
+        bVar.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
         bVar.setDuration(i);
-        bVar.dq(b.i.toast_animation);
+        bVar.dq(a.i.toast_animation);
         bVar.show();
     }
 
@@ -121,30 +121,30 @@ public final class a {
         TextView textView;
         Context applicationContext = context.getApplicationContext();
         Resources resources = context.getResources();
-        final LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(b.g.aiapps_highlight_toast_view, (ViewGroup) null);
-        linearLayout.setBackground(resources.getDrawable(b.e.aiapps_highlight_toast_view_bg));
+        final LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(a.g.aiapps_highlight_toast_view, (ViewGroup) null);
+        linearLayout.setBackground(resources.getDrawable(a.e.aiapps_highlight_toast_view_bg));
         linearLayout.setClickable(true);
-        if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(b.f.highlight_toast_text)) != null) {
-            textView.setTextColor(resources.getColor(b.c.aiapps_white_text));
+        if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(a.f.highlight_toast_text)) != null) {
+            textView.setTextColor(resources.getColor(a.c.aiapps_white_text));
             textView.setText(charSequence);
         }
-        ImageView imageView = (ImageView) linearLayout.findViewById(b.f.highlight_toast_imageView);
+        ImageView imageView = (ImageView) linearLayout.findViewById(a.f.highlight_toast_imageView);
         if (imageView != null) {
             if (drawable != null) {
                 imageView.setImageDrawable(drawable);
             } else {
-                imageView.setImageDrawable(resources.getDrawable(b.e.aiapps_highlight_toast_image));
+                imageView.setImageDrawable(resources.getDrawable(a.e.aiapps_highlight_toast_image));
             }
         }
         if (c.bU(applicationContext)) {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.aMV = new Toast(context);
-                    a.aMV.setView(linearLayout);
-                    a.aMV.setGravity(17, 0, 0);
-                    c.a(a.aMV, b.i.highlight_toast_animation);
-                    a.aMV.show();
+                    Toast unused = a.aMW = new Toast(context);
+                    a.aMW.setView(linearLayout);
+                    a.aMW.setGravity(17, 0, 0);
+                    c.a(a.aMW, a.i.highlight_toast_animation);
+                    a.aMW.show();
                 }
             });
             return;
@@ -155,7 +155,7 @@ public final class a {
         bVar.setMask(z);
         bVar.setGravity(17, 0, 0);
         bVar.setDuration(i);
-        bVar.dq(b.i.highlight_toast_animation);
+        bVar.dq(a.i.highlight_toast_animation);
         bVar.show();
     }
 
@@ -163,22 +163,22 @@ public final class a {
     public static void a(final Context context, CharSequence charSequence, int i, boolean z) {
         Context applicationContext = context.getApplicationContext();
         Resources resources = context.getResources();
-        final LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(b.g.aiapps_highloading_toast_view, (ViewGroup) null);
-        linearLayout.setBackground(resources.getDrawable(b.e.aiapps_highlight_toast_view_bg));
+        final LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(a.g.aiapps_highloading_toast_view, (ViewGroup) null);
+        linearLayout.setBackground(resources.getDrawable(a.e.aiapps_highlight_toast_view_bg));
         linearLayout.setClickable(true);
-        TextView textView = (TextView) linearLayout.findViewById(b.f.highLoading_progress_toast_title);
+        TextView textView = (TextView) linearLayout.findViewById(a.f.highLoading_progress_toast_title);
         if (!TextUtils.isEmpty(charSequence) && textView != null) {
-            textView.setTextColor(resources.getColor(b.c.aiapps_white_text));
+            textView.setTextColor(resources.getColor(a.c.aiapps_white_text));
         }
         if (c.bU(applicationContext)) {
             mHandler.post(new Runnable() { // from class: com.baidu.swan.apps.res.widget.b.a.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    Toast unused = a.aMV = new Toast(context);
-                    a.aMV.setView(linearLayout);
-                    a.aMV.setGravity(17, 0, 0);
-                    c.a(a.aMV, b.i.highlight_toast_animation);
-                    a.aMV.show();
+                    Toast unused = a.aMW = new Toast(context);
+                    a.aMW.setView(linearLayout);
+                    a.aMW.setGravity(17, 0, 0);
+                    c.a(a.aMW, a.i.highlight_toast_animation);
+                    a.aMW.show();
                 }
             });
             return;
@@ -189,7 +189,7 @@ public final class a {
         bVar.setMask(z);
         bVar.setGravity(17, 0, 0);
         bVar.setDuration(i);
-        bVar.dq(b.i.highlight_toast_animation);
+        bVar.dq(a.i.highlight_toast_animation);
         bVar.show();
     }
 
@@ -199,10 +199,10 @@ public final class a {
         final TextView textView;
         final Context applicationContext = context.getApplicationContext();
         Resources resources = context.getResources();
-        final LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(b.g.aiapps_icon_title_message_button_toast_view, (ViewGroup) null);
-        linearLayout.setBackground(resources.getDrawable(b.e.aiapps_clickable_toast_view_bg));
+        final LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(a.g.aiapps_icon_title_message_button_toast_view, (ViewGroup) null);
+        linearLayout.setBackground(resources.getDrawable(a.e.aiapps_clickable_toast_view_bg));
         linearLayout.setClickable(true);
-        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(b.f.left_icon);
+        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(a.f.left_icon);
         if (uri != null) {
             simpleDraweeView.setImageURI(uri);
             if (i != 1) {
@@ -211,10 +211,10 @@ public final class a {
         } else {
             simpleDraweeView.setVisibility(8);
         }
-        TextView textView2 = (TextView) linearLayout.findViewById(b.f.title_text);
-        TextView textView3 = (TextView) linearLayout.findViewById(b.f.message_text);
-        textView2.setTextColor(resources.getColor(b.c.aiapps_white_text));
-        textView3.setTextColor(resources.getColor(b.c.aiapps_white_text));
+        TextView textView2 = (TextView) linearLayout.findViewById(a.f.title_text);
+        TextView textView3 = (TextView) linearLayout.findViewById(a.f.message_text);
+        textView2.setTextColor(resources.getColor(a.c.aiapps_white_text));
+        textView3.setTextColor(resources.getColor(a.c.aiapps_white_text));
         if (!TextUtils.isEmpty(charSequence) && !TextUtils.isEmpty(charSequence2)) {
             textView2.setText(charSequence);
             textView3.setText(charSequence2);
@@ -233,25 +233,25 @@ public final class a {
             z = false;
         }
         if (uri == null && !z) {
-            int dimensionPixelSize = resources.getDimensionPixelSize(b.d.aiapps_clickable_toast_single_line_padding);
-            ((ViewGroup.MarginLayoutParams) linearLayout.findViewById(b.f.text_area).getLayoutParams()).setMargins(0, dimensionPixelSize, 0, dimensionPixelSize);
+            int dimensionPixelSize = resources.getDimensionPixelSize(a.d.aiapps_clickable_toast_single_line_padding);
+            ((ViewGroup.MarginLayoutParams) linearLayout.findViewById(a.f.text_area).getLayoutParams()).setMargins(0, dimensionPixelSize, 0, dimensionPixelSize);
         }
-        final View findViewById = linearLayout.findViewById(b.f.clickable_toast_click_area);
+        final View findViewById = linearLayout.findViewById(a.f.clickable_toast_click_area);
         if (!TextUtils.isEmpty(charSequence3)) {
             switch (i2) {
                 case 1:
-                    linearLayout.findViewById(b.f.bg_text_btn).setVisibility(8);
-                    linearLayout.findViewById(b.f.clickable_toast_line).setBackgroundColor(resources.getColor(b.c.aiapps_white_text));
-                    textView = (TextView) linearLayout.findViewById(b.f.clickable_toast_check_text);
-                    textView.setTextColor(resources.getColor(b.c.aiapps_white_text));
+                    linearLayout.findViewById(a.f.bg_text_btn).setVisibility(8);
+                    linearLayout.findViewById(a.f.clickable_toast_line).setBackgroundColor(resources.getColor(a.c.aiapps_white_text));
+                    textView = (TextView) linearLayout.findViewById(a.f.clickable_toast_check_text);
+                    textView.setTextColor(resources.getColor(a.c.aiapps_white_text));
                     textView.setText(charSequence3);
-                    ((ImageView) linearLayout.findViewById(b.f.clickable_toast_icon_view)).setImageDrawable(resources.getDrawable(b.e.aiapps_clickable_toast_icon));
+                    ((ImageView) linearLayout.findViewById(a.f.clickable_toast_icon_view)).setImageDrawable(resources.getDrawable(a.e.aiapps_clickable_toast_icon));
                     break;
                 default:
-                    linearLayout.findViewById(b.f.line_text_icon_btn).setVisibility(8);
-                    textView = (TextView) linearLayout.findViewById(b.f.bg_text_btn);
-                    textView.setBackground(resources.getDrawable(b.e.aiapps_toast_button_view_bg));
-                    textView.setTextColor(resources.getColor(b.c.aiapps_white_text));
+                    linearLayout.findViewById(a.f.line_text_icon_btn).setVisibility(8);
+                    textView = (TextView) linearLayout.findViewById(a.f.bg_text_btn);
+                    textView.setBackground(resources.getDrawable(a.e.aiapps_toast_button_view_bg));
+                    textView.setTextColor(resources.getColor(a.c.aiapps_white_text));
                     textView.setText(charSequence3);
                     break;
             }
@@ -279,11 +279,11 @@ public final class a {
                 @Override // java.lang.Runnable
                 public void run() {
                     findViewById.setVisibility(8);
-                    Toast unused = a.aMV = new Toast(applicationContext);
-                    a.aMV.setView(linearLayout);
-                    a.aMV.setGravity(81, 0, (int) context.getResources().getDimension(b.d.aiapps_clickable_toast_view_margin_bottom));
-                    c.a(a.aMV, b.i.toast_animation);
-                    a.aMV.show();
+                    Toast unused = a.aMW = new Toast(applicationContext);
+                    a.aMW.setView(linearLayout);
+                    a.aMW.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
+                    c.a(a.aMW, a.i.toast_animation);
+                    a.aMW.show();
                 }
             });
             return;
@@ -292,33 +292,33 @@ public final class a {
         a(bVar);
         if (c.IH()) {
             bVar.dr(2003);
-            if (aMT) {
+            if (aMU) {
                 Log.d("SingleToast", "Oppo WindowManager has set to TYPE_SYSTEM_ALERT");
             }
         }
         bVar.setView(linearLayout);
-        bVar.setGravity(81, 0, (int) context.getResources().getDimension(b.d.aiapps_clickable_toast_view_margin_bottom));
+        bVar.setGravity(81, 0, (int) context.getResources().getDimension(a.d.aiapps_clickable_toast_view_margin_bottom));
         bVar.setDuration(i3);
         bVar.a(aVar);
-        bVar.dq(b.i.toast_animation);
+        bVar.dq(a.i.toast_animation);
         bVar.show();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void cancel() {
         b bVar;
-        if (aMU != null && (bVar = aMU.get()) != null) {
+        if (aMV != null && (bVar = aMV.get()) != null) {
             bVar.cancel();
         }
-        if (aMV != null) {
-            aMV.cancel();
+        if (aMW != null) {
+            aMW.cancel();
         }
     }
 
     private static void a(b bVar) {
-        if (aMU != null) {
-            aMU.clear();
+        if (aMV != null) {
+            aMV.clear();
         }
-        aMU = new WeakReference<>(bVar);
+        aMV = new WeakReference<>(bVar);
     }
 }

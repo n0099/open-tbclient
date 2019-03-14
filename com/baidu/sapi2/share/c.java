@@ -13,6 +13,7 @@ import android.os.Looper;
 import android.support.v7.widget.ActivityChooserView;
 import android.text.TextUtils;
 import android.widget.Toast;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
@@ -328,7 +329,7 @@ public final class c {
                     SapiContext.getInstance(context).setShareStorage(ShareStorage.StorageModel.toJSONArray(arrayList));
                     HashMap hashMap = new HashMap();
                     hashMap.put("cuid", SapiUtils.getClientId(context));
-                    hashMap.put("device", Build.MODEL);
+                    hashMap.put(Config.DEVICE_PART, Build.MODEL);
                     hashMap.put("read_failure_count", i4 + "");
                     hashMap.put("read_sp_count", i3 + "");
                     hashMap.put("read_sd_count", i2 + "");

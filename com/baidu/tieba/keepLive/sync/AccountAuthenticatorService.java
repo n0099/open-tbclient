@@ -9,7 +9,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.IBinder;
-import com.baidu.tbadk.TbConfig;
 /* loaded from: classes3.dex */
 public class AccountAuthenticatorService extends Service {
     private a accountAuthenticator;
@@ -18,7 +17,7 @@ public class AccountAuthenticatorService extends Service {
     public void onCreate() {
         this.accountAuthenticator = new a(this);
         try {
-            Thread.sleep(TbConfig.NOTIFY_SOUND_INTERVAL);
+            Thread.sleep(5000L);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

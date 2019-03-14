@@ -13,27 +13,27 @@ import java.util.Locale;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class a {
-    private static a Mq;
-    private final LinkedHashMap<String, PluginStatus> Mr = new LinkedHashMap<>(10);
+    private static a Mr;
+    private final LinkedHashMap<String, PluginStatus> Ms = new LinkedHashMap<>(10);
 
     private a() {
     }
 
     public static a nS() {
-        if (Mq == null) {
+        if (Mr == null) {
             synchronized (a.class) {
-                if (Mq == null) {
-                    Mq = new a();
+                if (Mr == null) {
+                    Mr = new a();
                 }
             }
         }
-        return Mq;
+        return Mr;
     }
 
     public void cn(String str) {
         PluginStatus co = nS().co(str);
         if (co != null) {
-            co.Mn = PluginPackageManager.PluginStatus.NROMAL;
+            co.Mo = PluginPackageManager.PluginStatus.NROMAL;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000992, co));
     }
@@ -80,11 +80,11 @@ public class a {
         if (co == null) {
             co = new PluginStatus();
         }
-        co.Mn = PluginPackageManager.PluginStatus.ERROR;
+        co.Mo = PluginPackageManager.PluginStatus.ERROR;
         co.errorMsg = string;
-        co.Mo = string2;
+        co.Mp = string2;
         co.errorCode = i;
-        co.Mp = false;
+        co.Mq = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, co));
     }
 
@@ -93,20 +93,20 @@ public class a {
         if (co == null) {
             co = new PluginStatus();
         }
-        co.Mn = PluginPackageManager.PluginStatus.ERROR;
+        co.Mo = PluginPackageManager.PluginStatus.ERROR;
         co.errorCode = 100;
         co.errorMsg = BdBaseApplication.getInst().getString(R.string.pluginstatus_tip_unknown);
-        co.Mo = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
+        co.Mp = BdBaseApplication.getInst().getString(R.string.pluginstatus_resolve_unknown);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, co));
     }
 
     public List<PluginStatus> nT() {
         ArrayList arrayList;
         PluginStatus value;
-        synchronized (this.Mr) {
-            arrayList = new ArrayList(this.Mr.size());
-            for (Map.Entry<String, PluginStatus> entry : this.Mr.entrySet()) {
-                if (entry != null && (value = entry.getValue()) != null && value.Mn == PluginPackageManager.PluginStatus.ERROR) {
+        synchronized (this.Ms) {
+            arrayList = new ArrayList(this.Ms.size());
+            for (Map.Entry<String, PluginStatus> entry : this.Ms.entrySet()) {
+                if (entry != null && (value = entry.getValue()) != null && value.Mo == PluginPackageManager.PluginStatus.ERROR) {
                     arrayList.add(value);
                 }
             }
@@ -119,12 +119,12 @@ public class a {
         if (str == null || TextUtils.isEmpty(str)) {
             return null;
         }
-        synchronized (this.Mr) {
-            pluginStatus = this.Mr.get(str);
+        synchronized (this.Ms) {
+            pluginStatus = this.Ms.get(str);
             if (pluginStatus == null) {
                 pluginStatus = new PluginStatus();
                 pluginStatus.Jz = str;
-                this.Mr.put(str, pluginStatus);
+                this.Ms.put(str, pluginStatus);
             }
         }
         return pluginStatus;

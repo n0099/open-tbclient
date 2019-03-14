@@ -22,12 +22,12 @@ public class SwanGameSubPackageAPSInfo extends SwanAppIPCData {
     };
     public String appId;
     public String appVersion;
-    public int bfr;
-    public String bfs;
+    public int bfs;
     public String bft;
     public String bfu;
     public String bfv;
     public String bfw;
+    public String bfx;
     public String key;
     public int resultCode;
 
@@ -39,12 +39,12 @@ public class SwanGameSubPackageAPSInfo extends SwanAppIPCData {
         this.appVersion = parcel.readString();
         this.key = parcel.readString();
         this.resultCode = parcel.readInt();
-        this.bfr = parcel.readInt();
-        this.bfs = parcel.readString();
+        this.bfs = parcel.readInt();
         this.bft = parcel.readString();
         this.bfu = parcel.readString();
         this.bfv = parcel.readString();
         this.bfw = parcel.readString();
+        this.bfx = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -58,15 +58,15 @@ public class SwanGameSubPackageAPSInfo extends SwanAppIPCData {
         parcel.writeString(this.appVersion);
         parcel.writeString(this.key);
         parcel.writeInt(this.resultCode);
-        parcel.writeInt(this.bfr);
-        parcel.writeString(this.bfs);
+        parcel.writeInt(this.bfs);
         parcel.writeString(this.bft);
         parcel.writeString(this.bfu);
         parcel.writeString(this.bfv);
         parcel.writeString(this.bfw);
+        parcel.writeString(this.bfx);
     }
 
     public String toString() {
-        return "appId:" + this.appId + ",appVersion:" + this.appVersion + ",key:" + this.key + ",resultCode:" + this.resultCode + ",swanAppProcessId:" + this.bfr + ",appRootPath:" + this.bfs + ",subPackageRoot:" + this.bft + ",zipPath:" + this.bfu + ",callbackKey:" + this.bfv + ",subPackagePath:" + this.bfw;
+        return "appId:" + this.appId + ",appVersion:" + this.appVersion + ",key:" + this.key + ",resultCode:" + this.resultCode + ",swanAppProcessId:" + this.bfs + ",appRootPath:" + this.bft + ",subPackageRoot:" + this.bfu + ",zipPath:" + this.bfv + ",callbackKey:" + this.bfw + ",subPackagePath:" + this.bfx;
     }
 }

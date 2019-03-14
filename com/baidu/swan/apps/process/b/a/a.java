@@ -3,14 +3,13 @@ package com.baidu.swan.apps.process.b.a;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
-import com.baidu.swan.apps.c;
 /* loaded from: classes2.dex */
 public abstract class a {
-    private static final boolean DEBUG = c.DEBUG;
-    public int aEB;
-    public Bundle aEA = new Bundle();
-    public String aEC = "";
-    public Bundle aED = new Bundle();
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    public int aEC;
+    public Bundle aEB = new Bundle();
+    public String aED = "";
+    public Bundle aEE = new Bundle();
 
     public abstract void t(@NonNull Bundle bundle);
 
@@ -18,11 +17,11 @@ public abstract class a {
         if (DEBUG) {
             Log.d("MDelegate-Delegation", "messenger delegation finish");
         }
-        if (!com.baidu.swan.apps.process.b.b.d.a.fN(this.aEC)) {
+        if (!com.baidu.swan.apps.process.b.b.d.a.fN(this.aED)) {
             if (DEBUG) {
-                Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.aEB + " observer: " + this.aEC);
+                Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.aEC + " observer: " + this.aED);
             }
-            b.a(this.aEB, this.aEC, this.aED);
+            b.a(this.aEC, this.aED, this.aEE);
         }
     }
 }

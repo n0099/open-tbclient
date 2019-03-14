@@ -1,5 +1,6 @@
 package com.xiaomi.network;
 
+import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -80,6 +81,6 @@ class c implements Comparable<c> {
     }
 
     public String toString() {
-        return this.a + ":" + this.b;
+        return this.a + Config.TRACE_TODAY_VISIT_SPLIT + this.b;
     }
 }

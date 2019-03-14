@@ -2,7 +2,7 @@ package com.baidu.sapi2;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.appsearchlib.Info;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.callback.DynamicPwdLoginCallback;
 import com.baidu.sapi2.callback.FillUserProfileCallback;
@@ -87,7 +87,7 @@ public final class SapiAccountService implements ISAccountService {
         arrayList.add(new PassNameValuePair("clientfrom", a));
         arrayList.add(new PassNameValuePair("adapter", "3"));
         arrayList.add(new PassNameValuePair("banner", "1"));
-        arrayList.add(new PassNameValuePair(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis())));
+        arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
         return this.c.c() + "?" + a(false) + "&" + SapiUtils.createRequestParams(arrayList);
     }
 
@@ -96,7 +96,7 @@ public final class SapiAccountService implements ISAccountService {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new PassNameValuePair("adapter", "3"));
         arrayList.add(new PassNameValuePair("banner", "1"));
-        arrayList.add(new PassNameValuePair(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis())));
+        arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
         return this.c.d() + "?" + a(false) + "&" + SapiUtils.createRequestParams(arrayList);
     }
 
@@ -166,7 +166,7 @@ public final class SapiAccountService implements ISAccountService {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new PassNameValuePair("tpl", SapiAccountManager.getInstance().getSapiConfiguration().tpl));
         arrayList.add(new PassNameValuePair("showtype", ISapiAccount.SAPI_ACCOUNT_PHONE));
-        arrayList.add(new PassNameValuePair("device", "wap"));
+        arrayList.add(new PassNameValuePair(Config.DEVICE_PART, "wap"));
         arrayList.add(new PassNameValuePair("adapter", "apps"));
         return this.c.f() + j() + "&" + SapiUtils.createRequestParams(arrayList);
     }
@@ -201,7 +201,7 @@ public final class SapiAccountService implements ISAccountService {
         if (z) {
             arrayList.add(new PassNameValuePair("adapter", this.b.customActionBarEnabled ? "3" : ""));
         }
-        arrayList.add(new PassNameValuePair(Info.kBaiduTimeKey, String.valueOf(System.currentTimeMillis())));
+        arrayList.add(new PassNameValuePair("t", String.valueOf(System.currentTimeMillis())));
         arrayList.add(new PassNameValuePair(SocialConstants.PARAM_ACT, this.b.socialBindType.getName()));
         arrayList.add(new PassNameValuePair("hideExtraEntry", String.valueOf(this.b.smsLoginConfig.flagHideExtraEntry.ordinal())));
         arrayList.add(new PassNameValuePair("loginLink", String.valueOf(this.b.smsLoginConfig.flagShowLoginLink.ordinal())));

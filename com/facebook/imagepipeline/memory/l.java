@@ -7,19 +7,19 @@ import javax.annotation.concurrent.ThreadSafe;
 /* loaded from: classes2.dex */
 public class l implements PooledByteBuffer {
     @GuardedBy("this")
-    com.facebook.common.references.a<NativeMemoryChunk> jJw;
+    com.facebook.common.references.a<NativeMemoryChunk> jJo;
     private final int mSize;
 
     public l(com.facebook.common.references.a<NativeMemoryChunk> aVar, int i) {
         com.facebook.common.internal.g.checkNotNull(aVar);
         com.facebook.common.internal.g.checkArgument(i >= 0 && i <= aVar.get().getSize());
-        this.jJw = aVar.clone();
+        this.jJo = aVar.clone();
         this.mSize = i;
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized int size() {
-        cuc();
+        cuf();
         return this.mSize;
     }
 
@@ -27,33 +27,33 @@ public class l implements PooledByteBuffer {
     public synchronized byte BV(int i) {
         byte BV;
         synchronized (this) {
-            cuc();
+            cuf();
             com.facebook.common.internal.g.checkArgument(i >= 0);
             com.facebook.common.internal.g.checkArgument(i < this.mSize);
-            BV = this.jJw.get().BV(i);
+            BV = this.jJo.get().BV(i);
         }
         return BV;
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized void b(int i, byte[] bArr, int i2, int i3) {
-        cuc();
+        cuf();
         com.facebook.common.internal.g.checkArgument(i + i3 <= this.mSize);
-        this.jJw.get().d(i, bArr, i2, i3);
+        this.jJo.get().d(i, bArr, i2, i3);
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized boolean isClosed() {
-        return !com.facebook.common.references.a.a(this.jJw);
+        return !com.facebook.common.references.a.a(this.jJo);
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() {
-        com.facebook.common.references.a.c(this.jJw);
-        this.jJw = null;
+        com.facebook.common.references.a.c(this.jJo);
+        this.jJo = null;
     }
 
-    synchronized void cuc() {
+    synchronized void cuf() {
         if (isClosed()) {
             throw new PooledByteBuffer.ClosedException();
         }

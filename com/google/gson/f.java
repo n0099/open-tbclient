@@ -5,73 +5,73 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public final class f extends i implements Iterable<i> {
-    private final List<i> jNy = new ArrayList();
+    private final List<i> jNq = new ArrayList();
 
     public void b(i iVar) {
         if (iVar == null) {
-            iVar = j.jNz;
+            iVar = j.jNr;
         }
-        this.jNy.add(iVar);
+        this.jNq.add(iVar);
     }
 
     @Override // java.lang.Iterable
     public Iterator<i> iterator() {
-        return this.jNy.iterator();
+        return this.jNq.iterator();
     }
 
     @Override // com.google.gson.i
-    public Number cAP() {
-        if (this.jNy.size() == 1) {
-            return this.jNy.get(0).cAP();
+    public Number cAS() {
+        if (this.jNq.size() == 1) {
+            return this.jNq.get(0).cAS();
         }
         throw new IllegalStateException();
     }
 
     @Override // com.google.gson.i
-    public String cAQ() {
-        if (this.jNy.size() == 1) {
-            return this.jNy.get(0).cAQ();
+    public String cAT() {
+        if (this.jNq.size() == 1) {
+            return this.jNq.get(0).cAT();
         }
         throw new IllegalStateException();
     }
 
     @Override // com.google.gson.i
     public double getAsDouble() {
-        if (this.jNy.size() == 1) {
-            return this.jNy.get(0).getAsDouble();
+        if (this.jNq.size() == 1) {
+            return this.jNq.get(0).getAsDouble();
         }
         throw new IllegalStateException();
     }
 
     @Override // com.google.gson.i
     public long getAsLong() {
-        if (this.jNy.size() == 1) {
-            return this.jNy.get(0).getAsLong();
+        if (this.jNq.size() == 1) {
+            return this.jNq.get(0).getAsLong();
         }
         throw new IllegalStateException();
     }
 
     @Override // com.google.gson.i
     public int getAsInt() {
-        if (this.jNy.size() == 1) {
-            return this.jNy.get(0).getAsInt();
+        if (this.jNq.size() == 1) {
+            return this.jNq.get(0).getAsInt();
         }
         throw new IllegalStateException();
     }
 
     @Override // com.google.gson.i
     public boolean getAsBoolean() {
-        if (this.jNy.size() == 1) {
-            return this.jNy.get(0).getAsBoolean();
+        if (this.jNq.size() == 1) {
+            return this.jNq.get(0).getAsBoolean();
         }
         throw new IllegalStateException();
     }
 
     public boolean equals(Object obj) {
-        return obj == this || ((obj instanceof f) && ((f) obj).jNy.equals(this.jNy));
+        return obj == this || ((obj instanceof f) && ((f) obj).jNq.equals(this.jNq));
     }
 
     public int hashCode() {
-        return this.jNy.hashCode();
+        return this.jNq.hashCode();
     }
 }

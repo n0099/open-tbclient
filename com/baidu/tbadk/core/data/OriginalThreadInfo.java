@@ -134,8 +134,8 @@ public class OriginalThreadInfo extends OrmObject implements Serializable {
         if (bgVar == null) {
             return null;
         }
-        if (bgVar.bDt != null) {
-            return bgVar.bDt;
+        if (bgVar.bDv != null) {
+            return bgVar.bDv;
         }
         OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
         originalThreadInfo.forumName = bgVar.YW();

@@ -3,7 +3,7 @@ package cn.jpush.android.a;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -30,7 +30,7 @@ public final class o {
         if (pVar == null) {
             return null;
         }
-        if (TextUtils.equals(jSONObject.optString("op"), "get")) {
+        if (TextUtils.equals(jSONObject.optString(Config.OPERATOR), "get")) {
             if (pVar.a != 1) {
                 String optString = jSONObject.optString("alias");
                 if (optString != null) {
@@ -143,7 +143,7 @@ public final class o {
                 if (i == 0) {
                     pVar.h = 0;
                     if (pVar.b == 5) {
-                        pVar.f = jSONObject.optInt(IntentConfig.TOTAL, -1);
+                        pVar.f = jSONObject.optInt("total", -1);
                         pVar.g = jSONObject.optInt("curr", -1);
                         a(jSONObject, pVar);
                     }

@@ -7,6 +7,8 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.location.Poi;
 import com.baidu.location.d.e;
+import com.baidu.mobstat.Config;
+import com.googlecode.mp4parser.boxes.apple.TrackLoadSettingsAtom;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import java.util.ArrayList;
@@ -56,7 +58,7 @@ public final class b {
 
     /* renamed from: com.baidu.location.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    private class C0046b extends Thread {
+    private class C0048b extends Thread {
         private String a;
         private Long c;
         private BDLocation d;
@@ -65,7 +67,7 @@ public final class b {
         private String g;
         private LinkedHashMap<String, Integer> h;
 
-        private C0046b(String str, Long l, BDLocation bDLocation, BDLocation bDLocation2, BDLocation bDLocation3, String str2, LinkedHashMap<String, Integer> linkedHashMap) {
+        private C0048b(String str, Long l, BDLocation bDLocation, BDLocation bDLocation2, BDLocation bDLocation3, String str2, LinkedHashMap<String, Integer> linkedHashMap) {
             this.a = str;
             this.c = l;
             this.d = bDLocation;
@@ -115,7 +117,7 @@ public final class b {
         c(b bVar, boolean z) {
             this.e = bVar;
             if (z) {
-                this.c = "load";
+                this.c = TrackLoadSettingsAtom.TYPE;
             } else {
                 this.c = "update";
             }
@@ -174,7 +176,7 @@ public final class b {
                 jSONObject.put("type", "0");
                 jSONObject.put("cuid", com.baidu.location.g.b.a().b);
                 jSONObject.put("ver", "1");
-                jSONObject.put("prod", com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d);
+                jSONObject.put("prod", com.baidu.location.g.b.e + Config.TRACE_TODAY_VISIT_SPLIT + com.baidu.location.g.b.d);
             } catch (Exception e) {
                 jSONObject = null;
             }
@@ -316,7 +318,7 @@ public final class b {
                     jSONObject.put("type", "1");
                     jSONObject.put("cuid", com.baidu.location.g.b.a().b);
                     jSONObject.put("ver", "1");
-                    jSONObject.put("prod", com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d);
+                    jSONObject.put("prod", com.baidu.location.g.b.e + Config.TRACE_TODAY_VISIT_SPLIT + com.baidu.location.g.b.d);
                     if (i == 0 || i2 != 0) {
                         jSONObject.put("model", jSONObject3);
                     }
@@ -358,7 +360,7 @@ public final class b {
             jSONObject.put("type", "1");
             jSONObject.put("cuid", com.baidu.location.g.b.a().b);
             jSONObject.put("ver", "1");
-            jSONObject.put("prod", com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d);
+            jSONObject.put("prod", com.baidu.location.g.b.e + Config.TRACE_TODAY_VISIT_SPLIT + com.baidu.location.g.b.d);
             if (i == 0) {
             }
             jSONObject.put("model", jSONObject3);
@@ -382,7 +384,7 @@ public final class b {
                     jSONObject.put("type", "2");
                     jSONObject.put("ver", "1");
                     jSONObject.put("cuid", com.baidu.location.g.b.a().b);
-                    jSONObject.put("prod", com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d);
+                    jSONObject.put("prod", com.baidu.location.g.b.e + Config.TRACE_TODAY_VISIT_SPLIT + com.baidu.location.g.b.d);
                     this.t = System.currentTimeMillis();
                 } catch (Exception e) {
                 }
@@ -405,7 +407,7 @@ public final class b {
                         jSONObject.put("type", "3");
                         jSONObject.put("ver", "1");
                         jSONObject.put("cuid", com.baidu.location.g.b.a().b);
-                        jSONObject.put("prod", com.baidu.location.g.b.e + ":" + com.baidu.location.g.b.d);
+                        jSONObject.put("prod", com.baidu.location.g.b.e + Config.TRACE_TODAY_VISIT_SPLIT + com.baidu.location.g.b.d);
                         jSONObject.put("rgc", b);
                         this.t = System.currentTimeMillis();
                     } catch (Exception e) {
@@ -1011,9 +1013,9 @@ public final class b {
                     Cursor rawQuery = this.h.rawQuery(String.format(Locale.US, "SELECT * FROM CL WHERE id = %d AND timestamp + %d > %d;", l, 15552000, Long.valueOf(System.currentTimeMillis() / 1000)), null);
                     if (rawQuery != null) {
                         try {
-                            if (rawQuery.moveToFirst() && rawQuery.getDouble(rawQuery.getColumnIndex("cl")) > 0.0d) {
+                            if (rawQuery.moveToFirst() && rawQuery.getDouble(rawQuery.getColumnIndex(Config.CELL_LOCATION)) > 0.0d) {
                                 z = true;
-                                d = rawQuery.getDouble(rawQuery.getColumnIndex("x"));
+                                d = rawQuery.getDouble(rawQuery.getColumnIndex(Config.EVENT_HEAT_X));
                                 d2 = rawQuery.getDouble(rawQuery.getColumnIndex("y"));
                                 i = rawQuery.getInt(rawQuery.getColumnIndex("r"));
                                 if (rawQuery.getInt(rawQuery.getColumnIndex("timestamp")) + 604800 < System.currentTimeMillis() / 1000) {
@@ -1070,7 +1072,7 @@ public final class b {
             bDLocation.setRadius(i);
             bDLocation.setLatitude(d2);
             bDLocation.setLongitude(d);
-            bDLocation.setNetworkLocationType("cl");
+            bDLocation.setNetworkLocationType(Config.CELL_LOCATION);
             bDLocation.setLocType(66);
             return bDLocation;
         }
@@ -1327,7 +1329,7 @@ public final class b {
         if (bDLocation == null || bDLocation.getLocType() != 161) {
             return;
         }
-        if (bDLocation2 != null && bDLocation.getNetworkLocationType() != null && bDLocation.getNetworkLocationType().equals("cl") && a(bDLocation2.getLatitude(), bDLocation2.getLongitude(), bDLocation.getLatitude(), bDLocation.getLongitude()) > 300.0d) {
+        if (bDLocation2 != null && bDLocation.getNetworkLocationType() != null && bDLocation.getNetworkLocationType().equals(Config.CELL_LOCATION) && a(bDLocation2.getLatitude(), bDLocation2.getLongitude(), bDLocation.getLatitude(), bDLocation.getLongitude()) > 300.0d) {
             String format = String.format(Locale.US, "UPDATE CL SET cl = 0 WHERE id = %d;", l);
             String format2 = String.format(Locale.US, "INSERT OR REPLACE INTO CL VALUES (%d,\"%s\",%d);", l, str, 100000);
             try {
@@ -1499,7 +1501,7 @@ public final class b {
                 bDLocation4.setCoorType("gcj");
                 bDLocation4.setLatitude(coorEncrypt[1]);
                 bDLocation4.setLongitude(coorEncrypt[0]);
-                bDLocation4.setNetworkLocationType("cl");
+                bDLocation4.setNetworkLocationType(Config.CELL_LOCATION);
             }
             if (bDLocation5 != null) {
                 d4 = Double.valueOf(bDLocation5.getLongitude());
@@ -1574,7 +1576,7 @@ public final class b {
                     stringBuffer.append(e.a(bDLocation, i));
                     str3 = stringBuffer.toString();
                 }
-                new C0046b(str2, j, bDLocation4, bDLocation5, bDLocation3, str3, linkedHashMap) { // from class: com.baidu.location.d.b.1
+                new C0048b(str2, j, bDLocation4, bDLocation5, bDLocation3, str3, linkedHashMap) { // from class: com.baidu.location.d.b.1
                 }.start();
             } else {
                 if (bDLocation5 != null) {
@@ -1621,7 +1623,7 @@ public final class b {
                 String str32 = null;
                 if (aVar.a != null) {
                 }
-                new C0046b(str2, j, bDLocation4, bDLocation5, bDLocation3, str32, linkedHashMap) { // from class: com.baidu.location.d.b.1
+                new C0048b(str2, j, bDLocation4, bDLocation5, bDLocation3, str32, linkedHashMap) { // from class: com.baidu.location.d.b.1
                 }.start();
             }
         } else {

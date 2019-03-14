@@ -24,6 +24,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
@@ -32,10 +33,10 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeStatisticUtil;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.an.aa;
 import com.baidu.swan.apps.an.ab;
 import com.baidu.swan.apps.an.x;
-import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.swan.apps.res.ui.BdMultiPicker;
 import com.baidu.swan.apps.res.widget.b.d;
@@ -60,7 +61,7 @@ import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes2.dex */
 public class g extends UnitedSchemeBaseDispatcher {
-    private static com.baidu.swan.apps.res.widget.dialog.e aOU;
+    private static com.baidu.swan.apps.res.widget.dialog.e aOV;
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0050, code lost:
@@ -281,11 +282,11 @@ public class g extends UnitedSchemeBaseDispatcher {
         }
         String optString = optParamsAsJo.optString("title");
         boolean optBoolean = optParamsAsJo.optBoolean("mask", false);
-        if (!(context instanceof a.InterfaceC0135a)) {
+        if (!(context instanceof a.InterfaceC0164a)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not support");
             return false;
         }
-        com.baidu.swan.apps.res.widget.floatlayer.a uv = ((a.InterfaceC0135a) context).uv();
+        com.baidu.swan.apps.res.widget.floatlayer.a uv = ((a.InterfaceC0164a) context).uv();
         View view = uv.getView();
         if (view instanceof LoadingView) {
             loadingView = (LoadingView) view;
@@ -302,11 +303,11 @@ public class g extends UnitedSchemeBaseDispatcher {
     }
 
     private boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        if (!(context instanceof a.InterfaceC0135a)) {
+        if (!(context instanceof a.InterfaceC0164a)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support FloatLayer");
             return false;
         }
-        com.baidu.swan.apps.res.widget.floatlayer.a uv = ((a.InterfaceC0135a) context).uv();
+        com.baidu.swan.apps.res.widget.floatlayer.a uv = ((a.InterfaceC0164a) context).uv();
         if (uv.getView() instanceof LoadingView) {
             uv.reset();
         }
@@ -341,7 +342,7 @@ public class g extends UnitedSchemeBaseDispatcher {
             unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         } catch (JSONException e) {
-            if (com.baidu.swan.apps.c.DEBUG) {
+            if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -600,7 +601,7 @@ public class g extends UnitedSchemeBaseDispatcher {
         if (!TextUtils.isEmpty(optString4)) {
             aVar.ge(optString4);
         }
-        aVar.j(gz).k(gz2).l(gz3).bW(optBoolean).cn(b.h.aiapps_picker_time_title).b(b.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.7
+        aVar.j(gz).k(gz2).l(gz3).bW(optBoolean).cn(a.h.aiapps_picker_time_title).b(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.7
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
@@ -609,7 +610,7 @@ public class g extends UnitedSchemeBaseDispatcher {
                 try {
                     jSONObject2.put(UBC.CONTENT_KEY_VALUE, format);
                     JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0);
-                    if (com.baidu.swan.apps.c.DEBUG) {
+                    if (com.baidu.swan.apps.b.DEBUG) {
                         Log.d("SwanAppUnitedSchemeUtilsDispatcher", "handleShowDatePicker params = " + wrapCallbackParams.toString());
                     }
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, wrapCallbackParams);
@@ -617,7 +618,7 @@ public class g extends UnitedSchemeBaseDispatcher {
                     e.printStackTrace();
                 }
             }
-        }).c(b.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.1
+        }).c(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.1
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -640,7 +641,7 @@ public class g extends UnitedSchemeBaseDispatcher {
         try {
             if (TextUtils.isEmpty(str)) {
                 date = new Date();
-            } else if (!str.contains(":") || (split = str.split(":")) == null || split.length != 2) {
+            } else if (!str.contains(Config.TRACE_TODAY_VISIT_SPLIT) || (split = str.split(Config.TRACE_TODAY_VISIT_SPLIT)) == null || split.length != 2) {
                 date = null;
             } else {
                 date = new Date();
@@ -706,7 +707,7 @@ public class g extends UnitedSchemeBaseDispatcher {
         if (!TextUtils.isEmpty(optString4)) {
             aVar.gc(optString4);
         }
-        aVar.g(aJ).h(aJ2).i(date).bM(optBoolean).cn(b.h.aiapps_picker_date_title).b(b.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.9
+        aVar.g(aJ).h(aJ2).i(date).bM(optBoolean).cn(a.h.aiapps_picker_date_title).b(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.9
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
@@ -716,7 +717,7 @@ public class g extends UnitedSchemeBaseDispatcher {
                     try {
                         jSONObject2.put(UBC.CONTENT_KEY_VALUE, Io);
                         JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0);
-                        if (com.baidu.swan.apps.c.DEBUG) {
+                        if (com.baidu.swan.apps.b.DEBUG) {
                             Log.d("SwanAppUnitedSchemeUtilsDispatcher", "handleShowDatePicker params = " + wrapCallbackParams.toString());
                         }
                         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, wrapCallbackParams);
@@ -725,7 +726,7 @@ public class g extends UnitedSchemeBaseDispatcher {
                     }
                 }
             }
-        }).c(b.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.8
+        }).c(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.8
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
@@ -742,15 +743,15 @@ public class g extends UnitedSchemeBaseDispatcher {
         }
         String optString = optParamsAsJo.optString("confirmText");
         if (TextUtils.isEmpty(optString)) {
-            optString = context.getString(b.h.aiapps_ok);
+            optString = context.getString(a.h.aiapps_ok);
         }
         e.a aVar = new e.a(context);
         aVar.d(optParamsAsJo.optString("title")).gd(optParamsAsJo.optString("content")).a(new com.baidu.swan.apps.view.b.a()).bR(false);
         if (optParamsAsJo.optBoolean("showCancel", true)) {
-            aVar.G(optParamsAsJo.optString("cancelColor"), b.c.aiapps_modal_cancel_color);
+            aVar.G(optParamsAsJo.optString("cancelColor"), a.c.aiapps_modal_cancel_color);
             String optString2 = optParamsAsJo.optString("cancelText");
             if (TextUtils.isEmpty(optString2)) {
-                optString2 = context.getString(b.h.aiapps_cancel);
+                optString2 = context.getString(a.h.aiapps_cancel);
             }
             aVar.d(optString2, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.10
                 @Override // android.content.DialogInterface.OnClickListener
@@ -765,7 +766,7 @@ public class g extends UnitedSchemeBaseDispatcher {
                 }
             });
         }
-        aVar.F(optParamsAsJo.optString("confirmColor"), b.c.aiapps_modal_confirm_color);
+        aVar.F(optParamsAsJo.optString("confirmColor"), a.c.aiapps_modal_confirm_color);
         aVar.c(optString, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.11
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -816,15 +817,15 @@ public class g extends UnitedSchemeBaseDispatcher {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        final int color = i == -1 ? context.getResources().getColor(b.c.aiapps_action_sheet_item_color) : i;
+        final int color = i == -1 ? context.getResources().getColor(a.c.aiapps_action_sheet_item_color) : i;
         e.a a = new e.a(context).bP(true).bV(true).bU(false).bR(true).a(new com.baidu.swan.apps.view.b.a()).a(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.scheme.g.12
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(201, "showActionSheet:fail cancel"));
             }
         });
-        View inflate = View.inflate(context, b.g.aiapps_scheme_utils_show_action_sheet, null);
-        ListView listView = (ListView) inflate.findViewById(b.f.list);
+        View inflate = View.inflate(context, a.g.aiapps_scheme_utils_show_action_sheet, null);
+        ListView listView = (ListView) inflate.findViewById(a.f.list);
         listView.setAdapter((ListAdapter) new BaseAdapter() { // from class: com.baidu.swan.apps.scheme.g.13
             @Override // android.widget.Adapter
             public int getCount() {
@@ -845,9 +846,9 @@ public class g extends UnitedSchemeBaseDispatcher {
             @Override // android.widget.Adapter
             public View getView(int i3, View view, ViewGroup viewGroup) {
                 if (view == null) {
-                    view = View.inflate(context, b.g.aiapps_scheme_utils_show_action_sheet_item, null);
+                    view = View.inflate(context, a.g.aiapps_scheme_utils_show_action_sheet_item, null);
                 }
-                TextView textView = (TextView) view.findViewById(b.f.text);
+                TextView textView = (TextView) view.findViewById(a.f.text);
                 textView.setTextColor(color);
                 textView.setText(getItem(i3));
                 return view;
@@ -1048,20 +1049,20 @@ public class g extends UnitedSchemeBaseDispatcher {
 
     private boolean a(Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final boolean z) {
         String param = unitedSchemeEntity.getParam(LegoListActivityConfig.PARAMS);
-        if (aOU != null) {
+        if (aOV != null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
         } else {
             try {
                 JSONArray jSONArray = new JSONArray();
                 JSONArray jSONArray2 = new JSONArray();
-                String string = context.getString(b.h.aiapps_picker_default_title);
+                String string = context.getString(a.h.aiapps_picker_default_title);
                 if (!TextUtils.isEmpty(param)) {
                     JSONObject jSONObject = new JSONObject(param);
                     jSONArray = jSONObject.optJSONArray("array");
                     jSONArray2 = jSONObject.optJSONArray("current");
                     string = jSONObject.optString("title", string);
                 }
-                aOU = new d.a(context).j(jSONArray).k(jSONArray2).bO(z).a(new BdMultiPicker.b() { // from class: com.baidu.swan.apps.scheme.g.6
+                aOV = new d.a(context).j(jSONArray).k(jSONArray2).bO(z).a(new BdMultiPicker.b() { // from class: com.baidu.swan.apps.scheme.g.6
                     @Override // com.baidu.swan.apps.res.ui.BdMultiPicker.b
                     public void a(BdMultiPicker bdMultiPicker, JSONObject jSONObject2) {
                         String optString = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity).optString("cb");
@@ -1069,11 +1070,11 @@ public class g extends UnitedSchemeBaseDispatcher {
                             callbackHandler.handleSchemeDispatchCallback(optString, jSONObject2.toString());
                         }
                     }
-                }).d(string).b(b.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.5
+                }).d(string).b(a.h.aiapps_ok, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.5
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
-                        com.baidu.swan.apps.res.widget.dialog.e unused = g.aOU = null;
+                        com.baidu.swan.apps.res.widget.dialog.e unused = g.aOV = null;
                         try {
                             JSONArray currentIndex = ((com.baidu.swan.apps.res.widget.dialog.d) dialogInterface).getCurrentIndex();
                             JSONObject jSONObject2 = new JSONObject();
@@ -1089,16 +1090,16 @@ public class g extends UnitedSchemeBaseDispatcher {
                             e.printStackTrace();
                         }
                     }
-                }).c(b.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.4
+                }).c(a.h.aiapps_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.scheme.g.4
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
-                        com.baidu.swan.apps.res.widget.dialog.e unused = g.aOU = null;
+                        com.baidu.swan.apps.res.widget.dialog.e unused = g.aOV = null;
                         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                     }
                 }).Iu();
             } catch (JSONException e) {
-                if (com.baidu.swan.apps.c.DEBUG) {
+                if (com.baidu.swan.apps.b.DEBUG) {
                     e.printStackTrace();
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
@@ -1112,7 +1113,7 @@ public class g extends UnitedSchemeBaseDispatcher {
         if (TextUtils.isEmpty(param)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
-        } else if (aOU == null) {
+        } else if (aOV == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         } else {
@@ -1122,12 +1123,12 @@ public class g extends UnitedSchemeBaseDispatcher {
                 JSONArray optJSONArray = jSONObject.optJSONArray("array");
                 int i2 = jSONObject.getInt("current");
                 if (optJSONArray != null) {
-                    ((com.baidu.swan.apps.res.widget.dialog.d) aOU).a(i, optJSONArray, i2);
+                    ((com.baidu.swan.apps.res.widget.dialog.d) aOV).a(i, optJSONArray, i2);
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 }
                 return true;
             } catch (JSONException e) {
-                if (com.baidu.swan.apps.c.DEBUG) {
+                if (com.baidu.swan.apps.b.DEBUG) {
                     e.printStackTrace();
                 }
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);

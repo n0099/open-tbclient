@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.text.TextUtils;
 import cn.jiguang.d.d.aa;
+import com.baidu.mobstat.Config;
 import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -61,7 +62,7 @@ public final class e implements Thread.UncaughtExceptionHandler {
     private static String a(Throwable th) {
         String th2 = th.toString();
         try {
-            String[] split = th2.split(":");
+            String[] split = th2.split(Config.TRACE_TODAY_VISIT_SPLIT);
             if (split.length > 1) {
                 for (int length = split.length - 1; length >= 0; length--) {
                     if (split[length].endsWith("Exception") || split[length].endsWith("Error")) {
@@ -99,7 +100,7 @@ public final class e implements Thread.UncaughtExceptionHandler {
                 }
                 jSONObject = jSONArray.optJSONObject(i4);
                 if (jSONObject != null && stringWriter2.equals(jSONObject.getString("stacktrace"))) {
-                    jSONObject.put("count", jSONObject.getInt("count") + 1);
+                    jSONObject.put(Config.TRACE_VISIT_RECENT_COUNT, jSONObject.getInt(Config.TRACE_VISIT_RECENT_COUNT) + 1);
                     jSONObject.put("crashtime", bH);
                     break;
                 }
@@ -112,7 +113,7 @@ public final class e implements Thread.UncaughtExceptionHandler {
             jSONObject2.put("crashtime", bH);
             jSONObject2.put("stacktrace", stringWriter2);
             jSONObject2.put("message", a(th));
-            jSONObject2.put("count", 1);
+            jSONObject2.put(Config.TRACE_VISIT_RECENT_COUNT, 1);
             jSONObject2.put("networktype", cn.jiguang.g.a.e(context));
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 1);
             if (packageInfo != null) {

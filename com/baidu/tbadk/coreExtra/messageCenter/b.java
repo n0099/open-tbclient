@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.atomData.MyBookrackActivityConfig;
@@ -37,14 +38,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    private static b bYJ;
-    private com.baidu.tbadk.coreExtra.model.e bYL;
-    private String bYO;
+    private static b bYK;
+    private com.baidu.tbadk.coreExtra.model.e bYM;
     private String bYP;
     private String bYQ;
-    public static boolean bYz = true;
-    public static boolean bYA = false;
-    private static Date bYM = null;
+    private String bYR;
+    public static boolean bYA = true;
+    public static boolean bYB = false;
+    private static Date bYN = null;
     private static Handler mHandler = new Handler() { // from class: com.baidu.tbadk.coreExtra.messageCenter.b.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -53,24 +54,24 @@ public class b {
             }
         }
     };
-    private final HashMap<Integer, HashSet> bYB = new HashMap<>();
-    private int bYC = 0;
+    private final HashMap<Integer, HashSet> bYC = new HashMap<>();
     private int bYD = 0;
     private int bYE = 0;
     private int bYF = 0;
     private int bYG = 0;
     private int bYH = 0;
     private int bYI = 0;
-    private com.baidu.tbadk.coreExtra.model.e bYK = new com.baidu.tbadk.coreExtra.model.e();
-    private boolean bYN = true;
-    private final int[] bYR = new int[10];
+    private int bYJ = 0;
+    private com.baidu.tbadk.coreExtra.model.e bYL = new com.baidu.tbadk.coreExtra.model.e();
+    private boolean bYO = true;
+    private final int[] bYS = new int[10];
     private final Context appContext = TbadkCoreApplication.getInst().getApp();
 
     public static b ahA() {
-        if (bYJ == null) {
-            bYJ = new b();
+        if (bYK == null) {
+            bYK = new b();
         }
-        return bYJ;
+        return bYK;
     }
 
     private b() {
@@ -86,63 +87,63 @@ public class b {
                 String optString2 = optJSONObject.optString("atme");
                 String optString3 = optJSONObject.optString("agree");
                 if (!StringUtils.isNull(optString) && optInt > 0) {
-                    this.bYP = optString;
+                    this.bYQ = optString;
                 }
                 if (!StringUtils.isNull(optString3) && optInt2 > 0) {
-                    this.bYO = optString3;
+                    this.bYP = optString3;
                 }
                 if (!StringUtils.isNull(optString2)) {
-                    this.bYQ = optString2;
+                    this.bYR = optString2;
                 }
             }
         }
     }
 
     public void a(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
-        if (i != this.bYC || i2 != this.bYD || i3 != this.bYE || i4 != this.bYF || i5 != this.bYH || i6 != this.bYG || i7 != this.bYI) {
+        if (i != this.bYD || i2 != this.bYE || i3 != this.bYF || i4 != this.bYG || i5 != this.bYI || i6 != this.bYH || i7 != this.bYJ) {
             int i8 = 0;
-            if (i > this.bYC || i2 > this.bYD || i3 > this.bYE || i4 > this.bYF || i5 > this.bYH || i6 > this.bYG || i7 > this.bYI) {
+            if (i > this.bYD || i2 > this.bYE || i3 > this.bYF || i4 > this.bYG || i5 > this.bYI || i6 > this.bYH || i7 > this.bYJ) {
                 i8 = 1;
-            } else if (i < this.bYC || i2 < this.bYD || i3 < this.bYE) {
+            } else if (i < this.bYD || i2 < this.bYE || i3 < this.bYF) {
                 i8 = 2;
             }
             int i9 = 0;
-            if (i > this.bYC && d.aih().aiy()) {
+            if (i > this.bYD && d.aih().aiy()) {
                 i9 = 1;
-            } else if (i < this.bYC) {
+            } else if (i < this.bYD) {
                 i9 = 2;
             }
             int i10 = 0;
-            if (i2 > this.bYD && d.aih().aio()) {
+            if (i2 > this.bYE && d.aih().aio()) {
                 i10 = 1;
-            } else if (i2 < this.bYD) {
+            } else if (i2 < this.bYE) {
                 i10 = 2;
             }
             int i11 = 0;
-            if (i3 > this.bYE && d.aih().aim()) {
+            if (i3 > this.bYF && d.aih().aim()) {
                 i11 = 1;
-            } else if (i3 < this.bYE) {
+            } else if (i3 < this.bYF) {
                 i11 = 2;
             }
             int i12 = 0;
-            if (i4 > this.bYF) {
+            if (i4 > this.bYG) {
                 i12 = 1;
             }
             int i13 = 0;
-            if (i5 > this.bYH) {
+            if (i5 > this.bYI) {
                 i13 = 1;
             }
             int i14 = 0;
-            if (i7 > this.bYI) {
+            if (i7 > this.bYJ) {
                 i14 = 1;
             }
-            this.bYC = i;
-            this.bYD = i2;
-            this.bYE = i3;
-            this.bYF = i4;
-            this.bYH = i5;
-            this.bYG = i6;
-            this.bYI = i7;
+            this.bYD = i;
+            this.bYE = i2;
+            this.bYF = i3;
+            this.bYG = i4;
+            this.bYI = i5;
+            this.bYH = i6;
+            this.bYJ = i7;
             if (ahV() <= 0) {
                 i8 = 2;
                 i14 = 2;
@@ -166,13 +167,13 @@ public class b {
     }
 
     public void c(int i, int i2, int i3, int i4, int i5, int i6) {
-        if (i != this.bYC || i2 != this.bYD || i3 != this.bYE || i4 != this.bYF || i5 != this.bYH || this.bYI != i6) {
-            this.bYC = i;
-            this.bYD = i2;
-            this.bYE = i3;
-            this.bYF = i4;
-            this.bYH = i5;
-            this.bYI = i6;
+        if (i != this.bYD || i2 != this.bYE || i3 != this.bYF || i4 != this.bYG || i5 != this.bYI || this.bYJ != i6) {
+            this.bYD = i;
+            this.bYE = i2;
+            this.bYF = i3;
+            this.bYG = i4;
+            this.bYI = i5;
+            this.bYJ = i6;
             ahS();
             if (ahV() <= 0) {
                 ae(2, 16);
@@ -182,14 +183,14 @@ public class b {
     }
 
     public static boolean ahB() {
-        if (bYM == null) {
-            bYM = new Date();
+        if (bYN == null) {
+            bYN = new Date();
         } else {
             Date date = new Date();
-            if (date.getTime() - bYM.getTime() < 10000) {
+            if (date.getTime() - bYN.getTime() < 10000) {
                 return false;
             }
-            bYM = date;
+            bYN = date;
         }
         return true;
     }
@@ -198,9 +199,9 @@ public class b {
         if (d.aih().ais()) {
             Calendar calendar = Calendar.getInstance();
             int i = calendar.get(12) + (calendar.get(11) * 60);
-            String[] split = d.aih().aiu().split(":");
+            String[] split = d.aih().aiu().split(Config.TRACE_TODAY_VISIT_SPLIT);
             int parseInt = Integer.parseInt(split[1]) + (Integer.parseInt(split[0]) * 60);
-            String[] split2 = d.aih().aiv().split(":");
+            String[] split2 = d.aih().aiv().split(Config.TRACE_TODAY_VISIT_SPLIT);
             int parseInt2 = Integer.parseInt(split2[1]) + (Integer.parseInt(split2[0]) * 60);
             if (parseInt < parseInt2) {
                 if (i >= parseInt && i <= parseInt2) {
@@ -222,52 +223,52 @@ public class b {
         try {
             if (i == 1) {
                 if (i2 == 23) {
-                    if (this.bYI > 0) {
-                        String format = String.format(this.appContext.getString(d.j.notify_gift), String.valueOf(this.bYI));
+                    if (this.bYJ > 0) {
+                        String format = String.format(this.appContext.getString(d.j.notify_gift), String.valueOf(this.bYJ));
                         c(23, null, format, format);
                     }
                 } else if (i2 == 29) {
-                    if (this.bYC > 0) {
+                    if (this.bYD > 0) {
                         StringBuilder sb = new StringBuilder();
-                        sb.append(String.format(this.appContext.getString(d.j.notify_agree), Integer.valueOf(this.bYC)));
+                        sb.append(String.format(this.appContext.getString(d.j.notify_agree), Integer.valueOf(this.bYD)));
                         c(29, null, sb.toString(), sb.toString());
                     }
                 } else if (i2 == 24) {
-                    if (this.bYD > 0) {
+                    if (this.bYE > 0) {
                         StringBuilder sb2 = new StringBuilder();
-                        if (this.bYD > 1) {
+                        if (this.bYE > 1) {
                             sb2.append("[");
-                            sb2.append(String.valueOf(this.bYD));
+                            sb2.append(String.valueOf(this.bYE));
                             sb2.append(this.appContext.getString(d.j.notify_unit));
                             sb2.append("]");
                         }
-                        if (this.bYP != null) {
-                            sb2.append(this.bYP);
+                        if (this.bYQ != null) {
+                            sb2.append(this.bYQ);
                         } else {
                             sb2.append(this.appContext.getString(d.j.notify_reply));
                         }
                         c(24, null, sb2.toString(), sb2.toString());
                     }
                 } else if (i2 == 25) {
-                    if (this.bYE > 0) {
+                    if (this.bYF > 0) {
                         StringBuilder sb3 = new StringBuilder();
-                        if (this.bYE > 1) {
+                        if (this.bYF > 1) {
                             sb3.append("[");
-                            sb3.append(String.valueOf(this.bYE));
+                            sb3.append(String.valueOf(this.bYF));
                             sb3.append(this.appContext.getString(d.j.notify_unit));
                             sb3.append("]");
                         }
-                        if (this.bYQ != null) {
-                            sb3.append(this.bYQ);
+                        if (this.bYR != null) {
+                            sb3.append(this.bYR);
                         } else {
                             sb3.append(this.appContext.getString(d.j.notify_at));
                         }
                         c(25, null, sb3.toString(), sb3.toString());
                     }
                 } else if (i2 == 26) {
-                    if (this.bYH > 0) {
+                    if (this.bYI > 0) {
                         StringBuilder sb4 = new StringBuilder();
-                        sb4.append(String.format(this.appContext.getString(d.j.notify_fans), Integer.valueOf(this.bYH)));
+                        sb4.append(String.format(this.appContext.getString(d.j.notify_fans), Integer.valueOf(this.bYI)));
                         c(26, null, sb4.toString(), sb4.toString());
                     }
                 } else if (i2 == 16 || !d.aih().aix() || d.aih().aik() > 0) {
@@ -289,8 +290,8 @@ public class b {
     */
     private void a(int i, int i2, com.baidu.tbadk.coreExtra.model.e eVar) {
         boolean z;
-        String ajj;
         String aji;
+        String ajh;
         String str;
         boolean z2 = false;
         boolean z3 = true;
@@ -299,101 +300,101 @@ public class b {
                 if (i == 1) {
                     StringBuffer stringBuffer = new StringBuffer();
                     if (i2 == 23) {
-                        if (this.bYI > 0) {
-                            String format = String.format(this.appContext.getString(d.j.notify_gift), String.valueOf(this.bYI));
+                        if (this.bYJ > 0) {
+                            String format = String.format(this.appContext.getString(d.j.notify_gift), String.valueOf(this.bYJ));
                             c(23, null, format, format);
                         }
                     } else if (i2 == 29) {
-                        if (this.bYC > 0) {
+                        if (this.bYD > 0) {
                             StringBuilder sb = new StringBuilder();
-                            if (this.bYC > 1) {
+                            if (this.bYD > 1) {
                                 sb.append("[");
-                                sb.append(String.valueOf(this.bYC));
+                                sb.append(String.valueOf(this.bYD));
                                 sb.append(this.appContext.getString(d.j.notify_unit));
                                 sb.append("]");
                             }
-                            if (this.bYO != null) {
-                                sb.append(this.bYO);
+                            if (this.bYP != null) {
+                                sb.append(this.bYP);
                             } else {
                                 sb.append(this.appContext.getString(d.j.notify_agree));
                             }
                             c(29, null, sb.toString(), sb.toString());
                         }
                     } else if (i2 == 24) {
-                        if (this.bYD > 0) {
+                        if (this.bYE > 0) {
                             StringBuilder sb2 = new StringBuilder();
-                            if (this.bYD > 1) {
+                            if (this.bYE > 1) {
                                 sb2.append("[");
-                                sb2.append(String.valueOf(this.bYD));
+                                sb2.append(String.valueOf(this.bYE));
                                 sb2.append(this.appContext.getString(d.j.notify_unit));
                                 sb2.append("]");
                             }
-                            if (this.bYP != null) {
-                                sb2.append(this.bYP);
+                            if (this.bYQ != null) {
+                                sb2.append(this.bYQ);
                             } else {
                                 sb2.append(this.appContext.getString(d.j.notify_reply));
                             }
                             c(24, null, sb2.toString(), sb2.toString());
                         }
                     } else if (i2 == 25) {
-                        if (this.bYE > 0) {
+                        if (this.bYF > 0) {
                             StringBuilder sb3 = new StringBuilder();
-                            if (this.bYE > 1) {
+                            if (this.bYF > 1) {
                                 sb3.append("[");
-                                sb3.append(String.valueOf(this.bYE));
+                                sb3.append(String.valueOf(this.bYF));
                                 sb3.append(this.appContext.getString(d.j.notify_unit));
                                 sb3.append("]");
                             }
-                            if (this.bYQ != null) {
-                                sb3.append(this.bYQ);
+                            if (this.bYR != null) {
+                                sb3.append(this.bYR);
                             } else {
                                 sb3.append(this.appContext.getString(d.j.notify_at));
                             }
                             c(25, null, sb3.toString(), sb3.toString());
                         }
                     } else if (i2 == 26) {
-                        if (this.bYH > 0) {
+                        if (this.bYI > 0) {
                             StringBuilder sb4 = new StringBuilder();
-                            if (this.bYH > 1) {
-                                sb4.append(String.format(this.appContext.getString(d.j.notify_fans_unit), Integer.valueOf(this.bYH)));
+                            if (this.bYI > 1) {
+                                sb4.append(String.format(this.appContext.getString(d.j.notify_fans_unit), Integer.valueOf(this.bYI)));
                             }
                             sb4.append(this.appContext.getString(d.j.notify_fans));
                             c(26, null, sb4.toString(), sb4.toString());
                         }
                     } else if (i2 == 16) {
-                        int aiZ = (!d.aih().aix() || d.aih().aik() <= 0) ? 0 : eVar.aiZ() - eVar.ajg();
-                        long ajr = (!d.aih().aip() || d.aih().aik() <= 0) ? 0L : eVar.ajr();
-                        boolean z4 = ajr > 0;
-                        long j = aiZ + ajr;
+                        int aiY = (!d.aih().aix() || d.aih().aik() <= 0) ? 0 : eVar.aiY() - eVar.ajf();
+                        long ajq = (!d.aih().aip() || d.aih().aik() <= 0) ? 0L : eVar.ajq();
+                        boolean z4 = ajq > 0;
+                        long j = aiY + ajq;
                         if (j > 1) {
                             stringBuffer.append(String.format(this.appContext.getString(d.j.notify_chat), Long.valueOf(j)));
                             b(16, null, stringBuffer.toString(), stringBuffer.toString(), z4);
                         } else if (j == 1) {
-                            eVar.aju();
-                            eVar.ajs();
-                            if (ajr == 1) {
-                                ajj = eVar.aju();
-                                str = eVar.ajs();
-                                aji = ajj + "：" + str;
-                            } else if (aiZ == 1) {
-                                ajj = eVar.ajj();
+                            eVar.ajt();
+                            eVar.ajr();
+                            if (ajq == 1) {
+                                aji = eVar.ajt();
+                                str = eVar.ajr();
+                                ajh = aji + "：" + str;
+                            } else if (aiY == 1) {
                                 aji = eVar.aji();
-                                str = aji;
+                                ajh = eVar.ajh();
+                                str = ajh;
                             } else {
                                 return;
                             }
                             if (TextUtils.isEmpty(str)) {
                                 str = stringBuffer.append(String.format(this.appContext.getString(d.j.notify_chat), Long.valueOf(j))).toString();
                             }
-                            if (TextUtils.isEmpty(aji)) {
-                                aji = str;
+                            if (TextUtils.isEmpty(ajh)) {
+                                ajh = str;
                             }
-                            b(16, ajj, str, aji, z4);
+                            b(16, aji, str, ajh, z4);
                         }
                     } else if (i2 == 19) {
-                        List<e.a> ajx = eVar.ajx();
-                        if (ajx != null && ajx.size() != 0) {
-                            for (e.a aVar : ajx) {
+                        List<e.a> ajw = eVar.ajw();
+                        if (ajw != null && ajw.size() != 0) {
+                            for (e.a aVar : ajw) {
                                 if (aVar != null && !StringUtils.isNull(aVar.content) && !ap.isEmpty(aVar.gid) && aVar.unReadCount > aVar.caK && aVar.caL == null) {
                                     ahY();
                                     if (ahZ().contains(aVar.gid)) {
@@ -404,34 +405,34 @@ public class b {
                                 }
                             }
                         }
-                    } else if (d.aih().aix() && d.aih().aik() > 0 && eVar.aja() + eVar.ajc() > 0) {
-                        if (eVar.aja() > 0 && !ahJ()) {
-                            long aja = eVar.aja() - eVar.ajb();
-                            if (aja > 0) {
-                                stringBuffer.append(String.format(this.appContext.getString(d.j.notify_updates), Long.valueOf(aja)));
+                    } else if (d.aih().aix() && d.aih().aik() > 0 && eVar.aiZ() + eVar.ajb() > 0) {
+                        if (eVar.aiZ() > 0 && !ahJ()) {
+                            long aiZ = eVar.aiZ() - eVar.aja();
+                            if (aiZ > 0) {
+                                stringBuffer.append(String.format(this.appContext.getString(d.j.notify_updates), Long.valueOf(aiZ)));
                                 z = false;
                                 z2 = true;
-                            } else if (eVar.ajb() > 0) {
+                            } else if (eVar.aja() > 0) {
                                 z = true;
                             }
-                            if (eVar.ajc() > 0 || ahI()) {
+                            if (eVar.ajb() > 0 || ahI()) {
                                 z3 = z2;
                             } else if (!z2) {
-                                stringBuffer.append(String.format(this.appContext.getString(d.j.notify_validate), Integer.valueOf(eVar.ajc())));
+                                stringBuffer.append(String.format(this.appContext.getString(d.j.notify_validate), Integer.valueOf(eVar.ajb())));
                             } else {
-                                stringBuffer.append(String.format(this.appContext.getString(d.j.notify_validate_1), Integer.valueOf(eVar.ajc())));
+                                stringBuffer.append(String.format(this.appContext.getString(d.j.notify_validate_1), Integer.valueOf(eVar.ajb())));
                             }
                             if (z3) {
                                 c(17, null, stringBuffer.toString(), stringBuffer.toString());
                             }
                             if (!z) {
-                                c(18, eVar.ajl(), eVar.ajm(), eVar.ajm());
+                                c(18, eVar.ajk(), eVar.ajl(), eVar.ajl());
                                 return;
                             }
                             return;
                         }
                         z = false;
-                        if (eVar.ajc() > 0) {
+                        if (eVar.ajb() > 0) {
                         }
                         z3 = z2;
                         if (z3) {
@@ -481,10 +482,10 @@ public class b {
     private void b(int i, String str, String str2, String str3, boolean z) {
         Intent n;
         PendingIntent service;
-        if (this.bYN) {
-            if (i == 23 && this.bYI > 0) {
+        if (this.bYO) {
+            if (i == 23 && this.bYJ > 0) {
                 n = iy(i);
-            } else if (i == 26 && this.bYH > 0) {
+            } else if (i == 26 && this.bYI > 0) {
                 n = iz(i);
             } else if (i == 18) {
                 n = ahD();
@@ -520,7 +521,7 @@ public class b {
         }
         intent.putExtra("class", 24);
         intent.putExtra("KeyOfNotiId", i);
-        intent.putExtra("gift_num", this.bYI);
+        intent.putExtra("gift_num", this.bYJ);
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
         if (!TextUtils.isEmpty(currentAccount) && !TextUtils.isEmpty(currentAccountName)) {
@@ -554,7 +555,7 @@ public class b {
         if (aVar == null) {
             return null;
         }
-        ImMessageCenterPojo aT = com.baidu.tieba.im.memorycache.b.buG().aT(aVar.gid, aVar.userType);
+        ImMessageCenterPojo aT = com.baidu.tieba.im.memorycache.b.buF().aT(aVar.gid, aVar.userType);
         if (aT == null || aT.getLast_content() == null) {
             return null;
         }
@@ -672,7 +673,7 @@ public class b {
     public Intent n(int i, boolean z) {
         String str = "";
         if (z) {
-            Set<String> keySet = this.bYK.ajt().keySet();
+            Set<String> keySet = this.bYL.ajs().keySet();
             if (keySet.iterator().hasNext()) {
                 str = keySet.iterator().next();
             }
@@ -685,15 +686,15 @@ public class b {
         }
         intent.putExtra("class", 5);
         intent.putExtra("KeyOfNotiId", i);
-        intent.putExtra("agree_me", this.bYC);
-        intent.putExtra("at_me", this.bYE);
-        intent.putExtra("reply_me", this.bYD);
-        intent.putExtra("fans", this.bYH);
+        intent.putExtra("agree_me", this.bYD);
+        intent.putExtra("at_me", this.bYF);
+        intent.putExtra("reply_me", this.bYE);
+        intent.putExtra("fans", this.bYI);
         intent.putExtra("chat", getMsgChat());
-        intent.putExtra("group_msg", this.bYK.aiZ() - this.bYK.ajg());
-        intent.putExtra("group_msg_validate", this.bYK.ajc());
-        intent.putExtra("group_msg_updates", this.bYK.aja());
-        intent.putExtra("officialbar_msg", this.bYK.ajd());
+        intent.putExtra("group_msg", this.bYL.aiY() - this.bYL.ajf());
+        intent.putExtra("group_msg_validate", this.bYL.ajb());
+        intent.putExtra("group_msg_updates", this.bYL.aiZ());
+        intent.putExtra("officialbar_msg", this.bYL.ajc());
         intent.putExtra("privateGid", str);
         return intent;
     }
@@ -706,7 +707,7 @@ public class b {
             intent.setClass(this.appContext, DealIntentService.class);
         }
         intent.putExtra("class", 14);
-        intent.putExtra("group_msg_updates", this.bYK.ajb());
+        intent.putExtra("group_msg_updates", this.bYL.aja());
         return intent;
     }
 
@@ -748,10 +749,10 @@ public class b {
             ahF();
             return;
         }
-        HashMap<String, String> ajn = ahW.ajn();
-        if (ajn == null || ajn.isEmpty()) {
+        HashMap<String, String> ajm = ahW.ajm();
+        if (ajm == null || ajm.isEmpty()) {
             ahF();
-        } else if (ajn.containsKey(str)) {
+        } else if (ajm.containsKey(str)) {
             ahF();
         }
     }
@@ -766,10 +767,10 @@ public class b {
             ahF();
             return;
         }
-        HashMap<String, String> ajt = ahW.ajt();
-        if (ajt == null || ajt.isEmpty()) {
+        HashMap<String, String> ajs = ahW.ajs();
+        if (ajs == null || ajs.isEmpty()) {
             ahF();
-        } else if (ajt.containsKey(str)) {
+        } else if (ajs.containsKey(str)) {
             ahF();
         }
     }
@@ -791,10 +792,10 @@ public class b {
         if (ahW == null) {
             ahK();
         } else if (1 == i) {
-            if (ahW.aja() <= 0) {
+            if (ahW.aiZ() <= 0) {
                 ahK();
             }
-        } else if (2 == i && ahW.ajc() <= 0) {
+        } else if (2 == i && ahW.ajb() <= 0) {
             ahK();
         }
     }
@@ -846,9 +847,9 @@ public class b {
         newsNotifyMessage.setMsgFans(getMsgFans());
         newsNotifyMessage.setMsgReplyme(getMsgReplyme());
         newsNotifyMessage.setMsgGiftNum(getMsgGiftNum());
-        newsNotifyMessage.setMsgPrivateChat(this.bYK.ajr());
-        newsNotifyMessage.setMsgStrangerChat(this.bYK.ajw());
-        newsNotifyMessage.setMsgOfficialMerge(this.bYK.ajv());
+        newsNotifyMessage.setMsgPrivateChat(this.bYL.ajq());
+        newsNotifyMessage.setMsgStrangerChat(this.bYL.ajv());
+        newsNotifyMessage.setMsgOfficialMerge(this.bYL.aju());
         MessageManager.getInstance().dispatchResponsedMessageToUI(newsNotifyMessage);
     }
 
@@ -858,88 +859,88 @@ public class b {
             newsNotifyMessage.setMsgAgree(ahT());
             newsNotifyMessage.setMsgAtme(getMsgAtme());
             newsNotifyMessage.setMsgBookmark(getMsgBookmark());
-            newsNotifyMessage.setMsgChat(((((eVar.ajr() + eVar.aiZ()) + eVar.ajw()) + eVar.ajv()) + eVar.ajy()) - eVar.ajg());
+            newsNotifyMessage.setMsgChat(((((eVar.ajq() + eVar.aiY()) + eVar.ajv()) + eVar.aju()) + eVar.ajx()) - eVar.ajf());
             newsNotifyMessage.setMsgFans(getMsgFans());
             newsNotifyMessage.setMsgReplyme(getMsgReplyme());
             newsNotifyMessage.setMsgGiftNum(getMsgGiftNum());
-            newsNotifyMessage.setMsgPrivateChat(eVar.ajr());
-            newsNotifyMessage.setMsgStrangerChat(eVar.ajw());
-            newsNotifyMessage.setMsgOfficialMerge(eVar.ajv());
+            newsNotifyMessage.setMsgPrivateChat(eVar.ajq());
+            newsNotifyMessage.setMsgStrangerChat(eVar.ajv());
+            newsNotifyMessage.setMsgOfficialMerge(eVar.aju());
             MessageManager.getInstance().dispatchResponsedMessageToUI(newsNotifyMessage);
         }
     }
 
     public int getMsgReplyme() {
-        return this.bYD;
+        return this.bYE;
     }
 
     public void setMsgReplyme(int i) {
         if (i >= 0) {
-            a(this.bYC, i, this.bYE, this.bYF, this.bYH, this.bYG, this.bYI);
+            a(this.bYD, i, this.bYF, this.bYG, this.bYI, this.bYH, this.bYJ);
         }
     }
 
     public int getMsgAtme() {
-        return this.bYE;
+        return this.bYF;
     }
 
     public void setMsgAtme(int i) {
         if (i >= 0) {
-            a(this.bYC, this.bYD, i, this.bYF, this.bYH, this.bYG, this.bYI);
+            a(this.bYD, this.bYE, i, this.bYG, this.bYI, this.bYH, this.bYJ);
         }
     }
 
     public int ahT() {
-        return this.bYC;
+        return this.bYD;
     }
 
     public void iC(int i) {
         if (i >= 0) {
-            a(i, this.bYD, this.bYE, this.bYF, this.bYH, this.bYG, this.bYI);
+            a(i, this.bYE, this.bYF, this.bYG, this.bYI, this.bYH, this.bYJ);
         }
     }
 
     public int getMsgChat() {
-        return this.bYF;
+        return this.bYG;
     }
 
     public int ahU() {
-        return ((((this.bYK.ajr() + this.bYK.aiZ()) + this.bYK.ajw()) + this.bYK.ajv()) + this.bYK.ajy()) - this.bYK.ajg();
+        return ((((this.bYL.ajq() + this.bYL.aiY()) + this.bYL.ajv()) + this.bYL.aju()) + this.bYL.ajx()) - this.bYL.ajf();
     }
 
     public int getMsgFans() {
-        return this.bYH;
+        return this.bYI;
     }
 
     public void setMsgFans(int i) {
         if (i >= 0) {
-            a(this.bYC, this.bYD, this.bYE, this.bYF, i, this.bYG, this.bYI);
+            a(this.bYD, this.bYE, this.bYF, this.bYG, i, this.bYH, this.bYJ);
         }
     }
 
     public void setMsgChat(int i) {
         if (i >= 0) {
-            a(this.bYC, this.bYD, this.bYE, i, this.bYH, this.bYG, this.bYI);
+            a(this.bYD, this.bYE, this.bYF, i, this.bYI, this.bYH, this.bYJ);
         }
     }
 
     public int getMsgBookmark() {
-        return this.bYG;
+        return this.bYH;
     }
 
     public void setMsgBookmark(int i) {
         if (i >= 0) {
-            a(this.bYC, this.bYD, this.bYE, this.bYF, this.bYH, i, this.bYI);
+            a(this.bYD, this.bYE, this.bYF, this.bYG, this.bYI, i, this.bYJ);
         }
     }
 
     public int getMsgGiftNum() {
-        return this.bYI;
+        return this.bYJ;
     }
 
     public void setMsgGiftNum(int i) {
         if (i >= 0) {
-            this.bYI = i;
+            this.bYJ = i;
         }
     }
 
@@ -948,43 +949,43 @@ public class b {
             a(0, 0, 0, 0, 0, 0, 0);
             return;
         }
-        this.bYC = 0;
         this.bYD = 0;
         this.bYE = 0;
         this.bYF = 0;
-        this.bYH = 0;
         this.bYG = 0;
+        this.bYI = 0;
+        this.bYH = 0;
     }
 
     public int ahV() {
-        return this.bYC + this.bYD + this.bYE + this.bYF + this.bYH + this.bYI;
+        return this.bYD + this.bYE + this.bYF + this.bYG + this.bYI + this.bYJ;
     }
 
     public void b(com.baidu.tbadk.coreExtra.model.e eVar) {
         int i = 0;
         if (eVar != null) {
-            this.bYK = eVar;
-            this.bYF = (eVar.aiZ() - eVar.ajg()) + eVar.ajr() + eVar.ajv() + eVar.ajy();
+            this.bYL = eVar;
+            this.bYG = (eVar.aiY() - eVar.ajf()) + eVar.ajq() + eVar.aju() + eVar.ajx();
             a(eVar);
-            if (eVar.ajh()) {
-                this.bYL = null;
+            if (eVar.ajg()) {
+                this.bYM = null;
                 mHandler.removeMessages(0);
             }
-            if (eVar.ajh()) {
+            if (eVar.ajg()) {
                 if (d.aih().aix() && d.aih().aik() > 0) {
-                    i = eVar.aiZ() - eVar.ajg();
+                    i = eVar.aiY() - eVar.ajf();
                 }
-                long ajr = (!d.aih().aip() || d.aih().aik() <= 0) ? 0L : eVar.ajr();
-                if ((i > 0 || ajr > 0) && ((i > eVar.ajk() - eVar.ajg() && i > 0) || ajr > eVar.aje())) {
+                long ajq = (!d.aih().aip() || d.aih().aik() <= 0) ? 0L : eVar.ajq();
+                if ((i > 0 || ajq > 0) && ((i > eVar.ajj() - eVar.ajf() && i > 0) || ajq > eVar.ajd())) {
                     a(1, 16, eVar);
                 }
-                int ajd = eVar.ajd();
-                if (ajd > 0 && ajd > eVar.ajq()) {
+                int ajc = eVar.ajc();
+                if (ajc > 0 && ajc > eVar.ajp()) {
                     a(1, 19, eVar);
                 }
-                if (eVar.aja() > eVar.ajo() || eVar.ajc() > eVar.ajp()) {
-                    if (eVar.aja() <= eVar.ajo() || eVar.ajc() != eVar.ajp() || !ahJ()) {
-                        if (eVar.aja() != eVar.ajo() || eVar.ajc() <= eVar.ajp() || !ahI()) {
+                if (eVar.aiZ() > eVar.ajn() || eVar.ajb() > eVar.ajo()) {
+                    if (eVar.aiZ() <= eVar.ajn() || eVar.ajb() != eVar.ajo() || !ahJ()) {
+                        if (eVar.aiZ() != eVar.ajn() || eVar.ajb() <= eVar.ajo() || !ahI()) {
                             a(1, 17, eVar);
                         }
                     }
@@ -994,15 +995,15 @@ public class b {
     }
 
     public com.baidu.tbadk.coreExtra.model.e ahW() {
-        return this.bYK;
+        return this.bYL;
     }
 
     public void c(com.baidu.tbadk.coreExtra.model.e eVar) {
-        this.bYK = eVar;
+        this.bYL = eVar;
     }
 
     public com.baidu.tbadk.coreExtra.model.e ahX() {
-        return this.bYL;
+        return this.bYM;
     }
 
     public int iD(int i) {
@@ -1052,25 +1053,25 @@ public class b {
 
     public HashMap<Integer, HashSet> ahY() {
         JSONArray jSONArray;
-        if (!bYz && bYA) {
-            return this.bYB;
+        if (!bYA && bYB) {
+            return this.bYC;
         }
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("key_response_pull_pull_config_tab_uid", null);
         if (string == null) {
-            if (this.bYB.get(0) == null) {
-                this.bYB.put(0, new HashSet());
+            if (this.bYC.get(0) == null) {
+                this.bYC.put(0, new HashSet());
             }
-            this.bYB.get(0).add("3222425470");
-            return this.bYB;
+            this.bYC.get(0).add("3222425470");
+            return this.bYC;
         }
-        if (this.bYB.get(0) != null) {
-            this.bYB.get(0).clear();
+        if (this.bYC.get(0) != null) {
+            this.bYC.get(0).clear();
         }
-        if (this.bYB.get(1) != null) {
-            this.bYB.get(1).clear();
+        if (this.bYC.get(1) != null) {
+            this.bYC.get(1).clear();
         }
-        if (this.bYB.get(2) != null) {
-            this.bYB.get(2).clear();
+        if (this.bYC.get(2) != null) {
+            this.bYC.get(2).clear();
         }
         try {
             jSONArray = new JSONArray(string);
@@ -1087,46 +1088,46 @@ public class b {
                 String optString = optJSONObject.optString("uid");
                 switch (optInt) {
                     case 0:
-                        if (this.bYB.get(0) == null) {
-                            this.bYB.put(0, new HashSet());
+                        if (this.bYC.get(0) == null) {
+                            this.bYC.put(0, new HashSet());
                         }
-                        this.bYB.get(0).add(optString);
+                        this.bYC.get(0).add(optString);
                         continue;
                     case 1:
-                        if (this.bYB.get(1) == null) {
-                            this.bYB.put(1, new HashSet());
+                        if (this.bYC.get(1) == null) {
+                            this.bYC.put(1, new HashSet());
                         }
-                        this.bYB.get(1).add(optString);
+                        this.bYC.get(1).add(optString);
                         continue;
                     case 2:
-                        if (this.bYB.get(2) == null) {
-                            this.bYB.put(2, new HashSet());
+                        if (this.bYC.get(2) == null) {
+                            this.bYC.put(2, new HashSet());
                         }
-                        this.bYB.get(2).add(optString);
+                        this.bYC.get(2).add(optString);
                         continue;
                     default:
                         continue;
                 }
             }
         }
-        bYA = true;
-        bYz = false;
-        return this.bYB;
+        bYB = true;
+        bYA = false;
+        return this.bYC;
     }
 
     public HashSet<String> ahZ() {
         ahY();
-        return this.bYB.get(0);
+        return this.bYC.get(0);
     }
 
     public HashSet<String> aia() {
         ahY();
-        return this.bYB.get(1);
+        return this.bYC.get(1);
     }
 
     public HashSet<String> aib() {
         ahY();
-        return this.bYB.get(2);
+        return this.bYC.get(2);
     }
 
     public String aic() {

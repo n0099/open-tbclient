@@ -8,8 +8,8 @@ import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes2.dex */
 public class c {
-    private Map<String, Object> baS;
-    private Map<String, Integer> baT;
+    private Map<String, Object> baT;
+    private Map<String, Integer> baU;
 
     public static c b(JsObject jsObject) {
         if (jsObject == null) {
@@ -55,18 +55,18 @@ public class c {
     }
 
     private Map<String, Object> NB() {
-        if (this.baS == null) {
-            this.baS = new TreeMap();
-        }
-        return this.baS;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public Map<String, Integer> getTypeMap() {
         if (this.baT == null) {
             this.baT = new TreeMap();
         }
         return this.baT;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public Map<String, Integer> getTypeMap() {
+        if (this.baU == null) {
+            this.baU = new TreeMap();
+        }
+        return this.baU;
     }
 
     public int ie(String str) {
@@ -112,17 +112,17 @@ public class c {
         if (O == null) {
             throw a.a(this, str, 6);
         }
-        return O.baU.toStringArray(O.index);
+        return O.baV.toStringArray(O.index);
     }
 
     /* renamed from: if  reason: not valid java name */
-    public String[] m15if(String str) {
+    public String[] m16if(String str) {
         return e(str, null);
     }
 
     public String[] e(String str, String[] strArr) {
         d O = a.O(NB().get(str));
-        return O != null ? O.baU.toStringArray(O.index) : strArr;
+        return O != null ? O.baV.toStringArray(O.index) : strArr;
     }
 
     public JsObject[] ig(String str) throws JSTypeMismatchException {
@@ -130,7 +130,7 @@ public class c {
         if (O == null) {
             throw a.a(this, str, 6);
         }
-        return O.baU.toObjectArray(O.index);
+        return O.baV.toObjectArray(O.index);
     }
 
     public String getString(String str) throws JSTypeMismatchException {

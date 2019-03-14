@@ -5,7 +5,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
@@ -16,7 +15,7 @@ import java.lang.ref.WeakReference;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class w {
-    private a iFt;
+    private a iFl;
     private String mFrom = "bar_detail";
 
     /* loaded from: classes.dex */
@@ -31,11 +30,11 @@ public class w {
     }
 
     public void a(a aVar) {
-        this.iFt = aVar;
+        this.iFl = aVar;
     }
 
     public void A(String str, long j) {
-        new b(str, j, this.mFrom, this.iFt, this, null).execute(new Integer[0]);
+        new b(str, j, this.mFrom, this.iFl, this, null).execute(new Integer[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -44,8 +43,8 @@ public class w {
         private String authSid;
         private int errorCode;
         private String errorMsg;
-        private WeakReference<a> iFu;
-        private WeakReference<w> iFv;
+        private WeakReference<a> iFm;
+        private WeakReference<w> iFn;
         private long mForumId;
         private String mForumName;
         private String mFrom;
@@ -55,11 +54,11 @@ public class w {
         public b(String str, long j, String str2, a aVar, w wVar, String str3) {
             this.mForumName = null;
             this.mForumId = 0L;
-            this.iFu = null;
-            this.iFv = new WeakReference<>(wVar);
+            this.iFm = null;
+            this.iFn = new WeakReference<>(wVar);
             this.mForumName = str;
             this.mForumId = j;
-            this.iFu = new WeakReference<>(aVar);
+            this.iFm = new WeakReference<>(aVar);
             this.mFrom = str2;
             this.authSid = str3;
             setPriority(3);
@@ -82,7 +81,7 @@ public class w {
                     this.mNetwork.acH().adF().mIsNeedTbs = true;
                     String acj = this.mNetwork.acj();
                     if (!ap.isEmpty(acj) && (jSONObject = new JSONObject(acj)) != null) {
-                        this.errorCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
+                        this.errorCode = jSONObject.optInt("error_code");
                         this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
                         this.tokenData = AuthTokenData.parse(jSONObject);
                     }
@@ -102,10 +101,10 @@ public class w {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
-            if (this.iFu != null) {
+            if (this.iFm != null) {
                 com.baidu.tieba.tbadkCore.writeModel.a aVar = new com.baidu.tieba.tbadkCore.writeModel.a();
                 aVar.forumId = this.mForumId;
-                a aVar2 = this.iFu.get();
+                a aVar2 = this.iFm.get();
                 if (aVar2 != null) {
                     if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.acH().adG().isRequestSuccess()) {
                         TbadkCoreApplication.getInst().delLikeForum(this.mForumName);

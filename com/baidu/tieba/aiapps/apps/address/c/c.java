@@ -9,9 +9,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static List<b> rx(String str) {
+    public static List<b> rv(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

@@ -16,20 +16,20 @@ import rx.d;
 import rx.j;
 /* loaded from: classes2.dex */
 public abstract class d extends com.baidu.swan.pms.a.e {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private j<? super g> arW;
-    private j<? super i> arX;
-    private j<? super com.baidu.swan.pms.model.e> arY;
-    private j<? super com.baidu.swan.pms.model.c> arZ;
-    protected com.baidu.swan.pms.d.e asa;
-    protected g asb;
-    protected List<i> asc;
-    protected com.baidu.swan.pms.model.e asd;
-    protected com.baidu.swan.pms.model.c ase;
-    protected com.baidu.swan.pms.model.a asf;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private j<? super g> arX;
+    private j<? super i> arY;
+    private j<? super com.baidu.swan.pms.model.e> arZ;
+    private j<? super com.baidu.swan.pms.model.c> asa;
+    protected com.baidu.swan.pms.d.e asb;
+    protected g asc;
+    protected List<i> asd;
+    protected com.baidu.swan.pms.model.e ase;
+    protected com.baidu.swan.pms.model.c asf;
+    protected com.baidu.swan.pms.model.a asg;
     protected String mAppId;
-    protected String apd = "0";
-    private com.baidu.swan.pms.a.a<g> asg = new com.baidu.swan.pms.a.c<g>() { // from class: com.baidu.swan.apps.core.pms.d.1
+    protected String ape = "0";
+    private com.baidu.swan.pms.a.a<g> ash = new com.baidu.swan.pms.a.c<g>() { // from class: com.baidu.swan.apps.core.pms.d.1
         @Override // com.baidu.swan.pms.a.a
         public String hp() {
             return com.baidu.swan.apps.core.pms.c.a.xD().getPath();
@@ -63,10 +63,10 @@ public abstract class d extends com.baidu.swan.pms.a.e {
             if (d.DEBUG) {
                 Log.i("SwanAppPkgDownloadCallback", "onDownloadError：" + bVar.toString());
             }
-            d.this.asa.f(gVar);
+            d.this.asb.f(gVar);
             com.baidu.swan.apps.ak.a hw = new com.baidu.swan.apps.ak.a().L(11L).M(bVar.errorNo).hv("主包下载失败").hw(bVar.toString());
-            if (d.this.arW != null) {
-                d.this.arW.onError(new PkgDownloadError(gVar, hw));
+            if (d.this.arX != null) {
+                d.this.arX.onError(new PkgDownloadError(gVar, hw));
             }
             b.zx().a(gVar, d.this.zB(), hw);
             com.baidu.swan.c.b.deleteFile(gVar.filePath);
@@ -80,26 +80,26 @@ public abstract class d extends com.baidu.swan.pms.a.e {
             if (d.DEBUG) {
                 Log.d("SwanAppPkgDownloadCallback", "onFileDownloaded: " + gVar.toString());
             }
-            d.this.aoO.add(new UbcFlowEvent("na_pms_end_download"));
+            d.this.aoP.add(new UbcFlowEvent("na_pms_end_download"));
             com.baidu.swan.apps.ak.a a = d.this.a(gVar);
             if (a == null) {
-                d.this.asb = gVar;
-                d.this.asa.g(gVar);
-                if (d.this.arW != null) {
-                    d.this.arW.onNext(gVar);
-                    d.this.arW.onCompleted();
+                d.this.asc = gVar;
+                d.this.asb.g(gVar);
+                if (d.this.arX != null) {
+                    d.this.arX.onNext(gVar);
+                    d.this.arX.onCompleted();
                 }
                 b.zx().a(gVar, d.this.zB());
                 return;
             }
-            d.this.asa.f(gVar);
-            if (d.this.arW != null) {
-                d.this.arW.onError(new PkgDownloadError(gVar, a));
+            d.this.asb.f(gVar);
+            if (d.this.arX != null) {
+                d.this.arX.onError(new PkgDownloadError(gVar, a));
             }
             b.zx().a(gVar, d.this.zB(), a);
         }
     };
-    private com.baidu.swan.pms.a.a<i> ash = new com.baidu.swan.pms.a.c<i>() { // from class: com.baidu.swan.apps.core.pms.d.7
+    private com.baidu.swan.pms.a.a<i> asi = new com.baidu.swan.pms.a.c<i>() { // from class: com.baidu.swan.apps.core.pms.d.7
         @Override // com.baidu.swan.pms.a.a
         public String hp() {
             return null;
@@ -133,10 +133,10 @@ public abstract class d extends com.baidu.swan.pms.a.e {
             if (d.DEBUG) {
                 Log.i("SwanAppPkgDownloadCallback", "onDownloadError：" + bVar.toString());
             }
-            d.this.asa.f(iVar);
+            d.this.asb.f(iVar);
             com.baidu.swan.apps.ak.a hw = new com.baidu.swan.apps.ak.a().L(12L).M(bVar.errorNo).hv("分包下载失败").hw(bVar.toString());
-            if (d.this.arX != null) {
-                d.this.arX.onError(new PkgDownloadError(iVar, hw));
+            if (d.this.arY != null) {
+                d.this.arY.onError(new PkgDownloadError(iVar, hw));
             }
             b.zx().a(iVar, d.this.zB(), hw);
             com.baidu.swan.c.b.deleteFile(iVar.filePath);
@@ -150,22 +150,22 @@ public abstract class d extends com.baidu.swan.pms.a.e {
             if (d.DEBUG) {
                 Log.d("SwanAppPkgDownloadCallback", "onFileDownloaded: " + iVar.toString());
             }
-            if (d.this.asc == null) {
-                d.this.asc = new ArrayList();
+            if (d.this.asd == null) {
+                d.this.asd = new ArrayList();
             }
             iVar.appId = d.this.mAppId;
-            d.this.asc.add(iVar);
-            d.this.asa.g(iVar);
-            if (d.this.arX != null) {
-                d.this.arX.onNext(iVar);
-                if (!d.this.asa.Sv()) {
-                    d.this.arX.onCompleted();
+            d.this.asd.add(iVar);
+            d.this.asb.g(iVar);
+            if (d.this.arY != null) {
+                d.this.arY.onNext(iVar);
+                if (!d.this.asb.Sv()) {
+                    d.this.arY.onCompleted();
                 }
             }
             b.zx().a(iVar, d.this.zB());
         }
     };
-    private com.baidu.swan.pms.a.a<com.baidu.swan.pms.model.e> asi = new com.baidu.swan.pms.a.c<com.baidu.swan.pms.model.e>() { // from class: com.baidu.swan.apps.core.pms.d.8
+    private com.baidu.swan.pms.a.a<com.baidu.swan.pms.model.e> asj = new com.baidu.swan.pms.a.c<com.baidu.swan.pms.model.e>() { // from class: com.baidu.swan.apps.core.pms.d.8
         @Override // com.baidu.swan.pms.a.a
         public String hp() {
             return com.baidu.swan.apps.core.pms.c.a.zM();
@@ -199,10 +199,10 @@ public abstract class d extends com.baidu.swan.pms.a.e {
             if (d.DEBUG) {
                 Log.i("SwanAppPkgDownloadCallback", "onDownloadError：" + bVar.toString());
             }
-            d.this.asa.f(eVar);
+            d.this.asb.f(eVar);
             com.baidu.swan.apps.ak.a hw = new com.baidu.swan.apps.ak.a().L(13L).M(bVar.errorNo).hv("Framework包下载失败").hw(bVar.toString());
-            if (d.this.arY != null) {
-                d.this.arY.onError(new PkgDownloadError(eVar, hw));
+            if (d.this.arZ != null) {
+                d.this.arZ.onError(new PkgDownloadError(eVar, hw));
             }
             b.zx().a(eVar, d.this.zB(), hw);
             com.baidu.swan.c.b.deleteFile(eVar.filePath);
@@ -218,23 +218,23 @@ public abstract class d extends com.baidu.swan.pms.a.e {
             }
             com.baidu.swan.apps.ak.a a = d.this.a(eVar);
             if (a == null) {
-                d.this.asd = eVar;
-                d.this.asa.g(eVar);
-                if (d.this.arY != null) {
-                    d.this.arY.onNext(eVar);
-                    d.this.arY.onCompleted();
+                d.this.ase = eVar;
+                d.this.asb.g(eVar);
+                if (d.this.arZ != null) {
+                    d.this.arZ.onNext(eVar);
+                    d.this.arZ.onCompleted();
                 }
                 b.zx().a(eVar, d.this.zB());
                 return;
             }
-            d.this.asa.f(eVar);
-            if (d.this.arY != null) {
-                d.this.arY.onError(new PkgDownloadError(eVar, a));
+            d.this.asb.f(eVar);
+            if (d.this.arZ != null) {
+                d.this.arZ.onError(new PkgDownloadError(eVar, a));
             }
             b.zx().a(eVar, d.this.zB(), a);
         }
     };
-    private com.baidu.swan.pms.a.a<com.baidu.swan.pms.model.c> asj = new com.baidu.swan.pms.a.c<com.baidu.swan.pms.model.c>() { // from class: com.baidu.swan.apps.core.pms.d.9
+    private com.baidu.swan.pms.a.a<com.baidu.swan.pms.model.c> ask = new com.baidu.swan.pms.a.c<com.baidu.swan.pms.model.c>() { // from class: com.baidu.swan.apps.core.pms.d.9
         @Override // com.baidu.swan.pms.a.a
         public String hp() {
             return com.baidu.swan.apps.core.pms.c.a.zN();
@@ -268,10 +268,10 @@ public abstract class d extends com.baidu.swan.pms.a.e {
             if (d.DEBUG) {
                 Log.i("SwanAppPkgDownloadCallback", "onDownloadError：" + bVar.toString());
             }
-            d.this.asa.f(cVar);
+            d.this.asb.f(cVar);
             com.baidu.swan.apps.ak.a hw = new com.baidu.swan.apps.ak.a().L(14L).M(bVar.errorNo).hv("Extension下载失败").hw(bVar.toString());
-            if (d.this.arZ != null) {
-                d.this.arZ.onError(new PkgDownloadError(cVar, hw));
+            if (d.this.asa != null) {
+                d.this.asa.onError(new PkgDownloadError(cVar, hw));
             }
             b.zx().a(cVar, d.this.zB(), hw);
             com.baidu.swan.c.b.deleteFile(cVar.filePath);
@@ -287,49 +287,49 @@ public abstract class d extends com.baidu.swan.pms.a.e {
             }
             com.baidu.swan.apps.ak.a a = d.this.a(cVar);
             if (a == null) {
-                d.this.ase = cVar;
-                d.this.asa.g(cVar);
-                if (d.this.arZ != null) {
-                    d.this.arZ.onNext(cVar);
-                    d.this.arZ.onCompleted();
+                d.this.asf = cVar;
+                d.this.asb.g(cVar);
+                if (d.this.asa != null) {
+                    d.this.asa.onNext(cVar);
+                    d.this.asa.onCompleted();
                 }
                 b.zx().a(cVar, d.this.zB());
                 return;
             }
-            d.this.asa.f(cVar);
-            if (d.this.arZ != null) {
-                d.this.arZ.onError(new PkgDownloadError(cVar, a));
+            d.this.asb.f(cVar);
+            if (d.this.asa != null) {
+                d.this.asa.onError(new PkgDownloadError(cVar, a));
             }
             b.zx().a(cVar, d.this.zB(), a);
         }
     };
-    private com.baidu.swan.pms.a.d ask = new com.baidu.swan.pms.a.d() { // from class: com.baidu.swan.apps.core.pms.d.10
+    private com.baidu.swan.pms.a.d asl = new com.baidu.swan.pms.a.d() { // from class: com.baidu.swan.apps.core.pms.d.10
         @Override // com.baidu.swan.pms.a.d
         public void c(com.baidu.swan.pms.model.a aVar) {
             if (d.DEBUG) {
                 Log.e("SwanAppPkgDownloadCallback", "onSwanAppReceive: " + aVar.toString());
             }
-            d.this.asf = aVar;
-            if (d.this.asf != null) {
-                if (d.this.aoO != null) {
-                    d.this.aoO.add(new UbcFlowEvent("na_pms_start_icon"));
+            d.this.asg = aVar;
+            if (d.this.asg != null) {
+                if (d.this.aoP != null) {
+                    d.this.aoP.add(new UbcFlowEvent("na_pms_start_icon"));
                 }
-                com.baidu.swan.apps.core.pms.c.c.a(d.this.asf.iconUrl, new c.a() { // from class: com.baidu.swan.apps.core.pms.d.10.1
+                com.baidu.swan.apps.core.pms.c.c.a(d.this.asg.iconUrl, new c.a() { // from class: com.baidu.swan.apps.core.pms.d.10.1
                     @Override // com.baidu.swan.apps.core.pms.c.c.a
                     public void g(Bitmap bitmap) {
-                        if (d.this.aoO != null) {
-                            d.this.aoO.add(new UbcFlowEvent("na_pms_end_icon"));
+                        if (d.this.aoP != null) {
+                            d.this.aoP.add(new UbcFlowEvent("na_pms_end_icon"));
                         }
                     }
                 });
             }
         }
     };
-    private j<com.baidu.swan.pms.model.f> asl = new j<com.baidu.swan.pms.model.f>() { // from class: com.baidu.swan.apps.core.pms.d.2
+    private j<com.baidu.swan.pms.model.f> asm = new j<com.baidu.swan.pms.model.f>() { // from class: com.baidu.swan.apps.core.pms.d.2
         @Override // rx.e
         public void onCompleted() {
-            if (d.this.asb != null && d.this.asc != null) {
-                com.baidu.swan.apps.core.pms.c.b.a(d.this.asb.blV, d.this.asb.versionCode, d.this.asc);
+            if (d.this.asc != null && d.this.asd != null) {
+                com.baidu.swan.apps.core.pms.c.b.a(d.this.asc.blW, d.this.asc.versionCode, d.this.asd);
             }
             if (d.DEBUG) {
                 Log.e("SwanAppPkgDownloadCallback", d.this.zB() + " : 包下载onCompleted");
@@ -354,7 +354,7 @@ public abstract class d extends com.baidu.swan.pms.a.e {
             }
         }
     };
-    protected List<UbcFlowEvent> aoO = new ArrayList();
+    protected List<UbcFlowEvent> aoP = new ArrayList();
 
     protected abstract void k(Throwable th);
 
@@ -368,26 +368,26 @@ public abstract class d extends com.baidu.swan.pms.a.e {
 
     @Override // com.baidu.swan.pms.a.e
     public void xM() {
-        this.aoO.add(new UbcFlowEvent("na_pms_start_req"));
+        this.aoP.add(new UbcFlowEvent("na_pms_start_req"));
     }
 
     @Override // com.baidu.swan.pms.a.e
     public void zC() {
-        this.aoO.add(new UbcFlowEvent("na_pms_end_req"));
+        this.aoP.add(new UbcFlowEvent("na_pms_end_req"));
     }
 
     @Override // com.baidu.swan.pms.a.e
     public void a(com.baidu.swan.pms.model.b bVar) {
-        this.aoO.add(new UbcFlowEvent("na_pms_end_req"));
+        this.aoP.add(new UbcFlowEvent("na_pms_end_req"));
     }
 
     @Override // com.baidu.swan.pms.a.e
     public void a(com.baidu.swan.pms.d.e eVar) {
         super.a(eVar);
         if (eVar != null) {
-            this.aoO.add(new UbcFlowEvent("na_pms_start_download"));
-            this.asa = eVar;
-            if (!this.asa.isEmpty()) {
+            this.aoP.add(new UbcFlowEvent("na_pms_start_download"));
+            this.asb = eVar;
+            if (!this.asb.isEmpty()) {
                 zK();
             }
         }
@@ -395,27 +395,27 @@ public abstract class d extends com.baidu.swan.pms.a.e {
 
     @Override // com.baidu.swan.pms.a.e
     public com.baidu.swan.pms.a.a<g> zD() {
-        return this.asg;
-    }
-
-    @Override // com.baidu.swan.pms.a.e
-    public com.baidu.swan.pms.a.a<i> zE() {
         return this.ash;
     }
 
     @Override // com.baidu.swan.pms.a.e
-    public com.baidu.swan.pms.a.a<com.baidu.swan.pms.model.e> zF() {
+    public com.baidu.swan.pms.a.a<i> zE() {
         return this.asi;
     }
 
     @Override // com.baidu.swan.pms.a.e
-    public com.baidu.swan.pms.a.a<com.baidu.swan.pms.model.c> zG() {
+    public com.baidu.swan.pms.a.a<com.baidu.swan.pms.model.e> zF() {
         return this.asj;
     }
 
     @Override // com.baidu.swan.pms.a.e
-    public com.baidu.swan.pms.a.d zH() {
+    public com.baidu.swan.pms.a.a<com.baidu.swan.pms.model.c> zG() {
         return this.ask;
+    }
+
+    @Override // com.baidu.swan.pms.a.e
+    public com.baidu.swan.pms.a.d zH() {
+        return this.asl;
     }
 
     protected com.baidu.swan.apps.ak.a a(g gVar) {
@@ -435,7 +435,7 @@ public abstract class d extends com.baidu.swan.pms.a.e {
     }
 
     protected com.baidu.swan.apps.ak.a a(com.baidu.swan.pms.model.e eVar) {
-        a.C0148a c = com.baidu.swan.apps.swancore.e.a.c(eVar.versionName, eVar.filePath, eVar.sign, 0);
+        a.C0177a c = com.baidu.swan.apps.swancore.e.a.c(eVar.versionName, eVar.filePath, eVar.sign, 0);
         if (!TextUtils.isEmpty(eVar.filePath)) {
             com.baidu.swan.c.b.deleteFile(eVar.filePath);
         }
@@ -448,7 +448,7 @@ public abstract class d extends com.baidu.swan.pms.a.e {
     protected com.baidu.swan.apps.ak.a a(com.baidu.swan.pms.model.c cVar) {
         com.baidu.swan.apps.extcore.model.a aVar = new com.baidu.swan.apps.extcore.model.a();
         aVar.versionName = cVar.versionName;
-        aVar.avN = cVar.filePath;
+        aVar.avO = cVar.filePath;
         aVar.sign = cVar.sign;
         if (com.baidu.swan.apps.extcore.a.Bj().a((com.baidu.swan.apps.extcore.a) aVar)) {
             return null;
@@ -475,37 +475,37 @@ public abstract class d extends com.baidu.swan.pms.a.e {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public com.baidu.swan.apps.ak.a zI() {
-        if (this.asf == null) {
-            if (this.asb == null) {
+        if (this.asg == null) {
+            if (this.asc == null) {
                 return new com.baidu.swan.apps.ak.a().L(10L).M(2903L).hv("Server未返回主包&AppInfo");
             }
             com.baidu.swan.pms.model.a ji = com.baidu.swan.pms.database.a.RA().ji(this.mAppId);
             if (ji == null) {
                 return new com.baidu.swan.apps.ak.a().L(10L).M(2904L).hv("Server未返回AppInfo数据，本地也没有数据");
             }
-            this.asf = ji;
-            this.asf.g(this.asb);
-            a(this.asf);
-            this.asf.RJ();
-            if (com.baidu.swan.pms.database.a.RA().a(this.asb, this.asc, this.asd, this.ase, this.asf)) {
+            this.asg = ji;
+            this.asg.g(this.asc);
+            a(this.asg);
+            this.asg.RJ();
+            if (com.baidu.swan.pms.database.a.RA().a(this.asc, this.asd, this.ase, this.asf, this.asg)) {
                 return null;
             }
             return new com.baidu.swan.apps.ak.a().L(10L).M(2906L).hv("更新DB失败");
         }
-        if (this.asb != null) {
-            this.asf.g(this.asb);
-            a(this.asf);
+        if (this.asc != null) {
+            this.asg.g(this.asc);
+            a(this.asg);
         } else {
             com.baidu.swan.pms.model.a ji2 = com.baidu.swan.pms.database.a.RA().ji(this.mAppId);
             if (ji2 == null) {
                 return new com.baidu.swan.apps.ak.a().L(10L).M(2905L).hv("Server未返回包数据，本地也没有数据");
             }
-            this.asf.appId = this.mAppId;
-            this.asf.h(ji2);
+            this.asg.appId = this.mAppId;
+            this.asg.h(ji2);
         }
-        this.asf.RJ();
-        if (com.baidu.swan.pms.database.a.RA().a(this.asb, this.asc, this.asd, this.ase, this.asf)) {
-            b(this.asf);
+        this.asg.RJ();
+        if (com.baidu.swan.pms.database.a.RA().a(this.asc, this.asd, this.ase, this.asf, this.asg)) {
+            b(this.asg);
             return null;
         }
         return new com.baidu.swan.apps.ak.a().L(10L).M(2906L).hv("更新DB失败");
@@ -513,21 +513,21 @@ public abstract class d extends com.baidu.swan.pms.a.e {
 
     protected void b(com.baidu.swan.pms.model.a aVar) {
         if (aVar != null) {
-            if (!TextUtils.isEmpty(this.asf.blQ)) {
-                com.baidu.swan.apps.af.a.c.a(this.asf.appId, "", n.hB(this.asf.blQ));
+            if (!TextUtils.isEmpty(this.asg.blR)) {
+                com.baidu.swan.apps.af.a.c.a(this.asg.appId, "", n.hB(this.asg.blR));
             }
-            if (!TextUtils.isEmpty(this.asf.blR)) {
-                com.baidu.swan.apps.af.a.c.b("", n.hB(this.asf.blR));
+            if (!TextUtils.isEmpty(this.asg.blS)) {
+                com.baidu.swan.apps.af.a.c.b("", n.hB(this.asg.blS));
             }
-            if (!TextUtils.isEmpty(this.asf.blS)) {
-                com.baidu.swan.apps.af.a.c.g(this.asf.appId, n.dk(this.asf.blS));
+            if (!TextUtils.isEmpty(this.asg.blT)) {
+                com.baidu.swan.apps.af.a.c.g(this.asg.appId, n.dk(this.asg.blT));
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void zJ() {
-        if (this.asf != null) {
+        if (this.asg != null) {
             com.baidu.swan.pms.model.a ji = com.baidu.swan.pms.database.a.RA().ji(this.mAppId);
             if (ji == null) {
                 if (DEBUG) {
@@ -536,34 +536,34 @@ public abstract class d extends com.baidu.swan.pms.a.e {
                 }
                 return;
             }
-            this.asf.appId = this.mAppId;
-            this.asf.h(ji);
-            if (this.asf.AF()) {
-                this.asf.RJ();
+            this.asg.appId = this.mAppId;
+            this.asg.h(ji);
+            if (this.asg.AF()) {
+                this.asg.RJ();
             }
-            com.baidu.swan.pms.database.a.RA().f(this.asf);
-            b(this.asf);
+            com.baidu.swan.pms.database.a.RA().f(this.asg);
+            b(this.asg);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final g gVar) {
-        b.zx().a(gVar, new b.InterfaceC0107b() { // from class: com.baidu.swan.apps.core.pms.d.11
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0107b
+        b.zx().a(gVar, new b.InterfaceC0136b() { // from class: com.baidu.swan.apps.core.pms.d.11
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
             public void a(PMSDownloadType pMSDownloadType) {
-                d.this.asb = gVar;
-                d.this.asa.g(gVar);
-                if (d.this.arW != null) {
-                    d.this.arW.onNext(gVar);
-                    d.this.arW.onCompleted();
+                d.this.asc = gVar;
+                d.this.asb.g(gVar);
+                if (d.this.arX != null) {
+                    d.this.arX.onNext(gVar);
+                    d.this.arX.onCompleted();
                 }
             }
 
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0107b
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
             public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.ak.a aVar) {
-                d.this.asa.f(gVar);
-                if (d.this.arW != null) {
-                    d.this.arW.onError(new PkgDownloadError(gVar, aVar));
+                d.this.asb.f(gVar);
+                if (d.this.arX != null) {
+                    d.this.arX.onError(new PkgDownloadError(gVar, aVar));
                 }
             }
         });
@@ -571,28 +571,28 @@ public abstract class d extends com.baidu.swan.pms.a.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final i iVar) {
-        b.zx().a(iVar, new b.InterfaceC0107b() { // from class: com.baidu.swan.apps.core.pms.d.12
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0107b
+        b.zx().a(iVar, new b.InterfaceC0136b() { // from class: com.baidu.swan.apps.core.pms.d.12
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
             public void a(PMSDownloadType pMSDownloadType) {
-                if (d.this.asc == null) {
-                    d.this.asc = new ArrayList();
+                if (d.this.asd == null) {
+                    d.this.asd = new ArrayList();
                 }
                 iVar.appId = d.this.mAppId;
-                d.this.asc.add(iVar);
-                d.this.asa.g(iVar);
-                if (d.this.arX != null) {
-                    d.this.arX.onNext(iVar);
-                    if (!d.this.asa.Sv()) {
-                        d.this.arX.onCompleted();
+                d.this.asd.add(iVar);
+                d.this.asb.g(iVar);
+                if (d.this.arY != null) {
+                    d.this.arY.onNext(iVar);
+                    if (!d.this.asb.Sv()) {
+                        d.this.arY.onCompleted();
                     }
                 }
             }
 
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0107b
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
             public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.ak.a aVar) {
-                d.this.asa.f(iVar);
-                if (d.this.arX != null) {
-                    d.this.arX.onError(new PkgDownloadError(iVar, aVar));
+                d.this.asb.f(iVar);
+                if (d.this.arY != null) {
+                    d.this.arY.onError(new PkgDownloadError(iVar, aVar));
                 }
             }
         });
@@ -600,22 +600,22 @@ public abstract class d extends com.baidu.swan.pms.a.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final com.baidu.swan.pms.model.e eVar) {
-        b.zx().a(eVar, new b.InterfaceC0107b() { // from class: com.baidu.swan.apps.core.pms.d.13
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0107b
+        b.zx().a(eVar, new b.InterfaceC0136b() { // from class: com.baidu.swan.apps.core.pms.d.13
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
             public void a(PMSDownloadType pMSDownloadType) {
-                d.this.asd = eVar;
-                d.this.asa.g(eVar);
-                if (d.this.arY != null) {
-                    d.this.arY.onNext(eVar);
-                    d.this.arY.onCompleted();
+                d.this.ase = eVar;
+                d.this.asb.g(eVar);
+                if (d.this.arZ != null) {
+                    d.this.arZ.onNext(eVar);
+                    d.this.arZ.onCompleted();
                 }
             }
 
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0107b
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
             public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.ak.a aVar) {
-                d.this.asa.f(eVar);
-                if (d.this.arY != null) {
-                    d.this.arY.onError(new PkgDownloadError(eVar, aVar));
+                d.this.asb.f(eVar);
+                if (d.this.arZ != null) {
+                    d.this.arZ.onError(new PkgDownloadError(eVar, aVar));
                 }
             }
         });
@@ -623,22 +623,22 @@ public abstract class d extends com.baidu.swan.pms.a.e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(final com.baidu.swan.pms.model.c cVar) {
-        b.zx().a(cVar, new b.InterfaceC0107b() { // from class: com.baidu.swan.apps.core.pms.d.14
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0107b
+        b.zx().a(cVar, new b.InterfaceC0136b() { // from class: com.baidu.swan.apps.core.pms.d.14
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
             public void a(PMSDownloadType pMSDownloadType) {
-                d.this.ase = cVar;
-                d.this.asa.g(cVar);
-                if (d.this.arZ != null) {
-                    d.this.arZ.onNext(cVar);
-                    d.this.arZ.onCompleted();
+                d.this.asf = cVar;
+                d.this.asb.g(cVar);
+                if (d.this.asa != null) {
+                    d.this.asa.onNext(cVar);
+                    d.this.asa.onCompleted();
                 }
             }
 
-            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0107b
+            @Override // com.baidu.swan.apps.core.pms.b.InterfaceC0136b
             public void a(PMSDownloadType pMSDownloadType, com.baidu.swan.apps.ak.a aVar) {
-                d.this.asa.f(cVar);
-                if (d.this.arZ != null) {
-                    d.this.arZ.onError(new PkgDownloadError(cVar, aVar));
+                d.this.asb.f(cVar);
+                if (d.this.asa != null) {
+                    d.this.asa.onError(new PkgDownloadError(cVar, aVar));
                 }
             }
         });
@@ -646,50 +646,50 @@ public abstract class d extends com.baidu.swan.pms.a.e {
 
     private void zK() {
         ArrayList arrayList = new ArrayList();
-        if (this.asa.Sr()) {
+        if (this.asb.Sr()) {
             arrayList.add(rx.d.a((d.a) new d.a<g>() { // from class: com.baidu.swan.apps.core.pms.d.3
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
                 public void call(j<? super g> jVar) {
-                    d.this.arW = jVar;
-                }
-            }));
-        }
-        if (this.asa.Ss()) {
-            arrayList.add(rx.d.a((d.a) new d.a<i>() { // from class: com.baidu.swan.apps.core.pms.d.4
-                /* JADX DEBUG: Method merged with bridge method */
-                @Override // rx.functions.b
-                public void call(j<? super i> jVar) {
                     d.this.arX = jVar;
                 }
             }));
         }
-        if (this.asa.St()) {
-            arrayList.add(rx.d.a((d.a) new d.a<com.baidu.swan.pms.model.e>() { // from class: com.baidu.swan.apps.core.pms.d.5
+        if (this.asb.Ss()) {
+            arrayList.add(rx.d.a((d.a) new d.a<i>() { // from class: com.baidu.swan.apps.core.pms.d.4
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
-                public void call(j<? super com.baidu.swan.pms.model.e> jVar) {
+                public void call(j<? super i> jVar) {
                     d.this.arY = jVar;
                 }
             }));
         }
-        if (this.asa.Su()) {
-            arrayList.add(rx.d.a((d.a) new d.a<com.baidu.swan.pms.model.c>() { // from class: com.baidu.swan.apps.core.pms.d.6
+        if (this.asb.St()) {
+            arrayList.add(rx.d.a((d.a) new d.a<com.baidu.swan.pms.model.e>() { // from class: com.baidu.swan.apps.core.pms.d.5
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // rx.functions.b
-                public void call(j<? super com.baidu.swan.pms.model.c> jVar) {
+                public void call(j<? super com.baidu.swan.pms.model.e> jVar) {
                     d.this.arZ = jVar;
                 }
             }));
         }
+        if (this.asb.Su()) {
+            arrayList.add(rx.d.a((d.a) new d.a<com.baidu.swan.pms.model.c>() { // from class: com.baidu.swan.apps.core.pms.d.6
+                /* JADX DEBUG: Method merged with bridge method */
+                @Override // rx.functions.b
+                public void call(j<? super com.baidu.swan.pms.model.c> jVar) {
+                    d.this.asa = jVar;
+                }
+            }));
+        }
         if (!arrayList.isEmpty()) {
-            rx.d.h(arrayList).b(this.asl);
+            rx.d.h(arrayList).b(this.asm);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void ae(String str, String str2) {
-        com.baidu.swan.apps.performance.d.a.a(this.mAppId, str, this.aoO, str2);
-        this.aoO.clear();
+        com.baidu.swan.apps.performance.d.a.a(this.mAppId, str, this.aoP, str2);
+        this.aoP.clear();
     }
 }

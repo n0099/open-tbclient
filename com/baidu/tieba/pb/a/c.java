@@ -6,8 +6,8 @@ import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 /* loaded from: classes.dex */
 public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener, View.OnTouchListener {
-    private a hle;
-    private View hlf;
+    private a hld;
+    private View hle;
     private GestureDetector mGestureDetector = new GestureDetector(TbadkCoreApplication.getInst(), this);
 
     /* loaded from: classes.dex */
@@ -20,12 +20,12 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
     }
 
     public c(a aVar) {
-        this.hle = aVar;
+        this.hld = aVar;
     }
 
     @Override // android.view.View.OnTouchListener
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        this.hlf = view;
+        this.hle = view;
         if (this.mGestureDetector != null) {
             return this.mGestureDetector.onTouchEvent(motionEvent);
         }
@@ -60,29 +60,29 @@ public class c implements GestureDetector.OnDoubleTapListener, GestureDetector.O
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTap(MotionEvent motionEvent) {
-        if (this.hle != null) {
-            return this.hle.b(this.hlf, motionEvent);
+        if (this.hld != null) {
+            return this.hld.b(this.hle, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        if (this.hle != null) {
-            return this.hle.c(this.hlf, motionEvent);
+        if (this.hld != null) {
+            return this.hld.c(this.hle, motionEvent);
         }
         return false;
     }
 
     @Override // android.view.GestureDetector.OnDoubleTapListener
     public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        if (this.hle != null) {
-            return this.hle.d(this.hlf, motionEvent);
+        if (this.hld != null) {
+            return this.hld.d(this.hle, motionEvent);
         }
         return false;
     }
 
     public void ci(View view) {
-        this.hlf = view;
+        this.hle = view;
     }
 }

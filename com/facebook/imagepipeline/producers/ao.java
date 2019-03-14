@@ -3,41 +3,41 @@ package com.facebook.imagepipeline.producers;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public abstract class ao<T> extends com.facebook.common.b.e<T> {
-    private final al jKb;
-    private final j<T> jKu;
-    private final String jLG;
-    private final String jLt;
+    private final al jJT;
+    private final j<T> jKm;
+    private final String jLl;
+    private final String jLy;
 
     @Override // com.facebook.common.b.e
     protected abstract void aD(T t);
 
     public ao(j<T> jVar, al alVar, String str, String str2) {
-        this.jKu = jVar;
-        this.jKb = alVar;
-        this.jLG = str;
-        this.jLt = str2;
-        this.jKb.em(this.jLt, this.jLG);
+        this.jKm = jVar;
+        this.jJT = alVar;
+        this.jLy = str;
+        this.jLl = str2;
+        this.jJT.el(this.jLl, this.jLy);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.e
     public void onSuccess(T t) {
-        this.jKb.a(this.jLt, this.jLG, this.jKb.FK(this.jLt) ? bc(t) : null);
-        this.jKu.e(t, true);
+        this.jJT.a(this.jLl, this.jLy, this.jJT.FI(this.jLl) ? bc(t) : null);
+        this.jKm.e(t, true);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.e
     public void onFailure(Exception exc) {
-        this.jKb.a(this.jLt, this.jLG, exc, this.jKb.FK(this.jLt) ? o(exc) : null);
-        this.jKu.C(exc);
+        this.jJT.a(this.jLl, this.jLy, exc, this.jJT.FI(this.jLl) ? o(exc) : null);
+        this.jKm.C(exc);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.common.b.e
-    public void ctF() {
-        this.jKb.b(this.jLt, this.jLG, this.jKb.FK(this.jLt) ? cAo() : null);
-        this.jKu.ctF();
+    public void ctI() {
+        this.jJT.b(this.jLl, this.jLy, this.jJT.FI(this.jLl) ? cAr() : null);
+        this.jKm.ctI();
     }
 
     protected Map<String, String> bc(T t) {
@@ -48,7 +48,7 @@ public abstract class ao<T> extends com.facebook.common.b.e<T> {
         return null;
     }
 
-    protected Map<String, String> cAo() {
+    protected Map<String, String> cAr() {
         return null;
     }
 }

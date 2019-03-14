@@ -2,6 +2,7 @@ package com.airbnb.lottie.model.a;
 
 import com.airbnb.lottie.model.a.m;
 import com.airbnb.lottie.model.a.n;
+import com.baidu.mobstat.Config;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -56,7 +57,7 @@ public class b extends o<Float, Float> {
 
         public static b a(JSONObject jSONObject, com.airbnb.lottie.e eVar, boolean z) {
             float cK = z ? eVar.cK() : 1.0f;
-            if (jSONObject != null && jSONObject.has("x")) {
+            if (jSONObject != null && jSONObject.has(Config.EVENT_HEAT_X)) {
                 eVar.V("Lottie doesn't support expressions.");
             }
             n.a dZ = n.a(jSONObject, cK, eVar, C0009b.qy).dZ();

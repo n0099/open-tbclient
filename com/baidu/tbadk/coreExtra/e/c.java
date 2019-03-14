@@ -18,7 +18,7 @@ public class c extends com.baidu.adp.framework.listener.c {
     private final HashSet<Integer> cfY;
     private int cga;
 
-    public static c akV() {
+    public static c akU() {
         return cfZ;
     }
 
@@ -43,7 +43,7 @@ public class c extends com.baidu.adp.framework.listener.c {
         } else if (!MessageManager.getInstance().getSocketClient().isValid()) {
             this.cga = 1;
             return false;
-        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().gN() > e.akY().ala() + 20000) {
+        } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().gN() > e.akX().akZ() + 20000) {
             com.baidu.adp.framework.client.socket.i.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
             this.cga = 2;
             return false;
@@ -148,7 +148,7 @@ public class c extends com.baidu.adp.framework.listener.c {
         }
     }
 
-    public int akW() {
+    public int akV() {
         return this.cga;
     }
 }

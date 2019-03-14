@@ -11,7 +11,7 @@ public abstract class a<T> extends b<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public T aoF() {
+    public T aoE() {
         try {
             return this.cpn.newInstance();
         } catch (ExceptionInInitializerError e) {

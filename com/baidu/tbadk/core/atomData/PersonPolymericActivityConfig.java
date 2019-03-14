@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.plugins.c;
 /* loaded from: classes.dex */
 public class PersonPolymericActivityConfig extends IntentConfig {
     public static final String IS_BIGV = "is_bigv";
@@ -38,14 +37,6 @@ public class PersonPolymericActivityConfig extends IntentConfig {
 
     @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
     public boolean asynStart() {
-        return false;
-    }
-
-    @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
-    public boolean isValid() {
-        if (c.ay(getContext(), "com.baidu.tieba.pluginResource")) {
-            return super.isValid();
-        }
         return false;
     }
 }

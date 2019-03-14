@@ -2,7 +2,6 @@ package com.baidu.tbadk.coreExtra.e;
 
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.view.PointerIconCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -24,7 +23,7 @@ public class e extends Handler implements com.baidu.adp.framework.client.socket.
     private int cgo = this.cgn;
     private PingMessage cgp = null;
 
-    public static e akY() {
+    public static e akX() {
         if (cgk == null) {
             synchronized (e.class) {
                 if (cgk == null) {
@@ -81,7 +80,7 @@ public class e extends Handler implements com.baidu.adp.framework.client.socket.
     }
 
     public void initial() {
-        com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(PointerIconCompat.TYPE_HELP);
+        com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(1003);
         bVar.setResponsedClass(ResponsedPingMessage.class);
         bVar.M(false);
         bVar.setPriority(-3);
@@ -89,8 +88,8 @@ public class e extends Handler implements com.baidu.adp.framework.client.socket.
         bVar.N(false);
         MessageManager.getInstance().registerTask(bVar);
         this.cgp = new PingMessage();
-        akZ();
-        com.baidu.adp.framework.listener.c cVar = new com.baidu.adp.framework.listener.c(PointerIconCompat.TYPE_HELP) { // from class: com.baidu.tbadk.coreExtra.e.e.1
+        akY();
+        com.baidu.adp.framework.listener.c cVar = new com.baidu.adp.framework.listener.c(1003) { // from class: com.baidu.tbadk.coreExtra.e.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(SocketResponsedMessage socketResponsedMessage) {
@@ -116,7 +115,7 @@ public class e extends Handler implements com.baidu.adp.framework.client.socket.
         if (responsedMessage != null) {
             int error = responsedMessage.getError();
             if (error == 0) {
-                com.baidu.adp.framework.client.socket.i.a("PingManager", responsedMessage.getOrginalMessage(), 0, "ping_succ", com.baidu.tbadk.core.g.bvo, "costtime:" + String.valueOf(System.currentTimeMillis() - this.cgl));
+                com.baidu.adp.framework.client.socket.i.a("PingManager", responsedMessage.getOrginalMessage(), 0, "ping_succ", com.baidu.tbadk.core.g.bvq, "costtime:" + String.valueOf(System.currentTimeMillis() - this.cgl));
                 return;
             }
             BdSocketLinkService.close(7, "ping error");
@@ -136,7 +135,7 @@ public class e extends Handler implements com.baidu.adp.framework.client.socket.
         }
     }
 
-    public void akZ() {
+    public void akY() {
         int[] socketHeartBeatStratgy = TbadkCoreApplication.getInst().getSocketHeartBeatStratgy();
         if (socketHeartBeatStratgy.length == 2) {
             this.cgm = socketHeartBeatStratgy[0] * 1000;
@@ -150,12 +149,12 @@ public class e extends Handler implements com.baidu.adp.framework.client.socket.
         }
     }
 
-    public int ala() {
+    public int akZ() {
         return this.cgm;
     }
 
     @Override // com.baidu.adp.framework.client.socket.b
     public int getCmd() {
-        return PointerIconCompat.TYPE_HELP;
+        return 1003;
     }
 }

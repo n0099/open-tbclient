@@ -1,7 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,7 +29,7 @@ public class AuthTokenData implements Serializable {
 
     private void aN(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.errorCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
+            this.errorCode = jSONObject.optInt("error_code");
             JSONObject optJSONObject = jSONObject.optJSONObject("info");
             if (optJSONObject != null) {
                 this.authToken = optJSONObject.optString("pass_token");
@@ -42,7 +41,7 @@ public class AuthTokenData implements Serializable {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                this.errorCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
+                this.errorCode = jSONObject.optInt("error_code");
                 JSONObject optJSONObject = jSONObject.optJSONObject("info");
                 if (optJSONObject != null) {
                     this.authToken = optJSONObject.optString("pass_token");

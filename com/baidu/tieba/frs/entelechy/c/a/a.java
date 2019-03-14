@@ -24,54 +24,54 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 /* loaded from: classes4.dex */
 public class a {
-    private TextView eBq;
-    private String ele;
-    private View fig;
-    private FrsNewAreaFragment fih;
-    private TextView fii;
-    private c fij;
-    private List<v> fik;
-    private int fil = -1;
-    private boolean fim = false;
-    private c.a fin = new c.a() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.1
+    private TextView eBm;
+    private String ela;
+    private View fif;
+    private FrsNewAreaFragment fig;
+    private TextView fih;
+    private c fii;
+    private List<v> fij;
+    private int fik = -1;
+    private boolean fil = false;
+    private c.a fim = new c.a() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.1
         @Override // com.baidu.tieba.frs.entelechy.c.a.c.a
         public void a(v vVar) {
             if (!j.kM()) {
-                a.this.fih.showToast(d.j.neterror);
-                a.this.fij.dismiss();
+                a.this.fig.showToast(d.j.neterror);
+                a.this.fii.dismiss();
             } else if (vVar == null) {
-                a.this.fij.dismiss();
-            } else if (a.this.fil == vVar.fcB) {
-                a.this.fij.dismiss();
+                a.this.fii.dismiss();
+            } else if (a.this.fik == vVar.fcA) {
+                a.this.fii.dismiss();
             } else {
-                a.this.fim = true;
-                a.this.vk(vVar.name);
-                if (a.this.fih.bhW() != null) {
-                    a.this.fil = vVar.fcB;
-                    a.this.fij.dismiss();
-                    if (a.this.fil != 7) {
-                        y.aqp();
-                        e.cfq();
+                a.this.fil = true;
+                a.this.vi(vVar.name);
+                if (a.this.fig.bhV() != null) {
+                    a.this.fik = vVar.fcA;
+                    a.this.fii.dismiss();
+                    if (a.this.fik != 7) {
+                        y.aqo();
+                        e.cfs();
                     } else {
-                        e.cfp();
+                        e.cfr();
                     }
-                    if (a.this.fih.bhW() != null && a.this.fih.bhX() != null) {
-                        a.this.fih.bhW().rc(vVar.fcB);
-                        a.this.fih.bhX().startPullRefresh();
-                        a.this.bfP();
+                    if (a.this.fig.bhV() != null && a.this.fig.bhW() != null) {
+                        a.this.fig.bhV().rc(vVar.fcA);
+                        a.this.fig.bhW().startPullRefresh();
+                        a.this.bfO();
                     }
                 }
             }
         }
     };
-    private View.OnClickListener fio = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.2
+    private View.OnClickListener fin = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!com.baidu.tieba.frs.a.bbG().bbH()) {
+            if (!com.baidu.tieba.frs.a.bbF().bbG()) {
                 if (!j.kM()) {
-                    a.this.fih.showToast(d.j.neterror);
-                } else if (!com.baidu.tbadk.core.util.v.T(a.this.fik)) {
-                    a.this.a(a.this.fik, view);
+                    a.this.fig.showToast(d.j.neterror);
+                } else if (!com.baidu.tbadk.core.util.v.T(a.this.fij)) {
+                    a.this.a(a.this.fij, view);
                 }
             }
         }
@@ -79,95 +79,95 @@ public class a {
     private PopupWindow.OnDismissListener mOnDismissListener = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.frs.entelechy.c.a.a.3
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
-            if (a.this.eBq != null) {
+            if (a.this.eBm != null) {
                 Drawable drawable = al.getDrawable(d.f.icon_common_arrow20_down_n);
                 drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                a.this.eBq.setCompoundDrawables(null, null, drawable, null);
+                a.this.eBm.setCompoundDrawables(null, null, drawable, null);
             }
         }
     };
 
     public void setFid(String str) {
-        this.ele = str;
+        this.ela = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void vk(String str) {
-        this.eBq.setText(str);
+    public void vi(String str) {
+        this.eBm.setText(str);
     }
 
     public void qB(int i) {
-        this.fil = i;
+        this.fik = i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(List<v> list, View view) {
-        if (this.fij == null) {
-            this.fij = new c(this.fih.getContext());
-            this.fij.setOnDismissListener(this.mOnDismissListener);
-            this.fij.a(this.fin);
+        if (this.fii == null) {
+            this.fii = new c(this.fig.getContext());
+            this.fii.setOnDismissListener(this.mOnDismissListener);
+            this.fii.a(this.fim);
         }
-        this.fij.setData(list, this.fil);
-        this.fij.bg(view);
-        this.eBq.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_common_arrow20_down_h), (Drawable) null);
+        this.fii.setData(list, this.fik);
+        this.fii.bg(view);
+        this.eBm.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_common_arrow20_down_h), (Drawable) null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bfP() {
+    public void bfO() {
         am amVar = new am("c11437");
-        amVar.T("obj_type", this.fil);
-        amVar.bJ(ImageViewerConfig.FORUM_ID, this.ele);
+        amVar.T("obj_type", this.fik);
+        amVar.bJ(ImageViewerConfig.FORUM_ID, this.ela);
         TiebaStatic.log(amVar);
     }
 
     public a(FrsNewAreaFragment frsNewAreaFragment, RelativeLayout relativeLayout) {
         if (frsNewAreaFragment != null && relativeLayout != null) {
-            this.fih = frsNewAreaFragment;
-            this.fig = LayoutInflater.from(frsNewAreaFragment.getContext()).inflate(d.h.frs_sort_tab_layout, relativeLayout);
-            this.eBq = (TextView) this.fig.findViewById(d.g.sort_tab_menu_button);
-            this.fii = (TextView) this.fig.findViewById(d.g.sort_tab_sort_name);
-            this.eBq.setOnClickListener(this.fio);
+            this.fig = frsNewAreaFragment;
+            this.fif = LayoutInflater.from(frsNewAreaFragment.getContext()).inflate(d.h.frs_sort_tab_layout, relativeLayout);
+            this.eBm = (TextView) this.fif.findViewById(d.g.sort_tab_menu_button);
+            this.fih = (TextView) this.fif.findViewById(d.g.sort_tab_sort_name);
+            this.eBm.setOnClickListener(this.fin);
             onChangeSkinType();
         }
     }
 
     public void onChangeSkinType() {
-        if (this.eBq != null) {
-            al.j(this.eBq, d.C0236d.cp_cont_j);
-            al.l(this.eBq, d.C0236d.transparent);
-            this.eBq.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_common_arrow20_down_n), (Drawable) null);
+        if (this.eBm != null) {
+            al.j(this.eBm, d.C0277d.cp_cont_j);
+            al.l(this.eBm, d.C0277d.transparent);
+            this.eBm.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_common_arrow20_down_n), (Drawable) null);
         }
-        al.j(this.fii, d.C0236d.cp_cont_b);
-        al.l(this.fig, d.C0236d.cp_bg_line_d);
+        al.j(this.fih, d.C0277d.cp_cont_b);
+        al.l(this.fif, d.C0277d.cp_bg_line_d);
     }
 
     public void setData(List<FrsTabInfo> list, int i) {
         if (com.baidu.tbadk.core.util.v.T(list)) {
-            bfR();
-        } else if (this.fih != null && this.fih.bhW() != null) {
             bfQ();
+        } else if (this.fig != null && this.fig.bhV() != null) {
+            bfP();
             ArrayList arrayList = new ArrayList(list);
             if (!bW(arrayList)) {
-                if (!this.fim) {
+                if (!this.fil) {
                     qC(i);
                     return;
                 }
                 return;
             }
-            this.fik = new ArrayList();
+            this.fij = new ArrayList();
             for (FrsTabInfo frsTabInfo : arrayList) {
                 if (frsTabInfo != null && frsTabInfo.tab_id != null && !StringUtils.isNull(frsTabInfo.tab_name)) {
                     v vVar = new v();
-                    vVar.fcB = frsTabInfo.tab_id.intValue();
+                    vVar.fcA = frsTabInfo.tab_id.intValue();
                     vVar.name = frsTabInfo.tab_name;
-                    this.fik.add(vVar);
+                    this.fij.add(vVar);
                 }
             }
-            if (!this.fim) {
+            if (!this.fil) {
                 qC(i);
             }
         } else {
-            bfR();
+            bfQ();
         }
     }
 
@@ -176,24 +176,24 @@ public class a {
         boolean z;
         v vVar2 = null;
         if (i <= 0) {
-            v vVar3 = this.fik.get(0);
+            v vVar3 = this.fij.get(0);
             if (vVar3 != null) {
-                qB(vVar3.fcB);
-                vk(vVar3.name);
-                if (this.fih != null && this.fih.bhW() != null) {
-                    this.fih.bhW().rc(vVar3.fcB);
+                qB(vVar3.fcA);
+                vi(vVar3.name);
+                if (this.fig != null && this.fig.bhV() != null) {
+                    this.fig.bhV().rc(vVar3.fcA);
                     return;
                 }
                 return;
             }
             return;
         }
-        int size = this.fik.size();
+        int size = this.fij.size();
         int i2 = 0;
         while (true) {
             if (i2 < size) {
-                vVar2 = this.fik.get(i2);
-                if (vVar2 == null || vVar2.fcB != i) {
+                vVar2 = this.fij.get(i2);
+                if (vVar2 == null || vVar2.fcA != i) {
                     i2++;
                 } else {
                     vVar = vVar2;
@@ -208,46 +208,46 @@ public class a {
         }
         if (!z) {
             if (TbadkCoreApplication.isLogin() && i == 6) {
-                vk(TbadkCoreApplication.getInst().getResources().getString(d.j.attention_users_thread));
+                vi(TbadkCoreApplication.getInst().getResources().getString(d.j.attention_users_thread));
                 return;
             }
-            v vVar4 = this.fik.get(0);
+            v vVar4 = this.fij.get(0);
             if (vVar4 != null) {
-                qB(vVar4.fcB);
-                vk(vVar4.name);
-                if (this.fih != null && this.fih.bhW() != null) {
-                    this.fih.bhW().rc(vVar4.fcB);
+                qB(vVar4.fcA);
+                vi(vVar4.name);
+                if (this.fig != null && this.fig.bhV() != null) {
+                    this.fig.bhV().rc(vVar4.fcA);
                 }
             }
         } else if (vVar != null) {
-            qB(vVar.fcB);
-            vk(vVar.name);
-            if (this.fih != null && this.fih.bhW() != null) {
-                this.fih.bhW().rc(vVar.fcB);
+            qB(vVar.fcA);
+            vi(vVar.name);
+            if (this.fig != null && this.fig.bhV() != null) {
+                this.fig.bhV().rc(vVar.fcA);
             }
         }
     }
 
     private boolean bW(List<FrsTabInfo> list) {
-        if (!com.baidu.tbadk.core.util.v.T(this.fik) && com.baidu.tbadk.core.util.v.S(list) == com.baidu.tbadk.core.util.v.S(this.fik)) {
+        if (!com.baidu.tbadk.core.util.v.T(this.fij) && com.baidu.tbadk.core.util.v.S(list) == com.baidu.tbadk.core.util.v.S(this.fij)) {
             int i = 0;
             while (i < list.size()) {
-                i = (list.get(i) != null && this.fik.get(i) == null) ? i + 1 : i + 1;
+                i = (list.get(i) != null && this.fij.get(i) == null) ? i + 1 : i + 1;
             }
             return false;
         }
         return true;
     }
 
-    private void bfQ() {
-        if (this.eBq != null) {
-            this.eBq.setVisibility(0);
+    private void bfP() {
+        if (this.eBm != null) {
+            this.eBm.setVisibility(0);
         }
     }
 
-    private void bfR() {
-        if (this.eBq != null) {
-            this.eBq.setVisibility(8);
+    private void bfQ() {
+        if (this.eBm != null) {
+            this.eBm.setVisibility(8);
         }
     }
 }

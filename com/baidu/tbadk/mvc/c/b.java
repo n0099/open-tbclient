@@ -18,11 +18,11 @@ public class b {
         this.coI = aVar2;
     }
 
-    public int aoc() {
+    public int aob() {
         return this.coE;
     }
 
-    public com.baidu.tbadk.mvc.b.a aod() {
+    public com.baidu.tbadk.mvc.b.a aoc() {
         return this.coG;
     }
 
@@ -34,7 +34,7 @@ public class b {
         this.extra = obj;
     }
 
-    public boolean aoe() {
+    public boolean aod() {
         return this.coF;
     }
 

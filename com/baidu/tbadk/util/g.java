@@ -4,35 +4,35 @@ import android.os.Handler;
 import android.os.Looper;
 /* loaded from: classes.dex */
 public class g {
+    private long csY;
+    private long csZ;
+    private long cta;
     private long ctb;
     private long ctc;
-    private long ctd;
-    private long cte;
-    private long ctf;
-    private a cth;
+    private a cte;
     private long startTime;
     private Handler handler = new Handler(Looper.getMainLooper());
-    private boolean ctg = false;
-    private Runnable cti = new Runnable() { // from class: com.baidu.tbadk.util.g.1
+    private boolean ctd = false;
+    private Runnable ctf = new Runnable() { // from class: com.baidu.tbadk.util.g.1
         @Override // java.lang.Runnable
         public void run() {
             long currentTimeMillis = System.currentTimeMillis();
-            if (g.this.ctf > g.this.cte) {
-                g.this.cte = currentTimeMillis - g.this.ctd;
-                g.this.ctf = g.this.cte;
+            if (g.this.ctc > g.this.ctb) {
+                g.this.ctb = currentTimeMillis - g.this.cta;
+                g.this.ctc = g.this.ctb;
             }
-            long j = currentTimeMillis - g.this.cte;
-            g.this.ctc += g.this.ctd;
-            if (g.this.ctc < g.this.ctb) {
-                g.this.handler.postDelayed(g.this.cti, (2 * g.this.ctd) - j);
-                if (g.this.cth != null) {
-                    g.this.cth.b(g.this.ctb, g.this.ctb - g.this.ctc);
+            long j = currentTimeMillis - g.this.ctb;
+            g.this.csZ += g.this.cta;
+            if (g.this.csZ < g.this.csY) {
+                g.this.handler.postDelayed(g.this.ctf, (2 * g.this.cta) - j);
+                if (g.this.cte != null) {
+                    g.this.cte.b(g.this.csY, g.this.csY - g.this.csZ);
                 }
             } else {
-                g.this.ctc = g.this.ctb;
+                g.this.csZ = g.this.csY;
                 g.this.finish();
             }
-            g.this.cte = currentTimeMillis;
+            g.this.ctb = currentTimeMillis;
         }
     };
 
@@ -44,53 +44,53 @@ public class g {
     }
 
     public g(long j, long j2) {
-        this.ctb = j;
-        this.ctd = j2;
+        this.csY = j;
+        this.cta = j2;
     }
 
     public void start() {
         this.startTime = System.currentTimeMillis();
-        this.cte = this.startTime;
-        if (this.cth != null) {
-            this.cth.b(this.ctb, this.ctb - this.ctc);
+        this.ctb = this.startTime;
+        if (this.cte != null) {
+            this.cte.b(this.csY, this.csY - this.csZ);
         }
-        this.handler.postDelayed(this.cti, this.ctd);
+        this.handler.postDelayed(this.ctf, this.cta);
     }
 
     public void pause() {
-        if (!this.ctg) {
-            this.ctg = true;
-            this.ctf = System.currentTimeMillis();
-            this.handler.removeCallbacks(this.cti);
+        if (!this.ctd) {
+            this.ctd = true;
+            this.ctc = System.currentTimeMillis();
+            this.handler.removeCallbacks(this.ctf);
         }
     }
 
     public void resume() {
-        if (this.ctg) {
-            this.ctg = false;
-            this.handler.postDelayed(this.cti, this.ctd - (this.ctf - this.cte));
+        if (this.ctd) {
+            this.ctd = false;
+            this.handler.postDelayed(this.ctf, this.cta - (this.ctc - this.ctb));
         }
     }
 
     public void stop() {
-        this.ctg = false;
-        this.cte = this.startTime;
-        this.ctf = this.cte;
-        this.handler.removeCallbacks(this.cti);
+        this.ctd = false;
+        this.ctb = this.startTime;
+        this.ctc = this.ctb;
+        this.handler.removeCallbacks(this.ctf);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void finish() {
-        if (this.cth != null) {
-            this.cth.s(this.ctb);
+        if (this.cte != null) {
+            this.cte.s(this.csY);
         }
     }
 
     public void a(a aVar) {
-        this.cth = aVar;
+        this.cte = aVar;
     }
 
-    public long apU() {
-        return this.ctc;
+    public long apT() {
+        return this.csZ;
     }
 }

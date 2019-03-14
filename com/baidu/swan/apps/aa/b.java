@@ -5,14 +5,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
-import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.b.c.f;
 import com.baidu.swan.apps.core.c.g;
 /* loaded from: classes2.dex */
 public class b extends g {
     @Override // com.baidu.swan.apps.core.c.g
     protected void a(FrameLayout frameLayout) {
-        frameLayout.addView((RelativeLayout) LayoutInflater.from(getContext()).inflate(b.g.aiapps_wx_pay_loading_layout, (ViewGroup) null), new RelativeLayout.LayoutParams(-1, -1));
+        frameLayout.addView((RelativeLayout) LayoutInflater.from(getContext()).inflate(a.g.aiapps_wx_pay_loading_layout, (ViewGroup) null), new RelativeLayout.LayoutParams(-1, -1));
     }
 
     @Override // com.baidu.swan.apps.core.c.g
@@ -39,8 +39,8 @@ public class b extends g {
     @Override // com.baidu.swan.apps.core.c.g, com.baidu.swan.apps.core.c.b
     public void M(View view) {
         super.M(view);
-        this.apV.setTitle(getResources().getString(b.h.aiapps_wx_pay_title));
-        this.apV.setRightMenuVisibility(false);
+        this.apW.setTitle(getResources().getString(a.h.aiapps_wx_pay_title));
+        this.apW.setRightMenuVisibility(false);
         aW(false);
     }
 }

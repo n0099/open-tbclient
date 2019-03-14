@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.data.NewErrorData;
 import com.baidu.tbadk.core.util.x;
 /* loaded from: classes.dex */
 public class d {
-    protected NewErrorData bvi = null;
+    protected NewErrorData bvk = null;
     protected x mNetWork;
 
     public d() {
@@ -18,7 +18,8 @@ public class d {
         }
     }
 
-    protected void setUrl(String str) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void setUrl(String str) {
         this.mNetWork.setUrl(str);
     }
 
@@ -26,10 +27,11 @@ public class d {
         this.mNetWork.x(str, str2);
     }
 
-    protected String getResult() {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public String getResult() {
         String acj = this.mNetWork.acj();
-        this.bvi = new NewErrorData();
-        this.bvi.parserJson(acj);
+        this.bvk = new NewErrorData();
+        this.bvk.parserJson(acj);
         return acj;
     }
 

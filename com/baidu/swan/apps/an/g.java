@@ -5,15 +5,15 @@ import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.Constants;
 /* loaded from: classes2.dex */
 public class g {
-    private static String aWc;
+    private static String aWd;
 
     public static String LS() {
-        if (TextUtils.isEmpty(aWc)) {
+        if (TextUtils.isEmpty(aWd)) {
             synchronized (g.class) {
-                aWc = LT();
+                aWd = LT();
             }
         }
-        return aWc;
+        return aWd;
     }
 
     private static String LT() {

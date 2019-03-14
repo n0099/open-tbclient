@@ -5,62 +5,62 @@ import android.text.TextUtils;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class a extends com.baidu.swan.apps.model.a.a.a {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    public boolean azB;
-    public String azr;
-    public boolean cVd;
-    public boolean cVe;
-    public int cVf;
-    public int cVg;
-    public String cVh;
-    public String cVi;
-    public boolean cVj;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    public boolean azC;
+    public String azs;
+    public boolean cUZ;
+    public boolean cVa;
+    public int cVb;
+    public int cVc;
+    public String cVd;
+    public String cVe;
+    public boolean cVf;
     public int mDirection;
     public String mSrc;
 
     public a() {
         super("liveId", "livePlayer");
-        this.cVd = false;
-        this.cVe = false;
-        this.cVf = 1;
-        this.cVg = 3;
-        this.cVh = "vertical";
-        this.cVi = "contain";
-        this.azB = false;
-        this.cVj = false;
+        this.cUZ = false;
+        this.cVa = false;
+        this.cVb = 1;
+        this.cVc = 3;
+        this.cVd = "vertical";
+        this.cVe = "contain";
+        this.azC = false;
+        this.cVf = false;
         this.mDirection = 0;
     }
 
     @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return !TextUtils.isEmpty(this.azr) && this.cVf <= this.cVg;
+        return !TextUtils.isEmpty(this.azs) && this.cVb <= this.cVc;
     }
 
     public String toString() {
-        return "LivePlayerParams{mPlayerId='" + this.azr + "', mSlaveId='" + this.aBC + "', mMuted=" + this.cVd + ", mBackgroundMuted=" + this.cVe + ", mMinCacheS=" + this.cVf + ", mMaxCacheS=" + this.cVg + ", mOrientation='" + this.cVh + "', mObjectFit='" + this.cVi + "', mSrc='" + this.mSrc + "', mAutoPlay=" + this.azB + '}';
+        return "LivePlayerParams{mPlayerId='" + this.azs + "', mSlaveId='" + this.aBD + "', mMuted=" + this.cUZ + ", mBackgroundMuted=" + this.cVa + ", mMinCacheS=" + this.cVb + ", mMaxCacheS=" + this.cVc + ", mOrientation='" + this.cVd + "', mObjectFit='" + this.cVe + "', mSrc='" + this.mSrc + "', mAutoPlay=" + this.azC + '}';
     }
 
     public static a a(JSONObject jSONObject, @NonNull a aVar) {
         if (jSONObject == null) {
-            return azy();
+            return azx();
         }
         a aVar2 = new a();
         aVar2.a(jSONObject, (com.baidu.swan.apps.model.a.a.a) aVar);
-        aVar2.azr = jSONObject.optString("liveId");
+        aVar2.azs = jSONObject.optString("liveId");
         aVar2.mSrc = jSONObject.optString("src", aVar.mSrc);
-        aVar2.azB = jSONObject.optBoolean("autoplay", aVar.azB);
-        aVar2.cVd = jSONObject.optBoolean("muted", aVar.cVd);
-        aVar2.cVe = jSONObject.optBoolean("backgroundMute", aVar.cVe);
-        aVar2.cVh = jSONObject.optString("orientation", aVar.cVh);
-        aVar2.cVi = jSONObject.optString("objectFit", aVar.cVi);
-        aVar2.cVf = jSONObject.optInt("minCache", aVar.cVf);
-        aVar2.cVg = jSONObject.optInt("maxCache", aVar.cVg);
-        aVar2.cVj = jSONObject.optBoolean("fullScreen", aVar.cVj);
+        aVar2.azC = jSONObject.optBoolean("autoplay", aVar.azC);
+        aVar2.cUZ = jSONObject.optBoolean("muted", aVar.cUZ);
+        aVar2.cVa = jSONObject.optBoolean("backgroundMute", aVar.cVa);
+        aVar2.cVd = jSONObject.optString("orientation", aVar.cVd);
+        aVar2.cVe = jSONObject.optString("objectFit", aVar.cVe);
+        aVar2.cVb = jSONObject.optInt("minCache", aVar.cVb);
+        aVar2.cVc = jSONObject.optInt("maxCache", aVar.cVc);
+        aVar2.cVf = jSONObject.optBoolean("fullScreen", aVar.cVf);
         aVar2.mDirection = jSONObject.optInt("direction", aVar.mDirection);
         return aVar2;
     }
 
-    public static a azy() {
+    public static a azx() {
         return new a();
     }
 }

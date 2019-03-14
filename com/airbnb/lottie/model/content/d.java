@@ -5,8 +5,7 @@ import android.support.annotation.Nullable;
 import com.airbnb.lottie.model.a.c;
 import com.airbnb.lottie.model.a.d;
 import com.airbnb.lottie.model.a.f;
-import com.baidu.appsearchlib.Info;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
+import com.baidu.mobstat.Config;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -75,20 +74,20 @@ public class d implements b {
         public static d p(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
             String optString = jSONObject.optString("nm");
             JSONObject optJSONObject = jSONObject.optJSONObject("g");
-            if (optJSONObject != null && optJSONObject.has("k")) {
+            if (optJSONObject != null && optJSONObject.has(Config.APP_KEY)) {
                 int optInt = optJSONObject.optInt("p");
-                optJSONObject = optJSONObject.optJSONObject("k");
+                optJSONObject = optJSONObject.optJSONObject(Config.APP_KEY);
                 try {
                     optJSONObject.put("p", optInt);
                 } catch (JSONException e) {
                 }
             }
             com.airbnb.lottie.model.a.c f = optJSONObject != null ? c.a.f(optJSONObject, eVar) : null;
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("o");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject(Config.OS);
             com.airbnb.lottie.model.a.d g = optJSONObject2 != null ? d.a.g(optJSONObject2, eVar) : null;
             Path.FillType fillType = jSONObject.optInt("r", 1) == 1 ? Path.FillType.WINDING : Path.FillType.EVEN_ODD;
-            GradientType gradientType = jSONObject.optInt(Info.kBaiduTimeKey, 1) == 1 ? GradientType.Linear : GradientType.Radial;
-            JSONObject optJSONObject3 = jSONObject.optJSONObject(NotifyType.SOUND);
+            GradientType gradientType = jSONObject.optInt("t", 1) == 1 ? GradientType.Linear : GradientType.Radial;
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("s");
             com.airbnb.lottie.model.a.f i = optJSONObject3 != null ? f.a.i(optJSONObject3, eVar) : null;
             JSONObject optJSONObject4 = jSONObject.optJSONObject("e");
             return new d(optString, gradientType, fillType, f, g, i, optJSONObject4 != null ? f.a.i(optJSONObject4, eVar) : null, null, null);

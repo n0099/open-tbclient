@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>> extends BaseAdapter implements o {
-    protected List<D> bze;
+    protected List<D> bzg;
     protected S coH;
     private NoDataViewFactory.b cpA;
     private FrameLayout.LayoutParams cpB;
@@ -40,17 +40,17 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
 
     public void ad(List<D> list) {
         if (list != null) {
-            if (this.bze == null) {
-                this.bze = new ArrayList();
+            if (this.bzg == null) {
+                this.bzg = new ArrayList();
             }
-            this.bze.addAll(list);
+            this.bzg.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     public void ad(D d) {
-        if (d != null && this.bze != null) {
-            this.bze.remove(d);
+        if (d != null && this.bzg != null) {
+            this.bzg.remove(d);
             notifyDataSetChanged();
         }
     }
@@ -62,55 +62,55 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
 
     public void ae(D d) {
         H h;
-        if (d != null && this.bze != null && this.bze.contains(d) && (h = this.cpr.get(this.bze.indexOf(d))) != null) {
+        if (d != null && this.bzg != null && this.bzg.contains(d) && (h = this.cpr.get(this.bzg.indexOf(d))) != null) {
             h.af(d);
         }
     }
 
     protected void af(List<D> list) {
         if (list != null) {
-            if (this.bze == null) {
-                this.bze = new ArrayList();
+            if (this.bzg == null) {
+                this.bzg = new ArrayList();
             }
-            this.bze.clear();
-            this.bze.addAll(list);
+            this.bzg.clear();
+            this.bzg.addAll(list);
             this.cpr.clear();
         }
     }
 
     public List<D> getDataList() {
-        return this.bze == null ? new ArrayList() : new ArrayList(this.bze);
+        return this.bzg == null ? new ArrayList() : new ArrayList(this.bzg);
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.bze == null) {
+        if (this.bzg == null) {
             return 0;
         }
-        if (this.bze.size() == 0 && this.cpv) {
+        if (this.bzg.size() == 0 && this.cpv) {
             return 1;
         }
-        return this.bze.size();
+        return this.bzg.size();
     }
 
-    public int aoG() {
-        if (this.bze == null) {
+    public int aoF() {
+        if (this.bzg == null) {
             return 0;
         }
-        return this.bze.size();
+        return this.bzg.size();
     }
 
     @Override // android.widget.Adapter
     public D getItem(int i) {
-        if (this.bze != null && this.bze.size() != 0 && i >= 0 && i < this.bze.size()) {
-            return this.bze.get(i);
+        if (this.bzg != null && this.bzg.size() != 0 && i >= 0 && i < this.bzg.size()) {
+            return this.bzg.get(i);
         }
         return null;
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
-        if (this.bze != null && this.bze.size() != 0 && i >= 0 && i < this.bze.size()) {
+        if (this.bzg != null && this.bzg.size() != 0 && i >= 0 && i < this.bzg.size()) {
             return i;
         }
         return 0L;
@@ -178,7 +178,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aoH() {
+    public void aoG() {
         if (this.cpx != null && this.cpw != null) {
             this.cpx.removeView(this.cpw);
             this.cpw = null;
@@ -186,7 +186,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View aoI() {
+    public View aoH() {
         if (this.cpx == null) {
             this.cpx = new FrameLayout(this.cps.getPageActivity());
         }
@@ -218,7 +218,7 @@ public abstract class c<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public boolean aoJ() {
-        return this.bze != null && this.bze.size() == 0;
+    public boolean aoI() {
+        return this.bzg != null && this.bzg.size() == 0;
     }
 }

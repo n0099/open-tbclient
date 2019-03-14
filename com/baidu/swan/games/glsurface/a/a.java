@@ -6,10 +6,10 @@ import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.apps.w.e;
 /* loaded from: classes2.dex */
 public final class a {
-    private com.baidu.swan.games.e.a bcH;
+    private com.baidu.swan.games.e.a bcI;
 
     public void setV8Engine(com.baidu.swan.games.e.a aVar) {
-        this.bcH = aVar;
+        this.bcI = aVar;
     }
 
     public void Ot() {
@@ -22,16 +22,16 @@ public final class a {
     }
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (this.bcH != null) {
-            boolean a = b.a(this.bcH.NV());
-            boolean a2 = b.a(this.bcH.NW());
+        if (this.bcI != null) {
+            boolean a = b.a(this.bcI.NV());
+            boolean a2 = b.a(this.bcI.NW());
             JSEvent jSEvent = null;
             if (a || a2) {
                 jSEvent = b.t(motionEvent);
             }
-            r0 = a ? this.bcH.dispatchEvent(jSEvent) : false;
-            if (a2 && this.bcH.isLoaded()) {
-                this.bcH.NW().dispatchEvent(jSEvent);
+            r0 = a ? this.bcI.dispatchEvent(jSEvent) : false;
+            if (a2 && this.bcI.isLoaded()) {
+                this.bcI.NW().dispatchEvent(jSEvent);
             }
             b.cx(true);
         }

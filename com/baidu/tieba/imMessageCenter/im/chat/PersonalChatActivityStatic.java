@@ -22,19 +22,19 @@ import com.baidu.tieba.imMessageCenter.im.chat.personaltalk.e;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
 public class PersonalChatActivityStatic {
-    private static e guN;
-    private static CustomMessageListener guO = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.1
+    private static e guM;
+    private static CustomMessageListener guN = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                e unused = PersonalChatActivityStatic.guN = null;
+                e unused = PersonalChatActivityStatic.guM = null;
             }
         }
     };
 
     static {
-        MessageManager.getInstance().registerListener(guO);
+        MessageManager.getInstance().registerListener(guN);
         CustomMessageTask customMessageTask = new CustomMessageTask(2002005, new CustomMessageTask.CustomRunnable<PersonalChatActivityConfig>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.2
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<PersonalChatActivityConfig> run(final CustomMessage<PersonalChatActivityConfig> customMessage) {
@@ -45,9 +45,9 @@ public class PersonalChatActivityStatic {
                     aa.b(new z<Void>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.2.1
                         /* JADX DEBUG: Method merged with bridge method */
                         @Override // com.baidu.tbadk.util.z
-                        /* renamed from: awW */
+                        /* renamed from: awV */
                         public Void doInBackground() {
-                            return m.bsA().p(linkedList);
+                            return m.bsz().p(linkedList);
                         }
                     }, new k<Void>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivityStatic.2.2
                         /* JADX DEBUG: Method merged with bridge method */
@@ -96,11 +96,11 @@ public class PersonalChatActivityStatic {
         });
     }
 
-    public static e bwF() {
-        return guN;
+    public static e bwE() {
+        return guM;
     }
 
     public static void a(e eVar) {
-        guN = eVar;
+        guM = eVar;
     }
 }

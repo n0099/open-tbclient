@@ -147,10 +147,10 @@ public class MultiImageView extends RelativeLayout {
                 if (view == MultiImageView.this.cep) {
                     DragImageView currentImageView2 = MultiImageView.this.getCurrentImageView();
                     if (currentImageView2 != null) {
-                        currentImageView2.aqL();
+                        currentImageView2.aqK();
                     }
                 } else if (view == MultiImageView.this.ceq && (currentImageView = MultiImageView.this.getCurrentImageView()) != null) {
-                    currentImageView.aqM();
+                    currentImageView.aqL();
                 }
             }
         };
@@ -179,7 +179,7 @@ public class MultiImageView extends RelativeLayout {
                     for (int i2 = 0; i2 < childCount; i2++) {
                         View childAt = MultiImageView.this.ces.getChildAt(i2);
                         if (childAt != null && (childAt instanceof UrlDragImageView)) {
-                            ((UrlDragImageView) childAt).akB();
+                            ((UrlDragImageView) childAt).akA();
                         }
                     }
                 }
@@ -226,7 +226,7 @@ public class MultiImageView extends RelativeLayout {
                 UrlDragImageView urlDragImageView = (UrlDragImageView) obj;
                 DragImageView imageView = urlDragImageView.getImageView();
                 if (imageView != null) {
-                    imageView.aqN();
+                    imageView.aqM();
                     if (MultiImageView.this.ces != null) {
                         MultiImageView.this.ces.setCurrentView(imageView);
                     }
@@ -234,8 +234,8 @@ public class MultiImageView extends RelativeLayout {
                         MultiImageView.this.cdg.a(imageView);
                     }
                 }
-                urlDragImageView.akz();
                 urlDragImageView.aky();
+                urlDragImageView.akx();
                 urlDragImageView.o(MultiImageView.this.cdr, true);
                 MultiImageView.this.c(((UrlDragImageView) obj).getmAssistUrlData());
             }
@@ -369,7 +369,7 @@ public class MultiImageView extends RelativeLayout {
     public void jf(int i) {
         View findViewWithTag;
         if (this.ces != null && (findViewWithTag = this.ces.findViewWithTag(String.valueOf(i))) != null && (findViewWithTag instanceof UrlDragImageView)) {
-            ((UrlDragImageView) findViewWithTag).akD();
+            ((UrlDragImageView) findViewWithTag).akC();
         }
     }
 
@@ -468,7 +468,7 @@ public class MultiImageView extends RelativeLayout {
         this.cep.setEnabled(false);
     }
 
-    public void ako() {
+    public void akn() {
         if (!this.cex) {
             this.cer.setVisibility(0);
         }
@@ -479,7 +479,7 @@ public class MultiImageView extends RelativeLayout {
         h(!z, i);
     }
 
-    public boolean akp() {
+    public boolean ako() {
         return this.ceB;
     }
 
@@ -510,7 +510,7 @@ public class MultiImageView extends RelativeLayout {
         }
     }
 
-    public void akq() {
+    public void akp() {
         if (!this.cex) {
             this.cer.setVisibility(8);
         }

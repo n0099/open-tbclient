@@ -5,39 +5,39 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class e {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = e.class.getSimpleName();
-    private static volatile boolean amJ = false;
-    private static volatile boolean bbc = false;
-    private static volatile List<com.baidu.swan.apps.m.a.b> bbd = new ArrayList();
+    private static volatile boolean amK = false;
+    private static volatile boolean bbd = false;
+    private static volatile List<com.baidu.swan.apps.m.a.b> bbe = new ArrayList();
 
     private e() {
     }
 
     public static void aR(boolean z) {
-        amJ = z;
+        amK = z;
         com.baidu.swan.apps.console.c.aR(z);
     }
 
     public static void NC() {
         synchronized (e.class) {
-            bbd = new ArrayList();
+            bbe = new ArrayList();
         }
-        bbc = false;
+        bbd = false;
     }
 
     public static void ND() {
-        if (amJ && !bbc) {
+        if (amK && !bbd) {
             synchronized (e.class) {
-                if (bbd != null) {
-                    for (int i = 0; i < bbd.size(); i++) {
-                        com.baidu.swan.apps.w.e.Ec().a("console", bbd.get(i));
+                if (bbe != null) {
+                    for (int i = 0; i < bbe.size(); i++) {
+                        com.baidu.swan.apps.w.e.Ec().a("console", bbe.get(i));
                     }
-                    bbd.clear();
-                    bbd = null;
+                    bbe.clear();
+                    bbe = null;
                 }
             }
-            bbc = true;
+            bbd = true;
         }
     }
 
@@ -64,22 +64,22 @@ public class e {
     }
 
     public static void aQ(String str, String str2) {
-        if (amJ) {
+        if (amK) {
             a(b.aO(str, str2));
         }
     }
 
     public static void aR(String str, String str2) {
-        if (amJ) {
+        if (amK) {
             a(b.aP(str, str2));
         }
     }
 
     private static void a(com.baidu.swan.apps.m.a.b bVar) {
-        if (!bbc) {
+        if (!bbd) {
             synchronized (e.class) {
-                if (bbd != null) {
-                    bbd.add(bVar);
+                if (bbe != null) {
+                    bbe.add(bVar);
                     return;
                 }
             }

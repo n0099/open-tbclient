@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class e implements SharedPreferences {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private SharedPreferences mSp;
 
     public e(String str) {

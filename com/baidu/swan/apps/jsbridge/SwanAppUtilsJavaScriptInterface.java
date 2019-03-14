@@ -8,16 +8,16 @@ import android.util.Log;
 import android.webkit.JavascriptInterface;
 import com.baidu.swan.apps.an.aa;
 import com.baidu.swan.apps.an.n;
-import com.baidu.swan.apps.c;
+import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.u.b.u;
-import com.baidu.swan.ubc.r;
+import com.baidu.swan.ubc.q;
 import com.baidu.ubc.UBC;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
 /* loaded from: classes2.dex */
 public class SwanAppUtilsJavaScriptInterface {
-    private static final boolean DEBUG = c.DEBUG;
+    private static final boolean DEBUG = b.DEBUG;
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_android_utils";
     public static final String KEY_SHARE_FORCE_LIGHT_THEME = "forceLightTheme";
     public static final String KEY_SHARE_SNAPSHOT = "snapshot";
@@ -132,7 +132,7 @@ public class SwanAppUtilsJavaScriptInterface {
                         l = Long.valueOf(optString);
                     }
                     if (l.longValue() >= UBC_MIN_VERSION) {
-                        r.onEvent(jSONObject.optString("actionId"), jSONObject.optString(UBC.CONTENT_KEY_VALUE));
+                        q.onEvent(jSONObject.optString("actionId"), jSONObject.optString(UBC.CONTENT_KEY_VALUE));
                     }
                 } catch (NumberFormatException e) {
                     e.printStackTrace();

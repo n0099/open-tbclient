@@ -25,7 +25,6 @@ import com.baidu.tbadk.core.util.x;
 import com.baidu.tbadk.coreExtra.data.s;
 import com.baidu.tbadk.coreExtra.data.z;
 import com.baidu.tbadk.coreExtra.model.d;
-import com.baidu.tbadk.plugin.PluginErrorTipActivity;
 import com.baidu.tbadk.plugins.XiaoyingUtil;
 import com.baidu.tieba.g;
 import com.xiaomi.mipush.sdk.Constants;
@@ -203,7 +202,7 @@ public class TiebaSyncService extends BdBaseService {
             super.onPostExecute(dVar);
             TiebaSyncService.this.mSyncTask = null;
             if (dVar != null) {
-                com.baidu.tbadk.util.b.apO().apP();
+                com.baidu.tbadk.util.b.apN().apO();
                 TiebaSyncService.this.mModel = dVar;
                 com.baidu.tieba.a.a(TiebaSyncService.this.mModel.aiR());
                 if (TiebaSyncService.this.mModel.aiO().hasNewVer() && TbConfig.COULD_UPDATE) {
@@ -243,7 +242,6 @@ public class TiebaSyncService extends BdBaseService {
                 if (TiebaSyncService.this.mModel.aiQ() != null) {
                     TbSingleton.getInstance().setIsPbFold(TiebaSyncService.this.mModel.aiQ().ahz());
                 }
-                PluginErrorTipActivity.crD = TiebaSyncService.this.mModel.aiV();
                 z aiQ = TiebaSyncService.this.mModel.aiQ();
                 if (aiQ != null) {
                     TbadkCoreApplication.getInst().setActivityPrizeData(aiQ.getActivityPrizeData());
@@ -282,7 +280,7 @@ public class TiebaSyncService extends BdBaseService {
                     b.getInstance().putInt("home_page_max_thread_count", aiQ.ahf());
                     b.getInstance().putBoolean("localvideo_open", aiQ.ahl());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001365));
-                    b.getInstance().putInt("card_show_statistic_max_count", aiQ.bXX);
+                    b.getInstance().putInt("card_show_statistic_max_count", aiQ.bXY);
                     b.getInstance().putString("nick_name_activity_link", aiQ.ahn());
                     String string = b.getInstance().getString("clean_smart_frs_cookie", "");
                     String ahk = aiQ.ahk();
@@ -300,16 +298,16 @@ public class TiebaSyncService extends BdBaseService {
                     b.getInstance().putInt("key_card_abstract_switch", aiQ.ahs());
                     s aht = aiQ.aht();
                     if (aht != null) {
-                        b.getInstance().putBoolean("nani_key_is_show_download_nani_panel", aht.bXl);
-                        b.getInstance().putBoolean("nani_key_is_activate_app", aht.bXm);
-                        b.getInstance().putInt("nani_key_download_show_position", aht.bXn);
-                        b.getInstance().putInt("nani_key_download_show_rate", aht.bXo);
-                        b.getInstance().putString("nani_key_download_link_url", aht.bXp);
-                        b.getInstance().putString("nani_key_download_txt", aht.bXq);
-                        b.getInstance().putString("nani_key_show_tail_txt", aht.bXr);
-                        b.getInstance().putInt("nani_key_show_tail_video_type", aht.bXs);
-                        b.getInstance().putString("nani_key_show_tail_txt", aht.bXr);
-                        b.getInstance().putString("nani_key_pre_h5_link", aht.bXt);
+                        b.getInstance().putBoolean("nani_key_is_show_download_nani_panel", aht.bXm);
+                        b.getInstance().putBoolean("nani_key_is_activate_app", aht.bXn);
+                        b.getInstance().putInt("nani_key_download_show_position", aht.bXo);
+                        b.getInstance().putInt("nani_key_download_show_rate", aht.bXp);
+                        b.getInstance().putString("nani_key_download_link_url", aht.bXq);
+                        b.getInstance().putString("nani_key_download_txt", aht.bXr);
+                        b.getInstance().putString("nani_key_show_tail_txt", aht.bXs);
+                        b.getInstance().putInt("nani_key_show_tail_video_type", aht.bXt);
+                        b.getInstance().putString("nani_key_show_tail_txt", aht.bXs);
+                        b.getInstance().putString("nani_key_pre_h5_link", aht.bXu);
                     }
                     b.getInstance().putLong("key_frs_cache_time", aiQ.ahu() * 1000);
                     TbSingleton.getInstance().setPushDialogLoopTime(aiQ.ahv());
@@ -340,10 +338,10 @@ public class TiebaSyncService extends BdBaseService {
                     TbadkCoreApplication.getInst().setActivitySwitch(TiebaSyncService.this.mModel.getActivitySwitch());
                 }
                 if (TiebaSyncService.this.mModel.aiU() != null) {
-                    com.baidu.tbadk.util.a.apN().a(TiebaSyncService.this.mModel.aiU());
+                    com.baidu.tbadk.util.a.apM().a(TiebaSyncService.this.mModel.aiU());
                 }
-                if (TiebaSyncService.this.mModel.aiW() != null) {
-                    com.baidu.tbadk.a.b.UD().v(TiebaSyncService.this.mModel.aiW());
+                if (TiebaSyncService.this.mModel.aiV() != null) {
+                    com.baidu.tbadk.a.b.UD().v(TiebaSyncService.this.mModel.aiV());
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001371));
                 return;

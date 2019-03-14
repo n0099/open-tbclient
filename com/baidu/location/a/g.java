@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.wifi.WifiInfo;
 import android.os.Bundle;
 import com.baidu.location.Jni;
+import com.baidu.mobstat.Config;
+import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.io.File;
 import java.util.HashMap;
@@ -40,7 +42,7 @@ public class g {
             this.h = com.baidu.location.g.g.c();
             String encodeTp4 = Jni.encodeTp4(this.c);
             this.c = null;
-            this.k.put("bloc", encodeTp4);
+            this.k.put(BaseLocationBox.TYPE, encodeTp4);
         }
 
         public void a(String str, String str2) {
@@ -199,7 +201,7 @@ public class g {
             if (!this.g) {
                 try {
                     if (com.baidu.location.e.f.j() && this.f != null && (l = com.baidu.location.e.f.a().l()) != null && l.getBSSID() != null) {
-                        String replace = l.getBSSID().replace(":", "");
+                        String replace = l.getBSSID().replace(Config.TRACE_TODAY_VISIT_SPLIT, "");
                         Long encode3 = Jni.encode3(replace);
                         if (this.h == null || !replace.equals(this.h) || this.i <= -2) {
                             try {
@@ -273,7 +275,7 @@ public class g {
                 f();
                 return;
             }
-            String replace = l.getBSSID().replace(":", "");
+            String replace = l.getBSSID().replace(Config.TRACE_TODAY_VISIT_SPLIT, "");
             boolean z2 = false;
             try {
                 rawQuery = this.f.rawQuery("select * from hstdata where id = \"" + Jni.encode3(replace) + "\";", null);

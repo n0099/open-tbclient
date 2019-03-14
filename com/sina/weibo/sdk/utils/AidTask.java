@@ -19,7 +19,6 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import com.baidu.android.common.security.RSAUtil;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.meizu.cloud.pushsdk.constants.MeizuConstants;
 import com.sina.weibo.sdk.exception.WeiboException;
@@ -129,7 +128,7 @@ public class AidTask {
             AidInfo aidInfo = new AidInfo();
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject.has("error") || jSONObject.has(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE)) {
+                if (jSONObject.has("error") || jSONObject.has("error_code")) {
                     LogUtil.d(AidTask.TAG, "loadAidFromNet has error !!!");
                     throw new WeiboException("loadAidFromNet has error !!!");
                 }

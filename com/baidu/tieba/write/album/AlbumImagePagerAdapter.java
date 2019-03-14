@@ -14,14 +14,14 @@ import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class AlbumImagePagerAdapter extends PagerAdapter {
-    private AlbumActivity jnf;
-    private Map<Integer, Boolean> jnp = new HashMap();
+    private AlbumActivity jmX;
+    private Map<Integer, Boolean> jnh = new HashMap();
     private LayoutInflater mLayoutInflater;
     private List<ImageFileInfo> mList;
 
     public AlbumImagePagerAdapter(AlbumActivity albumActivity) {
-        this.jnf = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.jnf.getPageContext().getPageActivity());
+        this.jmX = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.jmX.getPageContext().getPageActivity());
     }
 
     public void setData(List<ImageFileInfo> list) {
@@ -49,10 +49,10 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
     }
 
     public boolean Bh(int i) {
-        if (this.jnp.get(Integer.valueOf(i)) == null) {
+        if (this.jnh.get(Integer.valueOf(i)) == null) {
             return false;
         }
-        return this.jnp.get(Integer.valueOf(i)).booleanValue();
+        return this.jnh.get(Integer.valueOf(i)).booleanValue();
     }
 
     @Override // android.support.v4.view.PagerAdapter
@@ -76,10 +76,10 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         if (vP != null) {
             tbImageView2.startLoad(vP.getFilePath(), 35, false, true);
             tbImageView.startLoad(vP.getFilePath(), 36, false);
-            this.jnp.put(Integer.valueOf(i), true);
+            this.jnh.put(Integer.valueOf(i), true);
         }
         viewGroup.addView(inflate, 0);
-        al.l(inflate, d.C0236d.cp_bg_line_d);
+        al.l(inflate, d.C0277d.cp_bg_line_d);
         return inflate;
     }
 }

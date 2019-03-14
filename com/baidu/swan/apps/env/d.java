@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class d {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Nullable
     public static Set<String> r(List<String> list) {
@@ -36,7 +36,7 @@ public class d {
         }
         HashSet hashSet = new HashSet();
         for (a.b bVar : com.baidu.swan.apps.process.messaging.service.a.Gw().Gx()) {
-            if (bVar.aFd && bVar.GI() && list.contains(bVar.GE())) {
+            if (bVar.aFe && bVar.GI() && list.contains(bVar.GE())) {
                 serviceObject.sendMessageToClient(bVar, i, (Bundle) null);
                 hashSet.add(bVar.GE());
                 if (DEBUG) {

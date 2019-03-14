@@ -21,8 +21,8 @@ import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.SchemeConfig;
 import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.an.l;
-import com.baidu.swan.apps.b;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.io.File;
@@ -32,7 +32,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class aa {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static Handler sHandler = new Handler(Looper.getMainLooper());
 
     public static String x(String str, String str2, String str3) {
@@ -65,20 +65,20 @@ public final class aa {
             return false;
         }
         if (DEBUG) {
-            Log.d("SwanAppUtils", "checkPageParam pageParam : " + bVar.axH);
+            Log.d("SwanAppUtils", "checkPageParam pageParam : " + bVar.axI);
             Log.d("SwanAppUtils", "checkPageParam allowTab : " + z);
         }
         if (z) {
-            return cVar.gm(bVar.axH) || cVar.gn(bVar.axH);
+            return cVar.gm(bVar.axI) || cVar.gn(bVar.axI);
         }
-        if (!cVar.gm(bVar.axH) || cVar.gn(bVar.axH)) {
+        if (!cVar.gm(bVar.axI) || cVar.gn(bVar.axI)) {
             z2 = false;
         }
         return z2;
     }
 
     public static boolean a(com.baidu.swan.apps.ae.a.c cVar, com.baidu.swan.apps.model.b bVar) {
-        return cVar != null && cVar.Js() && cVar.gn(bVar.axH);
+        return cVar != null && cVar.Js() && cVar.gn(bVar.axI);
     }
 
     public static void i(Runnable runnable) {
@@ -280,8 +280,8 @@ public final class aa {
 
     public static Bitmap a(com.baidu.swan.apps.v.b.b bVar, String str, boolean z) {
         String str2 = "";
-        if (bVar != null && !TextUtils.isEmpty(bVar.axD)) {
-            str2 = bVar.axD;
+        if (bVar != null && !TextUtils.isEmpty(bVar.axE)) {
+            str2 = bVar.axE;
         }
         return j(str2, str, z);
     }
@@ -297,7 +297,7 @@ public final class aa {
         }
         if (hL != null) {
             if (aVar != null) {
-                com.facebook.drawee.a.a.c.cuC().e(ImageRequestBuilder.O(hL).cAF(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.an.aa.1
+                com.facebook.drawee.a.a.c.cuF().e(ImageRequestBuilder.O(hL).cAI(), AppRuntime.getAppContext()).a(new com.facebook.imagepipeline.e.b() { // from class: com.baidu.swan.apps.an.aa.1
                     @Override // com.facebook.imagepipeline.e.b
                     protected void f(Bitmap bitmap) {
                         Bitmap copy;
@@ -328,11 +328,11 @@ public final class aa {
                         super.b(bVar);
                         l.a.this.d(str, null);
                     }
-                }, com.facebook.common.b.f.ctG());
+                }, com.facebook.common.b.f.ctJ());
             } else {
                 l.a(hL, str2);
             }
         }
-        return BitmapFactory.decodeResource(AppRuntime.getAppContext().getResources(), z ? b.e.aiapps_default_icon : b.e.aiapps_default_grey_icon);
+        return BitmapFactory.decodeResource(AppRuntime.getAppContext().getResources(), z ? a.e.aiapps_default_icon : a.e.aiapps_default_grey_icon);
     }
 }

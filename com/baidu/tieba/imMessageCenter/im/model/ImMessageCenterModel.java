@@ -2,6 +2,7 @@ package com.baidu.tieba.imMessageCenter.im.model;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
@@ -44,7 +45,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
             buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
             buildNormalItem.setOwnerName(String.valueOf(1));
-            GroupSettingItemData cZ = b.bwb().cZ(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            GroupSettingItemData cZ = b.bwa().cZ(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
             if (cZ != null) {
                 buildNormalItem.setGroupSetting(cZ);
             }
@@ -52,7 +53,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
                 if (TextUtils.isEmpty(buildNormalItem.getMsgContent())) {
                     buildNormalItem.setMsgContent("");
                 } else {
-                    buildNormalItem.setMsgContent(imMessageCenterPojo.getLast_user_name() + ":" + buildNormalItem.getMsgContent());
+                    buildNormalItem.setMsgContent(imMessageCenterPojo.getLast_user_name() + Config.TRACE_TODAY_VISIT_SPLIT + buildNormalItem.getMsgContent());
                 }
             }
             insertShowData(buildNormalItem, this.mList);
@@ -65,7 +66,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
             if ((!TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) || !TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) && imMessageCenterPojo.getIsFriend() != 0 && (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) != null) {
                 buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
                 buildNormalItem.setOwnerName(String.valueOf(4));
-                PersonalSettingItemData cZ = e.bwe().cZ(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+                PersonalSettingItemData cZ = e.bwd().cZ(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
                 if (cZ != null) {
                     buildNormalItem.setGroupSetting(cZ);
                 }
@@ -79,7 +80,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (buildNormalItem != null) {
             buildNormalItem.setOwnerName(String.valueOf(8));
             if (!TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name()) && !imMessageCenterPojo.getLast_user_name().equals(TbadkCoreApplication.getCurrentAccountNameShow()) && !StringUtils.isNull(buildNormalItem.getMsgContent())) {
-                buildNormalItem.setMsgContent(imMessageCenterPojo.getLast_user_name() + ":" + buildNormalItem.getMsgContent());
+                buildNormalItem.setMsgContent(imMessageCenterPojo.getLast_user_name() + Config.TRACE_TODAY_VISIT_SPLIT + buildNormalItem.getMsgContent());
             }
             insertShowData(buildNormalItem, this.mList);
         }
@@ -91,7 +92,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (buildNormalItem != null) {
             buildNormalItem.setOwnerName(String.valueOf(5));
             if (!TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name()) && !imMessageCenterPojo.getLast_user_name().equals(TbadkCoreApplication.getCurrentAccountNameShow()) && !StringUtils.isNull(buildNormalItem.getMsgContent())) {
-                buildNormalItem.setMsgContent(TbadkCoreApplication.getInst().getContext().getString(d.j.chosen_pb_original_bar, imMessageCenterPojo.getLast_user_name()) + ":" + buildNormalItem.getMsgContent());
+                buildNormalItem.setMsgContent(TbadkCoreApplication.getInst().getContext().getString(d.j.chosen_pb_original_bar, imMessageCenterPojo.getLast_user_name()) + Config.TRACE_TODAY_VISIT_SPLIT + buildNormalItem.getMsgContent());
             }
             insertShowData(buildNormalItem, this.mList);
         }
@@ -104,9 +105,9 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
             buildNormalItem.setOwnerName(String.valueOf(7));
             if (!StringUtils.isNull(buildNormalItem.getMsgContent())) {
                 if (!TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name()) && !imMessageCenterPojo.getLast_user_name().equals(TbadkCoreApplication.getCurrentAccountNameShow())) {
-                    buildNormalItem.setMsgContent(imMessageCenterPojo.getLast_user_name() + ":" + buildNormalItem.getMsgContent());
+                    buildNormalItem.setMsgContent(imMessageCenterPojo.getLast_user_name() + Config.TRACE_TODAY_VISIT_SPLIT + buildNormalItem.getMsgContent());
                 } else {
-                    buildNormalItem.setMsgContent(TbadkCoreApplication.getInst().getApp().getString(d.j.me) + ":" + buildNormalItem.getMsgContent());
+                    buildNormalItem.setMsgContent(TbadkCoreApplication.getInst().getApp().getString(d.j.me) + Config.TRACE_TODAY_VISIT_SPLIT + buildNormalItem.getMsgContent());
                 }
             }
             insertShowData(buildNormalItem, this.mList);

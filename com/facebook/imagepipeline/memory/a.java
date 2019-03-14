@@ -5,9 +5,9 @@ import javax.annotation.concurrent.GuardedBy;
 /* loaded from: classes2.dex */
 public class a {
     @GuardedBy("this")
-    private long aSN;
-    private final int gvO;
-    private final com.facebook.common.references.c<Bitmap> jJl;
+    private long aSO;
+    private final int gvN;
+    private final com.facebook.common.references.c<Bitmap> jJd;
     @GuardedBy("this")
     private int mCount;
     private final int mMaxSize;
@@ -15,9 +15,9 @@ public class a {
     public a(int i, int i2) {
         com.facebook.common.internal.g.checkArgument(i > 0);
         com.facebook.common.internal.g.checkArgument(i2 > 0);
-        this.gvO = i;
+        this.gvN = i;
         this.mMaxSize = i2;
-        this.jJl = new com.facebook.common.references.c<Bitmap>() { // from class: com.facebook.imagepipeline.memory.a.1
+        this.jJd = new com.facebook.common.references.c<Bitmap>() { // from class: com.facebook.imagepipeline.memory.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.references.c
             /* renamed from: R */
@@ -34,10 +34,10 @@ public class a {
     public synchronized boolean U(Bitmap bitmap) {
         boolean z;
         int ab = com.facebook.d.a.ab(bitmap);
-        if (this.mCount < this.gvO) {
-            if (this.aSN + ab <= this.mMaxSize) {
+        if (this.mCount < this.gvN) {
+            if (this.aSO + ab <= this.mMaxSize) {
                 this.mCount++;
-                this.aSN = ab + this.aSN;
+                this.aSO = ab + this.aSO;
                 z = true;
             }
         }
@@ -49,13 +49,13 @@ public class a {
         synchronized (this) {
             int ab = com.facebook.d.a.ab(bitmap);
             com.facebook.common.internal.g.checkArgument(this.mCount > 0, "No bitmaps registered.");
-            com.facebook.common.internal.g.b(((long) ab) <= this.aSN, "Bitmap size bigger than the total registered size: %d, %d", Integer.valueOf(ab), Long.valueOf(this.aSN));
-            this.aSN -= ab;
+            com.facebook.common.internal.g.b(((long) ab) <= this.aSO, "Bitmap size bigger than the total registered size: %d, %d", Integer.valueOf(ab), Long.valueOf(this.aSO));
+            this.aSO -= ab;
             this.mCount--;
         }
     }
 
-    public com.facebook.common.references.c<Bitmap> cyX() {
-        return this.jJl;
+    public com.facebook.common.references.c<Bitmap> cza() {
+        return this.jJd;
     }
 }

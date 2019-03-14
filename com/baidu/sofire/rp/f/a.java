@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
-import com.baidu.appsearchlib.Info;
+import com.baidu.mobstat.Config;
 import com.baidu.sofire.b;
 import com.baidu.sofire.b.f;
 import com.baidu.sofire.b.h;
@@ -25,7 +25,7 @@ public final class a {
     public Context b;
     com.baidu.sofire.rp.d.a.a c;
     public com.baidu.sofire.rp.e.a d;
-    private HandlerC0076a e = new HandlerC0076a(l.a());
+    private HandlerC0105a e = new HandlerC0105a(l.a());
 
     public a(Context context) {
         this.b = context.getApplicationContext();
@@ -40,8 +40,8 @@ public final class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sofire.rp.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class HandlerC0076a extends Handler {
-        public HandlerC0076a(Looper looper) {
+    public class HandlerC0105a extends Handler {
+        public HandlerC0105a(Looper looper) {
             super(looper);
         }
 
@@ -334,7 +334,7 @@ public final class a {
                 eVar.f.putInt("re_net_hr_bc", optInt3);
                 eVar.f.commit();
             }
-            int optInt4 = jSONObject.optInt("w");
+            int optInt4 = jSONObject.optInt(Config.DEVICE_WIDTH);
             if (optInt4 > 0) {
                 eVar.f.putInt("re_net_wt", optInt4);
                 eVar.f.commit();
@@ -343,12 +343,12 @@ public final class a {
                 eVar.f.putInt("re_net_one_lt", jSONObject.optInt("s1"));
                 eVar.f.commit();
             }
-            int optInt5 = jSONObject.optInt("s2");
+            int optInt5 = jSONObject.optInt(Config.SESSTION_TRACK_START_TIME);
             if (optInt5 > 0) {
                 eVar.f.putInt("re_net_dy_lt", optInt5);
                 eVar.f.commit();
             }
-            int optInt6 = jSONObject.optInt(Info.kBaiduTimeKey);
+            int optInt6 = jSONObject.optInt("t");
             if (optInt6 > 0) {
                 eVar.f.putInt("re_net_over", optInt6);
                 eVar.f.commit();

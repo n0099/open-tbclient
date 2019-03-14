@@ -6,98 +6,99 @@ import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.g.e;
+import com.baidu.mapapi.UIMsg;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes3.dex */
 public class a {
-    private String byh;
-    private InterfaceC0316a jpe;
-    private com.baidu.tieba.write.a.a jpf;
+    private String byj;
+    private InterfaceC0409a joW;
+    private com.baidu.tieba.write.a.a joX;
     private BdUniqueId mBdUniqueId;
-    private HttpMessageListener jpg = new HttpMessageListener(CmdConfigHttp.CMD_ADD_LINK) { // from class: com.baidu.tieba.write.model.a.1
+    private HttpMessageListener joY = new HttpMessageListener(CmdConfigHttp.CMD_ADD_LINK) { // from class: com.baidu.tieba.write.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof AddLinkResponseMessage) {
                 AddLinkResponseMessage addLinkResponseMessage = (AddLinkResponseMessage) httpResponsedMessage;
-                e.jH().removeCallbacks(a.this.cNM);
-                if (a.this.jpe != null) {
+                e.jH().removeCallbacks(a.this.cNJ);
+                if (a.this.joW != null) {
                     if (addLinkResponseMessage.getAddLinkResponseData() == null) {
                         com.baidu.tieba.write.a.a aVar = new com.baidu.tieba.write.a.a();
-                        aVar.joE = false;
-                        aVar.linkUrl = a.this.byh;
-                        aVar.joF = 1;
-                        a.this.jpf = aVar;
+                        aVar.jow = false;
+                        aVar.linkUrl = a.this.byj;
+                        aVar.jox = 1;
+                        a.this.joX = aVar;
                     } else {
-                        a.this.jpf = addLinkResponseMessage.getAddLinkResponseData();
-                        if (!a.this.jpf.joE) {
-                            a.this.jpf.linkUrl = a.this.byh;
-                            a.this.jpf.joF = 1;
+                        a.this.joX = addLinkResponseMessage.getAddLinkResponseData();
+                        if (!a.this.joX.jow) {
+                            a.this.joX.linkUrl = a.this.byj;
+                            a.this.joX.jox = 1;
                         }
                     }
-                    a.this.jpe.a(a.this.jpf);
+                    a.this.joW.a(a.this.joX);
                 }
             }
         }
     };
-    private Runnable cNM = new Runnable() { // from class: com.baidu.tieba.write.model.a.2
+    private Runnable cNJ = new Runnable() { // from class: com.baidu.tieba.write.model.a.2
         @Override // java.lang.Runnable
         public void run() {
-            a.this.cpw();
+            a.this.cpz();
             com.baidu.tieba.write.a.a aVar = new com.baidu.tieba.write.a.a();
-            aVar.joE = false;
-            aVar.linkUrl = a.this.byh;
-            aVar.joF = 1;
-            a.this.jpf = aVar;
-            if (a.this.jpe != null) {
-                a.this.jpe.a(a.this.jpf);
+            aVar.jow = false;
+            aVar.linkUrl = a.this.byj;
+            aVar.jox = 1;
+            a.this.joX = aVar;
+            if (a.this.joW != null) {
+                a.this.joW.a(a.this.joX);
             }
         }
     };
 
     /* renamed from: com.baidu.tieba.write.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0316a {
+    public interface InterfaceC0409a {
         void a(com.baidu.tieba.write.a.a aVar);
     }
 
     public a(BdUniqueId bdUniqueId) {
         this.mBdUniqueId = bdUniqueId;
-        this.jpg.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.jpg);
+        this.joY.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.joY);
     }
 
-    public void Ev(String str) {
-        this.byh = str;
+    public void Et(String str) {
+        this.byj = str;
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_ADD_LINK, this.mBdUniqueId);
         httpMessage.addParam("link_url", str);
         httpMessage.addParam("tbs", TbadkCoreApplication.getInst().getTbs());
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_LINK, TbConfig.SERVER_ADDRESS + TbConfig.ADD_LINK);
         tbHttpMessageTask.setResponsedClass(AddLinkResponseMessage.class);
-        tbHttpMessageTask.setTimeOut(new com.baidu.adp.framework.c.e(5000));
+        tbHttpMessageTask.setTimeOut(new com.baidu.adp.framework.c.e(UIMsg.m_AppUI.MSG_APP_GPS));
         tbHttpMessageTask.setRetry(3);
         MessageManager.getInstance().sendMessage(httpMessage, tbHttpMessageTask);
-        e.jH().removeCallbacks(this.cNM);
-        e.jH().postDelayed(this.cNM, 15000L);
+        e.jH().removeCallbacks(this.cNJ);
+        e.jH().postDelayed(this.cNJ, 15000L);
     }
 
-    public void cpw() {
+    public void cpz() {
         MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_ADD_LINK, this.mBdUniqueId);
-        e.jH().removeCallbacks(this.cNM);
+        e.jH().removeCallbacks(this.cNJ);
     }
 
     public void destroy() {
-        MessageManager.getInstance().unRegisterListener(this.jpg);
-        e.jH().removeCallbacks(this.cNM);
+        MessageManager.getInstance().unRegisterListener(this.joY);
+        e.jH().removeCallbacks(this.cNJ);
     }
 
-    public void a(InterfaceC0316a interfaceC0316a) {
-        this.jpe = interfaceC0316a;
+    public void a(InterfaceC0409a interfaceC0409a) {
+        this.joW = interfaceC0409a;
     }
 
-    public com.baidu.tieba.write.a.a cpx() {
-        return this.jpf;
+    public com.baidu.tieba.write.a.a cpA() {
+        return this.joX;
     }
 }

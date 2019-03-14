@@ -18,21 +18,21 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class b extends BaseAdapter {
-    private String eNb;
-    private int eNc;
-    private AlbumActivity jnf;
+    private String eMX;
+    private int eMY;
+    private AlbumActivity jmX;
     private LayoutInflater mLayoutInflater;
     private List<com.baidu.tbadk.album.a> mList;
 
     public b(AlbumActivity albumActivity) {
-        this.jnf = albumActivity;
-        this.mLayoutInflater = LayoutInflater.from(this.jnf.getPageContext().getPageActivity());
-        this.eNc = l.aO(this.jnf.getPageContext().getPageActivity()) / 2;
+        this.jmX = albumActivity;
+        this.mLayoutInflater = LayoutInflater.from(this.jmX.getPageContext().getPageActivity());
+        this.eMY = l.aO(this.jmX.getPageContext().getPageActivity()) / 2;
     }
 
     public void b(List<com.baidu.tbadk.album.a> list, String str) {
         this.mList = list;
-        this.eNb = str;
+        this.eMX = str;
     }
 
     @Override // android.widget.Adapter
@@ -60,11 +60,11 @@ public class b extends BaseAdapter {
         } else {
             view = this.mLayoutInflater.inflate(d.h.album_list_item, viewGroup, false);
             aVar = new a();
-            aVar.jnq = (TbImageView) view.findViewById(d.g.item_head);
-            aVar.eNf = (TextView) view.findViewById(d.g.item_name);
-            aVar.eNg = (ImageView) view.findViewById(d.g.item_arrow);
-            aVar.jnq.setGifIconSupport(false);
-            aVar.jnq.setLongIconSupport(false);
+            aVar.jni = (TbImageView) view.findViewById(d.g.item_head);
+            aVar.eNb = (TextView) view.findViewById(d.g.item_name);
+            aVar.eNc = (ImageView) view.findViewById(d.g.item_arrow);
+            aVar.jni.setGifIconSupport(false);
+            aVar.jni.setLongIconSupport(false);
             view.setTag(aVar);
         }
         com.baidu.tbadk.album.a item = getItem(i);
@@ -73,24 +73,24 @@ public class b extends BaseAdapter {
         } else {
             view.setVisibility(0);
             if (!TextUtils.isEmpty(item.getName())) {
-                aVar.eNf.setText(l.a(aVar.eNf.getPaint(), item.getName(), this.eNc) + "(" + item.getCount() + ")");
+                aVar.eNb.setText(l.a(aVar.eNb.getPaint(), item.getName(), this.eMY) + "(" + item.getCount() + ")");
             } else {
-                aVar.eNf.setText("");
+                aVar.eNb.setText("");
             }
             String albumId = item.getAlbumId();
-            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.eNb)) {
-                al.c(aVar.eNg, d.f.icon_list_select_ok_n);
-                aVar.eNg.setVisibility(0);
+            if (!TextUtils.isEmpty(albumId) && albumId.equals(this.eMX)) {
+                al.c(aVar.eNc, d.f.icon_list_select_ok_n);
+                aVar.eNc.setVisibility(0);
             } else {
-                aVar.eNg.setVisibility(8);
+                aVar.eNc.setVisibility(8);
             }
             MediaFileInfo UO = item.UO();
             if (UO instanceof VideoFileInfo) {
-                aVar.jnq.startLoad(((VideoFileInfo) UO).videoPath, 37, false);
+                aVar.jni.startLoad(((VideoFileInfo) UO).videoPath, 37, false);
             } else if (UO instanceof ImageFileInfo) {
-                aVar.jnq.startLoad(((ImageFileInfo) UO).getFilePath(), 35, false);
+                aVar.jni.startLoad(((ImageFileInfo) UO).getFilePath(), 35, false);
             }
-            al.j(aVar.eNf, d.C0236d.cp_cont_b);
+            al.j(aVar.eNb, d.C0277d.cp_cont_b);
             al.k(view, d.f.addresslist_item_bg);
         }
         return view;
@@ -98,9 +98,9 @@ public class b extends BaseAdapter {
 
     /* loaded from: classes3.dex */
     private class a {
-        TextView eNf;
-        ImageView eNg;
-        TbImageView jnq;
+        TextView eNb;
+        ImageView eNc;
+        TbImageView jni;
 
         private a() {
         }

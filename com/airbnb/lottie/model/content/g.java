@@ -4,6 +4,7 @@ import android.support.annotation.Nullable;
 import com.airbnb.lottie.a.a.n;
 import com.airbnb.lottie.model.a.b;
 import com.airbnb.lottie.model.a.l;
+import com.baidu.mobstat.Config;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class g implements b {
@@ -46,7 +47,7 @@ public class g implements b {
     public static final class a {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static g u(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
-            return new g(jSONObject.optString("nm"), b.a.a(jSONObject.optJSONObject("c"), eVar, false), b.a.a(jSONObject.optJSONObject("o"), eVar, false), l.a.n(jSONObject.optJSONObject("tr"), eVar));
+            return new g(jSONObject.optString("nm"), b.a.a(jSONObject.optJSONObject("c"), eVar, false), b.a.a(jSONObject.optJSONObject(Config.OS), eVar, false), l.a.n(jSONObject.optJSONObject("tr"), eVar));
         }
     }
 }

@@ -9,7 +9,7 @@ public class w {
 
     public static boolean O(long j) {
         SwanCoreVersion As = com.baidu.swan.apps.core.i.c.Ab().As();
-        long j2 = As != null ? As.aTc : 0L;
+        long j2 = As != null ? As.aTd : 0L;
         com.baidu.swan.apps.console.c.d("SwanAppSwanCoreUtils", "targetSwanVersionCode =" + j + ";curSwanVersionCode: " + j2);
         return j2 < j;
     }

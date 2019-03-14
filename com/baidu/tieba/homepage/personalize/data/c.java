@@ -6,15 +6,15 @@ import tbclient.Personalized.Resource;
 public class c extends o {
     public void a(Resource resource) {
         if (resource != null) {
-            this.emu = resource.res_id.longValue();
+            this.emq = resource.res_id.longValue();
             this.userName = resource.user_name;
-            this.emv = resource.user_image;
-            this.emw = resource.user_link;
-            this.emx = resource.res_title;
-            this.emy = resource.res_image;
-            this.emz = resource.res_link;
-            this.emA = resource.position.longValue();
-            this.emB = resource.icon_text;
+            this.emr = resource.user_image;
+            this.ems = resource.user_link;
+            this.emt = resource.res_title;
+            this.emu = resource.res_image;
+            this.emv = resource.res_link;
+            this.emw = resource.position.longValue();
+            this.emx = resource.icon_text;
         }
     }
 }

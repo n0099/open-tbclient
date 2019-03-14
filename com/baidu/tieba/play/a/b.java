@@ -2,6 +2,7 @@ package com.baidu.tieba.play.a;
 
 import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.mapapi.UIMsg;
 import com.baidu.tbadk.core.util.v;
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -14,55 +15,55 @@ import javax.net.ssl.SSLSession;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes.dex */
 public class b {
-    private static b hZb = null;
-    private com.baidu.tieba.play.a.a hZa;
-    private InterfaceC0292b hZc = null;
-    private int hZd = 0;
+    private static b hYV = null;
+    private com.baidu.tieba.play.a.a hYU;
+    private InterfaceC0366b hYW = null;
+    private int hYX = 0;
 
     /* renamed from: com.baidu.tieba.play.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0292b {
+    public interface InterfaceC0366b {
         void dF(String str, String str2);
     }
 
     private b() {
     }
 
-    public static b bTW() {
-        if (hZb == null) {
+    public static b bTY() {
+        if (hYV == null) {
             synchronized (b.class) {
-                if (hZb == null) {
-                    hZb = new b();
+                if (hYV == null) {
+                    hYV = new b();
                 }
             }
         }
-        return hZb;
+        return hYV;
     }
 
-    public void a(InterfaceC0292b interfaceC0292b) {
-        this.hZc = interfaceC0292b;
+    public void a(InterfaceC0366b interfaceC0366b) {
+        this.hYW = interfaceC0366b;
     }
 
-    public boolean AX(String str) {
+    public boolean AV(String str) {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        if (AY(str) && this.hZa.bTV().size() > this.hZd) {
-            if (this.hZc != null) {
-                InterfaceC0292b interfaceC0292b = this.hZc;
-                List<String> bTV = this.hZa.bTV();
-                int i = this.hZd;
-                this.hZd = i + 1;
-                interfaceC0292b.dF(bTV.get(i), str);
+        if (AW(str) && this.hYU.bTX().size() > this.hYX) {
+            if (this.hYW != null) {
+                InterfaceC0366b interfaceC0366b = this.hYW;
+                List<String> bTX = this.hYU.bTX();
+                int i = this.hYX;
+                this.hYX = i + 1;
+                interfaceC0366b.dF(bTX.get(i), str);
             }
             return true;
-        } else if (this.hZa != null && this.hZa.bTV() != null && this.hZa.bTV().size() <= this.hZd) {
-            this.hZd = 0;
-            this.hZa = null;
+        } else if (this.hYU != null && this.hYU.bTX() != null && this.hYU.bTX().size() <= this.hYX) {
+            this.hYX = 0;
+            this.hYU = null;
             return false;
         } else {
-            this.hZd = 0;
-            this.hZa = null;
+            this.hYX = 0;
+            this.hYU = null;
             a aVar = new a();
             aVar.setHost(str);
             aVar.execute(new Void[0]);
@@ -70,8 +71,8 @@ public class b {
         }
     }
 
-    private boolean AY(String str) {
-        return (this.hZa == null || TextUtils.isEmpty(str) || !str.equals(this.hZa.getHost()) || v.T(this.hZa.bTV()) || this.hZa.dK(System.currentTimeMillis()) || this.hZa.bTV().size() <= this.hZd) ? false : true;
+    private boolean AW(String str) {
+        return (this.hYU == null || TextUtils.isEmpty(str) || !str.equals(this.hYU.getHost()) || v.T(this.hYU.bTX()) || this.hYU.dK(System.currentTimeMillis()) || this.hYU.bTX().size() <= this.hYX) ? false : true;
     }
 
     /* loaded from: classes.dex */
@@ -108,7 +109,7 @@ public class b {
                     httpsURLConnection3.setDoOutput(true);
                     httpsURLConnection3.setDoInput(true);
                     httpsURLConnection3.setUseCaches(false);
-                    httpsURLConnection3.setConnectTimeout(5000);
+                    httpsURLConnection3.setConnectTimeout(UIMsg.m_AppUI.MSG_APP_GPS);
                     httpsURLConnection3.setReadTimeout(10000);
                     httpsURLConnection3.setRequestProperty(HTTP.TARGET_HOST, "httpsdns.baidu.com");
                     httpsURLConnection3.setHostnameVerifier(new HostnameVerifier() { // from class: com.baidu.tieba.play.a.b.a.1
@@ -189,7 +190,7 @@ public class b {
                             }
                             com.baidu.tieba.play.a.a aVar = new com.baidu.tieba.play.a.a();
                             aVar.setStartTime(System.currentTimeMillis());
-                            publishProgress(aVar.AW(stringBuffer.toString()));
+                            publishProgress(aVar.AU(stringBuffer.toString()));
                             if (inputStreamReader != null) {
                                 try {
                                     inputStreamReader.close();
@@ -260,14 +261,14 @@ public class b {
         public void onProgressUpdate(com.baidu.tieba.play.a.a... aVarArr) {
             super.onProgressUpdate(aVarArr);
             if ((aVarArr[0] != null) && aVarArr[0].getHost() != null && aVarArr[0].getHost().equals(this.HR)) {
-                b.this.hZa = aVarArr[0];
-                if (!v.T(aVarArr[0].bTV()) && b.this.hZc != null) {
-                    b.this.hZc.dF(aVarArr[0].bTV().get(0), aVarArr[0].getHost());
+                b.this.hYU = aVarArr[0];
+                if (!v.T(aVarArr[0].bTX()) && b.this.hYW != null) {
+                    b.this.hYW.dF(aVarArr[0].bTX().get(0), aVarArr[0].getHost());
                     return;
                 }
             }
-            if (b.this.hZc != null) {
-                b.this.hZc.dF(null, null);
+            if (b.this.hYW != null) {
+                b.this.hYW.dF(null, null);
             }
         }
 

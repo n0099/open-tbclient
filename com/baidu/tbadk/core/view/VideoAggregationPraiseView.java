@@ -21,18 +21,18 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
     @Override // com.baidu.tbadk.core.view.BasePraiseView
     public void aeg() {
         super.aeg();
-        this.bOg = d.C0236d.cp_btn_a;
-        this.bOh = d.C0236d.cp_cont_h_alpha70;
-        this.bOe = d.f.icon_card_like_video_n;
-        this.bOf = d.f.icon_card_like_video_s;
+        this.bOh = d.C0277d.cp_btn_a;
+        this.bOi = d.C0277d.cp_cont_h_alpha70;
+        this.bOf = d.f.icon_card_like_video_n;
+        this.bOg = d.f.icon_card_like_video_s;
     }
 
     @Override // com.baidu.tbadk.core.view.BasePraiseView
     protected void initView(Context context) {
         if (context != null) {
             View inflate = View.inflate(context, d.h.praise_view_middlevideo, this);
-            this.bOi = (TextView) inflate.findViewById(d.g.thread_info_praise_num);
-            this.bOj = (ImageView) inflate.findViewById(d.g.thread_info_praise_img);
+            this.bOj = (TextView) inflate.findViewById(d.g.thread_info_praise_num);
+            this.bOk = (ImageView) inflate.findViewById(d.g.thread_info_praise_img);
             setDisPraiseFrom(6);
         }
     }
@@ -49,19 +49,19 @@ public class VideoAggregationPraiseView extends BasePraiseView<com.baidu.tieba.f
     public void GR() {
         Context context = getContext();
         long num = getNum();
-        String string = context.getString(this.bOd);
+        String string = context.getString(this.bOe);
         if (num > 0) {
             string = ap.az(num);
         }
-        this.bOi.setText(string);
-        this.bOi.setContentDescription(context.getString(this.bOd) + num);
-        if (((com.baidu.tieba.frs.aggregation.g) this.mData).beX() && aej()) {
-            this.bOj.setImageDrawable(W(this.bOf, this.bOe));
-            this.bOi.setTextColor(createColorStateList(this.bOh, this.bOg));
+        this.bOj.setText(string);
+        this.bOj.setContentDescription(context.getString(this.bOe) + num);
+        if (((com.baidu.tieba.frs.aggregation.g) this.mData).beW() && aej()) {
+            this.bOk.setImageDrawable(W(this.bOg, this.bOf));
+            this.bOj.setTextColor(createColorStateList(this.bOi, this.bOh));
             return;
         }
-        this.bOj.setImageDrawable(W(this.bOe, this.bOf));
-        this.bOi.setTextColor(createColorStateList(this.bOg, this.bOh));
+        this.bOk.setImageDrawable(W(this.bOf, this.bOg));
+        this.bOj.setTextColor(createColorStateList(this.bOh, this.bOi));
     }
 
     public boolean aej() {

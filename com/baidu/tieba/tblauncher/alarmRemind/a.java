@@ -4,6 +4,7 @@ import android.app.Application;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.text.format.Time;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.message.RemindRecommendMessage;
@@ -14,11 +15,11 @@ import org.json.JSONObject;
 import tbclient.GetClientConfig.DataRes;
 /* loaded from: classes4.dex */
 public class a {
-    public static boolean bYh() {
+    public static boolean bYj() {
         return TbadkSettings.getInst().loadInt(new StringBuilder().append(TbadkCoreApplication.getCurrentAccount()).append("remind_recommend_server_switch").toString(), 1) == 1;
     }
 
-    public static RemindRecommendMessage Dc(String str) {
+    public static RemindRecommendMessage Da(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -61,7 +62,7 @@ public class a {
         if (TextUtils.isEmpty(loadString)) {
             loadString = "12:05:00";
         }
-        String[] split = loadString.split(":");
+        String[] split = loadString.split(Config.TRACE_TODAY_VISIT_SPLIT);
         if (split == null || split.length != 3) {
             i = 0;
             i2 = 5;
@@ -97,7 +98,7 @@ public class a {
         return calendar.getTimeInMillis();
     }
 
-    public static long cgM() {
+    public static long cgP() {
         return dT(System.currentTimeMillis());
     }
 
@@ -111,7 +112,7 @@ public class a {
         return i == time.year && i2 == time.month && i3 == time.monthDay;
     }
 
-    public static boolean cgN() {
+    public static boolean cgQ() {
         return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("sync_local_dialog", 1) == 1;
     }
 }

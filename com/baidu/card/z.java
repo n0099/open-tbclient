@@ -7,35 +7,35 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.data.a;
 /* loaded from: classes3.dex */
 public class z<T extends com.baidu.tbadk.core.data.a> extends v.a {
-    private x<T> YV;
-    private s YW;
-    private com.baidu.tieba.card.ab<T> YX;
-    private m YY;
-    private w YZ;
+    private x<T> YW;
+    private s YX;
+    private com.baidu.tieba.card.ab<T> YY;
+    private m YZ;
+    private w Za;
     private BdUniqueId mId;
 
     public z(x<T> xVar) {
         super(xVar.getView());
-        this.YX = null;
-        this.YV = xVar;
+        this.YY = null;
+        this.YW = xVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.v.a
     public View getView() {
-        return this.YV.getView();
+        return this.YW.getView();
     }
 
     public x<T> rx() {
-        return this.YV;
+        return this.YW;
     }
 
     public s ry() {
-        if (this.YW == null) {
-            this.YW = new s(((TbPageContextSupport) this.YV.getView().getContext()).getPageContext());
-            this.YW.Yh.setUniqueId(this.mId);
+        if (this.YX == null) {
+            this.YX = new s(((TbPageContextSupport) this.YW.getView().getContext()).getPageContext());
+            this.YX.Yi.setUniqueId(this.mId);
         }
-        this.YV.a(this.YW);
-        return this.YW;
+        this.YW.a(this.YX);
+        return this.YX;
     }
 
     public m rz() {
@@ -43,47 +43,47 @@ public class z<T extends com.baidu.tbadk.core.data.a> extends v.a {
     }
 
     public m aI(boolean z) {
-        if (this.YY == null) {
-            this.YY = new m(this.YV.getContext());
+        if (this.YZ == null) {
+            this.YZ = new m(this.YW.getContext());
         }
-        this.YY.g(this.mId);
-        this.YY.aG(z);
-        this.YV.a(this.YY);
-        return this.YY;
+        this.YZ.g(this.mId);
+        this.YZ.aG(z);
+        this.YW.a(this.YZ);
+        return this.YZ;
     }
 
     public w rA() {
-        if (this.YZ == null) {
-            this.YZ = new w(((TbPageContextSupport) this.YV.getView().getContext()).getPageContext());
-            this.YZ.setPageId(this.mId);
+        if (this.Za == null) {
+            this.Za = new w(((TbPageContextSupport) this.YW.getView().getContext()).getPageContext());
+            this.Za.setPageId(this.mId);
         }
-        this.YV.a(this.YZ);
-        return this.YZ;
+        this.YW.a(this.Za);
+        return this.Za;
     }
 
     public void a(T t) {
         boolean z = false;
         if (t == null) {
-            this.YV.getView().setVisibility(8);
+            this.YW.getView().setVisibility(8);
             return;
         }
-        this.YV.getView().setVisibility(0);
-        if (this.YW != null && this.YW.Yh != null) {
+        this.YW.getView().setVisibility(0);
+        if (this.YX != null && this.YX.Yi != null) {
             if (!t.isSelf() && t.WT() != null) {
-                this.YW.C(t.WT());
-                this.YW.Yh.setVisibility(0);
+                this.YX.C(t.WT());
+                this.YX.Yi.setVisibility(0);
                 z = true;
-            } else if (this.YW != null && this.YW.Yh != null) {
-                this.YW.Yh.setVisibility(8);
+            } else if (this.YX != null && this.YX.Yi != null) {
+                this.YX.Yi.setVisibility(8);
             }
         }
-        this.YV.b((x<T>) t);
-        if (this.YZ != null) {
-            this.YZ.aH(z);
-            this.YZ.C(t.WR());
+        this.YW.b((x<T>) t);
+        if (this.Za != null) {
+            this.Za.aH(z);
+            this.Za.C(t.WR());
         }
-        if (this.YY != null) {
-            this.YY.C(t.WR());
+        if (this.YZ != null) {
+            this.YZ.C(t.WR());
         }
     }
 
@@ -92,6 +92,6 @@ public class z<T extends com.baidu.tbadk.core.data.a> extends v.a {
     }
 
     public void c(com.baidu.tieba.card.ab<T> abVar) {
-        this.YV.a(abVar);
+        this.YW.a(abVar);
     }
 }

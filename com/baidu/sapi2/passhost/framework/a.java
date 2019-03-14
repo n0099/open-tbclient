@@ -85,15 +85,15 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sapi2.passhost.framework.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0061a {
+    public static class C0090a {
         public static a a = new a();
 
-        private C0061a() {
+        private C0090a() {
         }
     }
 
     public static a a() {
-        return C0061a.a;
+        return C0090a.a;
     }
 
     a() {
@@ -246,7 +246,7 @@ public class a {
                 }
             }
         } catch (Throwable th) {
-            Log.e(a, "startPassPi()", Info.kBaiduTimeKey, android.util.Log.getStackTraceString(th));
+            Log.e(a, "startPassPi()", "t", android.util.Log.getStackTraceString(th));
         }
     }
 

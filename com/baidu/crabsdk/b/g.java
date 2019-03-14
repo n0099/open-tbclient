@@ -7,14 +7,14 @@ import android.content.pm.PackageManager;
 import com.baidu.sapi2.base.network.Apn;
 /* loaded from: classes3.dex */
 public final class g {
-    private static Intent abN;
+    private static Intent abO;
 
     public static void d(Context context) {
-        if (abN != null || context == null) {
+        if (abO != null || context == null) {
             return;
         }
         try {
-            abN = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            abO = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
             com.baidu.crabsdk.c.a.cx("Battery Broadcast Regist Success");
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("Register Battery Error!", e);
@@ -44,11 +44,11 @@ public final class g {
     }
 
     public static String w() {
-        if (abN == null) {
+        if (abO == null) {
             return Apn.APN_UNKNOWN;
         }
         try {
-            return ((int) ((abN.getIntExtra("level", 0) * 100.0f) / abN.getIntExtra("scale", 100))) + "%";
+            return ((int) ((abO.getIntExtra("level", 0) * 100.0f) / abO.getIntExtra("scale", 100))) + "%";
         } catch (Exception e) {
             com.baidu.crabsdk.c.a.f("Get Battery Error!", e);
             return Apn.APN_UNKNOWN;

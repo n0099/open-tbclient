@@ -6,26 +6,26 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class i implements b {
-    private com.baidu.swan.pms.a.b bmE;
-    private List<com.baidu.swan.pms.model.f> bmF = new ArrayList();
+    private com.baidu.swan.pms.a.b bmF;
     private List<com.baidu.swan.pms.model.f> bmG = new ArrayList();
     private List<com.baidu.swan.pms.model.f> bmH = new ArrayList();
-    private List<com.baidu.swan.pms.b.a.b> bmD = new ArrayList();
+    private List<com.baidu.swan.pms.model.f> bmI = new ArrayList();
+    private List<com.baidu.swan.pms.b.a.b> bmE = new ArrayList();
 
     public i(com.baidu.swan.pms.a.b bVar) {
-        this.bmE = bVar;
+        this.bmF = bVar;
         d.RT().c(this);
     }
 
     public void a(com.baidu.swan.pms.b.a.b bVar) {
         if (bVar != null) {
-            this.bmD.add(bVar);
+            this.bmE.add(bVar);
         }
     }
 
     public void startDownload() {
         if (!Sd()) {
-            for (com.baidu.swan.pms.b.a.b bVar : this.bmD) {
+            for (com.baidu.swan.pms.b.a.b bVar : this.bmE) {
                 bVar.cP(false);
             }
         }
@@ -37,7 +37,7 @@ public class i implements b {
 
     @Override // com.baidu.swan.pms.b.a.c.b
     public <T> void e(f<T> fVar) {
-        Iterator<com.baidu.swan.pms.b.a.b> it = this.bmD.iterator();
+        Iterator<com.baidu.swan.pms.b.a.b> it = this.bmE.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -45,16 +45,16 @@ public class i implements b {
             com.baidu.swan.pms.b.a.b next = it.next();
             if (next.a(fVar)) {
                 int RW = fVar.RW();
-                this.bmD.remove(next);
+                this.bmE.remove(next);
                 switch (RW) {
                     case 2:
-                        this.bmH.add(next.RR().bmx.bmw);
+                        this.bmI.add(next.RR().bmy.bmx);
                         break;
                     case 3:
-                        this.bmG.add(next.RR().bmx.bmw);
+                        this.bmH.add(next.RR().bmy.bmx);
                         break;
                     case 10:
-                        this.bmF.add(next.RR().bmx.bmw);
+                        this.bmG.add(next.RR().bmy.bmx);
                         break;
                     default:
                         if (com.baidu.swan.pms.e.DEBUG) {
@@ -69,8 +69,8 @@ public class i implements b {
     }
 
     private boolean Sd() {
-        if (this.bmD.isEmpty()) {
-            this.bmE.DA();
+        if (this.bmE.isEmpty()) {
+            this.bmF.DA();
             d.RT().d(this);
             return true;
         }

@@ -22,7 +22,7 @@ import com.tencent.connect.common.Constants;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class f {
-    private e jpY;
+    private e jpQ;
     private BdUniqueId mPageId;
     private String yV = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
 
@@ -37,7 +37,7 @@ public class f {
     }
 
     public void a(e eVar) {
-        this.jpY = eVar;
+        this.jpQ = eVar;
     }
 
     /* loaded from: classes3.dex */
@@ -58,7 +58,7 @@ public class f {
             com.baidu.adp.lib.Disk.ops.c cVar2 = new com.baidu.adp.lib.Disk.ops.c(TbConfig.IMAGE_CACHE_DIR_NAME, as.mK(cVar.imageUrl + 42), DiskFileOperate.Action.READ);
             cVar2.R(true);
             cVar2.S(false);
-            ImageUploadResult f = new com.baidu.tbadk.img.f(null).f(ek(cVar2.hJ(), cVar2.getName()), true, false);
+            ImageUploadResult f = new com.baidu.tbadk.img.f(null).f(ej(cVar2.hJ(), cVar2.getName()), true, false);
             if (f != null && f.picInfo != null) {
                 if (f.picInfo.originPic != null && !StringUtils.isNull(f.picInfo.originPic.picUrl)) {
                     str = f.picInfo.originPic.picUrl;
@@ -69,7 +69,7 @@ public class f {
                 }
             }
             if (StringUtils.isNull(str)) {
-                str = cVar.jpG;
+                str = cVar.jpy;
             }
             x xVar = new x();
             xVar.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
@@ -83,7 +83,7 @@ public class f {
             xVar.x("new_vcode", "1");
             xVar.x("content", cVar.JA);
             xVar.x(ImageViewerConfig.FORUM_ID, cVar.forumId);
-            xVar.x("kw", cVar.jpF);
+            xVar.x("kw", cVar.jpx);
             xVar.x("is_hide", "0");
             xVar.x(IntentConfig.CALL_FROM, "2");
             xVar.x("title", cVar.JA);
@@ -96,28 +96,28 @@ public class f {
                 xVar.x("lat", String.valueOf(af.getLatitude()));
                 xVar.x("lng", String.valueOf(af.getLongitude()));
             }
-            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.ceX().getLocationData();
+            com.baidu.tieba.tbadkCore.location.a locationData = com.baidu.tieba.tbadkCore.location.c.ceZ().getLocationData();
             if (locationData != null) {
-                xVar.x("name", locationData.ceU());
-                xVar.x("sn", locationData.ceW());
+                xVar.x("name", locationData.ceW());
+                xVar.x("sn", locationData.ceY());
             }
             xVar.x("is_link_thread", "0");
             if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
                 xVar.x("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
             }
             xVar.x("tbopen_app_key", cVar.appKey);
-            xVar.x("tbopen_app_icon", cVar.jpE);
+            xVar.x("tbopen_app_icon", cVar.jpw);
             xVar.x("tbopen_app_name", cVar.appName);
             xVar.x("share_abstract", cVar.content);
             xVar.x("share_image", str);
             xVar.x("share_h5_url", cVar.linkUrl);
-            xVar.x("share_swan_app_key", cVar.jpD);
-            xVar.x("share_swan_path", cVar.jpH);
+            xVar.x("share_swan_app_key", cVar.jpv);
+            xVar.x("share_swan_path", cVar.jpz);
             String acj = xVar.acj();
             d dVar = new d();
             try {
                 JSONObject jSONObject = new JSONObject(acj);
-                dVar.jpJ = jSONObject.optString("msg");
+                dVar.jpB = jSONObject.optString("msg");
                 dVar.preMsg = jSONObject.optString("pre_msg");
                 dVar.fid = cVar.forumId;
                 dVar.tid = jSONObject.optString("tid");
@@ -135,7 +135,7 @@ public class f {
             if (errorData.error_code != 0 && !j.kY()) {
                 errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(d.j.neterror));
             }
-            dVar.jpI = errorData;
+            dVar.jpA = errorData;
             AntiData antiData = new AntiData();
             try {
                 antiData.parserJson(new JSONObject(acj).optJSONObject("anti_stat"));
@@ -145,7 +145,7 @@ public class f {
             return dVar;
         }
 
-        public String ek(String str, String str2) {
+        public String ej(String str, String str2) {
             String str3 = f.this.yV + str2;
             if (str != null) {
                 return f.this.yV + str + "/" + str2;
@@ -158,8 +158,8 @@ public class f {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(d dVar) {
-            if (f.this.jpY != null) {
-                f.this.jpY.a(dVar);
+            if (f.this.jpQ != null) {
+                f.this.jpQ.a(dVar);
             }
         }
     }

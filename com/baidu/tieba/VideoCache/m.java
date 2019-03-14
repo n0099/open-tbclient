@@ -7,14 +7,14 @@ import java.io.File;
 public class m {
     private static final String TAG = m.class.getSimpleName();
 
-    public static long qz(String str) {
+    public static long qx(String str) {
         long j;
         long j2 = 0;
-        long qA = qA(str);
+        long qy = qy(str);
         if (str == null || str.isEmpty()) {
             j = 0;
         } else {
-            File file = new File(i.cLR + str);
+            File file = new File(i.cLO + str);
             if (file == null || !file.exists() || !file.isDirectory()) {
                 return 0L;
             }
@@ -25,15 +25,15 @@ public class m {
                 j2 = file3.length();
             }
         }
-        return j + j2 + qA;
+        return j + j2 + qy;
     }
 
-    public static long qA(String str) {
+    public static long qy(String str) {
         File file;
         File file2;
         File[] listFiles;
         long j = 0;
-        if (str != null && !str.isEmpty() && (file = new File(i.cLR + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
+        if (str != null && !str.isEmpty() && (file = new File(i.cLO + str)) != null && file.exists() && file.isDirectory() && (file2 = new File(file.getAbsolutePath() + "/segments")) != null && file2.exists() && file2.isDirectory() && (listFiles = file2.listFiles()) != null && listFiles.length != 0) {
             for (File file3 : listFiles) {
                 if (file3 != null && file3.exists()) {
                     j += file3.length();
@@ -43,7 +43,7 @@ public class m {
         return j;
     }
 
-    public static long avT() {
+    public static long avS() {
         StatFs statFs = new StatFs(TbadkCoreApplication.getInst().getCacheDir().getPath());
         return statFs.getAvailableBlocks() * statFs.getBlockSize();
     }
@@ -79,7 +79,7 @@ public class m {
         }
     }
 
-    public static String qB(String str) {
+    public static String qz(String str) {
         if (str == null || !str.contains("/")) {
             return null;
         }

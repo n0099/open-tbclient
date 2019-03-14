@@ -3,7 +3,7 @@ package com.baidu.swan.apps.storage;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.mobstat.Config;
 import com.baidu.swan.apps.ak.c;
 import com.baidu.swan.apps.storage.b.e;
 import java.io.File;
@@ -15,19 +15,19 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.swan.apps.ae.c {
-    private e aQA;
-    public final String aQB;
-    public final File aSR;
-    private final c.a<Long> aSU;
+    private e aQB;
+    public final String aQC;
+    public final File aSS;
+    private final c.a<Long> aSV;
     public final String name;
-    public static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    public static int aSS = 1024;
+    public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    public static int aST = 1024;
     public static int INVALID_INDEX = -1;
-    public static int aST = 1;
+    public static int aSU = 1;
 
     public c(com.baidu.swan.apps.ae.b bVar) {
         super(bVar);
-        this.aSU = new c.a<Long>() { // from class: com.baidu.swan.apps.storage.c.1
+        this.aSV = new c.a<Long>() { // from class: com.baidu.swan.apps.storage.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ak.c.a
             /* renamed from: KJ */
@@ -36,9 +36,9 @@ public class c extends com.baidu.swan.apps.ae.c {
             }
         };
         this.name = b.d(bVar);
-        this.aQB = "aiapp_" + this.name;
-        this.aSR = new File(getApplicationInfo().dataDir, "shared_prefs/" + this.aQB + ".xml");
-        com.baidu.swan.apps.ak.e.aVO.a(this.aSU);
+        this.aQC = "aiapp_" + this.name;
+        this.aSS = new File(getApplicationInfo().dataDir, "shared_prefs/" + this.aQC + ".xml");
+        com.baidu.swan.apps.ak.e.aVP.a(this.aSV);
     }
 
     public boolean KE() {
@@ -46,10 +46,10 @@ public class c extends com.baidu.swan.apps.ae.c {
     }
 
     public e KF() {
-        if (this.aQA == null) {
-            this.aQA = new e(this.aQB);
+        if (this.aQB == null) {
+            this.aQB = new e(this.aQC);
         }
-        return this.aQA;
+        return this.aQB;
     }
 
     public void clear(boolean z) {
@@ -60,7 +60,7 @@ public class c extends com.baidu.swan.apps.ae.c {
         }
         com.baidu.swan.c.b.deleteFile(b.gX(com.baidu.swan.apps.ae.b.Ji()));
         com.baidu.swan.c.b.deleteFile(b.gW(com.baidu.swan.apps.ae.b.Ji()));
-        com.baidu.swan.apps.ak.e.aVO.update();
+        com.baidu.swan.apps.ak.e.aVP.update();
     }
 
     public int ha(@NonNull String str) {
@@ -68,8 +68,8 @@ public class c extends com.baidu.swan.apps.ae.c {
         if (!file.exists() || !file.isFile()) {
             return 2001;
         }
-        if (file.length() > 10485760) {
-            return BaseActivity.EXTRA_PARAM_FROM_PASS_SDK_ENTER;
+        if (file.length() > Config.FULL_TRACE_LOG_LIMIT) {
+            return 2002;
         }
         return 2000;
     }
@@ -83,7 +83,7 @@ public class c extends com.baidu.swan.apps.ae.c {
         if (lastIndexOf == INVALID_INDEX || length <= lastIndexOf) {
             return null;
         }
-        return str.substring(aST + lastIndexOf, length);
+        return str.substring(aSU + lastIndexOf, length);
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [228=5, 230=4, 231=4, 232=4, 236=4, 238=4, 239=4, 240=4] */
@@ -116,7 +116,7 @@ public class c extends com.baidu.swan.apps.ae.c {
                 try {
                     fileOutputStream = new FileOutputStream(aE);
                     try {
-                        byte[] bArr = new byte[aSS];
+                        byte[] bArr = new byte[aST];
                         while (true) {
                             int read = fileInputStream.read(bArr);
                             if (read == -1) {
@@ -306,22 +306,22 @@ public class c extends com.baidu.swan.apps.ae.c {
     }
 
     public long KH() {
-        if (this.aSR == null) {
+        if (this.aSS == null) {
             if (DEBUG) {
                 Log.i("SwanAppStorage", this.name + " isNull");
             }
             return 0L;
         }
         if (DEBUG) {
-            Log.i("SwanAppStorage", this.name + " exists = " + this.aSR.exists());
-            Log.i("SwanAppStorage", this.name + " isFile = " + this.aSR.isFile());
-            Log.i("SwanAppStorage", this.name + " path = " + this.aSR.getPath());
-            Log.i("SwanAppStorage", this.name + " size = " + this.aSR.length());
+            Log.i("SwanAppStorage", this.name + " exists = " + this.aSS.exists());
+            Log.i("SwanAppStorage", this.name + " isFile = " + this.aSS.isFile());
+            Log.i("SwanAppStorage", this.name + " path = " + this.aSS.getPath());
+            Log.i("SwanAppStorage", this.name + " size = " + this.aSS.length());
         }
-        return this.aSR.length();
+        return this.aSS.length();
     }
 
     public long KI() {
-        return 10485760L;
+        return Config.FULL_TRACE_LOG_LIMIT;
     }
 }

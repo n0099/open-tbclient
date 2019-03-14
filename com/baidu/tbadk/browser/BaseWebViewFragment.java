@@ -75,7 +75,8 @@ public class BaseWebViewFragment extends BaseFragment {
         }
     }
 
-    protected com.baidu.tbadk.coreExtra.c.d createShareContent(String str, String str2, String str3, String str4) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public com.baidu.tbadk.coreExtra.c.d createShareContent(String str, String str2, String str3, String str4) {
         com.baidu.tbadk.coreExtra.c.d dVar = new com.baidu.tbadk.coreExtra.c.d();
         if (StringUtils.isNull(this.mUrlTitle, true)) {
             dVar.title = getResources().getString(d.j.share_from_tieba);

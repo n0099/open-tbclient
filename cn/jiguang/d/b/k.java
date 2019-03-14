@@ -1,4 +1,6 @@
 package cn.jiguang.d.b;
+
+import com.baidu.mobstat.Config;
 /* loaded from: classes3.dex */
 final class k {
     String a;
@@ -25,6 +27,6 @@ final class k {
     }
 
     public final String toString() {
-        return this.a + ":" + this.b;
+        return this.a + Config.TRACE_TODAY_VISIT_SPLIT + this.b;
     }
 }

@@ -10,8 +10,8 @@ public class d {
     private String labelId = "";
     private int cel = 0;
     private boolean cem = false;
-    private int cen = al.getColor(d.C0236d.cp_btn_a);
-    private int ceo = al.getColor(d.C0236d.cp_link_tip_d);
+    private int cen = al.getColor(d.C0277d.cp_btn_a);
+    private int ceo = al.getColor(d.C0277d.cp_link_tip_d);
 
     public void setLabelName(String str) {
         this.labelName = str;

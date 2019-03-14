@@ -1,16 +1,17 @@
 package com.baidu.tbadk.o;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 /* loaded from: classes.dex */
 public class o extends l {
     public void a(i iVar) {
-        if (m.apl().apm()) {
+        if (m.apk().apl()) {
             com.baidu.adp.lib.stats.a jC = jC();
             jC.append("action", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
             jC.append("ishttp", iVar.cqz ? "1" : "0");
             jC.append("issuccess", iVar.isSuccess ? "1" : "0");
-            jC.append("nettype", m.apl().getNetType());
+            jC.append("nettype", m.apk().getNetType());
             jC.append("wt", String.valueOf(iVar.cqw));
             jC.append("qt", String.valueOf(iVar.cqp));
             jC.append("connt", String.valueOf(iVar.cqq));
@@ -37,10 +38,10 @@ public class o extends l {
                 jC.f("errcode", Integer.valueOf(iVar.errCode));
             }
             if (iVar.cqC) {
-                jC.append("pt", "1");
+                jC.append(Config.PLATFORM_TYPE, "1");
             } else {
                 jC.append("sysct", String.valueOf(iVar.cqn));
-                jC.append("ct", String.valueOf(iVar.cqo));
+                jC.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(iVar.cqo));
             }
             if (iVar.cqz) {
                 jC.append("c_logid", String.valueOf(iVar.cqD));
@@ -55,33 +56,33 @@ public class o extends l {
     }
 
     public void a(h hVar, String str) {
-        if (hVar != null && str != null && m.apl().apm()) {
+        if (hVar != null && str != null && m.apk().apl()) {
             com.baidu.adp.lib.stats.a jC = jC();
             jC.append("action", "resource");
             jC.append("actype", str);
             jC.append("issuccess", hVar.isSuccess ? "1" : "0");
             jC.append("isfs", hVar.cqm ? "1" : "0");
-            jC.append("ct", String.valueOf(hVar.Oh));
-            jC.append("from", String.valueOf(hVar.Og));
+            jC.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(hVar.Oi));
+            jC.append("from", String.valueOf(hVar.Oh));
             BdStatisticsManager.getInstance().performance(this.subType, jC);
         }
     }
 
     public void a(b bVar) {
-        if (bVar != null && m.apl().apm()) {
+        if (bVar != null && m.apk().apl()) {
             com.baidu.adp.lib.stats.a jC = jC();
             jC.append("action", "fluency");
             jC.append("fps", String.valueOf(bVar.getFps()));
             BdStatisticsManager.getInstance().performance(this.subType, jC);
             com.baidu.adp.lib.stats.a jC2 = jC();
             jC2.append("action", "mem");
-            jC2.append("memp", String.valueOf(m.apl().apn()));
+            jC2.append("memp", String.valueOf(m.apk().apm()));
             BdStatisticsManager.getInstance().performance(this.subType, jC2);
         }
     }
 
     public void a(i iVar, boolean z) {
-        if (m.apl().apm()) {
+        if (m.apk().apl()) {
             if (!z || iVar.cqE > 0) {
                 if (z || iVar.cqF > 0) {
                     com.baidu.adp.lib.stats.a jC = jC();
@@ -93,7 +94,7 @@ public class o extends l {
                     }
                     jC.append("ishttp", iVar.cqz ? "1" : "0");
                     jC.append("issuccess", iVar.isSuccess ? "1" : "0");
-                    jC.append("nettype", m.apl().getNetType());
+                    jC.append("nettype", m.apk().getNetType());
                     jC.append("qt", String.valueOf(iVar.cqp));
                     jC.append("connt", String.valueOf(iVar.cqq));
                     jC.append("rwt", String.valueOf(iVar.cqr));
@@ -118,7 +119,7 @@ public class o extends l {
     }
 
     public void a(i iVar, int i) {
-        if (m.apl().apm() && iVar.cqG > 0) {
+        if (m.apk().apl() && iVar.cqG > 0) {
             com.baidu.adp.lib.stats.a jC = jC();
             jC.append("action", CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME);
             jC.append("pct", String.valueOf(iVar.cqG));

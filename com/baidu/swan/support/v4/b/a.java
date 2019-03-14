@@ -5,11 +5,11 @@ import java.util.Map;
 import java.util.Set;
 /* loaded from: classes2.dex */
 public class a<K, V> extends f<K, V> implements Map<K, V> {
-    e<K, V> bop;
+    e<K, V> boq;
 
     private e<K, V> SG() {
-        if (this.bop == null) {
-            this.bop = new e<K, V>() { // from class: com.baidu.swan.support.v4.b.a.1
+        if (this.boq == null) {
+            this.boq = new e<K, V>() { // from class: com.baidu.swan.support.v4.b.a.1
                 @Override // com.baidu.swan.support.v4.b.e
                 protected int colGetSize() {
                     return a.this.mSize;
@@ -56,7 +56,7 @@ public class a<K, V> extends f<K, V> implements Map<K, V> {
                 }
             };
         }
-        return this.bop;
+        return this.boq;
     }
 
     @Override // java.util.Map

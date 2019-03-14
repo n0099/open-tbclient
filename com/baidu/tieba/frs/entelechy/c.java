@@ -24,7 +24,7 @@ public class c implements com.baidu.tieba.frs.entelechy.b.b {
                 Iterator<m> it = threadList.iterator();
                 while (it.hasNext()) {
                     m next = it.next();
-                    if (next.getType() == bg.bAN) {
+                    if (next.getType() == bg.bAP) {
                         arrayList.add(next);
                     }
                 }
@@ -41,7 +41,7 @@ public class c implements com.baidu.tieba.frs.entelechy.b.b {
     @Override // com.baidu.tieba.frs.entelechy.b.b
     public void a(f fVar, k kVar, FrsViewData frsViewData) {
         if (fVar != null && kVar != null && frsViewData != null) {
-            fVar.bja();
+            fVar.biZ();
             if (frsViewData != null && frsViewData.getForum() != null) {
                 kVar.a(frsViewData.getForum().getFrsBannerData());
             }

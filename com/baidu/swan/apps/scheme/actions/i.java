@@ -11,7 +11,6 @@ import com.baidu.swan.apps.storage.PathType;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import java.io.IOException;
-import org.apache.http.cookie.ClientCookie;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -76,7 +75,7 @@ public class i extends y {
         try {
             jSONObject.put("width", i2);
             jSONObject.put("height", i3);
-            jSONObject.put(ClientCookie.PATH_ATTR, str2);
+            jSONObject.put("path", str2);
             jSONObject.put("orientation", dz(i));
             jSONObject.put("type", str4);
         } catch (JSONException e) {

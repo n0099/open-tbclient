@@ -21,11 +21,11 @@ public class PostDisPraiseView extends PostPraiseView {
     @Override // com.baidu.tbadk.core.view.BasePraiseView
     public void aeg() {
         this.agreeType = 5;
-        this.bOd = d.j.action_dislike;
-        this.bOg = d.C0236d.cp_cont_j;
-        this.bOh = d.C0236d.cp_link_tip_a;
-        this.bOe = d.f.icon_card_dislike_n;
-        this.bOf = d.f.icon_card_dislike_s;
+        this.bOe = d.j.action_dislike;
+        this.bOh = d.C0277d.cp_cont_j;
+        this.bOi = d.C0277d.cp_link_tip_a;
+        this.bOf = d.f.icon_card_dislike_n;
+        this.bOg = d.f.icon_card_dislike_s;
     }
 
     @Override // com.baidu.tbadk.core.view.PostPraiseView, com.baidu.tbadk.core.view.BasePraiseView
@@ -42,7 +42,7 @@ public class PostDisPraiseView extends PostPraiseView {
         if (this.mData == 0) {
             return 0;
         }
-        if (((PostData) this.mData).beX() && aej()) {
+        if (((PostData) this.mData).beW() && aej()) {
             ((PostData) this.mData).gA(5);
             ((PostData) this.mData).pZ(false);
             ((PostData) this.mData).af(((PostData) this.mData).aak());
@@ -50,7 +50,7 @@ public class PostDisPraiseView extends PostPraiseView {
             i = 1;
         } else {
             int aan = ((PostData) this.mData).aan();
-            if ((((PostData) this.mData).beX() && aan == 2) || aan == 1) {
+            if ((((PostData) this.mData).beW() && aan == 2) || aan == 1) {
                 ((PostData) this.mData).af(((PostData) this.mData).aak() - 1);
             }
             ((PostData) this.mData).pZ(true);

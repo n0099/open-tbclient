@@ -7,7 +7,7 @@ public class bk extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected String getName() {
-        return "android_video_player_reuseable";
+        return "video_middle_page_three";
     }
 
     @Override // com.baidu.adp.lib.b.a
@@ -17,7 +17,7 @@ public class bk extends com.baidu.adp.lib.b.a {
 
     @Override // com.baidu.adp.lib.b.a
     protected int iH() {
-        return com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("key_video_player_reuse_switch", 0);
+        return 1;
     }
 
     @Override // com.baidu.adp.lib.b.a

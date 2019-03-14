@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.util.Objects;
 /* loaded from: classes2.dex */
 public class f extends d {
-    public String blV;
+    public String blW;
     public int category;
     public String downloadUrl;
     public String md5;
@@ -14,7 +14,7 @@ public class f extends d {
     public String versionName;
 
     public boolean RK() {
-        return !TextUtils.isEmpty(this.blV) && (this.category == 0 || this.category == 1) && this.versionCode > 0 && this.size > 0 && !TextUtils.isEmpty(this.md5) && !TextUtils.isEmpty(this.sign) && !TextUtils.isEmpty(this.downloadUrl);
+        return !TextUtils.isEmpty(this.blW) && (this.category == 0 || this.category == 1) && this.versionCode > 0 && this.size > 0 && !TextUtils.isEmpty(this.md5) && !TextUtils.isEmpty(this.sign) && !TextUtils.isEmpty(this.downloadUrl);
     }
 
     public boolean equals(Object obj) {
@@ -23,16 +23,16 @@ public class f extends d {
         }
         if (obj != null && (obj instanceof f)) {
             f fVar = (f) obj;
-            return (TextUtils.isEmpty(this.versionName) && TextUtils.isEmpty(fVar.versionName)) ? this.blV.equals(fVar.blV) && this.versionCode == fVar.versionCode : TextUtils.equals(this.blV, fVar.blV) && this.versionCode == fVar.versionCode && TextUtils.equals(this.versionName, fVar.versionName);
+            return (TextUtils.isEmpty(this.versionName) && TextUtils.isEmpty(fVar.versionName)) ? this.blW.equals(fVar.blW) && this.versionCode == fVar.versionCode : TextUtils.equals(this.blW, fVar.blW) && this.versionCode == fVar.versionCode && TextUtils.equals(this.versionName, fVar.versionName);
         }
         return false;
     }
 
     public int hashCode() {
-        return Objects.hash(this.blV, Integer.valueOf(this.category), Integer.valueOf(this.versionCode), this.versionName);
+        return Objects.hash(this.blW, Integer.valueOf(this.category), Integer.valueOf(this.versionCode), this.versionName);
     }
 
     public String toString() {
-        return "bundleId=" + this.blV + ",category=" + this.category + ",versionCode=" + this.versionCode + ",versionName=" + this.versionName + ",size=" + this.size + ",md5=" + this.md5 + ",sign=" + this.sign + ",downloadUrl" + this.downloadUrl;
+        return "bundleId=" + this.blW + ",category=" + this.category + ",versionCode=" + this.versionCode + ",versionName=" + this.versionName + ",size=" + this.size + ",md5=" + this.md5 + ",sign=" + this.sign + ",downloadUrl" + this.downloadUrl;
     }
 }

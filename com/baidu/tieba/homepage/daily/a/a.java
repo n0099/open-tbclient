@@ -9,44 +9,44 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private r eEv;
-    private e fHT;
-    private d fHU;
-    private c fHV;
-    private b fHW;
-    private f fHX;
+    private r eEr;
+    private e fHS;
+    private d fHT;
+    private c fHU;
+    private b fHV;
+    private f fHW;
     private List<com.baidu.adp.widget.ListView.a> mAdapters;
     private TbPageContext mPageContext;
 
     public a(TbPageContext tbPageContext, r rVar) {
         this.mPageContext = tbPageContext;
-        this.eEv = rVar;
+        this.eEr = rVar;
         initAdapters();
-        this.eEv.addAdapters(this.mAdapters);
+        this.eEr.addAdapters(this.mAdapters);
     }
 
     private void initAdapters() {
         this.mAdapters = new ArrayList();
-        this.fHT = new e(this.mPageContext, com.baidu.tieba.homepage.daily.b.e.fIl);
-        this.fHU = new d(this.mPageContext, com.baidu.tieba.homepage.daily.b.d.fIh);
-        this.fHV = new c(this.mPageContext, com.baidu.tieba.homepage.daily.b.c.fIf);
-        this.fHW = new b(this.mPageContext, bg.bAO);
-        this.fHX = new f(this.mPageContext, bg.bBb);
+        this.fHS = new e(this.mPageContext, com.baidu.tieba.homepage.daily.b.e.fIk);
+        this.fHT = new d(this.mPageContext, com.baidu.tieba.homepage.daily.b.d.fIg);
+        this.fHU = new c(this.mPageContext, com.baidu.tieba.homepage.daily.b.c.fIe);
+        this.fHV = new b(this.mPageContext, bg.bAQ);
+        this.fHW = new f(this.mPageContext, bg.bBd);
+        this.mAdapters.add(this.fHS);
         this.mAdapters.add(this.fHT);
         this.mAdapters.add(this.fHU);
         this.mAdapters.add(this.fHV);
         this.mAdapters.add(this.fHW);
-        this.mAdapters.add(this.fHX);
     }
 
     public void notifyDataSetChanged() {
-        if (this.eEv != null) {
-            this.eEv.getListAdapter().notifyDataSetChanged();
+        if (this.eEr != null) {
+            this.eEr.getListAdapter().notifyDataSetChanged();
         }
     }
 
     public void setData(List<m> list) {
-        this.eEv.setData(list);
+        this.eEr.setData(list);
     }
 
     public void onChangeSkinType(int i) {

@@ -1,14 +1,12 @@
 package com.baidu.swan.apps.view.a;
-
-import com.baidu.swan.apps.c;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = c.DEBUG;
-    public int aWV;
-    public boolean aWW;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    public int aWW;
     public boolean aWX;
     public boolean aWY;
     public boolean aWZ;
+    public boolean aXa;
     public int statusBarColor;
 
     private a() {
@@ -16,56 +14,56 @@ public class a {
 
     /* renamed from: com.baidu.swan.apps.view.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0151a {
-        private int aXa;
+    public static class C0180a {
+        private int aXb;
         private int statusBarColor;
-        private boolean aWW = true;
-        private boolean aXb = true;
+        private boolean aWX = true;
         private boolean aXc = true;
-        private boolean aWZ = false;
+        private boolean aXd = true;
+        private boolean aXa = false;
 
-        public static C0151a Mx() {
-            return new C0151a();
+        public static C0180a Mx() {
+            return new C0180a();
         }
 
-        public C0151a eq(int i) {
+        public C0180a eq(int i) {
             this.statusBarColor = i;
             return this;
         }
 
-        public C0151a er(int i) {
-            this.aXa = i;
+        public C0180a er(int i) {
+            this.aXb = i;
             return this;
         }
 
-        public C0151a co(boolean z) {
-            this.aWW = z;
+        public C0180a co(boolean z) {
+            this.aWX = z;
             return this;
         }
 
-        public C0151a cp(boolean z) {
-            this.aXb = z;
-            return this;
-        }
-
-        public C0151a cq(boolean z) {
+        public C0180a cp(boolean z) {
             this.aXc = z;
             return this;
         }
 
-        public C0151a cr(boolean z) {
-            this.aWZ = z;
+        public C0180a cq(boolean z) {
+            this.aXd = z;
+            return this;
+        }
+
+        public C0180a cr(boolean z) {
+            this.aXa = z;
             return this;
         }
 
         public a My() {
             a aVar = new a();
-            aVar.aWV = this.aXa;
-            aVar.aWW = this.aWW;
+            aVar.aWW = this.aXb;
+            aVar.aWX = this.aWX;
+            aVar.aWZ = this.aXd;
             aVar.aWY = this.aXc;
-            aVar.aWX = this.aXb;
             aVar.statusBarColor = this.statusBarColor;
-            aVar.aWZ = this.aWZ;
+            aVar.aXa = this.aXa;
             return aVar;
         }
     }

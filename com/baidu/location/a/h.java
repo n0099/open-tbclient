@@ -7,6 +7,8 @@ import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
+import com.baidu.mobstat.Config;
+import com.googlecode.mp4parser.boxes.ultraviolet.BaseLocationBox;
 import java.util.HashMap;
 import java.util.Locale;
 /* loaded from: classes3.dex */
@@ -62,7 +64,7 @@ public abstract class h {
             if (this.a == null) {
                 this.a = p.b();
             }
-            this.k.put("bloc", encodeTp4);
+            this.k.put(BaseLocationBox.TYPE, encodeTp4);
             if (this.a != null) {
                 this.k.put("up", this.a);
             }
@@ -158,8 +160,8 @@ public abstract class h {
         if (this.e) {
             this.e = false;
             String r = com.baidu.location.e.f.a().r();
-            if (!TextUtils.isEmpty(r) && !r.equals("02:00:00:00:00:00")) {
-                format = String.format(Locale.CHINA, "%s&mac=%s", format, r.replace(":", ""));
+            if (!TextUtils.isEmpty(r) && !r.equals(Config.DEF_MAC_ID)) {
+                format = String.format(Locale.CHINA, "%s&mac=%s", format, r.replace(Config.TRACE_TODAY_VISIT_SPLIT, ""));
             }
             if (Build.VERSION.SDK_INT > 17) {
             }

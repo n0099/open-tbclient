@@ -10,6 +10,7 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDNotifyListener;
 import com.baidu.location.Jni;
 import com.baidu.location.LocationClient;
+import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -94,7 +95,7 @@ public class a {
         if (bDNotifyListener.mCoorType == null) {
             return;
         }
-        if (!bDNotifyListener.mCoorType.equals("gcj02")) {
+        if (!bDNotifyListener.mCoorType.equals(CoordinateType.GCJ02)) {
             double[] coorEncrypt = Jni.coorEncrypt(bDNotifyListener.mLongitude, bDNotifyListener.mLatitude, bDNotifyListener.mCoorType + "2gcj");
             bDNotifyListener.mLongitudeC = coorEncrypt[0];
             bDNotifyListener.mLatitudeC = coorEncrypt[1];

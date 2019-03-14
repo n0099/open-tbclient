@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.hybrid;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.adp.framework.message.Message;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.hybrid.a;
 import com.sina.weibo.sdk.constant.WBConstants;
 import java.lang.reflect.InvocationTargetException;
@@ -11,28 +12,28 @@ import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public abstract class d implements h {
-    private final l bGt;
-    private final HashMap<String, Method> bGu = new HashMap<>();
+    private final l bGu;
+    private final HashMap<String, Method> bGv = new HashMap<>();
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: com.baidu.tbadk.core.hybrid.d */
     /* JADX INFO: Access modifiers changed from: protected */
     /* JADX WARN: Multi-variable type inference failed */
     public d(l lVar) {
-        this.bGt = lVar;
+        this.bGu = lVar;
         o(getClass());
-        if (this.bGu.isEmpty()) {
+        if (this.bGv.isEmpty()) {
             throw new IllegalStateException("No native methods found!");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public Context getContext() {
-        return this.bGt.getContext();
+        return this.bGu.getContext();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void sendMessage(Message<?> message) {
-        a.C0192a.sendMessage(message);
+        a.C0226a.sendMessage(message);
     }
 
     protected void l(String str, JSONObject jSONObject) {
@@ -46,13 +47,13 @@ public abstract class d implements h {
         if (jSONObject != null) {
             hashMap.put("data", jSONObject);
         }
-        this.bGt.a(m.i(str, hashMap));
+        this.bGu.a(m.i(str, hashMap));
     }
 
     @Override // com.baidu.tbadk.core.hybrid.h
     public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
         Object invoke;
-        Method method = this.bGu.get(str);
+        Method method = this.bGv.get(str);
         if (method != null) {
             o oVar = (o) method.getAnnotation(o.class);
             String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
@@ -64,7 +65,7 @@ public abstract class d implements h {
                     } else if (parameterTypes.length == 1) {
                         invoke = method.invoke(this, jSONObject);
                     } else if (parameterTypes.length == 0) {
-                        e.lB("native method " + getClass().getSimpleName() + ":" + oVar.value() + " ignored all parameters.");
+                        e.lB("native method " + getClass().getSimpleName() + Config.TRACE_TODAY_VISIT_SPLIT + oVar.value() + " ignored all parameters.");
                         invoke = method.invoke(this, new Object[0]);
                     } else {
                         a(str, jSONObject2, "500", "parameters too much!");
@@ -84,7 +85,7 @@ public abstract class d implements h {
                         }
                         return;
                     } else if (parameterTypes.length == 0) {
-                        e.lB("native method " + getClass().getSimpleName() + ":" + oVar.value() + " ignored all parameters.");
+                        e.lB("native method " + getClass().getSimpleName() + Config.TRACE_TODAY_VISIT_SPLIT + oVar.value() + " ignored all parameters.");
                         method.invoke(this, new Object[0]);
                         if (!TextUtils.isEmpty(optString)) {
                             l(optString, null);
@@ -125,7 +126,7 @@ public abstract class d implements h {
         HashMap hashMap = new HashMap(4);
         hashMap.put("errNo", str2);
         hashMap.put("errMsg", str3);
-        this.bGt.a(m.i(optString, hashMap));
+        this.bGu.a(m.i(optString, hashMap));
     }
 
     private void o(Class<? extends d> cls) {
@@ -144,7 +145,7 @@ public abstract class d implements h {
                     value = method.getName();
                 }
                 method.setAccessible(true);
-                this.bGu.put(value, method);
+                this.bGv.put(value, method);
             }
         }
         Class<? super Object> superclass = cls.getSuperclass();

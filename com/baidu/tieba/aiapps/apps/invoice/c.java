@@ -17,7 +17,7 @@ public interface c {
 
     /* renamed from: com.baidu.tieba.aiapps.apps.invoice.c$c  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0228c extends c {
+    public interface InterfaceC0267c extends c {
         void aE(List<InvoiceInfo> list);
     }
 
@@ -33,5 +33,5 @@ public interface c {
 
     void cd(String str, String str2);
 
-    void rz(String str);
+    void rx(String str);
 }

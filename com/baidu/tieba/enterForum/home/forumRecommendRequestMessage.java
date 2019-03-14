@@ -82,7 +82,7 @@ public class forumRecommendRequestMessage extends NetMessage {
                     VisitedForumData next = it.next();
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("forum_id", com.baidu.adp.lib.g.b.d(next.getForumId(), 0L));
-                    jSONObject.put("visit_time", next.alD());
+                    jSONObject.put("visit_time", next.alC());
                     jSONArray.put(jSONObject);
                 }
             }

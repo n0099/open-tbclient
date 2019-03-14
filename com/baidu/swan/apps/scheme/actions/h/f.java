@@ -9,8 +9,8 @@ import java.io.File;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class f {
-    private static volatile f aQh;
-    private HashMap<String, a> aQi = new HashMap<>();
+    private static volatile f aQi;
+    private HashMap<String, a> aQj = new HashMap<>();
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -23,14 +23,14 @@ public class f {
     }
 
     public static f JL() {
-        if (aQh == null) {
+        if (aQi == null) {
             synchronized (f.class) {
-                if (aQh == null) {
-                    aQh = new f();
+                if (aQi == null) {
+                    aQi = new f();
                 }
             }
         }
-        return aQh;
+        return aQi;
     }
 
     public void a(com.baidu.swan.apps.ae.b bVar, String str, String str2, a aVar) {
@@ -58,12 +58,12 @@ public class f {
                         subPackageAPSInfo.mAppId = bVar.id;
                         subPackageAPSInfo.mAppVersion = bVar.getVersion();
                         subPackageAPSInfo.mKey = gi;
-                        subPackageAPSInfo.axm = com.baidu.swan.apps.w.e.Ec().DL();
-                        subPackageAPSInfo.axn = gh;
-                        subPackageAPSInfo.asI = str2;
-                        subPackageAPSInfo.axp = a2;
+                        subPackageAPSInfo.axn = com.baidu.swan.apps.w.e.Ec().DL();
+                        subPackageAPSInfo.axo = gh;
+                        subPackageAPSInfo.asJ = str2;
+                        subPackageAPSInfo.axq = a2;
                         BR.a(6, subPackageAPSInfo);
-                        this.aQi.put(a2, aVar);
+                        this.aQj.put(a2, aVar);
                         return;
                     }
                     aVar.cG(2113);
@@ -80,12 +80,12 @@ public class f {
                 subPackageAPSInfo.mAppId = str;
                 subPackageAPSInfo.mAppVersion = str2;
                 subPackageAPSInfo.mKey = str4;
-                subPackageAPSInfo.axm = str5;
-                subPackageAPSInfo.axn = str3;
-                subPackageAPSInfo.asI = str6;
-                subPackageAPSInfo.axp = a2;
+                subPackageAPSInfo.axn = str5;
+                subPackageAPSInfo.axo = str3;
+                subPackageAPSInfo.asJ = str6;
+                subPackageAPSInfo.axq = a2;
                 aVar.a(6, subPackageAPSInfo);
-                this.aQi.put(a2, aVar2);
+                this.aQj.put(a2, aVar2);
                 return;
             }
             aVar2.cG(2113);
@@ -97,13 +97,13 @@ public class f {
         if (bundle != null) {
             bundle.setClassLoader(getClass().getClassLoader());
             SubPackageAPSInfo subPackageAPSInfo = (SubPackageAPSInfo) bundle.getParcelable("ai_apps_data");
-            if (subPackageAPSInfo != null && (aVar = this.aQi.get(subPackageAPSInfo.axp)) != null) {
+            if (subPackageAPSInfo != null && (aVar = this.aQj.get(subPackageAPSInfo.axq)) != null) {
                 com.baidu.swan.apps.ae.b IX = com.baidu.swan.apps.ae.b.IX();
                 if (IX != null) {
-                    IX.s(subPackageAPSInfo.axn, true);
+                    IX.s(subPackageAPSInfo.axo, true);
                 }
-                aVar.eP(subPackageAPSInfo.asI);
-                this.aQi.remove(subPackageAPSInfo.axp);
+                aVar.eP(subPackageAPSInfo.asJ);
+                this.aQj.remove(subPackageAPSInfo.axq);
             }
         }
     }
@@ -113,9 +113,9 @@ public class f {
         if (bundle != null) {
             bundle.setClassLoader(getClass().getClassLoader());
             SubPackageAPSInfo subPackageAPSInfo = (SubPackageAPSInfo) bundle.getParcelable("ai_apps_data");
-            if (subPackageAPSInfo != null && (aVar = this.aQi.get(subPackageAPSInfo.axp)) != null) {
+            if (subPackageAPSInfo != null && (aVar = this.aQj.get(subPackageAPSInfo.axq)) != null) {
                 aVar.cG(subPackageAPSInfo.mResultCode);
-                this.aQi.remove(subPackageAPSInfo.axp);
+                this.aQj.remove(subPackageAPSInfo.axq);
             }
         }
     }
@@ -124,24 +124,24 @@ public class f {
         if (gVar == null) {
             return false;
         }
-        return b(bVar, gVar.awY);
+        return b(bVar, gVar.awZ);
     }
 
     public static boolean b(com.baidu.swan.apps.v.b.b bVar, com.baidu.swan.apps.ae.a.c cVar) {
-        if (bVar == null || TextUtils.isEmpty(bVar.axH)) {
+        if (bVar == null || TextUtils.isEmpty(bVar.axI)) {
             return false;
         }
-        String hF = y.hF(bVar.axH);
+        String hF = y.hF(bVar.axI);
         if (!TextUtils.isEmpty(hF) && hF.startsWith(File.separator)) {
             hF = hF.substring(1);
         }
-        if (cVar == null || cVar.aOf == null) {
+        if (cVar == null || cVar.aOg == null) {
             return false;
         }
-        if (cVar.aOf.go(hF)) {
+        if (cVar.aOg.go(hF)) {
             return false;
         }
-        String str = cVar.aOg.aOu.get(hF);
+        String str = cVar.aOh.aOv.get(hF);
         return (TextUtils.isEmpty(str) || com.baidu.swan.apps.database.subpackage.a.AV().m(bVar.mAppId, bVar.mVersion, str)) ? false : true;
     }
 

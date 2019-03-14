@@ -8,8 +8,8 @@ import java.util.List;
 import tbclient.DailyTopic;
 /* loaded from: classes4.dex */
 public class e extends com.baidu.tieba.card.data.b {
-    public static final BdUniqueId fIl = BdUniqueId.gen();
-    public List<a> fIm;
+    public static final BdUniqueId fIk = BdUniqueId.gen();
+    public List<a> fIl;
 
     public static e cw(List<DailyTopic> list) {
         if (v.T(list)) {
@@ -17,7 +17,7 @@ public class e extends com.baidu.tieba.card.data.b {
         }
         e eVar = new e();
         ArrayList arrayList = new ArrayList();
-        eVar.fIm = arrayList;
+        eVar.fIl = arrayList;
         int i = 0;
         Iterator<DailyTopic> it = list.iterator();
         while (true) {
@@ -43,43 +43,43 @@ public class e extends com.baidu.tieba.card.data.b {
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return fIl;
+        return fIk;
     }
 
     /* loaded from: classes4.dex */
     public static class a {
+        private String fIm;
         private String fIn;
         private String fIo;
         private String fIp;
         private String fIq;
-        private String fIr;
 
         public void a(DailyTopic dailyTopic) {
-            this.fIn = dailyTopic.topic_pic;
-            this.fIo = dailyTopic.topic_title;
-            this.fIp = dailyTopic.topic_abstract;
-            this.fIq = dailyTopic.topic_url;
-            this.fIr = dailyTopic.topic_rank_url;
+            this.fIm = dailyTopic.topic_pic;
+            this.fIn = dailyTopic.topic_title;
+            this.fIo = dailyTopic.topic_abstract;
+            this.fIp = dailyTopic.topic_url;
+            this.fIq = dailyTopic.topic_rank_url;
         }
 
-        public String blK() {
-            return this.fIn;
+        public String blJ() {
+            return this.fIm;
         }
 
         public String Ya() {
+            return this.fIn;
+        }
+
+        public String blK() {
             return this.fIo;
         }
 
-        public String blL() {
+        public String aaz() {
             return this.fIp;
         }
 
-        public String aaz() {
+        public String blL() {
             return this.fIq;
-        }
-
-        public String blM() {
-            return this.fIr;
         }
     }
 }

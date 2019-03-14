@@ -5,7 +5,7 @@ import android.support.annotation.Keep;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.a;
 @Keep
 /* loaded from: classes2.dex */
 public class SwanAppSelectPopView extends LinearLayout implements View.OnClickListener {
@@ -40,9 +40,9 @@ public class SwanAppSelectPopView extends LinearLayout implements View.OnClickLi
     @Override // android.view.View
     protected void onFinishInflate() {
         super.onFinishInflate();
-        this.mCopyView = findViewById(b.f.btn_wv_copy);
+        this.mCopyView = findViewById(a.f.btn_wv_copy);
         this.mCopyView.setOnClickListener(this);
-        this.mSearchView = findViewById(b.f.btn_wv_search);
+        this.mSearchView = findViewById(a.f.btn_wv_search);
         this.mSearchView.setOnClickListener(this);
     }
 

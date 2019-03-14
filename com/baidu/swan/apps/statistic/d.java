@@ -14,7 +14,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class d extends com.baidu.swan.apps.process.b.a.a {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Override // com.baidu.swan.apps.process.b.a.a
     public void t(@NonNull Bundle bundle) {
@@ -47,7 +47,7 @@ public class d extends com.baidu.swan.apps.process.b.a.a {
         if (DEBUG) {
             Log.d("VersionBusinessUbc", "report info: " + jSONObject.toString());
         }
-        new a.C0145a(10002).gO(jSONObject.toString()).Kq();
+        new a.C0174a(10002).gO(jSONObject.toString()).Kq();
         finish();
     }
 

@@ -45,20 +45,20 @@ public class e extends a {
         if (c == null) {
             return false;
         }
-        if (c.alI == null || c.alI.length() <= 0) {
+        if (c.alJ == null || c.alJ.length() <= 0) {
             i = 0;
         } else {
-            if (c.alL && c.mItalic) {
+            if (c.alM && c.mItalic) {
                 i2 = 3;
-            } else if (c.alL) {
+            } else if (c.alM) {
                 i2 = 1;
             } else {
                 i2 = c.mItalic ? 2 : 0;
             }
             TextPaint textPaint = new TextPaint();
-            textPaint.setTypeface(Typeface.create(c.alJ, i2));
-            textPaint.setTextSize(c.alK);
-            textPaint.getTextBounds(c.alI, 0, c.alI.length(), new Rect());
+            textPaint.setTypeface(Typeface.create(c.alK, i2));
+            textPaint.setTextSize(c.alL);
+            textPaint.getTextBounds(c.alJ, 0, c.alJ.length(), new Rect());
             i = x.ae(rect.width());
         }
         JSONObject jSONObject = new JSONObject();

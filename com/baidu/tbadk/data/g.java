@@ -13,7 +13,7 @@ public class g {
         this.activityId = i;
     }
 
-    public int alu() {
+    public int alt() {
         return this.chp;
     }
 
@@ -21,7 +21,7 @@ public class g {
         this.chp = i;
     }
 
-    public String alv() {
+    public String alu() {
         return this.activityNum;
     }
 

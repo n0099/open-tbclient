@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.animation.Interpolator;
 import com.airbnb.lottie.a.a;
 import com.airbnb.lottie.model.a.m;
+import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -23,7 +24,7 @@ public class h extends com.airbnb.lottie.a.a<PointF> {
             PointF pointF;
             PointF pointF2;
             com.airbnb.lottie.a.a a = a.C0005a.a(jSONObject, eVar, eVar.cK(), aVar);
-            JSONArray optJSONArray = jSONObject.optJSONArray("ti");
+            JSONArray optJSONArray = jSONObject.optJSONArray(Config.FEED_LIST_PART);
             JSONArray optJSONArray2 = jSONObject.optJSONArray("to");
             if (optJSONArray == null || optJSONArray2 == null) {
                 pointF = null;

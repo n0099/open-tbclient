@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.util.ArrayMap;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -58,9 +59,9 @@ public class a extends y {
             }
             c.i("accelerometer", " init ");
             com.baidu.swan.apps.aj.a.a Lb = com.baidu.swan.apps.aj.a.a.Lb();
-            Lb.m(context, C0081a.hj(optParamsAsJo.optString("interval")));
-            Lb.a(new a.InterfaceC0080a() { // from class: com.baidu.swan.apps.aj.a.a.a.1
-                @Override // com.baidu.swan.apps.aj.a.a.InterfaceC0080a
+            Lb.m(context, C0111a.hj(optParamsAsJo.optString("interval")));
+            Lb.a(new a.InterfaceC0110a() { // from class: com.baidu.swan.apps.aj.a.a.a.1
+                @Override // com.baidu.swan.apps.aj.a.a.InterfaceC0110a
                 public void a(double[] dArr) {
                     if (dArr == null || dArr.length != 3) {
                         c.e("accelerometer", "illegal accelerometers");
@@ -84,7 +85,7 @@ public class a extends y {
     public void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, double[] dArr) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("x", dArr[0]);
+            jSONObject.put(Config.EVENT_HEAT_X, dArr[0]);
             jSONObject.put("y", dArr[1]);
             jSONObject.put("z", dArr[2]);
             UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
@@ -96,17 +97,17 @@ public class a extends y {
 
     /* renamed from: com.baidu.swan.apps.aj.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0081a {
-        private static ArrayMap<String, Integer> aTF = new ArrayMap<>(3);
+    private static class C0111a {
+        private static ArrayMap<String, Integer> aTG = new ArrayMap<>(3);
 
         static {
-            aTF.put("ui", 60);
-            aTF.put("game", 20);
-            aTF.put("normal", 200);
+            aTG.put("ui", 60);
+            aTG.put("game", 20);
+            aTG.put("normal", 200);
         }
 
         public static int hj(String str) {
-            Integer num = aTF.get(str);
+            Integer num = aTG.get(str);
             if (num != null) {
                 return num.intValue();
             }

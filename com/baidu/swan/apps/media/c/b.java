@@ -5,26 +5,25 @@ import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.c;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
-    private static final boolean DEBUG = c.DEBUG;
-    public static String aAR;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public static String aAS;
     public static String aAT;
     public static String aAU;
-    private UnitedSchemeEntity ayD;
-    private CallbackHandler ayE;
+    public static String aAV;
+    private UnitedSchemeEntity ayE;
+    private CallbackHandler ayF;
 
     private b(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, String str2, String str3, String str4) {
-        this.ayE = callbackHandler;
-        this.ayD = unitedSchemeEntity;
-        aAR = str;
-        aAT = str4;
-        aAS = str2;
-        aAU = str3;
+        this.ayF = callbackHandler;
+        this.ayE = unitedSchemeEntity;
+        aAS = str;
+        aAU = str4;
+        aAT = str2;
+        aAV = str3;
     }
 
     public static b a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str, b bVar) {
@@ -54,7 +53,7 @@ public class b {
     public void f(String str, JSONObject jSONObject) {
         if (!TextUtils.isEmpty(str)) {
             JSONObject wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-            UnitedSchemeUtility.safeCallback(this.ayE, this.ayD, wrapCallbackParams.toString(), str);
+            UnitedSchemeUtility.safeCallback(this.ayF, this.ayE, wrapCallbackParams.toString(), str);
             if (DEBUG) {
                 Log.d("AudioStatusCallBack", "Audio callback type is : " + str + " , data is : " + wrapCallbackParams.toString());
             }
@@ -70,7 +69,7 @@ public class b {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            f(aAU, jSONObject);
+            f(aAV, jSONObject);
         }
     }
 }

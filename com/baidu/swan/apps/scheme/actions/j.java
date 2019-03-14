@@ -2,6 +2,7 @@ package com.baidu.swan.apps.scheme.actions;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.mapapi.UIMsg;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -18,7 +19,7 @@ public class j extends y {
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
         if (!com.baidu.swan.apps.u.a.CB().vb()) {
             com.baidu.swan.apps.console.c.e("GetLocalImgDataAction", "GetLocalImgData is refused");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(null, 2007, com.baidu.swan.apps.scheme.f.getErrMessage(2007));
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(null, UIMsg.m_AppUI.MSG_APP_VERSION_NAV_MODULE, com.baidu.swan.apps.scheme.f.getErrMessage(UIMsg.m_AppUI.MSG_APP_VERSION_NAV_MODULE));
             return false;
         } else if (bVar == null) {
             com.baidu.swan.apps.console.c.e("GetLocalImgDataAction", "illegal swanApp");
@@ -38,7 +39,7 @@ public class j extends y {
                 return false;
             } else if (com.baidu.swan.apps.storage.b.gY(optString) != PathType.BD_FILE) {
                 com.baidu.swan.apps.console.c.e("GetLocalImgDataAction", "invalid path : " + optString);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(null, 2006, com.baidu.swan.apps.scheme.f.getErrMessage(2006));
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(null, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND, com.baidu.swan.apps.scheme.f.getErrMessage(UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND));
                 return false;
             } else {
                 String aC = com.baidu.swan.apps.storage.b.aC(optString, bVar.id);

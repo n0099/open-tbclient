@@ -5,13 +5,13 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 /* loaded from: classes2.dex */
 public class c implements b {
-    private final Queue<a> aWC = new ArrayDeque();
-    private a aWD;
+    private final Queue<a> aWD = new ArrayDeque();
+    private a aWE;
 
     public void b(a aVar) {
         if (aVar != null) {
-            synchronized (this.aWC) {
-                this.aWC.offer(aVar.a(this));
+            synchronized (this.aWD) {
+                this.aWD.offer(aVar.a(this));
             }
         }
         Ms();
@@ -19,40 +19,40 @@ public class c implements b {
 
     @Override // com.baidu.swan.apps.an.b.b
     public void a(a aVar) {
-        synchronized (this.aWC) {
-            if (aVar == this.aWD) {
+        synchronized (this.aWD) {
+            if (aVar == this.aWE) {
                 Mt();
             }
         }
     }
 
     private void Ms() {
-        synchronized (this.aWC) {
-            if (this.aWD == null) {
+        synchronized (this.aWD) {
+            if (this.aWE == null) {
                 Mt();
             }
         }
     }
 
     private void Mt() {
-        synchronized (this.aWC) {
-            this.aWD = null;
-            if (!this.aWC.isEmpty()) {
-                this.aWD = this.aWC.poll();
-                if (this.aWD == null) {
+        synchronized (this.aWD) {
+            this.aWE = null;
+            if (!this.aWD.isEmpty()) {
+                this.aWE = this.aWD.poll();
+                if (this.aWE == null) {
                     Mt();
                 } else {
-                    aa.j(this.aWD);
+                    aa.j(this.aWE);
                 }
             }
         }
     }
 
     public synchronized void clear() {
-        if (this.aWD != null) {
-            this.aWD.finish();
-            this.aWD = null;
+        if (this.aWE != null) {
+            this.aWE.finish();
+            this.aWE = null;
         }
-        this.aWC.clear();
+        this.aWD.clear();
     }
 }

@@ -9,20 +9,20 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.enterForum.recommend.b.e;
 /* loaded from: classes4.dex */
 public class d extends com.baidu.tieba.card.a<e> {
-    private View eGv;
+    private View eGr;
     private int mSkinType;
 
     public d(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
         this.mSkinType = 3;
-        this.eGv = getView().findViewById(d.g.card_recommend_list_placeholder);
+        this.eGr = getView().findViewById(d.g.card_recommend_list_placeholder);
     }
 
     @Override // com.baidu.tieba.card.a
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (i != this.mSkinType) {
             this.mSkinType = i;
-            al.l(getView(), d.C0236d.cp_bg_line_c);
+            al.l(getView(), d.C0277d.cp_bg_line_c);
         }
     }
 
@@ -35,9 +35,9 @@ public class d extends com.baidu.tieba.card.a<e> {
     @Override // com.baidu.tieba.card.a
     public void a(e eVar) {
         if (eVar != null) {
-            ViewGroup.LayoutParams layoutParams = this.eGv.getLayoutParams();
-            layoutParams.height = l.h(this.mContext, eVar.eEV);
-            this.eGv.setLayoutParams(layoutParams);
+            ViewGroup.LayoutParams layoutParams = this.eGr.getLayoutParams();
+            layoutParams.height = l.h(this.mContext, eVar.eER);
+            this.eGr.setLayoutParams(layoutParams);
         }
     }
 

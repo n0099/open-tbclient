@@ -20,7 +20,6 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.adp.lib.util.g;
 import com.baidu.adp.lib.util.j;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.tencent.connect.common.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStream;
@@ -444,7 +443,7 @@ public class b {
                             bArr = eVar.js().Df;
                             if (bArr != null && i2 == 200) {
                                 try {
-                                    if (new JSONObject(new String(bArr, "utf-8")).optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE, -1) == 0) {
+                                    if (new JSONObject(new String(bArr, "utf-8")).optInt("error_code", -1) == 0) {
                                         if (aVar != null && aVar.kh().equals("pfmonitor") && BdStatisticsSwitchStatic.jK()) {
                                             e eVar2 = new e();
                                             String str4 = this.mUploadUrl;
@@ -502,7 +501,7 @@ public class b {
                 int i22 = eVar.js().responseCode;
                 bArr = eVar.js().Df;
                 if (bArr != null) {
-                    if (new JSONObject(new String(bArr, "utf-8")).optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE, -1) == 0) {
+                    if (new JSONObject(new String(bArr, "utf-8")).optInt("error_code", -1) == 0) {
                     }
                 }
                 jt = eVar.jt();

@@ -41,17 +41,17 @@ public class FloorImageTextView extends AbsFloorImageTextView {
         init(context);
     }
 
-    private boolean akf() {
-        return this.ccR.akf();
+    private boolean ake() {
+        return this.ccR.ake();
     }
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(d.h.floorimage_textview_layout, (ViewGroup) this, true);
-        al.l(this, d.C0236d.black_alpha50);
+        al.l(this, d.C0277d.black_alpha50);
         this.ccQ = (TbRichTextView) findViewById(d.g.textview);
         this.ccQ.setVerticalScrollBarEnabled(true);
         this.ccQ.setTextSize(cbV);
-        this.ccQ.setTextColor(al.getColor(d.C0236d.white_alpha83));
+        this.ccQ.setTextColor(al.getColor(d.C0277d.white_alpha83));
         this.ccR = (EditorScrollView) findViewById(d.g.scrollview);
         this.ccR.setPadding(0, TOP, 0, BOTTOM);
         this.ccR.setOnTouchListener(this.cbY);
@@ -191,7 +191,7 @@ public class FloorImageTextView extends AbsFloorImageTextView {
             boolean z3 = height > this.ccS;
             if (f > 0.0f) {
                 z = z2;
-            } else if (f < 0.0f && akf()) {
+            } else if (f < 0.0f && ake()) {
                 z = z3;
             }
             if (z) {

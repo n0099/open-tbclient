@@ -18,7 +18,7 @@ public class a implements b {
         this.cpf = z;
     }
 
-    public boolean aoC() {
+    public boolean aoB() {
         return this.cph;
     }
 
@@ -26,7 +26,7 @@ public class a implements b {
         this.cph = z;
     }
 
-    public boolean aoD() {
+    public boolean aoC() {
         return this.cpi;
     }
 
@@ -34,7 +34,7 @@ public class a implements b {
         this.cpi = z;
     }
 
-    public boolean aoE() {
+    public boolean aoD() {
         return this.cpj;
     }
 

@@ -6,25 +6,25 @@ import java.util.concurrent.TimeUnit;
 import java.util.zip.CRC32;
 /* loaded from: classes4.dex */
 public class a {
-    public final String cVW;
-    public final Map<String, String> cVX = new HashMap();
+    public final String cVS;
+    public final Map<String, String> cVT = new HashMap();
     public final long delta;
     public final long serverTime;
 
-    public static a azK() {
+    public static a azJ() {
         return new a(0L);
     }
 
     private a(long j) {
         this.delta = TimeUnit.MILLISECONDS.toSeconds(j);
         this.serverTime = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
-        this.cVW = Long.toHexString(rH(this.serverTime + "#" + this.delta));
-        this.cVX.put("timestamp", Long.toString(this.serverTime));
-        this.cVX.put("delta", Long.toString(this.delta));
-        this.cVX.put("rasign", this.cVW);
+        this.cVS = Long.toHexString(rF(this.serverTime + "#" + this.delta));
+        this.cVT.put("timestamp", Long.toString(this.serverTime));
+        this.cVT.put("delta", Long.toString(this.delta));
+        this.cVT.put("rasign", this.cVS);
     }
 
-    private long rH(String str) {
+    private long rF(String str) {
         CRC32 crc32 = new CRC32();
         crc32.reset();
         crc32.update(str.getBytes());
@@ -32,6 +32,6 @@ public class a {
     }
 
     public String toString() {
-        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.cVW;
+        return super.toString() + " serverTime:" + this.serverTime + " delta:" + this.delta + " rasign:" + this.cVS;
     }
 }

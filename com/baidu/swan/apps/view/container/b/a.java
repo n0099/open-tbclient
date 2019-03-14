@@ -3,8 +3,8 @@ package com.baidu.swan.apps.view.container.b;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
+import com.baidu.mobstat.Config;
 import com.baidu.swan.apps.an.x;
-import com.baidu.swan.apps.c;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -12,37 +12,37 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = c.DEBUG;
-    private String aYF;
-    private long aYG;
-    private List<C0154a> aYH;
-    private List<C0154a> aYI;
-    private int[] aYJ;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private String aYG;
+    private long aYH;
+    private List<C0183a> aYI;
+    private List<C0183a> aYJ;
+    private int[] aYK;
 
     public a(MotionEvent motionEvent) {
-        this.aYF = "error";
-        this.aYG = 0L;
-        this.aYH = new ArrayList();
+        this.aYG = "error";
+        this.aYH = 0L;
         this.aYI = new ArrayList();
-        this.aYJ = new int[2];
+        this.aYJ = new ArrayList();
+        this.aYK = new int[2];
         a(motionEvent, "");
     }
 
     public a(MotionEvent motionEvent, String str) {
-        this.aYF = "error";
-        this.aYG = 0L;
-        this.aYH = new ArrayList();
+        this.aYG = "error";
+        this.aYH = 0L;
         this.aYI = new ArrayList();
-        this.aYJ = new int[2];
+        this.aYJ = new ArrayList();
+        this.aYK = new int[2];
         a(motionEvent, str);
     }
 
     public String MN() {
-        return this.aYF;
+        return this.aYG;
     }
 
     public void g(int[] iArr) {
-        this.aYJ = iArr;
+        this.aYK = iArr;
         if (DEBUG) {
             Log.d("SwanAppTouchHelper", "setWebViewPosition y = " + iArr[1] + ";x = " + iArr[0]);
         }
@@ -51,54 +51,54 @@ public class a {
     private void a(MotionEvent motionEvent, String str) {
         switch (motionEvent.getActionMasked()) {
             case 0:
-                this.aYF = "touchstart";
+                this.aYG = "touchstart";
                 q(motionEvent);
                 break;
             case 1:
-                this.aYF = "touchend";
+                this.aYG = "touchend";
                 q(motionEvent);
                 break;
             case 2:
-                this.aYF = "touchmove";
+                this.aYG = "touchmove";
                 q(motionEvent);
                 break;
             case 3:
-                this.aYF = "touchcancel";
+                this.aYG = "touchcancel";
                 q(motionEvent);
                 break;
             case 4:
             default:
-                this.aYF = "error";
+                this.aYG = "error";
                 break;
             case 5:
-                this.aYF = "touchpointerdown";
+                this.aYG = "touchpointerdown";
                 q(motionEvent);
                 break;
             case 6:
-                this.aYF = "touchpointerup";
+                this.aYG = "touchpointerup";
                 q(motionEvent);
                 break;
         }
-        this.aYG = motionEvent.getEventTime();
+        this.aYH = motionEvent.getEventTime();
         if (!TextUtils.isEmpty(str)) {
-            this.aYF = str;
+            this.aYG = str;
         }
         onTouch(motionEvent);
-        if (TextUtils.equals(this.aYF, "touchpointerdown")) {
-            this.aYF = "touchstart";
+        if (TextUtils.equals(this.aYG, "touchpointerdown")) {
+            this.aYG = "touchstart";
         }
-        if (TextUtils.equals(this.aYF, "touchpointerup")) {
-            this.aYF = "touchend";
+        if (TextUtils.equals(this.aYG, "touchpointerup")) {
+            this.aYG = "touchend";
         }
     }
 
     private void onTouch(MotionEvent motionEvent) {
-        if (!TextUtils.equals(this.aYF, "touchend") && !TextUtils.equals(this.aYF, "touchcancel")) {
+        if (!TextUtils.equals(this.aYG, "touchend") && !TextUtils.equals(this.aYG, "touchcancel")) {
             try {
                 int pointerCount = motionEvent.getPointerCount();
                 for (int i = 0; i < pointerCount; i++) {
                     if (motionEvent.getActionMasked() != 6 || motionEvent.getActionIndex() != i) {
-                        this.aYH.add(b(motionEvent, i));
+                        this.aYI.add(b(motionEvent, i));
                     }
                 }
             } catch (Exception e) {
@@ -112,12 +112,12 @@ public class a {
     private void q(MotionEvent motionEvent) {
         try {
             if (!(motionEvent.getActionMasked() == 2)) {
-                this.aYI.add(b(motionEvent, motionEvent.getActionIndex()));
+                this.aYJ.add(b(motionEvent, motionEvent.getActionIndex()));
                 return;
             }
             int pointerCount = motionEvent.getPointerCount();
             for (int i = 0; i < pointerCount; i++) {
-                this.aYI.add(b(motionEvent, i));
+                this.aYJ.add(b(motionEvent, i));
             }
         } catch (Exception e) {
             if (DEBUG) {
@@ -126,38 +126,38 @@ public class a {
         }
     }
 
-    public C0154a b(MotionEvent motionEvent, int i) {
+    public C0183a b(MotionEvent motionEvent, int i) {
         int pointerId = motionEvent.getPointerId(i);
-        C0154a c0154a = new C0154a();
-        c0154a.identifier = pointerId;
-        c0154a.x = motionEvent.getX(i);
-        c0154a.y = motionEvent.getY(i);
-        c0154a.aYK = (motionEvent.getRawX() + c0154a.x) - motionEvent.getX();
-        c0154a.aYL = (motionEvent.getRawY() + c0154a.y) - motionEvent.getY();
-        c0154a.pressure = motionEvent.getPressure(i);
-        return c0154a;
+        C0183a c0183a = new C0183a();
+        c0183a.identifier = pointerId;
+        c0183a.x = motionEvent.getX(i);
+        c0183a.y = motionEvent.getY(i);
+        c0183a.aYL = (motionEvent.getRawX() + c0183a.x) - motionEvent.getX();
+        c0183a.aYM = (motionEvent.getRawY() + c0183a.y) - motionEvent.getY();
+        c0183a.pressure = motionEvent.getPressure(i);
+        return c0183a;
     }
 
     public JSONObject MO() {
         JSONObject jSONObject = new JSONObject();
         try {
             JSONArray jSONArray = new JSONArray();
-            if (!this.aYH.isEmpty()) {
-                for (C0154a c0154a : this.aYH) {
-                    if (c0154a != null) {
-                        jSONArray.put(c0154a.MP());
+            if (!this.aYI.isEmpty()) {
+                for (C0183a c0183a : this.aYI) {
+                    if (c0183a != null) {
+                        jSONArray.put(c0183a.MP());
                     }
                 }
             }
             JSONArray jSONArray2 = new JSONArray();
-            if (!this.aYI.isEmpty()) {
-                for (C0154a c0154a2 : this.aYI) {
-                    if (c0154a2 != null) {
-                        jSONArray2.put(c0154a2.MP());
+            if (!this.aYJ.isEmpty()) {
+                for (C0183a c0183a2 : this.aYJ) {
+                    if (c0183a2 != null) {
+                        jSONArray2.put(c0183a2.MP());
                     }
                 }
             }
-            jSONObject.put("timeStamp", this.aYG);
+            jSONObject.put("timeStamp", this.aYH);
             jSONObject.put("touches", jSONArray);
             jSONObject.put("changedTouches", jSONArray2);
         } catch (JSONException e) {
@@ -171,24 +171,24 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.view.container.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0154a {
-        private float aYK;
+    public class C0183a {
         private float aYL;
+        private float aYM;
         private int identifier;
         private float pressure;
         private float x;
         private float y;
 
-        private C0154a() {
+        private C0183a() {
         }
 
         JSONObject MP() {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("x", x.af(this.x));
+                jSONObject.put(Config.EVENT_HEAT_X, x.af(this.x));
                 jSONObject.put("y", x.af(this.y));
-                jSONObject.put("clientX", x.af(this.aYK - a.this.aYJ[0]));
-                jSONObject.put("clientY", x.af(this.aYL - a.this.aYJ[1]));
+                jSONObject.put("clientX", x.af(this.aYL - a.this.aYK[0]));
+                jSONObject.put("clientY", x.af(this.aYM - a.this.aYK[1]));
                 jSONObject.put("identifier", this.identifier);
                 jSONObject.put("force", this.pressure);
             } catch (JSONException e) {

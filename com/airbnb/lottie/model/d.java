@@ -2,9 +2,8 @@ package com.airbnb.lottie.model;
 
 import android.graphics.Color;
 import android.support.annotation.ColorInt;
-import com.baidu.appsearchlib.Info;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
@@ -40,16 +39,16 @@ public class d {
     /* loaded from: classes2.dex */
     public static final class a {
         public static d j(JSONObject jSONObject) {
-            String optString = jSONObject.optString(Info.kBaiduTimeKey);
+            String optString = jSONObject.optString("t");
             String optString2 = jSONObject.optString("f");
-            int optInt = jSONObject.optInt(NotifyType.SOUND);
+            int optInt = jSONObject.optInt("s");
             int optInt2 = jSONObject.optInt("j");
             int optInt3 = jSONObject.optInt("tr");
             double optDouble = jSONObject.optDouble("lh");
             double optDouble2 = jSONObject.optDouble("ls");
             JSONArray optJSONArray = jSONObject.optJSONArray("fc");
             int argb = Color.argb(255, (int) (optJSONArray.optDouble(0) * 255.0d), (int) (optJSONArray.optDouble(1) * 255.0d), (int) (optJSONArray.optDouble(2) * 255.0d));
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("sc");
+            JSONArray optJSONArray2 = jSONObject.optJSONArray(Config.STAT_SDK_CHANNEL);
             int i = 0;
             if (optJSONArray2 != null) {
                 i = Color.argb(255, (int) (optJSONArray2.optDouble(0) * 255.0d), (int) (optJSONArray2.optDouble(1) * 255.0d), (int) (optJSONArray2.optDouble(2) * 255.0d));

@@ -20,7 +20,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.an.x;
-import com.baidu.swan.apps.c;
+import com.baidu.swan.apps.console.c;
 import com.baidu.swan.apps.core.c.d;
 import com.baidu.swan.apps.textarea.ShowConfirmBarLayout;
 import com.baidu.swan.apps.textarea.a;
@@ -34,16 +34,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class b {
-    protected static final boolean DEBUG = c.DEBUG;
-    private a aVp;
-    private int aVs;
-    private ShowConfirmBarLayout aVu;
-    private d awt;
-    private int awv;
-    private HashMap<String, EditText> aVq = null;
-    private HashMap<String, com.baidu.swan.apps.textarea.b.a> aVr = null;
-    private boolean aVv = false;
-    private SwanAppActivity aVt = e.Ec().DO();
+    protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private a aVq;
+    private int aVt;
+    private ShowConfirmBarLayout aVv;
+    private d awu;
+    private int aww;
+    private HashMap<String, EditText> aVr = null;
+    private HashMap<String, com.baidu.swan.apps.textarea.b.a> aVs = null;
+    private boolean aVw = false;
+    private SwanAppActivity aVu = e.Ec().DO();
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -54,36 +54,36 @@ public class b {
         d yP;
         com.baidu.swan.apps.core.c.e uz = e.Ec().uz();
         if (uz != null && (yP = uz.yP()) != null) {
-            this.awt = yP;
+            this.awu = yP;
         }
     }
 
     public boolean a(a aVar, Context context, JSONObject jSONObject) {
-        this.aVp = aVar;
+        this.aVq = aVar;
         if (DEBUG) {
             Log.d("TextAreaSecondaryParser", "addTextAreaEditText paramsJson: " + jSONObject);
         }
         com.baidu.swan.apps.textarea.b.a aj = com.baidu.swan.apps.textarea.b.a.aj(jSONObject);
-        if (this.aVq == null) {
-            this.aVq = new HashMap<>();
-        }
-        if (this.aVq.get(aj.id) != null) {
-            com.baidu.swan.apps.console.c.w("TextAreaSecondaryParser", "insert failed: text has added with same view id");
-            return false;
-        }
         if (this.aVr == null) {
             this.aVr = new HashMap<>();
         }
-        if (this.aVt != null) {
-            EditText editText = new EditText(this.aVt);
-            this.aVr.put(aj.id, aj);
-            a(true, editText, aj, (Activity) this.aVt);
-            this.aVq.put(aj.id, editText);
+        if (this.aVr.get(aj.id) != null) {
+            c.w("TextAreaSecondaryParser", "insert failed: text has added with same view id");
+            return false;
+        }
+        if (this.aVs == null) {
+            this.aVs = new HashMap<>();
+        }
+        if (this.aVu != null) {
+            EditText editText = new EditText(this.aVu);
+            this.aVs.put(aj.id, aj);
+            a(true, editText, aj, (Activity) this.aVu);
+            this.aVr.put(aj.id, editText);
             editText.setTag(aj.id);
-            a(editText, this.aVt, aj);
-            if (aj.aBI) {
-                if (this.awt != null) {
-                    FrameLayout yy = this.awt.yy();
+            a(editText, this.aVu, aj);
+            if (aj.aBJ) {
+                if (this.awu != null) {
+                    FrameLayout yy = this.awu.yy();
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aj.mWidth, aj.mHeight);
                     layoutParams.topMargin = aj.mTop;
                     layoutParams.leftMargin = aj.mLeft;
@@ -93,10 +93,10 @@ public class b {
                 return false;
             }
             com.baidu.swan.apps.model.a.a.b bVar = new com.baidu.swan.apps.model.a.a.b(aj.mLeft, aj.mTop, aj.mWidth, aj.mHeight);
-            if (aj.aUY) {
+            if (aj.aUZ) {
                 bVar.br(true);
             }
-            aj.aBE = bVar;
+            aj.aBF = bVar;
             return new SwanAppNAViewContainer(context).a(editText, aj);
         }
         return false;
@@ -106,23 +106,23 @@ public class b {
         if (DEBUG) {
             Log.d("TextAreaSecondaryParser", "updateTextAreaById paramsJson: " + jSONObject);
         }
-        if (this.aVt == null) {
+        if (this.aVu == null) {
             return false;
         }
-        com.baidu.swan.apps.textarea.b.a a2 = com.baidu.swan.apps.textarea.b.a.a(this.aVr.get(jSONObject.optString("inputId")), jSONObject);
-        EditText editText = this.aVq.get(a2.id);
-        this.aVr.put(a2.id, a2);
+        com.baidu.swan.apps.textarea.b.a a2 = com.baidu.swan.apps.textarea.b.a.a(this.aVs.get(jSONObject.optString("inputId")), jSONObject);
+        EditText editText = this.aVr.get(a2.id);
+        this.aVs.put(a2.id, a2);
         if (editText != null) {
-            a(false, editText, a2, (Activity) this.aVt);
-            if (a2.aBI) {
-                if (this.awt != null) {
-                    FrameLayout yy = this.awt.yy();
+            a(false, editText, a2, (Activity) this.aVu);
+            if (a2.aBJ) {
+                if (this.awu != null) {
+                    FrameLayout yy = this.awu.yy();
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(a2.mWidth, a2.mHeight);
                     layoutParams.topMargin = a2.mTop;
                     layoutParams.leftMargin = a2.mLeft;
                     if (!editText.getParent().equals(yy)) {
-                        com.baidu.swan.apps.console.c.d("TextAreaSecondaryParser", "textarea change to fixed");
-                        b(true, a2.aBC, a2.id, a2.aBD);
+                        c.d("TextAreaSecondaryParser", "textarea change to fixed");
+                        b(true, a2.aBD, a2.id, a2.aBE);
                         ((ViewGroup) editText.getParent()).removeView(editText);
                         yy.addView(editText, layoutParams);
                     } else {
@@ -133,10 +133,10 @@ public class b {
                 return false;
             }
             com.baidu.swan.apps.model.a.a.b bVar = new com.baidu.swan.apps.model.a.a.b(a2.mLeft, a2.mTop, a2.mWidth, a2.mHeight);
-            if (a2.aUY) {
+            if (a2.aUZ) {
                 bVar.br(true);
             }
-            a2.aBE = bVar;
+            a2.aBF = bVar;
             SwanAppNAViewContainer a3 = com.baidu.swan.apps.view.container.c.b.a(a2, null);
             return a3 != null && a3.a(a2);
         }
@@ -147,14 +147,14 @@ public class b {
         if (DEBUG) {
             Log.d("TextAreaSecondaryParser", "removeTextAreaById id: " + str2);
         }
-        EditText editText = this.aVq.get(str2);
+        EditText editText = this.aVr.get(str2);
         if (editText == null) {
             return false;
         }
         com.baidu.swan.apps.model.a.a.a aVar = new com.baidu.swan.apps.model.a.a.a("", "textArea");
-        aVar.aBC = str;
+        aVar.aBD = str;
         aVar.id = str2;
-        aVar.aBD = str3;
+        aVar.aBE = str3;
         SwanAppNAViewContainer a2 = com.baidu.swan.apps.view.container.c.b.a(aVar, null);
         if (a2 == null) {
             d(editText);
@@ -164,40 +164,40 @@ public class b {
         if (z) {
             return true;
         }
-        this.aVq.remove(str2);
         this.aVr.remove(str2);
-        if (this.aVq.size() == 0) {
+        this.aVs.remove(str2);
+        if (this.aVr.size() == 0) {
             com.baidu.swan.apps.textarea.c.a.Lw().hs(str);
-            this.aVq = null;
+            this.aVr = null;
         }
         return true;
     }
 
     private boolean d(EditText editText) {
-        if (this.awt == null) {
+        if (this.awu == null) {
             return false;
         }
-        this.awt.yy().removeView(editText);
+        this.awu.yy().removeView(editText);
         return true;
     }
 
     public void ht(String str) {
         b hr = com.baidu.swan.apps.textarea.c.a.Lw().hr(str);
         if (hr != null) {
-            for (EditText editText : hr.aVq.values()) {
+            for (EditText editText : hr.aVr.values()) {
                 if (editText != null) {
                     String obj = editText.getTag().toString();
                     com.baidu.swan.apps.model.a.a.a aVar = new com.baidu.swan.apps.model.a.a.a("", "textArea");
-                    aVar.aBC = str;
+                    aVar.aBD = str;
                     aVar.id = obj;
                     SwanAppNAViewContainer a2 = com.baidu.swan.apps.view.container.c.b.a(aVar, null);
-                    if (a2 != null && !a2.MK() && this.awt != null) {
-                        this.awt.yy().removeView(editText);
+                    if (a2 != null && !a2.MK() && this.awu != null) {
+                        this.awu.yy().removeView(editText);
                     }
                 }
             }
             com.baidu.swan.apps.textarea.c.a.Lw().hs(str);
-            hr.aVq = null;
+            hr.aVr = null;
         }
     }
 
@@ -211,8 +211,8 @@ public class b {
             editText.setText(aVar.mValue);
         }
         editText.setBackgroundColor(0);
-        SpannableString spannableString = new SpannableString(aVar.aUT);
-        String str = aVar.aUV;
+        SpannableString spannableString = new SpannableString(aVar.aUU);
+        String str = aVar.aUW;
         switch (str.hashCode()) {
             case -1039745817:
                 if (str.equals("normal")) {
@@ -243,25 +243,25 @@ public class b {
                 styleSpan = new StyleSpan(0);
                 break;
         }
-        spannableString.setSpan(styleSpan, 0, aVar.aUT.length(), 33);
-        spannableString.setSpan(new ForegroundColorSpan(com.baidu.swan.apps.ae.a.c.parseColor(aVar.aUW)), 0, aVar.aUT.length(), 33);
-        spannableString.setSpan(new AbsoluteSizeSpan(aVar.aUU, true), 0, aVar.aUT.length(), 33);
+        spannableString.setSpan(styleSpan, 0, aVar.aUU.length(), 33);
+        spannableString.setSpan(new ForegroundColorSpan(com.baidu.swan.apps.ae.a.c.parseColor(aVar.aUX)), 0, aVar.aUU.length(), 33);
+        spannableString.setSpan(new AbsoluteSizeSpan(aVar.aUV, true), 0, aVar.aUU.length(), 33);
         editText.setHint(spannableString);
         int length = editText.getText().length();
-        if (aVar.aUX) {
-            if (aVar.aVc <= length && aVar.aVc >= 0) {
-                editText.setSelection(aVar.aVc);
+        if (aVar.aUY) {
+            if (aVar.aVd <= length && aVar.aVd >= 0) {
+                editText.setSelection(aVar.aVd);
             } else {
                 editText.setSelection(length);
             }
         }
-        if (aVar.aVe <= length && aVar.aVe > 0 && aVar.aVd <= aVar.aVe && aVar.aVd > 0 && aVar.aUX && !editText.hasFocus()) {
-            editText.setSelection(aVar.aVd, aVar.aVe);
+        if (aVar.aVf <= length && aVar.aVf > 0 && aVar.aVe <= aVar.aVf && aVar.aVe > 0 && aVar.aUY && !editText.hasFocus()) {
+            editText.setSelection(aVar.aVe, aVar.aVf);
         }
-        if (aVar.aVa >= 0) {
-            editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(aVar.aVa)});
+        if (aVar.aVb >= 0) {
+            editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(aVar.aVb)});
         }
-        String str2 = aVar.aVg;
+        String str2 = aVar.aVh;
         switch (str2.hashCode()) {
             case -1039745817:
                 if (str2.equals("normal")) {
@@ -292,7 +292,7 @@ public class b {
                 editText.setTypeface(Typeface.SANS_SERIF, 0);
                 break;
         }
-        String str3 = aVar.aVj;
+        String str3 = aVar.aVk;
         switch (str3.hashCode()) {
             case -1364013995:
                 if (str3.equals("center")) {
@@ -333,28 +333,28 @@ public class b {
                 editText.setGravity(8388659);
                 break;
         }
-        editText.setTextColor(com.baidu.swan.apps.ae.a.c.parseColor(aVar.aVh));
+        editText.setTextColor(com.baidu.swan.apps.ae.a.c.parseColor(aVar.aVi));
         editText.setTextSize(aVar.mFontSize);
-        if (aVar.aVl != null) {
-            editText.setPadding(x.ad(aVar.aVl.optInt(3)), x.ad(aVar.aVl.optInt(0)), x.ad(aVar.aVl.optInt(1)), x.ad(aVar.aVl.optInt(2)));
+        if (aVar.aVm != null) {
+            editText.setPadding(x.ad(aVar.aVm.optInt(3)), x.ad(aVar.aVm.optInt(0)), x.ad(aVar.aVm.optInt(1)), x.ad(aVar.aVm.optInt(2)));
         }
-        editText.setLineSpacing(aVar.aVi, 1.0f);
+        editText.setLineSpacing(aVar.aVj, 1.0f);
         if (z) {
-            editText.setMinHeight(aVar.aVm);
+            editText.setMinHeight(aVar.aVn);
             editText.setMaxHeight(aVar.mMaxHeight);
         }
-        if (aVar.aUY) {
+        if (aVar.aUZ) {
             aVar.mHeight = -2;
         }
         new Handler().post(new Runnable() { // from class: com.baidu.swan.apps.textarea.c.b.1
             @Override // java.lang.Runnable
             public void run() {
                 if (activity == null) {
-                    com.baidu.swan.apps.console.c.w("TextAreaSecondaryParser", "activity is null, set textarea attr failed");
+                    c.w("TextAreaSecondaryParser", "activity is null, set textarea attr failed");
                     return;
                 }
                 InputMethodManager inputMethodManager = (InputMethodManager) activity.getSystemService("input_method");
-                if (inputMethodManager != null && aVar.aUX) {
+                if (inputMethodManager != null && aVar.aUY) {
                     editText.setFocusable(true);
                     editText.setFocusableInTouchMode(true);
                     editText.requestFocus();
@@ -362,7 +362,7 @@ public class b {
                 }
             }
         });
-        editText.setEnabled(!aVar.aVk);
+        editText.setEnabled(!aVar.aVl);
     }
 
     private void a(final EditText editText, final SwanAppActivity swanAppActivity, final com.baidu.swan.apps.textarea.b.a aVar) {
@@ -375,10 +375,10 @@ public class b {
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
                 if (editText.getLineCount() > 0) {
                     String obj = editText.getTag().toString();
-                    if (((com.baidu.swan.apps.textarea.b.a) b.this.aVr.get(obj)).aVn != editText.getLineCount()) {
-                        com.baidu.swan.apps.console.c.d("TextAreaSecondaryParser", "send line change callback");
-                        b.this.a(editText, "linechange", aVar, b.this.awv);
-                        ((com.baidu.swan.apps.textarea.b.a) b.this.aVr.get(obj)).aVn = editText.getLineCount();
+                    if (((com.baidu.swan.apps.textarea.b.a) b.this.aVs.get(obj)).aVo != editText.getLineCount()) {
+                        c.d("TextAreaSecondaryParser", "send line change callback");
+                        b.this.a(editText, "linechange", aVar, b.this.aww);
+                        ((com.baidu.swan.apps.textarea.b.a) b.this.aVs.get(obj)).aVo = editText.getLineCount();
                     }
                 }
             }
@@ -386,8 +386,8 @@ public class b {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (editText.hasFocus()) {
-                    com.baidu.swan.apps.console.c.d("TextAreaSecondaryParser", "send input callback");
-                    b.this.a(editText, "input", aVar, b.this.awv);
+                    c.d("TextAreaSecondaryParser", "send input callback");
+                    b.this.a(editText, "input", aVar, b.this.aww);
                 }
             }
         });
@@ -395,8 +395,8 @@ public class b {
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (z) {
-                    if (b.this.awv != 0) {
-                        b.this.a(editText, AddFriendActivityConfig.TYPE_FOCUS, aVar, b.this.awv);
+                    if (b.this.aww != 0) {
+                        b.this.a(editText, AddFriendActivityConfig.TYPE_FOCUS, aVar, b.this.aww);
                         return;
                     }
                     return;
@@ -404,73 +404,73 @@ public class b {
                 b.this.a(editText, "blur", aVar, 0);
             }
         });
-        com.baidu.swan.apps.textarea.a.a(aVar.id, swanAppActivity, new a.InterfaceC0149a() { // from class: com.baidu.swan.apps.textarea.c.b.4
-            @Override // com.baidu.swan.apps.textarea.a.InterfaceC0149a
+        com.baidu.swan.apps.textarea.a.a(aVar.id, swanAppActivity, new a.InterfaceC0178a() { // from class: com.baidu.swan.apps.textarea.c.b.4
+            @Override // com.baidu.swan.apps.textarea.a.InterfaceC0178a
             public void B(String str, int i) {
                 int i2;
                 com.baidu.swan.apps.b.c.d DP = e.Ec().DP();
-                if (b.this.aVr.get(str) != null && b.this.awv != i && editText.hasFocus() && DP != null) {
-                    b.this.awv = i;
-                    b.this.aVs = editText.getHeight();
-                    b.this.a(editText, AddFriendActivityConfig.TYPE_FOCUS, aVar, b.this.awv);
-                    boolean z = ((com.baidu.swan.apps.textarea.b.a) b.this.aVr.get(str)).aVf;
-                    if (((com.baidu.swan.apps.textarea.b.a) b.this.aVr.get(str)).aUZ) {
+                if (b.this.aVs.get(str) != null && b.this.aww != i && editText.hasFocus() && DP != null) {
+                    b.this.aww = i;
+                    b.this.aVt = editText.getHeight();
+                    b.this.a(editText, AddFriendActivityConfig.TYPE_FOCUS, aVar, b.this.aww);
+                    boolean z = ((com.baidu.swan.apps.textarea.b.a) b.this.aVs.get(str)).aVg;
+                    if (((com.baidu.swan.apps.textarea.b.a) b.this.aVs.get(str)).aVa) {
                         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
                         int ad = x.ad(38.0f);
-                        if (b.this.aVu == null) {
-                            b.this.aVu = new ShowConfirmBarLayout(swanAppActivity);
-                            b.this.aVu.setOnConfirmButtonClickListener(new ShowConfirmBarLayout.a() { // from class: com.baidu.swan.apps.textarea.c.b.4.1
+                        if (b.this.aVv == null) {
+                            b.this.aVv = new ShowConfirmBarLayout(swanAppActivity);
+                            b.this.aVv.setOnConfirmButtonClickListener(new ShowConfirmBarLayout.a() { // from class: com.baidu.swan.apps.textarea.c.b.4.1
                                 @Override // com.baidu.swan.apps.textarea.ShowConfirmBarLayout.a
                                 public void onClick(View view) {
                                     if (swanAppActivity == null) {
-                                        com.baidu.swan.apps.console.c.w("TextAreaSecondaryParser", "activity is null when click confirmBar");
+                                        c.w("TextAreaSecondaryParser", "activity is null when click confirmBar");
                                         return;
                                     }
                                     InputMethodManager inputMethodManager = (InputMethodManager) swanAppActivity.getSystemService("input_method");
                                     if (inputMethodManager != null) {
                                         inputMethodManager.hideSoftInputFromWindow(editText.getWindowToken(), 0);
                                     }
-                                    com.baidu.swan.apps.console.c.d("TextAreaSecondaryParser", "send confirm change callback");
-                                    b.this.a(editText, "confirm", aVar, b.this.awv);
+                                    c.d("TextAreaSecondaryParser", "send confirm change callback");
+                                    b.this.a(editText, "confirm", aVar, b.this.aww);
                                 }
                             });
                             View decorView = swanAppActivity.getWindow().getDecorView();
                             layoutParams.topMargin = ((decorView.getHeight() - i) - ad) - x.getNavigationBarHeight();
-                            ((FrameLayout) decorView.findViewById(16908290)).addView(b.this.aVu, layoutParams);
+                            ((FrameLayout) decorView.findViewById(16908290)).addView(b.this.aVv, layoutParams);
                         }
                         i2 = ad;
                     } else {
                         i2 = 0;
                     }
                     if (z) {
-                        int webViewScrollY = (!((com.baidu.swan.apps.textarea.b.a) b.this.aVr.get(str)).aBI ? DP.getWebViewScrollY() : 0) + ((b.this.awt.yy().getHeight() - ((com.baidu.swan.apps.textarea.b.a) b.this.aVr.get(str)).mTop) - editText.getHeight());
-                        int i3 = ((com.baidu.swan.apps.textarea.b.a) b.this.aVr.get(str)).aVb;
+                        int webViewScrollY = (!((com.baidu.swan.apps.textarea.b.a) b.this.aVs.get(str)).aBJ ? DP.getWebViewScrollY() : 0) + ((b.this.awu.yy().getHeight() - ((com.baidu.swan.apps.textarea.b.a) b.this.aVs.get(str)).mTop) - editText.getHeight());
+                        int i3 = ((com.baidu.swan.apps.textarea.b.a) b.this.aVs.get(str)).aVc;
                         if (webViewScrollY - i3 < i) {
-                            b.this.aVv = true;
+                            b.this.aVw = true;
                             if (i3 > webViewScrollY) {
-                                b.this.awt.yy().setScrollY(i + i2);
+                                b.this.awu.yy().setScrollY(i + i2);
                                 return;
                             } else {
-                                b.this.awt.yy().setScrollY(i3 + (i - webViewScrollY) + i2);
+                                b.this.awu.yy().setScrollY(i3 + (i - webViewScrollY) + i2);
                                 return;
                             }
                         }
-                        b.this.aVv = false;
+                        b.this.aVw = false;
                     }
                 }
             }
 
-            @Override // com.baidu.swan.apps.textarea.a.InterfaceC0149a
+            @Override // com.baidu.swan.apps.textarea.a.InterfaceC0178a
             public void C(String str, int i) {
-                if (b.this.awv != 0 && b.this.aVr.get(str) != null) {
-                    b.this.awv = 0;
-                    if (b.this.awt.yy().getScrollY() > 0) {
-                        b.this.awt.yy().setScrollY(0);
-                        b.this.aVv = false;
+                if (b.this.aww != 0 && b.this.aVs.get(str) != null) {
+                    b.this.aww = 0;
+                    if (b.this.awu.yy().getScrollY() > 0) {
+                        b.this.awu.yy().setScrollY(0);
+                        b.this.aVw = false;
                     }
-                    if (b.this.aVu != null && b.this.aVu.getVisibility() == 0) {
-                        ((FrameLayout) swanAppActivity.getWindow().getDecorView().findViewById(16908290)).removeView(b.this.aVu);
-                        b.this.aVu = null;
+                    if (b.this.aVv != null && b.this.aVv.getVisibility() == 0) {
+                        ((FrameLayout) swanAppActivity.getWindow().getDecorView().findViewById(16908290)).removeView(b.this.aVv);
+                        b.this.aVv = null;
                     }
                 }
                 if (editText.getParent() != null && editText.hasFocus()) {
@@ -479,12 +479,12 @@ public class b {
                 }
             }
 
-            @Override // com.baidu.swan.apps.textarea.a.InterfaceC0149a
+            @Override // com.baidu.swan.apps.textarea.a.InterfaceC0178a
             public void eJ(String str) {
-                if (b.this.aVr.get(str) != null && ((com.baidu.swan.apps.textarea.b.a) b.this.aVr.get(str)).aVn != editText.getLineCount()) {
-                    com.baidu.swan.apps.console.c.d("TextAreaSecondaryParser", "send line change callback");
-                    b.this.a(editText, "linechange", aVar, b.this.awv);
-                    ((com.baidu.swan.apps.textarea.b.a) b.this.aVr.get(str)).aVn = editText.getLineCount();
+                if (b.this.aVs.get(str) != null && ((com.baidu.swan.apps.textarea.b.a) b.this.aVs.get(str)).aVo != editText.getLineCount()) {
+                    c.d("TextAreaSecondaryParser", "send line change callback");
+                    b.this.a(editText, "linechange", aVar, b.this.aww);
+                    ((com.baidu.swan.apps.textarea.b.a) b.this.aVs.get(str)).aVo = editText.getLineCount();
                     b.this.a(editText, str);
                 }
             }
@@ -493,17 +493,17 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(EditText editText, String str) {
-        boolean z = this.aVr.get(str).aVf;
-        if (editText.hasFocus() && !this.aVr.get(str).aBI) {
-            if (this.awv > 0 && z && this.aVv) {
-                int height = (editText.getHeight() - this.aVs) + this.awt.yy().getScrollY();
+        boolean z = this.aVs.get(str).aVg;
+        if (editText.hasFocus() && !this.aVs.get(str).aBJ) {
+            if (this.aww > 0 && z && this.aVw) {
+                int height = (editText.getHeight() - this.aVt) + this.awu.yy().getScrollY();
                 if (height > 0) {
-                    this.awt.yy().setScrollY(height);
+                    this.awu.yy().setScrollY(height);
                 } else {
-                    this.awt.yy().setScrollY(0);
+                    this.awu.yy().setScrollY(0);
                 }
             }
-            this.aVs = editText.getHeight();
+            this.aVt = editText.getHeight();
         }
     }
 
@@ -522,11 +522,11 @@ public class b {
                         jSONObject.put("cursor", editText.getSelectionStart());
                         jSONObject.put("lineCount", editText.getLineCount());
                         jSONObject.put("height", x.ae(a2));
-                        jSONObject.put("keyboardHeight", x.ae(b.this.awv));
+                        jSONObject.put("keyboardHeight", x.ae(b.this.aww));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    b.this.aVp.d(obj, jSONObject);
+                    b.this.aVq.d(obj, jSONObject);
                 }
             }
         });
@@ -536,10 +536,10 @@ public class b {
     public int a(EditText editText, com.baidu.swan.apps.textarea.b.a aVar) {
         int lineCount = editText.getLineCount();
         int lineHeight = editText.getLineHeight();
-        int i = aVar.aVm;
+        int i = aVar.aVn;
         int i2 = aVar.mMaxHeight;
         int height = editText.getHeight();
-        if (aVar.aUY) {
+        if (aVar.aUZ) {
             int paddingBottom = editText.getPaddingBottom() + (lineHeight * lineCount) + editText.getPaddingTop();
             int i3 = i2 < i ? i : i2;
             if (paddingBottom <= i) {
@@ -551,9 +551,9 @@ public class b {
     }
 
     public void hu(String str) {
-        com.baidu.swan.apps.textarea.b.a aVar = this.aVr.get(str);
-        EditText editText = this.aVq.get(aVar.id);
-        a(editText, "linechange", aVar, this.awv);
-        this.aVr.get(str).aVn = editText.getLineCount();
+        com.baidu.swan.apps.textarea.b.a aVar = this.aVs.get(str);
+        EditText editText = this.aVr.get(aVar.id);
+        a(editText, "linechange", aVar, this.aww);
+        this.aVs.get(str).aVo = editText.getLineCount();
     }
 }

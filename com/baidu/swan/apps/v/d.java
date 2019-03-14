@@ -13,7 +13,7 @@ import com.baidu.swan.apps.model.SwanAppBearInfo;
 import com.baidu.swan.apps.statistic.a.f;
 /* loaded from: classes2.dex */
 public class d {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void a(Context context, com.baidu.swan.apps.v.b.c cVar, com.baidu.swan.pms.model.a aVar, String str) {
         int a = a(cVar, aVar);
@@ -75,7 +75,7 @@ public class d {
         if (aVar == null || TextUtils.isEmpty(aVar.appId)) {
             return 1;
         }
-        if ((cVar.axW == 0 && aVar.appCategory != 0) || (cVar.axW == 1 && aVar.appCategory != 1)) {
+        if ((cVar.axX == 0 && aVar.appCategory != 0) || (cVar.axX == 1 && aVar.appCategory != 1)) {
             return 2;
         }
         return 0;
@@ -102,9 +102,9 @@ public class d {
             }
             return;
         }
-        com.baidu.swan.apps.v.a.a.a(context, aVar, cVar.axW);
+        com.baidu.swan.apps.v.a.a.a(context, aVar, cVar.axX);
         f fVar = new f();
-        fVar.mFrom = com.baidu.swan.apps.statistic.c.dC(cVar.axW);
+        fVar.mFrom = com.baidu.swan.apps.statistic.c.dC(cVar.axX);
         fVar.d(cVar);
         fVar.mType = "launch";
         fVar.mValue = LivenessStat.TYPE_FACE_MATCH_FAIL;
@@ -112,7 +112,7 @@ public class d {
         fVar.aB("msg", aVar.LB().toString());
         com.baidu.swan.apps.statistic.c.onEvent(fVar);
         if (!aVar.LD()) {
-            com.baidu.swan.apps.statistic.c.a(new com.baidu.swan.apps.statistic.a.d().gR(com.baidu.swan.apps.statistic.c.dC(cVar.axW)).a(aVar).gS(cVar.mAppId).gT(cVar.mFrom));
+            com.baidu.swan.apps.statistic.c.a(new com.baidu.swan.apps.statistic.a.d().gR(com.baidu.swan.apps.statistic.c.dC(cVar.axX)).a(aVar).gS(cVar.mAppId).gT(cVar.mFrom));
             aVar.LE();
         }
         com.baidu.swan.apps.storage.b.f.KL().putLong(cVar.mAppId, 0L);
@@ -123,36 +123,36 @@ public class d {
         if (aVar == null) {
             return null;
         }
-        bVar.axC = aVar.appName;
-        bVar.axD = aVar.iconUrl;
+        bVar.axD = aVar.appName;
+        bVar.axE = aVar.iconUrl;
         bVar.mAppId = cVar.mAppId;
-        bVar.axF = cVar.mFrom;
-        bVar.axH = cVar.axH;
-        bVar.axR = cVar.axR;
+        bVar.axG = cVar.mFrom;
+        bVar.axI = cVar.axI;
+        bVar.axS = cVar.axS;
         bVar.mAppKey = aVar.appKey;
         bVar.mDescription = aVar.description;
         bVar.mErrorCode = aVar.appStatus;
-        bVar.axI = aVar.blM;
-        bVar.mErrorMsg = aVar.blN;
-        bVar.axJ = aVar.atT;
-        bVar.axM = aVar.atW;
+        bVar.axJ = aVar.blN;
+        bVar.mErrorMsg = aVar.blO;
+        bVar.axK = aVar.atU;
         bVar.axN = aVar.atX;
-        bVar.axO = new SwanAppBearInfo(aVar.atY);
+        bVar.axO = aVar.atY;
+        bVar.axP = new SwanAppBearInfo(aVar.atZ);
         bVar.mVersion = String.valueOf(aVar.versionCode);
-        bVar.axP = cVar.DC();
-        bVar.axG = cVar.axG;
+        bVar.axQ = cVar.DC();
+        bVar.axH = cVar.axH;
         bVar.mType = aVar.type;
-        bVar.axS = cVar.axS;
-        bVar.atp = cVar.atp;
+        bVar.axT = cVar.axT;
         bVar.atq = cVar.atq;
-        bVar.aud = aVar.blO;
-        bVar.auf = aVar.versionName;
-        bVar.axQ = cVar.axQ;
-        bVar.axY = cVar.axY;
+        bVar.atr = cVar.atr;
+        bVar.aue = aVar.blP;
+        bVar.aug = aVar.versionName;
+        bVar.axR = cVar.axR;
+        bVar.axZ = cVar.axZ;
         if (aVar.appCategory == 1) {
-            bVar.axW = 1;
+            bVar.axX = 1;
         } else {
-            bVar.axW = 0;
+            bVar.axX = 0;
         }
         bVar.orientation = aVar.orientation;
         return bVar;

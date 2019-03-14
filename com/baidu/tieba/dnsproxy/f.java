@@ -1,27 +1,27 @@
 package com.baidu.tieba.dnsproxy;
 /* loaded from: classes2.dex */
 public class f {
-    private static f eyN = null;
+    private static f eyJ = null;
 
-    public static final f aVh() {
-        if (eyN == null) {
+    public static final f aVg() {
+        if (eyJ == null) {
             synchronized (f.class) {
-                if (eyN == null) {
-                    eyN = new f();
+                if (eyJ == null) {
+                    eyJ = new f();
                 }
             }
         }
-        return eyN;
+        return eyJ;
     }
 
     private f() {
     }
 
-    public boolean tS(String str) {
+    public boolean tQ(String str) {
         return true;
     }
 
-    public boolean tT(String str) {
+    public boolean tR(String str) {
         return false;
     }
 }

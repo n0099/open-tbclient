@@ -7,20 +7,20 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes.dex */
 public class a implements d {
-    public static int bVn = 8000;
-    public static int bVo = 2;
+    public static int bVo = 8000;
     public static int bVp = 2;
-    public static int bVq = 1;
-    private RandomAccessFile bVr;
-    private int bVs;
-    private short bVt;
+    public static int bVq = 2;
+    public static int bVr = 1;
+    private RandomAccessFile bVs;
+    private int bVt;
     private short bVu;
+    private short bVv;
     private int channelConfiguration;
     private int dataSize;
     private String filePath;
     private int frequency;
     private int bufferSize = 0;
-    private boolean VO = false;
+    private boolean VP = false;
     private AudioRecord mAudioRecord = null;
     private File file = null;
 
@@ -28,29 +28,29 @@ public class a implements d {
         this.bufferSize = AudioRecord.getMinBufferSize(i2, i3, i4) + 2048;
         this.frequency = i2;
         this.channelConfiguration = i3;
-        this.bVs = i4;
+        this.bVt = i4;
         if (this.mAudioRecord != null) {
             this.mAudioRecord.release();
         }
-        this.mAudioRecord = new AudioRecord(i, this.frequency, this.channelConfiguration, this.bVs, this.bufferSize);
-        this.bVt = (short) (this.channelConfiguration == 12 ? 2 : 1);
-        this.bVu = (short) (this.bVs == 2 ? 16 : 8);
+        this.mAudioRecord = new AudioRecord(i, this.frequency, this.channelConfiguration, this.bVt, this.bufferSize);
+        this.bVu = (short) (this.channelConfiguration == 12 ? 2 : 1);
+        this.bVv = (short) (this.bVt == 2 ? 16 : 8);
         this.file = new File(str);
         if (this.file.exists()) {
             this.file.delete();
         }
         try {
             this.file.createNewFile();
-            if (this.bVr != null) {
+            if (this.bVs != null) {
                 try {
-                    this.bVr.close();
+                    this.bVs.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                     return false;
                 }
             }
             try {
-                this.bVr = new RandomAccessFile(this.file, "rw");
+                this.bVs = new RandomAccessFile(this.file, "rw");
                 writeHeader();
                 setFilePath(this.file.getParent());
                 return true;
@@ -66,29 +66,29 @@ public class a implements d {
 
     @Override // com.baidu.tbadk.core.voice.service.d
     public boolean nx(String str) {
-        return a(bVq, bVn, bVo, bVp, str);
+        return a(bVr, bVo, bVp, bVq, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void afw() {
         if (this.mAudioRecord != null && this.file != null) {
             try {
-                this.VO = true;
+                this.VP = true;
                 byte[] bArr = new byte[this.bufferSize];
                 this.mAudioRecord.startRecording();
-                while (this.VO) {
+                while (this.VP) {
                     this.mAudioRecord.read(bArr, 0, bArr.length);
-                    this.bVr.write(bArr);
+                    this.bVs.write(bArr);
                     this.dataSize += bArr.length;
                 }
-                this.bVr.seek(4L);
-                this.bVr.writeInt(Integer.reverseBytes(this.dataSize + 36));
-                this.bVr.seek(40L);
-                this.bVr.writeInt(Integer.reverseBytes(this.dataSize));
-                this.bVr.close();
+                this.bVs.seek(4L);
+                this.bVs.writeInt(Integer.reverseBytes(this.dataSize + 36));
+                this.bVs.seek(40L);
+                this.bVs.writeInt(Integer.reverseBytes(this.dataSize));
+                this.bVs.close();
                 this.mAudioRecord.stop();
                 this.mAudioRecord.release();
-                this.VO = false;
+                this.VP = false;
             } catch (Throwable th) {
                 if (this.file.exists()) {
                     this.file.delete();
@@ -113,30 +113,30 @@ public class a implements d {
 
     @Override // com.baidu.tbadk.core.voice.service.d
     public void afy() {
-        this.VO = false;
+        this.VP = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.d
     public boolean afz() {
-        return this.VO;
+        return this.VP;
     }
 
     private void writeHeader() {
         try {
-            this.bVr.setLength(0L);
-            this.bVr.writeBytes("RIFF");
-            this.bVr.writeInt(0);
-            this.bVr.writeBytes("WAVE");
-            this.bVr.writeBytes("fmt ");
-            this.bVr.writeInt(Integer.reverseBytes(16));
-            this.bVr.writeShort(Short.reverseBytes((short) 1));
-            this.bVr.writeShort(Short.reverseBytes(this.bVt));
-            this.bVr.writeInt(Integer.reverseBytes(this.frequency));
-            this.bVr.writeInt(Integer.reverseBytes(((this.frequency * this.bVt) * this.bVu) / 8));
-            this.bVr.writeShort(Short.reverseBytes((short) ((this.bVt * this.bVu) / 8)));
-            this.bVr.writeShort(Short.reverseBytes(this.bVu));
-            this.bVr.writeBytes("data");
-            this.bVr.writeInt(0);
+            this.bVs.setLength(0L);
+            this.bVs.writeBytes("RIFF");
+            this.bVs.writeInt(0);
+            this.bVs.writeBytes("WAVE");
+            this.bVs.writeBytes("fmt ");
+            this.bVs.writeInt(Integer.reverseBytes(16));
+            this.bVs.writeShort(Short.reverseBytes((short) 1));
+            this.bVs.writeShort(Short.reverseBytes(this.bVu));
+            this.bVs.writeInt(Integer.reverseBytes(this.frequency));
+            this.bVs.writeInt(Integer.reverseBytes(((this.frequency * this.bVu) * this.bVv) / 8));
+            this.bVs.writeShort(Short.reverseBytes((short) ((this.bVu * this.bVv) / 8)));
+            this.bVs.writeShort(Short.reverseBytes(this.bVv));
+            this.bVs.writeBytes("data");
+            this.bVs.writeInt(0);
         } catch (IOException e) {
             if (this.file.exists()) {
                 this.file.delete();

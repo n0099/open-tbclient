@@ -7,33 +7,33 @@ import com.baidu.tbadk.core.data.bg;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class e extends ar {
-    private TextView hmB;
+    private TextView hmw;
 
     public e(BaseActivity baseActivity, View view) {
         super(baseActivity, view);
-        this.hmB = null;
+        this.hmw = null;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.ar
     protected void a(d dVar) {
-        this.hmB = (TextView) this.mRootView.findViewById(d.g.icon_push);
-        this.hmB.setVisibility(8);
+        this.hmw = (TextView) this.mRootView.findViewById(d.g.icon_push);
+        this.hmw.setVisibility(8);
     }
 
     public void nh(boolean z) {
-        if (this.hmB != null) {
+        if (this.hmw != null) {
             if (z) {
-                this.hmB.setText(d.j.push);
-                com.baidu.tbadk.core.util.al.j(this.hmB, d.f.push_text_selector);
-                com.baidu.tbadk.core.util.al.k(this.hmB, d.f.push_bg_selector);
-                this.hmB.setClickable(true);
+                this.hmw.setText(d.j.push);
+                com.baidu.tbadk.core.util.al.j(this.hmw, d.f.push_text_selector);
+                com.baidu.tbadk.core.util.al.k(this.hmw, d.f.push_bg_selector);
+                this.hmw.setClickable(true);
             } else {
-                this.hmB.setText(d.j.already_push);
-                com.baidu.tbadk.core.util.al.k(this.hmB, d.f.label_bg_gray80);
-                com.baidu.tbadk.core.util.al.j(this.hmB, d.C0236d.cp_cont_d);
-                this.hmB.setClickable(false);
+                this.hmw.setText(d.j.already_push);
+                com.baidu.tbadk.core.util.al.k(this.hmw, d.f.label_bg_gray80);
+                com.baidu.tbadk.core.util.al.j(this.hmw, d.C0277d.cp_cont_d);
+                this.hmw.setClickable(false);
             }
-            this.hmB.setVisibility(0);
+            this.hmw.setVisibility(0);
         }
     }
 
@@ -48,7 +48,7 @@ public class e extends ar {
         }
     }
 
-    public TextView bJm() {
-        return this.hmB;
+    public TextView bJl() {
+        return this.hmw;
     }
 }

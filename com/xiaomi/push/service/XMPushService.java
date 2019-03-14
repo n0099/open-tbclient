@@ -19,7 +19,6 @@ import android.os.IBinder;
 import android.os.Parcelable;
 import android.os.Process;
 import android.text.TextUtils;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import com.xiaomi.channel.commonutils.misc.f;
 import com.xiaomi.mipush.sdk.ErrorCode;
@@ -434,7 +433,7 @@ public class XMPushService extends Service implements com.xiaomi.smack.d {
         cVar2.l(cVar.l());
         cVar2.b(true);
         String a3 = aq.a(a2, com.xiaomi.smack.util.d.c(cVar.c()));
-        com.xiaomi.smack.packet.a aVar = new com.xiaomi.smack.packet.a(NotifyType.SOUND, null, null, null);
+        com.xiaomi.smack.packet.a aVar = new com.xiaomi.smack.packet.a("s", null, null, null);
         aVar.b(a3);
         cVar2.a(aVar);
         return cVar2;

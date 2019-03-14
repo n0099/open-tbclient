@@ -10,9 +10,9 @@ import com.baidu.tbadk.editortools.l;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class SendView extends TextView implements l {
-    private EditorTools VM;
-    private int VN;
-    private int bUJ;
+    private EditorTools VN;
+    private int VO;
+    private int bUK;
     private boolean[] ckE;
     private int[] ckF;
     private int mType;
@@ -23,14 +23,14 @@ public class SendView extends TextView implements l {
         super(context);
         this.ckE = new boolean[]{false, false, false, false, false};
         this.ckF = new int[]{0, 0};
-        this.bUJ = 0;
+        this.bUK = 0;
         this.mType = ALL;
         setPadding(context.getResources().getDimensionPixelSize(d.e.ds17), context.getResources().getDimensionPixelSize(d.e.ds28), context.getResources().getDimensionPixelSize(d.e.ds10), context.getResources().getDimensionPixelSize(d.e.ds28));
         setGravity(17);
         setIncludeFontPadding(false);
         setEnabled(false);
         setTextSize(0, context.getResources().getDimensionPixelSize(d.e.fontsize28));
-        setTextColor(getContext().getResources().getColor(d.C0236d.cp_cont_e));
+        setTextColor(getContext().getResources().getColor(d.C0277d.cp_cont_e));
         setText(d.j.send_post);
         setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.editortools.sendtool.SendView.1
             @Override // android.view.View.OnClickListener
@@ -112,24 +112,24 @@ public class SendView extends TextView implements l {
 
     @Override // com.baidu.tbadk.editortools.l
     public void setEditorTools(EditorTools editorTools) {
-        this.VM = editorTools;
+        this.VN = editorTools;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.VM != null) {
-            this.VM.b(aVar);
+        if (this.VN != null) {
+            this.VN.b(aVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public void setToolId(int i) {
-        this.VN = i;
+        this.VO = i;
     }
 
     @Override // com.baidu.tbadk.editortools.l
     public int getToolId() {
-        return this.VN;
+        return this.VO;
     }
 
     @Override // com.baidu.tbadk.editortools.l
@@ -149,11 +149,11 @@ public class SendView extends TextView implements l {
 
     @Override // com.baidu.tbadk.editortools.l
     public void onChangeSkinType(int i) {
-        this.bUJ = i;
+        this.bUK = i;
         if (isEnabled()) {
-            al.c(this, d.C0236d.cp_link_tip_a, 1, i);
+            al.c(this, d.C0277d.cp_link_tip_a, 1, i);
         } else {
-            al.d(this, d.C0236d.cp_cont_e, 1);
+            al.d(this, d.C0277d.cp_cont_e, 1);
         }
     }
 
@@ -165,19 +165,19 @@ public class SendView extends TextView implements l {
         if (i == ALL) {
             if (this.ckE[0] || this.ckE[1] || this.ckE[2] || this.ckE[3] || this.ckE[4]) {
                 setEnabled(true);
-                al.c(this, d.C0236d.cp_link_tip_a, 1, this.bUJ);
+                al.c(this, d.C0277d.cp_link_tip_a, 1, this.bUK);
                 return;
             }
             setEnabled(false);
-            al.d(this, d.C0236d.cp_cont_e, 1);
+            al.d(this, d.C0277d.cp_cont_e, 1);
         } else if (i == ckG) {
             if (this.ckE[1]) {
                 setEnabled(true);
-                al.c(this, d.C0236d.cp_link_tip_a, 1, this.bUJ);
+                al.c(this, d.C0277d.cp_link_tip_a, 1, this.bUK);
                 return;
             }
             setEnabled(false);
-            al.d(this, d.C0236d.cp_cont_e, 1);
+            al.d(this, d.C0277d.cp_cont_e, 1);
         }
     }
 }

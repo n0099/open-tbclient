@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.d.a.a;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.PassportViewManager;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
@@ -259,7 +260,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         if (webDTO != null && webDTO.openExitAnimId != 0) {
             i2 = webDTO.openExitAnimId;
         } else {
-            i2 = a.C0038a.sapi_sdk_hold;
+            i2 = a.C0040a.sapi_sdk_hold;
         }
         if (i != 0) {
             overridePendingTransition(i, i2);
@@ -283,7 +284,7 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
     public void reportWebviewError(Throwable th) {
         HashMap hashMap = new HashMap();
         hashMap.put("error", Log.getStackTraceString(th));
-        hashMap.put("device", Build.MODEL);
+        hashMap.put(Config.DEVICE_PART, Build.MODEL);
         hashMap.put("os_version", Build.VERSION.RELEASE);
         StatService.onEvent("webview_init_error", hashMap, false);
     }

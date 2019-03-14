@@ -1,5 +1,6 @@
 package okhttp3;
 
+import com.baidu.mobstat.Config;
 import java.net.Proxy;
 import java.net.ProxySelector;
 import java.util.List;
@@ -122,7 +123,7 @@ public final class Address {
     }
 
     public String toString() {
-        StringBuilder append = new StringBuilder().append("Address{").append(this.url.host()).append(":").append(this.url.port());
+        StringBuilder append = new StringBuilder().append("Address{").append(this.url.host()).append(Config.TRACE_TODAY_VISIT_SPLIT).append(this.url.port());
         if (this.proxy != null) {
             append.append(", proxy=").append(this.proxy);
         } else {

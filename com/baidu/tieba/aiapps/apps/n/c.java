@@ -12,7 +12,6 @@ import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
-import org.apache.http.cookie.ClientCookie;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -23,19 +22,19 @@ public class c extends y {
 
     @Override // com.baidu.swan.apps.scheme.actions.y
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.ae.b bVar) {
-        aG(context, unitedSchemeEntity.getParam(LegoListActivityConfig.PARAMS));
+        aF(context, unitedSchemeEntity.getParam(LegoListActivityConfig.PARAMS));
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;
     }
 
-    public static boolean aG(Context context, String str) {
+    public static boolean aF(Context context, String str) {
         boolean z;
         if (StringUtils.isNull(str)) {
             return false;
         }
         try {
             JSONObject jSONObject = new JSONObject(str);
-            String optString = jSONObject.optString(ClientCookie.PATH_ATTR);
+            String optString = jSONObject.optString("path");
             if (StringUtils.isNull(optString)) {
                 String optString2 = jSONObject.optString("appid");
                 if (StringUtils.isNull(optString2)) {

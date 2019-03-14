@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.Log;
 import com.baidu.lbsapi.auth.LBSAuthManager;
 import com.baidu.lbsapi.auth.LBSAuthManagerListener;
-import java.util.Hashtable;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class i implements LBSAuthManagerListener {
@@ -46,17 +45,18 @@ public class i implements LBSAuthManagerListener {
             long currentTimeMillis = System.currentTimeMillis() - this.e;
             if (z) {
                 if (currentTimeMillis > 86400000) {
-                    LBSAuthManager.getInstance(this.d).authenticate(false, "lbs_locsdk", (Hashtable) null, this);
+                    LBSAuthManager.getInstance(this.d).authenticate(false, "lbs_locsdk", null, this);
                     this.e = System.currentTimeMillis();
                 }
             } else if (currentTimeMillis < 0 || currentTimeMillis > 10000) {
-                LBSAuthManager.getInstance(this.d).authenticate(false, "lbs_locsdk", (Hashtable) null, this);
+                LBSAuthManager.getInstance(this.d).authenticate(false, "lbs_locsdk", null, this);
                 this.e = System.currentTimeMillis();
             }
         }
         return z;
     }
 
+    @Override // com.baidu.lbsapi.auth.LBSAuthManagerListener
     public void onAuthResult(int i, String str) {
         this.c = i;
         if (this.c == 0) {

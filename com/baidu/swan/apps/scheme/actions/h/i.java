@@ -43,19 +43,19 @@ public class i extends y {
             return false;
         }
         com.baidu.swan.apps.core.c.d yQ = uz.yQ();
-        if (yQ == null || TextUtils.isEmpty(yQ.dV(ap.axH))) {
+        if (yQ == null || TextUtils.isEmpty(yQ.dV(ap.axI))) {
             final b.a x = com.baidu.swan.apps.core.h.b.x(Ec.DO());
-            we = x.asE.we();
+            we = x.asF.we();
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.gG(we), 0));
-            com.baidu.swan.apps.core.h.b.a(x, new b.InterfaceC0105b() { // from class: com.baidu.swan.apps.scheme.actions.h.i.1
-                @Override // com.baidu.swan.apps.core.h.b.InterfaceC0105b
+            com.baidu.swan.apps.core.h.b.a(x, new b.InterfaceC0134b() { // from class: com.baidu.swan.apps.scheme.actions.h.i.1
+                @Override // com.baidu.swan.apps.core.h.b.InterfaceC0134b
                 public void onReady() {
-                    a.a(x.asE, ap);
+                    a.a(x.asF, ap);
                     i.this.d(uz, ap);
                 }
             });
         } else {
-            we = yQ.dV(ap.axH);
+            we = yQ.dV(ap.axI);
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a.gG(we), 0));
             d(uz, ap);
         }

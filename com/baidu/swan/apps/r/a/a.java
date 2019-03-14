@@ -8,25 +8,25 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.a;
 /* loaded from: classes2.dex */
 public class a extends BaseAdapter {
-    private String[] awN;
+    private String[] awO;
     private Context mContext;
 
     public a(Context context, @NonNull String[] strArr) {
         this.mContext = context;
-        this.awN = strArr;
+        this.awO = strArr;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
-        return this.awN.length;
+        return this.awO.length;
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        return this.awN[i];
+        return this.awO[i];
     }
 
     @Override // android.widget.Adapter
@@ -41,20 +41,20 @@ public class a extends BaseAdapter {
         View view2;
         if (view == null) {
             if (i == 11) {
-                View inflate = View.inflate(this.mContext, b.g.aiapps_keyboard_img_item, null);
-                bVar = new C0129a();
-                ((C0129a) bVar).awO = (ImageView) inflate.findViewById(b.f.delete_key_img_view);
+                View inflate = View.inflate(this.mContext, a.g.aiapps_keyboard_img_item, null);
+                bVar = new C0158a();
+                ((C0158a) bVar).awP = (ImageView) inflate.findViewById(a.f.delete_key_img_view);
                 view2 = inflate;
             } else {
-                View inflate2 = View.inflate(this.mContext, b.g.aiapps_keyboard_text_item, null);
+                View inflate2 = View.inflate(this.mContext, a.g.aiapps_keyboard_text_item, null);
                 bVar = new b();
-                ((b) bVar).awP = (TextView) inflate2.findViewById(b.f.key_text_view);
+                ((b) bVar).awQ = (TextView) inflate2.findViewById(a.f.key_text_view);
                 if (i == 9) {
-                    if (TextUtils.isEmpty(this.awN[9])) {
-                        inflate2.setBackgroundColor(this.mContext.getResources().getColor(b.c.aiapps_keyboard_non_number_item_background_normal));
+                    if (TextUtils.isEmpty(this.awO[9])) {
+                        inflate2.setBackgroundColor(this.mContext.getResources().getColor(a.c.aiapps_keyboard_non_number_item_background_normal));
                         view2 = inflate2;
                     } else {
-                        inflate2.setBackgroundResource(b.e.aiapps_keyboard_non_number_item_selector);
+                        inflate2.setBackgroundResource(a.e.aiapps_keyboard_non_number_item_selector);
                     }
                 }
                 view2 = inflate2;
@@ -66,14 +66,14 @@ public class a extends BaseAdapter {
             tag = view.getTag();
         }
         if (i != 11) {
-            ((b) tag).awP.setText(this.awN[i]);
+            ((b) tag).awQ.setText(this.awO[i]);
         }
         return view;
     }
 
     /* loaded from: classes2.dex */
     private static final class b {
-        private TextView awP;
+        private TextView awQ;
 
         private b() {
         }
@@ -81,10 +81,10 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.swan.apps.r.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static final class C0129a {
-        private ImageView awO;
+    private static final class C0158a {
+        private ImageView awP;
 
-        private C0129a() {
+        private C0158a() {
         }
     }
 }

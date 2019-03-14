@@ -6,7 +6,7 @@ import rx.internal.subscriptions.CancellableSubscription;
 import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes2.dex */
 public final class CompletableFromEmitter implements b.a {
-    final rx.functions.b<Object> jVU;
+    final rx.functions.b<Object> jVM;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
@@ -15,7 +15,7 @@ public final class CompletableFromEmitter implements b.a {
         FromEmitter fromEmitter = new FromEmitter(cVar);
         cVar.onSubscribe(fromEmitter);
         try {
-            this.jVU.call(fromEmitter);
+            this.jVM.call(fromEmitter);
         } catch (Throwable th) {
             rx.exceptions.a.L(th);
             fromEmitter.onError(th);

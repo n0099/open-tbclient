@@ -46,24 +46,24 @@ public class GalleryViewPager extends BaseViewPager {
         if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
             super.onTouchEvent(motionEvent);
             if (this.cda != null) {
-                this.cda.aqC();
+                this.cda.aqB();
             }
         }
         if (this.cda == null) {
             return super.onTouchEvent(motionEvent);
         }
         float[] w = w(motionEvent);
-        if (this.cda.aqD()) {
+        if (this.cda.aqC()) {
             return super.onTouchEvent(motionEvent);
         }
-        if (w != null && this.cda.aqJ() && w[0] < 0.0f) {
+        if (w != null && this.cda.aqI() && w[0] < 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
-        if (w != null && this.cda.aqK() && w[0] > 0.0f) {
+        if (w != null && this.cda.aqJ() && w[0] > 0.0f) {
             return super.onTouchEvent(motionEvent);
         }
         if (w == null) {
-            if (this.cda.aqK() || this.cda.aqJ()) {
+            if (this.cda.aqJ() || this.cda.aqI()) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -80,17 +80,17 @@ public class GalleryViewPager extends BaseViewPager {
         if (this.cda == null) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (this.cda.aqD()) {
+        if (this.cda.aqC()) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (w != null && this.cda.aqJ() && w[0] < 0.0f) {
+        if (w != null && this.cda.aqI() && w[0] < 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
-        if (w != null && this.cda.aqK() && w[0] > 0.0f) {
+        if (w != null && this.cda.aqJ() && w[0] > 0.0f) {
             return super.onInterceptTouchEvent(motionEvent);
         }
         if (w == null) {
-            if (this.cda.aqK() || this.cda.aqJ()) {
+            if (this.cda.aqJ() || this.cda.aqI()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;

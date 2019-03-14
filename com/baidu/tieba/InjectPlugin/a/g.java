@@ -3,29 +3,29 @@ package com.baidu.tieba.InjectPlugin.a;
 import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes.dex */
 public class g {
-    protected int cHG;
-    protected b cHH;
+    protected int cHD;
+    protected b cHE;
     protected TbPageContext pageContext;
 
     public g(TbPageContext tbPageContext, int i) {
         this.pageContext = tbPageContext;
-        this.cHG = i;
+        this.cHD = i;
     }
 
     public g(b bVar, int i) {
-        this.cHH = bVar;
-        this.cHG = i;
+        this.cHE = bVar;
+        this.cHD = i;
     }
 
     public TbPageContext getPageContext() {
         return this.pageContext;
     }
 
-    public b auo() {
-        return this.cHH;
+    public b aun() {
+        return this.cHE;
     }
 
-    public int aup() {
-        return this.cHG;
+    public int auo() {
+        return this.cHD;
     }
 }

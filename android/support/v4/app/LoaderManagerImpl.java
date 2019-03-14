@@ -6,6 +6,7 @@ import android.support.v4.content.Loader;
 import android.support.v4.util.DebugUtils;
 import android.support.v4.util.SparseArrayCompat;
 import android.util.Log;
+import com.baidu.mobstat.Config;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.lang.reflect.Modifier;
@@ -327,7 +328,7 @@ public class LoaderManagerImpl extends LoaderManager {
                 printWriter.print(str);
                 printWriter.println("Pending Loader ");
                 printWriter.print(this.mPendingLoader);
-                printWriter.println(":");
+                printWriter.println(Config.TRACE_TODAY_VISIT_SPLIT);
                 this.mPendingLoader.dump(str + "  ", fileDescriptor, printWriter, strArr);
             }
         }

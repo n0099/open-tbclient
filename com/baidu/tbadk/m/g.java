@@ -12,7 +12,7 @@ import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class g extends a {
-    private TextView ahH;
+    private TextView ahI;
     private ContinuousAnimationView cnE;
     private String[] cnF;
     private TextView cnG;
@@ -22,7 +22,7 @@ public class g extends a {
     private int mSkinType;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int anE() {
+    public int anD() {
         this.currentIndex++;
         if (this.currentIndex >= this.cnH) {
             this.currentIndex = 0;
@@ -45,7 +45,7 @@ public class g extends a {
                     TbadkCoreApplication.getInst().handler.removeCallbacks(g.this.cnI);
                     return;
                 }
-                g.this.ahH.setText(g.this.cnF[g.this.anE()]);
+                g.this.ahI.setText(g.this.cnF[g.this.anD()]);
                 TbadkCoreApplication.getInst().handler.postDelayed(g.this.cnI, 200L);
             }
         };
@@ -58,19 +58,19 @@ public class g extends a {
                 this.cnE.setLayoutParams(marginLayoutParams);
             }
         }
-        this.ahH = (TextView) this.attachedView.findViewById(d.g.loading_anim_ellipsis);
+        this.ahI = (TextView) this.attachedView.findViewById(d.g.loading_anim_ellipsis);
         this.cnG = (TextView) this.attachedView.findViewById(d.g.loading_text);
         this.cnF = context.getResources().getStringArray(d.b.loading_anim_text_array);
         this.cnH = this.cnF.length;
     }
 
-    private void anF() {
+    private void anE() {
         if (this.cnE != null) {
             this.cnE.cu();
         }
     }
 
-    private void anG() {
+    private void anF() {
         if (this.cnE != null) {
             this.cnE.cw();
         }
@@ -86,11 +86,11 @@ public class g extends a {
         if (this.mSkinType == -1) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         }
-        anF();
-        al.c(this.ahH, d.C0236d.cp_cont_c, 1, this.mSkinType);
-        al.c(this.cnG, d.C0236d.cp_cont_c, 1, this.mSkinType);
-        al.f(this.attachedView, d.C0236d.cp_bg_line_d, this.mSkinType);
-        this.ahH.setText(this.cnF[0]);
+        anE();
+        al.c(this.ahI, d.C0277d.cp_cont_c, 1, this.mSkinType);
+        al.c(this.cnG, d.C0277d.cp_cont_c, 1, this.mSkinType);
+        al.f(this.attachedView, d.C0277d.cp_bg_line_d, this.mSkinType);
+        this.ahI.setText(this.cnF[0]);
         TbadkCoreApplication.getInst().handler.removeCallbacks(this.cnI);
         TbadkCoreApplication.getInst().handler.postDelayed(this.cnI, 200L);
         this.attachedView.setClickable(true);
@@ -103,7 +103,7 @@ public class g extends a {
     }
 
     public void release() {
-        anG();
+        anF();
         TbadkCoreApplication.getInst().handler.removeCallbacks(this.cnI);
     }
 
@@ -113,14 +113,14 @@ public class g extends a {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         }
         if (isViewAttached()) {
-            anF();
-            al.c(this.ahH, d.C0236d.cp_cont_c, 1, this.mSkinType);
-            al.c(this.cnG, d.C0236d.cp_cont_c, 1, this.mSkinType);
-            al.f(this.attachedView, d.C0236d.cp_bg_line_d, this.mSkinType);
+            anE();
+            al.c(this.ahI, d.C0277d.cp_cont_c, 1, this.mSkinType);
+            al.c(this.cnG, d.C0277d.cp_cont_c, 1, this.mSkinType);
+            al.f(this.attachedView, d.C0277d.cp_bg_line_d, this.mSkinType);
         }
     }
 
-    public View anD() {
+    public View anC() {
         return this.attachedView;
     }
 

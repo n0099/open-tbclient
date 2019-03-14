@@ -87,22 +87,22 @@ public class i extends g {
         }
     }
 
-    public void aph() {
-        o oVar = (o) m.apl().ka(this.mSubType);
+    public void apg() {
+        o oVar = (o) m.apk().ka(this.mSubType);
         if (oVar != null) {
             oVar.a(this);
         }
     }
 
     public void fe(boolean z) {
-        o oVar = (o) m.apl().ka(this.mSubType);
+        o oVar = (o) m.apk().ka(this.mSubType);
         if (oVar != null) {
             oVar.a(this, z);
         }
     }
 
     public void jY(int i) {
-        o oVar = (o) m.apl().ka(this.mSubType);
+        o oVar = (o) m.apk().ka(this.mSubType);
         if (oVar != null) {
             oVar.a(this, i);
         }

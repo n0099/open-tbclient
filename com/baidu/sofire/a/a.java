@@ -7,13 +7,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
-import com.baidu.appsearchlib.Info;
+import com.baidu.mobstat.Config;
 import com.baidu.sofire.b;
 import com.baidu.sofire.b.e;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.core.g;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,13 +22,13 @@ public final class a {
     int a = 5;
     String b = "create table pgn(k INTEGER PRIMARY KEY ON CONFLICT ABORT,p TEXT UNIQUE ON CONFLICT ABORT,v TEXT,n INTEGER,s INTEGER,i INTEGER,u INTEGER,la INTEGER,o INTEGER,r INTEGER,ap INTEGER,apk TEXT,cl TEXT,b TEXT,t TEXT,ac BLOB,st INTEGER,du INTEGER,th INTEGER,m5 TEXT,rs INTEGER,l TEXT,pr INTEGER DEFAULT -1,pdld INTEGER DEFAULT 0,a TEXT)";
     public SQLiteDatabase c;
-    private C0074a e;
+    private C0103a e;
     private Context f;
 
     private a(Context context) {
         b.a();
         this.f = context.getApplicationContext();
-        this.e = new C0074a(context.getApplicationContext());
+        this.e = new C0103a(context.getApplicationContext());
         try {
             this.c = this.e.getWritableDatabase();
         } catch (Throwable th) {
@@ -53,8 +51,8 @@ public final class a {
 
     /* renamed from: com.baidu.sofire.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    private class C0074a extends SQLiteOpenHelper {
-        public C0074a(Context context) {
+    private class C0103a extends SQLiteOpenHelper {
+        public C0103a(Context context) {
             super(context, "tpgcc.db", (SQLiteDatabase.CursorFactory) null, a.this.a);
             new StringBuilder("DatabaseHelper version=").append(a.this.a);
             b.a();
@@ -101,17 +99,17 @@ public final class a {
             ContentValues contentValues = new ContentValues();
             contentValues.put("n", Integer.valueOf(apkInfo.initStatus));
             contentValues.put("p", apkInfo.packageName);
-            contentValues.put("a", apkInfo.pkgPath);
-            contentValues.put(NotifyType.LIGHTS, apkInfo.libPath);
+            contentValues.put(Config.APP_VERSION_CODE, apkInfo.pkgPath);
+            contentValues.put("l", apkInfo.libPath);
             contentValues.put("v", apkInfo.versionName);
             contentValues.put("apk", apkInfo.dexPath);
             contentValues.put("ap", Integer.valueOf(apkInfo.apkParseSuc));
-            contentValues.put("cl", apkInfo.className);
-            contentValues.put(TimeDisplaySetting.START_SHOW_TIME, Long.valueOf(apkInfo.startTime));
+            contentValues.put(Config.CELL_LOCATION, apkInfo.className);
+            contentValues.put("st", Long.valueOf(apkInfo.startTime));
             contentValues.put("du", Integer.valueOf(apkInfo.duration));
             contentValues.put("m5", apkInfo.apkMD5);
             contentValues.put("th", Integer.valueOf(apkInfo.applicationTheme));
-            contentValues.put("pr", Integer.valueOf(apkInfo.priority));
+            contentValues.put(Config.PRINCIPAL_PART, Integer.valueOf(apkInfo.priority));
             if (apkInfo.activities != null) {
                 contentValues.put("ac", new com.baidu.sofire.core.a(apkInfo.activities).a());
             }
@@ -119,7 +117,7 @@ public final class a {
                 if (b(apkInfo.key)) {
                     j = this.c.update("pgn", contentValues, "k=" + apkInfo.key, null);
                 } else {
-                    contentValues.put("k", Integer.valueOf(apkInfo.key));
+                    contentValues.put(Config.APP_KEY, Integer.valueOf(apkInfo.key));
                     j = this.c.insert("pgn", null, contentValues);
                 }
             } catch (Throwable th) {
@@ -137,14 +135,14 @@ public final class a {
                 while (cursor.moveToNext()) {
                     try {
                         ApkInfo apkInfo = new ApkInfo();
-                        apkInfo.key = cursor.getInt(cursor.getColumnIndex("k"));
+                        apkInfo.key = cursor.getInt(cursor.getColumnIndex(Config.APP_KEY));
                         apkInfo.packageName = cursor.getString(cursor.getColumnIndex("p"));
-                        apkInfo.pkgPath = cursor.getString(cursor.getColumnIndex("a"));
-                        apkInfo.libPath = cursor.getString(cursor.getColumnIndex(NotifyType.LIGHTS));
+                        apkInfo.pkgPath = cursor.getString(cursor.getColumnIndex(Config.APP_VERSION_CODE));
+                        apkInfo.libPath = cursor.getString(cursor.getColumnIndex("l"));
                         apkInfo.versionName = cursor.getString(cursor.getColumnIndex("v"));
-                        apkInfo.startTime = cursor.getLong(cursor.getColumnIndex(TimeDisplaySetting.START_SHOW_TIME));
+                        apkInfo.startTime = cursor.getLong(cursor.getColumnIndex("st"));
                         apkInfo.duration = cursor.getInt(cursor.getColumnIndex("du"));
-                        apkInfo.priority = cursor.getInt(cursor.getColumnIndex("pr"));
+                        apkInfo.priority = cursor.getInt(cursor.getColumnIndex(Config.PRINCIPAL_PART));
                         arrayList.add(apkInfo);
                     } catch (Throwable th) {
                         try {
@@ -198,7 +196,7 @@ public final class a {
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
-                        hashMap.put(Integer.valueOf(cursor.getInt(cursor.getColumnIndex("k"))), "'" + cursor.getString(cursor.getColumnIndex("v")) + "'");
+                        hashMap.put(Integer.valueOf(cursor.getInt(cursor.getColumnIndex(Config.APP_KEY))), "'" + cursor.getString(cursor.getColumnIndex("v")) + "'");
                     } catch (Throwable th) {
                         try {
                             e.a();
@@ -251,7 +249,7 @@ public final class a {
             if (cursor != null) {
                 while (cursor.moveToNext()) {
                     try {
-                        hashMap.put(Integer.valueOf(cursor.getInt(cursor.getColumnIndex("k"))), cursor.getString(cursor.getColumnIndex("p")));
+                        hashMap.put(Integer.valueOf(cursor.getInt(cursor.getColumnIndex(Config.APP_KEY))), cursor.getString(cursor.getColumnIndex("p")));
                     } catch (Throwable th) {
                         try {
                             e.a();
@@ -323,17 +321,17 @@ public final class a {
                     apkInfo2.key = i;
                     apkInfo2.initStatus = cursor.getInt(cursor.getColumnIndex("n"));
                     apkInfo2.packageName = cursor.getString(cursor.getColumnIndex("p"));
-                    apkInfo2.pkgPath = cursor.getString(cursor.getColumnIndex("a"));
-                    apkInfo2.libPath = cursor.getString(cursor.getColumnIndex(NotifyType.LIGHTS));
+                    apkInfo2.pkgPath = cursor.getString(cursor.getColumnIndex(Config.APP_VERSION_CODE));
+                    apkInfo2.libPath = cursor.getString(cursor.getColumnIndex("l"));
                     apkInfo2.versionName = cursor.getString(cursor.getColumnIndex("v"));
                     apkInfo2.dexPath = cursor.getString(cursor.getColumnIndex("apk"));
                     apkInfo2.apkParseSuc = cursor.getInt(cursor.getColumnIndex("ap"));
-                    apkInfo2.className = cursor.getString(cursor.getColumnIndex("cl"));
+                    apkInfo2.className = cursor.getString(cursor.getColumnIndex(Config.CELL_LOCATION));
                     apkInfo2.applicationTheme = cursor.getInt(cursor.getColumnIndex("th"));
-                    apkInfo2.startTime = cursor.getLong(cursor.getColumnIndex(TimeDisplaySetting.START_SHOW_TIME));
+                    apkInfo2.startTime = cursor.getLong(cursor.getColumnIndex("st"));
                     apkInfo2.duration = cursor.getInt(cursor.getColumnIndex("du"));
                     apkInfo2.apkMD5 = cursor.getString(cursor.getColumnIndex("m5"));
-                    apkInfo2.priority = cursor.getInt(cursor.getColumnIndex("pr"));
+                    apkInfo2.priority = cursor.getInt(cursor.getColumnIndex(Config.PRINCIPAL_PART));
                     byte[] blob = cursor.getBlob(cursor.getColumnIndex("ac"));
                     if (blob != null && (a = com.baidu.sofire.core.a.a(blob)) != null && (size = a.size()) > 0) {
                         apkInfo2.activities = new ActivityInfo[size];
@@ -846,7 +844,7 @@ public final class a {
         Cursor cursor;
         String[] strArr;
         try {
-            cursor = this.c.query("pgn", new String[]{"r", "b", Info.kBaiduTimeKey}, "p=?", new String[]{str}, null, null, null);
+            cursor = this.c.query("pgn", new String[]{"r", "b", "t"}, "p=?", new String[]{str}, null, null, null);
         } catch (Throwable th) {
             cursor = null;
             strArr = null;
@@ -859,7 +857,7 @@ public final class a {
             if (cursor.moveToFirst()) {
                 boolean z = cursor.getInt(cursor.getColumnIndex("r")) == 1;
                 String string = cursor.getString(cursor.getColumnIndex("b"));
-                String string2 = cursor.getString(cursor.getColumnIndex(Info.kBaiduTimeKey));
+                String string2 = cursor.getString(cursor.getColumnIndex("t"));
                 if (z && !TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2)) {
                     String[] strArr2 = new String[2];
                     try {
@@ -1023,7 +1021,7 @@ public final class a {
     public final void c(int i, int i2) {
         try {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("pr", Integer.valueOf(i2));
+            contentValues.put(Config.PRINCIPAL_PART, Integer.valueOf(i2));
             this.c.update("pgn", contentValues, "k=" + i, null);
         } catch (Throwable th) {
             e.a();

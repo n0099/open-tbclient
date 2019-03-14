@@ -3,7 +3,6 @@ package com.baidu.tbadk.data;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.GroupLevelActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.core.data.ThemeCardInUserData;
@@ -443,7 +442,7 @@ public class MetaData extends OrmObject implements com.baidu.tbadk.core.view.use
                 this.is_like = jSONObject.optInt("is_like", 0);
                 this.is_bawu = jSONObject.optInt("is_bawu", 0);
                 this.is_manager = jSONObject.optInt("is_manager", 0);
-                this.isMem = jSONObject.optInt(GroupLevelActivityConfig.IS_MEM, 0);
+                this.isMem = jSONObject.optInt("is_mem", 0);
                 this.bawu_type = jSONObject.optString("bawu_type");
                 this.is_myfriend = jSONObject.optInt("is_friend");
                 this.is_myfans = jSONObject.optInt("is_fans");

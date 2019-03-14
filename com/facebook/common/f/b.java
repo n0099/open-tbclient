@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
 public class b extends FilterInputStream {
-    private final byte[] jAP;
-    private int jAQ;
-    private int jAR;
+    private final byte[] jAH;
+    private int jAI;
+    private int jAJ;
 
     public b(InputStream inputStream, byte[] bArr) {
         super(inputStream);
@@ -17,13 +17,13 @@ public class b extends FilterInputStream {
         if (bArr == null) {
             throw new NullPointerException();
         }
-        this.jAP = bArr;
+        this.jAH = bArr;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int read() throws IOException {
         int read = this.in.read();
-        return read != -1 ? read : cuh();
+        return read != -1 ? read : cuk();
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -40,11 +40,11 @@ public class b extends FilterInputStream {
             }
             int i3 = 0;
             while (i3 < i2) {
-                int cuh = cuh();
-                if (cuh == -1) {
+                int cuk = cuk();
+                if (cuk == -1) {
                     break;
                 }
-                bArr[i + i3] = (byte) cuh;
+                bArr[i + i3] = (byte) cuk;
                 i3++;
             }
             if (i3 <= 0) {
@@ -59,7 +59,7 @@ public class b extends FilterInputStream {
     public void reset() throws IOException {
         if (this.in.markSupported()) {
             this.in.reset();
-            this.jAQ = this.jAR;
+            this.jAI = this.jAJ;
             return;
         }
         throw new IOException("mark is not supported");
@@ -69,17 +69,17 @@ public class b extends FilterInputStream {
     public void mark(int i) {
         if (this.in.markSupported()) {
             super.mark(i);
-            this.jAR = this.jAQ;
+            this.jAJ = this.jAI;
         }
     }
 
-    private int cuh() {
-        if (this.jAQ >= this.jAP.length) {
+    private int cuk() {
+        if (this.jAI >= this.jAH.length) {
             return -1;
         }
-        byte[] bArr = this.jAP;
-        int i = this.jAQ;
-        this.jAQ = i + 1;
+        byte[] bArr = this.jAH;
+        int i = this.jAI;
+        this.jAI = i + 1;
         return bArr[i] & 255;
     }
 }

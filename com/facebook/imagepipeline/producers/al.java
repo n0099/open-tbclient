@@ -4,7 +4,7 @@ import java.util.Map;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public interface al {
-    boolean FK(String str);
+    boolean FI(String str);
 
     void a(String str, String str2, Throwable th, @Nullable Map<String, String> map);
 
@@ -14,5 +14,5 @@ public interface al {
 
     void b(String str, String str2, @Nullable Map<String, String> map);
 
-    void em(String str, String str2);
+    void el(String str, String str2);
 }

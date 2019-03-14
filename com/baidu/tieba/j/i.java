@@ -11,6 +11,8 @@ public interface i {
 
     void a(String str, long j, long j2, long j3, long j4, long j5, String str2, int i);
 
+    void bEk();
+
     void bEl();
 
     void bEm();
@@ -21,11 +23,9 @@ public interface i {
 
     void bEp();
 
-    void bEq();
+    String bEq();
 
     String bEr();
-
-    String bEs();
 
     void h(int i, int i2, String str);
 
@@ -35,13 +35,13 @@ public interface i {
 
     void vG(int i);
 
-    void za(String str);
+    void yY(String str);
 
-    void zb(String str);
+    void yZ(String str);
 
-    String zc(String str);
+    String za(String str);
 
-    boolean zd(String str);
+    boolean zb(String str);
 
-    void ze(String str);
+    void zc(String str);
 }

@@ -7,6 +7,7 @@ import android.content.pm.PackageInfo;
 import android.os.Build;
 import android.text.TextUtils;
 import cn.jiguang.d.d.aa;
+import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -200,7 +201,7 @@ public final class d {
             return context.getPackageManager().getPackageInfo(str, 0);
         } catch (Throwable th) {
             try {
-                int indexOf = str.indexOf(":");
+                int indexOf = str.indexOf(Config.TRACE_TODAY_VISIT_SPLIT);
                 if (indexOf > 0) {
                     return context.getPackageManager().getPackageInfo(str.substring(0, indexOf), 0);
                 }

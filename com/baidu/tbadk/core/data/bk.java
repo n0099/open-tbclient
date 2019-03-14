@@ -6,12 +6,12 @@ import org.json.JSONObject;
 import tbclient.Topic;
 /* loaded from: classes.dex */
 public class bk {
-    private int bEb = 0;
-    private int bEc = 0;
+    private int bEd = 0;
+    private int bEe = 0;
     private String link = "";
 
     public int aaO() {
-        return this.bEb;
+        return this.bEd;
     }
 
     public String getLink() {
@@ -21,8 +21,8 @@ public class bk {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.bEb = jSONObject.optInt("is_lpost", 0);
-                this.bEc = jSONObject.optInt("topic_type", 0);
+                this.bEd = jSONObject.optInt("is_lpost", 0);
+                this.bEe = jSONObject.optInt("topic_type", 0);
                 this.link = jSONObject.optString(SelectForumActivityConfig.KEY_SHARE_LINK, "");
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -32,8 +32,8 @@ public class bk {
 
     public void a(Topic topic) {
         if (topic != null) {
-            this.bEb = topic.is_lpost.intValue();
-            this.bEc = topic.topic_type.intValue();
+            this.bEd = topic.is_lpost.intValue();
+            this.bEe = topic.topic_type.intValue();
             this.link = topic.link;
         }
     }

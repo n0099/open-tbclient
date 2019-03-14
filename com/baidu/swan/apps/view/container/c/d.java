@@ -36,7 +36,7 @@ public class d {
             jSONObject2.put("type", "abilityMessage");
             jSONObject2.put(UBC.CONTENT_KEY_VALUE, jSONObject4);
         } catch (JSONException e) {
-            if (com.baidu.swan.apps.c.DEBUG) {
+            if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
             }
         }
@@ -49,7 +49,7 @@ public class d {
             jSONObject.put("slaveId", str);
             jSONObject.put("type", str2);
         } catch (JSONException e) {
-            if (com.baidu.swan.apps.c.DEBUG) {
+            if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
             }
         }

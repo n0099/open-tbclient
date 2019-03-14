@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.view.PointerIconCompat;
 import android.support.v4.view.ViewCompat;
 import android.text.TextUtils;
 import com.baidu.d.a.a;
@@ -133,7 +132,7 @@ public class AccountCenterActivity extends BaseActivity {
                 }
                 Intent intent = new Intent(AccountCenterActivity.this, LoginActivity.class);
                 intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
-                AccountCenterActivity.this.startActivityForResult(intent, PointerIconCompat.TYPE_WAIT);
+                AccountCenterActivity.this.startActivityForResult(intent, 1004);
             }
 
             @Override // com.baidu.sapi2.SapiWebView.SwitchAccountCallback
@@ -158,7 +157,7 @@ public class AccountCenterActivity extends BaseActivity {
                 Intent intent = new Intent(AccountCenterActivity.this, LoginActivity.class);
                 intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
                 intent.putExtra("username", result.userName);
-                AccountCenterActivity.this.startActivityForResult(intent, PointerIconCompat.TYPE_WAIT);
+                AccountCenterActivity.this.startActivityForResult(intent, 1004);
             }
         });
         this.sapiWebView.setSocialBindHandler(new Handler() { // from class: com.baidu.sapi2.activity.AccountCenterActivity.5

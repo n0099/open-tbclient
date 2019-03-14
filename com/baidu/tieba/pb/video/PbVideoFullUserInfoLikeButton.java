@@ -21,12 +21,12 @@ public class PbVideoFullUserInfoLikeButton extends EntelechyUserLikeButton {
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
     public void onChangeSkinType(int i) {
-        if (this.bUm) {
+        if (this.bUn) {
             al.k(this, d.f.haslike_grey_bg);
-            al.j(this, d.C0236d.cp_cont_e);
+            al.j(this, d.C0277d.cp_cont_e);
             return;
         }
         al.k(this, d.f.like_blue_bg);
-        al.j(this, d.C0236d.cp_btn_a);
+        al.j(this, d.C0277d.cp_btn_a);
     }
 }

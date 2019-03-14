@@ -6,21 +6,22 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class j extends a {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private int alA;
-    private String aly;
-    private int alz;
+    private int alB;
+    private String alz;
     private Bitmap mBitmap;
     private int mHeight;
     private Matrix mMatrix;
     private int mWidth;
 
     public j(String str) {
-        this.aly = str;
+        this.alz = str;
     }
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
@@ -29,9 +30,9 @@ public class j extends a {
 
     public boolean wB() {
         try {
-            JSONObject jSONObject = new JSONObject(this.aly);
-            this.alz = com.baidu.swan.apps.an.x.ad((float) jSONObject.optDouble("x"));
-            this.alA = com.baidu.swan.apps.an.x.ad((float) jSONObject.optDouble("y"));
+            JSONObject jSONObject = new JSONObject(this.alz);
+            this.alA = com.baidu.swan.apps.an.x.ad((float) jSONObject.optDouble(Config.EVENT_HEAT_X));
+            this.alB = com.baidu.swan.apps.an.x.ad((float) jSONObject.optDouble("y"));
             this.mWidth = com.baidu.swan.apps.an.x.ad((float) jSONObject.optDouble("width"));
             this.mHeight = com.baidu.swan.apps.an.x.ad((float) jSONObject.optDouble("height"));
             String optString = jSONObject.optString("data");
@@ -40,8 +41,8 @@ public class j extends a {
                 this.mBitmap = BitmapFactory.decodeByteArray(decode, 0, decode.length);
                 int width = this.mBitmap.getWidth();
                 int height = this.mBitmap.getHeight();
-                this.alz = this.alz < 0 ? 0 : this.alz;
                 this.alA = this.alA < 0 ? 0 : this.alA;
+                this.alB = this.alB < 0 ? 0 : this.alB;
                 if (this.mWidth > 0) {
                     width = this.mWidth;
                 }
@@ -52,7 +53,7 @@ public class j extends a {
                 this.mHeight = height;
                 this.mMatrix = new Matrix();
                 this.mMatrix.postScale(this.mWidth / this.mBitmap.getWidth(), this.mHeight / this.mBitmap.getHeight());
-                this.mMatrix.postTranslate(this.alz, this.alA);
+                this.mMatrix.postTranslate(this.alA, this.alB);
             }
             return true;
         } catch (Exception e) {

@@ -11,11 +11,11 @@ import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class f extends EventTargetImpl implements a, b {
-    private com.baidu.swan.games.e.b aZY;
-    private AudioPlayer aZZ;
+    private com.baidu.swan.games.e.b aZZ;
     @V8JavascriptField
     public boolean autoplay;
-    String azr;
+    String azs;
+    private AudioPlayer baa;
     @V8JavascriptField
     public int buffered;
     @V8JavascriptField
@@ -41,22 +41,22 @@ public class f extends EventTargetImpl implements a, b {
         this.volume = 1.0f;
         this.obeyMuteSwitch = true;
         this.paused = true;
-        this.aZY = bVar;
+        this.aZZ = bVar;
         Nq();
     }
 
     private void init() {
-        if (this.aZZ != null) {
+        if (this.baa != null) {
             d dVar = new d(this, e.Nm());
             dVar.a(this);
-            this.aZZ.a(dVar);
+            this.baa.a(dVar);
         }
     }
 
     private void Nq() {
         String valueOf = String.valueOf(c.Ng());
-        this.azr = valueOf;
-        this.aZZ = hW(valueOf);
+        this.azs = valueOf;
+        this.baa = hW(valueOf);
         init();
     }
 
@@ -64,9 +64,9 @@ public class f extends EventTargetImpl implements a, b {
         com.baidu.swan.games.audio.b.b.Nt().Nu().post(new Runnable() { // from class: com.baidu.swan.games.audio.f.1
             @Override // java.lang.Runnable
             public void run() {
-                f.this.aZZ.b(e.a(f.this));
+                f.this.baa.b(e.a(f.this));
                 if (f.this.autoplay) {
-                    f.this.aZZ.play();
+                    f.this.baa.play();
                 }
             }
         });
@@ -75,11 +75,11 @@ public class f extends EventTargetImpl implements a, b {
     @Override // com.baidu.swan.games.audio.a
     @JavascriptInterface
     public void play() {
-        if (this.aZZ != null) {
+        if (this.baa != null) {
             com.baidu.swan.games.audio.b.b.Nt().Nu().post(new Runnable() { // from class: com.baidu.swan.games.audio.f.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    f.this.aZZ.play();
+                    f.this.baa.play();
                 }
             });
         }
@@ -88,11 +88,11 @@ public class f extends EventTargetImpl implements a, b {
     @Override // com.baidu.swan.games.audio.a
     @JavascriptInterface
     public void pause() {
-        if (this.aZZ != null) {
+        if (this.baa != null) {
             com.baidu.swan.games.audio.b.b.Nt().Nu().post(new Runnable() { // from class: com.baidu.swan.games.audio.f.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    f.this.aZZ.pause();
+                    f.this.baa.pause();
                 }
             });
         }
@@ -101,11 +101,11 @@ public class f extends EventTargetImpl implements a, b {
     @Override // com.baidu.swan.games.audio.a
     @JavascriptInterface
     public void seek(final int i) {
-        if (this.aZZ != null) {
+        if (this.baa != null) {
             com.baidu.swan.games.audio.b.b.Nt().Nu().post(new Runnable() { // from class: com.baidu.swan.games.audio.f.4
                 @Override // java.lang.Runnable
                 public void run() {
-                    f.this.aZZ.seekTo(i);
+                    f.this.baa.seekTo(i);
                 }
             });
         }
@@ -114,11 +114,11 @@ public class f extends EventTargetImpl implements a, b {
     @Override // com.baidu.swan.games.audio.a
     @JavascriptInterface
     public void stop() {
-        if (this.aZZ != null) {
+        if (this.baa != null) {
             com.baidu.swan.games.audio.b.b.Nt().Nu().post(new Runnable() { // from class: com.baidu.swan.games.audio.f.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    f.this.aZZ.stop();
+                    f.this.baa.stop();
                 }
             });
         }
@@ -127,11 +127,11 @@ public class f extends EventTargetImpl implements a, b {
     @Override // com.baidu.swan.games.audio.a
     @JavascriptInterface
     public void destroy() {
-        if (this.aZZ != null) {
+        if (this.baa != null) {
             com.baidu.swan.games.audio.b.b.Nt().Nu().post(new Runnable() { // from class: com.baidu.swan.games.audio.f.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    f.this.aZZ.release();
+                    f.this.baa.release();
                 }
             });
         }
@@ -139,32 +139,32 @@ public class f extends EventTargetImpl implements a, b {
 
     @Override // com.baidu.swan.games.audio.a
     public int getDuration() {
-        if (this.aZZ != null) {
-            return this.aZZ.getDuration();
+        if (this.baa != null) {
+            return this.baa.getDuration();
         }
         return 0;
     }
 
     @Override // com.baidu.swan.games.audio.a
     public int getCurrentTime() {
-        if (this.aZZ != null) {
-            return this.aZZ.getCurrentPosition();
+        if (this.baa != null) {
+            return this.baa.getCurrentPosition();
         }
         return 0;
     }
 
     @Override // com.baidu.swan.games.audio.a
     public boolean isPaused() {
-        if (this.aZZ != null) {
-            this.aZZ.isPaused();
+        if (this.baa != null) {
+            this.baa.isPaused();
             return true;
         }
         return true;
     }
 
     public int Ni() {
-        if (this.aZZ != null) {
-            return this.aZZ.Ni();
+        if (this.baa != null) {
+            return this.baa.Ni();
         }
         return 0;
     }
@@ -175,7 +175,7 @@ public class f extends EventTargetImpl implements a, b {
 
     @JavascriptInterface
     public void onFieldChangedCallback(String str) {
-        if (com.baidu.swan.apps.c.DEBUG) {
+        if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("Aigame AudioContext", str);
         }
         char c = 65535;
@@ -214,14 +214,14 @@ public class f extends EventTargetImpl implements a, b {
         switch (c) {
             case 0:
             case 1:
-                this.aZZ.a(e.a(this));
+                this.baa.a(e.a(this));
                 return;
             case 2:
                 if (e.ag(this.volume)) {
-                    this.aZZ.a(e.a(this));
+                    this.baa.a(e.a(this));
                     return;
                 } else {
-                    this.volume = this.aZZ.getVolume();
+                    this.volume = this.baa.getVolume();
                     return;
                 }
             case 3:

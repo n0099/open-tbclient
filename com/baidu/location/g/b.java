@@ -6,6 +6,7 @@ import android.telephony.TelephonyManager;
 import com.baidu.android.bbalbs.common.util.CommonParam;
 import com.baidu.android.bbalbs.common.util.DeviceId;
 import com.baidu.location.a.k;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.tencent.connect.common.Constants;
 import java.util.Locale;
@@ -201,7 +202,7 @@ public class b {
         stringBuffer.append("&os=A");
         stringBuffer.append(Build.VERSION.SDK);
         stringBuffer.append("&prod=");
-        stringBuffer.append(e + ":" + d);
+        stringBuffer.append(e + Config.TRACE_TODAY_VISIT_SPLIT + d);
         stringBuffer.append(g.e(com.baidu.location.f.getServiceContext()));
         stringBuffer.append("&resid=");
         stringBuffer.append(Constants.VIA_REPORT_TYPE_SET_AVATAR);

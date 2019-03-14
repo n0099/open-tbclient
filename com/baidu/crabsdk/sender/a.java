@@ -11,22 +11,22 @@ import java.lang.ref.SoftReference;
 import java.text.SimpleDateFormat;
 /* loaded from: classes3.dex */
 public final class a extends Thread {
-    private static boolean aci = false;
-    private final Context aaW;
-    private SoftReference<Handler> ack;
-    private final SoftReference<Looper> acj = new SoftReference<>(Looper.getMainLooper());
+    private static boolean acj = false;
+    private final Context aaX;
+    private SoftReference<Handler> acl;
+    private final SoftReference<Looper> ack = new SoftReference<>(Looper.getMainLooper());
     private volatile int by = 0;
-    private boolean acm = false;
-    private final Runnable acn = new b(this);
-    private final int acl = 3000;
+    private boolean acn = false;
+    private final Runnable aco = new b(this);
+    private final int acm = 3000;
 
     public a(Context context) {
-        this.aaW = context;
+        this.aaX = context;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:20:0x0080, code lost:
         com.baidu.crabsdk.c.a.cx("===line.contains(tracesWroteLog)===");
-        r0 = com.baidu.crabsdk.sender.d.a(r13.aaW, (java.lang.Throwable) null, false);
+        r0 = com.baidu.crabsdk.sender.d.a(r13.aaX, (java.lang.Throwable) null, false);
         r1 = com.baidu.crabsdk.b.c.t();
      */
     /* JADX WARN: Code restructure failed: missing block: B:21:0x0092, code lost:
@@ -38,7 +38,7 @@ public final class a extends Thread {
     /* JADX WARN: Code restructure failed: missing block: B:24:0x009a, code lost:
         r0.putAll(r1);
         com.baidu.crabsdk.sender.d.b(r0);
-        com.baidu.crabsdk.sender.f.a(r13.aaW, com.baidu.crabsdk.sender.f.j(r0));
+        com.baidu.crabsdk.sender.f.a(r13.aaX, com.baidu.crabsdk.sender.f.j(r0));
         com.baidu.crabsdk.sender.e.ac();
      */
     /* JADX WARN: Code restructure failed: missing block: B:25:0x00b0, code lost:
@@ -46,7 +46,7 @@ public final class a extends Thread {
      */
     /* JADX WARN: Code restructure failed: missing block: B:26:0x00b2, code lost:
         com.baidu.crabsdk.c.a.cx("===uploadAnr===");
-        com.baidu.crabsdk.sender.h.a(false, r13.aaW);
+        com.baidu.crabsdk.sender.h.a(false, r13.aaX);
      */
     /* JADX WARN: Code restructure failed: missing block: B:28:0x00c0, code lost:
         if (com.baidu.crabsdk.a.N == null) goto L34;
@@ -66,10 +66,10 @@ public final class a extends Thread {
     private void S() {
         String readLine;
         com.baidu.crabsdk.c.a.cx("===readLog()===");
-        if (this.acm) {
+        if (this.acn) {
             return;
         }
-        this.acm = true;
+        this.acn = true;
         try {
             com.baidu.crabsdk.c.a.cx("===readingTrace===");
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd HH:mm:ss.SSS");
@@ -89,17 +89,17 @@ public final class a extends Thread {
         } catch (OutOfMemoryError e2) {
             com.baidu.crabsdk.c.a.f("内存溢出了！", e2);
         }
-        this.acm = false;
+        this.acn = false;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public final void run() {
         int i;
-        com.baidu.crabsdk.c.a.cx("***isRunning = " + aci + "***");
-        if (aci) {
+        com.baidu.crabsdk.c.a.cx("***isRunning = " + acj + "***");
+        if (acj) {
             return;
         }
-        aci = true;
+        acj = true;
         setName("|AnrWatchThread|");
         com.baidu.crabsdk.c.a.cv("AnrWatchThread start!");
         do {
@@ -107,18 +107,18 @@ public final class a extends Thread {
                 break;
             }
             i = this.by;
-            if (this.acj.get() == null) {
-                aci = false;
+            if (this.ack.get() == null) {
+                acj = false;
                 break;
             }
             try {
-                if (this.ack == null || this.ack.get() == null) {
-                    this.ack = new SoftReference<>(new Handler(this.acj.get()));
+                if (this.acl == null || this.acl.get() == null) {
+                    this.acl = new SoftReference<>(new Handler(this.ack.get()));
                 }
-                this.ack.get().post(this.acn);
-                Thread.sleep(this.acl);
+                this.acl.get().post(this.aco);
+                Thread.sleep(this.acm);
                 if (!com.baidu.crabsdk.a.I) {
-                    aci = false;
+                    acj = false;
                     com.baidu.crabsdk.c.a.v("anr watch thread is breakdown!");
                     break;
                 }
@@ -127,11 +127,11 @@ public final class a extends Thread {
             }
         } while (this.by != i);
         com.baidu.crabsdk.c.a.cv("onAppNotResponding!");
-        if (this.aaW != null && !com.baidu.crabsdk.a.J) {
+        if (this.aaX != null && !com.baidu.crabsdk.a.J) {
             S();
         }
-        aci = false;
-        aci = false;
+        acj = false;
+        acj = false;
         com.baidu.crabsdk.c.a.v("anr watch thread is over!");
     }
 }

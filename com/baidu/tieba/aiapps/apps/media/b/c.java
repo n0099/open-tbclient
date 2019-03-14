@@ -5,7 +5,7 @@ import android.util.Log;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class c {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static void I(String str, String str2, String str3) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {

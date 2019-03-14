@@ -70,7 +70,7 @@ public final class SwanAppMessengerService extends Service {
     private static SwanAppMessengerService sServiceObject;
     private a mHandler = new a(this);
     private final Messenger mMessenger = new Messenger(this.mHandler);
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static LinkedHashMap<String, LinkedList<Message>> sPendingMsgMap = new LinkedHashMap<>();
 
     @Override // android.app.Service
@@ -146,17 +146,17 @@ public final class SwanAppMessengerService extends Service {
 
     /* loaded from: classes2.dex */
     private static class a extends Handler {
-        private WeakReference<SwanAppMessengerService> aFl;
+        private WeakReference<SwanAppMessengerService> aFm;
 
         public a(SwanAppMessengerService swanAppMessengerService) {
-            this.aFl = null;
-            this.aFl = new WeakReference<>(swanAppMessengerService);
+            this.aFm = null;
+            this.aFm = new WeakReference<>(swanAppMessengerService);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             SwanAppDeleteInfo swanAppDeleteInfo;
-            SwanAppMessengerService swanAppMessengerService = this.aFl != null ? this.aFl.get() : null;
+            SwanAppMessengerService swanAppMessengerService = this.aFm != null ? this.aFm.get() : null;
             if (swanAppMessengerService != null) {
                 SwanAppProcessInfo byId = SwanAppProcessInfo.getById(message.arg1);
                 switch (message.what) {
@@ -199,8 +199,8 @@ public final class SwanAppMessengerService extends Service {
                         }
                         Bundle bundle2 = (Bundle) message.obj;
                         if (bundle2 != null) {
-                            com.baidu.swan.apps.aa.c.aDm = bundle2.getString("ai_apps_id");
-                            com.baidu.swan.apps.aa.c.aDn = bundle2.getString("ai_apps_data");
+                            com.baidu.swan.apps.aa.c.aDn = bundle2.getString("ai_apps_id");
+                            com.baidu.swan.apps.aa.c.aDo = bundle2.getString("ai_apps_data");
                             return;
                         }
                         return;
@@ -211,7 +211,7 @@ public final class SwanAppMessengerService extends Service {
                         Bundle bundle3 = (Bundle) message.obj;
                         bundle3.setClassLoader(getClass().getClassLoader());
                         if (bundle3 != null && (swanAppDeleteInfo = (SwanAppDeleteInfo) bundle3.getParcelable("ai_apps_data")) != null && !TextUtils.isEmpty(swanAppDeleteInfo.mAppId)) {
-                            boolean z = swanAppDeleteInfo.auX == 0;
+                            boolean z = swanAppDeleteInfo.auY == 0;
                             com.baidu.swan.apps.env.c Bg = e.Bf().Bg();
                             if (Bg != null) {
                                 Bg.p(swanAppDeleteInfo.mAppId, z);
@@ -279,13 +279,13 @@ public final class SwanAppMessengerService extends Service {
             a.b a;
             SwanAppProcessInfo byId = SwanAppProcessInfo.getById(message.arg1);
             if (byId.isSwanAppProcess() && (a = com.baidu.swan.apps.process.messaging.service.a.Gw().a(byId)) != null) {
-                a.aFd = true;
+                a.aFe = true;
                 a.mMessenger = message.replyTo;
                 if (message.obj instanceof Bundle) {
                     Bundle bundle = (Bundle) message.obj;
                     bundle.setClassLoader(getClass().getClassLoader());
                     Parcelable parcelable = bundle.getParcelable("app_core");
-                    a.aFa = parcelable instanceof SwanAppCores ? (SwanAppCores) parcelable : null;
+                    a.aFb = parcelable instanceof SwanAppCores ? (SwanAppCores) parcelable : null;
                     String string = bundle.getString("app_id");
                     if (!TextUtils.isEmpty(string)) {
                         a.fU(string);
@@ -326,7 +326,7 @@ public final class SwanAppMessengerService extends Service {
                 Bundle bundle = (Bundle) message.obj;
                 bundle.setClassLoader(getClass().getClassLoader());
                 Parcelable parcelable = bundle.getParcelable("app_core");
-                cL.aFa = parcelable instanceof SwanAppCores ? (SwanAppCores) parcelable : null;
+                cL.aFb = parcelable instanceof SwanAppCores ? (SwanAppCores) parcelable : null;
                 String string = bundle.getString("app_id");
                 cL.fU(string);
                 cL.GD();
@@ -375,11 +375,11 @@ public final class SwanAppMessengerService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void registClientBinderCallback(final a.b bVar) {
         if (bVar != null && bVar.mMessenger != null) {
-            com.baidu.swan.apps.process.a.a.a(bVar.mMessenger.getBinder(), new a.InterfaceC0123a() { // from class: com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService.1
-                @Override // com.baidu.swan.apps.process.a.a.InterfaceC0123a
+            com.baidu.swan.apps.process.a.a.a(bVar.mMessenger.getBinder(), new a.InterfaceC0152a() { // from class: com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService.1
+                @Override // com.baidu.swan.apps.process.a.a.InterfaceC0152a
                 public void Gl() {
                     if (SwanAppMessengerService.DEBUG) {
-                        Log.d(SwanAppMessengerService.TAG, "client process goes away:" + bVar.aEZ);
+                        Log.d(SwanAppMessengerService.TAG, "client process goes away:" + bVar.aFa);
                     }
                     SwanAppMessengerService.this.onConnectionDown(bVar);
                 }
@@ -500,7 +500,7 @@ public final class SwanAppMessengerService extends Service {
         Iterator<a.b> it = com.baidu.swan.apps.process.messaging.service.a.Gw().Gx().iterator();
         while (it.hasNext()) {
             a.b next = it.next();
-            if (next != null && next.aFd && next.mMessenger != null) {
+            if (next != null && next.aFe && next.mMessenger != null) {
                 Bundle generateMessageData = generateMessageData(i);
                 generateMessageData.putString("ai_apps_data", str);
                 try {
@@ -521,7 +521,7 @@ public final class SwanAppMessengerService extends Service {
         Iterator<a.b> it = com.baidu.swan.apps.process.messaging.service.a.Gw().Gx().iterator();
         while (it.hasNext()) {
             a.b next = it.next();
-            if (next != null && next.aFd && next.mMessenger != null) {
+            if (next != null && next.aFe && next.mMessenger != null) {
                 Bundle generateMessageData = generateMessageData(i);
                 generateMessageData.putLong("ai_apps_data", j);
                 try {
@@ -553,7 +553,7 @@ public final class SwanAppMessengerService extends Service {
         boolean z = true;
         while (it.hasNext()) {
             a.b next = it.next();
-            if (next != null && next.aFd && !treeSet.contains(Integer.valueOf(next.aEZ.id))) {
+            if (next != null && next.aFe && !treeSet.contains(Integer.valueOf(next.aFa.id))) {
                 z = !sendMessageToClient(next, i) ? false : z;
             }
         }
@@ -604,8 +604,8 @@ public final class SwanAppMessengerService extends Service {
         Iterator<a.b> it = com.baidu.swan.apps.process.messaging.service.a.Gw().Gx().iterator();
         while (it.hasNext()) {
             a.b next = it.next();
-            if (next != null && next.aFd) {
-                sendDelegationMessage(next.aEZ.id, bundle, cls, null);
+            if (next != null && next.aFe) {
+                sendDelegationMessage(next.aFa.id, bundle, cls, null);
             }
         }
     }

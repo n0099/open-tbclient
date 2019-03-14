@@ -14,6 +14,7 @@ import com.airbnb.lottie.g;
 import com.airbnb.lottie.model.f;
 import com.airbnb.lottie.model.g;
 import com.airbnb.lottie.model.layer.Layer;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -210,11 +211,11 @@ public class e {
 
         public static e a(Resources resources, JSONObject jSONObject) {
             float f = resources.getDisplayMetrics().density;
-            int optInt = jSONObject.optInt("w", -1);
+            int optInt = jSONObject.optInt(Config.DEVICE_WIDTH, -1);
             int optInt2 = jSONObject.optInt("h", -1);
             Rect rect = (optInt == -1 || optInt2 == -1) ? null : new Rect(0, 0, (int) (optInt * f), (int) (optInt2 * f));
             String[] split = jSONObject.optString("v").split("[.]");
-            e eVar = new e(rect, jSONObject.optLong("ip", 0L), jSONObject.optLong("op", 0L), (float) jSONObject.optDouble("fr", 0.0d), f, Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]));
+            e eVar = new e(rect, jSONObject.optLong("ip", 0L), jSONObject.optLong(Config.OPERATOR, 0L), (float) jSONObject.optDouble("fr", 0.0d), f, Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]));
             JSONArray optJSONArray = jSONObject.optJSONArray("assets");
             b(optJSONArray, eVar);
             a(optJSONArray, eVar);

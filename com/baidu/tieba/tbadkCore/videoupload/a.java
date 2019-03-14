@@ -7,44 +7,44 @@ import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
     private static int chunkLength = 524288;
-    private static int iJe = 6144000;
-    private static int iJf = 524288;
-    private h iHv;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b iJg;
+    private static int iIW = 6144000;
+    private static int iIX = 524288;
+    private h iHn;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b iIY;
 
     public a(h hVar) {
-        this.iHv = hVar;
+        this.iHn = hVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (d.iQ().aO("is_video_batch") == 1) {
-                this.iJg = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, iJf, this.iHv);
+                this.iIY = new com.baidu.tieba.tbadkCore.videoupload.a.d(str2, iIX, this.iHn);
             } else {
-                this.iJg = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, iJe, this.iHv);
+                this.iIY = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, chunkLength, iIW, this.iHn);
             }
-            this.iJg.a(eVar);
-            return this.iJg.bs(str2, i);
+            this.iIY.a(eVar);
+            return this.iIY.bs(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.iHv != null) {
-                this.iHv.g(306, -4399, com.baidu.tieba.j.a.p(e));
+            if (this.iHn != null) {
+                this.iHn.g(306, -4399, com.baidu.tieba.j.a.p(e));
             }
             return null;
         }
     }
 
-    public void cfv() {
-        if (this.iJg != null) {
-            this.iJg.cancel();
+    public void cfx() {
+        if (this.iIY != null) {
+            this.iIY.cancel();
         }
     }
 
     public static void zE(int i) {
         if (i <= 0) {
-            iJf = 524288;
+            iIX = 524288;
         } else {
-            iJf = i;
+            iIX = i;
         }
     }
 
@@ -58,9 +58,9 @@ public class a {
 
     public static void zG(int i) {
         if (i <= 0) {
-            iJe = 6144000;
+            iIW = 6144000;
         } else {
-            iJe = i;
+            iIW = i;
         }
     }
 }

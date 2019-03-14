@@ -16,18 +16,18 @@ import java.util.List;
 /* loaded from: classes4.dex */
 public class AutoBannerView extends RelativeLayout {
     private com.baidu.tbadk.h.a cck;
-    private CoverFlowView<com.baidu.tieba.personCenter.data.a> eNy;
+    private CoverFlowView<com.baidu.tieba.personCenter.data.a> eNu;
     private List<com.baidu.tieba.personCenter.data.a> mData;
 
     public AutoBannerView(Context context) {
         super(context);
-        this.eNy = null;
+        this.eNu = null;
         this.mData = null;
         initUI();
     }
 
     private void initUI() {
-        this.eNy = new CoverFlowView<>(getContext());
+        this.eNu = new CoverFlowView<>(getContext());
         com.baidu.tbadk.core.flow.a.b bVar = new com.baidu.tbadk.core.flow.a.b() { // from class: com.baidu.tieba.personCenter.view.AutoBannerView.1
             @Override // com.baidu.tbadk.core.flow.a.b, com.baidu.tbadk.core.flow.a
             public com.baidu.tbadk.core.flow.a.e abn() {
@@ -59,23 +59,23 @@ public class AutoBannerView extends RelativeLayout {
                 return cVar;
             }
         };
-        this.eNy.setIndicatorNoOffet(false);
-        this.eNy.setDisableParentEvent(false);
-        this.eNy.setCoverFlowFactory(bVar);
-        this.eNy.setIndicatorVisible(0);
-        this.eNy.setIsAutoPlayDragging(false);
-        addView(this.eNy);
+        this.eNu.setIndicatorNoOffet(false);
+        this.eNu.setDisableParentEvent(false);
+        this.eNu.setCoverFlowFactory(bVar);
+        this.eNu.setIndicatorVisible(0);
+        this.eNu.setIsAutoPlayDragging(false);
+        addView(this.eNu);
     }
 
     public CoverFlowView getCoverFlowView() {
-        return this.eNy;
+        return this.eNu;
     }
 
     public boolean checkIndex(int i) {
         return i > 0 && i <= v.S(this.mData);
     }
 
-    public void wj(String str) {
+    public void wh(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
                 ba.adD().c((TbPageContext) i.aK(getContext()), new String[]{str});
@@ -86,20 +86,20 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void afm() {
-        if (this.eNy != null) {
-            this.eNy.abq();
+        if (this.eNu != null) {
+            this.eNu.abq();
         }
     }
 
     public void setIndicatorVisible(int i) {
-        if (this.eNy != null) {
-            this.eNy.setIndicatorVisible(i);
+        if (this.eNu != null) {
+            this.eNu.setIndicatorVisible(i);
         }
     }
 
     public void cx(List<com.baidu.tieba.personCenter.data.a> list) {
         this.mData = list;
-        this.eNy.setData(list);
+        this.eNu.setData(list);
     }
 
     public void setIWindowChangedListener(com.baidu.tbadk.h.a aVar) {
@@ -107,14 +107,14 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void onChangeSkinType(int i) {
-        if (this.eNy != null) {
-            this.eNy.onChangeSkinType();
+        if (this.eNu != null) {
+            this.eNu.onChangeSkinType();
         }
     }
 
     public void setMarqueenTime(long j) {
-        if (this.eNy != null) {
-            this.eNy.setMarqueenTime(j);
+        if (this.eNu != null) {
+            this.eNu.setMarqueenTime(j);
         }
     }
 

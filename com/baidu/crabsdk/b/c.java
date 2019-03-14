@@ -19,9 +19,9 @@ import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
 public final class c {
     private static Context mContext;
-    private static String abC = "data/anr/traces.txt";
+    private static String abD = "data/anr/traces.txt";
     private static int aU = 5;
-    private static Thread abD = null;
+    private static Thread abE = null;
 
     private static void a(Map<String, Object> map) {
         int indexOf;
@@ -100,7 +100,7 @@ public final class c {
             com.baidu.crabsdk.c.a.cv("===Anr watchThread start!===");
             try {
                 com.baidu.crabsdk.sender.a aVar = new com.baidu.crabsdk.sender.a(context);
-                abD = aVar;
+                abE = aVar;
                 aVar.start();
             } catch (Exception e) {
                 com.baidu.crabsdk.c.a.cy("Anr watchThread start failed !!");
@@ -109,7 +109,7 @@ public final class c {
     }
 
     public static Thread rR() {
-        return abD;
+        return abE;
     }
 
     public static Map<String, Object> t() {
@@ -122,7 +122,7 @@ public final class c {
         ArrayList arrayList2 = new ArrayList();
         int i = 0;
         try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(abC)));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(abD)));
             String readLine = bufferedReader.readLine();
             String G = o.G();
             while (true) {

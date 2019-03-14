@@ -2,6 +2,7 @@ package com.baidu.tbadk.baseEditMark;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.appsearchlib.Info;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
@@ -325,7 +326,7 @@ public class MarkData implements Serializable {
             this.mUesrId = jSONObject.optJSONObject("author").optString("lz_uid");
             this.mId = this.mThreadId;
             this.mReplyNum = jSONObject.optInt("reply_num");
-            this.mNewCounts = jSONObject.optInt("count");
+            this.mNewCounts = jSONObject.optInt(Config.TRACE_VISIT_RECENT_COUNT);
             this.isShareThread = jSONObject.optInt("is_share_thread", 0) == 1;
             JSONObject optJSONObject = jSONObject.optJSONObject("origin_thread_info");
             if (this.isShareThread) {

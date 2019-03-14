@@ -10,12 +10,12 @@ import android.util.AttributeSet;
 import android.widget.ProgressBar;
 /* loaded from: classes.dex */
 public class TextProgressBar extends ProgressBar {
-    private TextPaint Ri;
-    private Paint.FontMetrics Rj;
-    private int Rk;
+    private TextPaint Rj;
+    private Paint.FontMetrics Rk;
     private int Rl;
     private int Rm;
     private int Rn;
+    private int Ro;
     private String text;
 
     public TextProgressBar(Context context) {
@@ -35,29 +35,29 @@ public class TextProgressBar extends ProgressBar {
 
     private void init() {
         this.text = "0%";
-        this.Ri = new TextPaint();
-        this.Ri.setTextSize(20.0f);
-        this.Ri.setColor(-1);
-        this.Rj = new Paint.FontMetrics();
+        this.Rj = new TextPaint();
+        this.Rj.setTextSize(20.0f);
+        this.Rj.setColor(-1);
+        this.Rk = new Paint.FontMetrics();
     }
 
     @Override // android.widget.ProgressBar, android.view.View
     protected synchronized void onMeasure(int i, int i2) {
-        this.Rl = (int) Layout.getDesiredWidth("100%", this.Ri);
-        this.Ri.getFontMetrics(this.Rj);
-        this.Rk = (int) (this.Rj.descent - this.Rj.top);
+        this.Rm = (int) Layout.getDesiredWidth("100%", this.Rj);
+        this.Rj.getFontMetrics(this.Rk);
+        this.Rl = (int) (this.Rk.descent - this.Rk.top);
         super.onMeasure(i, i2);
-        this.Rm = getMeasuredWidth();
-        this.Rn = getMeasuredHeight();
-        setMeasuredDimension(Math.max(this.Rl, getMeasuredWidth()), getMeasuredHeight() + this.Rk + 0);
+        this.Rn = getMeasuredWidth();
+        this.Ro = getMeasuredHeight();
+        setMeasuredDimension(Math.max(this.Rm, getMeasuredWidth()), getMeasuredHeight() + this.Rl + 0);
     }
 
     @Override // android.widget.ProgressBar, android.view.View
     protected void onSizeChanged(int i, int i2, int i3, int i4) {
-        int paddingRight = (this.Rm - getPaddingRight()) - getPaddingLeft();
+        int paddingRight = (this.Rn - getPaddingRight()) - getPaddingLeft();
         int width = (getWidth() - paddingRight) / 2;
         int i5 = paddingRight + width;
-        int paddingBottom = (this.Rn - getPaddingBottom()) - getPaddingTop();
+        int paddingBottom = (this.Ro - getPaddingBottom()) - getPaddingTop();
         Drawable indeterminateDrawable = getIndeterminateDrawable();
         if (indeterminateDrawable != null) {
             indeterminateDrawable.setBounds(width, 0, i5, paddingBottom);
@@ -72,10 +72,10 @@ public class TextProgressBar extends ProgressBar {
     protected synchronized void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.save();
-        this.Rl = (int) Layout.getDesiredWidth(this.text, this.Ri);
-        this.Ri.getFontMetrics(this.Rj);
-        this.Rk = (int) (this.Rj.descent - this.Rj.top);
-        canvas.drawText(this.text, (getMeasuredWidth() - this.Rl) / 2, getMeasuredHeight(), this.Ri);
+        this.Rm = (int) Layout.getDesiredWidth(this.text, this.Rj);
+        this.Rj.getFontMetrics(this.Rk);
+        this.Rl = (int) (this.Rk.descent - this.Rk.top);
+        canvas.drawText(this.text, (getMeasuredWidth() - this.Rm) / 2, getMeasuredHeight(), this.Rj);
         canvas.restore();
     }
 
@@ -85,7 +85,7 @@ public class TextProgressBar extends ProgressBar {
     }
 
     public void setTextColor(int i) {
-        this.Ri.setColor(i);
+        this.Rj.setColor(i);
         drawableStateChanged();
     }
 }

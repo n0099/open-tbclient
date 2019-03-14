@@ -9,8 +9,8 @@ import com.baidu.swan.apps.setting.a.g;
 import okhttp3.OkHttpClient;
 /* loaded from: classes2.dex */
 public class b implements com.baidu.swan.apps.b.b.d {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private static c ajI;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static c ajJ;
 
     /* loaded from: classes2.dex */
     public interface c {
@@ -18,17 +18,17 @@ public class b implements com.baidu.swan.apps.b.b.d {
     }
 
     public static void a(c cVar) {
-        ajI = cVar;
+        ajJ = cVar;
     }
 
     @Override // com.baidu.swan.apps.b.b.d
     public p a(@NonNull com.baidu.swan.apps.core.i.c cVar) {
-        return new C0086b();
+        return new C0116b();
     }
 
     @Override // com.baidu.swan.apps.b.b.d
     public com.baidu.swan.apps.b.b.b uT() {
-        return ajI != null ? ajI.uW() : new a();
+        return ajJ != null ? ajJ.uW() : new a();
     }
 
     @Override // com.baidu.swan.apps.b.b.d
@@ -43,8 +43,8 @@ public class b implements com.baidu.swan.apps.b.b.d {
 
     /* renamed from: com.baidu.swan.apps.b.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private class C0086b implements p {
-        private C0086b() {
+    private class C0116b implements p {
+        private C0116b() {
         }
 
         @Override // com.baidu.swan.apps.b.b.p

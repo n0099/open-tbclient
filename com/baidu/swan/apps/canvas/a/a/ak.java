@@ -3,10 +3,10 @@ package com.baidu.swan.apps.canvas.a.a;
 import org.json.JSONArray;
 /* loaded from: classes2.dex */
 class ak implements Cloneable {
-    i alS;
-    int amg;
+    i alT;
     int amh;
     int ami;
+    int amj;
 
     public ak() {
     }
@@ -17,19 +17,19 @@ class ak implements Cloneable {
     }
 
     public boolean isValid() {
-        return this.alS != null && this.alS.isValid();
+        return this.alT != null && this.alT.isValid();
     }
 
     public void h(JSONArray jSONArray) {
         try {
             if (jSONArray.length() > 3) {
-                this.amg = com.baidu.swan.apps.an.x.ad((float) jSONArray.optDouble(0));
-                this.amh = com.baidu.swan.apps.an.x.ad((float) jSONArray.optDouble(1));
-                this.ami = jSONArray.optInt(2);
-                this.alS = new i(jSONArray.optJSONArray(3));
+                this.amh = com.baidu.swan.apps.an.x.ad((float) jSONArray.optDouble(0));
+                this.ami = com.baidu.swan.apps.an.x.ad((float) jSONArray.optDouble(1));
+                this.amj = jSONArray.optInt(2);
+                this.alT = new i(jSONArray.optJSONArray(3));
             }
         } catch (Exception e) {
-            if (com.baidu.swan.apps.c.DEBUG) {
+            if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
             }
         }

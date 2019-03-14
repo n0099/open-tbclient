@@ -9,14 +9,14 @@ public class n {
 
     /* loaded from: classes2.dex */
     public interface b {
-        public static final b jDU = i.jEc;
-        public static final b jDV = h.jEc;
-        public static final b jDW = f.jEc;
-        public static final b jDX = g.jEc;
-        public static final b jDY = c.jEc;
-        public static final b jDZ = e.jEc;
-        public static final b jEa = d.jEc;
-        public static final b jEb = j.jEc;
+        public static final b jDM = i.jDU;
+        public static final b jDN = h.jDU;
+        public static final b jDO = f.jDU;
+        public static final b jDP = g.jDU;
+        public static final b jDQ = c.jDU;
+        public static final b jDR = e.jDU;
+        public static final b jDS = d.jDU;
+        public static final b jDT = j.jDU;
 
         Matrix a(Matrix matrix, Rect rect, int i, int i2, float f, float f2);
     }
@@ -63,7 +63,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class i extends a {
-        public static final b jEc = new i();
+        public static final b jDU = new i();
 
         private i() {
         }
@@ -81,7 +81,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class h extends a {
-        public static final b jEc = new h();
+        public static final b jDU = new h();
 
         private h() {
         }
@@ -100,7 +100,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class f extends a {
-        public static final b jEc = new f();
+        public static final b jDU = new f();
 
         private f() {
         }
@@ -120,7 +120,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class g extends a {
-        public static final b jEc = new g();
+        public static final b jDU = new g();
 
         private g() {
         }
@@ -140,7 +140,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class c extends a {
-        public static final b jEc = new c();
+        public static final b jDU = new c();
 
         private c() {
         }
@@ -157,7 +157,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class e extends a {
-        public static final b jEc = new e();
+        public static final b jDU = new e();
 
         private e() {
         }
@@ -177,7 +177,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class d extends a {
-        public static final b jEc = new d();
+        public static final b jDU = new d();
 
         private d() {
         }
@@ -205,7 +205,7 @@ public class n {
 
     /* loaded from: classes2.dex */
     private static class j extends a {
-        public static final b jEc = new j();
+        public static final b jDU = new j();
 
         private j() {
         }

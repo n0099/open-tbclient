@@ -40,7 +40,7 @@ public class i extends a {
             unitedSchemeEntity.result = bQ(201);
             com.baidu.swan.apps.console.c.e("SwanAppCanvas", "update action parse model is null");
         } else {
-            AbsoluteLayout a = a(unitedSchemeEntity, c.aBC);
+            AbsoluteLayout a = a(unitedSchemeEntity, c.aBD);
             if (a != null && com.baidu.swan.apps.canvas.a.ww().b(a, c)) {
                 z = true;
             }

@@ -4,12 +4,11 @@ import android.os.Bundle;
 import android.os.Message;
 import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
-import com.baidu.swan.apps.c;
-import com.baidu.swan.apps.process.b.a.b;
+import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = c.DEBUG;
+    private static final boolean DEBUG = b.DEBUG;
     private static final String TAG = a.class.getSimpleName();
 
     public static void l(Message message) {
@@ -26,7 +25,7 @@ public class a {
             str2 = bundle2.getString("ai_apps_observer_id", "");
             bundle = bundle2.getBundle("ai_apps_data");
         }
-        b.a(NotificationManagerCompat.IMPORTANCE_UNSPECIFIED, str, str2, bundle);
+        com.baidu.swan.apps.process.b.a.b.a(NotificationManagerCompat.IMPORTANCE_UNSPECIFIED, str, str2, bundle);
     }
 
     public static void u(Bundle bundle) {
@@ -64,7 +63,7 @@ public class a {
             str2 = bundle2.getString("ai_apps_observer_id", "");
             bundle = bundle2.getBundle("ai_apps_data");
         }
-        b.a(i, str, str2, bundle);
+        com.baidu.swan.apps.process.b.a.b.a(i, str, str2, bundle);
     }
 
     public static void d(int i, Bundle bundle) {

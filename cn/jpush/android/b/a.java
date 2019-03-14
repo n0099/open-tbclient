@@ -5,7 +5,6 @@ import cn.jiguang.h.b;
 import cn.jiguang.h.c;
 import cn.jiguang.h.d;
 import cn.jpush.android.d.f;
-import com.baidu.tbadk.TbConfig;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -45,7 +44,7 @@ public final class a {
 
     public static byte[] a(String str, int i, long j, int i2) {
         byte[] bArr = null;
-        for (int i3 = 0; i3 < 4 && (bArr = b(str, 5, TbConfig.NOTIFY_SOUND_INTERVAL)) == null; i3++) {
+        for (int i3 = 0; i3 < 4 && (bArr = b(str, 5, 5000L)) == null; i3++) {
         }
         return bArr;
     }

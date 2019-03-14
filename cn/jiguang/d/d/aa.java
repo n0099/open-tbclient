@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
 import cn.jpush.android.service.PushReceiver;
+import com.baidu.mobstat.Config;
 import com.sina.weibo.sdk.statistic.LogBuilder;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
@@ -120,7 +121,7 @@ public final class aa {
                 return null;
             }
             try {
-                return Base64.encodeToString((c2 + ":" + c3 + ":" + str2).getBytes(), 10);
+                return Base64.encodeToString((c2 + Config.TRACE_TODAY_VISIT_SPLIT + c3 + Config.TRACE_TODAY_VISIT_SPLIT + str2).getBytes(), 10);
             } catch (Exception e) {
                 return null;
             }
@@ -381,7 +382,7 @@ public final class aa {
         boolean z = false;
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("platform", "a");
+            jSONObject.put("platform", Config.APP_VERSION_CODE);
             long c2 = cn.jiguang.d.a.d.c(context);
             if (c2 != 0) {
                 jSONObject.put("uid", c2);

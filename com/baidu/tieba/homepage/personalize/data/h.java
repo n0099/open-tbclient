@@ -9,9 +9,9 @@ import java.io.IOException;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes4.dex */
 public class h {
-    public static boolean fNw = false;
+    public static boolean fNv = false;
 
-    public static DataRes bmW() {
+    public static DataRes bmV() {
         l<byte[]> bu = com.baidu.tbadk.core.c.a.aaW().bu("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
         if (bu == null) {
             return null;
@@ -28,7 +28,7 @@ public class h {
         }
     }
 
-    public static void bmX() {
+    public static void bmW() {
         l<byte[]> bu = com.baidu.tbadk.core.c.a.aaW().bu("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
         if (bu != null) {
             bu.a("0", new byte[0], 0L);

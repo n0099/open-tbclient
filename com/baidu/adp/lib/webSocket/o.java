@@ -6,6 +6,7 @@ import android.os.Message;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.webSocket.e;
 import com.baidu.adp.lib.webSocket.k;
+import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.net.SocketException;
 import java.util.Random;
@@ -86,7 +87,7 @@ public class o extends Handler {
         this.IK.lD();
         if (bVar.HV != null) {
             for (BasicNameValuePair basicNameValuePair : bVar.HV) {
-                this.IK.write(basicNameValuePair.getName() + ":" + basicNameValuePair.getValue());
+                this.IK.write(basicNameValuePair.getName() + Config.TRACE_TODAY_VISIT_SPLIT + basicNameValuePair.getValue());
                 this.IK.lD();
             }
         }

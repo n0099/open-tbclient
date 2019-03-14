@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a {
-    private d hLC;
-    private com.baidu.tieba.personCenter.a.a hLD;
-    private com.baidu.tieba.personCenter.a.b hLE;
-    private e hLF;
-    private com.baidu.tieba.personCenter.a.c hLm;
+    private com.baidu.tieba.personCenter.a.c hLg;
+    private d hLw;
+    private com.baidu.tieba.personCenter.a.a hLx;
+    private com.baidu.tieba.personCenter.a.b hLy;
+    private e hLz;
     private List<com.baidu.adp.widget.ListView.a> mAdapters = new ArrayList();
     private BdTypeListView mListView;
 
@@ -26,16 +26,16 @@ public class a {
     }
 
     private void a(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        this.hLC = new d(tbPageContext, g.hMi);
-        this.hLD = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.c.hLS);
-        this.hLE = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.d.hLT);
-        this.hLF = new e(tbPageContext, i.hMm);
-        this.hLm = new com.baidu.tieba.personCenter.a.c(tbPageContext, f.hMh);
-        this.mAdapters.add(this.hLC);
-        this.mAdapters.add(this.hLD);
-        this.mAdapters.add(this.hLE);
-        this.mAdapters.add(this.hLF);
-        this.mAdapters.add(this.hLm);
+        this.hLw = new d(tbPageContext, g.hMc);
+        this.hLx = new com.baidu.tieba.personCenter.a.a(tbPageContext, com.baidu.tieba.personCenter.data.c.hLM);
+        this.hLy = new com.baidu.tieba.personCenter.a.b(tbPageContext, com.baidu.tieba.personCenter.data.d.hLN);
+        this.hLz = new e(tbPageContext, i.hMg);
+        this.hLg = new com.baidu.tieba.personCenter.a.c(tbPageContext, f.hMb);
+        this.mAdapters.add(this.hLw);
+        this.mAdapters.add(this.hLx);
+        this.mAdapters.add(this.hLy);
+        this.mAdapters.add(this.hLz);
+        this.mAdapters.add(this.hLg);
         bdTypeListView.addAdapters(this.mAdapters);
     }
 
@@ -45,11 +45,11 @@ public class a {
         }
     }
 
-    public void bQr() {
-        this.hLD.bQr();
+    public void bQt() {
+        this.hLx.bQt();
     }
 
-    public void bQs() {
-        this.hLD.destroy();
+    public void bQu() {
+        this.hLx.destroy();
     }
 }

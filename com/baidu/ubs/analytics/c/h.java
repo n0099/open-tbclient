@@ -8,44 +8,44 @@ import java.util.Iterator;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class h implements Application.ActivityLifecycleCallbacks {
-    private a jxk;
+    private a jxc;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(a aVar) {
-        this.jxk = aVar;
+        this.jxc = aVar;
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityResumed(Activity activity) {
-        synchronized (this.jxk.csr()) {
-            for (a.InterfaceC0328a interfaceC0328a : this.jxk.csr()) {
-                interfaceC0328a.T();
+        synchronized (this.jxc.csu()) {
+            for (a.InterfaceC0421a interfaceC0421a : this.jxc.csu()) {
+                interfaceC0421a.T();
             }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityPaused(Activity activity) {
-        synchronized (this.jxk.csr()) {
-            for (a.InterfaceC0328a interfaceC0328a : this.jxk.csr()) {
-                interfaceC0328a.U();
+        synchronized (this.jxc.csu()) {
+            for (a.InterfaceC0421a interfaceC0421a : this.jxc.csu()) {
+                interfaceC0421a.U();
             }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityCreated(Activity activity, Bundle bundle) {
-        synchronized (this.jxk.csr()) {
-            for (a.InterfaceC0328a interfaceC0328a : this.jxk.csr()) {
-                interfaceC0328a.a(activity);
+        synchronized (this.jxc.csu()) {
+            for (a.InterfaceC0421a interfaceC0421a : this.jxc.csu()) {
+                interfaceC0421a.a(activity);
             }
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStarted(Activity activity) {
-        synchronized (this.jxk.csr()) {
-            Iterator<a.InterfaceC0328a> it = this.jxk.csr().iterator();
+        synchronized (this.jxc.csu()) {
+            Iterator<a.InterfaceC0421a> it = this.jxc.csu().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -54,8 +54,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityStopped(Activity activity) {
-        synchronized (this.jxk.csr()) {
-            Iterator<a.InterfaceC0328a> it = this.jxk.csr().iterator();
+        synchronized (this.jxc.csu()) {
+            Iterator<a.InterfaceC0421a> it = this.jxc.csu().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -64,8 +64,8 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        synchronized (this.jxk.csr()) {
-            Iterator<a.InterfaceC0328a> it = this.jxk.csr().iterator();
+        synchronized (this.jxc.csu()) {
+            Iterator<a.InterfaceC0421a> it = this.jxc.csu().iterator();
             while (it.hasNext()) {
                 it.next();
             }
@@ -74,9 +74,9 @@ public final class h implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public final void onActivityDestroyed(Activity activity) {
-        synchronized (this.jxk.csr()) {
-            for (a.InterfaceC0328a interfaceC0328a : this.jxk.csr()) {
-                interfaceC0328a.onActivityDestroyed(activity);
+        synchronized (this.jxc.csu()) {
+            for (a.InterfaceC0421a interfaceC0421a : this.jxc.csu()) {
+                interfaceC0421a.onActivityDestroyed(activity);
             }
         }
     }

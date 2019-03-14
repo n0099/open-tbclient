@@ -18,7 +18,7 @@ public class b {
     private static b coC = null;
     private a coD;
 
-    public static b anV() {
+    public static b anU() {
         if (coC == null) {
             synchronized (b.class) {
                 if (coC == null) {
@@ -69,7 +69,7 @@ public class b {
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra("broadcast_data");
             if (serializableExtra instanceof String) {
-                n.tC((String) serializableExtra);
+                n.tA((String) serializableExtra);
             }
         }
     }

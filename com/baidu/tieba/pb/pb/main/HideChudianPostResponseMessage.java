@@ -1,7 +1,6 @@
 package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
@@ -39,7 +38,7 @@ public class HideChudianPostResponseMessage extends JsonHttpResponsedMessage {
             if (isSuccess()) {
                 this.resultFlag = jSONObject.optInt(FrsActivityConfig.FLAG);
                 this.templateId = jSONObject.optLong("template_id");
-                this.errorCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
+                this.errorCode = jSONObject.optInt("error_code");
                 this.errorMessage = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
             }
         }

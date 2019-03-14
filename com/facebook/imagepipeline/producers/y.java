@@ -6,35 +6,35 @@ import java.io.InputStream;
 import java.util.concurrent.Executor;
 /* loaded from: classes2.dex */
 public abstract class y implements ai<com.facebook.imagepipeline.f.d> {
-    private final com.facebook.common.memory.g jFx;
+    private final com.facebook.common.memory.g jFp;
     private final Executor mExecutor;
 
-    protected abstract String czP();
+    protected abstract String czS();
 
     protected abstract com.facebook.imagepipeline.f.d h(ImageRequest imageRequest) throws IOException;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public y(Executor executor, com.facebook.common.memory.g gVar) {
         this.mExecutor = executor;
-        this.jFx = gVar;
+        this.jFp = gVar;
     }
 
     @Override // com.facebook.imagepipeline.producers.ai
     public void a(j<com.facebook.imagepipeline.f.d> jVar, aj ajVar) {
-        al czF = ajVar.czF();
+        al czI = ajVar.czI();
         String id = ajVar.getId();
-        final ImageRequest czE = ajVar.czE();
-        final ao<com.facebook.imagepipeline.f.d> aoVar = new ao<com.facebook.imagepipeline.f.d>(jVar, czF, czP(), id) { // from class: com.facebook.imagepipeline.producers.y.1
+        final ImageRequest czH = ajVar.czH();
+        final ao<com.facebook.imagepipeline.f.d> aoVar = new ao<com.facebook.imagepipeline.f.d>(jVar, czI, czS(), id) { // from class: com.facebook.imagepipeline.producers.y.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.common.b.e
-            /* renamed from: cAb */
+            /* renamed from: cAe */
             public com.facebook.imagepipeline.f.d getResult() throws Exception {
-                com.facebook.imagepipeline.f.d h = y.this.h(czE);
+                com.facebook.imagepipeline.f.d h = y.this.h(czH);
                 if (h == null) {
                     return null;
                 }
-                h.cyP();
+                h.cyS();
                 return h;
             }
 
@@ -48,7 +48,7 @@ public abstract class y implements ai<com.facebook.imagepipeline.f.d> {
         };
         ajVar.a(new e() { // from class: com.facebook.imagepipeline.producers.y.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.ak
-            public void czL() {
+            public void czO() {
                 aoVar.cancel();
             }
         });
@@ -60,9 +60,9 @@ public abstract class y implements ai<com.facebook.imagepipeline.f.d> {
         com.facebook.common.references.a aVar = null;
         try {
             if (i <= 0) {
-                aVar = com.facebook.common.references.a.d(this.jFx.r(inputStream));
+                aVar = com.facebook.common.references.a.d(this.jFp.r(inputStream));
             } else {
-                aVar = com.facebook.common.references.a.d(this.jFx.b(inputStream, i));
+                aVar = com.facebook.common.references.a.d(this.jFp.b(inputStream, i));
             }
             return new com.facebook.imagepipeline.f.d(aVar);
         } finally {

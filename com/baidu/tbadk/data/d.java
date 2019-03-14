@@ -6,7 +6,7 @@ public class d extends TbConfig {
     public static final Long cgT = 86400000L;
     private static int cgU = 300;
 
-    public static int alo() {
+    public static int aln() {
         return cgU;
     }
 }

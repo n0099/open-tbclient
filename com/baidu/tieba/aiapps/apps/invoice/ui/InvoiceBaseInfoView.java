@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import com.baidu.tieba.aiapps.apps.invoice.e;
 /* loaded from: classes4.dex */
 public abstract class InvoiceBaseInfoView extends LinearLayout implements e {
-    protected InvoiceInfoItemView[] cTE;
+    protected InvoiceInfoItemView[] cTA;
 
     public InvoiceBaseInfoView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
@@ -17,21 +17,21 @@ public abstract class InvoiceBaseInfoView extends LinearLayout implements e {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setTextChangedListener(TextWatcher textWatcher) {
-        if (this.cTE != null && textWatcher != null) {
-            for (int i = 0; i < this.cTE.length; i++) {
-                this.cTE[i].setTextChangedListener(textWatcher);
+        if (this.cTA != null && textWatcher != null) {
+            for (int i = 0; i < this.cTA.length; i++) {
+                this.cTA[i].setTextChangedListener(textWatcher);
             }
         }
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.e
-    public boolean azh() {
+    public boolean azg() {
         InvoiceInfoItemView[] invoiceInfoItemViewArr;
-        if (this.cTE == null || this.cTE.length == 0) {
+        if (this.cTA == null || this.cTA.length == 0) {
             return false;
         }
-        for (InvoiceInfoItemView invoiceInfoItemView : this.cTE) {
-            if (invoiceInfoItemView.azm() && TextUtils.isEmpty(invoiceInfoItemView.getContent())) {
+        for (InvoiceInfoItemView invoiceInfoItemView : this.cTA) {
+            if (invoiceInfoItemView.azl() && TextUtils.isEmpty(invoiceInfoItemView.getContent())) {
                 return false;
             }
         }
@@ -39,11 +39,11 @@ public abstract class InvoiceBaseInfoView extends LinearLayout implements e {
     }
 
     @Override // com.baidu.tieba.aiapps.apps.invoice.e
-    public boolean azi() {
-        if (this.cTE == null || this.cTE.length == 0) {
+    public boolean azh() {
+        if (this.cTA == null || this.cTA.length == 0) {
             return false;
         }
-        for (InvoiceInfoItemView invoiceInfoItemView : this.cTE) {
+        for (InvoiceInfoItemView invoiceInfoItemView : this.cTA) {
             if (!TextUtils.isEmpty(invoiceInfoItemView.getContent())) {
                 return true;
             }

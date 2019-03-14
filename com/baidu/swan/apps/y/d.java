@@ -26,7 +26,7 @@ class d extends a {
                     i2++;
                     if (i2 < rect.bottom - 1) {
                         if (pixel != bitmap.getPixel(i, i2)) {
-                            if (com.baidu.swan.apps.c.DEBUG) {
+                            if (com.baidu.swan.apps.b.DEBUG) {
                                 Log.d(TAG, "非白屏, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i + Constants.ACCEPT_TIME_SEPARATOR_SP + i2 + ")");
                                 return false;
                             }

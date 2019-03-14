@@ -7,27 +7,27 @@ import com.baidu.tieba.lego.card.model.ICardInfo;
 import java.util.Map;
 /* loaded from: classes.dex */
 public class d extends com.baidu.tieba.card.data.b implements com.baidu.tieba.lego.card.b.b, com.baidu.tieba.lego.card.view.h {
-    private ICardInfo Th;
-    public g Ti;
-    public boolean Tj;
-    private AdvertAppInfo Tl;
+    private ICardInfo Ti;
+    public g Tj;
+    public boolean Tk;
+    private AdvertAppInfo Tm;
     private e adModel;
-    private boolean Tk = false;
+    private boolean Tl = false;
     private BdUniqueId tag = BdUniqueId.gen();
 
     public static d a(g gVar) {
         d dVar = new d();
-        dVar.Ti = gVar;
+        dVar.Tj = gVar;
         return dVar;
     }
 
     public ICardInfo pQ() {
-        return this.Th;
+        return this.Ti;
     }
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return pQ() != null ? b.Tb : b.Ta;
+        return pQ() != null ? b.Tc : b.Tb;
     }
 
     public BdUniqueId getTag() {
@@ -50,31 +50,31 @@ public class d extends com.baidu.tieba.card.data.b implements com.baidu.tieba.le
 
     public void a(e eVar) {
         this.adModel = eVar;
-        this.Th = eVar != null ? eVar.Tn : null;
-        if (this.Th instanceof h) {
-            ((h) this.Th).setAdFacadeData(this);
+        this.Ti = eVar != null ? eVar.To : null;
+        if (this.Ti instanceof h) {
+            ((h) this.Ti).setAdFacadeData(this);
         }
-        this.Tk = true;
+        this.Tl = true;
     }
 
     public AdvertAppInfo pR() {
-        if (this.Tl == null) {
-            this.Tl = new AdvertAppInfo();
-            if (this.Ti != null) {
-                Map<String, String> pP = this.Ti.pP();
-                this.Tl.adPosition = String.valueOf(this.Ti.pO());
-                this.Tl.tid = pP != null ? pP.get("thread_id") : "";
-                this.Tl.setFid(pP != null ? Long.valueOf(pP.get("forum_id")).longValue() : 0L);
+        if (this.Tm == null) {
+            this.Tm = new AdvertAppInfo();
+            if (this.Tj != null) {
+                Map<String, String> pP = this.Tj.pP();
+                this.Tm.adPosition = String.valueOf(this.Tj.pO());
+                this.Tm.tid = pP != null ? pP.get("thread_id") : "";
+                this.Tm.setFid(pP != null ? Long.valueOf(pP.get("forum_id")).longValue() : 0L);
             }
-            this.Tl.extensionInfo = this.adModel != null ? this.adModel.ext : "";
-            this.Tl.page = "VIDEO_LIST";
+            this.Tm.extensionInfo = this.adModel != null ? this.adModel.ext : "";
+            this.Tm.page = "VIDEO_LIST";
         }
-        return this.Tl;
+        return this.Tm;
     }
 
     public int getPageNum() {
-        if (this.Ti != null) {
-            return this.Ti.pN();
+        if (this.Tj != null) {
+            return this.Tj.pN();
         }
         return 0;
     }
@@ -84,8 +84,8 @@ public class d extends com.baidu.tieba.card.data.b implements com.baidu.tieba.le
     }
 
     public void pT() {
-        if (!this.Tk) {
-            com.baidu.tieba.recapp.report.c.bXC().a(com.baidu.tieba.recapp.report.f.a(this, ParseError.ERROR_SMOOTH_SCROLL));
+        if (!this.Tl) {
+            com.baidu.tieba.recapp.report.c.bXE().a(com.baidu.tieba.recapp.report.f.a(this, ParseError.ERROR_SMOOTH_SCROLL));
             return;
         }
         com.baidu.tbadk.core.data.c.a(this);
@@ -93,9 +93,9 @@ public class d extends com.baidu.tieba.card.data.b implements com.baidu.tieba.le
 
     @Override // com.baidu.tieba.lego.card.b.b
     public b.a getParallelCharge() {
-        if (this.Th == null || !(this.Th instanceof com.baidu.tieba.lego.card.b.b)) {
+        if (this.Ti == null || !(this.Ti instanceof com.baidu.tieba.lego.card.b.b)) {
             return null;
         }
-        return ((com.baidu.tieba.lego.card.b.b) this.Th).getParallelCharge();
+        return ((com.baidu.tieba.lego.card.b.b) this.Ti).getParallelCharge();
     }
 }

@@ -23,7 +23,7 @@ public final class FragmentState implements Parcelable {
             return new FragmentState[i];
         }
     };
-    Fragment bnW;
+    Fragment bnX;
     final Bundle mArguments;
     final String mClassName;
     final int mContainerId;
@@ -61,31 +61,31 @@ public final class FragmentState implements Parcelable {
     }
 
     public Fragment a(j jVar, Fragment fragment) {
-        if (this.bnW != null) {
-            return this.bnW;
+        if (this.bnX != null) {
+            return this.bnX;
         }
         Context context = jVar.getContext();
         if (this.mArguments != null) {
             this.mArguments.setClassLoader(context.getClassLoader());
         }
-        this.bnW = Fragment.f(context, this.mClassName, this.mArguments);
+        this.bnX = Fragment.f(context, this.mClassName, this.mArguments);
         if (this.mSavedFragmentState != null) {
             this.mSavedFragmentState.setClassLoader(context.getClassLoader());
-            this.bnW.mSavedFragmentState = this.mSavedFragmentState;
+            this.bnX.mSavedFragmentState = this.mSavedFragmentState;
         }
-        this.bnW.b(this.mIndex, fragment);
-        this.bnW.mFromLayout = this.mFromLayout;
-        this.bnW.mRestored = true;
-        this.bnW.mFragmentId = this.mFragmentId;
-        this.bnW.mContainerId = this.mContainerId;
-        this.bnW.mTag = this.mTag;
-        this.bnW.mRetainInstance = this.mRetainInstance;
-        this.bnW.mDetached = this.mDetached;
-        this.bnW.bnw = jVar.bnw;
+        this.bnX.b(this.mIndex, fragment);
+        this.bnX.mFromLayout = this.mFromLayout;
+        this.bnX.mRestored = true;
+        this.bnX.mFragmentId = this.mFragmentId;
+        this.bnX.mContainerId = this.mContainerId;
+        this.bnX.mTag = this.mTag;
+        this.bnX.mRetainInstance = this.mRetainInstance;
+        this.bnX.mDetached = this.mDetached;
+        this.bnX.bnx = jVar.bnx;
         if (l.DEBUG) {
-            Log.v("FragmentManager", "Instantiated fragment " + this.bnW);
+            Log.v("FragmentManager", "Instantiated fragment " + this.bnX);
         }
-        return this.bnW;
+        return this.bnX;
     }
 
     @Override // android.os.Parcelable

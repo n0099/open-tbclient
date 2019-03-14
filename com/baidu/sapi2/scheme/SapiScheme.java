@@ -85,7 +85,7 @@ public class SapiScheme {
     }
 
     private void a(Activity activity, String str) throws Exception {
-        activity.startActivityForResult(new Intent("android.intent.action.VIEW", Uri.parse(str)), REQUEST_CODE_START_SC_APP_VERIFY);
+        activity.startActivityForResult(new Intent("android.intent.action.VIEW", Uri.parse(str)), 3001);
     }
 
     public boolean checkPackageSign(Context context, String str) {

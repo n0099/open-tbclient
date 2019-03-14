@@ -24,36 +24,36 @@ import java.util.List;
 @SuppressLint({"ValidFragment"})
 /* loaded from: classes4.dex */
 public class DailyFragment extends BaseFragment implements BdListView.e, h.c, ae {
-    private boolean eEu;
-    private com.baidu.tieba.homepage.daily.model.a fHJ;
-    private a fHK;
-    private a.InterfaceC0250a fHL = new a.InterfaceC0250a() { // from class: com.baidu.tieba.homepage.daily.DailyFragment.1
-        @Override // com.baidu.tieba.homepage.daily.model.a.InterfaceC0250a
+    private boolean eEq;
+    private com.baidu.tieba.homepage.daily.model.a fHI;
+    private a fHJ;
+    private a.InterfaceC0303a fHK = new a.InterfaceC0303a() { // from class: com.baidu.tieba.homepage.daily.DailyFragment.1
+        @Override // com.baidu.tieba.homepage.daily.model.a.InterfaceC0303a
         public void a(b bVar, boolean z, boolean z2) {
-            DailyFragment.this.fHK.hideLoadingView();
-            DailyFragment.this.fHK.aBN();
-            DailyFragment.this.fHK.a(bVar);
-            if (!DailyFragment.this.fHJ.blN()) {
-                DailyFragment.this.fHK.aCx();
+            DailyFragment.this.fHJ.hideLoadingView();
+            DailyFragment.this.fHJ.aBM();
+            DailyFragment.this.fHJ.a(bVar);
+            if (!DailyFragment.this.fHI.blM()) {
+                DailyFragment.this.fHJ.aCw();
             } else if (z2) {
-                DailyFragment.this.fHK.blE();
+                DailyFragment.this.fHJ.blD();
             } else {
-                DailyFragment.this.fHK.aCw();
+                DailyFragment.this.fHJ.aCv();
             }
         }
 
-        @Override // com.baidu.tieba.homepage.daily.model.a.InterfaceC0250a
+        @Override // com.baidu.tieba.homepage.daily.model.a.InterfaceC0303a
         public void J(int i, String str) {
-            DailyFragment.this.fHK.hideLoadingView();
-            DailyFragment.this.fHK.aBN();
-            if (DailyFragment.this.fHJ.aoJ()) {
-                DailyFragment.this.fHK.showNetRefreshView(DailyFragment.this.fHK.getRootView(), str);
+            DailyFragment.this.fHJ.hideLoadingView();
+            DailyFragment.this.fHJ.aBM();
+            if (DailyFragment.this.fHI.aoI()) {
+                DailyFragment.this.fHJ.showNetRefreshView(DailyFragment.this.fHJ.getRootView(), str);
                 return;
             }
             if (j.kY()) {
                 DailyFragment.this.showToast(str);
             }
-            DailyFragment.this.fHK.blE();
+            DailyFragment.this.fHJ.blD();
         }
     };
 
@@ -62,25 +62,25 @@ public class DailyFragment extends BaseFragment implements BdListView.e, h.c, ae
 
     public DailyFragment(Context context) {
         TbPageContext pageContext = context instanceof TbPageContextSupport ? ((TbPageContextSupport) context).getPageContext() : null;
-        this.fHJ = new com.baidu.tieba.homepage.daily.model.a(pageContext);
-        this.fHK = new a(pageContext);
+        this.fHI = new com.baidu.tieba.homepage.daily.model.a(pageContext);
+        this.fHJ = new a(pageContext);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.fHJ.a(this.fHL);
+        this.fHI.a(this.fHK);
+        this.fHI.setPageUniqueId(getUniqueId());
+        this.fHJ.setListPullRefreshListener(this);
+        this.fHJ.setOnSrollToBottomListener(this);
+        this.fHJ.u(getNetRefreshListener());
         this.fHJ.setPageUniqueId(getUniqueId());
-        this.fHK.setListPullRefreshListener(this);
-        this.fHK.setOnSrollToBottomListener(this);
-        this.fHK.u(getNetRefreshListener());
-        this.fHK.setPageUniqueId(getUniqueId());
     }
 
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        View rootView = this.fHK.getRootView();
+        View rootView = this.fHJ.getRootView();
         if (rootView != null && (rootView.getParent() instanceof ViewGroup)) {
             ((ViewGroup) rootView.getParent()).removeView(rootView);
         }
@@ -90,30 +90,30 @@ public class DailyFragment extends BaseFragment implements BdListView.e, h.c, ae
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         super.onLazyLoad();
-        if (!this.eEu) {
-            this.fHK.showLoadingView();
-            this.fHJ.refresh();
-            this.eEu = true;
+        if (!this.eEq) {
+            this.fHJ.showLoadingView();
+            this.fHI.refresh();
+            this.eEq = true;
         }
     }
 
-    public void aCu() {
-        this.fHK.aCu();
+    public void aCt() {
+        this.fHJ.aCt();
+    }
+
+    @Override // com.baidu.tieba.frs.ae
+    public void aBu() {
+        if (this.eEq) {
+            this.fHJ.reload();
+        }
     }
 
     @Override // com.baidu.tieba.frs.ae
     public void aBv() {
-        if (this.eEu) {
-            this.fHK.reload();
-        }
     }
 
     @Override // com.baidu.tieba.frs.ae
     public void aBw() {
-    }
-
-    @Override // com.baidu.tieba.frs.ae
-    public void aBx() {
     }
 
     @Override // com.baidu.tieba.frs.ae
@@ -136,7 +136,7 @@ public class DailyFragment extends BaseFragment implements BdListView.e, h.c, ae
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.fHK.onChangeSkinType(i);
+        this.fHJ.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tieba.frs.ae
@@ -145,36 +145,36 @@ public class DailyFragment extends BaseFragment implements BdListView.e, h.c, ae
 
     @Override // com.baidu.tbadk.core.view.h.c
     public void dR(boolean z) {
-        this.fHJ.refresh();
+        this.fHI.refresh();
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        if (this.fHJ.hasMore()) {
-            if (!this.fHJ.qz()) {
-                this.fHK.aCv();
-                this.fHJ.aBd();
+        if (this.fHI.hasMore()) {
+            if (!this.fHI.qz()) {
+                this.fHJ.aCu();
+                this.fHI.aBc();
                 return;
             }
             return;
         }
-        this.fHK.aCw();
+        this.fHJ.aCv();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     protected void onNetRefreshButtonClicked() {
         if (j.kY()) {
-            this.fHK.aBu();
-            this.fHK.showLoadingView();
-            this.fHJ.refresh();
+            this.fHJ.aBt();
+            this.fHJ.showLoadingView();
+            this.fHI.refresh();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
         super.onDestroyView();
-        this.fHK.onDestroy();
         this.fHJ.onDestroy();
+        this.fHI.onDestroy();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.pageStayDuration.a

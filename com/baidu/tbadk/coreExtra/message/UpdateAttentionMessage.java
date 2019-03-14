@@ -12,11 +12,11 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     /* loaded from: classes.dex */
     public static class a {
         public boolean Jy;
-        public c bLM;
-        public JSONObject bYv;
-        public boolean bYw;
-        public String bYx;
-        public BlockPopInfoData bYy;
+        public c bLN;
+        public JSONObject bYw;
+        public boolean bYx;
+        public String bYy;
+        public BlockPopInfoData bYz;
         public String errorString;
         public boolean isAttention;
         public String showMsg;
@@ -30,7 +30,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             if (str != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
-                    this.bYv = jSONObject;
+                    this.bYw = jSONObject;
                     JSONObject optJSONObject = jSONObject.optJSONObject("info");
                     if (optJSONObject != null) {
                         this.status = jSONObject.optInt("status");
@@ -50,16 +50,16 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
 
         private void aO(JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.bYx = jSONObject.optString("block_dealurl");
+                this.bYy = jSONObject.optString("block_dealurl");
                 String optString = jSONObject.optString("block_content");
                 String optString2 = jSONObject.optString("block_confirm");
                 String optString3 = jSONObject.optString("block_cancel");
-                if (!ap.isEmpty(optString) && !ap.isEmpty(this.bYx) && !ap.isEmpty(optString2) && !ap.isEmpty(optString3)) {
-                    this.bYy = new BlockPopInfoData();
-                    this.bYy.block_info = optString;
-                    this.bYy.ahead_url = this.bYx;
-                    this.bYy.ahead_info = optString2;
-                    this.bYy.ok_info = optString3;
+                if (!ap.isEmpty(optString) && !ap.isEmpty(this.bYy) && !ap.isEmpty(optString2) && !ap.isEmpty(optString3)) {
+                    this.bYz = new BlockPopInfoData();
+                    this.bYz.block_info = optString;
+                    this.bYz.ahead_url = this.bYy;
+                    this.bYz.ahead_info = optString2;
+                    this.bYz.ok_info = optString3;
                 }
             }
         }

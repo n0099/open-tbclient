@@ -13,10 +13,10 @@ import java.util.List;
 public class a {
     public static synchronized void a(b bVar, e eVar) {
         synchronized (a.class) {
-            f<com.baidu.swan.pms.model.e> a = h.a(bVar.bmK, eVar);
-            f<g> a2 = h.a(bVar.blX, eVar);
-            f<c> a3 = h.a(bVar.bmL, eVar);
-            List<f<i>> a4 = h.a(bVar.bmM, eVar);
+            f<com.baidu.swan.pms.model.e> a = h.a(bVar.bmL, eVar);
+            f<g> a2 = h.a(bVar.blY, eVar);
+            f<c> a3 = h.a(bVar.bmM, eVar);
+            List<f<i>> a4 = h.a(bVar.bmN, eVar);
             com.baidu.swan.pms.b.a.c.i iVar = new com.baidu.swan.pms.b.a.c.i(eVar);
             iVar.a(d.RT().f(a));
             iVar.a(d.RT().f(a2));
@@ -30,8 +30,8 @@ public class a {
 
     public static synchronized void a(com.baidu.swan.pms.b.c.a aVar, e eVar) {
         synchronized (a.class) {
-            f<com.baidu.swan.pms.model.e> a = h.a(aVar.bmK, eVar);
-            f<c> a2 = h.a(aVar.bmL, eVar);
+            f<com.baidu.swan.pms.model.e> a = h.a(aVar.bmL, eVar);
+            f<c> a2 = h.a(aVar.bmM, eVar);
             com.baidu.swan.pms.b.a.c.i iVar = new com.baidu.swan.pms.b.a.c.i(eVar);
             iVar.a(d.RT().f(a));
             iVar.a(d.RT().f(a2));
@@ -41,7 +41,7 @@ public class a {
 
     public static synchronized void a(com.baidu.swan.pms.b.c.c cVar, e eVar) {
         synchronized (a.class) {
-            List<f<i>> a = h.a(cVar.bmM, eVar);
+            List<f<i>> a = h.a(cVar.bmN, eVar);
             com.baidu.swan.pms.b.a.c.i iVar = new com.baidu.swan.pms.b.a.c.i(eVar);
             for (f<i> fVar : a) {
                 iVar.a(d.RT().f(fVar));

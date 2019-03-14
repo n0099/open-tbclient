@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.am;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class c {
-    private static View.OnClickListener bsM = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
+    private static View.OnClickListener bsN = new View.OnClickListener() { // from class: com.baidu.tbadk.ala.c.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view != null && view.getTag() != null && (view.getTag() instanceof a)) {
@@ -28,7 +28,7 @@ public class c {
                     return;
                 }
                 a aVar = (a) view.getTag();
-                AlaUserInfoData alaUserInfoData = aVar.bsI;
+                AlaUserInfoData alaUserInfoData = aVar.bsJ;
                 if (alaUserInfoData != null) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                     if (alaUserInfoData.anchor_live != 0) {
@@ -59,7 +59,7 @@ public class c {
                                 TiebaStatic.log(new am("c11855").bJ("uid", currentAccount).k("click_uid", alaUserInfoData.ala_id).T("live_status", alaUserInfoData.live_status));
                             }
                             TiebaStatic.log(new am("c12542"));
-                            if (aVar.bsJ && !StringUtils.isNull(alaUserInfoData.sex)) {
+                            if (aVar.bsK && !StringUtils.isNull(alaUserInfoData.sex)) {
                                 BdToast.c(view.getContext(), String.format(view.getContext().getString(d.j.person_privacy_toast), alaUserInfoData.sex), d.f.icon_toast_game_error).abh();
                                 return;
                             }
@@ -82,7 +82,7 @@ public class c {
             return null;
         }
         TextView textView = (TextView) LayoutInflater.from(context).inflate(d.h.ala_tail_view_layout, (ViewGroup) null);
-        textView.setOnClickListener(bsM);
+        textView.setOnClickListener(bsN);
         return textView;
     }
 }

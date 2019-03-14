@@ -1,43 +1,43 @@
 package com.baidu.swan.pms.b.d;
 /* loaded from: classes2.dex */
 public class d extends c {
-    private String bmQ;
     private String bmR;
-    private String bmT;
+    private String bmS;
+    private String bmU;
 
     public d(int i) {
-        this.bmV = i;
+        this.bmW = i;
     }
 
     public d jy(String str) {
-        this.bmR = str;
+        this.bmS = str;
         return this;
     }
 
     public d jz(String str) {
-        this.bmQ = str;
+        this.bmR = str;
         return this;
     }
 
     public d jA(String str) {
-        this.bmT = str;
+        this.bmU = str;
         return this;
     }
 
     public String Sh() {
-        return this.bmQ;
-    }
-
-    public String Si() {
         return this.bmR;
     }
 
+    public String Si() {
+        return this.bmS;
+    }
+
     public String Sj() {
-        return this.bmT;
+        return this.bmU;
     }
 
     @Override // com.baidu.swan.pms.b.d.c
     public int Sk() {
-        return this.bmV;
+        return this.bmW;
     }
 }

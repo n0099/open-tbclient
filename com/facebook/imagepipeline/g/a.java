@@ -8,32 +8,32 @@ import java.util.Set;
 import javax.annotation.Nullable;
 /* loaded from: classes2.dex */
 public class a implements b {
-    private final List<b> jJc;
+    private final List<b> jIU;
 
     public a(Set<b> set) {
-        this.jJc = new ArrayList(set.size());
+        this.jIU = new ArrayList(set.size());
         for (b bVar : set) {
             if (bVar != null) {
-                this.jJc.add(bVar);
+                this.jIU.add(bVar);
             }
         }
     }
 
     public a(b... bVarArr) {
-        this.jJc = new ArrayList(bVarArr.length);
+        this.jIU = new ArrayList(bVarArr.length);
         for (b bVar : bVarArr) {
             if (bVar != null) {
-                this.jJc.add(bVar);
+                this.jIU.add(bVar);
             }
         }
     }
 
     @Override // com.facebook.imagepipeline.g.b
     public void a(ImageRequest imageRequest, Object obj, String str, boolean z) {
-        int size = this.jJc.size();
+        int size = this.jIU.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.jJc.get(i).a(imageRequest, obj, str, z);
+                this.jIU.get(i).a(imageRequest, obj, str, z);
             } catch (Exception e) {
                 l("InternalListener exception in onRequestStart", e);
             }
@@ -41,11 +41,11 @@ public class a implements b {
     }
 
     @Override // com.facebook.imagepipeline.producers.al
-    public void em(String str, String str2) {
-        int size = this.jJc.size();
+    public void el(String str, String str2) {
+        int size = this.jIU.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.jJc.get(i).em(str, str2);
+                this.jIU.get(i).el(str, str2);
             } catch (Exception e) {
                 l("InternalListener exception in onProducerStart", e);
             }
@@ -54,10 +54,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.producers.al
     public void a(String str, String str2, @Nullable Map<String, String> map) {
-        int size = this.jJc.size();
+        int size = this.jIU.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.jJc.get(i).a(str, str2, map);
+                this.jIU.get(i).a(str, str2, map);
             } catch (Exception e) {
                 l("InternalListener exception in onProducerFinishWithSuccess", e);
             }
@@ -66,10 +66,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.producers.al
     public void a(String str, String str2, Throwable th, @Nullable Map<String, String> map) {
-        int size = this.jJc.size();
+        int size = this.jIU.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.jJc.get(i).a(str, str2, th, map);
+                this.jIU.get(i).a(str, str2, th, map);
             } catch (Exception e) {
                 l("InternalListener exception in onProducerFinishWithFailure", e);
             }
@@ -78,10 +78,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.producers.al
     public void b(String str, String str2, @Nullable Map<String, String> map) {
-        int size = this.jJc.size();
+        int size = this.jIU.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.jJc.get(i).b(str, str2, map);
+                this.jIU.get(i).b(str, str2, map);
             } catch (Exception e) {
                 l("InternalListener exception in onProducerFinishWithCancellation", e);
             }
@@ -90,10 +90,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.producers.al
     public void ae(String str, String str2, String str3) {
-        int size = this.jJc.size();
+        int size = this.jIU.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.jJc.get(i).ae(str, str2, str3);
+                this.jIU.get(i).ae(str, str2, str3);
             } catch (Exception e) {
                 l("InternalListener exception in onIntermediateChunkStart", e);
             }
@@ -102,10 +102,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.g.b
     public void a(ImageRequest imageRequest, String str, boolean z) {
-        int size = this.jJc.size();
+        int size = this.jIU.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.jJc.get(i).a(imageRequest, str, z);
+                this.jIU.get(i).a(imageRequest, str, z);
             } catch (Exception e) {
                 l("InternalListener exception in onRequestSuccess", e);
             }
@@ -114,10 +114,10 @@ public class a implements b {
 
     @Override // com.facebook.imagepipeline.g.b
     public void a(ImageRequest imageRequest, String str, Throwable th, boolean z) {
-        int size = this.jJc.size();
+        int size = this.jIU.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.jJc.get(i).a(imageRequest, str, th, z);
+                this.jIU.get(i).a(imageRequest, str, th, z);
             } catch (Exception e) {
                 l("InternalListener exception in onRequestFailure", e);
             }
@@ -125,11 +125,11 @@ public class a implements b {
     }
 
     @Override // com.facebook.imagepipeline.g.b
-    public void FJ(String str) {
-        int size = this.jJc.size();
+    public void FH(String str) {
+        int size = this.jIU.size();
         for (int i = 0; i < size; i++) {
             try {
-                this.jJc.get(i).FJ(str);
+                this.jIU.get(i).FH(str);
             } catch (Exception e) {
                 l("InternalListener exception in onRequestCancellation", e);
             }
@@ -137,10 +137,10 @@ public class a implements b {
     }
 
     @Override // com.facebook.imagepipeline.producers.al
-    public boolean FK(String str) {
-        int size = this.jJc.size();
+    public boolean FI(String str) {
+        int size = this.jIU.size();
         for (int i = 0; i < size; i++) {
-            if (this.jJc.get(i).FK(str)) {
+            if (this.jIU.get(i).FI(str)) {
                 return true;
             }
         }

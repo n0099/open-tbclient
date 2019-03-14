@@ -1,0 +1,156 @@
+package com.baidu.platform.comapi.wnplatform.h;
+
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.mapapi.UIMsg;
+import com.baidu.mapapi.walknavi.model.RouteGuideKind;
+import com.baidu.platform.comapi.walknavi.d.j;
+import java.util.List;
+/* JADX INFO: Access modifiers changed from: package-private */
+/* loaded from: classes5.dex */
+public class g extends Handler {
+    final /* synthetic */ f a;
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public g(f fVar) {
+        this.a = fVar;
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        List list;
+        List<a> list2;
+        List list3;
+        List<a> list4;
+        List list5;
+        List<a> list6;
+        List list7;
+        List<a> list8;
+        List list9;
+        List<a> list10;
+        List list11;
+        List<a> list12;
+        com.baidu.platform.comapi.walknavi.g.a aVar;
+        List list13;
+        List<a> list14;
+        switch (message.what) {
+            case 4098:
+                this.a.a(message);
+                return;
+            case 4099:
+            case 4103:
+            case 4104:
+            case UIMsg.k_event.MV_MAP_SETMAPMODE /* 4109 */:
+            default:
+                return;
+            case 4100:
+                list13 = this.a.a;
+                if (list13 != null) {
+                    Bundle bundle = new Bundle();
+                    com.baidu.platform.comapi.walknavi.b.a().D().a(bundle);
+                    list14 = this.a.a;
+                    for (a aVar2 : list14) {
+                        if (aVar2 != null) {
+                            aVar2.b(bundle);
+                        }
+                    }
+                    return;
+                }
+                return;
+            case 4101:
+                list11 = this.a.a;
+                if (list11 != null) {
+                    Bundle bundle2 = new Bundle();
+                    com.baidu.platform.comapi.walknavi.g.a.a.a(bundle2, 2, message.arg1, message.arg2);
+                    list12 = this.a.a;
+                    for (a aVar3 : list12) {
+                        if (aVar3 != null) {
+                            aVar3.c(bundle2);
+                        }
+                    }
+                    return;
+                }
+                return;
+            case 4102:
+                list9 = this.a.a;
+                if (list9 != null) {
+                    list10 = this.a.a;
+                    for (a aVar4 : list10) {
+                        if (aVar4 != null) {
+                            aVar4.f(null);
+                        }
+                    }
+                    return;
+                }
+                return;
+            case 4105:
+                list7 = this.a.a;
+                if (list7 != null) {
+                    byte[] l = com.baidu.platform.comapi.walknavi.b.a().D().l();
+                    list8 = this.a.a;
+                    for (a aVar5 : list8) {
+                        if (aVar5 != null) {
+                            aVar5.a(l);
+                        }
+                    }
+                    return;
+                }
+                return;
+            case 4106:
+                list5 = this.a.a;
+                if (list5 != null) {
+                    Bundle n = com.baidu.platform.comapi.walknavi.b.a().D().n();
+                    list6 = this.a.a;
+                    for (a aVar6 : list6) {
+                        if (aVar6 != null) {
+                            aVar6.e(n);
+                        }
+                    }
+                    return;
+                }
+                return;
+            case UIMsg.WalkNaviMsg.NL_UI_MESSAGE_TYPE_SPEED_UPDATE /* 4107 */:
+                list3 = this.a.a;
+                if (list3 != null) {
+                    Bundle bundle3 = new Bundle();
+                    com.baidu.platform.comapi.walknavi.b.a().a(bundle3);
+                    list4 = this.a.a;
+                    for (a aVar7 : list4) {
+                        if (aVar7 != null) {
+                            aVar7.a(bundle3);
+                        }
+                    }
+                }
+                if (!j.b()) {
+                    this.a.c();
+                    return;
+                }
+                return;
+            case 4108:
+                list = this.a.a;
+                if (list != null) {
+                    Bundle bundle4 = new Bundle();
+                    com.baidu.platform.comapi.walknavi.b.a().D().c(bundle4);
+                    list2 = this.a.a;
+                    for (a aVar8 : list2) {
+                        if (aVar8 != null) {
+                            aVar8.d(bundle4);
+                        }
+                    }
+                    return;
+                }
+                return;
+            case 4110:
+                j.a(false);
+                return;
+            case 4111:
+                int i = message.arg1;
+                if ((com.baidu.platform.comapi.walknavi.b.a().Q() instanceof com.baidu.platform.comapi.walknavi.g.a) && (aVar = (com.baidu.platform.comapi.walknavi.g.a) com.baidu.platform.comapi.walknavi.b.a().Q()) != null) {
+                    aVar.a(RouteGuideKind.values()[i]);
+                    return;
+                }
+                return;
+        }
+    }
+}

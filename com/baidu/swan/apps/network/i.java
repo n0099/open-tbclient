@@ -39,9 +39,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class i extends a implements f {
-    private static final Set<String> aCq = com.facebook.common.internal.h.K("json", "string");
-    private static final Set<String> aCr = com.facebook.common.internal.h.K("text", "arraybuffer");
-    private static final Set<String> aCs = com.facebook.common.internal.h.K(HttpOptions.METHOD_NAME, "GET", HttpHead.METHOD_NAME, "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
+    private static final Set<String> aCr = com.facebook.common.internal.h.K("json", "string");
+    private static final Set<String> aCs = com.facebook.common.internal.h.K("text", "arraybuffer");
+    private static final Set<String> aCt = com.facebook.common.internal.h.K(HttpOptions.METHOD_NAME, "GET", HttpHead.METHOD_NAME, "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "CONNECT");
 
     public i(com.baidu.swan.apps.scheme.j jVar) {
         super(jVar, "/swan/request");
@@ -72,7 +72,7 @@ public class i extends a implements f {
         final boolean optBoolean = c.optBoolean("ping", false);
         final String K = K(c);
         final String L = L(c);
-        final int i = bVar.uB().axW;
+        final int i = bVar.uB().axX;
         final String httpUrl = k.url().toString();
         bVar.Jd().a(k, new Callback() { // from class: com.baidu.swan.apps.network.i.1
             @Override // okhttp3.Callback
@@ -213,7 +213,7 @@ public class i extends a implements f {
         if (TextUtils.isEmpty(optString)) {
             return "json";
         }
-        if (!aCq.contains(optString)) {
+        if (!aCr.contains(optString)) {
             return "string";
         }
         return optString;
@@ -222,7 +222,7 @@ public class i extends a implements f {
     @NonNull
     private static String L(@NonNull JSONObject jSONObject) {
         String optString = jSONObject.optString("responseType");
-        if (!aCr.contains(optString)) {
+        if (!aCs.contains(optString)) {
             return "text";
         }
         return optString;
@@ -241,7 +241,7 @@ public class i extends a implements f {
             if (!TextUtils.isEmpty(optString)) {
                 optString = optString.toUpperCase();
             }
-            optString = (TextUtils.isEmpty(optString) || !aCs.contains(optString)) ? "GET" : "GET";
+            optString = (TextUtils.isEmpty(optString) || !aCt.contains(optString)) ? "GET" : "GET";
             HashMap hashMap = new HashMap();
             Request.Builder builder = new Request.Builder();
             a(builder, jSONObject.optJSONObject(WebSocketRequest.PARAM_KEY_HEADER), (Map<String, String>) hashMap, true);
@@ -266,7 +266,7 @@ public class i extends a implements f {
             Iterator<String> keys = jSONObject.keys();
             while (keys.hasNext()) {
                 String next = keys.next();
-                if (!TextUtils.isEmpty(next) && !aCf.contains(next.toUpperCase())) {
+                if (!TextUtils.isEmpty(next) && !aCg.contains(next.toUpperCase())) {
                     String hN = aa.hN(jSONObject.optString(next));
                     if (TextUtils.isEmpty(hN)) {
                         hN = "";
@@ -291,11 +291,11 @@ public class i extends a implements f {
     private static RequestBody a(@Nullable Object obj, Map<String, String> map) {
         String str = map.get(Headers.CONTENT_TYPE);
         if (TextUtils.isEmpty(str)) {
-            return RequestBody.create(f.a.aCj, obj == null ? "" : obj.toString());
+            return RequestBody.create(f.a.aCk, obj == null ? "" : obj.toString());
         }
         MediaType parse = MediaType.parse(str);
-        if (f.a.aCj.equals(parse)) {
-            return RequestBody.create(f.a.aCj, obj == null ? "" : obj.toString());
+        if (f.a.aCk.equals(parse)) {
+            return RequestBody.create(f.a.aCk, obj == null ? "" : obj.toString());
         }
         return a(obj, parse);
     }

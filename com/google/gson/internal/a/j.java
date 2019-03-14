@@ -11,28 +11,28 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 /* loaded from: classes2.dex */
 public final class j extends o<Date> {
-    public static final p jOF = new p() { // from class: com.google.gson.internal.a.j.1
+    public static final p jOx = new p() { // from class: com.google.gson.internal.a.j.1
         @Override // com.google.gson.p
         public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-            if (aVar.cBG() == Date.class) {
+            if (aVar.cBJ() == Date.class) {
                 return new j();
             }
             return null;
         }
     };
-    private final DateFormat jPn = new SimpleDateFormat("MMM d, yyyy");
+    private final DateFormat jPf = new SimpleDateFormat("MMM d, yyyy");
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.o
     /* renamed from: l */
     public synchronized Date b(com.google.gson.stream.a aVar) throws IOException {
         Date date;
-        if (aVar.cBu() == JsonToken.NULL) {
+        if (aVar.cBx() == JsonToken.NULL) {
             aVar.nextNull();
             date = null;
         } else {
             try {
-                date = new Date(this.jPn.parse(aVar.nextString()).getTime());
+                date = new Date(this.jPf.parse(aVar.nextString()).getTime());
             } catch (ParseException e) {
                 throw new JsonSyntaxException(e);
             }
@@ -43,6 +43,6 @@ public final class j extends o<Date> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.o
     public synchronized void a(com.google.gson.stream.b bVar, Date date) throws IOException {
-        bVar.FT(date == null ? null : this.jPn.format((java.util.Date) date));
+        bVar.FR(date == null ? null : this.jPf.format((java.util.Date) date));
     }
 }

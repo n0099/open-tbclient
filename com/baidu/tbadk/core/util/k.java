@@ -4,7 +4,7 @@ import android.os.Build;
 import com.baidu.tbadk.TbConfig;
 /* loaded from: classes.dex */
 public class k extends Thread {
-    private String bIx = "1";
+    private String bIy = "1";
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
@@ -13,11 +13,11 @@ public class k extends Thread {
         xVar.x("st_type", TbConfig.ST_TYPE_ENTER_FORE);
         xVar.x("os_version", Build.VERSION.RELEASE);
         xVar.x("android_sdk", String.valueOf(Build.VERSION.SDK_INT));
-        xVar.x("op_type", this.bIx);
+        xVar.x("op_type", this.bIy);
         xVar.acj();
     }
 
     public void setOpType(String str) {
-        this.bIx = str;
+        this.bIy = str;
     }
 }

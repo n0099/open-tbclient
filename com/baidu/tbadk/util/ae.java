@@ -13,7 +13,6 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
-import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes.dex */
 public class ae {
     public static String bU(String str, String str2) {
@@ -67,7 +66,7 @@ public class ae {
         return str3;
     }
 
-    public static Bundle pS(String str) {
+    public static Bundle pQ(String str) {
         URL url;
         String query;
         String[] split;
@@ -84,7 +83,7 @@ public class ae {
         if (StringUtils.isNull(query) || StringUtils.isNull(url.getPath()) || (split = query.split("&")) == null) {
             return null;
         }
-        bundle.putString(ClientCookie.PATH_ATTR, url.getPath());
+        bundle.putString("path", url.getPath());
         for (String str2 : split) {
             String[] split2 = str2.split("=");
             if (split2 != null && split2.length == 2 && !StringUtils.isNull(split2[0])) {
@@ -97,17 +96,17 @@ public class ae {
     /* loaded from: classes.dex */
     public static class a {
         public String BDUSS;
-        public String ctS;
+        public String ctP;
 
         public a(String str, String str2) {
             this.BDUSS = "";
-            this.ctS = "";
+            this.ctP = "";
             this.BDUSS = str;
-            this.ctS = str2;
+            this.ctP = str2;
         }
 
         public int hashCode() {
-            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.ctS != null ? this.ctS.hashCode() : 0);
+            return (((this.BDUSS == null ? 0 : this.BDUSS.hashCode()) + 31) * 31) + (this.ctP != null ? this.ctP.hashCode() : 0);
         }
 
         public boolean equals(Object obj) {
@@ -123,7 +122,7 @@ public class ae {
                 } else if (!this.BDUSS.equals(aVar.BDUSS)) {
                     return false;
                 }
-                return this.ctS == null ? aVar.ctS == null : this.ctS.equals(aVar.ctS);
+                return this.ctP == null ? aVar.ctP == null : this.ctP.equals(aVar.ctP);
             }
             return false;
         }
@@ -147,7 +146,7 @@ public class ae {
         }
     }
 
-    public static String pT(String str) {
+    public static String pR(String str) {
         if (!ap.isEmpty(str) && !str.contains("page_type")) {
             StringBuilder sb = new StringBuilder(str);
             if (str.contains("?")) {

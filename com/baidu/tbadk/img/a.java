@@ -10,7 +10,7 @@ import com.baidu.tieba.d;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
 public class a<T> {
-    private WeakReference<InterfaceC0205a<T>> cmI = null;
+    private WeakReference<InterfaceC0239a<T>> cmI = null;
     private c cmJ = null;
     private a<T>.b cmK = null;
     public T cmL;
@@ -19,7 +19,7 @@ public class a<T> {
 
     /* renamed from: com.baidu.tbadk.img.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0205a<T> {
+    public interface InterfaceC0239a<T> {
         void d(int i, T t);
     }
 
@@ -63,10 +63,10 @@ public class a<T> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: q */
         public ImageUploadResult doInBackground(String... strArr) {
-            return any();
+            return anx();
         }
 
-        private ImageUploadResult any() {
+        private ImageUploadResult anx() {
             a.this.cmM.a(this, null);
             ImageUploadResult P = a.this.cmM.P(a.this.mPath, this.cmN);
             publishProgress(100);
@@ -93,7 +93,7 @@ public class a<T> {
         /* renamed from: c */
         public void onProgressUpdate(Integer... numArr) {
             if (numArr != null && numArr.length != 0 && a.this.cmI != null && a.this.cmI.get() != null) {
-                ((InterfaceC0205a) a.this.cmI.get()).d(numArr[0].intValue(), a.this.cmL);
+                ((InterfaceC0239a) a.this.cmI.get()).d(numArr[0].intValue(), a.this.cmL);
             }
         }
 
@@ -135,8 +135,8 @@ public class a<T> {
         }
     }
 
-    public void a(InterfaceC0205a<T> interfaceC0205a) {
-        this.cmI = new WeakReference<>(interfaceC0205a);
+    public void a(InterfaceC0239a<T> interfaceC0239a) {
+        this.cmI = new WeakReference<>(interfaceC0239a);
     }
 
     public void a(c cVar) {
@@ -147,7 +147,7 @@ public class a<T> {
         this.cmM.setGroupId(str);
     }
 
-    public T anw() {
+    public T anv() {
         return this.cmL;
     }
 
@@ -155,7 +155,7 @@ public class a<T> {
         this.cmL = t;
     }
 
-    public void anx() {
+    public void anw() {
         LocalViewSize.ImageSize acC = LocalViewSize.acA().acC();
         LocalViewSize.ImageSize acD = LocalViewSize.acA().acD();
         l(acD.width, acD.height, acC.width, acC.height);

@@ -13,30 +13,30 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class a implements View.OnClickListener {
-    private PopupWindow eDH;
-    private boolean fvf;
+    private PopupWindow eDD;
+    private boolean fve;
     private View mAnchor;
     private TbPageContext mPageContext;
-    private int fve = d.j.attention_post_update_tip;
+    private int fvd = d.j.attention_post_update_tip;
     private Handler mHandler = new Handler();
-    private Runnable fvg = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
+    private Runnable fvf = new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.mPageContext != null && a.this.mAnchor != null) {
                 Activity pageActivity = a.this.mPageContext.getPageActivity();
                 int h = l.h(pageActivity, d.e.ds64);
-                View g = a.this.g(pageActivity, a.this.fve);
+                View g = a.this.g(pageActivity, a.this.fvd);
                 int[] iArr = new int[2];
                 a.this.mAnchor.getLocationInWindow(iArr);
                 int h2 = l.h(pageActivity, d.e.ds32);
                 int h3 = l.h(pageActivity, d.e.ds16) + (iArr[1] - h);
-                a.this.eDH = new PopupWindow(g, -2, h);
-                a.this.eDH.showAtLocation(a.this.mAnchor, 53, h2, h3);
+                a.this.eDD = new PopupWindow(g, -2, h);
+                a.this.eDD.showAtLocation(a.this.mAnchor, 53, h2, h3);
                 a.this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.frs.vc.a.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.eDH != null) {
-                            a.this.biJ();
+                        if (a.this.eDD != null) {
+                            a.this.biI();
                         }
                     }
                 }, 3000L);
@@ -46,24 +46,24 @@ public class a implements View.OnClickListener {
 
     public a(TbPageContext tbPageContext, boolean z) {
         this.mPageContext = tbPageContext;
-        this.fvf = z;
+        this.fve = z;
     }
 
     public void bN(View view) {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (this.mPageContext != null && view != null && !StringUtils.isNull(currentAccount)) {
             this.mAnchor = view;
-            if (this.fvf) {
-                this.fve = d.j.attention_post_update_tip;
+            if (this.fve) {
+                this.fvd = d.j.attention_post_update_tip;
                 String str = currentAccount + "frs_god_new_post_tip_count";
                 int i = com.baidu.tbadk.core.sharedPref.b.getInstance().getInt(str, 0);
                 if (i >= 3) {
-                    this.fvf = false;
+                    this.fve = false;
                     return;
                 }
                 com.baidu.tbadk.core.sharedPref.b.getInstance().putInt(str, i + 1);
-                this.fvf = false;
-                this.mHandler.postDelayed(this.fvg, 500L);
+                this.fve = false;
+                this.mHandler.postDelayed(this.fvf, 500L);
             }
         }
     }
@@ -79,25 +79,25 @@ public class a implements View.OnClickListener {
         textView.setText(i);
         textView.setOnClickListener(this);
         al.k(textView, d.f.bg_tip_blue_left);
-        al.j(textView, d.C0236d.cp_btn_a);
+        al.j(textView, d.C0277d.cp_btn_a);
         textView.setOnClickListener(this);
         return textView;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        biJ();
+        biI();
     }
 
-    public void biJ() {
-        if (this.eDH != null) {
-            this.eDH.dismiss();
-            this.eDH = null;
+    public void biI() {
+        if (this.eDD != null) {
+            this.eDD.dismiss();
+            this.eDD = null;
         }
     }
 
     public void destory() {
         this.mHandler.removeCallbacksAndMessages(null);
-        biJ();
+        biI();
     }
 }

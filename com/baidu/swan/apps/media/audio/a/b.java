@@ -110,37 +110,37 @@ public class b extends y {
             }
             switch (c) {
                 case 0:
-                    c.i("audio", "open, audio id:" + a.azr);
+                    c.i("audio", "open, audio id:" + a.azs);
                     eW.a(a, callbackHandler);
                     z = true;
                     break;
                 case 1:
-                    c.i("audio", "update, audio id:" + a.azr);
+                    c.i("audio", "update, audio id:" + a.azs);
                     eW.a(a);
                     z = true;
                     break;
                 case 2:
-                    c.i("audio", "play, audio id:" + a.azr);
+                    c.i("audio", "play, audio id:" + a.azs);
                     eW.play();
                     z = true;
                     break;
                 case 3:
-                    c.i("audio", "pause, audio id:" + a.azr);
+                    c.i("audio", "pause, audio id:" + a.azs);
                     eW.pause();
                     z = true;
                     break;
                 case 4:
-                    c.i("audio", "seek, audio id:" + a.azr);
+                    c.i("audio", "seek, audio id:" + a.azs);
                     eW.seekTo(a.mPos);
                     z = true;
                     break;
                 case 5:
-                    c.i("audio", "stop, audio id:" + a.azr);
+                    c.i("audio", "stop, audio id:" + a.azs);
                     eW.stop();
                     z = true;
                     break;
                 case 6:
-                    c.i("audio", "release, audio id:" + a.azr);
+                    c.i("audio", "release, audio id:" + a.azs);
                     eW.release();
                     z = true;
                     break;

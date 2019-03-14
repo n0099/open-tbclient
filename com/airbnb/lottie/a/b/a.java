@@ -2,6 +2,7 @@ package com.airbnb.lottie.a.b;
 
 import android.support.annotation.FloatRange;
 import android.support.annotation.Nullable;
+import com.baidu.mapapi.map.WeightedLatLng;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -86,7 +87,7 @@ public abstract class a<K, A> {
         return dq.oj.getInterpolation((this.progress - dq.cX()) / (dq.cY() - dq.cX()));
     }
 
-    @FloatRange(from = 0.0d, to = 1.0d)
+    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     private float ds() {
         if (this.pz.isEmpty()) {
             return 0.0f;
@@ -94,7 +95,7 @@ public abstract class a<K, A> {
         return this.pz.get(0).cX();
     }
 
-    @FloatRange(from = 0.0d, to = 1.0d)
+    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     private float cY() {
         if (this.pz.isEmpty()) {
             return 1.0f;

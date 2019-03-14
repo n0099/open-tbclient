@@ -12,8 +12,8 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickListener {
-    private int fdA;
-    private int fdx;
+    private int fdw;
+    private int fdz;
     private Context mContext;
     private int mWidth;
 
@@ -38,9 +38,9 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
     private void init(Context context) {
         setOrientation(1);
         this.mContext = context;
-        this.fdA = l.h(this.mContext, d.e.ds8);
+        this.fdz = l.h(this.mContext, d.e.ds8);
         this.mWidth = l.aO(this.mContext);
-        this.fdx = l.aO(this.mContext) / 2;
+        this.fdw = l.aO(this.mContext) / 2;
     }
 
     public void setData(ArrayList<String> arrayList) {
@@ -66,7 +66,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
                 linearLayout2 = linearLayout;
             }
             if (linearLayout2 != null && linearLayout2.getChildCount() == 0) {
-                this.fdx = this.mWidth;
+                this.fdw = this.mWidth;
                 b(linearLayout2, (String) v.c(arrayList, S - 1));
             }
         }
@@ -76,23 +76,23 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         TextView textView = new TextView(this.mContext);
         textView.setText(str);
         textView.setGravity(17);
-        al.l(textView, d.C0236d.cp_bg_line_c);
-        al.j(textView, d.C0236d.black_alpha100);
+        al.l(textView, d.C0277d.cp_bg_line_c);
+        al.j(textView, d.C0277d.black_alpha100);
         textView.setTextSize(0, getResources().getDimension(d.e.ds28));
         textView.setTypeface(null, 1);
         textView.setMinLines(1);
         textView.setMaxLines(1);
-        textView.setWidth(this.fdx);
+        textView.setWidth(this.fdw);
         textView.setOnClickListener(this);
         linearLayout.addView(textView);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-        layoutParams.leftMargin = this.fdA;
-        layoutParams.rightMargin = this.fdA;
+        layoutParams.leftMargin = this.fdz;
+        layoutParams.rightMargin = this.fdz;
     }
 
     private LinearLayout bNS() {
         LinearLayout linearLayout = new LinearLayout(this.mContext);
-        al.l(linearLayout, d.C0236d.transparent);
+        al.l(linearLayout, d.C0277d.transparent);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(this.mWidth, -2));
         linearLayout.setGravity(17);
         addView(linearLayout);

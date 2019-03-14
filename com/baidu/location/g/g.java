@@ -15,6 +15,7 @@ import com.baidu.android.bbalbs.common.security.Base64;
 import com.baidu.android.common.security.RSAUtil;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
+import com.baidu.mapsdkplatform.comapi.location.CoordinateType;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import java.io.File;
 import java.io.FileInputStream;
@@ -52,7 +53,7 @@ public class g {
     public static boolean k = false;
     public static boolean l = false;
     public static boolean m = false;
-    public static String n = "gcj02";
+    public static String n = CoordinateType.GCJ02;
     public static String o = "";
     public static boolean p = true;
     public static int q = 3;

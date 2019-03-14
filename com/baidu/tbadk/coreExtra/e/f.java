@@ -3,6 +3,8 @@ package com.baidu.tbadk.coreExtra.e;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
+import com.baidu.mapapi.UIMsg;
+import com.baidu.mobstat.Config;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 /* loaded from: classes.dex */
@@ -18,7 +20,7 @@ public class f {
         int i2;
         this.cgr = false;
         this.cgs = 0;
-        if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(":")) >= 5) {
+        if (!TextUtils.isEmpty(str) && (lastIndexOf = str.lastIndexOf(Config.TRACE_TODAY_VISIT_SPLIT)) >= 5) {
             String str3 = null;
             try {
                 str2 = str.substring(5, lastIndexOf);
@@ -90,7 +92,7 @@ public class f {
         return this.cgr;
     }
 
-    public int alb() {
+    public int ala() {
         return this.cgs;
     }
 
@@ -102,7 +104,7 @@ public class f {
                 return 10000;
             case 3:
             default:
-                return 5000;
+                return UIMsg.m_AppUI.MSG_APP_GPS;
         }
     }
 }

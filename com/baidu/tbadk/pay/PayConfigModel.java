@@ -82,10 +82,10 @@ public class PayConfigModel extends BdBaseModel {
         return false;
     }
 
-    public void aoW() {
-        if (!c.aoX().aoY()) {
+    public void aoV() {
+        if (!c.aoW().aoX()) {
             if (this.cpT != null) {
-                this.cpT.aoU();
+                this.cpT.aoT();
                 return;
             }
             return;
@@ -112,11 +112,11 @@ public class PayConfigModel extends BdBaseModel {
             }
         } else if (dataRes.payType.pay_type.intValue() == 1) {
             if (this.cpT != null) {
-                this.cpT.aoV();
+                this.cpT.aoU();
             }
         } else if (dataRes.payType.pay_type.intValue() == 2) {
             if (this.cpT != null) {
-                this.cpT.aoU();
+                this.cpT.aoT();
             }
         } else if (this.cpT != null) {
             this.cpT.onError("");

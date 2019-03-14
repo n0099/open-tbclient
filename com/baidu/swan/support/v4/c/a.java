@@ -4,21 +4,21 @@ import android.os.Build;
 import android.view.LayoutInflater;
 /* loaded from: classes2.dex */
 public class a {
-    static final InterfaceC0181a bov;
+    static final InterfaceC0215a bow;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.swan.support.v4.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0181a {
+    public interface InterfaceC0215a {
         void a(LayoutInflater layoutInflater, e eVar);
     }
 
     /* loaded from: classes2.dex */
-    static class b implements InterfaceC0181a {
+    static class b implements InterfaceC0215a {
         b() {
         }
 
-        @Override // com.baidu.swan.support.v4.c.a.InterfaceC0181a
+        @Override // com.baidu.swan.support.v4.c.a.InterfaceC0215a
         public void a(LayoutInflater layoutInflater, e eVar) {
             com.baidu.swan.support.v4.c.b.a(layoutInflater, eVar);
         }
@@ -29,7 +29,7 @@ public class a {
         c() {
         }
 
-        @Override // com.baidu.swan.support.v4.c.a.b, com.baidu.swan.support.v4.c.a.InterfaceC0181a
+        @Override // com.baidu.swan.support.v4.c.a.b, com.baidu.swan.support.v4.c.a.InterfaceC0215a
         public void a(LayoutInflater layoutInflater, e eVar) {
             com.baidu.swan.support.v4.c.c.a(layoutInflater, eVar);
         }
@@ -40,7 +40,7 @@ public class a {
         d() {
         }
 
-        @Override // com.baidu.swan.support.v4.c.a.c, com.baidu.swan.support.v4.c.a.b, com.baidu.swan.support.v4.c.a.InterfaceC0181a
+        @Override // com.baidu.swan.support.v4.c.a.c, com.baidu.swan.support.v4.c.a.b, com.baidu.swan.support.v4.c.a.InterfaceC0215a
         public void a(LayoutInflater layoutInflater, e eVar) {
             com.baidu.swan.support.v4.c.d.a(layoutInflater, eVar);
         }
@@ -49,15 +49,15 @@ public class a {
     static {
         int i = Build.VERSION.SDK_INT;
         if (i >= 21) {
-            bov = new d();
+            bow = new d();
         } else if (i >= 11) {
-            bov = new c();
+            bow = new c();
         } else {
-            bov = new b();
+            bow = new b();
         }
     }
 
     public static void a(LayoutInflater layoutInflater, e eVar) {
-        bov.a(layoutInflater, eVar);
+        bow.a(layoutInflater, eVar);
     }
 }

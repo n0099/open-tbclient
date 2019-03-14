@@ -19,64 +19,64 @@ import tbclient.BottomMenu;
 import tbclient.SubBottomMenu;
 /* loaded from: classes4.dex */
 public class a implements BottomMenuView.a {
-    private int bhx;
+    private int bhy;
     private ForumData ckJ;
-    private ImageView ffO;
-    private BottomMenuView ffP;
-    private List<BottomMenu> ffQ;
+    private ImageView ffN;
+    private BottomMenuView ffO;
+    private List<BottomMenu> ffP;
+    private int ffQ;
     private int ffR;
-    private int ffS;
     private TbPageContext<?> mPageContext;
     private View mRootView;
 
     public a(TbPageContext tbPageContext, View view) {
         this.mPageContext = tbPageContext;
         this.mRootView = view;
-        this.ffO = (ImageView) view.findViewById(d.g.normal_write_icon);
-        this.ffP = (BottomMenuView) view.findViewById(d.g.bottom_menu_view);
-        this.ffP.setOnMenuItemClickListener(this);
-        this.bhx = l.h(tbPageContext.getPageActivity(), d.e.tbds160);
-        this.ffR = l.h(tbPageContext.getPageActivity(), d.e.tbds44);
-        this.ffS = l.h(tbPageContext.getPageActivity(), d.e.ds4);
+        this.ffN = (ImageView) view.findViewById(d.g.normal_write_icon);
+        this.ffO = (BottomMenuView) view.findViewById(d.g.bottom_menu_view);
+        this.ffO.setOnMenuItemClickListener(this);
+        this.bhy = l.h(tbPageContext.getPageActivity(), d.e.tbds160);
+        this.ffQ = l.h(tbPageContext.getPageActivity(), d.e.tbds44);
+        this.ffR = l.h(tbPageContext.getPageActivity(), d.e.ds4);
     }
 
     public void a(List<BottomMenu> list, ForumData forumData) {
-        this.ffQ = list;
+        this.ffP = list;
         this.ckJ = forumData;
         boolean z = v.S(list) > 0;
         jz(z);
         if (z) {
-            this.ffP.setVisibility(0);
-            this.ffP.a(list, this.mPageContext);
+            this.ffO.setVisibility(0);
+            this.ffO.a(list, this.mPageContext);
             return;
         }
-        this.ffP.setVisibility(8);
+        this.ffO.setVisibility(8);
     }
 
     private void jz(boolean z) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ffO.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.ffN.getLayoutParams();
         if (z) {
             layoutParams.addRule(11);
             layoutParams.addRule(12);
             layoutParams.addRule(14, 0);
-            layoutParams.bottomMargin = this.bhx;
-            layoutParams.rightMargin = this.ffR;
+            layoutParams.bottomMargin = this.bhy;
+            layoutParams.rightMargin = this.ffQ;
             return;
         }
         layoutParams.addRule(11, 0);
         layoutParams.addRule(12);
         layoutParams.addRule(14);
-        layoutParams.bottomMargin = this.ffS;
+        layoutParams.bottomMargin = this.ffR;
         layoutParams.rightMargin = 0;
     }
 
     public void jA(boolean z) {
-        this.ffP.setVisibility(z ? 0 : 8);
+        this.ffO.setVisibility(z ? 0 : 8);
     }
 
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
-        if (this.ffP.getVisibility() == 0) {
-            this.ffP.onChangeSkinType(tbPageContext, i);
+        if (this.ffO.getVisibility() == 0) {
+            this.ffO.onChangeSkinType(tbPageContext, i);
         }
     }
 

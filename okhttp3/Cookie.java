@@ -194,7 +194,7 @@ public final class Cookie {
                 } catch (IllegalArgumentException e3) {
                     str3 = str4;
                 }
-            } else if (trimSubstring3.equalsIgnoreCase(ClientCookie.PATH_ATTR)) {
+            } else if (trimSubstring3.equalsIgnoreCase("path")) {
                 str5 = str2;
                 str3 = str4;
             } else if (trimSubstring3.equalsIgnoreCase(ClientCookie.SECURE_ATTR)) {

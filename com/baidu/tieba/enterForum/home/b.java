@@ -14,39 +14,39 @@ import com.baidu.tieba.enterForum.view.a;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class b {
-    private com.baidu.tieba.enterForum.view.e eBe;
-    private com.baidu.tieba.enterForum.view.a eDe;
-    private a eDf;
+    private com.baidu.tieba.enterForum.view.e eBa;
+    private com.baidu.tieba.enterForum.view.a eDa;
+    private a eDb;
     private Context mContext;
     private int mSortType;
     private int mStatusBarHeight;
     private TextView mTitle;
-    private a.InterfaceC0242a eDg = new a.InterfaceC0242a() { // from class: com.baidu.tieba.enterForum.home.b.1
-        @Override // com.baidu.tieba.enterForum.view.a.InterfaceC0242a
+    private a.InterfaceC0283a eDc = new a.InterfaceC0283a() { // from class: com.baidu.tieba.enterForum.home.b.1
+        @Override // com.baidu.tieba.enterForum.view.a.InterfaceC0283a
         public void lI(int i) {
             b.this.mSortType = i;
             TiebaStatic.log(new am("c13369").T("obj_type", i == 1 ? 2 : 1));
-            b.this.aWG();
-            if (b.this.eDf != null) {
-                b.this.eDf.pc(b.this.mSortType);
+            b.this.aWF();
+            if (b.this.eDb != null) {
+                b.this.eDb.pc(b.this.mSortType);
             }
         }
     };
-    private View.OnClickListener bQJ = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.b.2
+    private View.OnClickListener bQK = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!b.this.eBe.aXG() && view == b.this.mTitle) {
-                if (b.this.eDe == null) {
-                    b.this.eDe = new com.baidu.tieba.enterForum.view.a(b.this.mContext);
-                    b.this.eDe.setOnDismissListener(b.this.mOnDismissListener);
-                    b.this.eDe.a(b.this.eDg);
-                    b.this.eDe.po(b.this.mStatusBarHeight);
+            if (!b.this.eBa.aXF() && view == b.this.mTitle) {
+                if (b.this.eDa == null) {
+                    b.this.eDa = new com.baidu.tieba.enterForum.view.a(b.this.mContext);
+                    b.this.eDa.setOnDismissListener(b.this.mOnDismissListener);
+                    b.this.eDa.a(b.this.eDc);
+                    b.this.eDa.po(b.this.mStatusBarHeight);
                 }
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(new i(b.this.mContext.getString(d.j.level_sort), 1));
                 arrayList.add(new i(b.this.mContext.getString(d.j.update_sort), 2));
-                b.this.eDe.setData(arrayList, b.this.mSortType);
-                b.this.eDe.bg(b.this.mTitle);
+                b.this.eDa.setData(arrayList, b.this.mSortType);
+                b.this.eDa.bg(b.this.mTitle);
                 b.this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, al.getDrawable(d.f.icon_common_arrow_up_n), (Drawable) null);
             }
         }
@@ -71,15 +71,15 @@ public class b {
         this.mContext = context;
         this.mSortType = i;
         this.mStatusBarHeight = i2;
-        this.eBe = eVar;
+        this.eBa = eVar;
     }
 
     public void h(TextView textView) {
         this.mTitle = textView;
     }
 
-    public void aWG() {
-        if (aWH() && this.mTitle != null) {
+    public void aWF() {
+        if (aWG() && this.mTitle != null) {
             switch (this.mSortType) {
                 case 1:
                     this.mTitle.setText(d.j.level_sort);
@@ -88,22 +88,22 @@ public class b {
                     this.mTitle.setText(d.j.update_sort);
                     break;
             }
-            this.mTitle.setOnClickListener(this.bQJ);
+            this.mTitle.setOnClickListener(this.bQK);
         }
     }
 
-    public boolean aWH() {
+    public boolean aWG() {
         return this.mSortType == 1 || this.mSortType == 2;
     }
 
     public void setSortType(int i) {
-        if (aWH()) {
+        if (aWG()) {
             this.mSortType = i;
-            aWG();
+            aWF();
         }
     }
 
     public void a(a aVar) {
-        this.eDf = aVar;
+        this.eDb = aVar;
     }
 }

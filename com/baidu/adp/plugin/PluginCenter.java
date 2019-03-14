@@ -440,7 +440,7 @@ public class PluginCenter {
     }
 
     private void recordPluginLoadRate() {
-        String[] strArr = {"com.baidu.tieba.pluginall", "com.baidu.tieba.pluginInjectAll"};
+        String[] strArr = {"com.baidu.tieba.pluginHotTopic", "com.baidu.tieba.pluginUserConsume"};
         int length = strArr.length;
         float f = 0.0f;
         int length2 = strArr.length;
@@ -456,7 +456,7 @@ public class PluginCenter {
 
     public void logPluginLoadStat() {
         int i;
-        String[] strArr = {"com.baidu.tieba.pluginall", "com.baidu.tieba.pluginInjectAll"};
+        String[] strArr = {"com.baidu.tieba.pluginHotTopic", "com.baidu.tieba.pluginUserConsume"};
         int length = strArr.length;
         StringBuilder sb = new StringBuilder();
         StringBuilder sb2 = new StringBuilder();

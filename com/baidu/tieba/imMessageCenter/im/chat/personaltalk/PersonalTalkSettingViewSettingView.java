@@ -9,7 +9,7 @@ import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class PersonalTalkSettingViewSettingView extends LinearLayout {
-    private SettingTextSwitchView gvC;
+    private SettingTextSwitchView gvB;
 
     public PersonalTalkSettingViewSettingView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -22,23 +22,23 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
     }
 
     public void setSwitchStateChangeListener(BdSwitchView.a aVar) {
-        if (this.gvC != null) {
-            this.gvC.setSwitchStateChangeListener(aVar);
+        if (this.gvB != null) {
+            this.gvB.setSwitchStateChangeListener(aVar);
         }
     }
 
     private void initUI() {
         setOrientation(1);
         inflate(getContext(), d.h.p2ptalk_setting_detail_view, this);
-        this.gvC = (SettingTextSwitchView) findViewById(d.g.sv_person_msg_notify);
-        al.l(this.gvC.getView(), d.C0236d.common_color_10163);
+        this.gvB = (SettingTextSwitchView) findViewById(d.g.sv_person_msg_notify);
+        al.l(this.gvB.getView(), d.C0277d.common_color_10163);
     }
 
     public void lF(boolean z) {
         if (z) {
-            this.gvC.as(false);
+            this.gvB.as(false);
         } else {
-            this.gvC.at(false);
+            this.gvB.at(false);
         }
     }
 }

@@ -72,12 +72,12 @@ public class b {
             }
             try {
                 if (value.tempVersionCode > 0 && value.installStatus > 0) {
-                    if (value.installStatus == a.b.LS) {
+                    if (value.installStatus == a.b.LU) {
                         String f = Util.f(value);
                         if (!TextUtils.isEmpty(f) && new File(f).exists()) {
                             this.La.put(new File(f).getName(), "");
                         }
-                    } else if (value.installStatus == a.b.LW || value.installStatus == a.b.LV) {
+                    } else if (value.installStatus == a.b.LX || value.installStatus == a.b.LW) {
                         String str2 = Util.f(value) + ".tmp";
                         if (!TextUtils.isEmpty(str2) && new File(str2).exists()) {
                             this.La.put(new File(str2).getName(), "");

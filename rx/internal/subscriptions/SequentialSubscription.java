@@ -17,7 +17,7 @@ public final class SequentialSubscription extends AtomicReference<k> implements 
     public k current() {
         k kVar = (k) super.get();
         if (kVar == Unsubscribed.INSTANCE) {
-            return e.cFD();
+            return e.cFG();
         }
         return kVar;
     }

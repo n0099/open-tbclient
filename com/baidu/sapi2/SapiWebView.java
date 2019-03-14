@@ -44,9 +44,9 @@ import android.widget.AbsoluteLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import com.baidu.android.common.security.MD5Util;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiJsInterpreters;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.sapi2.base.debug.Log;
 import com.baidu.sapi2.callback.GetTplStokenCallback;
 import com.baidu.sapi2.callback.GetUserInfoCallback;
@@ -86,6 +86,7 @@ import com.baidu.sapi2.utils.enums.RegistMode;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.coremedia.iso.boxes.FreeSpaceBox;
 import com.huawei.hwid.openapi.OpenHwID;
 import com.huawei.hwid.openapi.out.IHwIDCallBack;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
@@ -845,7 +846,7 @@ public final class SapiWebView extends WebView {
                 } else {
                     if (SapiWebView.this.at != null) {
                         Uri parse = Uri.parse(str);
-                        if (SapiWebView.this.J.environment.getWap(SapiUtils.getDefaultHttpsEnabled()).replace("http://", "").replace("https://", "").equals(parse.getHost() + (parse.getPort() == -1 ? "" : ":" + parse.getPort())) && SapiEnv.LOGIN_PROXY_URI.equals(parse.getPath())) {
+                        if (SapiWebView.this.J.environment.getWap(SapiUtils.getDefaultHttpsEnabled()).replace("http://", "").replace("https://", "").equals(parse.getHost() + (parse.getPort() == -1 ? "" : Config.TRACE_TODAY_VISIT_SPLIT + parse.getPort())) && SapiEnv.LOGIN_PROXY_URI.equals(parse.getPath())) {
                             SapiAccountManager.getInstance().getAccountService().a(SapiWebView.this.at, str);
                             return true;
                         }
@@ -1811,7 +1812,7 @@ public final class SapiWebView extends WebView {
             arrayList.add(new PassNameValuePair("skin", str2));
         }
         if (z2) {
-            arrayList.add(new PassNameValuePair("skip", "1"));
+            arrayList.add(new PassNameValuePair(FreeSpaceBox.TYPE, "1"));
         }
         if (this.J.supportFaceLogin) {
             arrayList.add(new PassNameValuePair("liveAbility", "1"));
@@ -2196,7 +2197,7 @@ public final class SapiWebView extends WebView {
                                     z2 = z3;
                                 }
                             } else {
-                                if (sapiAccountResponse == null && name.equalsIgnoreCase(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE)) {
+                                if (sapiAccountResponse == null && name.equalsIgnoreCase("error_code")) {
                                     SapiAccountResponse sapiAccountResponse3 = new SapiAccountResponse();
                                     try {
                                         sapiAccountResponse3.errorCode = Integer.parseInt(newPullParser.nextText());
@@ -2382,7 +2383,7 @@ public final class SapiWebView extends WebView {
                                 }
                                 socialResponse = socialResponse2;
                                 break;
-                            } else if (socialResponse2 == null && name.equalsIgnoreCase(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE)) {
+                            } else if (socialResponse2 == null && name.equalsIgnoreCase("error_code")) {
                                 socialResponse = new SocialResponse();
                                 try {
                                     socialResponse.errorCode = Integer.parseInt(newPullParser.nextText());
@@ -2406,7 +2407,7 @@ public final class SapiWebView extends WebView {
                                 }
                             } else {
                                 if (socialResponse2 != null) {
-                                    if (name.equalsIgnoreCase(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE)) {
+                                    if (name.equalsIgnoreCase("error_code")) {
                                         socialResponse2.errorCode = Integer.parseInt(newPullParser.nextText());
                                         socialResponse = socialResponse2;
                                         break;
@@ -2760,7 +2761,7 @@ public final class SapiWebView extends WebView {
                         req.state = optString;
                         WXAPIFactory.createWXAPI(SapiWebView.this.getContext(), SapiWebView.this.J.wxAppID).sendReq(req);
                     } else {
-                        String optString2 = jSONObject.optString(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE, "");
+                        String optString2 = jSONObject.optString("error_code", "");
                         if (SapiWebView.this.L != null) {
                             SapiWebView.this.L.handleServerError(optString2);
                         }

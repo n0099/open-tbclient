@@ -55,6 +55,7 @@ import android.view.accessibility.AccessibilityManager;
 import android.view.animation.Interpolator;
 import android.widget.EdgeEffect;
 import android.widget.OverScroller;
+import com.baidu.mapapi.UIMsg;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
@@ -4263,7 +4264,7 @@ public class RecyclerView extends ViewGroup implements NestedScrollingChild2, Sc
             if (hasStableIds()) {
                 vh.mItemId = getItemId(i);
             }
-            vh.setFlags(1, 519);
+            vh.setFlags(1, UIMsg.m_AppUI.MSG_SET_SENSOR_STATUS);
             TraceCompat.beginSection(RecyclerView.TRACE_BIND_VIEW_TAG);
             onBindViewHolder(vh, i, vh.getUnmodifiedPayloads());
             vh.clearPayload();

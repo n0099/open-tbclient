@@ -64,7 +64,7 @@ import com.baidu.pass.biometrics.face.liveness.view.CustomAlertDialog;
 import com.baidu.pass.biometrics.face.liveness.view.LoadingDialog;
 import com.baidu.pass.biometrics.face.liveness.view.XfordView;
 import com.baidu.sapi2.bio.BiometricsManager;
-import com.baidu.tbadk.TbConfig;
+import com.coremedia.iso.boxes.UserBox;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -166,7 +166,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
                 LivenessRecogActivity.this.headMode = 5;
             }
             long currentTimeMillis = 20000 - (System.currentTimeMillis() - LivenessRecogActivity.this.processState.wholeProcessStartTime);
-            if (currentTimeMillis < TbConfig.NOTIFY_SOUND_INTERVAL) {
+            if (currentTimeMillis < 5000) {
                 LivenessRecogActivity.this.processState.wholeProcessTimeOut = 25000 - currentTimeMillis;
             }
         }
@@ -495,7 +495,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
         this.uiHandler = new Handler(Looper.getMainLooper(), this);
         this.processState = new ProcessState();
         this.animState = new AnimState();
-        this.timerCount = new TimeCount(TbConfig.NOTIFY_SOUND_INTERVAL, 200L);
+        this.timerCount = new TimeCount(5000L, 200L);
         this.processState.wholeProcessStartTime = System.currentTimeMillis();
         this.livenessStat.subPro = this.passFaceRecogDTO.getSpno();
         this.callback = PassFaceRecogManager.getInstance().getPassFaceRecogCallback();
@@ -528,7 +528,7 @@ public class LivenessRecogActivity extends LivenessBaseActivity implements Handl
 
     private void loadSo() throws Exception {
         Bundle bundle = new Bundle();
-        bundle.putString("uuid", this.passFaceRecogDTO.processid);
+        bundle.putString(UserBox.TYPE, this.passFaceRecogDTO.processid);
         bundle.putString("tpl", BeanConstants.tpl);
         bundle.putString("productId", this.passFaceRecogDTO.getSpno());
         if (!SoManager.load(this, bundle)) {

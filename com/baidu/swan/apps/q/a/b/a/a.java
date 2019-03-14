@@ -20,7 +20,7 @@ public class a extends com.baidu.swan.apps.setting.oauth.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.b
     public boolean Ce() {
-        a(new C0127a());
+        a(new C0156a());
         return true;
     }
 
@@ -40,7 +40,7 @@ public class a extends com.baidu.swan.apps.setting.oauth.a.a {
             }
             jSONObject.put("open", jSONObject2);
             JSONObject jSONObject3 = new JSONObject();
-            jSONObject3.put("permit", Boolean.toString(this.aRr));
+            jSONObject3.put("permit", Boolean.toString(this.aRs));
             JSONObject jSONObject4 = new JSONObject();
             jSONObject4.put(this.mScope, jSONObject3);
             jSONObject.put("accredits", jSONObject4);
@@ -48,7 +48,7 @@ public class a extends com.baidu.swan.apps.setting.oauth.a.a {
             e.printStackTrace();
         }
         ay("data", jSONObject.toString());
-        if (this.aRr) {
+        if (this.aRs) {
             Km();
             return true;
         }
@@ -59,7 +59,7 @@ public class a extends com.baidu.swan.apps.setting.oauth.a.a {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.setting.oauth.a.a, com.baidu.swan.apps.setting.oauth.b
     /* renamed from: B */
-    public a.C0142a C(JSONObject jSONObject) throws JSONException {
+    public a.C0171a C(JSONObject jSONObject) throws JSONException {
         com.baidu.tieba.aiapps.apps.a.a.a(this.mActivity, jSONObject);
         return super.C(jSONObject);
     }
@@ -74,8 +74,8 @@ public class a extends com.baidu.swan.apps.setting.oauth.a.a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.swan.apps.q.a.b.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0127a extends com.baidu.swan.apps.setting.oauth.d {
-        private C0127a() {
+    public class C0156a extends com.baidu.swan.apps.setting.oauth.d {
+        private C0156a() {
         }
 
         @Override // com.baidu.swan.apps.setting.oauth.d
@@ -86,16 +86,16 @@ public class a extends com.baidu.swan.apps.setting.oauth.a.a {
                 /* renamed from: o */
                 public void D(Bundle bundle) {
                     if (bundle == null) {
-                        C0127a.this.m(new OAuthException("null stoken", 10001));
+                        C0156a.this.m(new OAuthException("null stoken", 10001));
                         return;
                     }
                     String string = bundle.getString("dev", "");
                     if (!TextUtils.isEmpty(string)) {
                         a.this.mStoken = string;
-                        C0127a.this.Kg();
+                        C0156a.this.Kg();
                         return;
                     }
-                    C0127a.this.m(new OAuthException("empty stoken", 10001));
+                    C0156a.this.m(new OAuthException("empty stoken", 10001));
                 }
             }, "dev");
             return false;

@@ -9,7 +9,6 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
-import com.baidu.tbadk.TbConfig;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -50,7 +49,7 @@ public class g {
         }
 
         public boolean a(a aVar) {
-            return TextUtils.equals(aVar.a, this.a) && TextUtils.equals(aVar.e, this.e) && aVar.c == this.c && aVar.d == this.d && Math.abs(aVar.b - this.b) <= TbConfig.NOTIFY_SOUND_INTERVAL;
+            return TextUtils.equals(aVar.a, this.a) && TextUtils.equals(aVar.e, this.e) && aVar.c == this.c && aVar.d == this.d && Math.abs(aVar.b - this.b) <= 5000;
         }
     }
 
@@ -84,7 +83,7 @@ public class g {
             a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? c(context) : "", a(a2, j)));
         }
         if (isEmpty) {
-            a.a(new h(context), TbConfig.NOTIFY_SOUND_INTERVAL);
+            a.a(new h(context), 5000L);
         }
     }
 

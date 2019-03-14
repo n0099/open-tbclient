@@ -11,9 +11,9 @@ import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import tbclient.BlockPopInfo;
 /* loaded from: classes.dex */
 public class c {
-    private static BlockPopInfo iUh;
-    private static BlockPopInfo iUi;
-    private CustomMessageListener dgB = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.ueg.c.3
+    private static BlockPopInfo iTZ;
+    private static BlockPopInfo iUa;
+    private CustomMessageListener dgx = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.ueg.c.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -27,7 +27,7 @@ public class c {
 
     public c(TbPageContext tbPageContext) {
         this.mContext = tbPageContext;
-        this.mContext.registerListener(this.dgB);
+        this.mContext.registerListener(this.dgx);
     }
 
     private boolean a(BlockPopInfo blockPopInfo) {
@@ -55,12 +55,12 @@ public class c {
         }
     }
 
-    public boolean cim() {
-        return a(iUh);
+    public boolean cip() {
+        return a(iTZ);
     }
 
-    public boolean cin() {
-        return a(iUi);
+    public boolean ciq() {
+        return a(iUa);
     }
 
     private void b(final BlockPopInfo blockPopInfo) {
@@ -86,15 +86,15 @@ public class c {
     /* JADX INFO: Access modifiers changed from: private */
     public void c(BlockPopInfo blockPopInfo) {
         if (blockPopInfo != null) {
-            AntiHelper.aW(this.mContext.getPageActivity(), blockPopInfo.ahead_url);
+            AntiHelper.aV(this.mContext.getPageActivity(), blockPopInfo.ahead_url);
         }
     }
 
     public static void d(BlockPopInfo blockPopInfo) {
-        iUh = blockPopInfo;
+        iTZ = blockPopInfo;
     }
 
     public static void e(BlockPopInfo blockPopInfo) {
-        iUi = blockPopInfo;
+        iUa = blockPopInfo;
     }
 }

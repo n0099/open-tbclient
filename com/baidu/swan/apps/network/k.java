@@ -8,8 +8,8 @@ import kotlin.jvm.internal.o;
 import kotlin.jvm.internal.p;
 /* loaded from: classes2.dex */
 public final class k {
-    public static final a aCJ = new a(null);
-    private Set<String> aCI;
+    public static final a aCK = new a(null);
+    private Set<String> aCJ;
 
     /* loaded from: classes2.dex */
     public static final class a {
@@ -23,10 +23,10 @@ public final class k {
 
     public final void a(WebSocketTask webSocketTask) {
         p.k(webSocketTask, "task");
-        if (this.aCI == null) {
-            this.aCI = new LinkedHashSet();
+        if (this.aCJ == null) {
+            this.aCJ = new LinkedHashSet();
         }
-        Set<String> set = this.aCI;
+        Set<String> set = this.aCJ;
         if (set != null) {
             set.add(webSocketTask.getTaskId());
         }
@@ -34,14 +34,14 @@ public final class k {
 
     public final void ft(String str) {
         p.k(str, "taskId");
-        Set<String> set = this.aCI;
+        Set<String> set = this.aCJ;
         if (set != null) {
             set.remove(str);
         }
     }
 
     public final void release() {
-        Set<String> set = this.aCI;
+        Set<String> set = this.aCJ;
         if (set != null) {
             for (String str : set) {
                 try {
@@ -51,14 +51,14 @@ public final class k {
                 }
             }
         }
-        Set<String> set2 = this.aCI;
+        Set<String> set2 = this.aCJ;
         if (set2 != null) {
             set2.clear();
         }
     }
 
     public final boolean Fe() {
-        Set<String> set = this.aCI;
+        Set<String> set = this.aCJ;
         return (set != null ? set.size() : 0) < 5;
     }
 }

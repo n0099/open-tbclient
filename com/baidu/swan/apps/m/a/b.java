@@ -14,7 +14,7 @@ public class b extends a {
 
     public b(@NonNull String str, @Nullable Map<String, String> map) {
         this.mParams = new HashMap();
-        this.avi = str;
+        this.avj = str;
         if (map != null) {
             this.mParams.putAll(map);
         }

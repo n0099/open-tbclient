@@ -3,7 +3,7 @@ package com.baidu.swan.apps.core.pms;
 import android.util.Log;
 /* loaded from: classes2.dex */
 public class a {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static boolean vq() {
         if (DEBUG && zw()) {

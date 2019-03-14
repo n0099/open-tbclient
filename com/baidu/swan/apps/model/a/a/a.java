@@ -10,116 +10,116 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements com.baidu.swan.apps.model.a {
-    private String aBA;
-    public String aBB;
+    public String aBA;
+    private String aBB;
     public String aBC;
     public String aBD;
-    public b aBE;
-    public boolean aBF = false;
-    public int aBy;
-    public String aBz;
-    public JSONObject akf;
+    public String aBE;
+    public b aBF;
+    public boolean aBG = false;
+    public int aBz;
+    public JSONObject akg;
     public String callback;
     public boolean hidden;
     public String id;
 
     public a(String str, String str2) {
-        this.aBA = "id";
-        this.aBB = "unknown";
+        this.aBB = "id";
+        this.aBC = "unknown";
         if (!TextUtils.isEmpty(str)) {
-            this.aBA = str;
+            this.aBB = str;
         }
         if (!TextUtils.isEmpty(str2)) {
-            this.aBB = str2;
+            this.aBC = str2;
         }
     }
 
     public a EM() {
-        a aVar = new a(this.aBA, this.aBB);
-        aVar.aBA = this.aBA;
+        a aVar = new a(this.aBB, this.aBC);
         aVar.aBB = this.aBB;
         aVar.aBC = this.aBC;
-        aVar.id = this.id;
         aVar.aBD = this.aBD;
+        aVar.id = this.id;
+        aVar.aBE = this.aBE;
         aVar.hidden = this.hidden;
-        aVar.aBF = this.aBF;
+        aVar.aBG = this.aBG;
         aVar.callback = this.callback;
-        if (this.aBE != null) {
-            aVar.aBE = new b(this.aBE);
+        if (this.aBF != null) {
+            aVar.aBF = new b(this.aBF);
         }
-        aVar.akf = this.akf;
-        aVar.aBy = this.aBy;
+        aVar.akg = this.akg;
         aVar.aBz = this.aBz;
+        aVar.aBA = this.aBA;
         return aVar;
     }
 
     @Override // com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
-            this.id = jSONObject.optString(this.aBA);
-            this.aBC = jSONObject.optString("slaveId");
-            this.aBD = jSONObject.optString("parentId");
+            this.id = jSONObject.optString(this.aBB);
+            this.aBD = jSONObject.optString("slaveId");
+            this.aBE = jSONObject.optString("parentId");
             this.hidden = jSONObject.optBoolean("hide", false);
-            this.aBF = TextUtils.equals(jSONObject.optString("gesture"), "1");
+            this.aBG = TextUtils.equals(jSONObject.optString("gesture"), "1");
             this.callback = jSONObject.optString("cb");
             JSONObject optJSONObject = jSONObject.optJSONObject("position");
             if (optJSONObject != null) {
-                this.aBE = new b();
-                this.aBE.setLeft(x.ad(a(optJSONObject, CustomDialogData.POS_LEFT, 0.0f)));
-                this.aBE.setTop(x.ad(a(optJSONObject, "top", 0.0f)));
-                this.aBE.setWidth(x.ad(a(optJSONObject, "width", 0.0f)));
-                this.aBE.setHeight(x.ad(a(optJSONObject, "height", 0.0f)));
+                this.aBF = new b();
+                this.aBF.setLeft(x.ad(a(optJSONObject, CustomDialogData.POS_LEFT, 0.0f)));
+                this.aBF.setTop(x.ad(a(optJSONObject, "top", 0.0f)));
+                this.aBF.setWidth(x.ad(a(optJSONObject, "width", 0.0f)));
+                this.aBF.setHeight(x.ad(a(optJSONObject, "height", 0.0f)));
             }
-            this.akf = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
-            this.aBy = jSONObject.optInt("scrollTop");
-            if (this.akf != null) {
-                this.aBz = this.akf.optString("overflowY");
+            this.akg = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
+            this.aBz = jSONObject.optInt("scrollTop");
+            if (this.akg != null) {
+                this.aBA = this.akg.optString("overflowY");
             }
         }
     }
 
     public void a(JSONObject jSONObject, @NonNull a aVar) {
         if (jSONObject != null) {
-            this.id = jSONObject.optString(this.aBA, aVar.id);
-            this.aBC = jSONObject.optString("slaveId", aVar.aBC);
-            this.aBD = jSONObject.optString("parentId", aVar.aBD);
+            this.id = jSONObject.optString(this.aBB, aVar.id);
+            this.aBD = jSONObject.optString("slaveId", aVar.aBD);
+            this.aBE = jSONObject.optString("parentId", aVar.aBE);
             this.hidden = jSONObject.optBoolean("hide", aVar.hidden);
             this.callback = jSONObject.optString("cb", aVar.callback);
-            this.aBF = TextUtils.equals(jSONObject.optString("gesture", aVar.aBF ? "1" : "0"), "1");
-            this.aBE = aVar.aBE;
-            if (this.aBE == null) {
-                this.aBE = new b();
+            this.aBG = TextUtils.equals(jSONObject.optString("gesture", aVar.aBG ? "1" : "0"), "1");
+            this.aBF = aVar.aBF;
+            if (this.aBF == null) {
+                this.aBF = new b();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("position");
             if (optJSONObject != null) {
-                this.aBE.setLeft(x.ad(a(optJSONObject, CustomDialogData.POS_LEFT, this.aBE.left)));
-                this.aBE.setTop(x.ad(a(optJSONObject, "top", this.aBE.top)));
-                this.aBE.setWidth(x.ad(a(optJSONObject, "width", this.aBE.width)));
-                this.aBE.setHeight(x.ad(a(optJSONObject, "height", this.aBE.height)));
+                this.aBF.setLeft(x.ad(a(optJSONObject, CustomDialogData.POS_LEFT, this.aBF.left)));
+                this.aBF.setTop(x.ad(a(optJSONObject, "top", this.aBF.top)));
+                this.aBF.setWidth(x.ad(a(optJSONObject, "width", this.aBF.width)));
+                this.aBF.setHeight(x.ad(a(optJSONObject, "height", this.aBF.height)));
             }
-            this.akf = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
-            if (this.akf == null) {
-                this.akf = aVar.akf;
+            this.akg = jSONObject.optJSONObject(UnitedSchemeConstants.UNITED_SCHEME_STYLE);
+            if (this.akg == null) {
+                this.akg = aVar.akg;
             }
-            this.aBy = jSONObject.optInt("scrollTop", aVar.aBy);
-            if (this.akf != null) {
-                this.aBz = this.akf.optString("overflowY", aVar.aBz);
+            this.aBz = jSONObject.optInt("scrollTop", aVar.aBz);
+            if (this.akg != null) {
+                this.aBA = this.akg.optString("overflowY", aVar.aBA);
             }
         }
     }
 
     public FrameLayout.LayoutParams EN() {
-        int width = this.aBE != null ? this.aBE.getWidth() : -1;
-        int height = this.aBE != null ? this.aBE.getHeight() : -1;
-        int left = this.aBE != null ? this.aBE.getLeft() : 0;
-        int top = this.aBE != null ? this.aBE.getTop() : 0;
+        int width = this.aBF != null ? this.aBF.getWidth() : -1;
+        int height = this.aBF != null ? this.aBF.getHeight() : -1;
+        int left = this.aBF != null ? this.aBF.getLeft() : 0;
+        int top = this.aBF != null ? this.aBF.getTop() : 0;
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(width, height);
         layoutParams.setMargins(left, top, 0, 0);
         return layoutParams;
     }
 
     public void a(b bVar) {
-        this.aBE = bVar;
+        this.aBF = bVar;
     }
 
     public void a(a aVar, com.baidu.swan.apps.view.container.c.a aVar2) {
@@ -128,7 +128,7 @@ public class a implements com.baidu.swan.apps.model.a {
                 aVar2.ex(63);
                 return;
             }
-            if (this.aBE != null && !this.aBE.equals(aVar.aBE)) {
+            if (this.aBF != null && !this.aBF.equals(aVar.aBF)) {
                 aVar2.ex(1);
             }
             if (aVar.hidden != this.hidden) {
@@ -139,7 +139,7 @@ public class a implements com.baidu.swan.apps.model.a {
 
     @Override // com.baidu.swan.apps.model.a
     public boolean isValid() {
-        return (TextUtils.isEmpty(this.aBC) || TextUtils.isEmpty(this.id) || this.aBE == null || !this.aBE.isValid()) ? false : true;
+        return (TextUtils.isEmpty(this.aBD) || TextUtils.isEmpty(this.id) || this.aBF == null || !this.aBF.isValid()) ? false : true;
     }
 
     public static float a(JSONObject jSONObject, String str, float f) {

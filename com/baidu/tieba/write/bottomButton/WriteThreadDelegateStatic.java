@@ -20,12 +20,12 @@ public class WriteThreadDelegateStatic extends b {
     }
 
     @Override // com.baidu.tbadk.mainTab.b
-    public c anK() {
+    public c anJ() {
         c cVar = new c();
         cVar.cod = new WriteThreadFragment();
         cVar.type = 9;
-        cVar.bOd = d.j.send;
-        cVar.bOe = d.f.icon_tabbar_add_n;
+        cVar.bOe = d.j.send;
+        cVar.bOf = d.f.icon_tabbar_add_n;
         cVar.coe = d.f.icon_tabbar_chaticon_n;
         cVar.coj = c.cof;
         return cVar;
@@ -36,12 +36,12 @@ public class WriteThreadDelegateStatic extends b {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                c anL;
+                c anK;
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
                     WriteThreadDelegateStatic writeThreadDelegateStatic = new WriteThreadDelegateStatic();
                     ((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).a(writeThreadDelegateStatic);
-                    if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (anL = writeThreadDelegateStatic.anL()) != null) {
-                        anL.cod.setArguments(new Bundle());
+                    if (((com.baidu.tbadk.mainTab.d) customResponsedMessage.getData()).getContext() != null && (anK = writeThreadDelegateStatic.anK()) != null) {
+                        anK.cod.setArguments(new Bundle());
                     }
                 }
             }

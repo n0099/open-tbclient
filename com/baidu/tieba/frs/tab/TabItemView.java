@@ -12,25 +12,25 @@ import com.baidu.tieba.d;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes4.dex */
 public class TabItemView extends TextView {
-    private d ftM;
-    private boolean ftN;
-    private int ftO;
+    private d ftL;
+    private boolean ftM;
+    private int ftN;
     private int mState;
-    public static int ftK = 0;
-    public static int ftL = 1;
+    public static int ftJ = 0;
+    public static int ftK = 1;
     public static int STATE_EXPANDED = 2;
 
     public TabItemView(Context context, d dVar, int i, boolean z) {
         super(context);
-        this.mState = ftK;
-        this.ftO = 0;
-        this.ftM = dVar;
-        this.ftN = z;
+        this.mState = ftJ;
+        this.ftN = 0;
+        this.ftL = dVar;
+        this.ftM = z;
         m(context, i);
     }
 
     private void m(Context context, int i) {
-        if (this.ftN) {
+        if (this.ftM) {
             setPadding(0, l.h(getContext(), d.e.tbds20), 0, 0);
             setTextSize(0, l.h(context, d.e.tbds42));
         } else {
@@ -38,16 +38,16 @@ public class TabItemView extends TextView {
         }
         setSingleLine();
         setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
-        if (this.ftM != null) {
-            setText(this.ftM.name);
+        if (this.ftL != null) {
+            setText(this.ftL.name);
         }
         aeK();
     }
 
     public void setState(int i) {
-        if (this.ftM != null && this.ftM.ftJ != null && this.ftM.ftJ.fcF != null && this.ftM.ftJ.fcF.size() > 0) {
+        if (this.ftL != null && this.ftL.ftI != null && this.ftL.ftI.fcE != null && this.ftL.ftI.fcE.size() > 0) {
             int i2 = -l.h(getContext(), d.e.tbds20);
-            if (!this.ftN) {
+            if (!this.ftM) {
                 i2 = 0;
             }
             if (i == STATE_EXPANDED) {
@@ -61,17 +61,17 @@ public class TabItemView extends TextView {
             }
             setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(d.e.tbds20));
         }
-        if (this.ftN) {
-            al.d(this, d.C0236d.cp_cont_b, 1);
+        if (this.ftM) {
+            al.d(this, d.C0277d.cp_cont_b, 1);
         } else {
-            if (i == ftL || i == STATE_EXPANDED) {
-                if (this.ftO == 0) {
-                    al.d(this, d.C0236d.cp_link_tip_a, 1);
+            if (i == ftK || i == STATE_EXPANDED) {
+                if (this.ftN == 0) {
+                    al.d(this, d.C0277d.cp_link_tip_a, 1);
                 } else {
-                    al.d(this, this.ftO, 1);
+                    al.d(this, this.ftN, 1);
                 }
             } else {
-                al.d(this, d.C0236d.cp_cont_f, 1);
+                al.d(this, d.C0277d.cp_cont_f, 1);
             }
             setGravity(17);
         }
@@ -80,10 +80,10 @@ public class TabItemView extends TextView {
     }
 
     public int getTabId() {
-        if (this.ftM == null) {
+        if (this.ftL == null) {
             return -1;
         }
-        return this.ftM.tabId;
+        return this.ftL.tabId;
     }
 
     public int getState() {
@@ -98,7 +98,7 @@ public class TabItemView extends TextView {
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
         int spaceWidth = getSpaceWidth();
         if (spaceWidth >= 0) {
-            if (this.ftN) {
+            if (this.ftM) {
                 setPadding(0, l.h(getContext(), d.e.ds16), spaceWidth, 0);
             } else {
                 setPadding(0, 0, spaceWidth, 0);
@@ -127,10 +127,10 @@ public class TabItemView extends TextView {
     }
 
     public String getUrl() {
-        if (this.ftM == null) {
+        if (this.ftL == null) {
             return null;
         }
-        return this.ftM.url;
+        return this.ftL.url;
     }
 
     public int getDrawableWidth() {
@@ -143,10 +143,10 @@ public class TabItemView extends TextView {
     }
 
     public void setForNewFrame(boolean z) {
-        this.ftN = z;
+        this.ftM = z;
     }
 
     public void setSelectItemColorResId(int i) {
-        this.ftO = i;
+        this.ftN = i;
     }
 }

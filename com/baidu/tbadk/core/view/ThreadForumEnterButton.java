@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.al;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class ThreadForumEnterButton extends RelativeLayout implements View.OnClickListener {
-    private static final int XH = com.baidu.adp.lib.util.l.aO(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst(), d.e.tbds70) * 2);
-    private View.OnClickListener bNt;
-    public final int bSO;
-    private TextView bSP;
+    private static final int XI = com.baidu.adp.lib.util.l.aO(TbadkCoreApplication.getInst()) - (com.baidu.adp.lib.util.l.h(TbadkCoreApplication.getInst(), d.e.tbds70) * 2);
+    private View.OnClickListener bNu;
+    public final int bSP;
+    private TextView bSQ;
     private Context mContext;
     private int mFrom;
     private int mSkinType;
@@ -30,7 +30,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
 
     public ThreadForumEnterButton(Context context) {
         super(context);
-        this.bSO = 0;
+        this.bSP = 0;
         this.mFrom = 0;
         this.mSkinType = 3;
         init(context);
@@ -38,7 +38,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
 
     public ThreadForumEnterButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.bSO = 0;
+        this.bSP = 0;
         this.mFrom = 0;
         this.mSkinType = 3;
         init(context);
@@ -47,8 +47,8 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
     private void init(Context context) {
         this.mContext = context;
         this.mView = LayoutInflater.from(context).inflate(d.h.card_home_page_forum_enter_button, (ViewGroup) this, true);
-        this.bSP = (TextView) this.mView.findViewById(d.g.forum_name_text);
-        this.bSP.setOnClickListener(this);
+        this.bSQ = (TextView) this.mView.findViewById(d.g.forum_name_text);
+        this.bSQ.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
@@ -61,21 +61,21 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg));
             } else if (this.mFrom == 1) {
             }
-            if (this.bNt != null) {
-                this.bNt.onClick(view);
+            if (this.bNu != null) {
+                this.bNu.onClick(view);
             }
         }
     }
 
     public void setAfterClickListener(View.OnClickListener onClickListener) {
-        this.bNt = onClickListener;
+        this.bNu = onClickListener;
     }
 
     public void onChangeSkinType() {
         if (this.threadData != null && this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
-            al.l(this.bSP, com.baidu.tbadk.util.j.pF(this.threadData.getId()));
-            al.j(this.bSP, d.C0236d.cp_cont_b);
+            al.l(this.bSQ, com.baidu.tbadk.util.j.pD(this.threadData.getId()));
+            al.j(this.bSQ, d.C0277d.cp_cont_b);
         }
     }
 
@@ -88,7 +88,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
             }
             setVisibility(0);
             this.threadData = bgVar;
-            this.bSP.setText(((Object) TextUtils.ellipsize(YW, this.bSP.getPaint(), XH - this.bSP.getPaint().measureText(getResources().getString(d.j.forum)), TextUtils.TruncateAt.END)) + getResources().getString(d.j.forum));
+            this.bSQ.setText(((Object) TextUtils.ellipsize(YW, this.bSQ.getPaint(), XI - this.bSQ.getPaint().measureText(getResources().getString(d.j.forum)), TextUtils.TruncateAt.END)) + getResources().getString(d.j.forum));
             onChangeSkinType();
             return;
         }
@@ -96,15 +96,15 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
     }
 
     public void a(bg bgVar, int i) {
-        if (this.bSP != null && bgVar != null && i > 0) {
+        if (this.bSQ != null && bgVar != null && i > 0) {
             this.threadData = bgVar;
-            float paddingLeft = (i - (this.bSP.getPaddingLeft() * 2)) - this.bSP.getPaint().measureText(getResources().getString(d.j.forum));
+            float paddingLeft = (i - (this.bSQ.getPaddingLeft() * 2)) - this.bSQ.getPaint().measureText(getResources().getString(d.j.forum));
             String YW = bgVar.YW();
             if (StringUtils.isNull(YW)) {
                 setVisibility(8);
                 return;
             }
-            this.bSP.setText(((Object) TextUtils.ellipsize(YW, this.bSP.getPaint(), paddingLeft, TextUtils.TruncateAt.END)) + getResources().getString(d.j.forum));
+            this.bSQ.setText(((Object) TextUtils.ellipsize(YW, this.bSQ.getPaint(), paddingLeft, TextUtils.TruncateAt.END)) + getResources().getString(d.j.forum));
             setVisibility(0);
             onChangeSkinType();
             return;

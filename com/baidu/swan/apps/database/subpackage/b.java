@@ -11,21 +11,20 @@ import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.c;
 import com.baidu.swan.apps.database.SwanAppDbControl;
 import com.baidu.swan.apps.database.subpackage.SubPackageTable;
 import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 /* loaded from: classes2.dex */
 public class b {
-    private SQLiteOpenHelper auH;
+    private SQLiteOpenHelper auI;
     private Context mContext;
-    private static final boolean DEBUG = c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public static final String AUTHORITY = AppRuntime.getAppContext().getPackageName() + ".swan.subpackage";
-    public static final Uri auF = Uri.parse("content://" + AUTHORITY + "/" + SubPackageTable.Table.TABLE_NAME);
-    private static UriMatcher auG = new UriMatcher(-1);
+    public static final Uri auG = Uri.parse("content://" + AUTHORITY + "/" + SubPackageTable.Table.TABLE_NAME);
+    private static UriMatcher auH = new UriMatcher(-1);
 
     static {
-        auG.addURI(AUTHORITY, SubPackageTable.Table.TABLE_NAME, 0);
+        auH.addURI(AUTHORITY, SubPackageTable.Table.TABLE_NAME, 0);
     }
 
     public b(Context context) {
@@ -33,7 +32,7 @@ public class b {
     }
 
     private String e(Uri uri) {
-        switch (auG.match(uri)) {
+        switch (auH.match(uri)) {
             case 0:
                 return SubPackageTable.Table.TABLE_NAME;
             default:
@@ -105,9 +104,9 @@ public class b {
     }
 
     private SQLiteOpenHelper AA() {
-        if (this.auH == null) {
-            this.auH = SwanAppDbControl.bE(this.mContext).AA();
+        if (this.auI == null) {
+            this.auI = SwanAppDbControl.bE(this.mContext).AA();
         }
-        return this.auH;
+        return this.auI;
     }
 }

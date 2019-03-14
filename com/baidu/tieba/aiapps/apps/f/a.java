@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.b.b.i;
-import com.baidu.swan.apps.c;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.pageStayDuration.d;
 import com.baidu.tbadk.pageStayDuration.e;
@@ -13,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class a implements i {
-    private static final boolean DEBUG = c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private long lastResumeTime;
 
     @Override // com.baidu.swan.apps.b.b.i
@@ -55,8 +54,8 @@ public class a implements i {
             dVar.cpL = string;
             dVar.cpM = string2;
             dVar.ah(getCurrentPageSourceKeyList());
-            e.aoQ().fc(true);
-            e.aoQ().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());
+            e.aoP().fc(true);
+            e.aoP().a(TbadkApplication.getInst().getApplicationContext(), dVar, getPageStayFilter());
             com.baidu.tbadk.core.sharedPref.b.getInstance().putLong("smart_app_tid", 0L);
         }
     }

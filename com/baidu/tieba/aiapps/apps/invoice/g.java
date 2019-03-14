@@ -1,15 +1,15 @@
 package com.baidu.tieba.aiapps.apps.invoice;
 /* loaded from: classes2.dex */
 public class g {
-    private static volatile f cTu;
+    private static volatile f cTq;
 
-    public static synchronized f azj() {
+    public static synchronized f azi() {
         f fVar;
         synchronized (g.class) {
-            if (cTu == null) {
-                cTu = new f();
+            if (cTq == null) {
+                cTq = new f();
             }
-            fVar = cTu;
+            fVar = cTq;
         }
         return fVar;
     }

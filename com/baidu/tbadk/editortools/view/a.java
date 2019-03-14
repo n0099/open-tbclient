@@ -8,10 +8,10 @@ import com.baidu.tbadk.editortools.view.CommonTabContentView;
 import com.baidu.tbadk.editortools.view.CommonTabHost;
 /* loaded from: classes.dex */
 public abstract class a implements com.baidu.tbadk.editortools.b {
-    protected EditorTools VM;
+    protected EditorTools VN;
     private CommonTabContentView.b clg;
     private b cll;
-    private InterfaceC0203a clm;
+    private InterfaceC0237a clm;
     private CommonTabHost.a clp;
     private int column = 0;
     private int row = 0;
@@ -25,7 +25,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
 
     /* renamed from: com.baidu.tbadk.editortools.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0203a {
+    public interface InterfaceC0237a {
         View getView(int i, View view, ViewGroup viewGroup);
     }
 
@@ -46,16 +46,16 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
     }
 
     public void setEditorTools(EditorTools editorTools) {
-        this.VM = editorTools;
+        this.VN = editorTools;
     }
 
     protected void b(com.baidu.tbadk.editortools.a aVar) {
-        if (this.VM != null) {
-            this.VM.b(aVar);
+        if (this.VN != null) {
+            this.VN.b(aVar);
         }
     }
 
-    public b amV() {
+    public b amU() {
         return this.cll;
     }
 
@@ -63,15 +63,15 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         this.cll = bVar;
     }
 
-    public InterfaceC0203a amW() {
+    public InterfaceC0237a amV() {
         return this.clm;
     }
 
-    public void a(InterfaceC0203a interfaceC0203a) {
-        this.clm = interfaceC0203a;
+    public void a(InterfaceC0237a interfaceC0237a) {
+        this.clm = interfaceC0237a;
     }
 
-    public int amX() {
+    public int amW() {
         return this.column;
     }
 
@@ -111,11 +111,11 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         return this.clo;
     }
 
-    public int amY() {
+    public int amX() {
         return this.clq;
     }
 
-    public CommonTabHost.a amZ() {
+    public CommonTabHost.a amY() {
         return this.clp;
     }
 
@@ -123,7 +123,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         this.clg = bVar;
     }
 
-    public CommonTabContentView.b ana() {
+    public CommonTabContentView.b amZ() {
         return this.clg;
     }
 }

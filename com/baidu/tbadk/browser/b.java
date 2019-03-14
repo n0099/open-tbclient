@@ -19,7 +19,6 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.lib.util.j;
 import com.baidu.adp.lib.util.l;
 import com.baidu.adp.lib.util.s;
-import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.BdToken.n;
 import com.baidu.tbadk.TbConfig;
@@ -49,8 +48,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b implements com.baidu.tieba.tbadkCore.e.b {
-    private n btE;
-    private String btF;
+    private n btG;
+    private String btH;
     private final Context mContext;
     private com.baidu.tbadk.core.util.b.a mPermissionJudgement;
     private WebView mWebView;
@@ -197,15 +196,15 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private n VA() {
-        if (this.btE == null) {
-            this.btE = new n(this.mContext, new n.a() { // from class: com.baidu.tbadk.browser.b.1
+        if (this.btG == null) {
+            this.btG = new n(this.mContext, new n.a() { // from class: com.baidu.tbadk.browser.b.1
                 @Override // com.baidu.tbadk.BdToken.n.a
                 public void UA() {
-                    if (!TextUtils.isEmpty(b.this.btF)) {
+                    if (!TextUtils.isEmpty(b.this.btH)) {
                         try {
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("resultCode", 1);
-                            b.this.k(b.this.btF, jSONObject);
+                            b.this.k(b.this.btH, jSONObject);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -213,13 +212,13 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
                 }
             });
         }
-        return this.btE;
+        return this.btG;
     }
 
     private String kv(String str) {
         int i;
         try {
-            this.btF = new JSONObject(str).optString("method_name");
+            this.btH = new JSONObject(str).optString("method_name");
             if (!VA().isOpen()) {
                 VA().open();
             }
@@ -693,7 +692,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
                 }
                 DownloadData downloadData = new DownloadData(mm, mm, optString, null);
                 downloadData.setPath(mn);
-                com.baidu.tbadk.download.d.alN().f(downloadData);
+                com.baidu.tbadk.download.d.alM().f(downloadData);
                 jSONObject.put("resultCode", 1);
             } catch (JSONException e) {
                 BdLog.e(e);
@@ -719,8 +718,8 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     public void onDestroy() {
-        if (this.btE != null && this.btE.isOpen()) {
-            this.btE.close();
+        if (this.btG != null && this.btG.isOpen()) {
+            this.btG.close();
         }
     }
 
@@ -768,7 +767,7 @@ public class b implements com.baidu.tieba.tbadkCore.e.b {
             jSONObject.put("client_type", "Android");
             jSONObject.put("client_version", version);
             jSONObject.put("zid", gz);
-            jSONObject.put(SapiUtils.KEY_QR_LOGIN_SIGN, bC);
+            jSONObject.put("sign", bC);
             return jSONObject.toString();
         } catch (JSONException e) {
             BdLog.e(e);

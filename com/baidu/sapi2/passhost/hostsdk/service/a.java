@@ -32,15 +32,15 @@ public class a extends IEventCenterService {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.sapi2.passhost.hostsdk.service.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0064a {
+    public static class C0093a {
         public static a a = new a();
 
-        private C0064a() {
+        private C0093a() {
         }
     }
 
     public static a a() {
-        return C0064a.a;
+        return C0093a.a;
     }
 
     public void a(boolean z) {

@@ -10,24 +10,24 @@ import org.json.JSONObject;
 import tbclient.FrsPage.Banner;
 /* loaded from: classes.dex */
 public class x {
-    private String aVE;
-    public float byA;
-    public boolean byB = true;
-    private int byv;
-    private String byw;
+    private String aVF;
+    private String byA;
+    public String byB;
+    public float byC;
+    public boolean byD = true;
     private int byx;
     private String byy;
-    public String byz;
+    private int byz;
     private String mTagName;
     private int mType;
     private String mValue;
 
     public int Xo() {
-        return this.byv;
+        return this.byx;
     }
 
     public String Xp() {
-        return this.byw;
+        return this.byy;
     }
 
     public String getValue() {
@@ -39,21 +39,21 @@ public class x {
     }
 
     public String Xq() {
-        return this.byy;
+        return this.byA;
     }
 
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.byv = jSONObject.optInt("bannerType");
-                this.byw = jSONObject.optString("bannerUrl");
+                this.byx = jSONObject.optInt("bannerType");
+                this.byy = jSONObject.optString("bannerUrl");
                 this.mValue = jSONObject.optString(UBC.CONTENT_KEY_VALUE);
                 this.mType = jSONObject.optInt("type");
-                this.aVE = jSONObject.optString("desc");
-                this.byx = jSONObject.optInt("template_id");
-                this.byy = jSONObject.optString(VideoPlayActivityConfig.OBJ_ID);
+                this.aVF = jSONObject.optString("desc");
+                this.byz = jSONObject.optInt("template_id");
+                this.byA = jSONObject.optString(VideoPlayActivityConfig.OBJ_ID);
                 this.mTagName = jSONObject.optString("tag_name");
-                this.byz = jSONObject.optString("tag_name_url");
+                this.byB = jSONObject.optString("tag_name_url");
                 kZ(jSONObject.optString("tag_name_wh"));
             } catch (Exception e) {
                 BdLog.e(e.toString());
@@ -63,15 +63,15 @@ public class x {
 
     public void a(Banner banner) {
         if (banner != null) {
-            this.byv = banner.banner_type.intValue();
-            this.byw = banner.banner_url;
+            this.byx = banner.banner_type.intValue();
+            this.byy = banner.banner_url;
             this.mValue = banner.value;
             this.mType = banner.type.intValue();
-            this.aVE = banner.desc;
-            this.byx = banner.template_id.intValue();
-            this.byy = banner.obj_id;
+            this.aVF = banner.desc;
+            this.byz = banner.template_id.intValue();
+            this.byA = banner.obj_id;
             this.mTagName = banner.tag_name;
-            this.byz = banner.tag_name_url;
+            this.byB = banner.tag_name_url;
             kZ(banner.tag_name_wh);
         }
     }
@@ -84,7 +84,7 @@ public class x {
                     int l = com.baidu.adp.lib.g.b.l(split[0], 1);
                     int l2 = com.baidu.adp.lib.g.b.l(split[1], 1);
                     if (l2 != 0) {
-                        this.byA = l / l2;
+                        this.byC = l / l2;
                     }
                 }
             } catch (Exception e) {
@@ -97,6 +97,6 @@ public class x {
         if (StringUtils.isNull(this.mValue)) {
             return false;
         }
-        return this.mType == 1 ? this.byv == 1 || this.byv == 4 || this.byv == 2 || this.byv == 3 : this.mType == 2 && !StringUtils.isNull(this.aVE);
+        return this.mType == 1 ? this.byx == 1 || this.byx == 4 || this.byx == 2 || this.byx == 3 : this.mType == 2 && !StringUtils.isNull(this.aVF);
     }
 }

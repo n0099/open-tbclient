@@ -17,7 +17,7 @@ public class d {
     public String task_id;
     private long tid;
 
-    public List<String> aoN() {
+    public List<String> aoM() {
         return this.cpI;
     }
 
@@ -53,7 +53,7 @@ public class d {
         return this.pid;
     }
 
-    public long aoO() {
+    public long aoN() {
         return this.cpK;
     }
 
@@ -69,7 +69,7 @@ public class d {
         return this.task_id;
     }
 
-    public boolean aoP() {
+    public boolean aoO() {
         return StringUtils.isNull(this.cpJ);
     }
 }

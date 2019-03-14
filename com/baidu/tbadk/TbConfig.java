@@ -27,6 +27,7 @@ public class TbConfig {
     public static final String ALL_THEME_LIST_PAGE = "c/e/theme/getSkinList";
     public static final String APPLY_GAME_CARD = "c/u/game/applygamecard";
     public static final long APP_ENTER_BACKGROUND_INTERVAL = 1000;
+    public static final long APP_OVERDUR_DRAFT_BOX = 604800000;
     public static final String APP_UPDATE_ACTION = "com.baidu.tieba.NewsVersion";
     public static final int AUTO_PLAY_ALWAYS = 2;
     public static final int AUTO_PLAY_CLOSED = 1;
@@ -520,8 +521,7 @@ public class TbConfig {
     public static final String api_key = "GXGROE8KmWiRmcWFpiWTmUbE";
     public static final String app_id = "1095821";
     public static String SERVER_ADDRESS = TbDomainConfig.DOMAIN_HTTPS_SERVER_ADDRESS;
-    public static final long APP_OVERDUR_DRAFT_BOX = 604800000;
-    public static long MILLS_7DAYS = APP_OVERDUR_DRAFT_BOX;
+    public static long MILLS_7DAYS = 604800000;
     public static int BUILD_NUMBER = 0;
     public static boolean USE_OLD_LOGIN = false;
     public static String LOGIN_FULL_ADDRESS = SERVER_ADDRESS + "c/s/login";
@@ -713,7 +713,7 @@ public class TbConfig {
             i = 60;
         }
         if (MAX_PHOTO_MEMORY_CACHE != i) {
-            c.anq().jJ(i);
+            c.anp().jJ(i);
         }
         MAX_PHOTO_MEMORY_CACHE = i;
     }

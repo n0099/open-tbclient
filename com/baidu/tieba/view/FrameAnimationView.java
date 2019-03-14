@@ -12,12 +12,12 @@ import com.baidu.tbadk.widget.TbImageView;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class FrameAnimationView extends TbImageView {
-    private Rect dAa;
-    private Bitmap dzZ;
+    private Bitmap dzV;
+    private Rect dzW;
     private int index;
-    private int jim;
-    private boolean jin;
-    private Runnable jio;
+    private int jie;
+    private boolean jif;
+    private Runnable jig;
     private List<String> mData;
     private BdUniqueId mPageId;
     private Rect srcRect;
@@ -26,13 +26,13 @@ public class FrameAnimationView extends TbImageView {
         super(context);
         this.index = 0;
         this.srcRect = new Rect();
-        this.dAa = new Rect();
-        this.jio = new Runnable() { // from class: com.baidu.tieba.view.FrameAnimationView.1
+        this.dzW = new Rect();
+        this.jig = new Runnable() { // from class: com.baidu.tieba.view.FrameAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.adp.lib.g.e.jH().removeCallbacks(FrameAnimationView.this.jio);
+                com.baidu.adp.lib.g.e.jH().removeCallbacks(FrameAnimationView.this.jig);
                 if (FrameAnimationView.this.mData != null) {
-                    FrameAnimationView.this.aHa();
+                    FrameAnimationView.this.aGZ();
                 }
             }
         };
@@ -42,13 +42,13 @@ public class FrameAnimationView extends TbImageView {
         super(context, attributeSet);
         this.index = 0;
         this.srcRect = new Rect();
-        this.dAa = new Rect();
-        this.jio = new Runnable() { // from class: com.baidu.tieba.view.FrameAnimationView.1
+        this.dzW = new Rect();
+        this.jig = new Runnable() { // from class: com.baidu.tieba.view.FrameAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.adp.lib.g.e.jH().removeCallbacks(FrameAnimationView.this.jio);
+                com.baidu.adp.lib.g.e.jH().removeCallbacks(FrameAnimationView.this.jig);
                 if (FrameAnimationView.this.mData != null) {
-                    FrameAnimationView.this.aHa();
+                    FrameAnimationView.this.aGZ();
                 }
             }
         };
@@ -58,13 +58,13 @@ public class FrameAnimationView extends TbImageView {
         super(context, attributeSet, i);
         this.index = 0;
         this.srcRect = new Rect();
-        this.dAa = new Rect();
-        this.jio = new Runnable() { // from class: com.baidu.tieba.view.FrameAnimationView.1
+        this.dzW = new Rect();
+        this.jig = new Runnable() { // from class: com.baidu.tieba.view.FrameAnimationView.1
             @Override // java.lang.Runnable
             public void run() {
-                com.baidu.adp.lib.g.e.jH().removeCallbacks(FrameAnimationView.this.jio);
+                com.baidu.adp.lib.g.e.jH().removeCallbacks(FrameAnimationView.this.jig);
                 if (FrameAnimationView.this.mData != null) {
-                    FrameAnimationView.this.aHa();
+                    FrameAnimationView.this.aGZ();
                 }
             }
         };
@@ -72,10 +72,10 @@ public class FrameAnimationView extends TbImageView {
 
     public void setData(List<String> list, int i) {
         if (list != null) {
-            this.jin = false;
-            this.jim = i;
+            this.jif = false;
+            this.jie = i;
             if (!el(list)) {
-                com.baidu.adp.lib.g.e.jH().removeCallbacks(this.jio);
+                com.baidu.adp.lib.g.e.jH().removeCallbacks(this.jig);
                 this.mData = list;
                 this.index = 0;
             }
@@ -84,7 +84,7 @@ public class FrameAnimationView extends TbImageView {
 
     public void setData(String str) {
         if (!ap.isEmpty(str)) {
-            this.jin = true;
+            this.jif = true;
             startLoad(str, 10, false);
         }
     }
@@ -103,20 +103,20 @@ public class FrameAnimationView extends TbImageView {
 
     public void cu() {
         if (this.mData != null) {
-            aHa();
+            aGZ();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aHa() {
+    public void aGZ() {
         if (this.mData != null) {
             Bitmap frameBitmap = getFrameBitmap();
             if (frameBitmap != null && !frameBitmap.isRecycled()) {
-                this.dzZ = frameBitmap;
-                this.srcRect.set(0, 0, this.dzZ.getWidth(), this.dzZ.getHeight());
+                this.dzV = frameBitmap;
+                this.srcRect.set(0, 0, this.dzV.getWidth(), this.dzV.getHeight());
             }
             invalidate();
-            com.baidu.adp.lib.g.e.jH().postDelayed(this.jio, this.jim);
+            com.baidu.adp.lib.g.e.jH().postDelayed(this.jig, this.jie);
         }
     }
 
@@ -150,7 +150,7 @@ public class FrameAnimationView extends TbImageView {
     @Override // com.baidu.tbadk.widget.TbImageView, android.widget.ImageView, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (!this.jin) {
+        if (!this.jif) {
             cu();
         }
     }
@@ -163,16 +163,16 @@ public class FrameAnimationView extends TbImageView {
     }
 
     public void stopAnimation() {
-        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.jio);
+        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.jig);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView, android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (!this.jin && this.dzZ != null && !this.dzZ.isRecycled()) {
-            this.dAa.set(0, 0, getMeasuredWidth(), getMeasuredHeight());
-            canvas.drawBitmap(this.dzZ, this.srcRect, this.dAa, (Paint) null);
+        if (!this.jif && this.dzV != null && !this.dzV.isRecycled()) {
+            this.dzW.set(0, 0, getMeasuredWidth(), getMeasuredHeight());
+            canvas.drawBitmap(this.dzV, this.srcRect, this.dzW, (Paint) null);
         }
     }
 

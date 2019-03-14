@@ -9,8 +9,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.swan.apps.model.a.a.a {
-    public JSONObject aZc;
-    public CoverViewHelper.Type aZd;
+    public JSONObject aZd;
+    public CoverViewHelper.Type aZe;
 
     public a(String str) {
         super("viewId", str);
@@ -19,9 +19,9 @@ public class a extends com.baidu.swan.apps.model.a.a.a {
     @Override // com.baidu.swan.apps.model.a.a.a, com.baidu.swan.apps.model.a
     public void parseFromJson(JSONObject jSONObject) throws JSONException {
         super.parseFromJson(jSONObject);
-        this.aZc = jSONObject.optJSONObject("transition");
-        if (this.aBE != null && this.akf != null) {
-            this.aBE.bs(this.akf.optBoolean("fixed", false));
+        this.aZd = jSONObject.optJSONObject("transition");
+        if (this.aBF != null && this.akg != null) {
+            this.aBF.bs(this.akg.optBoolean("fixed", false));
         }
     }
 
@@ -29,22 +29,22 @@ public class a extends com.baidu.swan.apps.model.a.a.a {
         if (aVar != null && aVar2 != null) {
             if (!TextUtils.equals(this.id, aVar.id)) {
                 aVar2.ex(63);
-            } else if (aVar.aZc != null) {
+            } else if (aVar.aZd != null) {
                 aVar2.ex(4);
             } else {
-                if (this.aBE != null && !this.aBE.equals(aVar.aBE)) {
+                if (this.aBF != null && !this.aBF.equals(aVar.aBF)) {
                     aVar2.ex(1);
                 }
                 if (aVar.hidden != this.hidden) {
                     aVar2.ex(8);
                 }
-                if (aVar.akf != null && (this.akf == null || !TextUtils.equals(this.akf.toString(), aVar.akf.toString()))) {
+                if (aVar.akg != null && (this.akg == null || !TextUtils.equals(this.akg.toString(), aVar.akg.toString()))) {
                     aVar2.ex(2);
                 }
-                if (!TextUtils.equals(this.aBz, aVar.aBz) && (TextUtils.equals(this.aBz, "scroll") || TextUtils.equals(aVar.aBz, "scroll"))) {
+                if (!TextUtils.equals(this.aBA, aVar.aBA) && (TextUtils.equals(this.aBA, "scroll") || TextUtils.equals(aVar.aBA, "scroll"))) {
                     aVar2.ex(16);
                 }
-                if (!TextUtils.equals(this.aBz, aVar.aBz) || (TextUtils.equals(aVar.aBz, "scroll") && this.aBy != aVar.aBy)) {
+                if (!TextUtils.equals(this.aBA, aVar.aBA) || (TextUtils.equals(aVar.aBA, "scroll") && this.aBz != aVar.aBz)) {
                     aVar2.ex(32);
                 }
             }
@@ -100,6 +100,6 @@ public class a extends com.baidu.swan.apps.model.a.a.a {
     }
 
     public String toString() {
-        return "CoverViewModel{slaveId='" + this.aBC + "', viewId='" + this.id + "', parentId='" + this.aBD + "', hidden=" + this.hidden + ", position=" + this.aBE + ", styleData=" + this.akf + ", animData=" + this.aZc + ", type=" + this.aZd + '}';
+        return "CoverViewModel{slaveId='" + this.aBD + "', viewId='" + this.id + "', parentId='" + this.aBE + "', hidden=" + this.hidden + ", position=" + this.aBF + ", styleData=" + this.akg + ", animData=" + this.aZd + ", type=" + this.aZe + '}';
     }
 }

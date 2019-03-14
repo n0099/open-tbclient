@@ -60,7 +60,7 @@ public class b {
             if (jVar.Ta()) {
                 jSONObject.put("of", "1");
             }
-            jSONObject.put("idtype", e.crV().jN(jVar.getId()));
+            jSONObject.put("idtype", e.crY().jN(jVar.getId()));
         } catch (JSONException e) {
         }
         byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);

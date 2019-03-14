@@ -14,7 +14,7 @@ public class c {
     private com.baidu.adp.lib.e.a<String, Bitmap> cmy;
     private com.baidu.adp.lib.e.b<com.baidu.tbadk.widget.largeImage.a.a> cmz;
 
-    public static c anq() {
+    public static c anp() {
         return cmv;
     }
 
@@ -88,7 +88,7 @@ public class c {
         return this.cmz;
     }
 
-    public void anr() {
+    public void anq() {
         if (this.cmz != null) {
             this.cmz.aq(0);
             this.cmz.ap(0);
@@ -97,7 +97,7 @@ public class c {
         }
     }
 
-    public int ans() {
+    public int anr() {
         return this.cmx.getMaxSize();
     }
 
@@ -174,7 +174,7 @@ public class c {
         return this.cmx.get(str);
     }
 
-    public void ant() {
+    public void ans() {
         this.cmw.clear();
         this.cmx.clear();
     }

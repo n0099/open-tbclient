@@ -15,21 +15,21 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.frs.SmartBubbleAnimatedView;
 /* loaded from: classes.dex */
 public class h extends com.baidu.adp.widget.ListView.c {
-    protected LinearLayout bRD;
-    protected ImageView bRE;
-    private c bRF;
-    private b bRG;
-    private d bRH;
-    private a bRI;
-    protected AnimationDrawable bRJ;
-    protected ContinuousAnimationView bRK;
-    private boolean bRL;
+    protected LinearLayout bRE;
+    protected ImageView bRF;
+    private c bRG;
+    private b bRH;
+    private d bRI;
+    private a bRJ;
+    protected AnimationDrawable bRK;
+    protected ContinuousAnimationView bRL;
     private boolean bRM;
-    private SmartBubbleAnimatedView bRN;
-    private f bRO;
-    private e bRP;
-    private boolean bRQ;
+    private boolean bRN;
+    private SmartBubbleAnimatedView bRO;
+    private f bRP;
+    private e bRQ;
     private boolean bRR;
+    private boolean bRS;
     protected View mHeaderView;
     protected int mSkinType;
 
@@ -63,33 +63,33 @@ public class h extends com.baidu.adp.widget.ListView.c {
     public h(Context context) {
         super(context);
         this.mHeaderView = null;
-        this.bRD = null;
         this.bRE = null;
         this.bRF = null;
         this.bRG = null;
         this.bRH = null;
         this.bRI = null;
+        this.bRJ = null;
         this.mSkinType = Integer.MIN_VALUE;
-        this.bRL = false;
         this.bRM = false;
-        this.bRQ = true;
+        this.bRN = false;
         this.bRR = true;
+        this.bRS = true;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public View oM() {
         this.mHeaderView = LayoutInflater.from(getContext()).inflate(d.h.tb_pull_view, (ViewGroup) null);
-        this.bRD = (LinearLayout) this.mHeaderView.findViewById(d.g.pull_root);
-        this.bRK = (ContinuousAnimationView) this.mHeaderView.findViewById(d.g.continuous_loading_view);
-        this.bRE = (ImageView) this.mHeaderView.findViewById(d.g.pull_image);
+        this.bRE = (LinearLayout) this.mHeaderView.findViewById(d.g.pull_root);
+        this.bRL = (ContinuousAnimationView) this.mHeaderView.findViewById(d.g.continuous_loading_view);
+        this.bRF = (ImageView) this.mHeaderView.findViewById(d.g.pull_image);
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.mSkinType != Integer.MIN_VALUE) {
             skinType = this.mSkinType;
         }
         if (!add()) {
-            this.bRJ = af.acV().hj(skinType);
+            this.bRK = af.acV().hj(skinType);
         }
-        this.bRE.setBackgroundDrawable(this.bRJ);
+        this.bRF.setBackgroundDrawable(this.bRK);
         aeN();
         return this.mHeaderView;
     }
@@ -100,22 +100,22 @@ public class h extends com.baidu.adp.widget.ListView.c {
 
     @Override // com.baidu.adp.widget.ListView.c
     public void releaseToRefresh() {
-        if (!add() && this.bRJ != null && this.bRE != null) {
-            this.bRJ.stop();
-            this.bRE.setBackgroundDrawable(this.bRJ.getFrame(0));
+        if (!add() && this.bRK != null && this.bRF != null) {
+            this.bRK.stop();
+            this.bRF.setBackgroundDrawable(this.bRK.getFrame(0));
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void aw(boolean z) {
-        if (this.bRH != null) {
-            this.bRH.dS(z);
+        if (this.bRI != null) {
+            this.bRI.dS(z);
         }
         aeN();
-        this.bRL = true;
-        if (!add() && this.bRJ != null && this.bRE != null) {
-            this.bRJ.stop();
-            this.bRE.setBackgroundDrawable(this.bRJ.getFrame(0));
+        this.bRM = true;
+        if (!add() && this.bRK != null && this.bRF != null) {
+            this.bRK.stop();
+            this.bRF.setBackgroundDrawable(this.bRK.getFrame(0));
         }
     }
 
@@ -123,7 +123,7 @@ public class h extends com.baidu.adp.widget.ListView.c {
     public void n(float f2, float f3) {
         super.n(f2, f3);
         if (add()) {
-            this.bRK.setAlpha(f2);
+            this.bRL.setAlpha(f2);
         }
     }
 
@@ -131,15 +131,15 @@ public class h extends com.baidu.adp.widget.ListView.c {
     public void refreshing() {
         aeN();
         if (add()) {
-            this.bRK.cu();
-        } else if (this.bRJ != null && this.bRE != null) {
-            this.bRJ.stop();
-            this.bRE.setBackgroundDrawable(this.bRJ);
-            this.bRE.post(new Runnable() { // from class: com.baidu.tbadk.core.view.h.1
+            this.bRL.cu();
+        } else if (this.bRK != null && this.bRF != null) {
+            this.bRK.stop();
+            this.bRF.setBackgroundDrawable(this.bRK);
+            this.bRF.post(new Runnable() { // from class: com.baidu.tbadk.core.view.h.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (h.this.bRJ != null) {
-                        h.this.bRJ.start();
+                    if (h.this.bRK != null) {
+                        h.this.bRK.start();
                     }
                 }
             });
@@ -148,61 +148,61 @@ public class h extends com.baidu.adp.widget.ListView.c {
 
     @Override // com.baidu.adp.widget.ListView.c
     public void ax(boolean z) {
-        this.bRL = false;
+        this.bRM = false;
         if (add()) {
-            this.bRK.cw();
-        } else if (this.bRJ != null) {
-            this.bRJ.stop();
+            this.bRL.cw();
+        } else if (this.bRK != null) {
+            this.bRK.stop();
         }
         aeO();
-        if (this.bRG != null) {
-            this.bRG.f(this.mHeaderView, z);
+        if (this.bRH != null) {
+            this.bRH.f(this.mHeaderView, z);
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void ay(boolean z) {
-        if (this.bRF != null && this.bRR) {
-            this.bRF.dR(z);
+        if (this.bRG != null && this.bRS) {
+            this.bRG.dR(z);
         }
-        this.bRR = true;
+        this.bRS = true;
     }
 
     public void aeM() {
-        this.bRR = false;
+        this.bRS = false;
     }
 
     public void a(e eVar) {
-        this.bRP = eVar;
+        this.bRQ = eVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.c
     public void oN() {
-        if (this.bRI != null) {
-            this.bRI.aeT();
+        if (this.bRJ != null) {
+            this.bRJ.aeT();
         }
         aeQ();
     }
 
     public void setListPullRefreshListener(c cVar) {
-        this.bRF = cVar;
+        this.bRG = cVar;
     }
 
     public void a(b bVar) {
-        this.bRG = bVar;
+        this.bRH = bVar;
     }
 
     public void a(d dVar) {
-        this.bRH = dVar;
+        this.bRI = dVar;
     }
 
     public void a(a aVar) {
-        this.bRI = aVar;
+        this.bRJ = aVar;
     }
 
     public void ic(int i) {
         if (add()) {
-            al.f(this.mHeaderView, d.C0236d.cp_bg_line_f, i);
+            al.f(this.mHeaderView, d.C0277d.cp_bg_line_f, i);
         }
     }
 
@@ -212,35 +212,35 @@ public class h extends com.baidu.adp.widget.ListView.c {
     }
 
     private void aeN() {
-        if (this.bRN != null && this.bRN.getParent() != null) {
-            this.bRD.removeView(this.bRN);
+        if (this.bRO != null && this.bRO.getParent() != null) {
+            this.bRE.removeView(this.bRO);
         }
         if (add()) {
-            if (this.bRE != null && this.bRK != null) {
-                if (this.bRE.getVisibility() != 8) {
-                    this.bRE.setVisibility(8);
+            if (this.bRF != null && this.bRL != null) {
+                if (this.bRF.getVisibility() != 8) {
+                    this.bRF.setVisibility(8);
                 }
-                if (this.bRK.getVisibility() != 0) {
-                    this.bRK.setVisibility(0);
+                if (this.bRL.getVisibility() != 0) {
+                    this.bRL.setVisibility(0);
                 }
-                if (this.bRK.isAnimating()) {
-                    this.bRK.cancelAnimation();
+                if (this.bRL.isAnimating()) {
+                    this.bRL.cancelAnimation();
                 }
             }
-        } else if (this.bRE != null && this.bRK != null) {
-            if (this.bRE.getVisibility() != 0) {
-                this.bRE.setVisibility(0);
+        } else if (this.bRF != null && this.bRL != null) {
+            if (this.bRF.getVisibility() != 0) {
+                this.bRF.setVisibility(0);
             }
-            if (this.bRK.getVisibility() != 8) {
-                this.bRK.setVisibility(8);
+            if (this.bRL.getVisibility() != 8) {
+                this.bRL.setVisibility(8);
             }
         }
     }
 
     private void aeO() {
-        if (add() && this.bRJ != null) {
-            this.bRJ.stop();
-            this.bRJ = null;
+        if (add() && this.bRK != null) {
+            this.bRK.stop();
+            this.bRK = null;
         }
     }
 
@@ -250,68 +250,68 @@ public class h extends com.baidu.adp.widget.ListView.c {
     }
 
     public boolean aeP() {
-        return this.bRM;
+        return this.bRN;
     }
 
     public void a(f fVar) {
-        this.bRO = fVar;
+        this.bRP = fVar;
     }
 
     public void setExecuteMsgAnimation(boolean z) {
-        this.bRQ = z;
+        this.bRR = z;
     }
 
     public void aeQ() {
-        if (aeP() && this.bRQ && this.bRP != null && this.bRD != null) {
-            this.bRE.setVisibility(8);
-            this.bRK.setVisibility(8);
-            if (this.bRN == null) {
-                this.bRN = new SmartBubbleAnimatedView(getContext());
-                this.bRN.setExtrusionRemind(true);
+        if (aeP() && this.bRR && this.bRQ != null && this.bRE != null) {
+            this.bRF.setVisibility(8);
+            this.bRL.setVisibility(8);
+            if (this.bRO == null) {
+                this.bRO = new SmartBubbleAnimatedView(getContext());
+                this.bRO.setExtrusionRemind(true);
             }
-            this.bRN.bRT = this.bRP.getTipText();
-            this.bRN.fdf = this.bRP.aeU();
-            if (this.bRN.getParent() != null) {
-                this.bRD.removeView(this.bRN);
+            this.bRO.bRU = this.bRQ.getTipText();
+            this.bRO.fde = this.bRQ.aeU();
+            if (this.bRO.getParent() != null) {
+                this.bRE.removeView(this.bRO);
             }
-            this.bRD.addView(this.bRN);
-            this.bRN.setOnBubbleAnimateListener(new SmartBubbleAnimatedView.a() { // from class: com.baidu.tbadk.core.view.h.2
+            this.bRE.addView(this.bRO);
+            this.bRO.setOnBubbleAnimateListener(new SmartBubbleAnimatedView.a() { // from class: com.baidu.tbadk.core.view.h.2
                 @Override // com.baidu.tieba.frs.SmartBubbleAnimatedView.a
                 public void aeS() {
-                    if (h.this.bRO != null) {
-                        h.this.bRO.onAnimationEnd();
+                    if (h.this.bRP != null) {
+                        h.this.bRP.onAnimationEnd();
                     }
                 }
             });
-            if (this.bRO != null) {
-                this.bRO.ig(this.bRN.getTipViewHeight());
+            if (this.bRP != null) {
+                this.bRP.ig(this.bRO.getTipViewHeight());
             }
-            this.bRN.bey();
+            this.bRO.bex();
         }
     }
 
     public void aeR() {
-        if (this.bRD != null && this.bRN != null && this.bRN.getParent() != null) {
-            this.bRD.removeView(this.bRN);
+        if (this.bRE != null && this.bRO != null && this.bRO.getParent() != null) {
+            this.bRE.removeView(this.bRO);
         }
     }
 
     /* loaded from: classes.dex */
     public static class e {
-        private String bRT;
-        private int bRU;
+        private String bRU;
+        private int bRV;
 
         public e(String str, int i) {
-            this.bRT = str;
-            this.bRU = i;
+            this.bRU = str;
+            this.bRV = i;
         }
 
         public String getTipText() {
-            return this.bRT;
+            return this.bRU;
         }
 
         public int aeU() {
-            return this.bRU;
+            return this.bRV;
         }
     }
 }

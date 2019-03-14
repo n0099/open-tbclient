@@ -66,18 +66,18 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, unitedSchemeEntity.result);
             return true;
         } else {
-            UnitedSchemeEntity m12clone = unitedSchemeEntity.m12clone();
-            String path = m12clone.getPath(true);
+            UnitedSchemeEntity m13clone = unitedSchemeEntity.m13clone();
+            String path = m13clone.getPath(true);
             if (!TextUtils.isEmpty(path) && (unitedSchemeBaseDispatcher = this.mDynamicDispatchers.get(path)) != null) {
-                boolean dispatch = unitedSchemeBaseDispatcher.dispatch(context, m12clone, callbackHandler);
-                if (m12clone.result != null) {
-                    int optInt = m12clone.result.optInt("status", -1);
+                boolean dispatch = unitedSchemeBaseDispatcher.dispatch(context, m13clone, callbackHandler);
+                if (m13clone.result != null) {
+                    int optInt = m13clone.result.optInt("status", -1);
                     if (optInt != 301 && optInt != 302) {
                         doUBCForOutside(unitedSchemeEntity, optInt);
                         if (optInt != 0) {
-                            UnitedSchemeUtility.callCallback(callbackHandler, m12clone, m12clone.result);
+                            UnitedSchemeUtility.callCallback(callbackHandler, m13clone, m13clone.result);
                         }
-                        unitedSchemeEntity.result = m12clone.result;
+                        unitedSchemeEntity.result = m13clone.result;
                         return dispatch;
                     }
                 } else if (dispatch) {
@@ -86,7 +86,7 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
                 }
             }
             boolean dispatch2 = super.dispatch(context, unitedSchemeEntity, callbackHandler);
-            JSONObject selectResult = selectResult(m12clone, unitedSchemeEntity);
+            JSONObject selectResult = selectResult(m13clone, unitedSchemeEntity);
             if (dispatch2 && unitedSchemeEntity.result == null) {
                 doUBCForOutside(unitedSchemeEntity, dispatch2 ? 0 : -2);
             } else if (selectResult != null) {

@@ -8,15 +8,15 @@ import com.baidu.swan.apps.an.j;
 import com.baidu.swan.apps.statistic.a.e;
 import com.baidu.swan.apps.statistic.a.f;
 import com.baidu.swan.ubc.Flow;
-import com.baidu.swan.ubc.r;
+import com.baidu.swan.ubc.q;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class c {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private static String aSe = "";
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static String aSf = "";
 
     public static Flow gP(String str) {
-        return r.jS(str);
+        return q.jS(str);
     }
 
     public static void a(final Flow flow, final e eVar) {
@@ -38,7 +38,7 @@ public final class c {
             j.b(new Runnable() { // from class: com.baidu.swan.apps.statistic.c.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    r.onEvent("671", com.baidu.swan.apps.statistic.a.d.this.toJSONObject());
+                    q.onEvent("671", com.baidu.swan.apps.statistic.a.d.this.toJSONObject());
                 }
             }, "SwanAppUBCStability");
         }
@@ -54,14 +54,14 @@ public final class c {
                 @Override // java.lang.Runnable
                 public void run() {
                     f.this.ai(c.Kt());
-                    r.onEvent(str, f.this.toJSONObject());
+                    q.onEvent(str, f.this.toJSONObject());
                 }
             }, "SwanAppUBCOnEvent");
         }
     }
 
     public static void f(String str, String str2, int i) {
-        if (!TextUtils.isEmpty(aSe) && TextUtils.equals(aSe, str2)) {
+        if (!TextUtils.isEmpty(aSf) && TextUtils.equals(aSf, str2)) {
             if (DEBUG) {
                 Log.d("SwanAppUBCStatistic", "onLaunchShow: not first start or different source");
                 return;
@@ -74,11 +74,11 @@ public final class c {
         fVar.mSource = str2;
         fVar.mType = "launchshow";
         onEvent(fVar);
-        aSe = str2;
+        aSf = str2;
     }
 
     public static void Ks() {
-        aSe = "";
+        aSf = "";
     }
 
     public static void f(boolean z, String str) {
@@ -86,11 +86,11 @@ public final class c {
         bVar.mType = "login";
         bVar.mValue = z ? "success" : LivenessStat.TYPE_FACE_MATCH_FAIL;
         bVar.mAppId = str;
-        bVar.mSource = com.baidu.swan.apps.ae.b.IX().uB().axF;
+        bVar.mSource = com.baidu.swan.apps.ae.b.IX().uB().axG;
         j.b(new Runnable() { // from class: com.baidu.swan.apps.statistic.c.4
             @Override // java.lang.Runnable
             public void run() {
-                r.onEvent("751", com.baidu.swan.apps.statistic.a.b.this.toJSONObject());
+                q.onEvent("751", com.baidu.swan.apps.statistic.a.b.this.toJSONObject());
             }
         }, "SwanAppUBCOnLogin");
     }
@@ -106,7 +106,7 @@ public final class c {
         j.b(new Runnable() { // from class: com.baidu.swan.apps.statistic.c.5
             @Override // java.lang.Runnable
             public void run() {
-                r.onEvent("751", com.baidu.swan.apps.statistic.a.b.this.toJSONObject());
+                q.onEvent("751", com.baidu.swan.apps.statistic.a.b.this.toJSONObject());
             }
         }, "SwanAppUBCOnPay");
     }
@@ -115,7 +115,7 @@ public final class c {
         int i = 0;
         com.baidu.swan.apps.v.b.b uB = com.baidu.swan.apps.ae.b.IX().uB();
         if (uB != null) {
-            i = uB.axW;
+            i = uB.axX;
         }
         final com.baidu.swan.apps.statistic.a.b bVar = new com.baidu.swan.apps.statistic.a.b();
         bVar.mType = "pay";
@@ -125,7 +125,7 @@ public final class c {
         j.b(new Runnable() { // from class: com.baidu.swan.apps.statistic.c.6
             @Override // java.lang.Runnable
             public void run() {
-                r.onEvent("751", com.baidu.swan.apps.statistic.a.b.this.toJSONObject());
+                q.onEvent("751", com.baidu.swan.apps.statistic.a.b.this.toJSONObject());
             }
         }, "SwanAppUBCOnPay");
     }
@@ -140,7 +140,7 @@ public final class c {
             @Override // java.lang.Runnable
             public void run() {
                 f.this.ai(c.Kt());
-                r.onEvent("778", f.this.toJSONObject());
+                q.onEvent("778", f.this.toJSONObject());
             }
         }, "SwanAppUBCOnPagesRoute");
     }
@@ -150,14 +150,14 @@ public final class c {
             final com.baidu.swan.apps.statistic.a.c cVar = new com.baidu.swan.apps.statistic.a.c(i, str, str2);
             cVar.mType = "request";
             if (com.baidu.swan.apps.ae.b.IX() != null && com.baidu.swan.apps.ae.b.IX().uB() != null) {
-                cVar.mSource = com.baidu.swan.apps.ae.b.IX().uB().axF;
+                cVar.mSource = com.baidu.swan.apps.ae.b.IX().uB().axG;
             }
             cVar.mAppId = com.baidu.swan.apps.ae.b.Ji();
             cVar.mFrom = dC(i2);
             j.b(new Runnable() { // from class: com.baidu.swan.apps.statistic.c.8
                 @Override // java.lang.Runnable
                 public void run() {
-                    r.onEvent("834", com.baidu.swan.apps.statistic.a.c.this.toJSONObject());
+                    q.onEvent("834", com.baidu.swan.apps.statistic.a.c.this.toJSONObject());
                 }
             }, "SwanAppUBCRequest");
         }
@@ -176,7 +176,7 @@ public final class c {
         com.baidu.swan.apps.v.b.b uB;
         JSONObject jSONObject;
         com.baidu.swan.apps.ae.b IX = com.baidu.swan.apps.ae.b.IX();
-        if (IX == null || (uB = IX.uB()) == null || (jSONObject = uB.ayc) == null || !TextUtils.equals(jSONObject.optString("token"), "swanubc")) {
+        if (IX == null || (uB = IX.uB()) == null || (jSONObject = uB.ayd) == null || !TextUtils.equals(jSONObject.optString("token"), "swanubc")) {
             return null;
         }
         return jSONObject;
@@ -185,9 +185,9 @@ public final class c {
     public static void a(com.baidu.swan.apps.v.b.b bVar, String str) {
         if (bVar != null) {
             f fVar = new f();
-            fVar.mFrom = dC(bVar.axW);
+            fVar.mFrom = dC(bVar.axX);
             fVar.mAppId = bVar.mAppId;
-            fVar.mSource = bVar.axF;
+            fVar.mSource = bVar.axG;
             fVar.mType = str;
             a("859", fVar);
         }
@@ -200,8 +200,8 @@ public final class c {
         fVar.mAppId = com.baidu.swan.apps.ae.b.Ji();
         if (com.baidu.swan.apps.ae.b.IX() != null && com.baidu.swan.apps.ae.b.IX().uB() != null) {
             com.baidu.swan.apps.v.b.b uB = com.baidu.swan.apps.ae.b.IX().uB();
-            fVar.mSource = uB.axF;
-            fVar.mFrom = dC(uB.axW);
+            fVar.mSource = uB.axG;
+            fVar.mFrom = dC(uB.axX);
         }
         if (TextUtils.equals("click", str)) {
             fVar.aB("authorize", z ? "success" : LivenessStat.TYPE_FACE_MATCH_FAIL);
@@ -209,7 +209,7 @@ public final class c {
         j.a(new Runnable() { // from class: com.baidu.swan.apps.statistic.c.9
             @Override // java.lang.Runnable
             public void run() {
-                r.onEvent("894", f.this.toJSONObject());
+                q.onEvent("894", f.this.toJSONObject());
             }
         }, "SwanAppUBCOnAuthDialog");
     }

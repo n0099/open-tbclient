@@ -4,6 +4,7 @@ import android.location.Location;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.location.d.d;
+import com.baidu.mobstat.Config;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
@@ -409,7 +410,7 @@ public class p {
                 if (a3 != null && a3.getNetworkLocationType() != null) {
                     str3 = a3.getNetworkLocationType();
                 }
-                if (str3 != null && str3.equals("cl")) {
+                if (str3 != null && str3.equals(Config.CELL_LOCATION)) {
                     i2 = 1;
                 } else if (str3 != null && str3.equals("wf")) {
                     i2 = 2;

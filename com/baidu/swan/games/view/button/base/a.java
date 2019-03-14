@@ -14,7 +14,7 @@ import java.util.HashSet;
 public class a {
     @V8JavascriptField
     public String backgroundColor;
-    private InterfaceC0176a bfN;
+    private InterfaceC0205a bfO;
     @V8JavascriptField
     public String borderColor;
     @V8JavascriptField
@@ -43,11 +43,11 @@ public class a {
     public double fontSize = 16.0d;
     @V8JavascriptField
     public double opacity = 1.0d;
-    public HashSet<String> bfM = new HashSet<>();
+    public HashSet<String> bfN = new HashSet<>();
 
     /* renamed from: com.baidu.swan.games.view.button.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0176a {
+    public interface InterfaceC0205a {
         void PC();
     }
 
@@ -199,26 +199,26 @@ public class a {
                         this.color = jsObject.toString(i);
                         break;
                 }
-                this.bfM.add(propertyName);
+                this.bfN.add(propertyName);
             }
         }
-        if (com.baidu.swan.apps.c.DEBUG) {
+        if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("ApiButtonStyle", "parseApiButtonStyle = " + toString());
         }
     }
 
     @JavascriptInterface
     public void onFieldChangedCallback(String str) {
-        if (com.baidu.swan.apps.c.DEBUG) {
+        if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
         }
-        if (this.bfN != null) {
-            this.bfN.PC();
+        if (this.bfO != null) {
+            this.bfO.PC();
         }
     }
 
-    public void a(InterfaceC0176a interfaceC0176a) {
-        this.bfN = interfaceC0176a;
+    public void a(InterfaceC0205a interfaceC0205a) {
+        this.bfO = interfaceC0205a;
     }
 
     public static int eM(@ColorInt int i) {

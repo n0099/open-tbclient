@@ -10,31 +10,31 @@ import java.io.IOException;
 /* loaded from: classes2.dex */
 public class k extends y {
     public k(com.facebook.common.memory.g gVar) {
-        super(com.facebook.common.b.a.ctD(), gVar);
+        super(com.facebook.common.b.a.ctG(), gVar);
     }
 
     @Override // com.facebook.imagepipeline.producers.y
     protected com.facebook.imagepipeline.f.d h(ImageRequest imageRequest) throws IOException {
-        byte[] FL = FL(imageRequest.cAr().toString());
-        return d(new ByteArrayInputStream(FL), FL.length);
+        byte[] FJ = FJ(imageRequest.cAu().toString());
+        return d(new ByteArrayInputStream(FJ), FJ.length);
     }
 
     @Override // com.facebook.imagepipeline.producers.y
-    protected String czP() {
+    protected String czS() {
         return "DataFetchProducer";
     }
 
-    static byte[] FL(String str) {
+    static byte[] FJ(String str) {
         com.facebook.common.internal.g.checkArgument(str.substring(0, 5).equals(WebGLImageLoader.DATA_URL));
         int indexOf = str.indexOf(44);
         String substring = str.substring(indexOf + 1, str.length());
-        if (FM(str.substring(0, indexOf))) {
+        if (FK(str.substring(0, indexOf))) {
             return Base64.decode(substring, 0);
         }
         return Uri.decode(substring).getBytes();
     }
 
-    static boolean FM(String str) {
+    static boolean FK(String str) {
         if (!str.contains(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR)) {
             return false;
         }

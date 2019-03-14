@@ -31,20 +31,20 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class a implements a.InterfaceC0298a {
-    private boolean esl = false;
-    private boolean esm = false;
-    private boolean esn = false;
-    private CustomMessageListener cMV = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.d.a.1
+public class a implements a.InterfaceC0374a {
+    private boolean esh = false;
+    private boolean esi = false;
+    private boolean esj = false;
+    private CustomMessageListener cMS = new CustomMessageListener(2005016) { // from class: com.baidu.tieba.d.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                a.this.aSG();
+                a.this.aSF();
             }
         }
     };
-    private CustomMessageListener eso = new CustomMessageListener(2001371) { // from class: com.baidu.tieba.d.a.2
+    private CustomMessageListener esk = new CustomMessageListener(2001371) { // from class: com.baidu.tieba.d.a.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -58,17 +58,17 @@ public class a implements a.InterfaceC0298a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError()) {
-                a.this.aSH();
+                a.this.aSG();
             }
         }
     };
 
-    @Override // com.baidu.tieba.r.a.InterfaceC0298a
+    @Override // com.baidu.tieba.r.a.InterfaceC0374a
     public void d(Application application) {
-        MessageManager.getInstance().registerListener(this.eso);
-        MessageManager.getInstance().registerListener(this.cMV);
+        MessageManager.getInstance().registerListener(this.esk);
+        MessageManager.getInstance().registerListener(this.cMS);
         MessageManager.getInstance().registerListener(this.mNetworkChangedListener);
-        if (!this.esl) {
+        if (!this.esh) {
             g(application);
         }
     }
@@ -91,10 +91,10 @@ public class a implements a.InterfaceC0298a {
             } else {
                 CrabSDK.init(application, "b14ed41a92769403");
             }
-            this.esl = true;
-            aSG();
+            this.esh = true;
+            aSF();
             n(null);
-            aSH();
+            aSG();
             CrabSDK.setChannel(TbConfig.getCurrentFrom());
             CrabSDK.setEnableLog(isDebugMode);
             if (isDebugMode) {
@@ -107,9 +107,9 @@ public class a implements a.InterfaceC0298a {
                 CrabSDK.setUploadLimitOfAnrInOneday(-1);
                 CrabSDK.setUrlRecordLimit(10);
             } else {
-                if (aSB()) {
+                if (aSA()) {
                     CrabSDK.disableBlockCatch();
-                } else if (aSD()) {
+                } else if (aSC()) {
                     CrabSDK.disableBlockCatch();
                 } else {
                     CrabSDK.disableBlockCatch();
@@ -124,69 +124,69 @@ public class a implements a.InterfaceC0298a {
             CrabSDK.setOnAnrCrashListener(new OnAnrCrashListener() { // from class: com.baidu.tieba.d.a.5
                 @Override // com.baidu.crabsdk.OnAnrCrashListener
                 public void onAnrStarted(Map map) {
-                    a.this.aSG();
+                    a.this.aSF();
                     a.this.n(null);
                 }
 
                 @Override // com.baidu.crabsdk.OnAnrCrashListener
                 public void onCrashStarted(Thread thread, Throwable th) {
-                    a.this.aSG();
+                    a.this.aSF();
                     a.this.n(th);
                 }
 
                 @Override // com.baidu.crabsdk.OnAnrCrashListener
                 public void onNativeCrashStarted(Error error, String str, int i) {
-                    a.this.aSG();
+                    a.this.aSF();
                     a.this.n(error);
                 }
             });
+            aSD();
             aSE();
-            aSF();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
-            this.esl = false;
+            this.esh = false;
             return false;
         }
     }
 
-    private boolean aSB() {
+    private boolean aSA() {
         return TbConfig.getVersionType() == 2;
     }
 
-    private boolean aSC() {
+    private boolean aSB() {
         return TbConfig.getVersionType() == 1;
     }
 
-    private boolean aSD() {
+    private boolean aSC() {
         return TbConfig.getVersionType() == 3;
     }
 
-    private void aSE() {
-        if (this.esl && this.esm) {
+    private void aSD() {
+        if (this.esh && this.esi) {
             CrabSDK.disableBlockCatch();
         }
     }
 
-    private void aSF() {
-        if (this.esl && this.esn) {
+    private void aSE() {
+        if (this.esh && this.esj) {
             CrabSDK.closeAnrHandler();
         }
     }
 
-    public void aSG() {
+    public void aSF() {
         cv(TbadkCoreApplication.getInst().getCuidGalaxy2(), TbadkCoreApplication.getCurrentAccount());
     }
 
     public void cv(String str, String str2) {
-        if (this.esl) {
+        if (this.esh) {
             CrabSDK.setUid(str);
             CrabSDK.setUserName(str2);
         }
     }
 
-    public void aSH() {
-        if (this.esl) {
+    public void aSG() {
+        if (this.esh) {
             if (j.kZ()) {
                 CrabSDK.setCollectScreenshot(true);
             } else {
@@ -197,9 +197,9 @@ public class a implements a.InterfaceC0298a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void n(Throwable th) {
-        if (this.esl) {
+        if (this.esh) {
             HashMap hashMap = new HashMap();
-            hashMap.put("version_type", aSI());
+            hashMap.put("version_type", aSH());
             hashMap.put("version", TbConfig.getVersion());
             hashMap.put("sub_version", TbConfig.getSubVersion());
             hashMap.put("plugin_info", o(th));
@@ -307,39 +307,39 @@ public class a implements a.InterfaceC0298a {
         }
     }
 
-    private String aSI() {
+    private String aSH() {
         if (BdBaseApplication.getInst().isDebugMode()) {
             return "DebugBuild";
         }
-        if (aSD()) {
+        if (aSC()) {
             return "ReleasedBuild";
         }
-        if (aSB()) {
+        if (aSA()) {
             return "GrayBuild";
         }
-        if (!aSC()) {
+        if (!aSB()) {
             return "DefaultBuild";
         }
         return "DailyBuild";
     }
 
-    @Override // com.baidu.tieba.r.a.InterfaceC0298a
+    @Override // com.baidu.tieba.r.a.InterfaceC0374a
     public void onPause(Activity activity) {
-        if (this.esl && activity != null) {
+        if (this.esh && activity != null) {
             CrabSDK.onPause(activity);
         }
     }
 
-    @Override // com.baidu.tieba.r.a.InterfaceC0298a
+    @Override // com.baidu.tieba.r.a.InterfaceC0374a
     public void onResume(Activity activity) {
-        if (this.esl && activity != null) {
+        if (this.esh && activity != null) {
             CrabSDK.onResume(activity);
         }
     }
 
-    @Override // com.baidu.tieba.r.a.InterfaceC0298a
+    @Override // com.baidu.tieba.r.a.InterfaceC0374a
     public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
-        if (this.esl && activity != null && motionEvent != null) {
+        if (this.esh && activity != null && motionEvent != null) {
             CrabSDK.behaviorRecordEvent(motionEvent, activity);
         }
     }

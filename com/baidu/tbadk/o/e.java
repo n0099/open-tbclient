@@ -1,18 +1,19 @@
 package com.baidu.tbadk.o;
 
 import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.mobstat.Config;
 /* loaded from: classes.dex */
 public class e extends o {
     @Override // com.baidu.tbadk.o.o
     public void a(i iVar) {
-        if (m.apl().apm()) {
+        if (m.apk().apl()) {
             com.baidu.adp.lib.stats.a jC = jC();
             jC.append("action", "time_t");
             a(jC, iVar);
             jC.append("ishttp", iVar.cqz ? "1" : "0");
             jC.append("issuccess", iVar.isSuccess ? "1" : "0");
-            jC.append("nettype", m.apl().getNetType());
-            jC.append("ct", String.valueOf(iVar.cqo));
+            jC.append("nettype", m.apk().getNetType());
+            jC.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(iVar.cqo));
             jC.append("wt", String.valueOf(iVar.cqw));
             jC.append("qt", String.valueOf(iVar.cqp));
             jC.append("connt", String.valueOf(iVar.cqq));
@@ -42,14 +43,14 @@ public class e extends o {
 
     @Override // com.baidu.tbadk.o.o
     public void a(h hVar, String str) {
-        if (hVar != null && str != null && m.apl().apm()) {
+        if (hVar != null && str != null && m.apk().apl()) {
             com.baidu.adp.lib.stats.a jC = jC();
             jC.append("action", "resource_t");
             jC.append("actype", str);
             jC.append("issuccess", hVar.isSuccess ? "1" : "0");
             jC.append("isfs", hVar.cqm ? "1" : "0");
-            jC.append("ct", String.valueOf(hVar.Oh));
-            jC.append("from", String.valueOf(hVar.Og));
+            jC.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(hVar.Oi));
+            jC.append("from", String.valueOf(hVar.Oh));
             BdStatisticsManager.getInstance().performance(this.subType, jC);
         }
     }
@@ -62,7 +63,7 @@ public class e extends o {
 
     @Override // com.baidu.tbadk.o.o
     public void a(i iVar, boolean z) {
-        if (m.apl().apm()) {
+        if (m.apk().apl()) {
             if (!z || iVar.cqE > 0) {
                 if (z || iVar.cqF > 0) {
                     com.baidu.adp.lib.stats.a jC = jC();
@@ -75,7 +76,7 @@ public class e extends o {
                     }
                     jC.append("ishttp", iVar.cqz ? "1" : "0");
                     jC.append("issuccess", iVar.isSuccess ? "1" : "0");
-                    jC.append("nettype", m.apl().getNetType());
+                    jC.append("nettype", m.apk().getNetType());
                     jC.append("qt", String.valueOf(iVar.cqp));
                     jC.append("connt", String.valueOf(iVar.cqq));
                     jC.append("rwt", String.valueOf(iVar.cqr));
@@ -101,7 +102,7 @@ public class e extends o {
 
     @Override // com.baidu.tbadk.o.o
     public void a(i iVar, int i) {
-        if (m.apl().apm() && iVar.cqG > 0) {
+        if (m.apk().apl() && iVar.cqG > 0) {
             com.baidu.adp.lib.stats.a jC = jC();
             jC.append("action", "time_t");
             a(jC, iVar);

@@ -3,13 +3,13 @@ package com.baidu.swan.apps.performance;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public class UbcFlowEvent {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     public final String id;
     private long mTime = System.currentTimeMillis();
     private String mValue = "";
-    private String aEj = "NA";
-    private RecordType aEk = RecordType.KEEP;
-    private boolean aEl = false;
+    private String aEk = "NA";
+    private RecordType aEl = RecordType.KEEP;
+    private boolean aEm = false;
 
     /* loaded from: classes2.dex */
     public enum RecordType {
@@ -40,25 +40,25 @@ public class UbcFlowEvent {
     }
 
     public UbcFlowEvent fK(String str) {
-        this.aEj = str;
+        this.aEk = str;
         return this;
     }
 
     public String FU() {
-        return this.aEj;
+        return this.aEk;
     }
 
     public boolean FV() {
-        return this.aEl;
+        return this.aEm;
     }
 
     public UbcFlowEvent a(RecordType recordType) {
-        this.aEk = recordType;
+        this.aEl = recordType;
         return this;
     }
 
     public RecordType FW() {
-        return this.aEk;
+        return this.aEl;
     }
 
     public String toString() {

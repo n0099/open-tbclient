@@ -3,7 +3,6 @@ package cn.jiguang.a.a.b;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.v4.view.PointerIconCompat;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes3.dex */
 public final class g extends Handler {
@@ -31,8 +30,8 @@ public final class g extends Handler {
                 f.c(this.kN);
                 return;
             case 1001:
-            case PointerIconCompat.TYPE_HELP /* 1003 */:
-            case PointerIconCompat.TYPE_WAIT /* 1004 */:
+            case 1003:
+            case 1004:
             case 1005:
                 cVar = this.kN.kL;
                 if (cVar != null) {

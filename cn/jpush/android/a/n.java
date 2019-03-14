@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import cn.jpush.android.api.TagAliasCallback;
 import cn.jpush.android.service.ServiceInterface;
+import com.baidu.mobstat.Config;
 import com.xiaomi.mipush.sdk.Constants;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
 import java.util.ArrayList;
@@ -148,7 +149,7 @@ public final class n {
                     cn.jpush.android.d.f.a("TagAliasHelper", "action:setAliasAndTags - alias:" + str + ", tags:" + b);
                     try {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("platform", "a");
+                        jSONObject.put("platform", Config.APP_VERSION_CODE);
                         if (str != null) {
                             jSONObject.put("alias", str);
                         }
@@ -204,7 +205,7 @@ public final class n {
     private static JSONObject a(int i) {
         String str;
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put("platform", "a");
+        jSONObject.put("platform", Config.APP_VERSION_CODE);
         switch (i) {
             case 1:
                 str = "add";
@@ -228,7 +229,7 @@ public final class n {
                 str = null;
                 break;
         }
-        jSONObject.put("op", str);
+        jSONObject.put(Config.OPERATOR, str);
         return jSONObject;
     }
 

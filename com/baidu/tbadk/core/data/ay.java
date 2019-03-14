@@ -9,40 +9,40 @@ import tbclient.RecomTopicInfo;
 import tbclient.RecomTopicList;
 /* loaded from: classes3.dex */
 public class ay {
-    private String bAi;
-    private List<a> bAj = new ArrayList();
+    private String bAk;
+    private List<a> bAl = new ArrayList();
 
     public String Ya() {
-        return StringUtils.isNull(this.bAi) ? TbadkCoreApplication.getInst().getString(d.j.hot_topic_card_title) : this.bAi;
+        return StringUtils.isNull(this.bAk) ? TbadkCoreApplication.getInst().getString(d.j.hot_topic_card_title) : this.bAk;
     }
 
     public com.baidu.tieba.card.data.n Yb() {
         com.baidu.tieba.card.data.n nVar = new com.baidu.tieba.card.data.n();
         ArrayList arrayList = null;
-        nVar.elZ = Ya();
-        if (this.bAj != null) {
+        nVar.elV = Ya();
+        if (this.bAl != null) {
             ArrayList arrayList2 = new ArrayList();
-            for (a aVar : this.bAj) {
+            for (a aVar : this.bAl) {
                 if (aVar != null) {
                     arrayList2.add(aVar.Yd());
                 }
             }
             arrayList = arrayList2;
         }
-        nVar.ema = arrayList;
+        nVar.elW = arrayList;
         return nVar;
     }
 
     public void a(RecomTopicInfo recomTopicInfo) {
         if (recomTopicInfo != null) {
-            this.bAi = recomTopicInfo.recom_title;
+            this.bAk = recomTopicInfo.recom_title;
             if (com.baidu.tbadk.core.util.v.S(recomTopicInfo.topic_list) > 0) {
                 for (RecomTopicList recomTopicList : recomTopicInfo.topic_list) {
                     if (recomTopicList != null) {
                         a aVar = new a();
                         aVar.a(recomTopicList);
                         if (!a(aVar)) {
-                            this.bAj.add(aVar);
+                            this.bAl.add(aVar);
                         }
                     }
                 }
@@ -56,10 +56,10 @@ public class ay {
 
     /* loaded from: classes3.dex */
     public static class a {
-        private String bAk;
-        private long bAl;
         private String bAm;
-        private String bAn;
+        private long bAn;
+        private String bAo;
+        private String bAp;
         private int tag;
         private long topicId;
         private int type;
@@ -69,27 +69,27 @@ public class ay {
         }
 
         public String getTopicName() {
-            return this.bAk;
+            return this.bAm;
         }
 
         public void a(RecomTopicList recomTopicList) {
             if (recomTopicList != null) {
                 this.topicId = recomTopicList.topic_id.longValue();
-                this.bAk = recomTopicList.topic_name;
+                this.bAm = recomTopicList.topic_name;
                 this.type = recomTopicList.type.intValue();
-                this.bAl = recomTopicList.discuss_num.longValue();
+                this.bAn = recomTopicList.discuss_num.longValue();
                 this.tag = recomTopicList.tag.intValue();
-                this.bAm = recomTopicList.topic_desc;
-                this.bAn = recomTopicList.topic_pic;
+                this.bAo = recomTopicList.topic_desc;
+                this.bAp = recomTopicList.topic_pic;
             }
         }
 
         public com.baidu.tieba.card.data.m Yd() {
             com.baidu.tieba.card.data.m mVar = new com.baidu.tieba.card.data.m();
             mVar.tag = this.tag;
-            mVar.desc = this.bAm;
+            mVar.desc = this.bAo;
             mVar.topicId = this.topicId;
-            mVar.bAk = this.bAk;
+            mVar.bAm = this.bAm;
             return mVar;
         }
     }

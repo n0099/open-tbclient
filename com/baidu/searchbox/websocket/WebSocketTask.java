@@ -1,6 +1,5 @@
 package com.baidu.searchbox.websocket;
 
-import com.baidu.appsearchlib.Info;
 import java.nio.ByteBuffer;
 import java.util.Map;
 import kotlin.jvm.internal.p;
@@ -87,7 +86,7 @@ public final class WebSocketTask implements IWebSocketClient {
 
             @Override // com.baidu.searchbox.websocket.IWebSocketListener
             public void onError(Throwable th, JSONObject jSONObject) {
-                p.k(th, Info.kBaiduTimeKey);
+                p.k(th, "t");
                 IWebSocketListener iWebSocketListener2 = this.$listener;
                 if (jSONObject == null) {
                     jSONObject = new JSONObject();

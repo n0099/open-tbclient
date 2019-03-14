@@ -5,13 +5,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class d {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    public final String asI;
-    public final String avj;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    public final String asJ;
+    public final String avk;
 
     public d(String str, String str2) {
-        this.asI = str;
-        this.avj = str2;
+        this.asJ = str;
+        this.avk = str2;
     }
 
     public static d eC(String str) {

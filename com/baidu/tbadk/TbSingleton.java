@@ -27,8 +27,8 @@ public final class TbSingleton {
     private static TbSingleton mInstance = null;
     private static int VIDEO_ENTER_TYPE_JUMP_VIDEO_MIDDLE_PAGE = 2;
     private static int VIDEO_ENTER_TYPE_NO_JUMP_VIDEO_MIDDLE_PAGE = 1;
-    private long pushDialogLoopTime = ap.bKL;
-    private long pushDialogShowTime = 5 * ap.bKK;
+    private long pushDialogLoopTime = ap.bKM;
+    private long pushDialogShowTime = 5 * ap.bKL;
     private long lastResumeTime = 0;
     private boolean canShowPermDlg = false;
     private boolean hasShowPermDlg = false;
@@ -302,12 +302,26 @@ public final class TbSingleton {
     }
 
     public void setSlideAnimLocalSwitch(boolean z) {
-        b.getInstance().putBoolean("animation_slide_local_switch", z);
+        b.getInstance().putBoolean("local_slide_animation__switch", z);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156674, Boolean.valueOf(z)));
     }
 
     public boolean isSlideAnimLocalSwitchOn() {
-        return b.getInstance().getBoolean("animation_slide_local_switch", false);
+        return b.getInstance().getBoolean("local_slide_animation__switch", false);
+    }
+
+    public boolean isSlideAnimEnable() {
+        boolean z = b.getInstance().getInt("slide_local_switch_is_clicked", 0) == 1;
+        boolean z2 = b.getInstance().getInt("sync_slide_animation__switch", 0) == 1;
+        boolean isSlideAnimLocalSwitchOn = isSlideAnimLocalSwitchOn();
+        if (z) {
+            return isSlideAnimLocalSwitchOn;
+        }
+        if (z2 != isSlideAnimLocalSwitchOn) {
+            b.getInstance().putBoolean("local_slide_animation__switch", z2);
+            return z2;
+        }
+        return z2;
     }
 
     public boolean isAnimEnable(String str) {

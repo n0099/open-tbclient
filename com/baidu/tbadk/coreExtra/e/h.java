@@ -54,11 +54,11 @@ public class h {
                 h.this.cgD.i(map);
             }
             com.baidu.adp.framework.client.socket.i.a("TbOnline", 1001, 0, "begin_online", 0, "begin online");
-            if (m.apl().apm() && h.b(h.this) < 10) {
+            if (m.apk().apl() && h.b(h.this) < 10) {
                 com.baidu.adp.framework.client.socket.i.gU();
             }
             com.baidu.tbadk.lcs.a.c(1001, 0, 0, 3, 0);
-            h.this.cgE = h.this.alh();
+            h.this.cgE = h.this.alg();
             MessageManager.getInstance().sendMessage(h.this.cgE);
         }
 
@@ -83,7 +83,7 @@ public class h {
         return i;
     }
 
-    public static synchronized h alg() {
+    public static synchronized h alf() {
         h hVar;
         synchronized (h.class) {
             if (cgF == null) {
@@ -122,7 +122,7 @@ public class h {
                     com.baidu.adp.framework.client.socket.i.a("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_failed", responseOnlineMessage.getError(), responseOnlineMessage.getErrorString() + "online failed. count-" + h.this.cgC);
                     return null;
                 }
-                h.this.alk();
+                h.this.alj();
                 com.baidu.adp.framework.client.socket.i.a("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_succ", 0, "online succ. retry count-" + h.this.cgC);
                 return socketResponsedMessage;
             }
@@ -134,7 +134,7 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public UpdateClientInfoMessage alh() {
+    public UpdateClientInfoMessage alg() {
         String valueOf;
         UpdateClientInfoMessage updateClientInfoMessage = new UpdateClientInfoMessage();
         updateClientInfoMessage.addUserInfo("_client_type", "2");
@@ -213,20 +213,20 @@ public class h {
         return updateClientInfoMessage;
     }
 
-    public boolean ali() {
+    public boolean alh() {
         return this.cgC >= 5;
     }
 
-    public void alj() {
+    public void ali() {
         this.cgC++;
-        if (ali()) {
+        if (alh()) {
             BdSocketLinkService.setAvailable(false);
             NoNetworkView.GR();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void alk() {
+    public void alj() {
         this.cgC = 0;
         MessageManager.getInstance().getSocketClient().gM();
         NoNetworkView.GR();
@@ -235,7 +235,7 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(int i, int i2, String str) {
-        alj();
+        ali();
         BdSocketLinkService.close(8, "online error = " + i2);
     }
 

@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class h {
-    private static List<WeakReference<g>> ayC = new ArrayList();
+    private static List<WeakReference<g>> ayD = new ArrayList();
 
     public static void a(g gVar) {
         boolean z;
         if (gVar != null) {
-            int size = ayC.size() - 1;
+            int size = ayD.size() - 1;
             boolean z2 = false;
             while (size >= 0) {
-                g gVar2 = ayC.get(size).get();
+                g gVar2 = ayD.get(size).get();
                 if (gVar2 == null) {
-                    ayC.remove(size);
+                    ayD.remove(size);
                     z = z2;
                 } else {
                     z = gVar2 == gVar;
@@ -24,27 +24,27 @@ public class h {
                 z2 = z;
             }
             if (!z2) {
-                ayC.add(new WeakReference<>(gVar));
+                ayD.add(new WeakReference<>(gVar));
             }
         }
     }
 
     public static void b(g gVar) {
         if (gVar != null) {
-            for (int size = ayC.size() - 1; size >= 0; size--) {
-                g gVar2 = ayC.get(size).get();
+            for (int size = ayD.size() - 1; size >= 0; size--) {
+                g gVar2 = ayD.get(size).get();
                 if (gVar2 == null || gVar == gVar2) {
-                    ayC.remove(size);
+                    ayD.remove(size);
                 }
             }
         }
     }
 
     public static void a(com.baidu.swan.apps.b.c.e eVar) {
-        for (int size = ayC.size() - 1; size >= 0; size--) {
-            g gVar = ayC.get(size).get();
+        for (int size = ayD.size() - 1; size >= 0; size--) {
+            g gVar = ayD.get(size).get();
             if (gVar == null) {
-                ayC.remove(size);
+                ayD.remove(size);
             } else {
                 gVar.a(eVar);
             }
@@ -52,10 +52,10 @@ public class h {
     }
 
     public static void b(com.baidu.swan.apps.b.c.e eVar) {
-        for (int size = ayC.size() - 1; size >= 0; size--) {
-            g gVar = ayC.get(size).get();
+        for (int size = ayD.size() - 1; size >= 0; size--) {
+            g gVar = ayD.get(size).get();
             if (gVar == null) {
-                ayC.remove(size);
+                ayD.remove(size);
             } else {
                 gVar.b(eVar);
             }
@@ -63,10 +63,10 @@ public class h {
     }
 
     public static void c(com.baidu.swan.apps.b.c.e eVar) {
-        for (int size = ayC.size() - 1; size >= 0; size--) {
-            g gVar = ayC.get(size).get();
+        for (int size = ayD.size() - 1; size >= 0; size--) {
+            g gVar = ayD.get(size).get();
             if (gVar == null) {
-                ayC.remove(size);
+                ayD.remove(size);
             } else {
                 gVar.c(eVar);
             }
@@ -74,10 +74,10 @@ public class h {
     }
 
     public static void d(com.baidu.swan.apps.b.c.e eVar) {
-        for (int size = ayC.size() - 1; size >= 0; size--) {
-            g gVar = ayC.get(size).get();
+        for (int size = ayD.size() - 1; size >= 0; size--) {
+            g gVar = ayD.get(size).get();
             if (gVar == null) {
-                ayC.remove(size);
+                ayD.remove(size);
             } else {
                 gVar.d(eVar);
             }

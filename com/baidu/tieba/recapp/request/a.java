@@ -5,7 +5,7 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.network.http.c;
 import com.baidu.adp.lib.network.http.e;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
+import com.baidu.mobstat.Config;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,13 +23,13 @@ public class a {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
             public Void doInBackground(String... strArr) {
-                HashMap bzP = a.this.bzP();
+                HashMap bzO = a.this.bzO();
                 HashMap b = a.this.b(str, i, i2, i3, str2, str3);
                 e eVar = new e();
                 eVar.jr().setUrl(a.this.url);
                 eVar.jr().setMethod(HttpMessageTask.HTTP_METHOD.POST);
-                if (bzP != null && !bzP.isEmpty()) {
-                    eVar.jr().k(a.this.bzP());
+                if (bzO != null && !bzO.isEmpty()) {
+                    eVar.jr().k(a.this.bzO());
                 }
                 if (b != null && !b.isEmpty()) {
                     ArrayList arrayList = new ArrayList();
@@ -46,7 +46,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashMap<String, String> bzP() {
+    public HashMap<String, String> bzO() {
         String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("Cookie", cookie);
@@ -56,8 +56,8 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public HashMap<String, Object> b(String str, int i, int i2, int i3, String str2, String str3) {
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("ev", str);
-        hashMap.put(TimeDisplaySetting.START_SHOW_TIME, i + "");
+        hashMap.put(Config.EVENT_PART, str);
+        hashMap.put("st", i + "");
         hashMap.put("et", i2 + "");
         hashMap.put("dur", i3 + "");
         hashMap.put("pg", str2);

@@ -9,18 +9,18 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.dialog.e;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class a extends e {
-    private ViewGroup aKX;
-    private FrameLayout aKY;
+    private ViewGroup aKY;
     private FrameLayout aKZ;
-    private View aLa;
-    private List<C0134a> aLb;
-    private int aLc;
+    private FrameLayout aLa;
+    private View aLb;
+    private List<C0163a> aLc;
+    private int aLd;
     protected Context mContext;
 
     /* loaded from: classes2.dex */
@@ -30,34 +30,34 @@ public class a extends e {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(Context context) {
-        super(context, b.i.NoTitleDialog);
-        this.aLb = new ArrayList();
-        this.aLc = 2;
+        super(context, a.i.NoTitleDialog);
+        this.aLc = new ArrayList();
+        this.aLd = 2;
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         createView();
-        Ir().ad(this.aKX);
+        Ir().ad(this.aKY);
     }
 
     private void createView() {
         this.mContext = getContext();
-        this.aKX = (ViewGroup) LayoutInflater.from(this.mContext).inflate(b.g.aiapps_view_hv_dialog, Ir().Ix(), false);
-        this.aKY = (FrameLayout) this.aKX.findViewById(b.f.hv_content);
-        this.aLa = this.aKX.findViewById(b.f.hv_divider);
-        this.aKZ = (FrameLayout) this.aKX.findViewById(b.f.hv_btn_content);
-        View f = f(this.aKY);
+        this.aKY = (ViewGroup) LayoutInflater.from(this.mContext).inflate(a.g.aiapps_view_hv_dialog, Ir().Ix(), false);
+        this.aKZ = (FrameLayout) this.aKY.findViewById(a.f.hv_content);
+        this.aLb = this.aKY.findViewById(a.f.hv_divider);
+        this.aLa = (FrameLayout) this.aKY.findViewById(a.f.hv_btn_content);
+        View f = f(this.aKZ);
         if (f != null) {
-            this.aKY.addView(f);
+            this.aKZ.addView(f);
         }
         Im();
-        z(this.aLb);
+        z(this.aLc);
     }
 
     private void Im() {
-        this.aLa.setBackgroundColor(getContext().getResources().getColor(b.c.aiapps_dialog_gray));
+        this.aLb.setBackgroundColor(getContext().getResources().getColor(a.c.aiapps_dialog_gray));
     }
 
     protected View f(ViewGroup viewGroup) {
@@ -65,18 +65,18 @@ public class a extends e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void y(List<C0134a> list) {
-        this.aLb.clear();
+    public void y(List<C0163a> list) {
+        this.aLc.clear();
         if (list != null) {
-            this.aLb.addAll(list);
+            this.aLc.addAll(list);
         }
     }
 
-    private void z(List<C0134a> list) {
+    private void z(List<C0163a> list) {
         if (list != null) {
             LinearLayout linearLayout = new LinearLayout(this.mContext);
             linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            if (list.size() > this.aLc) {
+            if (list.size() > this.aLd) {
                 linearLayout.setOrientation(1);
             } else {
                 linearLayout.setOrientation(0);
@@ -84,28 +84,28 @@ public class a extends e {
             for (int i = 0; i < list.size(); i++) {
                 linearLayout.addView(a(list.get(i), linearLayout));
                 if (i < list.size() - 1) {
-                    if (list.size() > this.aLc) {
+                    if (list.size() > this.aLd) {
                         linearLayout.addView(dh(1));
                     } else {
                         linearLayout.addView(dh(0));
                     }
                 }
             }
-            this.aKZ.removeAllViews();
-            this.aKZ.addView(linearLayout);
+            this.aLa.removeAllViews();
+            this.aLa.addView(linearLayout);
         }
     }
 
-    private LinearLayout a(C0134a c0134a, LinearLayout linearLayout) {
-        LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.mContext).inflate(b.g.aiapps_item_hv_dialog, (ViewGroup) linearLayout, false);
-        linearLayout2.setBackground(getContext().getResources().getDrawable(b.e.aiapp_alertdialog_button_day_bg_all_selector));
-        new d(linearLayout2, this).b(c0134a);
+    private LinearLayout a(C0163a c0163a, LinearLayout linearLayout) {
+        LinearLayout linearLayout2 = (LinearLayout) LayoutInflater.from(this.mContext).inflate(a.g.aiapps_item_hv_dialog, (ViewGroup) linearLayout, false);
+        linearLayout2.setBackground(getContext().getResources().getDrawable(a.e.aiapp_alertdialog_button_day_bg_all_selector));
+        new d(linearLayout2, this).b(c0163a);
         return linearLayout2;
     }
 
     private View dh(int i) {
         View view = new View(this.mContext);
-        view.setBackgroundColor(this.aKY.getResources().getColor(b.c.aiapps_dialog_gray));
+        view.setBackgroundColor(this.aKZ.getResources().getColor(a.c.aiapps_dialog_gray));
         if (i == 1) {
             view.setLayoutParams(new LinearLayout.LayoutParams(-1, 1));
         } else {
@@ -116,41 +116,41 @@ public class a extends e {
 
     /* loaded from: classes2.dex */
     public class d {
-        TextView aLg;
-        LinearLayout aLh;
-        a aLi;
+        TextView aLh;
+        LinearLayout aLi;
+        a aLj;
         TextView text;
 
         public d(View view, a aVar) {
             if (view != null) {
-                this.text = (TextView) view.findViewById(b.f.hv_btn_text);
-                this.aLg = (TextView) view.findViewById(b.f.hv_btn_subtext);
-                this.aLh = (LinearLayout) view;
-                this.aLi = aVar;
+                this.text = (TextView) view.findViewById(a.f.hv_btn_text);
+                this.aLh = (TextView) view.findViewById(a.f.hv_btn_subtext);
+                this.aLi = (LinearLayout) view;
+                this.aLj = aVar;
             }
         }
 
-        public void b(final C0134a c0134a) {
-            if (c0134a != null) {
-                this.text.setText(c0134a.mText);
-                if (c0134a.aLd > 0) {
-                    this.text.setTextColor(a.this.aKY.getResources().getColor(c0134a.aLd));
+        public void b(final C0163a c0163a) {
+            if (c0163a != null) {
+                this.text.setText(c0163a.mText);
+                if (c0163a.aLe > 0) {
+                    this.text.setTextColor(a.this.aKZ.getResources().getColor(c0163a.aLe));
                 }
-                if (!TextUtils.isEmpty(c0134a.mSubText)) {
-                    this.aLg.setVisibility(0);
-                    this.aLg.setText(c0134a.mSubText);
+                if (!TextUtils.isEmpty(c0163a.mSubText)) {
+                    this.aLh.setVisibility(0);
+                    this.aLh.setText(c0163a.mSubText);
                 } else {
-                    this.aLg.setVisibility(8);
+                    this.aLh.setVisibility(8);
                 }
-                if (c0134a.aLe > 0) {
-                    this.aLg.setTextColor(a.this.aKY.getResources().getColor(c0134a.aLe));
+                if (c0163a.aLf > 0) {
+                    this.aLh.setTextColor(a.this.aKZ.getResources().getColor(c0163a.aLf));
                 }
-                this.aLh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.a.d.1
+                this.aLi.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.res.widget.dialog.a.d.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        d.this.aLi.dismiss();
-                        if (c0134a.aLf != null) {
-                            c0134a.aLf.U(view);
+                        d.this.aLj.dismiss();
+                        if (c0163a.aLg != null) {
+                            c0163a.aLg.U(view);
                         }
                     }
                 });
@@ -160,7 +160,7 @@ public class a extends e {
 
     /* loaded from: classes2.dex */
     public static class b extends e.a {
-        private List<C0134a> list;
+        private List<C0163a> list;
 
         public b(Context context) {
             super(context);
@@ -174,9 +174,9 @@ public class a extends e {
             return new a(context);
         }
 
-        public b a(C0134a c0134a) {
-            if (c0134a != null) {
-                this.list.add(c0134a);
+        public b a(C0163a c0163a) {
+            if (c0163a != null) {
+                this.list.add(c0163a);
             }
             return this;
         }
@@ -191,18 +191,18 @@ public class a extends e {
 
     /* renamed from: com.baidu.swan.apps.res.widget.dialog.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0134a {
-        public int aLd;
-        public int aLe = -1;
-        public c aLf;
+    public static class C0163a {
+        public int aLe;
+        public int aLf = -1;
+        public c aLg;
         public CharSequence mSubText;
         public CharSequence mText;
 
-        public C0134a(CharSequence charSequence, int i, c cVar) {
-            this.aLd = -1;
+        public C0163a(CharSequence charSequence, int i, c cVar) {
+            this.aLe = -1;
             this.mText = charSequence;
-            this.aLd = i;
-            this.aLf = cVar;
+            this.aLe = i;
+            this.aLg = cVar;
         }
     }
 }

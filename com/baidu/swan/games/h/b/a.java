@@ -1,14 +1,14 @@
 package com.baidu.swan.games.h.b;
 
-import com.baidu.swan.apps.c;
+import com.baidu.swan.apps.b;
 /* loaded from: classes2.dex */
 public class a extends com.baidu.b.a.a.a.a.a {
-    private static final boolean DEBUG = c.DEBUG;
-    private boolean bcP;
+    private static final boolean DEBUG = b.DEBUG;
+    private boolean bcQ;
 
     public a(boolean z) {
         super("48", "game_core", "swan-game");
-        this.bcP = false;
-        this.bcP = z;
+        this.bcQ = false;
+        this.bcQ = z;
     }
 }

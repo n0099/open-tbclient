@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class b {
-    private String blU;
-    private ArrayList<String> jlq;
+    private String blV;
+    private ArrayList<String> jli;
 
     public void m(EditText editText) {
         Editable text;
@@ -32,10 +32,10 @@ public class b {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !v.T(this.jlq)) {
+        if (spannable != null && !v.T(this.jli)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.jlq.iterator();
+                Iterator<String> it = this.jli.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -49,8 +49,8 @@ public class b {
             int length = str2.length();
             while (indexOf >= 0) {
                 int i = indexOf + length;
-                int color = al.getColor(d.C0236d.cp_btn_a);
-                int color2 = al.getColor(d.C0236d.cp_cont_h_alpha85);
+                int color = al.getColor(d.C0277d.cp_btn_a);
+                int color2 = al.getColor(d.C0277d.cp_cont_h_alpha85);
                 ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
                 BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
                 spannable.setSpan(foregroundColorSpan, indexOf, i, 33);
@@ -84,7 +84,7 @@ public class b {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (v.T(cnV())) {
+        if (v.T(cnY())) {
             return false;
         }
         return n(editText) || n(editText2);
@@ -107,18 +107,18 @@ public class b {
     }
 
     public void aE(ArrayList<String> arrayList) {
-        this.jlq = arrayList;
+        this.jli = arrayList;
     }
 
-    public ArrayList<String> cnV() {
-        return this.jlq;
+    public ArrayList<String> cnY() {
+        return this.jli;
     }
 
-    public void El(String str) {
-        this.blU = str;
+    public void Ej(String str) {
+        this.blV = str;
     }
 
-    public String cnZ() {
-        return this.blU;
+    public String coc() {
+        return this.blV;
     }
 }

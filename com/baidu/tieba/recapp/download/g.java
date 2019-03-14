@@ -23,9 +23,9 @@ public class g {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        String str = advertAppInfo.bwC;
-        if (StringUtils.isNull(str) && advertAppInfo.bwL != null) {
-            str = advertAppInfo.bwL.userName;
+        String str = advertAppInfo.bwE;
+        if (StringUtils.isNull(str) && advertAppInfo.bwN != null) {
+            str = advertAppInfo.bwN.userName;
         }
         if (StringUtils.isNull(str)) {
             str = "";
@@ -37,12 +37,12 @@ public class g {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.alG().b(advertAppInfo);
-        String str2 = advertAppInfo.bwC;
+        com.baidu.tbadk.distribute.a.alF().b(advertAppInfo);
+        String str2 = advertAppInfo.bwE;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        h.bWU().a(advertAppInfo.bwF, advertAppInfo.bwE, str2, i, h.By(advertAppInfo.bwF).intValue(), null, true, false, true, advertAppInfo.bwL.userPortrait, downloadStaticsData, advertAppInfo.bwL.userName);
+        h.bWW().a(advertAppInfo.bwH, advertAppInfo.bwG, str2, i, h.Bw(advertAppInfo.bwH).intValue(), null, true, false, true, advertAppInfo.bwN.userPortrait, downloadStaticsData, advertAppInfo.bwN.userName);
         return true;
     }
 
@@ -51,11 +51,11 @@ public class g {
         if (adAdSense != null && !adAdSense.agh()) {
             s.f(advertAppInfo);
         } else {
-            h.bWU().u(advertAppInfo.bwE, advertAppInfo.bwF, true);
+            h.bWW().u(advertAppInfo.bwG, advertAppInfo.bwH, true);
         }
     }
 
-    public static final void aS(Context context, String str) {
+    public static final void aR(Context context, String str) {
         if (TextUtils.isEmpty(str)) {
             l.showToast(context, d.j.download_error);
             return;

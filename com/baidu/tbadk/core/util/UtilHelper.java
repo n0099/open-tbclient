@@ -58,6 +58,7 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.ProxyAdkBaseActivity;
@@ -150,7 +151,7 @@ public class UtilHelper {
 
     /* loaded from: classes.dex */
     public static class a {
-        public NativePageType bLE = NativePageType.NONE;
+        public NativePageType bLF = NativePageType.NONE;
         public String id;
     }
 
@@ -227,8 +228,8 @@ public class UtilHelper {
             if (indexOf >= 0) {
                 String substring = str.substring(0, indexOf);
                 String substring2 = str.substring(indexOf + 2);
-                int length = !StringUtils.isNull(substring) ? substring.split(":").length : 0;
-                int length2 = !StringUtils.isNull(substring2) ? substring2.split(":").length : 0;
+                int length = !StringUtils.isNull(substring) ? substring.split(Config.TRACE_TODAY_VISIT_SPLIT).length : 0;
+                int length2 = !StringUtils.isNull(substring2) ? substring2.split(Config.TRACE_TODAY_VISIT_SPLIT).length : 0;
                 int i = (8 - length) - length2;
                 if (length > 0) {
                     stringBuffer.append(transforIPV6(substring));
@@ -245,7 +246,7 @@ public class UtilHelper {
                     stringBuffer.append(transforIPV6(substring2));
                 }
             } else {
-                String[] split = str.split(":");
+                String[] split = str.split(Config.TRACE_TODAY_VISIT_SPLIT);
                 for (int i3 = 0; i3 < split.length; i3++) {
                     stringBuffer.append(String.valueOf(com.baidu.adp.lib.g.b.i(split[i3], 0, 16)));
                     if (i3 < split.length - 1) {
@@ -458,10 +459,10 @@ public class UtilHelper {
             }
         } else if (str.startsWith("pk_before:")) {
             intent.putExtra("class", 6);
-            intent.putExtra(UBC.CONTENT_KEY_VALUE, str.substring(str.lastIndexOf(":") + 1));
+            intent.putExtra(UBC.CONTENT_KEY_VALUE, str.substring(str.lastIndexOf(Config.TRACE_TODAY_VISIT_SPLIT) + 1));
         } else if (str.startsWith("pk_after:")) {
             intent.putExtra("class", 7);
-            intent.putExtra(UBC.CONTENT_KEY_VALUE, str.substring(str.lastIndexOf(":") + 1));
+            intent.putExtra(UBC.CONTENT_KEY_VALUE, str.substring(str.lastIndexOf(Config.TRACE_TODAY_VISIT_SPLIT) + 1));
         } else if (str.startsWith("vote")) {
             intent.putExtra("class", 8);
         } else if (str.startsWith("twzb:")) {
@@ -529,7 +530,7 @@ public class UtilHelper {
                 String group = matcher.group(2);
                 if (!TextUtils.isEmpty(group)) {
                     aVar.id = group;
-                    aVar.bLE = NativePageType.PB;
+                    aVar.bLF = NativePageType.PB;
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -564,7 +565,7 @@ public class UtilHelper {
             }
             if (!TextUtils.isEmpty(str2)) {
                 aVar.id = str2;
-                aVar.bLE = NativePageType.PB;
+                aVar.bLF = NativePageType.PB;
             }
         }
         if (str != null) {
@@ -596,7 +597,7 @@ public class UtilHelper {
             }
             if (!TextUtils.isEmpty(str3)) {
                 aVar.id = str3;
-                aVar.bLE = NativePageType.FRS;
+                aVar.bLF = NativePageType.FRS;
             }
         }
         return aVar;
@@ -1099,7 +1100,7 @@ public class UtilHelper {
 
     public static void setStatusBarBackground(View view, int i) {
         if (view != null) {
-            al.l(view, d.C0236d.cp_bg_line_d);
+            al.l(view, d.C0277d.cp_bg_line_d);
         }
     }
 
@@ -1148,9 +1149,9 @@ public class UtilHelper {
                 Method declaredMethod = Window.class.getDeclaredMethod("setStatusBarColor", Integer.TYPE);
                 declaredMethod.setAccessible(true);
                 if (z) {
-                    color = al.getColor(d.C0236d.black_alpha60);
+                    color = al.getColor(d.C0277d.black_alpha60);
                 } else {
-                    color = al.getColor(d.C0236d.common_color_10274);
+                    color = al.getColor(d.C0277d.common_color_10274);
                 }
                 declaredMethod.invoke(window, Integer.valueOf(color));
             } catch (Exception e) {
@@ -1496,7 +1497,7 @@ public class UtilHelper {
                     TiebaStatic.log(new am("c11918").T(VideoPlayActivityConfig.OBJ_ID, i2));
                 }
                 if (intent.getBooleanExtra("is_message_pv", false)) {
-                    createNormalCfg = new PbActivityConfig(context).createMessageCfg(stringExtra, null, stringExtra2, j, stringExtra3, string, "op");
+                    createNormalCfg = new PbActivityConfig(context).createMessageCfg(stringExtra, null, stringExtra2, j, stringExtra3, string, Config.OPERATOR);
                 } else {
                     createNormalCfg = new PbActivityConfig(context).createNormalCfg(stringExtra, null, stringExtra2);
                 }
@@ -1644,7 +1645,7 @@ public class UtilHelper {
                 z = true;
                 break;
             case 15:
-                com.baidu.tbadk.pay.c.aoX().a(new PayConfig(com.baidu.adp.lib.g.b.l(intent.getStringExtra("pay_type"), 0), intent.getStringExtra("is_left"), intent.getStringExtra("props_id"), intent.getStringExtra("quan_num"), intent.getStringExtra("props_mon"), true, intent.getStringExtra("refer_page"), intent.getStringExtra("click_zone")), context);
+                com.baidu.tbadk.pay.c.aoW().a(new PayConfig(com.baidu.adp.lib.g.b.l(intent.getStringExtra("pay_type"), 0), intent.getStringExtra("is_left"), intent.getStringExtra("props_id"), intent.getStringExtra("quan_num"), intent.getStringExtra("props_mon"), true, intent.getStringExtra("refer_page"), intent.getStringExtra("click_zone")), context);
                 z = false;
                 break;
             case 18:
@@ -1759,7 +1760,7 @@ public class UtilHelper {
                 z = true;
                 break;
             case 34:
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoListActivityConfig(context).createNormalCfg(intent.getStringExtra(ImageViewerConfig.FORUM_ID), intent.getStringExtra("tid"), "push")));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoListActivityConfig(context).createNormalCfg(intent.getStringExtra(ImageViewerConfig.FORUM_ID), intent.getStringExtra("tid"), Config.PUSH)));
                 z = true;
                 break;
             case 35:
@@ -2343,7 +2344,7 @@ public class UtilHelper {
 
     public static Bitmap getCacheBitmapFromView(View view) {
         Bitmap bitmap = null;
-        com.baidu.tbadk.imageManager.c.anq().jM(com.baidu.adp.lib.util.l.aO(TbadkCoreApplication.getInst()) * com.baidu.adp.lib.util.l.aQ(TbadkCoreApplication.getInst()) * 2);
+        com.baidu.tbadk.imageManager.c.anp().jM(com.baidu.adp.lib.util.l.aO(TbadkCoreApplication.getInst()) * com.baidu.adp.lib.util.l.aQ(TbadkCoreApplication.getInst()) * 2);
         view.setDrawingCacheEnabled(true);
         view.buildDrawingCache(true);
         Bitmap drawingCache = view.getDrawingCache();

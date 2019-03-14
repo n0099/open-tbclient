@@ -21,6 +21,7 @@ import android.util.SparseArray;
 import android.view.View;
 import com.airbnb.lottie.e;
 import com.airbnb.lottie.j;
+import com.baidu.mapapi.map.WeightedLatLng;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
@@ -463,7 +464,7 @@ public class LottieAnimationView extends AppCompatImageView {
         this.nc.setProgress(f);
     }
 
-    @FloatRange(from = 0.0d, to = 1.0d)
+    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     public float getProgress() {
         return this.nc.getProgress();
     }

@@ -8,48 +8,48 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 import rx.internal.util.a.h;
 /* loaded from: classes2.dex */
 public final class d<T> implements Queue<T> {
+    static final int kbp = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
+    private static final Object kbv = new Object();
     final AtomicLong consumerIndex;
-    AtomicReferenceArray<Object> kbA;
-    int kbB;
-    AtomicReferenceArray<Object> kbC;
-    long kbv;
-    int kby;
-    int kbz;
+    long kbn;
+    int kbq;
+    int kbr;
+    AtomicReferenceArray<Object> kbs;
+    int kbt;
+    AtomicReferenceArray<Object> kbu;
     final AtomicLong producerIndex;
-    static final int kbx = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096).intValue();
-    private static final Object kbD = new Object();
 
     public d(int i) {
         int Du = h.Du(i);
         int i2 = Du - 1;
         AtomicReferenceArray<Object> atomicReferenceArray = new AtomicReferenceArray<>(Du + 1);
-        this.kbA = atomicReferenceArray;
-        this.kbz = i2;
+        this.kbs = atomicReferenceArray;
+        this.kbr = i2;
         Ds(Du);
-        this.kbC = atomicReferenceArray;
-        this.kbB = i2;
-        this.kbv = i2 - 1;
+        this.kbu = atomicReferenceArray;
+        this.kbt = i2;
+        this.kbn = i2 - 1;
         this.producerIndex = new AtomicLong();
         this.consumerIndex = new AtomicLong();
     }
 
     @Override // java.util.Queue
     public boolean offer(T t) {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.kbA;
-        long cEO = cEO();
-        int i = this.kbz;
-        int z = z(cEO, i);
-        if (cEO < this.kbv) {
-            return a(atomicReferenceArray, t, cEO, z);
+        AtomicReferenceArray<Object> atomicReferenceArray = this.kbs;
+        long cER = cER();
+        int i = this.kbr;
+        int z = z(cER, i);
+        if (cER < this.kbn) {
+            return a(atomicReferenceArray, t, cER, z);
         }
-        int i2 = this.kby;
-        if (a(atomicReferenceArray, z(i2 + cEO, i)) == null) {
-            this.kbv = (i2 + cEO) - 1;
-            return a(atomicReferenceArray, t, cEO, z);
-        } else if (a(atomicReferenceArray, z(1 + cEO, i)) == null) {
-            return a(atomicReferenceArray, t, cEO, z);
+        int i2 = this.kbq;
+        if (a(atomicReferenceArray, z(i2 + cER, i)) == null) {
+            this.kbn = (i2 + cER) - 1;
+            return a(atomicReferenceArray, t, cER, z);
+        } else if (a(atomicReferenceArray, z(1 + cER, i)) == null) {
+            return a(atomicReferenceArray, t, cER, z);
         } else {
-            a(atomicReferenceArray, cEO, z, t, i);
+            a(atomicReferenceArray, cER, z, t, i);
             return true;
         }
     }
@@ -62,11 +62,11 @@ public final class d<T> implements Queue<T> {
 
     private void a(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i, T t, long j2) {
         AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
-        this.kbA = atomicReferenceArray2;
-        this.kbv = (j + j2) - 1;
+        this.kbs = atomicReferenceArray2;
+        this.kbn = (j + j2) - 1;
         a(atomicReferenceArray2, i, t);
         a(atomicReferenceArray, atomicReferenceArray2);
-        a(atomicReferenceArray, i, kbD);
+        a(atomicReferenceArray, i, kbv);
         eq(j + 1);
     }
 
@@ -80,25 +80,25 @@ public final class d<T> implements Queue<T> {
 
     @Override // java.util.Queue
     public T poll() {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.kbC;
-        long cEP = cEP();
-        int i = this.kbB;
-        int z = z(cEP, i);
+        AtomicReferenceArray<Object> atomicReferenceArray = this.kbu;
+        long cES = cES();
+        int i = this.kbt;
+        int z = z(cES, i);
         T t = (T) a(atomicReferenceArray, z);
-        boolean z2 = t == kbD;
+        boolean z2 = t == kbv;
         if (t != null && !z2) {
             a(atomicReferenceArray, z, (Object) null);
-            er(1 + cEP);
+            er(1 + cES);
             return t;
         } else if (z2) {
-            return a(a(atomicReferenceArray), cEP, i);
+            return a(a(atomicReferenceArray), cES, i);
         } else {
             return null;
         }
     }
 
     private T a(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i) {
-        this.kbC = atomicReferenceArray;
+        this.kbu = atomicReferenceArray;
         int z = z(j, i);
         T t = (T) a(atomicReferenceArray, z);
         if (t == null) {
@@ -111,12 +111,12 @@ public final class d<T> implements Queue<T> {
 
     @Override // java.util.Queue
     public T peek() {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.kbC;
-        long cEP = cEP();
-        int i = this.kbB;
-        T t = (T) a(atomicReferenceArray, z(cEP, i));
-        if (t == kbD) {
-            return b(a(atomicReferenceArray), cEP, i);
+        AtomicReferenceArray<Object> atomicReferenceArray = this.kbu;
+        long cES = cES();
+        int i = this.kbt;
+        T t = (T) a(atomicReferenceArray, z(cES, i));
+        if (t == kbv) {
+            return b(a(atomicReferenceArray), cES, i);
         }
         return t;
     }
@@ -131,45 +131,45 @@ public final class d<T> implements Queue<T> {
     }
 
     private T b(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i) {
-        this.kbC = atomicReferenceArray;
+        this.kbu = atomicReferenceArray;
         return (T) a(atomicReferenceArray, z(j, i));
     }
 
     @Override // java.util.Collection
     public int size() {
-        long cEM = cEM();
+        long cEP = cEP();
         while (true) {
-            long cEN = cEN();
-            long cEM2 = cEM();
-            if (cEM == cEM2) {
-                return (int) (cEN - cEM2);
+            long cEQ = cEQ();
+            long cEP2 = cEP();
+            if (cEP == cEP2) {
+                return (int) (cEQ - cEP2);
             }
-            cEM = cEM2;
+            cEP = cEP2;
         }
     }
 
     @Override // java.util.Collection
     public boolean isEmpty() {
-        return cEN() == cEM();
+        return cEQ() == cEP();
     }
 
     private void Ds(int i) {
-        this.kby = Math.min(i / 4, kbx);
+        this.kbq = Math.min(i / 4, kbp);
     }
 
-    private long cEN() {
-        return this.producerIndex.get();
-    }
-
-    private long cEM() {
-        return this.consumerIndex.get();
-    }
-
-    private long cEO() {
+    private long cEQ() {
         return this.producerIndex.get();
     }
 
     private long cEP() {
+        return this.consumerIndex.get();
+    }
+
+    private long cER() {
+        return this.producerIndex.get();
+    }
+
+    private long cES() {
         return this.consumerIndex.get();
     }
 
@@ -258,24 +258,24 @@ public final class d<T> implements Queue<T> {
     }
 
     public boolean l(T t, T t2) {
-        AtomicReferenceArray<Object> atomicReferenceArray = this.kbA;
-        long cEN = cEN();
-        int i = this.kbz;
-        if (a(atomicReferenceArray, z(cEN + 2, i)) == null) {
-            int z = z(cEN, i);
+        AtomicReferenceArray<Object> atomicReferenceArray = this.kbs;
+        long cEQ = cEQ();
+        int i = this.kbr;
+        if (a(atomicReferenceArray, z(cEQ + 2, i)) == null) {
+            int z = z(cEQ, i);
             a(atomicReferenceArray, z + 1, t2);
             a(atomicReferenceArray, z, t);
-            eq(cEN + 2);
+            eq(cEQ + 2);
             return true;
         }
         AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
-        this.kbA = atomicReferenceArray2;
-        int z2 = z(cEN, i);
+        this.kbs = atomicReferenceArray2;
+        int z2 = z(cEQ, i);
         a(atomicReferenceArray2, z2 + 1, t2);
         a(atomicReferenceArray2, z2, t);
         a(atomicReferenceArray, atomicReferenceArray2);
-        a(atomicReferenceArray, z2, kbD);
-        eq(cEN + 2);
+        a(atomicReferenceArray, z2, kbv);
+        eq(cEQ + 2);
         return true;
     }
 }

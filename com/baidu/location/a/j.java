@@ -10,6 +10,7 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.Poi;
 import com.baidu.location.a.h;
 import com.baidu.location.d.d;
+import com.baidu.mobstat.Config;
 import com.sina.weibo.sdk.statistic.StatisticConfig;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -624,12 +625,12 @@ public class j extends h {
             } else if (bDLocation.getLocType() == 161) {
                 if (Build.VERSION.SDK_INT >= 19 && ((c = com.baidu.location.g.g.c(com.baidu.location.f.getServiceContext())) == 0 || c == 2)) {
                     com.baidu.location.a.b.a().a(BDLocation.TypeNetWorkLocation, 1, "NetWork location successful, open gps will be better!");
-                } else if (bDLocation.getRadius() >= 100.0f && bDLocation.getNetworkLocationType() != null && bDLocation.getNetworkLocationType().equals("cl") && (h2 = com.baidu.location.e.f.a().h()) != null && !h2.equals("&wifio=1")) {
+                } else if (bDLocation.getRadius() >= 100.0f && bDLocation.getNetworkLocationType() != null && bDLocation.getNetworkLocationType().equals(Config.CELL_LOCATION) && (h2 = com.baidu.location.e.f.a().h()) != null && !h2.equals("&wifio=1")) {
                     com.baidu.location.a.b.a().a(BDLocation.TypeNetWorkLocation, 2, "NetWork location successful, open wifi will be better!");
                 }
             }
             this.l = null;
-            if (bDLocation.getLocType() == 161 && "cl".equals(bDLocation.getNetworkLocationType()) && this.k != null && this.k.getLocType() == 161 && "wf".equals(this.k.getNetworkLocationType()) && System.currentTimeMillis() - this.u < StatisticConfig.MIN_UPLOAD_INTERVAL) {
+            if (bDLocation.getLocType() == 161 && Config.CELL_LOCATION.equals(bDLocation.getNetworkLocationType()) && this.k != null && this.k.getLocType() == 161 && "wf".equals(this.k.getNetworkLocationType()) && System.currentTimeMillis() - this.u < StatisticConfig.MIN_UPLOAD_INTERVAL) {
                 this.l = bDLocation;
             } else {
                 z = false;
@@ -651,7 +652,7 @@ public class j extends h {
             } else {
                 this.j = this.m.d(a2);
             }
-            if (com.baidu.location.d.d.a().d() && bDLocation.getLocType() == 161 && "cl".equals(bDLocation.getNetworkLocationType()) && b(this.n)) {
+            if (com.baidu.location.d.d.a().d() && bDLocation.getLocType() == 161 && Config.CELL_LOCATION.equals(bDLocation.getNetworkLocationType()) && b(this.n)) {
                 com.baidu.location.d.d.a().a(this.n, null, bDLocation2, d.b.IS_NOT_MIX_MODE, d.a.NO_NEED_TO_LOG);
                 this.p = this.n;
             }

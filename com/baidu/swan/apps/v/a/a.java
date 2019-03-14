@@ -4,11 +4,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.an.aa;
 import com.baidu.swan.apps.an.f;
-import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.statistic.b.c;
 import com.baidu.swan.apps.statistic.search.SearchFlowEvent;
+import com.baidu.swan.apps.swancore.b;
 import com.baidu.swan.apps.view.SwanAppErrorDialog;
 import com.baidu.swan.apps.w.e;
 import java.io.File;
@@ -19,17 +20,17 @@ public class a {
     public static void a(Context context, @NonNull com.baidu.swan.apps.ak.a aVar, int i) {
         File LR;
         if (context != null && !isShowing) {
-            String format = String.format(context.getResources().getString(b.h.aiapps_open_failed_msg), aa.getVersionName(), com.baidu.swan.apps.swancore.b.a(e.Ec().DH(), i), String.valueOf(aVar.LC()));
-            SwanAppErrorDialog.MG().dk(b.h.aiapps_open_failed_title).a(new DialogInterface.OnDismissListener() { // from class: com.baidu.swan.apps.v.a.a.1
+            String format = String.format(context.getResources().getString(a.h.aiapps_open_failed_msg), aa.getVersionName(), b.a(e.Ec().DH(), i), String.valueOf(aVar.LC()));
+            SwanAppErrorDialog.MG().dk(a.h.aiapps_open_failed_title).a(new DialogInterface.OnDismissListener() { // from class: com.baidu.swan.apps.v.a.a.1
                 @Override // android.content.DialogInterface.OnDismissListener
                 public void onDismiss(DialogInterface dialogInterface) {
                     boolean unused = a.isShowing = false;
                 }
-            }).ga(format).a(b.h.aiapps_open_failed_button, (DialogInterface.OnClickListener) null).show();
+            }).ga(format).a(a.h.aiapps_open_failed_button, (DialogInterface.OnClickListener) null).show();
             isShowing = true;
             com.baidu.swan.apps.statistic.search.b.a(new SearchFlowEvent("nreach", System.currentTimeMillis(), "swan_error", "", SearchFlowEvent.EventType.END));
             c.c(new com.baidu.swan.apps.statistic.b.a("error", String.valueOf(System.currentTimeMillis()), String.valueOf(aVar.LC())));
-            if (com.baidu.swan.apps.c.DEBUG) {
+            if (com.baidu.swan.apps.b.DEBUG) {
                 String Mn = aa.Mn();
                 if (!TextUtils.isEmpty(Mn) && (LR = f.LR()) != null) {
                     File file = new File(LR.getPath(), "error_dialog_info.txt");

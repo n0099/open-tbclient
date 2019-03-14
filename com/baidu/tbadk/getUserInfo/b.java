@@ -20,7 +20,7 @@ public class b {
     private b() {
     }
 
-    public static b ani() {
+    public static b anh() {
         if (clM == null) {
             synchronized (b.class) {
                 if (clM == null) {
@@ -36,7 +36,7 @@ public class b {
         com.baidu.tieba.tbadkCore.a.a.a(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, false, false);
     }
 
-    public void anj() {
+    public void ani() {
         GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
@@ -79,8 +79,8 @@ public class b {
             }
             CloseAdData closeAdData = userData.getCloseAdData();
             if (closeAdData != null) {
-                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.alm());
-                currentAccountObj.setMemberCloseAdVipClose(closeAdData.aln());
+                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.all());
+                currentAccountObj.setMemberCloseAdVipClose(closeAdData.alm());
             }
             currentAccountObj.setUserIcons(userData.getIconInfo());
             currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
@@ -94,7 +94,7 @@ public class b {
         }
     }
 
-    public UserData ank() {
+    public UserData anj() {
         return this.clN;
     }
 }

@@ -34,7 +34,7 @@ public class a extends y {
             return false;
         }
         com.baidu.swan.apps.core.c.b yO = uz.yO();
-        if (!(yO instanceof a.InterfaceC0135a)) {
+        if (!(yO instanceof a.InterfaceC0164a)) {
             com.baidu.swan.apps.console.c.e("hideLoading", "fragment not support");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
             return false;
@@ -43,7 +43,7 @@ public class a extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment has detached");
             return false;
         } else {
-            com.baidu.swan.apps.res.widget.floatlayer.a uv = ((a.InterfaceC0135a) yO).uv();
+            com.baidu.swan.apps.res.widget.floatlayer.a uv = ((a.InterfaceC0164a) yO).uv();
             if (uv != null && (uv.getView() instanceof LoadingView)) {
                 uv.reset();
             }

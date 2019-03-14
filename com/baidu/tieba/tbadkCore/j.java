@@ -300,7 +300,7 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                     this.cardVideoInfo.setUserMap(this.userMap);
                     this.cardVideoInfo.a(dataRes.card_shipin_info.get(0));
                     this.cardVideoInfo.ZH();
-                    this.cardVideoInfo.bDD = this.isBrandForum;
+                    this.cardVideoInfo.bDF = this.isBrandForum;
                     if (this.cardVideoInfo.getFid() == 0 && longValue != 0) {
                         this.cardVideoInfo.setFid(longValue);
                     }
@@ -308,24 +308,24 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                     this.cardVideoInfo.dk(!this.cardVideoInfo.Yw());
                     if (this.cardVideoInfo.YR() != null && this.cardVideoInfo.YR().getPendantData() == null && (metaData = this.userMap.get(this.cardVideoInfo.YR().getUserId())) != null && metaData.getPendantData() != null) {
                         com.baidu.tbadk.data.l lVar = new com.baidu.tbadk.data.l();
-                        lVar.aR(metaData.getPendantData().aly());
+                        lVar.aR(metaData.getPendantData().alx());
                         lVar.lf(metaData.getPendantData().Xn());
                         this.cardVideoInfo.YR().setPendantData(lVar);
                     }
                 }
                 if (dataRes.ala_live_insert != null && dataRes.ala_live_insert.ala_live_list != null && dataRes.ala_live_insert.ala_live_list.size() > 0) {
                     this.mFrsInsertLiveData = new f();
-                    this.mFrsInsertLiveData.iEc = dataRes.ala_insert_floor.intValue();
+                    this.mFrsInsertLiveData.iDU = dataRes.ala_insert_floor.intValue();
                     ArrayList arrayList = new ArrayList();
                     for (int i3 = 0; i3 < dataRes.ala_live_insert.ala_live_list.size(); i3++) {
                         if (dataRes.ala_live_insert.ala_live_list.get(i3) != null) {
                             bg bgVar = new bg();
                             bgVar.a(dataRes.ala_live_insert.ala_live_list.get(i3));
-                            bgVar.bDD = this.isBrandForum;
+                            bgVar.bDF = this.isBrandForum;
                             arrayList.add(bgVar);
                         }
                     }
-                    this.mFrsInsertLiveData.iEb = arrayList;
+                    this.mFrsInsertLiveData.iDT = arrayList;
                 }
                 if (dataRes.ala_stage_list != null) {
                     this.mFrsStageLiveData = new g();
@@ -334,11 +334,11 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                         if (dataRes.ala_stage_list.get(i4) != null) {
                             bg bgVar2 = new bg();
                             bgVar2.a(dataRes.ala_stage_list.get(i4));
-                            bgVar2.bDD = this.isBrandForum;
+                            bgVar2.bDF = this.isBrandForum;
                             arrayList2.add(bgVar2);
                         }
                     }
-                    this.mFrsStageLiveData.iEe = arrayList2;
+                    this.mFrsStageLiveData.iDW = arrayList2;
                 }
                 if (dataRes.school_recom_info != null) {
                     this.schoolRecommendPos = dataRes.school_recom_pos.intValue();
@@ -355,7 +355,7 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                 }
                 this.mSortType = dataRes.sort_type.intValue();
                 this.needLog = dataRes.need_log.intValue();
-                com.baidu.tieba.recapp.d.a.bXx().BJ(dataRes.asp_shown_info);
+                com.baidu.tieba.recapp.d.a.bXz().BH(dataRes.asp_shown_info);
                 this.mCardShipinPos = dataRes.card_shipin_pos;
                 if (dataRes.card_shipin_new != null) {
                     for (int i5 = 0; i5 < dataRes.card_shipin_new.size(); i5++) {
@@ -365,7 +365,7 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                         }
                         bgVar3.dl(true);
                         bgVar3.a(dataRes.card_shipin_new.get(i5));
-                        bgVar3.bDD = this.isBrandForum;
+                        bgVar3.bDF = this.isBrandForum;
                         this.mCardShipinNew.add(bgVar3);
                     }
                 }
@@ -463,7 +463,7 @@ public class j implements com.baidu.tbadk.mvc.b.c {
                         bgVar.lj(this.forum.getName());
                     }
                     bgVar.o(this.color_eggs);
-                    bgVar.bDD = this.forum.isBrandForum;
+                    bgVar.bDF = this.forum.isBrandForum;
                     if (!TextUtils.isEmpty(bgVar.ZT())) {
                         ad adVar = new ad();
                         adVar.la(bgVar.ZT());
@@ -488,57 +488,57 @@ public class j implements com.baidu.tbadk.mvc.b.c {
             } else if (next instanceof bg) {
                 bg bgVar = (bg) next;
                 int[] aq = aq(bgVar);
-                if (bgVar.getType() == bg.bAO && !bgVar.Zy()) {
+                if (bgVar.getType() == bg.bAQ && !bgVar.Zy()) {
                     bf bfVar = new bf();
                     bfVar.threadData = bgVar;
                     bfVar.position = i;
-                    bfVar.bAD = true;
+                    bfVar.bAF = true;
                     arrayList.add(bfVar);
                     bf bfVar2 = new bf();
                     bfVar2.threadData = bgVar;
                     bfVar2.position = i;
                     if (bgVar.ZP() == 1) {
-                        bfVar2.bAG = true;
-                        bfVar2.bAL = aq[0];
-                        bfVar2.bAM = aq[1];
+                        bfVar2.bAI = true;
+                        bfVar2.bAN = aq[0];
+                        bfVar2.bAO = aq[1];
                     } else if (bgVar.ZP() >= 2) {
-                        bfVar2.bAH = true;
+                        bfVar2.bAJ = true;
                     } else {
-                        bfVar2.bAE = true;
+                        bfVar2.bAG = true;
                     }
                     arrayList.add(bfVar2);
                     if (bgVar.aap() != null) {
                         bf bfVar3 = new bf();
-                        bfVar3.bAJ = true;
+                        bfVar3.bAL = true;
                         bfVar3.threadData = bgVar;
                         bfVar3.position = i;
                         arrayList.add(bfVar3);
                     }
                     bf bfVar4 = new bf();
-                    bfVar4.bAI = true;
+                    bfVar4.bAK = true;
                     bfVar4.threadData = bgVar;
                     bfVar4.position = i;
                     arrayList.add(bfVar4);
-                } else if (bgVar.getType() == bg.bBb && !bgVar.Zy()) {
+                } else if (bgVar.getType() == bg.bBd && !bgVar.Zy()) {
                     bf bfVar5 = new bf();
                     bfVar5.threadData = bgVar;
                     bfVar5.position = i;
-                    bfVar5.bAD = true;
+                    bfVar5.bAF = true;
                     arrayList.add(bfVar5);
                     bf bfVar6 = new bf();
                     bfVar6.threadData = bgVar;
                     bfVar6.position = i;
-                    bfVar6.bAK = true;
+                    bfVar6.bAM = true;
                     arrayList.add(bfVar6);
                     if (bgVar.aap() != null) {
                         bf bfVar7 = new bf();
-                        bfVar7.bAJ = true;
+                        bfVar7.bAL = true;
                         bfVar7.threadData = bgVar;
                         bfVar7.position = i;
                         arrayList.add(bfVar7);
                     }
                     bf bfVar8 = new bf();
-                    bfVar8.bAI = true;
+                    bfVar8.bAK = true;
                     bfVar8.threadData = bgVar;
                     bfVar8.position = i;
                     arrayList.add(bfVar8);

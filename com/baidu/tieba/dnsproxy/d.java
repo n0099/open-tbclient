@@ -5,17 +5,17 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes2.dex */
 public class d {
-    private static volatile d eyw = null;
+    private static volatile d eys = null;
 
-    public static final d aUZ() {
-        if (eyw == null) {
+    public static final d aUY() {
+        if (eys == null) {
             synchronized (d.class) {
-                if (eyw == null) {
-                    eyw = new d();
+                if (eys == null) {
+                    eys = new d();
                 }
             }
         }
-        return eyw;
+        return eys;
     }
 
     private d() {

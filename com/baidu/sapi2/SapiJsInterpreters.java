@@ -19,6 +19,7 @@ import android.os.Build;
 import android.os.Message;
 import android.text.TextUtils;
 import android.widget.DatePicker;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.activity.social.WXLoginActivity;
@@ -489,7 +490,7 @@ public class SapiJsInterpreters {
                 }
             }
             HashMap hashMap = new HashMap();
-            hashMap.put("device", Build.MODEL);
+            hashMap.put(Config.DEVICE_PART, Build.MODEL);
             hashMap.put("account_size", a.size() + "");
             hashMap.put("account_tpls", TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, arrayList));
             hashMap.put("account_apps", TextUtils.join(Constants.ACCEPT_TIME_SEPARATOR_SP, arrayList2));
@@ -1881,7 +1882,7 @@ public class SapiJsInterpreters {
             }
             HashMap hashMap = new HashMap();
             hashMap.put("cuid", SapiUtils.getClientId(SapiJsInterpreters.this.e));
-            hashMap.put("device", Build.MODEL);
+            hashMap.put(Config.DEVICE_PART, Build.MODEL);
             hashMap.put("os_version", Build.VERSION.RELEASE);
             hashMap.put("success", TextUtils.isEmpty(str) ? "0" : "1");
             StatService.onEvent("get_sms_check_code_from_clip", hashMap, false);

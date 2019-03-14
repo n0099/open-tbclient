@@ -4,20 +4,20 @@ import tbclient.PbPage.NewsInfo;
 /* loaded from: classes.dex */
 public class ap {
     public String buttonText;
-    public String bzD;
-    public int bzE;
     public String bzF;
+    public int bzG;
+    public String bzH;
     public int position = 0;
     public String subtitle;
     public String summary;
 
     public void a(NewsInfo newsInfo) {
         if (newsInfo != null) {
-            this.bzD = newsInfo.news_link;
+            this.bzF = newsInfo.news_link;
             this.summary = newsInfo.summary;
             this.position = newsInfo.position.intValue();
-            this.bzE = newsInfo.news_type.intValue();
-            this.bzF = newsInfo.news_icon;
+            this.bzG = newsInfo.news_type.intValue();
+            this.bzH = newsInfo.news_icon;
             this.subtitle = newsInfo.subtitle;
             this.buttonText = newsInfo.button_text;
         }

@@ -14,13 +14,13 @@ import com.baidu.tieba.d;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class a {
-    private ArrayList<String> bMH = new ArrayList<>();
-    private b bMI;
-    private InterfaceC0193a bMJ;
+    private ArrayList<String> bMI = new ArrayList<>();
+    private b bMJ;
+    private InterfaceC0227a bMK;
 
     /* renamed from: com.baidu.tbadk.core.util.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0193a {
+    public interface InterfaceC0227a {
         void adR();
     }
 
@@ -32,18 +32,18 @@ public class a {
     }
 
     public void a(b bVar) {
-        this.bMI = bVar;
+        this.bMJ = bVar;
     }
 
     public void adQ() {
-        if (this.bMH != null) {
-            this.bMH.clear();
+        if (this.bMI != null) {
+            this.bMI.clear();
         }
     }
 
     public void e(Activity activity, String str) {
         if (!TextUtils.isEmpty(str) && !f(activity, str)) {
-            this.bMH.add(str);
+            this.bMI.add(str);
         }
     }
 
@@ -51,7 +51,7 @@ public class a {
         if (!com.baidu.e.a.tt()) {
             adR();
             return false;
-        } else if (v.T(this.bMH)) {
+        } else if (v.T(this.bMI)) {
             adR();
             return false;
         } else {
@@ -89,16 +89,16 @@ public class a {
                 intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                 intent.setData(Uri.fromParts("package", activity.getPackageName(), null));
                 activity.startActivity(intent);
-                if (a.this.bMI != null) {
-                    a.this.bMI.mZ(str);
+                if (a.this.bMJ != null) {
+                    a.this.bMJ.mZ(str);
                 }
             }
         }).b(d.j.cancel, new a.b() { // from class: com.baidu.tbadk.core.util.b.a.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
-                if (a.this.bMI != null) {
-                    a.this.bMI.mY(str);
+                if (a.this.bMJ != null) {
+                    a.this.bMJ.mY(str);
                 }
             }
         }).b(i.aK(activity));
@@ -109,7 +109,7 @@ public class a {
     private void Z(Activity activity) {
         if (activity != null) {
             try {
-                com.baidu.e.a.a.requestPermissions(activity, (String[]) this.bMH.toArray(new String[this.bMH.size()]), 25040);
+                com.baidu.e.a.a.requestPermissions(activity, (String[]) this.bMI.toArray(new String[this.bMI.size()]), 25040);
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
             }
@@ -144,13 +144,13 @@ public class a {
         return d.j.request_permission_default_text;
     }
 
-    public void a(InterfaceC0193a interfaceC0193a) {
-        this.bMJ = interfaceC0193a;
+    public void a(InterfaceC0227a interfaceC0227a) {
+        this.bMK = interfaceC0227a;
     }
 
     public void adR() {
-        if (this.bMJ != null) {
-            this.bMJ.adR();
+        if (this.bMK != null) {
+            this.bMK.adR();
         }
     }
 }

@@ -7,22 +7,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.res.widget.dialog.e;
 /* loaded from: classes2.dex */
 public class a {
     private final String HR;
-    private final String arp;
-    private com.baidu.swan.apps.res.widget.dialog.e arq;
-    private TextView arr;
+    private final String arq;
+    private com.baidu.swan.apps.res.widget.dialog.e arr;
     private TextView ars;
-    private b art;
-    private InterfaceC0103a aru;
+    private TextView art;
+    private b aru;
+    private InterfaceC0132a arv;
     private final Context mContext;
 
     /* renamed from: com.baidu.swan.apps.core.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0103a {
+    public interface InterfaceC0132a {
         void onCancel();
     }
 
@@ -34,36 +34,36 @@ public class a {
     public a(Context context, String str, String str2) {
         this.mContext = context;
         this.HR = str;
-        this.arp = str2;
+        this.arq = str2;
         zn();
     }
 
     private String getUsername() {
-        return this.arr.getText().toString();
-    }
-
-    private String getPassword() {
         return this.ars.getText().toString();
     }
 
-    public void a(b bVar) {
-        this.art = bVar;
+    private String getPassword() {
+        return this.art.getText().toString();
     }
 
-    public void a(InterfaceC0103a interfaceC0103a) {
-        this.aru = interfaceC0103a;
+    public void a(b bVar) {
+        this.aru = bVar;
+    }
+
+    public void a(InterfaceC0132a interfaceC0132a) {
+        this.arv = interfaceC0132a;
     }
 
     public void show() {
-        this.arq.show();
-        this.arr.requestFocus();
+        this.arr.show();
+        this.ars.requestFocus();
     }
 
     private void zn() {
-        View inflate = LayoutInflater.from(this.mContext).inflate(b.g.aiapps_browser_http_authentication, (ViewGroup) null);
-        this.arr = (TextView) inflate.findViewById(b.f.username_edit);
-        this.ars = (TextView) inflate.findViewById(b.f.password_edit);
-        this.ars.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.swan.apps.core.d.a.1
+        View inflate = LayoutInflater.from(this.mContext).inflate(a.g.aiapps_browser_http_authentication, (ViewGroup) null);
+        this.ars = (TextView) inflate.findViewById(a.f.username_edit);
+        this.art = (TextView) inflate.findViewById(a.f.password_edit);
+        this.art.setOnEditorActionListener(new TextView.OnEditorActionListener() { // from class: com.baidu.swan.apps.core.d.a.1
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 6 || i == 0) {
@@ -76,33 +76,33 @@ public class a {
                 return false;
             }
         });
-        this.arq = new e.a(this.mContext).d(this.mContext.getText(b.h.aiapps_sign_in_to).toString().replace("%s1", this.HR).replace("%s2", this.arp)).dl(17301543).ad(inflate).b(b.h.aiapps_http_authentication_login, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.4
+        this.arr = new e.a(this.mContext).d(this.mContext.getText(a.h.aiapps_sign_in_to).toString().replace("%s1", this.HR).replace("%s2", this.arq)).dl(17301543).ad(inflate).b(a.h.aiapps_http_authentication_login, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.4
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 a.this.zo();
             }
-        }).c(b.h.aiapps_http_authentication_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.3
+        }).c(a.h.aiapps_http_authentication_cancel, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.core.d.a.3
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
-                if (a.this.aru != null) {
-                    a.this.aru.onCancel();
+                if (a.this.arv != null) {
+                    a.this.arv.onCancel();
                 }
             }
         }).a(new DialogInterface.OnCancelListener() { // from class: com.baidu.swan.apps.core.d.a.2
             @Override // android.content.DialogInterface.OnCancelListener
             public void onCancel(DialogInterface dialogInterface) {
-                if (a.this.aru != null) {
-                    a.this.aru.onCancel();
+                if (a.this.arv != null) {
+                    a.this.arv.onCancel();
                 }
             }
         }).zr();
-        this.arq.getWindow().setSoftInputMode(4);
+        this.arr.getWindow().setSoftInputMode(4);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void zo() {
-        if (this.art != null) {
-            this.art.i(this.HR, this.arp, getUsername(), getPassword());
+        if (this.aru != null) {
+            this.aru.i(this.HR, this.arq, getUsername(), getPassword());
         }
     }
 }

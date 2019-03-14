@@ -5,6 +5,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 /* loaded from: classes2.dex */
 public class DeviceIdFactory {
@@ -45,7 +46,7 @@ public class DeviceIdFactory {
                     deviceId = connectionInfo != null ? connectionInfo.getMacAddress() : "";
                 }
                 if (TextUtils.isEmpty(deviceId)) {
-                    deviceId = "000000000000000";
+                    deviceId = Config.NULL_DEVICE_ID;
                 }
             } catch (Exception e) {
             }

@@ -9,7 +9,7 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import java.lang.ref.WeakReference;
 /* loaded from: classes2.dex */
 public class NetworkBroadcastReceiver extends BroadcastReceiver {
-    protected static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    protected static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private String mCallback;
     private WeakReference<CallbackHandler> mCallbackHandlerWeakRef;
 

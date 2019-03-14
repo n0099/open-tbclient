@@ -1,5 +1,6 @@
 package okhttp3.internal;
 
+import com.baidu.mobstat.Config;
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.InterruptedIOException;
@@ -240,7 +241,7 @@ public final class Util {
 
     public static String hostHeader(HttpUrl httpUrl, boolean z) {
         String host;
-        if (httpUrl.host().contains(":")) {
+        if (httpUrl.host().contains(Config.TRACE_TODAY_VISIT_SPLIT)) {
             host = "[" + httpUrl.host() + "]";
         } else {
             host = httpUrl.host();
@@ -248,7 +249,7 @@ public final class Util {
         if (!z && httpUrl.port() == HttpUrl.defaultPort(httpUrl.scheme())) {
             return host;
         }
-        return host + ":" + httpUrl.port();
+        return host + Config.TRACE_TODAY_VISIT_SPLIT + httpUrl.port();
     }
 
     public static boolean isAndroidGetsocknameError(AssertionError assertionError) {
@@ -327,7 +328,7 @@ public final class Util {
 
     public static String canonicalizeHost(String str) {
         InetAddress decodeIpv6;
-        if (str.contains(":")) {
+        if (str.contains(Config.TRACE_TODAY_VISIT_SPLIT)) {
             if (str.startsWith("[") && str.endsWith("]")) {
                 decodeIpv6 = decodeIpv6(str, 1, str.length() - 1);
             } else {
@@ -492,7 +493,7 @@ public final class Util {
                         return null;
                     }
                     if (i8 != 0) {
-                        if (str.regionMatches(i5, ":", 0, 1)) {
+                        if (str.regionMatches(i5, Config.TRACE_TODAY_VISIT_SPLIT, 0, 1)) {
                             i5++;
                         } else {
                             if (str.regionMatches(i5, ".", 0, 1) && decodeIpv4Suffix(str, i6, i2, bArr, i8 - 2)) {

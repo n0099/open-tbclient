@@ -15,87 +15,87 @@ import com.baidu.tieba.enterForum.recommend.model.RecommendModel;
 import com.baidu.tieba.enterForum.recommend.view.RecommendView;
 /* loaded from: classes4.dex */
 public class RecommendFragment extends BaseFragment implements h.c, a {
-    private c eCw;
-    private RecommendModel eEs;
-    private RecommendView eEt;
-    private boolean eEu;
+    private c eCs;
+    private RecommendModel eEo;
+    private RecommendView eEp;
+    private boolean eEq;
 
     @Override // android.support.v4.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.eEt == null) {
-            this.eEt = new RecommendView(getPageContext());
-            this.eEt.setTabViewController(this.eCw);
-            this.eEt.setPresenter(this);
-            this.eEt.setListPullRefreshListener(this);
-            this.eEt.setPageUniqueId(getUniqueId());
+        if (this.eEp == null) {
+            this.eEp = new RecommendView(getPageContext());
+            this.eEp.setTabViewController(this.eCs);
+            this.eEp.setPresenter(this);
+            this.eEp.setListPullRefreshListener(this);
+            this.eEp.setPageUniqueId(getUniqueId());
         }
-        if (this.eEt.getParent() instanceof ViewGroup) {
-            ((ViewGroup) this.eEt.getParent()).removeView(this.eEt);
+        if (this.eEp.getParent() instanceof ViewGroup) {
+            ((ViewGroup) this.eEp.getParent()).removeView(this.eEp);
         }
-        return this.eEt;
+        return this.eEp;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        if (this.eEs == null) {
-            this.eEs = new RecommendModel(getPageContext());
-            this.eEs.setPresenter(this);
-            this.eEs.setUniqueId(getUniqueId());
+        if (this.eEo == null) {
+            this.eEo = new RecommendModel(getPageContext());
+            this.eEo.setPresenter(this);
+            this.eEo.setUniqueId(getUniqueId());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
-        if (!this.eEu) {
-            this.eEt.cE(false);
-            this.eEs.aXk();
-            this.eEu = true;
+        if (!this.eEq) {
+            this.eEp.cE(false);
+            this.eEo.aXj();
+            this.eEq = true;
         }
     }
 
     @Override // com.baidu.tbadk.core.view.h.c
     public void dR(boolean z) {
-        if (this.eEs != null) {
-            this.eEs.aXk();
+        if (this.eEo != null) {
+            this.eEo.aXj();
         }
     }
 
     @Override // com.baidu.tieba.enterForum.recommend.a
     public void loadData() {
         if (j.kY()) {
-            this.eEt.aBu();
-            this.eEt.cE(false);
-            this.eEs.aXk();
+            this.eEp.aBt();
+            this.eEp.cE(false);
+            this.eEo.aXj();
         }
     }
 
     @Override // com.baidu.tieba.enterForum.recommend.a
     public void a(int i, com.baidu.tieba.enterForum.recommend.b.a aVar) {
-        this.eEt.hideLoadingView();
-        this.eEt.aBN();
+        this.eEp.hideLoadingView();
+        this.eEp.aBM();
         if (i != 0 || aVar == null) {
-            this.eEt.iD(false);
+            this.eEp.iD(false);
             return;
         }
-        this.eEt.aBu();
-        this.eEt.aOB();
-        this.eEt.setData(aVar);
+        this.eEp.aBt();
+        this.eEp.aOA();
+        this.eEp.setData(aVar);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        if (this.eEt != null) {
-            this.eEt.onChangeSkinType();
+        if (this.eEp != null) {
+            this.eEp.onChangeSkinType();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.support.v4.app.Fragment
     public void onDestroyView() {
-        this.eCw = null;
-        this.eEt.onDestroy();
-        this.eEs.onDestroy();
+        this.eCs = null;
+        this.eEp.onDestroy();
+        this.eEo.onDestroy();
         super.onDestroyView();
     }
 
@@ -110,6 +110,6 @@ public class RecommendFragment extends BaseFragment implements h.c, a {
     }
 
     public void setTabViewController(c cVar) {
-        this.eCw = cVar;
+        this.eCs = cVar;
     }
 }

@@ -1,6 +1,7 @@
 package org.java_websocket.a;
 
 import android.support.v4.view.PointerIconCompat;
+import com.baidu.mobstat.Config;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -221,9 +222,9 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
             InputStream inputStream = this.socket.getInputStream();
             this.ostream = this.socket.getOutputStream();
             sendHandshake();
-            this.writeThread = new Thread(new RunnableC0380a());
+            this.writeThread = new Thread(new RunnableC0475a());
             this.writeThread.start();
-            byte[] bArr = new byte[c.jUd];
+            byte[] bArr = new byte[c.jTV];
             while (!isClosing() && !isClosed() && (read = inputStream.read(bArr)) != -1) {
                 try {
                     this.engine.k(ByteBuffer.wrap(bArr, 0, read));
@@ -234,7 +235,7 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
                     this.engine.closeConnection(PointerIconCompat.TYPE_CELL, e2.getMessage());
                 }
             }
-            this.engine.cCW();
+            this.engine.cCZ();
             this.connectReadThread = null;
         } catch (Exception e3) {
             onWebsocketError(this.engine, e3);
@@ -266,8 +267,8 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
         }
         int port = getPort();
         d dVar = new d();
-        dVar.Gj(rawPath);
-        dVar.put(HTTP.TARGET_HOST, this.uri.getHost() + ((port == 80 || port == 443) ? "" : ":" + port));
+        dVar.Gh(rawPath);
+        dVar.put(HTTP.TARGET_HOST, this.uri.getHost() + ((port == 80 || port == 443) ? "" : Config.TRACE_TODAY_VISIT_SPLIT + port));
         if (this.headers != null) {
             for (Map.Entry<String, String> entry : this.headers.entrySet()) {
                 dVar.put(entry.getKey(), entry.getValue());
@@ -367,8 +368,8 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
 
     /* renamed from: org.java_websocket.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private class RunnableC0380a implements Runnable {
-        private RunnableC0380a() {
+    private class RunnableC0475a implements Runnable {
+        private RunnableC0475a() {
         }
 
         @Override // java.lang.Runnable
@@ -377,11 +378,11 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
             while (!Thread.interrupted()) {
                 try {
                     try {
-                        ByteBuffer take = a.this.engine.jUe.take();
+                        ByteBuffer take = a.this.engine.jTW.take();
                         a.this.ostream.write(take.array(), 0, take.limit());
                         a.this.ostream.flush();
                     } catch (InterruptedException e) {
-                        for (ByteBuffer byteBuffer : a.this.engine.jUe) {
+                        for (ByteBuffer byteBuffer : a.this.engine.jTW) {
                             a.this.ostream.write(byteBuffer.array(), 0, byteBuffer.limit());
                             a.this.ostream.flush();
                         }
@@ -493,6 +494,6 @@ public abstract class a extends org.java_websocket.a implements Runnable, WebSoc
         if (iOException instanceof SSLException) {
             onError(iOException);
         }
-        this.engine.cCW();
+        this.engine.cCZ();
     }
 }

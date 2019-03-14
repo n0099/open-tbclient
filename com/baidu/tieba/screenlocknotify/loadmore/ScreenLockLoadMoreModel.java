@@ -21,7 +21,7 @@ public class ScreenLockLoadMoreModel extends BdBaseModel<ScreenLockActivity> {
         return true;
     }
 
-    public void bYn() {
+    public void bYp() {
         sendMessage(new ScreenLockLoadMoreMessage());
     }
 

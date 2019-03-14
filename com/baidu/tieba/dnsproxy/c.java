@@ -6,6 +6,7 @@ import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.adp.lib.cache.l;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.plugin.proxy.ContentProviderProxy;
+import com.baidu.mobstat.Config;
 import com.baidu.tieba.dnsproxy.DnsProxyResponseData;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Collection;
@@ -17,10 +18,10 @@ import org.apache.http.cookie.ClientCookie;
 import org.apache.http.protocol.HTTP;
 /* loaded from: classes2.dex */
 public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>, HashMap<String, List<DnsProxyResponseData.DnsProxyIpData>>> {
-    boolean eyv;
+    boolean eyr;
 
     public c(boolean z) {
-        this.eyv = z;
+        this.eyr = z;
         setPriority(4);
     }
 
@@ -34,7 +35,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
         String str;
         StringBuilder sb2;
         l<String> a = BdCacheService.iy().a("dnsproxy", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 2);
-        if (this.eyv) {
+        if (this.eyr) {
             String str2 = a.get("dnsproxycachedata");
             if (str2 != null) {
                 DnsProxyResponseData dnsProxyResponseData = (DnsProxyResponseData) DnsProxyResponseData.objectWithJsonStr(str2, DnsProxyResponseData.class);
@@ -61,7 +62,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
             e.printStackTrace();
         }
         if (collectionArr != null && collectionArr.length == 1 && (collection = collectionArr[0]) != null) {
-            String aUW = new a().aUW();
+            String aUV = new a().aUV();
             StringBuilder sb3 = new StringBuilder();
             for (String str3 : collection) {
                 if (sb3.length() > 0) {
@@ -69,7 +70,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                 }
                 sb3.append(str3);
             }
-            String str4 = "http://" + aUW + "/domains/resolve?domains=" + ((Object) sb3) + "&t=" + System.currentTimeMillis();
+            String str4 = "http://" + aUV + "/domains/resolve?domains=" + ((Object) sb3) + "&t=" + System.currentTimeMillis();
             com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
             com.baidu.adp.lib.network.http.c cVar = new com.baidu.adp.lib.network.http.c(eVar);
             eVar.jr().setUrl(str4);
@@ -110,7 +111,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                                 }
                             }
                             if (sb6.length() > 0) {
-                                sb6.insert(0, ":");
+                                sb6.insert(0, Config.TRACE_TODAY_VISIT_SPLIT);
                                 sb6.insert(0, (String) entry3.getKey());
                                 if (sb5.length() > 0) {
                                     sb5.append(ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR);
@@ -119,7 +120,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                             }
                         }
                     }
-                    b.aUY().k(hashSet);
+                    b.aUX().k(hashSet);
                     publishProgress(hashMap3);
                     a.e("dnsproxycachedata", str);
                     sb2 = sb5;

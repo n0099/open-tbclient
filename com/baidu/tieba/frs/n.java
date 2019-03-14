@@ -16,13 +16,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.d;
 /* loaded from: classes4.dex */
 public class n extends v.a {
-    public static BdUniqueId fbM = BdUniqueId.gen();
+    public static BdUniqueId fbL = BdUniqueId.gen();
     private LinearLayout ceE;
     private int cnC;
-    public TextView fbN;
-    public ImageView fbO;
-    private int fbP;
-    private CustomMessageListener fbQ;
+    public TextView fbM;
+    public ImageView fbN;
+    private int fbO;
+    private CustomMessageListener fbP;
     private ViewGroup mParent;
     private View mRootView;
     private Rect rect;
@@ -30,7 +30,7 @@ public class n extends v.a {
     public n(View view, ViewGroup viewGroup) {
         super(view);
         this.rect = new Rect();
-        this.fbQ = new CustomMessageListener(2921397) { // from class: com.baidu.tieba.frs.n.1
+        this.fbP = new CustomMessageListener(2921397) { // from class: com.baidu.tieba.frs.n.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -43,15 +43,15 @@ public class n extends v.a {
         this.mRootView = view;
         this.mParent = viewGroup;
         this.ceE = (LinearLayout) view.findViewById(d.g.container);
-        this.fbO = (ImageView) view.findViewById(d.g.emotion_view);
-        this.fbN = (TextView) view.findViewById(d.g.no_data_tips);
-        com.baidu.tbadk.core.util.al.c(this.fbO, d.f.new_pic_emotion_gray_06);
-        this.fbQ.setTag(fbM);
-        MessageManager.getInstance().registerListener(this.fbQ);
-        bdX();
+        this.fbN = (ImageView) view.findViewById(d.g.emotion_view);
+        this.fbM = (TextView) view.findViewById(d.g.no_data_tips);
+        com.baidu.tbadk.core.util.al.c(this.fbN, d.f.new_pic_emotion_gray_06);
+        this.fbP.setTag(fbL);
+        MessageManager.getInstance().registerListener(this.fbP);
+        bdW();
     }
 
-    private void bdX() {
+    private void bdW() {
         if (this.mRootView != null) {
             this.mRootView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() { // from class: com.baidu.tieba.frs.n.2
                 @Override // android.view.View.OnLayoutChangeListener
@@ -78,8 +78,8 @@ public class n extends v.a {
             if (this.cnC <= 0) {
                 this.cnC = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(d.e.tbds156);
             }
-            if (i != Integer.MAX_VALUE || this.fbP != Integer.MAX_VALUE) {
-                this.fbP = i;
+            if (i != Integer.MAX_VALUE || this.fbO != Integer.MAX_VALUE) {
+                this.fbO = i;
                 if (this.mParent.getLocalVisibleRect(this.rect)) {
                     int i2 = this.rect.bottom;
                     int abs = Math.abs(this.ceE.getTop());

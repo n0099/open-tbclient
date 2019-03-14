@@ -31,12 +31,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 /* loaded from: classes2.dex */
 public final class n {
-    public static final o<Class> jPw = new o<Class>() { // from class: com.google.gson.internal.a.n.1
+    public static final o<Class> jPo = new o<Class>() { // from class: com.google.gson.internal.a.n.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         public void a(com.google.gson.stream.b bVar, Class cls) throws IOException {
             if (cls == null) {
-                bVar.cBF();
+                bVar.cBI();
                 return;
             }
             throw new UnsupportedOperationException("Attempted to serialize java.lang.Class: " + cls.getName() + ". Forgot to register a type adapter?");
@@ -46,30 +46,30 @@ public final class n {
         @Override // com.google.gson.o
         /* renamed from: n */
         public Class b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
             throw new UnsupportedOperationException("Attempted to deserialize a java.lang.Class. Forgot to register a type adapter?");
         }
     };
-    public static final p jPx = a(Class.class, jPw);
-    public static final o<BitSet> jPy = new o<BitSet>() { // from class: com.google.gson.internal.a.n.12
+    public static final p jPp = a(Class.class, jPo);
+    public static final o<BitSet> jPq = new o<BitSet>() { // from class: com.google.gson.internal.a.n.12
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: u */
         public BitSet b(com.google.gson.stream.a aVar) throws IOException {
             boolean z;
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
             BitSet bitSet = new BitSet();
             aVar.beginArray();
-            JsonToken cBu = aVar.cBu();
+            JsonToken cBx = aVar.cBx();
             int i = 0;
-            while (cBu != JsonToken.END_ARRAY) {
-                switch (AnonymousClass29.jPb[cBu.ordinal()]) {
+            while (cBx != JsonToken.END_ARRAY) {
+                switch (AnonymousClass29.jOT[cBx.ordinal()]) {
                     case 1:
                         if (aVar.nextInt() == 0) {
                             z = false;
@@ -95,13 +95,13 @@ public final class n {
                             throw new JsonSyntaxException("Error: Expecting: bitset number value (1, 0), Found: " + nextString);
                         }
                     default:
-                        throw new JsonSyntaxException("Invalid bitset value type: " + cBu);
+                        throw new JsonSyntaxException("Invalid bitset value type: " + cBx);
                 }
                 if (z) {
                     bitSet.set(i);
                 }
                 i++;
-                cBu = aVar.cBu();
+                cBx = aVar.cBx();
             }
             aVar.endArray();
             return bitSet;
@@ -111,26 +111,26 @@ public final class n {
         @Override // com.google.gson.o
         public void a(com.google.gson.stream.b bVar, BitSet bitSet) throws IOException {
             if (bitSet == null) {
-                bVar.cBF();
+                bVar.cBI();
                 return;
             }
-            bVar.cBB();
+            bVar.cBE();
             for (int i = 0; i < bitSet.length(); i++) {
                 bVar.eh(bitSet.get(i) ? 1 : 0);
             }
-            bVar.cBC();
+            bVar.cBF();
         }
     };
-    public static final p jPz = a(BitSet.class, jPy);
-    public static final o<Boolean> jPA = new o<Boolean>() { // from class: com.google.gson.internal.a.n.23
+    public static final p jPr = a(BitSet.class, jPq);
+    public static final o<Boolean> jPs = new o<Boolean>() { // from class: com.google.gson.internal.a.n.23
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: F */
         public Boolean b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
-            } else if (aVar.cBu() == JsonToken.STRING) {
+            } else if (aVar.cBx() == JsonToken.STRING) {
                 return Boolean.valueOf(Boolean.parseBoolean(aVar.nextString()));
             } else {
                 return Boolean.valueOf(aVar.nextBoolean());
@@ -143,12 +143,12 @@ public final class n {
             bVar.m(bool);
         }
     };
-    public static final o<Boolean> jPB = new o<Boolean>() { // from class: com.google.gson.internal.a.n.30
+    public static final o<Boolean> jPt = new o<Boolean>() { // from class: com.google.gson.internal.a.n.30
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: F */
         public Boolean b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
@@ -158,16 +158,16 @@ public final class n {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         public void a(com.google.gson.stream.b bVar, Boolean bool) throws IOException {
-            bVar.FT(bool == null ? "null" : bool.toString());
+            bVar.FR(bool == null ? "null" : bool.toString());
         }
     };
-    public static final p jPC = a(Boolean.TYPE, Boolean.class, jPA);
-    public static final o<Number> jPD = new o<Number>() { // from class: com.google.gson.internal.a.n.31
+    public static final p jPu = a(Boolean.TYPE, Boolean.class, jPs);
+    public static final o<Number> jPv = new o<Number>() { // from class: com.google.gson.internal.a.n.31
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: d */
         public Number b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
@@ -184,13 +184,13 @@ public final class n {
             bVar.b(number);
         }
     };
-    public static final p jPE = a(Byte.TYPE, Byte.class, jPD);
-    public static final o<Number> jPF = new o<Number>() { // from class: com.google.gson.internal.a.n.32
+    public static final p jPw = a(Byte.TYPE, Byte.class, jPv);
+    public static final o<Number> jPx = new o<Number>() { // from class: com.google.gson.internal.a.n.32
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: d */
         public Number b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
@@ -207,13 +207,13 @@ public final class n {
             bVar.b(number);
         }
     };
-    public static final p jPG = a(Short.TYPE, Short.class, jPF);
-    public static final o<Number> jPH = new o<Number>() { // from class: com.google.gson.internal.a.n.33
+    public static final p jPy = a(Short.TYPE, Short.class, jPx);
+    public static final o<Number> jPz = new o<Number>() { // from class: com.google.gson.internal.a.n.33
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: d */
         public Number b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
@@ -230,8 +230,8 @@ public final class n {
             bVar.b(number);
         }
     };
-    public static final p jPI = a(Integer.TYPE, Integer.class, jPH);
-    public static final o<AtomicInteger> jPJ = new o<AtomicInteger>() { // from class: com.google.gson.internal.a.n.34
+    public static final p jPA = a(Integer.TYPE, Integer.class, jPz);
+    public static final o<AtomicInteger> jPB = new o<AtomicInteger>() { // from class: com.google.gson.internal.a.n.34
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: G */
@@ -248,9 +248,9 @@ public final class n {
         public void a(com.google.gson.stream.b bVar, AtomicInteger atomicInteger) throws IOException {
             bVar.eh(atomicInteger.get());
         }
-    }.cBc();
-    public static final p jPK = a(AtomicInteger.class, jPJ);
-    public static final o<AtomicBoolean> jPL = new o<AtomicBoolean>() { // from class: com.google.gson.internal.a.n.35
+    }.cBf();
+    public static final p jPC = a(AtomicInteger.class, jPB);
+    public static final o<AtomicBoolean> jPD = new o<AtomicBoolean>() { // from class: com.google.gson.internal.a.n.35
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: H */
@@ -263,9 +263,9 @@ public final class n {
         public void a(com.google.gson.stream.b bVar, AtomicBoolean atomicBoolean) throws IOException {
             bVar.rB(atomicBoolean.get());
         }
-    }.cBc();
-    public static final p jPM = a(AtomicBoolean.class, jPL);
-    public static final o<AtomicIntegerArray> jPN = new o<AtomicIntegerArray>() { // from class: com.google.gson.internal.a.n.2
+    }.cBf();
+    public static final p jPE = a(AtomicBoolean.class, jPD);
+    public static final o<AtomicIntegerArray> jPF = new o<AtomicIntegerArray>() { // from class: com.google.gson.internal.a.n.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: o */
@@ -291,21 +291,21 @@ public final class n {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         public void a(com.google.gson.stream.b bVar, AtomicIntegerArray atomicIntegerArray) throws IOException {
-            bVar.cBB();
+            bVar.cBE();
             int length = atomicIntegerArray.length();
             for (int i = 0; i < length; i++) {
                 bVar.eh(atomicIntegerArray.get(i));
             }
-            bVar.cBC();
+            bVar.cBF();
         }
-    }.cBc();
-    public static final p jPO = a(AtomicIntegerArray.class, jPN);
-    public static final o<Number> jPP = new o<Number>() { // from class: com.google.gson.internal.a.n.3
+    }.cBf();
+    public static final p jPG = a(AtomicIntegerArray.class, jPF);
+    public static final o<Number> jPH = new o<Number>() { // from class: com.google.gson.internal.a.n.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: d */
         public Number b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
@@ -322,12 +322,12 @@ public final class n {
             bVar.b(number);
         }
     };
-    public static final o<Number> jPQ = new o<Number>() { // from class: com.google.gson.internal.a.n.4
+    public static final o<Number> jPI = new o<Number>() { // from class: com.google.gson.internal.a.n.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: d */
         public Number b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
@@ -340,12 +340,12 @@ public final class n {
             bVar.b(number);
         }
     };
-    public static final o<Number> jPR = new o<Number>() { // from class: com.google.gson.internal.a.n.5
+    public static final o<Number> jPJ = new o<Number>() { // from class: com.google.gson.internal.a.n.5
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: d */
         public Number b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
@@ -358,19 +358,19 @@ public final class n {
             bVar.b(number);
         }
     };
-    public static final o<Number> jPS = new o<Number>() { // from class: com.google.gson.internal.a.n.6
+    public static final o<Number> jPK = new o<Number>() { // from class: com.google.gson.internal.a.n.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: d */
         public Number b(com.google.gson.stream.a aVar) throws IOException {
-            JsonToken cBu = aVar.cBu();
-            switch (cBu) {
+            JsonToken cBx = aVar.cBx();
+            switch (cBx) {
                 case NUMBER:
                     return new LazilyParsedNumber(aVar.nextString());
                 case BOOLEAN:
                 case STRING:
                 default:
-                    throw new JsonSyntaxException("Expecting number, got: " + cBu);
+                    throw new JsonSyntaxException("Expecting number, got: " + cBx);
                 case NULL:
                     aVar.nextNull();
                     return null;
@@ -383,13 +383,13 @@ public final class n {
             bVar.b(number);
         }
     };
-    public static final p jPT = a(Number.class, jPS);
-    public static final o<Character> jPU = new o<Character>() { // from class: com.google.gson.internal.a.n.7
+    public static final p jPL = a(Number.class, jPK);
+    public static final o<Character> jPM = new o<Character>() { // from class: com.google.gson.internal.a.n.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: p */
         public Character b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
@@ -403,20 +403,20 @@ public final class n {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         public void a(com.google.gson.stream.b bVar, Character ch) throws IOException {
-            bVar.FT(ch == null ? null : String.valueOf(ch));
+            bVar.FR(ch == null ? null : String.valueOf(ch));
         }
     };
-    public static final p jPV = a(Character.TYPE, Character.class, jPU);
-    public static final o<String> jPW = new o<String>() { // from class: com.google.gson.internal.a.n.8
+    public static final p jPN = a(Character.TYPE, Character.class, jPM);
+    public static final o<String> jPO = new o<String>() { // from class: com.google.gson.internal.a.n.8
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: q */
         public String b(com.google.gson.stream.a aVar) throws IOException {
-            JsonToken cBu = aVar.cBu();
-            if (cBu == JsonToken.NULL) {
+            JsonToken cBx = aVar.cBx();
+            if (cBx == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
-            } else if (cBu == JsonToken.BOOLEAN) {
+            } else if (cBx == JsonToken.BOOLEAN) {
                 return Boolean.toString(aVar.nextBoolean());
             } else {
                 return aVar.nextString();
@@ -426,15 +426,15 @@ public final class n {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         public void a(com.google.gson.stream.b bVar, String str) throws IOException {
-            bVar.FT(str);
+            bVar.FR(str);
         }
     };
-    public static final o<BigDecimal> jPX = new o<BigDecimal>() { // from class: com.google.gson.internal.a.n.9
+    public static final o<BigDecimal> jPP = new o<BigDecimal>() { // from class: com.google.gson.internal.a.n.9
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: r */
         public BigDecimal b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
@@ -451,12 +451,12 @@ public final class n {
             bVar.b(bigDecimal);
         }
     };
-    public static final o<BigInteger> jPY = new o<BigInteger>() { // from class: com.google.gson.internal.a.n.10
+    public static final o<BigInteger> jPQ = new o<BigInteger>() { // from class: com.google.gson.internal.a.n.10
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: s */
         public BigInteger b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
@@ -473,13 +473,13 @@ public final class n {
             bVar.b(bigInteger);
         }
     };
-    public static final p jPZ = a(String.class, jPW);
-    public static final o<StringBuilder> jQa = new o<StringBuilder>() { // from class: com.google.gson.internal.a.n.11
+    public static final p jPR = a(String.class, jPO);
+    public static final o<StringBuilder> jPS = new o<StringBuilder>() { // from class: com.google.gson.internal.a.n.11
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: t */
         public StringBuilder b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
@@ -489,16 +489,16 @@ public final class n {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         public void a(com.google.gson.stream.b bVar, StringBuilder sb) throws IOException {
-            bVar.FT(sb == null ? null : sb.toString());
+            bVar.FR(sb == null ? null : sb.toString());
         }
     };
-    public static final p jQb = a(StringBuilder.class, jQa);
-    public static final o<StringBuffer> jQc = new o<StringBuffer>() { // from class: com.google.gson.internal.a.n.13
+    public static final p jPT = a(StringBuilder.class, jPS);
+    public static final o<StringBuffer> jPU = new o<StringBuffer>() { // from class: com.google.gson.internal.a.n.13
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: v */
         public StringBuffer b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
@@ -508,16 +508,16 @@ public final class n {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         public void a(com.google.gson.stream.b bVar, StringBuffer stringBuffer) throws IOException {
-            bVar.FT(stringBuffer == null ? null : stringBuffer.toString());
+            bVar.FR(stringBuffer == null ? null : stringBuffer.toString());
         }
     };
-    public static final p jQd = a(StringBuffer.class, jQc);
-    public static final o<URL> jQe = new o<URL>() { // from class: com.google.gson.internal.a.n.14
+    public static final p jPV = a(StringBuffer.class, jPU);
+    public static final o<URL> jPW = new o<URL>() { // from class: com.google.gson.internal.a.n.14
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: w */
         public URL b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
@@ -531,16 +531,16 @@ public final class n {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         public void a(com.google.gson.stream.b bVar, URL url) throws IOException {
-            bVar.FT(url == null ? null : url.toExternalForm());
+            bVar.FR(url == null ? null : url.toExternalForm());
         }
     };
-    public static final p jQf = a(URL.class, jQe);
-    public static final o<URI> jQg = new o<URI>() { // from class: com.google.gson.internal.a.n.15
+    public static final p jPX = a(URL.class, jPW);
+    public static final o<URI> jPY = new o<URI>() { // from class: com.google.gson.internal.a.n.15
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: x */
         public URI b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
@@ -558,16 +558,16 @@ public final class n {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         public void a(com.google.gson.stream.b bVar, URI uri) throws IOException {
-            bVar.FT(uri == null ? null : uri.toASCIIString());
+            bVar.FR(uri == null ? null : uri.toASCIIString());
         }
     };
-    public static final p jQh = a(URI.class, jQg);
-    public static final o<InetAddress> jQi = new o<InetAddress>() { // from class: com.google.gson.internal.a.n.16
+    public static final p jPZ = a(URI.class, jPY);
+    public static final o<InetAddress> jQa = new o<InetAddress>() { // from class: com.google.gson.internal.a.n.16
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: y */
         public InetAddress b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
@@ -577,16 +577,16 @@ public final class n {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         public void a(com.google.gson.stream.b bVar, InetAddress inetAddress) throws IOException {
-            bVar.FT(inetAddress == null ? null : inetAddress.getHostAddress());
+            bVar.FR(inetAddress == null ? null : inetAddress.getHostAddress());
         }
     };
-    public static final p jQj = b(InetAddress.class, jQi);
-    public static final o<UUID> jQk = new o<UUID>() { // from class: com.google.gson.internal.a.n.17
+    public static final p jQb = b(InetAddress.class, jQa);
+    public static final o<UUID> jQc = new o<UUID>() { // from class: com.google.gson.internal.a.n.17
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: z */
         public UUID b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
@@ -596,11 +596,11 @@ public final class n {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         public void a(com.google.gson.stream.b bVar, UUID uuid) throws IOException {
-            bVar.FT(uuid == null ? null : uuid.toString());
+            bVar.FR(uuid == null ? null : uuid.toString());
         }
     };
-    public static final p jQl = a(UUID.class, jQk);
-    public static final o<Currency> jQm = new o<Currency>() { // from class: com.google.gson.internal.a.n.18
+    public static final p jQd = a(UUID.class, jQc);
+    public static final o<Currency> jQe = new o<Currency>() { // from class: com.google.gson.internal.a.n.18
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: A */
@@ -611,14 +611,14 @@ public final class n {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         public void a(com.google.gson.stream.b bVar, Currency currency) throws IOException {
-            bVar.FT(currency.getCurrencyCode());
+            bVar.FR(currency.getCurrencyCode());
         }
-    }.cBc();
-    public static final p jQn = a(Currency.class, jQm);
-    public static final p jQo = new p() { // from class: com.google.gson.internal.a.n.19
+    }.cBf();
+    public static final p jQf = a(Currency.class, jQe);
+    public static final p jQg = new p() { // from class: com.google.gson.internal.a.n.19
         @Override // com.google.gson.p
         public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-            if (aVar.cBG() != Timestamp.class) {
+            if (aVar.cBJ() != Timestamp.class) {
                 return null;
             }
             final o<T> w = dVar.w(Date.class);
@@ -642,13 +642,13 @@ public final class n {
             };
         }
     };
-    public static final o<Calendar> jQp = new o<Calendar>() { // from class: com.google.gson.internal.a.n.20
+    public static final o<Calendar> jQh = new o<Calendar>() { // from class: com.google.gson.internal.a.n.20
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: C */
         public Calendar b(com.google.gson.stream.a aVar) throws IOException {
             int i = 0;
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
@@ -658,7 +658,7 @@ public final class n {
             int i4 = 0;
             int i5 = 0;
             int i6 = 0;
-            while (aVar.cBu() != JsonToken.END_OBJECT) {
+            while (aVar.cBx() != JsonToken.END_OBJECT) {
                 String nextName = aVar.nextName();
                 int nextInt = aVar.nextInt();
                 if ("year".equals(nextName)) {
@@ -683,32 +683,32 @@ public final class n {
         @Override // com.google.gson.o
         public void a(com.google.gson.stream.b bVar, Calendar calendar) throws IOException {
             if (calendar == null) {
-                bVar.cBF();
+                bVar.cBI();
                 return;
             }
-            bVar.cBD();
-            bVar.FS("year");
+            bVar.cBG();
+            bVar.FQ("year");
             bVar.eh(calendar.get(1));
-            bVar.FS("month");
+            bVar.FQ("month");
             bVar.eh(calendar.get(2));
-            bVar.FS("dayOfMonth");
+            bVar.FQ("dayOfMonth");
             bVar.eh(calendar.get(5));
-            bVar.FS("hourOfDay");
+            bVar.FQ("hourOfDay");
             bVar.eh(calendar.get(11));
-            bVar.FS("minute");
+            bVar.FQ("minute");
             bVar.eh(calendar.get(12));
-            bVar.FS("second");
+            bVar.FQ("second");
             bVar.eh(calendar.get(13));
-            bVar.cBE();
+            bVar.cBH();
         }
     };
-    public static final p jQq = b(Calendar.class, GregorianCalendar.class, jQp);
-    public static final o<Locale> jQr = new o<Locale>() { // from class: com.google.gson.internal.a.n.21
+    public static final p jQi = b(Calendar.class, GregorianCalendar.class, jQh);
+    public static final o<Locale> jQj = new o<Locale>() { // from class: com.google.gson.internal.a.n.21
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: D */
         public Locale b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
@@ -728,16 +728,16 @@ public final class n {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         public void a(com.google.gson.stream.b bVar, Locale locale) throws IOException {
-            bVar.FT(locale == null ? null : locale.toString());
+            bVar.FR(locale == null ? null : locale.toString());
         }
     };
-    public static final p jQs = a(Locale.class, jQr);
-    public static final o<com.google.gson.i> jQt = new o<com.google.gson.i>() { // from class: com.google.gson.internal.a.n.22
+    public static final p jQk = a(Locale.class, jQj);
+    public static final o<com.google.gson.i> jQl = new o<com.google.gson.i>() { // from class: com.google.gson.internal.a.n.22
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         /* renamed from: E */
         public com.google.gson.i b(com.google.gson.stream.a aVar) throws IOException {
-            switch (AnonymousClass29.jPb[aVar.cBu().ordinal()]) {
+            switch (AnonymousClass29.jOT[aVar.cBx().ordinal()]) {
                 case 1:
                     return new com.google.gson.l(new LazilyParsedNumber(aVar.nextString()));
                 case 2:
@@ -746,7 +746,7 @@ public final class n {
                     return new com.google.gson.l(aVar.nextString());
                 case 4:
                     aVar.nextNull();
-                    return com.google.gson.j.jNz;
+                    return com.google.gson.j.jNr;
                 case 5:
                     com.google.gson.f fVar = new com.google.gson.f();
                     aVar.beginArray();
@@ -771,55 +771,55 @@ public final class n {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.o
         public void a(com.google.gson.stream.b bVar, com.google.gson.i iVar) throws IOException {
-            if (iVar == null || iVar.cAU()) {
-                bVar.cBF();
-            } else if (iVar.cAT()) {
-                com.google.gson.l cAX = iVar.cAX();
-                if (cAX.cBa()) {
-                    bVar.b(cAX.cAP());
-                } else if (cAX.cAZ()) {
-                    bVar.rB(cAX.getAsBoolean());
+            if (iVar == null || iVar.cAX()) {
+                bVar.cBI();
+            } else if (iVar.cAW()) {
+                com.google.gson.l cBa = iVar.cBa();
+                if (cBa.cBd()) {
+                    bVar.b(cBa.cAS());
+                } else if (cBa.cBc()) {
+                    bVar.rB(cBa.getAsBoolean());
                 } else {
-                    bVar.FT(cAX.cAQ());
+                    bVar.FR(cBa.cAT());
                 }
-            } else if (iVar.cAR()) {
-                bVar.cBB();
-                Iterator<com.google.gson.i> it = iVar.cAW().iterator();
+            } else if (iVar.cAU()) {
+                bVar.cBE();
+                Iterator<com.google.gson.i> it = iVar.cAZ().iterator();
                 while (it.hasNext()) {
                     a(bVar, it.next());
                 }
-                bVar.cBC();
-            } else if (iVar.cAS()) {
-                bVar.cBD();
-                for (Map.Entry<String, com.google.gson.i> entry : iVar.cAV().entrySet()) {
-                    bVar.FS(entry.getKey());
+                bVar.cBF();
+            } else if (iVar.cAV()) {
+                bVar.cBG();
+                for (Map.Entry<String, com.google.gson.i> entry : iVar.cAY().entrySet()) {
+                    bVar.FQ(entry.getKey());
                     a(bVar, entry.getValue());
                 }
-                bVar.cBE();
+                bVar.cBH();
             } else {
                 throw new IllegalArgumentException("Couldn't write " + iVar.getClass());
             }
         }
     };
-    public static final p jQu = b(com.google.gson.i.class, jQt);
-    public static final p jQv = new p() { // from class: com.google.gson.internal.a.n.24
+    public static final p jQm = b(com.google.gson.i.class, jQl);
+    public static final p jQn = new p() { // from class: com.google.gson.internal.a.n.24
         @Override // com.google.gson.p
         public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-            Class cBG = aVar.cBG();
-            if (!Enum.class.isAssignableFrom(cBG) || cBG == Enum.class) {
+            Class cBJ = aVar.cBJ();
+            if (!Enum.class.isAssignableFrom(cBJ) || cBJ == Enum.class) {
                 return null;
             }
-            if (!cBG.isEnum()) {
-                cBG = (Class<? super Object>) cBG.getSuperclass();
+            if (!cBJ.isEnum()) {
+                cBJ = (Class<? super Object>) cBJ.getSuperclass();
             }
-            return new a(cBG);
+            return new a(cBJ);
         }
     };
 
     /* loaded from: classes2.dex */
     private static final class a<T extends Enum<T>> extends o<T> {
-        private final Map<String, T> jQG = new HashMap();
-        private final Map<T, String> jQH = new HashMap();
+        private final Map<String, T> jQy = new HashMap();
+        private final Map<T, String> jQz = new HashMap();
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.gson.internal.a.n$a<T extends java.lang.Enum<T>> */
         /* JADX WARN: Multi-variable type inference failed */
@@ -836,14 +836,14 @@ public final class n {
                     com.google.gson.a.c cVar = (com.google.gson.a.c) cls.getField(name).getAnnotation(com.google.gson.a.c.class);
                     if (cVar != null) {
                         name = cVar.value();
-                        String[] cBg = cVar.cBg();
-                        for (String str : cBg) {
-                            this.jQG.put(str, t);
+                        String[] cBj = cVar.cBj();
+                        for (String str : cBj) {
+                            this.jQy.put(str, t);
                         }
                     }
                     String str2 = name;
-                    this.jQG.put(str2, t);
-                    this.jQH.put(t, str2);
+                    this.jQy.put(str2, t);
+                    this.jQz.put(t, str2);
                 }
             } catch (NoSuchFieldException e) {
                 throw new AssertionError(e);
@@ -854,15 +854,15 @@ public final class n {
         @Override // com.google.gson.o
         /* renamed from: I */
         public T b(com.google.gson.stream.a aVar) throws IOException {
-            if (aVar.cBu() == JsonToken.NULL) {
+            if (aVar.cBx() == JsonToken.NULL) {
                 aVar.nextNull();
                 return null;
             }
-            return this.jQG.get(aVar.nextString());
+            return this.jQy.get(aVar.nextString());
         }
 
         public void a(com.google.gson.stream.b bVar, T t) throws IOException {
-            bVar.FT(t == null ? null : this.jQH.get(t));
+            bVar.FR(t == null ? null : this.jQz.get(t));
         }
     }
 
@@ -870,7 +870,7 @@ public final class n {
         return new p() { // from class: com.google.gson.internal.a.n.25
             @Override // com.google.gson.p
             public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-                if (aVar.cBG() == cls) {
+                if (aVar.cBJ() == cls) {
                     return oVar;
                 }
                 return null;
@@ -886,8 +886,8 @@ public final class n {
         return new p() { // from class: com.google.gson.internal.a.n.26
             @Override // com.google.gson.p
             public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-                Class<? super T> cBG = aVar.cBG();
-                if (cBG == cls || cBG == cls2) {
+                Class<? super T> cBJ = aVar.cBJ();
+                if (cBJ == cls || cBJ == cls2) {
                     return oVar;
                 }
                 return null;
@@ -903,8 +903,8 @@ public final class n {
         return new p() { // from class: com.google.gson.internal.a.n.27
             @Override // com.google.gson.p
             public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-                Class<? super T> cBG = aVar.cBG();
-                if (cBG == cls || cBG == cls2) {
+                Class<? super T> cBJ = aVar.cBJ();
+                if (cBJ == cls || cBJ == cls2) {
                     return oVar;
                 }
                 return null;
@@ -920,8 +920,8 @@ public final class n {
         return new p() { // from class: com.google.gson.internal.a.n.28
             @Override // com.google.gson.p
             public <T2> o<T2> a(com.google.gson.d dVar, com.google.gson.b.a<T2> aVar) {
-                final Class<? super T2> cBG = aVar.cBG();
-                if (cls.isAssignableFrom(cBG)) {
+                final Class<? super T2> cBJ = aVar.cBJ();
+                if (cls.isAssignableFrom(cBJ)) {
                     return (o<T2>) new o<T1>() { // from class: com.google.gson.internal.a.n.28.1
                         @Override // com.google.gson.o
                         public void a(com.google.gson.stream.b bVar, T1 t1) throws IOException {
@@ -934,8 +934,8 @@ public final class n {
                         @Override // com.google.gson.o
                         public T1 b(com.google.gson.stream.a aVar2) throws IOException {
                             ?? b = oVar.b(aVar2);
-                            if (b != 0 && !cBG.isInstance(b)) {
-                                throw new JsonSyntaxException("Expected a " + cBG.getName() + " but was " + b.getClass().getName());
+                            if (b != 0 && !cBJ.isInstance(b)) {
+                                throw new JsonSyntaxException("Expected a " + cBJ.getName() + " but was " + b.getClass().getName());
                             }
                             return b;
                         }

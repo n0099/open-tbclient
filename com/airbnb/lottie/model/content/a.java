@@ -3,7 +3,6 @@ package com.airbnb.lottie.model.content;
 import android.graphics.PointF;
 import com.airbnb.lottie.model.a.f;
 import com.airbnb.lottie.model.a.m;
-import com.meizu.cloud.pushsdk.notification.model.NotifyType;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class a implements b {
@@ -30,7 +29,7 @@ public class a implements b {
     public static class C0010a {
         /* JADX INFO: Access modifiers changed from: package-private */
         public static a o(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
-            return new a(jSONObject.optString("nm"), com.airbnb.lottie.model.a.e.h(jSONObject.optJSONObject("p"), eVar), f.a.i(jSONObject.optJSONObject(NotifyType.SOUND), eVar), jSONObject.optInt("d", 2) == 3);
+            return new a(jSONObject.optString("nm"), com.airbnb.lottie.model.a.e.h(jSONObject.optJSONObject("p"), eVar), f.a.i(jSONObject.optJSONObject("s"), eVar), jSONObject.optInt("d", 2) == 3);
         }
     }
 

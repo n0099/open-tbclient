@@ -24,7 +24,7 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class e implements o {
     private static final String TAG = e.class.getSimpleName();
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     @Override // com.baidu.swan.apps.b.b.o
     public boolean a(final Context context, final String str, final UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject, final CallbackHandler callbackHandler, final String str2) {
@@ -67,7 +67,7 @@ public class e implements o {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, String str, final UnitedSchemeEntity unitedSchemeEntity, final com.baidu.swan.apps.ae.b bVar, final CallbackHandler callbackHandler, String[] strArr, final String str2) {
-        d.dJ(context).a(bVar, str, strArr, new com.baidu.swan.apps.aa.a.c() { // from class: com.baidu.tieba.aiapps.apps.k.e.2
+        d.dI(context).a(bVar, str, strArr, new com.baidu.swan.apps.aa.a.c() { // from class: com.baidu.tieba.aiapps.apps.k.e.2
             @Override // com.baidu.swan.apps.aa.a.c
             public void h(int i, String str3) {
                 if (e.DEBUG) {
@@ -82,8 +82,8 @@ public class e implements o {
 
     @Override // com.baidu.swan.apps.b.b.o
     public boolean vT() {
-        com.baidu.poly.a azN = d.azN();
-        return azN != null && azN.tu();
+        com.baidu.poly.a azM = d.azM();
+        return azM != null && azM.tu();
     }
 
     @Override // com.baidu.swan.apps.b.b.o
@@ -92,7 +92,7 @@ public class e implements o {
         String str2;
         String str3;
         String str4;
-        if (!com.baidu.tbadk.pay.c.aoX().aoY()) {
+        if (!com.baidu.tbadk.pay.c.aoW().aoX()) {
             l.showToast(TbadkCoreApplication.getInst(), d.j.plugin_pay_wallet_not_found);
             return false;
         } else if (context instanceof Activity) {
@@ -141,7 +141,7 @@ public class e implements o {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, String str, String str2, com.baidu.swan.apps.ae.b bVar) {
         com.baidu.swan.apps.v.b.b uB = bVar.uB();
-        com.baidu.swan.apps.statistic.c.a(i == 0, str, str2, uB != null ? uB.axW : 0);
+        com.baidu.swan.apps.statistic.c.a(i == 0, str, str2, uB != null ? uB.axX : 0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

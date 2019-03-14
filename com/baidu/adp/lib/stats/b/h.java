@@ -1,7 +1,6 @@
 package com.baidu.adp.lib.stats.b;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.TbConfig;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -61,7 +60,7 @@ public class h {
                     com.baidu.adp.lib.stats.base.c next2 = it3.next();
                     if (next2 != null) {
                         long j = next2.EN;
-                        if (j != 0 && j + TbConfig.APP_OVERDUR_DRAFT_BOX < currentTimeMillis && !arrayList.contains(next2.mFileName)) {
+                        if (j != 0 && j + 604800000 < currentTimeMillis && !arrayList.contains(next2.mFileName)) {
                             arrayList.add(next2.mFileName);
                         }
                     }

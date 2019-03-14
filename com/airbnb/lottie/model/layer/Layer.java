@@ -8,10 +8,9 @@ import com.airbnb.lottie.model.a.j;
 import com.airbnb.lottie.model.a.k;
 import com.airbnb.lottie.model.a.l;
 import com.airbnb.lottie.model.content.Mask;
-import com.baidu.appsearchlib.Info;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -242,7 +241,7 @@ public class Layer {
             LayerType layerType;
             String optString = jSONObject.optString("nm");
             String optString2 = jSONObject.optString("refId");
-            if (optString.endsWith(".ai") || jSONObject.optString("cl", "").equals("ai")) {
+            if (optString.endsWith(".ai") || jSONObject.optString(Config.CELL_LOCATION, "").equals("ai")) {
                 eVar.V("Convert your Illustrator layers to shape layers.");
             }
             long optLong = jSONObject.optLong("ind");
@@ -251,7 +250,7 @@ public class Layer {
             int i3 = 0;
             int i4 = 0;
             int i5 = 0;
-            int optInt = jSONObject.optInt("ty", -1);
+            int optInt = jSONObject.optInt(Config.EXCEPTION_CRASH_CHANNEL, -1);
             if (optInt < LayerType.Unknown.ordinal()) {
                 layerType = LayerType.values()[optInt];
             } else {
@@ -266,7 +265,7 @@ public class Layer {
             if (layerType2 == LayerType.Solid) {
                 i = (int) (jSONObject.optInt(TbConfig.SW_APID) * eVar.cK());
                 i2 = (int) (jSONObject.optInt("sh") * eVar.cK());
-                i3 = Color.parseColor(jSONObject.optString("sc"));
+                i3 = Color.parseColor(jSONObject.optString(Config.STAT_SDK_CHANNEL));
             }
             l n = l.a.n(jSONObject.optJSONObject("ks"), eVar);
             MatteType matteType = MatteType.values()[jSONObject.optInt(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP)];
@@ -289,10 +288,10 @@ public class Layer {
             }
             j jVar = null;
             k kVar = null;
-            JSONObject optJSONObject = jSONObject.optJSONObject(Info.kBaiduTimeKey);
+            JSONObject optJSONObject = jSONObject.optJSONObject("t");
             if (optJSONObject != null) {
                 jVar = j.a.l(optJSONObject.optJSONObject("d"), eVar);
-                kVar = k.a.m(optJSONObject.optJSONArray("a").optJSONObject(0), eVar);
+                kVar = k.a.m(optJSONObject.optJSONArray(Config.APP_VERSION_CODE).optJSONObject(0), eVar);
             }
             if (jSONObject.has("ef")) {
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("ef");
@@ -303,13 +302,13 @@ public class Layer {
                 eVar.V("Lottie doesn't support layer effects. If you are using them for  fills, strokes, trim paths etc. then try adding them directly as contents  in your shape. Found: " + Arrays.toString(strArr));
             }
             float optDouble = (float) jSONObject.optDouble("sr", 1.0d);
-            float optDouble2 = ((float) jSONObject.optDouble(TimeDisplaySetting.START_SHOW_TIME)) / eVar.cJ();
+            float optDouble2 = ((float) jSONObject.optDouble("st")) / eVar.cJ();
             if (layerType2 == LayerType.PreComp) {
-                i4 = (int) (jSONObject.optInt("w") * eVar.cK());
+                i4 = (int) (jSONObject.optInt(Config.DEVICE_WIDTH) * eVar.cK());
                 i5 = (int) (jSONObject.optInt("h") * eVar.cK());
             }
             float optLong3 = ((float) jSONObject.optLong("ip")) / optDouble;
-            float optLong4 = ((float) jSONObject.optLong("op")) / optDouble;
+            float optLong4 = ((float) jSONObject.optLong(Config.OPERATOR)) / optDouble;
             ArrayList arrayList3 = new ArrayList();
             if (optLong3 > 0.0f) {
                 arrayList3.add(new com.airbnb.lottie.a.a(eVar, Float.valueOf(0.0f), Float.valueOf(0.0f), null, 0.0f, Float.valueOf(optLong3)));

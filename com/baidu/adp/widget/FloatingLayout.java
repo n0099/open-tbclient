@@ -10,8 +10,8 @@ import com.baidu.adp.R;
 import com.baidu.sapi2.utils.enums.ShareDirectionType;
 /* loaded from: classes.dex */
 public class FloatingLayout extends LinearLayout {
-    private int Nb;
     private int Nc;
+    private int Nd;
     private int mUsedHeight;
     private int mUsedWidth;
 
@@ -32,7 +32,7 @@ public class FloatingLayout extends LinearLayout {
         } else if (getOrientation() == 0) {
             measureHorizontal(i, i2);
         }
-        setMeasuredDimension(this.Nb + getPaddingLeft() + getPaddingRight(), this.Nc + getPaddingTop() + getPaddingBottom());
+        setMeasuredDimension(this.Nc + getPaddingLeft() + getPaddingRight(), this.Nd + getPaddingTop() + getPaddingBottom());
     }
 
     private void measureVertical(int i, int i2) {
@@ -57,7 +57,7 @@ public class FloatingLayout extends LinearLayout {
                 i3 = Math.max(childAt.getMeasuredWidth() + generateDefaultLayoutParams.leftMargin + generateDefaultLayoutParams.rightMargin, i6);
                 this.mUsedWidth = i3;
                 this.mUsedHeight = childAt.getMeasuredHeight() + generateDefaultLayoutParams.topMargin + generateDefaultLayoutParams.bottomMargin + this.mUsedHeight;
-                this.Nc = Math.max(this.mUsedHeight, this.Nc);
+                this.Nd = Math.max(this.mUsedHeight, this.Nd);
                 if ((generateDefaultLayoutParams.clear & 2) == 2) {
                     this.mUsedHeight = 0;
                     this.mUsedWidth = i3 + this.mUsedWidth;
@@ -70,7 +70,7 @@ public class FloatingLayout extends LinearLayout {
             i5++;
             i6 = i3;
         }
-        this.Nb = this.mUsedWidth;
+        this.Nc = this.mUsedWidth;
     }
 
     private void measureHorizontal(int i, int i2) {
@@ -98,7 +98,7 @@ public class FloatingLayout extends LinearLayout {
                 }
                 i5 = Math.max(measuredHeight, i3);
                 this.mUsedWidth += measuredWidth;
-                this.Nb = Math.max(this.Nb, this.mUsedWidth);
+                this.Nc = Math.max(this.Nc, this.mUsedWidth);
                 if ((generateDefaultLayoutParams.clear & 2) == 2) {
                     this.mUsedWidth = 0;
                     this.mUsedHeight += i5;
@@ -107,7 +107,7 @@ public class FloatingLayout extends LinearLayout {
             }
         }
         this.mUsedHeight += i5;
-        this.Nc = this.mUsedHeight;
+        this.Nd = this.mUsedHeight;
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View

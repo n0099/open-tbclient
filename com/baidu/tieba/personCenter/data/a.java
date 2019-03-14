@@ -3,20 +3,20 @@ package com.baidu.tieba.personCenter.data;
 import tbclient.BannerImage;
 /* loaded from: classes4.dex */
 public class a implements com.baidu.tbadk.core.flow.a.a {
-    private String fId;
+    private String fIc;
     private String mImgUrl;
     private String mTitle;
 
     public void a(BannerImage bannerImage) {
         if (bannerImage != null) {
             this.mImgUrl = bannerImage.img_url;
-            this.fId = bannerImage.ahead_url;
+            this.fIc = bannerImage.ahead_url;
             this.mTitle = bannerImage.title;
         }
     }
 
-    public String bQv() {
-        return this.fId;
+    public String bQx() {
+        return this.fIc;
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
@@ -26,6 +26,6 @@ public class a implements com.baidu.tbadk.core.flow.a.a {
 
     @Override // com.baidu.tbadk.core.flow.a.a
     public String Xi() {
-        return this.fId;
+        return this.fIc;
     }
 }

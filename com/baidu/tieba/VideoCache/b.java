@@ -13,26 +13,26 @@ import java.util.Collections;
 /* loaded from: classes4.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
-    private a cLg = new a();
+    private a cLd = new a();
 
     public b() {
-        avA();
+        avz();
     }
 
-    private void avA() {
+    private void avz() {
         File[] listFiles;
-        File file = new File(i.cLQ);
+        File file = new File(i.cLN);
         if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length > 0) {
             for (File file2 : listFiles) {
                 if (file2 != null && file2.exists()) {
                     d dVar = new d();
-                    dVar.qp(file2.getName());
-                    dVar.bt(qm(file2.getAbsolutePath()));
-                    dVar.bu(m.qz(file2.getName()));
-                    this.cLg.a(dVar);
+                    dVar.qn(file2.getName());
+                    dVar.bt(qk(file2.getAbsolutePath()));
+                    dVar.bu(m.qx(file2.getName()));
+                    this.cLd.a(dVar);
                 }
             }
-            Collections.sort(this.cLg.avx(), new AccessTimeComparator());
+            Collections.sort(this.cLd.avw(), new AccessTimeComparator());
         }
     }
 
@@ -41,7 +41,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private long qm(String str) {
+    private long qk(String str) {
         DataInputStream dataInputStream;
         FileInputStream fileInputStream;
         long j = 0;
@@ -138,59 +138,59 @@ public class b {
         return j;
     }
 
-    public void qn(String str) {
+    public void ql(String str) {
         d dVar;
-        String qB = m.qB(str);
-        if (qB != null && !qB.isEmpty()) {
-            qo(qB);
-            if (this.cLg != null) {
+        String qz = m.qz(str);
+        if (qz != null && !qz.isEmpty()) {
+            qm(qz);
+            if (this.cLd != null) {
                 long currentTimeMillis = System.currentTimeMillis();
                 int i = 0;
                 while (true) {
-                    if (i >= this.cLg.avz()) {
+                    if (i >= this.cLd.avy()) {
                         dVar = null;
                         break;
                     }
-                    d lo = this.cLg.lo((this.cLg.avz() - 1) - i);
-                    if (lo != null && lo.getFileName() != null && lo.getFileName().equals(qB)) {
+                    d lo = this.cLd.lo((this.cLd.avy() - 1) - i);
+                    if (lo != null && lo.getFileName() != null && lo.getFileName().equals(qz)) {
                         dVar = lo;
                         break;
                     }
                     i++;
                 }
                 if (dVar != null) {
-                    this.cLg.b(dVar);
+                    this.cLd.b(dVar);
                 } else {
                     dVar = new d();
-                    dVar.qp(qB);
+                    dVar.qn(qz);
                 }
                 long currentTimeMillis2 = System.currentTimeMillis();
-                l(qB, currentTimeMillis2);
+                l(qz, currentTimeMillis2);
                 dVar.bt(currentTimeMillis2);
-                dVar.bu(m.qz(qB));
-                this.cLg.a(dVar);
-                j.as(TAG, "total cache size: " + ((this.cLg.avy() / 1024) / 1024) + "M list size " + this.cLg.avz());
-                if (this.cLg.avy() > 629145600) {
-                    while (this.cLg.avy() > 524288000 && this.cLg.avz() > 2 && avB()) {
+                dVar.bu(m.qx(qz));
+                this.cLd.a(dVar);
+                j.as(TAG, "total cache size: " + ((this.cLd.avx() / 1024) / 1024) + "M list size " + this.cLd.avy());
+                if (this.cLd.avx() > 629145600) {
+                    while (this.cLd.avx() > 524288000 && this.cLd.avy() > 2 && avA()) {
                     }
-                    avD();
+                    avC();
                 }
-                if (m.avT() < 314572800) {
-                    while (m.avT() < 419430400 && this.cLg.avz() > 2 && avB()) {
+                if (m.avS() < 314572800) {
+                    while (m.avS() < 419430400 && this.cLd.avy() > 2 && avA()) {
                     }
-                    avD();
+                    avC();
                 }
                 j.as(TAG, "adjust coast time " + (System.currentTimeMillis() - currentTimeMillis));
             }
         }
     }
 
-    private boolean avB() {
-        d lo = this.cLg.lo(0);
-        if (lo == null || !(e.avI().qq(lo.getFileName()) || e.avI().qs(lo.getFileName()))) {
-            this.cLg.remove(0);
+    private boolean avA() {
+        d lo = this.cLd.lo(0);
+        if (lo == null || !(e.avH().qo(lo.getFileName()) || e.avH().qq(lo.getFileName()))) {
+            this.cLd.remove(0);
             if (lo != null) {
-                File file = new File(i.cLR + lo.getFileName());
+                File file = new File(i.cLO + lo.getFileName());
                 j.as(TAG, "delete file " + file.getName());
                 m.O(file);
             }
@@ -200,7 +200,7 @@ public class b {
     }
 
     private void l(String str, long j) {
-        File file = new File(i.cLR + str);
+        File file = new File(i.cLO + str);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -216,14 +216,14 @@ public class b {
         }
     }
 
-    public void avC() {
-        if (this.cLg != null) {
+    public void avB() {
+        if (this.cLd != null) {
             long currentTimeMillis = System.currentTimeMillis();
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < this.cLg.avz() - 2; i++) {
-                d lo = this.cLg.lo(i);
+            for (int i = 0; i < this.cLd.avy() - 2; i++) {
+                d lo = this.cLd.lo(i);
                 if (lo != null) {
-                    if (currentTimeMillis - lo.avG() < 86400000) {
+                    if (currentTimeMillis - lo.avF() < 86400000) {
                         break;
                     }
                     arrayList.add(lo);
@@ -231,26 +231,26 @@ public class b {
             }
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
                 d dVar = (d) arrayList.get(i2);
-                if (dVar == null || (!e.avI().qq(dVar.getFileName()) && !e.avI().qs(dVar.getFileName()))) {
-                    this.cLg.b(dVar);
+                if (dVar == null || (!e.avH().qo(dVar.getFileName()) && !e.avH().qq(dVar.getFileName()))) {
+                    this.cLd.b(dVar);
                     if (dVar != null) {
-                        File file = new File(i.cLR + dVar.getFileName());
+                        File file = new File(i.cLO + dVar.getFileName());
                         j.as(TAG, "delete expired file " + dVar.getFileName());
                         m.O(file);
                     }
                 }
             }
-            avD();
+            avC();
         }
     }
 
-    private void qo(String str) {
+    private void qm(String str) {
         File[] listFiles;
         if (str != null) {
             try {
                 if (!str.isEmpty()) {
-                    File file = new File(i.cLR + str + "/completed");
-                    File file2 = new File(i.cLR + str + "/segments");
+                    File file = new File(i.cLO + str + "/completed");
+                    File file2 = new File(i.cLO + str + "/segments");
                     if (file.exists()) {
                         j.as(TAG, "delete segments");
                         if (file2 != null && file2.exists() && file2.listFiles() != null) {
@@ -270,16 +270,16 @@ public class b {
     }
 
     public void clearCache() {
-        if (this.cLg != null) {
-            while (this.cLg.avz() > 0 && avB()) {
+        if (this.cLd != null) {
+            while (this.cLd.avy() > 0 && avA()) {
             }
-            avD();
+            avC();
         }
     }
 
-    private void avD() {
+    private void avC() {
         File[] listFiles;
-        File file = new File(i.cLQ);
+        File file = new File(i.cLN);
         if (file.exists() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {
                 if (file2 != null && file2.exists()) {

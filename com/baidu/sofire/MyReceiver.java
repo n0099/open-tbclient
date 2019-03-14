@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.appsearchlib.Info;
 import com.baidu.sofire.ac.Callback;
 import com.baidu.sofire.ac.U;
 import com.baidu.sofire.b.r;
@@ -41,10 +40,10 @@ public class MyReceiver extends BroadcastReceiver {
                                 new StringBuilder("PPP(receiver) now do action ").append(intent.toString());
                                 b.a();
                                 long currentTimeMillis = System.currentTimeMillis();
-                                if ("r".equals(intent.getStringExtra(Info.kBaiduTimeKey))) {
+                                if ("r".equals(intent.getStringExtra("t"))) {
                                     String stringExtra = intent.getStringExtra("c");
                                     Intent intent2 = new Intent();
-                                    intent2.putExtra(Info.kBaiduTimeKey, "r");
+                                    intent2.putExtra("t", "r");
                                     intent2.putExtra("c", stringExtra);
                                     a.a(applicationContext, intent2);
                                 }

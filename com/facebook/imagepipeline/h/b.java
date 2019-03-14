@@ -10,8 +10,8 @@ import com.facebook.imagepipeline.common.TooManyBitmapsException;
 import com.facebook.imagepipeline.nativecode.Bitmaps;
 /* loaded from: classes2.dex */
 abstract class b implements e {
-    protected static final byte[] jJV = {-1, -39};
-    private final com.facebook.imagepipeline.memory.a jJW = com.facebook.imagepipeline.memory.b.cyZ();
+    protected static final byte[] jJN = {-1, -39};
+    private final com.facebook.imagepipeline.memory.a jJO = com.facebook.imagepipeline.memory.b.czc();
 
     abstract Bitmap a(com.facebook.common.references.a<PooledByteBuffer> aVar, int i, BitmapFactory.Options options);
 
@@ -20,24 +20,24 @@ abstract class b implements e {
     @Override // com.facebook.imagepipeline.h.e
     public com.facebook.common.references.a<Bitmap> a(com.facebook.imagepipeline.f.d dVar, Bitmap.Config config) {
         BitmapFactory.Options a = a(dVar.getSampleSize(), config);
-        com.facebook.common.references.a<PooledByteBuffer> cyM = dVar.cyM();
-        g.checkNotNull(cyM);
+        com.facebook.common.references.a<PooledByteBuffer> cyP = dVar.cyP();
+        g.checkNotNull(cyP);
         try {
-            return aa(a(cyM, a));
+            return aa(a(cyP, a));
         } finally {
-            com.facebook.common.references.a.c(cyM);
+            com.facebook.common.references.a.c(cyP);
         }
     }
 
     @Override // com.facebook.imagepipeline.h.e
     public com.facebook.common.references.a<Bitmap> a(com.facebook.imagepipeline.f.d dVar, Bitmap.Config config, int i) {
         BitmapFactory.Options a = a(dVar.getSampleSize(), config);
-        com.facebook.common.references.a<PooledByteBuffer> cyM = dVar.cyM();
-        g.checkNotNull(cyM);
+        com.facebook.common.references.a<PooledByteBuffer> cyP = dVar.cyP();
+        g.checkNotNull(cyP);
         try {
-            return aa(a(cyM, i, a));
+            return aa(a(cyP, i, a));
         } finally {
-            com.facebook.common.references.a.c(cyM);
+            com.facebook.common.references.a.c(cyP);
         }
     }
 
@@ -63,11 +63,11 @@ abstract class b implements e {
     public com.facebook.common.references.a<Bitmap> aa(Bitmap bitmap) {
         try {
             Bitmaps.Z(bitmap);
-            if (!this.jJW.U(bitmap)) {
+            if (!this.jJO.U(bitmap)) {
                 bitmap.recycle();
                 throw new TooManyBitmapsException();
             }
-            return com.facebook.common.references.a.a(bitmap, this.jJW.cyX());
+            return com.facebook.common.references.a.a(bitmap, this.jJO.cza());
         } catch (Exception e) {
             bitmap.recycle();
             throw k.s(e);

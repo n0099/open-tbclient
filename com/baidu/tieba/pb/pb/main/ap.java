@@ -9,9 +9,9 @@ import com.baidu.tieba.tbadkCore.data.PostData;
 import java.util.Random;
 /* loaded from: classes4.dex */
 public class ap {
-    private static final int[] hvM = {d.j.i_have_a_bold_idea, d.j.give_you_a_god_comment_chance, d.j.wait_for_you_so_long_time_finally_you_come, d.j.hot_or_not_hot_up_to_you, d.j.let_us_talk_dont_shy};
+    private static final int[] hvF = {d.j.i_have_a_bold_idea, d.j.give_you_a_god_comment_chance, d.j.wait_for_you_so_long_time_finally_you_come, d.j.hot_or_not_hot_up_to_you, d.j.let_us_talk_dont_shy};
 
-    public static Intent aI(Context context, String str) {
+    public static Intent aH(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
             return null;
         }
@@ -24,18 +24,18 @@ public class ap {
     }
 
     public static boolean m(PostData postData) {
-        if (postData == null || postData.ceA() == null) {
+        if (postData == null || postData.ceC() == null) {
             return false;
         }
-        com.baidu.tieba.tbadkCore.data.i ceA = postData.ceA();
-        if (ceA.iFR) {
-            int cdY = ceA.cdY();
-            return cdY == 2 || cdY == 1 || cdY == 3;
+        com.baidu.tieba.tbadkCore.data.i ceC = postData.ceC();
+        if (ceC.iFJ) {
+            int cea = ceC.cea();
+            return cea == 2 || cea == 1 || cea == 3;
         }
         return false;
     }
 
-    public static int bMk() {
-        return hvM[new Random().nextInt(hvM.length)];
+    public static int bMj() {
+        return hvF[new Random().nextInt(hvF.length)];
     }
 }

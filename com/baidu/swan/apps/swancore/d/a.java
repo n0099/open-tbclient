@@ -3,17 +3,17 @@ package com.baidu.swan.apps.swancore.d;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.c;
 import com.baidu.swan.apps.storage.b.f;
+import com.baidu.swan.c.c;
 import java.io.File;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public final class a {
-    private static final boolean DEBUG = c.DEBUG;
-    private static C0147a aTg;
-    private static C0147a aTh;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static C0176a aTh;
+    private static C0176a aTi;
 
     public static void c(boolean z, int i) {
         f.KL().putBoolean(dP(i), z);
@@ -31,22 +31,22 @@ public final class a {
         return f.KL().getLong(dU(i), 0L);
     }
 
-    public static C0147a dR(int i) {
+    public static C0176a dR(int i) {
         return i == 1 ? KU() : KV();
     }
 
-    private static C0147a KU() {
-        if (aTh == null) {
-            aTh = C0147a.c(dW(1), 1);
+    private static C0176a KU() {
+        if (aTi == null) {
+            aTi = C0176a.c(dW(1), 1);
         }
-        return aTh;
+        return aTi;
     }
 
-    private static C0147a KV() {
-        if (aTg == null) {
-            aTg = C0147a.c(dW(0), 0);
+    private static C0176a KV() {
+        if (aTh == null) {
+            aTh = C0176a.c(dW(0), 0);
         }
-        return aTg;
+        return aTh;
     }
 
     public static synchronized void dS(int i) {
@@ -55,9 +55,9 @@ public final class a {
                 Log.d("PresetSwanCoreControl", "onPresetUpdate start.");
             }
             if (dO(i)) {
-                C0147a dR = dR(i);
+                C0176a dR = dR(i);
                 long j = f.KL().getLong(dT(i), 0L);
-                long hg = com.baidu.swan.apps.swancore.b.hg(dR.aTi);
+                long hg = com.baidu.swan.apps.swancore.b.hg(dR.aTj);
                 if (DEBUG) {
                     Log.d("PresetSwanCoreControl", "onPresetUpdate curVer: " + j + " newVer: " + hg);
                 }
@@ -82,7 +82,7 @@ public final class a {
             f.KL().putLong(dU(i), j);
             c(false, i);
             if (DEBUG) {
-                String c = com.baidu.swan.c.c.c(new File(dT(i)), false);
+                String c = c.c(new File(dT(i)), false);
                 if (!TextUtils.isEmpty(c)) {
                     f.KL().putString(com.baidu.swan.apps.swancore.a.dD(i), c);
                 }
@@ -139,15 +139,15 @@ public final class a {
 
     /* renamed from: com.baidu.swan.apps.swancore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0147a {
-        public String aTi;
+    public static class C0176a {
+        public String aTj;
 
-        public static C0147a c(JSONObject jSONObject, int i) {
-            C0147a c0147a = new C0147a();
+        public static C0176a c(JSONObject jSONObject, int i) {
+            C0176a c0176a = new C0176a();
             if (jSONObject != null) {
-                c0147a.aTi = jSONObject.optString(dG(i));
+                c0176a.aTj = jSONObject.optString(dG(i));
             }
-            return c0147a;
+            return c0176a;
         }
 
         private static String dG(int i) {

@@ -20,6 +20,7 @@ import android.system.Os;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.passhost.pluginsdk.service.ISapiAccount;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -836,6 +837,6 @@ public final class e {
     }
 
     private static String i(String str) {
-        return (str == null || !str.contains(":")) ? str : "";
+        return (str == null || !str.contains(Config.TRACE_TODAY_VISIT_SPLIT)) ? str : "";
     }
 }

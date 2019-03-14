@@ -22,10 +22,10 @@ import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class a {
-    private static a ihC = new a();
+    private static a ihw = new a();
     private static DownloadData chZ = null;
     private static List<DownloadData> mTaskList = new LinkedList();
-    private C0301a ihD = null;
+    private C0377a ihx = null;
     private int max = 20;
     @SuppressLint({"HandlerLeak"})
     private Handler cib = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.recapp.download.a.1
@@ -46,8 +46,8 @@ public class a {
     private a() {
     }
 
-    public static a bWN() {
-        return ihC;
+    public static a bWP() {
+        return ihw;
     }
 
     public void a(DownloadData downloadData, int i) {
@@ -100,7 +100,7 @@ public class a {
                 } else {
                     downloadData.setStatus(5);
                     mTaskList.add(downloadData);
-                    alO();
+                    alN();
                     return;
                 }
             }
@@ -108,12 +108,12 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void alO() {
+    public void alN() {
         if (chZ == null && !mTaskList.isEmpty()) {
             chZ = mTaskList.get(0);
             if (chZ != null) {
-                this.ihD = new C0301a();
-                this.ihD.execute(chZ);
+                this.ihx = new C0377a();
+                this.ihx.execute(chZ);
             }
         }
     }
@@ -125,10 +125,10 @@ public class a {
     public void O(String str, boolean z) {
         if (chZ != null && chZ.getUrl().equals(str)) {
             if (z) {
-                this.ihD.alR();
+                this.ihx.alQ();
                 return;
             } else {
-                this.ihD.cancel(true);
+                this.ihx.cancel(true);
                 return;
             }
         }
@@ -170,15 +170,15 @@ public class a {
     @SuppressLint({"DefaultLocale"})
     /* renamed from: com.baidu.tieba.recapp.download.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0301a extends BdAsyncTask<DownloadData, DownloadData, Integer> {
-        private b ihF = new b();
+    public class C0377a extends BdAsyncTask<DownloadData, DownloadData, Integer> {
+        private b ihz = new b();
 
-        C0301a() {
+        C0377a() {
         }
 
-        public void alR() {
-            if (this.ihF != null) {
-                this.ihF.jl();
+        public void alQ() {
+            if (this.ihz != null) {
+                this.ihz.jl();
             }
             cancel(true);
         }
@@ -187,7 +187,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onCancelled() {
             super.onCancelled();
-            this.ihF.jl();
+            this.ihz.jl();
             a.chZ.setStatus(4);
             a.chZ.setStatusMsg(null);
             if (a.chZ.getCallback() != null) {
@@ -197,7 +197,7 @@ public class a {
                 a.mTaskList.remove(0);
             }
             DownloadData unused = a.chZ = null;
-            a.this.alO();
+            a.this.alN();
         }
 
         /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [389=5, 391=4, 392=4, 393=4] */
@@ -222,8 +222,8 @@ public class a {
                     file.delete();
                 }
                 if (!file.exists()) {
-                    this.ihF.setUrl(downloadDataArr[0].getUrl());
-                    if (!Boolean.valueOf(this.ihF.a(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp", a.this.cib, TbConfig.NET_MSG_GETLENTH, 1, 3000)).booleanValue()) {
+                    this.ihz.setUrl(downloadDataArr[0].getUrl());
+                    if (!Boolean.valueOf(this.ihz.a(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp", a.this.cib, TbConfig.NET_MSG_GETLENTH, 1, 3000)).booleanValue()) {
                         return 3;
                     }
                     File lQ = m.lQ(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp");
@@ -321,7 +321,7 @@ public class a {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             String string;
-            super.onPostExecute((C0301a) num);
+            super.onPostExecute((C0377a) num);
             if (num != null) {
                 if (num.intValue() == 0) {
                     a.chZ.setStatus(0);
@@ -369,7 +369,7 @@ public class a {
                 DownloadData unused = a.chZ = null;
                 if (!a.mTaskList.isEmpty()) {
                     a.mTaskList.remove(0);
-                    a.this.alO();
+                    a.this.alN();
                 }
             }
         }

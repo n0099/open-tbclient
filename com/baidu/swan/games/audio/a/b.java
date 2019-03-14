@@ -5,23 +5,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class b implements a {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private String bac;
-    private HashMap<String, c> bab = new HashMap<>();
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private String bad;
+    private HashMap<String, c> bac = new HashMap<>();
     private HashMap<String, ArrayList<a>> mCallbackMap = new HashMap<>();
-    private final Object bae = new Object();
-    private com.baidu.swan.games.network.b bad = com.baidu.swan.games.network.b.OF();
+    private final Object baf = new Object();
+    private com.baidu.swan.games.network.b bae = com.baidu.swan.games.network.b.OF();
 
     public b(String str) {
-        this.bac = str;
+        this.bad = str;
     }
 
     private boolean hX(String str) {
-        return this.bab.containsKey(str);
+        return this.bac.containsKey(str);
     }
 
     public void a(String str, a aVar) {
-        synchronized (this.bae) {
+        synchronized (this.baf) {
             if (!hX(str)) {
                 if (DEBUG) {
                     Log.e("AudioDownloadManager", "start load url = " + str);
@@ -35,8 +35,8 @@ public class b implements a {
     }
 
     public void download(String str) {
-        c cVar = new c(this.bad, this.bac, str, this);
-        this.bab.put(str, cVar);
+        c cVar = new c(this.bae, this.bad, str, this);
+        this.bac.put(str, cVar);
         cVar.load();
     }
 
@@ -53,7 +53,7 @@ public class b implements a {
     @Override // com.baidu.swan.games.audio.a.a
     public void aN(String str, String str2) {
         ArrayList<a> arrayList;
-        synchronized (this.bae) {
+        synchronized (this.baf) {
             if (hX(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
@@ -62,7 +62,7 @@ public class b implements a {
                         Log.e("AudioDownloadManager", i + " load success url = " + str + " path = " + str2);
                     }
                 }
-                this.bab.remove(str);
+                this.bac.remove(str);
             }
         }
     }
@@ -70,13 +70,13 @@ public class b implements a {
     @Override // com.baidu.swan.games.audio.a.a
     public void s(int i, String str) {
         ArrayList<a> arrayList;
-        synchronized (this.bae) {
+        synchronized (this.baf) {
             if (hX(str) && (arrayList = this.mCallbackMap.get(str)) != null) {
                 int size = arrayList.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     arrayList.get(i2).s(i, str);
                 }
-                this.bab.remove(str);
+                this.bac.remove(str);
             }
         }
     }

@@ -29,7 +29,7 @@ public class b extends com.baidu.tbadk.editortools.c {
         editorTools.setBarMaxLauCount(5);
         editorTools.setBackgroundColorId(0);
         editorTools.setBarLauncherType(2);
-        editorTools.setBarBackgroundColorId(d.C0236d.cp_bg_line_d);
+        editorTools.setBarBackgroundColorId(d.C0277d.cp_bg_line_d);
         editorTools.eI(false);
         return new a(editorTools);
     }
@@ -37,7 +37,7 @@ public class b extends com.baidu.tbadk.editortools.c {
     @Override // com.baidu.tbadk.editortools.c
     protected void b(com.baidu.tbadk.editortools.d dVar) {
         if (dVar != null) {
-            EditorTools alT = dVar.alT();
+            EditorTools alS = dVar.alS();
             final a aVar = (a) dVar;
             com.baidu.tbadk.editortools.b bVar = new com.baidu.tbadk.editortools.b() { // from class: com.baidu.tieba.homepage.topic.topicdetail.view.b.1
                 @Override // com.baidu.tbadk.editortools.b
@@ -64,15 +64,15 @@ public class b extends com.baidu.tbadk.editortools.c {
                                 return;
                             case 8:
                                 if (b.this.a(aVar.agj(), (int) SapiGIDEvent.SYSTEM_NETWORK_CHANGE_TO_AVALIABLE)) {
-                                    aVar.amM();
-                                    TiebaStatic.log(new am("c13363").bJ("topic_id", String.valueOf(aVar.bnk())));
+                                    aVar.amL();
+                                    TiebaStatic.log(new am("c13363").bJ("topic_id", String.valueOf(aVar.bnj())));
                                     return;
                                 }
                                 return;
                             case 14:
                                 AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) aVar.agj().getPageActivity(), aVar.getWriteImagesInfo().toJsonString(), true, true);
                                 albumActivityConfig.setRequestCode(IEventCenterService.EventId.EventMode.SAPIACCOUNT_FACE_CHECK);
-                                if (com.baidu.tbadk.editortools.pb.a.amq().getStatus() == 1) {
+                                if (com.baidu.tbadk.editortools.pb.a.amp().getStatus() == 1) {
                                     albumActivityConfig.setRequestFrom(4);
                                     if (aVar.getWriteImagesInfo() != null) {
                                         aVar.getWriteImagesInfo().setMaxImagesAllowed(1);
@@ -94,42 +94,42 @@ public class b extends com.baidu.tbadk.editortools.c {
                     }
                 }
             };
-            alT.setActionListener(5, bVar);
-            alT.setActionListener(4, bVar);
-            alT.setActionListener(6, bVar);
-            alT.setActionListener(7, bVar);
-            alT.setActionListener(16, bVar);
-            alT.setActionListener(14, bVar);
-            alT.setActionListener(15, bVar);
-            alT.setActionListener(8, bVar);
-            alT.setActionListener(32, bVar);
-            alT.setActionListener(45, bVar);
+            alS.setActionListener(5, bVar);
+            alS.setActionListener(4, bVar);
+            alS.setActionListener(6, bVar);
+            alS.setActionListener(7, bVar);
+            alS.setActionListener(16, bVar);
+            alS.setActionListener(14, bVar);
+            alS.setActionListener(15, bVar);
+            alS.setActionListener(8, bVar);
+            alS.setActionListener(32, bVar);
+            alS.setActionListener(45, bVar);
         }
     }
 
     @Override // com.baidu.tbadk.editortools.c
     protected void a(com.baidu.tbadk.editortools.d dVar) {
-        EditorTools alT = dVar.alT();
+        EditorTools alS = dVar.alS();
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
-        alT.ab(arrayList);
-        k jw = alT.jw(5);
+        alS.ab(arrayList);
+        k jw = alS.jw(5);
         if (jw != null) {
             jw.eK(false);
             jw.cjk = 1;
             jw.cji = d.f.new_pbeditor_face_button;
         }
-        com.baidu.tbadk.editortools.imagetool.d dVar2 = new com.baidu.tbadk.editortools.imagetool.d(alT.getContext(), 3);
+        com.baidu.tbadk.editortools.imagetool.d dVar2 = new com.baidu.tbadk.editortools.imagetool.d(alS.getContext(), 3);
         dVar2.cji = d.f.new_pbeditor_image_button;
-        alT.b(dVar2);
-        c cVar = new c(alT.getContext());
+        alS.b(dVar2);
+        c cVar = new c(alS.getContext());
         if (cVar.getInputView() != null) {
             cVar.getInputView().setFilters(new InputFilter[]{new InputFilter.LengthFilter(14000)});
         }
-        alT.b(cVar);
-        alT.alU();
-        alT.b(new com.baidu.tbadk.editortools.a(35, 5, false));
-        alT.akq();
+        alS.b(cVar);
+        alS.alT();
+        alS.b(new com.baidu.tbadk.editortools.a(35, 5, false));
+        alS.akp();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

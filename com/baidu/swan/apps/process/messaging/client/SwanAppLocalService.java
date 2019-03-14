@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.an.aa;
-import com.baidu.swan.apps.c;
+import com.baidu.swan.apps.b;
 import com.baidu.swan.apps.core.i.c;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
@@ -25,7 +25,7 @@ public class SwanAppLocalService extends Service {
     public static final String ACTION_DEFAULT = "com.baidu.swan.action.SWAN_APP_LOCAL_SERVICE_DEFAULT";
     public static final String ACTION_PREFIX = "com.baidu.swan.action.SWAN_APP_LOCAL_SERVICE_";
     public static final String ACTION_REBIND_MSG_SERVICE = "com.baidu.swan.action.SWAN_APP_LOCAL_SERVICE_REBIND_MSG_SERVICE";
-    private static final boolean DEBUG = c.DEBUG;
+    private static final boolean DEBUG = b.DEBUG;
     private static final String TAG = "SwanAppLocalService";
     private final a mBinder = new a();
 
@@ -128,8 +128,8 @@ public class SwanAppLocalService extends Service {
                     jSONObject.put(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_TIME, currentTimeMillis);
                     jSONObject.put("process", intent.getIntExtra("bundle_key_process", -1));
                     jSONObject.put("cost", currentTimeMillis - longExtra2);
-                    jSONObject.put("is_preload_started", com.baidu.swan.apps.core.i.c.atD);
-                    jSONObject.put("is_preload_ready", com.baidu.swan.apps.core.i.c.Ab().Ag());
+                    jSONObject.put("is_preload_started", c.atE);
+                    jSONObject.put("is_preload_ready", c.Ab().Ag());
                 } catch (JSONException e) {
                     if (DEBUG) {
                         e.printStackTrace();
@@ -155,13 +155,13 @@ public class SwanAppLocalService extends Service {
             Log.i(TAG, "tryBindRemoteMsgService");
         }
         if (!getRemoteMsgClient().Gr()) {
-            bindService(new Intent(this, SwanAppMessengerService.class), getRemoteMsgClient().aER, 1);
+            bindService(new Intent(this, SwanAppMessengerService.class), getRemoteMsgClient().aES, 1);
         }
     }
 
     public void unbindRemoteMsgService() {
         try {
-            unbindService(getRemoteMsgClient().aER);
+            unbindService(getRemoteMsgClient().aES);
         } catch (IllegalArgumentException e) {
             if (DEBUG) {
                 e.printStackTrace();

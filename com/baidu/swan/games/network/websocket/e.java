@@ -26,12 +26,12 @@ public class e {
 
     /* renamed from: com.baidu.swan.games.network.websocket.e$e  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0174e {
+    public static class C0203e {
         @V8JavascriptField
         public Object header;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public C0174e(Object obj) {
+        public C0203e(Object obj) {
             this.header = obj;
         }
     }

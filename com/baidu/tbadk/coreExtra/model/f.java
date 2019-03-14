@@ -92,7 +92,7 @@ public class f {
         }
     }
 
-    public static boolean ajz() {
+    public static boolean ajy() {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("video_report_config_switch", true) : caS;
     }
 
@@ -100,15 +100,15 @@ public class f {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("video_report_config_upload_type", 0) : caT;
     }
 
-    public static int ajA() {
+    public static int ajz() {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("video_report_config_upload_number", 5) : caU;
     }
 
-    public static boolean ajB() {
+    public static boolean ajA() {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("video_report_config_moov_check", false) : caV;
     }
 
-    public static String ajC() {
+    public static String ajB() {
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("video_report_config_debug_type", "");
         if (StringUtils.isNull(string)) {
             return "";
@@ -117,33 +117,33 @@ public class f {
         return string;
     }
 
-    public static Map<String, String> ajD() {
+    public static Map<String, String> ajC() {
         if (!isInit) {
-            ajC();
+            ajB();
         }
         return mDebugParamsMap;
     }
 
-    public static String ajE() {
+    public static String ajD() {
         if (!isInit) {
-            ajC();
+            ajB();
         }
         return mDebugParamsMap == null ? "0" : mDebugParamsMap.get("debug_avformat_open_input");
     }
 
-    public static int ajF() {
+    public static int ajE() {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("video_report_prepare_max_wait_time", 10000) : caX;
     }
 
-    public static int ajG() {
+    public static int ajF() {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("video_report_prepare_max_loading_time", 3000) : caY;
     }
 
-    public static boolean ajH() {
+    public static boolean ajG() {
         return !isInit ? com.baidu.tbadk.core.sharedPref.b.getInstance().getBoolean("video_report_is_open_prepare_time", false) : caZ;
     }
 
-    private static String ajI() {
+    private static String ajH() {
         String string = com.baidu.tbadk.core.sharedPref.b.getInstance().getString("video_report_config_step_cache_strategy", "");
         if (StringUtils.isNull(string)) {
             return "";
@@ -152,9 +152,9 @@ public class f {
         return string;
     }
 
-    public static boolean ajJ() {
+    public static boolean ajI() {
         if (!isInit) {
-            ajI();
+            ajH();
         }
         if (caR == null) {
             return false;
@@ -167,9 +167,9 @@ public class f {
         return caM;
     }
 
-    public static boolean ajK() {
+    public static boolean ajJ() {
         if (!isInit) {
-            ajI();
+            ajH();
         }
         if (caR == null) {
             return false;
@@ -182,9 +182,9 @@ public class f {
         return caN;
     }
 
-    public static int ajL() {
+    public static int ajK() {
         if (!isInit) {
-            ajI();
+            ajH();
         }
         if (caR == null) {
             return 8;
@@ -197,9 +197,9 @@ public class f {
         return caO;
     }
 
-    public static int ajM() {
+    public static int ajL() {
         if (!isInit) {
-            ajI();
+            ajH();
         }
         if (caR == null) {
             return 16;
@@ -212,9 +212,9 @@ public class f {
         return caP;
     }
 
-    public static boolean ajN() {
+    public static boolean ajM() {
         if (!isInit) {
-            ajI();
+            ajH();
         }
         if (caR == null) {
             return bP("18:00", "01:00");

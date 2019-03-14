@@ -3,7 +3,6 @@ package com.baidu.swan.apps.setting.a;
 import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.sapi2.utils.SapiGIDEvent;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -37,10 +36,10 @@ public class b extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
         } else if (!bVar.Jc().bk(context)) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams((int) SapiGIDEvent.BUSINESS_GET_GID, "user not login");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(10004, "user not login");
             return true;
         } else {
-            com.baidu.swan.apps.ae.e.Jo().aNY.get().uP().uT().c((Activity) context, appKey).c(new com.baidu.swan.apps.an.c.a<com.baidu.swan.apps.setting.oauth.g<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.b.1
+            com.baidu.swan.apps.ae.e.Jo().aNZ.get().uP().uT().c((Activity) context, appKey).c(new com.baidu.swan.apps.an.c.a<com.baidu.swan.apps.setting.oauth.g<JSONObject>>() { // from class: com.baidu.swan.apps.setting.a.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.an.c.a
                 /* renamed from: a */

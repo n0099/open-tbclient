@@ -19,11 +19,11 @@ public class VideoAggregationDisPraiseView extends VideoAggregationPraiseView {
     @Override // com.baidu.tbadk.core.view.VideoAggregationPraiseView, com.baidu.tbadk.core.view.BasePraiseView
     public void aeg() {
         this.agreeType = 5;
-        this.bOd = d.j.action_dislike;
-        this.bOg = d.C0236d.cp_btn_a;
-        this.bOh = d.C0236d.cp_link_tip_a_alpha70;
-        this.bOe = d.f.icon_card_dislike_white_n;
-        this.bOf = d.f.icon_card_dislike_white_s;
+        this.bOe = d.j.action_dislike;
+        this.bOh = d.C0277d.cp_btn_a;
+        this.bOi = d.C0277d.cp_link_tip_a_alpha70;
+        this.bOf = d.f.icon_card_dislike_white_n;
+        this.bOg = d.f.icon_card_dislike_white_s;
     }
 
     @Override // com.baidu.tbadk.core.view.VideoAggregationPraiseView, com.baidu.tbadk.core.view.BasePraiseView

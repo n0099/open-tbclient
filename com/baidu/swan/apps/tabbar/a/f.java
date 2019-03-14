@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.scheme.actions.y;
 import com.baidu.swan.apps.scheme.j;
 import org.json.JSONObject;
@@ -31,7 +31,7 @@ public class f extends y {
             return false;
         }
         if (optString.length() > 3) {
-            optString = context.getString(b.h.aiapps_tabbar_badge_over_length);
+            optString = context.getString(a.h.aiapps_tabbar_badge_over_length);
         }
         com.baidu.swan.apps.core.c.d yP = uz.yP();
         if (yP == null) {

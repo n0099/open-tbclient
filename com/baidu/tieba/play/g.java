@@ -40,7 +40,7 @@ public interface g {
 
     /* renamed from: com.baidu.tieba.play.g$g  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0295g {
+    public interface InterfaceC0369g {
         void b(g gVar);
     }
 
@@ -68,11 +68,11 @@ public interface g {
 
     void a(i iVar);
 
-    void aql();
+    void aqk();
 
-    int avl();
+    int avk();
 
-    boolean avm();
+    boolean avl();
 
     void c(SurfaceTexture surfaceTexture);
 
@@ -116,7 +116,7 @@ public interface g {
 
     void setOnPreparedListener(f fVar);
 
-    void setOnSeekCompleteListener(InterfaceC0295g interfaceC0295g);
+    void setOnSeekCompleteListener(InterfaceC0369g interfaceC0369g);
 
     void setVolume(float f2, float f3);
 

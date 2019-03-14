@@ -32,12 +32,12 @@ public class b {
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            b.this.aki();
+            b.this.akh();
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
-            b.this.aki();
+            b.this.akh();
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -45,14 +45,14 @@ public class b {
             b.b(b.this);
             if (b.this.cdz >= 3) {
                 b.this.cdz = 0;
-                b.this.aki();
+                b.this.akh();
             }
         }
     };
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.coreExtra.view.b.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.aki();
+            b.this.akh();
         }
     };
 
@@ -70,17 +70,17 @@ public class b {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
         layoutParams.addRule(12);
         relativeLayout.addView(this.cdx, layoutParams);
-        boolean akh = akh();
-        es(akh);
-        er(akh);
-        a(relativeLayout, akh);
+        boolean akg = akg();
+        es(akg);
+        er(akg);
+        a(relativeLayout, akg);
     }
 
     private void a(RelativeLayout relativeLayout, boolean z) {
         if (this.cdy == null && relativeLayout != null && z && com.baidu.tbadk.core.sharedPref.b.getInstance().getInt("anim_image_viewer_drag", 0) == 0) {
             this.cdy = new RelativeLayout(this.mContext);
             this.cdy.setOnClickListener(this.mOnClickListener);
-            al.l(this.cdy, d.C0236d.black_alpha65);
+            al.l(this.cdy, d.C0277d.black_alpha65);
             relativeLayout.addView(this.cdy, new RelativeLayout.LayoutParams(-1, -1));
             TBLottieAnimationView tBLottieAnimationView = new TBLottieAnimationView(this.mContext);
             tBLottieAnimationView.a(this.mAnimatorListener);
@@ -111,11 +111,11 @@ public class b {
         this.cdx.addView(this.cdw, layoutParams);
     }
 
-    private boolean akh() {
+    private boolean akg() {
         if (!(this.mContext instanceof a)) {
             return false;
         }
-        return ((a) this.mContext).akh();
+        return ((a) this.mContext).akg();
     }
 
     public void ep(boolean z) {
@@ -169,7 +169,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aki() {
+    public void akh() {
         if (this.cdy != null) {
             this.cdy.setVisibility(8);
         }

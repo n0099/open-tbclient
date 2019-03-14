@@ -8,7 +8,6 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.d.a;
-import com.baidu.location.BDLocation;
 import com.baidu.swan.apps.u.b.n;
 /* loaded from: classes4.dex */
 public class a implements n {
@@ -18,7 +17,7 @@ public class a implements n {
             com.baidu.adp.lib.d.a.iW().a(!z, z2, new a.InterfaceC0015a() { // from class: com.baidu.tieba.aiapps.apps.g.a.1
                 @Override // com.baidu.adp.lib.d.a.InterfaceC0015a
                 public void b(int i, String str2, Address address) {
-                    if (BDLocation.BDLOCATION_GCJ02_TO_BD09LL.equals(str)) {
+                    if ("bd09ll".equals(str)) {
                         aVar.a(a.this.a(str, address));
                         return;
                     }

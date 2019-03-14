@@ -21,23 +21,23 @@ public class u {
         boolean z = file == null;
         if (z || !file.exists() || TextUtils.isEmpty(str)) {
             if (cVar != null) {
-                cVar.aWz = "zipfile: isEmpty=" + z + "; exists=" + (z ? "" : Boolean.valueOf(file.exists()));
+                cVar.aWA = "zipfile: isEmpty=" + z + "; exists=" + (z ? "" : Boolean.valueOf(file.exists()));
             }
             return false;
         }
         String c = com.baidu.swan.c.c.c(file, false);
         if (cVar != null) {
-            cVar.aWz = c;
+            cVar.aWA = c;
         }
         try {
             String str2 = new String(decryptByPublicKey(Base64.decode(str.getBytes("utf-8"), 8), hC("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), "utf-8");
             if (cVar != null) {
-                cVar.aWA = str2;
+                cVar.aWB = str2;
             }
             return TextUtils.equals(str2, c);
         } catch (Exception e) {
             if (cVar != null) {
-                cVar.aWA = e.getLocalizedMessage();
+                cVar.aWB = e.getLocalizedMessage();
             }
             return false;
         }

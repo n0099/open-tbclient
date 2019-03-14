@@ -7,14 +7,14 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
 public abstract class j {
-    private static final HashMap<String, j> ahT = new HashMap<>();
-    private static final ConcurrentHashMap<String, a> ahU = new ConcurrentHashMap<>();
+    private static final HashMap<String, j> ahU = new HashMap<>();
+    private static final ConcurrentHashMap<String, a> ahV = new ConcurrentHashMap<>();
 
     public abstract IBinder ua();
 
     /* loaded from: classes.dex */
     private static class a {
-        public IBinder ahV;
+        public IBinder ahW;
         public boolean exported;
 
         private a() {
@@ -24,17 +24,17 @@ public abstract class j {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static IBinder getService(String str) {
-        j jVar = ahT.get(str);
+        j jVar = ahU.get(str);
         if (jVar != null) {
             jVar.ub();
             return jVar.ua();
         }
-        a aVar = ahU.get(str);
+        a aVar = ahV.get(str);
         if (aVar != null) {
             if (!aVar.exported && Binder.getCallingUid() != Process.myUid()) {
                 throw new SecurityException();
             }
-            return aVar.ahV;
+            return aVar.ahW;
         }
         return null;
     }
@@ -44,7 +44,7 @@ public abstract class j {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }
-        return ahU.remove(str) != null;
+        return ahV.remove(str) != null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -52,13 +52,13 @@ public abstract class j {
         if (Binder.getCallingUid() != Process.myUid()) {
             throw new SecurityException();
         }
-        if (ahT.get(str) != null) {
+        if (ahU.get(str) != null) {
             throw new IllegalArgumentException();
         }
         a aVar = new a();
-        aVar.ahV = iBinder;
+        aVar.ahW = iBinder;
         aVar.exported = z;
-        ahU.put(str, aVar);
+        ahV.put(str, aVar);
     }
 
     public void ub() {

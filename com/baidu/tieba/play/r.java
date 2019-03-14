@@ -1,48 +1,48 @@
 package com.baidu.tieba.play;
 /* loaded from: classes.dex */
 public class r {
-    private boolean hYf;
-    private boolean hYg;
-    private Runnable hYh = new Runnable() { // from class: com.baidu.tieba.play.r.1
+    private boolean hXZ;
+    private boolean hYa;
+    private Runnable hYb = new Runnable() { // from class: com.baidu.tieba.play.r.1
         @Override // java.lang.Runnable
         public void run() {
-            r.this.hYf = false;
+            r.this.hXZ = false;
         }
     };
-    private Runnable hYi = new Runnable() { // from class: com.baidu.tieba.play.r.2
+    private Runnable hYc = new Runnable() { // from class: com.baidu.tieba.play.r.2
         @Override // java.lang.Runnable
         public void run() {
-            r.this.hYg = false;
+            r.this.hYa = false;
         }
     };
 
     public void onPrepared() {
-        this.hYg = true;
-        com.baidu.adp.lib.g.e.jH().postDelayed(this.hYi, 500L);
-    }
-
-    public void bTC() {
-        this.hYf = true;
-    }
-
-    public void bTD() {
-        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.hYh);
-        com.baidu.adp.lib.g.e.jH().postDelayed(this.hYh, 500L);
-    }
-
-    public void a(int i, int i2, com.baidu.tieba.j.i iVar) {
-        if ((i == 701 || i2 == 701) && iVar != null && !this.hYf && !this.hYg) {
-            iVar.bEo();
-        } else if ((i == 702 || i2 == 702) && iVar != null && !this.hYf && !this.hYg) {
-            iVar.bEp();
-            this.hYf = false;
-            this.hYg = false;
-            bTE();
-        }
+        this.hYa = true;
+        com.baidu.adp.lib.g.e.jH().postDelayed(this.hYc, 500L);
     }
 
     public void bTE() {
-        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.hYh);
-        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.hYi);
+        this.hXZ = true;
+    }
+
+    public void bTF() {
+        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.hYb);
+        com.baidu.adp.lib.g.e.jH().postDelayed(this.hYb, 500L);
+    }
+
+    public void a(int i, int i2, com.baidu.tieba.j.i iVar) {
+        if ((i == 701 || i2 == 701) && iVar != null && !this.hXZ && !this.hYa) {
+            iVar.bEn();
+        } else if ((i == 702 || i2 == 702) && iVar != null && !this.hXZ && !this.hYa) {
+            iVar.bEo();
+            this.hXZ = false;
+            this.hYa = false;
+            bTG();
+        }
+    }
+
+    public void bTG() {
+        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.hYb);
+        com.baidu.adp.lib.g.e.jH().removeCallbacks(this.hYc);
     }
 }

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -72,7 +71,7 @@ public class a extends y {
                 unitedSchemeEntity.result = ED;
                 return false;
             }
-            final com.baidu.swan.apps.media.c.b a2 = com.baidu.swan.apps.media.c.b.a(callbackHandler, unitedSchemeEntity, a.aAQ, com.baidu.swan.apps.media.c.c.a.EG().EJ());
+            final com.baidu.swan.apps.media.c.b a2 = com.baidu.swan.apps.media.c.b.a(callbackHandler, unitedSchemeEntity, a.aAR, com.baidu.swan.apps.media.c.c.a.EG().EJ());
             if (a2 == null) {
                 c.e("record", "error cb");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "error cb");
@@ -121,8 +120,8 @@ public class a extends y {
             a(callbackHandler, unitedSchemeEntity, str, context, aVar, bVar, str2, str3);
             return;
         }
-        e.Ec().a(2, new String[]{"android.permission.RECORD_AUDIO"}, new a.InterfaceC0078a() { // from class: com.baidu.swan.apps.media.c.a.a.2
-            @Override // com.baidu.swan.apps.ab.a.InterfaceC0078a
+        e.Ec().a(2, new String[]{"android.permission.RECORD_AUDIO"}, new a.InterfaceC0108a() { // from class: com.baidu.swan.apps.media.c.a.a.2
+            @Override // com.baidu.swan.apps.ab.a.InterfaceC0108a
             public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
                 if (i != 2 || iArr.length <= 0) {
                     if (a.DEBUG) {
@@ -131,7 +130,7 @@ public class a extends y {
                     c.e("record", "none permission");
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                     if (bVar != null) {
-                        bVar.k(BaseActivity.EXTRA_PARAM_FROM_PASS_SDK_ENTER, "error execute");
+                        bVar.k(2002, "error execute");
                         return;
                     }
                     return;
@@ -156,7 +155,7 @@ public class a extends y {
                     c.e("record", "none permission");
                     UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                     if (bVar != null) {
-                        bVar.k(BaseActivity.EXTRA_PARAM_FROM_PASS_SDK_ENTER, "error execute");
+                        bVar.k(2002, "error execute");
                         return;
                     }
                     return;

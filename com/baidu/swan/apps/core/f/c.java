@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.swan.apps.core.container.SystemWebViewImpl;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.swan.apps.core.b implements com.baidu.swan.apps.b.c.b<SystemWebViewImpl> {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public c(Context context) {
         super(context);

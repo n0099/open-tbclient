@@ -29,22 +29,22 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes.dex */
 public class d {
-    public static final Pattern bru = Pattern.compile("\\$[0-9A-Za-z@]{5,50}[#$]", 2);
-    private l brv;
-    private e brw;
-    private e.a brx;
+    public static final Pattern brv = Pattern.compile("\\$[0-9A-Za-z@]{5,50}[#$]", 2);
+    private l brw;
+    private e brx;
+    private e.a bry;
 
     public static final d Ue() {
-        return a.brz;
+        return a.brA;
     }
 
     /* loaded from: classes.dex */
     private static class a {
-        private static final d brz = new d();
+        private static final d brA = new d();
     }
 
     private d() {
-        this.brx = new e.a() { // from class: com.baidu.tbadk.BdToken.d.1
+        this.bry = new e.a() { // from class: com.baidu.tbadk.BdToken.d.1
             @Override // com.baidu.tbadk.BdToken.e.a
             public void a(boolean z, q qVar) {
                 if (z && qVar != null) {
@@ -56,9 +56,9 @@ public class d {
         };
         registerTask();
         registerListener();
-        this.brw = new e();
-        this.brw.a(this.brx);
-        this.brv = new l();
+        this.brx = new e();
+        this.brx.a(this.bry);
+        this.brw = new l();
     }
 
     private void registerTask() {
@@ -147,8 +147,8 @@ public class d {
                 public void onPostExecute(String str) {
                     super.onPostExecute((AnonymousClass4) str);
                     if (str == null) {
-                        if (d.this.brv != null && d.this.Uh()) {
-                            d.this.brv.check();
+                        if (d.this.brw != null && d.this.Uh()) {
+                            d.this.brw.check();
                             return;
                         }
                         return;
@@ -172,7 +172,7 @@ public class d {
                         return null;
                     }
                     String str = strArr[0];
-                    if (ap.isEmpty(str) || (matcher = d.bru.matcher(str)) == null || !matcher.find()) {
+                    if (ap.isEmpty(str) || (matcher = d.brv.matcher(str)) == null || !matcher.find()) {
                         return null;
                     }
                     return str;
@@ -208,7 +208,7 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void kh(String str) {
-        this.brw.load(str);
+        this.brx.load(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -240,7 +240,7 @@ public class d {
         if (!ap.isEmpty(str) && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && (parse = Uri.parse(str)) != null) {
             if (str.startsWith(f.SCHEME)) {
                 Uri.Builder buildUpon = Uri.parse(str).buildUpon();
-                buildUpon.appendQueryParameter(f.brJ, f.brM);
+                buildUpon.appendQueryParameter(f.brK, f.brN);
                 parse = buildUpon.build();
             }
             UtilHelper.dealOneScheme(currentActivity, parse.toString());

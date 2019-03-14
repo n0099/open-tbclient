@@ -11,55 +11,55 @@ import com.baidu.tieba.d;
 import com.baidu.tieba.tbadvert.view.CountDownTextView;
 /* loaded from: classes3.dex */
 public class a {
-    private FrameLayout bfF;
-    private ImageView iKr;
-    private InterfaceC0313a iKs;
+    private FrameLayout bfG;
+    private ImageView iKj;
+    private InterfaceC0394a iKk;
     private Context mContext;
 
     /* renamed from: com.baidu.tieba.tbadvert.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC0313a {
-        void cfL();
+    public interface InterfaceC0394a {
+        void cfN();
 
-        void cfM();
+        void cfO();
     }
 
-    public a(Context context, InterfaceC0313a interfaceC0313a) {
-        this.iKs = interfaceC0313a;
+    public a(Context context, InterfaceC0394a interfaceC0394a) {
+        this.iKk = interfaceC0394a;
         this.mContext = context;
-        this.bfF = new FrameLayout(context);
+        this.bfG = new FrameLayout(context);
     }
 
     public View getView() {
-        return this.bfF;
+        return this.bfG;
     }
 
     public void f(Object obj, int i) {
         if (obj instanceof com.baidu.adp.widget.ImageView.a) {
             i((com.baidu.adp.widget.ImageView.a) obj);
         }
-        cfS();
+        cfU();
         zI(i);
     }
 
     private void i(com.baidu.adp.widget.ImageView.a aVar) {
-        this.iKr = new ImageView(this.mContext);
-        this.iKr.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.iKj = new ImageView(this.mContext);
+        this.iKj.setScaleType(ImageView.ScaleType.CENTER_CROP);
         if (aVar != null) {
-            this.iKr.setImageBitmap(aVar.oy());
+            this.iKj.setImageBitmap(aVar.oy());
         }
-        this.iKr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
+        this.iKj.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.iKs != null) {
-                    a.this.iKs.cfL();
+                if (a.this.iKk != null) {
+                    a.this.iKk.cfN();
                 }
             }
         });
-        this.bfF.addView(this.iKr);
+        this.bfG.addView(this.iKj);
     }
 
-    private void cfS() {
+    private void cfU() {
         TextView textView = new TextView(this.mContext);
         textView.setText(d.j.tb_ad_label);
         int dimension = (int) this.mContext.getResources().getDimension(d.e.ds28);
@@ -75,7 +75,7 @@ public class a {
         textView.setBackgroundDrawable(gradientDrawable);
         layoutParams.gravity = 83;
         layoutParams.setMargins(dimension, 0, 0, (int) this.mContext.getResources().getDimension(d.e.ds28));
-        this.bfF.addView(textView, layoutParams);
+        this.bfG.addView(textView, layoutParams);
     }
 
     private void zI(int i) {
@@ -94,20 +94,20 @@ public class a {
         countDownTextView.al(string, i);
         layoutParams.gravity = 53;
         layoutParams.setMargins(0, (int) this.mContext.getResources().getDimension(d.e.ds36), (int) this.mContext.getResources().getDimension(d.e.ds32), 0);
-        this.bfF.addView(countDownTextView, layoutParams);
+        this.bfG.addView(countDownTextView, layoutParams);
         countDownTextView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tbadvert.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.iKs != null) {
-                    a.this.iKs.cfM();
+                if (a.this.iKk != null) {
+                    a.this.iKk.cfO();
                 }
             }
         });
         countDownTextView.setTimeoutListener(new CountDownTextView.b() { // from class: com.baidu.tieba.tbadvert.view.a.3
             @Override // com.baidu.tieba.tbadvert.view.CountDownTextView.b
             public void bh(View view) {
-                if (a.this.iKs != null) {
-                    a.this.iKs.cfM();
+                if (a.this.iKk != null) {
+                    a.this.iKk.cfO();
                 }
             }
         });

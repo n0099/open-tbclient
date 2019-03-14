@@ -5,6 +5,7 @@ import android.support.annotation.IntRange;
 import android.util.Log;
 import com.airbnb.lottie.model.a.m;
 import com.airbnb.lottie.model.a.n;
+import com.baidu.mobstat.Config;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -23,7 +24,7 @@ public class c extends o<com.airbnb.lottie.model.content.c, com.airbnb.lottie.mo
     /* loaded from: classes2.dex */
     public static final class a {
         public static c f(JSONObject jSONObject, com.airbnb.lottie.e eVar) {
-            n.a dZ = n.a(jSONObject, 1.0f, eVar, new b(jSONObject.optInt("p", jSONObject.optJSONArray("k").length() / 4))).dZ();
+            n.a dZ = n.a(jSONObject, 1.0f, eVar, new b(jSONObject.optInt("p", jSONObject.optJSONArray(Config.APP_KEY).length() / 4))).dZ();
             return new c(dZ.pz, (com.airbnb.lottie.model.content.c) dZ.pN);
         }
     }

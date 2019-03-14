@@ -5,8 +5,8 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 /* loaded from: classes2.dex */
 public class b<D> {
-    InterfaceC0178b<D> bon;
-    a<D> boo;
+    InterfaceC0212b<D> boo;
+    a<D> bop;
     boolean mAbandoned;
     boolean mContentChanged;
     int mId;
@@ -20,42 +20,42 @@ public class b<D> {
 
     /* renamed from: com.baidu.swan.support.v4.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0178b<D> {
+    public interface InterfaceC0212b<D> {
     }
 
-    public void a(int i, InterfaceC0178b<D> interfaceC0178b) {
-        if (this.bon != null) {
-            throw new IllegalStateException("There is already a listener registered");
-        }
-        this.bon = interfaceC0178b;
-        this.mId = i;
-    }
-
-    public void a(InterfaceC0178b<D> interfaceC0178b) {
-        if (this.bon == null) {
-            throw new IllegalStateException("No listener register");
-        }
-        if (this.bon != interfaceC0178b) {
-            throw new IllegalArgumentException("Attempting to unregister the wrong listener");
-        }
-        this.bon = null;
-    }
-
-    public void a(a<D> aVar) {
+    public void a(int i, InterfaceC0212b<D> interfaceC0212b) {
         if (this.boo != null) {
             throw new IllegalStateException("There is already a listener registered");
         }
-        this.boo = aVar;
+        this.boo = interfaceC0212b;
+        this.mId = i;
     }
 
-    public void b(a<D> aVar) {
+    public void a(InterfaceC0212b<D> interfaceC0212b) {
         if (this.boo == null) {
             throw new IllegalStateException("No listener register");
         }
-        if (this.boo != aVar) {
+        if (this.boo != interfaceC0212b) {
             throw new IllegalArgumentException("Attempting to unregister the wrong listener");
         }
         this.boo = null;
+    }
+
+    public void a(a<D> aVar) {
+        if (this.bop != null) {
+            throw new IllegalStateException("There is already a listener registered");
+        }
+        this.bop = aVar;
+    }
+
+    public void b(a<D> aVar) {
+        if (this.bop == null) {
+            throw new IllegalStateException("No listener register");
+        }
+        if (this.bop != aVar) {
+            throw new IllegalArgumentException("Attempting to unregister the wrong listener");
+        }
+        this.bop = null;
     }
 
     public final void startLoading() {
@@ -109,7 +109,7 @@ public class b<D> {
         printWriter.print("mId=");
         printWriter.print(this.mId);
         printWriter.print(" mListener=");
-        printWriter.println(this.bon);
+        printWriter.println(this.boo);
         if (this.mStarted || this.mContentChanged || this.mProcessingChange) {
             printWriter.print(str);
             printWriter.print("mStarted=");

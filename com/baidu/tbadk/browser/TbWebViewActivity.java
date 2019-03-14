@@ -263,7 +263,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             TbWebChromeClient tbWebChromeClient = new TbWebChromeClient(this);
             tbWebChromeClient.setOnJsPromptCallback(this.jsCallback);
             this.mWebView.setWebChromeClient(tbWebChromeClient);
-            com.baidu.tieba.r.c.chn().trackWebView(this, this.mWebView, tbWebChromeClient);
+            com.baidu.tieba.r.c.chq().trackWebView(this, this.mWebView, tbWebChromeClient);
             if (this.mEnableJs) {
                 addJavascriptInterface();
             }
@@ -581,7 +581,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
     @Override // com.baidu.tbadk.browser.BaseWebViewActivity
     public void webViewDestory() {
         if (this.jsBridge != null) {
-            this.jsBridge.ceT();
+            this.jsBridge.ceV();
         }
         if (this.mWebView != null) {
             this.mWebView.getSettings().setBuiltInZoomControls(true);
@@ -604,7 +604,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     /* loaded from: classes.dex */
     protected class b extends WebViewClient {
-        public boolean btS;
+        public boolean btU;
 
         protected b() {
         }
@@ -613,7 +613,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
             if (TbWebViewActivity.this.mWebView != null) {
-                this.btS = false;
+                this.btU = false;
                 TbWebViewActivity.this.mUrl = str;
                 TbWebViewActivity.this.mWebView.loadUrl("javascript:window.local_obj.getIfFullScreen(document.getElementsByName(\"fc_fullscreen\")[0].content);");
                 String title = TbWebViewActivity.this.mWebView.getTitle();
@@ -638,7 +638,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         public void onReceivedError(WebView webView, int i, String str, String str2) {
             super.onReceivedError(webView, i, str, str2);
             if (TbWebViewActivity.this.mWebView != null) {
-                this.btS = false;
+                this.btU = false;
                 TbWebViewActivity.this.mWebView.stopLoading();
                 TbWebViewActivity.this.stopLoadTimer();
                 TbWebViewActivity.this.onReceivedError(i);
@@ -649,7 +649,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
             if (TbWebViewActivity.this.mWebView != null) {
-                this.btS = true;
+                this.btU = true;
                 TbWebViewActivity.this.mUrl = str;
                 TbWebViewActivity.this.showProgressBar();
                 TbWebViewActivity.this.startLoadTimer();
@@ -663,7 +663,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (av.jK() && this.btS && Build.VERSION.SDK_INT >= 26 && (UtilHelper.isOppoDevice() || UtilHelper.isVivoDevice())) {
+            if (av.jK() && this.btU && Build.VERSION.SDK_INT >= 26 && (UtilHelper.isOppoDevice() || UtilHelper.isVivoDevice())) {
                 return false;
             }
             int b = ba.adD().b(TbWebViewActivity.this.getPageContext(), new String[]{str, TbWebViewActivity.this.mUrl});
@@ -952,37 +952,37 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
-    public class a implements b.InterfaceC0191b {
-        private String btP;
-        private int btO = 1;
-        private List<Integer> btQ = new ArrayList();
+    public class a implements b.InterfaceC0225b {
+        private String btR;
+        private int btQ = 1;
+        private List<Integer> btS = new ArrayList();
 
         a() {
         }
 
         public void kL(String str) {
-            this.btP = str;
+            this.btR = str;
         }
 
         protected String[] VN() {
-            this.btQ.clear();
+            this.btS.clear();
             ArrayList arrayList = new ArrayList();
             arrayList.add(TbWebViewActivity.this.getPageContext().getString(d.j.save_to_local));
-            this.btQ.add(Integer.valueOf(this.btO));
+            this.btS.add(Integer.valueOf(this.btQ));
             return (String[]) arrayList.toArray(new String[0]);
         }
 
-        @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0191b
+        @Override // com.baidu.tbadk.core.dialog.b.InterfaceC0225b
         public void a(com.baidu.tbadk.core.dialog.b bVar, int i, View view) {
-            if (bVar == TbWebViewActivity.this.getListMenu() && i < this.btQ.size() && i >= 0) {
-                if (this.btQ.get(i).intValue() == 1) {
+            if (bVar == TbWebViewActivity.this.getListMenu() && i < this.btS.size() && i >= 0) {
+                if (this.btS.get(i).intValue() == 1) {
                     if (TbWebViewActivity.this.mPermissionJudgement == null) {
                         TbWebViewActivity.this.mPermissionJudgement = new com.baidu.tbadk.core.util.b.a();
                     }
                     TbWebViewActivity.this.mPermissionJudgement.adQ();
                     TbWebViewActivity.this.mPermissionJudgement.e(TbWebViewActivity.this, "android.permission.WRITE_EXTERNAL_STORAGE");
                     if (!TbWebViewActivity.this.mPermissionJudgement.Y(TbWebViewActivity.this)) {
-                        new com.baidu.tbadk.util.n(TbWebViewActivity.this.getActivity(), this.btP, new n.a() { // from class: com.baidu.tbadk.browser.TbWebViewActivity.a.1
+                        new com.baidu.tbadk.util.n(TbWebViewActivity.this.getActivity(), this.btR, new n.a() { // from class: com.baidu.tbadk.browser.TbWebViewActivity.a.1
                             @Override // com.baidu.tbadk.util.n.a
                             public void onError(int i2, String str) {
                             }
@@ -1003,7 +1003,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handlerWebViewResume() {
-        if (this.timerData != null && this.timerData.isOpen() && !this.timerData.alw() && this.mCommonTbJsBridge != null) {
+        if (this.timerData != null && this.timerData.isOpen() && !this.timerData.alv() && this.mCommonTbJsBridge != null) {
             try {
                 this.timerData.ey(true);
                 long currentTimeMillis = System.currentTimeMillis();
@@ -1025,7 +1025,7 @@ public class TbWebViewActivity extends BaseWebViewActivity {
 
     private void handlerWebViewPause() {
         if (this.timerData != null && this.timerData.isOpen()) {
-            this.timerData.alx();
+            this.timerData.alw();
             com.baidu.tbadk.core.sharedPref.b.getInstance().putLong(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("key_spring_festival_timer"), System.currentTimeMillis());
         }
     }

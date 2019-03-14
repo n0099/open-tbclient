@@ -11,18 +11,18 @@ public class a implements com.xiaomi.smack.debugger.a {
     public static boolean a;
     private com.xiaomi.smack.a c;
     private SimpleDateFormat b = new SimpleDateFormat("hh:mm:ss aaa");
-    private C0367a d = null;
-    private C0367a e = null;
+    private C0461a d = null;
+    private C0461a e = null;
     private d f = null;
     private final String g = "[Slim] ";
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.xiaomi.measite.smack.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C0367a implements f, com.xiaomi.smack.filter.a {
+    public class C0461a implements f, com.xiaomi.smack.filter.a {
         String a;
 
-        C0367a(boolean z) {
+        C0461a(boolean z) {
             this.a = z ? " RCV " : " Sent ";
         }
 
@@ -61,8 +61,8 @@ public class a implements com.xiaomi.smack.debugger.a {
     }
 
     private void a() {
-        this.d = new C0367a(true);
-        this.e = new C0367a(false);
+        this.d = new C0461a(true);
+        this.e = new C0461a(false);
         this.c.a(this.d, this.d);
         this.c.b(this.e, this.e);
         this.f = new b(this);

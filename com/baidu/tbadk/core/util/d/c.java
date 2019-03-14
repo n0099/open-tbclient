@@ -130,7 +130,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             }
             bitmap = Bytes2Bitmap;
         }
-        if (!iVar.bME) {
+        if (!iVar.bMF) {
             a(str, bArr, false, aVar);
         }
         return new com.baidu.adp.widget.ImageView.a(bitmap, com.baidu.adp.lib.util.l.s(bArr), str, bArr);
@@ -236,7 +236,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         if (str == null) {
             return null;
         }
-        if (com.baidu.tbadk.util.l.pH(str)) {
+        if (com.baidu.tbadk.util.l.pF(str)) {
             int lastIndexOf = str.lastIndexOf("/");
             int lastIndexOf2 = str.lastIndexOf(".");
             int lastIndexOf3 = str.lastIndexOf(".jpg");
@@ -261,7 +261,7 @@ public class c implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
 
     private static boolean nd(String str) {
         String[] split;
-        if (str != null && com.baidu.tbadk.util.l.pH(str)) {
+        if (str != null && com.baidu.tbadk.util.l.pF(str)) {
             String[] split2 = str.split("/");
             if (split2.length > 3) {
                 try {

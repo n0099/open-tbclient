@@ -61,7 +61,7 @@ public final class d {
                                 }
                                 if (g.this.getUrl().startsWith(f.SCHEME)) {
                                     Uri.Builder buildUpon = Uri.parse(g.this.getUrl()).buildUpon();
-                                    buildUpon.appendQueryParameter(f.brJ, f.brM);
+                                    buildUpon.appendQueryParameter(f.brK, f.brN);
                                     parse = buildUpon.build();
                                 }
                                 UtilHelper.dealOneScheme(com.baidu.adp.base.a.fT().fU(), parse.toString());

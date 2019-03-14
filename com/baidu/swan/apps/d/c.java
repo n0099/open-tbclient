@@ -8,11 +8,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c extends com.baidu.swan.apps.view.c {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public c(Context context) {
         super(context);
-        this.anZ.setDownloadListener(new a());
+        this.aoa.setDownloadListener(new a());
     }
 
     @Override // com.baidu.swan.apps.core.h.d, com.baidu.swan.apps.core.b, com.baidu.swan.apps.b.c.e

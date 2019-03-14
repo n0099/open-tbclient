@@ -22,16 +22,16 @@ import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaMeta;
 /* loaded from: classes3.dex */
 public final class h {
-    private static SharedPreferences acu = null;
-    private static ScheduledThreadPoolExecutor acv = new ScheduledThreadPoolExecutor(1);
+    private static SharedPreferences acv = null;
+    private static ScheduledThreadPoolExecutor acx = new ScheduledThreadPoolExecutor(1);
 
     private static long X(Context context, String str) {
         try {
-            if (acu == null && context != null) {
-                acu = context.getSharedPreferences("last_init_crab", 4);
+            if (acv == null && context != null) {
+                acv = context.getSharedPreferences("last_init_crab", 4);
             }
-            if (acu != null) {
-                return acu.getLong(str, 0L);
+            if (acv != null) {
+                return acv.getLong(str, 0L);
             }
             return 0L;
         } catch (Exception e) {
@@ -41,7 +41,7 @@ public final class h {
     }
 
     public static void a(Context context, Throwable th) {
-        acv.execute(new j(th, context));
+        acx.execute(new j(th, context));
     }
 
     public static synchronized void a(boolean z, Context context) {
@@ -51,13 +51,13 @@ public final class h {
                 long currentTimeMillis = System.currentTimeMillis() - X(context, "time_upload_crash");
                 com.baidu.crabsdk.c.a.cx("uploadCrash 距离初始化上次上传的间隔是：" + currentTimeMillis);
                 if (currentTimeMillis < 10000) {
-                    acv.schedule(lVar, 10L, TimeUnit.SECONDS);
+                    acx.schedule(lVar, 10L, TimeUnit.SECONDS);
                 } else {
-                    acv.execute(lVar);
+                    acx.execute(lVar);
                 }
                 e(context, "time_upload_crash");
             } else {
-                acv.execute(lVar);
+                acx.execute(lVar);
             }
         }
     }
@@ -67,17 +67,17 @@ public final class h {
     }
 
     public static void d(Context context, Throwable th) {
-        acv.execute(new k(context, th));
+        acx.execute(new k(context, th));
     }
 
     private static void e(Context context, String str) {
         long currentTimeMillis = System.currentTimeMillis();
         try {
-            if (acu == null && context != null) {
-                acu = context.getSharedPreferences("last_init_crab", 4);
+            if (acv == null && context != null) {
+                acv = context.getSharedPreferences("last_init_crab", 4);
             }
-            if (acu != null) {
-                acu.edit().putLong(str, System.currentTimeMillis()).commit();
+            if (acv != null) {
+                acv.edit().putLong(str, System.currentTimeMillis()).commit();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -90,9 +90,9 @@ public final class h {
         long currentTimeMillis = System.currentTimeMillis() - X(context, "time_upload_native");
         com.baidu.crabsdk.c.a.cx("uploadNativeCrash 距离初始化上次上传的间隔是：" + currentTimeMillis);
         if (currentTimeMillis < 10000) {
-            acv.schedule(iVar, 10L, TimeUnit.SECONDS);
+            acx.schedule(iVar, 10L, TimeUnit.SECONDS);
         } else {
-            acv.execute(iVar);
+            acx.execute(iVar);
         }
         e(context, "time_upload_native");
     }
@@ -368,7 +368,7 @@ public final class h {
     }
 
     public static void n(Context context) {
-        acv.execute(new m(context));
+        acx.execute(new m(context));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -484,7 +484,7 @@ public final class h {
                                     com.baidu.crabsdk.c.a.cy("handle crash result json error, exception is " + exc);
                                     exc.printStackTrace();
                                 }
-                                c.acp = true;
+                                c.acq = true;
                             }
                             com.baidu.crabsdk.c.a.cv("###--> errno = " + intValue);
                             switch (intValue) {
@@ -537,7 +537,7 @@ public final class h {
                         } else {
                             com.baidu.crabsdk.c.a.v("not connected to server!");
                         }
-                        c.acp = true;
+                        c.acq = true;
                     } else {
                         f.deleteFile(str2);
                         e.g(str2);

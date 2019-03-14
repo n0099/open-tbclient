@@ -30,12 +30,12 @@ public class b {
 
     protected b() {
         mProcessMap = new HashMap<>();
-        mProcessMap.put(a.bHs, TbConfig.SETTINGFILE);
-        mProcessMap.put(a.bHt, "remote_settings");
-        mProcessMap.put(a.bHu, "bdservice_settings");
-        mProcessMap.put(a.bHv, a.bHy);
+        mProcessMap.put(a.bHt, TbConfig.SETTINGFILE);
+        mProcessMap.put(a.bHu, "remote_settings");
+        mProcessMap.put(a.bHv, "bdservice_settings");
         mProcessMap.put(a.bHw, a.bHz);
         mProcessMap.put(a.bHx, a.bHA);
+        mProcessMap.put(a.bHy, a.bHB);
         mContentResolver = TbadkCoreApplication.getInst().getContentResolver();
     }
 
@@ -251,9 +251,9 @@ public class b {
         if (str == null || str.length() == 0 || !IS_CHECK_COMMON_SHAREDPRE) {
             return false;
         }
-        int length = a.bHB.length;
+        int length = a.bHC.length;
         for (int i = 0; i < length; i++) {
-            if (str.equals(a.bHB[i])) {
+            if (str.equals(a.bHC[i])) {
                 return true;
             }
         }
@@ -336,7 +336,7 @@ public class b {
                 }
             }
         }
-        return a.bHs;
+        return a.bHt;
     }
 
     public void migrateToNewVersion() {

@@ -11,28 +11,28 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class b {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private static volatile b bal;
-    private d ban;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static volatile b bam;
+    private d bao;
     private HandlerThread mAudioThread;
     private Handler mHandler;
-    private HashMap<String, Long> bao = new HashMap<>();
-    private String bap = com.baidu.swan.games.audio.e.Nn();
-    private com.baidu.swan.games.audio.a.b bam = new com.baidu.swan.games.audio.a.b(this.bap);
+    private HashMap<String, Long> bap = new HashMap<>();
+    private String baq = com.baidu.swan.games.audio.e.Nn();
+    private com.baidu.swan.games.audio.a.b ban = new com.baidu.swan.games.audio.a.b(this.baq);
 
     private b() {
         createAudioThread();
     }
 
     public static b Nt() {
-        if (bal == null) {
+        if (bam == null) {
             synchronized (AudioManager.class) {
-                if (bal == null) {
-                    bal = new b();
+                if (bam == null) {
+                    bam = new b();
                 }
             }
         }
-        return bal;
+        return bam;
     }
 
     private void createAudioThread() {
@@ -48,28 +48,28 @@ public class b {
     }
 
     public void a(String str, com.baidu.swan.games.audio.a.a aVar) {
-        this.bam.a(str, aVar);
+        this.ban.a(str, aVar);
     }
 
     public String hY(String str) throws MalformedURLException {
-        return this.bap + com.baidu.swan.games.audio.e.hV(str);
+        return this.baq + com.baidu.swan.games.audio.e.hV(str);
     }
 
     public synchronized e hZ(String str) {
         e aVar;
         long ia = ia(str);
         if (3000 >= ia) {
-            if (this.ban == null) {
-                this.ban = new d();
-            } else if (this.ban.Ny()) {
-                this.ban.release();
-                this.ban = null;
-                this.ban = new d();
+            if (this.bao == null) {
+                this.bao = new d();
+            } else if (this.bao.Ny()) {
+                this.bao.release();
+                this.bao = null;
+                this.bao = new d();
             }
             if (DEBUG) {
                 Log.e("AudioPlayerManager", "create sound pool src = " + str);
             }
-            aVar = this.ban.P(ia);
+            aVar = this.bao.P(ia);
         } else {
             if (DEBUG) {
                 Log.e("AudioPlayerManager", "create media player src = " + str);
@@ -80,8 +80,8 @@ public class b {
     }
 
     private long ia(String str) {
-        if (this.bao.containsKey(str)) {
-            return this.bao.get(str).longValue();
+        if (this.bap.containsKey(str)) {
+            return this.bap.get(str).longValue();
         }
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         try {
@@ -89,7 +89,7 @@ public class b {
                 mediaMetadataRetriever.setDataSource(str);
                 long parseLong = Long.parseLong(mediaMetadataRetriever.extractMetadata(9));
                 mediaMetadataRetriever.release();
-                this.bao.put(str, Long.valueOf(parseLong));
+                this.bap.put(str, Long.valueOf(parseLong));
                 return parseLong;
             } catch (Exception e) {
                 if (DEBUG) {

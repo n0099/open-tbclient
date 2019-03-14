@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.util.c;
 import java.lang.reflect.Method;
 import java.util.List;
@@ -64,7 +63,7 @@ public class NotificationService extends IntentService {
     public void reflectReceiver(Intent intent) {
         String receiver = getReceiver(getPackageName(), intent.getAction());
         if (TextUtils.isEmpty(receiver)) {
-            c.a(this, intent, "reflectReceiver sendbroadcast", PushConstants.NOTIFICATIONSERVICE_SEND_MESSAGE_BROADCAST);
+            c.a(this, intent, "reflectReceiver sendbroadcast", 2005);
             com.meizu.cloud.a.a.i(TAG, " reflectReceiver error: receiver for: " + intent.getAction() + " not found, package: " + getPackageName());
             intent.setPackage(getPackageName());
             sendBroadcast(intent);

@@ -5,23 +5,23 @@ import com.baidu.poly.d.a;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class b extends c {
-    private static b ahd;
+    private static b ahe;
 
     private b() {
     }
 
     public static b tJ() {
-        if (ahd == null) {
+        if (ahe == null) {
             synchronized (b.class) {
-                if (ahd == null) {
-                    ahd = new b();
+                if (ahe == null) {
+                    ahe = new b();
                 }
             }
         }
-        return ahd;
+        return ahe;
     }
 
     @Override // com.baidu.poly.d.a.c, com.baidu.poly.d.a.d
-    public void a(Activity activity, Map<String, String> map, a.C0054a c0054a) {
+    public void a(Activity activity, Map<String, String> map, a.C0083a c0083a) {
     }
 }

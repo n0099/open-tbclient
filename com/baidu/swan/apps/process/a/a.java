@@ -4,18 +4,18 @@ import android.os.IBinder;
 import android.os.Process;
 import android.os.RemoteException;
 import android.util.Log;
-import com.baidu.swan.apps.c;
+import com.baidu.swan.apps.b;
 /* loaded from: classes2.dex */
 public final class a {
-    private static final boolean DEBUG = c.DEBUG;
+    private static final boolean DEBUG = b.DEBUG;
 
     /* renamed from: com.baidu.swan.apps.process.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0123a {
+    public interface InterfaceC0152a {
         void Gl();
     }
 
-    public static boolean a(final IBinder iBinder, final InterfaceC0123a interfaceC0123a) {
+    public static boolean a(final IBinder iBinder, final InterfaceC0152a interfaceC0152a) {
         if (iBinder == null) {
             return false;
         }
@@ -27,8 +27,8 @@ public final class a {
                         Log.d("BinderStatusHelper", "binder died pid: " + Process.myPid());
                     }
                     iBinder.unlinkToDeath(this, 0);
-                    if (interfaceC0123a != null) {
-                        interfaceC0123a.Gl();
+                    if (interfaceC0152a != null) {
+                        interfaceC0152a.Gl();
                     }
                 }
             }, 0);

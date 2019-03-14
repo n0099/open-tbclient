@@ -21,7 +21,7 @@ import tbclient.User;
 /* loaded from: classes4.dex */
 public class a {
     private BdUniqueId cnX;
-    private final com.baidu.adp.framework.listener.a esj = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
+    private final com.baidu.adp.framework.listener.a esf = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_GET_MY_POST, 303111) { // from class: com.baidu.tieba.homepage.topic.topicdetail.model.a.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
@@ -33,31 +33,31 @@ public class a {
             }
         }
     };
-    private TopicDetailView fOH;
+    private TopicDetailView fOG;
 
     public a(TopicDetailView topicDetailView) {
-        this.fOH = topicDetailView;
+        this.fOG = topicDetailView;
     }
 
     public void i(BdUniqueId bdUniqueId) {
         this.cnX = bdUniqueId;
-        this.esj.setTag(bdUniqueId);
-        this.esj.getHttpMessageListener().setSelfListener(true);
-        this.esj.getSocketMessageListener().setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.esj);
+        this.esf.setTag(bdUniqueId);
+        this.esf.getHttpMessageListener().setSelfListener(true);
+        this.esf.getSocketMessageListener().setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.esf);
     }
 
-    public RunnableC0251a p(long j, long j2) {
-        return new RunnableC0251a(j2, j);
+    public RunnableC0304a p(long j, long j2) {
+        return new RunnableC0304a(j2, j);
     }
 
     /* renamed from: com.baidu.tieba.homepage.topic.topicdetail.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class RunnableC0251a implements Runnable {
+    public class RunnableC0304a implements Runnable {
         private long postId;
         private long threadId;
 
-        public RunnableC0251a(long j, long j2) {
+        public RunnableC0304a(long j, long j2) {
             this.threadId = j;
             this.postId = j2;
         }
@@ -91,7 +91,7 @@ public class a {
             bgVar.a(build);
             bgVar.ad(new Date().getTime());
             if (k.W(bgVar)) {
-                this.fOH.au(bgVar);
+                this.fOG.au(bgVar);
             }
         }
     }

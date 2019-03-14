@@ -4,15 +4,15 @@ import android.media.SoundPool;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes2.dex */
 public class d extends SoundPool implements SoundPool.OnLoadCompleteListener {
-    private ConcurrentHashMap<String, Integer> bax;
-    private ConcurrentHashMap<Integer, c> bay;
-    private int baz;
+    private int baA;
+    private ConcurrentHashMap<String, Integer> bay;
+    private ConcurrentHashMap<Integer, c> baz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d() {
         super(10, 3, 0);
-        this.bax = new ConcurrentHashMap<>();
         this.bay = new ConcurrentHashMap<>();
+        this.baz = new ConcurrentHashMap<>();
         setOnLoadCompleteListener(this);
     }
 
@@ -23,30 +23,30 @@ public class d extends SoundPool implements SoundPool.OnLoadCompleteListener {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean ib(String str) {
-        return this.bax.containsKey(str);
+        return this.bay.containsKey(str);
     }
 
     private void J(String str, int i) {
-        this.bax.put(str, Integer.valueOf(i));
+        this.bay.put(str, Integer.valueOf(i));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int ic(String str) {
-        return this.bax.get(str).intValue();
+        return this.bay.get(str).intValue();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(int i, c cVar) {
-        this.bay.put(Integer.valueOf(i), cVar);
+        this.baz.put(Integer.valueOf(i), cVar);
     }
 
     public boolean Ny() {
-        return 200 <= this.baz;
+        return 200 <= this.baA;
     }
 
     @Override // android.media.SoundPool.OnLoadCompleteListener
     public void onLoadComplete(SoundPool soundPool, int i, int i2) {
-        c remove = this.bay.remove(Integer.valueOf(i));
+        c remove = this.baz.remove(Integer.valueOf(i));
         if (remove != null) {
             if (i2 == 0) {
                 J(remove.Nx(), i);
@@ -54,8 +54,8 @@ public class d extends SoundPool implements SoundPool.OnLoadCompleteListener {
                     remove.play();
                 }
                 int Nw = remove.Nw();
-                if (this.baz < Nw) {
-                    this.baz = Nw;
+                if (this.baA < Nw) {
+                    this.baA = Nw;
                     return;
                 }
                 return;

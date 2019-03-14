@@ -1,6 +1,7 @@
 package cn.jiguang.d.b.a;
 
 import android.text.TextUtils;
+import com.baidu.mobstat.Config;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public final class c implements Serializable {
@@ -16,7 +17,7 @@ public final class c implements Serializable {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        String[] split = str.split(":");
+        String[] split = str.split(Config.TRACE_TODAY_VISIT_SPLIT);
         if (split.length == 2) {
             try {
                 return new c(split[0], Integer.decode(split[1]).intValue());
@@ -56,6 +57,6 @@ public final class c implements Serializable {
     }
 
     public final String toString() {
-        return this.a + ":" + this.b;
+        return this.a + Config.TRACE_TODAY_VISIT_SPLIT + this.b;
     }
 }

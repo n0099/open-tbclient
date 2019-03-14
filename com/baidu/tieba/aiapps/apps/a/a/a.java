@@ -45,10 +45,10 @@ public class a extends y {
                         callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001, "Permission denied").toString());
                         return;
                     }
-                    String dC = com.baidu.tieba.aiapps.apps.a.a.dC(context);
+                    String dB = com.baidu.tieba.aiapps.apps.a.a.dB(context);
                     try {
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("bduss", dC);
+                        jSONObject.put("bduss", dB);
                         wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
                     } catch (JSONException e) {
                         if (a.DEBUG) {

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Debug;
 import android.os.Environment;
 import com.baidu.crabsdk.b.o;
+import com.baidu.mobstat.Config;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,11 +12,11 @@ import java.io.StringWriter;
 import java.lang.Thread;
 /* loaded from: classes3.dex */
 public final class c implements Thread.UncaughtExceptionHandler {
-    public static boolean acp = false;
-    private static final String acq = Environment.getExternalStorageDirectory().getPath() + File.separator + o.H() + File.separator + "oom" + File.separator;
-    private static c acr = new c();
-    private Thread.UncaughtExceptionHandler acs = null;
-    private Context act = null;
+    public static boolean acq = false;
+    private static final String acr = Environment.getExternalStorageDirectory().getPath() + File.separator + o.H() + File.separator + "oom" + File.separator;
+    private static c acs = new c();
+    private Thread.UncaughtExceptionHandler act = null;
+    private Context acu = null;
 
     private c() {
     }
@@ -31,16 +32,16 @@ public final class c implements Thread.UncaughtExceptionHandler {
     }
 
     public static c sa() {
-        return acr;
+        return acs;
     }
 
     public final void d(Context context) {
-        if (this.acs == null) {
-            this.acs = Thread.getDefaultUncaughtExceptionHandler();
+        if (this.act == null) {
+            this.act = Thread.getDefaultUncaughtExceptionHandler();
             Thread.setDefaultUncaughtExceptionHandler(this);
         }
-        if (this.act == null) {
-            this.act = context.getApplicationContext();
+        if (this.acu == null) {
+            this.acu = context.getApplicationContext();
         }
     }
 
@@ -55,7 +56,7 @@ public final class c implements Thread.UncaughtExceptionHandler {
         String str = "";
         if (th2 != null && !th2.equals("")) {
             try {
-                str = th2.length() > 1 ? th2.split(":")[0] : th2;
+                str = th2.length() > 1 ? th2.split(Config.TRACE_TODAY_VISIT_SPLIT)[0] : th2;
             } catch (Exception e) {
                 str = "";
             }
@@ -76,7 +77,7 @@ public final class c implements Thread.UncaughtExceptionHandler {
         if (obj != null && !str.trim().equals("")) {
             if (com.baidu.crabsdk.a.n && h(th)) {
                 try {
-                    String str2 = acq;
+                    String str2 = acr;
                     File file = new File(str2);
                     if (!file.exists()) {
                         if (file.mkdirs()) {
@@ -93,19 +94,19 @@ public final class c implements Thread.UncaughtExceptionHandler {
                 }
             }
             if (e.sc() && e.Y() && e.i(th)) {
-                acp = false;
-                if (this.act != null && thread != null && th != null) {
-                    f.c(this.act, f.j(d.a(this.act, th, false)));
+                acq = false;
+                if (this.acu != null && thread != null && th != null) {
+                    f.c(this.acu, f.j(d.a(this.acu, th, false)));
                     e.c(th);
                     e.j(th);
                     e.ab();
-                    h.a(false, this.act);
+                    h.a(false, this.acu);
                 }
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
                     while (true) {
                         long currentTimeMillis2 = System.currentTimeMillis();
-                        if (!acp) {
+                        if (!acq) {
                             if (currentTimeMillis2 - currentTimeMillis > 2500) {
                                 com.baidu.crabsdk.c.a.cx("T^T upload timeout!");
                                 break;
@@ -123,9 +124,9 @@ public final class c implements Thread.UncaughtExceptionHandler {
                 com.baidu.crabsdk.a.N.onCrashStarted(thread, th);
             }
         }
-        if (this.acs.equals(this)) {
+        if (this.act.equals(this)) {
             return;
         }
-        this.acs.uncaughtException(thread, th);
+        this.act.uncaughtException(thread, th);
     }
 }

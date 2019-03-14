@@ -1,17 +1,17 @@
 package com.baidu.swan.apps.v;
 /* loaded from: classes2.dex */
 public class a {
-    private static String axx;
+    private static String axy;
 
     public static void setInfo(String str) {
-        axx = str;
+        axy = str;
     }
 
     public static String getInfo() {
-        return axx == null ? "" : axx;
+        return axy == null ? "" : axy;
     }
 
     public static void clean() {
-        axx = null;
+        axy = null;
     }
 }

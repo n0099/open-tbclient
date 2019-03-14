@@ -37,7 +37,7 @@ public class a {
     }
 
     /* renamed from: do  reason: not valid java name */
-    public static String m13do(String str) {
+    public static String m14do(String str) {
         if (TextUtils.isEmpty(str)) {
             return "";
         }

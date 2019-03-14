@@ -14,19 +14,19 @@ import rx.internal.util.a.ae;
 import rx.internal.util.atomic.SpscExactAtomicArrayQueue;
 /* loaded from: classes2.dex */
 public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
-    final boolean jXQ;
-    final int jXx;
+    final boolean jXI;
+    final int jXp;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class a {
-        static final OperatorMerge<Object> jXR = new OperatorMerge<>(true, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        static final OperatorMerge<Object> jXJ = new OperatorMerge<>(true, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class b {
-        static final OperatorMerge<Object> jXR = new OperatorMerge<>(false, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
+        static final OperatorMerge<Object> jXJ = new OperatorMerge<>(false, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     }
 
     @Override // rx.functions.f
@@ -35,18 +35,18 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
     }
 
     public static <T> OperatorMerge<T> rL(boolean z) {
-        return z ? (OperatorMerge<T>) a.jXR : (OperatorMerge<T>) b.jXR;
+        return z ? (OperatorMerge<T>) a.jXJ : (OperatorMerge<T>) b.jXJ;
     }
 
     OperatorMerge(boolean z, int i) {
-        this.jXQ = z;
-        this.jXx = i;
+        this.jXI = z;
+        this.jXp = i;
     }
 
     public rx.j<rx.d<? extends T>> call(rx.j<? super T> jVar) {
-        d dVar = new d(jVar, this.jXQ, this.jXx);
+        d dVar = new d(jVar, this.jXI, this.jXp);
         MergeProducer<T> mergeProducer = new MergeProducer<>(dVar);
-        dVar.jXV = mergeProducer;
+        dVar.jXN = mergeProducer;
         jVar.add(dVar);
         jVar.setProducer(mergeProducer);
         return dVar;
@@ -82,64 +82,64 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes2.dex */
     public static final class d<T> extends rx.j<rx.d<? extends T>> {
-        static final c<?>[] jYb = new c[0];
+        static final c<?>[] jXT = new c[0];
         final rx.j<? super T> child;
         volatile boolean done;
         boolean emitting;
-        long gzp;
-        final boolean jXQ;
-        MergeProducer<T> jXV;
-        volatile rx.subscriptions.b jXW;
-        volatile ConcurrentLinkedQueue<Throwable> jXX;
-        final Object jXY = new Object();
-        volatile c<?>[] jXZ = jYb;
-        final int jXx;
-        long jYa;
-        final int jYc;
-        int jYd;
+        long gzo;
+        final boolean jXI;
+        MergeProducer<T> jXN;
+        volatile rx.subscriptions.b jXO;
+        volatile ConcurrentLinkedQueue<Throwable> jXP;
+        final Object jXQ = new Object();
+        volatile c<?>[] jXR = jXT;
+        long jXS;
+        final int jXU;
+        int jXV;
+        final int jXp;
         int lastIndex;
         boolean missed;
         volatile Queue<Object> queue;
 
         public d(rx.j<? super T> jVar, boolean z, int i) {
             this.child = jVar;
-            this.jXQ = z;
-            this.jXx = i;
+            this.jXI = z;
+            this.jXp = i;
             if (i == Integer.MAX_VALUE) {
-                this.jYc = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
+                this.jXU = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
                 request(Long.MAX_VALUE);
                 return;
             }
-            this.jYc = Math.max(1, i >> 1);
+            this.jXU = Math.max(1, i >> 1);
             request(i);
         }
 
-        Queue<Throwable> cEe() {
-            ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.jXX;
+        Queue<Throwable> cEh() {
+            ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.jXP;
             if (concurrentLinkedQueue == null) {
                 synchronized (this) {
-                    concurrentLinkedQueue = this.jXX;
+                    concurrentLinkedQueue = this.jXP;
                     if (concurrentLinkedQueue == null) {
                         concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
-                        this.jXX = concurrentLinkedQueue;
+                        this.jXP = concurrentLinkedQueue;
                     }
                 }
             }
             return concurrentLinkedQueue;
         }
 
-        rx.subscriptions.b cEf() {
+        rx.subscriptions.b cEi() {
             boolean z;
-            rx.subscriptions.b bVar = this.jXW;
+            rx.subscriptions.b bVar = this.jXO;
             if (bVar == null) {
                 synchronized (this) {
-                    rx.subscriptions.b bVar2 = this.jXW;
+                    rx.subscriptions.b bVar2 = this.jXO;
                     if (bVar2 != null) {
                         bVar = bVar2;
                         z = false;
                     } else {
                         rx.subscriptions.b bVar3 = new rx.subscriptions.b();
-                        this.jXW = bVar3;
+                        this.jXO = bVar3;
                         bVar = bVar3;
                         z = true;
                     }
@@ -158,13 +158,13 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
         /* renamed from: d */
         public void onNext(rx.d<? extends T> dVar) {
             if (dVar != null) {
-                if (dVar == rx.d.cDH()) {
-                    cEg();
+                if (dVar == rx.d.cDK()) {
+                    cEj();
                 } else if (dVar instanceof ScalarSynchronousObservable) {
                     bx(((ScalarSynchronousObservable) dVar).get());
                 } else {
-                    long j = this.jYa;
-                    this.jYa = 1 + j;
+                    long j = this.jXS;
+                    this.jXS = 1 + j;
                     c cVar = new c(this, j);
                     a(cVar);
                     dVar.a((rx.j<? super Object>) cVar);
@@ -173,18 +173,18 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
             }
         }
 
-        void cEg() {
-            int i = this.jYd + 1;
-            if (i == this.jYc) {
-                this.jYd = 0;
+        void cEj() {
+            int i = this.jXV + 1;
+            if (i == this.jXU) {
+                this.jXV = 0;
                 ek(i);
                 return;
             }
-            this.jYd = i;
+            this.jXV = i;
         }
 
-        private void cEh() {
-            ArrayList arrayList = new ArrayList(this.jXX);
+        private void cEk() {
+            ArrayList arrayList = new ArrayList(this.jXP);
             if (arrayList.size() == 1) {
                 this.child.onError((Throwable) arrayList.get(0));
             } else {
@@ -194,7 +194,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
 
         @Override // rx.e
         public void onError(Throwable th) {
-            cEe().offer(th);
+            cEh().offer(th);
             this.done = true;
             emit();
         }
@@ -208,26 +208,26 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
         /* JADX DEBUG: Multi-variable search result rejected for r3v1, resolved type: rx.internal.operators.OperatorMerge$c<?>[] */
         /* JADX WARN: Multi-variable type inference failed */
         void a(c<T> cVar) {
-            cEf().add(cVar);
-            synchronized (this.jXY) {
-                c<?>[] cVarArr = this.jXZ;
+            cEi().add(cVar);
+            synchronized (this.jXQ) {
+                c<?>[] cVarArr = this.jXR;
                 int length = cVarArr.length;
                 c<?>[] cVarArr2 = new c[length + 1];
                 System.arraycopy(cVarArr, 0, cVarArr2, 0, length);
                 cVarArr2[length] = cVar;
-                this.jXZ = cVarArr2;
+                this.jXR = cVarArr2;
             }
         }
 
         void b(c<T> cVar) {
             int i = 0;
-            rx.internal.util.g gVar = cVar.jXT;
+            rx.internal.util.g gVar = cVar.jXL;
             if (gVar != null) {
                 gVar.release();
             }
-            this.jXW.a(cVar);
-            synchronized (this.jXY) {
-                c<?>[] cVarArr = this.jXZ;
+            this.jXO.a(cVar);
+            synchronized (this.jXQ) {
+                c<?>[] cVarArr = this.jXR;
                 int length = cVarArr.length;
                 while (true) {
                     if (i >= length) {
@@ -241,23 +241,23 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
                 }
                 if (i >= 0) {
                     if (length == 1) {
-                        this.jXZ = jYb;
+                        this.jXR = jXT;
                         return;
                     }
                     c<?>[] cVarArr2 = new c[length - 1];
                     System.arraycopy(cVarArr, 0, cVarArr2, 0, i);
                     System.arraycopy(cVarArr, i + 1, cVarArr2, i, (length - i) - 1);
-                    this.jXZ = cVarArr2;
+                    this.jXR = cVarArr2;
                 }
             }
         }
 
         void a(c<T> cVar, T t) {
             boolean z = false;
-            long j = this.jXV.get();
+            long j = this.jXN.get();
             if (j != 0) {
                 synchronized (this) {
-                    j = this.jXV.get();
+                    j = this.jXN.get();
                     if (!this.emitting && j != 0) {
                         this.emitting = true;
                         z = true;
@@ -265,13 +265,13 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
                 }
             }
             if (z) {
-                rx.internal.util.g gVar = cVar.jXT;
+                rx.internal.util.g gVar = cVar.jXL;
                 if (gVar == null || gVar.isEmpty()) {
                     a(cVar, t, j);
                     return;
                 }
                 b(cVar, t);
-                cEi();
+                cEl();
                 return;
             }
             b(cVar, t);
@@ -279,11 +279,11 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
         }
 
         protected void b(c<T> cVar, T t) {
-            rx.internal.util.g gVar = cVar.jXT;
+            rx.internal.util.g gVar = cVar.jXL;
             if (gVar == null) {
-                gVar = rx.internal.util.g.cEE();
+                gVar = rx.internal.util.g.cEH();
                 cVar.add(gVar);
-                cVar.jXT = gVar;
+                cVar.jXL = gVar;
             }
             try {
                 gVar.onNext(NotificationLite.bq(t));
@@ -303,7 +303,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
                 this.child.onNext(t);
                 if (j != Long.MAX_VALUE) {
                     try {
-                        this.jXV.produced(1);
+                        this.jXN.produced(1);
                     } catch (Throwable th) {
                         if (0 == 0) {
                             synchronized (this) {
@@ -320,7 +320,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
                         return;
                     }
                     this.missed = false;
-                    cEi();
+                    cEl();
                 }
             }
         }
@@ -331,10 +331,10 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
 
         void bx(T t) {
             boolean z = false;
-            long j = this.jXV.get();
+            long j = this.jXN.get();
             if (j != 0) {
                 synchronized (this) {
-                    j = this.jXV.get();
+                    j = this.jXN.get();
                     if (!this.emitting && j != 0) {
                         this.emitting = true;
                         z = true;
@@ -348,7 +348,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
                     return;
                 }
                 by(t);
-                cEi();
+                cEl();
                 return;
             }
             by(t);
@@ -358,11 +358,11 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
         protected void by(T t) {
             Queue<Object> queue = this.queue;
             if (queue == null) {
-                int i = this.jXx;
+                int i = this.jXp;
                 if (i == Integer.MAX_VALUE) {
                     queue = new rx.internal.util.atomic.f<>(rx.internal.util.g.SIZE);
                 } else if (rx.internal.util.a.h.Dv(i)) {
-                    if (ae.cER()) {
+                    if (ae.cEU()) {
                         queue = new rx.internal.util.a.q<>(i);
                     } else {
                         queue = new rx.internal.util.atomic.c<>(i);
@@ -382,14 +382,14 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
             try {
                 this.child.onNext(t);
                 if (j != Long.MAX_VALUE) {
-                    this.jXV.produced(1);
+                    this.jXN.produced(1);
                 }
-                int i = this.jYd + 1;
-                if (i == this.jYc) {
-                    this.jYd = 0;
+                int i = this.jXV + 1;
+                if (i == this.jXU) {
+                    this.jXV = 0;
                     ek(i);
                 } else {
-                    this.jYd = i;
+                    this.jXV = i;
                 }
                 synchronized (this) {
                     try {
@@ -397,7 +397,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
                             this.emitting = false;
                         } else {
                             this.missed = false;
-                            cEi();
+                            cEl();
                         }
                     }
                 }
@@ -418,7 +418,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
                     return;
                 }
                 this.emitting = true;
-                cEi();
+                cEl();
             }
         }
 
@@ -431,7 +431,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        void cEi() {
+        void cEl() {
             long j;
             int i;
             boolean z;
@@ -441,9 +441,9 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
             Object obj;
             try {
                 rx.j<? super T> jVar = this.child;
-                while (!cEj()) {
+                while (!cEm()) {
                     Queue<Object> queue = this.queue;
-                    long j2 = this.jXV.get();
+                    long j2 = this.jXN.get();
                     boolean z3 = j2 == Long.MAX_VALUE;
                     int i3 = 0;
                     if (queue != null) {
@@ -452,7 +452,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
                             obj = null;
                             while (j2 > 0) {
                                 obj = queue.poll();
-                                if (!cEj()) {
+                                if (!cEm()) {
                                     if (obj == null) {
                                         break;
                                     }
@@ -468,7 +468,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
                                 if (z3) {
                                     j2 = Long.MAX_VALUE;
                                 } else {
-                                    j2 = this.jXV.produced(i4);
+                                    j2 = this.jXN.produced(i4);
                                 }
                             }
                             if (j2 != 0) {
@@ -478,15 +478,15 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
                         i = i3;
                         z = this.done;
                         Queue<Object> queue2 = this.queue;
-                        c<?>[] cVarArr = this.jXZ;
+                        c<?>[] cVarArr = this.jXR;
                         length = cVarArr.length;
                         if (!z && ((queue2 == null || queue2.isEmpty()) && length == 0)) {
-                            ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.jXX;
+                            ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.jXP;
                             if (concurrentLinkedQueue == null || concurrentLinkedQueue.isEmpty()) {
                                 jVar.onCompleted();
                                 return;
                             } else {
-                                cEh();
+                                cEk();
                                 return;
                             }
                         }
@@ -494,7 +494,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
                             z2 = false;
                             i2 = i;
                         } else {
-                            long j3 = this.gzp;
+                            long j3 = this.gzo;
                             int i5 = this.lastIndex;
                             if (length <= i5 || cVarArr[i5].id != j3) {
                                 if (length <= i5) {
@@ -507,7 +507,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
                                     }
                                 }
                                 this.lastIndex = i5;
-                                this.gzp = cVarArr[i5].id;
+                                this.gzo = cVarArr[i5].id;
                             }
                             int i7 = i5;
                             int i8 = i;
@@ -519,14 +519,14 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
                                     z2 = z4;
                                     i2 = i8;
                                     break;
-                                } else if (!cEj()) {
+                                } else if (!cEm()) {
                                     c<?> cVar = cVarArr[i7];
                                     Object obj2 = null;
                                     do {
                                         int i10 = 0;
                                         while (j4 > 0) {
-                                            if (!cEj()) {
-                                                rx.internal.util.g gVar = cVar.jXT;
+                                            if (!cEm()) {
+                                                rx.internal.util.g gVar = cVar.jXL;
                                                 if (gVar == null || (obj2 = gVar.poll()) == null) {
                                                     break;
                                                 }
@@ -539,7 +539,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
                                         }
                                         if (i10 > 0) {
                                             if (!z3) {
-                                                j4 = this.jXV.produced(i10);
+                                                j4 = this.jXN.produced(i10);
                                             } else {
                                                 j4 = Long.MAX_VALUE;
                                             }
@@ -550,10 +550,10 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
                                         }
                                     } while (obj2 != null);
                                     boolean z5 = cVar.done;
-                                    rx.internal.util.g gVar2 = cVar.jXT;
+                                    rx.internal.util.g gVar2 = cVar.jXL;
                                     if (z5 && (gVar2 == null || gVar2.isEmpty())) {
                                         b(cVar);
-                                        if (!cEj()) {
+                                        if (!cEm()) {
                                             i8++;
                                             z4 = true;
                                         } else {
@@ -576,7 +576,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
                                 }
                             }
                             this.lastIndex = i7;
-                            this.gzp = cVarArr[i7].id;
+                            this.gzo = cVarArr[i7].id;
                         }
                         if (i2 > 0) {
                             request(i2);
@@ -595,7 +595,7 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
                     i = i3;
                     z = this.done;
                     Queue<Object> queue22 = this.queue;
-                    c<?>[] cVarArr2 = this.jXZ;
+                    c<?>[] cVarArr2 = this.jXR;
                     length = cVarArr2.length;
                     if (!z) {
                     }
@@ -616,14 +616,14 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
             }
         }
 
-        boolean cEj() {
+        boolean cEm() {
             if (this.child.isUnsubscribed()) {
                 return true;
             }
-            ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.jXX;
-            if (!this.jXQ && concurrentLinkedQueue != null && !concurrentLinkedQueue.isEmpty()) {
+            ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.jXP;
+            if (!this.jXI && concurrentLinkedQueue != null && !concurrentLinkedQueue.isEmpty()) {
                 try {
-                    cEh();
+                    cEk();
                     return true;
                 } finally {
                     unsubscribe();
@@ -639,46 +639,46 @@ public final class OperatorMerge<T> implements d.b<T, rx.d<? extends T>> {
         static final int LIMIT = rx.internal.util.g.SIZE / 4;
         volatile boolean done;
         final long id;
-        final d<T> jXS;
-        volatile rx.internal.util.g jXT;
-        int jXU;
+        final d<T> jXK;
+        volatile rx.internal.util.g jXL;
+        int jXM;
 
         public c(d<T> dVar, long j) {
-            this.jXS = dVar;
+            this.jXK = dVar;
             this.id = j;
         }
 
         @Override // rx.j
         public void onStart() {
-            this.jXU = rx.internal.util.g.SIZE;
+            this.jXM = rx.internal.util.g.SIZE;
             request(rx.internal.util.g.SIZE);
         }
 
         @Override // rx.e
         public void onNext(T t) {
-            this.jXS.a((c<c<T>>) this, (c<T>) t);
+            this.jXK.a((c<c<T>>) this, (c<T>) t);
         }
 
         @Override // rx.e
         public void onError(Throwable th) {
             this.done = true;
-            this.jXS.cEe().offer(th);
-            this.jXS.emit();
+            this.jXK.cEh().offer(th);
+            this.jXK.emit();
         }
 
         @Override // rx.e
         public void onCompleted() {
             this.done = true;
-            this.jXS.emit();
+            this.jXK.emit();
         }
 
         public void ek(long j) {
-            int i = this.jXU - ((int) j);
+            int i = this.jXM - ((int) j);
             if (i > LIMIT) {
-                this.jXU = i;
+                this.jXM = i;
                 return;
             }
-            this.jXU = rx.internal.util.g.SIZE;
+            this.jXM = rx.internal.util.g.SIZE;
             int i2 = rx.internal.util.g.SIZE - i;
             if (i2 > 0) {
                 request(i2);

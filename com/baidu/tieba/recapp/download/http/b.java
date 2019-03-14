@@ -25,11 +25,11 @@ import org.apache.http.protocol.HTTP;
 /* loaded from: classes3.dex */
 class b {
     private HttpURLConnection Cs;
-    private int ihY;
-    private g ihZ;
+    private int ihS;
+    private g ihT;
     private static Pattern mPattern = Pattern.compile("^[0]{0,1}10\\.[0]{1,3}\\.[0]{1,3}\\.(172|200)$", 8);
     private static String boundary = "--------7da3d81520810*";
-    private final int ihX = 5;
+    private final int ihR = 5;
     private long Ct = 0;
     private long Cu = 0;
     private long wu = 0;
@@ -65,21 +65,21 @@ class b {
         if (gVar == null) {
             throw new NullPointerException("init HttpImpl's args context is null");
         }
-        this.ihZ = gVar;
+        this.ihT = gVar;
     }
 
     public void ji() {
-        this.ihZ.bWY().Dc = true;
+        this.ihT.bXa().Dc = true;
         com.baidu.adp.lib.g.a.f(this.Cs);
     }
 
     private URL a(String str, e eVar) throws Exception {
-        a bWV;
+        a bWX;
         URL url = new URL(str);
-        if (this.Cy && (bWV = a.bWV()) != null) {
-            String aP = bWV.aP(str);
+        if (this.Cy && (bWX = a.bWX()) != null) {
+            String aP = bWX.aP(str);
             if (!TextUtils.isEmpty(aP)) {
-                this.ihZ.bWX().y(HTTP.TARGET_HOST, url.getHost());
+                this.ihT.bWZ().y(HTTP.TARGET_HOST, url.getHost());
                 URL url2 = new URL(str.replace("://" + url.getHost(), "://" + aP));
                 this.Cx = true;
                 eVar.CO = aP;
@@ -118,7 +118,7 @@ class b {
                         sb.append(file);
                         httpURLConnection = (HttpURLConnection) new URL(sb.toString()).openConnection();
                         try {
-                            this.ihZ.bWX().y("X-Online-Host", url.getHost());
+                            this.ihT.bWZ().y("X-Online-Host", url.getHost());
                             httpURLConnection2 = httpURLConnection;
                         } catch (Exception e2) {
                             e = e2;
@@ -152,13 +152,13 @@ class b {
         Map<String, List<String>> map;
         List<String> list;
         eVar.CM = -1;
-        if (this.ihZ.bWY().Dc) {
+        if (this.ihT.bXa().Dc) {
             throw new BdHttpCancelException();
         }
-        String c = this.ihZ.bWX().c(eVar);
+        String c = this.ihT.bWZ().c(eVar);
         eVar.url = c;
         URL a = a(c, eVar);
-        if (this.ihZ.bWY().Dc) {
+        if (this.ihT.bXa().Dc) {
             throw new BdHttpCancelException();
         }
         eVar.CM = -2;
@@ -172,8 +172,8 @@ class b {
             this.Cs.setRequestMethod("GET");
             this.Cs.setConnectTimeout(i2);
             this.Cs.setReadTimeout(i);
-            this.ihZ.bWX().d(this.Cs);
-            if (this.ihZ.bWY().Dc) {
+            this.ihT.bWZ().d(this.Cs);
+            if (this.ihT.bXa().Dc) {
                 throw new BdHttpCancelException();
             }
             eVar.CJ = new Date().getTime() - currentTimeMillis;
@@ -185,7 +185,7 @@ class b {
             this.Cu = System.currentTimeMillis();
             eVar.CM = -5;
             eVar.connectTime = (new Date().getTime() - currentTimeMillis) - eVar.CJ;
-            if (this.ihZ.bWY().Dc) {
+            if (this.ihT.bXa().Dc) {
                 throw new BdHttpCancelException();
             }
             String contentType = this.Cs.getContentType();
@@ -193,22 +193,22 @@ class b {
             if (f.aV(contentType)) {
                 this.Cs.disconnect();
                 this.Cs.connect();
-                if (this.ihZ.bWY().Dc) {
+                if (this.ihT.bXa().Dc) {
                     throw new BdHttpCancelException();
                 }
             }
             eVar.CM = -8;
-            this.ihZ.bWY().e(this.Cs);
-            if (c.contains("c.tieba.baidu.com") && (map = this.ihZ.bWY().De) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
+            this.ihT.bXa().e(this.Cs);
+            if (c.contains("c.tieba.baidu.com") && (map = this.ihT.bXa().De) != null && !map.isEmpty() && (list = map.get("Tracecode")) != null && list.size() > 1) {
                 eVar.CP = list.get(0);
                 eVar.CQ = list.get(1);
             }
-            eVar.CL = this.ihZ.bWY().responseCode;
+            eVar.CL = this.ihT.bXa().responseCode;
             eVar.CF = this.Cs.getHeaderFields().toString().getBytes().length;
             byte[] c2 = c(this.Cs);
             if (c2 != null) {
                 eVar.CF += c2.length;
-                this.ihZ.bWY().Df = c(this.ihZ.bWY().contentEncoding, c2);
+                this.ihT.bXa().Df = c(this.ihT.bXa().contentEncoding, c2);
             }
             eVar.CM = -9;
             eVar.CG = new Date().getTime() - currentTimeMillis;
@@ -241,7 +241,7 @@ class b {
             try {
                 byte[] bArr2 = new byte[1024];
                 inputStream2 = httpURLConnection.getInputStream();
-                while (!this.ihZ.bWY().Dc && (read = inputStream2.read(bArr2)) != -1) {
+                while (!this.ihT.bXa().Dc && (read = inputStream2.read(bArr2)) != -1) {
                     try {
                         byteArrayOutputStream.write(bArr2, 0, read);
                     } catch (Throwable th2) {
@@ -253,7 +253,7 @@ class b {
                         throw th;
                     }
                 }
-                if (this.ihZ.bWY().Dc) {
+                if (this.ihT.bXa().Dc) {
                     throw new BdHttpCancelException();
                 }
                 bArr = byteArrayOutputStream.toByteArray();
@@ -273,10 +273,10 @@ class b {
     public void b(int i, int i2, e eVar) throws Exception {
         eVar.CM = -1;
         try {
-            String url = this.ihZ.bWX().getUrl();
+            String url = this.ihT.bWZ().getUrl();
             eVar.url = url;
             URL a = a(url, eVar);
-            if (this.ihZ.bWY().Dc) {
+            if (this.ihT.bXa().Dc) {
                 throw new BdHttpCancelException();
             }
             eVar.CM = -2;
@@ -292,11 +292,11 @@ class b {
             this.Cs.setConnectTimeout(i2);
             this.Cs.setReadTimeout(i);
             this.Cs.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
-            if (this.ihZ.bWY().Dc) {
+            if (this.ihT.bXa().Dc) {
                 throw new BdHttpCancelException();
             }
-            this.ihZ.bWX().d(this.Cs);
-            if (this.ihZ.bWY().Dc) {
+            this.ihT.bWZ().d(this.Cs);
+            if (this.ihT.bXa().Dc) {
                 throw new BdHttpCancelException();
             }
             long time = new Date().getTime();
@@ -309,36 +309,36 @@ class b {
             this.Cu = System.currentTimeMillis();
             eVar.CM = -5;
             eVar.connectTime = (new Date().getTime() - time) - eVar.CJ;
-            if (this.ihZ.bWY().Dc) {
+            if (this.ihT.bXa().Dc) {
                 throw new BdHttpCancelException();
             }
             if (this.CA != null) {
                 this.CA.schedule(this.Cz, 45000L);
             }
             eVar.CM = -6;
-            this.ihZ.bWX().a(this.Cs, boundary, eVar);
+            this.ihT.bWZ().a(this.Cs, boundary, eVar);
             eVar.CM = -7;
             String contentType = this.Cs.getContentType();
             this.wu = System.currentTimeMillis();
             if (f.aV(contentType)) {
                 this.Cs.disconnect();
                 this.Cs.connect();
-                if (this.ihZ.bWY().Dc) {
+                if (this.ihT.bXa().Dc) {
                     throw new BdHttpCancelException();
                 }
             }
-            if (this.ihZ.bWY().Dc) {
+            if (this.ihT.bXa().Dc) {
                 throw new BdHttpCancelException();
             }
             eVar.CM = -8;
-            this.ihZ.bWY().e(this.Cs);
-            eVar.CL = this.ihZ.bWY().responseCode;
+            this.ihT.bXa().e(this.Cs);
+            eVar.CL = this.ihT.bXa().responseCode;
             eVar.CF = this.Cs.getHeaderFields().toString().getBytes().length;
             byte[] c = c(this.Cs);
             if (c != null) {
                 eVar.CF += c.length;
-                this.ihZ.bWY().Dg = c.length;
-                this.ihZ.bWY().Df = c(this.ihZ.bWY().contentEncoding, c);
+                this.ihT.bXa().Dg = c.length;
+                this.ihT.bXa().Df = c(this.ihT.bXa().contentEncoding, c);
             }
             eVar.CG = new Date().getTime() - time;
             eVar.CM = -9;
@@ -355,16 +355,16 @@ class b {
         InputStream inputStream;
         String headerField;
         int indexOf;
-        this.ihY = 0;
+        this.ihS = 0;
         FileOutputStream fileOutputStream = null;
         e eVar2 = eVar == null ? new e() : eVar;
         try {
-            String url = this.ihZ.bWX().getUrl();
+            String url = this.ihT.bWZ().getUrl();
             eVar2.url = url;
             this.Cs = a(a(url, eVar2), i2, i);
             this.Cs.setInstanceFollowRedirects(true);
             HttpURLConnection.setFollowRedirects(false);
-            if (this.ihZ.bWY().Dc) {
+            if (this.ihT.bXa().Dc) {
                 this.Cv = System.currentTimeMillis();
                 com.baidu.adp.lib.g.a.i(null);
                 com.baidu.adp.lib.g.a.f(this.Cs);
@@ -381,7 +381,7 @@ class b {
             long length = file.length();
             FileOutputStream fileOutputStream2 = new FileOutputStream(file, true);
             try {
-                this.ihZ.bWX().d(this.Cs);
+                this.ihT.bWZ().d(this.Cs);
                 this.Cs.addRequestProperty("Range", "bytes=" + String.valueOf(length) + Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                 this.Cs.connect();
                 if (this.Ct <= 0) {
@@ -389,19 +389,19 @@ class b {
                 }
                 this.Cu = System.currentTimeMillis();
                 int responseCode = this.Cs.getResponseCode();
-                while (xR(responseCode) && this.ihY <= 5) {
+                while (xR(responseCode) && this.ihS <= 5) {
                     this.Cs = a(this.Cs, i2, i);
-                    this.ihZ.bWX().d(this.Cs);
+                    this.ihT.bWZ().d(this.Cs);
                     this.Cs.addRequestProperty("Range", "bytes=" + String.valueOf(length) + Constants.ACCEPT_TIME_SEPARATOR_SERVER);
                     this.Cs.connect();
                     responseCode = this.Cs.getResponseCode();
                 }
                 this.wu = System.currentTimeMillis();
-                this.ihZ.bWY().responseCode = responseCode;
+                this.ihT.bXa().responseCode = responseCode;
                 if (jj()) {
                     if (this.Cs.getContentType() != null && this.Cs.getContentType().contains("text/vnd.wap.wml")) {
                         this.Cs.disconnect();
-                        this.ihZ.bWY().responseCode = 0;
+                        this.ihT.bXa().responseCode = 0;
                         boolean a = a(str, jVar, i, i2, z, eVar2, z2);
                         this.Cv = System.currentTimeMillis();
                         com.baidu.adp.lib.g.a.i(null);
@@ -414,12 +414,12 @@ class b {
                     if (headerField2 != null && (indexOf = headerField2.indexOf("/")) != -1) {
                         i3 = com.baidu.adp.lib.g.b.l(headerField2.substring(indexOf + 1), 0);
                     }
-                    int l = (i3 == 0 && this.ihZ.bWY().responseCode == 200 && (headerField = this.Cs.getHeaderField(HTTP.CONTENT_LEN)) != null) ? com.baidu.adp.lib.g.b.l(headerField, 0) : i3;
-                    this.ihZ.bWY().contentLength = String.valueOf(l);
+                    int l = (i3 == 0 && this.ihT.bXa().responseCode == 200 && (headerField = this.Cs.getHeaderField(HTTP.CONTENT_LEN)) != null) ? com.baidu.adp.lib.g.b.l(headerField, 0) : i3;
+                    this.ihT.bXa().contentLength = String.valueOf(l);
                     eVar2.CE = url.getBytes().length;
                     eVar2.CF = this.Cs.getHeaderFields().toString().getBytes().length;
                     eVar2.CF += l;
-                    if (this.ihZ.bWY().responseCode == 416 || this.ihZ.bWY().responseCode == 204) {
+                    if (this.ihT.bXa().responseCode == 416 || this.ihT.bXa().responseCode == 204) {
                         this.Cv = System.currentTimeMillis();
                         com.baidu.adp.lib.g.a.i(null);
                         com.baidu.adp.lib.g.a.f(this.Cs);
@@ -442,7 +442,7 @@ class b {
                             if (jVar != null && length > 0) {
                                 jVar.o((int) length, l);
                             }
-                            while (!this.ihZ.bWY().Dc) {
+                            while (!this.ihT.bXa().Dc) {
                                 int read = inputStream2.read(bArr);
                                 if (read != -1) {
                                     try {
@@ -500,7 +500,7 @@ class b {
         URL url = httpURLConnection.getURL().toURI().resolve(httpURLConnection.getHeaderField("Location")).toURL();
         com.baidu.adp.lib.g.a.f(httpURLConnection);
         HttpURLConnection a = a(url, i, i2);
-        this.ihY++;
+        this.ihS++;
         return a;
     }
 
@@ -509,16 +509,16 @@ class b {
     }
 
     private boolean jj() {
-        return this.ihZ.bWY().responseCode == 200 || this.ihZ.bWY().responseCode == 206;
+        return this.ihT.bXa().responseCode == 200 || this.ihT.bXa().responseCode == 206;
     }
 
     public void c(int i, int i2, e eVar) throws Exception {
         eVar.CM = -1;
         try {
-            String url = this.ihZ.bWX().getUrl();
+            String url = this.ihT.bWZ().getUrl();
             eVar.url = url;
             URL a = a(url, eVar);
-            if (this.ihZ.bWY().Dc) {
+            if (this.ihT.bXa().Dc) {
                 throw new BdHttpCancelException();
             }
             eVar.CM = -2;
@@ -534,11 +534,11 @@ class b {
             this.Cs.setConnectTimeout(i2);
             this.Cs.setReadTimeout(i);
             this.Cs.setRequestProperty("Content-Type", URLEncodedUtils.CONTENT_TYPE);
-            if (this.ihZ.bWY().Dc) {
+            if (this.ihT.bXa().Dc) {
                 throw new BdHttpCancelException();
             }
-            this.ihZ.bWX().d(this.Cs);
-            if (this.ihZ.bWY().Dc) {
+            this.ihT.bWZ().d(this.Cs);
+            if (this.ihT.bXa().Dc) {
                 throw new BdHttpCancelException();
             }
             eVar.CJ = System.currentTimeMillis() - currentTimeMillis;
@@ -550,13 +550,13 @@ class b {
             this.Cu = System.currentTimeMillis();
             eVar.CM = -5;
             eVar.connectTime = (System.currentTimeMillis() - currentTimeMillis) - eVar.CJ;
-            if (this.ihZ.bWY().Dc) {
+            if (this.ihT.bXa().Dc) {
                 throw new BdHttpCancelException();
             }
             eVar.CM = -6;
-            this.ihZ.bWX().a(this.Cs, eVar);
+            this.ihT.bWZ().a(this.Cs, eVar);
             eVar.CM = -7;
-            if (this.ihZ.bWY().Dc) {
+            if (this.ihT.bXa().Dc) {
                 throw new BdHttpCancelException();
             }
             String contentType = this.Cs.getContentType();
@@ -564,19 +564,19 @@ class b {
             if (f.aV(contentType)) {
                 this.Cs.disconnect();
                 this.Cs.connect();
-                if (this.ihZ.bWY().Dc) {
+                if (this.ihT.bXa().Dc) {
                     throw new BdHttpCancelException();
                 }
             }
-            this.ihZ.bWY().e(this.Cs);
+            this.ihT.bXa().e(this.Cs);
             eVar.CM = -8;
-            eVar.CL = this.ihZ.bWY().responseCode;
+            eVar.CL = this.ihT.bXa().responseCode;
             eVar.CF = this.Cs.getHeaderFields().toString().getBytes().length;
             byte[] c = c(this.Cs);
             if (c != null) {
                 eVar.CF += c.length;
-                this.ihZ.bWY().Dg = c.length;
-                this.ihZ.bWY().Df = c(this.ihZ.bWY().contentEncoding, c);
+                this.ihT.bXa().Dg = c.length;
+                this.ihT.bXa().Df = c(this.ihT.bXa().contentEncoding, c);
             }
             eVar.CG = new Date().getTime() - currentTimeMillis;
             eVar.CM = -9;

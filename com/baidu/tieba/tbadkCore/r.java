@@ -3,7 +3,6 @@ package com.baidu.tieba.tbadkCore;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.pushservice.PushConstants;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.data.FeedForumData;
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class r {
-    private String bYx;
+    private String bYy;
     private int cur_score;
     private int errorCode;
     private String errorMsg;
@@ -21,8 +20,8 @@ public class r {
     private String level_name;
     private int levelup_score;
     private BlockPopInfoData mBlockPopInfoData;
-    private List<FeedForumData> iFe = new ArrayList();
-    private int iFd = 0;
+    private List<FeedForumData> iEW = new ArrayList();
+    private int iEV = 0;
     private int like_num = 0;
     private int user_level = 0;
 
@@ -41,7 +40,7 @@ public class r {
         this.fid = str;
     }
 
-    public int cbY() {
+    public int cca() {
         return this.user_level;
     }
 
@@ -56,7 +55,7 @@ public class r {
             JSONObject jSONObject = new JSONObject(str);
             parserJson(jSONObject.optJSONObject("info"));
             J(jSONObject.optJSONArray("feed_forum"));
-            this.errorCode = jSONObject.optInt(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE);
+            this.errorCode = jSONObject.optInt("error_code");
             this.errorMsg = jSONObject.optString(PushConstants.EXTRA_ERROR_CODE);
         } catch (Exception e) {
             BdLog.detailException(e);
@@ -66,7 +65,7 @@ public class r {
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject != null) {
             try {
-                this.iFd = jSONObject.optInt("is_black", 0);
+                this.iEV = jSONObject.optInt("is_black", 0);
                 this.like_num = jSONObject.optInt("like_num", 0);
                 this.user_level = jSONObject.optInt("level_id", 0);
                 setLike(jSONObject.optInt("is_like", 0));
@@ -82,12 +81,12 @@ public class r {
 
     private void aO(JSONObject jSONObject) {
         if (jSONObject != null) {
-            this.bYx = jSONObject.optString("block_dealurl");
+            this.bYy = jSONObject.optString("block_dealurl");
             String optString = jSONObject.optString("block_content");
             if (!StringUtils.isNull(optString)) {
                 this.mBlockPopInfoData = new BlockPopInfoData();
                 this.mBlockPopInfoData.block_info = optString;
-                this.mBlockPopInfoData.ahead_url = this.bYx;
+                this.mBlockPopInfoData.ahead_url = this.bYy;
                 this.mBlockPopInfoData.ahead_info = jSONObject.optString("block_confirm");
                 this.mBlockPopInfoData.ok_info = jSONObject.optString("block_cancel");
             }
@@ -110,7 +109,7 @@ public class r {
                     feedForumData.setReason(jSONObject.optString("reason"));
                     feedForumData.setIsLike(jSONObject.optInt("is_like", 0));
                     feedForumData.setPos(jSONObject.optInt("pos", 0));
-                    this.iFe.add(feedForumData);
+                    this.iEW.add(feedForumData);
                     i = i2 + 1;
                 } else {
                     return;
@@ -154,8 +153,8 @@ public class r {
         return this.levelup_score;
     }
 
-    public List<FeedForumData> cdz() {
-        return this.iFe;
+    public List<FeedForumData> cdB() {
+        return this.iEW;
     }
 
     public BlockPopInfoData getBlockPopInfoData() {
@@ -166,8 +165,8 @@ public class r {
         this.mBlockPopInfoData = blockPopInfoData;
     }
 
-    public String cdI() {
-        return this.bYx;
+    public String cdK() {
+        return this.bYy;
     }
 
     public int getErrorCode() {

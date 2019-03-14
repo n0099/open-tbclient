@@ -3,17 +3,17 @@ package com.baidu.tbadk.data;
 import com.baidu.adp.BdUniqueId;
 /* loaded from: classes.dex */
 public class m implements com.baidu.adp.widget.ListView.m {
-    public static final BdUniqueId Zq = BdUniqueId.gen();
+    public static final BdUniqueId Zr = BdUniqueId.gen();
     private String chw;
     private String chx;
     private boolean chy = false;
 
     @Override // com.baidu.adp.widget.ListView.m
     public BdUniqueId getType() {
-        return Zq;
+        return Zr;
     }
 
-    public String alz() {
+    public String aly() {
         return this.chw;
     }
 

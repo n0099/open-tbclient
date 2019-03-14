@@ -4,8 +4,8 @@ import com.baidu.tbadk.core.util.ap;
 import tbclient.NewHottopic.TimeLineInfo;
 /* loaded from: classes4.dex */
 public class e {
-    public String aZA;
-    public String fOE;
+    public String aZB;
+    public String fOD;
     public int index;
     public long tid;
     public String title;
@@ -15,8 +15,8 @@ public class e {
         if (timeLineInfo != null) {
             this.tid = timeLineInfo.tid.longValue();
             this.title = timeLineInfo.title;
-            this.fOE = ap.isEmpty(timeLineInfo.small_title) ? timeLineInfo.show_time : timeLineInfo.small_title;
-            this.aZA = timeLineInfo.bg_color;
+            this.fOD = ap.isEmpty(timeLineInfo.small_title) ? timeLineInfo.show_time : timeLineInfo.small_title;
+            this.aZB = timeLineInfo.bg_color;
         }
     }
 }

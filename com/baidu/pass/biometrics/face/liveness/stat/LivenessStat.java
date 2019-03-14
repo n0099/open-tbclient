@@ -8,7 +8,6 @@ import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.utils.NetworkUtils;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.pass.biometrics.base.utils.StatService;
-import com.baidu.sapi2.activity.social.WXLoginActivity;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import org.json.JSONObject;
@@ -179,7 +178,7 @@ public class LivenessStat {
         }
         hashMap.put("illum", this.illumValue + "");
         hashMap.put("time_whole", (this.timePointEnd - this.timePointStart) + "");
-        hashMap.put(WXLoginActivity.KEY_BASE_RESP_ERROR_CODE, this.errCode + "");
+        hashMap.put("error_code", this.errCode + "");
         hashMap.put("recog_type", this.recogType);
         Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
         hashMap.put("screen_size", defaultDisplay.getWidth() + Constants.ACCEPT_TIME_SEPARATOR_SP + defaultDisplay.getHeight());

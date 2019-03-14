@@ -11,7 +11,7 @@ import java.util.List;
 public class a extends b {
     private List<v> mDatas;
 
-    public List<v> bfT() {
+    public List<v> bfS() {
         return this.mDatas;
     }
 
@@ -20,7 +20,7 @@ public class a extends b {
         View gK;
         super.abc();
         if (this.mDatas != null && (gK = gK(this.mDatas.size())) != null && (gK.findViewById(d.g.dialog_item_btn) instanceof TextView)) {
-            al.j((TextView) gK.findViewById(d.g.dialog_item_btn), d.C0236d.cp_link_tip_a);
+            al.j((TextView) gK.findViewById(d.g.dialog_item_btn), d.C0277d.cp_link_tip_a);
         }
         return this;
     }

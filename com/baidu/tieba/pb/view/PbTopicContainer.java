@@ -20,7 +20,7 @@ import com.baidu.tieba.d;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
-    private int hGr;
+    private int hGl;
     private TbPageContext pageContext;
 
     public PbTopicContainer(Context context) {
@@ -29,7 +29,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
 
     public PbTopicContainer(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.hGr = 3;
+        this.hGl = 3;
         setOrientation(0);
     }
 
@@ -38,10 +38,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         int i3 = 0;
         int size = (View.MeasureSpec.getSize(i) - getPaddingRight()) - getPaddingLeft();
         int childCount = getChildCount();
-        if (childCount > this.hGr) {
+        if (childCount > this.hGl) {
             while (true) {
                 childCount--;
-                if (childCount <= this.hGr) {
+                if (childCount <= this.hGl) {
                     break;
                 }
                 removeViewAt(childCount);
@@ -101,7 +101,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             textView.setOnClickListener(this);
             textView.setPadding(h, 0, h, 0);
             al.k(textView, d.f.shape_corner_gray_tbds4);
-            al.j(textView, d.C0236d.cp_cont_b);
+            al.j(textView, d.C0277d.cp_cont_b);
         }
     }
 
@@ -110,7 +110,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
     }
 
     public void setMaxChildCount(int i) {
-        this.hGr = i;
+        this.hGl = i;
     }
 
     @Override // android.view.View.OnClickListener

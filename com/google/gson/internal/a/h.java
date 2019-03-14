@@ -7,10 +7,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public final class h extends o<Object> {
-    public static final p jOF = new p() { // from class: com.google.gson.internal.a.h.1
+    public static final p jOx = new p() { // from class: com.google.gson.internal.a.h.1
         @Override // com.google.gson.p
         public <T> o<T> a(com.google.gson.d dVar, com.google.gson.b.a<T> aVar) {
-            if (aVar.cBG() == Object.class) {
+            if (aVar.cBJ() == Object.class) {
                 return new h(dVar);
             }
             return null;
@@ -24,7 +24,7 @@ public final class h extends o<Object> {
 
     @Override // com.google.gson.o
     public Object b(com.google.gson.stream.a aVar) throws IOException {
-        switch (aVar.cBu()) {
+        switch (aVar.cBx()) {
             case BEGIN_ARRAY:
                 ArrayList arrayList = new ArrayList();
                 aVar.beginArray();
@@ -58,13 +58,13 @@ public final class h extends o<Object> {
     @Override // com.google.gson.o
     public void a(com.google.gson.stream.b bVar, Object obj) throws IOException {
         if (obj == null) {
-            bVar.cBF();
+            bVar.cBI();
             return;
         }
         o w = this.gson.w(obj.getClass());
         if (w instanceof h) {
-            bVar.cBD();
-            bVar.cBE();
+            bVar.cBG();
+            bVar.cBH();
             return;
         }
         w.a(bVar, obj);

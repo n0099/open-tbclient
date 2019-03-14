@@ -3,6 +3,7 @@ package com.baidu.adp.lib.stats;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.model.ReportUserInfoModel;
 import com.tencent.open.SocialConstants;
@@ -49,7 +50,7 @@ public class e {
         bVar.av(BdStatisticsManager.UPLOAD_TIMER_INTERVAL);
         bVar.aw(500);
         this.Eo.put("net", bVar);
-        this.Eo.put("op", bVar);
+        this.Eo.put(Config.OPERATOR, bVar);
         this.Eo.put("stat", bVar);
         this.Eo.put("crash", bVar);
         this.Eo.put("pfmonitor", bVar);

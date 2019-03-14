@@ -17,6 +17,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import com.airbnb.lottie.model.layer.Layer;
+import com.baidu.mapapi.map.WeightedLatLng;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -433,7 +434,7 @@ public class f extends Drawable implements Drawable.Callback {
         this.nI.cw();
     }
 
-    @FloatRange(from = 0.0d, to = 1.0d)
+    @FloatRange(from = 0.0d, to = WeightedLatLng.DEFAULT_INTENSITY)
     public float getProgress() {
         return this.nI.eW();
     }

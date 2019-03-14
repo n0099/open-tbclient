@@ -7,8 +7,8 @@ import java.util.Set;
 import org.apache.http.HttpHost;
 /* loaded from: classes2.dex */
 public class a implements c {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private static final Set<String> arL = h.K(HttpHost.DEFAULT_SCHEME_NAME, "https", "tel", "sms");
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static final Set<String> arM = h.K(HttpHost.DEFAULT_SCHEME_NAME, "https", "tel", "sms");
 
     @Override // com.baidu.swan.apps.core.e.c
     public void dl(String str) {
@@ -24,7 +24,7 @@ public class a implements c {
         if (str == null || (parse = Uri.parse(str)) == null) {
             return true;
         }
-        boolean contains = arL.contains(parse.getScheme());
+        boolean contains = arM.contains(parse.getScheme());
         if (DEBUG) {
             Log.d("WebViewWidgetListener", (contains ? "legal schemes : " : "illegal schemes : ") + parse.getScheme());
         }

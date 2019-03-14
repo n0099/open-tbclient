@@ -1,17 +1,17 @@
 package com.baidu.swan.apps.an;
 
-import com.baidu.appsearchlib.Info;
+import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 /* loaded from: classes2.dex */
 public final class k {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private static HashMap<String, Integer> aWh = new HashMap<>();
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static HashMap<String, Integer> aWi = new HashMap<>();
-    private static HashMap<String, String> aWj = new HashMap<>();
-    public static HashMap<String, String> aWk = new HashMap<>();
-    private static final Pattern aWl;
+    private static HashMap<String, Integer> aWj = new HashMap<>();
+    private static HashMap<String, String> aWk = new HashMap<>();
+    public static HashMap<String, String> aWl = new HashMap<>();
+    private static final Pattern aWm;
 
     static {
         g("application/andrew-inset", "ez", 5);
@@ -147,7 +147,7 @@ public final class k {
         g("application/x-msi", "msi", 5);
         g("application/x-ns-proxy-autoconfig", "pac", 5);
         g("application/x-nwc", "nwc", 5);
-        g("application/x-object", "o", 5);
+        g("application/x-object", Config.OS, 5);
         g("application/x-oz-application", "oza", 5);
         g("application/x-pkcs12", "p12", 5);
         g("application/x-pkcs12", "pfx", 5);
@@ -162,7 +162,7 @@ public final class k {
         g("application/x-tar", "tar", 8);
         g("application/x-texinfo", "texinfo", 5);
         g("application/x-texinfo", "texi", 5);
-        g("application/x-troff", Info.kBaiduTimeKey, 5);
+        g("application/x-troff", "t", 5);
         g("application/x-troff", "roff", 5);
         g("application/x-troff-man", "man", 5);
         g("application/x-ustar", "ustar", 5);
@@ -332,15 +332,15 @@ public final class k {
         g("audio/aac", "aac", 1);
         g("application/vnd.rn-realmedia", "rm", 0);
         g("message/rfc822", "mht", 11);
-        aWl = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
+        aWm = Pattern.compile("attachment;\\s*filename\\s*=\\s*(\"?)([^\"]*)\\1\\s*$", 2);
     }
 
     private static void g(String str, String str2, int i) {
-        aWh.put(str2, Integer.valueOf(i));
-        aWi.put(str, Integer.valueOf(i));
-        aWj.put(str2, str);
-        if (!aWk.containsKey(str)) {
-            aWk.put(str, str2);
+        aWi.put(str2, Integer.valueOf(i));
+        aWj.put(str, Integer.valueOf(i));
+        aWk.put(str2, str);
+        if (!aWl.containsKey(str)) {
+            aWl.put(str, str2);
         }
     }
 }

@@ -12,43 +12,43 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class c {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
-    private static volatile c cSq;
-    private boolean aIa;
-    private List<d> cSn = new ArrayList();
-    private Map<d, List<d>> cSo = new HashMap();
-    private Map<d, List<d>> cSp = new HashMap();
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
+    private static volatile c cSm;
+    private boolean aIb;
+    private List<d> cSj = new ArrayList();
+    private Map<d, List<d>> cSk = new HashMap();
+    private Map<d, List<d>> cSl = new HashMap();
 
-    public static c ayv() {
-        if (cSq == null) {
+    public static c ayu() {
+        if (cSm == null) {
             synchronized (c.class) {
-                if (cSq == null) {
-                    cSq = new c();
+                if (cSm == null) {
+                    cSm = new c();
                 }
             }
         }
-        return cSq;
+        return cSm;
     }
 
     public void initData() {
-        C(ayA());
-        this.aIa = true;
+        C(ayz());
+        this.aIb = true;
     }
 
-    public boolean ayw() {
-        return this.aIa;
+    public boolean ayv() {
+        return this.aIb;
     }
 
-    public List<d> ayx() {
-        return this.cSn;
+    public List<d> ayw() {
+        return this.cSj;
+    }
+
+    public Map<d, List<d>> ayx() {
+        return this.cSk;
     }
 
     public Map<d, List<d>> ayy() {
-        return this.cSo;
-    }
-
-    public Map<d, List<d>> ayz() {
-        return this.cSp;
+        return this.cSl;
     }
 
     private void C(JSONArray jSONArray) {
@@ -60,12 +60,12 @@ public class c {
                 if (i2 < jSONArray.length()) {
                     JSONObject optJSONObject = jSONArray.optJSONObject(i2);
                     if (optJSONObject != null && (aU = d.aU(optJSONObject)) != null) {
-                        this.cSn.add(aU);
-                        if (aU.ayE()) {
-                            this.cSo.put(aU, aU.aeA);
-                            for (d dVar : aU.aeA) {
-                                if (dVar.ayE()) {
-                                    this.cSp.put(dVar, dVar.aeA);
+                        this.cSj.add(aU);
+                        if (aU.ayD()) {
+                            this.cSk.put(aU, aU.aeB);
+                            for (d dVar : aU.aeB) {
+                                if (dVar.ayD()) {
+                                    this.cSl.put(dVar, dVar.aeB);
                                 }
                             }
                         }
@@ -78,7 +78,7 @@ public class c {
         }
     }
 
-    private JSONArray ayA() {
+    private JSONArray ayz() {
         JSONArray jSONArray;
         Exception e;
         InputStream open;

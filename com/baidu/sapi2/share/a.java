@@ -14,6 +14,7 @@ import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.text.TextUtils;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
@@ -312,7 +313,7 @@ public final class a {
                     if (this.b) {
                         HashMap hashMap = new HashMap();
                         hashMap.put("cuid", SapiUtils.getClientId(a.q.context));
-                        hashMap.put("device", Build.MODEL);
+                        hashMap.put(Config.DEVICE_PART, Build.MODEL);
                         hashMap.put("num", this.a.size() + "");
                         StatService.onEvent("share_silent_account", hashMap, false);
                     }
@@ -332,7 +333,7 @@ public final class a {
                                         if (AnonymousClass3.this.b) {
                                             HashMap hashMap2 = new HashMap();
                                             hashMap2.put("cuid", SapiUtils.getClientId(a.q.context));
-                                            hashMap2.put("device", Build.MODEL);
+                                            hashMap2.put(Config.DEVICE_PART, Build.MODEL);
                                             SapiAccount session = SapiAccountManager.getInstance().getSession();
                                             if (session != null) {
                                                 hashMap2.put("isLogin", "true");

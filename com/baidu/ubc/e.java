@@ -2,96 +2,97 @@ package com.baidu.ubc;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.mapapi.UIMsg;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class e {
-    private static volatile e jws;
-    private HashSet<String> bpa = new HashSet<>();
+    private static volatile e jwk;
     private HashSet<String> bpb = new HashSet<>();
     private HashSet<String> bpc = new HashSet<>();
     private HashSet<String> bpd = new HashSet<>();
-    private HashMap<String, String> bpe = new HashMap<>();
+    private HashSet<String> bpe = new HashSet<>();
     private HashMap<String, String> bpf = new HashMap<>();
-    private HashMap<String, i> bpg = new HashMap<>();
-    private HashSet<String> bph = new HashSet<>();
-    private int bpi;
+    private HashMap<String, String> bpg = new HashMap<>();
+    private HashMap<String, i> bph = new HashMap<>();
+    private HashSet<String> bpi = new HashSet<>();
     private int bpj;
     private int bpk;
+    private int bpl;
     private Context mContext;
 
     private e() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static e crV() {
-        if (jws == null) {
+    public static e crY() {
+        if (jwk == null) {
             synchronized (e.class) {
-                if (jws == null) {
-                    jws = new e();
+                if (jwk == null) {
+                    jwk = new e();
                 }
             }
         }
-        return jws;
+        return jwk;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(c cVar, Context context) {
         this.mContext = context;
-        this.bpi = 360000;
-        r csg = r.csg();
-        this.bpj = csg.getInt("ubc_data_expire_time", 259200000);
-        this.bpk = csg.getInt("ubc_database_limit", 4000);
-        cVar.crT().a(this.bpa, this.bpd, this.bpb, this.bpc, this.bpe, this.bpf, this.bpg, this.bph);
+        this.bpj = 360000;
+        r csj = r.csj();
+        this.bpk = csj.getInt("ubc_data_expire_time", 259200000);
+        this.bpl = csj.getInt("ubc_database_limit", UIMsg.m_AppUI.MSG_APP_SAVESCREEN);
+        cVar.crW().a(this.bpb, this.bpe, this.bpc, this.bpd, this.bpf, this.bpg, this.bph, this.bpi);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void ev(List<h> list) {
         for (h hVar : list) {
-            if ("0".equals(hVar.crW())) {
-                this.bpa.add(hVar.getId());
-            } else {
-                this.bpa.remove(hVar.getId());
-            }
-            if ("1".equals(hVar.crX())) {
+            if ("0".equals(hVar.crZ())) {
                 this.bpb.add(hVar.getId());
             } else {
                 this.bpb.remove(hVar.getId());
             }
-            if ("1".equals(hVar.crY())) {
+            if ("1".equals(hVar.csa())) {
                 this.bpc.add(hVar.getId());
             } else {
                 this.bpc.remove(hVar.getId());
             }
-            if (hVar.crZ() >= 1 && hVar.crZ() <= 100) {
-                this.bpe.put(hVar.getId(), String.valueOf(hVar.crZ()));
+            if ("1".equals(hVar.csb())) {
+                this.bpd.add(hVar.getId());
             } else {
-                this.bpe.remove(hVar.getId());
+                this.bpd.remove(hVar.getId());
             }
-            if (!TextUtils.isEmpty(hVar.getCategory())) {
-                this.bpf.put(hVar.getId(), hVar.getCategory());
+            if (hVar.csc() >= 1 && hVar.csc() <= 100) {
+                this.bpf.put(hVar.getId(), String.valueOf(hVar.csc()));
             } else {
                 this.bpf.remove(hVar.getId());
             }
-            if (hVar.csb() != 0 && hVar.csa() != 0) {
-                i iVar = new i(hVar.getId(), hVar.csb(), hVar.csa());
-                this.bpg.put(iVar.getId(), iVar);
+            if (!TextUtils.isEmpty(hVar.getCategory())) {
+                this.bpg.put(hVar.getId(), hVar.getCategory());
+            } else {
+                this.bpg.remove(hVar.getId());
+            }
+            if (hVar.cse() != 0 && hVar.csd() != 0) {
+                i iVar = new i(hVar.getId(), hVar.cse(), hVar.csd());
+                this.bph.put(iVar.getId(), iVar);
             }
             if (TextUtils.equals(hVar.getIdType(), "1")) {
-                this.bph.add(hVar.getId());
+                this.bpi.add(hVar.getId());
             } else {
-                this.bph.remove(hVar.getId());
+                this.bpi.remove(hVar.getId());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean O(String str, int i) {
-        if (this.bpa.contains(str)) {
+        if (this.bpb.contains(str)) {
             return false;
         }
-        return ((i & 16) == 0 && (i & 32) == 0) || this.bpd.contains(str);
+        return ((i & 16) == 0 && (i & 32) == 0) || this.bpe.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -99,79 +100,79 @@ public class e {
         if (UBC.getUBCContext().Fq()) {
             return true;
         }
-        return this.bpb.contains(str);
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean jI(String str) {
         return this.bpc.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
+    public boolean jI(String str) {
+        return this.bpd.contains(str);
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
     public String jJ(String str) {
-        return this.bpf.containsKey(str) ? this.bpf.get(str) : "";
+        return this.bpg.containsKey(str) ? this.bpg.get(str) : "";
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int SX() {
-        return this.bpi;
+        return this.bpj;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void fo(int i) {
-        if (i * 60000 >= this.bpi) {
-            this.bpi = i * 60000;
+        if (i * 60000 >= this.bpj) {
+            this.bpj = i * 60000;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int SY() {
-        return this.bpj;
+        return this.bpk;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void BE(int i) {
-        if (i >= this.bpj) {
-            this.bpj = i;
-            r.csg().putInt("ubc_data_expire_time", i);
+        if (i >= this.bpk) {
+            this.bpk = i;
+            r.csj().putInt("ubc_data_expire_time", i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int SZ() {
-        return this.bpk;
+        return this.bpl;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void BF(int i) {
-        if (i >= this.bpk) {
-            this.bpk = i;
-            r.csg().putInt("ubc_database_limit", i);
+        if (i >= this.bpl) {
+            this.bpl = i;
+            r.csj().putInt("ubc_database_limit", i);
         }
     }
 
     public int jK(String str) {
-        if (TextUtils.isEmpty(str) || !this.bpe.containsKey(str)) {
+        if (TextUtils.isEmpty(str) || !this.bpf.containsKey(str)) {
             return 0;
         }
-        return Integer.parseInt(this.bpe.get(str));
+        return Integer.parseInt(this.bpf.get(str));
     }
 
     public boolean jL(String str) {
-        if (this.bpg == null || !this.bpg.containsKey(str)) {
+        if (this.bph == null || !this.bph.containsKey(str)) {
             return false;
         }
-        return this.bpg.get(str).Ta();
+        return this.bph.get(str).Ta();
     }
 
     public boolean jM(String str) {
-        if (this.bpg == null || !this.bpg.containsKey(str)) {
+        if (this.bph == null || !this.bph.containsKey(str)) {
             return false;
         }
-        return this.bpg.get(str).Tb();
+        return this.bph.get(str).Tb();
     }
 
     public String jN(String str) {
-        return (TextUtils.isEmpty(str) || !this.bph.contains(str)) ? "0" : "1";
+        return (TextUtils.isEmpty(str) || !this.bpi.contains(str)) ? "0" : "1";
     }
 }

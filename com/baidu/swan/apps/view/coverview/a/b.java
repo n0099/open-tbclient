@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AbsoluteLayout;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
@@ -61,9 +62,9 @@ public class b extends y {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         }
-        AbsoluteLayout eO = aa.eO(am.aBC);
+        AbsoluteLayout eO = aa.eO(am.aBD);
         if (eO == null) {
-            c.e("CoverView", "can not find webView by #" + am.aBC);
+            c.e("CoverView", "can not find webView by #" + am.aBD);
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
@@ -72,7 +73,7 @@ public class b extends y {
 
     protected com.baidu.swan.apps.view.coverview.b.a am(JSONObject jSONObject) {
         com.baidu.swan.apps.view.coverview.b.c cVar = new com.baidu.swan.apps.view.coverview.b.c();
-        cVar.aZd = CoverViewHelper.Type.TEXT;
+        cVar.aZe = CoverViewHelper.Type.TEXT;
         try {
             cVar.parseFromJson(jSONObject);
         } catch (JSONException e) {
@@ -120,12 +121,12 @@ public class b extends y {
     }
 
     public boolean a(Context context, @NonNull com.baidu.swan.apps.view.coverview.b.a aVar, @NonNull AbsoluteLayout absoluteLayout, @NonNull UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler) {
-        com.baidu.swan.apps.model.a.a.b bVar = aVar.aBE;
+        com.baidu.swan.apps.model.a.a.b bVar = aVar.aBF;
         if (bVar == null || !bVar.isValid()) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        final com.baidu.swan.apps.view.coverview.subview.a a = a(context, aVar.aZd);
+        final com.baidu.swan.apps.view.coverview.subview.a a = a(context, aVar.aZe);
         boolean a2 = new SwanAppNAViewContainer(context).a((View) a, aVar);
         a.a(aVar);
         a.setAlpha(aVar);
@@ -140,7 +141,7 @@ public class b extends y {
                             JSONObject jSONObject = new JSONObject();
                             try {
                                 jSONObject.put("type", "loadState");
-                                jSONObject.put("parentId", model.aBD);
+                                jSONObject.put("parentId", model.aBE);
                                 jSONObject.put("viewId", model.id);
                                 jSONObject.put("loadState", i == 1 ? "finish" : "error");
                             } catch (JSONException e) {
@@ -156,9 +157,9 @@ public class b extends y {
                             JSONObject jSONObject2 = new JSONObject();
                             try {
                                 jSONObject2.put("type", "click");
-                                jSONObject2.put("parentId", model.aBD);
+                                jSONObject2.put("parentId", model.aBE);
                                 jSONObject2.put("viewId", model.id);
-                                jSONObject2.put("x", x.ae(clickPosition.x));
+                                jSONObject2.put(Config.EVENT_HEAT_X, x.ae(clickPosition.x));
                                 jSONObject2.put("y", x.ae(clickPosition.y));
                             } catch (JSONException e2) {
                                 c.e("CoverView", "click callback error", e2);
@@ -181,7 +182,7 @@ public class b extends y {
     }
 
     public boolean b(Context context, @NonNull com.baidu.swan.apps.view.coverview.b.a aVar, @NonNull AbsoluteLayout absoluteLayout, @NonNull UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        com.baidu.swan.apps.model.a.a.b bVar = aVar.aBE;
+        com.baidu.swan.apps.model.a.a.b bVar = aVar.aBF;
         if (bVar == null || !bVar.isValid()) {
             c.e("CoverView", "position not valid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);

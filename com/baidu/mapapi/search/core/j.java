@@ -1,0 +1,20 @@
+package com.baidu.mapapi.search.core;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+/* loaded from: classes5.dex */
+final class j implements Parcelable.Creator<RouteNode> {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.Parcelable.Creator
+    /* renamed from: a */
+    public RouteNode createFromParcel(Parcel parcel) {
+        return new RouteNode(parcel);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.Parcelable.Creator
+    /* renamed from: a */
+    public RouteNode[] newArray(int i) {
+        return new RouteNode[i];
+    }
+}

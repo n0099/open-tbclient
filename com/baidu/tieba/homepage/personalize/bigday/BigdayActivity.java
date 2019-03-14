@@ -21,10 +21,10 @@ import com.baidu.tieba.d;
 import java.util.Calendar;
 /* loaded from: classes4.dex */
 public class BigdayActivity extends BaseActivity {
-    private String bvG;
-    private long bvI;
-    private TbImageView fMV;
-    private ImageView fMW;
+    private String bvI;
+    private long bvK;
+    private TbImageView fMU;
+    private ImageView fMV;
     private String imgUrl;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -33,34 +33,34 @@ public class BigdayActivity extends BaseActivity {
         setIsAddSwipeBackLayout(false);
         super.onCreate(bundle);
         setContentView(d.h.bigday_activity);
-        this.fMV = (TbImageView) findViewById(d.g.bigday_img);
-        this.fMV.setAutoChangeStyle(false);
-        this.fMW = (ImageView) findViewById(d.g.bigday_close);
+        this.fMU = (TbImageView) findViewById(d.g.bigday_img);
+        this.fMU.setAutoChangeStyle(false);
+        this.fMV = (ImageView) findViewById(d.g.bigday_close);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            ((FrameLayout.LayoutParams) this.fMW.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(d.e.ds25));
+            ((FrameLayout.LayoutParams) this.fMV.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(d.e.ds25));
         }
         Intent intent = getIntent();
         if (intent != null) {
             this.imgUrl = intent.getStringExtra(BigdayActivityConfig.IMG_URL);
-            this.bvG = intent.getStringExtra(BigdayActivityConfig.JUMP_URL);
-            this.bvI = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
+            this.bvI = intent.getStringExtra(BigdayActivityConfig.JUMP_URL);
+            this.bvK = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
         }
-        this.fMV.setTag(getPageContext().getUniqueId());
-        this.fMV.startLoad(this.imgUrl, 41, false);
+        this.fMU.setTag(getPageContext().getUniqueId());
+        this.fMU.startLoad(this.imgUrl, 41, false);
+        this.fMU.setOnClickListener(this);
         this.fMV.setOnClickListener(this);
-        this.fMW.setOnClickListener(this);
-        TiebaStatic.log(new am("c13111").k(VideoPlayActivityConfig.OBJ_ID, this.bvI).bJ("obj_to", this.bvG));
+        TiebaStatic.log(new am("c13111").k(VideoPlayActivityConfig.OBJ_ID, this.bvK).bJ("obj_to", this.bvI));
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view.getId() == this.fMV.getId()) {
-            if (!StringUtils.isNULL(this.bvG)) {
-                ba.adD().c(getPageContext(), new String[]{this.bvG});
-                TiebaStatic.log(new am("c13112").k(VideoPlayActivityConfig.OBJ_ID, this.bvI).bJ("obj_to", this.bvG));
+        if (view.getId() == this.fMU.getId()) {
+            if (!StringUtils.isNULL(this.bvI)) {
+                ba.adD().c(getPageContext(), new String[]{this.bvI});
+                TiebaStatic.log(new am("c13112").k(VideoPlayActivityConfig.OBJ_ID, this.bvK).bJ("obj_to", this.bvI));
                 finish();
             }
-        } else if (view.getId() == this.fMW.getId()) {
+        } else if (view.getId() == this.fMV.getId()) {
             Calendar calendar = Calendar.getInstance();
             calendar.set(11, 23);
             calendar.set(12, 59);

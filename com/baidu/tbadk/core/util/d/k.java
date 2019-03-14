@@ -21,13 +21,13 @@ public class k implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
     @Override // com.baidu.adp.lib.f.e
     /* renamed from: b */
     public com.baidu.adp.widget.ImageView.a a(String str, String str2, int i, int i2, Object... objArr) {
-        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, com.baidu.tbadk.imageManager.c.anq().pi(str), i, i2);
+        com.baidu.adp.widget.ImageView.a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, com.baidu.tbadk.imageManager.c.anp().pi(str), i, i2);
         if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.oy() == null || checkIsValidPicMemoryCache.oy().isRecycled()) {
             return null;
         }
-        checkIsValidPicMemoryCache.Oe.Og = "memory";
-        checkIsValidPicMemoryCache.Oe.Oh = 0L;
-        checkIsValidPicMemoryCache.Oe.Oi = true;
+        checkIsValidPicMemoryCache.Of.Oh = "memory";
+        checkIsValidPicMemoryCache.Of.Oi = 0L;
+        checkIsValidPicMemoryCache.Of.Oj = true;
         return checkIsValidPicMemoryCache;
     }
 
@@ -83,7 +83,7 @@ public class k implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
         }
         synchronized (BitmapHelper.lockForSyncImageDecoder) {
             String mK = as.mK(str2);
-            com.baidu.tbadk.imageManager.c.anq().jM(TbConfig.getPbImageSize() + bArr.length);
+            com.baidu.tbadk.imageManager.c.anp().jM(TbConfig.getPbImageSize() + bArr.length);
             boolean s = com.baidu.adp.lib.util.l.s(bArr);
             if (!NSGif.yN || !s) {
                 nSGif = null;
@@ -124,7 +124,7 @@ public class k implements com.baidu.adp.lib.f.e<com.baidu.adp.widget.ImageView.a
             com.baidu.adp.widget.ImageView.a aVar = (com.baidu.adp.widget.ImageView.a) obj;
             aVar.aO(i);
             aVar.aP(i2);
-            com.baidu.tbadk.imageManager.c.anq().c(str, aVar);
+            com.baidu.tbadk.imageManager.c.anp().c(str, aVar);
         }
     }
 

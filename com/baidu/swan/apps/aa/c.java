@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.b;
+import com.baidu.swan.apps.a;
 import com.baidu.swan.apps.core.c.g;
 import com.baidu.swan.apps.res.widget.b.d;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
@@ -13,24 +13,24 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class c {
-    private static final boolean DEBUG = com.baidu.swan.apps.c.DEBUG;
+    private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = c.class.getSimpleName();
-    public static String aDm;
     public static String aDn;
-    public static volatile c aDo;
+    public static String aDo;
+    public static volatile c aDp;
 
     private c() {
     }
 
     public static c Ft() {
-        if (aDo == null) {
+        if (aDp == null) {
             synchronized (c.class) {
-                if (aDo == null) {
-                    aDo = new c();
+                if (aDp == null) {
+                    aDp = new c();
                 }
             }
         }
-        return aDo;
+        return aDp;
     }
 
     public boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
@@ -40,7 +40,7 @@ public class c {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
         } else if (!com.baidu.swan.apps.u.a.CO().bK(context)) {
-            d.a(context, context.getText(b.h.aiapps_wx_not_install_toast_msg)).IK();
+            d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).IK();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
             return false;
         } else if (!g.b("wxPay", com.baidu.swan.apps.model.b.ap(b, b))) {

@@ -17,7 +17,7 @@ import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.d;
 /* loaded from: classes.dex */
 public class a {
-    private int bHX;
+    private int bHY;
     private final b<com.baidu.adp.widget.ImageView.a> mCallback = new b<com.baidu.adp.widget.ImageView.a>() { // from class: com.baidu.tbadk.core.tabHost.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
@@ -33,9 +33,9 @@ public class a {
             ViewGroup tabWrapper = a.this.mTabHost.getTabWrapper();
             if (fragmentTabWidget != null && fragmentViewPager != null) {
                 a.this.mTabHost.setNeedShowThemeStyle(false);
-                fragmentTabWidget.setBackGroundDrawableResId(d.C0236d.black_alpha0);
-                al.l(tabWrapper, d.C0236d.black_alpha0);
-                al.l(fragmentTabWidget, d.C0236d.black_alpha0);
+                fragmentTabWidget.setBackGroundDrawableResId(d.C0277d.black_alpha0);
+                al.l(tabWrapper, d.C0277d.black_alpha0);
+                al.l(fragmentTabWidget, d.C0277d.black_alpha0);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) fragmentViewPager.getLayoutParams();
                 layoutParams.bottomMargin = l.h(a.this.mTabHost.getContext(), d.e.tbds100);
                 fragmentViewPager.setLayoutParams(layoutParams);
@@ -46,9 +46,9 @@ public class a {
     private FragmentTabHost mTabHost;
 
     public a(FragmentTabHost fragmentTabHost, int i) {
-        this.bHX = 0;
+        this.bHY = 0;
         this.mTabHost = fragmentTabHost;
-        this.bHX = i;
+        this.bHY = i;
     }
 
     public void c(Pair<String, String> pair) {
@@ -80,9 +80,9 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void abX() {
         if (this.mTabHost != null && this.mTabHost.getFragmentTabWidget() != null) {
-            this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.bHX);
-            al.l(this.mTabHost.getFragmentTabWidget(), this.bHX);
-            al.l(this.mTabHost.getTabWrapper(), this.bHX);
+            this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.bHY);
+            al.l(this.mTabHost.getFragmentTabWidget(), this.bHY);
+            al.l(this.mTabHost.getTabWrapper(), this.bHY);
         }
     }
 }
